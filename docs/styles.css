@@ -1,0 +1,75 @@
+    body {
+      background-color: black;
+	  color: white;
+	  font-family: 'Saira', sans-serif;
+    }
+	
+	blockquote {
+	  color: orange;
+	  text-shadow: 2px 2px 0px #553700;
+    }
+
+	h1, h2, h3, h4, h5, h6 {
+	  color: orange;
+	}
+
+	p  {}
+	
+	.myheading {
+	  font-size: 300%;
+	  font-weight: bold;
+	  color: orange;
+	  text-shadow: 2px 2px 0px #553700;
+    }
+	
+	 /* unvisited link */
+    a:link {
+      color: green;
+	  text-decoration: none;
+    }
+	
+    /* visited link */
+    a:visited {
+      color: green;
+	  text-decoration: none;
+    }
+	
+    /* mouse over link */
+    a:hover {
+      color: yellow;
+	  text-decoration: none;
+    }
+	
+    /* selected link */
+    a:active {
+      color: blue;
+	  text-decoration: none;
+    } 
+	
+    table {
+	  border-collapse: collapse;
+    }
+	
+    table th {
+	  padding: 15px;
+      color: white;
+      background-color: black;
+	  vertical-align: top;
+    }
+	
+	/*
+	ul {
+      columns: 2;
+      -webkit-columns: 2;
+      -moz-columns: 2;
+    }
+    */
+	
+	/* -------- START OF MODAL IMAGE STYLE  ( https://www.w3schools.com/howto/howto_css_modal_images.asp )  ---------  */
+
+		
+	/* -------- END OF MODAL IMAGE STYLE  ( https://www.w3schools.com/howto/howto_css_modal_images.asp )  ---------  */
+	
+
+	
+    
