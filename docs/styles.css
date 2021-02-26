@@ -57,18 +57,34 @@ iframe[seamless] {
 
 
 /* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-}
-
 /* Clear floats after the columns */
-.row:after {
+.table-start {
+  width: 100%;
+  display: table;
+}
+.table-row: {
+  display: table-row;
+}
+.table-row:after {
   content: "";
   display: table;
   clear: both;
 }
+.column-left {
+  display: table-cell;
+  float: left;
+  //width: 50%;
+  width: 600px;
+  padding: 10px;
+}
+.column-right {
+  display: table-cell;
+  float: left;
+  //width: 50%;
+  padding: 10px;
+}
+
+
 
 
 /* Menu */
