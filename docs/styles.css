@@ -21,6 +21,34 @@ main {
 }
 
 
+/* Menu */
+nav { 
+	margin:0 auto; 
+  padding:0; 
+  float:right;
+}
+nav ul { 
+  list-style:none; 
+  padding:0; 
+  float:left;
+}
+nav ul li { 
+  margin:0; 
+  padding:0 0 0 8px; 
+  float:left;
+}
+nav ul li a { 
+  display:block; 
+  margin:0; 
+  padding:8px 20px; 
+  color:darkgreen; 
+  text-decoration:none;
+}
+nav ul li.active a, #top-nav ul li a:hover { 
+  color:#d3d3f9;
+}
+
+
 /* Dropdown menu settings */
 
 .navbar {
