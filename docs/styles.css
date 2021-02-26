@@ -31,7 +31,7 @@ main {
   float: left;
   font-size: 16px;
   text-align: center;
-  padding: 14px 16px;
+  /* padding: 14px 16px; */
   text-decoration: none;
 }
 
@@ -45,7 +45,7 @@ main {
   font-size: 16px;  
   border: none;
   outline: none;
-  padding: 14px 16px;
+  /* padding: 14px 16px; */
   background-color: inherit;
   color: green;
   font-family: inherit;
