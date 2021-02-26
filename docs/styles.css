@@ -53,6 +53,7 @@ main {
 
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
   background-color: #000;
+  color: yellow;
 }
 
 .dropdown-content {
