@@ -57,6 +57,16 @@ nav ul li.active a, #top-nav ul li a:hover {
   color:#d3d3f9;
 }
 
+button {
+  background: #000;
+  padding: 0px;
+  text-decoration: none;
+  display: inline-block;
+  border: 0px;
+  font-size: 16px;
+  font-family: 'Convergence', sans-serif;
+}
+
 #header {
   position: absolute;
   top: 0;

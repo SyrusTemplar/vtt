@@ -6,10 +6,17 @@
 
   <style type="text/css" media="all">  @import "styles.css"; </style>
   <link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Convergence&display=swap" rel="stylesheet">
+
+
+  <script laguage="javascript">
+    function openInIFrame(url) { document.getElementByID("frame_submenu").src=url; }
+  </script>
   
 </head>
 
-<body>
+<body onload="javascript:openInIFrame('blank.html')">
+
+<base target="content">
 
 <div class="table-start">
   
