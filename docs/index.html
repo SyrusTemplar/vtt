@@ -20,6 +20,20 @@
     <style type="text/css" media="all">  @import "styles.css"; </style>
     <link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Convergence&display=swap" rel="stylesheet"> 
 
+<script>
+var scrollToTopBtn = document.getElementById("scrollToTopBtn")
+var rootElement = document.documentElement
+
+function scrollToTop() {
+  // Scroll to top logic
+  rootElement.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  })
+}
+scrollToTopBtn.addEventListener("click", scrollToTop)
+</script>
+	
 	</head>
 	
 	<body>		
@@ -54,13 +68,12 @@
 		
 	
 	  <footer>
-	   
-	    
+	     	    
 	  </footer>
 	
-	
+
 
 	
-	
+	<button id="scrollToTopBtn">☝️</button>
 	</body>
 </html>
