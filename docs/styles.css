@@ -63,8 +63,14 @@ button {
   text-decoration: none;
   display: inline-block;
   border: 0px;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Convergence', sans-serif;
+}
+
+div.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: fixed;
+  top: 100;
 }
 
 #header {
