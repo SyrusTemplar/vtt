@@ -187,16 +187,34 @@ a:active {
   color: blue;
   text-decoration: none;
 } 
-  
+
+
+/* Tables */
+.row {
+  position:relative;
+  display: flex;
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.column {
+  flex: 50%;
+  padding: 5px;
+}
+
 table {
   border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 0px solid #000;
 }
+
+th, td {
+  padding: 16px;
+}
+
+tr:nth-child(even) {
   
-table th {
-  padding: 15px;
-  color: white;
-  background-color: black;
-  vertical-align: top;
 }
   
 /*
@@ -206,4 +224,38 @@ ul {
   -moz-columns: 2;
 }
 */
+
+
+/* jPlayer */
+
+.jplayer-container {
+	border: 1px solid green; /* #009BE3; */
+	padding:0 10px;
+	font-family: "Myriad Pro Regular","Trebuchet MS";
+}
+
+.jplayer-container a, .jplayer-container a:link, .jplayer-container a:visited, .jplayer-container a:hover, .jplayer-container a:focus, .jplayer-container a:active {
+	color: green; /* #009BE3; */
+}
+
+.jplayer-container ul {
+	list-style-type:none;
+	padding:0;
+	margin:1em 0;
+	width:100%;
+	overflow:hidden;
+}
+
+.jplayer-container ul span {
+	color: orange; /* #A0A600; */
+}
+
+.jplayer-container li {
+	float:left;
+	margin-right:1em;
+}
+
+.jplayer-container p span.track-name {
+	color: orange; /* #CC0090; */
+}
   
