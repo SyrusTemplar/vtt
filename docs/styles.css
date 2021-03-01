@@ -11,24 +11,34 @@ body {
 
 main {
   position: fixed;
-  top: 100px; /* Set this to the height of the header */
+  top: 150px; /* Set this to the height of the header */
   left: 0; 
   right: 0;
   bottom: 0;
-  overflow: auto; 
+  overflow: auto;
   background: #000;
 }
 
-#scrollToTopBtn {
-  background-color: black;
-  border: none;
-  border-radius: 50%;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 48px;
-  width: 48px
+#header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px; 
+  overflow: hidden; /* Disables scrollbars on the navigation frame. To enable scrollbars, change "hidden" to "scroll" */
+  background: #000;
+  font-family: 'Convergence', sans-serif;
 }
+
+#logo {
+  padding:0px 10px;
+  float:left;
+}
+
+.innertube {
+  margin: 20px; /* Provides padding for the content */
+}
+
 
 /* Menu */
 nav { 
@@ -43,13 +53,13 @@ nav ul {
 }
 nav ul li { 
   margin:0; 
-  padding:0 0 0 8px; 
+  padding:0 0 0 7px; 
   float:left;
 }
 nav ul li a { 
   display:block; 
   margin:0; 
-  padding:8px 20px; 
+  padding:1px 5px; 
   color:darkgreen; 
   text-decoration:none;
 }
@@ -67,30 +77,10 @@ button {
   font-family: 'Convergence', sans-serif;
 }
 
-div.sticky {
+div.submenu {
   position: -webkit-sticky; /* Safari */
-  position: fixed;
-  top: 100;
-}
-
-#header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px; 
-  overflow: hidden; /* Disables scrollbars on the navigation frame. To enable scrollbars, change "hidden" to "scroll" */
-  background: #000;
-  font-family: 'Convergence', sans-serif;
-}
-
-#logo {
-  padding:10px;
-  float:left;
-}
-
-.innertube {
-  margin: 20px; /* Provides padding for the content */
+  position: sticky;
+  top: 0px;
 }
 
 p {
