@@ -221,7 +221,7 @@ ul {
 .jplayer-container {
 	border: 1px solid green; /* #009BE3; */
 	padding:0 10px;
-	font-family: "Myriad Pro Regular","Trebuchet MS";
+	/* font-family: "Myriad Pro Regular","Trebuchet MS"; */
 }
 
 .jplayer-container a, .jplayer-container a:link, .jplayer-container a:visited, .jplayer-container a:hover, .jplayer-container a:focus, .jplayer-container a:active {
