@@ -83,6 +83,10 @@ div.submenu {
   top: 0px;
 }
 
+img {
+  border-radius: 10px;
+}
+
 p {
   background-color: black;
   color: white;
