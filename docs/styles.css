@@ -253,4 +253,14 @@ ul {
 .jplayer-container p span.track-name {
 	color: orange; /* #CC0090; */
 }
-  
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: right;
+}
+
