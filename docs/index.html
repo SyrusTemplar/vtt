@@ -27,17 +27,17 @@
       <header id="header">
 		
 		<div id="logo">
-			<a href="index.html"><h1>myVTT Resources</h1></a>
+			<a href="index.html"><h1 id="top">myVTT Resources</h1></a>
 		</div>
 		
 		<nav>
           <div class="innertube">
             <ul>
-              <li><button onclick="menuBlank()"><a href="home.html" target="frame_content">Home</a></button></li>
-              <li><button onclick="menuMaps()"><a href="maps_00.html" target="frame_content">Maps</a></button></li>
-			  <li><button onclick="menuBlank()"><a href="weather.html" target="frame_content">Weather</a></button></li>
-              <li><button onclick="menuAudio()"><a href="audio_00.html" target="frame_content">Sounds</a></button></li>
-              <li><button onclick="menuBlank()"><a href="links.html" target="frame_content">Links</a></button></li>
+              <li><button onclick="menuBlank()" title=""><a href="home.html" target="frame_content">Home</a></button></li>
+              <li><button onclick="menuMaps()" title="Random encounter maps"><a href="maps_00.html" target="frame_content">Maps</a></button></li>
+			  <li><button onclick="menuBlank()" title="Weather overlays"><a href="weather.html" target="frame_content">Weather</a></button></li>
+              <li><button onclick="menuAudio()" title="Ambient audio and sound effects"><a href="audio_00.html" target="frame_content">Sounds</a></button></li>
+              <li><button onclick="menuBlank()" title="Useful links"><a href="links.html" target="frame_content">Links</a></button></li>
             </ul>
           </div>
 		  </nav>
@@ -58,14 +58,13 @@
       <iframe name="frame_content" src="home.html" width="100%" height="8500px" style="border:0px solid black;"></iframe>
 	
 	  </main>
-	
-<div class="footer">
-  <p>Footer</p>
-</div>
-	
 
 
-	
+      <div class="footer">
+	    <hr>
+	  </div>
+
+
 	<script>
 	  function menuBlank() { window.open("blank.html", "frame_submenu"); $(document).scrollTop(0);}
 	  function menuMaps() { window.open("nav_maps.html", "frame_submenu"); $(document).scrollTop(0);}
