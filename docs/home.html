@@ -11,18 +11,11 @@
 
   <br><br>
   <center>
-  <button onclick="menuMaps()"><a href="maps_00.html" target="frame_content"><img src="images/maps.png" width="128" height="128"></a></button>
-  <button onclick="menuBlank()"><a href="weather.html" target="frame_content"><img src="images/weather.png" width="128" height="128"></a></button>
-  <button onclick="menuAudio()"><a href="audio_00.html" target="frame_content"><img src="images/audio.png" width="128" height="128"></a></button>
-  <button onclick="menuBlank()"><a href="links.html" target="frame_content"><img src="images/links.png" width="128" height="128"></a></button>
+  <button><a href="weather.html" target="frame_content"><img src="images/weather.png" width="128" height="128"></a></button>
+  <button><a href="nav_audio.html" target="frame_submenu"><img src="images/audio.png" width="128" height="128"></a></button>
+  <button><a href="nav_maps.html" target="frame_submenu"><img src="images/maps.png" width="128" height="128"></a></button>
+  <button><a href="links.html" target="frame_content"><img src="images/links.png" width="128" height="128"></a></button>
   </center>
-
-
-  <script>
-    function menuBlank() { window.parent.open("blank.html", "frame_submenu"); $(document).scrollTop(0);}
-	function menuMaps() { window.parent.open("nav_maps.html", "frame_submenu"); $(document).scrollTop(0);}
-	function menuAudio() { window.parent.open("nav_audio.html", "frame_submenu"); $(document).scrollTop(0);}
-  </script>
  
  </body>
 
