@@ -82,9 +82,24 @@ tr:nth-child(even) {
   
 }
 
-
 .mainbody {
   padding:0 16px;
+}
+
+button {
+  background: #000;
+  color: #fff;
+  padding: 0px;
+  text-decoration: none;
+  display: inline-block;
+  border: 0px;
+  font-size: 16px;
+  font-family: 'Convergence', sans-serif;
+}
+
+button:hover {
+  border: 2px;
+  border-color: orange;
 }
 
 /* RESPONSIVE NAVIGATION MENU WITH SUBMENU https://www.w3schools.com/howto/howto_css_subnav.asp */
