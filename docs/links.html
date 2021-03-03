@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="styles.css">
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+
+<body>
+
+<div w3-include-html="menu.html"></div> 
+
+<div class="mainbody">
+
+  <br><br>
+  <h3>D&D 5e Official</h3>
+  <ol>
+    <li><a href="https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf" target="_blank">D&D Basic Rules PDF</a></li>
+    <li><a href="https://dnd.wizards.com/products/tabletop/dm-basic-rules" target="_blank">D&D Basic Rules Online</a></li>
+    <li><a href="https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf" target="_blank">System Reference Document 5.1</a></li>
+    <li><a href="https://media.wizards.com/2014/downloads/dnd/DMDnDBasicRules_v0.1.pdf" target="_blank">Dungeon Master Basic Rules</a></li>
+  </ol>
+
+  <br>
+
+  <h3>Roll20 Setup</h3>
+  <ol>
+    <li><a href="https://roll20.net" target="_blank">Roll20 website</a></li>
+    <li><a href="https://justas-d.github.io/roll20-enhancement-suite" target="_blank">R20 Enchantment Suite</a></li>
+    <li><a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a></li>
+    <li><a href="https://get.5e.tools/" target="_blank">BetteR20 script</a></li>
+    <li><a href="https://wiki.5e.tools/index.php/BetteRoll20_Install" target="_blank">BetteR20 guide</a></li>
+  </ol>
+
+  <br>
+  
+  <ol>
+    <li><a href="https://5e.tools" target="_blank">5e.tools</a></li>
+    <li><a href="https://open5e.com" target="_blank">Open5e</a></li>
+    <li><a href="https://thetrove.is" target="_blank">The Trove</a></li>
+  </ol>
+
+  <br>
+
+  <h3>VTT DM Setup</h3>
+  <ol>
+    <li><a href="https://drive.google.com" target="_blank">File Host</a></li>
+    <li><a href="https://github.com" target="_blank">Script Host</a></li>
+    <li><a href="https://jukehost.co.uk" target="_blank">Audio Host</a></li>
+    <li><a href="https://w2g.tv/" target="_blank">Watch Together</a></li>
+  </ol>
+
+</div> 
+
+
+
+<script>
+  includeHTML();
+</script>
+
+</body>
+</html>
+
+

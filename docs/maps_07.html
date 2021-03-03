@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="styles.css">
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+
+<body>
+
+<div w3-include-html="menu.html"></div> 
+
+<div class="mainbody">
+
+<h2>Special</h2>
+<a href="../maps/random/arena/ForestArenaPublicJPG.jpg" target=_blank"><img src="gallery/maps/random/arena/ForestArenaPublicJPG.jpg"></a>
+<a href="../maps/random/camp/76017-Campsite_Fires_Out_22x20.jpg" target=_blank"><img src="gallery/maps/random/camp/76017-Campsite_Fires_Out_22x20.jpg"></a>
+</br></br>
+
+<h2>Sky</h2>
+<a href="../maps/random/sky/161659-TSSS Background 1 50x50.jpg" target=_blank"><img src="gallery/maps/random/sky/161659-TSSS Background 1 50x50.jpg"></a>
+<a href="../maps/random/sky/161659-TSSS Background 2 50x50.jpg" target=_blank"><img src="gallery/maps/random/sky/161659-TSSS Background 2 50x50.jpg"></a>
+<a href="../maps/random/sky/56629-Sky Islands Empty Cloudy 50x50.jpg" target=_blank"><img src="gallery/maps/random/sky/56629-Sky Islands Empty Cloudy 50x50.jpg"></a>
+<a href="../maps/random/sky/56630-Sky Islands Empty 50x50.jpg" target=_blank"><img src="gallery/maps/random/sky/56630-Sky Islands Empty 50x50.jpg"></a>
+<a href="../maps/random/sky/Sky A (64x50).jpg" target=_blank"><img src="gallery/maps/random/sky/Sky A (64x50).jpg"></a>
+<a href="../maps/random/sky/Sky B (64x50).jpg" target=_blank"><img src="gallery/maps/random/sky/Sky B (64x50).jpg"></a>
+<a href="../maps/random/sky/Sky C (64x50).jpg" target=_blank"><img src="gallery/maps/random/sky/Sky C (64x50).jpg"></a>
+<a href="../maps/random/sky/Sky D (47x36).jpg" target=_blank"><img src="gallery/maps/random/sky/Sky D (47x36).jpg"></a>
+</br></br>
+
+<h2>Textures</h2>
+<a href="../maps/textures/83594-SDTC Background Parchment 30x30.jpg" target=_blank"><img src="gallery/maps/textures/83594-SDTC Background Parchment 30x30.jpg"></a>
+<a href="../maps/textures/graph paper 50x40.jpg" target=_blank"><img src="gallery/maps/textures/graph paper 50x40.jpg"></a>
+<a href="../maps/textures/notebook_paper_plain.jpg" target=_blank"><img src="gallery/maps/textures/notebook_paper_plain.jpg"></a>
+<a href="../maps/textures/paper crambled.jpg" target=_blank"><img src="gallery/maps/textures/paper crambled.jpg"></a>
+<a href="../maps/textures/paper light 38x26.jpg" target=_blank"><img src="gallery/maps/textures/paper light 38x26.jpg"></a>
+<a href="../maps/textures/Poker Card Table Felt.jpeg target=_blank"><img src="gallery/maps/textures/Poker Card Table Felt.jpeg"></a>
+</br></br>
+
+</div> 
+
+
+
+<script>
+  includeHTML();
+</script>
+
+</body>
+</html>
+
+

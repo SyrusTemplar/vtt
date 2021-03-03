@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="styles.css">
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+
+
+  <script type="text/javascript">
+  //<![CDATA[
+  
+  $(document).ready(function(){
+  
+  	// Local copy of jQuery selectors, for performance.
+  	var	my_jPlayer = $("#jquery_jplayer"),
+  		my_trackName = $("#jp_container .track-name"),
+  		my_playState = $("#jp_container .play-state"),
+  		my_extraPlayInfo = $("#jp_container .extra-play-info");
+  
+  	// Some options
+  	var	opt_play_first = false, // If true, will attempt to auto-play the default track on page loads. No effect on mobile devices, like iOS.
+  		opt_auto_play = true, // If true, when a track is selected, it will auto-play.
+  		opt_text_playing = "Now playing", // Text when playing
+  		opt_text_selected = "Track selected"; // Text when not playing
+  
+  	// A flag to capture the first track
+  	var first_track = true;
+  
+  	// Change the time format
+  	$.jPlayer.timeFormat.padMin = false;
+  	$.jPlayer.timeFormat.padSec = false;
+  	$.jPlayer.timeFormat.sepMin = " min ";
+  	$.jPlayer.timeFormat.sepSec = " sec";
+  
+  	// Initialize the play state text
+  	my_playState.text(opt_text_selected);
+  
+  	// Instance jPlayer
+  	my_jPlayer.jPlayer({
+  		ready: function () {
+  			$("#jp_container .track-default").click();
+  		},
+  		timeupdate: function(event) {
+  			my_extraPlayInfo.text(parseInt(event.jPlayer.status.currentPercentAbsolute, 10) + "%");
+  		},
+  		play: function(event) {
+  			my_playState.text(opt_text_playing);
+  		},
+  		pause: function(event) {
+  			my_playState.text(opt_text_selected);
+  		},
+  		ended: function(event) {
+  			my_playState.text(opt_text_selected);
+  		},
+  		swfPath: "jPlayer/dist/jplayer",
+  		cssSelectorAncestor: "#jp_container",
+  		supplied: "mp3",
+  		wmode: "window"
+  	});
+  
+  	// Create click handlers for the different tracks
+  	$("#jp_container .track").click(function(e) {
+  		my_trackName.text($(this).text());
+  		my_jPlayer.jPlayer("setMedia", {
+  			mp3: $(this).attr("href")
+  		});
+  		if((opt_play_first && first_track) || (opt_auto_play && !first_track)) {
+  			my_jPlayer.jPlayer("play");
+  		}
+  		first_track = false;
+  		$(this).blur();
+  		return false;
+  	});
+  
+  });
+  //]]>
+  </script>
+
+</script>
+
+<body>
+
+<div w3-include-html="menu.html"></div> 
+
+<div class="mainbody">
+
+<h2>Short ambient sounds</h2>
+
+<div id="jquery_jplayer"></div>
+
+<div id="jp_container" class="jplayer-container">
+  <ul>
+    <li><span>Animals: </span></li>
+    <li><a href="https://audio.jukehost.co.uk/zDYIxqE8Ja5sO1xOyFEKCfA6WXFTnI4l" class="track track-default">Birds in Forest</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/hoY95nAIzJd4HqdRyPId4mZO46RfM6pc" class="track">Night Cricket</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/8QPxcUM6H1hYpRu3M6nrtl1WgMxwf0WE" class="track">Night Crickets</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/gcdi7R3XcC9OaOnspSLeqSlE3cuc5yJ3" class="track">Owl Distant</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/CkJ4SrV3FpFwr76sxNW4aHmHjDwsz50R" class="track">Seagull</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/C9Epmr6VbrxBCXk979CoVcs50wRdzOk2" class="track">Seagulls Clean</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/jXMXbgkwcfGKyQPWoJbIkjpw5fSeKi1b" class="track">Wolf Close</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/6yxOCPER1XQp9nXYk207lAYP76f2dJPm" class="track">Wolfs Distant</a></li><li> | </li>
+  </ul>
+  <ul>
+	<li><span>Environmentals: </span></li>
+    <li><a href="https://audio.jukehost.co.uk/oyArbGS3sWx2aZ9XHVVI8EAY8Y6BJtyX" class="track">Forest Day</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/nepNeTgKDIkqQu52fHofbUcPeWOwrBd5" class="track">Horse Hooves</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/9KtWVXV1RLirvGIIGNLzdQcPejME8qHY" class="track">Wagon Wheels</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/m9PUDw1G6mf2ZEUBkCM3Hw56sD7w0uBt" class="track">Campfire</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/MyQRgVU0RzTKiMyomxarZapAvQ4OuuvA" class="track">Fire Large</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/6rkTZOvxDRdeieH98C4dXeKGaAM0rpRo" class="track">Burning Building</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/uNqFqMgkzF5RxzXFxvXO84D0f7qda2oj" class="track">Lava</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/22ahViqxmBsOEfRpUYoYDHiZU7Z5kToK" class="track">Water River</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/6qgd95OujvEI7dvZii1bbmo28HKANWe6" class="track">Water Stream</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/QIXHPkzeNVXjEJ43a9pSv8iJxQAk7B9c" class="track">Waves Lake</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/2XDimOxr1JsV3RscEUDwLMZ4s38oxQmq" class="track">Waves Rockface</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/nYjBlg7uLi2XDBJIPW25vZdVgrPtn7Fo" class="track">Waves Sea</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/IxR8f3Qfohbp4acV0Zhe96Km0EHDSgvS" class="track">Waves Underwater</a></li><li> | </li>
+  </ul>
+  <ul>
+    <li><span>Weather: </span></li>
+    <li><a href="https://audio.jukehost.co.uk/RPQCRQSGyhzNlR9aaHCymxD1G3mIOOPI" class="track">Rain Drizzle</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/fc6ZOx3ljTFIt4scIFb0NYlsKZs5kkCK" class="track">Rain Gentle</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/t1JEQzMQhsdD8uWsdl55xJ0u5d4ptd0A" class="track">Rain Heavy</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/KjkUaI58WdYdqlx2WSIwWBlxgA03vAvL" class="track">Rain heavy</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/gWi5An710A4EEC9nsqWkO067DyorZ5RU" class="track">Rain Light</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/3aRrvzVukSgMe9jMGQ38hofuRziTOPJF" class="track">Rain Light Thunders</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/or6gjXI0XAq5cp9pyuqv9hl4WtnwQBih" class="track">Rain Thunderstorm</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/ivMs017kA2WkOSCMXknY4kZBuGYrr9PE" class="track">Thunderstrike</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/X9OcOZB6yMK90xhuvgZSjVxohShdHd6n" class="track">Wind Howling</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/O8pTG3SCeSB1szLrnwCa9HVotjOCoSEz" class="track">Wind Strong</a></li><li> | </li>
+	<li><a href="https://audio.jukehost.co.uk/3ECpipPv4VBCbz5VHIJMTZPceTl9Srch" class="track">Blizzard</a></li><li> | </li>
+  </ul>
+  <ul>
+    <li><span>Dungeons: </span></li>
+    <li><a href="https://audio.jukehost.co.uk/exGtVeVFmKnJ5D0zShYu6H9cmlPvVkTC" class="track">Cave Ambient</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/y279lqigNFWmmCcvjhFddZGOZCi3by82" class="track">Cave Droplets</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/rXbxHtqqtwEkCtPJqBav1vJCSguV4Zom" class="track">Cave Stream</a></li><li> | </li>
+  </ul>
+  <ul>
+    <li><span>Actions: </span></li>
+    <li><a href="https://audio.jukehost.co.uk/cdSJVuFsxE2YDdAJnJYUcYjGtNkqm1mD" class="track">Bell Church</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/iXQmUarRNUCUarPrsT5e8fHTBIsdFfyu" class="track">Bell Catherdall</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/yOWSZU9RsUeeWFRfSgdFp7QrzzyaKbba" class="track">Bell Ship 1</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/socWwzZVrJIv3ZmiC27ci1hrodVw7BHE" class="track">Bell Ship 2</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/5KpHha2t1nrdGm2EH6iIeIYuGp7xvqgq" class="track">Gong</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/3Arp5nz8wdXMxY1gny5yiTnDWyU6A1IK" class="track">Gong Huge</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/E7ip58N6h7hPVPi0kBE9TkrkyyIfpsgr" class="track">Horn Big</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/wmxB3WhW95cAfhHdnomq8AjANHf92VRs" class="track">Horn Medium</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/MoieF63ScYonQvI8IDZ8tHVFv8z8K9E6" class="track">Horn Small</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/c1RDyjpYWTiadzgyY3glcYhXqecl59XR" class="track">Crowd Big Booing</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/uNl772NeORGCdaeKWdjqZ2xDO4HJ2EVw" class="track">Crowd Medium Booing</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/vUkdbNY6rvpn1LTdhi4Xbg2ETm7QMppg" class="track">Crowd Small Booing</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/g5yxpwAG6IqSYa7hw78IL5DhStXkuSPa" class="track">Crowd Small Cheer</a></li><li> | </li>
+  </ul>
+  <p>
+    <span class="play-state"></span>:
+    <span class="track-name">nothing</span>
+    - <span class="jp-current-time"></span>
+    / <span class="jp-duration"></span>
+	- <span class="extra-play-info"></span>
+  </p>
+  <ul>
+	<li>Controls: </li>
+    <li><a class="jp-play" href="#">Play</a></li>
+    <li><a class="jp-pause" href="#">Pause</a></li>
+	<li><a class="jp-seek-bar" href="#">|&lt;-------------&gt;|</a></li>
+    <li><a class="jp-stop" href="#">Stop</a></li>
+  </ul>
+  <ul>
+    <li>Volume: </li>
+    <li><a class="jp-mute" href="#">Mute</a></li>
+    <li><a class="jp-unmute" href="#">Unmute</a></li>
+    <li><a class="jp-volume-bar" href="#">|&lt;-------------&gt;|</a></li>
+    <li><a class="jp-volume-max" href="#">Max</a></li>
+  </ul>
+</div>
+
+
+
+<script>
+  includeHTML();
+</script>
+
+</body>
+</html>
+
+
