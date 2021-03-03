@@ -3,24 +3,109 @@ html {
   scroll-behavior: smooth;
 }
 
+img {
+  border: 1px solid #333;
+  border-radius: 10px;
+}
+
+p {
+  color: white;
+}
+
+blockquote {
+  color: orange;
+  text-shadow: 2px 2px 0px #553700;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: orange;
+}
+
+.myheading {
+  font-size: 300%;
+  font-weight: bold;
+  color: orange;
+  text-shadow: 2px 2px 0px #553700;
+}
+
+  
+/* unvisited link */
+a:link {
+  color: green;
+  text-decoration: none;
+}
+  
+/* visited link */
+a:visited {
+  color: green;
+  text-decoration: none;
+}
+  
+/* mouse over link */
+a:hover {
+  color: yellow;
+  text-decoration: none;
+}
+  
+/* selected link */
+a:active {
+  color: blue;
+  text-decoration: none;
+} 
+
+
+/* Tables */
+.row {
+  position:relative;
+  display: flex;
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.column {
+  flex: 50%;
+  padding: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 0px solid #000;
+}
+
+th, td {
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  
+}
+
+
+.mainbody {
+  padding:0 16px;
+}
 
 /* RESPONSIVE NAVIGATION MENU WITH SUBMENU https://www.w3schools.com/howto/howto_css_subnav.asp */
 
 body {
-  scroll-behavior: smooth;
+  height: 100%;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
+  background-color: black;
+  color: white;
 }
 
 .navbar {
   overflow: hidden;
-  background-color: #333; 
+  background-color: #222; 
 }
 
 .navbar a {
   float: left;
   font-size: 16px;
-  color: white;
+  color: green;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -35,7 +120,7 @@ body {
   font-size: 16px;  
   border: none;
   outline: none;
-  color: white;
+  color: green;
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -43,27 +128,28 @@ body {
 }
 
 .navbar a:hover, .subnav:hover .subnavbtn {
-  background-color: #000;
+  background-color: #333;
+  color: orange;
 }
 
 .subnav-content {
   display: none;
   position: absolute;
   left: 0;
-  background-color: #000;
+  background-color: #333;
   width: 100%;
   z-index: 1;
 }
 
 .subnav-content a {
   float: left;
-  color: white;
+  color: green;
   text-decoration: none;
 }
 
 .subnav-content a:hover {
-  background-color: #eee;
-  color: black;
+  background-color: #333;
+  color: orange;
 }
 
 .subnav:hover .subnav-content {
@@ -80,7 +166,7 @@ body {
   z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   outline: none; /* Remove outline */
-  background-color: #000; /* Set a background color */
+  background-color: #222; /* Set a background color */
   color: white; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 10px; /* Some padding */
@@ -89,5 +175,41 @@ body {
 }
 
 #scrollTopBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
+  background-color: #333; /* Add a dark-grey background on hover */
+}
+
+
+
+
+/* jPlayer https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiTjaTQ_JPvAhUF4BoKHXWqA0YQFjAAegQIARAE&url=https%3A%2F%2Fjplayer.org%2F&usg=AOvVaw0sSK3HnmAWdkBwWURrc-ih */
+
+.jplayer-container {
+	border: 1px solid green; /* #009BE3; */
+	padding:0 10px;
+	/* font-family: "Myriad Pro Regular","Trebuchet MS"; */
+}
+
+.jplayer-container a, .jplayer-container a:link, .jplayer-container a:visited, .jplayer-container a:hover, .jplayer-container a:focus, .jplayer-container a:active {
+	color: green; /* #009BE3; */
+}
+
+.jplayer-container ul {
+	list-style-type:none;
+	padding:0;
+	margin:1em 0;
+	width:100%;
+	overflow:hidden;
+}
+
+.jplayer-container ul span {
+	color: orange; /* #A0A600; */
+}
+
+.jplayer-container li {
+	float:left;
+	margin-right:1em;
+}
+
+.jplayer-container p span.track-name {
+	color: orange; /* #CC0090; */
 }

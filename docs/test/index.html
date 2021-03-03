@@ -1,122 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-<div style="padding:0 16px">
-  <h1>myVTT Resources</h1>
-</div>
-
-
-<div class="navbar">
-  <a href="#home">Home</a>
-  <div class="subnav">
-    <button class="subnavbtn">About <i class="fa fa-caret-down"></i></button>
-    <div class="subnav-content">
-      <a href="#company">Company</a>
-      <a href="#team">Team</a>
-      <a href="#careers">Careers</a>
-    </div>
-  </div> 
-  <div class="subnav">
-    <button class="subnavbtn">Services <i class="fa fa-caret-down"></i></button>
-    <div class="subnav-content">
-      <a href="#bring">Bring</a>
-      <a href="#deliver">Deliver</a>
-      <a href="#package">Package</a>
-      <a href="#express">Express</a>
-    </div>
-  </div> 
-  <div class="subnav">
-    <button class="subnavbtn">Partners <i class="fa fa-caret-down"></i></button>
-    <div class="subnav-content">
-      <a href="#link1">Link 1</a>
-      <a href="#link2">Link 2</a>
-      <a href="#link3">Link 3</a>
-      <a href="#link4">Link 4</a>
-    </div>
-  </div>
-  <a href="#contact">Contact</a>
-</div>
-
-<div style="padding:0 16px">
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  <h3>Subnav/dropdown menu inside a Navigation Bar</h3>
-  <p>Hover over the "about", "services" or "partners" link to see the sub navigation menu.</p>
-  
-</div>
-
-
-
-
-
-<button onclick="topFunction()" id="scrollTopBtn" title="Go to top">Top</button> 
-
 <script>
-
-
-
-
-/* SCROLL TO TOP */
-//Get the button:
-mybutton = document.getElementById("scrollTopBtn");
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
   }
-}
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-} 
-
+};
 </script>
 
+<body>
+
+<div w3-include-html="menu.html"></div> 
+
+<div class="mainbody">
+
+  <br><br>
+  <center>
+  <button><a href="nav_maps.html" target="frame_submenu"><img src="images/maps.png" width="128" height="128"></a></button>
+  <button><a href="weather.html" target="frame_content"><img src="images/weather.png" width="128" height="128"></a></button>
+  <button><a href="nav_audio.html" target="frame_submenu"><img src="images/audio.png" width="128" height="128"></a></button>
+  <button><a href="links.html" target="frame_content"><img src="images/links.png" width="128" height="128"></a></button>
+  </center>
+
+</div> 
+
+
+
+<script>
+  includeHTML();
+</script>
 
 </body>
 </html>
+
+
