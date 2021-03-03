@@ -87,6 +87,7 @@ tr:nth-child(even) {
 }
 
 .footer {
+  width= 100%;
   padding: 1px 16px;
   background: #222;
 }
