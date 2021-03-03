@@ -1,74 +1,59 @@
 <!DOCTYPE html>
-<!-- Template by quackit.com  -  https://www.html.am/templates/ -->
 <html>
-  <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>My Virtual Tabletop Resources</title>
-	<link rel="shortcut icon" href="favicon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-H0F6QT7ZF1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	  gtag('config', 'G-H0F6QT7ZF1');
-	</script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-		
-    <!-- <link rel="stylesheet" href="styles.css"> -->
-    <style type="text/css" media="all">  @import "styles.css"; </style>
-    <link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Convergence&display=swap" rel="stylesheet"> 
+<body>
 
-	</head>
-	
-	<body>
+<div w3-include-html="menu.html"></div> 
 
-      <header id="header">
-		
-		<div id="logo">
-			<a href="index.html"><h1 id="top">myVTT Resources</h1></a>
-		</div>
-		
-		<nav>
-          <div class="innertube">
-            <ul>
-              <li><button onclick="menuBlank()" title=""><a href="home.html" target="frame_content">Home</a></button></li>
-              <li><button onclick="menuMaps()" title="Random encounter maps"><a href="maps_00.html" target="frame_content">Maps</a></button></li>
-			  <li><button onclick="menuBlank()" title="Weather overlays"><a href="weather.html" target="frame_content">Weather</a></button></li>
-              <li><button onclick="menuAudio()" title="Ambient audio and sound effects"><a href="audio_00.html" target="frame_content">Sounds</a></button></li>
-              <li><button onclick="menuBlank()" title="Useful links"><a href="links.html" target="frame_content">Links</a></button></li>
-            </ul>
-          </div>
-		  </nav>
+<div class="mainbody">
 
+  <br><br>
+  <center>
+  <button><a href="nav_maps.html" target="frame_submenu"><img src="images/maps.png" width="128" height="128"></a></button>
+  <button><a href="weather.html" target="frame_content"><img src="images/weather.png" width="128" height="128"></a></button>
+  <button><a href="nav_audio.html" target="frame_submenu"><img src="images/audio.png" width="128" height="128"></a></button>
+  <button><a href="links.html" target="frame_content"><img src="images/links.png" width="128" height="128"></a></button>
+  </center>
 
-          <iframe name="frame_submenu" src="blank.html" width="100%" height="50px" style="border:0px solid black;"></iframe>
-
-		<hr>
-		
-      </div>
-		  
-      </header>
-
-	  <main>
-	  
-
-      
-      <iframe name="frame_content" src="home.html" width="100%" height="8500px" style="border:0px solid black;"></iframe>
-	
-	  </main>
+</div> 
 
 
-      <div class="footer">
-	    <hr>
-	  </div>
 
+<script>
+  includeHTML();
+</script>
 
-	<script>
-	  function menuBlank() { window.open("blank.html", "frame_submenu"); $(document).scrollTop(0);}
-	  function menuMaps() { window.open("nav_maps.html", "frame_submenu"); $(document).scrollTop(0);}
-	  function menuAudio() { window.open("nav_audio.html", "frame_submenu"); $(document).scrollTop(0);}
-    </script>
-	</body>
+</body>
 </html>
+
+
