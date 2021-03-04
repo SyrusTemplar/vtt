@@ -88,7 +88,7 @@ tr:nth-child(even) {
 
 .footer {
   width= 100%;
-  padding: 1px 16px;
+  padding: 1px 12px;
   background: #222;
 }
 
@@ -179,7 +179,7 @@ body {
 #scrollTopBtn {
   /* display: none; /* Hidden by default */ 
   position: fixed; /* Fixed/sticky position */
-  bottom: 6px; /* Place the button at the bottom of the page */
+  bottom: 7px; /* Place the button at the bottom of the page */
   right: 6px; /* Place the button 30px from the right */
   z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
