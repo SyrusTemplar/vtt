@@ -230,3 +230,7 @@ body {
 .jplayer-container p span.track-name {
 	color: orange; /* #CC0090; */
 }
+
+.jplayer-title {
+   font-size: 18px;
+}
