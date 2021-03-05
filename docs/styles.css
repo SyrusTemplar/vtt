@@ -28,6 +28,13 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 2px 2px 0px #553700;
 }
 
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
   
 /* unvisited link */
 a:link {
