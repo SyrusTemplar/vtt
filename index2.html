@@ -18,8 +18,8 @@
 var password = "please";
 var x = prompt("Enter in the password "," ");
 if (x.toLowerCase() == password) {
-  //alert("Come right in \n \n You've entered in the right password");
-  window.location = "https://syrustemplar.github.io/vtt/docs/index.html";  //https://raw.githubusercontent.com/SyrusTemplar/vtt/main/docs/
+  alert("Come right in \n \n You've entered in the right password");
+  //window.location = "https://syrustemplar.github.io/vtt/docs/index.html";  //https://raw.githubusercontent.com/SyrusTemplar/vtt/main/docs/
 }
 else {
   window.location = "https://www.google.com/";
@@ -28,7 +28,14 @@ else {
 		
   </head>
   <body>
-    <footer>
-    </footer>
+
+
+  
+  <script>
+    document.write("<iframe src='mypage.html' style='position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;'>
+    Your browser doesn't support iframes
+</iframe>");
+  </script>
+  
   </body>
 </html>
