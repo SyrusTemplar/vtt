@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="styles.css">
+
+<script type="text/javascript" src="jPlayer/lib/jquery.min.js"></script>
+<script type="text/javascript" src="jPlayer/dist/jplayer/jquery.jplayer.min.js"></script>
+
+<script type="text/javascript">
+
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+
+
+
+  //<![CDATA[
+  
+  $(document).ready(function(){
+  
+  	// Local copy of jQuery selectors, for performance.
+  	var	my_jPlayer = $("#jquery_jplayer"),
+  		my_trackName = $("#jp_container .track-name"),
+  		my_playState = $("#jp_container .play-state"),
+  		my_extraPlayInfo = $("#jp_container .extra-play-info");
+  
+  	// Some options
+  	var	opt_play_first = false, // If true, will attempt to auto-play the default track on page loads. No effect on mobile devices, like iOS.
+  		opt_auto_play = true, // If true, when a track is selected, it will auto-play.
+  		opt_text_playing = "Now playing", // Text when playing
+  		opt_text_selected = "Track selected"; // Text when not playing
+  
+  	// A flag to capture the first track
+  	var first_track = true;
+  
+  	// Change the time format
+  	$.jPlayer.timeFormat.padMin = false;
+  	$.jPlayer.timeFormat.padSec = false;
+  	$.jPlayer.timeFormat.sepMin = " min ";
+  	$.jPlayer.timeFormat.sepSec = " sec";
+  
+  	// Initialize the play state text
+  	my_playState.text(opt_text_selected);
+  
+  	// Instance jPlayer
+  	my_jPlayer.jPlayer({
+  		ready: function () {
+  			$("#jp_container .track-default").click();
+  		},
+  		timeupdate: function(event) {
+  			my_extraPlayInfo.text(parseInt(event.jPlayer.status.currentPercentAbsolute, 10) + "%");
+  		},
+  		play: function(event) {
+  			my_playState.text(opt_text_playing);
+  		},
+  		pause: function(event) {
+  			my_playState.text(opt_text_selected);
+  		},
+  		ended: function(event) {
+  			my_playState.text(opt_text_selected);
+  		},
+  		swfPath: "jPlayer/dist/jplayer",
+  		cssSelectorAncestor: "#jp_container",
+  		supplied: "mp3",
+  		wmode: "window"
+  	});
+  
+  	// Create click handlers for the different tracks
+  	$("#jp_container .track").click(function(e) {
+  		my_trackName.text($(this).text());
+  		my_jPlayer.jPlayer("setMedia", {
+  			mp3: $(this).attr("href")
+  		});
+  		if((opt_play_first && first_track) || (opt_auto_play && !first_track)) {
+  			my_jPlayer.jPlayer("play");
+  		}
+  		first_track = false;
+  		$(this).blur();
+  		return false;
+  	});
+  
+  });
+  //]]>
+
+</script>
+
+<body>
+
+<div w3-include-html="header.html"></div> 
+
+<div class="mainbody">
+
+<h2>Short ambient sounds</h2>
+
+<div id="jquery_jplayer"></div>
+
+<div id="jp_container" class="jplayer-container">
+  <ul>
+    <li><span>Instrumental Ambient: </span></li>
+    <li><a href="https://audio.jukehost.co.uk/1Vc5mOQUQjsMfK2ZTFyyEkRXIdAuaz4Q" class="track">Viking Battle Music</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/mkpdRN4faosho0PArx3Axo8YdPSO8vkU" class="track">Nidhogg-Norse Ambient</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/qs9D1qaD47DsiiJhBOfNOfY39SmlnQZW" class="track">Nordic mythical</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/b6pjFblOLqiN1BSYuHqK56qEEvCRr4uL" class="track">Skyrim Exploration</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/AoaYGSYOsVGutYtOnwGRlbRlDwIn0A15" class="track">Coliseum Soundtrack</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/ALWN9jXitgptp4TMqBWKo2FuT4vsFZZD" class="track">Gladiator Music</a></li><li> | </li>
+  </ul>
+  <ul>
+	<li><span>Instrumental: </span></li>
+    <li><a href="https://audio.jukehost.co.uk/WpgAwlJuFtF7cPQiQZUGUnqE6LD4fNI7" class="track">Guild of dungeoneering</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/g2YTzbtj8d7tNFvWcKoqPCvCGk9y3nOk" class="track">Elven Forest</a></li><li> | </li>
+  </ul>
+  <ul>
+    <li><span>Vocals: </span></li>
+    <li><a href="https://audio.jukehost.co.uk/n5QLs8yItAIcConoHHrmmugvuUHoaQId" class="track">Song Of The Sirens</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/vIaLsKx3Rthnml5AB8Z6hcMDZ1tIBDKg" class="track">Celtic Female Acapela1</a></li><li> | </li>
+    <li><a href="https://audio.jukehost.co.uk/yGF61Pb3hIxYNjeNuKpox1PnirjXjii3" class="track">Celtic Female Acapela2</a></li><li> | </li>
+	<li><a href="https://audio.jukehost.co.uk/fSVDOaLPCNzn980gfZkouBVbtNyBjsNF" class="track">Viking Female Vocals</a></li><li> | </li>
+  </ul>
+  <ul>
+    <li><span>Songs: </span></li>
+    <li><a href="https://audio.jukehost.co.uk/FlvKHM8BFVxgsOR1ZFu1Fy7rQYmZQ3vL" class="track">R?N - VINDA Acoustic Ft. Helisir (256 kbps).mp3</a></li><li> | </li>
+  </ul>
+  <p class="jplayer-title">
+    <span class="play-state"></span>:
+    <span class="track-name">nothing</span>
+    - [ <span class="jp-current-time"></span>
+    / <span class="jp-duration"></span>
+	] - <span class="extra-play-info"></span>
+  </p>
+  <ul>
+	<li>Controls: </li>
+    <li><a class="jp-play" href="#">Play</a></li>
+    <li><a class="jp-pause" href="#">Pause</a></li>
+	<li><a class="jp-seek-bar" href="#">|&lt;=============&gt;|</a></li>
+    <li><a class="jp-stop" href="#">Stop</a></li>
+  </ul>
+  <ul>
+    <li>Volume: </li>
+    <li><a class="jp-mute" href="#">Mute</a></li>
+    <li><a class="jp-unmute" href="#">Unmute</a></li>
+    <li><a class="jp-volume-bar" href="#">|&lt;=============&gt;|</a></li>
+    <li><a class="jp-volume-max" href="#">Max</a></li>
+  </ul>
+</div>
+
+</div> 
+
+<div w3-include-html="footer.html"></div>
+
+<script>
+  includeHTML();
+</script>
+
+</body>
+</html>
+
+
