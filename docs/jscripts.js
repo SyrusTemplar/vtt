@@ -30,8 +30,8 @@ function includeHTML() {
 
 // jPlayer COMPOSITION SCRIPT
 
-document.write("<script type='text/javascript' src='jPlayer/lib/jquery.min.js' ></script>");
-document.write("<script type='text/javascript' src='jPlayer/dist/jplayer/jquery.jplayer.min.js' ></script>");
+document.write('<script type=&#34text/javascript&#34 src=&#34jPlayer/lib/jquery.min.js&#34 ></script>');
+document.write('<script type=&#34text/javascript&#34 src=&#34jPlayer/dist/jplayer/jquery.jplayer.min.js&#34 ></script>');
 
 //<![CDATA[
 
