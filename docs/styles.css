@@ -157,6 +157,15 @@ body {
   color: orange;
 }
 
+.navbar-hidden a {
+  color: #222;
+}
+
+.navbar-hidden a:hover {
+  background-color: #222;
+  color: #222;
+}
+
 .subnav-content {
   display: none;
   position: absolute;
