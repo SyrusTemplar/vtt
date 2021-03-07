@@ -28,3 +28,14 @@ function includeHTML() {
   }
 };
 
+
+// GOOGLE ANALYTICS
+
+var gscript = document.createElement('script'); 
+gscript.src = "https://www.googletagmanager.com/gtag/js?id=G-H0F6QT7ZF1"; 
+document.head.appendChild(gscript) 
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-H0F6QT7ZF1');
+
