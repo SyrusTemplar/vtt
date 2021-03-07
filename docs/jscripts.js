@@ -1,4 +1,4 @@
-// includeHTML to include the header.html & footer.html
+// INCLUDE FUNCTION FOR HTML (to include header.html & footer.html)
 
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
@@ -28,10 +28,10 @@ function includeHTML() {
   }
 };
 
-// jPlayer composition scripts
+// jPlayer COMPOSITION SCRIPT
 
-document.write('<script type="text/javascript" src="jPlayer/lib/jquery.min.js" ></script>');
-document.write('<script type="text/javascript" src="jPlayer/dist/jplayer/jquery.jplayer.min.js" ></script>');
+document.write("<script type='text/javascript' src='jPlayer/lib/jquery.min.js' ></script>");
+document.write("<script type='text/javascript' src='jPlayer/dist/jplayer/jquery.jplayer.min.js' ></script>");
 
 //<![CDATA[
 
@@ -100,4 +100,17 @@ $(document).ready(function(){
   
 });
 //]]>
+
+
+// GOOGLE ANALYTICS
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H0F6QT7ZF1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H0F6QT7ZF1');
+</script>
 
