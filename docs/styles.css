@@ -12,6 +12,10 @@ p {
   color: white;
 }
 
+hr {
+  color: green;
+}
+
 blockquote {
   color: orange;
   text-shadow: 2px 2px 0px #553700;
