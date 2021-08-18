@@ -114,6 +114,7 @@ button {
 
 button:hover {
   border: 2px solid orange;
+  cursor: pointer;
 }
 
 /* RESPONSIVE NAVIGATION MENU WITH SUBMENU https://www.w3schools.com/howto/howto_css_subnav.asp */
