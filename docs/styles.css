@@ -10,6 +10,8 @@ img {
 
 p {
   color: white;
+  float: left;
+  text-align: left;
 }
 
 hr {
