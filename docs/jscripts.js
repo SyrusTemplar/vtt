@@ -28,5 +28,9 @@ function includeHTML() {
   }
 };
 
+function currentyear() {
+  return Date().getFullYear();
+};
+
 
 
