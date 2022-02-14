@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MyVTT</title>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    <div class="contentmenu">
+      <div class="contentmenu_item">Item 1</div>
+      <div class="contentmenu_item">Item 2</div>
+      <div class="contentmenu_item">Item 3</div>
+      <div class="contentmenu_divider"></div>
+      <div class="contentmenu_item">Item 4</div>
+    </div>
+    <div class="screen">
+
+      <div class="map"></div>
+      <div class="topContainer">
+        <div class="actionBar">actionBar</div>
+        <div class="tabSelection">tabSelection</div>
+      </div>
+      <div class="sideContainer">
+        <div class="tab">tab</div>
+        <div class="chat">chat</div>
+      </div>
+
+      <div class="members">members</div>
+    </div>
+
+
+
+    <script>
+      const cm = document.querySelector('.contentmenu');
+
+      function showContextMenu(show = true) {
+
+        cm.style.display = show ? 'block' : 'none';
+      }
+
+      window.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        showContextMenu();
+        cm.style.top = e.y + cm.offsetHeight > window.innerHeight ? window.innerHeight - cm.offsetHeight + 'px' : e.y + 'px';
+        cm.style.left = e.x + cm.offsetWidth > window.innerWidth ? window.innerWidth - cm.offsetWidth + 'px' : e.x + 'px';
+      });
+
+      window.addEventListener('click', (e) => {
+        showContextMenu(false);
+      });
+    </script>
+
+  </body>
+</html>

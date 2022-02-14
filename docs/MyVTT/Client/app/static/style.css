@@ -1,0 +1,119 @@
+html {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+body {
+    width: 100%;
+    display: table-cell;
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.screen {
+  background-color: #eeeeee;
+  height: 100%;
+  width: 100%;
+}
+
+.elements {
+    padding: 10px 10px 10px 10px;
+}
+.topContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.sideContainer {
+  position: absolute;
+  right: 10px;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex-grow: 1;
+}
+
+.sideContainer > * {
+  margin-top: 5px;
+}
+
+.actionBar {
+  min-width: 300px;
+  background-color: #ffffff;
+  border: 1px solid;
+
+}
+
+.tabSelection {
+  height: 30px;
+  min-width: 300px;
+  background-color: #ffffff;
+  border: 1px solid;
+  align-self: flex-end;
+}
+
+.tab {
+  min-height: 300px;
+  width: 200px;
+  background-color: #ffffff;
+  border: 1px solid;
+}
+
+.placeholder {
+  min-height: 300px;
+  width: 200px;
+  background-color: #ffffff;
+  border: 1px solid;
+}
+
+.chat {
+  min-height: 300px;
+  width: 200px;
+  background-color: #ffffff;
+  border: 1px solid;
+
+}
+
+.members {
+  height: 30px;
+  width: 200px;
+  background-color: #ffffff;
+  border: 1px solid;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.contentmenu {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+  padding: 10px 0;
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 200px;
+}
+
+.contentmenu_item {
+  cursor: pointer;
+  padding: 8px 15px;
+}
+
+.contentmenu_item:hover {
+  background-color: #f8f8f8;
+}
+
+.contentmenu_divider {
+  margin: 10px 0;
+  border-bottom: 1px solid #eeeeee;
+}
