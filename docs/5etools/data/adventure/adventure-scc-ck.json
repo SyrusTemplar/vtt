@@ -204,12 +204,12 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Central Campus.",
+											"name": "Central Campus",
 											"entry": "The Biblioplex isn't the only building on the central campus, where students spend a lot of time. Two other popular locations are {@adventure Firejolt Café|SCC-CK|0|Firejolt Café} and {@adventure Bow's End Tavern|SCC-CK|0|Bow's End Tavern}, whose maps are found later in this chapter."
 										},
 										{
 											"type": "item",
-											"name": "Colleges.",
+											"name": "Colleges",
 											"entry": "Characters know the overall details presented in {@book chapter 1|SCC|1} about the five colleges that make up Strixhaven. They also know that each Strixhaven student chooses membership in a specific college at the start of their second year."
 										}
 									]
@@ -234,7 +234,7 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Ceilings.",
+													"name": "Ceilings",
 													"entry": "The ceilings throughout the first floor of the Biblioplex are 50 feet high. The second- and third-floor ceilings are 30 feet high."
 												}
 											]
@@ -255,17 +255,17 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Magic Stairs.",
+													"name": "Magic Stairs",
 													"entry": "As in all Strixhaven buildings, the stairs and steps leading into and within the Biblioplex are enchanted to move and reshape for full accessibility. See the \"Strixhaven Accessibility\" sidebar."
 												},
 												{
 													"type": "item",
-													"name": "Transport Circles.",
+													"name": "Transport Circles",
 													"entry": "A runic circle is painted on the floor near each staircase in the Biblioplex, as well as at the top and bottom of the steps leading to the main entrance in {@adventure area B1|SCC-CK|0|B1. Main Entrance}. These circles are permanent, customized teleportation circles. When a user moves onto a circle and mentally focuses on the floor to which they wish to travel, they are transported to the destination floor, arriving at that floor's runic circle for that staircase. (Students are all aware that entering the second floor is forbidden without permission from a faculty member.) The circle at the bottom of the front steps transports users to the circle at the top of the steps and vice versa."
 												},
 												{
 													"type": "item",
-													"name": "Students and Professors.",
+													"name": "Students and Professors",
 													"entry": "Students of all years and colleges can be found in the Biblioplex, as can professors from all the colleges. See {@book chapter 7|SCC|8} for stat blocks for {@creature First-Year Student|SCC|first-year students}, and for apprentices, pledgemages, and professors from the different colleges."
 												}
 											]
@@ -562,27 +562,27 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Clue 1.",
+											"name": "Clue 1",
 											"entry": "You'll forget all about any trouble or plight when you step forward and are ensnarled in light."
 										},
 										{
 											"type": "item",
-											"name": "Clue 2.",
+											"name": "Clue 2",
 											"entry": "Alumni commission works when they retire, seeking promising mages to inspire."
 										},
 										{
 											"type": "item",
-											"name": "Clue 3.",
+											"name": "Clue 3",
 											"entry": "Each group deserves a free treat for their investment. Serve up this list and enjoy your refreshment."
 										},
 										{
 											"type": "item",
-											"name": "Clue 4.",
+											"name": "Clue 4",
 											"entry": "These leafy beds aren't always what they seem. Give them a pat and see what you glean."
 										},
 										{
 											"type": "item",
-											"name": "Clue 5.",
+											"name": "Clue 5",
 											"entry": "Some stars are ancient, enduring, and bright. But others\u2014maybe you!\u2014are born on opening night."
 										}
 									]
@@ -748,22 +748,22 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Ceilings.",
+													"name": "Ceilings",
 													"entry": "The café's ceilings are 20 feet high."
 												},
 												{
 													"type": "item",
-													"name": "Doors.",
+													"name": "Doors",
 													"entry": "At night, the exterior doors to the café are closed, locked, and sealed with an {@spell arcane lock} spell. A successful DC 25 Dexterity check using thieves' tools opens the lock (DC 35 while the {@spell arcane lock} is in effect). Only certain faculty members and Ellina Tanglewood, the café's manager (see {@adventure area F3|SCC-CK|0|F3. Barista Station}), know the {@spell arcane lock}'s password."
 												},
 												{
 													"type": "item",
-													"name": "Magic Steps.",
+													"name": "Magic Steps",
 													"entry": "The steps marking the edge of each tier of the study area are enchanted to move and reshape themselves for full accessibility. See the \"{@adventure Strixhaven Accessibility|SCC-CK|0|Strixhaven Accessibility}\" sidebar."
 												},
 												{
 													"type": "item",
-													"name": "Students.",
+													"name": "Students",
 													"entry": "Students of all years and colleges can be found in Firejolt Café. See {@book chapter 7|SCC|8} for stat blocks for {@creature First-Year Student|SCC|first-year students}, and for apprentices and pledgemages from the different colleges."
 												}
 											]
@@ -870,17 +870,17 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Race a Frog.",
+													"name": "Race a Frog",
 													"entry": "A character might coach one of the frogs, encouraging it toward the finish line with words, gestures, and other antics. The character can urge their frog to victory with a successful DC 12 Wisdom ({@skill Animal Handling}) check. Encourage a player to really sell this scene by naming their frog and coming up with ways to inspire it. If one of the characters succeeds on this Wisdom check, that character's frog wins the race. (If more than one character succeeds, it's a tie, and those characters split the 30 gp prize.) If no characters win the race, roll a {@dice d4} to randomly determine which frog wins."
 												},
 												{
 													"type": "item",
-													"name": "Cheer a Coach.",
+													"name": "Cheer a Coach",
 													"entry": "A character might shout encouragement to one of the coaches. If the encouraged coach is another player character, that character gains advantage on their Wisdom ({@skill Animal Handling}) check to coach the frog. If the coach is an NPC, any characters racing a frog receive disadvantage on their check."
 												},
 												{
 													"type": "item",
-													"name": "Heckle a Coach.",
+													"name": "Heckle a Coach",
 													"entry": "A character might taunt one of the coaches. If the heckled coach is another player character, that character has disadvantage on their Wisdom ({@skill Animal Handling}) check to coach the frog. If the coach is an NPC, that student's frog automatically loses the race."
 												}
 											]
@@ -952,12 +952,12 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Slaad Facts.",
+											"name": "Slaad Facts",
 											"entry": "Choosing the correct multiple choice answers to questions about {@creature Red Slaad||red}, {@creature Blue Slaad||blue}, {@creature Green Slaad||green}, {@creature Gray Slaad||gray}, and {@creature Death Slaad||death} slaadi requires a successful DC 12 Intelligence ({@skill Arcana}) check."
 										},
 										{
 											"type": "item",
-											"name": "Defusing Slaad Confrontations.",
+											"name": "Defusing Slaad Confrontations",
 											"entry": "Writing short essays about commonly accepted ways to keep slaadi calm during unexpected encounters requires a successful DC 12 Wisdom ({@skill Insight}) check."
 										}
 									]
@@ -1047,27 +1047,27 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Lighting.",
+													"name": "Lighting",
 													"entry": "The magical lights inside the tavern are muted, but creatures can still see normally in all areas."
 												},
 												{
 													"type": "item",
-													"name": "Ceilings.",
+													"name": "Ceilings",
 													"entry": "The tavern's ceilings are 20 feet high."
 												},
 												{
 													"type": "item",
-													"name": "Doors.",
+													"name": "Doors",
 													"entry": "After closing, all exterior doors to the patio and tavern are closed, locked, and sealed with an {@spell arcane lock} spell. A successful DC 25 Dexterity check using thieves' tools opens the lock (DC 35 while the {@spell arcane lock} is in effect). Only certain student employees and Tulk \"The Bulk\" Tusktooth, the tavern's manager (see {@adventure area E3|SCC-CK|0|E3. Servers' Station and Bar}), know the {@spell arcane lock}'s password."
 												},
 												{
 													"type": "item",
-													"name": "Magic Steps.",
+													"name": "Magic Steps",
 													"entry": "The steps marking the boundary between the overflow seating area ({@adventure area E4|SCC-CK|0|E4. Overflow Seating}) and the main dining room ({@adventure area E2|SCC-CK|0|E2. Main Dining Room}) are enchanted to move and reshape themselves for full accessibility. See the \"{@adventure Strixhaven Accessibility|SCC-CK|0|Strixhaven Accessibility}\" sidebar."
 												},
 												{
 													"type": "item",
-													"name": "Patrons.",
+													"name": "Patrons",
 													"entry": "Students of all years and colleges can be found in Firejolt Café. See {@book chapter 7|SCC|8} for stat blocks for {@creature First-Year Student|SCC|first-year students}, and for apprentices and pledgemages from the different colleges."
 												}
 											]
@@ -1209,17 +1209,17 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Play the Game.",
+															"name": "Play the Game",
 															"entry": "The rules are simple: lob a sphere from the wizard gizzard and have the sphere land inside the bucket on the floor. The game takes 1 minute to play, and the character who lands the most spheres in the bucket during that minute wins the game. To determine how many spheres a character lands in the bucket, have the character make a Dexterity ({@skill Arcana}) check and divide the total by 3 (round down). If two or more characters land the same number of spheres in the bucket, have those characters repeat the check during a tiebreaker round. Continue to run tiebreaker rounds until one character wins."
 														},
 														{
 															"type": "item",
-															"name": "Encourage a Participant.",
+															"name": "Encourage a Participant",
 															"entry": "If a character shouts encouragement to a participant, that participant has advantage on their Dexterity ({@skill Arcana}) check."
 														},
 														{
 															"type": "item",
-															"name": "Heckle a Participant.",
+															"name": "Heckle a Participant",
 															"entry": "If a character jeers at a participant, that participant has disadvantage on their Dexterity ({@skill Arcana}) check."
 														}
 													]
@@ -1312,12 +1312,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Owlbear Disposition and Habits.",
+													"name": "Owlbear Disposition and Habits",
 													"entry": "Choosing the correct multiple choice answers regarding owlbears' hunting, eating, mating, fighting, and living habits requires a successful DC 12 Intelligence ({@skill Nature}) check."
 												},
 												{
 													"type": "item",
-													"name": "Owlbear Companions.",
+													"name": "Owlbear Companions",
 													"entry": "Writing short essays on common methods for taming, training, and handling owlbears and on keeping owlbears as companions requires a successful DC 12 Wisdom ({@skill Animal Handling}) check."
 												}
 											]
@@ -1363,22 +1363,22 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Owlbear Prop.",
+															"name": "Owlbear Prop",
 															"entry": "\"The Playactors Drama Guild has combined the hide of a bear and an owl head taxidermy to create a weird owlbear prop.\""
 														},
 														{
 															"type": "item",
-															"name": "Basilisk Prop.",
+															"name": "Basilisk Prop",
 															"entry": "\"A prop at this year's festival uses flashes of light to simulate a gaze attack, just like a basilisk.\""
 														},
 														{
 															"type": "item",
-															"name": "Chimera Prop.",
+															"name": "Chimera Prop",
 															"entry": "\"The drama guild plans to use dragon, goat, and lion puppets to simulate a chimera. Someone has figured out how to magically replicate those creatures' sounds."
 														},
 														{
 															"type": "item",
-															"name": "Black Dragon Prop.",
+															"name": "Black Dragon Prop",
 															"entry": "\"Someone wants to summon and control a real young black dragon on stage. No way will that work!\""
 														}
 													]
@@ -1501,32 +1501,32 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Ceilings.",
+															"name": "Ceilings",
 															"entry": "The ceilings throughout the manor are 20 feet high."
 														},
 														{
 															"type": "item",
-															"name": "Doors.",
+															"name": "Doors",
 															"entry": "The manor's outside doors (in {@adventure areas C1|SCC-CK|0|C1. Veranda}, {@adventure C10|SCC-CK|0|C10. Grand Deck}, and {@adventure C11|SCC-CK|0|C11. Side Deck}) are locked. A character can pick a lock with a successful DC 15 Dexterity check using thieves' tools. Anyone can easily break the glass doors, but doing so summons security (see below). The inside doors are unlocked unless otherwise noted."
 														},
 														{
 															"type": "item",
-															"name": "Lighting.",
+															"name": "Lighting",
 															"entry": "By night, the interior of the manor is in darkness."
 														},
 														{
 															"type": "item",
-															"name": "Magic Stairs.",
+															"name": "Magic Stairs",
 															"entry": "Stairs and steps in the manor are enchanted to move and reshape themselves for full accessibility."
 														},
 														{
 															"type": "item",
-															"name": "Transport Circles.",
+															"name": "Transport Circles",
 															"entry": "A runic circle is painted on the floor near each staircase in the manor, as well as at the top and bottom of the steps leading inside the building in area C1. These circles are permanent, customized teleportation circles. Anyone can move onto a circle and mentally focus on the floor to which they wish to travel. (The circle leading to the attic is in the manor's hidden staircase, which must be found first.) When a character is teleported from a circle near a staircase, they arrive on the destination floor on the runic circle nearest the corresponding staircase. The circle outside the main entrance automatically transports characters directly in front of the manor's front doors."
 														},
 														{
 															"type": "item",
-															"name": "Security.",
+															"name": "Security",
 															"entry": "If an outside door is smashed or the characters engage in noticeable vandalism, a {@creature Silverquill professor of radiance|SCC} and a {@creature Quandrix professor of substance|SCC} (see {@book chapter 7|SCC|8} for both) arrive at the manor in {@dice 1d4} rounds. Both are serving as campus security for the night and deal with the characters as noted in the sidebar \"{@adventure The Jig Is Up!|SCC-CK|0|The Jig Is Up!}\""
 														}
 													]
@@ -2015,12 +2015,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Otyugh Lair Evidence.",
+													"name": "Otyugh Lair Evidence",
 													"entry": "Choosing the correct multiple choice answers about physical signs pointing to the presence of an otyugh, including large piles of particularly noxious trash, deep vats of liquid dung, chunks of carrion scattered among filth, and incongruous noises coming from the trash, requires a successful DC 13 Intelligence ({@skill Investigation}) check."
 												},
 												{
 													"type": "item",
-													"name": "Otyughs as Guardians.",
+													"name": "Otyughs as Guardians",
 													"entry": "Writing short essays about the details of which intelligent creatures might use otyughs as guardians requires a successful DC 13 Charisma ({@skill Persuasion}) check."
 												}
 											]
@@ -2481,17 +2481,17 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Building Doors.",
+															"name": "Building Doors",
 															"entry": "The doors to the research sheds ({@adventure areas S4|SCC-CK|0|S4. South Research Shed} and {@adventure S5|SCC-CK|0|S5. North Research Shed}) are unlocked."
 														},
 														{
 															"type": "item",
-															"name": "Swamp Water.",
+															"name": "Swamp Water",
 															"entry": "The watery areas on the map are shallow along the shore, growing deeper off the map. Characters walking between islets and tree stumps sink several inches in mud and water, making all these areas {@book difficult terrain|PHB|8|Difficult Terrain}."
 														},
 														{
 															"type": "item",
-															"name": "Tree Stumps.",
+															"name": "Tree Stumps",
 															"entry": "Stumps protrude 5 feet above the surface of the water. Their slippery and unstable surfaces mean that climbing onto a stump without falling requires a successful DC 15 Strength ({@skill Athletics}) check as part of the move."
 														}
 													]

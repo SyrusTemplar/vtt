@@ -2533,14 +2533,14 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Chromatic Infusion.",
+							"name": "Chromatic Infusion",
 							"entries": [
 								"As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra {@damage 1d4} damage of the chosen type when it hits. After you use this bonus action, you can't do so again until you finish a long rest."
 							]
 						},
 						{
 							"type": "item",
-							"name": "Reactive Resistance.",
+							"name": "Reactive Resistance",
 							"entries": [
 								"When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
 							]
@@ -2588,7 +2588,7 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Telekinetic Reprisal.",
+							"name": "Telekinetic Reprisal",
 							"entries": [
 								"When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must make a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the creature takes {@damage 2d8} force damage and is pushed up to 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
 							]
@@ -2655,14 +2655,14 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Draconic Healing.",
+							"name": "Draconic Healing",
 							"entries": [
 								"You learn the {@spell cure wounds} spell. You can cast this spell without expending a spell slot. Once you cast this spell in this way, you can't do so again until you finish a long rest. You can also cast this spell using spell slots you have. The spell's spellcasting ability is Intelligence, Wisdom, or Charisma when you cast it with this feat (choose when you gain the feat)."
 							]
 						},
 						{
 							"type": "item",
-							"name": "Protective Wings.",
+							"name": "Protective Wings",
 							"entries": [
 								"You can manifest protective wings that can shield you or others. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. You grant a bonus to the target's AC equal to your proficiency bonus against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
 							]
@@ -6107,12 +6107,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Psi-Boosted Ability.",
+									"name": "Psi-Boosted Ability",
 									"entry": "When you make an ability check with the ability increased by this feat, you can roll your Psionic Talent die and add the number rolled to the check. You can choose to do so before or after rolling the {@dice d20}, but before you know whether the check succeeded or failed."
 								},
 								{
 									"type": "item",
-									"name": "Psi-Guided Strike.",
+									"name": "Psi-Guided Strike",
 									"entry": "Once on each of your turns when you hit with an attack roll that uses the ability increased by this feat, you can roll your Psionic Talent die after you make the damage roll and then replace one of the damage dice with the number rolled on the Psionic Talent die."
 								}
 							]

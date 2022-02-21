@@ -643,42 +643,48 @@
 								{
 									"type": "item",
 									"name": "Humans",
-									"entry": "on Ravnica are like those found on other D&D worlds: adaptable, ambitious, and wildly diverse."
+									"entry": "on Ravnica are like those found on other D&D worlds: adaptable, ambitious, and wildly diverse.",
+									"nameDot": false
 								},
 								{
 									"type": "item",
-									"name": "Elves",
+									"name": "Elves,",
 									"entry": "in their three common subraces, are strongly associated with nature."
 								},
 								{
 									"type": "item",
-									"name": "Centaurs",
+									"name": "Centaurs,",
 									"entry": "the quintessential merging of human and horse, savor freedom and champion nature's cause."
 								},
 								{
 									"type": "item",
 									"name": "Goblins",
-									"entry": "are small, fierce, stealthy, and sometimes comical."
+									"entry": "are small, fierce, stealthy, and sometimes comical.",
+									"nameDot": false
 								},
 								{
 									"type": "item",
 									"name": "Loxodons",
-									"entry": "resemble humanoid elephants with powerful bodies, stoic natures, and serene wisdom."
+									"entry": "resemble humanoid elephants with powerful bodies, stoic natures, and serene wisdom.",
+									"nameDot": false
 								},
 								{
 									"type": "item",
 									"name": "Minotaurs",
-									"entry": "on Ravnica are sophisticated tacticians as well as strong and fierce warriors."
+									"entry": "on Ravnica are sophisticated tacticians as well as strong and fierce warriors.",
+									"nameDot": false
 								},
 								{
 									"type": "item",
 									"name": "Simic hybrid",
-									"entry": "are the results of the Simic Combine's Guardian Project, which magically infuses the adaptive qualities of certain animal species into human, elf, or vedalken volunteers."
+									"entry": "are the results of the Simic Combine's Guardian Project, which magically infuses the adaptive qualities of certain animal species into human, elf, or vedalken volunteers.",
+									"nameDot": false
 								},
 								{
 									"type": "item",
 									"name": "Vedalken",
-									"entry": "are tall, blue-skinned, and ingenious, with insatiable curiosity and a penchant for invention."
+									"entry": "are tall, blue-skinned, and ingenious, with insatiable curiosity and a penchant for invention.",
+									"nameDot": false
 								}
 							]
 						},
@@ -2065,47 +2071,47 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Boros.",
+															"name": "Boros",
 															"entry": "\"Their vigilantism is tremendously dangerous without a hand to control it.\""
 														},
 														{
 															"type": "item",
-															"name": "Dimir.",
+															"name": "Dimir",
 															"entry": "\"A perennial thorn in our side. Though they were once our greatest foes, not even the masters of espionage can hide from our watchful eyes.\""
 														},
 														{
 															"type": "item",
-															"name": "Golgari.",
+															"name": "Golgari",
 															"entry": "\"Their underground structures break numerous building regulations, but at least they fulfill their duties as garbage collectors.\""
 														},
 														{
 															"type": "item",
-															"name": "Gruul.",
+															"name": "Gruul",
 															"entry": "\"The Gruul are dangerous anarchists with no interest in furthering the development of civilization. They serve no useful purpose.\""
 														},
 														{
 															"type": "item",
-															"name": "Izzet.",
+															"name": "Izzet",
 															"entry": "\"Eccentric and occasionally explosive, but generally harmless, for now. In their paranoia they have enlarged their weapon stockpiles, but they lack the clarity of vision to put them to use.\""
 														},
 														{
 															"type": "item",
-															"name": "Orzhov.",
+															"name": "Orzhov",
 															"entry": "\"Their brazen exploitation of our laws will be their downfall. They are an insidious threat that could tear society apart from the inside.\""
 														},
 														{
 															"type": "item",
-															"name": "Rakdos.",
+															"name": "Rakdos",
 															"entry": "\"An absolute blight on Ravnica. They are clowns who know nothing of culture and exist only to torment the functioning members of society.\""
 														},
 														{
 															"type": "item",
-															"name": "Selesnya.",
+															"name": "Selesnya",
 															"entry": "\"The Conclave plays by the rules and keeps to itself. Until its members become too numerous, they are of little threat to us.\""
 														},
 														{
 															"type": "item",
-															"name": "Simic.",
+															"name": "Simic",
 															"entry": "\"The Simic experiment with matters that disobey the laws of nature and the laws of Ravnica. We must not let them gain influence.\""
 														}
 													]
@@ -2390,47 +2396,47 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Azorius.",
+															"name": "Azorius",
 															"entry": "\"Legalism. Arrogance. Hot air. The law in their hands is a bludgeon, and they use it to seize more power than they deserve.\""
 														},
 														{
 															"type": "item",
-															"name": "Dimir.",
+															"name": "Dimir",
 															"entry": "\"Snakes lurking in the shadows. They should be rooted out so they can shrivel in the light.\""
 														},
 														{
 															"type": "item",
-															"name": "Golgari.",
+															"name": "Golgari",
 															"entry": "\"If they limited themselves to their intended purpose, repulsive as it is, they could be allowed to survive. But they are growing into a dangerous menace, and we need to flush them out of the sewers while we still can.\""
 														},
 														{
 															"type": "item",
-															"name": "Gruul.",
+															"name": "Gruul",
 															"entry": "\"They are lost in violence and savagery. Only occasionally can their energy be channeled in directions that benefit the greater good.\""
 														},
 														{
 															"type": "item",
-															"name": "Izzet.",
+															"name": "Izzet",
 															"entry": "\"They don't understand the concept of limits. If they kept their spellcraft under control, they could truly benefit society.\""
 														},
 														{
 															"type": "item",
-															"name": "Orzhov.",
+															"name": "Orzhov",
 															"entry": "\"The Orzhov care only about the Orzhov. If it were up to them, all of Ravnica would follow an orderly process designed to funnel wealth into their grasping hands.\""
 														},
 														{
 															"type": "item",
-															"name": "Rakdos.",
+															"name": "Rakdos",
 															"entry": "\"They make destruction into a spectacle, but they're more than blood and fire. They're termites gnawing away at the heart and soul of Ravnica.\""
 														},
 														{
 															"type": "item",
-															"name": "Selesnya.",
+															"name": "Selesnya",
 															"entry": "\"I almost envy the naiveté that leads them to retreat into their little communes and pretend they've built a just society.\""
 														},
 														{
 															"type": "item",
-															"name": "Simic.",
+															"name": "Simic",
 															"entry": "\"They have stepped out of their place, with all their experiments, their tinkering with the nature of life. They're a waste, a drain on Ravnica, and a danger to the public good.\""
 														}
 													]
@@ -2629,47 +2635,47 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Azorius.",
+															"name": "Azorius",
 															"entry": "\"They can't be allowed to monopolize the flow of knowledge. Clog their networks with misinformation. To stop someone from discerning the truth, drown them in plausible untruths.\""
 														},
 														{
 															"type": "item",
-															"name": "Boros.",
+															"name": "Boros",
 															"entry": "\"Not inherently dangerous. The true danger is that they'll drag down all we've worked for while chasing some romantic crusade. Continue to direct their righteous fury toward our strongest enemy\u2014until the Boros threaten to become the strongest.\""
 														},
 														{
 															"type": "item",
-															"name": "Golgari.",
+															"name": "Golgari",
 															"entry": "\"We once appreciated them for their ability to make a corpse disappear, but we found that too many of our victims rose up to face us again. Now we use the city's fear of the swarm to keep them in their place. The more the Golgari try to rise from the mire of their reputation, the more we make them wallow in it.\""
 														},
 														{
 															"type": "item",
-															"name": "Gruul.",
+															"name": "Gruul",
 															"entry": "\"They've always been convenient scapegoats, but their recent aggressiveness threatens to become a larger problem. We must thin their numbers\u2014selectively and without confrontation. Catch them alone in the dark, and take them out one by one.\""
 														},
 														{
 															"type": "item",
-															"name": "Izzet.",
+															"name": "Izzet",
 															"entry": "\"Even an overloaded, sizzled clock is still right twice a day. When Izzet experiments succeed, they can have unpredictable consequences for active missions. Their activities must be monitored at all times.\""
 														},
 														{
 															"type": "item",
-															"name": "Orzhov.",
+															"name": "Orzhov",
 															"entry": "\"We're amused at how well they've used their hierarchy to mask the corruption of their organization, but their need for the public's trust gives us an edge. They can be manipulated by playing on their fear of the people discovering their ruse.\""
 														},
 														{
 															"type": "item",
-															"name": "Rakdos.",
+															"name": "Rakdos",
 															"entry": "\"They've turned pointless activity into an art form, but their performances nevertheless make very useful distractions. Let them be bright and loud, drawing all attention, while we slip quietly through the dark.\""
 														},
 														{
 															"type": "item",
-															"name": "Selesnya.",
+															"name": "Selesnya",
 															"entry": "\"Strength without guile is perhaps the most dangerous kind. One can't bluff the player who can't conceive of bluffing. Currently, the covert war plays to our strengths; we must ensure that the conclave never becomes conscious of the advantages they possess.\""
 														},
 														{
 															"type": "item",
-															"name": "Simic.",
+															"name": "Simic",
 															"entry": "\"They are never short of intriguing surprises, so we know they are gearing up for something. Keep eyes inside their organization to see what their efforts are leading to\u2014but don't be tempted to partake of their enhancements.\""
 														}
 													]
@@ -2922,47 +2928,47 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Azorius.",
+															"name": "Azorius",
 															"entry": "\"Such hubris! As if all their laws could shore up this crumbling society. Their regulations and institutions are just detritus in the making.\""
 														},
 														{
 															"type": "item",
-															"name": "Boros.",
+															"name": "Boros",
 															"entry": "\"The Boros speak a language we will never understand. Their militant dedication to empty concepts like 'justice' and 'righteousness' is both confusing and disturbing.\""
 														},
 														{
 															"type": "item",
-															"name": "Dimir.",
+															"name": "Dimir",
 															"entry": "\"They collect information like trinkets, so how can they ever grasp the deeper truths we possess? But their presence in the undercity is an all-too-real threat to our dominion beneath the streets.\""
 														},
 														{
 															"type": "item",
-															"name": "Gruul.",
+															"name": "Gruul",
 															"entry": "\"The clans serve as effective instruments of the natural cycle, though in their anger, they are blind to the extent of the role they play.\""
 														},
 														{
 															"type": "item",
-															"name": "Izzet.",
+															"name": "Izzet",
 															"entry": "\"Perplexing. They are attracted to whatever flashes brightest and booms loudest. Their fascination with their toys will only hasten their own end.\""
 														},
 														{
 															"type": "item",
-															"name": "Orzhov.",
+															"name": "Orzhov",
 															"entry": "\"They flout the natural order and use their knowledge of death to resist its pull. While their bodies rot, their spirits persist, clinging to the fiction of material wealth.\""
 														},
 														{
 															"type": "item",
-															"name": "Rakdos.",
+															"name": "Rakdos",
 															"entry": "\"They understand the inevitability of death but seek to hasten its arrival for their petty ends. What the demon destroys, we nurse back to life again.\""
 														},
 														{
 															"type": "item",
-															"name": "Selesnya.",
+															"name": "Selesnya",
 															"entry": "\"Their reverence for nature is the mark of immaturity and naiveté. They fear death, so they can't understand life. They can be dangerous when they fervently cling to their narrow-minded and inadequate view of life.\""
 														},
 														{
 															"type": "item",
-															"name": "Simic.",
+															"name": "Simic",
 															"entry": "\"They seek patterns in the natural world, which is commendable enough, but they believe the search will lead them to find perfection through all of its flaws. They strive to move forward but fail to see that the path they tread is cyclical.\""
 														}
 													]
@@ -3223,37 +3229,37 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Azorius.",
+															"name": "Azorius",
 															"entry": "\"Civilization is a disease, and the Azorius are its plague bearers. Once they are destroyed, Ravnica will reclaim its primal essence.\""
 														},
 														{
 															"type": "item",
-															"name": "Boros.",
+															"name": "Boros",
 															"entry": "\"Puppets who are all too eager to kneel at the feet of their angel handlers.\""
 														},
 														{
 															"type": "item",
-															"name": "Dimir.",
+															"name": "Dimir",
 															"entry": "\"Skulkers, whisperers, and back-stabbers! They are an infestation of roaches. If they remain in the shadows, they will be crushed beneath the rubble of a city that we bring down on their heads. If they face us in open battle, well, then we'll have a good laugh.\""
 														},
 														{
 															"type": "item",
-															"name": "Golgari.",
+															"name": "Golgari",
 															"entry": "\"Hermits and under-dwellers. They see that civilization must be brought to its knees, but they just want to replace it with another of their design.\""
 														},
 														{
 															"type": "item",
-															"name": "Izzet.",
+															"name": "Izzet",
 															"entry": "\"Like us, they respect the powerful. But they seek it in their gadgets and try to contain it in jars.\""
 														},
 														{
 															"type": "item",
-															"name": "Orzhov.",
+															"name": "Orzhov",
 															"entry": "\"The schemers of the Orzhov are the festering wound on a limb that must be hacked away. They amass their power by preying on the weak, so how powerful can they be?\""
 														},
 														{
 															"type": "item",
-															"name": "Rakdos.",
+															"name": "Rakdos",
 															"entry": "\"The guild of fools. They waste their potential on acts of mockery while the real work of razing the city remains undone.\""
 														},
 														{

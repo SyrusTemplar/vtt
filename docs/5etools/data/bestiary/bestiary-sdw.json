@@ -783,19 +783,27 @@
 				{
 					"name": "Martial Role",
 					"entries": [
-						"The warrior has one of the following traits of your choice:"
-					]
-				},
-				{
-					"name": "Attacker",
-					"entries": [
-						"The warrior gains a +2 bonus to attack rolls."
-					]
-				},
-				{
-					"name": "Defender",
-					"entries": [
-						"The warrior gains the Protection reaction below."
+						"The warrior has one of the following traits of your choice:",
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"items": [
+								{
+									"name": "Attacker",
+									"type": "item",
+									"entries": [
+										"The warrior gains a +2 bonus to attack rolls."
+									]
+								},
+								{
+									"name": "Defender",
+									"type": "item",
+									"entries": [
+										"The warrior gains the Protection reaction below."
+									]
+								}
+							]
+						}
 					]
 				},
 				{

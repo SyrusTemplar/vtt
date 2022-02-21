@@ -374,22 +374,22 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Building Ceilings.",
+													"name": "Building Ceilings",
 													"entry": "The ceiling of Wiltroot Hall ({@adventure area W1|SCC-HfMT|0|W1. Hall and Learning Platform}) is 40 feet high. The ceilings of the observation huts (areas {@adventure W2|SCC-HfMT|0|W2. Observation Hut A}, {@adventure W7|SCC-HfMT|0|W7. Observation Hut B}, {@adventure W9|SCC-HfMT|0|W9. Observation Hut C}, {@adventure W10|SCC-HfMT|0|W10. Observation Hut D}, and {@adventure W14|SCC-HfMT|0|W14. Observation Hut E}) are 10 feet high."
 												},
 												{
 													"type": "item",
-													"name": "Building Doors.",
+													"name": "Building Doors",
 													"entry": "The doors to Wiltroot Hall (area W1) and the observation huts (areas W2, W7, W9, W10, and W14) are unlocked."
 												},
 												{
 													"type": "item",
-													"name": "Swampy Stinkbrush.",
+													"name": "Swampy Stinkbrush",
 													"entry": "The areas surrounding the clearings and walkways contain a mixture of nearly impassable, awful-smelling deep bog and thick undergrowth. These areas are difficult terrain if the characters want to explore them, but it's clear that few creatures would intentionally pass through these areas."
 												},
 												{
 													"type": "item",
-													"name": "Walkways.",
+													"name": "Walkways",
 													"entry": "The walkways and the platform underneath the hall are made of magically reinforced wood and enclosed by short guard rails. The walkways are two feet above the swamp. Hopping over the guard rail into the bog or clearings below, or pulling oneself up onto a walkway from the ground below, requires an action but no ability check."
 												}
 											]
@@ -813,12 +813,12 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Glyph of Warding Shapes.",
+											"name": "Glyph of Warding Shapes",
 											"entry": "Identifying the shapes commonly used when a mage casts a {@spell glyph of warding} requires a successful DC 15 Intelligence ({@skill Investigation}) check."
 										},
 										{
 											"type": "item",
-											"name": "Common Glyph Effects.",
+											"name": "Common Glyph Effects",
 											"entry": "Writing an essay on common magical effects and triggers associated with {@spell glyph of warding} spells requires a successful DC 15 Intelligence ({@skill Arcana}) check."
 										}
 									]
@@ -903,12 +903,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Encourage a Team.",
+													"name": "Encourage a Team",
 													"entry": "A character can shout encouragement to a single team. If they do, one member of that team has advantage on their ability check in the stacking game."
 												},
 												{
 													"type": "item",
-													"name": "Heckle a Team.",
+													"name": "Heckle a Team",
 													"entry": "A character can jeer and rankle a single team. If they do, both members of that team have disadvantage on their ability checks in the game."
 												}
 											]
@@ -1129,12 +1129,12 @@
 															"items": [
 																{
 																	"type": "item",
-																	"name": "1st or 2nd Level.",
+																	"name": "1st or 2nd Level",
 																	"entry": "A character can cast a 1st- or 2nd-level spell to grant another character advantage on their ability check."
 																},
 																{
 																	"type": "item",
-																	"name": "3rd Level or Higher.",
+																	"name": "3rd Level or Higher",
 																	"entry": "If a character casts a spell of 3rd level or higher, it counts as a successful ability check for the purpose of determining the winner."
 																}
 															]
@@ -1227,12 +1227,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Symbol Surfaces.",
+													"name": "Symbol Surfaces",
 													"entry": "Identifying the most suitable surfaces to scribe a {@spell symbol} on requires a successful DC 16 Intelligence ({@skill Investigation}) check."
 												},
 												{
 													"type": "item",
-													"name": "Avoiding Symbol Effects.",
+													"name": "Avoiding Symbol Effects",
 													"entry": "Writing up the details of common methods to avoid triggering symbols, plus physical and mental techniques for resisting their effects once they have been triggered, requires a successful DC 16 Charisma ({@skill Persuasion}) check."
 												}
 											]
@@ -1324,12 +1324,12 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Encourage a Skater.",
+															"name": "Encourage a Skater",
 															"entry": "A character can shout encouragement at another student who's skating. The student then has advantage on their ability check."
 														},
 														{
 															"type": "item",
-															"name": "Heckle a Skater.",
+															"name": "Heckle a Skater",
 															"entry": "A character can jeer at an opposing skater. The heckled participant has disadvantage on their ability check."
 														}
 													]
@@ -1434,37 +1434,37 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Astrolabes.",
+													"name": "Astrolabes",
 													"entry": "These spherical copper devices were a gift to Director Quenthorne from a society of diviners. Most are situated along the northern wall in the middle and to the west, near the hearth. Magically enchanted to help the director see into other worlds and beyond, the centermost astrolabe has been corrupted as described in the \"{@adventure Is That Astrolabe Breathing?|SCC-HfMT|0|Is That Astrolabe Breathing?}\" section. If any character examines this central astrolabe for 1 round or more, skip directly to that section."
 												},
 												{
 													"type": "item",
-													"name": "Bookshelves.",
+													"name": "Bookshelves",
 													"entry": "The sturdy bookshelves here are bolted in place. Climbing a bookshelf requires a successful DC 12 Strength ({@skill Athletics}) check."
 												},
 												{
 													"type": "item",
-													"name": "Ceiling.",
+													"name": "Ceiling",
 													"entry": "The ceiling is 30 feet high."
 												},
 												{
 													"type": "item",
-													"name": "Door.",
+													"name": "Door",
 													"entry": "Only one door leads in and out of the collections. It's unlocked during the day while the Biblioplex is open. At night, the door is closed, locked, and further sealed with an {@spell arcane lock} spell. A character using thieves' tools can open the door with a successful DC 25 Dexterity check (DC 35 while the {@spell arcane lock} spell is in effect)."
 												},
 												{
 													"type": "item",
-													"name": "Hearth.",
+													"name": "Hearth",
 													"entry": "The hearth in the northwest corner of the room is decorated with antique diviner's tools. Two comfortable chairs flank it in front of a smaller spherical astrolabe to the east and a table to the south that is covered in knickknacks and artifacts from Strixhaven's earlier days."
 												},
 												{
 													"type": "item",
-													"name": "Lounge.",
+													"name": "Lounge",
 													"entry": "The lounge to the northwest includes several plush sofas and comfortable chairs, along with a heavy table covered in tomes and sheets of parchment left by a previous study group. The sharp letter openers on the table can be used as silvered daggers in a fight."
 												},
 												{
 													"type": "item",
-													"name": "Tables and Chairs.",
+													"name": "Tables and Chairs",
 													"entry": "The room's chairs can be moved, but its sturdy tables are bolted to the floor."
 												}
 											]
@@ -1559,12 +1559,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Augury Tools and Methods.",
+													"name": "Augury Tools and Methods",
 													"entry": "Choosing the most effective tools and methods for casting {@spell augury} requires a successful DC 17 Intelligence ({@skill History}) check."
 												},
 												{
 													"type": "item",
-													"name": "Interpreting Weals and Woes.",
+													"name": "Interpreting Weals and Woes",
 													"entry": "Reasoning out meaningful interpretations of cryptic scenarios paired with the results of auguries requires a successful DC 17 Wisdom ({@skill Insight}) check."
 												}
 											]
@@ -1829,12 +1829,12 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "1st or 2nd Level.",
+															"name": "1st or 2nd Level",
 															"entry": "Casting a 1st- or 2nd-level spell gives another team member of the character's choice advantage on their next ability check made during the game."
 														},
 														{
 															"type": "item",
-															"name": "3rd Level or Higher.",
+															"name": "3rd Level or Higher",
 															"entry": "Casting a spell of 3rd level or higher counts as a successful ability check for the purpose of determining the winning team."
 														}
 													]

@@ -763,7 +763,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -771,7 +771,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 11} Wisdom ({@skill Insight}) check."
@@ -779,7 +779,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -787,7 +787,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -1234,7 +1234,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -1242,7 +1242,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 12} Wisdom ({@skill Insight}) check."
@@ -1250,7 +1250,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -1258,14 +1258,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]
@@ -1442,12 +1442,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Fire Breath.",
+									"name": "Fire Breath",
 									"entry": "The dragon exhales fire in a 60-foot line that is 5 feet wide. Each creature in that line must make a {@dc 18} Dexterity saving throw, taking 45 ({@damage 13d6}) fire damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Sleep Breath.",
+									"name": "Sleep Breath",
 									"entry": "The dragon exhales sleep gas in a 60-foot cone. Each creature in that area must succeed on a {@dc 18} Constitution saving throw or fall {@condition unconscious} for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it."
 								}
 							]
@@ -1519,7 +1519,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -1528,7 +1528,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -1536,7 +1536,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 11} Wisdom ({@skill Insight}) check."
@@ -1544,7 +1544,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -1552,14 +1552,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]
@@ -1752,12 +1752,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Lightning Breath.",
+									"name": "Lightning Breath",
 									"entry": "The dragon exhales lightning in a 90-foot line that is 5 feet wide. Each creature in that line must make a {@dc 19} Dexterity saving throw, taking 66 ({@damage 12d10}) lightning damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Repulsion Breath.",
+									"name": "Repulsion Breath",
 									"entry": "The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a {@dc 19} Strength saving throw. On a failed save, the creature is pushed 60 feet away from the dragon."
 								}
 							]
@@ -1836,7 +1836,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -1845,7 +1845,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -1853,7 +1853,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 12} Wisdom ({@skill Insight}) check."
@@ -1861,7 +1861,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -1869,7 +1869,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -2048,12 +2048,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Acid Breath.",
+									"name": "Acid Breath",
 									"entry": "The dragon exhales acid in a 60-foot line that is 5 feet wide. Each creature in that line must make a {@dc 18} Dexterity saving throw, taking 54 ({@damage 12d8}) acid damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Slowing Breath.",
+									"name": "Slowing Breath",
 									"entry": "The dragon exhales gas in a 60-foot cone. Each creature in that area must succeed on a {@dc 18} Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save."
 								}
 							]
@@ -2125,7 +2125,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -2134,7 +2134,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -2142,7 +2142,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 16} Wisdom ({@skill Insight}) check."
@@ -2150,7 +2150,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -2158,7 +2158,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -2341,12 +2341,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Fire Breath.",
+									"name": "Fire Breath",
 									"entry": "The dragon exhales fire in a 60-foot cone. Each creature in that area must make a {@dc 21} Dexterity saving throw, taking 66 ({@damage 12d10}) fire damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Weakening Breath.",
+									"name": "Weakening Breath",
 									"entry": "The dragon exhales gas in a 60-foot cone. Each creature in that area must succeed on a {@dc 21} Strength saving throw or have disadvantage on Strength-based attack rolls, Strength checks, and Strength saving throws for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								}
 							]
@@ -2425,7 +2425,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -2434,7 +2434,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Damage Absorption.",
+											"name": "Damage Absorption",
 											"entries": [
 												"You might decide that this dragon is not only unharmed by fire damage, but actually healed by it.",
 												"Whenever the dragon is subjected to fire damage, it takes no damage and instead regains a number of hit points equal to the fire damage dealt."
@@ -2442,7 +2442,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -2450,7 +2450,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 15} Wisdom ({@skill Insight}) check."
@@ -2458,7 +2458,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -2466,7 +2466,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -2720,7 +2720,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -2728,7 +2728,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 16} Wisdom ({@skill Insight}) check."
@@ -2736,7 +2736,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -2744,7 +2744,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -2993,7 +2993,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Damage Absorption.",
+											"name": "Damage Absorption",
 											"entries": [
 												"You might decide that this dragon is not only unharmed by fire damage, but actually healed by it.",
 												"Whenever the dragon is subjected to fire damage, it takes no damage and instead regains a number of hit points equal to the fire damage dealt."
@@ -3001,7 +3001,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -3009,7 +3009,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 13} Wisdom ({@skill Insight}) check."
@@ -3017,7 +3017,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -3025,7 +3025,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -3204,12 +3204,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Cold Breath.",
+									"name": "Cold Breath",
 									"entry": "The dragon exhales an icy blast in a 60-foot cone. Each creature in that area must make a {@dc 20} Constitution saving throw, taking 58 ({@damage 13d8}) cold damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Paralyzing Breath.",
+									"name": "Paralyzing Breath",
 									"entry": "The dragon exhales paralyzing gas in a 60-foot cone. Each creature in that area must succeed on a {@dc 20} Constitution saving throw or be {@condition paralyzed} for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								}
 							]
@@ -3288,7 +3288,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -3297,7 +3297,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -3305,7 +3305,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 13} Wisdom ({@skill Insight}) check."
@@ -3313,7 +3313,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -3321,7 +3321,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -3582,7 +3582,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -3590,7 +3590,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 9} Wisdom ({@skill Insight}) check."
@@ -3598,7 +3598,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -3606,14 +3606,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]
@@ -4114,7 +4114,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -4122,7 +4122,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 12} Wisdom ({@skill Insight}) check."
@@ -4130,7 +4130,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -4138,7 +4138,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -4377,7 +4377,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -4385,7 +4385,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 13} Wisdom ({@skill Insight}) check."
@@ -4393,7 +4393,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -4401,14 +4401,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]
@@ -4580,12 +4580,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Fire Breath.",
+									"name": "Fire Breath",
 									"entry": "The dragon exhales fire in a 90-foot line that is 10 feet wide. Each creature in that line must make a {@dc 21} Dexterity saving throw, taking 56 ({@damage 16d6}) fire damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Sleep Breath.",
+									"name": "Sleep Breath",
 									"entry": "The dragon exhales sleep gas in a 90-foot cone. Each creature in that area must succeed on a {@dc 21} Constitution saving throw or fall {@condition unconscious} for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it."
 								}
 							]
@@ -4664,7 +4664,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -4673,7 +4673,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -4681,7 +4681,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 12} Wisdom ({@skill Insight}) check."
@@ -4689,7 +4689,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -4697,14 +4697,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]
@@ -4886,12 +4886,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Lightning Breath.",
+									"name": "Lightning Breath",
 									"entry": "The dragon exhales lightning in a 120-foot line that is 10 feet wide. Each creature in that line must make a {@dc 23} Dexterity saving throw, taking 88 ({@damage 16d10}) lightning damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Repulsion Breath.",
+									"name": "Repulsion Breath",
 									"entry": "The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a {@dc 23} Strength saving throw. On a failed save, the creature is pushed 60 feet away from the dragon."
 								}
 							]
@@ -4970,7 +4970,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -4979,7 +4979,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -4987,7 +4987,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 13} Wisdom ({@skill Insight}) check."
@@ -4995,7 +4995,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -5003,7 +5003,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -5179,12 +5179,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Acid Breath.",
+									"name": "Acid Breath",
 									"entry": "The dragon exhales acid in a 90-foot line that is 10 feet wide. Each creature in that line must make a {@dc 22} Dexterity saving throw, taking 63 ({@damage 14d8}) acid damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Slowing Breath.",
+									"name": "Slowing Breath",
 									"entry": "The dragon exhales gas in a 90-foot cone. Each creature in that area must succeed on a {@dc 22} Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save."
 								}
 							]
@@ -5263,7 +5263,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -5272,7 +5272,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -5280,7 +5280,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 19} Wisdom ({@skill Insight}) check."
@@ -5288,7 +5288,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -5296,7 +5296,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -5472,12 +5472,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Fire Breath.",
+									"name": "Fire Breath",
 									"entry": "The dragon exhales fire in a 90-foot cone. Each creature in that area must make a {@dc 24} Dexterity saving throw, taking 71 ({@damage 13d10}) fire damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Weakening Breath.",
+									"name": "Weakening Breath",
 									"entry": "The dragon exhales gas in a 90-foot cone. Each creature in that area must succeed on a {@dc 24} Strength saving throw or have disadvantage on Strength-based attack rolls, Strength checks, and Strength saving throws for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								}
 							]
@@ -5556,7 +5556,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -5565,7 +5565,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Damage Absorption.",
+											"name": "Damage Absorption",
 											"entries": [
 												"You might decide that this dragon is not only unharmed by fire damage, but actually healed by it.",
 												"Whenever the dragon is subjected to fire damage, it takes no damage and instead regains a number of hit points equal to the fire damage dealt."
@@ -5573,7 +5573,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -5581,7 +5581,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 17} Wisdom ({@skill Insight}) check."
@@ -5589,7 +5589,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -5597,7 +5597,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -5848,7 +5848,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -5856,7 +5856,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 19} Wisdom ({@skill Insight}) check."
@@ -5864,7 +5864,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -5872,7 +5872,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -6114,7 +6114,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Damage Absorption.",
+											"name": "Damage Absorption",
 											"entries": [
 												"You might decide that this dragon is not only unharmed by fire damage, but actually healed by it.",
 												"Whenever the dragon is subjected to fire damage, it takes no damage and instead regains a number of hit points equal to the fire damage dealt."
@@ -6122,7 +6122,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -6130,7 +6130,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 14} Wisdom ({@skill Insight}) check."
@@ -6138,7 +6138,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -6146,7 +6146,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -6317,12 +6317,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Cold Breath.",
+									"name": "Cold Breath",
 									"entry": "The dragon exhales an icy blast in a 90-foot cone. Each creature in that area must make a {@dc 24} Constitution saving throw, taking 67 ({@damage 15d8}) cold damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Paralyzing Breath.",
+									"name": "Paralyzing Breath",
 									"entry": "The dragon exhales paralyzing gas in a 90-foot cone. Each creature in that area must succeed on a {@dc 24} Constitution saving throw or be {@condition paralyzed} for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								}
 							]
@@ -6401,7 +6401,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -6410,7 +6410,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -6418,7 +6418,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 14} Wisdom ({@skill Insight}) check."
@@ -6426,7 +6426,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -6434,7 +6434,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -6683,7 +6683,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -6691,7 +6691,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom ({@skill Insight}) check."
@@ -6699,7 +6699,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -6707,14 +6707,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]
@@ -10331,37 +10331,37 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "1. Charm Ray.",
+									"name": "1. Charm Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 16} Wisdom saving throw or be {@condition charmed} by the beholder for 1 hour, or until the beholder harms the creature."
 								},
 								{
 									"type": "item",
-									"name": "2. Paralyzing Ray.",
+									"name": "2. Paralyzing Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 16} Constitution saving throw or be {@condition paralyzed} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
 									"type": "item",
-									"name": "3. Fear Ray.",
+									"name": "3. Fear Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 16} Wisdom saving throw or be {@condition frightened} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
 									"type": "item",
-									"name": "4. Slowing Ray.",
+									"name": "4. Slowing Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 16} Dexterity saving throw. On a failed save, the target's speed is halved for 1 minute. In addition, the creature can't take reactions, and it can take either an action or a bonus action on its turn, not both. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
 									"type": "item",
-									"name": "5. Enervation Ray.",
+									"name": "5. Enervation Ray",
 									"style": "italic",
 									"entry": "The targeted creature must make a {@dc 16} Constitution saving throw, taking 36 ({@damage 8d8}) necrotic damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "6. Telekinetic Ray.",
+									"name": "6. Telekinetic Ray",
 									"style": "italic",
 									"entries": [
 										"If the target is a creature, it must succeed on a {@dc 16} Strength saving throw or the beholder moves it up to 30 feet in any direction. It is {@condition restrained} by the ray's telekinetic grip until the start of the beholder's next turn or until the beholder is {@condition incapacitated}.",
@@ -10370,19 +10370,19 @@
 								},
 								{
 									"type": "item",
-									"name": "7. Sleep Ray.",
+									"name": "7. Sleep Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 16} Wisdom saving throw or fall asleep and remain {@condition unconscious} for 1 minute. The target awakens if it takes damage or another creature takes an action to wake it. This ray has no effect on constructs and undead."
 								},
 								{
 									"type": "item",
-									"name": "8. Petrification Ray.",
+									"name": "8. Petrification Ray",
 									"style": "italic",
 									"entry": "The targeted creature must make a {@dc 16} Dexterity saving throw. On a failed save, the creature begins to turn to stone and is {@condition restrained}. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is {@condition petrified} until freed by the  {@spell greater restoration} spell or other magic."
 								},
 								{
 									"type": "item",
-									"name": "9. Disintegration Ray.",
+									"name": "9. Disintegration Ray",
 									"style": "italic",
 									"entries": [
 										"If the target is a creature, it must succeed on a {@dc 16} Dexterity saving throw or take 45 ({@damage 10d8}) force damage. If this damage reduces the creature to 0 hit points, its body becomes a pile of fine gray dust.",
@@ -10391,7 +10391,7 @@
 								},
 								{
 									"type": "item",
-									"name": "10. Death Ray.",
+									"name": "10. Death Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 16} Dexterity saving throw or take 55 ({@damage 10d10}) necrotic damage. The target dies if the ray reduces it to 0 hit points."
 								}
@@ -10445,7 +10445,7 @@
 								{
 									"type": "item",
 									"name": "Disintegration Ray:",
-									"entry": "{@spell chain lightning} (primary target takes 6d8 lightning damage; two secondary targets within 30 feet of the primary target take 3d8 lightning damage each), eyebite (sickened effect; 1 minute)"
+									"entry": "{@spell chain lightning} (primary target takes 6d8 lightning damage; two secondary targets within 30 feet of the primary target take 3d8 lightning damage each), {@spell eyebite} (sickened effect; 1 minute)"
 								},
 								{
 									"type": "item",
@@ -10618,25 +10618,25 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "1. Paralyzing Ray.",
+									"name": "1. Paralyzing Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 14} Constitution saving throw or be {@condition paralyzed} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
 									"type": "item",
-									"name": "2. Fear Ray.",
+									"name": "2. Fear Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 14} Wisdom saving throw or be {@condition frightened} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
 									"type": "item",
-									"name": "3. Enervation Ray.",
+									"name": "3. Enervation Ray",
 									"style": "italic",
 									"entry": "The targeted creature must make a {@dc 14} Constitution saving throw, taking 36 ({@damage 8d8}) necrotic damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "4. Disintegration Ray.",
+									"name": "4. Disintegration Ray",
 									"style": "italic",
 									"entries": [
 										"If the target is a creature, it must succeed on a {@dc 14} Dexterity saving throw or take 45 ({@damage 10d8}) force damage. If this damage reduces the creature to 0 hit points, its body becomes a pile of fine gray dust.",
@@ -11054,7 +11054,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -11062,7 +11062,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 9} Wisdom ({@skill Insight}) check."
@@ -11070,7 +11070,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -11078,7 +11078,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -11578,7 +11578,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -11586,7 +11586,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom ({@skill Insight}) check."
@@ -11594,7 +11594,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -11602,14 +11602,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]
@@ -12410,12 +12410,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Fire Breath.",
+									"name": "Fire Breath",
 									"entry": "The dragon exhales fire in a 20-foot line that is 5 feet wide. Each creature in that line must make a {@dc 11} Dexterity saving throw, taking 14 ({@damage 4d6}) fire damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Sleep Breath.",
+									"name": "Sleep Breath",
 									"entry": "The dragon exhales sleep gas in a 15-foot cone. Each creature in that area must succeed on a {@dc 11} Constitution saving throw or fall {@condition unconscious} for 1 minute. This effect ends for a creature if the creature takes damage or someone uses an action to wake it."
 								}
 							]
@@ -12463,7 +12463,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -12472,7 +12472,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -12480,7 +12480,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 9} Wisdom ({@skill Insight}) check."
@@ -12488,7 +12488,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -12496,14 +12496,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]
@@ -12628,12 +12628,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Lightning Breath.",
+									"name": "Lightning Breath",
 									"entry": "The dragon exhales lightning in a 40-foot line that is 5 feet wide. Each creature in that line must make a {@dc 12} Dexterity saving throw, taking 16 ({@damage 3d10}) lightning damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Repulsion Breath.",
+									"name": "Repulsion Breath",
 									"entry": "The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a {@dc 12} Strength saving throw. On a failed save, the creature is pushed 30 feet away from the dragon."
 								}
 							]
@@ -12681,7 +12681,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -12690,7 +12690,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -12698,7 +12698,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom ({@skill Insight}) check."
@@ -12706,7 +12706,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -12714,7 +12714,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -15642,12 +15642,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Acid Breath.",
+									"name": "Acid Breath",
 									"entry": "The dragon exhales acid in a 20-foot line that is 5 feet wide. Each creature in that line must make a {@dc 11} Dexterity saving throw, taking 18 ({@damage 4d8}) acid damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Slowing Breath.",
+									"name": "Slowing Breath",
 									"entry": "The dragon exhales gas in a 15-foot cone. Each creature in that area must succeed on a {@dc 11} Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save."
 								}
 							]
@@ -15695,7 +15695,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -15704,7 +15704,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -15712,7 +15712,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 9} Wisdom ({@skill Insight}) check."
@@ -15720,7 +15720,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -15728,7 +15728,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -17727,37 +17727,37 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "1. Charm Ray.",
+									"name": "1. Charm Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 17} Wisdom saving throw or be {@condition charmed} by the death tyrant for 1 hour, or until the death tyrant harms the creature."
 								},
 								{
 									"type": "item",
-									"name": "2. Paralyzing Ray.",
+									"name": "2. Paralyzing Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 17} Constitution saving throw or be {@condition paralyzed} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
 									"type": "item",
-									"name": "3. Fear Ray.",
+									"name": "3. Fear Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 17} Wisdom saving throw or be {@condition frightened} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
 									"type": "item",
-									"name": "4. Slowing Ray.",
+									"name": "4. Slowing Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 17} Dexterity saving throw. On a failed save, the target's speed is halved for 1 minute. In addition, the creature can't take reactions, and it can take either an action or a bonus action on its turn, not both. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
 									"type": "item",
-									"name": "5. Enervation Ray.",
+									"name": "5. Enervation Ray",
 									"style": "italic",
 									"entry": "The targeted creature must make a {@dc 17} Constitution saving throw, taking 36 ({@damage 8d8}) necrotic damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "6. Telekinetic Ray.",
+									"name": "6. Telekinetic Ray",
 									"style": "italic",
 									"entries": [
 										"If the target is a creature, it must succeed on a {@dc 17} Strength saving throw or the death tyrant moves it up to 30 feet in any direction. It is {@condition restrained} by the ray's telekinetic grip until the start of the death tyrant's next turn or until the death tyrant is {@condition incapacitated}.",
@@ -17766,19 +17766,19 @@
 								},
 								{
 									"type": "item",
-									"name": "7. Sleep Ray.",
+									"name": "7. Sleep Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 17} Wisdom saving throw or fall asleep and remain {@condition unconscious} for 1 minute. The target awakens if it takes damage or another creature takes an action to wake it. This ray has no effect on constructs and undead."
 								},
 								{
 									"type": "item",
-									"name": "8. Petrification Ray.",
+									"name": "8. Petrification Ray",
 									"style": "italic",
 									"entry": "The targeted creature must make a {@dc 17} Dexterity saving throw. On a failed save, the creature begins to turn to stone and is {@condition restrained}. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is {@condition petrified} until freed by the  {@spell greater restoration} spell or other magic."
 								},
 								{
 									"type": "item",
-									"name": "9. Disintegration Ray.",
+									"name": "9. Disintegration Ray",
 									"style": "italic",
 									"entries": [
 										"If the target is a creature, it must succeed on a {@dc 17} Dexterity saving throw or take 45 ({@damage 10d8}) force damage. If this damage reduces the creature to 0 hit points, its body becomes a pile of fine gray dust.",
@@ -17787,7 +17787,7 @@
 								},
 								{
 									"type": "item",
-									"name": "10. Death Ray.",
+									"name": "10. Death Ray",
 									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 17} Dexterity saving throw or take 55 ({@damage 10d10}) necrotic damage. The target dies if the ray reduces it to 0 hit points."
 								}
@@ -30994,12 +30994,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Fire Breath.",
+									"name": "Fire Breath",
 									"entry": "The dragon exhales fire in a 15-foot cone. Each creature in that area must make a {@dc 13} Dexterity saving throw, taking 22 ({@damage 4d10}) fire damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Weakening Breath.",
+									"name": "Weakening Breath",
 									"entry": "The dragon exhales gas in a 15-foot cone. Each creature in that area must succeed on a {@dc 13} Strength saving throw or have disadvantage on Strength-based attack rolls, Strength checks, and Strength saving throws for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								}
 							]
@@ -31047,7 +31047,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -31056,7 +31056,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Damage Absorption.",
+											"name": "Damage Absorption",
 											"entries": [
 												"You might decide that this dragon is not only unharmed by fire damage, but actually healed by it.",
 												"Whenever the dragon is subjected to fire damage, it takes no damage and instead regains a number of hit points equal to the fire damage dealt."
@@ -31064,7 +31064,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -31072,7 +31072,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 11} Wisdom ({@skill Insight}) check."
@@ -31080,7 +31080,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -31088,7 +31088,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -31900,7 +31900,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -31908,7 +31908,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 9} Wisdom ({@skill Insight}) check."
@@ -31916,7 +31916,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -31924,7 +31924,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -50203,7 +50203,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Damage Absorption.",
+											"name": "Damage Absorption",
 											"entries": [
 												"You might decide that this dragon is not only unharmed by fire damage, but actually healed by it.",
 												"Whenever the dragon is subjected to fire damage, it takes no damage and instead regains a number of hit points equal to the fire damage dealt."
@@ -50211,7 +50211,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -50219,7 +50219,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom ({@skill Insight}) check."
@@ -50227,7 +50227,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -50235,7 +50235,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -53846,12 +53846,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Cold Breath.",
+									"name": "Cold Breath",
 									"entry": "The dragon exhales an icy blast in a 15-foot cone. Each creature in that area must make a {@dc 13} Constitution saving throw, taking 18 ({@damage 4d8}) cold damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Paralyzing Breath.",
+									"name": "Paralyzing Breath",
 									"entry": "The dragon exhales paralyzing gas in a 15-foot cone. Each creature in that area must succeed on a {@dc 13} Constitution saving throw or be {@condition paralyzed} for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								}
 							]
@@ -53899,7 +53899,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -53908,7 +53908,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -53916,7 +53916,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom ({@skill Insight}) check."
@@ -53924,7 +53924,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -53932,7 +53932,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -54674,25 +54674,25 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "1. Confusion Ray.",
+									"name": "1. Confusion Ray",
 									"style": "italic",
 									"entry": "The target must succeed on a {@dc 13} Wisdom saving throw, or it can't take reactions until the end of its next turn. On its turn, the target can't move, and it uses its action to make a melee or ranged attack against a randomly determined creature within range. If the target can't attack, it does nothing on its turn."
 								},
 								{
 									"type": "item",
-									"name": "2. Paralyzing Ray.",
+									"name": "2. Paralyzing Ray",
 									"style": "italic",
 									"entry": "The target must succeed on a {@dc 13} Constitution saving throw or be {@condition paralyzed} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
 									"type": "item",
-									"name": "3. Fear Ray.",
+									"name": "3. Fear Ray",
 									"style": "italic",
 									"entry": "The target must succeed on a {@dc 13} Wisdom saving throw or be {@condition frightened} for 1 minute. The target can repeat the saving throw at the end of each of its turns, with disadvantage if the spectator is visible to the target, ending the effect on itself on a success."
 								},
 								{
 									"type": "item",
-									"name": "4. Wounding Ray.",
+									"name": "4. Wounding Ray",
 									"style": "italic",
 									"entry": "The target must make a {@dc 13} Constitution saving throw, taking 16 ({@damage 3d10}) necrotic damage on a failed save, or half as much damage on a successful one."
 								}
@@ -63336,7 +63336,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -63344,7 +63344,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 8} Wisdom ({@skill Insight}) check."
@@ -63352,7 +63352,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -63360,14 +63360,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]
@@ -65166,7 +65166,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -65174,7 +65174,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom ({@skill Insight}) check."
@@ -65182,7 +65182,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -65190,7 +65190,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -65382,7 +65382,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -65390,7 +65390,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 11} Wisdom ({@skill Insight}) check."
@@ -65398,7 +65398,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -65406,14 +65406,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]
@@ -65555,12 +65555,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Fire Breath.",
+									"name": "Fire Breath",
 									"entry": "The dragon exhales fire in a 40-foot line that is 5 feet wide. Each creature in that line must make a {@dc 14} Dexterity saving throw, taking 42 ({@damage 12d6}) fire damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Sleep Breath.",
+									"name": "Sleep Breath",
 									"entry": "The dragon exhales sleep gas in a 30-foot cone. Each creature in that area must succeed on a {@dc 14} Constitution saving throw or fall {@condition unconscious} for 5 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it."
 								}
 							]
@@ -65608,7 +65608,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -65617,7 +65617,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -65625,7 +65625,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom ({@skill Insight}) check."
@@ -65633,7 +65633,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -65641,14 +65641,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]
@@ -65806,12 +65806,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Lightning Breath.",
+									"name": "Lightning Breath",
 									"entry": "The dragon exhales lightning in a 60-foot line that is 5 feet wide. Each creature in that line must make a {@dc 15} Dexterity saving throw, taking 55 ({@damage 10d10}) lightning damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Repulsion Breath.",
+									"name": "Repulsion Breath",
 									"entry": "The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a {@dc 15} Strength saving throw. On a failed save, the creature is pushed 40 feet away from the dragon."
 								}
 							]
@@ -65859,7 +65859,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -65868,7 +65868,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -65876,7 +65876,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 11} Wisdom ({@skill Insight}) check."
@@ -65884,7 +65884,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -65892,7 +65892,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -66036,12 +66036,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Acid Breath.",
+									"name": "Acid Breath",
 									"entry": "The dragon exhales acid in a 40-foot line that is 5 feet wide. Each creature in that line must make a {@dc 14} Dexterity saving throw, taking 40 ({@damage 9d8}) acid damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Slowing Breath.",
+									"name": "Slowing Breath",
 									"entry": "The dragon exhales gas in a 30-foot cone. Each creature in that area must succeed on a {@dc 14} Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save."
 								}
 							]
@@ -66089,7 +66089,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -66098,7 +66098,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -66106,7 +66106,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 13} Wisdom ({@skill Insight}) check."
@@ -66114,7 +66114,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -66122,7 +66122,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -66267,12 +66267,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Fire Breath.",
+									"name": "Fire Breath",
 									"entry": "The dragon exhales fire in a 30-foot cone. Each creature in that area must make a {@dc 17} Dexterity saving throw, taking 55 ({@damage 10d10}) fire damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Weakening Breath.",
+									"name": "Weakening Breath",
 									"entry": "The dragon exhales gas in a 30-foot cone. Each creature in that area must succeed on a {@dc 17} Strength saving throw or have disadvantage on Strength-based attack rolls, Strength checks, and Strength saving throws for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								}
 							]
@@ -66320,7 +66320,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -66329,7 +66329,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Damage Absorption.",
+											"name": "Damage Absorption",
 											"entries": [
 												"You might decide that this dragon is not only unharmed by fire damage, but actually healed by it.",
 												"Whenever the dragon is subjected to fire damage, it takes no damage and instead regains a number of hit points equal to the fire damage dealt."
@@ -66337,7 +66337,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -66345,7 +66345,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 13} Wisdom ({@skill Insight}) check."
@@ -66353,7 +66353,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -66361,7 +66361,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -66567,7 +66567,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -66575,7 +66575,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 13} Wisdom ({@skill Insight}) check."
@@ -66583,7 +66583,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -66591,7 +66591,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -66786,7 +66786,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Damage Absorption.",
+											"name": "Damage Absorption",
 											"entries": [
 												"You might decide that this dragon is not only unharmed by fire damage, but actually healed by it.",
 												"Whenever the dragon is subjected to fire damage, it takes no damage and instead regains a number of hit points equal to the fire damage dealt."
@@ -66794,7 +66794,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -66802,7 +66802,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 12} Wisdom ({@skill Insight}) check."
@@ -66810,7 +66810,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -66818,7 +66818,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -67010,7 +67010,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Damage Absorption.",
+											"name": "Damage Absorption",
 											"entries": [
 												"You might decide that this dragon is not only unharmed by fire damage, but actually healed by it.",
 												"Whenever the dragon is subjected to fire damage, it takes no damage and instead regains a number of hit points equal to the fire damage dealt."
@@ -67018,7 +67018,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -67026,7 +67026,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 12} Wisdom ({@skill Insight}) check."
@@ -67034,7 +67034,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -67042,7 +67042,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -67276,12 +67276,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Cold Breath.",
+									"name": "Cold Breath",
 									"entry": "The dragon exhales an icy blast in a 30-foot cone. Each creature in that area must make a {@dc 17} Constitution saving throw, taking 54 ({@damage 12d8}) cold damage on a failed save, or half as much damage on a successful one."
 								},
 								{
 									"type": "item",
-									"name": "Paralyzing Breath.",
+									"name": "Paralyzing Breath",
 									"entry": "The dragon exhales paralyzing gas in a 30-foot cone. Each creature in that area must succeed on a {@dc 17} Constitution saving throw or be {@condition paralyzed} for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								}
 							]
@@ -67329,7 +67329,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -67338,7 +67338,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -67346,7 +67346,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 12} Wisdom ({@skill Insight}) check."
@@ -67354,7 +67354,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -67362,7 +67362,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
@@ -67561,7 +67561,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -67569,7 +67569,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 9} Wisdom ({@skill Insight}) check."
@@ -67577,7 +67577,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -67585,14 +67585,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]

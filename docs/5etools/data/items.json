@@ -861,17 +861,17 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Piety 10+.",
+									"name": "Piety 10+",
 									"entry": "The hammer has 1 randomly determined {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} property."
 								},
 								{
 									"type": "item",
-									"name": "Piety 25+.",
+									"name": "Piety 25+",
 									"entry": "The hammer has 1 randomly determined {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial} property."
 								},
 								{
 									"type": "item",
-									"name": "Piety 50+.",
+									"name": "Piety 50+",
 									"entry": "The hammer has 1 additional randomly determined {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial} property."
 								}
 							]
@@ -1972,21 +1972,21 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Chromatic.",
+							"name": "Chromatic",
 							"entries": [
 								"Whenever you use a spell slot to cast a spell that deals acid, cold, fire, lightning, or poison damage, roll a {@dice d6}, and you gain a bonus equal to the number rolled to one of the spell's damage rolls."
 							]
 						},
 						{
 							"type": "item",
-							"name": "Gem.",
+							"name": "Gem",
 							"entries": [
 								"Whenever you use a spell slot to cast a spell, you can immediately teleport to an unoccupied space you can see within 15 feet of you."
 							]
 						},
 						{
 							"type": "item",
-							"name": "Metallic.",
+							"name": "Metallic",
 							"entries": [
 								"When a creature you can see within 30 feet of you makes a saving throw, you can use your reaction to give that creature advantage on the saving throw."
 							]
@@ -2000,21 +2000,21 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Chromatic.",
+							"name": "Chromatic",
 							"entries": [
 								"{@spell Hold monster}, {@spell Rime's binding ice|FTD}"
 							]
 						},
 						{
 							"type": "item",
-							"name": "Gem.",
+							"name": "Gem",
 							"entries": [
 								"{@spell Rary's telepathic bond}, {@spell Raulothim's psychic lance|FTD}"
 							]
 						},
 						{
 							"type": "item",
-							"name": "Metallic.",
+							"name": "Metallic",
 							"entries": [
 								"{@spell Fizban's platinum shield|FTD}, {@spell legend lore}"
 							]
@@ -9660,17 +9660,17 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Piety 10+.",
+									"name": "Piety 10+",
 									"entry": "You can breathe underwater, and you gain a swimming speed of 60 feet."
 								},
 								{
 									"type": "item",
-									"name": "Piety 25+.",
+									"name": "Piety 25+",
 									"entry": "The bident has 1 randomly determined {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} property."
 								},
 								{
 									"type": "item",
-									"name": "Piety 50+.",
+									"name": "Piety 50+",
 									"entry": "The bident has 1 randomly determined {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial} property."
 								}
 							]
@@ -11811,12 +11811,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Piety 10+.",
+									"name": "Piety 10+",
 									"entry": "The bow has 1 randomly determined {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} property."
 								},
 								{
 									"type": "item",
-									"name": "Piety 25+.",
+									"name": "Piety 25+",
 									"entry": "The bow has 1 randomly determined {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial} property."
 								}
 							]
@@ -16855,6 +16855,10 @@
 				{
 					"source": "BGDIA",
 					"page": 224
+				},
+				{
+					"source": "MPMM",
+					"page": 190
 				}
 			],
 			"rarity": "legendary",
@@ -16868,9 +16872,9 @@
 			],
 			"wondrous": true,
 			"entries": [
-				"A {@creature narzugon|MTF} binds a nightmare to its service with infernal tack, which consists of a bridle, bit, reins, saddle, stirrups, and spurs. A {@creature nightmare} equipped with infernal tack must serve whoever wears the spurs until the wearer dies or the tack is removed.",
-				"You can use an action to call a {@creature nightmare} equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of your next turn, within 20 feet of you. It acts as your ally and takes its turn on your initiative count. It remains for 1 day, until you or it dies, or until you dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which you can summon it again.",
-				"The tack doesn't conjure a nightmare from thin air; one must first be subdued so the tack can be placed on it. No nightmare accepts this forced servitude willingly, but some eventually form strong loyalties to their masters and become true partners in evil."
+				"A rider binds a {@creature nightmare} to its service with infernal tack, which consists of a bridle, bit, reins, saddle, and stirrups, along with spurs that are worn by the rider. A nightmare equipped with infernal tack must serve whoever wears the spurs until the wearer dies or the tack is removed.",
+				"You can use an action to call a nightmare equipped with infernal tack by clashing the spurs together or scraping them through blood. The nightmare appears at the start of your next turn, within 20 feet of you. It acts as your ally and takes its turn on your initiative count. It remains for 1 day, until you or it dies, or until you dismiss it as an action. If the nightmare dies, it reforms in the Nine Hells within 24 hours, after which you can summon it again.",
+				"The tack doesn't conjure a nightmare; one must first be subdued so the tack can be placed on it. No nightmare accepts this forced servitude willingly, but some eventually form strong loyalties to their masters and become true partners in evil."
 			]
 		},
 		{
@@ -16973,12 +16977,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Shield.",
+									"name": "Shield",
 									"entry": "The shield is now a rare magic item that requires attunement. Its magic gives you a +1 bonus to AC, and the first time after each of your long rests that damage reduces you to 0 hit points, you are instead reduced to 1 hit point. You must be wielding the shield to gain these benefits."
 								},
 								{
 									"type": "item",
-									"name": "Weapon.",
+									"name": "Weapon",
 									"entry": "The weapon is now an uncommon magic weapon. It grants you a +1 bonus to AC while you're holding it."
 								}
 							]
@@ -18602,22 +18606,22 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Piety 3+.",
+									"name": "Piety 3+",
 									"entry": "You gain 15 temporary hit points each dawn."
 								},
 								{
 									"type": "item",
-									"name": "Piety 10+.",
+									"name": "Piety 10+",
 									"entry": "The spear has 1 randomly determined {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} property."
 								},
 								{
 									"type": "item",
-									"name": "Piety 25+.",
+									"name": "Piety 25+",
 									"entry": "The spear has 1 additional randomly determined {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} property."
 								},
 								{
 									"type": "item",
-									"name": "Piety 50+.",
+									"name": "Piety 50+",
 									"entry": "The spear has 1 randomly determined {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial} property."
 								}
 							]
@@ -18979,12 +18983,12 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Dead Eyes.",
+											"name": "Dead Eyes",
 											"entry": "A creature that fails the saving throw against this poison is {@condition poisoned} for 1 hour. While {@condition poisoned} in this way, the creature is {@condition blinded}."
 										},
 										{
 											"type": "item",
-											"name": "Serpent Venom.",
+											"name": "Serpent Venom",
 											"entry": "A creature that fails the saving throw against this poison takes {@damage 3d6} poison damage, or half as much damage on a successful save."
 										}
 									]
@@ -19698,12 +19702,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Weal.",
+									"name": "Weal",
 									"entry": "The creature has advantage on attack rolls, ability checks, and saving throws for the next hour."
 								},
 								{
 									"type": "item",
-									"name": "Woe.",
+									"name": "Woe",
 									"entry": "The creature has disadvantage on attack rolls, ability checks, and saving throws for the next hour."
 								},
 								"The deck can be used in this way twice, and you regain all expended uses at the next dawn."
@@ -20609,17 +20613,17 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Piety 1+.",
+									"name": "Piety 1+",
 									"entry": "The whip has 1 randomly determined {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental} property\u2014a burden Erebos imposes to test his faithful."
 								},
 								{
 									"type": "item",
-									"name": "Piety 25+.",
+									"name": "Piety 25+",
 									"entry": "The whip has 1 randomly determined {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial} property."
 								},
 								{
 									"type": "item",
-									"name": "Piety 50+.",
+									"name": "Piety 50+",
 									"entry": "The whip has 1 additional randomly determined {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial} property."
 								}
 							]
@@ -22279,12 +22283,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Weapon.",
+									"name": "Weapon",
 									"entry": "The weapon is now an uncommon magic weapon. It deals an extra {@damage 1d6} fire damage to any target it hits."
 								},
 								{
 									"type": "item",
-									"name": "Armor.",
+									"name": "Armor",
 									"entry": "The armor is now a rare magic item that requires attunement. You have resistance to cold damage while wearing the armor."
 								}
 							]
@@ -22481,12 +22485,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Shield.",
+									"name": "Shield",
 									"entry": "The shield is now a rare magic item that requires attunement. While you wield it, you have resistance to all damage dealt by ranged weapon attacks."
 								},
 								{
 									"type": "item",
-									"name": "Boots.",
+									"name": "Boots",
 									"entry": "The pair of boots is now an uncommon magic item that requires attunement. While you wear the boots, you have advantage on Strength saving throws, and you can use your reaction to avoid being knocked {@condition prone}."
 								}
 							]
@@ -23346,12 +23350,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Armor.",
+									"name": "Armor",
 									"entry": "The armor is now an uncommon magic item that requires attunement. You gain a bonus to speed of 5 feet while you wear the armor, and if it normally imposes disadvantage on {@skill Stealth} checks, it no longer does so."
 								},
 								{
 									"type": "item",
-									"name": "Boots/Cloak.",
+									"name": "Boots/Cloak",
 									"entry": "The pair of boots or cloak is now a rare magic item that requires attunement. While wearing the item, you can convert up to 20 feet of your movement on each of your turns into flight. If you don't land at the end of this flight, you fall unless you have another means of staying aloft. You can also cast {@spell feather fall} once from the item, and you regain the ability to do so when you finish a short or long rest."
 								}
 							]
@@ -24281,17 +24285,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Liquid Movement.",
+							"name": "Liquid Movement",
 							"entry": "You have a swimming speed of 30 feet. You can move over or through other liquids. You can enter and occupy the space of another creature. You can rise up to your normal height, and you can pass through even Tiny openings. You extinguish nonmagical flames in any space you enter."
 						},
 						{
 							"type": "item",
-							"name": "Watery Resilience.",
+							"name": "Watery Resilience",
 							"entry": "You have resistance to nonmagical damage. You also have advantage on Strength, Dexterity, and Constitution saving throws."
 						},
 						{
 							"type": "item",
-							"name": "Limitations.",
+							"name": "Limitations",
 							"entry": "You can't talk, attack, cast spells, or activate magic items. Any objects you were carrying or wearing meld into your new form and are inaccessible, though you continue to be affected by anything you're wearing, such as armor."
 						}
 					]
@@ -24894,7 +24898,7 @@
 			"tier": "minor",
 			"rarity": "very rare",
 			"entries": [
-				"When you drink this potion, you gain the effect of the {@spell haste} spell for 1 minute (no concentration required). The potion's yellow fluid is streaked with black and swirl on its own."
+				"When you drink this potion, you gain the effect of the {@spell haste} spell for 1 minute (no concentration required). The potion's yellow fluid is streaked with black and swirls on its own."
 			],
 			"attachedSpells": [
 				"haste"
@@ -28687,12 +28691,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Cloak.",
+									"name": "Cloak",
 									"entry": "The cloak is now a rare magic item that requires attunement. While wearing it, you have resistance to fire damage, and you have advantage on Dexterity ({@skill Stealth}) checks made while in snowy terrain."
 								},
 								{
 									"type": "item",
-									"name": "Boots.",
+									"name": "Boots",
 									"entry": "The pair of boots is now a rare magic item that requires attunement. While wearing it, you ignore difficult terrain while walking, and you can walk on water."
 								}
 							]
@@ -29890,12 +29894,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Drain Life.",
+									"name": "Drain Life",
 									"entry": "You siphon away some of the soul's essence and gain {@dice 1d10} temporary hit points."
 								},
 								{
 									"type": "item",
-									"name": "Query.",
+									"name": "Query",
 									"entry": "You telepathically ask the soul a question and receive a brief telepathic response, which you can understand. The soul knows only what it knew in life, but it must answer you truthfully and to the best of its ability. The answer is no more than a sentence or two and might be cryptic."
 								}
 							]
@@ -31901,21 +31905,21 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Chromatic.",
+							"name": "Chromatic",
 							"entries": [
 								"Whenever you use a spell slot to cast a spell that deals acid, cold, fire, lightning, or poison damage, roll a {@dice d6}, and you gain a bonus equal to the number rolled to one of the spell's damage rolls."
 							]
 						},
 						{
 							"type": "item",
-							"name": "Gem.",
+							"name": "Gem",
 							"entries": [
 								"Whenever you use a spell slot to cast a spell, you can immediately teleport to an unoccupied space you can see within 15 feet of you."
 							]
 						},
 						{
 							"type": "item",
-							"name": "Metallic.",
+							"name": "Metallic",
 							"entries": [
 								"When a creature you can see within 30 feet of you makes a saving throw, you can use your reaction to give that creature advantage on the saving throw."
 							]
@@ -36863,21 +36867,21 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Chromatic.",
+							"name": "Chromatic",
 							"entries": [
 								"{@spell Hold monster}, {@spell Rime's binding ice|FTD}"
 							]
 						},
 						{
 							"type": "item",
-							"name": "Gem.",
+							"name": "Gem",
 							"entries": [
 								"{@spell Rary's telepathic bond}, {@spell Raulothim's psychic lance|FTD}"
 							]
 						},
 						{
 							"type": "item",
-							"name": "Metallic.",
+							"name": "Metallic",
 							"entries": [
 								"{@spell Fizban's platinum shield|FTD}, {@spell legend lore}"
 							]

@@ -826,7 +826,12 @@ class PageFilterRaces extends PageFilter {
 			displayFn: it => `${it} y.o.`,
 			displayFnTooltip: it => `${it} year${it === 1 ? "" : "s"} old`,
 		});
-		this._miscFilter = new Filter({header: "Miscellaneous", items: ["Base Race", "Key Race", "Lineage", "Modified Copy", "SRD", "Basic Rules", "Has Images", "Has Info"], isMiscFilter: true});
+		this._miscFilter = new Filter({
+			header: "Miscellaneous",
+			items: ["Base Race", "Key Race", "Lineage", "Modified Copy", "Reprinted", "SRD", "Basic Rules", "Has Images", "Has Info"],
+			deselFn: (it) => it === "Reprinted",
+			isMiscFilter: true,
+		});
 	}
 
 	static mutateForFilters (r) {
@@ -858,6 +863,7 @@ class PageFilterRaces extends PageFilter {
 		if (r.hasFluff) r._fMisc.push("Has Info");
 		if (r.hasFluffImages) r._fMisc.push("Has Images");
 		if (r.lineage) r._fMisc.push("Lineage");
+		if (r.reprintedAs) r._fMisc.push("Reprinted");
 
 		if (r.ability) {
 			const abils = PageFilterRaces.getAbilityObjs(r.ability);

@@ -7613,7 +7613,7 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "1. Determine surprise.",
+									"name": "1. Determine surprise",
 									"entry": "The DM determines whether anyone involved in the combat encounter is surprised."
 								}
 							]
@@ -7624,7 +7624,7 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "2. Establish positions.",
+									"name": "2. Establish positions",
 									"entry": "The DM decides where all the characters and monsters are located. Given the adventurers' marching order or their stated positions in the room or other location, the DM figures out where the adversaries are\u2014how far away and in what direction."
 								}
 							]
@@ -7635,7 +7635,7 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "3. Roll initiative.",
+									"name": "3. Roll initiative",
 									"entry": "Everyone involved in the combat encounter rolls initiative, determining the order of combatants' turns."
 								}
 							]
@@ -7646,7 +7646,7 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "4. Take turns.",
+									"name": "4. Take turns",
 									"entry": "Each participant in the battle takes a turn in initiative order."
 								}
 							]
@@ -7657,7 +7657,7 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "5. Begin the next round.",
+									"name": "5. Begin the next round",
 									"entry": "When everyone involved in the combat has had a turn, the round ends. Repeat step 4 until the fighting stops."
 								}
 							]
@@ -8048,17 +8048,17 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "1. Choose a target.",
+									"name": "1. Choose a target",
 									"entry": "Pick a target within your attack's range: a creature, an object, or a location."
 								},
 								{
 									"type": "item",
-									"name": "2. Determine modifiers.",
+									"name": "2. Determine modifiers",
 									"entry": "The DM determines whether the target has cover and whether you have advantage or disadvantage against the target. In addition, spells, special abilities, and other effects can apply penalties or bonuses to your attack roll."
 								},
 								{
 									"type": "item",
-									"name": "3. Resolve the attack.",
+									"name": "3. Resolve the attack",
 									"entry": "You make the attack roll. On a hit, you roll damage, unless the particular attack has rules that specify otherwise. Some attacks cause special effects in addition to or instead of damage."
 								}
 							]
@@ -8890,32 +8890,38 @@
 										{
 											"type": "item",
 											"name": "Abjuration",
-											"entry": "spells are protective in nature, though some of them have aggressive uses. They create magical barriers, negate harmful effects, harm trespassers, or banish creatures to other planes of existence."
+											"entry": "spells are protective in nature, though some of them have aggressive uses. They create magical barriers, negate harmful effects, harm trespassers, or banish creatures to other planes of existence.",
+											"nameDot": false
 										},
 										{
 											"type": "item",
 											"name": "Conjuration",
-											"entry": "spells involve the transportation of objects and creatures from one location to another. Some spells summon creatures or objects to the caster's side, whereas others allow the caster to teleport to another location. Some conjurations create objects or effects out of nothing."
+											"entry": "spells involve the transportation of objects and creatures from one location to another. Some spells summon creatures or objects to the caster's side, whereas others allow the caster to teleport to another location. Some conjurations create objects or effects out of nothing.",
+											"nameDot": false
 										},
 										{
 											"type": "item",
 											"name": "Divination",
-											"entry": "spells reveal information, whether in the form of secrets long forgotten, glimpses of the future, the locations of hidden things, the truth behind illusions, or visions of distant people or places."
+											"entry": "spells reveal information, whether in the form of secrets long forgotten, glimpses of the future, the locations of hidden things, the truth behind illusions, or visions of distant people or places.",
+											"nameDot": false
 										},
 										{
 											"type": "item",
 											"name": "Enchantment",
-											"entry": "spells affect the minds of others, influencing or controlling their behavior. Such spells can make enemies see the caster as a friend, force creatures to take a course of action, or even control another creature like a puppet."
+											"entry": "spells affect the minds of others, influencing or controlling their behavior. Such spells can make enemies see the caster as a friend, force creatures to take a course of action, or even control another creature like a puppet.",
+											"nameDot": false
 										},
 										{
 											"type": "item",
 											"name": "Evocation",
-											"entry": "spells manipulate magical energy to produce a desired effect. Some call up blasts of fire or lightning. Others channel positive energy to heal wounds."
+											"entry": "spells manipulate magical energy to produce a desired effect. Some call up blasts of fire or lightning. Others channel positive energy to heal wounds.",
+											"nameDot": false
 										},
 										{
 											"type": "item",
 											"name": "Illusion",
-											"entry": "spells deceive the senses or minds of others. They cause people to see things that are not there, to miss things that are there, to hear phantom noises, or to remember things that never happened. Some illusions create phantom images that any creature can see, but the most insidious illusions plant an image directly in the mind of a creature."
+											"entry": "spells deceive the senses or minds of others. They cause people to see things that are not there, to miss things that are there, to hear phantom noises, or to remember things that never happened. Some illusions create phantom images that any creature can see, but the most insidious illusions plant an image directly in the mind of a creature.",
+											"nameDot": false
 										},
 										{
 											"type": "item",
@@ -8923,12 +8929,14 @@
 											"entries": [
 												"spells manipulate the energies of life and death. Such spells can grant an extra reserve of life force, drain the life energy from another creature, create the undead, or even bring the dead back to life.",
 												"Creating the undead through the use of necromancy spells such as {@spell animate dead} is not a good act, and only evil casters use such spells frequently."
-											]
+											],
+											"nameDot": false
 										},
 										{
 											"type": "item",
 											"name": "Transmutation",
-											"entry": "spells change the properties of a creature, object, or environment. They might turn an enemy into a harmless creature, bolster the strength of an ally, make an object move at the caster's command, or enhance a creature's innate healing abilities to rapidly recover from injury."
+											"entry": "spells change the properties of a creature, object, or environment. They might turn an enemy into a harmless creature, bolster the strength of an ally, make an object move at the caster's command, or enhance a creature's innate healing abilities to rapidly recover from injury.",
+											"nameDot": false
 										}
 									]
 								}

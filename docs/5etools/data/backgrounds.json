@@ -64,17 +64,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Insight}, {@skill Religion}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item holy symbol|phb} (a gift to you when you entered the priesthood), a prayer {@item book|phb} or prayer wheel, 5 sticks of incense, vestments, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -298,17 +298,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Insight}, {@skill Religion}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A leather-bound diary, a {@item Ink (1-ounce bottle)|phb|bottle of ink}, an {@item ink pen|phb}, a set of {@item traveler's clothes|phb}, one {@item trinket|phb} of special significance, and a {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -588,22 +588,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill History}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Cartographer's tools|phb} or {@item navigator's tools|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item Map or Scroll Case|phb|wooden case} containing a map to a ruin or dungeon, a {@item bullseye lantern|phb}, a {@item miner's pick|phb}, a set of {@item traveler's clothes|phb}, a {@item shovel|phb}, a {@item two-person tent|phb}, a {@item trinket|phb|trinket} recovered from a dig site, and a {@item pouch|phb} containing 25 gp"
 						}
 					]
@@ -899,22 +899,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Acrobatics}, {@skill Athletics}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@filter Vehicles (land)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (land)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A bronze discus or leather ball, a lucky charm or past trophy, a set of {@item traveler's clothes|phb}, and a {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -1235,17 +1235,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Insight}, {@skill Intimidation}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "An Azorius insignia, a scroll containing the text of a law important to you, a {@item Ink (1-ounce bottle)|phb|bottle of blue ink}, a {@item ink pen|phb|pen}, a set of {@item fine clothes|phb}, and a belt {@item pouch|phb} containing 10 gp (Azorius-minted 1-zino coins)"
 						}
 					]
@@ -2306,17 +2306,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Insight}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Disguise kit|phb}, and one type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} or {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "{@item Disguise kit|phb}, {@item common clothes|phb}, a Tears of Virulence {@item emblem|phb}, a writ of free agency signed by the Lord Regent, a set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} or {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set} you are proficient with, and a {@item pouch|phb} with 15 gp (payment for services rendered)."
 						}
 					]
@@ -2595,22 +2595,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Athletics}, {@skill Intimidation}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Choose one of Celestial, Draconic, Goblin, or Minotaur"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A Boros insignia, a feather from an angel's wing, a tattered piece of a Boros banner (a souvenir from a famous battle), a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 2 gp (Boros-minted 1-zino coins)"
 						}
 					]
@@ -3008,22 +3008,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Animal Handling}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@filter Vehicles (land)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (land)}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item whip|phb}, a {@item two-person tent|phb}, a regional map, a set of {@item traveler's clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -3256,22 +3256,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Perception}, {@skill Performance}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Disguise kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "{@item Disguise kit|phb}, a set of {@item fine clothes|phb}, and a belt {@item pouch|phb} containing 30 gp."
 						}
 					]
@@ -3511,17 +3511,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Sleight of Hand}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Disguise kit|phb}, {@item Forgery kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@item fine clothes|phb}, a {@item disguise kit|phb}, tools of the con of your choice (ten stoppered bottles filled with colored liquid, a set of weighted dice, a deck of marked cards, or a signet ring of an imaginary duke), and a belt {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -3789,17 +3789,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Athletics}, {@skill Insight}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A uniform in the style of your unit and indicative of your rank, a {@item horn|phb} with which to summon help, a set of {@item manacles|phb}, and a {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -3872,22 +3872,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill History}, {@skill Insight}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Dwarvish or one of your choice if you already speak Dwarvish"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} with which you are proficient, a maker's mark chisel used to mark your handiwork with the symbol of the clan of crafters you learned your skill from, a set of {@item traveler's clothes|phb}, and a {@item pouch|phb} containing 5 gp and a gem worth 10 gp"
 						}
 					]
@@ -3972,17 +3972,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill History}, plus your choice of one from among {@skill Arcana}, {@skill Nature}, and {@skill Religion}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "any two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "The scholar's {@item robes|phb} of your cloister, a writing kit (small {@item pouch|phb} with a quill, ink, folded parchment, and a small penknife), a borrowed {@item book|phb} on the subject of your current study, and a {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -4058,22 +4058,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Nature}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Elven"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item two-person tent|phb}, {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, a {@item holy symbol|phb}, a set of {@item traveler's clothes|phb}, a belt {@item pouch|phb} containing 5 gp"
 						}
 					]
@@ -4300,17 +4300,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Insight}, {@skill Persuasion}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@item fine clothes|phb} and a {@item pouch|phb} containing 5 gp"
 						}
 					]
@@ -4375,17 +4375,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Stealth}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}, {@item thieves' tools|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item crowbar|phb}, a set of dark {@item common clothes|phb} including a hood, and a belt {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -4695,22 +4695,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Stealth}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Disguise kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A Dimir insignia, three small knives, a set of dark-colored {@item common clothes|phb}, and the starting equipment of the background described in this chapter for your secondary guild"
 						}
 					]
@@ -5174,22 +5174,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Intimidation}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "Special (see origin below)"
 						},
 						{
 							"type": "item",
-							"name": "Language",
+							"name": "Languages:",
 							"entry": "Draconic"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item dagger|phb}, tattered rags, a loaf of moldy bread, a small cast-off scale belonging to Vorgansharax\u2014the Maimed Virulence, and a {@item pouch|phb} with 5 gp of various coins (salvaged during your escape from Phlan)."
 						}
 					]
@@ -5544,17 +5544,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Athletics}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Dwarvish and Undercommon "
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item shovel|phb} or a {@item miner's pick|phb}, a {@item block and tackle|phb}, a {@item climber's kit|phb}, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 5 gp"
 						}
 					]
@@ -5788,17 +5788,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Acrobatics}, {@skill Performance}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Disguise kit|phb}, one type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument} (one of your choice), the favor of an admirer (love letter, lock of hair, or trinket), {@item costume clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -6078,22 +6078,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Intimidation}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Disguise kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "{@item Disguise kit|phb}, a {@item costume clothes|phb|costume}, a {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -6390,17 +6390,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Insight} and one Intelligence, Wisdom, or Charisma skill of your choice, as appropriate to your faction"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "Badge or emblem of your faction, a copy of a seminal faction text (or code-book for a covert faction), a set of {@item common clothes|phb}, and a {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -6468,22 +6468,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Investigation}, {@skill Persuasion}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any one of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "One set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, {@item merchant's scale|phb}, a set of {@item fine clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -6726,22 +6726,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Insight}, {@skill Perception}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "Any one {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument} or {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set} of your choice, likely something native to your homeland"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any one of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "One set of {@item traveler's clothes|phb}, any one {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument} or {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set} you are proficient with, poorly wrought maps from your homeland that depict where you are in Faerûn, a small piece of jewelry worth 10 gp in the style of your homeland's craftsmanship, and a {@item pouch|phb} containing 5 gp"
 						}
 					]
@@ -7011,22 +7011,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice of {@language Elvish}, {@language Gnomish}, {@language Goblin}, or {@language Sylvan}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument} (one of your choice), a {@item Traveler's Clothes|PHB|set of traveler's clothes}, three trinkets (each determined by rolling on the {@item Feywild Trinket|WBtW|Feywild Trinkets} table), and a {@item pouch|phb} containing 8 gp"
 						}
 					]
@@ -7198,17 +7198,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill History}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "{@item Fishing tackle|phb}, a {@item net|phb}, a favorite fishing lure or oiled leather wading boots, a set of {@item traveler's clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -7485,17 +7485,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Animal Handling}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, {@filter vehicles (land)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (land)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} (one of your choice), a {@item shovel|phb}, an {@item iron pot|phb}, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -7780,22 +7780,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Insight}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any one of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "One {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}, a lucky charm, a set of {@item fine clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -8036,17 +8036,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Sleight of Hand}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Thieves' tools|phb}, one type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A battered alms box, a {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}, a cast-off military jacket, cap, or scarf, a set of {@item common clothes|phb}, a belt {@item pouch|phb}, and 10 gp"
 						}
 					]
@@ -8331,22 +8331,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Nature}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Poisoner's kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Choose one of Elvish, Giant, or Kraul"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A Golgari insignia, a {@item poisoner's kit|phb}, a pet beetle or spider, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 10 gp worth of mixed coins"
 						}
 					]
@@ -8737,17 +8737,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Performance}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}, {@item thieves' tools|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@item fine clothes|phb}, a {@item disguise kit|phb}, a {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument} of your choice, a gold-plated ring depicting a smiling face, and a {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -9016,22 +9016,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Animal Handling}, {@skill Athletics}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Herbalism kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Choose one of Draconic, Giant, Goblin, or Sylvan"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A Gruul insignia, a {@item hunting trap|phb}, an {@item herbalism kit|phb}, the skull of a boar, a beast-hide cloak, a set of {@item traveler's clothes|phb}, and a belt {@item pouch|phb} containing 10 gp (Azorius 1-zino coins)"
 						}
 					]
@@ -9424,22 +9424,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Insight}, {@skill Persuasion}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} (one of your choice), a letter of introduction from your guild, a set of {@item traveler's clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -9764,17 +9764,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Athletics}, {@skill Sleight of Hand}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}, {@filter vehicles (water)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (water)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "{@item Fishing tackle|phb}, {@item dice set|phb}, {@item playing card set|phb}, or {@item Three-Dragon Ante set|phb}, a set of {@item common clothes|phb}, {@item rowboat}, and a belt {@item pouch|phb} containing 5 gp"
 						}
 					]
@@ -10030,17 +10030,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "Choose two from among {@skill Arcana}, {@skill Investigation}, {@skill Religion}, or {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Choose two, one of which must be {@language Abyssal}, {@language Celestial}, {@language Deep Speech}, {@language Draconic}, {@language Infernal}, {@language Primordial}, {@language Sylvan}, or {@language Undercommon}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "{@item Monster hunter's pack|vrgr} (containing a {@item chest|PHB}, a {@item crowbar|PHB}, a {@item hammer|PHB}, three wooden stakes, a {@item holy symbol|PHB}, a {@item Holy Water (flask)|PHB|flask of holy water}, a {@item Manacles|PHB|set of manacles}, a {@item steel mirror|PHB}, a {@item Oil (flask)|PHB|flask of oil}, a {@item tinderbox|PHB}, and 3 {@item Torch|PHB|torches}), a set of {@item common clothes|phb}, one {@item trinket|CoS} of special significance (choose one or roll on the {@item Horror Trinket|VRGR|Horror Trinkets} table), and 1 sp"
 						}
 					]
@@ -10422,22 +10422,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Medicine}, {@skill Religion}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Herbalism kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item Map or Scroll Case|phb|scroll case} stuffed full of notes from your studies or prayers, a winter {@item blanket|phb}, a set of {@item common clothes|phb}, an {@item herbalism kit|phb}, and 5 gp"
 						}
 					]
@@ -10709,17 +10709,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Insight}, {@skill Persuasion}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@filter Vehicles (land)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (land)} and {@filter vehicles (water)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (water)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@item fine clothes|phb}, a {@item signet ring|phb}, a letter of introduction from your family's trading house, and a purse containing 25 gp"
 						}
 					]
@@ -10967,22 +10967,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Perception}, {@skill Stealth}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One racial language"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Forgery kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item forgery kit|phb}, a set of {@item common clothes|phb}, a belt {@item pouch|phb}, and 5 gp"
 						}
 					]
@@ -11273,19 +11273,19 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Investigation}, {@skill Persuasion}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiency",
+							"name": "Tool Proficiencies:",
 							"entries": [
 								"Two proficiencies from the House Tool Proficiencies table"
 							]
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@item fine clothes|phb}, house {@item signet ring|phb}, identification papers, and a purse containing 20 gp."
 						}
 					]
@@ -11645,22 +11645,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Survival}, plus one from among {@skill Arcana}, {@skill History}, and {@skill Religion}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any one of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "Your choice of a {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set} or a {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "Your inheritance, a set of {@item traveler's clothes|phb}, the tool you choose for this background's tool proficiency ({@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set} or {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}), and a {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -11775,17 +11775,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Athletics}, {@skill Intimidation}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}, {@filter vehicles (land)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (land)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A simple puzzle box, a scroll containing the basic teachings of the five gods, a {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 15 gp. If you have completed any trials before the start of the campaign, you also have any cartouches you have earned"
 						}
 					]
@@ -12045,17 +12045,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Investigation}, {@skill Religion}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Thieves' tools|phb}, one type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item holy symbol|phb}, a set of {@item traveler's clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -12117,17 +12117,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "Choose two from among {@skill Insight}, {@skill Investigation}, or {@skill Perception}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Disguise kit|phb}, {@item Thieves' tools|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item magnifying glass|PHB}, evidence from a past case (choose one or roll for a trinket from the {@item Horror Trinket|VRGR|Horror Trinkets} later in this chapter), a {@item Common Clothes|PHB|set of common clothes}, and 10 gp"
 						}
 					]
@@ -12494,17 +12494,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Animal Handling}, {@skill Stealth}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}, {@filter vehicles (land)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (land)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of dark {@item common clothes|phb}, {@item pack saddle|phb}, {@item burglar's pack|phb}, and a belt {@item pouch|phb} containing 5 gp"
 						}
 					]
@@ -12786,22 +12786,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Arcana}, {@skill Investigation}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Choose one of Draconic, Goblin, or Vedalken"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "An Izzet insignia, one set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, the charred and twisted remains of a failed experiment, a {@item hammer|phb}, a {@item block and tackle|phb}, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 5 gp (Azorius 1-zino coins)"
 						}
 					]
@@ -13204,22 +13204,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Persuasion}, plus one from among {@skill Arcana}, {@skill History}, {@skill Nature}, and {@skill Religion}, as appropriate for your order"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "Your choice of a {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set} or a {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any one of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "One set of {@item traveler's clothes|phb}, a signet, banner, or seal representing your place or rank in the order, and a {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -13324,17 +13324,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill History}, {@skill Religion}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item Ink (1-ounce bottle)|PHB|bottle of black ink}, an {@item ink pen|PHB}, a {@item hammer|PHB}, a {@item hooded lantern|PHB}, a {@item tinderbox|PHB}, a tome of history, a school uniform, and a {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -13537,17 +13537,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Athletics}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@filter Vehicles (water, land)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (land);vehicle (water)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item dagger|phb} that belonged to a fallen comrade, a folded flag emblazoned with the symbol of your ship or company, a set of {@item traveler's clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -13819,17 +13819,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Athletics}, {@skill Persuasion}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}, {@filter vehicles (land)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (land)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A uniform of your company ({@item traveler's clothes|phb} in quality), an insignia of your rank, a {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set} of your choice, and a {@item pouch|phb} containing the remainder of your last wages (10 gp)."
 						}
 					]
@@ -13901,17 +13901,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Performance}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of artistic {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} and one {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "One set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} or {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}, a set of {@item fine clothes|phb}, and a purse containing 10 gp"
 						}
 					]
@@ -14158,22 +14158,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill History}, {@skill Persuasion}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@item fine clothes|phb}, a {@item signet ring|phb}, a scroll of pedigree, and a purse containing 25 gp"
 						}
 					]
@@ -14428,17 +14428,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Intimidation}, {@skill Religion}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "An Orzhov insignia, a foot-long chain made of ten gold coins, vestments, a set of {@item fine clothes|phb}, and a belt {@item pouch|phb} containing 1 pp (an Orzhov-minted 10-zino coin)"
 						}
 					]
@@ -14829,22 +14829,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Athletics}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item staff|phb}, a {@item hunting trap|phb}, a trophy from an animal you killed, a set of {@item traveler's clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -15131,17 +15131,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Stealth}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, {@filter vehicles (land)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (land)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A bag of {@item caltrops (bag of 20)|phb}, a small {@item trinket|phb} that connects you to the life you once had before the occupation of Phlan, a {@item healer's kit|phb}, a set of dark {@item common clothes|phb} that includes a cloak and hood, and a belt {@item pouch|phb} containing 5 gp"
 						}
 					]
@@ -15443,22 +15443,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Insight}, {@skill Athletics}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} (one of your choice), a token of the life you once knew, a set of {@item traveler's clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -15692,22 +15692,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Medicine}, {@skill Persuasion}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any one of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "One set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, {@item fine clothes|phb}, 20 gp"
 						}
 					]
@@ -15991,22 +15991,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Acrobatics}, {@skill Performance}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument} or {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item Ink (1-ounce bottle)|PHB|bottle of black ink}, an {@item ink pen|PHB}, a set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} or a {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument} (one of your choice), a school uniform, and a {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -16240,22 +16240,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Arcana}, {@skill Nature}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item Ink (1-ounce bottle)|PHB|bottle of black ink}, an {@item ink pen|PHB}, an {@item abacus|PHB}, a book of arcane theory, a school uniform, and a {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -16504,22 +16504,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Acrobatics}, {@skill Performance}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Choose either Abyssal or Giant"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A Rakdos insignia, a {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument} (one of your choice), a {@item costume clothes|phb|costume}, a {@item hooded lantern|phb} made of wrought iron, a 10-foot length of chain with sharply spiked links, a {@item tinderbox|phb}, 10 {@item torch|phb|torches}, a set of {@item common clothes|phb}, a belt {@item pouch|phb} containing 10 gp (a mix of Azorius and Boros 1-zino coins), and a bottle of sweet, red juice"
 						}
 					]
@@ -16974,22 +16974,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill History}, {@skill Investigation}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any one of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "One set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, a ledger from your previous employer containing a small piece of useful information, a set of {@item fine clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -17214,17 +17214,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Arcana}, {@skill History}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item Ink (1-ounce bottle)|phb|bottle of black ink}, a quill, a small knife, a letter from a dead colleague posing a question you have not yet been able to answer, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -17500,17 +17500,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Athletics}, {@skill Perception}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Navigator's tools|phb}, {@filter vehicles (water)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (water)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A belaying pin ({@item club|phb}), {@item silk rope (50 feet)|phb}, a lucky charm such as a rabbit foot or a small stone with a hole in the center (or you may roll for a random {@item trinket|phb} on the Trinkets table in chapter 5), a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -17730,17 +17730,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Stealth}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Disguise kit|phb}, {@item Forgery kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item disguise kit|phb}, a {@item forgery kit|phb}, a set of {@item common clothes|phb}, a belt {@item pouch|phb}, 5 gp"
 						}
 					]
@@ -18020,22 +18020,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Nature}, {@skill Persuasion}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} or one {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Choose one of Elvish, Loxodon, or Sylvan"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A Selesnya insignia, a {@item healer's kit|phb}, {@item robes|phb}, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 5 gp (Azorius 1-zino coins)"
 						}
 					]
@@ -18426,22 +18426,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Intimidation}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Forgery kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Netherese"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item forgery kit|phb}, a transparent cylinder of shadow that has no opening, a {@item signet ring|phb}, a set of {@item fine clothes|phb}, and 15 gp"
 						}
 					]
@@ -18680,17 +18680,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill History}, {@skill Perception}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Carpenter's tools|phb}, {@filter Vehicles (water)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (water)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of well-loved {@item carpenter's tools|phb}, a blank {@item book|phb}, {@item Ink (1-ounce bottle)|phb|1 ounce of ink}, an {@item ink pen|phb}, a set of {@item traveler's clothes|phb}, and a leather {@item pouch|phb} with 10 gp"
 						}
 					]
@@ -18994,17 +18994,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Intimidation}, {@skill Persuasion}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item Ink (1-ounce bottle)|PHB|bottle of black ink}, an {@item ink pen|PHB}, a book of poetry, a school uniform, and a {@item pouch|phb} containing 15 gp"
 						}
 					]
@@ -19250,17 +19250,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Arcana}, {@skill Medicine}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A Simic insignia, a set of {@item common clothes|phb|commoner's clothes}, a {@item book|phb} of research notes, an {@item ink pen|phb}, a {@item Ink (1-ounce bottle)|phb|bottle of squid ink}, a {@item oil (flask)|phb|flask of oil} (made from blubber), a {@item acid (vial)|phb|vial of acid} (derived from digestive juices), a vial of fish scales, a vial of seaweed, a vial of jellyfish stingers, a glass bottle of unidentified slime, and a belt {@item pouch|phb} containing 10 gp (Azorius 1-zino coins)"
 						}
 					]
@@ -19699,17 +19699,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Athletics}, {@skill Deception}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@filter Vehicles (water)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (water)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A fancy leather vest or a pair of leather boots, a set of {@item common clothes|phb}, and a leather {@item pouch|phb} with 15 gp"
 						}
 					]
@@ -19990,17 +19990,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Athletics}, {@skill Intimidation}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}, {@filter vehicles (land)|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (land)}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "An insignia of rank, a trophy taken from a fallen enemy (a {@item dagger|phb}, broken blade, or piece of a banner), a bone {@item dice set|phb} or {@item playing card set|phb}, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -20274,17 +20274,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Perception}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}, thieves' tools"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A small knife, a set of {@item common clothes|phb}, a {@item trinket|phb} from the life you stayed behind to defend, a belt {@item pouch|phb} with 10 gp"
 						}
 					]
@@ -20522,22 +20522,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Animal Handling}, {@skill Nature}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Herbalism kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Giant"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "{@item Herbalism kit|phb}, a small article of jewelry that is distinct to your tribe, a {@item hunting trap|phb}, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 5 gp"
 						}
 					]
@@ -20777,22 +20777,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Investigation}, {@skill Persuasion}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Thieves' tools|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Elvish"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "{@item Thieves' tools|phb}, a gray cloak, Sheriff's insignia (badge) a set of {@item fine clothes|phb}, and 17 gp"
 						}
 					]
@@ -21033,17 +21033,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "Choose two from among {@skill Deception}, {@skill Insight}, {@skill Persuasion}, and {@skill Stealth}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "Choose two from among one type of {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set}, one {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}, and {@item thieves' tools|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of clothes appropriate to your duties and a {@item pouch|phb} containing 20 gp"
 						}
 					]
@@ -21115,17 +21115,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Sleight of Hand}, {@skill Stealth}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Disguise kit|phb}, {@item Thieves' tools|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A small knife, a map of the city you grew up in, a pet mouse, a token to remember your parents by, a set of {@item common clothes|phb}, and a belt {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -21362,22 +21362,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Athletics}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any one of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument} or {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item hunting trap|phb}, a totemic token or set of tattoos marking your loyalty to Uthgar and your tribal totem, a set of {@item traveler's clothes|phb}, and a {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -21448,17 +21448,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Insight}, {@skill Investigation}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any two of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A uniform in the style of your unit and indicative of your rank, a {@item horn|phb} with which to summon help, a set of {@item manacles|phb}, and a {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -21531,17 +21531,17 @@
 								"items": [
 									{
 										"type": "item",
-										"name": "Skill Proficiencies",
+										"name": "Skill Proficiencies:",
 										"entry": "{@skill Acrobatics}, {@skill Performance}"
 									},
 									{
 										"type": "item",
-										"name": "Tool Proficiencies",
+										"name": "Tool Proficiencies:",
 										"entry": "{@item Disguise kit|phb}, one type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 									},
 									{
 										"type": "item",
-										"name": "Equipment",
+										"name": "Equipment:",
 										"entry": "An inexpensive but unusual weapon, such as a {@item trident|phb} or {@item net|phb} (one of your choice), the favor of an admirer (love letter, lock of hair, or trinket), {@item costume clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
 									}
 								]
@@ -21587,22 +21587,22 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Skill Proficiencies",
+									"name": "Skill Proficiencies:",
 									"entry": "{@skill Insight}, {@skill Persuasion}"
 								},
 								{
 									"type": "item",
-									"name": "Tool Proficiencies",
+									"name": "Tool Proficiencies:",
 									"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, or {@item navigator's tools|phb}, or an additional language"
 								},
 								{
 									"type": "item",
-									"name": "Languages",
+									"name": "Languages:",
 									"entry": "One of your choice"
 								},
 								{
 									"type": "item",
-									"name": "Equipment",
+									"name": "Equipment:",
 									"entry": "A set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} (one of your choice) or a {@item mule|phb} and {@item cart|phb}, a letter of introduction from your guild, a set of {@item traveler's clothes|phb}, and a belt {@item pouch|phb} containing 15 gp"
 								}
 							]
@@ -21747,17 +21747,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill History}, {@skill Religion}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, one type of {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools} or a {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument} (one of your choice), a scroll of your god's teachings, a vizier's cartouche, a set of {@item fine clothes|phb}, and a {@item pouch|phb} containing 25 gp"
 						}
 					]
@@ -21989,22 +21989,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Deception}, {@skill Stealth}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Poisoner's kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@item common clothes|phb}, a black cloak with a hood, a {@item poisoner's kit|phb}, and a {@item pouch|phb} containing 10 gp"
 						}
 					]
@@ -22222,22 +22222,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill History}, {@skill Persuasion}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "Any one of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "One type of {@filter gaming set|items|source=phb|miscellaneous=mundane|type=gaming set} or {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A set of {@item fine clothes|phb}, a {@item signet ring|phb} or brooch, a scroll of pedigree, a skin of fine zzar or wine, and a purse containing 20 gp"
 						}
 					]
@@ -22321,22 +22321,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Performance}, {@skill Sleight of Hand}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Disguise kit|phb} or one type of {@filter musical Instrument|items|source=phb|miscellaneous=mundane|type=instrument}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item disguise kit|PHB} or a {@filter musical instrument|items|source=phb|miscellaneous=mundane|type=instrument} of your choice, a deck of cards, a carnival uniform or {@item costume clothes|phb|costume}, one trinket (determined by rolling on the {@item Feywild Trinket|WBtW|Feywild Trinkets}), and a {@item pouch|phb} containing 8 gp"
 						}
 					]
@@ -22491,22 +22491,22 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies",
+							"name": "Skill Proficiencies:",
 							"entry": "{@skill Nature}, {@skill Survival}"
 						},
 						{
 							"type": "item",
-							"name": "Tool Proficiencies",
+							"name": "Tool Proficiencies:",
 							"entry": "{@item Herbalism kit|phb}"
 						},
 						{
 							"type": "item",
-							"name": "Languages",
+							"name": "Languages:",
 							"entry": "One of your choice"
 						},
 						{
 							"type": "item",
-							"name": "Equipment",
+							"name": "Equipment:",
 							"entry": "A {@item Ink (1-ounce bottle)|PHB|bottle of black ink}, an {@item ink pen|PHB}, a book about plant identification, an {@item iron pot|PHB}, an {@item herbalism kit|PHB}, a school uniform, and a {@item pouch|phb} containing 15 gp"
 						}
 					]

@@ -9,6 +9,7 @@ class PageFilterBestiary extends PageFilter {
 			case "type": return SortUtil.ascSort(a.values.type, b.values.type) || SortUtil.compareListNames(a, b);
 			case "source": return SortUtil.ascSort(a.values.source, b.values.source) || SortUtil.compareListNames(a, b);
 			case "cr": return SortUtil.ascSortCr(a.values.cr, b.values.cr) || SortUtil.compareListNames(a, b);
+			case "page": return SortUtil.ascSort(a.values.page, b.values.page) || SortUtil.compareListNames(a, b);
 		}
 	}
 
@@ -178,9 +179,9 @@ class PageFilterBestiary extends PageFilter {
 		});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Familiar", ...Object.keys(Parser.MON_MISC_TAG_TO_FULL), "Bonus Actions", "Lair Actions", "Legendary", "Mythic", "Adventure NPC", "Spellcaster", ...Object.values(Parser.ATB_ABV_TO_FULL).map(it => `${PageFilterBestiary.MISC_FILTER_SPELLCASTER}${it}`), "Regional Effects", "Reactions", "Swarm", "Has Variants", "Modified Copy", "Has Alternate Token", "Has Info", "Has Images", "Has Token", "Has Recharge", "SRD", "Basic Rules", "AC from Item(s)", "AC from Natural Armor", "AC from Unarmored Defense"],
+			items: ["Familiar", ...Object.keys(Parser.MON_MISC_TAG_TO_FULL), "Bonus Actions", "Lair Actions", "Legendary", "Mythic", "Adventure NPC", "Spellcaster", ...Object.values(Parser.ATB_ABV_TO_FULL).map(it => `${PageFilterBestiary.MISC_FILTER_SPELLCASTER}${it}`), "Regional Effects", "Reactions", "Reprinted", "Swarm", "Has Variants", "Modified Copy", "Has Alternate Token", "Has Info", "Has Images", "Has Token", "Has Recharge", "SRD", "Basic Rules", "AC from Item(s)", "AC from Natural Armor", "AC from Unarmored Defense"],
 			displayFn: (it) => Parser.monMiscTagToFull(it).uppercaseFirst(),
-			deselFn: (it) => it === "Adventure NPC",
+			deselFn: (it) => ["Adventure NPC", "Reprinted"].includes(it),
 			itemSortFn: PageFilterBestiary.ascSortMiscFilter,
 			isMiscFilter: true,
 		});
@@ -261,6 +262,7 @@ class PageFilterBestiary extends PageFilter {
 		if (mon.mythic) mon._fMisc.push("Mythic");
 		if (mon.hasFluff) mon._fMisc.push("Has Info");
 		if (mon.hasFluffImages) mon._fMisc.push("Has Images");
+		if (mon.reprintedAs) mon._fMisc.push("Reprinted");
 		for (const it of (mon.ac || [])) {
 			if (!it.from) continue;
 			if (it.from.includes("natural armor")) mon._fMisc.push("AC from Natural Armor");

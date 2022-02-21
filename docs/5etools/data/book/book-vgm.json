@@ -1529,22 +1529,22 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Giants Are Huge.",
+											"name": "Giants Are Huge",
 											"entry": "Most giants can easily peer in a second-floor window. The larger ones would have to stoop to get down to that level! A giant's metal hammer could serve as an anvil for a human smith, and a giant's shield is bigger and heavier than a feasting table."
 										},
 										{
 											"type": "item",
-											"name": "Giants Are Heavy.",
+											"name": "Giants Are Heavy",
 											"entry": "If a giant sits on a wagon, its wheels and axles are liable to snap like twigs. A giant can crush a house or capsize a ship simply by carelessly shifting its weight. An ox that strays too close to a sleeping giant could wind up pinned or crushed if the giant rolls over suddenly."
 										},
 										{
 											"type": "item",
-											"name": "Giants Are Loud.",
+											"name": "Giants Are Loud",
 											"entry": "The footsteps of giants in the distance are often initially mistaken for thunder, even on a clear day. The sounds of a giant beating a weapon against its shield and bellowing a challenge to foes are strident enough to knock dishes from shelves and rattle doors in their frames."
 										},
 										{
 											"type": "item",
-											"name": "Giants Are Strong.",
+											"name": "Giants Are Strong",
 											"entry": "A charging warhorse at full gallop, capable of bowling over a line of human warriors, merely crumples against the bulk of a giant. A giant could kick a cart with enough force to send it smashing through a house, and a giant's club\u2014the size of, if not actually, an entire tree\u2014could level the same house with a single blow."
 										}
 									]
@@ -3574,7 +3574,7 @@
 										"When goblins expand a mine, the tunnels they dig are narrow and warren-like. Goblins live both within these tunnels and on the surface around the outside of the area. They guard the territory around the mine for miles, sending out patrols of hunters equipped with war horns and using wolves as watchdogs to alert them to intruders.",
 										{
 											"type": "entries",
-											"name": "Outskirts.",
+											"name": "Outskirts",
 											"page": 43,
 											"entries": [
 												"The territory around a goblin lair has several hallmarks, most of which aren't readily apparent. Packs of wolves allied with the goblins serve as effective perimeter guards, without giving away the fact that a tribe of goblins lives nearby. Hunters take up guard posts in tall trees and atop high rocky outcrops from where they can view the terrain while staying unseen. Any obvious path through the territory (a valley, a clear trail, or a river) might be turned into an ambush point where a force of goblins can capture intruders. Such places might also be set with net traps, snare traps, or hidden pit traps that gatherers regularly check for new slaves. The area also includes burial grounds for each caste, always placed far from the lair."
@@ -4527,27 +4527,32 @@
 										{
 											"type": "item",
 											"name": "Annis hags",
-											"entry": "live in mountains or hills. The terrain is easy for them to navigate because they are the most physically capable hags. Even with her hunched posture, an annis hag is as tall as an ogre. Her skin is bruise-blue or black and her claws are like rusty blades. Annis hags love tormenting the weak and fearful, and seeing others feel fear. Statistics for the annis hag appear in chapter 3 of this book."
+											"entry": "live in mountains or hills. The terrain is easy for them to navigate because they are the most physically capable hags. Even with her hunched posture, an annis hag is as tall as an ogre. Her skin is bruise-blue or black and her claws are like rusty blades. Annis hags love tormenting the weak and fearful, and seeing others feel fear. Statistics for the annis hag appear in chapter 3 of this book.",
+											"nameDot": false
 										},
 										{
 											"type": "item",
 											"name": "Bheur hags",
-											"entry": "live in wintry lands, favoring snow-covered mountain peaks. They are gaunt, have blue-white skin, white hair, and are known for their gray wooden staffs that give them access to extraordinary ice magic. Bheur hags love seeing mortals freeze to death and have little if any room in their hearts for kin and community. Statistics for the bheur hag appear in chapter 3 of this book."
+											"entry": "live in wintry lands, favoring snow-covered mountain peaks. They are gaunt, have blue-white skin, white hair, and are known for their gray wooden staffs that give them access to extraordinary ice magic. Bheur hags love seeing mortals freeze to death and have little if any room in their hearts for kin and community. Statistics for the bheur hag appear in chapter 3 of this book.",
+											"nameDot": false
 										},
 										{
 											"type": "item",
 											"name": "Green hags",
-											"entry": "inhabit dismal forests, swamps, and moors. A green hag's body, whether broad, narrow, fat, or thin, is topped with a tangled mane of hair. A green hag thrives on creating despair and tragedy in the lives of her victims, using her skill with illusion magic to help in this goal. Destroying the hopes of others brings her unbridled joy."
+											"entry": "inhabit dismal forests, swamps, and moors. A green hag's body, whether broad, narrow, fat, or thin, is topped with a tangled mane of hair. A green hag thrives on creating despair and tragedy in the lives of her victims, using her skill with illusion magic to help in this goal. Destroying the hopes of others brings her unbridled joy.",
+											"nameDot": false
 										},
 										{
 											"type": "item",
 											"name": "Night hags",
-											"entry": "have left behind the world of the fey to roam the Lower Planes. They have dark blue or purple-black skin with white or light-colored eyes and thin, curving horns. A night hag is as least as tall as a human, and most are stout or have a medium build rather than being thin or emaciated. Night hags enjoy corrupting the dreams of good people, compromising the ideals of their victims to get them to eventually perform evil acts. Then, when a victim dies, the hag can harvest its soul and bring it to Hades."
+											"entry": "have left behind the world of the fey to roam the Lower Planes. They have dark blue or purple-black skin with white or light-colored eyes and thin, curving horns. A night hag is as least as tall as a human, and most are stout or have a medium build rather than being thin or emaciated. Night hags enjoy corrupting the dreams of good people, compromising the ideals of their victims to get them to eventually perform evil acts. Then, when a victim dies, the hag can harvest its soul and bring it to Hades.",
+											"nameDot": false
 										},
 										{
 											"type": "item",
 											"name": "Sea hags",
-											"entry": "live underwater or on the shore, favoring bleak and despoiled places. They have pale skin like that of a fish, covered in scales, with glassy dead eyes and hair like lank seaweed. Sea hags are emaciated, but one might be tall or short, frail or large-boned. A sea hag hates beauty in any form and seeks to attack, deface, or corrupt it so it has the opposite effect on its viewers. One is more likely to defile the inspiring statue in a town square, making it into a symbol of fear and sorrow, than to destroy it outright."
+											"entry": "live underwater or on the shore, favoring bleak and despoiled places. They have pale skin like that of a fish, covered in scales, with glassy dead eyes and hair like lank seaweed. Sea hags are emaciated, but one might be tall or short, frail or large-boned. A sea hag hates beauty in any form and seeks to attack, deface, or corrupt it so it has the opposite effect on its viewers. One is more likely to defile the inspiring statue in a town square, making it into a symbol of fear and sorrow, than to destroy it outright.",
+											"nameDot": false
 										}
 									]
 								},

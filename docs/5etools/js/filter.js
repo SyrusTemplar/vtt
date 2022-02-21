@@ -2116,14 +2116,29 @@ class SourceFilterItem extends FilterItem {
 }
 
 class SourceFilter extends Filter {
+	static _SORT_ITEMS_MINI (a, b) {
+		a = a.item ?? a;
+		b = b.item ?? b;
+		const valA = BrewUtil.hasSourceJson(a) ? 2 : SourceUtil.isNonstandardSource(a) ? 1 : 0;
+		const valB = BrewUtil.hasSourceJson(b) ? 2 : SourceUtil.isNonstandardSource(b) ? 1 : 0;
+		return SortUtil.ascSort(valA, valB) || SortUtil.ascSortLower(Parser.sourceJsonToFull(a), Parser.sourceJsonToFull(b));
+	}
+
+	static _getDisplayHtmlMini (item) {
+		item = item.item || item;
+		const isBrewSource = BrewUtil.hasSourceJson(item);
+		const isNonStandardSource = !isBrewSource && SourceUtil.isNonstandardSource(item);
+		return `<span ${isBrewSource ? `title="(Homebrew)"` : isNonStandardSource ? `title="(UA/Etc.)"` : ""} class="glyphicon ${isBrewSource ? `glyphicon-glass` : isNonStandardSource ? `glyphicon-file` : `glyphicon-book`}"></span> ${Parser.sourceJsonToAbv(item.item || item)}`;
+	}
+
 	constructor (opts) {
 		opts = opts || {};
 
 		opts.header = opts.header === undefined ? FilterBox.SOURCE_HEADER : opts.header;
 		opts.displayFn = opts.displayFn === undefined ? item => Parser.sourceJsonToFullCompactPrefix(item.item || item) : opts.displayFn;
-		opts.displayFnMini = opts.displayFnMini === undefined ? item => `<span class="glyphicon glyphicon-book"></span> ${Parser.sourceJsonToAbv(item.item || item)}` : opts.displayFnMini;
+		opts.displayFnMini = opts.displayFnMini === undefined ? SourceFilter._getDisplayHtmlMini.bind(SourceFilter) : opts.displayFnMini;
 		opts.displayFnTitle = opts.displayFnTitle === undefined ? item => Parser.sourceJsonToFull(item.item || item) : opts.displayFnTitle;
-		opts.itemSortFnMini = opts.itemSortFnMini === undefined ? (a, b) => SortUtil.ascSort(Parser.sourceJsonToAbv(a.item), Parser.sourceJsonToAbv(b.item)) : opts.itemSortFnMini;
+		opts.itemSortFnMini = opts.itemSortFnMini === undefined ? SourceFilter._SORT_ITEMS_MINI.bind(SourceFilter) : opts.itemSortFnMini;
 		opts.itemSortFn = opts.itemSortFn === undefined ? (a, b) => SortUtil.ascSortLower(Parser.sourceJsonToFull(a.item), Parser.sourceJsonToFull(b.item)) : opts.itemSortFn;
 		opts.groupFn = opts.groupFn === undefined ? SourceUtil.getFilterGroup : opts.groupFn;
 		opts.selFn = opts.selFn === undefined ? PageFilter.defaultSourceSelFn : opts.selFn;

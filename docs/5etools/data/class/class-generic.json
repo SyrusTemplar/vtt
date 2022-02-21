@@ -255,17 +255,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Healer.",
+							"name": "Healer",
 							"entry": "Your hit point maximum increases by an amount equal to your level in this class, and you gain the same number of hit points. When you regain hit points from a spell, you regain an additional {@dice 1d8} hit points."
 						},
 						{
 							"type": "item",
-							"name": "Sage.",
+							"name": "Sage",
 							"entry": "You have advantage on ability checks using the {@skill Arcana}, {@skill History}, {@skill Nature}, and {@skill Religion} skills. Additionally, once per turn, when you deal damage to a creature with a spell of 1st-level or higher, you can deal an additional {@damage 1d8} force damage to that creature."
 						},
 						{
 							"type": "item",
-							"name": "Warrior.",
+							"name": "Warrior",
 							"entry": "If you use your action to cast a cantrip, you can make one weapon attack as part of that action. If that weapon attack hits, the target takes an additional {@damage 1d8} radiant damage."
 						}
 					]

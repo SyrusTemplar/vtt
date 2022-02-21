@@ -3231,27 +3231,27 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Time.",
+											"name": "Time",
 											"entry": "The portal functions only at particular times: during a full moon on the Material Plane, or every ten days, or when the stars are in a particular position. Once it opens, such a portal remains open for a limited time, such as for three days following the full moon, or for an hour, or for {@dice 1d4 + 1} rounds."
 										},
 										{
 											"type": "item",
-											"name": "Situation.",
+											"name": "Situation",
 											"entry": "The portal functions only if a particular condition is met. A situation-keyed portal opens on a clear night, or when it rains, or when a certain spell is cast in its vicinity."
 										},
 										{
 											"type": "item",
-											"name": "Random.",
+											"name": "Random",
 											"entry": "A random portal functions for a random period, then shuts down for a similarly random duration. Typically, such a portal allows {@dice 1d6 + 6} travelers to pass through, then shuts down for {@dice 1d6} days."
 										},
 										{
 											"type": "item",
-											"name": "Command Word.",
+											"name": "Command Word",
 											"entry": "The portal functions only if a particular command word is spoken. Sometimes the word must be spoken as a character passes through the portal (which is otherwise a mundane doorway, window, or similar opening). Other portals open when the command word is spoken and remain open for a short time."
 										},
 										{
 											"type": "item",
-											"name": "Key.",
+											"name": "Key",
 											"entry": "The portal functions if the traveler is holding a particular object; the item acts much like a key to a door. This key item can be a common object or a particular key created for that portal. The city of Sigil above the Outlands is known as the City of Doors because it features an overwhelming number of such item-keyed portals."
 										}
 									]

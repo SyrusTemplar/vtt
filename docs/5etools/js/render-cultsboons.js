@@ -18,7 +18,7 @@ class RenderCultsBoons {
 			${Renderer.utils.getNameTr(it, {page: UrlUtil.PG_CULTS_BOONS})}
 			<tr id="text"><td class="divider" colspan="6"><div></div></td></tr>
 			<tr class="text"><td colspan="6" class="text">${renderStack.join("")}</td></tr>
-			${Renderer.utils.getPageTr(it)}
+			${Renderer.utils.getPageTr(it, {tag: "cult", fnUnpackUid: (uid) => DataUtil.generic.unpackUid(uid, "cult")})}
 			${Renderer.utils.getBorderTr()}
 		`;
 	}
@@ -35,7 +35,7 @@ class RenderCultsBoons {
 			${Renderer.utils.getExcludedTr({entity: it, dataProp: "boon"})}
 			${Renderer.utils.getNameTr(it, {page: UrlUtil.PG_CULTS_BOONS})}
 			<tr class="text"><td colspan="6">${renderStack.join("")}</td></tr>
-			${Renderer.utils.getPageTr(it)}
+			${Renderer.utils.getPageTr(it, {tag: "boon", fnUnpackUid: (uid) => DataUtil.generic.unpackUid(uid, "boon")})}
 			${Renderer.utils.getBorderTr()}
 		`;
 	}

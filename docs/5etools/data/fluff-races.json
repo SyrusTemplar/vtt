@@ -1430,7 +1430,7 @@
 												},
 												{
 													"type": "item",
-													"name": "Clan Names",
+													"name": "Clan Names:",
 													"entry": "Balderk, Battlehammer, Brawnanvil, Dankil, Fireforge, Frostbeard, Gorunn, Holderhek, Ironfist, Loderr, Lutgehr, Rumnaheim, Strakeln, Torunn, Ungart"
 												}
 											]
@@ -1741,22 +1741,26 @@
 												{
 													"type": "item",
 													"name": "Autumn",
-													"entry": "is the season of peace and goodwill, when summer's harvest is shared with all."
+													"entry": "is the season of peace and goodwill, when summer's harvest is shared with all.",
+													"nameDot": false
 												},
 												{
 													"type": "item",
 													"name": "Winter",
-													"entry": "is the season of contemplation and dolor, when the vibrant energy of the world slumbers."
+													"entry": "is the season of contemplation and dolor, when the vibrant energy of the world slumbers.",
+													"nameDot": false
 												},
 												{
 													"type": "item",
 													"name": "Spring",
-													"entry": "is the season of cheerfulness and celebration, marked by merriment as winter's sorrow passes."
+													"entry": "is the season of cheerfulness and celebration, marked by merriment as winter's sorrow passes.",
+													"nameDot": false
 												},
 												{
 													"type": "item",
 													"name": "Summer",
-													"entry": "is the season of boldness and aggression, a time of unfettered energy."
+													"entry": "is the season of boldness and aggression, a time of unfettered energy.",
+													"nameDot": false
 												}
 											]
 										},
@@ -5254,12 +5258,12 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Female Names",
+											"name": "Female Names:",
 											"entry": "Bozzri, Dhazdoro, Erinimachis, Ghalantzo, Halafoti, Kerania, Mitévra, Philoprodis, Tavromiki, Ypoudoris"
 										},
 										{
 											"type": "item",
-											"name": "Male Names",
+											"name": "Male Names:",
 											"entry": "Bamvros, Fotiyinos, Halafotios, Keranios, Menetavro, Nikavros, Prodos, Rhordon, Tavrostenes, Thyrogog"
 										}
 									]

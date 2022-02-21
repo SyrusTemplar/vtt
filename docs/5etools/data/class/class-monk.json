@@ -1758,17 +1758,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Draconic Presence.",
+							"name": "Draconic Presence",
 							"entry": "If you fail a Charisma ({@skill Intimidation}) or Charisma ({@skill Persuasion}) check, you can use your reaction to reroll the check, as you tap into the mighty presence of dragons. Once this feature turns a failure into a success, you can't use it again until you finish a long rest."
 						},
 						{
 							"type": "item",
-							"name": "Draconic Strike.",
+							"name": "Draconic Strike",
 							"entry": "When you damage a target with an unarmed strike, you can change the damage type to acid, cold, fire, lightning, or poison."
 						},
 						{
 							"type": "item",
-							"name": "Tongue of Dragons.",
+							"name": "Tongue of Dragons",
 							"entry": "You learn to speak, read, and write {@language Draconic} or one other language of your choice."
 						}
 					]
@@ -1810,12 +1810,12 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Frightful Presence.",
+							"name": "Frightful Presence",
 							"entry": "When you create this aura, and as a bonus action on subsequent turns, you can choose a creature within the aura. The target must succeed on a Wisdom saving throw against your ki save DC or become {@condition frightened} of you for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a successful save."
 						},
 						{
 							"type": "item",
-							"name": "Resistance.",
+							"name": "Resistance",
 							"entry": "Choose a damage type when you activate this aura: acid, cold, fire, lightning, or poison. You and your allies within the aura have resistance to that damage."
 						}
 					]
@@ -1842,17 +1842,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Augment Breath.",
+							"name": "Augment Breath",
 							"entry": "When you use your Breath of the Dragon, you can spend 1 ki point to augment its shape and power. The exhalation of draconic energy becomes either a 60-foot cone or a 90-foot line that is 5 feet wide (your choice), and each creature in that area takes damage equal to four rolls of your Martial Arts die on a failed save, or half as much damage on a successful one."
 						},
 						{
 							"type": "item",
-							"name": "Blindsight.",
+							"name": "Blindsight",
 							"entry": "You gain {@sense blindsight} out to 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're {@condition blinded} or in darkness. Moreover, you can see an {@condition invisible} creature within that range, unless the creature successfully hides from you."
 						},
 						{
 							"type": "item",
-							"name": "Explosive Fury.",
+							"name": "Explosive Fury",
 							"entry": "When you activate your Aspect of the Wyrm, draconic fury explodes from you. Choose any number of creatures you can see in your aura. Each of those creatures must succeed on a Dexterity saving throw against your ki save DC or take {@damage 3d10} acid, cold, fire, lightning, or poison damage (your choice)."
 						}
 					]

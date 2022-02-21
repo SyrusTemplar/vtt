@@ -489,9 +489,9 @@
 					],
 					"progression": {
 						"3": 3,
-						"7": 4,
-						"10": 5,
-						"15": 6
+						"7": 5,
+						"10": 7,
+						"15": 9
 					}
 				}
 			],
@@ -2794,11 +2794,11 @@
 					"entries": [
 						{
 							"type": "refSubclassFeature",
-							"subclassFeature": "Psi-Powered Leap.|Fighter|TCE|Psi Warrior|TCE|7"
+							"subclassFeature": "Psi-Powered Leap|Fighter|TCE|Psi Warrior|TCE|7"
 						},
 						{
 							"type": "refSubclassFeature",
-							"subclassFeature": "Telekinetic Thrust.|Fighter|TCE|Psi Warrior|TCE|7"
+							"subclassFeature": "Telekinetic Thrust|Fighter|TCE|Psi Warrior|TCE|7"
 						}
 					]
 				}
@@ -3194,17 +3194,17 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Protective Field.",
+							"name": "Protective Field",
 							"entry": "When you or another creature you can see within 30 feet of you takes damage, you can use your reaction to roll your Psionic Talent die and reduce the damage taken by the number rolled plus your Intelligence modifier (minimum reduction of 1), as you create a momentary shield of telekinetic force."
 						},
 						{
 							"type": "item",
-							"name": "Psi-Powered Leap.",
+							"name": "Psi-Powered Leap",
 							"entry": "When you make a high or long jump, you can roll your Psionic Talent die and extend the distance of the jump, up to a number of feet equal to twice the number rolled plus twice your Intelligence modifier (minimum of 1 extra foot). This extra distance costs you only 1 foot of movement."
 						},
 						{
 							"type": "item",
-							"name": "Telekinetic Strike.",
+							"name": "Telekinetic Strike",
 							"entry": "You can propel your attacks with telekinetic force. Once on each of your turns, immediately after you deal damage to a target within 30 feet of you with a weapon attack, you can roll your Psionic Talent die and also deal force damage to the target equal to the number rolled."
 						}
 					]
@@ -3230,12 +3230,12 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Psionic Thrust.",
+							"name": "Psionic Thrust",
 							"entry": "When you deal damage to a target with the Telekinetic Strike of your Psionic Talent, you can force the target to make a Strength saving throw against a DC equal to 8 + your proficiency bonus + your Intelligence modifier. Unless the save succeeds, you can knock the target {@condition prone} or move it up to 10 feet in any direction horizontally."
 						},
 						{
 							"type": "item",
-							"name": "Telekinetic Movement.",
+							"name": "Telekinetic Movement",
 							"entry": "If your Psionic Talent die is available, you can move an object or a creature with your mind. As an action, you target one loose object that is Large or smaller or one willing creature, other than yourself. If you can see the target and it is within 30 feet of you, you can move it up to 30 feet to an unoccupied space you can see. Alternatively, if it is a Tiny object, you can move it to or from your hand. Either way, you can move the target horizontally, vertically, or both. When you take this action, your Psionic Talent die decreases by one die size."
 						}
 					]
@@ -5666,7 +5666,7 @@
 			]
 		},
 		{
-			"name": "Psi-Powered Leap.",
+			"name": "Psi-Powered Leap",
 			"source": "TCE",
 			"page": 42,
 			"className": "Fighter",
@@ -5679,7 +5679,7 @@
 			]
 		},
 		{
-			"name": "Telekinetic Thrust.",
+			"name": "Telekinetic Thrust",
 			"source": "TCE",
 			"page": 42,
 			"className": "Fighter",

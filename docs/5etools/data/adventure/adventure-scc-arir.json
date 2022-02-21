@@ -236,12 +236,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Cheer a Participant.",
+													"name": "Cheer a Participant",
 													"entry": "A character can encourage one of the game's participants. That participant's teacup gains advantage on its attack rolls."
 												},
 												{
 													"type": "item",
-													"name": "Heckle a Participant.",
+													"name": "Heckle a Participant",
 													"entry": "A character can taunt one of the game's participants. That participant's teacup has disadvantage on its attack rolls."
 												}
 											]
@@ -288,12 +288,12 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Flora's Arcane Properties.",
+											"name": "Flora's Arcane Properties",
 											"entry": "Correctly selecting the properties of samples requires a successful DC 13 Intelligence ({@skill Nature}) check."
 										},
 										{
 											"type": "item",
-											"name": "Specimen Identification.",
+											"name": "Specimen Identification",
 											"entry": "Recalling the correct names of flora with arcane uses based on sight, smell, and texture requires a successful DC 20 Wisdom ({@skill Survival}) check."
 										}
 									]
@@ -508,17 +508,17 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Endless Muck.",
+											"name": "Endless Muck",
 											"entry": "The muddy, stagnant water is 2 feet deep unless otherwise specified and counts as {@book difficult terrain|PHB|8|Difficult Terrain}. The small islands of land and pathways shown on the map are normal terrain."
 										},
 										{
 											"type": "item",
-											"name": "Poor Visibility.",
+											"name": "Poor Visibility",
 											"entry": "Pervasive mist and drizzle reduce visibility to 30 feet."
 										},
 										{
 											"type": "item",
-											"name": "Teeming Creatures.",
+											"name": "Teeming Creatures",
 											"entry": "The bog is filled with animal life, much of it noisy and distracting. Wisdom ({@skill Perception}) checks are thus made with disadvantage in the bog."
 										}
 									]
@@ -1134,22 +1134,22 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Bare Stone.",
+													"name": "Bare Stone",
 													"entry": "This cave looks naturally formed, but the stone has been shaped and smoothed by magic. The cave walls have shelves built into them."
 												},
 												{
 													"type": "item",
-													"name": "Ceilings.",
+													"name": "Ceilings",
 													"entry": "The ceilings are 10 feet high and gently curved and smoothed like the walls."
 												},
 												{
 													"type": "item",
-													"name": "Light.",
+													"name": "Light",
 													"entry": "All areas are lit by {@spell continual flame} spells cast on wall sconces."
 												},
 												{
 													"type": "item",
-													"name": "Scry-Proof.",
+													"name": "Scry-Proof",
 													"entry": "Any attempt to magically scry on a creature, object, or location within the underground cave fails automatically."
 												}
 											]
@@ -1354,17 +1354,17 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Clinging to Life.",
+													"name": "Clinging to Life",
 													"entry": "Death saving throws are made with advantage."
 												},
 												{
 													"type": "item",
-													"name": "Grievous Wounds.",
+													"name": "Grievous Wounds",
 													"entry": "Any creature that scores a critical hit rolls one additional damage die to determine damage."
 												},
 												{
 													"type": "item",
-													"name": "Withered Vegetation.",
+													"name": "Withered Vegetation",
 													"entry": "Vegetation within 1 mile of the fortress appears withered and sickly."
 												}
 											]
@@ -1384,22 +1384,22 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Desecrated Earth.",
+													"name": "Desecrated Earth",
 													"entry": "The area is awash in necrotic energy. Undead here have advantage on saving throws against being turned."
 												},
 												{
 													"type": "item",
-													"name": "Fortress Walls.",
+													"name": "Fortress Walls",
 													"entry": "The fortress looks like a blast of energy blew the top two-thirds of it away. The walls are roughly 10 feet high and 2 feet thick unless otherwise specified."
 												},
 												{
 													"type": "item",
-													"name": "Illumination.",
+													"name": "Illumination",
 													"entry": "No light sources are present in the ruins, which are illuminated by sunlight during the day and moonlight at night."
 												},
 												{
 													"type": "item",
-													"name": "Trees.",
+													"name": "Trees",
 													"entry": "The trees here are gnarled and have discolored leaves."
 												}
 											]
@@ -1634,12 +1634,12 @@
 															"items": [
 																{
 																	"type": "item",
-																	"name": "Rip Out Its Guts.",
+																	"name": "Rip Out Its Guts",
 																	"entry": "A character can reach inside the Locus through one of its mouths and try to rip out its innards with a DC 15 Strength ({@skill Athletics}) check. If the check fails, the character is unsuccessful and takes 10 necrotic damage. If the check succeeds, the character takes 5 necrotic damage and deals 22 ({@dice 4d10}) slashing damage to the Locus, ignoring its damage threshold and resistance to slashing damage."
 																},
 																{
 																	"type": "item",
-																	"name": "Undo It with Magic.",
+																	"name": "Undo It with Magic",
 																	"entry": "A character within 5 feet of the Locus can use an action to try to overload it using an incantation taught in school. The character concludes the incantation by making an Intelligence ({@skill Arcana}) check. If the check fails, the character takes 5 necrotic damage. If the check succeeds, the Locus takes 22 ({@dice 4d10}) force damage, ignoring its damage threshold."
 																}
 															]
@@ -1715,27 +1715,27 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Walls.",
+											"name": "Walls",
 											"entry": "The walls are damp and made of smooth, worked stone."
 										},
 										{
 											"type": "item",
-											"name": "Ceilings.",
+											"name": "Ceilings",
 											"entry": "The ceilings throughout this level are 10 feet high."
 										},
 										{
 											"type": "item",
-											"name": "Doors.",
+											"name": "Doors",
 											"entry": "The doors are constructed of heavy wood. Each sports a simple but sturdy drop-down latch on the outside unless otherwise specified. Latched doors require a successful DC 16 Strength ({@skill Athletics}) check to batter open from the inside."
 										},
 										{
 											"type": "item",
-											"name": "Floors.",
+											"name": "Floors",
 											"entry": "The floors are worked stone and covered with small puddles of water."
 										},
 										{
 											"type": "item",
-											"name": "Illumination.",
+											"name": "Illumination",
 											"entry": "Sconces hold torches that have {@spell continual flame} spells cast on them. The sconces are spaced at 20-foot intervals along the walls."
 										}
 									]
@@ -1817,7 +1817,7 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Bomb.",
+													"name": "Bomb",
 													"entry": "See \"{@book Explosives|DMG|9|Explosives}\" in the {@book Dungeon Master's Guide|DMG} for more information on {@item Bomb||bombs}."
 												}
 											]
@@ -1937,22 +1937,22 @@
 															"items": [
 																{
 																	"type": "item",
-																	"name": "Clay Behemoth.",
+																	"name": "Clay Behemoth",
 																	"entry": "A {@creature clay golem} erupts from the floor in an unoccupied space within 15 feet of the ritual circle. The golem obeys {@creature Murgaxor|SCC}'s commands, takes its turns on initiative count 10 (losing initiative ties), fights until destroyed, and reverts to a mound of inanimate clay after 1 hour."
 																},
 																{
 																	"type": "item",
-																	"name": "Earthen Fist.",
+																	"name": "Earthen Fist",
 																	"entry": "A Medium fist made of packed earth rises from the floor in an unoccupied space that {@creature Murgaxor|SCC} can see within 30 feet of him. The fist then attacks one creature of his choice that is within 5 feet of the fist. The fist has a +11 bonus to hit, and on a hit, the target takes 13 ({@dice 3d8}) bludgeoning damage and is {@condition grappled} (escape DC 15). The fist disappears if the attack roll misses or if the grapple ends. When the fist disappears, this lair action recharges, allowing {@creature Murgaxor|SCC} to use it again."
 																},
 																{
 																	"type": "item",
-																	"name": "Necrotic Burst.",
+																	"name": "Necrotic Burst",
 																	"entry": "Tendrils of necrotic energy erupt from the ritual circle and lash out at any number of creatures {@creature Murgaxor|SCC} can see within 15 feet of the circle. Each target must succeed on a DC 15 Dexterity saving throw, or it takes 5 ({@dice 1d10}) necrotic damage and can't regain hit points until the start of its next turn."
 																},
 																{
 																	"type": "item",
-																	"name": "Summon Mephits.",
+																	"name": "Summon Mephits",
 																	"entry": "{@creature Murgaxor|SCC} summons four {@creature Mud Mephit||mud mephits} that appear in unoccupied spaces within 15 feet of the ritual circle. The mephits obey {@creature Murgaxor|SCC}'s commands, take their turns on initiative count 15 (losing initiative ties), and fight until destroyed."
 																}
 															]

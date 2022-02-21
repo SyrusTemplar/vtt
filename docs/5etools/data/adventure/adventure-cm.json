@@ -5545,17 +5545,17 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Ability Enhancement.",
+													"name": "Ability Enhancement",
 													"entry": "If engaging in a bargain to enhance physical or mental acuity, the character chooses one ability. The score for that ability increases by 2, as does the character's maximum for that score."
 												},
 												{
 													"type": "item",
-													"name": "Physical Transformation.",
+													"name": "Physical Transformation",
 													"entry": "A character bargaining with the hags can choose to change their race, sex, or appearance in any way they desire. The character retains their ability scores and class features, but changes their racial traits if applicable."
 												},
 												{
 													"type": "item",
-													"name": "Youth.",
+													"name": "Youth",
 													"entry": "A character who bargains for youth has their age reduced to one year older than the standard for adulthood (as noted in the traits for the character's race)."
 												}
 											]
@@ -5681,22 +5681,22 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Walls and Floors.",
+											"name": "Walls and Floors",
 											"entry": "The bathhouse and the tower are luxuriously appointed, with walls and floors of polished stone. The stonework in the abandoned shrine is crumbling and caked with grime."
 										},
 										{
 											"type": "item",
-											"name": "Doors.",
+											"name": "Doors",
 											"entry": "Inside the bathhouse and the tower, wooden doors are carved with images of water lilies. Doors in the bathhouse are normally unlocked, but they can be locked by anyone who has a master key. Doors in the tower are normally locked. Unless otherwise noted, a locked door can be opened with a successful DC 15 Dexterity check using thieves' tools, broken in with a successful DC 15 Strength ({@skill Athletics}) check, or attacked. A door has AC 15, 18 hit points, and immunity to poison and psychic damage."
 										},
 										{
 											"type": "item",
-											"name": "Windows.",
+											"name": "Windows",
 											"entry": "Within the bathhouse and the tower, finely made windows display abstract designs in stained glass. A window can be broken through with a successful DC 12 Strength ({@skill Athletics}) check or attacked; each one has AC 13, 3 hit points, and immunity to poison and psychic damage."
 										},
 										{
 											"type": "item",
-											"name": "Light.",
+											"name": "Light",
 											"entry": "All areas of the bathhouse and the tower are filled with bright light during the day and evening, either from sunlight or lanterns. After midnight, these areas are dark unless characters are using a light source. The ground floor of the shrine ({@area area T11|230|x}) is unlit, while its basement is lit by a magic pool (see {@area area T12|234|x} for details)."
 										}
 									]
@@ -5813,7 +5813,7 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Squats.",
+															"name": "Squats",
 															"entry": "To complete this activity, a character must perform three sets of continuous squats and succeed on three incrementally harder Constitution checks\u2014DC 10, DC 13, and DC 16, respectively. A character who fails a check has disadvantage on the next Constitution check they make as part of this activity. A character who fails three checks in a row must finish a short or long rest before attempting this activity again."
 														}
 													]
@@ -5832,7 +5832,7 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Chain Skipping.",
+															"name": "Chain Skipping",
 															"entry": "To complete this activity, a character must succeed on three DC 13 Dexterity ({@skill Acrobatics}) checks, representing their attempt to stay on their feet while they try to jump over a heavy metal chain being spun by Vile Sazha and the awakened tree. If a check fails, the character is knocked off balance, and the DC for the next check becomes 15. If a check fails by 5 or more, the character is also struck by the chain and takes 7 ({@dice 2d6}) bludgeoning damage."
 														}
 													]
@@ -8617,17 +8617,17 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Ceilings.",
+											"name": "Ceilings",
 											"entry": "Ceilings throughout are 10 feet high and have murals painted on them depicting humanoids with the heads of farm animals."
 										},
 										{
 											"type": "item",
-											"name": "Cleanliness.",
+											"name": "Cleanliness",
 											"entry": "The interior is cleaned daily by the cultists and is free of dirt, dust, and cobwebs."
 										},
 										{
 											"type": "item",
-											"name": "Doors and Windows.",
+											"name": "Doors and Windows",
 											"entry": "Doors are made of iron and fitted with iron fittings and handles. The tower's windows, which are made of a transparent metal called glassteel, can't be opened or smashed by any mundane means."
 										}
 									]
@@ -8852,17 +8852,17 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Coop.",
+															"name": "Coop",
 															"entry": "The launch is aborted when the countdown timer reaches zero. The engines under the tower shut down and remain inoperable for 24 hours."
 														},
 														{
 															"type": "item",
-															"name": "Shed.",
+															"name": "Shed",
 															"entry": "The countdown is paused and the Barn Door's launch is delayed for as long as the lever remains in this position."
 														},
 														{
 															"type": "item",
-															"name": "Stable.",
+															"name": "Stable",
 															"entry": "The Barn Door blasts off when the countdown timer reaches zero."
 														}
 													]
@@ -8902,22 +8902,22 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Ceilings.",
+											"name": "Ceilings",
 											"entry": "Ceilings are 20 feet high and flat."
 										},
 										{
 											"type": "item",
-											"name": "Debris.",
+											"name": "Debris",
 											"entry": "The floor in all areas was once littered with scraps of metal, most of which have been swept out of the way and piled near the walls."
 										},
 										{
 											"type": "item",
-											"name": "Doors.",
+											"name": "Doors",
 											"entry": "Doors are made of thick iron and fitted with iron fittings and handles."
 										},
 										{
 											"type": "item",
-											"name": "Light.",
+											"name": "Light",
 											"entry": "The underlevel is lit by oil-burning lanterns that hang from iron hooks embedded in the walls."
 										}
 									]
@@ -10837,32 +10837,32 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Candied Yams.",
+													"name": "Candied Yams",
 													"entry": "Any creature that eats from the plate of candied yams is targeted by a {@spell faerie fire} spell (save DC 15) that affects only it and lasts for 1 hour or until dispelled."
 												},
 												{
 													"type": "item",
-													"name": "Cheese-Stuffed Peppers.",
+													"name": "Cheese-Stuffed Peppers",
 													"entry": "Any creature with 75 hit points or fewer that eats a whole cheese-stuffed pepper must succeed on a DC 15 Constitution saving throw or instantly drop to 0 hit points and explode, leaving behind a mess plus whatever it was carrying and wearing."
 												},
 												{
 													"type": "item",
-													"name": "Jerk Frog Legs.",
+													"name": "Jerk Frog Legs",
 													"entry": "Any creature that eats from the plate of jerk frog legs gains the benefit of a {@spell jump} spell that lasts for 1 hour or until dispelled."
 												},
 												{
 													"type": "item",
-													"name": "Salted Cockatrice Eggs.",
+													"name": "Salted Cockatrice Eggs",
 													"entry": "Any creature that eats a whole salted cockatrice egg gains immunity to the {@condition petrified} condition for 1 hour."
 												},
 												{
 													"type": "item",
-													"name": "Stirge Burgers.",
+													"name": "Stirge Burgers",
 													"entry": "Any creature that eats a whole stirge burger gains 10 temporary hit points."
 												},
 												{
 													"type": "item",
-													"name": "Veggie Kabobs.",
+													"name": "Veggie Kabobs",
 													"entry": "Any creature that eats from the plate of veggie kabobs must make a DC 15 Constitution saving throw, taking 22 ({@dice 4d10}) poison damage on a failed save, or half as much damage on a successful one."
 												}
 											]
@@ -11981,27 +11981,27 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Walls and Floors.",
+											"name": "Walls and Floors",
 											"entry": "The crystal from which the temple was constructed glows with a bright light that fills all areas, even as it allows the characters faint glimpses of what lies beyond it. The magic of the walls obscures certain features, however, so that secret passages and rooms can't be seen from outside them. The crystal that makes up the tomb can't be damaged by any means available to the characters."
 										},
 										{
 											"type": "item",
-											"name": "Ceilings.",
+											"name": "Ceilings",
 											"entry": "Hallways and smaller chambers in the tomb are 15 feet high with flat ceilings. The ceilings in larger chambers are 20 to 30 feet high."
 										},
 										{
 											"type": "item",
-											"name": "Doors.",
+											"name": "Doors",
 											"entry": "All doors in the tomb are made of crystal, and most of them are unlocked. A character can use an action to try to open a locked door, either by using thieves' tools and succeeding on a DC 20 Dexterity check, or by forcing open the door with a successful DC 25 Strength ({@skill Athletics}) check. A door has AC 15, 60 hit points, and immunity to poison and psychic damage."
 										},
 										{
 											"type": "item",
-											"name": "Eyes of Savras.",
+											"name": "Eyes of Savras",
 											"entry": "The walls of the tomb are adorned with decorative eyes that serve as magical sensors, following the movements of visitors who explore the site. {@creature Valin Sarnaster|CM} controls the eyes, which have {@sense truesight} out to a range of 120 feet and allow her to surveil the characters from anywhere in the tomb. She must maintain concentration (as if concentrating on a spell) to do so. The eyes are free-floating in {@area area T9|465|x} and are prevented from functioning in {@area area T3|44b|x}."
 										},
 										{
 											"type": "item",
-											"name": "Extradimensional Interference.",
+											"name": "Extradimensional Interference",
 											"entry": "The tomb is warded against teleportation, and creatures inside it can't travel using teleportation or by extradimensional or interplanar means."
 										}
 									]
@@ -13123,17 +13123,17 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Floors, Walls, and Ceilings.",
+											"name": "Floors, Walls, and Ceilings",
 											"entry": "All areas of the ruins except the cavern ({@area area H7|4c0|x}) are worked stone. Ceilings are 30 feet high, except in {@area area H8|4c3|x}, which has a domed ceiling 50 feet high."
 										},
 										{
 											"type": "item",
-											"name": "Light.",
+											"name": "Light",
 											"entry": "Unless otherwise noted, all areas are unlit."
 										},
 										{
 											"type": "item",
-											"name": "Golems and Mummies.",
+											"name": "Golems and Mummies",
 											"entry": "Each section of wall marked \"G\" or \"M\" on the map indicates the location of a hidden stone golem (G) or mummy (M) in stasis. A {@spell detect magic} spell reveals an aura of conjuration magic emanating from that section of wall. When called for in the text, the golems and mummies phase out of the walls and materialize in the dungeon. Until then, they are hidden and can't be harmed."
 										}
 									]
@@ -13707,22 +13707,22 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Personality Trait.",
+													"name": "Personality Trait",
 													"entry": "\"I want to learn about everything.\""
 												},
 												{
 													"type": "item",
-													"name": "Ideal.",
+													"name": "Ideal",
 													"entry": "\"Life is an adventure.\""
 												},
 												{
 													"type": "item",
-													"name": "Bond.",
+													"name": "Bond",
 													"entry": "\"My grandfather is my best friend.\""
 												},
 												{
 													"type": "item",
-													"name": "Flaw.",
+													"name": "Flaw",
 													"entry": "\"Sometimes I put curiosity before caution.\""
 												}
 											]
@@ -13744,22 +13744,22 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Personality Trait.",
+													"name": "Personality Trait",
 													"entry": "\"I know much about the ancient history of Netheril.\""
 												},
 												{
 													"type": "item",
-													"name": "Ideal.",
+													"name": "Ideal",
 													"entry": "\"I want to know what my ancestors knew.\""
 												},
 												{
 													"type": "item",
-													"name": "Bond.",
+													"name": "Bond",
 													"entry": "\"My grandson, Pesh, is my life.\""
 												},
 												{
 													"type": "item",
-													"name": "Flaw.",
+													"name": "Flaw",
 													"entry": "\"I think magic is a road that leads to ruin.\""
 												}
 											]
@@ -14709,17 +14709,17 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Light.",
+											"name": "Light",
 											"entry": "The complex is dimly lit by bioluminescent fungi growing in patches on the walls."
 										},
 										{
 											"type": "item",
-											"name": "Fungus.",
+											"name": "Fungus",
 											"entry": "The ceilings, walls, and floors are coated in fungal growth."
 										},
 										{
 											"type": "item",
-											"name": "Passages.",
+											"name": "Passages",
 											"entry": "The caves and tunnels are made of unworked stone. Ceilings throughout are 20 feet high unless otherwise noted."
 										}
 									]

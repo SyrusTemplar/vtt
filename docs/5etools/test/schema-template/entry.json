@@ -4,7 +4,7 @@
 
 	"title": "Entry",
 	"description": "A recursively renderable object.",
-	"version": "1.5.3",
+	"version": "1.5.4",
 
 	"definitions" : {
 		"_arrayOfSpell": {
@@ -916,6 +916,9 @@
 								},
 								"entry": {
 									"$ref": "#"
+								},
+								"nameDot": {
+									"const": false
 								}
 							},
 							"required": ["name", "entry"],
@@ -934,6 +937,9 @@
 									"items": {
 										"$ref": "#"
 									}
+								},
+								"nameDot": {
+									"const": false
 								}
 							},
 							"required": ["name", "entries"],
@@ -955,6 +961,9 @@
 						},
 						"entry": {
 							"$ref": "#"
+						},
+						"nameDot": {
+							"const": false
 						}
 					},
 					"required": ["name", "entry"],
@@ -1407,6 +1416,9 @@
 						"yearly": {
 							"$ref": "#/definitions/entrySpellcasting_frequency"
 						},
+						"charges": {
+							"$ref": "#/definitions/entrySpellcasting_frequency"
+						},
 						"spells": {
 							"type": "object",
 							"properties": {
@@ -1487,6 +1499,10 @@
 							"description": "Implicitly \"trait\"",
 							"type": "string",
 							"enum": ["trait", "action"]
+						},
+						"chargesItem": {
+							"type": "string",
+							"description": "The UID of an item which provides the charges required to cast any \"charges\" spells."
 						}
 					},
 					"required": [

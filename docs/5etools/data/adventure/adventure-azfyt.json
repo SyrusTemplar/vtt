@@ -92,32 +92,32 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Azorius.",
+											"name": "Azorius",
 											"entry": "An impeccably dressed male human lawmage."
 										},
 										{
 											"type": "item",
-											"name": "Dimir.",
+											"name": "Dimir",
 											"entry": "A humanoid roughly the size of a human, elf, or vedalken."
 										},
 										{
 											"type": "item",
-											"name": "Izzet.",
+											"name": "Izzet",
 											"entry": "An eager, excitable female goblin."
 										},
 										{
 											"type": "item",
-											"name": "Orzhov.",
+											"name": "Orzhov",
 											"entry": "A winged thrull delivered payment and the message from the client."
 										},
 										{
 											"type": "item",
-											"name": "Rakdos.",
+											"name": "Rakdos",
 											"entry": "A flamboyantly dressed female human blood witch."
 										},
 										{
 											"type": "item",
-											"name": "Simic.",
+											"name": "Simic",
 											"entry": "A Simic hybrid\u2013an elf with greenish-blue scales and nictitating membranes on their eyes."
 										}
 									]
@@ -186,7 +186,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Treasure.",
+											"name": "Treasure",
 											"entry": "If a character has Vezska as a contact, or if there is a member of the Golgari in the group, Vezska gives that character a rust-covered pendant with the Golgari symbol on it, a {@reward Golgari charm|GGR}. When activated, the charm can cast either {@spell dispel magic}, {@spell false life} (3rd-level version), or {@spell stinking cloud} once before vanishing. More information on guild charms can be found in {@book Guildmaster's Guide to Ravnica|ggr|5|guild charms}. She only has one charm to give and she favors a Golgari member over all others."
 										}
 									]
@@ -224,17 +224,17 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Argona.",
+											"name": "Argona",
 											"entry": "A red-haired, roan, female centaur and horncaller (a type of beastmaster) in the Selesnya Conclave. The characters must learn the name of the gardening book that she recently returned to the Ismeri Library."
 										},
 										{
 											"type": "item",
-											"name": "Delrim Munn.",
+											"name": "Delrim Munn",
 											"entry": "A male vedalken student at Prism University. The characters must obtain the location of a secret passage at the Ismeri Library that Delrim accidently discovered."
 										},
 										{
 											"type": "item",
-											"name": "Herringbone.",
+											"name": "Herringbone",
 											"entry": "A male Silhana (wood elf) fence with a propensity to dress in well-tailored clothes. The characters must learn the location of a Mizzium-augmented scorchbringer (a flamethrower-like device) that's he's seen but hasn't been able to obtain."
 										}
 									]
@@ -583,27 +583,27 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Barter.",
+													"name": "Barter",
 													"entry": "The group could try to barter for the information. They would need to offer something of substantial value. The Golgari charm would be considered a good trade in kind. Other valuable items might be acceptable. Characters bartering need to succeed on a DC 15 Charisma ({@skill Persuasion}) check to get Herringbone to take the deal, as long as the item in question is worth 100 zinos (gp) or more."
 												},
 												{
 													"type": "item",
-													"name": "Intimidate.",
+													"name": "Intimidate",
 													"entry": "They could try to intimidate Herringbone, but unless they subdue all the Gruul first, that's a tall order. If the group tries this tactic, it requires a very convincing threat along with a DC 20 Charisma ({@skill Intimidation}) check to get him to back down and give the party the information. A Gruul member of the Burning Tree clan has advantage on this check, as they have the most fearsome reputation amongst the Gruul, cowing Herringbone's associates."
 												},
 												{
 													"type": "item",
-													"name": "Deceive.",
+													"name": "Deceive",
 													"entry": "It's possible to deceive Herringbone in thinking about the answer, and then subtly using the vial of thought capture to gather the thought strand. This requires an expert in deceit to navigate the conversation and an unseen hand in manipulating the vial. A DC 20 Charisma ({@skill Deception}) check and a DC 15 Dexterity ({@skill Sleight of Hand}) check can obtain the thought strand."
 												},
 												{
 													"type": "item",
-													"name": "Charm.",
+													"name": "Charm",
 													"entry": "A character could use magic such as {@spell charm person} to get the answer from Herringbone, although the Gruul may attack the party if one of the anarchs can tell if Herringbone has been {@condition charmed}, requiring an anarch to succeed on a DC 10 Wisdom ({@skill Insight}) check."
 												},
 												{
 													"type": "item",
-													"name": "Fight.",
+													"name": "Fight",
 													"entry": "The party could decide to just subdue them in combat. Once all the Gruul are defeated, Herringbone can be easily coerced into giving up the appropriate information."
 												}
 											]

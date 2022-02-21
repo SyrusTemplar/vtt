@@ -201,7 +201,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Change Shape.",
+											"name": "Change Shape",
 											"entries": [
 												"You can decide that a dragon acquires this action at a younger age than usual, particularly if you want to feature a dragon in Humanoid form in your campaign:",
 												"The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).",
@@ -210,7 +210,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Flyby,",
+											"name": "Flyby",
 											"entries": [
 												"The dragon is an agile flier, quick to fly out of enemies' reach.",
 												"The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach."
@@ -218,7 +218,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Mimicry.",
+											"name": "Mimicry",
 											"entries": [
 												"Impersonating characters or their allies could be a fun trick for a crafty dragon.",
 												"The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 12} Wisdom ({@skill Insight}) check."
@@ -226,7 +226,7 @@
 										},
 										{
 											"type": "item",
-											"name": "Rejuvenation.",
+											"name": "Rejuvenation",
 											"entries": [
 												"You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery.",
 												"If it has an essence-preserving object, a destroyed dragon gains a new body in {@dice 1d10} days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object."
@@ -234,14 +234,14 @@
 										},
 										{
 											"type": "item",
-											"name": "Special Senses.",
+											"name": "Special Senses",
 											"entries": [
 												"Most dragons have {@sense blindsight} and {@sense darkvision}. You might upgrade {@sense blindsight} to {@sense truesight}, or you could give a dragon with a burrowing speed {@sense tremorsense}."
 											]
 										},
 										{
 											"type": "item",
-											"name": "Tunneler.",
+											"name": "Tunneler",
 											"entries": [
 												"The dragon can burrow through solid rock at half its burrowing speed and leaves a tunnel in its wake."
 											]

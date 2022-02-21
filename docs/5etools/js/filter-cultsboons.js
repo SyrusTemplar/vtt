@@ -12,10 +12,17 @@ class PageFilterCultsBoons extends PageFilter {
 			header: "Subtype",
 			items: [],
 		});
+		this._miscFilter = new Filter({
+			header: "Miscellaneous",
+			items: ["Reprinted"],
+			deselFn: (it) => it === "Reprinted",
+			isMiscFilter: true,
+		});
 	}
 
 	static mutateForFilters (it) {
 		it._fType = it.__prop === "cult" ? "Cult" : it.type ? `Boon, ${it.type}` : "Boon";
+		it._fMisc = it.reprintedAs ? ["Reprinted"] : [];
 	}
 
 	addToFilters (it, isExcluded) {
@@ -24,6 +31,7 @@ class PageFilterCultsBoons extends PageFilter {
 		this._sourceFilter.addItem(it.source);
 		this._typeFilter.addItem(it._fType);
 		this._subtypeFilter.addItem(it.type);
+		this._miscFilter.addItem(it._fMisc);
 	}
 
 	async _pPopulateBoxOptions (opts) {
@@ -31,6 +39,7 @@ class PageFilterCultsBoons extends PageFilter {
 			this._sourceFilter,
 			this._typeFilter,
 			this._subtypeFilter,
+			this._miscFilter,
 		];
 	}
 
@@ -40,6 +49,7 @@ class PageFilterCultsBoons extends PageFilter {
 			cb.source,
 			cb._fType,
 			cb.type,
+			cb._fMisc,
 		);
 	}
 }

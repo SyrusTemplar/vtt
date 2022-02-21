@@ -474,22 +474,22 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Dangerous.",
+													"name": "Dangerous",
 													"entry": "The Rival accuses the characters of causing the dangerous events that have occurred over the past two years. They can't prove it, but they want to punish the characters anyway."
 												},
 												{
 													"type": "item",
-													"name": "Love Polygon.",
+													"name": "Love Polygon",
 													"entry": "The Rival blames a character for a relationship disappointment."
 												},
 												{
 													"type": "item",
-													"name": "Mage Tower Affront.",
+													"name": "Mage Tower Affront",
 													"entry": "The characters beat the Rival at Mage Tower in chapter 4, or the characters' efforts caused the Rival to lose a bet."
 												},
 												{
 													"type": "item",
-													"name": "So Special.",
+													"name": "So Special",
 													"entry": "The Rival just can't stand the characters. Now's the time to take them down a notch."
 												}
 											]
@@ -574,22 +574,22 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Ceilings and Walls.",
+													"name": "Ceilings and Walls",
 													"entry": "The walls and ceilings are as hard and durable as stone. The structure's ceiling rises 20 feet above the floor."
 												},
 												{
 													"type": "item",
-													"name": "Illumination.",
+													"name": "Illumination",
 													"entry": "The repository's scintillating walls shed bright light out to a range of 20 feet and dim light for an additional 20 feet."
 												},
 												{
 													"type": "item",
-													"name": "Magic Protections.",
+													"name": "Magic Protections",
 													"entry": "The repository is designed to break down magic without damaging creatures. See \"{@adventure Duels in the Repository|SCC-TMM|0|Duels in the Repository}\" for details on the site's protective magic. The site's magic restores hit points to creatures within the structure, whether they're dueling or not. After taking damage in the repository, a creature still in the building is healed to full hit points after not taking damage for 1 minute."
 												},
 												{
 													"type": "item",
-													"name": "Wild Magic.",
+													"name": "Wild Magic",
 													"entry": "Once per turn, when a creature expends a spell slot to cast a spell of 1st level or higher, an additional effect might occur. That creature must roll a {@dice d10}. On a roll of 1, they must then roll on the {@table Wild Magic Surge|PHB} table in the \"{@class sorcerer|phb|Sorcerer}\" section of the {@book Player's Handbook|PHB} to determine which wild magic effect occurs."
 												}
 											]
@@ -757,12 +757,12 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Commonly Used Magic Devices.",
+											"name": "Commonly Used Magic Devices",
 											"entry": "Identifying types of magic devices, from battlefield magic items to objects useful as spell foci, requires a successful DC 17 Intelligence ({@skill Arcana}) check."
 										},
 										{
 											"type": "item",
-											"name": "Historical Relics in Magic.",
+											"name": "Historical Relics in Magic",
 											"entry": "Writing a short essay about historical relics and how they were famously used in ritual magic requires a successful DC 17 Intelligence ({@skill History}) check."
 										}
 									]
@@ -1212,12 +1212,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Magical Devices and Their Functions.",
+													"name": "Magical Devices and Their Functions",
 													"entry": "Matching a list of magical devices with their functions requires a successful DC 18 Intelligence ({@skill History}) check."
 												},
 												{
 													"type": "item",
-													"name": "History of Magical Devices.",
+													"name": "History of Magical Devices",
 													"entry": "Writing short essays about the origins of different magical devices requires a successful DC 18 Wisdom ({@skill Insight}) check."
 												}
 											]
@@ -1403,27 +1403,27 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Ceilings.",
+													"name": "Ceilings",
 													"entry": "The center of the hall rises 200 feet above the floor to a domed ceiling. The ceiling above each balcony is 20 feet high."
 												},
 												{
 													"type": "item",
-													"name": "Doors.",
+													"name": "Doors",
 													"entry": "At night, all exterior doors to the hall are locked and sealed with {@spell arcane lock} spells. Only Lorehold College faculty members, including Dean Tullus, know the password to bypass these spells. Opening a lock requires thieves' tools and a successful DC 25 Dexterity check (DC 35 while the {@spell arcane lock} spell is active)."
 												},
 												{
 													"type": "item",
-													"name": "Illumination.",
+													"name": "Illumination",
 													"entry": "Light from the domed skylight and {@spell continual flame} spells cast on hanging lanterns provide bright illumination throughout the hall."
 												},
 												{
 													"type": "item",
-													"name": "Magic Steps.",
+													"name": "Magic Steps",
 													"entry": "All steps, including the hall's grand staircase, shift up or down like escalators, or flatten out completely before raising or lowering like lifts to accommodate larger creatures and mobility devices, depending on users' needs."
 												},
 												{
 													"type": "item",
-													"name": "Transport Glyphs.",
+													"name": "Transport Glyphs",
 													"entry": "Runic glyphs (marked as starbursts on map 5.2) are etched on the floor near the hall's main staircase. Any creature that stands on a glyph and says \"up\" or \"down\" is teleported to the transport glyph one floor higher or lower in the hall (depending on the direction spoken), along with anything the creature is wearing or carrying. If the destination glyph is occupied or the command doesn't make sense (such as saying \"down\" while on the hall's lowest floor), the transport glyph doesn't function."
 												}
 											]
@@ -1701,12 +1701,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Lost Magic Relics.",
+													"name": "Lost Magic Relics",
 													"entry": "Identifying famous missing magical relics requires a successful DC 19 Intelligence ({@skill Arcana}) or Intelligence ({@skill History}) check."
 												},
 												{
 													"type": "item",
-													"name": "Discovery Hypotheses.",
+													"name": "Discovery Hypotheses",
 													"entry": "Writing short essays theorizing what magic items scholars have yet to discover requires a successful DC 19 Charisma ({@skill Persuasion}) check."
 												}
 											]
@@ -1813,12 +1813,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Crowded.",
+													"name": "Crowded",
 													"entry": "During the masquerade, the first and second floors of the hall are crowded with people. These floors are {@book difficult terrain|PHB|8|Difficult Terrain}."
 												},
 												{
 													"type": "item",
-													"name": "Distracting.",
+													"name": "Distracting",
 													"entry": "The hall is filled with music and activity. Creatures on the first and second floors have disadvantage on Wisdom ({@skill Perception}) checks."
 												}
 											]
@@ -2057,22 +2057,22 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Structure.",
+															"name": "Structure",
 															"entry": "The exterior walls of the Deans' Wing are heavy stone construction, while the interior walls are wood and plaster, with heavy wooden doors, except as specified otherwise."
 														},
 														{
 															"type": "item",
-															"name": "Ceilings.",
+															"name": "Ceilings",
 															"entry": "Most of the Deans' Wing has 12-foot ceilings, while the records rooms ({@adventure area L4|SCC-TMM|0|L4. Records Room}) have 20-foot-high ceilings."
 														},
 														{
 															"type": "item",
-															"name": "Illumination.",
+															"name": "Illumination",
 															"entry": "Unless otherwise noted, when visited at night, areas of the Deans' Wing are unlit."
 														},
 														{
 															"type": "item",
-															"name": "Guardian.",
+															"name": "Guardian",
 															"entry": "An {@creature invisible stalker} roams the halls of the Deans' Wing after hours, serving as a guard. Until the invisible stalker is defeated, whenever the characters enter a room, roll a {@dice d20}. On a roll of 18\u201320, the {@creature invisible stalker} is in that room. Otherwise, any significant noise the characters make attracts the invisible stalker. The creature attacks anyone they find who isn't a member of the Lorehold faculty."
 														}
 													]

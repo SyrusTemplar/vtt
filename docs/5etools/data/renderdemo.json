@@ -389,7 +389,7 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "An extension of the hanging list.",
+							"name": "An extension of the hanging list",
 							"entry": "Which has bold inline titles -- note that this only allows {@i one} entry per item (it's 'entry' and not 'entries')"
 						},
 						"Can be mixed with regular strings"
@@ -406,12 +406,12 @@
 						},
 						{
 							"type": "itemSub",
-							"name": "A sub-item used in some places.",
+							"name": "A sub-item used in some places",
 							"entry": "For example, XGE's complex traps"
 						},
 						{
 							"type": "item",
-							"name": "Multiple entry version.",
+							"name": "Multiple entry version",
 							"entries": [
 								"This was, again, required specifically for XGE's complex traps, which can have multiple lines of text; due to their large and complex nature, one would have to presume.",
 								"Speaking of lines, this one is very long (much like the one above, which was specifically packed with superfluous information to pad it out to a decent word count) to hopefully demonstrate the effects of having to wrap a paragraph into the column, which should indent the first line of the paragraph only. Of course, if you're viewing this on an obscenely wide monitor, this will have little or no effect, so if you're in the future where 10k monitors are standard, then congratulations. Otherwise, like the rest of us plebs, you should see the desired layout.",

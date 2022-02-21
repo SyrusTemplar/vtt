@@ -363,6 +363,7 @@ ItemParser._ALL_CLASSES = null;
 ItemParser._MAPPED_ITEM_NAMES = {
 	"studded leather": "studded leather armor",
 	"leather": "leather armor",
+	"scale": "scale mail",
 };
 
 if (typeof module !== "undefined") {

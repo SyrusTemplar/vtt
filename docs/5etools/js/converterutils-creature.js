@@ -83,6 +83,7 @@ class AcConvert {
 						case "deflection":
 						case "mental defense":
 						case "blood aegis":
+						case "psychic defense":
 							froms.push(fromLow);
 							break;
 

@@ -1985,27 +1985,27 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Relationships.",
+									"name": "Relationships",
 									"entry": "The player notes here the names of each student NPC with whom their character has a Relationship. The player should track how many Relationship Points their character has with each NPC; whether that NPC is a Friend, a Rival, or a Beloved; whether that NPC confers Beloved Inspiration; and that NPC's Bond Boon or Bond Bane, whichever is applicable."
 								},
 								{
 									"type": "item",
-									"name": "Report Cards.",
+									"name": "Report Cards",
 									"entry": "This section includes places to track the results of each Exam."
 								},
 								{
 									"type": "item",
-									"name": "Extracurriculars.",
+									"name": "Extracurriculars",
 									"entry": "The player notes the Extracurriculars in which their character is participating. The player should also note each Extracurricular's NPC member. Remind players that while their character participates in an Extracurricular, they gain a positive or negative Relationship Point with its associated student NPC."
 								},
 								{
 									"type": "item",
-									"name": "Job.",
+									"name": "Job",
 									"entry": "The player should note their character's job, if any. Remind the player that while their character holds a job, the character gains a positive or negative Relationship Point with its associated student coworker, whom they should also note on this sheet."
 								},
 								{
 									"type": "item",
-									"name": "Student Dice.",
+									"name": "Student Dice",
 									"entry": "The player should track the Student Dice their character has from passing Exams and from Extracurriculars. They should also note the skills their character can expend the Student Dice on. They should check the \"{@dice d4}\" box whenever they gain a Student Die, and they should erase the check mark when they expend the die."
 								}
 							]
@@ -2808,17 +2808,17 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Failed.",
+													"name": "Failed",
 													"entry": "No successful ability checks means a character failed, having gotten fewer than half the questions correct."
 												},
 												{
 													"type": "item",
-													"name": "Passed.",
+													"name": "Passed",
 													"entry": "One successful ability check means a character passed, having gotten half or more of the questions correct, but not all the questions. The character gains one Student Die, explained below."
 												},
 												{
 													"type": "item",
-													"name": "Aced.",
+													"name": "Aced",
 													"entry": "Two successful ability checks mean the character aced the Exam, having gotten all the questions correct. The character gains two Student Dice, explained below."
 												}
 											]
@@ -2917,12 +2917,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Friendly Response.",
+													"name": "Friendly Response",
 													"entry": "A friendly response earns 1 Relationship Point. A friendly response is positive; it might take the form of showing warmth or providing affirmation and camaraderie, as the encounter dictates."
 												},
 												{
 													"type": "item",
-													"name": "Rivalrous Response.",
+													"name": "Rivalrous Response",
 													"entry": "A rivalrous response earns \u22121 Relationship Point. A rivalrous response is negative, and might take the form of being rude to the NPC, antagonizing the NPC, or taking similar unkind actions."
 												}
 											]

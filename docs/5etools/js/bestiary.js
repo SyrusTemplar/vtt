@@ -262,6 +262,7 @@ class BestiaryPage extends ListPageMultiSource {
 				cr,
 				group: mon.group ? [mon.group].flat().join(",") : "",
 				alias: (mon.alias || []).map(it => `"${it}"`).join(","),
+				page: mon.page,
 			},
 			{
 				uniqueId: mon.uniqueId ? mon.uniqueId : mI,

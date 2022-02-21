@@ -3952,6 +3952,144 @@
 			"subclassSource": "PHB",
 			"level": 3,
 			"isIgnored": true
+		},
+		{
+			"name": "Armor Model",
+			"source": "TCE",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Armorer",
+			"subclassSource": "TCE",
+			"level": 3,
+			"data": {
+				"uses.value": null,
+				"uses.max": null,
+				"uses.per": null
+			}
+		},
+		{
+			"name": "Thunder Gauntlets",
+			"source": "TCE",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Armorer",
+			"subclassSource": "TCE",
+			"level": 3,
+			"subEntities": {
+				"item": [
+					{
+						"name": "Thunder Gauntlets",
+						"source": "TCE",
+						"page": 15,
+						"srd": true,
+						"type": "M",
+						"rarity": "none",
+						"weaponCategory": "simple",
+						"dmg1": "1d8",
+						"dmgType": "T",
+						"entries": [
+							"This weapon is part of the Guardian armor model. When you attack with that weapon, you can add your Intelligence modifier, instead of Strength or Dexterity, to the attack and damage rolls.",
+							"A creature hit by the gauntlet has disadvantage on attack rolls against targets other than you until the start of your next turn, as the armor magically emits a distracting pulse when the creature attacks someone else."
+						],
+						"foundryData": {
+							"ability": "int"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Lightning Launcher",
+			"source": "TCE",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Armorer",
+			"subclassSource": "TCE",
+			"level": 3,
+			"subEntities": {
+				"item": [
+					{
+						"name": "Lightning Launcher",
+						"source": "TCE",
+						"page": 15,
+						"srd": true,
+						"type": "R",
+						"rarity": "none",
+						"weaponCategory": "simple",
+						"dmg1": "1d6",
+						"dmgType": "L",
+						"range": "90/300",
+						"entries": [
+							"This weapon is part of the Infiltrator armor model. When you attack with that weapon, you can add your Intelligence modifier, instead of Strength or Dexterity, to the attack and damage rolls.",
+							"Once on each of your turns when you hit a creature with the launcher, you can deal an extra {@damage 1d6} lightning damage to that target."
+						],
+						"foundryData": {
+							"ability": "int"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Powered Steps",
+			"source": "TCE",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Armorer",
+			"subclassSource": "TCE",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Powered Steps",
+					"changes": [
+						{
+							"key": "data.attributes.movement.walk",
+							"mode": "ADD",
+							"value": 5
+						}
+					],
+					"disabled": true
+				}
+			]
+		},
+		{
+			"name": "Defensive Field",
+			"source": "TCE",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Armorer",
+			"subclassSource": "TCE",
+			"level": 3,
+			"data": {
+				"actionType": "heal",
+				"damage.parts": [
+					[
+						"@classes.artificer.levels",
+						"temphp"
+					]
+				]
+			}
+		},
+		{
+			"name": "Disciple of Life",
+			"source": "PHB",
+			"className": "Cleric",
+			"classSource": "PHB",
+			"subclassShortName": "Life",
+			"subclassSource": "PHB",
+			"level": 1,
+			"effects": [
+				{
+					"name": "Bonus Healing",
+					"changes": [
+						{
+							"key": "data.bonuses.heal.damage",
+							"mode": "ADD",
+							"value": "@item.level + 2"
+						}
+					]
+				}
+			]
 		}
 	]
 }

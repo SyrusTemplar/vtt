@@ -781,19 +781,23 @@ MakeCards.utils = class {
 	// region items
 	static _addItemProperty (p) {
 		if (MakeCards.utils.itemPropertyMap[p.abbreviation]) return;
-		if (p.entries) {
-			MakeCards.utils.itemPropertyMap[p.abbreviation] = p.name ? MiscUtil.copy(p) : {
+		if (p.entries || p.entriesTemplate) {
+			const cpy = MiscUtil.copy(p);
+			MakeCards.utils.itemPropertyMap[p.abbreviation] = p.name ? cpy : {
+				...cpy,
 				name: p.entries[0].name.toLowerCase(),
-				entries: p.entries,
 			};
-		} else MakeCards.utils.itemPropertyMap[p.abbreviation] = {};
+			return;
+		}
+		MakeCards.utils.itemPropertyMap[p.abbreviation] = {};
 	}
 
 	static _addItemType (t) {
-		if (MakeCards.utils.itemTypeMap[t.abbreviation]) return;
-		MakeCards.utils.itemTypeMap[t.abbreviation] = t.name ? MiscUtil.copy(t) : {
+		if (MakeCards.utils.itemTypeMap[t.abbreviation]?.entries || MakeCards.utils.itemTypeMap[t.abbreviation]?.entriesTemplate) return;
+		const cpy = MiscUtil.copy(t);
+		MakeCards.utils.itemTypeMap[t.abbreviation] = t.name ? cpy : {
+			...cpy,
 			name: t.entries[0].name.toLowerCase(),
-			entries: t.entries,
 		};
 	}
 

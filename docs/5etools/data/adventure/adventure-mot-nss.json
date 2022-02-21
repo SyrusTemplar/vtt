@@ -500,14 +500,10 @@
 										},
 										"This room once served as a place to view the remains of those who died in Phenax's service and offer final prayers. The bodies this room once held have rotted away in their burial niches, and the urns hold only gray muck. Any character who sifts through the goo must succeed on a DC 11 Constitution saving throw for each niche or urn they search or contract sewer plague (see {@disease Sewer Plague||chapter 8} of the {@book Dungeon Master's Guide|DMG}).",
 										{
-											"type": "list",
-											"style": "list-hang-notitle",
-											"items": [
-												{
-													"type": "item",
-													"name": "Treasure",
-													"entry": "Amid the rotted remains on each of the six stacked burial niches lie small bits of jewelry, gold teeth, or ancient coins, with each haul worth {@dice 2d4} gp."
-												}
+											"type": "entries",
+											"name": "Treasure",
+											"entries": [
+												"Amid the rotted remains on each of the six stacked burial niches lie small bits of jewelry, gold teeth, or ancient coins, with each haul worth {@dice 2d4} gp."
 											]
 										}
 									]
@@ -667,18 +663,15 @@
 											"page": 192,
 											"id": "34c",
 											"entries": [
-												"Varyas's {@creature flitterstep eidolon|MOT} (see {@book chapter 6|MOT|6|Eidolons}) dwells in this room. It doesn't know why, but it was attracted to the tomb after returning from death. It doesn't know how much time has passed since then, but eventually it encountered the menacing lampad Antiophes, who threatened to deliver the eidolon to Athreos. To escape the lampad, the eidolon hid inside Orestes's sarcophagus, where it has lurked ever since.",
-												{
-													"type": "list",
-													"style": "list-hang-notitle",
-													"items": [
-														{
-															"type": "item",
-															"name": "Sarcophagus",
-															"entry": "The sarcophagus holds the skeleton of Orestes, a few grave goods, and Varyas's cowering eidolon. Additionally, it possesses two magical properties."
-														}
-													]
-												},
+												"Varyas's {@creature flitterstep eidolon|MOT} (see {@book chapter 6|MOT|6|Eidolons}) dwells in this room. It doesn't know why, but it was attracted to the tomb after returning from death. It doesn't know how much time has passed since then, but eventually it encountered the menacing lampad Antiophes, who threatened to deliver the eidolon to Athreos. To escape the lampad, the eidolon hid inside Orestes's sarcophagus, where it has lurked ever since."
+											]
+										},
+										{
+											"type": "entries",
+											"name": "Sarcophagus",
+											"page": 192,
+											"entries": [
+												"The sarcophagus holds the skeleton of Orestes, a few grave goods, and Varyas's cowering eidolon. Additionally, it possesses two magical properties.",
 												"First, the sarcophagus is blessed by Phenax with a ward against defilement. The lid is supernaturally heavy, requiring a successful DC 20 Strength ({@skill Athletics}) check to dislodge. Any creature who worships Phenax, though, or who wears a funerary mask, finds the lid to be far lighter, gaining a +10 bonus on this check.",
 												"Additionally, reliefs on the sarcophagus depict Phenax worshipers and Returned, as well as a prominent image of blood dripping onto scales bearing a Returned mask. Images of pale drops hover over a skeleton, while black drops loom over a Returned. Any character who succeeds at a DC 15 Intelligence ({@skill Religion}) check learns that the sarcophagus itself bears a measure of Orestes's oracular gifts. If blood is spilled on the lid, it turns black if the blood's owner is destined to become a Returned. Most of the time, spilled blood doesn't change color. If a character drips their blood upon the sarcophagus lid, though, you can decide if their blood turns black or not\u2014choosing if you want the character's story to go in that direction (and you think the character's player will accept it), or rolling a {@dice d10} and having it turn black on a 1. The ramifications of this revelation are up to you."
 											]

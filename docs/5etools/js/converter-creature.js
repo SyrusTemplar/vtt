@@ -87,11 +87,44 @@ class CreatureParser extends BaseParser {
 		const toConvert = (() => {
 			let clean = this._getCleanInput(inText);
 
+			clean = clean
+				.replace(/(?:\n|^)PAGE=(?<page>\d+)(?:\n|$)/gi, (...m) => {
+					options.page = Number(m.last().page);
+					return "";
+				})
+			;
+
+			// region Handle bad OCR'ing of headers
+			[
+				"Legendary Actions?",
+				"Bonus Actions?",
+				"Reactions?",
+				"Actions?",
+			]
+				.map(it => ({re: new RegExp(`\\n\\s*${it.split("").join("\\s*")}\\s*\\n`, "g"), original: it}))
+				.forEach(({re, original}) => clean = clean.replace(re, `\n${original}\n`));
+			// endregion
+
+			// region Handle bad OCR'ing of dice
+			clean = clean.replace(/\nl\/(?<unit>day)[.:]\s*/g, (...m) => `\n1/${m.last().unit}: `)
+				.replace(/\b(?<num>[liI!]|\d+)?d[1liI!]\s*[oO0]\b/g, (...m) => `${m.last().num ? isNaN(m.last().num) ? "1" : m.last().num : ""}d10`)
+				.replace(/\b(?<num>[liI!]|\d+)?d[1liI!]\s*2\b/g, (...m) => `${m.last().num ? isNaN(m.last().num) ? "1" : m.last().num : ""}d12`)
+				.replace(/\b[liI!1]\s*d\s*(?<faces>\d+)\b/g, (...m) => `1d${m.last().faces}`)
+				.replace(/\b(?<num>\d+)\s*d\s*(?<faces>\d+)\b/g, (...m) => `${m.last().num}d${m.last().faces}`)
+				// endregion
+				// region Handle misc OCR issues
+				.replace(/\bI nt\b/g, "Int")
+				.replace(/\(-[lI!]\)/g, "(-1)")
+				// endregion
+				// Handle pluses split across lines
+				.replace(/(\+\s*)\n+(\d+)/g, (...m) => `${m[1]}${m[2]}`)
+			;
+
 			const statsHeadFootSpl = clean.split(/(Challenge|Proficiency Bonus \(PB\))/i);
 
 			statsHeadFootSpl[0] = statsHeadFootSpl[0]
 				// collapse multi-line ability scores
-				.replace(/(\d\d?\s+\([-—+]?\d+\)\s*)+/gi, (...m) => `${m[0].replace(/\n/g, " ").replace(/\s+/g, " ")}\n`);
+				.replace(/(\d\d?\s*\([-—+]?\d+\)\s*)+/gi, (...m) => `${m[0].replace(/\n/g, " ").replace(/\s+/g, " ")}\n`);
 
 			// (re-assemble after cleaning ability scores and) split into lines
 			clean = statsHeadFootSpl.join("").split("\n").filter(it => it && it.trim());
@@ -358,7 +391,7 @@ class CreatureParser extends BaseParser {
 				curLine = toConvert[i];
 
 				// collect subsequent paragraphs
-				while (curLine && !ConvertUtil.isNameLine(curLine, {exceptions: new Set(["cantrips"])}) && !startNextPhase(curLine)) {
+				while (curLine && !ConvertUtil.isNameLine(curLine, {exceptions: new Set(["cantrips"]), splitterPunc: /(\.)/g}) && !startNextPhase(curLine)) {
 					if (BaseParser._isContinuationLine(curTrait.entries, curLine)) {
 						curTrait.entries.last(`${curTrait.entries.last().trim()} ${curLine.trim()}`);
 					} else {
@@ -928,6 +961,7 @@ class CreatureParser extends BaseParser {
 		this._doFilterAddSpellcasting(stats, "action", isMarkdown, options);
 		if (stats.trait) stats.trait.forEach(trait => RechargeConvert.tryConvertRecharge(trait, () => {}, () => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Manual recharge tagging required for trait "${trait.name}"`)));
 		if (stats.action) stats.action.forEach(action => RechargeConvert.tryConvertRecharge(action, () => {}, () => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Manual recharge tagging required for action "${action.name}"`)));
+		CreatureParser._PROPS_ENTRIES.filter(prop => stats[prop]).forEach(prop => SpellTag.tryRun(stats[prop]));
 		AcConvert.tryPostProcessAc(
 			stats,
 			(ac) => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}AC "${ac}" requires manual conversion`),
@@ -1086,6 +1120,12 @@ class CreatureParser extends BaseParser {
 						}).trim();
 
 						pt = pt.replace(/from [^)]+$/i, (...m) => {
+							if (note) throw new Error(`Already has note!`);
+							note = m[0];
+							return "";
+						}).trim();
+
+						pt = pt.replace(/\bthat is nonmagical$/i, (...m) => {
 							if (note) throw new Error(`Already has note!`);
 							note = m[0];
 							return "";

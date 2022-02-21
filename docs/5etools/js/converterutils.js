@@ -34,6 +34,7 @@ class BaseParser {
 			.replace(/\n\r/g, "\n")
 			.replace(/\r\n/g, "\n")
 			.replace(/\r/g, "\n")
+			.replace(/­\s*\n\s*/g, "")
 			.replace(/[−–‒]/g, "-") // convert minus signs to hyphens
 		;
 
@@ -65,6 +66,7 @@ class BaseParser {
 	 * @param [opts.noHit] Disable "Hit:" checking.
 	 * @param [opts.noSpellcastingAbility] Disable spellcasting ability checking.
 	 * @param [opts.noSpellcastingWarlockSlotLevel] Disable spellcasting warlock slot checking.
+	 * @param [opts.noDc] Disable "DC" checking
 	 */
 	static _isContinuationLine (entryArray, curLine, opts) {
 		opts = opts || {};
@@ -99,6 +101,7 @@ class BaseParser {
 		// "Hit:" e.g. inside creature attacks
 		if (/^Hit:/.test(cleanLine) && !opts.noHit) return true;
 		if (/^(Intelligence|Wisdom|Charisma)\s+\(/.test(cleanLine) && !opts.noSpellcastingAbility) return true;
+		if (/^DC\s+/.test(cleanLine) && !opts.noDc) return true;
 
 		return false;
 	}
@@ -793,10 +796,11 @@ class ConvertUtil {
 	 * "Big Attack. Lorem ipsum..." vs "Lorem ipsum..."
 	 * @param line
 	 * @param exceptions A set of (lowercase) exceptions which should always be treated as "not a name" (e.g. "cantrips")
+	 * @param splitterPunc Regexp to use when splitting by punctuation.
 	 * @returns {boolean}
 	 */
-	static isNameLine (line, {exceptions = null} = {}) {
-		const spl = this._getMergedSplitName({line});
+	static isNameLine (line, {exceptions = null, splitterPunc = null} = {}) {
+		const spl = this._getMergedSplitName({line, splitterPunc});
 		if (spl.map(it => it.trim()).filter(Boolean).length === 1) return false;
 
 		// ignore everything inside parentheses
@@ -840,8 +844,8 @@ class ConvertUtil {
 		return out;
 	}
 
-	static _getMergedSplitName ({line}) {
-		let spl = line.split(/([.!?:])/g);
+	static _getMergedSplitName ({line, splitterPunc}) {
+		let spl = line.split(splitterPunc || /([.!?:])/g);
 
 		// Handle e.g. "1. Freezing Ray. ..."
 		if (/^\d+$/.test(spl[0]) && spl.length > 3) {

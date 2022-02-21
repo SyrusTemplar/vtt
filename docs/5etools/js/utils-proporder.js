@@ -114,7 +114,9 @@ PropOrder._MONSTER = [
 
 	"srd",
 	"basicRules",
+	"additionalSources",
 	"otherSources",
+	"reprintedAs",
 
 	"summonedBySpell",
 	"summonedByClass",
@@ -621,6 +623,9 @@ PropOrder._CULT = [
 	"page",
 	"srd",
 	"basicRules",
+	"additionalSources",
+	"otherSources",
+	"reprintedAs",
 
 	"type",
 
@@ -637,6 +642,9 @@ PropOrder._BOON = [
 	"page",
 	"srd",
 	"basicRules",
+	"additionalSources",
+	"otherSources",
+	"reprintedAs",
 
 	"type",
 
@@ -1225,6 +1233,9 @@ PropOrder._HAZARD = [
 	"page",
 	"srd",
 	"basicRules",
+	"additionalSources",
+	"otherSources",
+	"reprintedAs",
 
 	"trapHazType",
 

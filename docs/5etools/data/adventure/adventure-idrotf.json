@@ -4831,7 +4831,7 @@
 								"This musty old inn is named after a local legend known as the White Lady\u2014a ghost rumored to walk on Lac Dinneshere, haunting the spot where her rich husband drowned. Rinaldo (lawful good strongheart halfling {@creature commoner}), a self-styled bard kept around to entertain guests, is fond of plucking his fiddle while recounting his tale: that the White Lady's husband was a miser who kept his treasure in a heavy, locked chest that never left his side. Perhaps it was this heavy chest, suggests Rinaldo, that capsized his boat and sent the man to his sunken grave, or perhaps it was the fright of seeing his dead wife that caused him to capsize the boat and drown. Either way, Rinaldo is certain that the man's treasure lies at the bottom of the lake, waiting for some intrepid explorer to find it. The inn's sullen, elderly proprietor, Bartaban (neutral good human {@creature commoner}), has heard the halfling's rambling far too often to be humored by it.",
 								{
 									"type": "entries",
-									"name": "Séance.",
+									"name": "Séance",
 									"id": "16a",
 									"entries": [
 										"Rinaldo is planning to conduct a séance in a back room of the inn and has invited half a dozen other guests ({@creature Commoner||commoners}) to join him. Characters who spend one or more nights at the inn are invited by Rinaldo to join his séance. If the characters decline, Rinaldo is disappointed and tries to get them to change their minds by saying, \"We live in dark times. Perhaps the spirit of the White Lady can help. Aren't you curious to hear what she has to say?\"",
@@ -19742,17 +19742,17 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Ceilings.",
+											"name": "Ceilings",
 											"entry": "Ceilings are 30 feet high inside rooms and 10 feet high in corridors."
 										},
 										{
 											"type": "item",
-											"name": "Doors.",
+											"name": "Doors",
 											"entry": "Doors are made from enchanted oak fitted with adamantine locks and hinges."
 										},
 										{
 											"type": "item",
-											"name": "Lighting.",
+											"name": "Lighting",
 											"entry": "The interior of the spire is brightly lit by {@spell continual flame} spells cast in wall sconces."
 										}
 									]

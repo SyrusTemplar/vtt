@@ -39,17 +39,17 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Entering a Hag's Realm.",
+											"name": "Entering a Hag's Realm",
 											"entry": "Whenever the characters enter a hag's realm (Hither, Thither, or Yon) for the first time, everyone in the party receives enough XP to advance 1 level. For example, when the characters leave the Witchlight Carnival and arrive in Hither for the first time, they gain a level."
 										},
 										{
 											"type": "item",
-											"name": "Encountering a Hag.",
+											"name": "Encountering a Hag",
 											"entry": "After the characters encounter a hag of the Hourglass Coven for the first time, everyone in the party who survives the encounter receives enough XP to advance 1 level."
 										},
 										{
 											"type": "item",
-											"name": "Freeing Zybilna.",
+											"name": "Freeing Zybilna",
 											"entry": "If the characters free Zybilna from temporal stasis or destroy {@item Iggwilv's Cauldron|WBtW}, everyone in the party receives enough XP to advance 1 level."
 										}
 									]
@@ -1830,22 +1830,22 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "First Pair.",
+													"name": "First Pair",
 													"entry": "The first two unicorns are named Fortune and Bold, from the proverb \"Fortune favors the bold.\" Fortune's name tag is complete, but Bold's name tag reads B _ _ _."
 												},
 												{
 													"type": "item",
-													"name": "Second Pair.",
+													"name": "Second Pair",
 													"entry": "These unicorns' names are Pride and Fall, from the proverb \"Pride goes before a fall.\" Fall's name tag is complete, but Pride's name tag reads PR _ _ _."
 												},
 												{
 													"type": "item",
-													"name": "Third Pair.",
+													"name": "Third Pair",
 													"entry": "These unicorns' names are Stone and Moss, from the proverb \"A rolling stone gathers no moss.\" Stone's name tag is complete, but Moss's name tag reads M _ _ S."
 												},
 												{
 													"type": "item",
-													"name": "Fourth Pair.",
+													"name": "Fourth Pair",
 													"entry": "The last two unicorns are named Stitch and Nine, from the proverb \"A stitch in time saves nine.\" Stitch's name tag is complete, but Nine's name tag reads _ _ N _."
 												}
 											]
@@ -2325,17 +2325,17 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Biscuit's Wheel.",
+													"name": "Biscuit's Wheel",
 													"entry": "This wooden wheel has eight wicker carriages. Biscuit, the hamster who trundles around inside the contraption that turns the wheel, is very talkative. Offering food to the hamster is one way to keep him quiet."
 												},
 												{
 													"type": "item",
-													"name": "Flower Bed.",
+													"name": "Flower Bed",
 													"entry": "This area is home to several talking wildflowers. They're rather conceited and bicker over which of them has the silkiest petals and the finest aroma. Flattery can silence their bickering."
 												},
 												{
 													"type": "item",
-													"name": "Heron's Nest.",
+													"name": "Heron's Nest",
 													"entry": "An awakened heron named Beatrice, who enjoys talking about the weather, roosts in a clump of long grasses and might allow characters to hide in her nest if they ask nicely."
 												}
 											]
@@ -3393,17 +3393,17 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Rule of Hospitality.",
+											"name": "Rule of Hospitality",
 											"entry": "When a friend, an enemy, or a stranger enters your home, you are expected to be gracious and accommodating to them until such time as they prove, by their words or actions, undeserving of such hospitality."
 										},
 										{
 											"type": "item",
-											"name": "Rule of Ownership.",
+											"name": "Rule of Ownership",
 											"entry": "You must not steal from a friend, an enemy, or a stranger. To take something that doesn't belong to you without the rightful owner's permission is a crime and an unforgivable breach of etiquette."
 										},
 										{
 											"type": "item",
-											"name": "Rule of Reciprocity.",
+											"name": "Rule of Reciprocity",
 											"entry": "When a friend, an enemy, or a stranger offers you a gift, you are obliged to accept it and offer something of comparable value (be it a gift or a service) in return. Such reciprocation need not happen immediately."
 										}
 									]
@@ -3642,12 +3642,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Depth.",
+													"name": "Depth",
 													"entry": "The water's depth is 5 feet. Creatures that don't have a swimming speed move at half speed through the water."
 												},
 												{
 													"type": "item",
-													"name": "Visibility.",
+													"name": "Visibility",
 													"entry": "Visibility underwater is 10 feet."
 												}
 											]
@@ -3665,12 +3665,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Difficult Terrain.",
+													"name": "Difficult Terrain",
 													"entry": "The sticky mud of the exposed swamp bottom is {@book difficult terrain|PHB|8|Difficult Terrain}."
 												},
 												{
 													"type": "item",
-													"name": "Mud Pits.",
+													"name": "Mud Pits",
 													"entry": "Characters marching across the swamp might blunder into swampy terrain that contains a pit of sucking mud. Whenever you see fit to use this hazard, have the characters make a DC 10 Wisdom ({@skill Survival}) group check. If the group check is successful, the characters spot and avoid the hazard. On a failed check, the character who had the lowest check result sinks into a pit of sucking mud, which is 10 feet deep (use the {@book quicksand rules|DMG|5|Quicksand} in the {@book Dungeon Master's Guide|DMG})."
 												}
 											]
@@ -5041,12 +5041,12 @@
 															"items": [
 																{
 																	"type": "item",
-																	"name": "Basket.",
+																	"name": "Basket",
 																	"entry": "The basket, which can hold up to 750 pounds, has AC 13, 27 hit points, and immunity to poison and psychic damage."
 																},
 																{
 																	"type": "item",
-																	"name": "Balloon.",
+																	"name": "Balloon",
 																	"entry": "The balloon has AC 11, 50 hit points, and immunity to lightning, poison, psychic, and thunder damage. If the balloon drops to 0 hit points, the cloud dissipates, and the vehicle loses the ability to fly."
 																}
 															]
@@ -5088,12 +5088,12 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Upper Level.",
+													"name": "Upper Level",
 													"entry": "The upper level is built around the trunk of a tree. Gathered here at any given time are {@dice 2d4} unarmed and unarmored bullywug courtiers, some of them reclining on pillows. Among these noncombatants are three {@creature Bullywug||bullywugs} (neutral) who would defend their honor if they thought it besmirched by hostile interlopers."
 												},
 												{
 													"type": "item",
-													"name": "Lower Level.",
+													"name": "Lower Level",
 													"entry": "The lower level is submerged in 3 inches of swamp water. More bullywug courtiers fill this space as a trio of bullywug musicians play an upbeat tune on stringed instruments. These bullywugs are also noncombatants."
 												}
 											]
@@ -5320,7 +5320,7 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Animated Coals.",
+													"name": "Animated Coals",
 													"entry": "If the characters attack the magmin, eight of the coals from the bed spring to life and come to the magmin's defense. See the \"Animated Coals\" section in the description of {@adventure area D4|WBtW|3|D4. Burned-out Balloon Factory}."
 												}
 											]
@@ -5396,27 +5396,27 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Ceilings and Rooftops.",
+											"name": "Ceilings and Rooftops",
 											"entry": "Unless otherwise noted, ceilings are 10 feet high on the lower levels and 20 feet high on the uppermost floor. The shingled rooftop is high-pitched, covered with moss, and too slippery to climb without magic or climbing gear."
 										},
 										{
 											"type": "item",
-											"name": "Doors and Trapdoors.",
+											"name": "Doors and Trapdoors",
 											"entry": "All doors in the cottage are closed but unlocked, except for the door to {@area area B19|1df|x}. The cottage's doors and trapdoors are made of moldy wooden planks, many of which are swollen and warped; consequently, they often get stuck in their frames or refuse to close properly, though this has no effect on game play."
 										},
 										{
 											"type": "item",
-											"name": "Floors and Stairs.",
+											"name": "Floors and Stairs",
 											"entry": "Floors and staircases are made of mossy wooden planks that creak, groan, and bend underfoot. Crossing a floor or using a staircase without making noise requires a successful DC 15 Dexterity ({@skill Stealth}) check."
 										},
 										{
 											"type": "item",
-											"name": "Light.",
+											"name": "Light",
 											"entry": "If a location has light sources, the text says so. Otherwise, the area is unlit."
 										},
 										{
 											"type": "item",
-											"name": "Walls and Windows.",
+											"name": "Walls and Windows",
 											"entry": "The cottage's walls are made of soft, mossy wood and don't burn easily due to the moisture trapped in them. Windows are hinged to be openable but are latched shut from the inside and covered with enough grime to render them opaque. A character can use an action to try to force open a latched window, doing so with a successful DC 8 Strength check. A character can use an action and thieves' tools to try to unlock a latched window from the outside, doing so with a successful DC 13 Dexterity check."
 										}
 									]
@@ -5756,7 +5756,7 @@
 															"items": [
 																{
 																	"type": "item",
-																	"name": "Fix the Preservation Pool.",
+																	"name": "Fix the Preservation Pool",
 																	"entry": "Bavlorna's preservation pool (see {@area area B1|1a6|x}) won't fill with water. It seems the well that supplies it is plugged. Bavlorna wants the characters to fix the problem. (If the characters have already defeated the creature that was plugging the well, she considers this chore complete.)"
 																}
 															]
@@ -5775,7 +5775,7 @@
 															"items": [
 																{
 																	"type": "item",
-																	"name": "Pick Up a Package.",
+																	"name": "Pick Up a Package",
 																	"entry": "Bavlorna fancies herself an expert in taxidermy, and a bullywug hunter has filled a crate with animal carcasses for Bavlorna to stuff. The crate can be found in one of the bullywug dwellings ({@adventure area D16|WBtW|3|D16. Bullywug Hut}), and Bavlorna wants it brought to her."
 																}
 															]
@@ -6818,17 +6818,17 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "The Approach.",
+													"name": "The Approach",
 													"entry": "Bobi, Sloane, Zennor, and Star will creep through the woods to the west of the tree and hide just out of sight of the screaming scarecrows ({@area area L5|246|x}). Meanwhile, Will will sneak around to the entrance to the kitchen ({@area area L13|271|x}) on the east side of the tree."
 												},
 												{
 													"type": "item",
-													"name": "The Distraction.",
+													"name": "The Distraction",
 													"entry": "The characters will enter the goblin market ({@area area L2|232|x}) posing as travelers, purchase some sweets, and arrange for a meeting with the hag. During the meeting, the children will alert the screaming scarecrows and thereby lure the tin soldiers into the garden."
 												},
 												{
 													"type": "item",
-													"name": "The Escape.",
+													"name": "The Escape",
 													"entry": "While everyone is distracted, the characters will free the captives from the workshop ({@area area L4|23e|x}) while Will climbs into the textile mill ({@area area L12|26b|x}) to free the captives there. Once the children are set free, everyone will run back to Little Oak."
 												}
 											]
@@ -6970,22 +6970,22 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Ceilings.",
+									"name": "Ceilings",
 									"entry": "Unless otherwise noted, ceilings throughout Loomlurch are 8 feet high."
 								},
 								{
 									"type": "item",
-									"name": "Doors.",
+									"name": "Doors",
 									"entry": "Loomlurch's doors are made of sturdy wood with iron handles and fittings. All doors are unlocked unless the text says otherwise. As an action, a character using thieves' tools can make a successful DC 14 Dexterity check to pick the lock on a locked door, or a character can try to force a door open, doing so with a successful DC 15 Strength ({@skill Athletics}) check."
 								},
 								{
 									"type": "item",
-									"name": "Floors, Walls, and Stairs.",
+									"name": "Floors, Walls, and Stairs",
 									"entry": "Floors, walls, and staircases are hewn out of the wood of the giant tree."
 								},
 								{
 									"type": "item",
-									"name": "Windows.",
+									"name": "Windows",
 									"entry": "Loomlurch's windows are openable but are latched shut from the inside."
 								}
 							]
@@ -7044,17 +7044,17 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Capture Will.",
+													"name": "Capture Will",
 													"entry": "Capture the brigand Will of the Feywild and bring him to Granny Nightshade alive. He's sure to be hiding somewhere in the forest."
 												},
 												{
 													"type": "item",
-													"name": "Find the Lost Horn.",
+													"name": "Find the Lost Horn",
 													"entry": "Bring her the unicorn horn that she says her sister Bavlorna recently lost. Maybe Prismeer's native denizens can help the characters find it."
 												},
 												{
 													"type": "item",
-													"name": "Spoil a Play.",
+													"name": "Spoil a Play",
 													"entry": "Sabotage a theatrical performance in {@adventure Motherhorn|WBtW|4}, {@creature Endelyn Moongrave|WBtW}'s castle in Yon (see {@adventure chapter 4|WBtW|4}). Skabatha would like nothing more than to see her sister bought down a peg or two. (To get to Yon, the characters will need a guide. Granny Nightshade expects them to know this fact and offers no help in finding a guide or seeing them safely to Yon.)"
 												}
 											]
@@ -7576,27 +7576,27 @@
 															"items": [
 																{
 																	"type": "item",
-																	"name": "Butterfly Saddle.",
+																	"name": "Butterfly Saddle",
 																	"entry": "Each of these bright yellow toadstools has a ruffled, saddle-shaped cap properly sized for a pixie or sprite to sit on. They taste like butter and can be used as a substitute for that ingredient in recipes."
 																},
 																{
 																	"type": "item",
-																	"name": "Eldercap.",
+																	"name": "Eldercap",
 																	"entry": "Eating one of these white and gray mushrooms causes the eater to look much older for 1 hour. This magical effect is an illusion that can be ended with a {@spell dispel magic} spell."
 																},
 																{
 																	"type": "item",
-																	"name": "Executioner's Hood.",
+																	"name": "Executioner's Hood",
 																	"entry": "Each of these mushrooms has a black, hood-shaped cap. Any creature that consumes an executioner's hood must succeed on a DC 12 Constitution saving throw or fall into a cataleptic state that is indistinguishable from death. This magical effect is identical to that of the {@spell feign death} spell (including its duration)."
 																},
 																{
 																	"type": "item",
-																	"name": "Hummingbrella.",
+																	"name": "Hummingbrella",
 																	"entry": "A hummingbrella is a colorful mushroom with a frilly, parasol-shaped cap that drips sweet nectar and attracts hummingbirds. Eating one has the same effect as drinking antitoxin."
 																},
 																{
 																	"type": "item",
-																	"name": "Pricklenoggin.",
+																	"name": "Pricklenoggin",
 																	"entry": "Each of these mushrooms has short, prickly spines growing out of its red cap. Hats made from pricklenoggin caps are popular in the fey courts and considered very fashionable. Most tiny Fey would be grateful to receive one as a gift."
 																}
 															]
@@ -8648,17 +8648,17 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Honorable Duel.",
+													"name": "Honorable Duel",
 													"entry": "The characters convince Mudlump to participate in an honorable duel against one of their own. If Mudlump wins, he gets Pollenella; if he loses, he lets Amidor keep Pollenella and doesn't trouble the party again."
 												},
 												{
 													"type": "item",
-													"name": "Magical Deception.",
+													"name": "Magical Deception",
 													"entry": "The characters use magic to fool or placate Mudlump. For example, a character might create an illusion of Pollenella that fools the cyclops long enough for the party to escape. Alternatively, a character might use a {@spell speak with animals} spell to find out what Pollenella wants. The bee would rather stay with Amidor than return to the cyclops; if Mudlump sees the spell being cast and learns of Pollenella's preference, he lets Amidor keep the bee."
 												},
 												{
 													"type": "item",
-													"name": "Explain Love to Mudlump.",
+													"name": "Explain Love to Mudlump",
 													"entry": "The characters tell Mudlump that Amidor and Pollenella are in love. This statement causes the cyclops to blink in confusion and ask, \"What is love?\" If the concept is explained to him, Mudlump declares that he'd like to be in love, too, and gives the characters a quest to find his true love. Although the characters can try to pair Mudlump up with any creature they deem suitable, his ideal match can be found in the Palace of Heart's Desire: the fomorian Dubhforgail (see {@area area P18|3a2|x} in {@adventure chapter 5|WBtW|5})."
 												}
 											]
@@ -9232,22 +9232,22 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Ceilings.",
+									"name": "Ceilings",
 									"entry": "Unless otherwise noted, ceilings throughout Motherhorn are 15 feet high. The amphitheater is open to the sky, as are the various stone balconies."
 								},
 								{
 									"type": "item",
-									"name": "Curtains.",
+									"name": "Curtains",
 									"entry": "The curtains that hang across doorways are made of black fabric, and each curtain has been enchanted so that sound doesn't pass through it while it is closed."
 								},
 								{
 									"type": "item",
-									"name": "Doors.",
+									"name": "Doors",
 									"entry": "With the exception of the stone doors that block the main entrance ({@area area M1|2e4|x}) and the prison ({@area area M17|32f|x}), all doors in Motherhorn are made of sturdy wood with iron handles and fittings. Each one has a bronze knocker on one side shaped like a smiling theater mask; a similar knocker on the opposite side is shaped like a frowning theater mask. None of these doors have locks."
 								},
 								{
 									"type": "item",
-									"name": "Light.",
+									"name": "Light",
 									"entry": "Glowing orbs of red glass are set into wrought-iron wall sconces throughout Motherhorn. Each orb sheds bright light in a 10-foot radius and dim light for an additional 10 feet. Removing an orb from its sconce causes the orb's light to go dark until it is returned to a sconce."
 								}
 							]
@@ -9337,17 +9337,17 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "Shadow.",
+													"name": "Shadow",
 													"entry": "If a character agrees to give up their shadow, Endelyn uses her {@item scissors of shadow snipping|WBtW} (see {@adventure appendix A|WBtW|6}) to snip it off."
 												},
 												{
 													"type": "item",
-													"name": "Gloam the Cat.",
+													"name": "Gloam the Cat",
 													"entry": "Endelyn accuses her sister, {@creature Bavlorna Blightstraw|WBtW}, of stealing her cat, {@creature Gloam|WBtW}. Endelyn wants the characters to travel to Bavlorna's cottage in Downfall (see {@area chapter 2|1a3|x}), find her cat, and return it to her. (Endelyn doesn't know that Bavlorna killed and stuffed the cat, but she wants it back regardless of its condition.)"
 												},
 												{
 													"type": "item",
-													"name": "Unicorn Horn.",
+													"name": "Unicorn Horn",
 													"entry": "Endelyn claims that her sister Skabatha recently lost a unicorn horn, and Endelyn wants the character to find the horn and bring it to her. (Refer to the {@adventure Story Tracker|WBtW|11} for the unicorn horn's location, though any unicorn's horn will do.) Endelyn mentions in passing that the unicorn whose horn was lost is still alive, although transformed into a rocking horse that {@creature Skabatha Nightshade|WBtW} uses as a flying mount."
 												}
 											]
@@ -11531,42 +11531,42 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "P14a.",
+													"name": "P14a",
 													"entry": "The spiral staircase ascends 30 feet to area P14e. To the northeast, an elevated staircase extends over part of the Court of Storms ({@area area P13|392|x}) and leads to one of the turrets of the central tower ({@area area P48g|406|x} on the upper level)."
 												},
 												{
 													"type": "item",
-													"name": "P14b.",
+													"name": "P14b",
 													"entry": "The spiral staircase ascends 30 feet to area P14f. To the northwest, an elevated staircase extends over part of the Court of Storms ({@area area P13|392|x}) and leads to one of the turrets of the central tower ({@area area P48b|406|x} on the upper level)."
 												},
 												{
 													"type": "item",
-													"name": "P14c.",
+													"name": "P14c",
 													"entry": "The spiral staircase ascends 30 feet to area P14g. The double door leading to the ballroom ({@area area P22|3b3|x}) is sealed with a lion crown lock (see \" {@area Crown Locks|364|x}\" earlier in the chapter)."
 												},
 												{
 													"type": "item",
-													"name": "P14d.",
+													"name": "P14d",
 													"entry": "The spiral staircase ascends 30 feet to area P14h. The double door leading to the ballroom ({@area area P22|3b3|x}) is sealed with a lion crown lock (see \" {@area Crown Locks|364|x}\" earlier in the chapter)."
 												},
 												{
 													"type": "item",
-													"name": "P14e.",
+													"name": "P14e",
 													"entry": "The spiral staircase descends 30 feet to area P14a. A double door leads to a stone balcony that overlooks the palace garden ({@area area P2|36d|x})."
 												},
 												{
 													"type": "item",
-													"name": "P14f.",
+													"name": "P14f",
 													"entry": "The spiral staircase descends 30 feet to area P14b. A double door leads to a stone balcony that overlooks the palace garden ({@area area P2|36d|x})."
 												},
 												{
 													"type": "item",
-													"name": "P14g.",
+													"name": "P14g",
 													"entry": "The spiral staircase descends 30 feet to area P14c. A double door leads to a stone balcony that overlooks the Court of Storms ({@area area P13|392|x})."
 												},
 												{
 													"type": "item",
-													"name": "P14h.",
+													"name": "P14h",
 													"entry": "The spiral staircase descends 30 feet to area P14d. A double door leads to a stone balcony that overlooks the Court of Storms ({@area area P13|392|x}). Floating 10 feet above the top of the staircase is a {@creature banshee} trapped in temporal stasis. The banshee is all that remains of a vainglorious elf queen named Pari Astarabad, who challenged Zybilna for control of Prismeer and paid the ultimate price. The banshee is condemned to haunt this tower and, thanks to Zybilna's magic, can't leave it. If freed from temporal stasis, the banshee can move between this area and area P14d, but nowhere else."
 												}
 											]
@@ -12547,27 +12547,27 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "P40a.",
+													"name": "P40a",
 													"entry": "Red Room. A high elf {@creature noble} (neutral) with long hair stands in the middle of the room. The elf, Carisso, is holding a crystal goblet of water. Tied to his belt is a glass-handled rapier (actually a {@item +1 rapier}). A goblin (noncombatant) stands next to him, holding a tray with a decanter of water on it."
 												},
 												{
 													"type": "item",
-													"name": "P40b.",
+													"name": "P40b",
 													"entry": "Blue Room. This chamber has a line of bluebirds perched motionless on the sill of an open window. The room is otherwise unoccupied."
 												},
 												{
 													"type": "item",
-													"name": "P40c.",
+													"name": "P40c",
 													"entry": "Green Room. A well-dressed forest gnome (noncombatant) stands on a stool in front of a vanity, looking into a mirror as she combs her green hair. The vanity has various cosmetics and vials of perfume on it."
 												},
 												{
 													"type": "item",
-													"name": "P40d.",
+													"name": "P40d",
 													"entry": "White Room. A handsome young male human (noncombatant) in a white nightshirt sleeps in the bed."
 												},
 												{
 													"type": "item",
-													"name": "P40e.",
+													"name": "P40e",
 													"entry": "Black Room. Six goblins (noncombatants) are in the midst of cleaning the room. One of them perches precariously on a stack of chairs while reaching out to dust the top of a tall black wardrobe."
 												}
 											]
@@ -12799,37 +12799,37 @@
 											"items": [
 												{
 													"type": "item",
-													"name": "P48a.",
+													"name": "P48a",
 													"entry": "An enameled blue coffer rests on an alabaster pedestal in the middle of this room, which is connected by an open archway to a staircase that leads down to area P31 and up to areas P47 and P49. The coffer contains a plum-sized jewel made of transparent blue crystal with a tiny, Z-shaped crack in its core (see \"Treasure\" below). Any character who grasps the jewel and succeeds on a DC 15 Wisdom ({@skill Insight}) check intuits that the jewel is Zybilna's crystallized desire to be treated as a queen and rule over lesser beings."
 												},
 												{
 													"type": "item",
-													"name": "P48b.",
+													"name": "P48b",
 													"entry": "Characters can reach this chamber by climbing a staircase from area P14b on the palace's lower level. An enameled white coffer rests on a black basalt pedestal in the middle of the room. The coffer contains a plum-sized jewel made of translucent white crystal. The jewel is warm to the touch (see \"Treasure\" below). Any character who grasps the jewel and succeeds on a DC 15 Wisdom ({@skill Insight}) check intuits that the jewel is Zybilna's crystallized desire to show kindness to the destitute and unfortunate."
 												},
 												{
 													"type": "item",
-													"name": "P48c.",
+													"name": "P48c",
 													"entry": "Characters can reach this chamber by climbing a short staircase from area P48d. An enameled red coffer rests on a pedestal of rotting wood in the middle of the room. The coffer contains a plum-sized jewel made of red crystal that hums faintly (see \"Treasure\" below). Any character who grasps the jewel and succeeds on a DC 15 Wisdom ({@skill Insight}) check intuits that the jewel is Zybilna's crystallized desire to punish those who have wronged or defied her."
 												},
 												{
 													"type": "item",
-													"name": "P48d.",
+													"name": "P48d",
 													"entry": "This chamber is empty. A short staircase leads up to area P48c. A longer staircase leads down to a hallway on the palace's lower level that connects with areas P14d and P16."
 												},
 												{
 													"type": "item",
-													"name": "P48e.",
+													"name": "P48e",
 													"entry": "Characters can reach this chamber by climbing a staircase from a hallway on the palace's lower level that stretches north of area P29. An enameled green coffer rests on a wrought-iron pedestal in the middle of the room. The coffer contains a faintly glowing, plum-sized jewel of green crystal (see \"Treasure\" below). Any character who grasps the jewel and succeeds on a DC 15 Wisdom ({@skill Insight}) check intuits that the jewel is Zybilna's crystallized desire to remain hidden from her enemies."
 												},
 												{
 													"type": "item",
-													"name": "P48f.",
+													"name": "P48f",
 													"entry": "Characters can reach this chamber by climbing a short staircase from area P48g. An enameled black coffer rests on a pedestal of living vines in the middle of the room. The coffer contains a plum-sized jewel made of lustrous black crystal (see \"Treasure\" below). Any character who grasps the jewel and succeeds on a DC 15 Wisdom ({@skill Insight}) check intuits that the jewel is Zybilna's crystallized desire to know what her enemies are plotting."
 												},
 												{
 													"type": "item",
-													"name": "P48g.",
+													"name": "P48g",
 													"entry": "This chamber is empty. A short staircase leads up to area P48f. A longer staircase leads down to area P14a on the palace's lower level."
 												}
 											]

@@ -641,37 +641,37 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Creature Type.",
+											"name": "Creature Type",
 											"entry": "You are a humanoid. You determine your appearance and whether you resemble any of your kin."
 										},
 										{
 											"type": "item",
-											"name": "Size.",
+											"name": "Size",
 											"entry": "You are Small or Medium (your choice)."
 										},
 										{
 											"type": "item",
-											"name": "Speed.",
+											"name": "Speed",
 											"entry": "Your base walking speed is 30 feet."
 										},
 										{
 											"type": "item",
-											"name": "Ability Score Increase.",
+											"name": "Ability Score Increase",
 											"entry": "One ability score of your choice increases by 2."
 										},
 										{
 											"type": "item",
-											"name": "Feat.",
+											"name": "Feat",
 											"entry": "You gain one feat of your choice for which you qualify."
 										},
 										{
 											"type": "item",
-											"name": "Variable Trait.",
+											"name": "Variable Trait",
 											"entry": "You gain one of the following options of your choice: (a) {@sense darkvision} with a range of 60 feet or (b) proficiency in one skill of your choice."
 										},
 										{
 											"type": "item",
-											"name": "Languages.",
+											"name": "Languages",
 											"entry": "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
 										}
 									]
@@ -5284,22 +5284,22 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Tie.",
+											"name": "Tie",
 											"entry": "Nothing happens if the attacker and the target tie."
 										},
 										{
 											"type": "item",
-											"name": "Target Wins.",
+											"name": "Target Wins",
 											"entry": "If the target's total is higher, the attack has no effect."
 										},
 										{
 											"type": "item",
-											"name": "Attacker Wins by 10 or Less.",
+											"name": "Attacker Wins by 10 or Less",
 											"entry": "The attacker scores casualties, but not enough to break the target unit. The target's BR is reduced by 2."
 										},
 										{
 											"type": "item",
-											"name": "Attacker Wins by 11 or More.",
+											"name": "Attacker Wins by 11 or More",
 											"entry": "The attacker scores heavy casualties on the target. The target's BR is reduced by 5, and it must immediately make a DC 10 morale check. If the check fails, the unit flees the battle and is eliminated. Remove it from play."
 										}
 									]
@@ -5343,12 +5343,12 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Casualties.",
+											"name": "Casualties",
 											"entry": "If a unit is reduced to half or less of its starting BR, it must immediately make a DC 15 morale check. If it fails, it is eliminated from the battle. Remove it from play."
 										},
 										{
 											"type": "item",
-											"name": "Friendly Casualties.",
+											"name": "Friendly Casualties",
 											"entry": "If a friendly unit within 500 feet of the unit is eliminated, the unit must immediately make a DC 10 morale check. If it fails, the unit can't move or take actions on its next turn."
 										}
 									]
@@ -9924,32 +9924,32 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Captain.",
+							"name": "Captain",
 							"entry": "The captain issues orders. The best captains have high Intelligence and Charisma scores, as well as proficiency with water vehicles and the Intimidation and Persuasion skills."
 						},
 						{
 							"type": "item",
-							"name": "First Mate.",
+							"name": "First Mate",
 							"entry": "This specialist keeps the crew's morale up by providing close supervision, encouragement, and discipline. A first mate benefits from a high Charisma score, as well as proficiency with the Intimidation and Persuasion skills."
 						},
 						{
 							"type": "item",
-							"name": "Bosun.",
+							"name": "Bosun",
 							"entry": "The bosun (or boatswain) provides technical advice to the captain and crew and leads repair and maintenance efforts. A good bosun has a high Strength score, as well as proficiency with carpenter's tools and the Athletics skill."
 						},
 						{
 							"type": "item",
-							"name": "Quartermaster.",
+							"name": "Quartermaster",
 							"entry": "The quartermaster plots the ship's course, relying on knowledge of nautical charts and a study of weather and sea conditions. A reliable quartermaster tends to have a high Wisdom score, as well as proficiency with navigator's tools and the Nature skill."
 						},
 						{
 							"type": "item",
-							"name": "Surgeon.",
+							"name": "Surgeon",
 							"entry": "The ship's surgeon tends to injuries, keeps illnesses from spreading throughout the ship, and oversees sanitation. A capable surgeon benefits from a high Intelligence score, as well as proficiency with herbalism kits and the Medicine skill."
 						},
 						{
 							"type": "item",
-							"name": "Cook.",
+							"name": "Cook",
 							"entry": "A ship's cook works with the limited ingredients aboard a ship to make meals. A skilled cook keeps the crew's morale in top shape, while a poor one drags down the entire crew's performance. A talented cook has a high Constitution score, as well as proficiency with brewer's supplies and cook's utensils."
 						}
 					]
@@ -12106,7 +12106,7 @@
 								},
 								{
 									"type": "entries",
-									"name": "Arcana, History, Religion.",
+									"name": "Arcana, History, Religion",
 									"entries": [
 										"You can use your knowledge of maps and locations to unearth more detailed information when you use these skills. For instance, you might spot hidden messages in a map, identify when the map was made to determine if geographical features have changed since then, and so forth."
 									]

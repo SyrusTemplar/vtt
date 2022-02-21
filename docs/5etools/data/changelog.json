@@ -1926,5 +1926,16 @@
 		"date": "2022-01-30",
 		"title": "Masters of the Multiverse",
 		"txt": "- Added races from Monsters of the Multiverse [note that these have been hand-typed/copied from OCR'd text, so expect typos]\n- \"Source\" filters now show abbreviations in the filter summary, rather than full names (although can still be hovered to view the full source name)\n- (Brew) Fixed existing homebrew being duplicated, rather than replaced, when re-adding the same brew (local installs only)\n- (Brew) Fixed subrace lists not being added to base races\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.149.0",
+		"date": "2022-02-03",
+		"title": "Anti-Consumer Practices",
+		"txt": "- Added the rest of Monsters of the Multiverse [note that this has been copied from OCR'd text/hand-typed, so expect typos]. Huge thanks to @ Lyra, @ darthbeep, @ GoR, @ MrVauxs, and @ Spappz for pitching in to get all the data entered!\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.149.1",
+		"date": "2022-02-05",
+		"txt": "- (Brew) Added support for `{{item.<path>}}` injection in item property and type text \n- (Brew) Fixed the Text Converter failing to display errors in the UI\n- (Fixed typos/added tags)"
 	}
 ]

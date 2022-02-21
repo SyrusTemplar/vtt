@@ -3474,25 +3474,25 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "1. Paralyzing Ray.",
+											"name": "1. Paralyzing Ray",
 											"style": "italic",
 											"entry": "The targeted creature must succeed on a {@dc 14} Constitution saving throw or be {@condition paralyzed} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 										},
 										{
 											"type": "item",
-											"name": "2. Fear Ray.",
+											"name": "2. Fear Ray",
 											"style": "italic",
 											"entry": "The targeted creature must succeed on a {@dc 14} Wisdom saving throw or be {@condition frightened} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 										},
 										{
 											"type": "item",
-											"name": "3. Enervation Ray.",
+											"name": "3. Enervation Ray",
 											"style": "italic",
 											"entry": "The targeted creature must make a {@dc 14} Constitution saving throw, taking 36 ({@damage 8d8}) necrotic damage on a failed save, or half as much damage on a successful one."
 										},
 										{
 											"type": "item",
-											"name": "4. Telekinetic Ray.",
+											"name": "4. Telekinetic Ray",
 											"style": "italic",
 											"entry": "If the target is a creature, it must succeed on a DC 14 Strength saving throw, or the zombie moves it up to 30 feet in any direction. It is restrained by the ray's telekinetic grip until the start of the zombie's next turn or until the zombie is incapacitated. If the target is an object weighing 300 pounds or less that isn't being worn or carried, it is moved up to 30 feet in any direction. The zombie can also exert fine control on objects with this ray, such as manipulating a simple tool or opening a door or container."
 										}
@@ -3833,12 +3833,12 @@
 							"items": [
 								{
 									"type": "item",
-									"name": "Fear Ray.",
+									"name": "Fear Ray",
 									"entry": "The target must succeed on a {@dc 15} Wisdom saving throw or be {@condition frightened} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
 									"type": "item",
-									"name": "Paralyzing Ray.",
+									"name": "Paralyzing Ray",
 									"entry": "The target must succeed on a {@dc 15} Constitution saving throw or be {@condition paralyzed} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								}
 							]
@@ -4420,12 +4420,12 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Acid Breath.",
+											"name": "Acid Breath",
 											"entry": "The dragon exhales acid in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 58 ({@damage 13d8}) acid damage on a failed save, or half as much damage on a successful one."
 										},
 										{
 											"type": "item",
-											"name": "Paralyzing Breath.",
+											"name": "Paralyzing Breath",
 											"entry": "The dragon exhales paralyzing gas in a 60-foot cone. Each creature in that area must succeed on a DC 20 Constitution saving throw or be {@condition paralyzed} for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 										}
 									]

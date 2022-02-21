@@ -115,21 +115,21 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Blindsight.",
+							"name": "Blindsight",
 							"entries": [
 								"You have {@sense blindsight} with a range of 30 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're {@condition blinded} or in darkness. Moreover, you can see an {@condition invisible} creature, unless the creature successfully hides from you."
 							]
 						},
 						{
 							"type": "item",
-							"name": "Breath Weapon.",
+							"name": "Breath Weapon",
 							"entries": [
 								"When you cast this spell, and as a bonus action on subsequent turns for the duration, you can exhale shimmering energy in a 60-foot cone. Each creature in that area must make a Dexterity saving throw, taking {@damage 6d8} force damage on a failed save, or half as much damage on a successful one."
 							]
 						},
 						{
 							"type": "item",
-							"name": "Wings.",
+							"name": "Wings",
 							"entries": [
 								"Incorporeal wings sprout from your back, giving you a flying speed of 60 feet."
 							]
@@ -208,21 +208,21 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Cover.",
+							"name": "Cover",
 							"entries": [
 								"The creature has half cover."
 							]
 						},
 						{
 							"type": "item",
-							"name": "Damage Resistance.",
+							"name": "Damage Resistance",
 							"entries": [
 								"The creature has resistance to acid, cold, fire, lightning, and poison damage."
 							]
 						},
 						{
 							"type": "item",
-							"name": "Evasion.",
+							"name": "Evasion",
 							"entries": [
 								"If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.",
 								"As a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field."

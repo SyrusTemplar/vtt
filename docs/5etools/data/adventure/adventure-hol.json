@@ -98,12 +98,12 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Dormant.",
+											"name": "Dormant",
 											"entry": "When living beings arrive at the house, the haunting is dormant. During this time, the unassuming structure seems typical of an abandoned house. Impressions of past events and subtle, ambient haunts transpire during this time (see \"Ambient Haunts\")."
 										},
 										{
 											"type": "item",
-											"name": "Awakened.",
+											"name": "Awakened",
 											"entry": "In the course of the adventure, the activities of the living alert the house's spirits. Once this occurs, the House of Lament closes the domain's borders, surrounds itself with the Mists, and conjures a powerful storm. Dangerous haunts occur throughout the house at this time."
 										}
 									]
@@ -343,17 +343,17 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Dalk Dranzorg.",
+											"name": "Dalk Dranzorg",
 											"entry": "This manipulative murderer wants the party to trust him so they'll free his corpse from {@adventure area 5a|HoL|0|5a. Tower Base}. He gives his name as \"Garland Kordz,\" an anagram of his actual name."
 										},
 										{
 											"type": "item",
-											"name": "Mara Silvra.",
+											"name": "Mara Silvra",
 											"entry": "This rageful spirit expresses her anger at traitors and trespassers. She urges characters to find {@adventure area 31|HoL|0|31. Amber Cavity}, hoping to trade their lives for her freedom from a bargain she made with the Entity."
 										},
 										{
 											"type": "item",
-											"name": "Theodora Halvhrest.",
+											"name": "Theodora Halvhrest",
 											"entry": "The sorrowful former lady of the house hides the spirits of her children in {@adventure area 24|HoL|0|24. Children's Bedroom}. She's wary of trespassers but sees them as a way to free her children."
 										}
 									]
@@ -647,12 +647,12 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Alanik Ray and Arthur Sedgwick.",
+											"name": "Alanik Ray and Arthur Sedgwick",
 											"entry": "A mysterious third party hired these detectives to recover documents related to Loren Halvhrest's business and discover the state of his missing heirs."
 										},
 										{
 											"type": "item",
-											"name": "Gennifer and Laurie Weathermay-Foxgrove.",
+											"name": "Gennifer and Laurie Weathermay-Foxgrove",
 											"entry": "The renowned monster hunters were hired by a family in Borca to put an end to the house's haunting."
 										}
 									]
@@ -1165,17 +1165,17 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Join Lady Silvra or Belligerence.",
+															"name": "Join Lady Silvra or Belligerence",
 															"entry": "Characters who say they'll join Lady Silvra or who taunt the voice hear the scream but aren't affected by it. Instead, one of the stained-glass windows on the stage cracks. The fractures look like the character as if they were trapped within the glass."
 														},
 														{
 															"type": "item",
-															"name": "Forsake Lady Silvra or Silence.",
+															"name": "Forsake Lady Silvra or Silence",
 															"entry": "Those who say they'll abandon Lady Silvra or who stay silent must make a DC 14 Wisdom saving throw, taking 10 ({@dice 3d6}) psychic damage on a failed save, or half as much damage on a successful one. In either case, the character's ears bleed until the end of their next turn."
 														},
 														{
 															"type": "item",
-															"name": "Channel Divinity.",
+															"name": "Channel Divinity",
 															"entry": "If a character uses the Channel Divinity class feature, treat this manifestation as a haunted trap with a +4 Haunt Bonus. If the character's Channel Divinity disables the haunted trap, the scream that follows sounds distant and weak. The sound is harmless and thereafter the room is normal. If the haunted trap wouldn't be disabled, treat this as belligerence."
 														}
 													]
@@ -1260,22 +1260,22 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Baleful Baker.",
+															"name": "Baleful Baker",
 															"entry": "The Chimney Witch can manifest a single baked good once per hour. Icing on the pastry might form one letter or a similar design. The witch's baked goods are delicious but sometimes have tiny, harmless surprises hidden within\u2014perhaps a key the party overlooked, a fingertip, or a twitching lizard tail."
 														},
 														{
 															"type": "item",
-															"name": "Witch Fingers.",
+															"name": "Witch Fingers",
 															"entry": "The Chimney Witch can manifest a claw that reaches from the chimney on a gaunt, too-many-elbowed arm once per hour. As an action, the witch can make a melee attack with a +3 bonus against a target it can see within 10 feet of one of the hearths. If hit, a target takes 2 ({@dice 1d4}) piercing damage and is pulled into the nearest hearth."
 														},
 														{
 															"type": "item",
-															"name": "Witch Fire.",
+															"name": "Witch Fire",
 															"entry": "The Chimney Witch can use an action to cause a roaring fire to blaze in one of its hearths once per hour. Any creature that starts its turn inside a blazing hearth or that enters an ignited oven or fireplace for the first time on a turn takes 7 ({@dice 2d6}) fire damage. The flames vanish after 1 minute."
 														},
 														{
 															"type": "item",
-															"name": "Manifestation.",
+															"name": "Manifestation",
 															"entry": "After the house is awakened, the Chimney Witch can spend an action to summon a {@creature specter} in one of its hearths once per day. The specter looks like a burned hag with flailing, overly long arms. If the specter is defeated, the Chimney Witch cannot perform any actions and remains silent for 24 hours."
 														}
 													]
@@ -1565,12 +1565,12 @@
 													"items": [
 														{
 															"type": "item",
-															"name": "Loren's Will.",
+															"name": "Loren's Will",
 															"entry": "Loren's will and death certificate names the four members of the Halvhrest family\u2014Loren, his wife Theodora, their daughter Regan, and their son Vastion. An addendum notes that Loren died of \"tenacious deviltry of the leftmost lung.\""
 														},
 														{
 															"type": "item",
-															"name": "Deed to the House.",
+															"name": "Deed to the House",
 															"entry": "A sheaf of dry legal documents includes the deed to the house and rights to the surrounding land. These documents enumerate the land's features, including \"Ruins of Castle Laventz; prior owners: Lady Mara Silvra, Dalk Dranzorg, Lord Cordon Silvra; dates unknown.\""
 														}
 													]

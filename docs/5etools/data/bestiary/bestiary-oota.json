@@ -2799,37 +2799,37 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "1. Charm Ray.",
+											"name": "1. Charm Ray",
 											"style": "italic",
 											"entry": "The targeted creature must succeed on a {@dc 16} Wisdom saving throw or be {@condition charmed} by the beholder for 1 hour, or until the beholder harms the creature."
 										},
 										{
 											"type": "item",
-											"name": "2. Paralyzing Ray.",
+											"name": "2. Paralyzing Ray",
 											"style": "italic",
 											"entry": "The targeted creature must succeed on a {@dc 16} Constitution saving throw or be {@condition paralyzed} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 										},
 										{
 											"type": "item",
-											"name": "3. Fear Ray.",
+											"name": "3. Fear Ray",
 											"style": "italic",
 											"entry": "The targeted creature must succeed on a {@dc 16} Wisdom saving throw or be {@condition frightened} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 										},
 										{
 											"type": "item",
-											"name": "4. Slowing Ray.",
+											"name": "4. Slowing Ray",
 											"style": "italic",
 											"entry": "The targeted creature must succeed on a {@dc 16} Dexterity saving throw. On a failed save, the target's speed is halved for 1 minute. In addition, the creature can't take reactions, and it can take either an action or a bonus action on its turn, not both. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 										},
 										{
 											"type": "item",
-											"name": "5. Enervation Ray.",
+											"name": "5. Enervation Ray",
 											"style": "italic",
 											"entry": "The targeted creature must make a {@dc 16} Constitution saving throw, taking 36 ({@damage 8d8}) necrotic damage on a failed save, or half as much damage on a successful one."
 										},
 										{
 											"type": "item",
-											"name": "6. Telekinetic Ray.",
+											"name": "6. Telekinetic Ray",
 											"style": "italic",
 											"entries": [
 												"If the target is a creature, it must succeed on a {@dc 16} Strength saving throw or the beholder moves it up to 30 feet in any direction. It is {@condition restrained} by the ray's telekinetic grip until the start of the beholder's next turn or until the beholder is {@condition incapacitated}.",

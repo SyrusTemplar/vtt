@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"version": "2.10.1",
+	"version": "2.10.2",
 	"$id": "class.json",
 
 	"type": "object",
@@ -103,7 +103,7 @@
 				"level":  {"type": "integer"},
 				"header":  {"type": "integer"},
 				"page": {"type": "integer"},
-				"type": {"type": "string", "enum": ["inset"]},
+				"type": {"type": "string", "enum": ["inset", "item"]},
 				"entries": {
 					"type": "array",
 					"items": {
@@ -185,7 +185,7 @@
 				"level":  {"type": "integer"},
 				"header":  {"type": "integer"},
 				"page": {"type": "integer"},
-				"type": {"type": "string", "enum": ["inset"]},
+				"type": {"type": "string", "enum": ["inset", "item"]},
 				"entries": {
 					"type": "array",
 					"items": {
