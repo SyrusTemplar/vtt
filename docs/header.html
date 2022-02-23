@@ -93,7 +93,7 @@ alt="Web Analytics"></a></div></noscript>
       <a href="audio_01.html" title="One hour recordings"><i class="fa-solid fa-volume-high fa-flip-horizontal"></i> Full Ambient</a>
       <a href="audio_02.html" title="Short environmental effects"><i class="fa-solid fa-bell"></i> Short Effects</a>
       <a href="audio_03.html" title="Game music tracks"><i class="fa-solid fa-music"></i> Game Music</a>
-      <a href="audio_04.html" title="Themes & Cinematic" style="color: #333;"><i class="fa-solid fa-music"></i> Instrumentals</a> <!-- hidden submenu link -->
+      <a href="audio_04.html" title="Themes & Cinematic" <!-- style="color: #333;" --> ><i class="fa-solid fa-music"></i> Instrumentals</a> <!-- hidden submenu link -->
     </div>
   </div> 
 
@@ -102,7 +102,7 @@ alt="Web Analytics"></a></div></noscript>
     <!-- <a href="5etools/index.html" title="5e.tools&#10;Local Mirror" target="_blank" class="subnavbtn"><i class="fa fa-book" aria-hidden="true"></i> 5e.tools</a> -->
     <div class="subnav-content">
 	  <a href="https://5e.tools" title="Online&#10;updated" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> 5e.tools</a>
-	  <a href="https://5etools-mirror-1.github.io/index.html" title="Mirror&#10;updated" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Mirror#1</a>
+	  <a href="https://5etools-mirror-1.github.io/index.html" title="Mirror&#10;updated" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Mirror#1</a>
 	  <a href="5etools/index.html" title="Mirror&#10;self-hosted" target="_blank"><i class="fa-solid fa-window-restore" aria-hidden="true"></i> Self-hosted</a>
     </div>
   </div>
@@ -111,11 +111,18 @@ alt="Web Analytics"></a></div></noscript>
     <!-- <a href="links.html" title="Usefull links" class="subnavbtn"><i class="fa-solid fa-link" aria-hidden="true"></i> Links</a> -->
 	<button onclick="window.location.href='./links.html'" class="subnavbtn" title="Usefull links"><i class="fa-solid fa-link" aria-hidden="true"></i> Links</button>
     <div class="subnav-content">
-	  <a href="links.html" style="color:#fff;">List of useful links for Dungeon Masters.</a>
+	<a href="links.html" style="color:#fff;">List of useful links for Dungeon Masters.</a>
     </div>
   </div>
   
-  <div class="navbar-hidden"><a href="https://www.w3counter.com/stats/136708/dashboard#.YEUezX7_fO0.gmail" target="_blank" title="Website statistics"><i class="fa fa-bar-chart" aria-hidden="true"></i> Stats</a></div> <!-- hidden menu link -->
+  <div class="subnav <!-- navbar-hidden --> ">
+    <!--  <a href="https://www.w3counter.com/stats/136708/dashboard#.YEUezX7_fO0.gmail" target="_blank" title="Website statistics"><i class="fa-solid fa-chart-column"></i> Stats</a> -->
+	<button onclick="window.open('https://www.w3counter.com/stats/136708/dashboard#.YEUezX7_fO0.gmail', '_blank'); return false;" class="subnavbtn" title="Website statistics"><i class="fa-solid fa-link" aria-hidden="true"></i> Stats</button>
+    <div class="subnav-content">
+	<a href="links.html" style="color:#fff;">Website traffic statistics.</a>
+    </div> 
+  </div>
+
 </div>
 
 
