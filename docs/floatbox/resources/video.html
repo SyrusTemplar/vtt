@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html style="background-color:#000;" lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Video Player - Floatbox</title>
+<script>
+( function () {
+	var
+		$container,
+		$player,
+		posterPath;
+
+	function init () {
+		var
+			$mp4Source = document.createElement( 'source' ),
+			$webmSource = document.createElement( 'source' ),
+			params = fb.deserialize( location.search.substring( 1 ) ),
+			mp4Path = params.source,
+			webmPath = mp4Path.replace( /\.mp4\b/i, '.webm' ),
+			autoPlay = params.autoplay != '0',
+			esc = params.esc != 'false',
+			tapState;
+
+		$container = fb.$( 'container' );
+		$player = document.createElement( 'video' );
+		posterPath = params.poster == 'null' ? null : params.poster || mp4Path.replace( /\.mp4\b/i, '.jpg' );
+		$mp4Source.type = 'video/mp4';
+		$mp4Source.src = mp4Path;
+		$player.appendChild( $mp4Source );
+		$webmSource.type = 'video/webm';
+		$webmSource.src = webmPath;
+		$player.appendChild( $webmSource );
+
+		fb.attr( $player, {
+			id: 'fbPlayer',
+			width: '100%',
+			height: '100%',
+			controls: '',
+			playsinline: '',
+			poster: autoPlay ? null : posterPath
+		} );
+
+		fb.addEvent( window, 'message', messageHandler );
+		fb.addEvent( $player, [ 'mousedown', 'touchstart', 'mouseup', 'touchend' ], onTap );
+		fb.addEvent( $player, 'ended', onFinish );
+		fb.addEvent( $webmSource, 'error', onError );
+		if ( esc ) {
+			fb.addEvent( document, 'keydown', onKey, true );
+		}
+
+		$container.style.backgroundColor = params.bgcolor || 'transparent';
+		$container.appendChild( $player );
+		$player.tabIndex = 0;
+		$container.tabIndex = -1;
+		$container.focus();
+
+		if ( $player.canPlayType ) {
+			if ( autoPlay ) {
+				autoPlay = $player.play();
+				if ( $player.paused !== false && !( 'Promise' in window && autoPlay instanceof Promise ) ) {
+					fb.attr( $player, 'poster', posterPath );
+					$player.load();
+				}
+			}
+		}
+		else {
+			onError();
+		}
+
+		function onTap ( e ) {
+			if ( e.button || e.touches && e.touches[ 1 ] ) {
+				tapState = null;
+			}
+			else if ( e.type == 'mousedown' || e.type == 'touchstart' ) {
+				if ( tapState !== !!tapState && $player.offsetHeight - ( e.touches ? e.touches[ 0 ] : e ).clientY > 55 ) {
+					tapState = $player.paused;
+				}
+			}
+			else {
+				setTimeout( function () {
+					if ( $player.paused === tapState ) {
+						if ( tapState ) {
+							$player.play();
+						}
+						else {
+							$player.pause();
+						}
+					}
+					tapState = null;
+				}, 77 );
+			}
+		}
+
+		function onKey ( e ) {
+			if ( e.keyCode == 27 ) {
+				fb.stopEvent( e );
+				onFinish( 'esc' );
+			}
+		}
+
+		function onFinish ( msg ) {
+			parent.postMessage( { 'event': msg.type || msg }, document.referrer );
+		}
+
+		function onError () {
+			var
+				p = fb.select( 'p', $container, 0 ),
+				a = fb.select( 'a', p, 0 );
+			a.href = a.innerHTML = mp4Path;
+			p.style.display = 'block';
+		}
+	}  // init
+
+	function messageHandler ( e ) {
+		// Receive instructions from core
+		if ( e.data.action == 'load' ) {
+			fb.attr( $player, 'poster', posterPath );
+			$player.load();
+		}
+	}
+
+	function getParam ( name ) {
+		name = name.replace( /\[/, '\\[' ).replace( /\]/, '\\]' );
+		var
+			regex = new RegExp( '[\\?&]' + name + '=([^&#]*)' ),
+			match = regex.exec( location.search );
+		return match ? decodeURIComponent( match[ 1 ].replace( /\+/g, ' ' ) ) : '';
+	}
+
+	self.fbOptions = {
+		scriptPath: getParam( 'fb' ),
+		ready: [ init ]
+	};
+
+	var script = document.createElement( 'script' );
+	script.src = fbOptions.scriptPath;
+	document.head.appendChild( script );
+
+} )()
+</script>
+
+<style>
+html, body, #container {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	border-width: 0;
+	background-color: #000;
+}
+p {
+	display: none;
+	position: absolute;
+	z-index: 7;
+	width: 60%;
+	text-align: center;
+	left: 0;
+	right: 0;
+	margin: 24px auto;
+	padding: 16px;
+	border: 2px solid darkred;
+	background-color: #fffacd;
+}
+video {
+	object-fit: cover;
+}
+</style>
+
+</head>
+<body>
+
+<div id="container">
+<p>Uh-oh.<br />
+Video playback failed.<br />
+That's all we know.<br /><br />
+<a></a>
+</p>
+</div>
+
+</body>
+</html>

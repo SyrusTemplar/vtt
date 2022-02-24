@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Configurator - Floatbox</title>
+
+<script src="../floatbox.js"></script>
+<link rel="stylesheet" href="../floatbox.css"/>
+<style>
+body{font:normal 12px/1.4 sans-serif;background:#e3e3e3}
+#page_title{font-size:1.2em;font-weight:bold;margin:-1.2em auto 1.2em;color:#058;}
+#main,#output{width:59em;margin:0 auto;text-align:center}
+#main{margin-top:1.2em;padding:1.5em;background:#ccc repeat url(data:image/gif;base64,R0lGODdhBgAGAMIFAMTExMzMzMfHx8nJycvLy////////////ywAAAAABgAGAAADDkgxALLtMRdCrIKG/HZLADs=);box-shadow:-12px 3px 15px -4px rgba(0,0,0,0.34),12px 3px 15px -4px rgba(0,0,0,0.34)}
+#buttons{margin:2em auto 0 auto;text-align:center}
+form{clear:both;text-align:left}
+button{color:#fff;background-color:#555;border:3px solid #222;border-radius:.85em;padding:.25em .6em;margin:0 1em;outline:none}
+table{width:100%;border:1px solid black;border-spacing:0;background:#f4f4f4}
+td{position:relative;width:25%;border:1px solid black;padding:.5em}
+td .fbTooltip{position:absolute;right:0;top:0;background-color:#c6deff;cursor:help}
+select,input[type=text]{width:7em}
+#message{text-align:left;padding:.7em 8em;margin:1em 0 .3em}
+#optionsText{border:2px solid #9ac;padding:.7em;margin:auto;display:none}
+.ref{padding:0 1em}
+.code{font:normal 11px monospace;color:maroon;background-color:#ffe}
+#tab1{display:block}
+.tabContent{display:none}
+.tabs{font:bold 12px/1.2 sans-serif;width:100%;height:2.7em;margin:4px 0 0;text-align:left;border-bottom:0px solid #bbb}
+.tabs a{display:inline-block;width:6.7em;height:100%;text-align:center;vertical-align:top;border:1px solid #333;border-bottom-width:0!important;border-radius:6px 6px 0 0;margin:-5px 2px 0 0;padding:4px 10px 0;color:#333;background-color:#e3e3e3;text-decoration:none}
+.tabs a:first-child{margin-left:12px;}
+.tabs a:hover{border-color:#800;background-color:#fbf7f0}
+.tabs a.active{background-color:#f4f4f4;background:linear-gradient(0deg,#f4f4f4,#f4f4f4 65%,#fda);border:2px solid #800;margin-top:-7px;padding:5px 9px 1px;}
+</style>
+</head>
+
+<body>
+<div id="main">
+
+<p id="page_title">Floatbox v8.5 - Options Configurator</p>
+
+<div class="tabs">
+<a class="active" href="#tab1">Appearance &amp; Animations</a>
+<a href="#tab2">Color &amp; Size</a>
+<a href="#tab3">Position &amp; Controls</a>
+<a href="#tab4">Galleries &amp; Slideshows</a>
+<a href="#tab5">Tooltips, Cyclers, etc.</a>
+<a href="#tab6">General</a>
+</div>
+
+<form id="form" method="post">
+<div id="tab1" class="tabContent">
+<table><tbody>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#shadowType_ref">&nbsp;?&nbsp;</span>
+    <label>shadowType<br/>
+  <select>
+  <option value="drop">drop</option>
+  <option value="hybrid">hybrid</option>
+  <option value="halo">halo</option>
+  <option value="none">none</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#shadowSize_ref">&nbsp;?&nbsp;</span>
+    <label>shadowSize<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#shadowOpacity_ref">&nbsp;?&nbsp;</span>
+    <label>shadowOpacity<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;0-1
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#outerBorder_ref">&nbsp;?&nbsp;</span>
+    <label>outerBorder<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#innerBorder_ref">&nbsp;?&nbsp;</span>
+    <label>innerBorder<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#outerBorderRadius_ref">&nbsp;?&nbsp;</span>
+    <label>outerBorderRadius<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#innerBorderRadius_ref">&nbsp;?&nbsp;</span>
+    <label>innerBorderRadius<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#padding_ref">&nbsp;?&nbsp;</span>
+    <label>padding<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#panelPadding_ref">&nbsp;?&nbsp;</span>
+    <label>panelPadding<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#headerGap_ref">&nbsp;?&nbsp;</span>
+    <label>headerGap<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#footerGap_ref">&nbsp;?&nbsp;</span>
+    <label>footerGap<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#overlayOpacity_ref">&nbsp;?&nbsp;</span>
+    <label>overlayOpacity<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;0-1
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#doAnimations_ref">&nbsp;?&nbsp;</span>
+    <label>doAnimations<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#overlayFadeTime_ref">&nbsp;?&nbsp;</span>
+    <label>overlayFadeTime<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;sec
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#resizeTime_ref">&nbsp;?&nbsp;</span>
+    <label>resizeTime<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;sec
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#fadeTime_ref">&nbsp;?&nbsp;</span>
+    <label>fadeTime<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;sec
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#transitionTime_ref">&nbsp;?&nbsp;</span>
+    <label>transitionTime<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;sec
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#imageTransition_ref">&nbsp;?&nbsp;</span>
+    <label>imageTransition<br/>
+  <select>
+  <option value="crossfade">crossfade</option>
+  <option value="slide">slide</option>
+  <option value="shift">shift</option>
+  <option value="expand">expand</option>
+  <option value="fade">fade</option>
+  <option value="none">none</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#startAt_ref">&nbsp;?&nbsp;</span>
+    <label>startAt<br/>
+  <input type="text"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#endAt_ref">&nbsp;?&nbsp;</span>
+    <label>endAt<br/>
+  <input type="text"/>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#splitResize_ref">&nbsp;?&nbsp;</span>
+    <label>splitResize<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#easing_ref">&nbsp;?&nbsp;</span>
+    <label>easing<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;>= 1
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#inflection_ref">&nbsp;?&nbsp;</span>
+    <label>inflection<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;0-1
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#animationTime_ref">&nbsp;?&nbsp;</span>
+    <label>animationTime<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;sec
+  </td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="tab2" class="tabContent">
+<table><tbody>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#colorTheme_ref">&nbsp;?&nbsp;</span>
+    <label>colorTheme<br/>
+  <select>
+  <option value="">&nbsp;</option>
+  <option value="black">black</option>
+  <option value="blue">blue</option>
+  <option value="silver">silver</option>
+  <option value="white">white</option>
+  <option value="yellow">yellow</option>
+  <option value="red">red</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#boxColor_ref">&nbsp;?&nbsp;</span>
+    <label>boxColor<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;css
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#overlayColor_ref">&nbsp;?&nbsp;</span>
+    <label>overlayColor<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;css
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#innerBorderColor_ref">&nbsp;?&nbsp;</span>
+    <label>innerBorderColor<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;css
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#outerBorderColor_ref">&nbsp;?&nbsp;</span>
+    <label>outerBorderColor<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;css
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#textColor_ref">&nbsp;?&nbsp;</span>
+    <label>textColor<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;css
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#strongTextColor_ref">&nbsp;?&nbsp;</span>
+    <label>strongTextColor<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;css
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#contentBackgroundColor_ref">&nbsp;?&nbsp;</span>
+    <label>contentBackgroundColor<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;css
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#boxBackgroundImage_ref">&nbsp;?&nbsp;</span>
+    <label>boxBackgroundImage<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;path
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#overlayBackgroundImage_ref">&nbsp;?&nbsp;</span>
+    <label>overlayBackgroundImage<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;path
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#autoFit_ref">&nbsp;?&nbsp;</span>
+    <label>autoFit<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#autoFitSpace_ref">&nbsp;?&nbsp;</span>
+    <label>autoFitSpace<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#enableImageResize_ref">&nbsp;?&nbsp;</span>
+    <label>enableImageResize<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#inFrameResize_ref">&nbsp;?&nbsp;</span>
+    <label>inFrameResize<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#hoverPan_ref">&nbsp;?&nbsp;</span>
+    <label>hoverPan<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#resizeTool_ref">&nbsp;?&nbsp;</span>
+    <label>resizeTool<br/>
+  <select>
+  <option value="">&nbsp;</option>
+  <option value="cursor">cursor</option>
+  <option value="topleft">topleft</option>
+  <option value="both">both</option>
+  </select>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#enableDragResize_ref">&nbsp;?&nbsp;</span>
+    <label>enableDragResize<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#draggerLocation_ref">&nbsp;?&nbsp;</span>
+    <label>draggerLocation<br/>
+  <select>
+  <option value="frame">frame</option>
+  <option value="content">content</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#stickyResize_ref">&nbsp;?&nbsp;</span>
+    <label>stickyResize<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#minWidth_ref">&nbsp;?&nbsp;</span>
+    <label>minWidth<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px|%
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#minHeight_ref">&nbsp;?&nbsp;</span>
+    <label>minHeight<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px|%
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#maxWidth_ref">&nbsp;?&nbsp;</span>
+    <label>maxWidth<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px|%
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#maxHeight_ref">&nbsp;?&nbsp;</span>
+    <label>maxHeight<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px|%
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#minBoxWidth_ref">&nbsp;?&nbsp;</span>
+    <label>minBoxWidth<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px|%
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#minBoxHeight_ref">&nbsp;?&nbsp;</span>
+    <label>minBoxHeight<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px|%
+  </td>
+  <td colspan="3">
+    &nbsp;
+  </td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="tab3" class="tabContent">
+<table><tbody>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#boxLeft_ref">&nbsp;?&nbsp;</span>
+    <label>boxLeft<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px|click|%
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#boxTop_ref">&nbsp;?&nbsp;</span>
+    <label>boxTop<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px|click|%
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#boxX_ref">&nbsp;?&nbsp;</span>
+    <label>boxX<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px|click|%
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#boxY_ref">&nbsp;?&nbsp;</span>
+    <label>boxY<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px|click|%
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#boxLeftAdjust_ref">&nbsp;?&nbsp;</span>
+    <label>boxLeftAdjust<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px|%
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#boxTopAdjust_ref">&nbsp;?&nbsp;</span>
+    <label>boxTopAdjust<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px|%
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#captionPos_ref">&nbsp;?&nbsp;</span>
+    <label>captionPos<br/>
+  <select>
+  <option value="tl">tl</option>
+  <option value="tc">tc</option>
+  <option value="tr">tr</option>
+  <option value="bl">bl</option>
+  <option value="bc">bc</option>
+  <option value="br">br</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#caption2Pos_ref">&nbsp;?&nbsp;</span>
+    <label>caption2Pos<br/>
+  <select>
+  <option value="tl">tl</option>
+  <option value="tc">tc</option>
+  <option value="tr">tr</option>
+  <option value="bl">bl</option>
+  <option value="bc">bc</option>
+  <option value="br">br</option>
+  </select>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#infoLinkPos_ref">&nbsp;?&nbsp;</span>
+    <label>infoLinkPos<br/>
+  <select>
+  <option value="tl">tl</option>
+  <option value="tc">tc</option>
+  <option value="tr">tr</option>
+  <option value="bl">bl</option>
+  <option value="bc">bc</option>
+  <option value="br">br</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#printLinkPos_ref">&nbsp;?&nbsp;</span>
+    <label>printLinkPos<br/>
+  <select>
+  <option value="tl">tl</option>
+  <option value="tc">tc</option>
+  <option value="tr">tr</option>
+  <option value="bl">bl</option>
+  <option value="bc">bc</option>
+  <option value="br">br</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#newWindowLinkPos_ref">&nbsp;?&nbsp;</span>
+    <label>newWindowLinkPos<br/>
+  <select>
+  <option value="tl">tl</option>
+  <option value="tc">tc</option>
+  <option value="tr">tr</option>
+  <option value="bl">bl</option>
+  <option value="bc">bc</option>
+  <option value="br">br</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#itemNumberPos_ref">&nbsp;?&nbsp;</span>
+    <label>itemNumberPos<br/>
+  <select>
+  <option value="tl">tl</option>
+  <option value="tc">tc</option>
+  <option value="tr">tr</option>
+  <option value="bl">bl</option>
+  <option value="bc">bc</option>
+  <option value="br">br</option>
+  </select>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#indexPos_ref">&nbsp;?&nbsp;</span>
+    <label>indexPos<br/>
+  <select>
+  <option value="tl">tl</option>
+  <option value="tc">tc</option>
+  <option value="tr">tr</option>
+  <option value="bl">bl</option>
+  <option value="bc">bc</option>
+  <option value="br">br</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#controlsPos_ref">&nbsp;?&nbsp;</span>
+    <label>controlsPos<br/>
+  <select>
+  <option value="tl">tl</option>
+  <option value="tc">tc</option>
+  <option value="tr">tr</option>
+  <option value="bl">bl</option>
+  <option value="bc">bc</option>
+  <option value="br">br</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#outerClosePos_ref">&nbsp;?&nbsp;</span>
+    <label>outerClosePos<br/>
+  <select>
+  <option value="tl">tl</option>
+  <option value="tr">tr</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#detachOuterClose_ref">&nbsp;?&nbsp;</span>
+    <label>detachOuterClose<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#strictCentering_ref">&nbsp;?&nbsp;</span>
+    <label>strictCentering<br/>
+  <select>
+  <option value="true">true</option>
+  <option value="false">false</option>
+  <option value="top">top</option>
+  <option value="bottom">bottom</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#centerNav_ref">&nbsp;?&nbsp;</span>
+    <label>centerNav<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#enableDragMove_ref">&nbsp;?&nbsp;</span>
+    <label>enableDragMove<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#stickyMove_ref">&nbsp;?&nbsp;</span>
+    <label>stickyMove<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#showControlsText_ref">&nbsp;?&nbsp;</span>
+    <label>showControlsText<br/>
+  <input type="checkbox" class="triState" />
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#showClose_ref">&nbsp;?&nbsp;</span>
+    <label>showClose<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#showOuterClose_ref">&nbsp;?&nbsp;</span>
+    <label>showOuterClose<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#showPrint_ref">&nbsp;?&nbsp;</span>
+    <label>showPrint<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#printCSS_ref">&nbsp;?&nbsp;</span>
+    <label>printCSS<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;text|path
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#printText_ref">&nbsp;?&nbsp;</span>
+    <label>printText<br/>
+  <input type="text"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#infoOptions_ref">&nbsp;?&nbsp;</span>
+    <label>infoOptions<br/>
+  <input type="text"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#infoText_ref">&nbsp;?&nbsp;</span>
+    <label>infoText<br/>
+  <input type="text"/>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#showNewWindow_ref">&nbsp;?&nbsp;</span>
+    <label>showNewWindow<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#closeOnNewWindow_ref">&nbsp;?&nbsp;</span>
+    <label>closeOnNewWindow<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#showHints_ref">&nbsp;?&nbsp;</span>
+    <label>showHints<br/>
+  <input type="checkbox" class="triState" />
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#outsideClickCloses_ref">&nbsp;?&nbsp;</span>
+    <label>outsideClickCloses<br/>
+  <input type="checkbox" class="triState" />
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#contentClickCloses_ref">&nbsp;?&nbsp;</span>
+    <label>contentClickCloses<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#enableKeyboardNav_ref">&nbsp;?&nbsp;</span>
+    <label>enableKeyboardNav<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td colspan="2">
+    &nbsp;
+  </td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="tab4" class="tabContent">
+<table><tbody>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#navType_ref">&nbsp;?&nbsp;</span>
+    <label>navType<br/>
+  <select>
+  <option value="overlay">overlay</option>
+  <option value="button">button</option>
+  <option value="both">both</option>
+  <option value="none">none</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#navOverlayWidth_ref">&nbsp;?&nbsp;</span>
+    <label>navOverlayWidth<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;% (0-50)
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#navOverlayPos_ref">&nbsp;?&nbsp;</span>
+    <label>navOverlayPos<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;% (0-50)
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#showNavOverlay_ref">&nbsp;?&nbsp;</span>
+    <label>showNavOverlay<br/>
+  <input type="checkbox" class="triState" />
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#enableSwipeNav_ref">&nbsp;?&nbsp;</span>
+    <label>enableSwipeNav<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#showItemNumber_ref">&nbsp;?&nbsp;</span>
+    <label>showItemNumber<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#enableWrap_ref">&nbsp;?&nbsp;</span>
+    <label>enableWrap<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#numIndexLinks_ref">&nbsp;?&nbsp;</span>
+    <label>numIndexLinks<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;limit
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#showIndexThumbs_ref">&nbsp;?&nbsp;</span>
+    <label>showIndexThumbs<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#maxIndexThumbSize_ref">&nbsp;?&nbsp;</span>
+    <label>maxIndexThumbSize<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#randomOrder_ref">&nbsp;?&nbsp;</span>
+    <label>randomOrder<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#doSlideshow_ref">&nbsp;?&nbsp;</span>
+    <label>doSlideshow<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#slideInterval_ref">&nbsp;?&nbsp;</span>
+    <label>slideInterval<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;sec
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#afterSlideshow_ref">&nbsp;?&nbsp;</span>
+    <label>afterSlideshow<br/>
+  <select>
+  <option value="exit">exit</option>
+  <option value="stop">stop</option>
+  <option value="loop">loop</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#showPlayPause_ref">&nbsp;?&nbsp;</span>
+    <label>showPlayPause<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#startPaused_ref">&nbsp;?&nbsp;</span>
+    <label>startPaused<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="tab5" class="tabContent">
+<table><tbody>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#placement_ref">&nbsp;?&nbsp;</span>
+    <label>placement<br/>
+  <select>
+  <option value="top">top</option>
+  <option value="bottom">bottom</option>
+  <option value="left">left</option>
+  <option value="right">right</option>
+  <option value="center">center</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#showOnce_ref">&nbsp;?&nbsp;</span>
+    <label>showOnce<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#delay_ref">&nbsp;?&nbsp;</span>
+    <label>delay<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;msec
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#arrowColor_ref">&nbsp;?&nbsp;</span>
+    <label>arrowColor<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;css
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#arrowSize_ref">&nbsp;?&nbsp;</span>
+    <label>arrowSize<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;px
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#contextMouseButton_ref">&nbsp;?&nbsp;</span>
+    <label>contextMouseButton<br/>
+  <select>
+  <option value="both">both</option>
+  <option value="left">left</option>
+  <option value="right">right</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#cycleInterval_ref">&nbsp;?&nbsp;</span>
+    <label>cycleInterval<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;sec
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#cycleFadeTime_ref">&nbsp;?&nbsp;</span>
+    <label>cycleFadeTime<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;sec
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#cycleZoom_ref">&nbsp;?&nbsp;</span>
+    <label>cycleZoom<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;portion (0-1)
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#cycleEasing_ref">&nbsp;?&nbsp;</span>
+    <label>cycleEasing<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;>= 1
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#cycleInflection_ref">&nbsp;?&nbsp;</span>
+    <label>cycleInflection<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;0-1
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#cyclePauseOnClick_ref">&nbsp;?&nbsp;</span>
+    <label>cyclePauseOnClick<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#cycleShowControls_ref">&nbsp;?&nbsp;</span>
+    <label>cycleShowControls<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#cycleControlsPos_ref">&nbsp;?&nbsp;</span>
+    <label>cycleControlsPos<br/>
+  <select>
+  <option value="tl">tl</option>
+  <option value="tc">tc</option>
+  <option value="tr">tr</option>
+  <option value="bl">bl</option>
+  <option value="bc">bc</option>
+  <option value="br">br</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#cycleStartPaused_ref">&nbsp;?&nbsp;</span>
+    <label>cycleStartPaused<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#cyclePauseOnHover_ref">&nbsp;?&nbsp;</span>
+    <label>cyclePauseOnHover<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="tab6" class="tabContent">
+<table><tbody>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#addVideoThumb_ref">&nbsp;?&nbsp;</span>
+    <label>addVideoThumb<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;width
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#addPlayButton_ref">&nbsp;?&nbsp;</span>
+    <label>addPlayButton<br/>
+  <select>
+  <option value="">&nbsp;</option>
+  <option value="small">small</option>
+  <option value="medium">medium</option>
+  <option value="large">large</option>
+  <option value="false">false</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#fetchVideoInfo_ref">&nbsp;?&nbsp;</span>
+    <label>fetchVideoInfo<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#autoPlayVideo_ref">&nbsp;?&nbsp;</span>
+    <label>autoPlayVideo<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#autoEndVideo_ref">&nbsp;?&nbsp;</span>
+    <label>autoEndVideo<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#titleAsCaption_ref">&nbsp;?&nbsp;</span>
+    <label>titleAsCaption<br/>
+  <select>
+  <option value="true">true</option>
+  <option value="false">false</option>
+  <option value="a">a</option>
+  <option value="img">img</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#altAsCaption_ref">&nbsp;?&nbsp;</span>
+    <label>altAsCaption<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#showMagCursor_ref">&nbsp;?&nbsp;</span>
+    <label>showMagCursor<br/>
+  <select>
+  <option value="false">false</option>
+  <option value="true">true</option>
+  <option value="once">once</option>
+  </select>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#modal_ref">&nbsp;?&nbsp;</span>
+    <label>modal<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#keepCentered_ref">&nbsp;?&nbsp;</span>
+    <label>keepCentered<br/>
+  <input type="checkbox" class="triState" />
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#boxScroll_ref">&nbsp;?&nbsp;</span>
+    <label>boxScroll<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#pageScroll_ref">&nbsp;?&nbsp;</span>
+    <label>pageScroll<br/>
+  <input type="checkbox" class="triState" />
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#instanceName_ref">&nbsp;?&nbsp;</span>
+    <label>instanceName<br/>
+  <input type="text"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#attachTo_ref">&nbsp;?&nbsp;</span>
+    <label>attachTo<br/>
+  <input type="text"/>
+    </label>&nbsp;&nbsp;id
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#zIndex_ref">&nbsp;?&nbsp;</span>
+    <label>zIndex<br/>
+  <input type="text"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#activateMedia_ref">&nbsp;?&nbsp;</span>
+    <label>activateMedia<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#autoGallery_ref">&nbsp;?&nbsp;</span>
+    <label>autoGallery<br/>
+  <input type="checkbox"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#preloadLimit_ref">&nbsp;?&nbsp;</span>
+    <label>preloadLimit<br/>
+  <input type="text"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#language_ref">&nbsp;?&nbsp;</span>
+    <label>language<br/>
+  <select>
+  <option value="">&nbsp;</option>
+  <option value="ar">ar</option>
+  <option value="bg">bg</option>
+  <option value="bs">bs</option>
+  <option value="ca">ca</option>
+  <option value="cs">cs</option>
+  <option value="da">da</option>
+  <option value="de">de</option>
+  <option value="el">el</option>
+  <option value="en">en</option>
+  <option value="es">es</option>
+  <option value="et">et</option>
+  <option value="fa">fa</option>
+  <option value="fi">fi</option>
+  <option value="fr">fr</option>
+  <option value="gl">gl</option>
+  <option value="he">he</option>
+  <option value="hi">hi</option>
+  <option value="hr">hr</option>
+  <option value="hu">hu</option>
+  <option value="is">is</option>
+  <option value="it">it</option>
+  <option value="ja">ja</option>
+  <option value="ko">ko</option>
+  <option value="lt">lt</option>
+  <option value="nb">nb</option>
+  <option value="nl">nl</option>
+  <option value="nn">nn</option>
+  <option value="no">no</option>
+  <option value="pl">pl</option>
+  <option value="pt">pt</option>
+  <option value="ro">ro</option>
+  <option value="ru">ru</option>
+  <option value="sk">sk</option>
+  <option value="sl">sl</option>
+  <option value="sr">sr</option>
+  <option value="sv">sv</option>
+  <option value="th">th</option>
+  <option value="tr">tr</option>
+  <option value="vi">vi</option>
+  <option value="zh">zh</option>
+  </select>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#floatboxClass_ref">&nbsp;?&nbsp;</span>
+    <label>floatboxClass<br/>
+  <input type="text"/>
+    </label>
+  </td>
+</tr>
+<tr>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#cyclerClass_ref">&nbsp;?&nbsp;</span>
+    <label>cyclerClass<br/>
+  <input type="text"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#tooltipClass_ref">&nbsp;?&nbsp;</span>
+    <label>tooltipClass<br/>
+  <input type="text"/>
+    </label>
+  </td>
+  <td>
+  <span class="fbTooltip" data-fb-tooltip="source:#contextClass_ref">&nbsp;?&nbsp;</span>
+    <label>contextClass<br/>
+  <input type="text"/>
+    </label>
+  </td>
+  <td colspan="1">
+    &nbsp;
+  </td>
+</tr>
+</tbody></table>
+</div>
+
+
+<p id="buttons">
+<button type="button" onclick="clicker( 'global' );">Generate global options</button>
+<button type="button" onclick="clicker( 'page' );">Generate page options</button>
+<button type="button" onclick="clicker( 'reset' );">Reset Form</button>
+</p>
+
+</form>
+</div>  <!-- main -->
+
+<div id="output">
+<ul id="message">
+<li>Use this page to generate global or page-specific floatbox options.</li>
+<li>Set preferences the way you want them,
+click one of the 'generate' buttons to get a global or page-specific options definition,
+and then paste the generated code from the text area as described in the message above the text area.</li>
+<li>See the configurator section of the instructions for more details
+and the tooltipped help on each form field for information about the available settings.</li>
+<li>Note that there are many item-specific options that are not usually set globally and are therefore not in this configurator.</li>
+</ul>
+<textarea id="optionsText" readonly="readonly" cols="50" rows="14"></textarea>
+</div>
+
+<div id="help" style="display:none;">
+
+<p id="shadowType_ref" class="ref"><b>shadowType</b> - <i>'drop'</i> | 'hybrid' | 'halo' | 'none'<br/>
+Set 3D shadow effect.
+'drop' sets a 2-sided shadow on the right and bottom.
+'hybrid' sets the full shadow on the right and bottom and a fainter half shadow on the left and top.
+'halo' sets a full shadow on all 4 sides.
+</p>
+<p id="shadowSize_ref" class="ref"><b>shadowSize</b> - pixels (10)<br/>
+Sets the width in pixels of the shadow effect around the box.
+</p>
+<p id="shadowOpacity_ref" class="ref"><b>shadowOpacity</b> - 0-1 (0.4)<br/>
+The opacity or darkness of the shadow effect around the box.
+</p>
+<p id="outerBorder_ref" class="ref"><b>outerBorder</b> - pixels (1)<br/>
+Width of the border around the outside edge of the box.
+</p>
+<p id="innerBorder_ref" class="ref"><b>innerBorder</b> - pixels (1)<br/>
+Width of the inside border around the edge of the main content.
+</p>
+<p id="outerBorderRadius_ref" class="ref"><b>outerBorderRadius</b> - pixels (10)<br/>
+This sets the border-radius for the outer box perimeter, in pixels.
+</p>
+<p id="innerBorderRadius_ref" class="ref"><b>innerBorderRadius</b> - pixels (0)<br/>
+Set the border-radius for the inner content area,in pixels.
+</p>
+<p id="padding_ref" class="ref"><b>padding</b> - pixels (20)<br/>
+Width of the area between the floatbox content and the outer floatbox edges.
+</p>
+<p id="panelPadding_ref" class="ref"><b>panelPadding</b> - pixels (6)<br/>
+Gap above and below the contents of the floatbox frame area like the caption and close buttons.
+Provides the vertical spacing between the floatbox outer edge, frame content, and main content.
+</p>
+<p id="headerGap_ref" class="ref"><b>headerGap</b> - pixels (0)<br/><b>footerGap</b> - pixels (0)<br/>
+Gap between the header and footer elements and the main floatbox outer edges.
+</p>
+<p id="footerGap_ref" class="ref"><b>headerGap</b> - pixels (0)<br/><b>footerGap</b> - pixels (0)<br/>
+Gap between the header and footer elements and the main floatbox outer edges.
+</p>
+<p id="overlayOpacity_ref" class="ref"><b>overlayOpacity</b> - 0-1 (0.55)<br/>
+Opacity or darkness of the full-screen page overlay. 0 is fully transparent, 1 is fully opaque.
+</p>
+<p id="doAnimations_ref" class="ref"><b>doAnimations</b> - <i>true</i> | false<br/>
+Setting doAnimations to false is a short-hand way of setting transitionTime, resizeTime and overlayFadeTime all to 0.
+When doAnimations is false, startAt, endAt, zoomSource, imageTransition and splitResize become irrelevant.<br/>
+(To turn off animations only on smallScreen devices (phones), put "doAnimations:false" in a 'mobile' options set.)
+</p>
+<p id="overlayFadeTime_ref" class="ref"><b>overlayFadeTime</b> - seconds (0.4)<br/>
+Number of seconds for the opacity fade-in and fade-out of the translucent overlay which covers the host page.
+</p>
+<p id="resizeTime_ref" class="ref"><b>resizeTime</b> - seconds (0.7)<br/>
+Controls the speed of the animated opening and closing resize of the floatbox from and to the thumbnail or click starting position.
+</p>
+<p id="fadeTime_ref" class="ref"><b>fadeTime</b> - seconds (0.4)<br/>
+This is the time taken to fade in the box contents immediately after starting up the floatbox or before closing it down.
+If not overridden, tooltips will use 0.2 seconds for fadeIn and context boxes will use 0.
+</p>
+<p id="transitionTime_ref" class="ref"><b>transitionTime</b> - seconds (0.8)<br/>
+Controls the speed at which transitions between gallery set images occur.
+</p>
+<p id="imageTransition_ref" class="ref"><b>imageTransition</b> - <i>'crossfade'</i> | 'slide' | 'shift' | 'expand' | 'fade' | 'none'<br/>
+A variety of animations are available when transitioning between two images in a gallery set.
+These transitions will be synchronized with any floatbox resizing that needs to occur such that all animations will complete simultaneously.
+The default transition setting is 'crossfade', which fades out the old image while fading in the new one.
+'slide' does not alter opacity but instead will slide the current image out of the floatbox and thereby reveal the stationary next image underneath it.
+Regardless of the imageTransition setting, if a touch user uses a swipe gesture to navigate through an image gallery,
+the 'slide' effect will be done, because it looks very natural when swiping.
+The 'shift' setting is similar to 'slide' except that instead of being stationary, the new image will slide into the box while the current image slides out, as if the two images were attached at their edges.
+'expand' is kind of like an accordion seam; it's a little hard to explain -  try it to see it.
+A setting of 'fade' will cause the images to fade to black (or whatever the current colorTheme is), resize the box if necessary, and then fade the new image in from black.
+'imageTransition:none' is equivalent to setting transitionTime:0, and is not recommended because it makes things look jumpy and jarring.
+</p>
+<p id="startAt_ref" class="ref"><b>startAt</b> - id | 'start' | null<br/><b>endAt</b> - id | 'start' | null<br/>
+The default starting and ending point for box opening and closing animations is at a thumbnail for zoomSource starts,
+or at the starting click/touch screen location, or from the center of the screen.
+Set startAt and/or endAt to the id of an element on the document to animate from the center point of that element.
+Set them to null to animate to/from the screen center.
+And, somewhat obscurely, set them both to 'start' to make zooming up/down from a thumb start/end at the thumb's center point
+rather than from the thumb element's displayed size.  This is helpful when the zoomSource image does not match the thumbnail image.
+</p>
+<p id="endAt_ref" class="ref"><b>startAt</b> - id | 'start' | null<br/><b>endAt</b> - id | 'start' | null<br/>
+The default starting and ending point for box opening and closing animations is at a thumbnail for zoomSource starts,
+or at the starting click/touch screen location, or from the center of the screen.
+Set startAt and/or endAt to the id of an element on the document to animate from the center point of that element.
+Set them to null to animate to/from the screen center.
+And, somewhat obscurely, set them both to 'start' to make zooming up/down from a thumb start/end at the thumb's center point
+rather than from the thumb element's displayed size.  This is helpful when the zoomSource image does not match the thumbnail image.
+</p>
+<p id="splitResize_ref" class="ref"><b>splitResize</b> - true | <i>false</i><br/>
+Default animated resizing of floatbox resizes width, height, top and left simultaneously.
+Setting splitResize to true yields sequenced animation where the X and Y dimensions are resized seperately.
+When split-resizing, the smallest dimension will be sized first, followed by the other larger dimension.
+This avoids unaesthetic resize behaviour of initially bloating up in the larger dimension.
+Note that splitResize does not take effect while 'zooming' an image in or out or while cross-fading between images in a gallery set.
+</p>
+<p id="easing_ref" class="ref"><b>easing</b> - 1-4 (2.5)<br/>
+Floatbox size and position animations are normally 'eased', meaning they are slower at the start, faster in the middle, slower at the end.
+The 'easing' option modifies the strength of the acceleration curve, with a value of 1 flattening the curve to linear, thereby turning off easing.
+</p>
+<p id="inflection_ref" class="ref"><b>inflection</b> - 0-1 (0.5)<br/>
+The 'inflection' option sets the transition point where easing switches from deceleration to acceleration.
+The default of 0.5 puts it right in the middle of the animation.
+Decrease the inflection point to move the transition point closer to the start of the animation
+and increase it to move closer to the end.
+</p>
+<p id="animationTime_ref" class="ref"><b>animationTime</b> - seconds (1)<br/>
+This sets the default speed of animations done by the fb.animate API function that haven't specified a speed in their call parameters.
+</p>
+<p id="colorTheme_ref" class="ref"><b>colorTheme</b> - 'black' | 'blue' | 'silver' | 'white' | 'yellow' | 'red'<br/>
+When the colorTheme option is not specified, floatbox defaults to black for images, silver for HTML content, and blue for multi-media.
+Assigning a specific colorTheme setting overrides these defaults.
+</p>
+<p id="boxColor_ref" class="ref"><b>boxColor</b> - css color [|css color]<br/>
+'boxColor' assigns the main background color of the floatbox's frame area using any css color.
+A gradient effect can also be assigned to the floatbox by setting boxColor to two css colors separated the the '|' character.<br/>
+If defining a gradient, hex color formats must be used. For example: <span class="code">boxColor:#123456|#edca98</span><br/>
+If a gradient is set, outerBorderRadius is set to 0 and the floatbox will have square corners.
+Note that setting boxBackgroundImage can override a boxColor assignment.
+</p>
+<p id="overlayColor_ref" class="ref"><b>overlayColor</b> - css color<br/><b>innerBorderColor</b> - ...<br/><b>outerBorderColor</b> - ...<br/>
+Assign any standard css color to various floatbox components using these options.
+A good way to do extensive appearance customizations is to set the desired options in a className definition fbOptions.js (or in fbOptions on a page).
+Once this is done, the collection of option settings can be assigned to one or more floatboxed links simply by placing the assigned class name on them.
+</p>
+<p id="innerBorderColor_ref" class="ref"><b>overlayColor</b> - css color<br/><b>innerBorderColor</b> - ...<br/><b>outerBorderColor</b> - ...<br/>
+Assign any standard css color to various floatbox components using these options.
+A good way to do extensive appearance customizations is to set the desired options in a className definition fbOptions.js (or in fbOptions on a page).
+Once this is done, the collection of option settings can be assigned to one or more floatboxed links simply by placing the assigned class name on them.
+</p>
+<p id="outerBorderColor_ref" class="ref"><b>overlayColor</b> - css color<br/><b>innerBorderColor</b> - ...<br/><b>outerBorderColor</b> - ...<br/>
+Assign any standard css color to various floatbox components using these options.
+A good way to do extensive appearance customizations is to set the desired options in a className definition fbOptions.js (or in fbOptions on a page).
+Once this is done, the collection of option settings can be assigned to one or more floatboxed links simply by placing the assigned class name on them.
+</p>
+<p id="textColor_ref" class="ref"><b>textColor</b> - css color<br/><b>strongTextColor</b> - ...<br/>
+These work the same as the other color options.
+'textColor' applies to the 'item x of y' display, index links, and the 'open in a new window' link.
+'strongTextColor' applies to captions, info and print links, and the new window link when it's hovered.
+</p>
+<p id="strongTextColor_ref" class="ref"><b>textColor</b> - css color<br/><b>strongTextColor</b> - ...<br/>
+These work the same as the other color options.
+'textColor' applies to the 'item x of y' display, index links, and the 'open in a new window' link.
+'strongTextColor' applies to captions, info and print links, and the new window link when it's hovered.
+</p>
+<p id="contentBackgroundColor_ref" class="ref"><b>contentBackgroundColor</b> - css color<br/>
+The default background color of floatbox's content area is white for non-iframe HTML content and transparent for all others.
+If a different background color is required for some content, the desired color can be assigned by setting the 'contentBackgroundColor' option.
+Valid values are any color values that can be assigned via css.
+This setting will have a visible effect ony if the content shown has some transparent areas.
+</p>
+<p id="boxBackgroundImage_ref" class="ref"><b>boxBackgroundImage</b> - img filePath<br/>
+The main floatbox frame area can have a background image assigned to it to give texture or other effects.
+Set 'boxBackgroundImage' to the URL path of the image to be used as the background.
+</p>
+<p id="overlayBackgroundImage_ref" class="ref"><b>overlayBackgroundImage</b> - img filePath<br/>
+A repeating background image can be assigned to the normally translucent page overlay.
+Set 'overlayBackgroundImage' to the URL path of the image to be used as the background,
+and perhaps also set "overlayOpacity:1" to make it opaque.
+</p>
+<p id="autoFit_ref" class="ref"><b>autoFit</b> - <i>true</i> | false<br/>
+Default behaviour for content that is larger than the viewable screen is to auto-size the floatbox such that it fits within the screen.
+Set autoFit to false to disable this auto-sizing and allow the displayed floatbox to be larger than the visible screen.
+</p>
+<p id="autoFitSpace_ref" class="ref"><b>autoFitSpace</b> - pixels (5)<br/>
+The minimum space to leave between the floatbox edge and the browser window edge when autoFitting content.
+</p>
+<p id="enableImageResize_ref" class="ref"><b>enableImageResize</b> - <i>true</i> | false<br/>
+If enableImageResize is set to true, images that have been autoSized to fit the screen, that have been resized with drag-resizing, or are displayed larger than the current screen size can be resized using the resize tool.
+</p>
+<p id="inFrameResize_ref" class="ref"><b>inFrameResize</b> - <i>true</i> | false<br/>
+An image may be displayed at smaller than its native size when autoFit causes it to scale to fit the viewport.
+The image can then be resized to its full size using the resizeTool as described below.
+The default resizing behaviour is for the floatbox frame to remain at its smaller size inside the viewport
+and for the image to scale up to its full size inside the floatbox frame.
+It can then be panned within the frame by mouse or touch drags on the enlarged image or mouse moves over the image (see 'hoverPan' below).
+Set inFrameResize to false to disable this behaviour and cause the entire floatbox, including the frame, to to scale up to full size when requested.
+</p>
+<p id="hoverPan_ref" class="ref"><b>hoverPan</b> - <i>true</i> | false<br/>
+An image that has been in-frame-resized to larger than the containing floatbox content area will,
+by default, move and pan within the content area in response to mouse moves over the content.
+Set hoverPan to false to disable mouse-move panning.
+</p>
+<p id="resizeTool_ref" class="ref"><b>resizeTool</b> - 'cursor' | 'topleft' | 'both'<br/>
+Sets the tool used when enableImageResize is true.
+The cursor tool enables clicking on the image to resize and displays a magnifying glass as the mouse cursor to show when resizing is allowed.
+The topleft tool is a small semi-transparent button in the top left corner of the image.
+Default behaviour when resizeTool is not specified is for mouse users to get the 'cursor' and touch users to get the 'topleft' tool. 
+</p>
+<p id="enableDragResize_ref" class="ref"><b>enableDragResize</b> - true | <i>false</i><br/>
+If true, a small resize widget will be shown in the bottom right corner that mousers can drag on with their mice to resize the box.
+Not available when using touch gestures.
+</p>
+<p id="draggerLocation_ref" class="ref"><b>draggerLocation</b> - <i>'frame'</i> | 'content'<br/>
+If enableDragResize is true, and image content is being shown, and draggerLocation is set to 'content',
+the resizer widget will be placed at the bottom right corner of the content area instead of in the frame area.
+</p>
+<p id="stickyResize_ref" class="ref"><b>stickyResize</b> - <i>true</i> | false<br/>
+'stickyResize' causes size changes made to a floatbox by 'dragResizing' to persist in subsequent box size calculations.
+Set it to false to have the floatbox return to normal size when showing the next item in a set.
+</p>
+<p id="minWidth_ref" class="ref"><b>minWidth</b> (140) - pixels | 'xx%'<br/><b>minHeight</b> (100) - ...<br/>
+minWidth and minHeight set the lower limits for the dimensions of the displayed content, not including the floatbox frame outside of the content.
+The content will be displayed at at least these dimensions and cannot be drag-resized or auto-sized smaller than these limits.
+minWidth and minHeight can be set as a number of pixels or as a percentage of the visible screen size.
+</p>
+<p id="minHeight_ref" class="ref"><b>minWidth</b> (140) - pixels | 'xx%'<br/><b>minHeight</b> (100) - ...<br/>
+minWidth and minHeight set the lower limits for the dimensions of the displayed content, not including the floatbox frame outside of the content.
+The content will be displayed at at least these dimensions and cannot be drag-resized or auto-sized smaller than these limits.
+minWidth and minHeight can be set as a number of pixels or as a percentage of the visible screen size.
+</p>
+<p id="maxWidth_ref" class="ref"><b>maxWidth</b> (0) - pixels | 'xx%'<br/><b>maxHeight</b> (0) - ...<br/>
+maxWidth and maxHeight set the upper size limits for floatbox content dimensions.
+When set to 0, no limit is in effect and the content will be presented at its native, specified or measured size.<br/>
+If these options are applied to image content and are smaller than the image's native dimensions,
+the image will still be resize-able up to native dimensions
+(provided the enableImageResize option has not been set to false).<br/>
+maxWidth and maxHeight can be set as a number of pixels or as a percentage of the visible screen size.
+</p>
+<p id="maxHeight_ref" class="ref"><b>maxWidth</b> (0) - pixels | 'xx%'<br/><b>maxHeight</b> (0) - ...<br/>
+maxWidth and maxHeight set the upper size limits for floatbox content dimensions.
+When set to 0, no limit is in effect and the content will be presented at its native, specified or measured size.<br/>
+If these options are applied to image content and are smaller than the image's native dimensions,
+the image will still be resize-able up to native dimensions
+(provided the enableImageResize option has not been set to false).<br/>
+maxWidth and maxHeight can be set as a number of pixels or as a percentage of the visible screen size.
+</p>
+<p id="minBoxWidth_ref" class="ref"><b>minBoxWidth</b> (0) - pixels | 'xx%'<br/><b>minBoxHeight</b> (0) - ...<br/>
+minBoxWidth and minBoxHeight can be used to setup a floatbox frame area larger than it would normally be based on
+the padding option and content size. In a gallery set or slideshow, this could be used to define a floatbox that fills the screen
+and remains a constant size while the content area inside the box changes to accommodate the various gallery set members.
+</p>
+<p id="minBoxHeight_ref" class="ref"><b>minBoxWidth</b> (0) - pixels | 'xx%'<br/><b>minBoxHeight</b> (0) - ...<br/>
+minBoxWidth and minBoxHeight can be used to setup a floatbox frame area larger than it would normally be based on
+the padding option and content size. In a gallery set or slideshow, this could be used to define a floatbox that fills the screen
+and remains a constant size while the content area inside the box changes to accommodate the various gallery set members.
+</p>
+<p id="boxLeft_ref" class="ref"><b>boxLeft</b> - pixels | 'click' | 'xx%'<br/><b>boxTop</b> - ...<br/>
+Default box positioning is for the floatbox to open centered in the viewable browser screen area (with a little offset toward the top).
+The 'boxLeft' and 'boxTop' options can be used to change this default box placement.
+If set to simple integers, those integers will be taken as screen pixel locations at which to place the floatbox.
+These pixel placement values are relative to the visible browser viewport and not to the underlying document.
+If set to the string 'click', the floatbox's left and/or top edge will open at the mouse click or touch location.
+The 'boxLeft' and 'boxTop' positions can also be set as a percentage of the screen size.
+For example, a 'boxLeft' setting of '50%' will place the left edge of the floatbox at the screen centre.
+</p>
+<p id="boxTop_ref" class="ref"><b>boxLeft</b> - pixels | 'click' | 'xx%'<br/><b>boxTop</b> - ...<br/>
+Default box positioning is for the floatbox to open centered in the viewable browser screen area (with a little offset toward the top).
+The 'boxLeft' and 'boxTop' options can be used to change this default box placement.
+If set to simple integers, those integers will be taken as screen pixel locations at which to place the floatbox.
+These pixel placement values are relative to the visible browser viewport and not to the underlying document.
+If set to the string 'click', the floatbox's left and/or top edge will open at the mouse click or touch location.
+The 'boxLeft' and 'boxTop' positions can also be set as a percentage of the screen size.
+For example, a 'boxLeft' setting of '50%' will place the left edge of the floatbox at the screen centre.
+</p>
+<p id="boxX_ref" class="ref"><b>boxX</b> - pixels | 'click' | 'xx%'<br/><b>boxY</b> - ...<br/>
+Similar to boxLeft and boxTop, except boxX and boxY positions the center point of the floatbox instead of the top-left corner.
+For example, 'boxX' and 'boxY' both set to '50%' will exactly center the floatbox on the screen, provided it fits entirely within the screen.
+If both 'boxX' and 'boxLeft' are set, 'boxX' wins and 'boxLeft' is ignored. Similarly for 'boxY' and 'boxTop'.
+</p>
+<p id="boxY_ref" class="ref"><b>boxX</b> - pixels | 'click' | 'xx%'<br/><b>boxY</b> - ...<br/>
+Similar to boxLeft and boxTop, except boxX and boxY positions the center point of the floatbox instead of the top-left corner.
+For example, 'boxX' and 'boxY' both set to '50%' will exactly center the floatbox on the screen, provided it fits entirely within the screen.
+If both 'boxX' and 'boxLeft' are set, 'boxX' wins and 'boxLeft' is ignored. Similarly for 'boxY' and 'boxTop'.
+</p>
+<p id="boxLeftAdjust_ref" class="ref"><b>boxLeftAdjust</b> - pixels | 'xx%'<br/><b>boxTopAdjust</b> - ...<br/>
+boxLeftAdjust and boxTopAdjust are added in to the floatbox positioning after all other position calculations such as autoFit and default centering are complete.
+Specified as + or - pixel count or percentage of screen size, they move the final floatbox position the requested amount.
+These adjustments are most typically used to alter the placement of enhanced tooltips and context boxes.
+</p>
+<p id="boxTopAdjust_ref" class="ref"><b>boxLeftAdjust</b> - pixels | 'xx%'<br/><b>boxTopAdjust</b> - ...<br/>
+boxLeftAdjust and boxTopAdjust are added in to the floatbox positioning after all other position calculations such as autoFit and default centering are complete.
+Specified as + or - pixel count or percentage of screen size, they move the final floatbox position the requested amount.
+These adjustments are most typically used to alter the placement of enhanced tooltips and context boxes.
+</p>
+<p id="captionPos_ref" class="ref"><b>captionPos</b> ('bl') - 'tl' | 'tc' | 'tr' | 'bl' | 'bc' | 'br'<br/><b>caption2Pos</b> ('tc') - ...<br/><b>infoLinkPos</b> ('bl') - ...<br/><b>printLinkPos</b> ('bl') - ...<br/><b>newWindowLinkPos</b> ('tr') - ...<br/><b>itemNumberPos</b> ('bl') - ...<br/><b>indexPos</b> ('br') - ...<br/><b>controlsPos</b> ('br') - ...<br/>
+These options control the positioning of the various widgets that can appear in the floatbox border area.
+See the 'layout' section of the instructions for more detail if required.
+Values are short-hand for top-left, top-center, top-right, bottom-left, bottom-center and bottom-right.
+</p>
+<p id="caption2Pos_ref" class="ref"><b>captionPos</b> ('bl') - 'tl' | 'tc' | 'tr' | 'bl' | 'bc' | 'br'<br/><b>caption2Pos</b> ('tc') - ...<br/><b>infoLinkPos</b> ('bl') - ...<br/><b>printLinkPos</b> ('bl') - ...<br/><b>newWindowLinkPos</b> ('tr') - ...<br/><b>itemNumberPos</b> ('bl') - ...<br/><b>indexPos</b> ('br') - ...<br/><b>controlsPos</b> ('br') - ...<br/>
+These options control the positioning of the various widgets that can appear in the floatbox border area.
+See the 'layout' section of the instructions for more detail if required.
+Values are short-hand for top-left, top-center, top-right, bottom-left, bottom-center and bottom-right.
+</p>
+<p id="infoLinkPos_ref" class="ref"><b>captionPos</b> ('bl') - 'tl' | 'tc' | 'tr' | 'bl' | 'bc' | 'br'<br/><b>caption2Pos</b> ('tc') - ...<br/><b>infoLinkPos</b> ('bl') - ...<br/><b>printLinkPos</b> ('bl') - ...<br/><b>newWindowLinkPos</b> ('tr') - ...<br/><b>itemNumberPos</b> ('bl') - ...<br/><b>indexPos</b> ('br') - ...<br/><b>controlsPos</b> ('br') - ...<br/>
+These options control the positioning of the various widgets that can appear in the floatbox border area.
+See the 'layout' section of the instructions for more detail if required.
+Values are short-hand for top-left, top-center, top-right, bottom-left, bottom-center and bottom-right.
+</p>
+<p id="printLinkPos_ref" class="ref"><b>captionPos</b> ('bl') - 'tl' | 'tc' | 'tr' | 'bl' | 'bc' | 'br'<br/><b>caption2Pos</b> ('tc') - ...<br/><b>infoLinkPos</b> ('bl') - ...<br/><b>printLinkPos</b> ('bl') - ...<br/><b>newWindowLinkPos</b> ('tr') - ...<br/><b>itemNumberPos</b> ('bl') - ...<br/><b>indexPos</b> ('br') - ...<br/><b>controlsPos</b> ('br') - ...<br/>
+These options control the positioning of the various widgets that can appear in the floatbox border area.
+See the 'layout' section of the instructions for more detail if required.
+Values are short-hand for top-left, top-center, top-right, bottom-left, bottom-center and bottom-right.
+</p>
+<p id="newWindowLinkPos_ref" class="ref"><b>captionPos</b> ('bl') - 'tl' | 'tc' | 'tr' | 'bl' | 'bc' | 'br'<br/><b>caption2Pos</b> ('tc') - ...<br/><b>infoLinkPos</b> ('bl') - ...<br/><b>printLinkPos</b> ('bl') - ...<br/><b>newWindowLinkPos</b> ('tr') - ...<br/><b>itemNumberPos</b> ('bl') - ...<br/><b>indexPos</b> ('br') - ...<br/><b>controlsPos</b> ('br') - ...<br/>
+These options control the positioning of the various widgets that can appear in the floatbox border area.
+See the 'layout' section of the instructions for more detail if required.
+Values are short-hand for top-left, top-center, top-right, bottom-left, bottom-center and bottom-right.
+</p>
+<p id="itemNumberPos_ref" class="ref"><b>captionPos</b> ('bl') - 'tl' | 'tc' | 'tr' | 'bl' | 'bc' | 'br'<br/><b>caption2Pos</b> ('tc') - ...<br/><b>infoLinkPos</b> ('bl') - ...<br/><b>printLinkPos</b> ('bl') - ...<br/><b>newWindowLinkPos</b> ('tr') - ...<br/><b>itemNumberPos</b> ('bl') - ...<br/><b>indexPos</b> ('br') - ...<br/><b>controlsPos</b> ('br') - ...<br/>
+These options control the positioning of the various widgets that can appear in the floatbox border area.
+See the 'layout' section of the instructions for more detail if required.
+Values are short-hand for top-left, top-center, top-right, bottom-left, bottom-center and bottom-right.
+</p>
+<p id="indexPos_ref" class="ref"><b>captionPos</b> ('bl') - 'tl' | 'tc' | 'tr' | 'bl' | 'bc' | 'br'<br/><b>caption2Pos</b> ('tc') - ...<br/><b>infoLinkPos</b> ('bl') - ...<br/><b>printLinkPos</b> ('bl') - ...<br/><b>newWindowLinkPos</b> ('tr') - ...<br/><b>itemNumberPos</b> ('bl') - ...<br/><b>indexPos</b> ('br') - ...<br/><b>controlsPos</b> ('br') - ...<br/>
+These options control the positioning of the various widgets that can appear in the floatbox border area.
+See the 'layout' section of the instructions for more detail if required.
+Values are short-hand for top-left, top-center, top-right, bottom-left, bottom-center and bottom-right.
+</p>
+<p id="controlsPos_ref" class="ref"><b>captionPos</b> ('bl') - 'tl' | 'tc' | 'tr' | 'bl' | 'bc' | 'br'<br/><b>caption2Pos</b> ('tc') - ...<br/><b>infoLinkPos</b> ('bl') - ...<br/><b>printLinkPos</b> ('bl') - ...<br/><b>newWindowLinkPos</b> ('tr') - ...<br/><b>itemNumberPos</b> ('bl') - ...<br/><b>indexPos</b> ('br') - ...<br/><b>controlsPos</b> ('br') - ...<br/>
+These options control the positioning of the various widgets that can appear in the floatbox border area.
+See the 'layout' section of the instructions for more detail if required.
+Values are short-hand for top-left, top-center, top-right, bottom-left, bottom-center and bottom-right.
+</p>
+<p id="outerClosePos_ref" class="ref"><b>outerClosePos</b> - 'tl' | <i>'tr'</i><br/>
+The round outerClose button, when enabled with 'showOuterClose', defaults to being place on the top-right corner of the floatbox.
+It can instead be placed on top-left corner by setting outerClosePose to 'tl'.
+</p>
+<p id="detachOuterClose_ref" class="ref"><b>detachOuterClose</b> - true | <i>false</i><br/>
+The outerClose button normally is attached to one of the top corners of a floatbox.
+Setting detachOuterClose to true will remove the button from the box and pin it to one of the top corners of the screen or viewport.
+</p>
+<p id="strictCentering_ref" class="ref"><b>strictCentering</b> - <i>true</i> | false | 'top' | 'bottom'<br/>
+strictCentering defaults to true and ensures that any captions or widgets positioned in the 'tc' or 'bc' positions will be accurately centered in the floatbox frame area.
+This can be expensive in terms of leaving blank space on either side of the centered components, especially on small screens,
+and so strictCentering is set to false for mobile devices in fbOptions.js.
+Set strictCentering to 'top' or 'bottom' to limit the centering to that panel area only,
+or set it to false to disable it for both panels.
+</p>
+<p id="centerNav_ref" class="ref"><b>centerNav</b> - true | <i>false</i><br/>
+When the navigation controls (set by controlsPos) are in one of the corner positions ('tl', 'tr', 'bl', 'br'),
+the "&larr; prev next &rarr;" controls can be moved to the center of the corresponding panel by setting centerNav to true.
+</p>
+<p id="enableDragMove_ref" class="ref"><b>enableDragMove</b> - <i>true</i> | false<br/>
+If 'enableDragMove' is not set to false, a floatbox can be dragged around the screen by a touch-move gesture or a hold-down of the left mouse button on the floatbox frame outside of the main content area.<br/>
+The box can also be dragged around from image content, unless it is a multi-image gallery set and touch gestures are being used.
+(Touch-swiping a gallery set image is reserved for navigation to the previous or next image in the set.)<br/>
+fbTooltip and fbContext boxes cannot be moved by user input.
+</p>
+<p id="stickyMove_ref" class="ref"><b>stickyMove</b> - <i>true</i> | false<br/>
+'stickyMove' causes position changes made to a floatbox by dragging the floatbox around the screen to persist in subsequent box position calculations.
+Set it to false to have the moved floatbox return to centered position when showing the next item in a set.
+</p>
+<p id="showControlsText_ref" class="ref"><b>showControlsText</b> - true | false<br/>
+If set to true, the text on the various controls will show for all browsers,
+and if set to none, no browsers will get text on the controls.
+The default is for smallScreen devices to not get the text, but everybody else does.
+</p>
+<p id="showClose_ref" class="ref"><b>showClose</b> - <i>true</i> | false<br/>
+Enables/disables display of the close button in the floatbox border area.
+</p>
+<p id="showOuterClose_ref" class="ref"><b>showOuterClose</b> - true | <i>false</i><br/>
+Enables/disables display of the round external close button that can be shown at one of the top corners of a floatbox.
+</p>
+<p id="showPrint_ref" class="ref"><b>showPrint</b> - true | <i>false</i><br/>
+If showPrint is set to true, a "Print..." link will be shown in the floatbox border area.
+This print link invokes a print dialog that will print just the floatbox contents, not the underlying page.
+(The "Print..." text is translated/regionalized in the language files.)
+See the printCSS option for how to pass css stylings to the print content.
+Print links will not be shown for cross-domain iframe content because cross-domain script blocking will prevent the printing from succeeding.
+</p>
+<p id="printCSS_ref" class="ref"><b>printCSS</b> - css text | css filePath<br/>
+When showPrint is enabled, it may be necessary to provide some css to format the print content.
+The desired CSS settings can be provided directly as text. For example, <span class="code">printCSS:`h4 {color: #123456;} a img {border: 2px solid black;}`</span>.
+'printCSS' can also be set to the path of an external css file which will be attached and applied to the print window contents.
+E.g., <span class="code">printCSS:myPrint.css</span>.
+</p>
+<p id="printText_ref" class="ref"><b>printText</b> - string<br/>
+Replaces the default text "Print..." (or the translated equivalent) used for the print link with text of your choice.
+</p>
+<p id="infoOptions_ref" class="ref"><b>infoOptions</b> - option string<br/>
+Used in conjunction with the 'info' option, this allows assigning configuration options to the secondary info floatbox using the standard options attribute syntax.
+Wrap the infoOptions in backquotes for correct parsing and see the instructions and demo for more details.
+</p>
+<p id="infoText_ref" class="ref"><b>infoText</b> - string<br/>
+Replaces the default text "Info..." (or the translated equivalent) used for the info link with text of your choice.
+For example, if displaying EXIF information through the info option, the 'infoText' options could be set to "EXIF..."
+</p>
+<p id="showNewWindow_ref" class="ref"><b>showNewWindow</b> - true | <i>false</i><br/>
+If showNewWindow is set to true, a "Open in a new window" link will be shown in the floatbox border area.
+Clicking this link will open a new browser window or tab with the floatbox content loaded as an ordinary page.
+("Open in a new window" is translated/regionalized in the language files.)
+Use the closeOnNewWindow option in conjunction with showNewWindow.
+</p>
+<p id="closeOnNewWindow_ref" class="ref"><b>closeOnNewWindow</b> - true | <i>false</i><br/>
+When set to true, floatbox will end (close) when the newWindow link (described in the options reference and instructions) is clicked.
+</p>
+<p id="showHints_ref" class="ref"><b>showHints</b> - <i>'once'</i> | true | false<br/>
+Controls display of system tooltip messages on mouseover of the nav and control buttons.
+These tooltip messages are intended to be used to inform users about keyboard navigation shortcuts.
+With the default setting of 'once', each tooltip will deactivate after it has been displayed for sufficient time to be read.
+A tooltip message will also be deactivated if the user navigates with the associated keyboard shortcut.
+If enableKeyboardNav is set to false, showHints will be set to false.
+</p>
+<p id="outsideClickCloses_ref" class="ref"><b>outsideClickCloses</b> - true | false<br/>
+Default behaviour when outsideClickCloses is not set is for modal boxes, tooltips and context boxes to close when something outside the floatbox is clicked or touched.
+Set this to true to make non-modal boxes close on an outside click, or false to make any box ignore outside clicks.
+</p>
+<p id="contentClickCloses_ref" class="ref"><b>contentClickCloses</b> - true | <i>false</i><br/>
+If set to true, floatbox will exit when the user clicks on the floatbox's displayed content.
+This option is primarily useful for images and context boxes.
+By default, a context box will close when the page outside of the floatbox is click or touched, but remains open if interaction occurs within its content.
+When set for images that have the navigation overlay active (navType = 'overlay' or 'both'),
+the click-to-close area is down the center of the image in the space remaining between the left and right navigation areas.
+</p>
+<p id="enableKeyboardNav_ref" class="ref"><b>enableKeyboardNav</b> - <i>true</i> | false<br/>
+Enables or disables the keyboard handler for previous/next, pause/play, resize and close actions.
+</p>
+<p id="navType_ref" class="ref"><b>navType</b> - 'overlay' | 'button' | <i>'both'</i> | 'none'<br/>
+Sets the type of navigation controls to display.
+'overlay' is the "Prev/Next" image overlay.'
+'button' gives "&lt;&lt;prev||next&gt;&gt;" in the controls area of the floatbox frame.
+Overlay navigation is not available for html and multi-media content, just for images.
+</p>
+<p id="navOverlayWidth_ref" class="ref"><b>navOverlayWidth</b> - 0-50 (30)<br/>
+Sets the width in percentage of each of the left and right transparent overlay nav panels that provide navigation through mouse clicks on the displayed image.
+If set to 50, each panel will be half the image width and so will meet without a gap in the middle.
+40 leaves a 20% gap between panels, etc.
+If enableImageResize or contentClickCloses are active, a gap should be left between the nav panels so that there's somewhere on the image that can be clicked.
+</p>
+<p id="navOverlayPos_ref" class="ref"><b>navOverlayPos</b> - 0-100 (33)<br/>
+When the mouse is active over an image with navType 'overlay' or 'both' set, small prev/next graphics are displayed.
+This setting is the percentage height from the image top that the top edges of these graphics will appear.
+0 puts them right at the top, and 100 places them at the bottom of the image.
+</p>
+<p id="showNavOverlay_ref" class="ref"><b>showNavOverlay</b> - true | false<br/>
+This option does not enable or disable the overlay navigation - use navType for that.
+'showNavOverlay' controls the visibility of the overlayed navigation 'prev' and 'next' graphics.<br/>
+Set "showNavOverlay:true" to force it always on, and "showNavOverlay:false" to turn it always off.
+When the overlay nav graphics are turned off, overlay nav still works; it's just not displayed.
+The default when showNavOverlay is not set is for Floatbox to make an intelligent choice based on content type and touch vs. mouse usage.
+When both the overlay and button nav types are enabled, the button nav controls will highlight as the mouse moves over active image areas,
+regardless of the 'showNavOverlay' setting.
+</p>
+<p id="enableSwipeNav_ref" class="ref"><b>enableSwipeNav</b> - <i>true</i> | false<br/>
+Setting enableSwipeNav to false turns off the ability for touch users to navigate through a gallery set with swipe gestures on the images.
+</p>
+<p id="showItemNumber_ref" class="ref"><b>showItemNumber</b> - <i>true</i> | false<br/>
+Setting showItemNumber to false will disable the display of the 'image/page x of y' text in gallery sets.
+</p>
+<p id="enableWrap_ref" class="ref"><b>enableWrap</b> - <i>true</i> | false<br/>
+Enables gallery wrapping so that selecting 'next' on the last item wraps to the first, and selecting 'prev' on the first item wraps to the last.
+Because gallery viewing can start anywhere in a series of images, it is probably a good idea to leave this set to true in most circumstances.
+However, if displaying something like a series of instructions that always starts with item #1, it may be appropriate to turn wrapping off.
+The enableWrap option affects only mouse and keyboard navigation.
+Even when enableWrap is set to false, a slideshow will wrap if started with an item other than #1 or if the afterSlideshow option is set to 'loop'.
+</p>
+<p id="numIndexLinks_ref" class="ref"><b>numIndexLinks</b> - number (0)<br/>
+Index links are a grouping of numbered links that will jump floatbox to the selected item of a gallery set when clicked.
+They look like this: <span style="white-space: nowrap;">"<u>1</u> <u>2</u> <u>3</u> <u>4</u> <u>5</u> ..."</span><br/>
+If set to 0, no index links will be shown.
+If set to -1 or to a number greater than the number of items in a gallery set, all index links will be shown - one for each item in the gallery.
+If set to a positive integer less than the number of gallery items, only that number of links will be shown.
+For example, if maxIndexLinks = 9 for a 99 item gallery, the index links will look something like
+<span style="white-space: nowrap;">"<u>1</u> ... <u>12</u> <u>13</u> <u>14</u> 15 <u>16</u> <u>17</u> <u>18</u> ...  <u>99</u>"</span>
+</p>
+<p id="showIndexThumbs_ref" class="ref"><b>showIndexThumbs</b> - <i>true</i> | false<br/>
+Controls the display of popup thumbnails in the indexLinks group.
+If true, thumbnail popups will be displayed when an index link is hovered.
+</p>
+<p id="maxIndexThumbSize_ref" class="ref"><b>maxIndexThumbSize</b> - pixels (0)<br/>
+The popup thumbnails used in the index links are taken from the img elements inside the associated anchor on the base page.
+These thumbnails may be larger than desired for the index links popup thumbnails.
+The index link thumbnail sizes can be limited by setting maxIndexThumbSize to the desired pixel size of the thumbnail's largest dimension.
+If maxIndexThumbSize is 0, the index link thumbnails will be shown at their native size.
+</p>
+<p id="randomOrder_ref" class="ref"><b>randomOrder</b> - true | <i>false</i><br/>
+Gallery sets of multiple items normally are ordered by their position in the html document.
+Setting randomOrder to true causes a gallery set to sequence its member items in a random order.
+This can be a nice touch for some slideshows.
+</p>
+<p id="doSlideshow_ref" class="ref"><b>doSlideshow</b> - true | <i>false</i><br/>
+If set to true, images in a gallery set will be launched as a slideshow.
+</p>
+<p id="slideInterval_ref" class="ref"><b>slideInterval</b> - seconds (4.5)<br/>
+This is the number of seconds to display each image in a slideshow before moving on to the next one.
+Per-item intervals can be assigned to the item options of individual slideshow members.
+</p>
+<p id="afterSlideshow_ref" class="ref"><b>afterSlideshow</b> - <i>'exit'</i> | 'stop' | 'loop'<br/>
+Describes what to do when all images in a slideshow have been seen.
+Note that if a slideshow was started on other than the 1st image, it will wrap around until all images have been seen before acting on the afterSlideshow directive.
+</p>
+<p id="showPlayPause_ref" class="ref"><b>showPlayPause</b> - <i>true</i> | false<br/>
+Turns display of the slideshow play &amp; pause controls on or off.
+</p>
+<p id="startPaused_ref" class="ref"><b>startPaused</b> - true | <i>false</i><br/>
+If true, a slideshow will start in a paused state.  If false, the slideshow will auto-play on start.
+</p>
+<p id="placement_ref" class="ref"><b>placement</b> - <i>'bottom'</i> | 'top' | 'left' | 'right' | 'center'<br/>
+The placement option determines where an enhanced tooltip will open in relation to the host element.
+If the requested placement would make the tooltip appear partially offscreen,
+the placement will be moved over opposite to the request so that the entire tooltip shows.
+For example, a tooltip with placement:right which does not have room to show completely on the right side of the host element
+will head over to the left side, if there is sufficient room on the left.
+Similarly, 'top' and 'bottom' will be exchanged if necessary.
+</p>
+<p id="showOnce_ref" class="ref"><b>showOnce</b> - true | <i>false</i><br/>
+If showOnce is set to true, a tooltip will be displayed only on the first mouse-over of the host element per browser session.
+A session cookie will be set in the visitor's browser that will prevent the tooltip from re-appearing for that user until a subsequent visit.
+</p>
+<p id="delay_ref" class="ref"><b>delay</b> - milliseconds (333)<br/>
+Minimum delay in milliseconds between the element mouseover event and the display of an attached tooltip.
+</p>
+<p id="arrowColor_ref" class="ref"><b>arrowColor</b> - css color<br/>
+All tooltips, except those with placement:center set, have a small triangular arrow pointing to the host element.
+The default color for these arrows is to use whatever is set for outerBorderColor.
+Any css color can be set directly for the arrows using the arrowColor option,
+including 'transparent' to hide them.
+</p>
+<p id="arrowSize_ref" class="ref"><b>arrowSize</b> - pixels (16)<br/>
+As could be guessed, the arrowSize option can be used to change a tooltip's triangular arrow size to something other than the default 16px.
+The arrow can be completely removed by setting arrowSize to 0.
+In this case, the tooltip edge will be snug up against the boundary of the host element.
+If 'arrowColor' is set to 'transparent', the arrowSize option can be used to specify a gap between the tooltip and the host element
+without filling that gap with a visible arrow.
+</p>
+<p id="contextMouseButton_ref" class="ref"><b>contextMouseButton</b> - <i>'both'</i> | 'left' | 'right'<br/>
+This option applies only to context boxes and sets which mouse buttons will be used to trigger the display of the context box.
+Mobile devices will always respond to touch gestures regardless of the contextMouseButton setting.
+Please see the note in the 'Context boxes' section of <a href="instructions.html#context">the instructions</a> for information about the unreliability of right-clicks in some browsers.
+</p>
+<p id="cycleInterval_ref" class="ref"><b>cycleInterval</b> - seconds (6)<br/>
+The number of seconds between each turnover of the displayed image in a set of cycling images or thumbnails.
+'cycleInterval' applies to all cycler sets on a page and cannot be set per-cycler.
+All the other 'cycle*' options are per-cycler (when there is more than one cycler set on a page).
+</p>
+<p id="cycleFadeTime_ref" class="ref"><b>cycleFadeTime</b> - seconds (1.7)<br/>
+Controls the speed of the fade in/out of the images in a set of cycling images or thumbnails.
+</p>
+<p id="cycleZoom_ref" class="ref"><b>cycleZoom</b> - 0-1 (0.2)<br/>
+The portion of the image size to be used in the 'Ken Burns' style slow-zoom effect.
+Set this to 0 to turn off the effect and a smaller or larger number to decrease or increase the amount of zoom.
+</p>
+<p id="cycleEasing_ref" class="ref"><b>cycleEasing</b> - 1-4 (1.4)<br/>
+Sets the strength of the easing curve for the cycleZoom effect. (See 'easing' in this Options Reference.)
+If not specified, cycleEasing will use the value set in the global 'easing' option or default to 2.5.
+</p>
+<p id="cycleInflection_ref" class="ref"><b>cycleInflection</b> - 0-1<br/>
+Sets the inflection point for the easing curve of the cycleZoom effect. (See 'inflection' in this Options Reference.)
+If not specified, a random inflection value between 0.1 and 0.9 will be generated for each image.
+</p>
+<p id="cyclePauseOnClick_ref" class="ref"><b>cyclePauseOnClick</b> - true | <i>false</i><br/>
+If set to true, a cycling image or thumbnail set can be paused and resumed by clicking or touching an image.
+</p>
+<p id="cycleShowControls_ref" class="ref"><b>cycleShowControls</b> - <i>true</i> | false<br/>
+When cyclePauseOnClick is true, a visible play/pause control will be shown on a cycler set unless cycleShowControls has been set to false.
+</p>
+<p id="cycleControlsPos_ref" class="ref"><b>cycleControlsPos</b> - 'tl' | 'tc' | 'tr' | <i>'bl'</i> | 'bc' | 'br'<br/>
+Controls the position of a cycler's visible play/pause control when cyclePauseOnClick and cycleShowControls are active.
+</p>
+<p id="cycleStartPaused_ref" class="ref"><b>cycleStartPaused</b> - true | <i>false</i><br/>
+If set to true, and cyclePauseOnClick is enabled, a cycler set will begin in the paused state at page load.
+</p>
+<p id="cyclePauseOnHover_ref" class="ref"><b>cyclePauseOnHover</b> - true | <i>false</i><br/>
+If set to true, image and thumbnail cyclers will pause and hold the current image while the mouse is hovered over the images.
+This option is ignored on mouse-less mobile devices where the concept of hovering does not exist.
+</p>
+<p id="addVideoThumb_ref" class="ref"><b>addVideoThumb</b> - width | 'small' | <i>'medium'</i> | 'large'<br/>
+Floatbox can fetch video thumbnails from YouTube, Vimeo (public videos only) or a locally served video folder,
+and can auto-insert these thumbnails into floatboxed links that reference these videos.
+To use this option with locally served .mp4 videos, place the desired thumbnail in the same folder and with the same filename as the .mp4 video file.
+The fetched thumbnail will be displayed at the size specified in the addVideoThumb option which can be set to
+an explicit pixel width, 'small' for 120px, 'large' for 480px, or a default of 240px for 'medium' if not set.
+Turn addVideoThumb off by setting it to false.
+</p>
+<p id="addPlayButton_ref" class="ref"><b>addPlayButton</b> - 'small' | 'medium' | 'large' | false<br/>
+Any floatboxed anchor that contains a thumbnail can have a translucent play button displayed over top of it by setting the addPlayButton option to the desired button size (small, medium or large).
+The default action is to add a medium-sized play button to thumbnails added by the addVideoThumb option and to do nothing with other thumbnails.
+Use the addPlayButton to show a button on standard thumbnails or to change the button size for addVideoThumb thumbnails.
+Disable the default play button for addVideoThumb thumbnails by setting addPlayButton to false.
+Note that the 'small', 'medium' and 'large' settings set a size relative to the host thumbnail, and not an absolute pixel size.
+</p>
+<p id="fetchVideoInfo_ref" class="ref"><b>fetchVideoInfo</b> - <i>true</i> | false<br/>
+When public videos from Vimeo are configured to show in a floatbox,
+the Vimeo API service is queried to fetch useful information about the video such as the title, default size, and the path to the video's thumbnail image.
+This can be set per-item in data-fb-options and per-page or globally.<br/>
+Vimeo provides API access only for public videos and will not send any info if the video is configured as private on the Vimeo site.
+Setting fetchVideoInfo:false in these cases can avoid some useless network activity.
+If the API info is unavailable, the video link's thumbnail, along with size and caption options, will need to be configured manually.
+</p>
+<p id="autoPlayVideo_ref" class="ref"><b>autoPlayVideo</b> - <i>true</i> | false<br/>
+If the browser supports it, floatbox showing video will start automatically
+when the video loads unless autoPlayVideo is set to false.
+(Mobile browsers generally do not support auto-starting video.)<br/>
+Putting "?autoplay=0" on the video link's href is equivalent to setting "autoPlayVideo:false".
+</p>
+<p id="autoEndVideo_ref" class="ref"><b>autoEndVideo</b> - <i>true</i> | false<br/>
+A floatbox showing video, either with the built-in HTML5 video player, or from YouTube or Vimeo, will close automatically
+when the video ends unless autoEndVideo is set to false.<br/>
+Putting "?autoend=0" on the video link's href is equivalent to setting "autoEndVideo:false".
+</p>
+<p id="titleAsCaption_ref" class="ref"><b>titleAsCaption</b> - <i>true</i> | false | 'a' | 'img'<br/>
+If a caption is not assigned directly with the caption option, titleAsCaption, when left at its default value of true, will pull a caption in from a title attribute found on the host anchor or on a thumbnail img element within that anchor.
+A setting of 'a' instructs it to look at title attributes only on the anchor element and a setting of 'img' causes it to look for titles only on thumbnail img elements.
+To disable the setting of captions from title attributes, set titleAsCaption to false.
+See the 'caption' and 'caption2' options for details on how to set caption content directly.
+The titleAsCaption option also applies to fbCycler sets and will cause the cycler captions shown below the images to be pulled from the img elements' title attributes.
+</p>
+<p id="altAsCaption_ref" class="ref"><b>altAsCaption</b> - true | <i>false</i><br/>
+If altAsCaption is set to true and a caption has not been assigned either through the caption option or as a result of the titleAsCaption option, the caption will be pulled from the alt attribute on a thumbnail image inside the floatboxed anchor.
+The altAsCaption option also applies to fbCycler sets and will cause the cycler captions shown below the images to be pulled from the img elements' alt attributes.
+</p>
+<p id="showMagCursor_ref" class="ref"><b>showMagCursor</b> - 'once' | true | <i>false</i><br/>
+Changes the mouse cursor to a small magnifying glass when the mouse is hovered over a thumbnail in a floatboxed anchor.
+If set to 'once', the cursor will change only for the first mouseover on the thumbnail image.
+Note, that some browsers cannot and will not show the custom cursor regardless of this option's setting.
+(Older Opera, most Mac browsers except Safari, and some Linux browsers are guilty of this.)
+</p>
+<p id="modal_ref" class="ref"><b>modal</b> - <i>true</i> | false<br/>
+When modal is true, floatbox will overlay the whole page with a translucent layer,
+the underlying page will be unreachable until the box is closed,
+and any secondary floatboxes will be stacked on top of any already-opened boxes.
+Setting modal to false removes the translucent page overlay,
+allows the underlying page to be accessed while one or more floatboxes are open,
+and allows multiple open floatboxes to be re-arranged and restacked.
+</p>
+<p id="keepCentered_ref" class="ref"><b>keepCentered</b> - true | false<br/>
+Floatboxes that have 'autoFit' at its default of true, or that fit entirely within the available screen,
+will recenter and possibly resize when the browser window is scrolled or alters its width
+(such as when a mobile screen is pinch-zoomed or changes orientation).
+Explicitly set keepCentered to true or false to force or inhibit the re-centering behaviour on any floatbox
+regardless of other conditions in effect.
+</p>
+<p id="boxScroll_ref" class="ref"><b>boxScroll</b> - true | false<br/>
+The boxScroll option controls whether a floatbox will use non-scrollable, viewport-attached fixed positioning or scrollable, document-attached absolute positioning.
+When left unset, Floatbox will try to make intelligent choices based on modal, autofit, and pageScroll settings.
+Override the intelligent choice with true to make the floatbox scroll with the document, and false to exclude it from scrolling.
+</p>
+<p id="pageScroll_ref" class="ref"><b>pageScroll</b> - true | false<br/>
+pageScroll controls the vertical scrollability of the browser window or document.
+When not set, vertical page scrolling will be disabled while a modal floatbox that fits entirely within the visible viewport is present.
+The primary pupose of this is to prevent irritating underlying page scrolls when using a mouse wheel inside the floatbox content.
+Set pageScroll to false to always disable page scrolling while a floatbox showing,
+and set it to true to never disable page scrolling.
+When pageScroll is disabled, the vertical scrollbar is replaced by a right-side margin of the same width to avoid content jumps and re-layout.
+</p>
+<p id="instanceName_ref" class="ref"><b>instanceName</b> - string<br/>
+instanceName is used in conjunction with the API function fb.getInstance to programmatically reference
+a particular floatbox when more than one is present.
+If no instanceName is provided, the default instance name will be the filename of the opening content.
+For example, a floatbox showing content of "/images/my_toys.jpg" without a specific instanceName assigned will be named "my_toys".
+See the API Reference for fb.getInstance() details.
+</p>
+<p id="attachTo_ref" class="ref"><b>attachTo</b> - string<br/>
+A floatbox normally inserts itself into the bottom of a host document's &lt;body&gt; element.
+Use the attachTo option to specify the id of an alternate element in which to attach the floatbox.
+This is particularly useful for displaying form content on ASP.NET pages, which can have only one functional form per page.
+</p>
+<p id="zIndex_ref" class="ref"><b>zIndex</b> - number (77777)<br/>
+Floatbox's default z-indices begin at 77777.
+If there is other content on a page that is set higher than this (such as maybe a navigation menu),
+a larger zIndex can be assigned to the floatboxes by setting this option.
+</p>
+<p id="activateMedia_ref" class="ref"><b>activateMedia</b> - <i>true</i> | false<br/>
+With 'activateMedia' left at its default of true, Floatbox will activate all links whose href refers to image, video or pdf content,
+without the need to set the 'floatbox' class on each of those links, or on a parent element.
+This is a change in behaviour from earlier Floatbox versions, and upgraders can set activateMedia to false in their global options to turn it off.
+</p>
+<p id="autoGallery_ref" class="ref"><b>autoGallery</b> - true | <i>false</i><br/>
+'autoGallery' works in conjunction with 'activateMedia'.
+In normal mode, activateMedia will activate image links as standalone items.
+If 'autoGallery' is set to true, all auto-activated images will be grouped and displayed together as a gallery set.<br/>
+Note that if you wish other types of content to group into a gallery set automatically,
+simply assign a group name on the 'group' option under the file type of interest in the corresponding fbOptions:type section.
+If the assigned name is 'autoGallery', content of that type will be bundled in with the 'autoGallery' image set.
+</p>
+<p id="preloadLimit_ref" class="ref"><b>preloadLimit</b> - number (5)<br/>
+Floatbox will preload images that are set to show as floatbox content so that those images may be shown immediately when clicked
+instead of the visitor possibly watching the spinning loader graphic while waiting for the image to be fetched across the network.
+Image preloading starts shortly after the main page is fully rendered and window.onload fires so as not to intefere with page load times.
+preloadLimit sets the maximum number of content images that will be preloaded.
+</p>
+<p id="language_ref" class="ref"><b>language</b> - 'xx' (see the languages folder)<br/>
+If the 'language' option is not set in global options then the 'lang' attribute of the active page's &lt;HTML&gt; element will be parsed for a usable localized language.
+If not found either explicitly set or in the 'lang' attribute, the default value of 'en' will assumed and English language strings will be used.
+To explicitly assign a language to be used by Floatbox's various strings, set the language option to one of the two letter codes that has a corresponding file available in the 'languages' folder.
+</p>
+<p id="floatboxClass_ref" class="ref"><b>floatboxClass</b> ('floatbox') - className<br/><b>cyclerClass</b> ('fbCycler') - ...<br/><b>tooltipClass</b> ('fbTooltip') - ...<br/><b>contextClass</b> ('fbContext') - ...<br/>
+The class names that are used to activate floatbox elements can be changed in order to avoid conflicts with other html and css.
+For example, if the 'floatbox' class is already used for other purposes, the floatboxClass option could be changed to 'floater' or any other unused class name.
+</p>
+<p id="cyclerClass_ref" class="ref"><b>floatboxClass</b> ('floatbox') - className<br/><b>cyclerClass</b> ('fbCycler') - ...<br/><b>tooltipClass</b> ('fbTooltip') - ...<br/><b>contextClass</b> ('fbContext') - ...<br/>
+The class names that are used to activate floatbox elements can be changed in order to avoid conflicts with other html and css.
+For example, if the 'floatbox' class is already used for other purposes, the floatboxClass option could be changed to 'floater' or any other unused class name.
+</p>
+<p id="tooltipClass_ref" class="ref"><b>floatboxClass</b> ('floatbox') - className<br/><b>cyclerClass</b> ('fbCycler') - ...<br/><b>tooltipClass</b> ('fbTooltip') - ...<br/><b>contextClass</b> ('fbContext') - ...<br/>
+The class names that are used to activate floatbox elements can be changed in order to avoid conflicts with other html and css.
+For example, if the 'floatbox' class is already used for other purposes, the floatboxClass option could be changed to 'floater' or any other unused class name.
+</p>
+<p id="contextClass_ref" class="ref"><b>floatboxClass</b> ('floatbox') - className<br/><b>cyclerClass</b> ('fbCycler') - ...<br/><b>tooltipClass</b> ('fbTooltip') - ...<br/><b>contextClass</b> ('fbContext') - ...<br/>
+The class names that are used to activate floatbox elements can be changed in order to avoid conflicts with other html and css.
+For example, if the 'floatbox' class is already used for other purposes, the floatboxClass option could be changed to 'floater' or any other unused class name.
+</p>
+</div>
+
+<script>
+
+settings = {
+  defaults: {
+  
+    shadowType: 'drop',
+    shadowSize: 12,
+    shadowOpacity: 0.4,
+    outerBorder: 1,
+    innerBorder: 1,
+    outerBorderRadius: 8,
+    innerBorderRadius: 0,
+    padding: 20,
+    panelPadding: 6,
+    headerGap: 0,
+    footerGap: 0,
+    overlayOpacity: 0.55,
+    doAnimations: true,
+    overlayFadeTime: 0.4,
+    resizeTime: 0.7,
+    fadeTime: 0.4,
+    transitionTime: 0.8,
+    imageTransition: 'crossfade',
+    startAt: '',
+    endAt: '',
+    splitResize: false,
+    easing: 2.5,
+    inflection: 0.5,
+    animationTime: 1,
+    colorTheme: '',
+    boxColor: '',
+    overlayColor: '',
+    innerBorderColor: '',
+    outerBorderColor: '',
+    textColor: '',
+    strongTextColor: '',
+    contentBackgroundColor: '',
+    boxBackgroundImage: '',
+    overlayBackgroundImage: '',
+    autoFit: true,
+    autoFitSpace: 5,
+    enableImageResize: true,
+    inFrameResize: true,
+    hoverPan: true,
+    resizeTool: '',
+    enableDragResize: false,
+    draggerLocation: 'frame',
+    stickyResize: true,
+    minWidth: 140,
+    minHeight: 100,
+    maxWidth: 0,
+    maxHeight: 0,
+    minBoxWidth: 0,
+    minBoxHeight: 0,
+    boxLeft: '',
+    boxTop: '',
+    boxX: '',
+    boxY: '',
+    boxLeftAdjust: '',
+    boxTopAdjust: '',
+    captionPos: 'bl',
+    caption2Pos: 'tc',
+    infoLinkPos: 'bl',
+    printLinkPos: 'bl',
+    newWindowLinkPos: 'tr',
+    itemNumberPos: 'bl',
+    indexPos: 'br',
+    controlsPos: 'br',
+    outerClosePos: 'tr',
+    detachOuterClose: false,
+    strictCentering: true,
+    centerNav: false,
+    enableDragMove: true,
+    stickyMove: true,
+    showControlsText: '',
+    showClose: true,
+    showOuterClose: false,
+    showPrint: false,
+    printCSS: '',
+    printText: '',
+    infoOptions: '',
+    infoText: '',
+    showNewWindow: false,
+    closeOnNewWindow: false,
+    showHints: '',
+    outsideClickCloses: '',
+    contentClickCloses: false,
+    enableKeyboardNav: true,
+    navType: 'both',
+    navOverlayWidth: 30,
+    navOverlayPos: 33,
+    showNavOverlay: '',
+    enableSwipeNav: true,
+    showItemNumber: true,
+    enableWrap: true,
+    numIndexLinks: 0,
+    showIndexThumbs: true,
+    maxIndexThumbSize: 0,
+    randomOrder: false,
+    doSlideshow: false,
+    slideInterval: 4.5,
+    afterSlideshow: 'exit',
+    showPlayPause: true,
+    startPaused: false,
+    placement: 'bottom',
+    showOnce: false,
+    delay: 333,
+    arrowColor: '',
+    arrowSize: 16,
+    contextMouseButton: 'both',
+    cycleInterval: 6,
+    cycleFadeTime: 1.7,
+    cycleZoom: 0.2,
+    cycleEasing: 1.4,
+    cycleInflection: '',
+    cyclePauseOnClick: false,
+    cycleShowControls: true,
+    cycleControlsPos: 'bl',
+    cycleStartPaused: false,
+    cyclePauseOnHover: false,
+    addVideoThumb: '',
+    addPlayButton: '',
+    fetchVideoInfo: true,
+    autoPlayVideo: true,
+    autoEndVideo: true,
+    titleAsCaption: true,
+    altAsCaption: false,
+    showMagCursor: false,
+    modal: true,
+    keepCentered: '',
+    boxScroll: true,
+    pageScroll: '',
+    instanceName: '',
+    attachTo: '',
+    zIndex: 77777,
+    activateMedia: true,
+    autoGallery: false,
+    preloadLimit: 5,
+    language: '',
+    floatboxClass: 'floatbox',
+    cyclerClass: 'fbCycler',
+    tooltipClass: 'fbTooltip',
+    contextClass: 'fbContext'
+  }
+};
+
+function clicker ( what ) {
+
+  if ( what == 'reset' ) {
+    initForm();
+    fb.$( 'optionsText' ).value = '';
+    fb.$( 'message' ).innerHTML = '&nbsp;';
+  }
+
+  else {
+    what = buildText( what == 'global' );
+    fb.$( 'message' ).innerHTML = what[0];
+    fb.$( 'message' ).style.textAlign = 'center';
+    fb.$( 'optionsText' ).value = what[1];
+    fb.$( 'optionsText' ).style.display = 'block';
+    fb.$( 'optionsText' ).select();
+  }
+}
+
+function initForm () {
+  var
+    field, els, el, value,
+    i, j,
+    options = settings.initialSettings,
+    labels = fb.select( 'label', 'form' );
+
+  i = labels.length;
+  while ( i-- ) {
+    field = fb.select( 'input, select', labels[i], 0 );
+    if ( field ) {
+      field.name = field.id = labels[i].innerHTML.replace( /<[\s\S]+/, '' );
+    }
+  }
+
+  els = fb.select( 'select' );
+  i = els.length;
+  while ( i-- ) {
+    el = els[i];
+    value = options[el.id];
+    j = el.options.length;
+    while ( j-- ) {
+      el.options[j].selected = el.options[j].value == value + '';
+    }
+  }
+
+  els = fb.select( 'input' );
+  i = els.length;
+  while ( i-- ) {
+    el = els[i];
+    value = options[el.id];
+    if ( el.type === 'checkbox' ) {
+      el.checked = value;
+      if ( fb.hasClass( el, 'triState' ) ) {
+        el.state = null;
+        setTriState.apply( el, [ value ] );
+      }
+    }
+    else {
+      el.value = value;
+    }
+  }
+}
+
+
+function buildText( global ) {
+  var
+    name, val,
+    els, el, i,
+    globalIntro = 'global: {',
+    globalOutro = '\n},\n',
+    pageIntro = '<script>\nfbOptions = {\n  global: {',
+    pageOutro = '\n  }\n};\n<\/script>\n',
+    options = {},
+    strOptions = global ? globalIntro : pageIntro;
+
+  fb.extend( options, settings.optionsJS );
+  for ( i in options ) {
+    if ( !settings.defaults.hasOwnProperty( i ) ) {
+      delete options[i];
+    }
+  };
+
+  els = fb.select( 'select' );
+  i = els.length;
+  while ( i-- ) {
+    el = els[i];
+    options[el.id] = el.options[el.selectedIndex].value;
+  }
+
+  els = fb.select( 'input' );
+  i = els.length;
+  while ( i-- ) {
+    el = els[i];
+    if ( el.type === 'checkbox' ) {
+      options[el.id] = fb.hasClass( el, 'triState' ) ? el.state : !!el.checked;
+    }
+    else {
+      options[el.id] = el.value;
+    }
+  }
+
+  for( name in options ) {
+    val = options[ name ];
+    if ( typeof val === 'string' ) {
+      val = !isNaN( val ) && val !== '' ? +val :
+        val === 'true' || val === 'yes' ? true :
+        val === 'false' || val === 'no' ? false :
+        val === 'default' || val === 'auto' ? undefined :
+        val === 'null' ? null :
+        /^\d+px$/.test( val ) ? parseFloat( val ) || val :  // strip 'px' and convert to a number
+        val;
+    }
+
+    if ( val !== settings.defaults[name] ) {
+
+      if ( typeof val === 'string' ) {
+        val = '"' + val + '"';
+      }
+
+      if ( typeof val === 'function' ) {
+        val = (val + '').
+        replace( /\r\n/g, '\n' ).
+        replace( /\r/g, '\n' ).
+        replace( /\n/g, ' ' ).
+        replace( /\s+/g, ' ' );
+      }
+
+      if ( val !== '' ) {
+        strOptions += '\n' + (global ? '  ' : '    ') + name + ': ' + val + ',';
+      }
+    }
+  };
+
+  if ( strOptions.charAt( strOptions.length - 1 ) === ',' ) {
+    strOptions = strOptions.substring( 0, strOptions.length - 1 );
+  }
+  strOptions += global ? globalOutro : pageOutro;
+
+  return [ global ?
+    '&nbsp;&nbsp;Replace the "global" section in floatbox/fbOptions.js with the following code.' :
+    '&nbsp;&nbsp;Copy and paste the following script element into the &lt;head&gt; section of your page(s).',
+    strOptions
+  ];
+}
+
+function setTriState ( init ) {
+
+  if ( this.state === true || init === false ) {  // true goes to false
+    this.state = false;
+    this.indeterminate = false;
+    this.checked = false;
+    this.style.opacity = 1;
+  }
+
+  else if ( this.state === false || init === '' ) {  // false goes to ''
+    this.state = '';
+    this.indeterminate = true;
+    this.checked = false;
+    this.style.opacity = 0.4;
+  }
+
+  else if ( this.state === '' || init === true ) {  // '' goes to true
+    this.state = true;
+    this.indeterminate = false;
+    this.checked = true;
+    this.style.opacity = 1;
+  }
+}
+
+fbOptions = {
+  global: {
+    framed: true
+  },
+  className: {
+    fbTooltip: {
+      width: 350,
+      contentBackgroundColor: '#ecf4ff',
+      arrowColor: 'transparent'
+    }
+  }
+};
+
+// setup tab actions and the initial option settings
+fb.ready( function () {
+  var
+    div, i,
+    tabLinks = fb.select( '.tabs a' );
+
+  settings.optionsJS = fb.fbOptions.global;
+  settings.initialSettings = fb.extend( {}, settings.defaults, settings.optionsJS );
+  initForm();
+
+  fb.addEvent( fb.select( '.triState' ), 'click', setTriState );
+
+  fb.addEvent( tabLinks, 'onclick', function ( e ) {
+    fb.removeClass( tabLinks, 'active' );
+    fb.addClass( this, 'active' );
+    for ( i = 0; i < tabLinks.length; i++ ) {
+      div = fb.$( tabLinks[i].href.split( '#' )[1] );
+      if ( div ) {
+        div.style.display = tabLinks[i] === this ? 'block' : 'none';
+      }
+    }
+    return fb.stopEvent( e );
+  } );
+} );
+
+</script>
+</body>
+</html>
