@@ -2,6 +2,8 @@
 <html>
 <head>
 
+<meta charset="UTF-8">
+
 <!--FAVICON generator https://realfavicongenerator.net -->
 <link rel="apple-touch-icon" sizes="180x180" href="https://syrustemplar.github.io/vtt/docs/favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://syrustemplar.github.io/vtt/docs/favicon/favicon-32x32.png">
@@ -13,13 +15,18 @@
 <meta name="msapplication-config" content="https://syrustemplar.github.io/vtt/docs/favicon/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<!-- General CSS file -->
 <link rel="stylesheet" href="css/styles.css">
+
+<!-- Font Awesome v6 deployed - https://fontawesome.com/icons -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 <link rel="stylesheet" href="css/fa-all.css">
 
+<!-- Floatbox deployed - https://floatboxjs.com -->
+<link rel="stylesheet" href="floatbox/floatbox.css" />
+<script src="floatbox/floatbox.js"></script>
 
 <!-- Default Statcounter code for myVTT github
 https://syrustemplar.github.io/vtt/docs/header.html -->
@@ -37,7 +44,6 @@ class="statcounter"
 src="https://c.statcounter.com/12563864/0/35c83671/1/"
 alt="Web Analytics"></a></div></noscript>
 <!-- End of Statcounter Code -->
-
 
 
 </head>
@@ -63,7 +69,7 @@ alt="Web Analytics"></a></div></noscript>
       <a href="maps_06.html" title="Sea, Lake & Beach"><i class="fa-solid fa-water"></i> Water</a>
       <a href="maps_07.html" title="Village, Town & City"><i class="fa-solid fa-city"></i> Urban</a>
       <a href="maps_08.html" title="Special, Sky & Textures"><i class="fa-solid fa-campground"></i> Extra</a>
-      <a href="https://dmsguild201.github.io/Roll20_resources/index.html" title="DM's Guild resources external link" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> DMs Guild</a>
+      <a class="floatbox" data-fb-options="padding:2px;colorTheme:'black';autoFitSpace:1px;minWidth:100% href="https://dmsguild201.github.io/Roll20_resources/index.html" title="DM's Guild resources external link" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> DMs Guild</a>
     </div>
   </div>
   
@@ -98,21 +104,14 @@ alt="Web Analytics"></a></div></noscript>
   </div> 
 
   <div class="subnav">
-    <button onclick="window.open('./5etools/index.html', '_blank'); return false;" title="5e.tools&#10;Local Mirror" class="subnavbtn"><i class="fa-solid fa-book" aria-hidden="true"></i> 5e.tools</button>
+    <button onclick="window.location.href='5etools.html'" class="subnavbtn" title="D&D5e rules"><i class="fa-solid fa-book" aria-hidden="true"></i> 5e.tools</button>
+    <!-- <button onclick="window.open('5etools/index.html', '_blank'); return false;" title="5e.tools&#10;Local Mirror" class="subnavbtn"><i class="fa-solid fa-book" aria-hidden="true"></i> 5e.tools</button> -->
     <!-- <a href="5etools/index.html" title="5e.tools&#10;Local Mirror" target="_blank" class="subnavbtn"><i class="fa fa-book" aria-hidden="true"></i> 5e.tools</a> -->
     <div class="subnav-content">
 	  <a href="https://5e.tools" title="Online&#10;updated" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> 5e.tools</a>
 	  <a href="https://5etools-mirror-1.github.io/index.html" title="Mirror&#10;updated" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Mirror#1</a>
-	  <a href="5etools/index.html" title="Mirror&#10;self-hosted" target="_blank"><i class="fa-solid fa-window-restore" aria-hidden="true"></i> Self-hosted</a>
+	  <a class="floatbox" data-fb-options="padding:2px;doAnimations=true;colorTheme:'black';autoFitSpace:1px;" href="5etools/index.html" title="Mirror&#10;self-hosted" target="_blank"><i class="fa-solid fa-window-restore" aria-hidden="true"></i> Self-hosted</a>
     </div>
-  </div>
-
-  <div class="subnav <!-- navbar-hidden --> ">
-    <!--  <a href="https://www.w3counter.com/stats/136708/dashboard#.YEUezX7_fO0.gmail" target="_blank" title="Website statistics"><i class="fa-solid fa-chart-column"></i> Stats</a> -->
-	<button onclick="window.open('https://www.w3counter.com/stats/136708/dashboard#.YEUezX7_fO0.gmail', '_blank'); return false;" class="subnavbtn" title="Website statistics"><i class="fa-solid fa-chart-column"></i> Stats</button>
-    <div class="subnav-content">
-	<a href="https://www.w3counter.com/stats/136708/dashboard#.YEUezX7_fO0.gmail" target="_blank" style="color:#fff;">Website traffic statistics.</a>
-    </div> 
   </div>
 
   <div class="subnav">
@@ -121,6 +120,16 @@ alt="Web Analytics"></a></div></noscript>
     <div class="subnav-content">
 	<a href="links.html" style="color:#fff;">List of useful links for Dungeon Masters.</a>
     </div>
+  </div>
+
+  <div class="navbar-hidden">
+    <a href="https://www.w3counter.com/stats/136708/dashboard#.YEUezX7_fO0.gmail" target="_blank" title="Website statistics"><i class="fa-solid fa-chart-column"></i> Stats</a>
+	<!--
+	<button onclick="window.open('https://www.w3counter.com/stats/136708/dashboard#.YEUezX7_fO0.gmail', '_blank'); return false;" class="subnavbtn" title="Website statistics"><i class="fa-solid fa-chart-column"></i> Stats</button>
+    <div class="subnav-content">
+	  <a href="https://www.w3counter.com/stats/136708/dashboard#.YEUezX7_fO0.gmail" target="_blank" style="color:#fff;">Website traffic statistics.</a>
+    </div>
+	-->
   </div>
   
 
