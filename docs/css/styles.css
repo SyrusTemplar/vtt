@@ -27,6 +27,15 @@ h1, h2, h3, h4, h5, h6 {
   color: orange;
 }
 
+
+/* TESTING IFRAMES EMBEDING */
+iframe {
+  height:calc(100vh);
+  width:calc(100vw);
+  box-sizing: border-box;
+}
+
+
 .myheading {
   font-size: 300%;
   font-weight: bold;
