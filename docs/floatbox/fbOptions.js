@@ -8,7 +8,7 @@ See the options reference for details about all the available options.
 */
 
 global: {
-	activateMedia: true,
+	activateMedia: false,
 	autoGallery: false
 },
 
