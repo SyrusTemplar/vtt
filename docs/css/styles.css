@@ -220,7 +220,7 @@ body {
   background-color: #222; /* Set a background color */
   color: green; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 10px; /* Some padding */
+  padding: 10px 12px; /* Some padding */
   border-radius: 10px; /* Rounded corners */
   font-size: 16px; /* Increase font size */
 }
