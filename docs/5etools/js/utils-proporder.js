@@ -182,6 +182,7 @@ PropOrder._MONSTER = [
 	"fluff",
 	"familiar",
 	"dragonCastingColor",
+	"dragonAge",
 
 	"tokenUrl",
 	"soundClip",
@@ -676,6 +677,7 @@ PropOrder._DEITY = [
 			new PropOrder._ObjectKey("_mod", {
 				fnGetOrder: () => PropOrder._DEITY__COPY_MOD,
 			}),
+			"_preserve",
 		],
 	}),
 
@@ -829,6 +831,7 @@ PropOrder._ITEM = [
 			new PropOrder._ObjectKey("_mod", {
 				fnGetOrder: () => PropOrder._ITEM__COPY_MOD,
 			}),
+			"_preserve",
 		],
 	}),
 
@@ -954,6 +957,8 @@ PropOrder._ITEM = [
 	"lootTables",
 
 	"seeAlsoVehicle",
+
+	"miscTags",
 
 	"hasFluff",
 	"hasFluffImages",
@@ -1272,6 +1277,8 @@ PropOrder._CHAROPTION = [
 
 	"source",
 	"page",
+
+	"prerequisite",
 
 	"optionType",
 

@@ -210,7 +210,7 @@ class SearchPage {
 
 										// region Render preview
 										Renderer.hover.$getHoverContent_stats(page, ent)
-											.addClass("pg-search__wrp-preview mobile__w-100")
+											.addClass("pg-search__wrp-preview mobile__w-100 br-0")
 											.appendTo($dispPreview);
 										// endregion
 									});

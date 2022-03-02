@@ -3,6 +3,7 @@
 		{
 			"type": "section",
 			"name": "Welcome to Strixhaven",
+			"page": 4,
 			"id": "000",
 			"entries": [
 				{
@@ -62,6 +63,7 @@
 				{
 					"type": "section",
 					"name": "About This Book",
+					"page": 5,
 					"id": "002",
 					"entries": [
 						"This book is your guide to life at Strixhaven in Dungeons & Dragons\u2014an introduction to the university, a guide to creating student characters there, a campaign, and a collection of friends and foes.",
@@ -74,12 +76,14 @@
 				{
 					"type": "section",
 					"name": "Orientation",
+					"page": 5,
 					"id": "003",
 					"entries": [
 						"The following subsections present three important facts to keep in mind as you explore these pages and prepare to play or run the book's campaign.",
 						{
 							"type": "entries",
 							"name": "Strixhaven Is a University",
+							"page": 5,
 							"id": "004",
 							"entries": [
 								"This book's campaign assumes that the player characters are students at Strixhaven University. Even as they get caught up in the adventures, the characters have to continue going to class, doing homework, and studying for exams. Optional rules in {@book chapter 3|SCC|3|Exams} reinforce the importance of study in the adventures.",
@@ -90,6 +94,7 @@
 						{
 							"type": "entries",
 							"name": "It's an Academy of Mages",
+							"page": 5,
 							"id": "005",
 							"entries": [
 								"Study at Strixhaven isn't about learning to be a wizard but about learning to be a historian, an artist, an orator, a scientist, or some other profession\u2014while using magic to enhance one's studies. The university's understanding of magic is expansive. Characters of any class can study at Strixhaven, whether they're full-fledged spellcasters like wizards, clerics, and druids; they manage a spell or two thanks to a subclass or feat; or they manifest magical abilities that aren't even spells. (For example, a barbarian who follows the {@class Barbarian|PHB|Path of the Ancestral Guardian|Ancestral Guardian|XGE}, described in {@book Xanathar's Guide to Everything|XGE}, can excel in studying history at Lorehold College by virtue of their connection to an ancestral spirit.)",
@@ -99,6 +104,7 @@
 						{
 							"type": "entries",
 							"name": "It's Cosmopolitan",
+							"page": 5,
 							"id": "006",
 							"entries": [
 								"Strixhaven draws students and faculty from across the world and from other realms in the multiverse. The university's students and faculty are united by a desire to learn and include humans, elves, dwarves, owlin (described in {@book chapter 2|SCC|2|Owlin}), orcs, trolls, vampires, and studious folk of many other origins.",
@@ -111,6 +117,7 @@
 				{
 					"type": "section",
 					"name": "Strixhaven's World",
+					"page": 6,
 					"id": "007",
 					"entries": [
 						"Strixhaven bills itself as \"the premier institution of magical learning in the world,\" but the question that raises for your campaign is this\u2014which world?",
@@ -120,6 +127,7 @@
 						{
 							"type": "entries",
 							"name": "Snarls and Star Arches",
+							"page": 6,
 							"id": "008",
 							"entries": [
 								"As described in the {@book Player's Handbook|PHB}, magic suffuses all existence in the worlds of D&D. In the Forgotten Realms, scholars describe the fabric of magic as a Weave that allows spellcasters to interact with the world's underlying magical reality. In Arcavios, that fabric is knotted and tangled in some locations, creating a phenomenon called snarls. At these places, spells can be amplified or distorted in unpredictable ways. This phenomenon matters for Strixhaven because a luminous snarl is situated at the very heart of campus, located in the Hall of Oracles in the university's monumental library, the Biblioplex.",
@@ -131,6 +139,7 @@
 						{
 							"type": "entries",
 							"name": "Founder Dragons",
+							"page": 6,
 							"id": "009",
 							"entries": [
 								"Strixhaven University was founded by five ancient dragons who, according to legend, hatched from the magical energy of the newborn world of Arcavios. These Founder Dragons were among the first to master magic, and they realized that only through disciplined study would magic be safe in the hands of other peoples. They founded Strixhaven to facilitate that study and established the five colleges based on the magic that each dragon mastered, as summarized in the Founder Dragons table.",
@@ -174,6 +183,7 @@
 						{
 							"type": "entries",
 							"name": "Archaics and the Oracle",
+							"page": 6,
 							"id": "00a",
 							"entries": [
 								"The {@creature Oracle of Strixhaven|SCC} is the wisest and most accomplished mage in the world of Arcavios, selected by the Founder Dragons. The Oracle's lifelong task is to ensure that magic is used to help people and not twisted to evil ends. To be the Oracle, one must understand fundamental truths about the nature of magic, know and wield hundreds of spells, and possess impeccable judgment and virtue.",
@@ -199,6 +209,7 @@
 		{
 			"type": "section",
 			"name": "Life at Strixhaven",
+			"page": 9,
 			"id": "00b",
 			"entries": [
 				"Strixhaven University sparkles with the enthusiasm of its students and faculty, as they study, debate about, and experiment with magic in its varied forms. This chapter offers an overview of life and studies on the university's campus, as well as a look at each of the five colleges where students explore different modes of magical study.",
@@ -215,12 +226,14 @@
 				{
 					"type": "section",
 					"name": "Magical Study",
+					"page": 9,
 					"id": "00c",
 					"entries": [
 						"The fundamental work of Strixhaven University is the application of magic to academic study. Students and faculty aren't limited to magical topics alone; they pursue studies in every facet of existence\u2014magical or otherwise\u2014applying magic to whatever they study. At Strixhaven, historians call the spirits of the dead to aid their lessons about the past, and arcano-biologists use necromancy to pull at life and coax out death when teaching about the natural world. Simultaneously, mage-artists sculpt elemental energy to create animate art, and arcane symbologists teach students how to recognize and understand the magical glyphs they encounter.",
 						{
 							"type": "entries",
 							"name": "Principles and Polarities",
+							"page": 9,
 							"id": "00d",
 							"entries": [
 								"The colleges and curriculum at Strixhaven are organized around the idea of philosophical principles joined in concordant opposition. Each school embraces the paradoxical unity of two polar principles: life and death, order and chaos, reason and emotion, and so on. The five Founder Dragons are thought to embody the coexistence of these principles, while the ten deans of the colleges stand for the individual principles distinguished from their opposites.",
@@ -230,12 +243,14 @@
 						{
 							"type": "entries",
 							"name": "Faculty",
+							"page": 9,
 							"id": "00e",
 							"entries": [
 								"The faculty members of Strixhaven are mages and scholars\u2014experts in their various fields and in the use of magic to enhance their studies. They are dedicated to their research and to educating generations of mage-students who follow in their footsteps. Some faculty members value research more than teaching, while others make education their highest priority. But all find some balance between the two.",
 								{
 									"type": "entries",
 									"name": "Instructors",
+									"page": 9,
 									"id": "00f",
 									"entries": [
 										"Strixhaven's faculty begin their careers as instructors, focusing primarily on teaching classes and crafting curriculum, while the school administration evaluates their performance. At the end of a provisional period, which can last from one to several years, an instructor is elevated to the rank of professor or let go."
@@ -244,6 +259,7 @@
 								{
 									"type": "entries",
 									"name": "Professors",
+									"page": 9,
 									"id": "010",
 									"entries": [
 										"Professors who have distinguished themselves over the course of a long career\u2014typically at least twenty years\u2014hope to be recognized with the title of esteemed professor. This honor is bestowed in recognition of groundbreaking research as well as exceptional teaching.",
@@ -255,6 +271,7 @@
 						{
 							"type": "entries",
 							"name": "Students",
+							"page": 9,
 							"id": "011",
 							"entries": [
 								"Students at Strixhaven spend their first year in a course of general studies, which lays the foundation for the more specialized work to follow. During this year, they wear a uniform of black, white, and gray. They're encouraged to study broadly so that they become acquainted with a wide range of disciplines.",
@@ -262,12 +279,14 @@
 								{
 									"type": "entries",
 									"name": "Choosing a College",
+									"page": 10,
 									"id": "012",
 									"entries": [
 										"Before starting their second year of studies, students choose one of the five colleges\u2014{@book Lorehold|SCC|1|Lorehold College}, {@book Prismari|SCC|1|Prismari College}, {@book Quandrix|SCC|1|Quandrix College}, {@book Silverquill|SCC|1|Silverquill College}, or {@book Witherbloom|SCC|1|Witherbloom College}\u2014to be their academic home for the remainder of their education. From this point, students wear uniforms featuring the colors of their college, though these outfits aren't as unvarying as the first-year garb.",
 										{
 											"type": "entries",
 											"name": "Two Counselors",
+											"page": 10,
 											"id": "013",
 											"entries": [
 												"Upon choosing a college, a student is assigned two professors to serve as counselors to help the student plan a course of studies. The two deans of the college assign these two counselors, who represent the poles of the college's philosophical opposition. By design, the two counselors tend to offer conflicting advice, forcing the student to navigate opposing principles. For example, a student pursuing historical studies in Lorehold College might have one counselor who focuses on the unpredictable, war-filled chaos of historical reality and another who dwells on the idea of an orderly progression toward an ideal. The former might encourage the student to choose courses based on gut feeling, to delve into the military aspects of an issue, and to supplement their academic studies with some practical martial training. The other counselor, meanwhile, might offer several ordered, rational proposals for course selection, focus on the political and human aspects of historical issues, and place less emphasis on martial prowess. The student must then navigate this conflicting advice and chart their own course."
@@ -276,6 +295,7 @@
 										{
 											"type": "entries",
 											"name": "Course of Study",
+											"page": 10,
 											"id": "014",
 											"entries": [
 												"Some students, having chosen a college, spend virtually all their remaining school years on that campus and study with those professors, diving into their preferred area of study and related fields. Other students take as many as a third of their classes in other colleges, continuing the breadth of their first-year education and looking for places where the perspectives of other disciplines can bring new insight to their studies. Both approaches are encouraged at the university."
@@ -286,6 +306,7 @@
 								{
 									"type": "entries",
 									"name": "After Strixhaven",
+									"page": 10,
 									"id": "015",
 									"entries": [
 										"A student's course of study at Strixhaven lasts at least four years but allows for advanced study for several years beyond that time frame. Most students eventually graduate, though, and they walk a variety of paths after leaving the university. Many return to whatever home they came from, putting what they have learned to use in their communities. Some mages travel the multiverse in search of ever-greater magic, continuing their research in some form beyond the confines of an academic program. A few alumni return to Strixhaven, sooner or later, as instructors themselves, and a small, select number join the Dragonsguard, an elite force of mages who work with the Founder Dragons."
@@ -296,6 +317,7 @@
 						{
 							"type": "entries",
 							"name": "Administration",
+							"page": 10,
 							"id": "016",
 							"entries": [
 								"The day-to-day functioning of Strixhaven relies on hundreds of laborers, clerks, coaches, administrators, and others. These personnel include folk like Mavinda Sharpbeak, the kindly owlin guidance counselor who takes first-year students under her wing, and Gyome, the troll chef of Witherbloom College. In addition to legions of people who devote their lives to the university's operations, numerous automatons and artificial life-forms\u2014various kinds of Constructs\u2014serve in various roles, including campus guides and library assistants.",
@@ -306,6 +328,7 @@
 						{
 							"type": "entries",
 							"name": "Mascots",
+							"page": 10,
 							"id": "017",
 							"entries": [
 								"Each of Strixhaven's five colleges has a mascot\u2014a small creature associated with the magic of the school and often found wandering their respective campuses. Witherbloom's mascots, pests, are naturally found in the world around the campus. The other colleges' mascots are brought into being through magic. The Strixhaven Mascots table lists the mascots by college. Each of these mascots is detailed in {@book chapter 7|SCC|8}.",
@@ -351,6 +374,7 @@
 				{
 					"type": "section",
 					"name": "Campus Overview",
+					"page": 11,
 					"id": "018",
 					"entries": [
 						"Strixhaven occupies hundreds of acres, spread out over six campuses. Each of the university's five colleges has its own campus, and the central campus, home to the Biblioplex and Strixhaven Stadium, serves as a hub for university life. See the {@book appendix|SCC|9} or the poster map for a view of the entire university.",
@@ -377,6 +401,7 @@
 						{
 							"type": "entries",
 							"name": "Central Campus",
+							"page": 11,
 							"id": "019",
 							"entries": [
 								"The central campus\u2014shown on map 1.1\u2014is the heart of Strixhaven. Its extensive grounds include residence halls for first-year students, dining halls, administration buildings, classrooms and laboratories (mostly used for first-year classes and interdisciplinary studies), and space for social gatherings.",
@@ -395,6 +420,7 @@
 								{
 									"type": "entries",
 									"name": "The Biblioplex",
+									"page": 11,
 									"id": "01a",
 									"entries": [
 										"The center of Strixhaven is the Biblioplex, the university's main library. At the heart of the library is a snarl, a tangle in the fabric of magic, that glows like a miniature sun in the grand Hall of Oracles. A star arch called the Dawnbow curves across the sky above the library, marking its location as a center of mystic learning.",
@@ -405,6 +431,7 @@
 								{
 									"type": "entries",
 									"name": "Archway Commons",
+									"page": 12,
 									"id": "01b",
 									"entries": [
 										"Just south of the Biblioplex, a star arch curves overhead like a smaller echo of the Dawnbow, and a lush park, Archway Commons, marks the site. More familiarly called the Commons, the park is a favorite spot for students\u2014especially first-years\u2014to gather in fair weather or to wander through on dates. Some of the university's clubs also use the park to host social gatherings and games, including live-action roleplaying games and casual sports."
@@ -413,6 +440,7 @@
 								{
 									"type": "entries",
 									"name": "Firejolt Café",
+									"page": 12,
 									"id": "01c",
 									"entries": [
 										"At the edge of Archway Commons and just outside the Biblioplex stands the cozy Firejolt Café, where students cram both information and caffeine into themselves before exams. The café's name comes from its trademark beverage, which the manager, an elf mage named Ellina, brews with her fire magic. The Firejolt has a reputation as a hangout for first-year students, but older students from all five colleges can be seen inside at all hours."
@@ -421,6 +449,7 @@
 								{
 									"type": "entries",
 									"name": "Bow's End Tavern",
+									"page": 12,
 									"id": "01d",
 									"entries": [
 										"At the western end of the Dawnbow, where it meets the ground, stands a smaller university landmark: Bow's End Tavern, which serves as a hangout for older students. Most patrons come for the live music, deliciously greasy food, and various potions and beverages. Others come to settle their differences in wild duels in the lot behind the tavern. The tavern's manager is a kind but strict orc named Tulk \"the Bulk\" Tusktooth."
@@ -429,6 +458,7 @@
 								{
 									"type": "entries",
 									"name": "Strixhaven Stadium",
+									"page": 12,
 									"id": "01e",
 									"entries": [
 										"The stadium where thousands gather to watch students play Mage Tower (and sometimes other sports) is located near Bow's End Tavern. Chapter 4 offers more information about {@adventure Mage Tower|SCC-HfMT|0|The Game of Mage Tower}."
@@ -441,6 +471,7 @@
 				{
 					"type": "section",
 					"name": "Lorehold College",
+					"page": 13,
 					"id": "01f",
 					"entries": [
 						"Lorehold is the College of Archaeomancy\u2014a term that describes the exploration of ancient things through magic. Its mages explore the past by poring over archaeological sites, calling forth magical energy from old tomes, and summoning the spirits of long-dead historical figures. Lorehold mages travel far and wide across the world, gathering relics of bygone ages and learning dead languages to unpack the secrets of history.",
@@ -456,6 +487,7 @@
 						{
 							"type": "entries",
 							"name": "Studies and Philosophy",
+							"page": 13,
 							"id": "020",
 							"entries": [
 								"Lorehold College is devoted to the study of history, broadly understood to include the various aspects of culture, behavior, and social relationships that shape historical events. Its studies include various subdivisions of history (military history, social history, cultural history), archaeology, anthropology, psychology, sociology, religion, and economics. It overlaps with Prismari College in the field of art history, with some students splitting their studies between the two colleges. Lorehold mages use their magic to unearth secrets and share illumination.",
@@ -472,6 +504,7 @@
 								{
 									"type": "entries",
 									"name": "Order and Chaos",
+									"page": 13,
 									"id": "021",
 									"entries": [
 										"Lorehold's two deans carry the titles Dean of Order and Dean of Chaos, as order versus chaos encapsulates the fundamental conflict at the heart of Lorehold's philosophy. This conflict revolves around the forces that underlie and drive history. Is the course of time driving toward a well-ordered ideal state or slowly devolving into chaos? Are deep patterns hidden in historical texts, or is time a series of coincidence and happenstance?",
@@ -482,6 +515,7 @@
 								{
 									"type": "entries",
 									"name": "Scholars of Lorehold",
+									"page": 13,
 									"id": "022",
 									"entries": [
 										"The Lorehold Scholars table offers examples of the scholars in Lorehold College. You may use the table to randomly determine the scholarly focus of a Lorehold student or faculty member. The Principle column notes which side of the order-chaos conflict a scholar more likely aligns with.",
@@ -558,12 +592,14 @@
 						{
 							"type": "entries",
 							"name": "Lorehold Faculty",
+							"page": 14,
 							"id": "023",
 							"entries": [
 								"This section describes noteworthy members of the Lorehold faculty. Some of them use a Lorehold-specific stat block from {@book chapter 7|SCC|8|Lorehold Scholars}.",
 								{
 									"type": "entries",
 									"name": "Augusta Tullus, Dean of Order",
+									"page": 14,
 									"id": "024",
 									"entries": [
 										"Augusta Tullus (lawful neutral human {@creature Lorehold professor of order|SCC}) is the current Dean of Order. A professor of spirit studies, she has been called the college's most talented pastraiser. She can conjure entire legions of ghostly apparitions to reenact historical events for her lectures.",
@@ -574,6 +610,7 @@
 								{
 									"type": "entries",
 									"name": "Plargg, Dean of Chaos",
+									"page": 14,
 									"id": "025",
 									"entries": [
 										"Plargg (chaotic good orc {@creature Lorehold professor of chaos|SCC}) is the current Dean of Chaos. Specializing in military history, Plargg is known for his perfect recall of historical stories, as well as his potent scroll magic. Blind himself, he invented a form of magical embossing called heat lettering, which provides a tactile way to read texts.",
@@ -583,6 +620,7 @@
 								{
 									"type": "entries",
 									"name": "Hofri Ghostforge",
+									"page": 14,
 									"id": "026",
 									"entries": [
 										"When Hofri (neutral good dwarf {@creature Lorehold professor of order|SCC}) first enrolled in Strixhaven, he believed his future lay with Prismari. A diligent student, he quickly mastered the technical skills of art, but his magic left something to be desired. After talking with the school's counselor, Mavinda, Hofri decided to try his luck with Lorehold. It turned out he had a natural talent for Lorehold's spirit magic.",
@@ -592,6 +630,7 @@
 								{
 									"type": "entries",
 									"name": "Osgir, the Reconstructor",
+									"page": 14,
 									"id": "027",
 									"entries": [
 										"Even by Lorehold standards, Osgir (neutral {@creature stone giant}) is obsessed with relics of the past. A professor of order, he treasures every connection to old civilizations, whether it's a magnificent jeweled crown or an old shovel. As a student, he constantly spent time in detention for hoarding the best finds from Lorehold dig sites in his room; he lost count of how many times he was sternly told, \"History belongs to us all!\"",
@@ -599,6 +638,7 @@
 										{
 											"type": "inset",
 											"name": "Golwanda the Bloodspiller",
+											"page": 14,
 											"id": "028",
 											"entries": [
 												"\"Have you met Golwanda yet?\" is a question that older Lorehold students love to ask second-year students, new to the college. Sooner or later, one professor or another summons this spirit of a notorious stone giant warmonger, ostensibly as a cautionary tale about the dire fate that befalls a society that loses control of its aggressive impulses. Golwanda plays her role with relish, doing her best to strike terror into the students with her bloodcurdling screams and howls of rage."
@@ -609,6 +649,7 @@
 								{
 									"type": "entries",
 									"name": "Losheel, Clockwork Scholar",
+									"page": 15,
 									"id": "029",
 									"entries": [
 										"Losheel (chaotic good loxodon {@creature Lorehold professor of chaos|SCC}) is a Humanoid resembling a bipedal elephant. She proudly admits that she is willing to work hard to be as lazy as possible. She turns her brilliant mind to constructing increasingly efficient mechanical helpers, with the goal of one day being able to do anything she wants without standing up."
@@ -619,6 +660,7 @@
 						{
 							"type": "entries",
 							"name": "Lorehold Campus",
+							"page": 15,
 							"id": "02a",
 							"entries": [
 								"The Lorehold campus\u2014shown on map 1.2\u2014is situated northwest of the central campus in a region of stark vertical relief. Rugged mesas and steep hills rise from a wide plain, and a great chasm holds the excavated ruins of an ancient settlement. Several star arches encircle rocky peaks and outcroppings, testifying to the powerful magical energy in the vicinity\u2014energy once harnessed by the ancients who used to inhabit this area.",
@@ -636,6 +678,7 @@
 								{
 									"type": "entries",
 									"name": "Pillardrop",
+									"page": 15,
 									"id": "02b",
 									"entries": [
 										"Part natural chasm, part archaeological excavation, and part new construction, Pillardrop is a series of buildings excavated out of cliffs on the Lorehold campus. Ruins and upgraded halls together are now used for research, classwork, and housing. Precarious bridges link one neighborhood of Pillardrop to another, often directly passing the enormous stone faces of old statues. Every Lorehold class has a story of some careless student making a misstep on one of these bridges or in some particularly crumbling section of the ruins, sometimes with disastrous consequences\u2014and sometimes finding deliverance when a spirit statue appears from nowhere to catch the hapless student before they suffer serious harm."
@@ -644,6 +687,7 @@
 								{
 									"type": "entries",
 									"name": "Effigy Row",
+									"page": 15,
 									"id": "02c",
 									"entries": [
 										"The heart of the Lorehold campus surrounds a soaring bridge that crosses the chasm of Pillardrop. The bridge and surrounding pathways are lined with monuments depicting historic figures, including past professors and prominent mage-students, as well as war heroes and heads of state from ages past."
@@ -652,6 +696,7 @@
 								{
 									"type": "entries",
 									"name": "Kollema Hall",
+									"page": 15,
 									"id": "02d",
 									"entries": [
 										"Kollema Hall is a grand, multitiered gallery built into a large outcrop at the end of Effigy Row. Here, Lorehold mages gather for large lectures. At the center of the hall towers a magnificent statue of Kollema, a wise monastic who was one of the first Lorehold professors.",
@@ -665,6 +710,7 @@
 				{
 					"type": "section",
 					"name": "Prismari College",
+					"page": 16,
 					"id": "02e",
 					"entries": [
 						"Prismari, the College of Elemental Arts, is devoted to the study and practice of art intertwined with magic. The mage-students of Prismari wield magic in spectacles of creativity: masterpieces of showy, over-the-top magic. They use elemental magic to express who they are and how they see the world, often combining different types of energy\u2014fire, water, air, earth, lightning, heat, cold\u2014in powerful expressions of conflict and harmony.",
@@ -680,12 +726,14 @@
 						{
 							"type": "entries",
 							"name": "Studies and Philosophy",
+							"page": 16,
 							"id": "02f",
 							"entries": [
 								"Prismari College is dedicated to the arts. Its scholars view art as the fundamental form of self-expression and magic as a tool, a medium, and an inspiration. Prismari studies focus on visual arts (including architecture, painting, and sculpture) and performing arts (such as dance, music, and theater). The curriculum overlaps with Lorehold in the field of art history and with Silverquill in the literary arts, and some students divide their time between Prismari and one of those other schools to pursue these interdisciplinary fields. Prismari mages use magic to weave the elements into their creations; they might juxtapose fire alongside paint, ceramics, or fabric, or they might choreograph elaborate works that unite a dancer's movements with gusts and eddies of air.",
 								{
 									"type": "entries",
 									"name": "Perfection and Expression",
+									"page": 16,
 									"id": "030",
 									"entries": [
 										"Prismari's two deans carry the titles Dean of Perfection and Dean of Expression, and they often express the fundamental conflict of their philosophy as perfection versus expression\u2014or, sometimes, as intellect versus emotion. What is the purpose of art? Is it to make people think things or make people feel things? Is it supposed to be carefully thought out or raw and spontaneous? Is mastery of art a matter of honing precise techniques to a point of perfection or of perfectly expressing a raw emotional state? Does art aspire to express universal truths or intensely personal ones?",
@@ -694,6 +742,7 @@
 										{
 											"type": "inset",
 											"name": "Octavia, the Living Thesis",
+											"page": 16,
 											"id": "031",
 											"entries": [
 												"Crafted as a graduate's final project many years ago, Octavia (a {@creature water elemental} that looks like an enormous octopus) took up residence on campus and never left. After all, in its humble opinion, every student deserves the chance to see true art in person. Some say it's incoherent, but really, Octavia is just a very conceptual thinker."
@@ -704,6 +753,7 @@
 								{
 									"type": "entries",
 									"name": "Scholars of Prismari",
+									"page": 16,
 									"id": "032",
 									"entries": [
 										"The Prismari Scholars table offers examples of the scholars in Prismari College. You may use the table to randomly determine the scholarly focus of a Prismari student or faculty member. The Principle column notes which side of the perfection-expression conflict a scholar more likely aligns with.",
@@ -790,6 +840,7 @@
 						{
 							"type": "entries",
 							"name": "Prismari Faculty",
+							"page": 16,
 							"id": "033",
 							"entries": [
 								"This section describes noteworthy members of the Prismari faculty. Some of them use a Prismari-specific stat block from {@book chapter 7|SCC|8|Prismari Scholars}. Several of them are genasi, who are Humanoids touched by the Elemental Planes.",
@@ -806,6 +857,7 @@
 								{
 									"type": "entries",
 									"name": "Uvilda Mistcoiler, Dean of Perfection",
+									"page": 17,
 									"id": "034",
 									"entries": [
 										"Uvilda Mistcoiler (neutral good genasi {@creature Prismari professor of perfection|SCC}) is the current Dean of Perfection. A master of artistic technique, Uvilda trains with a range of elements whenever she isn't focused on her teaching. She is known for giving students profoundly insightful feedback, which she tailors to each individual. After a review, she often offers a small piece of advice that alters the student's point of view and work forever\u2014for the better.",
@@ -815,6 +867,7 @@
 								{
 									"type": "entries",
 									"name": "Nassari, Dean of Expression",
+									"page": 17,
 									"id": "035",
 									"entries": [
 										"Nassari (chaotic good genasi {@creature Prismari professor of expression|SCC}) is the current Dean of Expression. Nazzari always want to see art that is bigger, more radical in concept, and more emotionally powerful. For their final project as a mage-student, Nassari famously \"turned in\" an earthquake, which almost destroyed three campus buildings. The piece received a standing ovation from the mage-student body\u2014and a grumpy thumbs down from the campus construction golems.",
@@ -824,6 +877,7 @@
 								{
 									"type": "entries",
 									"name": "Veyran, Voice of Duality",
+									"page": 17,
 									"id": "036",
 									"entries": [
 										"In addition to being an accomplished elementalist, Veyran (chaotic good genasi {@creature Prismari professor of perfection|SCC}) serves as a mentor to many Prismari pledgemages. She advocates enthusiastically for the importance of both passion and disciplined technique in any artistic pursuit. If a new student is upset or overwhelmed, she eagerly calls forth playful, beautiful elemental creatures to cheer up the student."
@@ -832,6 +886,7 @@
 								{
 									"type": "entries",
 									"name": "Zaffai, Thunder Conductor",
+									"page": 17,
 									"id": "037",
 									"entries": [
 										"As soon as Zaffai (chaotic neutral human {@creature Prismari professor of expression|SCC}) came of age, his parents sent him to Strixhaven, assuring him his budding musical genius deserved the finest instruction in the world. (In truth, though he did possess prodigious talent, they were also growing tired of their house being randomly struck by lightning or engulfed in cyclones whenever he practiced.) Even as he flourished as both mage and musician, he discovered a new aptitude: conducting.",
@@ -841,6 +896,7 @@
 								{
 									"type": "entries",
 									"name": "Arkin Minexes, Peppy Instructor",
+									"page": 18,
 									"id": "038",
 									"entries": [
 										"Arkin (lawful good human {@creature Prismari professor of expression|SCC}) is a newly hired instructor teaching a few courses in choreography and dance ensembles. He recently graduated from Strixhaven himself, and he bubbles with excitement at the prospect of guiding a new generation of students on the course of study he so greatly enjoyed. He particularly delights in finding new ways to help students work collaboratively to unlock the heights of their creative potential.",
@@ -852,6 +908,7 @@
 						{
 							"type": "entries",
 							"name": "Prismari Campus",
+							"page": 18,
 							"id": "039",
 							"entries": [
 								"Southwest of the central campus, the Prismari campus\u2014shown on map 1.3\u2014is situated in a region of jagged rocks, rugged spires, and intense geothermal activity.",
@@ -869,6 +926,7 @@
 								{
 									"type": "entries",
 									"name": "Conjurot Hall",
+									"page": 18,
 									"id": "03a",
 									"entries": [
 										"The center of the Prismari campus is Conjurot Hall, a towering structure with a glassed-in observation area at the top. Constantly changing strands of elemental energy encircle the structure. Artist-mages can see for miles from Conjurot's main turret, and the view has inspired many artistic creations."
@@ -877,6 +935,7 @@
 								{
 									"type": "entries",
 									"name": "Opus Walk",
+									"page": 18,
 									"id": "03b",
 									"entries": [
 										"Hundreds of Prismari creations are displayed along a path that winds through the central campus buildings, giving the path its name: Opus Walk. Some famous pieces of magical art have been displayed along Opus Walk for centuries, while other transient bursts of creativity last only a few moments."
@@ -885,6 +944,7 @@
 								{
 									"type": "entries",
 									"name": "Furygale",
+									"page": 18,
 									"id": "03c",
 									"entries": [
 										"At the outskirts of the Prismari campus, the abandoned creations of thousands of past artist-mages have coalesced over the years into the notorious region of Furygale. Roped off by magical wards and warning signs, Furygale is several acres of ever-changing magical energy, gales of ice and wind and fire, and elementals gone rogue. While dangerous, it also provides a source of wild inspiration, and it remains a popular spot for students who want to duel without being interrupted by faculty."
@@ -897,6 +957,7 @@
 				{
 					"type": "section",
 					"name": "Quandrix College",
+					"page": 19,
 					"id": "03d",
 					"entries": [
 						"Quandrix is the College of Numeromancy\u2014a term that encompasses the study of patterns, fractals, and symmetries to wield power over the fundamental mathematics of nature. Quandrix mages can summon creatures made of fractals or turn abstract theories into towering, spiraling patterns. They love to expand and multiply; they can increase their knowledge or size by bending numbers. They dwell in the overlap between the theoretical and the natural\u2014from the fabric of their robes to the nature of their spells, they make use of repeated elements, clever symmetries, and surprising geometry to express the complex truths they study.",
@@ -912,12 +973,14 @@
 						{
 							"type": "entries",
 							"name": "Studies and Philosophy",
+							"page": 19,
 							"id": "03e",
 							"entries": [
 								"The studies undertaken within Quandrix College include mathematics, physics, logic, statistics, metaphysics, and various fields of theoretical magic. Students from the other colleges occasionally delve into Quandrix courses to bolster the theoretical underpinnings of their studies, and Quandrix's studies of nature and Witherbloom's explorations of practical biology have some significant overlap.",
 								{
 									"type": "entries",
 									"name": "Substance and Theory",
+									"page": 19,
 									"id": "03f",
 									"entries": [
 										"Quandrix's two deans carry the titles Dean of Substance and Dean of Theory, reflecting the philosophical division within the college. Is mathematics a natural force that exists in the universe independent of the constructs of intelligent minds, or is it a theoretical framework created by those who study it? Is the work of the scholar to discover what is or to define what could be?",
@@ -928,6 +991,7 @@
 								{
 									"type": "entries",
 									"name": "Scholars of Quandrix",
+									"page": 19,
 									"id": "040",
 									"entries": [
 										"The Quandrix Scholars table offers examples of the scholars in Quandrix College. You may use the table to randomly determine the scholarly focus of a Quandrix student or faculty member. The Principle column notes which side of the substance-theory conflict a scholar more likely aligns with.",
@@ -994,6 +1058,7 @@
 						{
 							"type": "entries",
 							"name": "Quandrix Faculty",
+							"page": 19,
 							"id": "041",
 							"entries": [
 								"This section describes noteworthy members of the Quandrix faculty. Some of them use a Quandrix-specific stat block from {@book chapter 7|SCC|8|Quandrix Scholars}.",
@@ -1010,6 +1075,7 @@
 								{
 									"type": "entries",
 									"name": "Kianne, Dean of Substance",
+									"page": 19,
 									"id": "042",
 									"entries": [
 										"Brilliant and eccentric, Dean Kianne (neutral elf {@creature Quandrix professor of substance|SCC}) is one of the preeminent mana scholars of the world. She has visited and studied countless bizarre magical phenomena, from snarls to star arches to ancient shrines. She loves to share her wild theories with anyone who will listen.",
@@ -1019,6 +1085,7 @@
 								{
 									"type": "entries",
 									"name": "Imbraham, Dean of Theory",
+									"page": 20,
 									"id": "043",
 									"entries": [
 										"Dean Imbraham (neutral owlin {@creature Quandrix professor of theory|SCC}) is stern and shrewd, with a mind as piercing as his curved beak. He is known for the unnerving habit of fully rotating his head around to address his students, while still rapidly chalking up complex theorems and equations on a chalkboard. Imbraham loves numbers more than people or the out-of-doors; some say he hasn't gone outside certain chambers of the Quandrix campus in years.",
@@ -1028,6 +1095,7 @@
 								{
 									"type": "entries",
 									"name": "Adrix and Nev, Twincasters",
+									"page": 20,
 									"id": "044",
 									"entries": [
 										"The twins Adrix (neutral good triton {@creature Quandrix professor of substance|SCC}) and Nev (neutral good triton {@creature Quandrix professor of theory|SCC}) grew up literally swimming in magic, in an ocean region near a powerful magical snarl. At an early age, they began to see patterns in the tides and currents that eluded even the most esteemed scholars of their society. Once, they saved a hundred lives by predicting the sudden arrival of a tsunami, despite the deceptively calm seas\u2014washing away any doubts in their prowess.",
@@ -1037,6 +1105,7 @@
 								{
 									"type": "entries",
 									"name": "Deekah, Fractal Theorist",
+									"page": 20,
 									"id": "045",
 									"entries": [
 										"Deekah (lawful neutral human {@creature Quandrix professor of theory|SCC}) sees the world as an endless sequence of interconnected equations, which to her is the most beautiful thing imaginable. She explores new theorems by giving them physical form, and her exquisite geometric creations are thrilling sights on campus."
@@ -1045,6 +1114,7 @@
 								{
 									"type": "entries",
 									"name": "Ruxa, Patient Professor",
+									"page": 20,
 									"id": "046",
 									"entries": [
 										"Ruxa (neutral good {@creature Quandrix professor of substance|SCC}) looks like a bipedal brown bear and knows that wild new theories, though exciting, are worthless without a deep understanding of the basics. He teaches students of all levels, and even his most experienced pupils benefit from a much deeper understanding of the fundamental building blocks of the world."
@@ -1055,6 +1125,7 @@
 						{
 							"type": "entries",
 							"name": "Quandrix Campus",
+							"page": 21,
 							"id": "047",
 							"entries": [
 								"The Quandrix campus\u2014shown on map 1.4\u2014is situated in a coastal area to the northeast of the central campus, surrounded by lush woodland and abundant rivers and streams.",
@@ -1072,6 +1143,7 @@
 								{
 									"type": "entries",
 									"name": "Torus Hall",
+									"page": 21,
 									"id": "048",
 									"entries": [
 										"The central hall of Quandrix campus lies at the end of a geometric series of walkways, terminating at ascending ramps to the towering building. Inside, Torus Hall's architecture is mapped to an ever-changing three-dimensional grid, which slowly evolves. Some Quandrix faculty members insist that mage-students shouldn't linger too long inside the hall, lest its geometry eventually turn itself inside out while students are still within it."
@@ -1080,12 +1152,14 @@
 								{
 									"type": "entries",
 									"name": "The Arithmodrome",
+									"page": 21,
 									"id": "049",
 									"entries": [
 										"The Quandrix campus is alive with dynamic sculptures made of water behaving in odd ways: cube-shaped fountains, arching aqueducts that flow through the air, towers of solid-seeming water. One water structure holds a secret: a mysterious inner expanse called the Arithmodrome. From the outside, the Arithmodrome looks like a large cube of water, ten feet on each side. The inside is an apparently boundless theory-space that suspends the rules of reality. Mages use this space to explore theoretical numerical possibilities.",
 										{
 											"type": "inset",
 											"name": "Esix, Fractal Bloom",
+											"page": 21,
 											"id": "04a",
 											"entries": [
 												"Tasked with devising an infinite equation, a group of Quandrix students accidentally created Esix, a living theorem obsessed with infinity. Over the years, a few professors have tried to deactivate it, but all their formulas somehow end up dividing by zero and fizzling out. Esix never seems to register these would-be threats, as it remains consumed by its own calculations."
@@ -1096,6 +1170,7 @@
 								{
 									"type": "entries",
 									"name": "The Cultivarium",
+									"page": 21,
 									"id": "04b",
 									"entries": [
 										"The Cultivarium is an eye-popping, sun-drenched garden of spiraling, cyclical plants and fractalized animals. Quandrix faculty members have repeatedly taught growth spells in this part of campus, and over the centuries, the area has come to intensify any growth magic cast within it."
@@ -1108,6 +1183,7 @@
 				{
 					"type": "section",
 					"name": "Silverquill College",
+					"page": 22,
 					"id": "04c",
 					"entries": [
 						"Silverquill is the College of Eloquence, and its mages\u2014stylish, intimidating, and driven\u2014are masters of the magic of words. They create spells from spoken-word battle poetry or magical manifestations of the written word, scribing patterns of runic ink in the air. These mages make for natural leaders, fiercely competitive, with a piercing wit and a never-second-place attitude.",
@@ -1123,12 +1199,14 @@
 						{
 							"type": "entries",
 							"name": "Studies and Philosophy",
+							"page": 22,
 							"id": "04d",
 							"entries": [
 								"The curriculum of Silverquill College revolves around words, encompassing literature (including fiction, essays, drama, and poetry), languages, linguistics, oratory, rhetoric, and dramatic performance. Students from other colleges often take Silverquill courses to improve their communication skills, learning to speak and write more effectively about their primary field of study. Silverquill and Prismari see overlap in the area of performing arts, with Silverquill emphasizing verbal performance and Prismari focusing more on dance and other forms of movement.",
 								{
 									"type": "entries",
 									"name": "Radiance and Shadow",
+									"page": 22,
 									"id": "04e",
 									"entries": [
 										"The two deans of Silverquill are called the Dean of Radiance and the Dean of Shadow, highlighting the college's use of metaphor in describing its philosophical differences. The metaphor of radiance and shadow takes concrete form in Silverquill magic, as students learn to manifest brilliant light or inky darkness with their spells. The fundamental argument among Silverquill's scholars centers on the purpose of communication. Is it to help others or further a personal agenda? Does literature selflessly better society or selfishly advance one's own goals?",
@@ -1139,6 +1217,7 @@
 								{
 									"type": "entries",
 									"name": "Scholars of Silverquill",
+									"page": 22,
 									"id": "04f",
 									"entries": [
 										"The Silverquill Scholars table offers examples of the scholars in Silverquill College. You may use the table to randomly determine the scholarly focus of a Silverquill student or faculty member. The Principle column notes which side of the radiance-shadow conflict a scholar more likely aligns with.",
@@ -1205,6 +1284,7 @@
 						{
 							"type": "entries",
 							"name": "Silverquill Faculty",
+							"page": 22,
 							"id": "050",
 							"entries": [
 								"This section describes noteworthy members of the Silverquill faculty. Some of them use a Silverquill-specific stat block from {@book chapter 7|SCC|8|Silverquill Scholars}.",
@@ -1221,6 +1301,7 @@
 								{
 									"type": "entries",
 									"name": "Shaile Talonrook, Dean of Radiance",
+									"page": 22,
 									"id": "051",
 									"entries": [
 										"Dean Shaile Talonrook (lawful good owlin {@creature Silverquill professor of radiance|SCC}) is a perennially optimistic orator. A master of literature, she often quotes obscure passages from famous texts. Her soul-filling advice and educated references have been known to make people literally glow.",
@@ -1230,6 +1311,7 @@
 								{
 									"type": "entries",
 									"name": "Embrose Lu, Dean of Shadow",
+									"page": 23,
 									"id": "052",
 									"entries": [
 										"Dean Embrose Lu (lawful neutral human {@creature Silverquill professor of shadow|SCC}) is a master poet whose ink magic is merciless. Scant with praise and quick with a cutting remark, Dean Lu has seen many mage-students scrub out of Strixhaven and has nothing good to say about those who can't hack it.",
@@ -1239,6 +1321,7 @@
 								{
 									"type": "entries",
 									"name": "Breena, the Demagogue",
+									"page": 23,
 									"id": "053",
 									"entries": [
 										"Breena (neutral good owlin {@creature Silverquill professor of shadow|SCC}) has a talent for getting her way. If she wants you to do something, you won't just do it\u2014you'll be sure it was your idea all along. Her students and colleagues alike hang on her every word, and in front of a crowd, she's a powerhouse of charisma, enhancing her speeches with elegant swirls of ink magic. Though she's an elite mage who can easily hold her own in a fight, Breena prefers to defeat her foes with words alone.",
@@ -1248,6 +1331,7 @@
 								{
 									"type": "entries",
 									"name": "Nils, Discipline Enforcer",
+									"page": 23,
 									"id": "054",
 									"entries": [
 										"Nils (lawful neutral human {@creature Silverquill professor of radiance|SCC}) is an optimist, as he believes in every student's potential for greatness. However, this outlook also means he's constantly disappointed by their suboptimal choices, and he is well known for his strictness and abrupt scoldings."
@@ -1256,6 +1340,7 @@
 								{
 									"type": "entries",
 									"name": "Brenneth Blackstone, Scriptology Star",
+									"page": 23,
 									"id": "055",
 									"entries": [
 										"Brenneth Blackstone (neutral good dhampir {@creature Silverquill professor of shadow|SCC}) is a rising star in the study of magical writing and symbols. With a dynamic lecturing style, this dhampir\u2014a partial vampire\u2014attracts students from across Strixhaven purely for his lessons' value as performance art. He teaches a course in scrivening and scriptology that characters take over the course of {@adventure chapter 4|SCC-HfMT|0}."
@@ -1264,6 +1349,7 @@
 								{
 									"type": "entries",
 									"name": "Fain, the Broker",
+									"page": 24,
 									"id": "056",
 									"entries": [
 										"Lost an important textbook? Craving some rare delicacy from home? Need something inconveniently forbidden? Enter Fain (neutral human {@creature Silverquill professor of shadow|SCC}). He has an extensive network of connections on and off campus, and he can procure just about anything\u2014so long as you can afford his price."
@@ -1274,6 +1360,7 @@
 						{
 							"type": "entries",
 							"name": "Silverquill Campus",
+							"page": 24,
 							"id": "057",
 							"entries": [
 								"The Silverquill campus\u2014shown on map 1.5\u2014is located due north of the central Strixhaven campus and looks much like an extension of it. Silverquill is the most urban of the five colleges, with a campus that features buildings of stately elegance.",
@@ -1291,6 +1378,7 @@
 								{
 									"type": "entries",
 									"name": "Grandloft Hall",
+									"page": 24,
 									"id": "058",
 									"entries": [
 										"The main Silverquill building is Grandloft Hall, a vast space with shafts of light streaking in from the enchanted windowpanes far above. Grandloft teems with balconies, loges, booths, daises, and other spaces where orators can perform their craft. Inklings, the college's mascots, flit around the high ceiling, and enchanted spotlights automatically focus on any mage who uses powerful magic."
@@ -1299,6 +1387,7 @@
 								{
 									"type": "entries",
 									"name": "The Rose Stage",
+									"page": 24,
 									"id": "059",
 									"entries": [
 										"The Rose Stage is a rotating circular platform on the Silverquill campus. It has a backdrop of roses made of magical ink (tributes left by spectators of past performances), which creates excellent acoustics. Mage-students meet at the Rose Stage to practice performances, spar, or engage in honor duels. Faculty members often observe performances at the Rose Stage, coaching the students in their magical and rhetorical displays."
@@ -1307,6 +1396,7 @@
 								{
 									"type": "entries",
 									"name": "The Dramarium",
+									"page": 24,
 									"id": "05a",
 									"entries": [
 										"The Dramarium is a facility where Silverquill students train in fitness, dance, martial arts, and other acts of physical performance. Students can avail themselves of the preparation space called the Gray Room (actually a chain of rooms), which has hair and makeup salons, voice rehearsal booths, mirrored rehearsal spaces, and spa facilities. The back of the Dramarium has a special sensory deprivation chamber for mage-students who want complete silence in which to meditate."
@@ -1319,6 +1409,7 @@
 				{
 					"type": "section",
 					"name": "Witherbloom College",
+					"page": 25,
 					"id": "05b",
 					"entries": [
 						"At Witherbloom, the College of Essence Studies, mages draw power from the opposing forces of life and death. These mages brew their spells from natural components and the essence of living creatures, using that power to heal or harm the living or to raise or entreat the dead. They can cause entire forests to blossom out of nowhere or call down old curses that scourge flesh from bone. Some Witherbloom mages defend ecosystems from pollution, while others revel in the power of corruption. They're at home riding zombie crocodiles down a languid river, picking herbs for a potion to treat a disease, brooding over a chorus of swamp frogs, or summoning fearsome avatars of nature.",
@@ -1334,12 +1425,14 @@
 						{
 							"type": "entries",
 							"name": "Studies and Philosophy",
+							"page": 25,
 							"id": "05c",
 							"entries": [
 								"The curriculum of Witherbloom College focuses on various sciences, revolving around the life sciences. Biology, ecology, botany, chemistry, and related sciences combine with the study and manipulation of the magical energy of the Positive Plane and the Negative Plane, the primal forces of life and death. Witherbloom's curriculum shares some overlap with Quandrix's analysis of the mathematical patterns in nature.",
 								{
 									"type": "entries",
 									"name": "Growth and Decay",
+									"page": 25,
 									"id": "05d",
 									"entries": [
 										"The two deans of Witherbloom are traditionally called the Dean of the Root and the Dean of the Vein. These titles are a somewhat abstract way of framing the core division in the college's philosophy: is growth or decay the driving force in nature?",
@@ -1350,6 +1443,7 @@
 								{
 									"type": "entries",
 									"name": "Scholars of Witherbloom",
+									"page": 25,
 									"id": "05e",
 									"entries": [
 										"The Witherbloom Scholars table offers examples of the scholars in Witherbloom College. You may use the table to randomly determine the scholarly focus of a Witherbloom student or faculty member. The Principle column notes which side of the growth-decay conflict a scholar more likely aligns with.",
@@ -1416,6 +1510,7 @@
 						{
 							"type": "entries",
 							"name": "Witherbloom Faculty",
+							"page": 25,
 							"id": "05f",
 							"entries": [
 								"This section describes noteworthy members of the Witherbloom faculty. Some of them use a Witherbloom-specific stat block from {@book chapter 7|SCC|8|Witherbloom Scholars}.",
@@ -1432,6 +1527,7 @@
 								{
 									"type": "entries",
 									"name": "Lisette, Dean of the Root",
+									"page": 25,
 									"id": "060",
 									"entries": [
 										"Dean Lissette (neutral good human {@creature Witherbloom professor of growth|SCC}) is a world-class healer and herbalist; it's even said she once cured the Lorehold founder dragon of a secret illness. Lisette's classes lean more toward demonstration and hands-on experience than lectures. When Lisette speaks, her words are soft and full of colorful metaphors.",
@@ -1441,6 +1537,7 @@
 								{
 									"type": "entries",
 									"name": "Valentin, Dean of the Vein",
+									"page": 25,
 									"id": "061",
 									"entries": [
 										"Dean Valentin (neutral {@creature vampire}) is ancient and drinks the blood of living creatures throughout the bayou. Valentin is a kind of sangromancer\u2014he receives visions from the blood he consumes, which he uses to learn things about a creature or place. He has no qualms about exploiting the bayou's creatures for personal gain.",
@@ -1450,6 +1547,7 @@
 								{
 									"type": "entries",
 									"name": "Willowdusk, Essence Seer",
+									"page": 26,
 									"id": "062",
 									"entries": [
 										"No one knows how old Willowdusk (neutral good {@creature treant}) really is. This professor of growth claims to be older than Strixhaven itself, and although many suspect that she exaggerates, no one else who has lived long enough to refute her cares to do so. Many years ago, a group of rebellious students got lost in Detention Bog and took shelter in what turned out to be Willowdusk's roots. She protected them from a pack of hungry groffs and shepherded them back to Widdershins Hall, offering a lecture on proper herb-gathering practices during the journey.",
@@ -1459,6 +1557,7 @@
 								{
 									"type": "entries",
 									"name": "Tivash, Gloom Summoner",
+									"page": 26,
 									"id": "063",
 									"entries": [
 										"It's tough to study the secrets of life and death without getting your hands dirty\u2014which is the first thing Tivash (neutral human {@creature Witherbloom professor of decay|SCC}) teaches Witherbloom students. Some call the forces he manipulates evil, but he asserts that power is only as good or evil as how you use it."
@@ -1467,6 +1566,7 @@
 								{
 									"type": "entries",
 									"name": "Verelda Lang, Arcano-Biologist",
+									"page": 26,
 									"id": "064",
 									"entries": [
 										"Verelda Lang (chaotic neutral {@creature dryad}) is a respected Witherbloom professor of growth who teaches introductory courses in magical physiologies, helping students in every college learn about the many unusual creatures they're likely to encounter, whatever the students' field of study. Her research extends to the vital functions of fractal creatures and other artificial life-forms, leading her to teach courses at Quandrix College as well.",
@@ -1476,6 +1576,7 @@
 								{
 									"type": "entries",
 									"name": "Yedora, Grave Gardener",
+									"page": 27,
 									"id": "065",
 									"entries": [
 										"Yedora (neutral {@creature treant}) is the head groundskeeper and unofficial undertaker of Strixhaven. Students and graduates often wish to spend their afterlife at their beloved university, and she honors that wish. Each tree she plants represents the essence of a fallen mage, and she remembers them all by name."
@@ -1484,6 +1585,7 @@
 								{
 									"type": "entries",
 									"name": "Gyome, Master Chef",
+									"page": 27,
 									"id": "066",
 									"entries": [
 										"Anyone who thinks a troll can't be a great chef has never met Gyome (neutral {@creature troll}). He combines local ingredients with flavors from his homeland into an ever-changing menu of delicacies. Students from every college trek through Sedgemoor in droves for his food. The only complaint he ever receives is that he gives out unreasonably large portions."
@@ -1494,6 +1596,7 @@
 						{
 							"type": "entries",
 							"name": "Witherbloom Campus",
+							"page": 27,
 							"id": "067",
 							"entries": [
 								"Witherbloom's campus\u2014shown on map 1.6\u2014is tucked away in a wide bayou to the southeast of Strixhaven's central campus. Wiltroot Hall is described in {@adventure chapter 4|SCC-HfMT|0|Wiltroot Hall}.",
@@ -1511,6 +1614,7 @@
 								{
 									"type": "entries",
 									"name": "Sedgemoor",
+									"page": 27,
 									"id": "068",
 									"entries": [
 										"Sedgemoor, the bayou area that encompasses the Witherbloom campus, is known for a range of swamp creatures: bats, crocodilian monsters, zombified animals, lumbering beasts called brackish trudges, and canine creatures called groffs ({@creature Brackish Trudge|SCC|brackish trudges} and {@creature Groff|SCC|groffs} are described in {@book chapter 7|SCC|8}). Sedgemoor is an excellent place to find pest mascots, herbs, spider silk, fungi, and other ingredients for potions and spells.",
@@ -1520,6 +1624,7 @@
 								{
 									"type": "entries",
 									"name": "Widdershins Hall",
+									"page": 27,
 									"id": "069",
 									"entries": [
 										"The center of the Witherbloom campus is Widdershins Hall, a bog mansion that looks like it grew out of Sedgemoor itself. Widdershins is a network of interconnected wooden pods, with planked walkways leading out of it like tendrils. The hall has a cozy inner chamber where students gather for classwork."
@@ -1528,6 +1633,7 @@
 								{
 									"type": "entries",
 									"name": "Detention Bog",
+									"page": 27,
 									"id": "06a",
 									"entries": [
 										"A stinking, thoroughly unpleasant marshland lies adjacent to Sedgemoor: the Detention Bog. Witherbloom faculty members send misbehaving students to this bog as punishment, but it's also an excellent place to gather herbs for certain cures and curses.",
@@ -1543,6 +1649,7 @@
 		{
 			"type": "section",
 			"name": "Character Options",
+			"page": 29,
 			"id": "06b",
 			"entries": [
 				"The campus of Strixhaven draws a student body from across the world\u2014or many worlds. With your DM's permission, you can create just about any Strixhaven character you can imagine, drawing on player character rules from the {@book Player's Handbook|PHB} and other D&D books. This chapter adds to that wealth of options with the material in the following sections:",
@@ -1565,6 +1672,7 @@
 				{
 					"type": "section",
 					"name": "Race Option",
+					"page": 29,
 					"id": "06c",
 					"entries": [
 						"The {@race owlin|SCC} is a race option for player characters in Strixhaven and other D&D settings."
@@ -1573,6 +1681,7 @@
 				{
 					"type": "section",
 					"name": "Choosing a College",
+					"page": 30,
 					"id": "07b",
 					"entries": [
 						"At Strixhaven, students choose their colleges at the start of their second year. But even during a character's first year, you make college-related decisions for your character, such as a background choice. From the start, your character is making decisions that will lead to their eventual college choice.",
@@ -1588,6 +1697,7 @@
 						{
 							"type": "inset",
 							"name": "A Strixhaven Party",
+							"page": 30,
 							"id": "07c",
 							"entries": [
 								"If you're starting a Strixhaven campaign with the introductory adventure in {@adventure chapter 3|SCC-CK|0}, that adventure gives all the advice you need to bring a party of characters together. The adventure assumes that the characters are first-year students who are participating in orientation activities together.",
@@ -1600,6 +1710,7 @@
 				{
 					"type": "section",
 					"name": "Strixhaven Backgrounds",
+					"page": 31,
 					"id": "07d",
 					"entries": [
 						"This section presents five backgrounds that you can choose to reflect your character's studies preparing to enter one of Strixhaven's colleges. You aren't limited to these backgrounds in a Strixhaven campaign; they're just one way you can choose to dive deeply into your character's college affiliation.",
@@ -1614,24 +1725,20 @@
 								"{@background Silverquill Student|SCC}",
 								"{@background Witherbloom Student|SCC}"
 							]
-						},
-						{
-							"type": "entries",
-							"name": "",
-							"id": "0a4",
-							"entries": []
 						}
 					]
 				},
 				{
 					"type": "section",
 					"name": "Feats",
+					"page": 36,
 					"id": "0ae",
 					"entries": [
 						"This section introduces feats that give your character benefits associated with the colleges of Strixhaven. These feats are available to you whenever you normally choose a feat, and they follow the {@book feat rules|PHB|6|Feats} in the {@book Player's Handbook|PHB}.",
 						{
 							"type": "entries",
 							"name": "Feat Descriptions",
+							"page": 36,
 							"id": "0af",
 							"entries": [
 								"These feats are presented in alphabetical order.",
@@ -1650,6 +1757,7 @@
 				{
 					"type": "section",
 					"name": "Spells",
+					"page": 37,
 					"id": "0b2",
 					"entries": [
 						"Created at Strixhaven, the spells presented in this section are available to the backgrounds offered in this chapter. The spells also appear on the class spell lists indicated in the Spells table below.",
@@ -1709,6 +1817,7 @@
 				{
 					"type": "section",
 					"name": "Magic Items",
+					"page": 38,
 					"id": "0c7",
 					"entries": [
 						"This section presents some magic items that are created at Strixhaven. These items, along with a few from the {@book Dungeon Master's Guide|DMG} ({@i DMG}), can be purchased on campus using the prices in the Magic Items for Sale table.",
@@ -1785,6 +1894,7 @@
 		{
 			"type": "section",
 			"name": "School Is in Session",
+			"page": 41,
 			"id": "0d1",
 			"entries": [
 				"The following four chapters present a series of Dungeons & Dragons adventures optimized for four to six characters. Each adventure takes place on and around the Strixhaven campus. In these adventures, the player characters are students attending the university, and they become heroes in their own right as they navigate plots, overcome monsters, and thwart dangers that arise in each adventure.",
@@ -1802,6 +1912,7 @@
 				{
 					"type": "section",
 					"name": "Running the Adventures",
+					"page": 41,
 					"id": "0d2",
 					"entries": [
 						"To run these adventures, you need the fifth edition core rulebooks: the {@book Player's Handbook|PHB}, the {@book Dungeon Master's Guide|DMG}, and the {@book Monster Manual|MM}.",
@@ -1817,6 +1928,7 @@
 						{
 							"type": "entries",
 							"name": "A Strixhaven Campaign",
+							"page": 41,
 							"id": "0d4",
 							"entries": [
 								"If you run these adventures as a campaign, one villain is behind the chaos on campus: the bullywug {@creature Murgaxor|SCC} Grenshel, a disgruntled former student who attended Strixhaven centuries ago. {@creature Murgaxor|SCC}\u2014who uses evil magic to sustain his life force\u2014focuses his all-consuming desire for revenge on destroying Strixhaven University.",
@@ -1826,6 +1938,7 @@
 						{
 							"type": "entries",
 							"name": "Character Creation",
+							"page": 41,
 							"id": "0d5",
 							"entries": [
 								"Before starting any of this book's adventures, consult {@book chapter 2|SCC|2} for guidance on making Strixhaven characters and uniting those characters in a group."
@@ -1834,6 +1947,7 @@
 						{
 							"type": "entries",
 							"name": "Character Advancement",
+							"page": 41,
 							"id": "0d6",
 							"entries": [
 								"In these adventures, the characters receive experience points for achieving story milestones, rather than for defeating monsters. Each adventure tells you when the characters advance to the next level."
@@ -1842,6 +1956,7 @@
 						{
 							"type": "entries",
 							"name": "Standalone Adventures",
+							"page": 41,
 							"id": "0d7",
 							"entries": [
 								"Rather than playing the four adventures as a campaign, you can run them as standalone adventures. A section near the start of each adventure tells you how to use the adventure in this way.",
@@ -1885,6 +2000,7 @@
 								{
 									"type": "entries",
 									"name": "Relationships",
+									"page": 42,
 									"id": "0d8",
 									"entries": [
 										"If you run chapter 4, 5, or 6 as a standalone adventure, you should ask each player to choose at least one student to be a Friend, a Beloved, or a Rival, as described in the {@adventure Relationship rules|SCC-CK|0} later in this chapter. The Starting Relationship Points table lists the number of points a character has at the start with the chosen Friend, Beloved, or Rival.",
@@ -1931,12 +2047,14 @@
 						{
 							"type": "entries",
 							"name": "Using the Maps",
+							"page": 42,
 							"id": "0d9",
 							"entries": [
 								"This book contains a number of interior maps and is accompanied by a poster map, all of which will aid you as you run these adventures.",
 								{
 									"type": "entries",
 									"name": "Interior Maps",
+									"page": 42,
 									"id": "0da",
 									"entries": [
 										"Maps in the book primarily depict areas for the characters to explore or areas where combat is likely to occur. These maps are designed to be easily reproduced on graph paper, a wet-erase mat, or some other surface to help the players visualize locations and devise combat strategies. You can alter a map's features as you see fit.",
@@ -1946,6 +2064,7 @@
 								{
 									"type": "entries",
 									"name": "Poster Map",
+									"page": 42,
 									"id": "0db",
 									"entries": [
 										"The poster map is meant to be shared with the players. One side shows the Strixhaven University campus, with a focus on the central campus and the five surrounding colleges. The other side of the poster shows detailed maps of key campus locations, some of which the characters visit in multiple adventures."
@@ -1956,6 +2075,7 @@
 						{
 							"type": "entries",
 							"name": "The Passage of Time",
+							"page": 42,
 							"id": "0dc",
 							"entries": [
 								"Each adventure in this book takes place over the course of an academic year, which is no longer than a calendar year. The adventures include events, but those events aren't the entire extent of the characters' experience on campus that year. Unless explicitly stated, assume that anywhere from a few days to a few weeks passes between the events of an adventure. You can decide how quickly the year passes and work with your players to decide what else they get up to. You can conduct roleplaying scenes with the characters' fellow students, taking into account their Friends, Rivals, and Beloveds. You might also narratively describe developments in their courses to help the academic year feel varied and robust.",
@@ -1967,6 +2087,7 @@
 				{
 					"type": "section",
 					"name": "Strixhaven Tracking Sheet",
+					"page": 43,
 					"id": "0dd",
 					"entries": [
 						"The sections on the following pages give special rules for certain aspects of university life. Players can use the sheet below to keep track of the effects of those rules on their characters. Each player should have a copy to use during the course of the adventures. The tracking sheet includes the following parts:",
@@ -2013,6 +2134,7 @@
 						{
 							"type": "inset",
 							"name": "Opting Out of These Rules",
+							"page": 43,
 							"id": "0de",
 							"entries": [
 								"The rules for {@book Extracurriculars|SCC|3|Extracurriculars}, {@book Jobs|SCC|3|Jobs}, {@book Exams|SCC|3|Exams}, and {@adventure Relationships|SCC-CK|0} combine with the adventures in this book to enhance the flavor of life at a university of magic.",
@@ -2024,12 +2146,14 @@
 				{
 					"type": "section",
 					"name": "Extracurriculars",
+					"page": 44,
 					"id": "0df",
 					"entries": [
 						"Extracurriculars\u2014the campus clubs and societies students can join\u2014are a key part of student life at Strixhaven. Using the rules that follow, characters can join Extracurriculars to add flavor to the book's adventures, gain minor rules benefits, and perhaps more easily befriend\u2014or irritate\u2014their classmates.",
 						{
 							"type": "entries",
 							"name": "Joining an Extracurricular",
+							"page": 44,
 							"id": "0e0",
 							"entries": [
 								"At any point during the book's adventures, a character can gain the benefit of two of the Extracurriculars noted below, as described later in this section. If a student character also works on campus using the Job rules, the character can benefit from only one Extracurricular.",
@@ -2039,6 +2163,7 @@
 						{
 							"type": "entries",
 							"name": "Extracurricular Benefits",
+							"page": 44,
 							"id": "0e1",
 							"entries": [
 								{
@@ -2055,6 +2180,7 @@
 								{
 									"type": "entries",
 									"name": "Student Dice",
+									"page": 44,
 									"id": "0e2",
 									"entries": [
 										"Each character gains one Student Die for each Extracurricular they are participating in. A Student Die is a {@dice d4} the player can roll and add to an ability check that the character makes, provided the check uses one of the skills listed in the Extracurricular's description. The player can wait until after rolling the {@dice d20} before rolling the Student Die, but must do so before you say whether the check succeeds or fails. No more than one Student Die can be rolled per check. After rolling a Student Die, a player can't roll it again until the character finishes a long rest."
@@ -2063,6 +2189,7 @@
 								{
 									"type": "entries",
 									"name": "Relationship Point",
+									"page": 44,
 									"id": "0e3",
 									"entries": [
 										"While a student participates in an Extracurricular, the student gains either a positive or a negative Relationship Point (the player's choice) with one student NPC who is also a member of the Extracurricular (see the {@adventure Relationship rules|SCC-CK|0} later in this chapter)."
@@ -2073,6 +2200,7 @@
 						{
 							"type": "entries",
 							"name": "Quitting an Extracurricular",
+							"page": 44,
 							"id": "0e4",
 							"entries": [
 								"Characters can quit an Extracurricular at any time, updating their tracking sheet accordingly. When a student quits an Extracurricular, they immediately lose its benefits. If a character quits during an adventure, you might want to roleplay the situation, since NPCs are likely to take an interest in why the student is leaving."
@@ -2081,12 +2209,14 @@
 						{
 							"type": "entries",
 							"name": "Extracurricular Options",
+							"page": 44,
 							"id": "0e5",
 							"entries": [
 								"Student characters can join any of the following Extracurriculars.",
 								{
 									"type": "entries",
 									"name": "Dead Languages Society",
+									"page": 44,
 									"id": "0e6",
 									"entries": [
 										{
@@ -2111,6 +2241,7 @@
 								{
 									"type": "entries",
 									"name": "Distinguished Society of Fine Artists",
+									"page": 44,
 									"id": "0e8",
 									"entries": [
 										{
@@ -2135,6 +2266,7 @@
 								{
 									"type": "entries",
 									"name": "Dragonchess Club",
+									"page": 45,
 									"id": "0ea",
 									"entries": [
 										{
@@ -2159,6 +2291,7 @@
 								{
 									"type": "entries",
 									"name": "Dragonsguard Historical Society",
+									"page": 45,
 									"id": "0ec",
 									"entries": [
 										{
@@ -2183,6 +2316,7 @@
 								{
 									"type": "entries",
 									"name": "Fantastical Horticulture Club",
+									"page": 45,
 									"id": "0ee",
 									"entries": [
 										{
@@ -2207,6 +2341,7 @@
 								{
 									"type": "entries",
 									"name": "Future Entrepreneurs of Strixhaven",
+									"page": 45,
 									"id": "0f0",
 									"entries": [
 										{
@@ -2231,6 +2366,7 @@
 								{
 									"type": "entries",
 									"name": "Intramural Gymnastics Club",
+									"page": 45,
 									"id": "0f3",
 									"entries": [
 										{
@@ -2255,6 +2391,7 @@
 								{
 									"type": "entries",
 									"name": "Intramural Silkball Club",
+									"page": 45,
 									"id": "0f5",
 									"entries": [
 										{
@@ -2279,6 +2416,7 @@
 								{
 									"type": "entries",
 									"name": "Intramural Water-Dancing Club",
+									"page": 45,
 									"id": "0f7",
 									"entries": [
 										{
@@ -2303,6 +2441,7 @@
 								{
 									"type": "entries",
 									"name": "Live-Action Roleplaying Guild",
+									"page": 45,
 									"id": "0f9",
 									"entries": [
 										{
@@ -2327,6 +2466,7 @@
 								{
 									"type": "entries",
 									"name": "Mage Tower Cheer Squad",
+									"page": 45,
 									"id": "0fb",
 									"entries": [
 										{
@@ -2351,6 +2491,7 @@
 								{
 									"type": "entries",
 									"name": "Playactors Drama Guild",
+									"page": 45,
 									"id": "0fd",
 									"entries": [
 										{
@@ -2375,6 +2516,7 @@
 								{
 									"type": "entries",
 									"name": "Strixhaven Iron-Lifters Society",
+									"page": 45,
 									"id": "0ff",
 									"entries": [
 										{
@@ -2399,6 +2541,7 @@
 								{
 									"type": "entries",
 									"name": "Strixhaven Show Band Association",
+									"page": 45,
 									"id": "101",
 									"entries": [
 										{
@@ -2423,6 +2566,7 @@
 								{
 									"type": "entries",
 									"name": "Strixhaven Star",
+									"page": 45,
 									"id": "103",
 									"entries": [
 										{
@@ -2447,6 +2591,7 @@
 								{
 									"type": "entries",
 									"name": "Student-Mages of Faith",
+									"page": 45,
 									"id": "105",
 									"entries": [
 										{
@@ -2475,12 +2620,14 @@
 				{
 					"type": "section",
 					"name": "Jobs",
+					"page": 46,
 					"id": "107",
 					"entries": [
 						"Working in gainful employment while at school can provide a character with a modicum of cash and help forge connections with student coworkers.",
 						{
 							"type": "entries",
 							"name": "Getting or Losing a Job",
+							"page": 46,
 							"id": "108",
 							"entries": [
 								"A character can hold one Job at a time, and they can participate in only one Extracurricular while they have a Job. A student can switch Jobs whenever they wish, even in the middle of the academic year, as long as they don't work more than one Job at a time. At your discretion, switching Jobs in the middle of the year might lead to a roleplaying scenario."
@@ -2489,12 +2636,14 @@
 						{
 							"type": "entries",
 							"name": "Job Benefits",
+							"page": 46,
 							"id": "109",
 							"entries": [
 								"While a student has a Job, they earn a wage and a Relationship Point, as explained below.",
 								{
 									"type": "entries",
 									"name": "Wage",
+									"page": 46,
 									"id": "10a",
 									"entries": [
 										"A student who works a Job gains 5 gp at the start of each week that they hold the Job. If a student quits during the academic year, they stop earning this money at the end of the week in which they quit.",
@@ -2513,6 +2662,7 @@
 								{
 									"type": "entries",
 									"name": "Relationship Point",
+									"page": 46,
 									"id": "10b",
 									"entries": [
 										"While a character works a Job, they gain a positive or negative Relationship Point (the player's choice) with one student NPC at that Job. This represents a coworker with whom the character is often scheduled and with whom they can easily form a connection (see the {@adventure Relationship rules|SCC-CK|0} later in this chapter)."
@@ -2523,12 +2673,14 @@
 						{
 							"type": "entries",
 							"name": "Job Options",
+							"page": 46,
 							"id": "10c",
 							"entries": [
 								"Student characters can find work at the places below. A number of possible positions are noted for each place, along with NPC coworkers.",
 								{
 									"type": "entries",
 									"name": "Biblioplex",
+									"page": 46,
 									"id": "10d",
 									"entries": [
 										{
@@ -2552,6 +2704,7 @@
 								{
 									"type": "entries",
 									"name": "Bow's End Tavern",
+									"page": 46,
 									"id": "10f",
 									"entries": [
 										{
@@ -2575,6 +2728,7 @@
 								{
 									"type": "entries",
 									"name": "Campus Grounds",
+									"page": 46,
 									"id": "111",
 									"entries": [
 										{
@@ -2598,6 +2752,7 @@
 								{
 									"type": "entries",
 									"name": "Campus Magic Labs",
+									"page": 46,
 									"id": "113",
 									"entries": [
 										{
@@ -2621,6 +2776,7 @@
 								{
 									"type": "entries",
 									"name": "Dormitories",
+									"page": 46,
 									"id": "115",
 									"entries": [
 										{
@@ -2644,6 +2800,7 @@
 								{
 									"type": "entries",
 									"name": "Firejolt Café",
+									"page": 46,
 									"id": "117",
 									"entries": [
 										{
@@ -2667,6 +2824,7 @@
 								{
 									"type": "entries",
 									"name": "Intramural Fields",
+									"page": 46,
 									"id": "119",
 									"entries": [
 										{
@@ -2690,6 +2848,7 @@
 								{
 									"type": "entries",
 									"name": "Strixhaven Performing Arts Society",
+									"page": 46,
 									"id": "11b",
 									"entries": [
 										{
@@ -2713,6 +2872,7 @@
 								{
 									"type": "entries",
 									"name": "Strixhaven Stadium",
+									"page": 46,
 									"id": "11d",
 									"entries": [
 										{
@@ -2740,12 +2900,14 @@
 				{
 					"type": "section",
 					"name": "Exams",
+					"page": 47,
 					"id": "11f",
 					"entries": [
 						"The characters' years at Strixhaven are covered by each of this book's adventures, which focus on the notable and even shocking events that take place at the university. Even though the characters' studies include the trappings of academic life\u2014attending lectures, participating in labs, reading textbooks\u2014those everyday academic activities mostly take place in the background. The exam rules presented here are thus designed to help the players keep their characters' studies part of the game.",
 						{
 							"type": "entries",
 							"name": "Using These Rules",
+							"page": 47,
 							"id": "120",
 							"entries": [
 								"Each of the book's adventures includes Exams. Though each character might be a member of a different college at Strixhaven, the adventures assume that the characters take at least one general education or interdisciplinary course together each year. It is this course that the Exam rules represent.",
@@ -2757,6 +2919,7 @@
 						{
 							"type": "entries",
 							"name": "Studying Phase",
+							"page": 47,
 							"id": "121",
 							"entries": [
 								"The Studying phase of an Exam represents the characters brushing up on their coursework, prompting sparks of insight when faced with difficult questions, or using mnemonics or other memorization techniques to absorb academic material.",
@@ -2766,6 +2929,7 @@
 								{
 									"type": "entries",
 									"name": "Pulling an All-Nighter",
+									"page": 47,
 									"id": "122",
 									"entries": [
 										"After pulling an all-nighter, a character gains two rerolls to use during the next Testing phase if the character succeeds on the ability check. Doing so imposes a cost: the character gains 1 level of {@condition exhaustion} that takes effect at the start of the day of the Exam. This level of {@condition exhaustion} can't be removed until after the Exam."
@@ -2774,6 +2938,7 @@
 								{
 									"type": "entries",
 									"name": "Studying Together",
+									"page": 47,
 									"id": "123",
 									"entries": [
 										"If two or more characters engage in a group study session, each participating character has advantage on their ability check during the Studying phase."
@@ -2782,6 +2947,7 @@
 								{
 									"type": "entries",
 									"name": "Skipping Studying",
+									"page": 47,
 									"id": "124",
 									"entries": [
 										"A character can skip the Studying phase if they wish, forgoing the chance of gaining these rerolls."
@@ -2792,12 +2958,14 @@
 						{
 							"type": "entries",
 							"name": "Testing Phase",
+							"page": 47,
 							"id": "125",
 							"entries": [
 								"Once the Studying phase of an Exam is over, have the players record any rerolls their characters receive, then begin the Testing phase.",
 								{
 									"type": "entries",
 									"name": "Ability Checks",
+									"page": 47,
 									"id": "126",
 									"entries": [
 										"Each Exam's Testing phase consists of two ability checks, with specifics (including the DC) noted in the encounter. If a character gained any rerolls during the Studying phase, the character can use one reroll when making a Testing ability check, rerolling the check's {@dice d20} and using the new roll.",
@@ -2828,6 +2996,7 @@
 								{
 									"type": "entries",
 									"name": "Cheating",
+									"page": 47,
 									"id": "127",
 									"entries": [
 										"An unscrupulous character can cheat on an Exam. Doing so requires a successful Charisma ({@skill Deception}) check and a successful Dexterity ({@skill Sleight of Hand}) check, both using the DC set for the Exam. If a character cheats, they can't use any rerolls from their Studying phase.",
@@ -2838,6 +3007,7 @@
 								{
 									"type": "entries",
 									"name": "Failed Exam",
+									"page": 48,
 									"id": "128",
 									"entries": [
 										"If a character fails an Exam, Strixhaven's bylaws require them to attend tutoring with a junior faculty member until they achieve at least a passed Exam in a different Exams encounter. This tutoring can be narrated through roleplaying, or you might simply inform the player of this result.",
@@ -2847,6 +3017,7 @@
 								{
 									"type": "entries",
 									"name": "Student Dice",
+									"page": 48,
 									"id": "129",
 									"entries": [
 										"A Student Die gained from an Exam is a {@dice d4} the player can roll and add to an ability check that the character makes, provided the check uses one of the two skills featured in the Exam. The player can wait until after rolling the {@dice d20} before rolling the Student Die, but must do so before you say whether the check succeeds or fails. No more than one Student Die can be rolled per check. After rolling a Student Die, a player can't roll it again until the character finishes a long rest.",
@@ -2861,6 +3032,7 @@
 				{
 					"type": "section",
 					"name": "Relationships",
+					"page": 48,
 					"id": "12a",
 					"entries": [
 						"As students, the characters have the opportunity to cement friendships, establish rivalries, deepen bonds, and otherwise develop relationships with student NPCs in this book's adventures. Although these pursuits could be played out entirely with roleplaying, you can use the following Relationship rules to reinforce this aspect of the adventures.",
@@ -2879,6 +3051,7 @@
 						{
 							"type": "section",
 							"name": "Session Zero",
+							"page": 48,
 							"id": "12b",
 							"entries": [
 								"If you're interested in using these rules in your game, consider holding a session zero to introduce the rules to the players. Such a session zero allows you to ascertain players' comfort with these rules.",
@@ -2889,6 +3062,7 @@
 						{
 							"type": "section",
 							"name": "Using These Rules",
+							"page": 49,
 							"id": "12c",
 							"entries": [
 								"The book's adventures include Relationship encounters, featuring events during which characters can interact with one or more of the student NPCs in the \"{@adventure Fellow Students|SCC-CK|0|Fellow Students}\" section. When such an encounter begins, use the adventure's read-aloud text to describe the scene. Then work with the characters one at a time until each has had a turn to interact with the student NPCs.",
@@ -2896,6 +3070,7 @@
 								{
 									"type": "entries",
 									"name": "Introducing the NPCs",
+									"page": 49,
 									"id": "12d",
 									"entries": [
 										"Use the entries in the \"Fellow Students\" section to populate Strixhaven as the characters explore it, both during and between adventures. Highlight those NPCs when the characters are at a Job or participating in an Extracurricular, and draw from the entries whenever you want to roleplay an NPC in a classroom setting.",
@@ -2906,6 +3081,7 @@
 								{
 									"type": "entries",
 									"name": "Relationship Points",
+									"page": 49,
 									"id": "12e",
 									"entries": [
 										"The characters have opportunities throughout the adventures in this book to gain Relationship Points with student NPCs. At your discretion, in addition to Relationship encounters, other roleplaying encounters might also provide Relationship Points.",
@@ -2935,6 +3111,7 @@
 						{
 							"type": "section",
 							"name": "Making Friends and Rivals",
+							"page": 49,
 							"id": "12f",
 							"entries": [
 								"While a character has 2 Relationship Points or more with a student NPC, that NPC becomes a Friend, and the character receives a {@b Bond Boon} from that person as long as the NPC is a Friend.",
@@ -2944,6 +3121,7 @@
 								{
 									"type": "entries",
 									"name": "Deepening Relationships",
+									"page": 49,
 									"id": "130",
 									"entries": [
 										"Once a student NPC has become a character's Friend, the character has the option of deepening the Relationship. The next time a Relationship encounter happens with the Friend, the character can express a wish for a deeper connection with that NPC. This might be a romantic pairing, a deeper platonic camaraderie, or a sibling-like bond. Before this encounter takes place, talk to the player to ensure a clear understanding of what sort of Relationship they seek with the NPC.",
@@ -2960,6 +3138,7 @@
 										{
 											"type": "entries",
 											"name": "Becoming Beloveds",
+											"page": 49,
 											"id": "131",
 											"entries": [
 												"If a player wants a deeper Relationship between their character and a Friend, the Friend can become the character's Beloved if the character has 2 Relationship Points or more with the NPC. During the next Relationship encounter, they can deepen their Relationship and become Beloveds, in addition to the normal interaction the Relationship encounter allows."
@@ -2968,6 +3147,7 @@
 										{
 											"type": "entries",
 											"name": "Beloved Inspiration",
+											"page": 50,
 											"id": "132",
 											"entries": [
 												"When a character has a Beloved, the character gains Beloved Inspiration at the end of each long rest. Beloved Inspiration functions like regular {@book Inspiration|PHB|4|Inspiration} (as described in the {@book Player's Handbook|PHB}), except a character regains a number of uses of Beloved Inspiration after each long rest equal to the number of Beloveds they have, not to exceed a number equal to their proficiency bonus."
@@ -2976,6 +3156,7 @@
 										{
 											"type": "entries",
 											"name": "Ending Beloved Relationships",
+											"page": 50,
 											"id": "133",
 											"entries": [
 												"A character can end a Beloved Relationship at any time. When that Relationship ends, the NPC no longer provides Beloved Inspiration to the character.",
@@ -2989,12 +3170,14 @@
 						{
 							"type": "section",
 							"name": "Fellow Students",
+							"page": 50,
 							"id": "134",
 							"entries": [
 								"The student NPCs are described on the next few pages. Each NPC entry includes personal details and a short biography, along with the Extracurriculars and Job the character is involved in, if any. If an NPC becomes a character's Friend, the character receives the Bond Boon noted in the NPC's entry. If the NPC becomes a Rival, the character suffers the noted Bond Bane instead.",
 								{
 									"type": "entries",
 									"name": "College and Year",
+									"page": 50,
 									"id": "135",
 									"entries": [
 										"The academic year noted for an NPC is during the \"{@adventure Campus Kerfuffle|SCC-CK|0}\" adventure in this chapter. College affiliations for first-year students are provided for flavor and for their subsequent years (students don't join a college until their second year).",
@@ -3004,6 +3187,7 @@
 								{
 									"type": "entries",
 									"name": "Stat Blocks",
+									"page": 50,
 									"id": "136",
 									"entries": [
 										"The student NPCs are meant to interact with the characters primarily in roleplaying situations and to help create the flavor of attending a university. They aren't intended to wade into combat\u2014or even venture off campus\u2014when the characters embark on adventures.",
@@ -3039,6 +3223,7 @@
 								{
 									"type": "entries",
 									"name": "Aurora Luna Wynterstarr",
+									"page": 51,
 									"id": "138",
 									"entries": [
 										"{@i Neutral Dhampir First Year (Witherbloom})",
@@ -3066,12 +3251,24 @@
 															"type": "item",
 															"name": "Extracurriculars:",
 															"entry": "Strixhaven Show Band Association"
+														},
+														{
+															"type": "item",
+															"name": "Job:",
+															"entry": "Strixhaven Stadium groundskeeper"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "Out of respect for Aurora, fellow campus musicians will cover your expenses for one night per week at places where live music is common."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "When there's live music on campus, the lyrics always include rude sentiments directed toward you."
 														}
 													]
-												},
-												"{@b Job}: Strixhaven Stadium groundskeeper",
-												"{@b Bond Boon}: Out of respect for Aurora, fellow campus musicians will cover your expenses for one night per week at places where live music is common.",
-												"{@b Bond Bane}: When there's live music on campus, the lyrics always include rude sentiments directed toward you."
+												}
 											]
 										}
 									]
@@ -3079,6 +3276,7 @@
 								{
 									"type": "entries",
 									"name": "Bhedum \"Rampart\" Sooviij",
+									"page": 51,
 									"id": "13a",
 									"entries": [
 										"{@i Lawful Neutral Loxodon First Year (Lorehold})",
@@ -3110,11 +3308,19 @@
 															"type": "item",
 															"name": "Job:",
 															"entry": "None"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "Rampart's commanding presence rubs off, and when you're trying to avoid campus security, your fellow students always help you lie low."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "Library books you need inexplicably go missing at key times, especially those about history. As a result, you can't pull all-nighters."
 														}
 													]
-												},
-												"{@b Bond Boon}: Rampart's commanding presence rubs off, and when you're trying to avoid campus security, your fellow students always help you lie low.",
-												"{@b Bond Bane}: Library books you need inexplicably go missing at key times, especially those about history. As a result, you can't pull all-nighters."
+												}
 											]
 										}
 									]
@@ -3122,6 +3328,7 @@
 								{
 									"type": "entries",
 									"name": "Cadoras Damellawar",
+									"page": 52,
 									"id": "13c",
 									"entries": [
 										"{@i Chaotic Good Elf First Year (Quandrix})",
@@ -3153,11 +3360,19 @@
 															"type": "item",
 															"name": "Job:",
 															"entry": "None"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "The esteem for Cadoras in live-action roleplaying circles extends to you. Guild members will share any information you wish to know about Aberrations, Monstrosities, and Oozes."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "You are a pariah in the campus roleplaying scene. The worst monsters are named after you."
 														}
 													]
-												},
-												"{@b Bond Boon}: The esteem for Cadoras in live-action roleplaying circles extends to you. Guild members will share any information you wish to know about Aberrations, Monstrosities, and Oozes.",
-												"{@b Bond Bane}: You are a pariah in the campus roleplaying scene. The worst monsters are named after you."
+												}
 											]
 										}
 									]
@@ -3165,6 +3380,7 @@
 								{
 									"type": "entries",
 									"name": "Drazhomir Yarnask",
+									"page": 52,
 									"id": "13e",
 									"entries": [
 										"{@i Neutral Good Minotaur Second Year (Quandrix})",
@@ -3191,12 +3407,24 @@
 															"type": "item",
 															"name": "Extracurriculars:",
 															"entry": "Dead Languages Society"
+														},
+														{
+															"type": "item",
+															"name": "Job:",
+															"entry": "Biblioplex book clerk"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "Drazhomir writes you poetry, and the smile it puts on your face makes you likable to everyone on campus except the most stone-hearted."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "Other students who work in the Biblioplex refuse to help you find any of the tomes you seek. Even the reference librarians are more cryptic."
 														}
 													]
-												},
-												"{@b Job}: Biblioplex book clerk",
-												"{@b Bond Boon}: Drazhomir writes you poetry, and the smile it puts on your face makes you likable to everyone on campus except the most stone-hearted.",
-												"{@b Bond Bane}: Other students who work in the Biblioplex refuse to help you find any of the tomes you seek. Even the reference librarians are more cryptic."
+												}
 											]
 										}
 									]
@@ -3204,6 +3432,7 @@
 								{
 									"type": "entries",
 									"name": "Grayson Wildemere",
+									"page": 53,
 									"id": "140",
 									"entries": [
 										"{@i Neutral Human First Year (Silverquill})",
@@ -3222,20 +3451,32 @@
 											"type": "inset",
 											"id": "141",
 											"entries": [
-												"{@b Extracurriculars}: Future Entrepreneurs of Strixhaven, Strixhaven Star",
 												{
 													"type": "list",
 													"style": "list-hang-notitle",
 													"items": [
 														{
 															"type": "item",
+															"name": "Extracurriculars:",
+															"entry": "Future Entrepreneurs of Strixhaven, Strixhaven Star"
+														},
+														{
+															"type": "item",
 															"name": "Job:",
 															"entry": "None"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "Whenever you want to buy something on campus, a few words from Grayson get you deals. There's a 25 percent chance your purchase costs half as much."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "Gossip columns proclaim exaggerated versions of your worst traits."
 														}
 													]
-												},
-												"{@b Bond Boon}: Whenever you want to buy something on campus, a few words from Grayson get you deals. There's a 25 percent chance your purchase costs half as much.",
-												"{@b Bond Bane}: Gossip columns proclaim exaggerated versions of your worst traits."
+												}
 											]
 										}
 									]
@@ -3243,6 +3484,7 @@
 								{
 									"type": "entries",
 									"name": "Greta Gorunn",
+									"page": 53,
 									"id": "142",
 									"entries": [
 										"{@i Chaotic Good Dwarf First Year (Lorehold})",
@@ -3270,12 +3512,24 @@
 															"type": "item",
 															"name": "Extracurriculars:",
 															"entry": "Strixhaven Iron-Lifters Society"
+														},
+														{
+															"type": "item",
+															"name": "Job:",
+															"entry": "Strixhaven Stadium equipment assistant"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "Whenever you need anything heavy moved, members of the Iron-Lifters Society show up to help you."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "Heavy things show up in inconvenient places, such as in front of your dorm door."
 														}
 													]
-												},
-												"{@b Job}: Strixhaven Stadium equipment assistant",
-												"{@b Bond Boon}: Whenever you need anything heavy moved, members of the Iron-Lifters Society show up to help you.",
-												"{@b Bond Bane}: Heavy things show up in inconvenient places, such as in front of your dorm door."
+												}
 											]
 										}
 									]
@@ -3283,6 +3537,7 @@
 								{
 									"type": "entries",
 									"name": "Javenesh Stoutclaw",
+									"page": 54,
 									"id": "144",
 									"entries": [
 										"{@i Neutral Good Owlin Second Year (Lorehold})",
@@ -3309,12 +3564,24 @@
 															"type": "item",
 															"name": "Extracurriculars:",
 															"entry": "Intramural Silkball Club"
+														},
+														{
+															"type": "item",
+															"name": "Job:",
+															"entry": "Bow's End Tavern assistant manager"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "Javenesh's reputation as a tough guy follows you. If peers would be aggressive toward you, they quickly back down."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "The servers at Bow's End Tavern know you are no friend to Javenesh. At the slightest sign of trouble, they blame you and ask you to leave."
 														}
 													]
-												},
-												"{@b Job}: Bow's End Tavern assistant manager",
-												"{@b Bond Boon}: Javenesh's reputation as a tough guy follows you. If peers would be aggressive toward you, they quickly back down.",
-												"{@b Bond Bane}: The servers at Bow's End Tavern know you are no friend to Javenesh. At the slightest sign of trouble, they blame you and ask you to leave."
+												}
 											]
 										}
 									]
@@ -3322,6 +3589,7 @@
 								{
 									"type": "entries",
 									"name": "Larine Arneza",
+									"page": 54,
 									"id": "146",
 									"entries": [
 										"{@i Neutral Good Human First Year (Quandrix})",
@@ -3347,12 +3615,24 @@
 															"type": "item",
 															"name": "Extracurriculars:",
 															"entry": "Intramural Water-Dancing Club"
+														},
+														{
+															"type": "item",
+															"name": "Job:",
+															"entry": "Strixhaven Performing Arts Society ticket taker"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "Larine is an expert at creating stylized distractions. If you want to slip away unnoticed from anywhere on campus, Larine or her club members help you escape."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "You are offered the worst tickets to performances, if any at all."
 														}
 													]
-												},
-												"{@b Job}: Strixhaven Performing Arts Society ticket taker",
-												"{@b Bond Boon}: Larine is an expert at creating stylized distractions. If you want to slip away unnoticed from anywhere on campus, Larine or her club members help you escape.",
-												"{@b Bond Bane}: You are offered the worst tickets to performances, if any at all."
+												}
 											]
 										}
 									]
@@ -3360,6 +3640,7 @@
 								{
 									"type": "entries",
 									"name": "Melwythorne",
+									"page": 55,
 									"id": "149",
 									"entries": [
 										"{@i Neutral Good Dryad First Year (Witherbloom})",
@@ -3391,11 +3672,19 @@
 															"type": "item",
 															"name": "Job:",
 															"entry": "None"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "Melwythorne's spirituality centers you. You can calm even the most frazzled of your peers and, if necessary, extract information as needed."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "Members of the silkball club and the Student-Mages of Faith refuse to acknowledge your presence."
 														}
 													]
-												},
-												"{@b Bond Boon}: Melwythorne's spirituality centers you. You can calm even the most frazzled of your peers and, if necessary, extract information as needed.",
-												"{@b Bond Bane}: Members of the silkball club and the Student-Mages of Faith refuse to acknowledge your presence."
+												}
 											]
 										}
 									]
@@ -3403,6 +3692,7 @@
 								{
 									"type": "entries",
 									"name": "Mina Lee",
+									"page": 55,
 									"id": "14b",
 									"entries": [
 										"{@i Lawful Good Human Second Year (Silverquill})",
@@ -3429,12 +3719,24 @@
 															"type": "item",
 															"name": "Extracurriculars:",
 															"entry": "Strixhaven Star"
+														},
+														{
+															"type": "item",
+															"name": "Job:",
+															"entry": "Firejolt Café server"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "Mina loves sharing her vast repository of knowledge with you. If you seek obscure information that's not secret, Mina researches it and reports her findings within a week."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "Firejolt Café never has the ingredients in stock for the beverages you initially order, even if it's a common drink."
 														}
 													]
-												},
-												"{@b Job}: Firejolt Café server",
-												"{@b Bond Boon}: Mina loves sharing her vast repository of knowledge with you. If you seek obscure information that's not secret, Mina researches it and reports her findings within a week.",
-												"{@b Bond Bane}: Firejolt Café never has the ingredients in stock for the beverages you initially order, even if it's a common drink."
+												}
 											]
 										}
 									]
@@ -3442,6 +3744,7 @@
 								{
 									"type": "entries",
 									"name": "Nora Ann Wu",
+									"page": 56,
 									"id": "14d",
 									"entries": [
 										"{@i Neutral Good Human Second Year (Prismari})",
@@ -3468,12 +3771,24 @@
 															"type": "item",
 															"name": "Extracurriculars:",
 															"entry": "Distinguished Society of Fine Artists"
+														},
+														{
+															"type": "item",
+															"name": "Job:",
+															"entry": "Dormitories resident assistant"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "The faculty's respect for Nora extends to you. You can expect straightforward answers when you ask a faculty member for basic information."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "Few faculty care to help you with basic requests."
 														}
 													]
-												},
-												"{@b Job}: Dormitories resident assistant",
-												"{@b Bond Boon}: The faculty's respect for Nora extends to you. You can expect straightforward answers when you ask a faculty member for basic information.",
-												"{@b Bond Bane}: Few faculty care to help you with basic requests."
+												}
 											]
 										}
 									]
@@ -3481,6 +3796,7 @@
 								{
 									"type": "entries",
 									"name": "Quentillius Antiphiun Melentor III",
+									"page": 56,
 									"id": "14f",
 									"entries": [
 										"{@i Neutral Human First Year (Prismari})",
@@ -3511,11 +3827,19 @@
 															"type": "item",
 															"name": "Job:",
 															"entry": "None"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "You have adopted Quentillius's authoritative voice, and in dire situations, your peers obey you when you issue commands."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "Whenever you perform as part of a production, a small crowd shows up and boos you specifically."
 														}
 													]
-												},
-												"{@b Bond Boon}: You have adopted Quentillius's authoritative voice, and in dire situations, your peers obey you when you issue commands.",
-												"{@b Bond Bane}: Whenever you perform as part of a production, a small crowd shows up and boos you specifically."
+												}
 											]
 										}
 									]
@@ -3523,6 +3847,7 @@
 								{
 									"type": "entries",
 									"name": "Rosimyffenbip \"Rosie\" Wuzfeddlims",
+									"page": 57,
 									"id": "151",
 									"entries": [
 										"{@i Chaotic Good Gnome First Year (Lorehold})",
@@ -3549,12 +3874,24 @@
 															"type": "item",
 															"name": "Extracurriculars:",
 															"entry": "Live-Action Roleplaying Guild"
+														},
+														{
+															"type": "item",
+															"name": "Job:",
+															"entry": "Intramural Fields referee"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "Rosie's energy is contagious. Whenever you travel any significant distance, you can reach your destination in half the normal time."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "Whenever you participate in sports on campus (except for big events, such as the Battle of Strixhaven), fouls are constantly called on you."
 														}
 													]
-												},
-												"{@b Job}: Intramural Fields referee",
-												"{@b Bond Boon}: Rosie's energy is contagious. Whenever you travel any significant distance, you can reach your destination in half the normal time.",
-												"{@b Bond Bane}: Whenever you participate in sports on campus (except for big events, such as the Battle of Strixhaven), fouls are constantly called on you."
+												}
 											]
 										}
 									]
@@ -3562,6 +3899,7 @@
 								{
 									"type": "entries",
 									"name": "Rubina Larkingdale",
+									"page": 57,
 									"id": "153",
 									"entries": [
 										"{@i Lawful Neutral Human First Year (Silverquill})",
@@ -3593,11 +3931,19 @@
 															"type": "item",
 															"name": "Job:",
 															"entry": "None"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "Rubina's gravitas has rubbed off, and you can easily command an entire room's attention. They hear your words favorably if you wish."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "Whenever any band performs in public, its members stop and shake their heads in disapproval when they see you."
 														}
 													]
-												},
-												"{@b Bond Boon}: Rubina's gravitas has rubbed off, and you can easily command an entire room's attention. They hear your words favorably if you wish.",
-												"{@b Bond Bane}: Whenever any band performs in public, its members stop and shake their heads in disapproval when they see you."
+												}
 											]
 										}
 									]
@@ -3605,6 +3951,7 @@
 								{
 									"type": "entries",
 									"name": "Shuvadri Glintmantle",
+									"page": 58,
 									"id": "155",
 									"entries": [
 										"{@i Lawful Good Owlin First Year (Silverquill})",
@@ -3632,12 +3979,24 @@
 															"type": "item",
 															"name": "Extracurriculars:",
 															"entry": "Student-Mages of Faith"
+														},
+														{
+															"type": "item",
+															"name": "Job:",
+															"entry": "Campus Grounds graffiti eraser"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "If you quickly need the help of your peers, they drop everything to assist you as a favor to Shuvadri."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "Graffiti making rude allusions to you keeps appearing on campus, and it takes days to get cleaned."
 														}
 													]
-												},
-												"{@b Job}: Campus Grounds graffiti eraser",
-												"{@b Bond Boon}: If you quickly need the help of your peers, they drop everything to assist you as a favor to Shuvadri.",
-												"{@b Bond Bane}: Graffiti making rude allusions to you keeps appearing on campus, and it takes days to get cleaned."
+												}
 											]
 										}
 									]
@@ -3645,6 +4004,7 @@
 								{
 									"type": "entries",
 									"name": "Tilana Kapule",
+									"page": 58,
 									"id": "157",
 									"entries": [
 										"{@i Neutral Good Human First Year (Quandrix})",
@@ -3676,11 +4036,19 @@
 															"type": "item",
 															"name": "Job:",
 															"entry": "None"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "Tilana loves helping analyze problems. When you go to her for advice, she suggests a helpful solution that you hadn't considered."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "The faculty don't trust you or help you much, for rumor has it that Tilana has found you wanting."
 														}
 													]
-												},
-												"{@b Bond Boon}: Tilana loves helping analyze problems. When you go to her for advice, she suggests a helpful solution that you hadn't considered.",
-												"{@b Bond Bane}: The faculty don't trust you or help you much, for rumor has it that Tilana has found you wanting."
+												}
 											]
 										}
 									]
@@ -3688,6 +4056,7 @@
 								{
 									"type": "entries",
 									"name": "Urzmaktok Grojsh",
+									"page": 59,
 									"id": "159",
 									"entries": [
 										"{@i Neutral Orc Second Year (Witherbloom})",
@@ -3715,12 +4084,24 @@
 															"type": "item",
 															"name": "Extracurriculars:",
 															"entry": "Fantastical Horticulture Club"
+														},
+														{
+															"type": "item",
+															"name": "Job:",
+															"entry": "Campus Magic Labs specimen preparer"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "No matter the subject, you can always find a partner to study with, whether it's Urzmaktok or a classmate doing him a favor."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "No one on campus who isn't another player character will study with you. If you ask, most shrug decline, saying you'll probably fail."
 														}
 													]
-												},
-												"{@b Job}: Campus Magic Labs specimen preparer",
-												"{@b Bond Boon}: No matter the subject, you can always find a partner to study with, whether it's Urzmaktok or a classmate doing him a favor.",
-												"{@b Bond Bane}: No one on campus who isn't another player character will study with you. If you ask, most shrug decline, saying you'll probably fail."
+												}
 											]
 										}
 									]
@@ -3728,6 +4109,7 @@
 								{
 									"type": "entries",
 									"name": "Zanther Bowen",
+									"page": 59,
 									"id": "15b",
 									"entries": [
 										"{@i Chaotic Good Fire Genasi First Year (Prismari})",
@@ -3759,11 +4141,19 @@
 															"type": "item",
 															"name": "Job:",
 															"entry": "None"
+														},
+														{
+															"type": "item",
+															"name": "Bond Boon:",
+															"entry": "You enjoy a high social rank as a result of your association with Zanther. Most of your peers fall all over themselves to do you favors."
+														},
+														{
+															"type": "item",
+															"name": "Bond Bane:",
+															"entry": "No one on campus invites you to parties or events, although your friends receive invitations."
 														}
 													]
-												},
-												"{@b Bond Boon}: You enjoy a high social rank as a result of your association with Zanther. Most of your peers fall all over themselves to do you favors.",
-												"{@b Bond Bane}: No one on campus invites you to parties or events, although your friends receive invitations."
+												}
 											]
 										}
 									]
@@ -3777,6 +4167,7 @@
 		{
 			"type": "section",
 			"name": "Campus Kerfuffle",
+			"page": 60,
 			"entries": [
 				"See the {@adventure Campus Kerfuffle|SCC-CK} adventure."
 			],
@@ -3785,6 +4176,7 @@
 		{
 			"type": "section",
 			"name": "Hunt for Mage Tower",
+			"page": 97,
 			"entries": [
 				"See the {@adventure Hunt for Mage Tower|SCC-HfMT} adventure."
 			],
@@ -3793,6 +4185,7 @@
 		{
 			"type": "section",
 			"name": "The Magister's Masquerade",
+			"page": 125,
 			"entries": [
 				"See the {@adventure The Magister's Masquerade|SCC-TMM} adventure."
 			],
@@ -3801,6 +4194,7 @@
 		{
 			"type": "section",
 			"name": "A Reckoning in Ruins",
+			"page": 157,
 			"entries": [
 				"See the {@adventure A Reckoning in Ruins|SCC-ARiR} adventure."
 			],
@@ -3809,6 +4203,7 @@
 		{
 			"type": "section",
 			"name": "Friends and Foes",
+			"page": 183,
 			"id": "445",
 			"entries": [
 				"This chapter provides more than forty monsters and NPCs who live in and around Strixhaven. They appear in this book's adventures, and you're free to use them in adventures of your own creation, whether those tales are set in the university or elsewhere in the D&D multiverse.",
@@ -4063,12 +4458,14 @@
 				{
 					"type": "section",
 					"name": "Using a Stat Block",
+					"page": 183,
 					"id": "446",
 					"entries": [
 						"This chapter is a companion to the {@book Monster Manual|MM} and adopts a similar presentation. If you are unfamiliar with the monster stat block format, read the {@book introduction|MM|0} of the {@book Monster Manual|MM} before proceeding further. That book explains stat block terminology and gives rules for various monster traits\u2014information that isn't repeated here.",
 						{
 							"type": "entries",
 							"name": "Unusual Attacks and Magic",
+							"page": 183,
 							"id": "447",
 							"entries": [
 								"Herein you will find some weapons that deal unusual damage types and spellcasting that functions in atypical ways. Such an exception is a special feature of a stat block and represents how the creature uses the weapon or casts its spells; the exception has no effect on how a weapon or a spell functions for someone else."
@@ -4077,6 +4474,7 @@
 						{
 							"type": "entries",
 							"name": "Meeting Magic Item Prerequisites",
+							"page": 183,
 							"id": "448",
 							"entries": [
 								"If a stat block contains the name of a class in the creature's name or in parentheses under the name, the creature is considered a member of that class for the purpose of meeting prerequisites for magic items."
@@ -4087,6 +4485,7 @@
 				{
 					"type": "section",
 					"name": "Monsters",
+					"page": 184,
 					"id": "449",
 					"entries": [
 						{
@@ -4122,6 +4521,7 @@
 						{
 							"type": "entries",
 							"name": "Lorehold Scholars",
+							"page": 196,
 							"entries": [
 								"The archaeomancers of Lorehold College draw their magical might from the flow of time and fate and the way those forces shape the course of history. Scholars of this broad mystical study divide between those who see history as an unpredictable jumble of chance and those who believe events form a perfect\u2014and predictable\u2014pattern.",
 								{
@@ -4149,6 +4549,7 @@
 						{
 							"type": "entries",
 							"name": "Prismari Scholars",
+							"page": 204,
 							"entries": [
 								"The scholars of Prismari College believe that art is the truest form of spellcraft. They use magic to make splendid art, and they employ artistry to make their magic spectacular.",
 								{
@@ -4176,6 +4577,7 @@
 						{
 							"type": "entries",
 							"name": "Quandrix Scholars",
+							"page": 207,
 							"entries": [
 								"The scholars of Quandrix College focus on the mathematical principles that govern reality. Through these formulas, they can manipulate properties of matter and space, as well as abstract and conceptual space such as the mind, probability, and the flow of magic itself.",
 								{
@@ -4203,6 +4605,7 @@
 						{
 							"type": "entries",
 							"name": "Silverquill Scholars",
+							"page": 213,
 							"entries": [
 								"The scholars of Silverquill College study the power of magic shaped through spoken and written words. They use that power either to illuminate and guide or to obscure and demoralize.",
 								{
@@ -4230,6 +4633,7 @@
 						{
 							"type": "entries",
 							"name": "Witherbloom Scholars",
+							"page": 220,
 							"entries": [
 								"Witherbloom College studies the magic inherent in the natural cycle of life and death. Witherbloom professors approach the philosophy from different directions, with one methodology focusing on decay and the other dealing with growth.",
 								{
@@ -4261,6 +4665,7 @@
 		{
 			"type": "section",
 			"name": "Campus Map",
+			"page": 224,
 			"id": "483",
 			"entries": [
 				{

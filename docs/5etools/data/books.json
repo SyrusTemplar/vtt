@@ -206,7 +206,10 @@
 						"How to Use This Book",
 						"What Is a Monster?",
 						"Statistics",
-						"Legendary Creatures"
+						"Legendary Creatures",
+						"Shadow Dragon Template",
+						"Half-Dragon Template",
+						"Spore Servant Template"
 					]
 				},
 				{
@@ -567,6 +570,83 @@
 			]
 		},
 		{
+			"name": "Plane Shift: Zendikar",
+			"id": "PS-Z",
+			"source": "PSZ",
+			"group": "supplement-alt",
+			"coverUrl": "img/covers/PSZ.png",
+			"published": "2016-04-27",
+			"author": "Wizards RPG Team",
+			"contents": [
+				{
+					"name": "Introduction",
+					"headers": [
+						"The World"
+					]
+				},
+				{
+					"name": "Races of Zendikar"
+				},
+				{
+					"name": "A Zendikar Bestiary"
+				}
+			]
+		},
+		{
+			"name": "Plane Shift: Innistrad",
+			"id": "PS-I",
+			"source": "PSI",
+			"group": "supplement-alt",
+			"coverUrl": "img/covers/PSI.png",
+			"published": "2016-07-12",
+			"author": "Wizards RPG Team",
+			"contents": [
+				{
+					"name": "Introduction"
+				},
+				{
+					"name": "The World of Innistrad",
+					"headers": [
+						"Horrors of the Night",
+						"Defenders of Humanity"
+					]
+				},
+				{
+					"name": "Life on Innistrad",
+					"headers": [
+						"People of Innistrad",
+						"The Church of Avacyn",
+						"Inquisitor Background"
+					]
+				},
+				{
+					"name": "Creatures of the Night"
+				},
+				{
+					"name": "The Coming of Emrakul",
+					"headers": [
+						"Rise of Emrakul",
+						"Emrakul's Madness"
+					]
+				},
+				{
+					"name": "Curse of Innistrad",
+					"headers": [
+						"Lands of Barovia\u2014Outland Valleys",
+						"Village of Barovia\u2014Shadowgrange",
+						"Argynvostholt\u2014Heron's Light Hold",
+						"Krezk",
+						"The Ruins of Berez",
+						"Van Richten's Tower\u2014Rem Karolus's Tower",
+						"The Wizard of Wines and Wereravens",
+						"Yester Hill",
+						"Werewolf Den",
+						"Adventure Hooks"
+					]
+				}
+			]
+		},
+		{
 			"name": "Adventurers League",
 			"id": "AL",
 			"source": "AL",
@@ -648,6 +728,64 @@
 						"type": "appendix",
 						"identifier": "B"
 					}
+				}
+			]
+		},
+		{
+			"name": "Plane Shift: Kaladesh",
+			"id": "PS-K",
+			"source": "PSK",
+			"group": "supplement-alt",
+			"coverUrl": "img/covers/PSK.png",
+			"published": "2017-02-16",
+			"author": "Wizards RPG Team",
+			"contents": [
+				{
+					"name": "Introduction"
+				},
+				{
+					"name": "The World of Kaladesh",
+					"headers": [
+						"The Consulate and Renegades",
+						"Invention and Magic",
+						"Inventing Options",
+						"A Kaladesh Campaign"
+					]
+				},
+				{
+					"name": "Races of Kaladesh"
+				},
+				{
+					"name": "A Kaladesh Bestiary"
+				}
+			]
+		},
+		{
+			"name": "Plane Shift: Amonkhet",
+			"id": "PS-A",
+			"source": "PSA",
+			"group": "supplement-alt",
+			"coverUrl": "img/covers/PSA.png",
+			"published": "2017-07-06",
+			"author": "Wizards RPG Team",
+			"contents": [
+				{
+					"name": "Introduction"
+				},
+				{
+					"name": "The World of Amonkhet",
+					"headers": [
+						"People of Naktamun"
+					]
+				},
+				{
+					"name": "Races of Amonkhet"
+				},
+				{
+					"name": "Trials of the Five Gods"
+				},
+				{
+					"name": "An Amonkhet Bestiary"
 				}
 			]
 		},
@@ -739,6 +877,45 @@
 						"type": "appendix",
 						"identifier": "B"
 					}
+				}
+			]
+		},
+		{
+			"name": "Plane Shift: Ixalan",
+			"id": "PS-X",
+			"source": "PSX",
+			"group": "supplement-alt",
+			"coverUrl": "img/covers/PSX.png",
+			"published": "2018-01-09",
+			"author": "Wizards RPG Team",
+			"contents": [
+				{
+					"name": "Introduction"
+				},
+				{
+					"name": "The World of Ixalan",
+					"headers": [
+						"Sun Empire",
+						"River Heralds",
+						"Legion of Dusk",
+						"Brazen Coalition"
+					]
+				},
+				{
+					"name": "Races of Ixalan"
+				},
+				{
+					"name": "Land of the Great River",
+					"headers": [
+						"Ancient Sites",
+						"Treasure"
+					]
+				},
+				{
+					"name": "An Ixalan Bestiary",
+					"headers": [
+						"Appendix: The Colors of Magic"
+					]
 				}
 			]
 		},
@@ -840,6 +1017,44 @@
 						"type": "chapter",
 						"identifier": 6
 					}
+				}
+			]
+		},
+		{
+			"name": "Plane Shift: Dominaria",
+			"id": "PS-D",
+			"source": "PSD",
+			"group": "supplement-alt",
+			"coverUrl": "img/covers/PSD.png",
+			"published": "2018-07-31",
+			"author": "Wizards RPG Team",
+			"contents": [
+				{
+					"name": "Introduction",
+					"headers": [
+						"The Domains"
+					]
+				},
+				{
+					"name": "Seven Pillars of Benalia"
+				},
+				{
+					"name": "Church of Serra"
+				},
+				{
+					"name": "Tolarian Academy"
+				},
+				{
+					"name": "Merfolk of Vodalia"
+				},
+				{
+					"name": "Belezenlok's Cabal"
+				},
+				{
+					"name": "Warhosts of Keld"
+				},
+				{
+					"name": "Elves of Llanowar"
 				}
 			]
 		},

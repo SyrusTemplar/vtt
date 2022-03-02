@@ -27,6 +27,17 @@ class PageFilterBestiary extends PageFilter {
 		}
 	}
 
+	static _ascSortDragonAgeFilter (a, b) {
+		a = a.item;
+		b = b.item;
+		const ixA = PageFilterBestiary._DRAGON_AGES.indexOf(a);
+		const ixB = PageFilterBestiary._DRAGON_AGES.indexOf(b);
+		if (~ixA && ~ixB) return SortUtil.ascSort(ixA, ixB);
+		if (~ixA) return Number.MIN_SAFE_INTEGER;
+		if (~ixB) return Number.MAX_SAFE_INTEGER;
+		return SortUtil.ascSortLower(a, b);
+	}
+
 	static getAllImmRest (toParse, key) {
 		const out = [];
 		for (const it of toParse) this._getAllImmRest_recurse(it, key, out); // Speed > safety
@@ -197,6 +208,17 @@ class PageFilterBestiary extends PageFilter {
 			displayFn: it => Parser.getOrdinalForm(it),
 		});
 		this._spellKnownFilter = new Filter({header: "Spells Known", displayFn: (it) => it.split("|")[0].toTitleCase(), itemSortFn: SortUtil.ascSortLower});
+		this._dragonAgeFilter = new Filter({
+			header: "Dragon Age",
+			items: [...PageFilterBestiary._DRAGON_AGES],
+			itemSortFn: PageFilterBestiary._ascSortDragonAgeFilter,
+			displayFn: (it) => it.toTitleCase(),
+		});
+		this._dragonCastingColor = new Filter({
+			header: "Dragon Casting Color",
+			items: [...Renderer.monster.dragonCasterVariant.getAvailableColors()],
+			displayFn: (it) => it.toTitleCase(),
+		});
 	}
 
 	static mutateForFilters (mon) {
@@ -355,6 +377,8 @@ class PageFilterBestiary extends PageFilter {
 		this._conditionsInflictedFilterBase.addItem(mon.conditionInflict);
 		this._conditionsInflictedFilterLegendary.addItem(mon.conditionInflictLegendary);
 		this._conditionsInflictedFilterSpells.addItem(mon.conditionInflictSpell);
+		this._dragonAgeFilter.addItem(mon.dragonAge);
+		this._dragonCastingColor.addItem(mon.dragonCastingColor);
 	}
 
 	async _pPopulateBoxOptions (opts) {
@@ -387,6 +411,8 @@ class PageFilterBestiary extends PageFilter {
 			this._languageFilter,
 			this._damageTypeFilter,
 			this._conditionsInflictedFilter,
+			this._dragonAgeFilter,
+			this._dragonCastingColor,
 			this._acFilter,
 			this._averageHpFilter,
 			this._abilityScoreFilter,
@@ -428,6 +454,8 @@ class PageFilterBestiary extends PageFilter {
 				m.conditionInflictLegendary,
 				m.conditionInflictSpell,
 			],
+			m.dragonAge,
+			m.dragonCastingColor,
 			m._fAc,
 			m._fHp,
 			[
@@ -474,6 +502,7 @@ PageFilterBestiary._BASIC_ENTRY_PROPS = [
 	"legendary",
 	"mythic",
 ];
+PageFilterBestiary._DRAGON_AGES = ["wyrmling", "young", "adult", "ancient", "greatwyrm", "aspect"];
 
 class ModalFilterBestiary extends ModalFilter {
 	/**

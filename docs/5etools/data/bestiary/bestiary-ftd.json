@@ -261,6 +261,7 @@
 					]
 				}
 			],
+			"dragonAge": "adult",
 			"traitTags": [
 				"Amphibious",
 				"Legendary Resistances"
@@ -560,6 +561,7 @@
 					]
 				}
 			],
+			"dragonAge": "adult",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -831,6 +833,7 @@
 				}
 			],
 			"dragonCastingColor": "deep",
+			"dragonAge": "adult",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -1142,6 +1145,7 @@
 					]
 				}
 			],
+			"dragonAge": "adult",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -1415,6 +1419,7 @@
 					]
 				}
 			],
+			"dragonAge": "adult",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -1729,6 +1734,7 @@
 					]
 				}
 			],
+			"dragonAge": "adult",
 			"traitTags": [
 				"Legendary Resistances",
 				"Spider Climb"
@@ -2034,6 +2040,7 @@
 					]
 				}
 			],
+			"dragonAge": "adult",
 			"traitTags": [
 				"Amphibious",
 				"Legendary Resistances"
@@ -2268,6 +2275,7 @@
 					]
 				}
 			],
+			"dragonAge": "wyrmling",
 			"traitTags": [
 				"Amphibious"
 			],
@@ -2570,6 +2578,7 @@
 					]
 				}
 			],
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -2870,6 +2879,7 @@
 					]
 				}
 			],
+			"dragonAge": "ancient",
 			"traitTags": [
 				"Amphibious",
 				"Legendary Resistances"
@@ -3170,6 +3180,7 @@
 					]
 				}
 			],
+			"dragonAge": "ancient",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -3442,6 +3453,7 @@
 				}
 			],
 			"dragonCastingColor": "deep",
+			"dragonAge": "ancient",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -3716,6 +3728,7 @@
 					]
 				}
 			],
+			"dragonAge": "ancient",
 			"traitTags": [
 				"Amphibious",
 				"Legendary Resistances"
@@ -4024,6 +4037,7 @@
 					]
 				}
 			],
+			"dragonAge": "ancient",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -4296,6 +4310,7 @@
 					]
 				}
 			],
+			"dragonAge": "ancient",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -4607,6 +4622,7 @@
 					]
 				}
 			],
+			"dragonAge": "ancient",
 			"traitTags": [
 				"Legendary Resistances",
 				"Spider Climb"
@@ -4767,6 +4783,7 @@
 					]
 				}
 			],
+			"dragonAge": "ancient",
 			"traitTags": [
 				"Legendary Resistances",
 				"Siege Monster"
@@ -5059,6 +5076,7 @@
 					]
 				}
 			],
+			"dragonAge": "ancient",
 			"traitTags": [
 				"Amphibious",
 				"Legendary Resistances"
@@ -5195,7 +5213,7 @@
 				{
 					"name": "Lightning Burst (Lightning Form Only)",
 					"entries": [
-						"The animated breath magically teleports to an unoccupied space it can see within 30 feet of it. Each creature with 5 feet of the animated breath after it teleports takes 3 ({@damage 1d6}) lightning damage."
+						"The animated breath magically teleports to an unoccupied space it can see within 30 feet of it. Each creature within 5 feet of the animated breath after it teleports takes 3 ({@damage 1d6}) lightning damage."
 					]
 				}
 			],
@@ -5413,6 +5431,7 @@
 					]
 				}
 			],
+			"dragonAge": "aspect",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -5610,6 +5629,7 @@
 					]
 				}
 			],
+			"dragonAge": "aspect",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -5889,6 +5909,7 @@
 				}
 			],
 			"dragonCastingColor": "black",
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -6166,6 +6187,7 @@
 				}
 			],
 			"dragonCastingColor": "blue",
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -6474,6 +6496,7 @@
 				}
 			],
 			"dragonCastingColor": "brass",
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -6785,6 +6808,7 @@
 				}
 			],
 			"dragonCastingColor": "bronze",
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -7096,6 +7120,7 @@
 				}
 			],
 			"dragonCastingColor": "copper",
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -7321,6 +7346,7 @@
 					]
 				}
 			],
+			"dragonAge": "wyrmling",
 			"senseTags": [
 				"B",
 				"D"
@@ -7621,6 +7647,7 @@
 					]
 				}
 			],
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -7828,6 +7855,7 @@
 				}
 			],
 			"dragonCastingColor": "deep",
+			"dragonAge": "wyrmling",
 			"senseTags": [
 				"B",
 				"D"
@@ -9366,6 +9394,7 @@
 					]
 				}
 			],
+			"dragonAge": "wyrmling",
 			"traitTags": [
 				"Amphibious"
 			],
@@ -10958,6 +10987,7 @@
 					]
 				}
 			],
+			"dragonAge": "wyrmling",
 			"senseTags": [
 				"B",
 				"D"
@@ -11258,6 +11288,7 @@
 					]
 				}
 			],
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -12093,6 +12124,7 @@
 				}
 			],
 			"dragonCastingColor": "gold",
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -12374,6 +12406,7 @@
 				}
 			],
 			"dragonCastingColor": "green",
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -13261,6 +13294,7 @@
 					]
 				}
 			],
+			"dragonAge": "wyrmling",
 			"senseTags": [
 				"B",
 				"D"
@@ -13539,6 +13573,7 @@
 				}
 			],
 			"dragonCastingColor": "red",
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -13782,6 +13817,7 @@
 					]
 				}
 			],
+			"dragonAge": "wyrmling",
 			"traitTags": [
 				"Spider Climb"
 			],
@@ -14087,6 +14123,7 @@
 					]
 				}
 			],
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -14399,6 +14436,7 @@
 				}
 			],
 			"dragonCastingColor": "silver",
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -14730,6 +14768,7 @@
 					]
 				}
 			],
+			"dragonAge": "wyrmling",
 			"traitTags": [
 				"Amphibious"
 			],
@@ -15031,6 +15070,7 @@
 					]
 				}
 			],
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -15311,6 +15351,7 @@
 				}
 			],
 			"dragonCastingColor": "white",
+			"dragonAge": "greatwyrm",
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -15557,6 +15598,7 @@
 					]
 				}
 			],
+			"dragonAge": "young",
 			"traitTags": [
 				"Amphibious"
 			],
@@ -15797,6 +15839,7 @@
 					]
 				}
 			],
+			"dragonAge": "young",
 			"senseTags": [
 				"B",
 				"SD"
@@ -16016,6 +16059,7 @@
 				}
 			],
 			"dragonCastingColor": "deep",
+			"dragonAge": "young",
 			"senseTags": [
 				"B",
 				"SD"
@@ -16206,6 +16250,7 @@
 					]
 				}
 			],
+			"dragonAge": "young",
 			"traitTags": [
 				"Amphibious"
 			],
@@ -16450,6 +16495,7 @@
 					]
 				}
 			],
+			"dragonAge": "young",
 			"senseTags": [
 				"B",
 				"SD"
@@ -16678,6 +16724,7 @@
 					]
 				}
 			],
+			"dragonAge": "young",
 			"senseTags": [
 				"B",
 				"SD"
@@ -16930,6 +16977,7 @@
 					]
 				}
 			],
+			"dragonAge": "young",
 			"traitTags": [
 				"Spider Climb"
 			],
@@ -17062,6 +17110,7 @@
 					]
 				}
 			],
+			"dragonAge": "young",
 			"traitTags": [
 				"Siege Monster"
 			],
@@ -17298,6 +17347,7 @@
 					]
 				}
 			],
+			"dragonAge": "young",
 			"traitTags": [
 				"Amphibious"
 			],

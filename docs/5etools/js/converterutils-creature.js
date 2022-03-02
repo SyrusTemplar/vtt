@@ -464,6 +464,8 @@ TraitActionTag.tags = { // true = map directly; string = map to this string
 		"devil sight": "Devil's Sight",
 
 		"immutable form": "Immutable Form",
+
+		"tree stride": "Tree Stride",
 	},
 	action: {
 		"multiattack": "Multiattack",
@@ -1281,6 +1283,17 @@ class TagImmResVulnConditional {
 	}
 }
 
+class DragonAgeTag {
+	static tryRun (mon) {
+		const type = mon.type?.type ?? mon.type;
+		if (type !== "dragon") return;
+
+		mon.name.replace(/\b(?<age>young|adult|wyrmling|greatwyrm|ancient|aspect)\b/i, (...m) => {
+			mon.dragonAge = m.last().age.toLowerCase();
+		});
+	}
+}
+
 if (typeof module !== "undefined") {
 	module.exports = {
 		AcConvert,
@@ -1299,5 +1312,6 @@ if (typeof module !== "undefined") {
 		DetectNamedCreature,
 		TagImmResVulnConditional,
 		SpeedConvert,
+		DragonAgeTag,
 	};
 }

@@ -7,7 +7,7 @@ if (IS_NODE) require("./parser.js");
 
 // in deployment, `IS_DEPLOYED = "<version number>";` should be set below.
 IS_DEPLOYED = undefined;
-VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"1.149.1"/* 5ETOOLS_VERSION__CLOSE */;
+VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"1.150.1"/* 5ETOOLS_VERSION__CLOSE */;
 DEPLOYED_STATIC_ROOT = ""; // "https://static.5etools.com/"; // FIXME re-enable this when we have a CDN again
 // for the roll20 script to set
 IS_VTT = false;
@@ -67,6 +67,9 @@ VeCt = {
 
 	ENTDATA_TABLE_INCLUDE: "tableInclude",
 	ENTDATA_ITEM_MERGED_ENTRY_TAG: "item.mergedEntryTag",
+
+	DRAG_TYPE_IMPORT: "ve-Import",
+	DRAG_TYPE_LOOT: "ve-Loot",
 };
 
 // STRING ==============================================================================================================
@@ -85,7 +88,7 @@ String.prototype.lowercaseFirst = String.prototype.lowercaseFirst || function ()
 };
 
 String.prototype.toTitleCase = String.prototype.toTitleCase || function () {
-	let str = this.replace(/([^\W_]+[^\s-/]*) */g, m0 => m0.charAt(0).toUpperCase() + m0.substr(1).toLowerCase());
+	let str = this.replace(/([^\W_]+[^-\u2014\s/]*) */g, m0 => m0.charAt(0).toUpperCase() + m0.substr(1).toLowerCase());
 
 	// Require space surrounded, as title-case requires a full word on either side
 	StrUtil._TITLE_LOWER_WORDS_RE = StrUtil._TITLE_LOWER_WORDS_RE || StrUtil.TITLE_LOWER_WORDS.map(it => new RegExp(`\\s${it}\\s`, "gi"));
@@ -279,7 +282,7 @@ StrUtil = {
 		return string.uppercaseFirst();
 	},
 	// Certain minor words should be left lowercase unless they are the first or last words in the string
-	TITLE_LOWER_WORDS: ["a", "an", "the", "and", "but", "or", "for", "nor", "as", "at", "by", "for", "from", "in", "into", "near", "of", "on", "onto", "to", "with", "over"],
+	TITLE_LOWER_WORDS: ["a", "an", "the", "and", "but", "or", "for", "nor", "as", "at", "by", "for", "from", "in", "into", "near", "of", "on", "onto", "to", "with", "over", "von"],
 	// Certain words such as initialisms or acronyms should be left uppercase
 	TITLE_UPPER_WORDS: ["Id", "Tv", "Dm", "Ok", "Npc", "Pc", "Tpk"],
 
@@ -1655,16 +1658,22 @@ MiscUtil = {
 EventUtil = {
 	_mouseX: 0,
 	_mouseY: 0,
+	_isUsingTouch: false,
 
 	init () {
 		document.addEventListener("mousemove", evt => {
 			EventUtil._mouseX = evt.clientX;
 			EventUtil._mouseY = evt.clientY;
 		});
+		document.addEventListener("touchstart", () => {
+			EventUtil._isUsingTouch = true;
+		});
 	},
 
 	getClientX (evt) { return evt.touches && evt.touches.length ? evt.touches[0].clientX : evt.clientX; },
 	getClientY (evt) { return evt.touches && evt.touches.length ? evt.touches[0].clientY : evt.clientY; },
+
+	isUsingTouch () { return !!EventUtil._isUsingTouch; },
 
 	isInInput (evt) {
 		return evt.target.nodeName === "INPUT" || evt.target.nodeName === "TEXTAREA"
@@ -1765,7 +1774,7 @@ ContextUtil = {
 			const $elesAction = this._actions.map(it => {
 				if (it == null) return $(`<div class="my-1 w-100 ui-ctx__divider"></div>`);
 
-				const $row = $$`<div class="py-1 px-5 ui-ctx__row ${it.isDisabled ? "disabled" : ""} ${it.style || ""}">${it.text}</div>`
+				const $btnAction = $(`<div class="w-100 min-w-0 ui-ctx__btn py-1 pl-5 ${it.fnActionAlt ? "" : "pr-5"}" ${it.isDisabled ? "disabled" : ""}>${it.text}</div>`)
 					.click(async evt => {
 						if (it.isDisabled) return;
 
@@ -1777,9 +1786,23 @@ ContextUtil = {
 						const result = await it.fnAction(evt, this._userData);
 						if (this._resolveResult) this._resolveResult(result);
 					});
-				if (it.title) $row.title(it.title);
+				if (it.title) $btnAction.title(it.title);
 
-				return $row;
+				const $btnActionAlt = it.fnActionAlt ? $(`<div class="ui-ctx__btn ml-1 bl-1 py-1 px-4" ${it.isDisabled ? "disabled" : ""}>${it.textAlt ?? `<span class="glyphicon glyphicon-cog"></span>`}</div>`)
+					.click(async evt => {
+						if (it.isDisabled) return;
+
+						evt.preventDefault();
+						evt.stopPropagation();
+
+						this.close();
+
+						const result = await it.fnActionAlt(evt, this._userData);
+						if (this._resolveResult) this._resolveResult(result);
+					}) : null;
+				if (it.titleAlt && $btnActionAlt) $btnActionAlt.title(it.titleAlt);
+
+				return $$`<div class="ui-ctx__row ve-flex-v-center ${it.style || ""}">${$btnAction}${$btnActionAlt}</div>`;
 			});
 
 			this._$ele = $$`<div class="ve-flex-col ui-ctx__wrp py-2">${$elesAction}</div>`
@@ -1810,6 +1833,9 @@ ContextUtil = {
 	 * @param [opts.isDisabled] If this action is disabled.
 	 * @param [opts.title] Help (title) text.
 	 * @param [opts.style] Additional CSS classes to add (e.g. `ctx-danger`).
+	 * @param [opts.fnActionAlt] Alternate action, which can be accessed by clicking a secondary "settings"-esque button.
+	 * @param [opts.textAlt] Text for the alt-action button
+	 * @param [opts.titleAlt] Title for the alt-action button
 	 */
 	Action: function (text, fnAction, opts) {
 		opts = opts || {};
@@ -1820,6 +1846,10 @@ ContextUtil = {
 		this.isDisabled = opts.isDisabled;
 		this.title = opts.title;
 		this.style = opts.style;
+
+		this.fnActionAlt = opts.fnActionAlt;
+		this.textAlt = opts.textAlt;
+		this.titleAlt = opts.titleAlt;
 	},
 };
 
@@ -1916,6 +1946,12 @@ UrlUtil = {
 			.on("click", async evt => {
 				let url = window.location.href;
 
+				if (evt.ctrlKey) {
+					await MiscUtil.pCopyTextToClipboard(filterBox.getFilterTag());
+					JqueryUtil.showCopiedEffect($btn);
+					return;
+				}
+
 				const parts = filterBox.getSubHashes({isAddSearchTerm: true});
 				parts.unshift(url);
 
@@ -1928,7 +1964,7 @@ UrlUtil = {
 				await MiscUtil.pCopyTextToClipboard(parts.join(HASH_PART_SEP));
 				JqueryUtil.showCopiedEffect($btn);
 			})
-			.title("Get Link to Filters (SHIFT adds List)");
+			.title("Get link to filters (shift adds list; CTRL copies @filter tag)");
 	},
 
 	mini: {
@@ -2092,6 +2128,7 @@ UrlUtil.PG_CHAR_CREATION_OPTIONS = "charcreationoptions.html";
 UrlUtil.PG_RECIPES = "recipes.html";
 UrlUtil.PG_CLASS_SUBCLASS_FEATURES = "classfeatures.html";
 UrlUtil.PG_MAPS = "maps.html";
+UrlUtil.PG_SEARCH = "search.html";
 
 UrlUtil.URL_TO_HASH_BUILDER = {};
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BESTIARY] = (it) => UrlUtil.encodeForHash([it.name, it.source]);
@@ -2902,6 +2939,15 @@ DataUtil = {
 				displayText,
 				others,
 			};
+		},
+
+		packUid (ent, tag) {
+			// <name>|<source>
+			const sourceDefault = Parser.getTagSource(tag);
+			return [
+				ent.name,
+				(ent.source || "").toLowerCase() === sourceDefault.toLowerCase() ? "" : ent.source,
+			].join("|").replace(/\|+$/, ""); // Trim trailing pipes
 		},
 
 		getNormalizedUid (uid, tag) {
@@ -3934,6 +3980,17 @@ DataUtil = {
 			return DataUtil.class._loadedRawJson;
 		},
 
+		packUidSubclass (it) {
+			// <name>|<className>|<classSource>|<source>
+			const sourceDefault = Parser.getTagSource("subclass");
+			return [
+				it.name,
+				it.className,
+				(it.classSource || "").toLowerCase() === sourceDefault.toLowerCase() ? "" : it.classSource,
+				(it.source || "").toLowerCase() === sourceDefault.toLowerCase() ? "" : it.source,
+			].join("|").replace(/\|+$/, ""); // Trim trailing pipes
+		},
+
 		/**
 		 * @param uid
 		 * @param [opts]
@@ -4209,6 +4266,16 @@ DataUtil = {
 		},
 
 		getDataUrl () { return `${Renderer.get().baseUrl}data/deities.json`; },
+
+		packUidDeity (it) {
+			// <name>|<pantheon>|<source>
+			const sourceDefault = Parser.getTagSource("deity");
+			return [
+				it.name,
+				(it.pantheon || "").toLowerCase() === "forgotten realms" ? "" : it.pantheon,
+				(it.source || "").toLowerCase() === sourceDefault.toLowerCase() ? "" : it.source,
+			].join("|").replace(/\|+$/, ""); // Trim trailing pipes
+		},
 	},
 
 	table: {
@@ -5925,7 +5992,7 @@ BrewUtil = {
 			if (BrewUtil._filterBox && BrewUtil._sourceFilter) {
 				const cur = BrewUtil._filterBox.getValues();
 				if (cur.Source) {
-					const toSet = JSON.parse(JSON.stringify(cur.Source));
+					const toSet = MiscUtil.copy(cur.Source);
 
 					if (toSet._totals.yes || toSet._totals.no) {
 						if (page === UrlUtil.PG_CLASSES) toSet["Core"] = 1;
@@ -6820,7 +6887,7 @@ function BookModeView (opts) {
 		this._$body.css("overflow", "hidden");
 		this._$body.addClass("bkmv-active");
 
-		const $btnClose = $(`<span class="delete-icon glyphicon glyphicon-remove"></span>`)
+		const $btnClose = $(`<button class="btn btn-xs btn-danger br-0 bt-0 bb-0 btl-0 bbl-0 h-20p" title="Close"><span class="glyphicon glyphicon-remove"></span></button>`)
 			.click(() => this._doHashTeardown());
 		const $dispName = $(`<div></div>`); // pass this to the content function to allow it to set a main header
 		$$`<div class="bkmv__spacer-name split-v-center no-shrink">${$dispName}${$btnClose}</div>`.appendTo(this._$wrpBook);
@@ -7043,12 +7110,7 @@ ExtensionUtil = {
 	},
 
 	async pDoSendStats (evt, ele) {
-		const $parent = $(ele).closest(`[data-page]`);
-		const page = $parent.attr("data-page");
-		const source = $parent.attr("data-source");
-		const hash = $parent.attr("data-hash");
-		const rawExtensionData = $parent.attr("data-extension");
-		const extensionData = rawExtensionData ? JSON.parse(rawExtensionData) : null;
+		const {page, source, hash, extensionData} = ExtensionUtil._getElementData({ele});
 
 		if (page && source && hash) {
 			let toSend = await Renderer.hover.pCacheAndGet(page, source, hash);
@@ -7065,6 +7127,28 @@ ExtensionUtil = {
 
 			ExtensionUtil._doSend("entity", {page, entity: toSend, isTemp: !!evt.shiftKey});
 		}
+	},
+
+	async doDragStart (evt, ele) {
+		const {page, source, hash} = ExtensionUtil._getElementData({ele});
+		const meta = {
+			type: VeCt.DRAG_TYPE_IMPORT,
+			page,
+			source,
+			hash,
+		};
+		evt.dataTransfer.setData("application/json", JSON.stringify(meta));
+	},
+
+	_getElementData ({ele}) {
+		const $parent = $(ele).closest(`[data-page]`);
+		const page = $parent.attr("data-page");
+		const source = $parent.attr("data-source");
+		const hash = $parent.attr("data-hash");
+		const rawExtensionData = $parent.attr("data-extension");
+		const extensionData = rawExtensionData ? JSON.parse(rawExtensionData) : null;
+
+		return {page, source, hash, extensionData};
 	},
 
 	pDoSendStatsPreloaded ({page, entity, isTemp, options}) {

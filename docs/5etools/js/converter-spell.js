@@ -57,7 +57,7 @@ class SpellParser extends BaseParser {
 		}
 
 		if (!inText || !inText.trim()) return options.cbWarning("No input!");
-		const toConvert = this._getCleanInput(inText)
+		const toConvert = this._getCleanInput(inText, options)
 			.split("\n")
 			.filter(it => it && it.trim());
 		const spell = {};

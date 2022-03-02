@@ -8639,7 +8639,7 @@
 					"page": 201,
 					"entries": [
 						"A spell is a discrete magical effect, a single shaping of the magical energies that suffuse the multiverse into a specific, limited expression. In casting a spell, a character carefully plucks at the invisible strands of raw magic suffusing the world, pins them in place in a particular pattern, sets them vibrating in a specific way, and then releases them to unleash the desired effect\u2014in most cases, all in the span of seconds.",
-						"Spells can be versatile tools, weapons, or protective wards. They can deal damage or undo it, impose or remove conditions (see the appendix), drain life energy away, and restore life to the dead.",
+						"Spells can be versatile tools, weapons, or protective wards. They can deal damage or undo it, impose or remove conditions (see {@book appendix A|PHB|12}), drain life energy away, and restore life to the dead.",
 						"Uncounted thousands of spells have been created over the course of the multiverse's history, and many of them are long forgotten. Some might yet lie recorded in crumbling spellbooks hidden in ancient ruins or trapped in the minds of dead gods. Or they might someday be reinvented by a character who has amassed enough power and wisdom to do so.",
 						{
 							"type": "entries",
@@ -9014,6 +9014,26 @@
 								"quickrefIndex": true
 							},
 							"id": "1ee"
+						},
+						{
+							"type": "entries",
+							"name": "Saving Throws",
+							"page": 205,
+							"entries": [
+								" Many spells specify that a target can make a saving throw to avoid some or all of a spell's effects. The spell specifies the ability that the target uses for the save and what happens on a success or failure.",
+								"The DC to resist one of your spells equals 8 + your spellcasting ability modifier + your proficiency bonus + any special modifiers."
+							],
+							"id": "03b"
+						},
+						{
+							"type": "entries",
+							"name": "Attack Rolls",
+							"page": 205,
+							"entries": [
+								"Some spells require the caster to make an attack roll to determine whether the spell effect hits the intended target. Your attack bonus with a spell attack equals your spellcasting ability modifier + your proficiency bonus.",
+								"Most spells that require attack rolls involve ranged attacks. Remember that you have disadvantage on a ranged attack roll if you are within 5 feet of a hostile creature that can see you and that isn't {@condition incapacitated}."
+							],
+							"id": "218"
 						},
 						{
 							"type": "entries",

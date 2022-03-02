@@ -41,7 +41,7 @@
 					"type": "entries",
 					"name": "At Higher Levels",
 					"entries": [
-						"When you cast this spell using a spell slot of 4th level or higher, increase your speed by 5 feet for each spell slot level above 3rd. The spell deals an additional {@damage 1d6} fire damage for each slot level above 3rd."
+						"When you cast this spell using a spell slot of 4th level or higher, increase your speed by 5 feet for each spell slot level above 3rd. The spell deals an additional {@scaledamage 1d6|3-9|1d6} fire damage for each slot level above 3rd."
 					]
 				}
 			],
@@ -224,12 +224,12 @@
 							"type": "item",
 							"name": "Evasion",
 							"entries": [
-								"If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.",
-								"As a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field."
+								"If the creature is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the creature instead takes no damage if it succeeds on the saving throw, and only half damage if it fails."
 							]
 						}
 					]
-				}
+				},
+				"As a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field."
 			],
 			"classes": {
 				"fromClassList": [
@@ -367,7 +367,7 @@
 					"type": "entries",
 					"name": "At Higher Levels",
 					"entries": [
-						"When you cast this spell using a spell slot of 5th level or higher, the damage increases by {@dice 1d6} for each slot level above 4th."
+						"When you cast this spell using a spell slot of 5th level or higher, the damage increases by {@scaledamage 7d6|4-9|1d6} for each slot level above 4th."
 					]
 				}
 			],
@@ -440,7 +440,7 @@
 					"type": "entries",
 					"name": "At Higher Levels",
 					"entries": [
-						"When you cast this spell using a spell slot of 3rd level or higher, increase the cold damage by {@dice 1d8} for each slot level above 2nd."
+						"When you cast this spell using a spell slot of 3rd level or higher, increase the cold damage by {@scaledamage 3d8|2-9|1d8} for each slot level above 2nd."
 					]
 				}
 			],

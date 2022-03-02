@@ -377,8 +377,10 @@ class BookUtil {
 		} else {
 			// In regular chapter mode, add highlights to the appropriate section
 			if (ixChapterPrev != null && ~ixChapterPrev) {
-				BookUtil.curRender.$lnksChapter[ixChapterPrev].removeClass("bk__head-chapter--active");
-				(BookUtil.curRender.$lnksHeader[ixChapterPrev] || []).forEach($lnk => $lnk.removeClass("bk__head-section--active"));
+				if (BookUtil.curRender.$lnksChapter[ixChapterPrev]) {
+					BookUtil.curRender.$lnksChapter[ixChapterPrev].removeClass("bk__head-chapter--active");
+					(BookUtil.curRender.$lnksHeader[ixChapterPrev] || []).forEach($lnk => $lnk.removeClass("bk__head-section--active"));
+				}
 			}
 
 			BookUtil.curRender.$lnksChapter[ixChapter].addClass("bk__head-chapter--active");

@@ -345,7 +345,7 @@ class RenderMap {
 			const loaded = await Renderer.hover.pCacheAndGet(mapData.page, mapData.source, mapData.hash);
 			(RenderMap._AREA_CACHE[mapData.source] =
 				RenderMap._AREA_CACHE[mapData.source] || {})[mapData.hash] =
-				Renderer.adventureBook.getEntryIdLookup(loaded.adventureData.data);
+				Renderer.adventureBook.getEntryIdLookup((loaded.adventureData || loaded.bookData).data);
 			return RenderMap._AREA_CACHE[mapData.source][mapData.hash][areaId];
 		}
 

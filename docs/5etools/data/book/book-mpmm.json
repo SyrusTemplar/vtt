@@ -32,9 +32,11 @@
 								}
 							]
 						}
-					]
+					],
+					"id": "001"
 				}
-			]
+			],
+			"id": "000"
 		},
 		{
 			"type": "section",
@@ -89,7 +91,8 @@
 					"page": 5,
 					"entries": [
 						"When determining your character's ability scores, increase one score by 2 and increase a different score by 1, or increase three different scores by 1. Follow this rule regardless of the method you use to determine the scores, such as rolling or point buy. The \"Quick Build\" section for your character's class offers suggestions on which scores to increase. You can follow those suggestions or ignore them, but you can't raise any of your scores above 20."
-					]
+					],
+					"id": "003"
 				},
 				{
 					"type": "entries",
@@ -97,7 +100,8 @@
 					"page": 5,
 					"entries": [
 						"Your character can speak, read, and write Common and one other language that you and your DM agree is appropriate for the character. The Player's Handbook offers a list of languages to choose from. The DM is free to modify that list for a campaign."
-					]
+					],
+					"id": "004"
 				},
 				{
 					"type": "entries",
@@ -105,7 +109,8 @@
 					"page": 6,
 					"entries": [
 						"Every creature in D&D, including each player character, has a special tag in the rules that identifies the type of creature they are. Most player characters are of the Humanoid type. A race in this chapter tells you what your character's creature type is. Here's a list of the game's creature types in alphabetical order: Aberration, Beast, Celestial, Construct, Dragon, Elemental, Fey, Fiend, Giant, Humanoid, Monstrosity, Ooze, Plant, Undead. These types don't have rules themselves, but some rules in the game affect creatures of certain types in different ways. For example, the cure wounds spell doesn't work on a Construct or an Undead."
-					]
+					],
+					"id": "005"
 				},
 				{
 					"type": "entries",
@@ -113,7 +118,8 @@
 					"page": 6,
 					"entries": [
 						"The typical life span of a player character in the D&D multiverse is about a century, assuming the character doesn't meet a violent end on an adventure. Members of some races, such as dwarves and elves, can live for centuries. If typical members of a race in this book can live longer than a century, that fact is mentioned in the race's description."
-					]
+					],
+					"id": "006"
 				},
 				{
 					"type": "entries",
@@ -121,9 +127,11 @@
 					"page": 6,
 					"entries": [
 						"Player characters, regardless of race, typically fall into the same ranges of height and weight that humans have in our world. If you'd like to determine your character's height or weight randomly, consult the Random Height and Weight table in the Player's Handbook, and choose the row in the table that best represents the build you imagine for your character."
-					]
+					],
+					"id": "007"
 				}
-			]
+			],
+			"id": "002"
 		},
 		{
 			"type": "section",
@@ -403,7 +411,8 @@
 						"{@creature Zuggtmoy|MPMM}"
 					]
 				}
-			]
+			],
+			"id": "008"
 		}
 	]
 }

@@ -656,6 +656,9 @@
 				"An abracadabrus is an ornate, gemstone-studded wooden chest that weighs 25 pounds while empty. Its interior compartment is a cube measuring 1½ feet on a side.",
 				"The chest has 20 charges. A creature can use an action to touch the closed lid of the chest and expend 1 of the chest's charges while naming one or more nonmagical objects (including raw materials, foodstuffs, and liquids) worth a total of 1 gp or less. The named objects magically appear in the chest, provided they can all fit inside it and the chest doesn't contain anything else. For example, the chest can conjure a plate of strawberries, a bowl of hot soup, a flagon of water, a stuffed animal, or a bag of twenty caltrops. Food and drink conjured by the chest are delicious, and they spoil if not consumed after 24 hours. Gems and precious metals created by the chest disappear after 1 minute.",
 				"The chest regains {@dice 1d20} expended charges daily at dawn. If the item's last charge is expended, roll a {@dice d20}. On a 1, the chest loses its magic (becoming an ordinary chest), and its gemstones turn to dust."
+			],
+			"miscTags": [
+				"CF/W"
 			]
 		},
 		{
@@ -1131,6 +1134,9 @@
 			"lootTables": [
 				"Magic Item Table B"
 			],
+			"miscTags": [
+				"CF/W"
+			],
 			"hasFluffImages": true
 		},
 		{
@@ -1193,6 +1199,9 @@
 						]
 					]
 				}
+			],
+			"miscTags": [
+				"CF/W"
 			]
 		},
 		{
@@ -1255,6 +1264,9 @@
 						]
 					]
 				}
+			],
+			"miscTags": [
+				"CF/W"
 			]
 		},
 		{
@@ -2666,7 +2678,7 @@
 			"tier": "minor",
 			"rarity": "very rare",
 			"wondrous": true,
-			"weight": 0.5,
+			"weight": 15,
 			"entries": [
 				"This bag superficially resembles a {@item bag of holding} but is a feeding orifice for a gigantic extradimensional creature. Turning the bag inside out closes the orifice.",
 				"The extradimensional creature attached to the bag can sense whatever is placed inside the bag. Animal or vegetable matter placed wholly in the bag is devoured and lost forever. When part of a living creature is placed in the bag, as happens when someone reaches inside it, there is a {@chance 50} chance that the creature is pulled inside the bag. A creature inside the bag can use its action to try to escape with a successful DC 15 Strength check. Another creature can use its action to reach into the bag to pull a creature out, doing so with a successful DC 20 Strength check (provided it isn't pulled inside the bag first). Any creature that starts its turn inside the bag is devoured, its body destroyed.",
@@ -3517,6 +3529,9 @@
 			"wondrous": true,
 			"entries": [
 				"This spongy, flavorless, gelatinous bead dissolves on your tongue and provides as much nourishment as 1 day of rations."
+			],
+			"miscTags": [
+				"CF/W"
 			]
 		},
 		{
@@ -4287,7 +4302,46 @@
 			]
 		},
 		{
-			"name": "Blade of Broken Mirrors",
+			"name": "Blade of Broken Mirrors (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Blade of Broken Mirrors (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"When the dagger reaches an awakened state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +2.",
+										"While holding the weapon, you can use an action to cast one of the following spells from it (save DC 15): {@spell fabricate}, {@spell hallucinatory terrain}, {@spell major image}, or {@spell phantasmal killer}. Once a spell has been cast using the dagger, that spell can't be cast from the dagger again until the next dawn."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+2",
+			"attachedSpells": [
+				"fabricate",
+				"hallucinatory terrain",
+				"major image",
+				"phantasmal killer"
+			]
+		},
+		{
+			"name": "Blade of Broken Mirrors (Dormant)",
 			"source": "EGW",
 			"page": 275,
 			"baseItem": "dagger|phb",
@@ -4345,48 +4399,47 @@
 					]
 				},
 				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"When the dagger reaches an awakened state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +2.",
-								"While holding the weapon, you can use an action to cast one of the following spells from it (save DC 15): {@spell fabricate}, {@spell hallucinatory terrain}, {@spell major image}, or {@spell phantasmal killer}. Once a spell has been cast using the dagger, that spell can't be cast from the dagger again until the next dawn."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"When the dagger reaches an exalted state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +3.",
-								"The saving throw DC for spells cast from the dagger increases to 17.",
-								"While holding the dagger, you can turn {@condition invisible} as an action. Anything you are wearing or carrying is {@condition invisible} with you. You remain {@condition invisible} until you stop holding the dagger, until you attack or cast a spell that forces a creature to make a saving throw, or until you use a bonus action to become visible again."
-							]
-						}
-					]
-				},
-				{
 					"type": "inset",
 					"name": "Betrayer Artifact Properties",
 					"entries": [
 						"The Arms of the Betrayers advance in power in the same manner as the Vestiges of Divergence. In its dormant state, each of these artifacts has one {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} property and one {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental} property. When the artifact attains an awakened state, it gains an additional {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} property and an additional {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental} property. When the item reaches its exalted state, it gains a {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial} property. See \"Artifact Properties\" in chapter 7 of the Dungeon Master's Guide for more information."
 					]
 				}
-			],
-			"attachedSpells": [
-				"fabricate",
-				"hallucinatory terrain",
-				"major image",
-				"phantasmal killer"
 			]
+		},
+		{
+			"name": "Blade of Broken Mirrors (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Blade of Broken Mirrors (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"When the dagger reaches an exalted state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +3.",
+										"The saving throw DC for spells cast from the dagger increases to 17.",
+										"While holding the dagger, you can turn {@condition invisible} as an action. Anything you are wearing or carrying is {@condition invisible} with you. You remain {@condition invisible} until you stop holding the dagger, until you attack or cast a spell that forces a creature to make a saving throw, or until you use a bonus action to become visible again."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+3"
 		},
 		{
 			"name": "Blanket",
@@ -6424,6 +6477,9 @@
 				"This cauldron is made of thick copper that has turned green with age. It is 4 feet wide, has a mouth 3½ feet in diameter, weighs 50 pounds, and can hold up to 30 gallons of liquid. Embossed on its bulging sides are images of satyrs and nymphs in repose, holding ladles. The cauldron comes with a lid and has side handles. It sits on five little clawed feet that keep it from tipping.",
 				"If water is poured into the cauldron and stirred for 1 minute, it transforms into a hearty, hot stew, which can provide one nourishing meal for up to four people per gallon. The stew remains hot while in the cauldron, then cools naturally after it is removed. The outside of the cauldron remains safe to touch despite the heat of the stew.",
 				"The cauldron can create stew three times. It then ceases to function until the next dawn, when it regains all its uses."
+			],
+			"miscTags": [
+				"CF/W"
 			]
 		},
 		{
@@ -8239,7 +8295,40 @@
 			]
 		},
 		{
-			"name": "Danoth's Visor",
+			"name": "Danoth's Visor (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Danoth's Visor (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"When Danoth's Visor reaches an awakened state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"You see {@condition invisible} creatures and objects within 60 feet of you as if they were visible, and you can see into the Ethereal Plane. Ethereal creatures and objects appear ghostly and translucent.",
+										"As a bonus action, you can speak a command word and use the goggles to see into and through solid matter. This vision has a radius of 60 feet and lasts for 1 minute. To you, solid objects within that radius appear transparent. The vision can penetrate 1 foot of stone, 1 inch of common metal, or up to 3 feet of wood or dirt. Thicker substances block the vision, as does a thin sheet of lead. This property can't be used again until the next dawn.",
+										"As a bonus action, you can speak a command word to switch the goggles into spyglass mode. While in this mode, creatures and objects viewed through the goggles are magnified to twice their size. Speaking the command word again reverts the goggles to their normal operation."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			}
+		},
+		{
+			"name": "Danoth's Visor (Dormant)",
 			"source": "EGW",
 			"page": 270,
 			"rarity": "legendary",
@@ -8253,41 +8342,44 @@
 					"entries": [
 						"While wearing the goggles in their dormant state, you can see normally in darkness, both magical and nonmagical, to a distance of 60 feet. Additionally, you have advantage on Intelligence ({@skill Investigation}) and Wisdom ({@skill Perception}) checks that rely on sight."
 					]
-				},
-				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"When Danoth's Visor reaches an awakened state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"You see {@condition invisible} creatures and objects within 60 feet of you as if they were visible, and you can see into the Ethereal Plane. Ethereal creatures and objects appear ghostly and translucent.",
-								"As a bonus action, you can speak a command word and use the goggles to see into and through solid matter. This vision has a radius of 60 feet and lasts for 1 minute. To you, solid objects within that radius appear transparent. The vision can penetrate 1 foot of stone, 1 inch of common metal, or up to 3 feet of wood or dirt. Thicker substances block the vision, as does a thin sheet of lead. This property can't be used again until the next dawn.",
-								"As a bonus action, you can speak a command word to switch the goggles into spyglass mode. While in this mode, creatures and objects viewed through the goggles are magnified to twice their size. Speaking the command word again reverts the goggles to their normal operation."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"When Danoth's Visor reaches an exalted state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"You automatically detect illusions you can see and automatically succeed on saving throws against them. In addition, you see a bright aura around any creature that isn't in its true form.",
-								"As an action, you can cast the {@spell antimagic field} spell from the visor. This property can't be used again until the next dawn."
-							]
-						}
-					]
 				}
 			],
+			"hasFluffImages": true
+		},
+		{
+			"name": "Danoth's Visor (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Danoth's Visor (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"When Danoth's Visor reaches an exalted state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"You automatically detect illusions you can see and automatically succeed on saving throws against them. In addition, you see a bright aura around any creature that isn't in its true form.",
+										"As an action, you can cast the {@spell antimagic field} spell from the visor. This property can't be used again until the next dawn."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
 			"attachedSpells": [
 				"antimagic field"
-			],
-			"hasFluffImages": true
+			]
 		},
 		{
 			"name": "Dark Shard Amulet",
@@ -8396,6 +8488,9 @@
 			],
 			"lootTables": [
 				"Magic Item Table C"
+			],
+			"miscTags": [
+				"CF/W"
 			],
 			"hasFluffImages": true
 		},
@@ -13424,7 +13519,7 @@
 			"age": "modern",
 			"entries": [
 				"As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away.",
-				"Each creature with 20 feet of an exploding fragmentation grenade must make a DC 15 Dexterity saving throw, taking {@damage 5d6} piercing damage on a failed save, or half as much damage on a successful one."
+				"Each creature within 20 feet of an exploding fragmentation grenade must make a DC 15 Dexterity saving throw, taking {@damage 5d6} piercing damage on a failed save, or half as much damage on a successful one."
 			]
 		},
 		{
@@ -14419,7 +14514,39 @@
 			]
 		},
 		{
-			"name": "Grimoire Infinitus",
+			"name": "Grimoire Infinitus (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Grimoire Infinitus (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"When the Grimoire Infinitus reaches an awakened state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"While you carry the spellbook, you have advantage on saving throws against spells and magical effects.",
+										"When you prepare wizard spells using the grimoire as your spellbook, the number of spells you can prepare increases by 1 again."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			}
+		},
+		{
+			"name": "Grimoire Infinitus (Dormant)",
 			"source": "EGW",
 			"page": 271,
 			"rarity": "legendary",
@@ -14440,40 +14567,83 @@
 						"Most of the book is blank, but the following spells are recorded in the first pages of the tome: {@spell alarm}, {@spell antimagic field}, {@spell Bigby's hand}, {@spell blight}, {@spell charm person}, {@spell confusion}, {@spell control weather}, {@spell create undead}, {@spell detect thoughts}, {@spell enlarge/reduce}, {@spell fear}, {@spell foresight}, {@spell gaseous form}, {@spell glyph of warding}, {@spell legend lore}, {@spell Leomund's tiny hut}, {@spell mass suggestion}, {@spell mislead}, {@spell misty step}, {@spell Mordenkainen's faithful hound}, {@spell prismatic spray}, {@spell ray of enfeeblement}, {@spell silent image}, {@spell teleport}, and {@spell thunderwave}.",
 						"You can use the grimoire as your spellbook, and you can scribe new spells into it as normal. When you prepare wizard spells using the grimoire, the number of wizard spells you can prepare increases by 1."
 					]
-				},
-				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"When the Grimoire Infinitus reaches an awakened state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"While you carry the spellbook, you have advantage on saving throws against spells and magical effects.",
-								"When you prepare wizard spells using the grimoire as your spellbook, the number of spells you can prepare increases by 1 again."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"When the Grimoire Infinitus reaches an exalted state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"You can now use your Arcane Recovery feature twice between long rests, rather than once.",
-								"When you prepare wizard spells using the grimoire as your spellbook, the number of spells you can prepare increases by 1 again."
-							]
-						}
-					]
 				}
 			],
 			"hasFluffImages": true
 		},
 		{
-			"name": "Grovelthrash",
+			"name": "Grimoire Infinitus (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Grimoire Infinitus (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"When the Grimoire Infinitus reaches an exalted state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"You can now use your Arcane Recovery feature twice between long rests, rather than once.",
+										"When you prepare wizard spells using the grimoire as your spellbook, the number of spells you can prepare increases by 1 again."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			}
+		},
+		{
+			"name": "Grovelthrash (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Grovelthrash (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"When the warhammer reaches an awakened state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +2.",
+										"You gain a burrowing speed equal to your walking speed. You can use your burrowing speed to move through sand, loose earth, mud, or ice, not solid rock.",
+										"When a creature you can see within 30 feet of you hits you with an attack while you are wielding the warhammer, you can use your reaction to deal an amount of psychic damage to that creature equal to the damage you took from the attack. This property can't be used again until the next dawn."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+2",
+			"modifySpeed": {
+				"equal": {
+					"burrow": "walk"
+				}
+			}
+		},
+		{
+			"name": "Grovelthrash (Dormant)",
 			"source": "EGW",
 			"page": 275,
 			"baseItem": "warhammer|PHB",
@@ -14490,11 +14660,6 @@
 			"dmgType": "B",
 			"dmg2": "1d10",
 			"bonusWeapon": "+1",
-			"modifySpeed": {
-				"equal": {
-					"burrow": "walk"
-				}
-			},
 			"weapon": true,
 			"entries": [
 				"Crafted from a single piece of obsidian, this warhammer of Torog hums with magical energy and is carved with the images of faces screaming in pain.",
@@ -14529,36 +14694,6 @@
 					]
 				},
 				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"When the warhammer reaches an awakened state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +2.",
-								"You gain a burrowing speed equal to your walking speed. You can use your burrowing speed to move through sand, loose earth, mud, or ice, not solid rock.",
-								"When a creature you can see within 30 feet of you hits you with an attack while you are wielding the warhammer, you can use your reaction to deal an amount of psychic damage to that creature equal to the damage you took from the attack. This property can't be used again until the next dawn."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"When the warhammer reaches an exalted state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +3.",
-								"When you have fewer hit points than half your hit point maximum, the warhammer deals an extra {@damage 2d6} bludgeoning damage on a hit. You can burrow through solid rock at half your burrowing speed and leave a 5-foot-diameter tunnel in your wake.",
-								"As an action, you can use the warhammer to cast one of the following spells from it (save DC 17): {@spell earthquake}, {@spell meld into stone}, or {@spell stone shape}. Once a spell has been cast using the warhammer, that spell can't be cast from the warhammer again until the next dawn."
-							]
-						}
-					]
-				},
-				{
 					"type": "inset",
 					"name": "Betrayer Artifact Properties",
 					"entries": [
@@ -14566,12 +14701,46 @@
 					]
 				}
 			],
+			"hasFluffImages": true
+		},
+		{
+			"name": "Grovelthrash (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Grovelthrash (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"When the warhammer reaches an exalted state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +3.",
+										"When you have fewer hit points than half your hit point maximum, the warhammer deals an extra {@damage 2d6} bludgeoning damage on a hit. You can burrow through solid rock at half your burrowing speed and leave a 5-foot-diameter tunnel in your wake.",
+										"As an action, you can use the warhammer to cast one of the following spells from it (save DC 17): {@spell earthquake}, {@spell meld into stone}, or {@spell stone shape}. Once a spell has been cast using the warhammer, that spell can't be cast from the warhammer again until the next dawn."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+3",
 			"attachedSpells": [
 				"earthquake",
 				"meld into stone",
 				"stone shape"
-			],
-			"hasFluffImages": true
+			]
 		},
 		{
 			"name": "Gruul Guild Signet",
@@ -15638,7 +15807,42 @@
 			}
 		},
 		{
-			"name": "Hide of the Feral Guardian",
+			"name": "Hide of the Feral Guardian (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Hide of the Feral Guardian (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"When the armor reaches an awakened state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The AC bonus of the armor increases to +2.",
+										"While you are transformed by an effect that replaces any of your game statistics with those of another creature, your bonus to melee attack and damage rolls increases by 1 (to +2).",
+										"When you cast the {@spell polymorph} spell using this armor, you can transform into a {@creature cave bear}."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+2",
+			"bonusAc": "+2"
+		},
+		{
+			"name": "Hide of the Feral Guardian (Dormant)",
 			"source": "EGW",
 			"page": 271,
 			"baseItem": "studded leather armor|PHB",
@@ -15665,41 +15869,46 @@
 							]
 						}
 					]
-				},
-				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"When the armor reaches an awakened state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The AC bonus of the armor increases to +2.",
-								"While you are transformed by an effect that replaces any of your game statistics with those of another creature, your bonus to melee attack and damage rolls increases by 1 (to +2).",
-								"When you cast the {@spell polymorph} spell using this armor, you can transform into a {@creature cave bear}."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"When the armor reaches an exalted state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The AC bonus of the armor increases to +3.",
-								"While you are transformed by an effect that replaces any of your game statistics with those of another creature, your bonus to melee attack and damage rolls increases by 1 (to +3).",
-								"When you cast the {@spell polymorph} spell using this armor, you can transform into a {@creature guardian wolf|EGW}."
-							]
-						}
-					]
 				}
 			],
 			"attachedSpells": [
 				"polymorph"
 			]
+		},
+		{
+			"name": "Hide of the Feral Guardian (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Hide of the Feral Guardian (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"When the armor reaches an exalted state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The AC bonus of the armor increases to +3.",
+										"While you are transformed by an effect that replaces any of your game statistics with those of another creature, your bonus to melee attack and damage rolls increases by 1 (to +3).",
+										"When you cast the {@spell polymorph} spell using this armor, you can transform into a {@creature guardian wolf|EGW}."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+3",
+			"bonusAc": "+3"
 		},
 		{
 			"name": "Holy Symbol of Ravenkind",
@@ -15825,6 +16034,9 @@
 						]
 					]
 				}
+			],
+			"miscTags": [
+				"CF/W"
 			]
 		},
 		{
@@ -16878,7 +17090,46 @@
 			]
 		},
 		{
-			"name": "Infiltrator's Key",
+			"name": "Infiltrator's Key (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Infiltrator's Key (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"When the Infiltrator's Key reaches an awakened state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"While holding the key, you can use a bonus action to transform the key into a magic dagger or back into a key. While the key is in the form of a dagger, you gain a +1 bonus to attack and damage rolls made with it, and it returns to your hand immediately after it is used to make a ranged attack.",
+										"While holding the key, you can use an action to cast one of the following spells from it: {@spell alter self}, {@spell invisibility}, {@spell knock}, or {@spell pass without trace}. Once a spell has been cast using the key, it can't be used to cast that spell again until the next dawn."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+2",
+			"attachedSpells": [
+				"alter self",
+				"invisibility",
+				"knock",
+				"pass without trace"
+			]
+		},
+		{
+			"name": "Infiltrator's Key (Dormant)",
 			"source": "EGW",
 			"page": 272,
 			"rarity": "legendary",
@@ -16901,36 +17152,42 @@
 							]
 						}
 					]
-				},
-				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"When the Infiltrator's Key reaches an awakened state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"While holding the key, you can use a bonus action to transform the key into a magic dagger or back into a key. While the key is in the form of a dagger, you gain a +1 bonus to attack and damage rolls made with it, and it returns to your hand immediately after it is used to make a ranged attack.",
-								"While holding the key, you can use an action to cast one of the following spells from it: {@spell alter self}, {@spell invisibility}, {@spell knock}, or {@spell pass without trace}. Once a spell has been cast using the key, it can't be used to cast that spell again until the next dawn."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"When the Infiltrator's Key reaches an exalted state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"As a bonus action, you can touch the key to a floor, wall, or ceiling that is no more than 5 feet thick and cause a magical opening to appear in the surface. When you create the opening, you choose its length and width, up to 10 feet for each dimension. The opening lasts until the key passes through it to the other side, at which point it disappears (if a creature is in the opening when the doorway closes, the creature is safely shunted to the nearest unoccupied space). The key can't be used to create another opening until the next dawn.",
-								"While holding the key, you can use an action to cast one of the following spells from it: {@spell dimension door}, {@spell gaseous form}, or {@spell mislead}. Once a spell has been cast using the key, it can't be used to cast that spell again until the next dawn."
-							]
-						}
-					]
 				}
 			],
+			"hasFluffImages": true
+		},
+		{
+			"name": "Infiltrator's Key (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Infiltrator's Key (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"When the Infiltrator's Key reaches an exalted state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"As a bonus action, you can touch the key to a floor, wall, or ceiling that is no more than 5 feet thick and cause a magical opening to appear in the surface. When you create the opening, you choose its length and width, up to 10 feet for each dimension. The opening lasts until the key passes through it to the other side, at which point it disappears (if a creature is in the opening when the doorway closes, the creature is safely shunted to the nearest unoccupied space). The key can't be used to create another opening until the next dawn.",
+										"While holding the key, you can use an action to cast one of the following spells from it: {@spell dimension door}, {@spell gaseous form}, or {@spell mislead}. Once a spell has been cast using the key, it can't be used to cast that spell again until the next dawn."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+3",
 			"attachedSpells": [
 				"alter self",
 				"invisibility",
@@ -16939,8 +17196,7 @@
 				"dimension door",
 				"gaseous form",
 				"mislead"
-			],
-			"hasFluffImages": true
+			]
 		},
 		{
 			"name": "Ingot of the Skold Rune",
@@ -17736,6 +17992,24 @@
 			"rarity": "none",
 			"weight": 1,
 			"value": 10
+		},
+		{
+			"name": "Iron Ball",
+			"source": "IDRotF",
+			"page": 238,
+			"type": "R",
+			"rarity": "unknown (magic)",
+			"weaponCategory": "simple",
+			"property": [
+				"F",
+				"T"
+			],
+			"range": "120",
+			"dmg1": "1d4",
+			"dmgType": "B",
+			"entries": [
+				"This ball is used to play a game of {@adventure Chain Lightning|IDRotF|17|Chain Lightning}."
+			]
 		},
 		{
 			"name": "Iron Bands of Bilarro",
@@ -18931,7 +19205,41 @@
 			"value": 25000
 		},
 		{
-			"name": "Lash of Shadows",
+			"name": "Lash of Shadows (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Lash of Shadows (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"When the whip reaches an awakened state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +2.",
+										"The saving throw DC for the weapon's poisons increases to 15.",
+										"The weapon gains a new poison option called Ghoul's Blood. A creature that fails the saving throw against this poison is {@condition poisoned} for 1 minute. While {@condition poisoned} in this way, the creature is {@condition paralyzed}. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+2"
+		},
+		{
+			"name": "Lash of Shadows (Dormant)",
 			"source": "EGW",
 			"page": 276,
 			"baseItem": "whip|PHB",
@@ -18998,36 +19306,6 @@
 					]
 				},
 				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"When the whip reaches an awakened state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +2.",
-								"The saving throw DC for the weapon's poisons increases to 15.",
-								"The weapon gains a new poison option called Ghoul's Blood. A creature that fails the saving throw against this poison is {@condition poisoned} for 1 minute. While {@condition poisoned} in this way, the creature is {@condition paralyzed}. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"When the whip reaches an exalted state, it gains the following additional properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +3.",
-								"The saving throw DC for the weapon's poisons increases to 17.",
-								"The weapon gains a new poison option called Cockatrice Tears. A creature that fails the saving throw against this poison begins to turn to stone and is {@condition restrained}. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is {@condition petrified} for 24 hours."
-							]
-						}
-					]
-				},
-				{
 					"type": "inset",
 					"name": "Betrayer Artifact Properties",
 					"entries": [
@@ -19036,6 +19314,40 @@
 				}
 			],
 			"hasFluffImages": true
+		},
+		{
+			"name": "Lash of Shadows (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Lash of Shadows (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"When the whip reaches an exalted state, it gains the following additional properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +3.",
+										"The saving throw DC for the weapon's poisons increases to 17.",
+										"The weapon gains a new poison option called Cockatrice Tears. A creature that fails the saving throw against this poison begins to turn to stone and is {@condition restrained}. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is {@condition petrified} for 24 hours."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+3"
 		},
 		{
 			"name": "Leather Golem Armor",
@@ -19972,7 +20284,7 @@
 			"entries": [
 				"You gain a +1 bonus to attack and damage rolls made with this magic weapon. The bonus increases to +3 when you use the mace to attack a construct.",
 				"When you roll a 20 on an attack roll made with this weapon, the target takes an extra 7 bludgeoning damage, or an extra 14 bludgeoning damage if it's a construct. If a construct has 25 hit points or fewer after taking this damage, it is destroyed.",
-				"{@i Note: According to the SRD, it is an extra {@dice 2d6} and {@damage 4d6} bludgeoning damage, although {@link this is incorrect|https://rpg.stackexchange.com/a/174522/53884}}."
+				"{@note Note: According to the SRD, it is an extra {@dice 2d6} and {@damage 4d6} bludgeoning damage, although {@link this is incorrect|https://rpg.stackexchange.com/a/174522/53884}}."
 			],
 			"lootTables": [
 				"Magic Item Table G"
@@ -20005,7 +20317,41 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "Mace of the Black Crown",
+			"name": "Mace of the Black Crown (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Mace of the Black Crown (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"When the mace reaches an awakened state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +2, and the extra fire damage dealt by the weapon when it is ignited increases to {@dice 2d6}.",
+										"The weapon's Summon Devil feature can also be used to summon a {@creature bearded devil}.",
+										"You have resistance to poison damage while holding this weapon."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+2"
+		},
+		{
+			"name": "Mace of the Black Crown (Dormant)",
 			"source": "EGW",
 			"page": 276,
 			"baseItem": "mace|PHB",
@@ -20057,36 +20403,6 @@
 					]
 				},
 				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"When the mace reaches an awakened state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +2, and the extra fire damage dealt by the weapon when it is ignited increases to {@dice 2d6}.",
-								"The weapon's Summon Devil feature can also be used to summon a {@creature bearded devil}.",
-								"You have resistance to poison damage while holding this weapon."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"When the mace reaches an exalted state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +3, and the extra fire damage dealt by the weapon when it is ignited increases to {@dice 3d6}. Fire damage dealt by the mace ignores resistance to fire damage.",
-								"The weapon's Summon Devil feature can also be used to summon a {@creature barbed devil}.",
-								"You have resistance to fire damage while you hold this weapon."
-							]
-						}
-					]
-				},
-				{
 					"type": "inset",
 					"name": "Betrayer Artifact Properties",
 					"entries": [
@@ -20095,6 +20411,40 @@
 				}
 			],
 			"hasFluffImages": true
+		},
+		{
+			"name": "Mace of the Black Crown (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Mace of the Black Crown (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"When the mace reaches an exalted state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +3, and the extra fire damage dealt by the weapon when it is ignited increases to {@dice 3d6}. Fire damage dealt by the mace ignores resistance to fire damage.",
+										"The weapon's Summon Devil feature can also be used to summon a {@creature barbed devil}.",
+										"You have resistance to fire damage while you hold this weapon."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+3"
 		},
 		{
 			"name": "Macuahuitl",
@@ -27407,7 +27757,7 @@
 						"You can press one of the rod's six buttons as a bonus action. A button's effect lasts until you push a different button or until you push the same button again, which causes the rod to revert to its normal form.",
 						"If you press button 1, the rod becomes a {@item flame tongue} as a fiery blade sprouts from the end opposite the rod's flanged head (you choose the type of sword).",
 						"If you press button 2, the rod's flanged head folds down and two crescent-shaped blades spring out, transforming the rod into a magic battleaxe that grants a +3 bonus to attack and damage rolls made with it.",
-						"If you press button 3, the rod's flanged head folds down, a spear point springs from the rod's tip, and the rod's handle lengthens into a 6-foot haft, transforming the rod into a magic spear that grants a+3 bonus to attack and damage rolls made with it.",
+						"If you press button 3, the rod's flanged head folds down, a spear point springs from the rod's tip, and the rod's handle lengthens into a 6-foot haft, transforming the rod into a magic spear that grants a +3 bonus to attack and damage rolls made with it.",
 						"If you press button 4, the rod transforms into a climbing pole up to 50 feet long, as you specify. In surfaces as hard as granite, a spike at the bottom and three hooks at the top anchor the pole. Horizontal bars 3 inches long fold out from the sides, 1 foot apart, forming a ladder. The pole can bear up to 4,000 pounds. More weight or lack of solid anchoring causes the rod to revert to its normal form.",
 						"If you press button 5, the rod transforms into a handheld battering ram and grants its user a +10 bonus to Strength checks made to break through doors, barricades, and other barriers.",
 						"If you press button 6, the rod assumes or remains in its normal form and indicates magnetic north. (Nothing happens if this function of the rod is used in a location that has no magnetic north.) The rod also gives you knowledge of your approximate depth beneath the ground or your height above it."
@@ -27708,7 +28058,40 @@
 			]
 		},
 		{
-			"name": "Ruin's Wake",
+			"name": "Ruin's Wake (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Ruin's Wake (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"When the spear reaches an awakened state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +2, and the extra piercing damage dealt by the weapon increases to {@dice 2d8}.",
+										"When you hurl the spear and speak a command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a creature you can see within 120 feet of you. Each creature in the line, excluding you, must make a DC 15 Dexterity saving throw, taking {@damage 8d6} lightning damage on a failed save, or half as much damage on a successful one. Ruin's Wake then returns to your hand. This property can't be used again until the next dawn."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+2"
+		},
+		{
+			"name": "Ruin's Wake (Dormant)",
 			"source": "EGW",
 			"page": 277,
 			"baseItem": "spear|PHB",
@@ -27761,35 +28144,6 @@
 					]
 				},
 				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"When the spear reaches an awakened state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +2, and the extra piercing damage dealt by the weapon increases to {@dice 2d8}.",
-								"When you hurl the spear and speak a command word, it transforms into a bolt of lightning, forming a line 5 feet wide that extends out from you to a creature you can see within 120 feet of you. Each creature in the line, excluding you, must make a DC 15 Dexterity saving throw, taking {@damage 8d6} lightning damage on a failed save, or half as much damage on a successful one. Ruin's Wake then returns to your hand. This property can't be used again until the next dawn."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"When the spear reaches an exalted state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +3.",
-								"While holding the spear, you can let out a battle cry as a bonus action. Each creature you choose within 30 feet of you gains advantage on attack rolls until the start of your next turn. This property can't be used again until the next dawn.",
-								"When you reduce a creature to 0 hit points with an attack from the spear, you can regain hit points equal to the damage you dealt with the attack. This property can't be used again until the next dawn."
-							]
-						}
-					]
-				},
-				{
 					"type": "inset",
 					"name": "Betrayer Artifact Properties",
 					"entries": [
@@ -27798,6 +28152,40 @@
 				}
 			],
 			"hasFluffImages": true
+		},
+		{
+			"name": "Ruin's Wake (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Ruin's Wake (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"When the spear reaches an exalted state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +3.",
+										"While holding the spear, you can let out a battle cry as a bonus action. Each creature you choose within 30 feet of you gains advantage on attack rolls until the start of your next turn. This property can't be used again until the next dawn.",
+										"When you reduce a creature to 0 hit points with an attack from the spear, you can regain hit points equal to the damage you dealt with the attack. This property can't be used again until the next dawn."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+3"
 		},
 		{
 			"name": "Ruinblade",
@@ -29086,7 +29474,47 @@
 			]
 		},
 		{
-			"name": "Silken Spite",
+			"name": "Silken Spite (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Silken Spite (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"The rapier grants the following benefits in its awakened state:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +2.",
+										"The saving throw DC for the weapon's poison increases to 15.",
+										"While holding the rapier, you can use an action to cast one of the following spells from it (save DC 15): {@spell cloudkill}, {@spell darkness}, {@spell levitate}, or {@spell web}. Once a spell has been cast using the rapier, that spell can't be cast from the rapier again until the next dawn."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+2",
+			"attachedSpells": [
+				"cloudkill",
+				"darkness",
+				"levitate",
+				"web"
+			]
+		},
+		{
+			"name": "Silken Spite (Dormant)",
 			"source": "EGW",
 			"page": 277,
 			"baseItem": "rapier|PHB",
@@ -29144,50 +29572,48 @@
 					]
 				},
 				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"The rapier grants the following benefits in its awakened state:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +2.",
-								"The saving throw DC for the weapon's poison increases to 15.",
-								"While holding the rapier, you can use an action to cast one of the following spells from it (save DC 15): {@spell cloudkill}, {@spell darkness}, {@spell levitate}, or {@spell web}. Once a spell has been cast using the rapier, that spell can't be cast from the rapier again until the next dawn."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"The rapier grants the following benefits in its exalted state:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +3.",
-								"The saving throw DC for the weapon's poison and spells cast from the weapon increases to 17.",
-								"Magical darkness doesn't impede your {@sense darkvision}.",
-								"While holding the weapon in dim light or darkness, you can use a bonus action to teleport up to 60 feet to an unoccupied space you can see that is also in dim light or darkness. This property can't be used again until the next dawn."
-							]
-						}
-					]
-				},
-				{
 					"type": "inset",
 					"name": "Betrayer Artifact Properties",
 					"entries": [
 						"The Arms of the Betrayers advance in power in the same manner as the Vestiges of Divergence. In its dormant state, each of these artifacts has one {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} property and one {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental} property. When the artifact attains an awakened state, it gains an additional {@table Artifact Properties; Minor Beneficial Properties|dmg|minor beneficial} property and an additional {@table Artifact Properties; Minor Detrimental Properties|dmg|minor detrimental} property. When the item reaches its exalted state, it gains a {@table Artifact Properties; Major Beneficial Properties|dmg|major beneficial} property. See \"Artifact Properties\" in chapter 7 of the Dungeon Master's Guide for more information."
 					]
 				}
-			],
-			"attachedSpells": [
-				"cloudkill",
-				"darkness",
-				"levitate",
-				"web"
 			]
+		},
+		{
+			"name": "Silken Spite (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Silken Spite (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"The rapier grants the following benefits in its exalted state:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +3.",
+										"The saving throw DC for the weapon's poison and spells cast from the weapon increases to 17.",
+										"Magical darkness doesn't impede your {@sense darkvision}.",
+										"While holding the weapon in dim light or darkness, you can use a bonus action to teleport up to 60 feet to an unoccupied space you can see that is also in dim light or darkness. This property can't be used again until the next dawn."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+3"
 		},
 		{
 			"name": "Silver",
@@ -32198,7 +32624,40 @@
 			]
 		},
 		{
-			"name": "Stormgirdle",
+			"name": "Stormgirdle (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Stormgirdle (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"While wearing the Stormgirdle in its awakened state, you gain the following benefits:",
+								{
+									"type": "list",
+									"items": [
+										"Your Strength score becomes 23 if it isn't already 23 or higher.",
+										"Your Storm Avatar's lightning strike deals {@damage 4d6} lightning damage (instead of {@dice 3d6}).",
+										"While transformed into a Storm Avatar, you gain a flying speed of 30 feet and can hover."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			}
+		},
+		{
+			"name": "Stormgirdle (Dormant)",
 			"source": "EGW",
 			"page": 273,
 			"resist": [
@@ -32211,11 +32670,6 @@
 			"ability": {
 				"static": {
 					"str": 21
-				}
-			},
-			"modifySpeed": {
-				"static": {
-					"fly": 30
 				}
 			},
 			"entries": [
@@ -32235,38 +32689,41 @@
 						},
 						"Once you use the girdle's Storm Avatar property, that property can't be used again until the next dawn."
 					]
-				},
-				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"While wearing the Stormgirdle in its awakened state, you gain the following benefits:",
-						{
-							"type": "list",
-							"items": [
-								"Your Strength score becomes 23 if it isn't already 23 or higher.",
-								"Your Storm Avatar's lightning strike deals {@damage 4d6} lightning damage (instead of {@dice 3d6}).",
-								"While transformed into a Storm Avatar, you gain a flying speed of 30 feet and can hover."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"While wearing the Stormgirdle in its exalted state, you gain the following benefits:",
-						{
-							"type": "list",
-							"items": [
-								"Your Strength score becomes 25 if it isn't already 25 or higher.",
-								"Your Storm Avatar's lightning strike deals {@damage 5d6} lightning damage (instead of {@dice 3d6}).",
-								"You can cast the {@spell control weather} spell from the girdle. This property can't be used again until the next dawn."
-							]
-						}
-					]
 				}
-			],
+			]
+		},
+		{
+			"name": "Stormgirdle (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Stormgirdle (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"While wearing the Stormgirdle in its exalted state, you gain the following benefits:",
+								{
+									"type": "list",
+									"items": [
+										"Your Strength score becomes 25 if it isn't already 25 or higher.",
+										"Your Storm Avatar's lightning strike deals {@damage 5d6} lightning damage (instead of {@dice 3d6}).",
+										"You can cast the {@spell control weather} spell from the girdle. This property can't be used again until the next dawn."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
 			"attachedSpells": [
 				"control weather"
 			]
@@ -32763,7 +33220,7 @@
 					"type": "entries",
 					"entries": [
 						"The Sword of Kas is a sentient chaotic evil weapon with an Intelligence of 15, a Wisdom of 13, and a Charisma of 16. It has hearing and {@sense darkvision} out to a range of 120 feet.",
-						"The weapon communicates telepathically with its wielder and can speak, read, and understand Common"
+						"The weapon communicates telepathically with its wielder and can speak, read, and understand Common."
 					]
 				},
 				{
@@ -33298,7 +33755,7 @@
 				},
 				"When you attack an object with this magic sword and hit, maximize your weapon damage dice against the target.",
 				"When you attack a creature with this weapon and roll a 20 on the attack roll, that target takes an extra 14 slashing damage. Then roll another {@dice d20}. If you roll a 20, you lop off one of the target's limbs, with the effect of such loss determined by the DM. If the creature has no limb to sever, you lop off a portion of its body instead.",
-				"{@i Note: According to the SRD, it is an extra {@damage 4d6} slashing damage, although {@link this is incorrect|https://rpg.stackexchange.com/a/174522/53884}}.",
+				"{@note Note: According to the SRD, it is an extra {@damage 4d6} slashing damage, although {@link this is incorrect|https://rpg.stackexchange.com/a/174522/53884}}.",
 				"In addition, you can speak the sword's command to cause the blade to shed bright light in a 10-foot radius and dim light for an additional 10 feet. Speaking the command word again or sheathing the sword puts out the light."
 			],
 			"attachedSpells": [
@@ -33546,7 +34003,42 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "The Bloody End",
+			"name": "The Bloody End (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "The Bloody End (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"When the morningstar reaches an awakened state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +2.",
+										"The saving throw DC for spells cast from the morningstar increases to 15.",
+										"When you reduce a creature to 0 hit points with an attack using The Bloody End, you can cause the following effect: each creature of your choice within 15 feet of you must succeed on a DC 15 Wisdom saving throw or be {@condition frightened} of you until the end of your next turn. This property can't be used again until the next dawn.",
+										"When a creature hits you with a melee attack, you can use your reaction to deal {@damage 1d6} psychic damage to the attacker."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+2"
+		},
+		{
+			"name": "The Bloody End (Dormant)",
 			"source": "EGW",
 			"page": 278,
 			"baseItem": "morningstar|PHB",
@@ -33594,38 +34086,6 @@
 					]
 				},
 				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"When the morningstar reaches an awakened state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +2.",
-								"The saving throw DC for spells cast from the morningstar increases to 15.",
-								"When you reduce a creature to 0 hit points with an attack using The Bloody End, you can cause the following effect: each creature of your choice within 15 feet of you must succeed on a DC 15 Wisdom saving throw or be {@condition frightened} of you until the end of your next turn. This property can't be used again until the next dawn.",
-								"When a creature hits you with a melee attack, you can use your reaction to deal {@damage 1d6} psychic damage to the attacker."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"When the morningstar reaches an exalted state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +3.",
-								"Add {@spell dominate monster} to the list of spells that can be cast from the morningstar.",
-								"The saving throw DC for spells cast from the morningstar, as well as for creatures to avoid being {@condition frightened} by it, increases to 17.",
-								"When you use your reaction to deal psychic damage to a creature that hits you with a melee attack, the amount of psychic damage increases to {@dice 2d6}."
-							]
-						}
-					]
-				},
-				{
 					"type": "inset",
 					"name": "Betrayer Artifact Properties",
 					"entries": [
@@ -33638,6 +34098,41 @@
 				"dominate person",
 				"fear"
 			]
+		},
+		{
+			"name": "The Bloody End (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "The Bloody End (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"When the morningstar reaches an exalted state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +3.",
+										"Add {@spell dominate monster} to the list of spells that can be cast from the morningstar.",
+										"The saving throw DC for spells cast from the morningstar, as well as for creatures to avoid being {@condition frightened} by it, increases to 17.",
+										"When you use your reaction to deal psychic damage to a creature that hits you with a melee attack, the amount of psychic damage increases to {@dice 2d6}."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+3"
 		},
 		{
 			"name": "The Codicil of White",
@@ -36601,23 +37096,55 @@
 			]
 		},
 		{
-			"name": "Verminshroud",
+			"name": "Verminshroud (Awakened)",
 			"source": "EGW",
-			"page": 273,
+			"_copy": {
+				"name": "Verminshroud (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"While wearing the Verminshroud in its awakened state, you gain the following benefits:",
+								{
+									"type": "list",
+									"items": [
+										"You have resistance to poison damage.",
+										"You can use an action to cast the {@spell insect plague} spell (save DC 15) from the Verminshroud, requiring no material components. This property can't be used again until the next dawn.",
+										"When you cast the {@spell polymorph} spell using the Verminshroud, you can transform into a {@creature giant wasp}."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
 			"resist": [
 				"poison"
 			],
+			"attachedSpells": [
+				"polymorph",
+				"insect plague"
+			]
+		},
+		{
+			"name": "Verminshroud (Dormant)",
+			"source": "EGW",
+			"page": 273,
 			"conditionImmune": [
 				"disease"
 			],
 			"rarity": "legendary",
 			"reqAttune": true,
 			"wondrous": true,
-			"modifySpeed": {
-				"equal": {
-					"climb": "walk"
-				}
-			},
 			"entries": [
 				"This patchy cloak was pieced together from the pelts of rats found feasting on the dead in Blightshore and is dotted with the bloated corpses of magically preserved insects along its seams.",
 				{
@@ -36633,38 +37160,49 @@
 							]
 						}
 					]
-				},
-				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"While wearing the Verminshroud in its awakened state, you gain the following benefits:",
-						{
-							"type": "list",
-							"items": [
-								"You have resistance to poison damage.",
-								"You can use an action to cast the {@spell insect plague} spell (save DC 15) from the Verminshroud, requiring no material components. This property can't be used again until the next dawn.",
-								"When you cast the {@spell polymorph} spell using the Verminshroud, you can transform into a {@creature giant wasp}."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"While wearing the Verminshroud in its exalted state, you gain the following benefits:",
-						{
-							"type": "list",
-							"items": [
-								"You gain a climbing speed equal to your walking speed.",
-								"Your teeth become razor-sharp natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to {@dice 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. You can make this attack as a bonus action. When you bite a creature and deal damage to it, the creature must succeed on a DC 17 Constitution saving throw or be {@condition poisoned} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the condition on itself on a success.",
-								"When you cast the {@spell polymorph} spell using the Verminshroud, you can transform into a {@creature giant scorpion}."
-							]
-						}
-					]
 				}
 			],
+			"attachedSpells": [
+				"polymorph"
+			]
+		},
+		{
+			"name": "Verminshroud (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Verminshroud (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"While wearing the Verminshroud in its exalted state, you gain the following benefits:",
+								{
+									"type": "list",
+									"items": [
+										"You gain a climbing speed equal to your walking speed.",
+										"Your teeth become razor-sharp natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to {@dice 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. You can make this attack as a bonus action. When you bite a creature and deal damage to it, the creature must succeed on a DC 17 Constitution saving throw or be {@condition poisoned} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the condition on itself on a success.",
+										"When you cast the {@spell polymorph} spell using the Verminshroud, you can transform into a {@creature giant scorpion}."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"modifySpeed": {
+				"equal": {
+					"climb": "walk"
+				}
+			},
 			"attachedSpells": [
 				"polymorph",
 				"insect plague"
@@ -38258,11 +38796,38 @@
 			]
 		},
 		{
-			"name": "Will of the Talon",
+			"name": "Will of the Talon (Awakened)",
 			"source": "EGW",
-			"page": 279,
-			"baseItem": "war pick|PHB",
-			"type": "M",
+			"_copy": {
+				"name": "Will of the Talon (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"When the war pick reaches an awakened state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +2.",
+										"The saving throw DC for the war pick's Breath Weapon property increases to 15, and that property deals {@damage 4d6} damage on a failed save, or half as much damage on a successful one.",
+										"The saving throw DC for the war pick's Frightful Presence property increases to 15.",
+										"While carrying the weapon, you have resistance to acid, cold, fire, lightning, and poison damage."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
 			"resist": [
 				"acid",
 				"cold",
@@ -38270,6 +38835,14 @@
 				"lightning",
 				"poison"
 			],
+			"bonusWeapon": "+2"
+		},
+		{
+			"name": "Will of the Talon (Dormant)",
+			"source": "EGW",
+			"page": 279,
+			"baseItem": "war pick|PHB",
+			"type": "M",
 			"rarity": "artifact",
 			"reqAttune": true,
 			"sentient": true,
@@ -38355,37 +38928,6 @@
 					]
 				},
 				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"When the war pick reaches an awakened state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +2.",
-								"The saving throw DC for the war pick's Breath Weapon property increases to 15, and that property deals {@damage 4d6} damage on a failed save, or half as much damage on a successful one.",
-								"The saving throw DC for the war pick's Frightful Presence property increases to 15.",
-								"While carrying the weapon, you have resistance to acid, cold, fire, lightning, and poison damage."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"When the war pick reaches an exalted state, it gains the following properties:",
-						{
-							"type": "list",
-							"items": [
-								"The weapon's bonus to attack and damage rolls increases to +3.",
-								"The saving throw DC for the war pick's Breath Weapon property increases to 17, and that property deals {@damage 5d6} damage on a failed save, or half as much damage on a successful one.",
-								"The saving throw DC for the war pick's Frightful Presence property increases to 17."
-							]
-						}
-					]
-				},
-				{
 					"type": "inset",
 					"name": "Betrayer Artifact Properties",
 					"entries": [
@@ -38393,6 +38935,40 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Will of the Talon (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Will of the Talon (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"When the war pick reaches an exalted state, it gains the following properties:",
+								{
+									"type": "list",
+									"items": [
+										"The weapon's bonus to attack and damage rolls increases to +3.",
+										"The saving throw DC for the war pick's Breath Weapon property increases to 17, and that property deals {@damage 5d6} damage on a failed save, or half as much damage on a successful one.",
+										"The saving throw DC for the war pick's Frightful Presence property increases to 17."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusWeapon": "+3"
 		},
 		{
 			"name": "Willowshade Oil",
@@ -38780,7 +39356,39 @@
 			]
 		},
 		{
-			"name": "Wreath of the Prism",
+			"name": "Wreath of the Prism (Awakened)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Wreath of the Prism (Dormant)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened",
+							"entries": [
+								"Once the Wreath of the Prism reaches an awakened state, it gains the following benefits:",
+								{
+									"type": "list",
+									"items": [
+										"You can affect creatures of challenge rating 10 or lower with the wreath.",
+										"The save DC of the wreath's spell increases to 15."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			}
+		},
+		{
+			"name": "Wreath of the Prism (Dormant)",
 			"source": "EGW",
 			"page": 274,
 			"rarity": "legendary",
@@ -38795,40 +39403,44 @@
 						"While wearing the wreath in its dormant state, you have {@sense darkvision} out to a range of 60 feet. If you already have {@sense darkvision}, wearing the wreath increases the range of your {@sense darkvision} by 60 feet.",
 						"When you hit a beast, dragon, or monstrosity of challenge rating 5 or lower with an attack, or when you grapple it, you can use the wreath to cast {@spell dominate monster} on the creature (save DC 13). On a successful save, the target is immune to the power of the wreath for 24 hours. On a failure, a shimmering, golden image of the wreath appears as a collar around the target's neck or as a crown on its head (your choice) until it is no longer {@condition charmed} by the spell. If you use the wreath to charm a second creature, the first spell immediately ends. When the spell ends, the target knows it was {@condition charmed} by you."
 					]
-				},
-				{
-					"type": "entries",
-					"name": "Awakened",
-					"entries": [
-						"Once the Wreath of the Prism reaches an awakened state, it gains the following benefits:",
-						{
-							"type": "list",
-							"items": [
-								"You can affect creatures of challenge rating 10 or lower with the wreath.",
-								"The save DC of the wreath's spell increases to 15."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Exalted",
-					"entries": [
-						"Once the Wreath of the Prism reaches an exalted state, it gains the following benefits:",
-						{
-							"type": "list",
-							"items": [
-								"You can affect creatures of challenge rating 15 or lower with the wreath.",
-								"The save DC of the wreath's spell increases to 17."
-							]
-						}
-					]
 				}
 			],
 			"attachedSpells": [
 				"dominate monster"
 			],
 			"hasFluffImages": true
+		},
+		{
+			"name": "Wreath of the Prism (Exalted)",
+			"source": "EGW",
+			"_copy": {
+				"name": "Wreath of the Prism (Awakened)",
+				"source": "EGW",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted",
+							"entries": [
+								"Once the Wreath of the Prism reaches an exalted state, it gains the following benefits:",
+								{
+									"type": "list",
+									"items": [
+										"You can affect creatures of challenge rating 15 or lower with the wreath.",
+										"The save DC of the wreath's spell increases to 17."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			}
 		},
 		{
 			"name": "Wukka Nut",
@@ -39334,6 +39946,40 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Blade of Broken Mirrors",
+			"source": "EGW",
+			"page": 275,
+			"baseItem": "dagger|phb",
+			"type": "M",
+			"rarity": "artifact",
+			"reqAttune": "by a humanoid",
+			"reqAttuneTags": [
+				{
+					"creatureType": "humanoid"
+				}
+			],
+			"sentient": true,
+			"weight": 1,
+			"weaponCategory": "simple",
+			"property": [
+				"F",
+				"L",
+				"T"
+			],
+			"range": "20/60",
+			"dmg1": "1d4",
+			"dmgType": "P",
+			"weapon": true,
+			"entries": [
+				"A weapon of Tharizdun, this dagger is a piece of jagged stone whose blade is scribed with a maze-like pattern with no beginning or end."
+			],
+			"items": [
+				"Blade of Broken Mirrors (Dormant)|EGW",
+				"Blade of Broken Mirrors (Awakened)|EGW",
+				"Blade of Broken Mirrors (Exalted)|EGW"
+			]
+		},
+		{
 			"name": "Carpet of Flying",
 			"source": "DMG",
 			"page": 157,
@@ -39429,6 +40075,42 @@
 			],
 			"lootTables": [
 				"Magic Item Table I"
+			]
+		},
+		{
+			"name": "Danoth's Visor",
+			"source": "EGW",
+			"page": 270,
+			"rarity": "legendary",
+			"reqAttune": true,
+			"wondrous": true,
+			"entries": [
+				"These mithral-frame goggles with clear diamond lenses were used by the evoker Danoth Oro to spot {@condition invisible} enemies and scout areas from afar."
+			],
+			"items": [
+				"Danoth's Visor (Dormant)|EGW",
+				"Danoth's Visor (Awakened)|EGW",
+				"Danoth's Visor (Exalted)|EGW"
+			],
+			"hasFluffImages": true
+		},
+		{
+			"name": "Devastation Orb",
+			"source": "PotA",
+			"page": 222,
+			"rarity": "very rare",
+			"wondrous": true,
+			"entries": [
+				"A devastation orb is an elemental bomb that can be created at the site of an elemental node by performing a ritual with an elemental weapon. The type of orb created depends on the node used. For example, an air node creates a {@item devastation orb of air|PotA}. The ritual takes 1 hour to complete and requires 2,000 gp worth of special components, which are consumed.",
+				"A devastation orb measures 12 inches in diameter, weighs 10 pounds, and has a solid outer shell. The orb detonates {@dice 1d100} hours after its creation, releasing the elemental energy it contains. The orb gives no outward sign of how much time remains before it will detonate. Spells such as {@spell identify} and {@spell divination} can be used to ascertain when the orb will explode. An orb has AC 10, 15 hit points, and immunity to poison and psychic damage. Reducing it to 0 hit points causes it to explode instantly.",
+				"A special container can be crafted to contain a devastation orb and prevent it from detonating. The container must be inscribed with symbols of the orb's opposing element. For example, a case inscribed with earth symbols can be used to contain a {@item devastation orb of air|PotA} and keep it from detonating. While in the container, the orb thrums. If it is removed from the container after the time when it was supposed to detonate, it explodes {@dice 1d6} rounds later, unless it is returned to the container.",
+				"Regardless of the type of orb, its effect is contained within a sphere with a 1 mile radius. The orb is the sphere's point of origin. The orb is destroyed after one use."
+			],
+			"items": [
+				"Devastation Orb of Air|PotA",
+				"Devastation Orb of Earth|PotA",
+				"Devastation Orb of Fire|PotA",
+				"Devastation Orb of Water|PotA"
 			]
 		},
 		{
@@ -39628,6 +40310,57 @@
 			]
 		},
 		{
+			"name": "Grimoire Infinitus",
+			"source": "EGW",
+			"page": 271,
+			"rarity": "legendary",
+			"reqAttune": "by a wizard",
+			"reqAttuneTags": [
+				{
+					"class": "wizard"
+				}
+			],
+			"wondrous": true,
+			"weight": 3,
+			"entries": [
+				"Several of these spellbooks with gilded pages and silver-plated covers were created during the Age of Arcanum, but only one has been found since the Calamity ended. The book has an infinite number of pages, is three inches thick, eight inches wide, twelve inches long, and weighs three pounds."
+			],
+			"items": [
+				"Grimoire Infinitus (Dormant)|EGW",
+				"Grimoire Infinitus (Awakened)|EGW",
+				"Grimoire Infinitus (Exalted)|EGW"
+			],
+			"hasFluffImages": true
+		},
+		{
+			"name": "Grovelthrash",
+			"source": "EGW",
+			"page": 275,
+			"baseItem": "warhammer|PHB",
+			"type": "M",
+			"rarity": "artifact",
+			"reqAttune": true,
+			"sentient": true,
+			"weight": 2,
+			"weaponCategory": "martial",
+			"property": [
+				"V"
+			],
+			"dmg1": "1d8",
+			"dmgType": "B",
+			"dmg2": "1d10",
+			"weapon": true,
+			"entries": [
+				"Crafted from a single piece of obsidian, this warhammer of Torog hums with magical energy and is carved with the images of faces screaming in pain."
+			],
+			"items": [
+				"Grovelthrash (Dormant)|EGW",
+				"Grovelthrash (Awakened)|EGW",
+				"Grovelthrash (Exalted)|EGW"
+			],
+			"hasFluffImages": true
+		},
+		{
 			"name": "Guild Keyrune",
 			"source": "GGR",
 			"page": 177,
@@ -39673,6 +40406,28 @@
 				"Rakdos Guild Signet|GGR",
 				"Selesnya Guild Signet|GGR",
 				"Simic Guild Signet|GGR"
+			]
+		},
+		{
+			"name": "Hide of the Feral Guardian",
+			"source": "EGW",
+			"page": 271,
+			"baseItem": "studded leather armor|PHB",
+			"type": "LA",
+			"rarity": "legendary",
+			"reqAttune": true,
+			"weight": 13,
+			"ac": 12,
+			"entries": [
+				"It is believed that this polished and beautifully detailed leather armor was a gift from Melora, bestowed on a long-forgotten archdruid and champion of the natural world before the terrors of the Calamity."
+			],
+			"items": [
+				"Hide of the Feral Guardian (Dormant)|EGW",
+				"Hide of the Feral Guardian (Awakened)|EGW",
+				"Hide of the Feral Guardian (Exalted)|EGW"
+			],
+			"attachedSpells": [
+				"polymorph"
 			]
 		},
 		{
@@ -39777,6 +40532,24 @@
 			]
 		},
 		{
+			"name": "Infiltrator's Key",
+			"source": "EGW",
+			"page": 272,
+			"rarity": "legendary",
+			"reqAttune": true,
+			"wondrous": true,
+			"grantsProficiency": true,
+			"entries": [
+				"This mithral skeleton key was forged using the blood of twelve master thieves executed for trying to steal magic items during the Age of Arcanum."
+			],
+			"items": [
+				"Infiltrator's Key (Dormant)|EGW",
+				"Infiltrator's Key (Awakened)|EGW",
+				"Infiltrator's Key (Exalted)|EGW"
+			],
+			"hasFluffImages": true
+		},
+		{
 			"name": "Instrument of the Bards",
 			"source": "DMG",
 			"page": 176,
@@ -39840,6 +40613,62 @@
 			]
 		},
 		{
+			"name": "Lash of Shadows",
+			"source": "EGW",
+			"page": 276,
+			"baseItem": "whip|PHB",
+			"type": "M",
+			"rarity": "artifact",
+			"reqAttune": true,
+			"sentient": true,
+			"weight": 3,
+			"weaponCategory": "martial",
+			"property": [
+				"F",
+				"R"
+			],
+			"dmg1": "1d4",
+			"dmgType": "S",
+			"weapon": true,
+			"entries": [
+				"This snakeskin whip is touched by the power of Zehir and ends in five animated serpent heads."
+			],
+			"items": [
+				"Lash of Shadows (Dormant)|EGW",
+				"Lash of Shadows (Awakened)|EGW",
+				"Lash of Shadows (Exalted)|EGW"
+			],
+			"hasFluffImages": true
+		},
+		{
+			"name": "Mace of the Black Crown",
+			"source": "EGW",
+			"page": 276,
+			"baseItem": "mace|PHB",
+			"type": "M",
+			"resist": [
+				"fire",
+				"poison"
+			],
+			"rarity": "artifact",
+			"reqAttune": true,
+			"sentient": true,
+			"weight": 4,
+			"weaponCategory": "simple",
+			"dmg1": "1d6",
+			"dmgType": "B",
+			"weapon": true,
+			"entries": [
+				"This mace has a haft of black iron and a ruby head with a fiendish countenance. Carrying the boon of Asmodeus, it is fit for the most powerful servants of the Nine Hells."
+			],
+			"items": [
+				"Mace of the Black Crown (Dormant)|EGW",
+				"Mace of the Black Crown (Awakened)|EGW",
+				"Mace of the Black Crown (Exalted)|EGW"
+			],
+			"hasFluffImages": true
+		},
+		{
 			"name": "Manual of Golems",
 			"source": "DMG",
 			"page": 180,
@@ -39877,6 +40706,27 @@
 				"Pan Flute|PHB",
 				"Shawm|PHB",
 				"Viol|PHB"
+			]
+		},
+		{
+			"name": "Musical Instrument",
+			"source": "SCAG",
+			"page": 124,
+			"type": "INS",
+			"rarity": "none",
+			"items": [
+				"Birdpipes|SCAG",
+				"Glaur|SCAG",
+				"Hand Drum|SCAG",
+				"Longhorn|SCAG",
+				"Shawm|SCAG",
+				"Songhorn|SCAG",
+				"Tantan|SCAG",
+				"Thelarr|SCAG",
+				"Tocken|SCAG",
+				"Wargong|SCAG",
+				"Yarting|SCAG",
+				"Zulkoon|SCAG"
 			]
 		},
 		{
@@ -40186,6 +41036,36 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Ruin's Wake",
+			"source": "EGW",
+			"page": 277,
+			"baseItem": "spear|PHB",
+			"type": "M",
+			"rarity": "artifact",
+			"reqAttune": true,
+			"sentient": true,
+			"weight": 3,
+			"weaponCategory": "simple",
+			"property": [
+				"T",
+				"V"
+			],
+			"range": "20/60",
+			"dmg1": "1d6",
+			"dmgType": "P",
+			"dmg2": "1d8",
+			"weapon": true,
+			"entries": [
+				"This spear is made from the ivory bone of an ancient gold dragon and carved with an Orc hymn to Gruumsh."
+			],
+			"items": [
+				"Ruin's Wake (Dormant)|EGW",
+				"Ruin's Wake (Awakened)|EGW",
+				"Ruin's Wake (Exalted)|EGW"
+			],
+			"hasFluffImages": true
+		},
+		{
 			"name": "Scaled Ornament",
 			"source": "FTD",
 			"page": 27,
@@ -40227,6 +41107,38 @@
 			],
 			"lootTables": [
 				"Magic Item Table C"
+			]
+		},
+		{
+			"name": "Silken Spite",
+			"source": "EGW",
+			"page": 277,
+			"baseItem": "rapier|PHB",
+			"type": "M",
+			"rarity": "artifact",
+			"reqAttune": true,
+			"sentient": true,
+			"weight": 2,
+			"weaponCategory": "martial",
+			"property": [
+				"F"
+			],
+			"dmg1": "1d8",
+			"dmgType": "P",
+			"modifySpeed": {
+				"equal": {
+					"climb": "walk"
+				}
+			},
+			"sword": true,
+			"weapon": true,
+			"entries": [
+				"The blade of this rapier is made of spider silk. Its onyx pommel is tipped with a ruby cut in the shape of a spider, and the blade carries the blessing of Lolth."
+			],
+			"items": [
+				"Silken Spite (Dormant)|EGW",
+				"Silken Spite (Awakened)|EGW",
+				"Silken Spite (Exalted)|EGW"
 			]
 		},
 		{
@@ -40307,6 +41219,31 @@
 			]
 		},
 		{
+			"name": "Stormgirdle",
+			"source": "EGW",
+			"page": 273,
+			"resist": [
+				"lightning",
+				"thunder"
+			],
+			"rarity": "legendary",
+			"reqAttune": true,
+			"wondrous": true,
+			"ability": {
+				"static": {
+					"str": 21
+				}
+			},
+			"entries": [
+				"A Stormgirdle is a wide belt made of thick leather branded with the symbol of Kord. The girdle's clasps are made from dragon ivory."
+			],
+			"items": [
+				"Stormgirdle (Dormant)|EGW",
+				"Stormgirdle (Awakened)|EGW",
+				"Stormgirdle (Exalted)|EGW"
+			]
+		},
+		{
 			"name": "Sword of Answering",
 			"source": "DMG",
 			"page": 206,
@@ -40337,6 +41274,99 @@
 			"lootTables": [
 				"Magic Item Table I"
 			]
+		},
+		{
+			"name": "The Bloody End",
+			"source": "EGW",
+			"page": 278,
+			"baseItem": "morningstar|PHB",
+			"type": "M",
+			"rarity": "artifact",
+			"reqAttune": true,
+			"sentient": true,
+			"weight": 4,
+			"weaponCategory": "martial",
+			"dmg1": "1d8",
+			"dmgType": "P",
+			"weapon": true,
+			"entries": [
+				"Carrying the power of Bane, this adamantine morningstar sports foot-long spikes and has a jagged blade on its pommel."
+			],
+			"items": [
+				"The Bloody End (Dormant)|EGW",
+				"The Bloody End (Awakened)|EGW",
+				"The Bloody End (Exalted)|EGW"
+			],
+			"attachedSpells": [
+				"charm person",
+				"dominate person",
+				"fear"
+			]
+		},
+		{
+			"name": "Verminshroud",
+			"source": "EGW",
+			"page": 273,
+			"conditionImmune": [
+				"disease"
+			],
+			"rarity": "legendary",
+			"reqAttune": true,
+			"wondrous": true,
+			"entries": [
+				"This patchy cloak was pieced together from the pelts of rats found feasting on the dead in Blightshore and is dotted with the bloated corpses of magically preserved insects along its seams."
+			],
+			"items": [
+				"Verminshroud (Dormant)|EGW",
+				"Verminshroud (Awakened)|EGW",
+				"Verminshroud (Exalted)|EGW"
+			],
+			"attachedSpells": [
+				"polymorph"
+			]
+		},
+		{
+			"name": "Will of the Talon",
+			"source": "EGW",
+			"page": 279,
+			"baseItem": "war pick|PHB",
+			"type": "M",
+			"rarity": "artifact",
+			"reqAttune": true,
+			"sentient": true,
+			"weight": 2,
+			"weaponCategory": "martial",
+			"dmg1": "1d8",
+			"dmgType": "P",
+			"weapon": true,
+			"entries": [
+				"Black, blue, green, red, and white gems carved in the form of dragon heads cover this ostentatious gold war pick, marking it as a weapon channeling the power of Tiamat."
+			],
+			"items": [
+				"Will of the Talon (Dormant)|EGW",
+				"Will of the Talon (Awakened)|EGW",
+				"Will of the Talon (Exalted)|EGW"
+			]
+		},
+		{
+			"name": "Wreath of the Prism",
+			"source": "EGW",
+			"page": 274,
+			"rarity": "legendary",
+			"reqAttune": true,
+			"wondrous": true,
+			"entries": [
+				"This loop of golden thorns is inset with dozens of gems representing the five colors of Tiamat."
+			],
+			"items": [
+				"Wreath of the Prism (Dormant)|EGW",
+				"Wreath of the Prism (Awakened)|EGW",
+				"Wreath of the Prism (Exalted)|EGW"
+			],
+			"attachedSpells": [
+				"dominate monster"
+			],
+			"hasFluffImages": true
 		}
 	]
 }

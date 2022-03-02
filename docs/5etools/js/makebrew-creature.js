@@ -515,7 +515,7 @@ class CreatureBuilder extends Builder {
 			cb,
 			this._state,
 			{
-				vals: ["black", "blue", "green", "red", "white", "brass", "bronze", "copper", "gold", "silver", "deep"]
+				vals: Renderer.monster.dragonCasterVariant.getAvailableColors()
 					.sort(SortUtil.ascSortLower),
 				fnDisplay: (abv) => abv.toTitleCase(),
 				type: "string",

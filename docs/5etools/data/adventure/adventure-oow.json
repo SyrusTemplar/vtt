@@ -7476,7 +7476,22 @@
 												{
 													"type": "quote",
 													"entries": [
-														"The following official Acquisitions Incorporated beers are now available for resale (at regular wholesale discounts) and for franchise parties (at full cost; less drinking, more working, okay?):War Priest Dark Ale • Red Larch Regular • Velvet Curtain • Waelvur's Wood Stain • Lord's Favor • Little Dagger • Mother Tongue • Cold Comfort • Summer Gold • Widow's Wake"
+														"The following official Acquisitions Incorporated beers are now available for resale (at regular wholesale discounts) and for franchise parties (at full cost; less drinking, more working, okay?):",
+														{
+															"type": "list",
+															"items": [
+																"War Priest Dark Ale",
+																"Red Larch Regular",
+																"Velvet Curtain",
+																"Waelvur's Wood Stain",
+																"Lord's Favor",
+																"Little Dagger",
+																"Mother Tongue",
+																"Cold Comfort",
+																"Summer Gold",
+																"Widow's Wake"
+															]
+														}
 													]
 												}
 											]

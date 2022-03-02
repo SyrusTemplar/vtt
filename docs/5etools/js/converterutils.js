@@ -29,7 +29,7 @@ class BaseParser {
 			: line;
 	}
 
-	static _getCleanInput (ipt) {
+	static _getCleanInput (ipt, options) {
 		let iptClean = ipt
 			.replace(/\n\r/g, "\n")
 			.replace(/\r\n/g, "\n")
@@ -45,6 +45,13 @@ class BaseParser {
 		// Connect together words which are divided over two lines
 		iptClean = iptClean
 			.replace(/((?: | ")[A-Za-z][a-z]+)- *\n([a-z])/g, "$1$2");
+
+		// Apply `PAGE=...`
+		iptClean
+			.replace(/(?:\n|^)PAGE=(?<page>\d+)(?:\n|$)/gi, (...m) => {
+				options.page = Number(m.last().page);
+				return "";
+			});
 
 		return iptClean;
 	}
@@ -319,7 +326,7 @@ class TagCondition {
 						},
 					);
 					return ptrStack._
-						.replace(/\b{@condition (prone)} (to)\b/gi, "$1 $2")
+						.replace(/{@condition (prone)} (to)\b/gi, "$1 $2")
 					;
 				},
 			},
@@ -594,6 +601,10 @@ class ActionTag {
 
 			reAction.lastIndex += replaceAs.length - 1;
 		}
+
+		strMod = strMod
+			.replace(/(Extra|Sneak) {@action Attack}/g, (...m) => `${m[1]} Attack`)
+		;
 
 		return strMod;
 	}

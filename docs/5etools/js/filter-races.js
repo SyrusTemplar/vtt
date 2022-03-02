@@ -829,7 +829,6 @@ class PageFilterRaces extends PageFilter {
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
 			items: ["Base Race", "Key Race", "Lineage", "Modified Copy", "Reprinted", "SRD", "Basic Rules", "Has Images", "Has Info"],
-			deselFn: (it) => it === "Reprinted",
 			isMiscFilter: true,
 		});
 	}

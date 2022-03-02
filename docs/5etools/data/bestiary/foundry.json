@@ -141,7 +141,7 @@
 						{
 							"key": "data.attributes.hp.max",
 							"mode": "ADD",
-							"value": "5 * @srd5e.userchar.classes.druid.levels"
+							"value": "5 * @srd5e.userchar.classes.ranger.levels"
 						},
 						{
 							"key": "data.attributes.ac.formula",

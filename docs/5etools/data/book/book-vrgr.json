@@ -8702,7 +8702,7 @@
 											"type": "table",
 											"caption": "Zombie Siege Encounters",
 											"colLabels": [
-												"d6s",
+												"{@dice 1d6;2d6|d6s}",
 												"Encounter"
 											],
 											"colStyles": [
@@ -15241,7 +15241,8 @@
 											"name": "Hallmarks:",
 											"entries": [
 												"Undead military dictatorship"
-											]
+											],
+											"id": "031"
 										}
 									]
 								},
@@ -15268,7 +15269,8 @@
 											"name": "Hallmarks:",
 											"entries": [
 												"Detective work, memory loss"
-											]
+											],
+											"id": "037"
 										}
 									]
 								},
@@ -15295,7 +15297,8 @@
 											"name": "Hallmarks:",
 											"entries": [
 												"Serial murderers, urban decay"
-											]
+											],
+											"id": "038"
 										}
 									]
 								},

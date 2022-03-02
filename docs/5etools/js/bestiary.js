@@ -429,7 +429,7 @@ class BestiaryPage extends ListPageMultiSource {
 			}
 		} else if (scaledClassSummonHash) {
 			const scaleTo = Number(UrlUtil.unpackSubHash(scaledClassSummonHash)[VeCt.HASH_SCALED_CLASS_SUMMON][0]);
-			if (mon.summonedByClass != null && scaleTo >= 1 && scaleTo !== this._lastRendered.mon._summonedByClass_level) {
+			if (mon.summonedByClass != null && scaleTo > 0 && scaleTo !== this._lastRendered.mon._summonedByClass_level) {
 				ScaleClassSummonedCreature.scale(mon, scaleTo)
 					.then(monScaled => this._renderStatblock(monScaled, {isScaledClassSummon: true}));
 			}
@@ -488,6 +488,7 @@ class BestiaryPage extends ListPageMultiSource {
 						pageUrl,
 						title: toRender._displayName || toRender.name,
 						isPermanent: true,
+						sourceData: toRender,
 					},
 				);
 
@@ -497,7 +498,7 @@ class BestiaryPage extends ListPageMultiSource {
 				const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BESTIARY](mon);
 				Renderer.monster.doBindCompactContentHandlers({
 					$content,
-					sourceData: {
+					compactReferenceData: {
 						type: "stats",
 						page,
 						source,
@@ -889,7 +890,7 @@ class BestiaryPage extends ListPageMultiSource {
 				meta.$ele.show();
 				setTimeout(() => meta.$ele.css("max-width", ""), 10); // hack to clear the earlier 100% width
 
-				if (meta.name && meta.source) $footer.html(`<div>${meta.displayName || meta.name}; <span title="${Parser.sourceJsonToFull(meta.source)}">${Parser.sourceJsonToAbv(meta.source)}${Renderer.utils.isDisplayPage(meta.page) ? ` p${meta.page}` : ""}</span></div>`);
+				if (meta.name && meta.source) $footer.html(Renderer.monster.getRenderedAltArtEntry(meta));
 				else $footer.html("");
 
 				$wrpFooter.detach().appendTo(meta.$ele);

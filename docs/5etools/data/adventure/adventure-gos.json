@@ -12557,12 +12557,22 @@
 													"type": "insetReadaloud",
 													"id": "461",
 													"entries": [
-														"{@i Our worst fears are confirmed. Virgil has brought word of disaster. A war galley fully loaded with pirates approaches from the southwest. It flies the flag of the raiders and bears the name of the cursed ship} Tammeraut. {@i We must prepare what feeble defense we can muster. Woe to the folk of the coast at the approach of this bloody tide}.",
-														"•",
-														"{@i Miracle of miracles! The storm lord has answered the prayers of our illustrious chaplain. A furious storm blew in from the open sea and swept the war galley to its doom. But I believe that the vessel went down near the Pit of Hatred, an ill-starred undersea chasm two miles south of Firewatch Isle. This does not bode well, for the rift is said to be a passage to a source of interminable evil that was long ago sealed away. If the wreckage should rupture the wards, terrible darkness might be unleashed. I must mount an expedition to the sunken hulk and make sure all is well}.",
-														"•",
-														"{@i A fell wind blows this evening. I fear the wards on the rift have been broken. I must set out first thing in the morning to inspect the wreckage}."
+														"{@i Our worst fears are confirmed. Virgil has brought word of disaster. A war galley fully loaded with pirates approaches from the southwest. It flies the flag of the raiders and bears the name of the cursed ship} Tammeraut. {@i We must prepare what feeble defense we can muster. Woe to the folk of the coast at the approach of this bloody tide}."
 													]
+												},
+												{
+													"type": "insetReadaloud",
+													"entries": [
+														"{@i Miracle of miracles! The storm lord has answered the prayers of our illustrious chaplain. A furious storm blew in from the open sea and swept the war galley to its doom. But I believe that the vessel went down near the Pit of Hatred, an ill-starred undersea chasm two miles south of Firewatch Isle. This does not bode well, for the rift is said to be a passage to a source of interminable evil that was long ago sealed away. If the wreckage should rupture the wards, terrible darkness might be unleashed. I must mount an expedition to the sunken hulk and make sure all is well}."
+													],
+													"id": "54c"
+												},
+												{
+													"type": "insetReadaloud",
+													"entries": [
+														"{@i A fell wind blows this evening. I fear the wards on the rift have been broken. I must set out first thing in the morning to inspect the wreckage}."
+													],
+													"id": "54d"
 												},
 												"A character who succeeds on a DC 16 Intelligence ({@skill History}) check connects the journal's reference to \"raiders\" to the pirate captain Syrgaul, a notorious sorcerer who forged an unholy pact with the demon lord Orcus. He and his crew never left survivors of their attacks, and his ship, {@i Tammeraut}, was the scourge of the seas."
 											]

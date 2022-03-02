@@ -85,14 +85,7 @@ class CreatureParser extends BaseParser {
 
 		if (!inText || !inText.trim()) return options.cbWarning("No input!");
 		const toConvert = (() => {
-			let clean = this._getCleanInput(inText);
-
-			clean = clean
-				.replace(/(?:\n|^)PAGE=(?<page>\d+)(?:\n|$)/gi, (...m) => {
-					options.page = Number(m.last().page);
-					return "";
-				})
-			;
+			let clean = this._getCleanInput(inText, options);
 
 			// region Handle bad OCR'ing of headers
 			[
@@ -571,7 +564,7 @@ class CreatureParser extends BaseParser {
 		const isInlineLegendaryActionItem = (line) => /^-\s*\*\*\*?[^*]+/gi.test(line.trim());
 
 		if (!inText || !inText.trim()) return options.cbWarning("No input!");
-		const toConvert = this._getCleanInput(inText).split("\n");
+		const toConvert = this._getCleanInput(inText, options).split("\n");
 		let stats = null;
 
 		const getNewStatblock = () => {
@@ -993,6 +986,7 @@ class CreatureParser extends BaseParser {
 		MiscTag.tryRun(stats);
 		DetectNamedCreature.tryRun(stats);
 		TagImmResVulnConditional.tryRun(stats);
+		DragonAgeTag.tryRun(stats);
 		this._doStatblockPostProcess_doCleanup(stats, options);
 	}
 

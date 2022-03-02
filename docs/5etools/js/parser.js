@@ -766,6 +766,13 @@ Parser.itemRechargeToFull = function (recharge) {
 	return Parser._parse_aToB(Parser.ITEM_RECHARGE_TO_FULL, recharge);
 };
 
+Parser.ITEM_MISC_TAG_TO_FULL = {
+	"CF/W": "Creates Food/Water",
+};
+Parser.itemMiscTagToFull = function (type) {
+	return Parser._parse_aToB(Parser.ITEM_MISC_TAG_TO_FULL, type);
+};
+
 Parser._decimalSeparator = (0.1).toLocaleString().substring(1, 2);
 Parser._numberCleanRegexp = Parser._decimalSeparator === "." ? new RegExp(/[\s,]*/g, "g") : new RegExp(/[\s.]*/g, "g");
 Parser._costSplitRegexp = Parser._decimalSeparator === "." ? new RegExp(/(\d+(\.\d+)?)([csegp]p)/) : new RegExp(/(\d+(,\d+)?)([csegp]p)/);
@@ -1592,6 +1599,7 @@ Parser.CHAR_OPTIONAL_FEATURE_TYPE_TO_FULL = {
 	"OF": "Optional Feature",
 	"DG": "Dark Gift",
 	"RF:B": "Replacement Feature: Background",
+	"CS": "Character Secret", // Specific to IDRotF (rules on page 14)
 };
 
 Parser.charCreationOptionTypeToFull = function (type) {
@@ -3293,6 +3301,7 @@ Parser.TAG_TO_DEFAULT_SOURCE = {
 	"spell": SRC_PHB,
 	"item": SRC_DMG,
 	"class": SRC_PHB,
+	"subclass": SRC_PHB,
 	"creature": SRC_MM,
 	"condition": SRC_PHB,
 	"disease": SRC_DMG,
@@ -3329,6 +3338,20 @@ Parser.getTagSource = function (tag, source) {
 
 	if (!Parser.TAG_TO_DEFAULT_SOURCE[tag]) throw new Error(`Unhandled tag "${tag}"`);
 	return Parser.TAG_TO_DEFAULT_SOURCE[tag];
+};
+
+Parser.PROP_TO_TAG = {
+	"monster": "creature",
+	"optionalfeature": "optfeature",
+	"tableGroup": "table",
+	"vehicleUpgrade": "vehupgrade",
+	"baseitem": "item",
+	"itemGroup": "item",
+	"variant": "item",
+};
+Parser.getPropTag = function (prop) {
+	if (Parser.PROP_TO_TAG[prop]) return Parser.PROP_TO_TAG[prop];
+	return prop;
 };
 
 Parser.PROP_TO_DISPLAY_NAME = {

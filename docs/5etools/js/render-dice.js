@@ -109,7 +109,7 @@ Renderer.dice = {
 			Renderer.dice._showBox();
 			Renderer.dice._$iptRoll.focus();
 		});
-		const $head = $(`<div class="head-roll"><span class="hdr-roll">Dice Roller</span><span class="delete-icon glyphicon glyphicon-remove"></span></div>`)
+		const $head = $(`<div class="head-roll"><span class="hdr-roll">Dice Roller</span><span class="p-2 glyphicon glyphicon-remove"></span></div>`)
 			.on("click", () => {
 				if (!Renderer.dice._panel) Renderer.dice._hideBox();
 			});
@@ -846,6 +846,12 @@ Use <span class="out-roll-item-code">${PREF_MACRO} list</span> to list saved mac
 			Renderer.dice._$lastRolledBy = $(`<div class="out-roll-wrp"></div>`).data("name", name);
 			Renderer.dice._$outRoll.prepend(Renderer.dice._$lastRolledBy);
 		}
+	},
+};
+
+Renderer.dice.util = {
+	getReducedMeta (meta) {
+		return {pb: meta.pb};
 	},
 };
 
@@ -1842,14 +1848,14 @@ Renderer.dice.parsed = {
 		_invoke (fnName, meta) {
 			if (this._nodes.length === 1) return this._nodes[0][fnName](meta); // if it's just a factor
 
-			// N.B. we don't pass "meta" to symbol evaluation inside the dice expression--we therefore won't see
+			// N.B. we don't pass the full "meta" to symbol evaluation inside the dice expression--we therefore won't see
 			//   the metadata from the nested rolls, but that's OK.
 
 			const view = this._nodes.slice();
 			// Shift the first symbol and use that as our initial number of dice
 			//   e.g. the "2" in 2d3d5
 			const numSym = view.shift();
-			let tmp = numSym[fnName]();
+			let tmp = numSym[fnName](Renderer.dice.util.getReducedMeta(meta));
 
 			while (view.length) {
 				if (Math.round(tmp) !== tmp) throw new Error(`Number of dice to roll (${tmp}) was not an integer!`);

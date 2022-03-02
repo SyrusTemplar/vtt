@@ -81,7 +81,7 @@ class InitiativeTrackerUtil {
 
 		const $cond = $$`<div class="init__cond relative" ${styleStack.length ? `style="${styleStack.join(" ")}"` : ""}></div>`
 			.data("doTickDown", tickDown)
-			.data("getState", () => JSON.parse(JSON.stringify(state)))
+			.data("getState", () => MiscUtil.copy(state))
 			.on("contextmenu", (e) => e.preventDefault() || tickDown(true))
 			.click(() => tickUp(true));
 

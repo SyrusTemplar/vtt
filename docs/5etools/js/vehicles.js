@@ -25,9 +25,10 @@ class VehiclesPage extends ListPage {
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
+		const displayType = it.vehicleType ? Parser.vehicleTypeToFull(it.vehicleType) : it.upgradeType.map(t => Parser.vehicleTypeToFull(t));
 
 		eleLi.innerHTML = `<a href="#${UrlUtil.autoEncodeHash(it)}" class="lst--border lst__row-inner">
-			<span class="col-6 pl-0 text-center">${it.vehicleType ? Parser.vehicleTypeToFull(it.vehicleType) : it.upgradeType.map(t => Parser.vehicleTypeToFull(t))}</span>
+			<span class="col-6 pl-0 text-center">${displayType}</span>
 			<span class="bold col-4">${it.name}</span>
 			<span class="col-2 text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${BrewUtil.sourceJsonToStyle(it.source)}>${source}</span>
 		</a>`;
@@ -41,6 +42,7 @@ class VehiclesPage extends ListPage {
 				source,
 				vehicleType: it.vehicleType,
 				upgradeType: it.upgradeType,
+				type: displayType,
 			},
 			{
 				uniqueId: it.uniqueId ? it.uniqueId : vhI,
@@ -62,9 +64,10 @@ class VehiclesPage extends ListPage {
 
 	pGetSublistItem (it, ix) {
 		const hash = UrlUtil.autoEncodeHash(it);
+		const displayType = it.vehicleType ? Parser.vehicleTypeToFull(it.vehicleType) : it.upgradeType.map(t => Parser.vehicleTypeToFull(t));
 
 		const $ele = $(`<div class="lst__row lst__row--sublist ve-flex-col"><a href="#${hash}" class="lst--border lst__row-inner">
-			<span class="col-8 pl-0 text-center">${it.vehicleType ? Parser.vehicleTypeToFull(it.vehicleType) : it.upgradeType.map(t => Parser.vehicleTypeToFull(t))}</span>
+			<span class="col-8 pl-0 text-center">${displayType}</span>
 			<span class="bold col-4 pr-0">${it.name}</span>
 		</a></div>`)
 			.contextmenu(evt => ListUtil.openSubContextMenu(evt, listItem))
@@ -78,6 +81,7 @@ class VehiclesPage extends ListPage {
 				hash,
 				vehicleType: it.vehicleType,
 				upgradeType: it.upgradeType,
+				type: displayType,
 			},
 		);
 		return listItem;

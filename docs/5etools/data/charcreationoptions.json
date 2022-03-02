@@ -1,6 +1,33 @@
 {
 	"charoption": [
 		{
+			"name": "Alagondar Scion",
+			"source": "IDRotF",
+			"page": 264,
+			"prerequisite": [
+				{
+					"race": [
+						{
+							"name": "human"
+						},
+						{
+							"name": "half-elf"
+						},
+						{
+							"name": "half-orc"
+						}
+					],
+					"note": "If you don't meet this prerequisite, draw a different card."
+				}
+			],
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I'm a scion of the Alagondar bloodline and the only known heir to the crown of Neverwinter. If Dagult Neverember, the city's lord-regent, learns that I'm alive, he'll send assassins to kill me."
+			]
+		},
+		{
 			"name": "Anvilwrought",
 			"source": "MOT",
 			"page": 12,
@@ -101,6 +128,18 @@
 			]
 		},
 		{
+			"name": "Doppelganger",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I'm a shapechanger. I have none of the traits of the race I'm imitating, but I retain my class features, background, and alignment. I have {@sense darkvision} out to a range of 60 feet. I can use an action to do either of the following at will:",
+				"I can innately cast {@spell detect thoughts}, requiring no components. My spellcasting ability is Intelligence. The spell's Wisdom save DC is 8 + my proficiency bonus + my Intelligence modifier. I can polymorph into any humanoid I have seen or back into my true form. My statistics, other than my size, don't change. Any equipment I'm wearing or carrying isn't transformed. I revert to my true form when I die."
+			]
+		},
+		{
 			"name": "Dragon Scholar",
 			"source": "HotDQ",
 			"page": 87,
@@ -109,6 +148,17 @@
 			],
 			"entries": [
 				"You have studied dragons and their lore for many years. You can automatically identify locations built or used by dragons and can identify dragon eggs and scales by sight. If you fail an Intelligence check to recall lore relating to dragons, you know someone or some book you can consult for the answer unless the DM rules that the lore is unknown."
+			]
+		},
+		{
+			"name": "Drizzt Fan",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I once met the famous drow ranger Drizzt Do'Urden! In fact, I have a tattered piece of his famous green cloak and would never think to part with it."
 			]
 		},
 		{
@@ -223,6 +273,28 @@
 						}
 					]
 				}
+			]
+		},
+		{
+			"name": "Elusive Paramour",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"A wealthy pasha in Calimshan has placed a bounty on my head for seducing his favorite concubine. Bounty hunters are scouring the Sword Coast in search of me, but I hope they'll never think to look in Icewind Dale."
+			]
+		},
+		{
+			"name": "Escaped Prisoner",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I was brought here from another world by spacefaring mind flayers. The ship in which I was imprisoned crashed in the mountains south of Ten-Towns. After surviving the crash, I nearly froze to death crossing the tundra to reach Ten-Towns. If some friendly trappers hadn't found me, I would have perished. I fear some of my captors also survived the crash and might come looking for me."
 			]
 		},
 		{
@@ -695,6 +767,17 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Littlest Yeti",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I was raised by yeti. Although I relied on my ferocious guardians for food and warmth and never quite adapted to the cold, I speak Yeti and have advantage on Charisma checks made to influence yeti or improve their attitudes."
+			]
+		},
+		{
 			"name": "Living Shadow",
 			"source": "VRGR",
 			"page": 24,
@@ -768,6 +851,17 @@
 						}
 					]
 				}
+			]
+		},
+		{
+			"name": "Midwinter Child",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"Auril the Frostmaiden has blessed me, for I was born on the Midwinter holiday. I have resistance to cold damage."
 			]
 		},
 		{
@@ -959,6 +1053,17 @@
 			]
 		},
 		{
+			"name": "Old Flame",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I have a lover in Ten-Towns whom I haven't seen in years. At any time outside of combat, I can decide who the lover is by choosing an NPC in Ten-Towns that I can see. Once I make this choice, I can't change it. This old flame is friendly and helpful toward me, even if our past is checkered."
+			]
+		},
+		{
 			"name": "Oracle",
 			"source": "MOT",
 			"page": 15,
@@ -1084,6 +1189,31 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Orc Stone",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I saved the life of an orc, who gave me a stone with the symbol of the Many-Arrows tribe (a humanoid skull pierced by three arrows) carved into it. The stone is an uncommon magic item that requires attunement, and only I can attune to it.",
+				"As an action, I can use the stone to summon the spirit of an orc warrior, which appears within 30 feet of me. The spirit uses the orc war chief stat block in the Monster Manual and disappears after 10 minutes or when reduced to 0 hit points. The spirit understands any language I speak and obeys my commands.",
+				"After the stone is used three times, it turns to dust."
+			]
+		},
+		{
+			"name": "Owlbear Whisperer",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"Owlbears are predisposed to like me.",
+				"If I am within 10 feet of an owlbear, I can use an action to make a {@dc 10} Charisma ({@skill Animal Handling}) check. On a success, I change the owlbear's attitude toward me from hostile to indifferent or from indifferent to friendly."
+			]
+		},
+		{
 			"name": "Pious",
 			"source": "MOT",
 			"page": 17,
@@ -1157,6 +1287,77 @@
 						}
 					]
 				}
+			]
+		},
+		{
+			"name": "Pirate Cannibal",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I served aboard Dark Duchess, a pirate ship from the city of Luskan. After the vessel got stuck in the ice, everyone but the captain abandoned the vessel and fled to Ten-Towns. We got lost in a blizzard along the way. I was the only one who made it, and only by eating my mates. The ship and its treasure are still out there."
+			]
+		},
+		{
+			"name": "Reghed Heir",
+			"source": "IDRotF",
+			"page": 264,
+			"prerequisite": [
+				{
+					"race": [
+						{
+							"name": "human"
+						},
+						{
+							"name": "half-elf"
+						},
+						{
+							"name": "half-orc"
+						}
+					],
+					"note": "If you don't meet this prerequisite, draw a different card."
+				}
+			],
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I am the offspring of Queen Bjornhild Solvigsdottir, leader of the Tiger Tribe. My mother cast me into the Sea of Moving Ice when I was a young child as a sacrifice to Auril the Frostmaiden. A polar bear pulled me from the water and spared me a freezing death. This bear then transformed into a goliath who bore me safely to Ten-Towns. I remember the goliath's name\u2014Oyaminartok\u2014but haven't seen her since. I owe her my life, just as I owe my mother a merciless death."
+			]
+		},
+		{
+			"name": "Reincarnation",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I died and was brought back to life by a friendly human druid using the {@spell reincarnate} spell. I have no idea what became of the druid, whose name I don't know. I retain the memories of my previous life, some or all of which was spent in Icewind Dale. (Roll on the table in the spell's description to determine your character's previous race, or choose a race from the table that you like, then flesh out the story of your previous life.)"
+			]
+		},
+		{
+			"name": "Ring Hunter",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I am looking for the knucklehead trout that bit off my father's finger, which had a signet ring on it. To preserve my inheritance, I must retrieve the lost ring."
+			]
+		},
+		{
+			"name": "Runaway Author",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I penned a notorious exposé called \"The Hellbent Highborn,\" which accused several prominent patriars in Baldur's Gate and nobles in Waterdeep of being devil worshipers. Although my accusations were well founded, I made a lot of enemies and was forced to seek refuge in Icewind Dale."
 			]
 		},
 		{
@@ -1269,6 +1470,17 @@
 			]
 		},
 		{
+			"name": "Slaad Host",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"A red slaad implanted a pellet-sized egg in me shortly before I started my adventuring career. If I can't get rid of it in the next two months, the egg will gestate inside me, and a slaad tadpole will burst from my chest, killing me. It will then quickly grow into an adult slaad and kill even more people."
+			]
+		},
+		{
 			"name": "Spirit Medium",
 			"source": "VRGR",
 			"page": 31,
@@ -1277,6 +1489,18 @@
 			],
 			"entries": [
 				"After a fateful experience, you believe you're aligned with spirits and can serve as a conduit for their insights and goals. You have advantage on any {@skill Arcana} or {@skill Religion} check you make to remember or research information about spirits and the afterlife. Additionally, you begin your adventuring career with a custom-made device for communing with otherworldly forces, perhaps a spirit board, a tarokka deck, an automatic writing planchette, dowsing rods, a cup for tea leaves, or a device of your own design. Add your proficiency bonus to any ability check you make using this type of divining tool."
+			]
+		},
+		{
+			"name": "Spy",
+			"source": "IDRotF",
+			"page": 264,
+			"optionType": [
+				"CS"
+			],
+			"entries": [
+				"I'm a spy for the Harpers, a secretive organization that works behind the scenes to thwart tyrants and other evildoers. My mission in Icewind Dale is to safeguard the settlements of Ten-Towns while concealing my Harper affiliation. Credible threats to Ten-Towns include the Arcane Brotherhood, an organization of wizards based in Luskan, and the Zhentarim, an expansive shadow network that wants to control trade throughout the North. Both have threatened Ten-Towns in the past.",
+				"My only Harper contact in Ten-Towns is a human named Beldora, who poses as a homeless woman and spends her days gathering information in Bryn Shander."
 			]
 		},
 		{

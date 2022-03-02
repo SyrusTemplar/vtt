@@ -52,8 +52,15 @@
 		}
 
 		&wrp-preview {
-			width: 500px;
 			border: 1px solid $rgb-border-grey--night;
+		}
+	}
+}
+
+.style-switch__wide {
+	.pg-search__ {
+		&wrp-preview {
+			width: 50vw;
 		}
 	}
 }

@@ -124,7 +124,7 @@ class RendererMarkdown {
 
 				const cacheDepth = this._adjustDepth(meta, 1);
 				this._recursiveRender(entry.items[i], textStack, meta, {suffix: "\n"});
-				if (textStack[0].slice(-2) === "\n\n") textStack[0] = textStack[0].slice(-1);
+				if (textStack[0].slice(-2) === "\n\n") textStack[0] = textStack[0].slice(0, -1);
 				meta.depth = cacheDepth;
 			}
 		}

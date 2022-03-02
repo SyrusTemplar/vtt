@@ -2262,7 +2262,7 @@
 					"disguise kit": true,
 					"choose": {
 						"from": [
-							"artisan's tools",
+							"anyArtisansTool",
 							"gaming set"
 						]
 					}
@@ -3845,7 +3845,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true
+					"anyArtisansTool": true
 				}
 			],
 			"startingEquipment": [
@@ -4032,7 +4032,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true
+					"anyArtisansTool": true
 				}
 			],
 			"startingEquipment": [
@@ -5109,7 +5109,7 @@
 					"vehicles (water)": true
 				},
 				{
-					"artisan's tools": true
+					"anyArtisansTool": true
 				},
 				{
 					"choose": {
@@ -6443,7 +6443,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true
+					"anyArtisansTool": true
 				}
 			],
 			"startingEquipment": [
@@ -7458,7 +7458,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true,
+					"anyArtisansTool": true,
 					"vehicles (land)": true
 				}
 			],
@@ -9397,7 +9397,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true
+					"anyArtisansTool": true
 				}
 			],
 			"startingEquipment": [
@@ -12023,7 +12023,7 @@
 			"toolProficiencies": [
 				{
 					"thieves' tools": true,
-					"artisan's tools": true
+					"anyArtisansTool": true
 				}
 			],
 			"startingEquipment": [
@@ -12721,7 +12721,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true
+					"anyArtisansTool": true
 				}
 			],
 			"startingEquipment": [
@@ -13867,7 +13867,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true,
+					"anyArtisansTool": true,
 					"musical instrument": true
 				}
 			],
@@ -15097,7 +15097,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true,
+					"anyArtisansTool": true,
 					"vehicles (land)": true
 				}
 			],
@@ -15416,7 +15416,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true
+					"anyArtisansTool": true
 				}
 			],
 			"startingEquipment": [
@@ -15669,7 +15669,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true
+					"anyArtisansTool": true
 				}
 			],
 			"startingEquipment": [
@@ -15917,7 +15917,7 @@
 				{
 					"choose": {
 						"from": [
-							"artisan's tools",
+							"anyArtisansTool",
 							"musical instrument"
 						]
 					}
@@ -16181,7 +16181,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true
+					"anyArtisansTool": true
 				}
 			],
 			"startingEquipment": [
@@ -16947,7 +16947,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true
+					"anyArtisansTool": true
 				}
 			],
 			"startingEquipment": [
@@ -17959,7 +17959,7 @@
 				{
 					"choose": {
 						"from": [
-							"artisan's tools",
+							"anyArtisansTool",
 							"musical instrument"
 						]
 					}
@@ -21326,7 +21326,7 @@
 					"choose": {
 						"from": [
 							"musical instrument",
-							"artisan's tools"
+							"anyArtisansTool"
 						]
 					}
 				}
@@ -21620,7 +21620,7 @@
 				{
 					"choose": {
 						"from": [
-							"artisan's tools",
+							"anyArtisansTool",
 							"navigator's tools"
 						]
 					}
@@ -21707,7 +21707,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true,
+					"anyArtisansTool": true,
 					"musical instrument": true
 				}
 			],

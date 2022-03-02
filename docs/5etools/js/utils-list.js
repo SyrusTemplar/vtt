@@ -44,11 +44,16 @@ const ListUtil = {
 
 		// region Magnifying glass/clear button
 		const $btnSearchClear = $(`#lst__search-glass`)
-			.click(() => $iptSearch.val("").change().keydown().keyup());
+			.click(() => $iptSearch.val("").change().keydown().keyup().focus());
 		const _handleSearchChange = () => {
 			setTimeout(() => {
-				if ($iptSearch.val().length) $btnSearchClear.removeClass("no-events").addClass("clickable").title("Clear").html(`<span class="glyphicon glyphicon-remove"/>`);
-				else $btnSearchClear.addClass("no-events").removeClass("clickable").title(null).html(`<span class="glyphicon glyphicon-search"/>`);
+				const hasText = !!$iptSearch.val().length;
+
+				$btnSearchClear
+					.toggleClass("no-events", !hasText)
+					.toggleClass("clickable", hasText)
+					.title(hasText ? "Clear" : null)
+					.html(`<span class="glyphicon ${hasText ? `glyphicon-remove` : `glyphicon-search`}"></span>`);
 			});
 		};
 		const handleSearchChange = MiscUtil.throttle(_handleSearchChange, 50);
@@ -785,6 +790,7 @@ const ListUtil = {
 					isPermanent: true,
 					pageUrl: `${page}#${hash}`,
 					isBookContent: page === UrlUtil.PG_RECIPES,
+					sourceData: toRender,
 				},
 			);
 		}

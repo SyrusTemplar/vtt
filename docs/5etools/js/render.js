@@ -2529,7 +2529,7 @@ Renderer.utils = {
 	},
 
 	getBtnSendToFoundryHtml ({isMb = true} = {}) {
-		return `<button title="Send to Foundry (SHIFT for Temporary Import)" class="btn btn-xs btn-default btn-stats-name mx-2 ${isMb ? "mb-2" : ""} ve-self-flex-end" onclick="ExtensionUtil.pDoSendStats(event, this)"><span class="glyphicon glyphicon-send"></span></button>`;
+		return `<button title="Send to Foundry (SHIFT for Temporary Import)" class="btn btn-xs btn-default btn-stats-name mx-2 ${isMb ? "mb-2" : ""} ve-self-flex-end" onclick="ExtensionUtil.pDoSendStats(event, this)" draggable="true" ondragstart="ExtensionUtil.doDragStart(event, this)"><span class="glyphicon glyphicon-send"></span></button>`;
 	},
 
 	isDisplayPage (page) { return page != null && ((!isNaN(page) && page > 0) || isNaN(page)); },
@@ -2868,11 +2868,12 @@ Renderer.utils = {
 		if (!prerequisites) return isListMode ? "\u2014" : "";
 
 		let cntPrerequisites = 0;
+		let hasNote = false;
 		const listOfChoices = prerequisites.map(pr => {
-			return Object.entries(pr)
+			const ptPrereqs = Object.entries(pr)
 				.sort(([kA], [kB]) => Renderer.utils._prereqWeights[kA] - Renderer.utils._prereqWeights[kB])
 				.map(([k, v]) => {
-					if (blacklistKeys.has(k)) return false;
+					if (k === "note" || blacklistKeys.has(k)) return false;
 
 					cntPrerequisites += 1;
 
@@ -3016,10 +3017,21 @@ Renderer.utils = {
 				})
 				.filter(Boolean)
 				.join(", ");
+
+			// Never include notes in list mode
+			const ptNote = !isListMode && pr.note ? Renderer.get().render(pr.note) : null;
+			if (ptNote) {
+				hasNote = true;
+			}
+
+			return [ptPrereqs, ptNote].filter(Boolean).join(". ");
 		}).filter(Boolean);
 
 		if (!listOfChoices.length) return isListMode ? "\u2014" : "";
-		return isListMode ? listOfChoices.join("/") : `${isSkipPrefix ? "" : `Prerequisite${cntPrerequisites === 1 ? "" : "s"}: `}${listOfChoices.joinConjunct("; ", " or ")}`;
+		if (isListMode) return listOfChoices.join("/");
+
+		const joinedChoices = hasNote ? listOfChoices.join(" Or, ") : listOfChoices.joinConjunct("; ", " or ");
+		return `${isSkipPrefix ? "" : `Prerequisite${cntPrerequisites === 1 ? "" : "s"}: `}${joinedChoices}`;
 	},
 
 	getMediaUrl (entry, prop, mediaDir) {
@@ -3058,16 +3070,16 @@ Renderer.utils = {
 				if (name) fauxEntry.name = name;
 
 				switch (tag) {
-					case "@dice": {
+					case "@dice":
+					case "@damage": {
 						// format: {@dice 1d2 + 3 + 4d5 - 6}
 						fauxEntry.toRoll = rollText;
+
 						if (!fauxEntry.displayText && (rollText || "").includes(";")) fauxEntry.displayText = rollText.replace(/;/g, "/");
 						if ((!fauxEntry.displayText && (rollText || "").includes("#$")) || (fauxEntry.displayText && fauxEntry.displayText.includes("#$"))) fauxEntry.displayText = (fauxEntry.displayText || rollText).replace(/#\$prompt_number[^$]*\$#/g, "(n)");
-						return fauxEntry;
-					}
-					case "@damage": {
-						fauxEntry.toRoll = rollText;
-						fauxEntry.subType = "damage";
+
+						if (tag === "@damage") fauxEntry.subType = "damage";
+
 						return fauxEntry;
 					}
 					case "@d20":
@@ -5319,6 +5331,16 @@ Renderer.monster = {
 			},
 		},
 
+		getAvailableColors () {
+			const out = new Set();
+
+			const add = (lookup) => Object.values(lookup).forEach(obj => Object.keys(obj).forEach(k => out.add(k)));
+			add(Renderer.monster.dragonCasterVariant._LVL_TO_COLOR_TO_SPELLS__UNOFFICIAL);
+			add(Renderer.monster.dragonCasterVariant._LVL_TO_COLOR_TO_SPELLS__FTD);
+
+			return [...out].sort(SortUtil.ascSortLower);
+		},
+
 		hasCastingColorVariant (dragon) {
 			// if the dragon already has a spellcasting trait specified, don't add a note about adding a spellcasting trait
 			return dragon.dragonCastingColor && !dragon.spellcasting;
@@ -5905,6 +5927,10 @@ Renderer.monster = {
 
 	getRenderedEnvironment (envs) { return (envs || []).sort(SortUtil.ascSortLower).map(it => it.toTitleCase()).join(", "); },
 
+	getRenderedAltArtEntry (meta, {isPlainText = false} = {}) {
+		return `${isPlainText ? "" : `<div>`}${meta.displayName || meta.name}; ${isPlainText ? "" : `<span title="${Parser.sourceJsonToFull(meta.source)}">`}${Parser.sourceJsonToAbv(meta.source)}${Renderer.utils.isDisplayPage(meta.page) ? ` p${meta.page}` : ""}${isPlainText ? "" : `</span></div>`}`;
+	},
+
 	pGetFluff (mon) {
 		return Renderer.utils.pGetFluff({
 			entity: mon,
@@ -5917,7 +5943,7 @@ Renderer.monster = {
 	doBindCompactContentHandlers (
 		{
 			$content,
-			sourceData,
+			compactReferenceData,
 			toRender,
 			fnRender,
 			page,
@@ -5945,12 +5971,12 @@ Renderer.monster = {
 						const original = await Renderer.hover.pCacheAndGet(page, source, hash);
 						if (Parser.numberToCr(targetCr) === initialCr) {
 							toRender = original;
-							sourceData.type = "stats";
-							delete sourceData.crNumber;
+							compactReferenceData.type = "stats";
+							delete compactReferenceData.crNumber;
 						} else {
 							toRender = await ScaleCreature.scale(original, targetCr);
-							sourceData.type = "statsCreatureScaledCr";
-							sourceData.crNumber = targetCr;
+							compactReferenceData.type = "statsCreatureScaledCr";
+							compactReferenceData.crNumber = targetCr;
 						}
 
 						$content.empty().append(fnRender(toRender));
@@ -5958,7 +5984,7 @@ Renderer.monster = {
 
 						Renderer.monster.doBindCompactContentHandlers({
 							$content,
-							sourceData,
+							compactReferenceData,
 							toRender,
 							fnRender,
 							page,
@@ -5979,7 +6005,7 @@ Renderer.monster = {
 
 				Renderer.monster.doBindCompactContentHandlers({
 					$content,
-					sourceData,
+					compactReferenceData,
 					toRender,
 					fnRender,
 					page,
@@ -5996,12 +6022,12 @@ Renderer.monster = {
 				const spellLevel = Number($selSummonSpellLevel.val());
 				if (~spellLevel) {
 					toRender = await ScaleSpellSummonedCreature.scale(original, spellLevel);
-					sourceData.type = "statsCreatureScaledSpellSummonLevel";
-					sourceData.summonSpellLevel = spellLevel;
+					compactReferenceData.type = "statsCreatureScaledSpellSummonLevel";
+					compactReferenceData.summonSpellLevel = spellLevel;
 				} else {
 					toRender = original;
-					sourceData.type = "stats";
-					delete sourceData.summonSpellLevel;
+					compactReferenceData.type = "stats";
+					delete compactReferenceData.summonSpellLevel;
 				}
 
 				$content.empty().append(fnRender(toRender));
@@ -6009,7 +6035,7 @@ Renderer.monster = {
 
 				Renderer.monster.doBindCompactContentHandlers({
 					$content,
-					sourceData,
+					compactReferenceData,
 					toRender,
 					fnRender,
 					page,
@@ -6027,12 +6053,12 @@ Renderer.monster = {
 				const classLevel = Number($selSummonClassLevel.val());
 				if (~classLevel) {
 					toRender = await ScaleClassSummonedCreature.scale(original, classLevel);
-					sourceData.type = "statsCreatureScaledClassSummonLevel";
-					sourceData.summonClassLevel = classLevel;
+					compactReferenceData.type = "statsCreatureScaledClassSummonLevel";
+					compactReferenceData.summonClassLevel = classLevel;
 				} else {
 					toRender = original;
-					sourceData.type = "stats";
-					delete sourceData.summonClassLevel;
+					compactReferenceData.type = "stats";
+					delete compactReferenceData.summonClassLevel;
 				}
 
 				$content.empty().append(fnRender(toRender));
@@ -6040,7 +6066,7 @@ Renderer.monster = {
 
 				Renderer.monster.doBindCompactContentHandlers({
 					$content,
-					sourceData,
+					compactReferenceData,
 					toRender,
 					fnRender,
 					page,
@@ -6596,16 +6622,27 @@ Renderer.item = {
 	},
 
 	_createSpecificVariants_hasRequiredProperty (baseItem, genericVariant) {
-		return genericVariant.requires.some(req => Object.entries(req).every(([k, v]) => baseItem[k] === v));
+		return genericVariant.requires.some(req => Renderer.item._createSpecificVariants_isRequiresExcludesMatch(baseItem, req, "every"));
 	},
 
 	_createSpecificVariants_hasExcludedProperty (baseItem, genericVariant) {
 		const curExcludes = genericVariant.excludes || {};
-		return !!Object.keys(curExcludes).find(key => {
-			if (curExcludes[key] instanceof Array) {
-				return (baseItem[key] instanceof Array ? baseItem[key].find(it => curExcludes[key].includes(it)) : curExcludes[key].includes(baseItem[key]));
+		return Renderer.item._createSpecificVariants_isRequiresExcludesMatch(baseItem, genericVariant.excludes, "some");
+	},
+
+	_createSpecificVariants_isRequiresExcludesMatch (baseItem, toMatch, method) {
+		if (!toMatch) return false;
+
+		return Object.entries(toMatch)[method](([k, v]) => {
+			if (v instanceof Array) {
+				return baseItem[k] instanceof Array
+					? baseItem[k].some(it => v.includes(it))
+					: v.includes(baseItem[k]);
 			}
-			return baseItem[key] instanceof Array ? baseItem[key].find(it => curExcludes[key] === it) : curExcludes[key] === baseItem[key];
+
+			return baseItem[k] instanceof Array
+				? baseItem[k].some(it => v === it)
+				: v === baseItem[k];
 		});
 	},
 
@@ -7668,19 +7705,25 @@ Renderer.adventureBook = {
 
 Renderer.charoption = {
 	getCompactRenderedString (it) {
+		const prerequisite = Renderer.utils.getPrerequisiteHtml(it.prerequisite);
 		const preText = Renderer.charoption.getOptionTypePreText(it.optionType);
 		return `
 		${Renderer.utils.getExcludedTr({entity: it, dataProp: "charoption", page: UrlUtil.PG_CHAR_CREATION_OPTIONS})}
 		${Renderer.utils.getNameTr(it, {page: UrlUtil.PG_CHAR_CREATION_OPTIONS})}
 		<tr class="text"><td colspan="6">
+		${prerequisite ? `<p><i>${prerequisite}</i></p>` : ""}
 		${preText || ""}${Renderer.get().setFirstSection(true).render({type: "entries", entries: it.entries})}
 		</td></tr>
 		`;
 	},
 
-	getOptionTypePreText (optionType) {
-		if (optionType !== "RF:B") return "";
-		return Renderer.get().render({type: "entries", entries: [`{@note You may replace the standard feature of your background with this feature.}`]});
+	_OPTION_TYPE_ENTRIES: {
+		"RF:B": `{@note You may replace the standard feature of your background with this feature.}`,
+		"CS": `{@note See the {@adventure Character Secrets|IDRotF|0|character secrets} section for more information.}`,
+	},
+	getOptionTypePreText (optionTypes) {
+		const mapped = optionTypes.map(it => Renderer.charoption._OPTION_TYPE_ENTRIES[it]).filter(Boolean);
+		return mapped.length ? Renderer.get().render({type: "entries", entries: mapped}) : "";
 	},
 
 	pGetFluff (it) {
@@ -8024,7 +8067,7 @@ Renderer.hover = {
 	_dmScreen: null,
 	_lastId: 0,
 	_contextMenu: null,
-	_contextMenuLastClickedHeader: null,
+	_contextMenuLastClicked: null,
 
 	bindDmScreen (screen) { this._dmScreen = screen; },
 
@@ -8055,13 +8098,13 @@ Renderer.hover = {
 				new ContextUtil.Action(
 					"Close Others",
 					() => {
-						const $thisHoverClose = $(Renderer.hover._contextMenuLastClickedHeader).closest(`.hoverborder--top`).find(`.hvr__close`);
-						$(`.hvr__close`).not($thisHoverClose).click();
+						const hoverId = Renderer.hover._contextMenuLastClicked?.hoverId;
+						Renderer.hover._doCloseAllWindows({hoverIdBlacklist: new Set([hoverId])});
 					},
 				),
 				new ContextUtil.Action(
 					"Close All",
-					() => $(`.hvr__close`).click(),
+					() => Renderer.hover._doCloseAllWindows(),
 				),
 			]);
 		}
@@ -8082,6 +8125,12 @@ Renderer.hover = {
 				}
 			}
 		}
+	},
+
+	_doCloseAllWindows ({hoverIdBlacklist = null} = {}) {
+		Object.entries(Renderer.hover._WINDOW_METAS)
+			.filter(([hoverId, meta]) => hoverIdBlacklist == null || !hoverIdBlacklist.has(Number(hoverId)))
+			.forEach(([, meta]) => meta.doClose());
 	},
 
 	_getSetMeta (ele) {
@@ -8173,7 +8222,7 @@ Renderer.hover = {
 		const $content = meta.isFluff
 			? Renderer.hover.$getHoverContent_fluff(page, toRender)
 			: Renderer.hover.$getHoverContent_stats(page, toRender);
-		const sourceData = {
+		const compactReferenceData = {
 			type: "stats",
 			page,
 			source,
@@ -8194,8 +8243,9 @@ Renderer.hover = {
 				pageUrl: `${Renderer.get().baseUrl}${page}#${hash}`,
 				cbClose: () => meta.isHovered = meta.isPermanent = meta.isLoading = meta.isFluff = false,
 				isBookContent: page === UrlUtil.PG_RECIPES,
+				compactReferenceData,
+				sourceData: toRender,
 			},
-			sourceData,
 		);
 
 		if (page === UrlUtil.PG_BESTIARY && !meta.isFluff) {
@@ -8208,7 +8258,7 @@ Renderer.hover = {
 					case UrlUtil.PG_BESTIARY: {
 						Renderer.monster.doBindCompactContentHandlers({
 							$content,
-							sourceData,
+							compactReferenceData,
 							toRender,
 							fnRender: Renderer.hover.getFnRenderCompact(page),
 							page,
@@ -8315,6 +8365,7 @@ Renderer.hover = {
 				title: toRender.data && toRender.data.hoverTitle != null ? toRender.data.hoverTitle : toRender.name,
 				isPermanent: meta.isPermanent,
 				cbClose: () => meta.isHovered = meta.isPermanent = meta.isLoading = false,
+				sourceData: toRender,
 			},
 		);
 
@@ -8421,10 +8472,11 @@ Renderer.hover = {
 	 * @param [opts.$pFnGetPopoutContent] A function which loads content for this window when it is popped out.
 	 * @param [opts.fnGetPopoutSize] A function which gets a `{width: ..., height: ...}` object with dimensions for a
 	 * popout window.
-	 * @param [sourceData] Source data which can be used to load the contents into the DM screen.
-	 * @param [sourceData.type]
+	 * @param [opts.compactReferenceData] Reference (e.g. page/source/hash/others) which can be used to load the contents into the DM screen.
+	 * @param [opts.compactReferenceData.type]
+	 * @param [opts.sourceData] Source JSON (as raw as possible) used to construct this popout.
 	 */
-	getShowWindow ($content, position, opts, sourceData) {
+	getShowWindow ($content, position, opts) {
 		opts = opts || {};
 
 		Renderer.hover._doInit();
@@ -8512,7 +8564,9 @@ Renderer.hover = {
 		const $brdrTop = $(`<div class="hoverborder hoverborder--top ${opts.isBookContent ? "hoverborder-book" : ""}" ${opts.isPermanent ? `data-perm="true"` : ""}></div>`)
 			.on("mousedown touchstart", (evt) => handleDragMousedown(evt, 9))
 			.on("contextmenu", (evt) => {
-				Renderer.hover._contextMenuLastClickedHeader = $brdrTop[0];
+				Renderer.hover._contextMenuLastClicked = {
+					hoverId,
+				};
 				ContextUtil.pOpenMenu(evt, Renderer.hover._contextMenu);
 			});
 
@@ -8566,7 +8620,7 @@ Renderer.hover = {
 
 					if (drag.type === 9) {
 						// handle mobile button touches
-						if (evt.target.classList.contains("hvr__close") || evt.target.classList.contains("hvr__popout")) {
+						if (EventUtil.isUsingTouch() && evt.target.classList.contains("hwin__top-border-icon")) {
 							evt.preventDefault();
 							drag.type = 0;
 							$(evt.target).click();
@@ -8574,28 +8628,28 @@ Renderer.hover = {
 						}
 
 						// handle DM screen integration
-						if (this._dmScreen && sourceData) {
+						if (this._dmScreen && opts.compactReferenceData) {
 							const panel = this._dmScreen.getPanelPx(EventUtil.getClientX(evt), EventUtil.getClientY(evt));
 							if (!panel) return;
 							this._dmScreen.setHoveringPanel(panel);
 							const target = panel.getAddButtonPos();
 
 							if (isOverHoverTarget(evt, target)) {
-								switch (sourceData.type) {
+								switch (opts.compactReferenceData.type) {
 									case "stats": {
-										panel.doPopulate_Stats(sourceData.page, sourceData.source, sourceData.hash);
+										panel.doPopulate_Stats(opts.compactReferenceData.page, opts.compactReferenceData.source, opts.compactReferenceData.hash);
 										break;
 									}
 									case "statsCreatureScaledCr": {
-										panel.doPopulate_StatsScaledCr(sourceData.page, sourceData.source, sourceData.hash, sourceData.crNumber);
+										panel.doPopulate_StatsScaledCr(opts.compactReferenceData.page, opts.compactReferenceData.source, opts.compactReferenceData.hash, opts.compactReferenceData.crNumber);
 										break;
 									}
 									case "statsCreatureScaledSpellSummonLevel": {
-										panel.doPopulate_StatsScaledSpellSummonLevel(sourceData.page, sourceData.source, sourceData.hash, sourceData.summonSpellLevel);
+										panel.doPopulate_StatsScaledSpellSummonLevel(opts.compactReferenceData.page, opts.compactReferenceData.source, opts.compactReferenceData.hash, opts.compactReferenceData.summonSpellLevel);
 										break;
 									}
 									case "statsCreatureScaledClassSummonLevel": {
-										panel.doPopulate_StatsScaledClassSummonLevel(sourceData.page, sourceData.source, sourceData.hash, sourceData.summonClassLevel);
+										panel.doPopulate_StatsScaledClassSummonLevel(opts.compactReferenceData.page, opts.compactReferenceData.source, opts.compactReferenceData.hash, opts.compactReferenceData.summonClassLevel);
 										break;
 									}
 								}
@@ -8659,15 +8713,15 @@ Renderer.hover = {
 		$brdrTop.attr("data-display-title", false);
 		$brdrTop.on("dblclick", () => doToggleMinimizedMaximized());
 		$brdrTop.append($hovTitle);
-		const $brdTopRhs = $(`<div class="ve-flex" style="margin-left: auto;"></div>`).appendTo($brdrTop);
+		const $brdTopRhs = $(`<div class="ve-flex ml-auto"></div>`).appendTo($brdrTop);
 
 		if (opts.pageUrl && !position.window._IS_POPOUT && !Renderer.get().isInternalLinksDisabled()) {
-			const $btnGotoPage = $(`<a class="top-border-icon glyphicon glyphicon-modal-window" style="margin-right: 2px;" title="Go to Page" href="${opts.pageUrl}"></a>`)
+			const $btnGotoPage = $(`<a class="hwin__top-border-icon glyphicon glyphicon-modal-window" title="Go to Page" href="${opts.pageUrl}"></a>`)
 				.appendTo($brdTopRhs);
 		}
 
 		if (!position.window._IS_POPOUT) {
-			const $btnPopout = $(`<span class="top-border-icon glyphicon glyphicon-new-window hvr__popout" style="margin-right: 2px;" title="Open as Popup Window"></span>`)
+			const $btnPopout = $(`<span class="hwin__top-border-icon glyphicon glyphicon-new-window hvr__popout" title="Open as Popup Window"></span>`)
 				.on("click", async evt => {
 					evt.stopPropagation();
 
@@ -8748,7 +8802,32 @@ Renderer.hover = {
 				}).appendTo($brdTopRhs);
 		}
 
-		const $btnClose = $(`<span class="delete-icon glyphicon glyphicon-remove hvr__close" title="Close"></span>`)
+		if (opts.sourceData) {
+			const btnPopout = e_({
+				tag: "span",
+				clazz: `hwin__top-border-icon hwin__top-border-icon--text`,
+				title: "Show Source Data",
+				text: "{}",
+				click: evt => {
+					evt.stopPropagation();
+					evt.preventDefault();
+
+					const $content = Renderer.hover.$getHoverContent_statsCode(opts.sourceData);
+					Renderer.hover.getShowWindow(
+						$content,
+						Renderer.hover.getWindowPositionFromEvent(evt),
+						{
+							title: [opts.sourceData._displayName || opts.sourceData.name, "Source Data"].filter(Boolean).join(" \u2014 "),
+							isPermanent: true,
+							isBookContent: true,
+						},
+					);
+				},
+			});
+			$brdTopRhs.append(btnPopout);
+		}
+
+		const $btnClose = $(`<span class="hwin__top-border-icon glyphicon glyphicon-remove" title="Close"></span>`)
 			.on("click", (evt) => {
 				evt.stopPropagation();
 				doClose();
@@ -9320,7 +9399,7 @@ Renderer.hover = {
 
 				// Get only the ids that exist in both data + contents
 				const brewDataIds = (brew[propData] || []).filter(it => it.id).map(it => it.id);
-				const brewContentsIds = new Set(...(brew[prop] || []).filter(it => it.id).map(it => it.id));
+				const brewContentsIds = new Set((brew[prop] || []).filter(it => it.id).map(it => it.id));
 				const matchingBrewIds = brewDataIds.filter(id => brewContentsIds.has(id));
 
 				matchingBrewIds.forEach(id => {
@@ -9968,6 +10047,7 @@ Renderer.hover = {
 				title: entity._displayName || entity.name,
 				isPermanent: true,
 				isBookContent: page === UrlUtil.PG_RECIPES,
+				sourceData: entity,
 			},
 		);
 	},

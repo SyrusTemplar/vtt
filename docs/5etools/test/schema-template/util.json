@@ -4,7 +4,7 @@
 
 	"title": "Util",
 	"description": "Utility definitions to be used in other schemas.",
-	"version": "1.11.7",
+	"version": "1.11.9",
 
 	"definitions" : {
 		"metaBlock": {
@@ -250,7 +250,10 @@
 							"from": {
 								"type": "array",
 								"items": {
-									"$ref": "#/definitions/toolNameLower"
+									"anyOf": [
+										{"$ref": "#/definitions/toolNameLower"},
+										{"type": "string", "enum": ["anyArtisansTool"]}
+									]
 								}
 							},
 							"count": {
@@ -1000,6 +1003,10 @@
 							},
 							"additionalProperties": false
 						}
+					},
+					"note": {
+						"description": "An additional note that accompanies the proficiencies, but is not part of them.",
+						"type": "string"
 					}
 				},
 				"additionalProperties": false
@@ -2049,6 +2056,28 @@
 								"description": "A range of spells to be chosen from, formatted similarly to the options in a {@filter ...} tag. \nFor example: \"level=0|class=Wizard\""
 							},
 							"count": {"type": "integer"}
+						},
+						"required": ["choose"],
+						"additionalProperties": false
+					},
+					{
+						"type": "object",
+						"properties": {
+							"choose": {
+								"type": "object",
+								"properties": {
+									"from": {
+										"description": "An array of spell UIDs to be chosen from.",
+										"type": "array",
+										"items": {
+											"type": "string"
+										},
+										"uniqueItems": true
+									},
+									"count": {"type": "integer"}
+								},
+								"additionalProperties": false
+							}
 						},
 						"required": ["choose"],
 						"additionalProperties": false

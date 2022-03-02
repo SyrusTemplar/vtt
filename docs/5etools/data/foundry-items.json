@@ -53,6 +53,23 @@
 				"armor.type": "light",
 				"armor.value": 12
 			}
+		},
+		{
+			"name": "Hazirawn",
+			"source": "HotDQ",
+			"data": {
+				"attackBonus": "+1 + floor(@item.attunement / 2)",
+				"damage.parts": [
+					[
+						"2d6+1+floor(@item.attunement / 2)",
+						"slashing"
+					],
+					[
+						"1d6+floor(@item.attunement / 2)d6",
+						"necrotic"
+					]
+				]
+			}
 		}
 	]
 }

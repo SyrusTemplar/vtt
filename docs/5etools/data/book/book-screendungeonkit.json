@@ -337,14 +337,16 @@
 					"name": "Long Jump",
 					"entries": [
 						"Move 10+ feet, and jump a number of feet up to your Strength score. When you make a standing long jump, you can leap only half that distance."
-					]
+					],
+					"id": "001"
 				},
 				{
 					"type": "entries",
 					"name": "High Jump",
 					"entries": [
 						"Move 10+ feet, and jump a number of feet equal to 3 + your Strength modifier. When you make a standing high jump, you can jump only half that distance."
-					]
+					],
+					"id": "002"
 				},
 				{
 					"type": "entries",
@@ -352,7 +354,8 @@
 					"entries": [
 						"You can hold your breath for a number of minutes equal to 1 + your Constitution modifier (minimum Of 30 seconds).",
 						"If you run out of breath or you're choking, you can survive for a number of rounds equal to your Constitution modifier (minimum of 1 round). At the start of your next turn, you drop to O hit points and are dying, and you can't regain hit points or be stabilized until you can breathe again."
-					]
+					],
+					"id": "003"
 				},
 				{
 					"type": "entries",
@@ -368,7 +371,8 @@
 								"You're overwhelmed by an enormous distraction, such as a wave crashing into you. Succeed on a DC 10 Constitution saving throw to maintain your concentration."
 							]
 						}
-					]
+					],
+					"id": "004"
 				},
 				{
 					"type": "entries",
@@ -411,7 +415,8 @@
 								]
 							]
 						}
-					]
+					],
+					"id": "005"
 				},
 				{
 					"type": "entries",
@@ -453,7 +458,8 @@
 								}
 							]
 						}
-					]
+					],
+					"id": "006"
 				},
 				{
 					"type": "entries",
@@ -505,7 +511,8 @@
 								]
 							]
 						}
-					]
+					],
+					"id": "007"
 				},
 				{
 					"type": "entries",
@@ -541,7 +548,8 @@
 								]
 							]
 						}
-					]
+					],
+					"id": "008"
 				},
 				{
 					"type": "entries",
@@ -797,7 +805,8 @@
 								]
 							]
 						}
-					]
+					],
+					"id": "009"
 				},
 				{
 					"type": "table",
@@ -1240,7 +1249,8 @@
 						]
 					]
 				}
-			]
+			],
+			"id": "000"
 		},
 		{
 			"type": "section",
@@ -1648,7 +1658,8 @@
 								}
 							]
 						}
-					]
+					],
+					"id": "00b"
 				},
 				{
 					"type": "entries",
@@ -1772,7 +1783,8 @@
 								}
 							]
 						}
-					]
+					],
+					"id": "00c"
 				},
 				{
 					"type": "entries",
@@ -2168,9 +2180,11 @@
 								}
 							]
 						}
-					]
+					],
+					"id": "00d"
 				}
-			]
+			],
+			"id": "00a"
 		}
 	]
 }

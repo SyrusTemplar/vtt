@@ -1,7 +1,7 @@
 "use strict";
 
 class PageFilterEquipment extends PageFilter {
-	constructor () {
+	constructor ({filterOpts = null} = {}) {
 		super();
 
 		this._typeFilter = new Filter({
@@ -15,6 +15,7 @@ class PageFilterEquipment extends PageFilter {
 			items: ["Basic", "Generic Variant", "Specific Variant", "Other"],
 			deselFn: (it) => it === "Specific Variant",
 			itemSortFn: null,
+			...(filterOpts?.["Category"] || {}),
 		});
 		this._costFilter = new RangeFilter({
 			header: "Cost",
@@ -47,6 +48,7 @@ class PageFilterEquipment extends PageFilter {
 		if (item.basicRules) item._fMisc.push("Basic Rules");
 		if (item.hasFluff) item._fMisc.push("Has Info");
 		if (item.hasFluffImages) item._fMisc.push("Has Images");
+		if (item.miscTags) item._fMisc.push(...item.miscTags.map(Parser.itemMiscTagToFull));
 
 		if (item.focus || item.name === "Thieves' Tools" || item.type === "INS" || item.type === "SCF" || item.type === "AT") {
 			item._fFocus = item.focus ? item.focus === true ? [...Parser.ITEM_SPELLCASTING_FOCUS_CLASSES] : [...item.focus] : [];
@@ -83,6 +85,7 @@ class PageFilterEquipment extends PageFilter {
 		this._propertyFilter.addItem(item._fProperties);
 		this._damageTypeFilter.addItem(item.dmgType);
 		this._poisonTypeFilter.addItem(item.poisonTypes);
+		this._miscFilter.addItem(item._fMisc);
 	}
 
 	async _pPopulateBoxOptions (opts) {
@@ -185,8 +188,8 @@ class PageFilterItems extends PageFilterEquipment {
 	}
 
 	// endregion
-	constructor () {
-		super();
+	constructor (opts) {
+		super(opts);
 
 		this._tierFilter = new Filter({header: "Tier", items: ["none", "minor", "major"], itemSortFn: null, displayFn: StrUtil.toTitleCase});
 		this._attachedSpellsFilter = new Filter({header: "Attached Spells", displayFn: (it) => it.split("|")[0].toTitleCase(), itemSortFn: SortUtil.ascSortLower});
@@ -324,13 +327,14 @@ class ModalFilterItems extends ModalFilter {
 	 * @param opts.namespace
 	 * @param [opts.isRadio]
 	 * @param [opts.allData]
+	 * @param [opts.pageFilterOpts] Options to be passed to the underlying items page filter.
 	 */
 	constructor (opts) {
 		opts = opts || {};
 		super({
 			...opts,
 			modalTitle: `Item${opts.isRadio ? "" : "s"}`,
-			pageFilter: new PageFilterItems(),
+			pageFilter: new PageFilterItems(opts?.pageFilterOpts),
 		});
 	}
 

@@ -65,7 +65,7 @@ class RaceParser extends BaseParser {
 			return {};
 		}
 
-		const toConvert = this._getCleanInput(inText)
+		const toConvert = this._getCleanInput(inText, options)
 			.split("\n")
 			.filter(it => it && it.trim());
 

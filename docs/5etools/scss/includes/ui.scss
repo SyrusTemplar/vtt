@@ -613,8 +613,11 @@ Shared UI components
 	}
 
 	&__row {
-		cursor: pointer;
 		min-width: 160px;
+	}
+
+	&__btn {
+		cursor: pointer;
 
 		&:hover {
 			background: $rgb-bg--alt;

@@ -304,7 +304,7 @@
 		if (toCr == null || toCr === "Unknown") throw new Error("Attempting to scale unknown CR!");
 
 		this._initRng(mon, toCr);
-		mon = JSON.parse(JSON.stringify(mon));
+		mon = MiscUtil.copy(mon);
 
 		const crIn = mon.cr.cr || mon.cr;
 		const crInNumber = Parser.crToNumber(crIn);
@@ -1345,6 +1345,8 @@
 	_wepFinesse: ["dagger", "dart", "rapier", "scimitar", "shortsword", "whip"],
 	_wepThrown: ["handaxe", "javelin", "light hammer", "spear", "trident", "net"],
 	_getAbilBeingScaled ({strMod, dexMod, modFromAbil, name, content}) {
+		if (modFromAbil == null) return null;
+
 		const guessMod = () => {
 			name = name.toLowerCase();
 			content = content.replace(/{@atk ([A-Za-z,]+)}/gi, (_, p1) => Renderer.attackTagToFull(p1)).toLowerCase();
@@ -1378,7 +1380,7 @@
 			}
 		};
 
-		if (!modFromAbil || (strMod === dexMod && strMod === modFromAbil)) return guessMod();
+		if (strMod === dexMod && strMod === modFromAbil) return guessMod();
 		return strMod === modFromAbil ? "str" : dexMod === modFromAbil ? "dex" : null;
 	},
 
@@ -1657,18 +1659,17 @@
 							// therefore, this provides a sanity check: this should only occur when something's broken
 							if (modOut < -5) throw new Error(`Ability modifier ${abilBeingScaled != null ? `(${abilBeingScaled})` : ""} was below -5 (${modOut})! Original dice expression was ${diceExp}.`);
 
-							if (originalAbilMod != null && modOut !== originalAbilMod) {
-								// Written out in full to make ctrl-F easier
-								const [tmpModProp, maxDprKey] = {
-									"str": [`_strTmpMod`, `_maxDprStr`],
-									"dex": [`_dexTmpMod`, `_maxDprDex`],
-								}[abilBeingScaled];
+							if (abilBeingScaled == null) return;
 
-								let updateTempMod = true;
+							// Written out in full to make ctrl-F easier
+							const [tmpModProp, maxDprKey] = {
+								"str": [`_strTmpMod`, `_maxDprStr`],
+								"dex": [`_dexTmpMod`, `_maxDprDex`],
+							}[abilBeingScaled];
+
+							if (originalAbilMod != null) {
 								if (mon[tmpModProp] != null && mon[tmpModProp] !== modOut) {
-									if (mon[maxDprKey] >= adjustedDpr) {
-										updateTempMod = false;
-									} else {
+									if (mon[maxDprKey] < adjustedDpr) {
 										// TODO test this -- none of the official monsters require attribute re-calculation but homebrew might. The story so far:
 										//   - A previous damage roll required an adjusted ability modifier to make the numbers line up
 										//   - This damage roll requires a _different_ adjustment to the same modifier to make the numbers line up
@@ -1679,21 +1680,23 @@
 										mon[tmpModProp] = modOut;
 										mon[maxDprKey] = adjustedDpr;
 										allSucceeded = false;
-										return "";
+										return;
 									}
 								}
 
-								if (updateTempMod) {
-									mon[maxDprKey] = Math.max((mon[maxDprKey] || 0), adjustedDpr);
-									mon[tmpModProp] = modOut;
-								}
-
-								reqAbilAdjust.push({
-									ability: abilBeingScaled,
-									mod: modOut,
-									adjustedDpr,
-								});
+								// Always update the ability score key if one was used, to avoid later rolls clobbering our
+								//   values. We do this for e.g. Young White Dragon's "Bite" attack being scaled from CR6 to 7,
+								//   which would otherwise cause the 1d8 (mod 0) to calculate a new Strength value.
+								mon[maxDprKey] = Math.max((mon[maxDprKey] || 0), adjustedDpr);
+								mon[tmpModProp] = modOut;
 							}
+
+							// Track dbg data
+							reqAbilAdjust.push({
+								ability: abilBeingScaled,
+								mod: modOut,
+								adjustedDpr,
+							});
 						};
 
 						const getDiceExp = (a = numDiceOut, b = diceFacesOut, c = modOut) => `${a}d${b}${c !== 0 ? ` ${c > 0 ? "+" : ""} ${c}` : ""}`;
@@ -1779,9 +1782,19 @@
 							};
 
 							const tryAdjustMod = () => {
+								if (modFromAbil == null) return;
+
 								// alternating sequence, going further from origin each time.
 								// E.g. original modOut == 0 => 1, -1, 2, -2, 3, -3, ... modOut+n, modOut-n
 								modOut += (1 - ((loops % 2) * 2)) * (loops + 1);
+							};
+
+							/** Alternate implementation which prevents dec/increasing AS when inc/decreasing CR */
+							const tryAdjustMod_alt = () => {
+								if (modFromAbil == null) return;
+
+								modOut += Math.sign(crOut - crIn);
+								modOut = Math.max(-5, Math.min(modOut, 10)); // Cap at -5 (0) and at +10 (30)
 							};
 
 							// order of preference for scaling:
@@ -2323,7 +2336,7 @@
 	async scale (mon, toClassLevel) {
 		mon = MiscUtil.copy(mon);
 
-		if (!mon.summonedByClass || toClassLevel <= 1) return mon;
+		if (!mon.summonedByClass || toClassLevel < 1) return mon;
 
 		ScaleClassSummonedCreature._WALKER = ScaleClassSummonedCreature._WALKER || MiscUtil.getWalker({keyBlacklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLACKLIST});
 

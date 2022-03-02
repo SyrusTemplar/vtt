@@ -37,6 +37,24 @@
 			]
 		},
 		{
+			"name": "Blessing of the Frostmaiden",
+			"source": "IDRotF",
+			"page": 213,
+			"type": "Blessing",
+			"entries": [
+				"Your eyes become as cold as ice. You gain immunity to cold damage. In addition, you can cast the {@spell cone of cold} spell (save {@dc 15}) once. You regain the ability to cast this spell when you finish a long rest."
+			]
+		},
+		{
+			"name": "Blessing of the Morninglord",
+			"source": "IDRotF",
+			"page": 119,
+			"type": "Blessing",
+			"entries": [
+				"You gain 10 temporary hit points each day at dawn."
+			]
+		},
+		{
 			"name": "Blessing of Understanding",
 			"source": "DMG",
 			"page": 228,

@@ -1832,7 +1832,7 @@
 		{
 			"name": "Changeling",
 			"source": "MPMM",
-			"page": 41,
+			"page": 10,
 			"lineage": "VRGR",
 			"creatureTypes": [
 				"fey"
@@ -1882,7 +1882,7 @@
 					"type": "entries",
 					"name": "Shapechanger",
 					"entries": [
-						"As an action, you change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair, length, and sex. You can also adjust your height between Medium and Small. You can make yourself appear as a member of another race, though none of your game statistics change. You can't duplicate the appearance of an individual you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. Your clothing and equipment aren't changed by this trait.",
+						"As an action, you change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair length, and sex. You can also adjust your height between Medium and Small. You can make yourself appear as a member of another race, though none of your game statistics change. You can't duplicate the appearance of an individual you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. Your clothing and equipment aren't changed by this trait.",
 						"You stay in the new form until you use an action to revert to your true form or until you die."
 					]
 				}
@@ -6600,6 +6600,11 @@
 			],
 			"speed": 30,
 			"darkvision": 60,
+			"skillProficiencies": [
+				{
+					"any": 2
+				}
+			],
 			"additionalSpells": [
 				{
 					"ability": {
@@ -10684,7 +10689,7 @@
 									"items": [
 										{
 											"type": "item",
-											"name": "Ability Score Increase. ",
+											"name": "Ability Score Increase",
 											"entry": "Your Charisma score increases by 2."
 										},
 										{
@@ -12446,8 +12451,7 @@
 			},
 			"darkvision": 60,
 			"traitTags": [
-				"Amphibious",
-				"Natural Weapon"
+				"Amphibious"
 			],
 			"resist": [
 				"cold"

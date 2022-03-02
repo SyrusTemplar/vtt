@@ -340,6 +340,23 @@
 			}
 		},
 		{
+			"name": "Eldrazi",
+			"source": "PSZ",
+			"page": 38,
+			"apply": {
+				"_mod": {
+					"immune": {
+						"mode": "appendIfNotExistsArr",
+						"items": "psychic"
+					},
+					"conditionImmune": {
+						"mode": "appendIfNotExistsArr",
+						"items": "charmed"
+					}
+				}
+			}
+		},
+		{
 			"name": "Gargantuan Half-Black Dragon",
 			"source": "MM",
 			"page": 180,

@@ -305,12 +305,16 @@ i > i {
 	width: 80px !important;
 }
 
-.w-50p {
-	width: 50px !important;
+.w-90p {
+	width: 90px !important;
 }
 
 .w-100p {
 	width: 100px !important;
+}
+
+.w-140p {
+	width: 140px !important;
 }
 
 .w-200p {
@@ -367,6 +371,10 @@ i > i {
 // endregion
 
 // region Height
+.h-initial {
+	height: initial !important;
+}
+
 .h-50 {
 	height: 50% !important;
 }
@@ -381,6 +389,10 @@ i > i {
 
 .h-20p {
 	height: 20px !important;
+}
+
+.h-25p {
+	height: 25px !important;
 }
 
 .h-21p {

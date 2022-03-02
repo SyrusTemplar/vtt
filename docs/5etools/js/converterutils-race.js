@@ -349,7 +349,7 @@ class RaceImmResVulnTag {
 	static _handleConditionImmune (race) {
 		if (!race.entries) return;
 
-		const out = [];
+		const out = new Set();
 
 		race.entries.forEach(ent => {
 			this._WALKER.walk(

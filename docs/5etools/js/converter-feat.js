@@ -23,7 +23,7 @@ class FeatParser extends BaseParser {
 		options = this._getValidOptions(options);
 
 		if (!inText || !inText.trim()) return options.cbWarning("No input!");
-		const toConvert = this._getCleanInput(inText)
+		const toConvert = this._getCleanInput(inText, options)
 			.split("\n")
 			.filter(it => it && it.trim());
 		const feat = {};

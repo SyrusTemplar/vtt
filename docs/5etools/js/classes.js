@@ -2241,7 +2241,7 @@ ClassesPage.ClassBookView = class {
 		this._$body.addClass("bkmv-active");
 
 		// Top bar
-		const $btnClose = $(`<span class="delete-icon glyphicon glyphicon-remove"/>`)
+		const $btnClose = $(`<button class="btn btn-xs btn-danger br-0 bt-0 bb-0 btl-0 bbl-0 h-20p" title="Close"><span class="glyphicon glyphicon-remove"></span></button>`)
 			.click(() => this._parent.set("isViewActiveBook", false));
 		$$`<div class="bkmv__spacer-name ve-flex-h-right no-shrink">${$btnClose}</div>`.appendTo(this._$wrpBook);
 

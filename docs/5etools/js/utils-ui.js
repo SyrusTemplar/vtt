@@ -1054,7 +1054,7 @@ class TabUiUtilBase {
 			obj[_propProxy][propActive] = ixActiveTab;
 		};
 
-		obj._getActiveTab = function ({propProxy = TabUiUtilBase._DEFAULT_PROP_PROXY, tabGroup = TabUiUtilBase._DEFAULT_TAB_GROUP}) {
+		obj._getActiveTab = function ({propProxy = TabUiUtilBase._DEFAULT_PROP_PROXY, tabGroup = TabUiUtilBase._DEFAULT_TAB_GROUP} = {}) {
 			const tabState = obj.__tabState[tabGroup];
 			const ixActiveTab = obj._getIxActiveTab({propProxy, tabGroup});
 			return tabState.tabMetasOut[ixActiveTab];
@@ -1116,6 +1116,7 @@ class TabUiUtil extends TabUiUtilBase {
 			return {
 				...tabMeta,
 				ix: ixTab,
+				$btns,
 				$btnTab,
 			};
 		};

@@ -23,27 +23,32 @@ class Omnisearch {
 
 		$(window).on("click", () => this._$searchOutWrapper.hideVe());
 
-		this._$searchOut.on("click", e => {
-			e.stopPropagation();
+		this._$searchOut.on("click", evt => {
+			evt.stopPropagation();
 			Renderer.hover.cleanTempWindows();
 		});
 
-		this._$iptSearch.on("keydown", (e) => {
-			e.stopPropagation();
+		this._$iptSearch.on("keydown", (evt) => {
+			evt.stopPropagation();
 			Renderer.hover.cleanTempWindows();
-			switch (e.which) {
-				case 13: // enter
+			switch (evt.key) {
+				case "Enter":
+					if (evt.ctrlKey) {
+						window.location = `${Renderer.get().baseUrl}${UrlUtil.PG_SEARCH}?${this._$iptSearch.val()}`;
+						break;
+					}
+
 					this._clickFirst = true;
 					$searchSubmit.click();
 					break;
-				case 38: // up
-					e.preventDefault();
+				case "ArrowUp":
+					evt.preventDefault();
 					break;
-				case 40: // down
-					e.preventDefault();
+				case "ArrowDown":
+					evt.preventDefault();
 					this._$searchOut.find(`a.omni__lnk-name`).first().focus();
 					break;
-				case 27: // escape
+				case "Escape":
 					this._$iptSearch.val("");
 					this._$iptSearch.blur();
 			}
@@ -59,15 +64,15 @@ class Omnisearch {
 		};
 
 		let typeTimer;
-		this._$iptSearch.on("keyup", (e) => {
+		this._$iptSearch.on("keyup", (evt) => {
 			this._clickFirst = false;
-			if (e.which >= 37 && e.which <= 40) return;
+			if (evt.which >= 37 && evt.which <= 40) return;
 			clearTimeout(typeTimer);
 			typeTimer = setTimeout(() => handleSubmitClick(), TYPE_TIMEOUT_MS);
 		});
 		this._$iptSearch.on("keydown", () => clearTimeout(typeTimer));
-		this._$iptSearch.on("click", (e) => {
-			e.stopPropagation();
+		this._$iptSearch.on("click", evt => {
+			evt.stopPropagation();
 			Renderer.hover.cleanTempWindows();
 			if (this._$iptSearch.val() && this._$iptSearch.val().trim().length) handleSubmitClick();
 		});
@@ -430,11 +435,11 @@ class Omnisearch {
 		this._searchIndex.addDoc(d);
 	}
 
-	static handleLinkKeyDown (e, $ele) {
+	static handleLinkKeyDown (evt, $ele) {
 		Renderer.hover.cleanTempWindows();
-		switch (e.which) {
-			case 37: { // left
-				e.preventDefault();
+		switch (evt.key) {
+			case "ArrowLeft": {
+				evt.preventDefault();
 				if ($(`.has-results-left`).length) {
 					const ix = $ele.parent().index() - 1; // offset as the control bar is at position 0
 					$(`.omni__paginate-left`).click();
@@ -443,8 +448,8 @@ class Omnisearch {
 				}
 				break;
 			}
-			case 38: { // up
-				e.preventDefault();
+			case "ArrowUp": {
+				evt.preventDefault();
 				if ($ele.parent().prev().find(`a.omni__lnk-name`).length) {
 					$ele.parent().prev().find(`a.omni__lnk-name`).focus();
 				} else if ($(`.has-results-left`).length) {
@@ -455,8 +460,8 @@ class Omnisearch {
 				}
 				break;
 			}
-			case 39: { // right
-				e.preventDefault();
+			case "ArrowRight": {
+				evt.preventDefault();
 				if ($(`.has-results-right`).length) {
 					const ix = $ele.parent().index() - 1; // offset as the control bar is at position 0
 					$(`.omni__paginate-right`).click();
@@ -465,8 +470,8 @@ class Omnisearch {
 				}
 				break;
 			}
-			case 40: { // down
-				e.preventDefault();
+			case "ArrowDown": {
+				evt.preventDefault();
 				if ($ele.parent().next().find(`a.omni__lnk-name`).length) {
 					$ele.parent().next().find(`a.omni__lnk-name`).focus();
 				} else if ($(`.has-results-right`).length) {
