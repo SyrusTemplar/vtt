@@ -15,7 +15,7 @@ p {
 }
 
 hr {
-  color: white;
+  color: green;
 }
 
 blockquote {
@@ -234,7 +234,7 @@ body {
 /* jPlayer https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiTjaTQ_JPvAhUF4BoKHXWqA0YQFjAAegQIARAE&url=https%3A%2F%2Fjplayer.org%2F&usg=AOvVaw0sSK3HnmAWdkBwWURrc-ih */
 
 .jplayer-container {
-	border: 1px solid white; /* #009BE3; */
+	border: 1px solid green; /* #009BE3; */
 	padding:0 10px;
 	/* font-family: "Myriad Pro Regular","Trebuchet MS"; */
 }
