@@ -18,7 +18,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- General CSS file -->
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css" type="text/css" />
+
+<script type="text/javascript" src="js/jscripts.js"></script>
 
 <!-- Font Awesome v6 deployed - https://fontawesome.com/icons -->
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
@@ -49,17 +51,14 @@ alt="Web Analytics"></a></div></noscript>
 </head>
 <body>
 
-<div style="padding:0 16px">
-  <h1>myVTT Resources</h1>
-</div>
-
-
 <div class="navbar">
 
-  <a href="home.html" title="Website start"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
-
+  <div class="subnav-title">
+    <a href="home.html" title="Website start"><strong>myVTTresources</strong></a>
+  </div>
+	
   <div class="subnav">
-    <button onclick="window.location.href='./maps_00.html'" class="subnavbtn" title="Random encounter battle maps"><i class="fa-regular fa-map" aria-hidden="true"></i> Maps</button>
+    <button onclick="window.location.href='./maps_00.html'" class="subnavbtn" title="Random encounter&#10& battle maps"><i class="fa-regular fa-map" aria-hidden="true"></i> Maps</button>
     <div class="subnav-content">
       <a href="maps_01.html" title="Roads & Plains"><i class="fa-solid fa-signs-post"></i> Plains</a>
       <a href="maps_02.html" title="Forests"><i class="fa-solid fa-tree"></i> Forest</a>
@@ -69,7 +68,7 @@ alt="Web Analytics"></a></div></noscript>
       <a href="maps_06.html" title="Sea, Lake & Beach"><i class="fa-solid fa-water"></i> Water</a>
       <a href="maps_07.html" title="Village, Town & City"><i class="fa-solid fa-city"></i> Urban</a>
       <a href="maps_08.html" title="Special, Sky & Textures"><i class="fa-solid fa-campground"></i> Extra</a>
-      <a style="color:white">|</a>
+      <a>|</a>
       <a href="https://dmsguild201.github.io/Roll20_resources/index.html" title="DM's Guild resources external link" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> DMs Guild</a>
     </div>
   </div>
@@ -112,10 +111,10 @@ alt="Web Analytics"></a></div></noscript>
       <a href="https://5e.tools" title="Original&#10;Updated" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> 5e.tools</a>
       <a href="https://5etools-mirror-1.github.io/index.html" title="Mirror&#10;Updated" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> 5e.tools #1</a>
       <a class="floatbox" data-fb-options="padding:2px;doAnimations=true;innerBorder:0;outerBorder:0;colorTheme:'black';autoFitSpace:1px;" href="5etools/index.html" title="Mirror&#10;Local-host" target="_blank"><i class="fa-solid fa-window-restore" aria-hidden="true"></i> 5e.tools Local</a>
-      <a style="color:white">|</a>
+      <a>|</a>
       <a href="https://donjon.bin.sh/5e/quickref/" title="Orifinal&#10;at Donjon's" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Player Ref</a>
       <a class="floatbox" data-fb-options="padding:2px;doAnimations=true;innerBorder:0;outerBorder:0;colorTheme:'black';autoFitSpace:1px;minWidth:100%;" href="5equickref/index.html" title="Mirror&#10;Local-host" target="_blank"><i class="fa-solid fa-window-restore" aria-hidden="true"></i> Player Ref Local</a>
-      <a style="color:white">|</a>
+      <a>|</a>
       <a href="https://throwdice.net/" title="Online&#10;Dice room" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Dice</a>
     </div>
   </div>
@@ -124,12 +123,16 @@ alt="Web Analytics"></a></div></noscript>
     <!-- <a href="links.html" title="Usefull links" class="subnavbtn"><i class="fa-solid fa-link" aria-hidden="true"></i> Links</a> -->
 	<button onclick="window.location.href='./links.html'" class="subnavbtn" title="Usefull links"><i class="fa-solid fa-link" aria-hidden="true"></i> Links</button>
     <div class="subnav-content">
-	<a href="links.html" style="color:#fff;">List of useful links for Dungeon Masters.</a>
+	<a href="links.html">List of useful links for Dungeon Masters.</a>
     </div>
+  </div>
+  
+  <div class="subnav">
+    <button class="subnavbtn" href=# id="switch" onclick="toggleTheme()" title="Switch Themes"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></button>
   </div>
 
   <div class="navbar-hidden">
-    <a href="https://www.w3counter.com/stats/136708/dashboard#.YEUezX7_fO0.gmail" target="_blank" title="Website statistics"><i class="fa-solid fa-chart-column"></i> Stats</a>
+    <a href="https://www.w3counter.com/stats/136708/dashboard#.YEUezX7_fO0.gmail" target="_blank" title="Website statistics"><i class="fa-solid fa-chart-column fa-lg"></i> Stats</a>
 	<!--
 	<button onclick="window.open('https://www.w3counter.com/stats/136708/dashboard#.YEUezX7_fO0.gmail', '_blank'); return false;" class="subnavbtn" title="Website statistics"><i class="fa-solid fa-chart-column"></i> Stats</button>
     <div class="subnav-content">
