@@ -127,6 +127,23 @@ iframe {
 }
 
 
+.footer-btn {
+  height:20px;
+  width: 20px;
+  border: 1px solid var(--color-background-primary);
+  border-radius: 3px;
+  background-color: var(--color-background-primary);
+  color: var(--color-background-nav);
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--color-background-primary);
+}
+.footer-btn:hover {
+  background-color: var(--color-background-subnav);
+  color: var(--color-background-primary);
+}
+
+
 .mainbody {
   padding: 0px 16px;
 }
