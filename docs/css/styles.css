@@ -7,6 +7,7 @@
    --color-accent: orange;
    --color-image-border: black;
    --font-color: white;
+   --theme-name:'dark';
 }
 .theme-light { /* Blue */
    --color-background-primary: #f7fbfc;
@@ -17,6 +18,7 @@
    --color-accent: #d23c27;
    --color-image-border: black;
    --font-color: black;
+   --theme-name: light;
 }
 
 .theme-light1 { /* Gray */
@@ -119,7 +121,6 @@ iframe {
   color: var(--color-accent);
   font-size: 16px;
   cursor: pointer;
-  color: var(--color-accent);
 }
 .home-btn:hover {
   background-color: var(--color-accent);
@@ -128,19 +129,20 @@ iframe {
 
 
 .footer-btn {
-  height:20px;
-  width: 20px;
+  height:24px;
+  width: 24px;
   border: 1px solid var(--color-background-primary);
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: var(--color-background-primary);
-  color: var(--color-background-nav);
+  color: var(--color-link);
   font-size: 16px;
   cursor: pointer;
-  color: var(--color-background-primary);
+  padding: 0px 0px;
 }
 .footer-btn:hover {
-  background-color: var(--color-background-subnav);
+  background-color: var(--color-link);
   color: var(--color-background-primary);
+  border: 1px solid var(--color-background-primary);
 }
 
 
@@ -149,11 +151,10 @@ iframe {
 }
 
 .footer {
+  padding: 0px 0px;
   width= 100%;
-  padding: 1px 12px;
-  background: var(--color-background-nav);
+  /* background-color: var(--color-background-nav); */
 }
-
 
 
 .myheading {
@@ -179,7 +180,7 @@ table {
   border: 0px solid var(--color-background-primary);
 }
 th, td {
-  padding: 10px;
+  padding: 1px;
 }
 tr:nth-child(even) {
 }
@@ -195,8 +196,10 @@ tr:nth-child(even) {
 
 /* RESPONSIVE NAVIGATION MENU WITH SUBMENU https://www.w3schools.com/howto/howto_css_subnav.asp */
 .navbar {
+  width: 100%;
+  /* position: fixed; */
   overflow: hidden;
-  background-color: var(--color-background-nav); 
+  background-color: var(--color-background-nav);
 }
 .navbar a {
   float: left;
@@ -281,29 +284,29 @@ tr:nth-child(even) {
 
 /* jPlayer https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiTjaTQ_JPvAhUF4BoKHXWqA0YQFjAAegQIARAE&url=https%3A%2F%2Fjplayer.org%2F&usg=AOvVaw0sSK3HnmAWdkBwWURrc-ih */
 .jplayer-container {
-	border: 1px solid var(--color-link); /* #009BE3; */
-	padding:0 10px;
-	/* font-family: "Myriad Pro Regular","Trebuchet MS"; */
+  border: 1px solid var(--color-link); /* #009BE3; */
+  padding:0 10px;
+  /* font-family: "Myriad Pro Regular","Trebuchet MS"; */
 }
 .jplayer-container a, .jplayer-container a:link, .jplayer-container a:visited, .jplayer-container a:hover, .jplayer-container a:focus, .jplayer-container a:active {
-	color: var(--color-link); /* #009BE3; */
+  color: var(--color-link); /* #009BE3; */
 }
 .jplayer-container ul {
-	list-style-type:none;
-	padding:0;
-	margin:1em 0;
-	width:100%;
-	overflow:hidden;
+  list-style-type:none;
+  padding:0;
+  margin:1em 0;
+  width:100%;
+  overflow:hidden;
 }
 .jplayer-container ul span {
-	color: var(--color-accent); /* #A0A600; */
+  color: var(--color-accent); /* #A0A600; */
 }
 .jplayer-container li {
-	float:left;
-	margin-right:1em;
+  float:left;
+  margin-right:1em;
 }
 .jplayer-container p span.track-name {
-	color: var(--color-accent); /* #CC0090; */
+  color: var(--color-accent); /* #CC0090; */
 }
 .jplayer-title {
    font-size: 18px;
