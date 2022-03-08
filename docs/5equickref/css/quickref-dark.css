@@ -249,8 +249,8 @@ p:first-child {
     top: 0;
     right: 0;
     left: 0;
-    background-color: #888;
-    opacity: .75;
+    background-color: #000;
+    opacity: .80;
     overflow: hidden;
 }
 
