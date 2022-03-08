@@ -259,8 +259,13 @@ tr:nth-child(even) {
 }
 
 
+
+
 /* SCROLL TO TOP https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
 #scrollTopBtn {
+  --offset: 50px;
+  margin-top: calc(100vh + var(--offset));
+  place-self: end;
   display: block; /* Hidden by default */ 
   position: fixed; /* Fixed/sticky position */
   bottom: 7px; /* Place the button at the bottom of the page */
@@ -268,7 +273,7 @@ tr:nth-child(even) {
   z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   outline: none; /* Remove outline */
-  background-color: var(--color-background-nav); /* Set a background color */
+  background-color: var(--color-background); /* Set a background color */
   color: var(--color-link); /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 10px 12px; /* Some padding */
@@ -277,7 +282,7 @@ tr:nth-child(even) {
 }
 
 #scrollTopBtn:hover {
-  background-color: var(--color-background-subnav); /* Add a dark-grey background on hover */
+  background-color: var(--color-background-nav); /* Add a dark-grey background on hover */
   color: var(--color-accent);
 }
 

@@ -53,8 +53,3 @@ function toggleTheme() {
     }
 })();
 
-
-
-
-
-
