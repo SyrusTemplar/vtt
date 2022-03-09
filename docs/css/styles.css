@@ -102,15 +102,22 @@ button:hover {
   cursor: pointer;
 }
 
-
-
-/* TESTING IFRAMES EMBEDING */
-iframe {
-  height:calc(100vh);
-  width:calc(100vw);
-  box-sizing: border-box;
+.btn {
+  height:24px;
+  width: 24px;
+  border: 1px solid var(--color-background-primary);
+  border-radius: 5px;
+  background-color: var(--color-background-primary);
+  color: var(--color-link);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0px 0px;
 }
-
+.btn:hover {
+  background-color: var(--color-link);
+  color: var(--color-background-primary);
+  border: 1px solid var(--color-background-primary);
+}
 
 .home-btn {
   height:128px;
@@ -127,13 +134,12 @@ iframe {
   color: var(--color-background-primary);
 }
 
-
 .footer-btn {
   height:24px;
   width: 24px;
-  border: 1px solid var(--color-background-primary);
+  border: 1px solid var(--color-background-nav);
   border-radius: 5px;
-  background-color: var(--color-background-primary);
+  background-color: var(--color-background-nav);
   color: var(--color-link);
   font-size: 16px;
   cursor: pointer;
@@ -141,9 +147,12 @@ iframe {
 }
 .footer-btn:hover {
   background-color: var(--color-link);
-  color: var(--color-background-primary);
-  border: 1px solid var(--color-background-primary);
+  color: var(--color-background-nav);
+  border: 1px solid var(--color-background-nav);
 }
+
+
+
 
 
 .mainbody {
@@ -151,9 +160,9 @@ iframe {
 }
 
 .footer {
-  padding: 0px 0px;
+  background-color: var(--color-background-nav);
+  padding: 8px 8px;
   width= 100%;
-  /* background-color: var(--color-background-nav); */
 }
 
 
@@ -262,29 +271,31 @@ tr:nth-child(even) {
 
 
 /* SCROLL TO TOP https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
-#scrollTopBtn {
-  --offset: 50px;
-  margin-top: calc(100vh + var(--offset));
-  place-self: end;
-  display: block; /* Hidden by default */ 
-  position: fixed; /* Fixed/sticky position */
-  bottom: 7px; /* Place the button at the bottom of the page */
-  right: 6px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: var(--color-background); /* Set a background color */
-  color: var(--color-link); /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 10px 12px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 16px; /* Increase font size */
-}
 
-#scrollTopBtn:hover {
-  background-color: var(--color-background-nav); /* Add a dark-grey background on hover */
-  color: var(--color-accent);
-}
+/*#scrollTopBtn {
+/*  --offset: 50px;
+/*  margin-top: calc(100vh + var(--offset));
+/*  place-self: end;
+/*  display: block; /* Hidden by default */ 
+/*  position: fixed; /* Fixed/sticky position */
+/*  bottom: 7px; /* Place the button at the bottom of the page */
+/*  right: 6px; /* Place the button 30px from the right */
+/*  z-index: 99; /* Make sure it does not overlap */
+/*  border: none; /* Remove borders */
+/*  outline: none; /* Remove outline */
+/*  background-color: var(--color-background); /* Set a background color */
+/*  color: var(--color-link); /* Text color */
+/*  cursor: pointer; /* Add a mouse pointer on hover */
+/*  padding: 10px 12px; /* Some padding */
+/*  border-radius: 10px; /* Rounded corners */
+/*  font-size: 16px; /* Increase font size */
+/*}
+/*#scrollTopBtn:hover {
+/*  background-color: var(--color-background-nav); /* Add a dark-grey background on hover */
+/*  color: var(--color-accent);
+/*}
+*/
+
 
 
 /* jPlayer https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiTjaTQ_JPvAhUF4BoKHXWqA0YQFjAAegQIARAE&url=https%3A%2F%2Fjplayer.org%2F&usg=AOvVaw0sSK3HnmAWdkBwWURrc-ih */
