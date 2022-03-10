@@ -153,10 +153,9 @@ button:hover {
 
 
 
-
-
 .mainbody {
   padding: 0px 16px;
+  min-height: 76vh; /* 100vh */
 }
 
 .footer {
