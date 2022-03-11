@@ -18,7 +18,7 @@
    --color-accent: #d23c27;
    --color-image-border: black;
    --font-color: black;
-   --theme-name: light;
+   --theme-name: 'light';
 }
 
 .theme-light1 { /* Gray */
@@ -155,7 +155,7 @@ button:hover {
 
 .mainbody {
   padding: 0px 16px;
-  min-height: 76vh; /* 100vh */
+  min-height: 100vh; /* 76vh */
 }
 
 .footer {
@@ -205,7 +205,6 @@ tr:nth-child(even) {
 /* RESPONSIVE NAVIGATION MENU WITH SUBMENU https://www.w3schools.com/howto/howto_css_subnav.asp */
 .navbar {
   width: 100%;
-  /* position: fixed; */
   overflow: hidden;
   background-color: var(--color-background-nav);
 }
