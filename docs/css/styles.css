@@ -7,7 +7,6 @@
    --color-accent: orange;
    --color-image-border: black;
    --font-color: white;
-   --theme-name:'dark';
 }
 .theme-light { /* Blue */
    --color-background-primary: #f7fbfc;
@@ -18,7 +17,6 @@
    --color-accent: #d23c27;
    --color-image-border: black;
    --font-color: black;
-   --theme-name: 'light';
 }
 
 .theme-light1 { /* Gray */
