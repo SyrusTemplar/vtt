@@ -1,0 +1,746 @@
+<html>
+
+<!-- Mirrored from www.purpleworm.org/rules/pw_toc_4.htm?icosize=36 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 31 Mar 2022 07:00:01 GMT -->
+<head>
+
+<!-- SCRIPT LANGUAGE="JavaScript" SRC="xpath.js"></SCRIPT -->
+
+<STYLE type="text/css">
+body,
+div,
+table
+{
+	font-family: arial;
+	font-size: 10pt;
+	color: black;
+}
+a,
+a:active,
+a:visited,
+a:hover
+{
+	color: blue;
+	text-decoration:none;
+}
+table tr td, table tr th { padding: 0; }
+table { border-collapse: collapse; }
+td img { vertical-align:top; }
+.nodeText18
+{
+	font-size: 10pt;
+}
+.nodeText36
+{
+	font-size: 18pt;
+}
+</STYLE>
+
+<script type="text/javascript">
+
+
+
+// Array-like enumeration
+if (!Array.forEach) { // mozilla already supports this
+  Array.forEach = function(object, block, context) {
+    for (var i = 0; i < object.length; i++) {
+      block.call(context, object[i], i, object);
+    }
+  };
+}
+
+/*****************************
+	Begin XML ENCAPSULATION
+******************************/
+var base0or1 = 0;
+function loadXmlDocFromURL(urlstring)
+{
+	var xmlDoc;
+	var xmlhttp=false;
+
+	//alert(location.protocol);
+	if(location.protocol=="file:" && window.ActiveXObject) // running locally on IE5.5, IE6, IE7
+	{
+	  	xmlDoc = new ActiveXObject("MSXML2.DOMDocument.6.0");
+	  	xmlDoc.load(urlstring.replace("file:////"));
+	  	xmlhttp=true;
+	}
+	else
+	{
+		//if (window.ActiveXObject)
+		//	base0or1 = 1;
+
+		// IE7, Firefox, Safari, Opera.
+		if(!xmlhttp)try{ xmlhttp=new XMLHttpRequest(); }catch(e){xmlhttp=false;}
+
+		// IE6
+		if(typeof ActiveXObject != "undefined")
+		{
+			if(!xmlhttp)try{ xmlhttp=new ActiveXObject("MSXML2.XMLHTTP"); }catch(e){xmlhttp=false;}
+			if(!xmlhttp)try{ xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); }catch(e){xmlhttp=false;}
+		}
+
+		// IceBrowser
+		if(!xmlhttp)try{ xmlhttp=createRequest(); }catch(e){xmlhttp=false;}
+
+		if(!xmlhttp)
+			alert("Your browser doesn't seem to support XMLHttpRequests. Navigation cannot be enabled. Suggested browsers are the latest versions of either Internet Explorer or Firefox.\r\n\r\nPlease use the INDEX instead.");
+		else
+		{
+			xmlhttp.open("GET.html",urlstring,false);
+			xmlhttp.send(null);
+			xmlDoc=xmlhttp.responseXML;
+		}
+	}
+
+	return xmlDoc;
+}
+function loadXmlDocFromString(txt) {
+	var parser = null;
+	var xmlDoc = null;
+    if (window.DOMParser)
+    {
+        parser=new DOMParser();
+        xmlDoc=parser.parseFromString(txt,"text/xml");
+    }
+    else // IE
+    {
+        xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+        xmlDoc.async="false";
+	  	xmlDoc.onreadystatechange=verify;
+        xmlDoc.loadXML(txt);
+    }
+
+    if (xmlDoc != null) {
+	    xmlDoc.setProperty("SelectionLanguage","XPath");
+	}
+
+    return xmlDoc;
+}
+/*****************************
+	 End XML ENCAPSULATION
+******************************/
+
+
+/*************************************
+	Begin XML Manipulation
+*************************************/
+var xPath_root = "/html";
+var xPath_depth = "/ul/li";
+var xPath_nodule = "/o";
+
+function putPageInContext(relFilename)
+{
+	//alert(relFilename);
+	var xpath1 					= "//o[p/@v='"+relFilename+"']";
+	var xmlNodes 				= selectNodes(xpath1,xmlDoc);
+	var thisNode 				= null;
+	var nodeLineage 			= '';
+
+	if (xmlNodes!=null)
+	{
+		if (xmlNodes.length==0)
+		{
+			alert('There is no available link to the current page from the table-of-contents Browsing panel.');
+		}
+		else
+		if (window.DOMParser) //Moz
+		{
+		//alert('mozilla');
+			var ii=1;
+			thisNode 			= xmlNodes.iterateNext();
+			while (thisNode)
+			{
+				nodeLineage 	= buildCompletePath(thisNode);
+				break;
+			}
+		} else {
+		//alert('ie'+base0or1.toString());
+			for (i=base0or1;i<=(xmlNodes.length+base0or1);i++)
+			{
+				thisNode 		= xmlNodes[i-base0or1];
+				nodeLineage 	= buildCompletePath(thisNode);
+				break;
+			}
+		}
+	}
+
+//	alert(nodeLineage);
+	explodeNodes(nodeLineage);
+}
+function explodeNodes(nodeLineage)
+{
+	var name					= '';
+	var lastNodeId				= 'divMain';
+	var curOuterId				= '';
+	var curInnerId				= '';
+	var nodeArray				= nodeLineage.split('|');
+
+	for (var i3=0;i3<nodeArray.length;i3++)
+	{
+		name 					= nodeArray[i3];
+		if (name != '')
+		{
+			for (var i55=0;i55<document.getElementById(lastNodeId).childNodes.length;i55++) // Do any of these child nodes match ones for which we are exploding?
+			{
+				curOuterId		= document.getElementById(lastNodeId).childNodes[i55].id;
+				curInnerId		= curOuterId.replace('outer','inner');
+				var nodeType	= (document.getElementById(lastNodeId).childNodes[i55].attributes['n'])?document.getElementById(lastNodeId).childNodes[i55].attributes['n'].value:'';
+
+				if (document.getElementById(lastNodeId).childNodes[i55].tagName=='SPAN' & document.getElementById(lastNodeId).childNodes[i55].title==name)
+				{
+					toggleNode(curInnerId,nodeType,true); // Force the node open.
+					lastNodeId 	= curInnerId;
+					break;
+				}
+			}
+		}
+	}
+}
+
+function buildCompletePath(xChildNode)
+{
+	var retVal = '';
+
+	var tag = (xChildNode.localName) ? xChildNode.localName : xChildNode.baseName;
+	switch(tag)
+	{
+		case "li":
+			if (xChildNode.parentNode)
+			{
+				retVal = buildCompletePath(xChildNode.parentNode);
+			}
+			break;
+
+		case "ul":
+			if (xChildNode.parentNode && xChildNode.parentNode.firstChild)
+			{
+				retVal = buildCompletePath(xChildNode.parentNode.firstChild);
+			}
+			break;
+
+		case "o":
+			if (xChildNode.childNodes[0].attributes[1].nodeValue!='right')
+			{
+				retVal = "|"+xChildNode.childNodes[0].attributes[1].nodeValue;
+
+				if (xChildNode.parentNode)
+				{
+					retVal = buildCompletePath(xChildNode.parentNode) + retVal;
+				}
+			}
+			break;
+	}
+
+	return retVal;
+}
+function hierarchyPathToXpath(hierarchyPath,getChildren)
+{
+	// hierarchyPath looks like this: 0010.0020.0006
+
+	var nodeHierarchy	= hierarchyPath.split('.');
+	var xpath 			= xPath_root;
+
+	for (x in nodeHierarchy)
+	{
+	if (nodeHierarchy[x]!='')
+			xpath 		+= xPath_depth + "[" + nodeHierarchy[x] + "]";	// Add the index
+	}
+
+	if (getChildren)
+		xpath			+= xPath_depth;	// This extra depth gives us the children of the node in question.
+
+	xpath 				+= xPath_nodule;
+
+	return xpath;
+}
+function selectNodes(path,xmlDoc) {
+	var nodes = null;
+	if (window.ActiveXObject)	// IE
+	{
+		xmlDoc.setProperty("SelectionLanguage","XPath");
+		nodes=xmlDoc.selectNodes(path);
+	}
+	else if (document.implementation && document.implementation.createDocument)	// code for Mozilla, Firefox, Opera, etc.
+	{
+		nodes=xmlDoc.evaluate(path, xmlDoc, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
+	}
+
+// *** this is where we left off... there is a difference between how selectNodes works for the local vs internet ie xmlengine. i dislike you strongly ie!
+
+	//alert('base0or1='+base0or1+',path='+path+',nodes.length='+nodes.length); // base0or1 = 0 for local, = 1 for internet.
+
+	return nodes;
+}
+function selectSingleNode(path,xmlNode) {
+	var xNode = null;
+	if (window.ActiveXObject)	// code for IE
+	{
+		xNode = xmlNode.selectSingleNode("p[@n='N']");
+	}
+	else if (document.implementation && document.implementation.createDocument)	// code for Mozilla, Firefox, Opera, etc.
+	{
+		xNode=xmlDoc.evaluate(path, xmlNode, null, XPathResult.ANY_TYPE, null);
+	}
+	return xNode;
+}
+function selectSingleNodeAttrValue(path,xmlNode) {
+	var xAttrValue = '';
+	var xNode = null;
+
+	if (window.ActiveXObject)	// IE
+	{
+		xNode = xmlNode.selectSingleNode(path);
+		if (xNode!=null)
+			xAttrValue = xNode.getAttribute("v");
+	}
+	else if (document.implementation && document.implementation.createDocument)	// code for Mozilla, Firefox, Opera, etc.
+	{
+		xNode = xmlDoc.evaluate(path+"/@v", xmlNode, null, XPathResult.ANY_TYPE, null);
+		var result=xNode.iterateNext();
+		if (result!=null)
+		{
+			//xAttrValue=result.childNodes[0].nodeValue;// no child elements in FF14
+			xAttrValue=result.nodeValue;// no child elements in FF14
+		}
+	}
+	return xAttrValue;
+}
+function getChildrenOfThisNode(hierarchyPath,xDoc)
+{
+	var xpath 		= hierarchyPathToXpath(hierarchyPath,true);
+	var xNodeList	= selectNodes(xpath,xDoc);
+//alert('base0or1='+base0or1+',hierarchyPath='+hierarchyPath+',xpath='+xpath+',xNodeList.length='+xNodeList.length); // base0or1 = 0 for local, = 1 for internet.
+
+	return xNodeList;
+}
+function getThisNode(hierarchyString,xDoc)
+{
+	var xpath 		= hierarchyPathToXpath(hierarchyPath,false);
+	var xNodeList	= selectNodes(xpath,xDoc);
+	return xNodeList;
+}
+/*************************************
+	End XML Manipulation
+*************************************/
+
+function cursor_pointer() {
+	document.body.style.cursor = 'pointer';
+}
+function cursor_wait() {
+	document.body.style.cursor = 'wait';
+}
+function cursor_default() {
+	document.body.style.cursor = 'default';
+}
+function toggleNode(divId,nodeType,forceOpen)
+{
+	if (document.getElementById(divId)!=null)
+	{
+//		if (forceOpen) alert("nodeType="+nodeType+", divId="+divId)
+
+		if (forceOpen)
+			document.getElementById(divId).scrollIntoView(true);
+
+		switch (nodeType)
+		{
+			case 'book':
+				if (document.getElementById(divId).innerHTML==null | document.getElementById(divId).innerHTML=='' | forceOpen)
+				{
+					document.getElementById(divId).innerHTML=GetChildTable(divId); // Fill it up!
+				} else {
+					document.getElementById(divId).innerHTML=''; // Make it disappear.
+				}
+				break;
+
+			case 'folder':
+				var tmpDivId = divId.replace('span','img').replace('inner','');
+				if (document.getElementById(divId).innerHTML==null | document.getElementById(divId).innerHTML=='' | forceOpen)
+				{
+					document.getElementById(tmpDivId).src="img/folderopen"+icosize+".gif";
+					document.getElementById(divId).innerHTML=GetChildTable(divId); // Fill it up!
+				} else {
+					document.getElementById(tmpDivId).src="img/folder"+icosize+".gif";
+					document.getElementById(divId).innerHTML=''; // Make it disappear.
+				}
+				break;
+
+			case 'doc':
+				var imgObj = document.getElementById(divId.replace('span','img').replace('inner',''))
+				coverTracks(imgObj);
+				if (forceOpen & pageName !='')
+				{
+					showFile(pageName);
+					pageName='';
+				}
+				break;
+		}
+	}
+}
+function showFile(relPath)
+{
+ 	if (!(relPath==null|relPath==''))
+ 	{
+		var fullUrl = unescape(relPath).replace('\\','http://www.purpleworm.org/');
+
+		if (window.ActiveXObject)	// IE
+			window.parent.frames(2).location.href = fullUrl;
+		else
+			window.parent.frames['data'].location.href = fullUrl;
+	}
+
+    return false;
+}
+function GetChildTable(divId)
+{	// for ie, web, this pulls the wrong table.
+
+//log("GetChildTable("+divId+")");
+
+	var output 						= "";
+	try
+	{
+		rootHierarchyString 		= divId.replace('span','').replace('inner','');
+		var xNodeList 				= getChildrenOfThisNode(rootHierarchyString,xmlDoc); // Get the children of the root.
+//alert(rootHierarchyString +' --> '+xNodeList.length);
+		var thisNode;
+		var bookNameArray;
+
+		if (divId=='') // Just the top level nodes (books).
+		{
+			var sortedBooks = [
+			"Player's Handbook",
+			"Monstrous Manual",
+			"Dungeon Master Guide",
+			"Arms and Equipment Guide",
+			"Tome of Magic",
+			"The Complete Book of Dwarves",
+			"The Complete Book of Elves",
+			"The Complete Book of Gnomes and Halflings",
+			"The Complete Bard's Handbook",
+			"The Complete Druid's Handbook",
+			"The Complete Fighter's Handbook",
+			"The Complete Paladin's Handbook",
+			"The Complete Priest's Handbook",
+			"The Complete Ranger's Handbook",
+			"The Complete Thief's Handbook",
+			"The Complete Wizard's Handbook",
+			"The Complete Book of Necromancers",
+			"Player's Option: Combat and Tactics",
+			"Player's Option: Skills and Powers",
+			"Player's Option: Spells and Magic",
+			"DM Option: High-Level Campaigns"
+			];
+
+			if (xNodeList!=null)
+			{
+				for (iBook=0;iBook<sortedBooks.length;iBook++)
+				{
+					var bookName 			= sortedBooks[iBook];
+					if (window.DOMParser)	//Mozilla
+					{
+						var ii2				= 1;
+						thisNode 			= xNodeList.iterateNext();
+						while (thisNode)
+						{
+							var xName2		= selectSingleNodeAttrValue("p[@n='N']",thisNode);
+							if (xName2==bookName)
+							{
+								output		+= renderNode(rootHierarchyString,thisNode,ii2);
+								break;
+							}
+							thisNode 		= xNodeList.iterateNext();
+							ii2++;
+						}
+						xNodeList 			= getChildrenOfThisNode(rootHierarchyString,xmlDoc); // RE-Get the children of the root.
+					} else {
+						for (i2=0;i2<xNodeList.length;i2++)
+						{
+							thisNode 		= xNodeList[i2];
+							var xName3		= selectSingleNodeAttrValue("p[@n='N']",thisNode);
+							if (xName3==bookName)
+							{
+								output		+= renderNode(rootHierarchyString,thisNode,i2+1);
+							}
+						}
+					} //end if
+				}//end for
+			}//end if
+		}
+		else // if (divId!='') // Ie we are deeper than root.
+		{
+			if (xNodeList!=null)
+			{
+				if (window.DOMParser) //Mozilla
+				{
+					var ii=1;
+					thisNode = xNodeList.iterateNext();
+					while (thisNode)
+					{
+						var tempOutput = renderNode(rootHierarchyString,thisNode,ii);
+//log("...rendering -> "+rootHierarchyString + " => " + tempOutput);
+						output			+= tempOutput;
+
+						thisNode 		= xNodeList.iterateNext();
+						ii++;
+					}
+				} else {
+					for (i=0;i<xNodeList.length;i++)
+					{
+						thisNode 		= xNodeList[i];
+						var tempOutput2 = renderNode(rootHierarchyString,thisNode,i+1);
+//log("...rendering -> "+rootHierarchyString + " => " + tempOutput2);
+						output			+= tempOutput2;
+					}
+				}
+				//alert(rootHierarchyString +' --> '+ output);
+			}
+		}
+
+	}
+	catch(err)
+	{
+		alert(err.message);
+	}
+
+	return output;
+}
+function getIndentation(levels)
+{
+	return indent[levels-1];
+}
+function getSafeHtml(htmlString)
+{
+	var result = htmlString;
+
+	result = result.replace("'","&#39;");
+
+	return result;
+}
+function renderNode(rootHierarchyString,thisNode,i)
+{
+	var hierarchyString	= ("00000"+i.toString());
+	if (rootHierarchyString=='')
+		hierarchyString	= hierarchyString.substr(hierarchyString.length-5,5);
+	else
+		hierarchyString	= rootHierarchyString+'.'+hierarchyString.substr(hierarchyString.length-5,5);
+
+	// get attribute values
+	var xName 			= selectSingleNodeAttrValue("p[@n='N']",thisNode);
+	var xLocal 			= selectSingleNodeAttrValue("p[@n='L']",thisNode);
+
+	// ui
+	var nodeImage 		= ""; 	// The picture to show.
+	var levelsDeep		= hierarchyString.split('.').length;	// A way of controlling indentation.
+	var nodeType		= "";
+
+	if (xLocal==null|xLocal=='')// If this is a folder or explodable.
+	{
+		nodeType		= "book";
+		if (xName=="Player's Handbook"
+			| xName=="Dungeon Master Guide"
+			| xName=="Monstrous Manual"
+			) {
+			nodeImage	= "<img id='img"+hierarchyString+"' src='img/bookblue"+icosize+".gif' />";
+		} else if (xName=="Arms and Equipment Guide"
+			| xName=="Tome of Magic"
+			) {
+			nodeImage	= "<img id='img"+hierarchyString+"' src='img/bookgreen"+icosize+".gif' />";
+		} else if (xName=="DM Option: High-Level Campaigns"
+			| xName=="Player's Option: Combat and Tactics"
+			| xName=="Player's Option: Skills and Powers"
+			| xName=="Player's Option: Spells and Magic"
+			) {
+			nodeImage	= "<img id='img"+hierarchyString+"' src='img/bookred"+icosize+".gif' />";
+		} else if (xName=="The Complete Book of Dwarves"
+			| xName=="The Complete Book of Elves"
+			| xName=="The Complete Book of Gnomes and Halflings"
+			) {
+			nodeImage	= "<img id='img"+hierarchyString+"' src='img/bookpurple"+icosize+".gif' />";
+		} else if (xName=="The Complete Bard's Handbook"
+			| xName=="The Complete Druid's Handbook"
+			| xName=="The Complete Fighter's Handbook"
+			| xName=="The Complete Paladin's Handbook"
+			| xName=="The Complete Priest's Handbook"
+			| xName=="The Complete Ranger's Handbook"
+			| xName=="The Complete Thief's Handbook"
+			| xName=="The Complete Wizard's Handbook"
+			| xName=="The Complete Book of Necromancers"
+			) {
+			nodeImage	= "<img id='img"+hierarchyString+"' src='img/bookorange"+icosize+".gif' />";
+		} else {
+			nodeImage	= "<img id='img"+hierarchyString+"' src='img/folder"+icosize+".gif' />";
+			nodeType	= "folder";
+		}
+	}
+	else						// If this is a leaf or file.
+	{
+		nodeImage		= "<img id='img"+hierarchyString+"' src='img/page"+icosize+".gif' />";
+		nodeType		= "doc";
+	}
+
+	//style='border:1px solid black;'"+nodeType+"getSafeHtml(xName)
+	var rOutput			= "<span name='"+nodeType+"' title='"+getSafeHtml(xName)+"' onmouseover='cursor_pointer();' onmouseout='cursor_default();' id='span"+hierarchyString+"outer' onclick=toggleNode('span"+hierarchyString+"inner','"+nodeType+"',false);showFile('"+escape(xLocal)+"');>"
+						+ "<table style='cell-padding:0px;cell-spacing:0px;'><tr><td valign='top'>"+getIndentation(levelsDeep)+nodeImage+"</td>"
+						+ "<td class='nodeText"+icosize+"'>"+xName+"</td></tr></table>"
+						+ "</span>"
+						+ "<span id='span"+hierarchyString+"inner'></span>"
+						;
+
+	return rOutput;
+}
+function coverTracks(imgObj)
+{
+	if (img_lastSelected != null)
+		img_lastSelected.src	= 'img/page'+icosize+'.gif';
+
+	imgObj.src					= 'img/selectedpage'+icosize+'.gif';
+	img_lastSelected			= imgObj;
+
+	return true;
+}
+function doStart()
+{
+//log("doStart()");
+	var douchebagSensor = true;
+	try { var v = top.location.toString().toLowerCase(); douchebagSensor = false; } catch(err) {}
+//	try { if (douchebagSensor)
+//			//top.location = 'http://rules.purpleworm.org';
+//       		top.location = self.location;
+//    } catch(err) {}
+	//if (douchebagSensor) alert(top.location.toString().toLowerCase());
+
+
+	//if (top.location.toString().toLowerCase() != spw) {
+	//	top.location = spw;
+	//}
+
+	if(!indent)
+		indent	= ["",
+					"<img src='img/empty18x9.gif' />",
+					"<img src='img/empty18x18.gif' />",
+					"<img src='img/empty18x27.gif' />",
+					"<img src='img/empty18x36.gif' />",
+					"<img src='img/empty18x45.gif' />",
+					"<img src='img/empty18x54.gif' />",
+					"<img src='img/empty18x63.gif' />",
+					"<img src='img/empty18x72.gif' />",
+					"<img src='img/empty18x81.gif' />",
+					"<img src='img/empty18x9.gif' /><img src='img/empty18x81.gif' />",
+					"<img src='img/empty18x18.gif' /><img src='img/empty18x81.gif' />",
+					"<img src='img/empty18x27.gif' /><img src='img/empty18x81.gif' />",
+					"<img src='img/empty18x36.gif' /><img src='img/empty18x81.gif' />",
+					"<img src='img/empty18x45.gif' /><img src='img/empty18x81.gif' />"
+					];
+
+	try
+	{
+		icosize		= "18";
+		var qsVar   = window.location.search.indexOf('icosize=');
+		if (qsVar > -1)
+			icosize = window.location.search.substring(qsVar+8,qsVar+8+2);
+
+		document.getElementById('menuTable').className = "nodeText" + icosize;
+
+		if (icosize == "36")
+		{
+			for(i1=0;i1<indent.length;i1++)
+			{
+				indent[i1] = indent[i1] + indent[i1];
+			}
+		}
+
+//alert('icosize is ' + icosize);
+	}
+	catch(ex)
+	{
+	}
+
+
+	try
+	{
+		xmlDoc		= null;
+		xmlDoc		= loadXmlDocFromURL("pw_toc_6.xml");
+	}
+	catch(ex)
+	{
+	}
+
+
+	if (xmlDoc==null)
+		document.getElementById('divMain').innerHTML="The was an error loading the menu. Please refresh this page and try again.<br/>";
+	else
+		document.getElementById('divMain').innerHTML=GetChildTable('');
+
+	toggleWrap();
+	loadPageIfNeeded();
+}
+function loadPageIfNeeded()
+{
+	pageName = getQuerystring('p', '').replace('http://www.purpleworm.org/','\\');
+
+//alert(window.parent.location.href);
+//alert(pageName);
+
+	if (pageName != '')
+	{
+		putPageInContext(pageName);
+	}
+	return true;
+}
+function getQuerystring(key, default_)
+{
+	if (default_==null) default_="";
+	key			= key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+	var regex	= new RegExp("[\\?&]"+key+"=([^&#]*)");
+	var qs		= regex.exec(window.parent.location.href);
+	if(qs == null)
+		return default_;
+	else
+		return qs[1];
+}
+function toggleWrap()
+{
+	if (document.getElementById('chkWrap').checked)
+	{
+		document.getElementById('divMain').style.cssText="text-align:left;";
+	}
+	else
+	{
+		document.getElementById('divMain').style.cssText="text-align:left;width:800px;";
+	}
+	return true;
+}
+
+var spw = 'http://rules.purpleworm.org/';
+var xmlDoc = null;
+var img_lastSelected = null;
+var indent;
+var pageName = '';
+var icosize = '18'; // Valid values: 18, 36 - This is the default size
+
+//function log(val)
+//{
+//	document.getElementById('txtOutput').value = document.getElementById('txtOutput').value + "\r\n" + val;
+//}
+//<textarea id="txtOutput" rows="10" cols="40"></textarea>
+
+</script>
+
+<META HTTP-EQUIV="X-Frame-Options" CONTENT="SAMEORIGIN">
+
+</head>
+
+
+	<body onload="doStart();" style="background-color:#EEEEEE;background-image:url('img/drel1.gif');background-repeat:repeat-y;background-position:left top;">
+
+		<table align="center" id="menuTable" class="nodeText18"><tr><td align="center">
+			<a href="pw_toc_4.html">Browse</a>&nbsp;&bull;&nbsp;<a href="pw_index_4.html">Index</a>&nbsp;&bull;&nbsp;<input style="vertical-align:middle;" type="checkbox" id="chkWrap" onclick="toggleWrap();" /><small>Wrap&nbsp;Text</small><br/>
+			<a href="pw_toc_4562c.html?icosize=36">Bigger</a>&nbsp;&bull;&nbsp;<a href="pw_toc_41282.html?icosize=18">Smaller</a><hr/>
+		</td></tr></table>
+
+		<div id="divMain" name="divMain" style="text-align:left;"><center><br/><br/><br/><br/><br/>Loading menu...<br/><br/><img src='img/wait30trans.gif' /><br/><br/>One moment please.<br/><br/><small>This initial menu load only occurs the first time you visit the site on a particular computer, after you clear your local internet cache or when your browser determines a file has been updated.</small></center></div>
+
+	</body>
+
+<!-- Mirrored from www.purpleworm.org/rules/pw_toc_4.htm?icosize=36 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 31 Mar 2022 07:00:01 GMT -->
+</html>
+

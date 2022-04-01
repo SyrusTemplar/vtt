@@ -1,0 +1,77 @@
+
+<html>
+	
+<!-- Mirrored from www.purpleworm.org/rules/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 31 Mar 2022 06:48:12 GMT -->
+<head>
+		<META HTTP-EQUIV="X-Frame-Options" CONTENT="SAMEORIGIN">
+		<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+		<title>2e Rules!</title>
+
+		<script type="text/javascript">
+			function updatePageTitle()
+			{
+				var xDoc = null;
+				xDoc = (window.ActiveXObject) ? window.frames(2).document : window.frames['data'].document;
+				document.title 			= '2e Rules! - - - '+xDoc.title + ' - - - ';
+
+				/*
+				var FULLPAGENAME 	= xDoc.location.toString().replace('#','');
+				var locArray		= FULLPAGENAME.split('/');
+				var SHORTPAGENAME	= locArray[locArray.length-2]+"\\\\"+locArray[locArray.length-1];
+				var SHORTPAGENAME2	= SHORTPAGENAME.replace('\\\\','/');
+
+				var sPush 			= //"<div style='position: absolute; top: 1px; left: 1px; width: 10px; height: 100%; background-color: purple;'></div>"
+								 	"<form method='get' action='http://search.yahoo.com/search'>"
+										+ "<table cellpadding='2' cellspacing='2' align='right' style='background:black;'>"
+										+ "<tr>"
+										+ "<td style='vertical-align:middle;font-family:verdana;font-size:x-small;font-variant:small-caps;'>"
+											+ "<font color='white' style='font-family:verdana;font-size:x-small;font-variant:small-caps;'>"
+
+											+ "<input type='text' size='10' name='p' maxlength='255' value=''  style='font-family:verdana;font-size:x-small;' />"
+											+ "<input type='submit' value='Search'  style='font-family:verdana;font-size:x-small;font-variant:small-caps;'/>"
+											+ "<input type='hidden'  name='vs' value='purpleworm.org' /><br/>"
+
+											+ "&nbsp;&bull;&nbsp;<a title='Right-click and select copy link or bookmark.' style='color:white' href='../index.htm?p={SHORTPAGENAME2}&t="+getSafeHtml(xDoc.title)+"'>Page Link</a><br/>"
+											+ "&nbsp;&bull;&nbsp;<a title='Make sure the browser is visible in the left panel first !' style='color:white' href='#' onclick=\"try{if (window.ActiveXObject) { window.parent.frames(1).putPageInContext('{SHORTPAGENAME}'); } else { window.parent.frames['toc'].putPageInContext('{SHORTPAGENAME}');}}catch(e){alert('First, enable browsing by clicking the Browse link at the top of the left panel.');} return true;\">Find in Browser</a>"
+
+											+ "</font>"
+										+ "</td></tr></table>"
+									+ "</form>";
+
+				sPush 				= sPush
+										.replace('{FULLPAGENAME}',FULLPAGENAME)
+										.replace('{FULLPAGENAME}',FULLPAGENAME)
+										.replace('{SHORTPAGENAME}',SHORTPAGENAME)
+										.replace('{SHORTPAGENAME}',SHORTPAGENAME)
+										.replace('{SHORTPAGENAME2}',SHORTPAGENAME2)
+										;
+
+				xDoc.body.innerHTML = sPush + xDoc.body.innerHTML;
+				*/
+			}
+			function getSafeHtml(htmlString)
+			{
+				var result = htmlString;
+
+				result = result.replace("'","&#39;");
+
+				return result;
+			}
+		</script>
+
+		<frameset id="topFrameset" name="topFrameset" rows="117,*" scrolling="no" frameborder="no" framespacing="0" border="0">
+			<frame src="pw_head_4.html" noresize="noresize" />
+			<frameset cols="22%,*" scrolling="auto" frameborder="yes" framespacing="5" border="5" style="cursor:e-resize;">
+				<frame id="toc" name="toc" src="pw_toc_4.html" scrolling="auto">
+				<frame id="data" name="data" src="welcome.html" scrolling="auto" onload="updatePageTitle();">
+			</frameset>
+		</frameset>
+
+		<noframes>
+		  <body bgcolor="#FFFFFF">You must turn on frames in your browser.</body>
+		</noframes>
+
+	</head>
+
+<!-- Mirrored from www.purpleworm.org/rules/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 31 Mar 2022 06:48:13 GMT -->
+</html>
