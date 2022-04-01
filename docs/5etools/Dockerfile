@@ -1,3 +1,0 @@
-FROM dragas/thttpd
-
-COPY  . ./
