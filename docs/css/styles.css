@@ -6,7 +6,7 @@
    --color-link-hover: yellow;
    --color-accent: orange;
    --color-image-border: black;
-   --font-color: white;
+   --color-font: white;
 }
 .theme-light { /* Blue */
    --color-background-primary: #f7fbfc;
@@ -16,7 +16,7 @@
    --color-link-hover: #b9d7ea;
    --color-accent: #d23c27;
    --color-image-border: black;
-   --font-color: black;
+   --color-font: black;
 }
 
 .theme-light1 { /* Gray */
@@ -27,7 +27,7 @@
    --color-link-hover: #76323f;
    --color-accent: #76323f;
    --color-image-border: black;
-   --font-color: black;
+   --color-font: black;
 }
 
 html {
@@ -39,7 +39,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   background-color: var(--color-background-primary);
-  color: var(--font-color);
+  color: var(--color-font);
 }
 
 img {
@@ -48,7 +48,7 @@ img {
 }
 
 p {
-  color: var(--font-color);
+  color: var(--color-font);
   float: left;
   text-align: left;
 }
@@ -89,7 +89,7 @@ a:active {
 /* regular buttons */
 button {
   background: var(--color-background-primary);
-  color: var(--font-color);
+  color: var(--color-font);
   padding: 0px;
   text-decoration: none;
   display: inline-block;

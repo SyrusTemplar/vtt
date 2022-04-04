@@ -1,28 +1,49 @@
-:root {
-  --link-color: blue;
-  --link-active: red;
+.theme-dark { /* Original Black */
+   --color-background-primary: black;
+   --color-background-nav: #222;
+   --color-background-subnav: #333;
+   --color-link: green;
+   --color-link-hover: yellow;
+   --color-accent: orange;
+   --color-image-border: black;
+   --color-font: white;
+}
+.theme-light { /* Blue */
+   --color-background-primary: #f7fbfc;
+   --color-background-nav: #a7b7c2;
+   --color-background-subnav: #b6c7d2;
+   --color-link: #184a72;
+   --color-link-hover: #b9d7ea;
+   --color-accent: #d23c27;
+   --color-image-border: black;
+   --color-font: black;
+}
+
+body {
+  background-color: var(--color-background-primary);
+  color: var(--color-font);
 }
   
 a:link {
-  color: var(--link-color);
+  color: var(--color-link);
   text-decoration: none;
 }
 a:visited {
-  color: var(--link-color);
+  color: var(--color-link);
   text-decoration: none;
 }
 a:hover {
   text-decoration: none;
 }
 a:active {
-  color: var(--link-active);
+  color: var(--color-link-hover);
   text-decoration: none;
   /* font-weight: bold; */
 }
 
 .chapter {
   cursor: pointer;
-  color: var(--link-color);
+  color: var(--color-link);
   /* text-transform: uppercase; */
   /* font-style: italic; */
 }

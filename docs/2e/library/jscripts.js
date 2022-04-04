@@ -4,10 +4,10 @@ function setstate(d, i){
     if(d.style.display=='none')
 	{
 		d.style.display='';
-		i.src='x.gif';
+		i.src='x.png';
 	}    else    {
 		d.style.display='none';
-        i.src='o.gif';
+        i.src='o.png';
 	}
 }
 
