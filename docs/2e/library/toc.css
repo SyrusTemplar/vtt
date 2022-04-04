@@ -1,0 +1,28 @@
+:root {
+  --link-color: blue;
+  --link-active: red;
+}
+  
+a:link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+a:visited {
+  color: var(--link-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  color: var(--link-active);
+  text-decoration: none;
+  /* font-weight: bold; */
+}
+
+.chapter {
+  cursor: pointer;
+  color: var(--link-color);
+  /* text-transform: uppercase; */
+  /* font-style: italic; */
+}
