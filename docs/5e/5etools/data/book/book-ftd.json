@@ -4984,7 +4984,8 @@
 											"imageType": "map",
 											"title": "Map 5.1: amethyst dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "012"
 										},
 										{
 											"type": "image",
@@ -4995,7 +4996,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "012"
+											}
 										}
 									]
 								},
@@ -5473,7 +5477,8 @@
 											"imageType": "map",
 											"title": "Map 5.2: black dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "013"
 										},
 										{
 											"type": "image",
@@ -5484,7 +5489,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "013"
+											}
 										}
 									]
 								},
@@ -6060,7 +6068,8 @@
 											"imageType": "map",
 											"title": "Map 5.3: blue dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "014"
 										},
 										{
 											"type": "image",
@@ -6071,7 +6080,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "014"
+											}
 										}
 									]
 								},
@@ -6617,7 +6629,8 @@
 											"imageType": "map",
 											"title": "Map 5.4: brass dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "015"
 										},
 										{
 											"type": "image",
@@ -6628,7 +6641,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "015"
+											}
 										}
 									]
 								},
@@ -7226,7 +7242,8 @@
 													"imageType": "map",
 													"title": "Map 5.5: bronze dragon lair",
 													"width": 4800,
-													"height": 6000
+													"height": 6000,
+													"id": "016"
 												},
 												{
 													"type": "image",
@@ -7237,7 +7254,10 @@
 													"imageType": "mapPlayer",
 													"title": "Player Version",
 													"width": 4800,
-													"height": 6000
+													"height": 6000,
+													"mapParent": {
+														"id": "016"
+													}
 												}
 											]
 										}
@@ -7765,7 +7785,8 @@
 											"imageType": "map",
 											"title": "Map 5.6: copper dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "017"
 										},
 										{
 											"type": "image",
@@ -7776,7 +7797,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "017"
+											}
 										}
 									]
 								},
@@ -8274,7 +8298,8 @@
 											"imageType": "map",
 											"title": "Map 5.7: crystal dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "018"
 										},
 										{
 											"type": "image",
@@ -8285,7 +8310,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "018"
+											}
 										}
 									]
 								},
@@ -9791,7 +9819,8 @@
 											"imageType": "map",
 											"title": "Map 5.8: emerald dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "019"
 										},
 										{
 											"type": "image",
@@ -9802,7 +9831,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "019"
+											}
 										}
 									]
 								},
@@ -10716,7 +10748,8 @@
 											"imageType": "map",
 											"title": "Map 5.9: gold dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "01a"
 										},
 										{
 											"type": "image",
@@ -10727,7 +10760,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "01a"
+											}
 										}
 									]
 								},
@@ -11303,7 +11339,8 @@
 											"imageType": "map",
 											"title": "Map 5.10: green dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "01b"
 										},
 										{
 											"type": "image",
@@ -11314,7 +11351,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "01b"
+											}
 										}
 									]
 								},
@@ -12269,7 +12309,8 @@
 											"imageType": "map",
 											"title": "Map 5.11: red dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "01c"
 										},
 										{
 											"type": "image",
@@ -12280,7 +12321,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "01c"
+											}
 										}
 									]
 								},
@@ -12798,7 +12842,8 @@
 											"imageType": "map",
 											"title": "Map 5.12: sapphire dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "01d"
 										},
 										{
 											"type": "image",
@@ -12809,7 +12854,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "01d"
+											}
 										}
 									]
 								},
@@ -13748,7 +13796,8 @@
 											"imageType": "map",
 											"title": "Map 5.13: silver dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "01e"
 										},
 										{
 											"type": "image",
@@ -13759,7 +13808,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "01e"
+											}
 										}
 									]
 								},
@@ -14249,7 +14301,8 @@
 											"imageType": "map",
 											"title": "Map 5.14: topaz dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "01f"
 										},
 										{
 											"type": "image",
@@ -14260,7 +14313,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "01f"
+											}
 										}
 									]
 								},
@@ -14752,7 +14808,8 @@
 											"imageType": "map",
 											"title": "Map 5.15: white dragon lair",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"id": "020"
 										},
 										{
 											"type": "image",
@@ -14763,7 +14820,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 4800,
-											"height": 6000
+											"height": 6000,
+											"mapParent": {
+												"id": "020"
+											}
 										}
 									]
 								},

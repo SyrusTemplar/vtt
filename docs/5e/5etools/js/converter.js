@@ -976,7 +976,7 @@ class ConverterUi extends BaseComponent {
 	}
 
 	doCleanAndOutput (obj, append) {
-		const asCleanString = CleanUtil.getCleanJson(obj);
+		const asCleanString = CleanUtil.getCleanJson(obj, {isFast: false});
 		if (append) {
 			this._outText = `${asCleanString},\n${this._outText}`;
 			this._state.hasAppended = true;
@@ -991,7 +991,7 @@ class ConverterUi extends BaseComponent {
 	get _outText () { return this._editorOut.getValue(); }
 	set _outText (text) { this._editorOut.setValue(text, -1); }
 
-	get inText () { return CleanUtil.getCleanString((this._editorIn.getValue() || "").trim()); }
+	get inText () { return CleanUtil.getCleanString((this._editorIn.getValue() || "").trim(), {isFast: false}); }
 	set inText (text) { this._editorIn.setValue(text, -1); }
 
 	_getDefaultState () { return MiscUtil.copy(ConverterUi._DEFAULT_STATE); }

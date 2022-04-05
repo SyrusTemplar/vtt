@@ -240,6 +240,11 @@ $width-screen-sm: 768px;
 $width-screen-md: 991px;
 $width-screen-lg: 1200px;
 
+$width-screen-xs--min: 481px;
+$width-screen-sm--min: 769px;
+$width-screen-md--min: 992px;
+$width-screen-lg--min: 1201px;
+
 // region linked titles
 %linked-titles-base {
 	.rd__h--0 .entry-title-inner:hover::before {

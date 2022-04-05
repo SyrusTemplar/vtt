@@ -10,14 +10,35 @@ class DmMapper {
 		return $wrpPanel;
 	}
 
+	static _getProps ({catId}) {
+		const prop = catId === Parser.CAT_ID_ADVENTURE ? "adventure" : "book";
+		return {prop, propData: `${prop}Data`};
+	}
+
 	static async pHandleMenuButtonClick (menu) {
-		const chosenDoc = await SearchWidget.pGetUserAdventureSearch({
-			// TODO(5EB-1) expand this filter as more maps are added
-			fnFilterResults: doc => {
-				if (Parser.SOURCE_JSON_TO_FULL[doc.s]) {
-					return doc.s === SRC_WDMM || doc.s === SRC_CoS || doc.s === SRC_TTP;
-				}
-				return true; // Allow all homebrew through
+		const chosenDoc = await SearchWidget.pGetUserAdventureBookSearch({
+			fnFilterResults: doc => doc.hasMaps,
+			contentIndexName: "entity_AdventuresBooks_maps",
+			pFnGetDocExtras: async ({doc}) => {
+				// Load the adventure/book, and scan it for maps
+				const {propData} = this._getProps({catId: doc.c});
+				const {page, source, hash} = SearchWidget.docToPageSourceHash(doc);
+				const adventureBookPack = await Renderer.hover.pCacheAndGet(page, source, hash);
+				let hasMaps = false;
+				const walker = MiscUtil.getWalker({
+					isBreakOnReturn: true,
+					keyBlacklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLACKLIST,
+					isNoModification: true,
+				});
+				walker.walk(
+					adventureBookPack[propData],
+					{
+						object: (obj) => {
+							if (obj.type === "image" && obj.mapRegions?.length) return hasMaps = true;
+						},
+					},
+				);
+				return {hasMaps};
 			},
 		});
 
@@ -35,11 +56,14 @@ class DmMapper {
 		$modalInner.append(`<div class="ve-flex-vh-center w-100 h-100"><i class="dnd-font ve-muted">Loading...</i></div>`);
 
 		const {page, source, hash} = SearchWidget.docToPageSourceHash(chosenDoc);
-		const adventurePack = await Renderer.hover.pCacheAndGet(page, source, hash);
+		const adventureBookPack = await Renderer.hover.pCacheAndGet(page, source, hash);
 
 		const mapDatas = [];
 		const walker = MiscUtil.getWalker();
-		adventurePack.adventureData.data.forEach((chap, ixChap) => {
+
+		const {prop, propData} = this._getProps({catId: chosenDoc.c});
+
+		adventureBookPack[propData].data.forEach((chap, ixChap) => {
 			let cntChapImages = 0;
 
 			const handlers = {
@@ -47,16 +71,16 @@ class DmMapper {
 					if (obj.mapRegions) {
 						const out = {
 							...Renderer.get().getMapRegionData(obj),
-							page: UrlUtil.PG_ADVENTURE,
-							source: adventurePack.adventure.source,
-							hash: UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_ADVENTURE](adventurePack.adventure),
+							page: chosenDoc.q,
+							source: adventureBookPack[prop].source,
+							hash: UrlUtil.URL_TO_HASH_BUILDER[chosenDoc.q](adventureBookPack[prop]),
 						};
 						mapDatas.push(out);
 
 						if (obj.title) {
-							out.name = obj.title;
+							out.name = Renderer.stripTags(obj.title);
 						} else {
-							out.name = `${(adventurePack.adventure.contents[ixChap] || {}).name || "(Unknown)"}, Map ${cntChapImages + 1}`;
+							out.name = `${(adventureBookPack[prop].contents[ixChap] || {}).name || "(Unknown)"}, Map ${cntChapImages + 1}`;
 						}
 
 						cntChapImages++;
@@ -91,7 +115,7 @@ class DmMapper {
 						</div>`)
 				.click(() => {
 					doClose();
-					menu.pnl.doPopulate_AdventureDynamicMap({state: mapData});
+					menu.pnl.doPopulate_AdventureBookDynamicMap({state: mapData});
 				})
 				.appendTo($modalInner);
 		});

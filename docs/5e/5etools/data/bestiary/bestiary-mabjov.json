@@ -4,7 +4,9 @@
 			"name": "Achaierai",
 			"source": "MaBJoV",
 			"page": 131,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"L",
@@ -118,7 +120,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 108,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -311,7 +315,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 91,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": {
 				"type": "fiend",
 				"tags": [
@@ -575,7 +581,9 @@
 			"name": "Bebilith",
 			"source": "MaBJoV",
 			"page": 133,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": {
 				"type": "fiend",
 				"tags": [
@@ -737,7 +745,9 @@
 			"shortName": "ravager",
 			"source": "MaBJoV",
 			"page": 93,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "beast",
 			"alignment": [
 				"L",
@@ -945,7 +955,9 @@
 			"shortName": "slayer",
 			"source": "MaBJoV",
 			"page": 93,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"alignment": [
 				"L",
@@ -1123,7 +1135,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 76,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "undead",
 				"tags": [
@@ -1336,7 +1350,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 56,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1491,7 +1507,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 30,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1687,7 +1705,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 97,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "elemental",
 			"alignment": [
 				"N",
@@ -1909,7 +1929,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 110,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2077,7 +2099,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 112,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "giant",
 				"tags": [
@@ -2297,7 +2321,9 @@
 			"name": "Deep Spider",
 			"source": "MaBJoV",
 			"page": 151,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -2403,7 +2429,9 @@
 			"name": "Demodand, Farastu",
 			"source": "MaBJoV",
 			"page": 135,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fiend",
 			"alignment": [
 				"N",
@@ -2565,7 +2593,9 @@
 			"name": "Demodand, Kelubar",
 			"source": "MaBJoV",
 			"page": 135,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fiend",
 			"alignment": [
 				"N",
@@ -2787,7 +2817,9 @@
 			"name": "Demodand, Shator",
 			"source": "MaBJoV",
 			"page": 135,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "fiend",
 			"alignment": [
 				"N",
@@ -2986,7 +3018,9 @@
 			"name": "Dread Doppelganger",
 			"source": "MaBJoV",
 			"page": 139,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -3117,7 +3151,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 114,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3324,7 +3360,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 116,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3523,7 +3561,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 50,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3715,7 +3755,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 32,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3897,7 +3939,9 @@
 			"name": "Gibberling",
 			"source": "MaBJoV",
 			"page": 141,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -3989,7 +4033,9 @@
 			"name": "Hamadryad",
 			"source": "MaBJoV",
 			"page": 143,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"C",
@@ -4110,7 +4156,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 88,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4237,7 +4285,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 60,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4439,7 +4489,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 72,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -4717,7 +4769,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 118,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4837,7 +4891,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 48,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4956,7 +5012,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 80,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5131,7 +5189,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 99,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "fiend",
 				"tags": [
@@ -5481,7 +5541,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 68,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5612,7 +5674,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 86,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5751,7 +5815,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 42,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5940,7 +6006,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 54,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6090,7 +6158,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 103,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "fiend",
 				"tags": [
@@ -6320,7 +6390,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 120,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6520,7 +6592,9 @@
 			"name": "Phaerimm",
 			"source": "MaBJoV",
 			"page": 147,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "aberration",
 			"alignment": [
 				"N",
@@ -6765,7 +6839,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 122,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6947,7 +7023,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 124,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7164,7 +7242,9 @@
 			"name": "Sirene",
 			"source": "MaBJoV",
 			"page": 145,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"C",
@@ -7292,7 +7372,9 @@
 			"name": "Skeleton Lord",
 			"source": "MaBJoV",
 			"page": 149,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -7423,7 +7505,9 @@
 			"name": "Skeleton Warrior",
 			"source": "MaBJoV",
 			"page": 149,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -7545,7 +7629,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 105,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "aberration",
 				"tags": [
@@ -7802,7 +7888,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 66,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7980,7 +8068,9 @@
 			"name": "Sword Spider",
 			"source": "MaBJoV",
 			"page": 151,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -8087,7 +8177,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 153,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8191,7 +8283,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 153,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8295,7 +8389,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 44,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8409,7 +8505,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 36,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8519,7 +8617,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 62,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8654,7 +8754,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 126,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8878,7 +8980,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 82,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -9037,7 +9141,9 @@
 			"name": "Wolfwere",
 			"source": "MaBJoV",
 			"page": 155,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -9176,7 +9282,9 @@
 			"name": "Wolfwere Alpha",
 			"source": "MaBJoV",
 			"page": 155,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -9316,7 +9424,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 38,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -9478,7 +9588,9 @@
 			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 128,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

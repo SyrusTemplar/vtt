@@ -22,7 +22,8 @@ class PageFilterCultsBoons extends PageFilter {
 
 	static mutateForFilters (it) {
 		it._fType = it.__prop === "cult" ? "Cult" : it.type ? `Boon, ${it.type}` : "Boon";
-		it._fMisc = it.reprintedAs ? ["Reprinted"] : [];
+		it._fMisc = [];
+		if (this._isReprinted({reprintedAs: it.reprintedAs, tag: it.__prop, prop: it.__prop, page: UrlUtil.PG_CULTS_BOONS})) it._fMisc.push("Reprinted");
 	}
 
 	addToFilters (it, isExcluded) {

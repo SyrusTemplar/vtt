@@ -4,7 +4,9 @@
 			"name": "Demogorgon",
 			"source": "HftT",
 			"page": 36,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -109,7 +111,9 @@
 					"source": "IMR"
 				}
 			],
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"

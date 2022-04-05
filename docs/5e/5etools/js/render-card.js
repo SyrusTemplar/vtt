@@ -421,7 +421,11 @@ class RendererCard {
 
 	_renderString_renderTag_card (textStack, meta, options, tag, text) {
 		switch (tag) {
-			case "@dc": { textStack[0] += `DC ${text}`; return true; }
+			case "@dc": {
+				const [dcText, displayText] = Renderer.splitTagByPipe(text);
+				textStack[0] += `DC ${displayText || dcText}`;
+				return true;
+			}
 			default: return false;
 		}
 	}

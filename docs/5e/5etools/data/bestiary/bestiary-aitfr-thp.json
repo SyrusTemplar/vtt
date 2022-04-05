@@ -4,7 +4,9 @@
 			"name": "Greater Shadow Horror",
 			"source": "AitFR-THP",
 			"page": 12,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "aberration",
 			"alignment": [
 				"N",
@@ -151,7 +153,9 @@
 			"isNamedCreature": true,
 			"source": "AitFR-THP",
 			"page": 13,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -288,7 +292,9 @@
 			"name": "Usagt",
 			"source": "AitFR-THP",
 			"page": 14,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "aberration",
 				"tags": [

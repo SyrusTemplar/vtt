@@ -746,6 +746,8 @@ Renderer.dice = {
 					<li>Rounding; <span class="out-roll-item-code">floor(1.5)</span>, <span class="out-roll-item-code">ceil(1.5)</span>, <span class="out-roll-item-code">round(1.5)</span></li>
 
 					<li>Average; <span class="out-roll-item-code">avg(8d6)</span></li>
+					<li>Maximize dice; <span class="out-roll-item-code">dmax(8d6)</span></li>
+					<li>Minimize dice; <span class="out-roll-item-code">dmin(8d6)</span></li>
 
 					<li>Other functions; <span class="out-roll-item-code">sign(1d6-3)</span>, <span class="out-roll-item-code">abs(1d6-3)</span>, ...etc.</li>
 				</ul>
@@ -1016,6 +1018,8 @@ Renderer.dice.lang = {
 			case "ceil": self.tokenStack.push(Renderer.dice.tk.CEIL); break;
 			case "round": self.tokenStack.push(Renderer.dice.tk.ROUND); break;
 			case "avg": self.tokenStack.push(Renderer.dice.tk.AVERAGE); break;
+			case "dmax": self.tokenStack.push(Renderer.dice.tk.DMAX); break;
+			case "dmin": self.tokenStack.push(Renderer.dice.tk.DMIN); break;
 			case "sign": self.tokenStack.push(Renderer.dice.tk.SIGN); break;
 			case "abs": self.tokenStack.push(Renderer.dice.tk.ABS); break;
 			case "cbrt": self.tokenStack.push(Renderer.dice.tk.CBRT); break;
@@ -1137,6 +1141,8 @@ Renderer.dice.lang = {
 			|| this._parse3_match(self, Renderer.dice.tk.CEIL)
 			|| this._parse3_match(self, Renderer.dice.tk.ROUND)
 			|| this._parse3_match(self, Renderer.dice.tk.AVERAGE)
+			|| this._parse3_match(self, Renderer.dice.tk.DMAX)
+			|| this._parse3_match(self, Renderer.dice.tk.DMIN)
 			|| this._parse3_match(self, Renderer.dice.tk.SIGN)
 			|| this._parse3_match(self, Renderer.dice.tk.ABS)
 			|| this._parse3_match(self, Renderer.dice.tk.CBRT)
@@ -1384,6 +1390,8 @@ Renderer.dice.tk.FLOOR = Renderer.dice.tk._new("FLOOR", "floor");
 Renderer.dice.tk.CEIL = Renderer.dice.tk._new("CEIL", "ceil");
 Renderer.dice.tk.ROUND = Renderer.dice.tk._new("ROUND", "round");
 Renderer.dice.tk.AVERAGE = Renderer.dice.tk._new("AVERAGE", "avg");
+Renderer.dice.tk.DMAX = Renderer.dice.tk._new("DMAX", "avg");
+Renderer.dice.tk.DMIN = Renderer.dice.tk._new("DMIN", "avg");
 Renderer.dice.tk.SIGN = Renderer.dice.tk._new("SIGN", "sign");
 Renderer.dice.tk.ABS = Renderer.dice.tk._new("ABS", "abs");
 Renderer.dice.tk.CBRT = Renderer.dice.tk._new("CBRT", "cbrt");
@@ -1433,11 +1441,13 @@ Renderer.dice.AbstractSymbol = class {
 	_min () { throw new Error("Unimplemented!"); } // minimum value of all _rolls_, not the minimum possible result
 	_max () { throw new Error("Unimplemented!"); } // maximum value of all _rolls_, not the maximum possible result
 	toString () { throw new Error("Unimplemented!"); }
-	addToMeta (meta, html, text) {
+	addToMeta (meta, {text, html = null, md = null} = {}) {
 		if (!meta) return;
-		text = text || html;
+		html = html || text;
+		md = md || text;
 		(meta.html = meta.html || []).push(html);
 		(meta.text = meta.text || []).push(text);
+		(meta.md = meta.md || []).push(md);
 	}
 };
 
@@ -1587,7 +1597,7 @@ Renderer.dice.parsed = {
 				case Renderer.dice.tk.MARGIN_SUCCESS_LTEQ.type: {
 					const total = vals.map(it => it.val).reduce((valA, valB) => valA + valB, 0);
 
-					const subDisplayDice = displayVals.map(r => `[${Renderer.dice.parsed._rollToNumPart(r, opts.faces)}]`).join("+");
+					const subDisplayDice = displayVals.map(r => `[${Renderer.dice.parsed._rollToNumPart_html(r, opts.faces)}]`).join("+");
 
 					let delta;
 					let subDisplay;
@@ -1630,7 +1640,7 @@ Renderer.dice.parsed = {
 		return displayVals;
 	},
 
-	_rollToNumPart (r, faces) {
+	_rollToNumPart_html (r, faces) {
 		if (faces == null) return r.val;
 		return r.val === faces ? `<span class="rll__max--muted">${r.val}</span>` : r.val === 1 ? `<span class="rll__min--muted">${r.val}</span>` : r.val;
 	},
@@ -1663,19 +1673,27 @@ Renderer.dice.parsed = {
 				case Renderer.dice.tk.MAX.type:
 				case Renderer.dice.tk.MIN.type: {
 					const [, ...symExps] = this._nodes;
-					this.addToMeta(meta, `${symFunc.toString()}(`);
+					this.addToMeta(meta, {text: `${symFunc.toString()}(`});
 					const args = [];
 					symExps.forEach((symExp, i) => {
-						if (i !== 0) this.addToMeta(meta, `, `);
+						if (i !== 0) this.addToMeta(meta, {text: `, `});
 						args.push(symExp[fnName](meta));
 					});
 					const out = Math[symFunc.toString()](...args);
-					this.addToMeta(meta, ")");
+					this.addToMeta(meta, {text: ")"});
 					return out;
 				}
 				case Renderer.dice.tk.AVERAGE.type: {
 					const [, symExp] = this._nodes;
 					return symExp.avg(meta);
+				}
+				case Renderer.dice.tk.DMAX.type: {
+					const [, symExp] = this._nodes;
+					return symExp.max(meta);
+				}
+				case Renderer.dice.tk.DMIN.type: {
+					const [, symExp] = this._nodes;
+					return symExp.min(meta);
 				}
 				default: throw new Error(`Unimplemented!`);
 			}
@@ -1689,6 +1707,8 @@ Renderer.dice.parsed = {
 				case Renderer.dice.tk.CEIL.type:
 				case Renderer.dice.tk.ROUND.type:
 				case Renderer.dice.tk.AVERAGE.type:
+				case Renderer.dice.tk.DMAX.type:
+				case Renderer.dice.tk.DMIN.type:
 				case Renderer.dice.tk.SIGN.type:
 				case Renderer.dice.tk.ABS.type:
 				case Renderer.dice.tk.CBRT.type:
@@ -1751,8 +1771,9 @@ Renderer.dice.parsed = {
 				}).join("+");
 
 				const asText = displayVals.map(v => `(${v.meta.text.join("")})`).join("+");
+				const asMd = displayVals.map(v => `(${v.meta.md.join("")})`).join("+");
 
-				this.addToMeta(meta, asHtml, asText);
+				this.addToMeta(meta, {html: asHtml, text: asText, md: asMd});
 
 				if (isSuccessMode) {
 					return vals.filter(it => !it.isDropped && it.isSuccess).length;
@@ -1760,7 +1781,12 @@ Renderer.dice.parsed = {
 					return vals.filter(it => !it.isDropped).map(it => it.val).sum();
 				}
 			} else {
-				this.addToMeta(meta, `${vals.map(it => `(${it.meta.html.join("")})`).join("+")}`, `${vals.map(it => `(${it.meta.text.join("")})`).join("+")}`);
+				this.addToMeta(
+					meta,
+					["html", "text", "md"].mergeMap(prop => ({
+						[prop]: `${vals.map(it => `(${it.meta[prop].join("")})`).join("+")}`,
+					})),
+				);
 				return vals.map(it => it.val).sum();
 			}
 		}
@@ -1786,25 +1812,25 @@ Renderer.dice.parsed = {
 		_invoke (fnName, meta) {
 			switch (this._node.type) {
 				case Renderer.dice.tk.TYP_NUMBER: {
-					this.addToMeta(meta, this.toString());
+					this.addToMeta(meta, {text: this.toString()});
 					return Number(this._node.value);
 				}
 				case Renderer.dice.tk.TYP_SYMBOL: {
-					if (this._hasParens) this.addToMeta(meta, "(");
+					if (this._hasParens) this.addToMeta(meta, {text: "("});
 					const out = this._node[fnName](meta);
-					if (this._hasParens) this.addToMeta(meta, ")");
+					if (this._hasParens) this.addToMeta(meta, {text: ")"});
 					return out;
 				}
 				case Renderer.dice.tk.PB.type: {
-					this.addToMeta(meta, this.toString(meta));
+					this.addToMeta(meta, {text: this.toString(meta)});
 					return meta.pb == null ? 0 : meta.pb;
 				}
 				case Renderer.dice.tk.SUMMON_SPELL_LEVEL.type: {
-					this.addToMeta(meta, this.toString(meta));
+					this.addToMeta(meta, {text: this.toString(meta)});
 					return meta.summonSpellLevel == null ? 0 : meta.summonSpellLevel;
 				}
 				case Renderer.dice.tk.SUMMON_CLASS_LEVEL.type: {
-					this.addToMeta(meta, this.toString(meta));
+					this.addToMeta(meta, {text: this.toString(meta)});
 					return meta.summonClassLevel == null ? 0 : meta.summonClassLevel;
 				}
 				default: throw new Error(`Unimplemented!`);
@@ -1903,7 +1929,7 @@ Renderer.dice.parsed = {
 				const asHtml = displayRolls.map(r => {
 					if (r.htmlDisplay) return r.htmlDisplay;
 
-					const numPart = Renderer.dice.parsed._rollToNumPart(r, faces);
+					const numPart = Renderer.dice.parsed._rollToNumPart_html(r, faces);
 
 					if (r.isDropped) return `<span class="rll__dropped">[${numPart}]</span>`;
 					else if (r.isExploded) return `<span class="rll__exploded">[</span>${numPart}<span class="rll__exploded">]</span>`;
@@ -1913,10 +1939,20 @@ Renderer.dice.parsed = {
 
 				const asText = displayRolls.map(r => `[${r.val}]`).join("+");
 
+				const asMd = displayRolls.map(r => {
+					if (r.isDropped) return `~~[${r.val}]~~`;
+					else if (r.isExploded) return `_[${r.val}]_`;
+					else if (r.isSuccess) return `**[${r.val}]**`;
+					else return `[${r.val}]`;
+				}).join("+");
+
 				this.addToMeta(
 					meta,
-					asHtml,
-					asText,
+					{
+						html: asHtml,
+						text: asText,
+						md: asMd,
+					},
 				);
 			}
 
@@ -1967,7 +2003,7 @@ Renderer.dice.parsed = {
 			const view = this._nodes.slice();
 			let val = view.pop()[fnName](meta);
 			while (view.length) {
-				this.addToMeta(meta, "^");
+				this.addToMeta(meta, {text: "^"});
 				val = view.pop()[fnName](meta) ** val;
 			}
 			return val;
@@ -1997,10 +2033,10 @@ Renderer.dice.parsed = {
 
 			for (let i = 1; i < this._nodes.length; i += 2) {
 				if (this._nodes[i].eq(Renderer.dice.tk.MULT)) {
-					this.addToMeta(meta, " × ");
+					this.addToMeta(meta, {text: " × "});
 					out *= this._nodes[i + 1][fnName](meta);
 				} else if (this._nodes[i].eq(Renderer.dice.tk.DIV)) {
-					this.addToMeta(meta, " ÷ ");
+					this.addToMeta(meta, {text: " ÷ "});
 					out /= this._nodes[i + 1][fnName](meta);
 				} else throw new Error(`Unimplemented!`);
 			}
@@ -2036,7 +2072,7 @@ Renderer.dice.parsed = {
 			let isNeg = false;
 			if (view[0].eq(Renderer.dice.tk.ADD) || view[0].eq(Renderer.dice.tk.SUB)) {
 				isNeg = view.shift().eq(Renderer.dice.tk.SUB);
-				if (isNeg) this.addToMeta(meta, "-");
+				if (isNeg) this.addToMeta(meta, {text: "-"});
 			}
 
 			let out = view[0][fnName](meta);
@@ -2044,10 +2080,10 @@ Renderer.dice.parsed = {
 
 			for (let i = 1; i < view.length; i += 2) {
 				if (view[i].eq(Renderer.dice.tk.ADD)) {
-					this.addToMeta(meta, " + ");
+					this.addToMeta(meta, {text: " + "});
 					out += view[i + 1][fnName](meta);
 				} else if (view[i].eq(Renderer.dice.tk.SUB)) {
-					this.addToMeta(meta, " - ");
+					this.addToMeta(meta, {text: " - "});
 					out -= view[i + 1][fnName](meta);
 				} else throw new Error(`Unimplemented!`);
 			}

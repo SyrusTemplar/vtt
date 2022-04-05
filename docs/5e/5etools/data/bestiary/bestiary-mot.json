@@ -22,7 +22,9 @@
 			"name": "Abhorrent Overlord",
 			"source": "MOT",
 			"page": 219,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "fiend",
 			"alignment": [
 				"L",
@@ -167,7 +169,9 @@
 			"name": "Akroan Hoplite",
 			"source": "MOT",
 			"page": 228,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"alignment": [
 				"A"
@@ -259,7 +263,9 @@
 			],
 			"source": "MOT",
 			"page": 235,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"C",
@@ -383,7 +389,9 @@
 			"name": "Anvilwrought Raptor",
 			"source": "MOT",
 			"page": 209,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -505,7 +513,9 @@
 			"name": "Aphemia",
 			"source": "MOT",
 			"page": 226,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -637,7 +647,9 @@
 			"isNamedCreature": true,
 			"source": "MOT",
 			"page": 248,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -854,7 +866,9 @@
 			"name": "Archon of Falling Stars",
 			"source": "MOT",
 			"page": 212,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "celestial",
 			"alignment": [
 				"L",
@@ -1020,7 +1034,9 @@
 			"name": "Ashen Rider",
 			"source": "MOT",
 			"page": 213,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "celestial",
 			"alignment": [
 				"L",
@@ -1184,7 +1200,9 @@
 			"name": "Blood-Toll Harpy",
 			"source": "MOT",
 			"page": 227,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -1270,7 +1288,9 @@
 			"name": "Broken King Antigonos",
 			"source": "MOT",
 			"page": 189,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -1382,7 +1402,9 @@
 			"name": "Bronze Sable",
 			"source": "MOT",
 			"page": 210,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -1492,7 +1514,9 @@
 			"name": "Burnished Hart",
 			"source": "MOT",
 			"page": 211,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -1607,7 +1631,9 @@
 			"name": "Colossus of Akros",
 			"source": "MOT",
 			"page": 218,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -1768,7 +1794,9 @@
 			"name": "Doomwake Giant",
 			"source": "MOT",
 			"page": 224,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"L",
@@ -1885,7 +1913,9 @@
 			"name": "Eater of Hope",
 			"source": "MOT",
 			"page": 220,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "fiend",
 			"alignment": [
 				"L",
@@ -2007,7 +2037,9 @@
 			"name": "Fleecemane Lion",
 			"source": "MOT",
 			"page": 223,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -2130,7 +2162,9 @@
 			"name": "Flitterstep Eidolon",
 			"source": "MOT",
 			"page": 222,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"A"
@@ -2256,7 +2290,9 @@
 			"name": "Ghostblade Eidolon",
 			"source": "MOT",
 			"page": 222,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"A"
@@ -2371,7 +2407,9 @@
 			"name": "Gold-Forged Sentinel",
 			"source": "MOT",
 			"page": 211,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -2486,7 +2524,9 @@
 			"name": "Hippocamp",
 			"source": "MOT",
 			"page": 227,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -2574,7 +2614,9 @@
 			"name": "Hundred-Handed One",
 			"source": "MOT",
 			"page": 225,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"L",
@@ -2692,7 +2734,9 @@
 			"isNamedCreature": true,
 			"source": "MOT",
 			"page": 252,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"L",
@@ -2891,7 +2935,9 @@
 			"name": "Ironscale Hydra",
 			"source": "MOT",
 			"page": 231,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -3003,7 +3049,9 @@
 			],
 			"source": "MOT",
 			"page": 235,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"N",
@@ -3122,7 +3170,9 @@
 			"name": "Leonin Iconoclast",
 			"source": "MOT",
 			"page": 232,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3299,7 +3349,9 @@
 			"name": "Meletian Hoplite",
 			"source": "MOT",
 			"page": 229,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"alignment": [
 				"A"
@@ -3442,7 +3494,9 @@
 					"source": "CM"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"C",
@@ -3578,7 +3632,9 @@
 			"name": "Nightmare Shepherd",
 			"source": "MOT",
 			"page": 221,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "fiend",
 			"alignment": [
 				"L",
@@ -3730,7 +3786,9 @@
 			"name": "Nyx-Fleece Ram",
 			"source": "MOT",
 			"page": 233,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -3808,7 +3866,9 @@
 			"name": "Oracle",
 			"source": "MOT",
 			"page": 238,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"alignment": [
 				"A"
@@ -3923,7 +3983,9 @@
 			],
 			"source": "MOT",
 			"page": 237,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"C",
@@ -4060,7 +4122,9 @@
 			"name": "Phylaskia",
 			"source": "MOT",
 			"page": 239,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -4184,7 +4248,9 @@
 			"isNamedCreature": true,
 			"source": "MOT",
 			"page": 231,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -4339,7 +4405,9 @@
 			"name": "Returned Drifter",
 			"source": "MOT",
 			"page": 240,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -4431,7 +4499,9 @@
 			"name": "Returned Kakomantis",
 			"source": "MOT",
 			"page": 240,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"C",
@@ -4532,7 +4602,9 @@
 			"name": "Returned Palamnite",
 			"source": "MOT",
 			"page": 241,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"C",
@@ -4635,7 +4707,9 @@
 			"name": "Returned Sentry",
 			"source": "MOT",
 			"page": 241,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -4736,7 +4810,9 @@
 			"name": "Satyr Reveler",
 			"source": "MOT",
 			"page": 242,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"C",
@@ -4839,7 +4915,9 @@
 			"name": "Satyr Thornbearer",
 			"source": "MOT",
 			"page": 243,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"C",
@@ -4945,7 +5023,9 @@
 			"name": "Setessan Hoplite",
 			"source": "MOT",
 			"page": 229,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"alignment": [
 				"A"
@@ -5040,7 +5120,9 @@
 			"name": "Theran Chimera",
 			"source": "MOT",
 			"page": 216,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -5152,7 +5234,9 @@
 			"name": "Triton Master of Waves",
 			"source": "MOT",
 			"page": 245,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5298,7 +5382,9 @@
 			"name": "Triton Shorestalker",
 			"source": "MOT",
 			"page": 244,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5425,7 +5511,9 @@
 			"isNamedCreature": true,
 			"source": "MOT",
 			"page": 254,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -5637,7 +5725,9 @@
 			"name": "Two-Headed Cerberus",
 			"source": "MOT",
 			"page": 215,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"L",
@@ -5750,7 +5840,9 @@
 			"name": "Typhon",
 			"source": "MOT",
 			"page": 246,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -5866,7 +5958,9 @@
 			"name": "Underworld Cerberus",
 			"source": "MOT",
 			"page": 215,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"L",
@@ -5992,7 +6086,9 @@
 			"name": "Winged Bull",
 			"source": "MOT",
 			"page": 214,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "celestial",
 			"alignment": [
 				"U"
@@ -6055,7 +6151,9 @@
 			"name": "Winged Lion",
 			"source": "MOT",
 			"page": 214,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "celestial",
 			"alignment": [
 				"U"
@@ -6128,7 +6226,9 @@
 			"name": "Woe Strider",
 			"source": "MOT",
 			"page": 247,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",

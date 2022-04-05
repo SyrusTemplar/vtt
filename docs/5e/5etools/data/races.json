@@ -2276,7 +2276,7 @@
 			],
 			"speed": {
 				"walk": 35,
-				"climb": 35
+				"climb": true
 			},
 			"darkvision": 60,
 			"traitTags": [
@@ -2343,7 +2343,7 @@
 			],
 			"speed": {
 				"walk": 35,
-				"climb": 35
+				"climb": true
 			},
 			"darkvision": 60,
 			"traitTags": [
@@ -4157,7 +4157,7 @@
 			],
 			"speed": {
 				"walk": 30,
-				"fly": 30
+				"fly": true
 			},
 			"additionalSpells": [
 				{
@@ -4232,7 +4232,7 @@
 			],
 			"speed": {
 				"walk": 30,
-				"fly": 30
+				"fly": true
 			},
 			"additionalSpells": [
 				{
@@ -4601,7 +4601,7 @@
 			],
 			"speed": {
 				"walk": 30,
-				"swim": 30
+				"swim": true
 			},
 			"traitTags": [
 				"Powerful Build"
@@ -5570,6 +5570,9 @@
 				"M"
 			],
 			"speed": 30,
+			"traitTags": [
+				"Powerful Build"
+			],
 			"skillProficiencies": [
 				{
 					"athletics": true
@@ -5898,7 +5901,7 @@
 			],
 			"speed": {
 				"walk": 30,
-				"climb": 30
+				"climb": true
 			},
 			"entries": [
 				{
@@ -6081,13 +6084,6 @@
 					"type": "entries",
 					"entries": [
 						"Half-orcs mature a little faster than humans, reaching adulthood around age 14. They age noticeably faster and rarely live longer than 75 years."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Half-orcs inherit a tendency toward chaos from their orc parents and are not strongly inclined toward good. Half-orcs raised among orcs and willing to live out their lives among them are usually evil."
 					]
 				},
 				{
@@ -7524,6 +7520,84 @@
 			]
 		},
 		{
+			"name": "Kender",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 1,
+			"lineage": "VRGR",
+			"size": [
+				"S"
+			],
+			"speed": 30,
+			"skillProficiencies": [
+				{
+					"stealth": true
+				}
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Brave",
+					"entries": [
+						"You have advantage on saving throws you make to avoid or end the {@condition frightened} condition on yourself."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Kender Ace",
+					"entries": [
+						"Starting at 3rd level, you possess a magical ability to pull an item out of a bag or another container; as a bonus action, you can reach into a container you're carrying and roll on the Kender Aces table to determine what item you pull out. The object glimmers softly and disappears after 1 hour. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+						{
+							"type": "table",
+							"caption": "Kender Aces",
+							"colLabels": [
+								"d6",
+								"Item"
+							],
+							"colStyles": [
+								"col-1 text-center",
+								"col-11"
+							],
+							"rows": [
+								[
+									"1",
+									"{@dice 5d6} gold pieces"
+								],
+								[
+									"2",
+									"1 {@filter simple weapon|items|source=phb|category=basic|type=simple weapon|property=light} of your choice that has the light property"
+								],
+								[
+									"3",
+									"1 item of your choice from the {@table Adventuring Gear|PHB} table in the Player's Handbook. The item must cost no more than 1 gp and weigh no more than 1 lb."
+								],
+								[
+									"4",
+									"1 random item from the {@item Trinket|PHB|Trinkets} table in the Player's Handbook."
+								],
+								[
+									"5",
+									"Your choice of a {@item crowbar|PHB} or a {@item grappling hook|PHB}"
+								],
+								[
+									"6",
+									"1 item of your choice from the {@table Tools|PHB} table in the Player's Handbook. The item must cost no more than 10 gp."
+								]
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Taunt",
+					"entries": [
+						"You have a supernatural ability to home in on a creature's emotional raw nerves and craft a taunt that flusters that creature. As a bonus action, you can unleash a barrage of insults at a creature within 60 feet of you that can hear and understand you. The target must succeed on a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Charisma modifier), or it has disadvantage on attack rolls until the start of your next turn.",
+						"You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+					]
+				}
+			],
+			"hasFluff": true
+		},
+		{
 			"name": "Kenku",
 			"source": "DMG",
 			"page": 282,
@@ -7937,7 +8011,7 @@
 								{
 									"type": "item",
 									"name": "Draconic Sorcery",
-									"entry": "You know one {@filter cantrip of your choice from the sorcerer spell list|spells|level=0|class=Sorcerer}. Intelligence, Wisdom, or Charisma is your spellcasting for that cantrip (choose when you select this race)."
+									"entry": "You know one {@filter cantrip of your choice from the sorcerer spell list|spells|level=0|class=Sorcerer}. Intelligence, Wisdom, or Charisma is your spellcasting ability for that cantrip (choose when you select this race)."
 								}
 							],
 							"style": "list-hang-notitle"
@@ -7995,7 +8069,7 @@
 								"name": "Kobold Legacy (Draconic Sorcery)",
 								"type": "entries",
 								"entries": [
-									"You know one {@filter cantrip of your choice from the sorcerer spell list|spells|level=0|class=Sorcerer}. Intelligence, Wisdom, or Charisma is your spellcasting for that cantrip (choose when you select this race)."
+									"You know one {@filter cantrip of your choice from the sorcerer spell list|spells|level=0|class=Sorcerer}. Intelligence, Wisdom, or Charisma is your spellcasting ability for that cantrip (choose when you select this race)."
 								]
 							}
 						}
@@ -10330,7 +10404,7 @@
 			],
 			"speed": {
 				"walk": 30,
-				"fly": 30
+				"fly": true
 			},
 			"darkvision": 120,
 			"skillProficiencies": [
@@ -10928,7 +11002,7 @@
 			"age": {
 				"max": 750
 			},
-			"darkvision": 120,
+			"darkvision": 60,
 			"traitTags": [
 				"Amphibious"
 			],
@@ -12173,13 +12247,6 @@
 					"type": "entries",
 					"entries": [
 						"Tieflings mature at the same rate as humans but live a few years longer."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Tieflings might not have an innate tendency toward evil, but many of them end up there. Evil or not, an independent nature inclines many tieflings toward a chaotic alignment."
 					]
 				},
 				{
@@ -14221,7 +14288,6 @@
 			"raceName": "Dragonborn",
 			"raceSource": "PHB",
 			"page": 168,
-			"srd": true,
 			"ability": [
 				{
 					"int": 2,
@@ -14449,7 +14515,6 @@
 			"raceName": "Dragonborn",
 			"raceSource": "PHB",
 			"page": 168,
-			"srd": true,
 			"ability": [
 				{
 					"str": 2,
@@ -14677,7 +14742,6 @@
 			"raceName": "Dwarf",
 			"raceSource": "PHB",
 			"page": 81,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "SCAG",
@@ -14812,7 +14876,6 @@
 			"raceName": "Dwarf",
 			"raceSource": "PHB",
 			"page": 51,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "UAWGE",
@@ -14923,7 +14986,6 @@
 			"raceName": "Dwarf",
 			"raceSource": "PHB",
 			"page": 20,
-			"srd": true,
 			"basicRules": true,
 			"ability": [
 				{
@@ -14960,7 +15022,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 1,
-			"srd": true,
 			"speed": {
 				"walk": 30,
 				"fly": 30
@@ -14996,7 +15057,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 24,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 1
@@ -15086,7 +15146,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 286,
-			"srd": true,
 			"ability": [
 				{
 					"int": 1
@@ -15137,7 +15196,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 61,
-			"srd": true,
 			"reprintedAs": [
 				"Eladrin|MPMM"
 			],
@@ -15198,7 +15256,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 1,
-			"srd": true,
 			"ability": [
 				{
 					"choose": {
@@ -15276,7 +15333,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 1,
-			"srd": true,
 			"ability": [
 				{
 					"str": 1
@@ -15481,7 +15537,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 73,
-			"srd": true,
 			"speed": 30,
 			"ability": [
 				{
@@ -15540,7 +15595,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 49,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "UAWGE",
@@ -15659,7 +15713,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 21,
-			"srd": true,
 			"ability": [
 				{
 					"wis": 1
@@ -15722,7 +15775,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 62,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "EGW",
@@ -15803,7 +15855,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 1,
-			"srd": true,
 			"speed": {
 				"walk": 30,
 				"swim": 30
@@ -15868,7 +15919,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 62,
-			"srd": true,
 			"reprintedAs": [
 				"Shadar-Kai|MPMM"
 			],
@@ -15911,7 +15961,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 2,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 1
@@ -15986,7 +16035,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 24,
-			"srd": true,
 			"basicRules": true,
 			"speed": 35,
 			"ability": [
@@ -16076,7 +16124,6 @@
 			"raceName": "Elf",
 			"raceSource": "PHB",
 			"page": 73,
-			"srd": true,
 			"speed": 35,
 			"ability": [
 				{
@@ -17163,7 +17210,6 @@
 			"raceName": "Gnome",
 			"raceSource": "PHB",
 			"page": 113,
-			"srd": true,
 			"reprintedAs": [
 				"Deep Gnome|MPMM"
 			],
@@ -17253,12 +17299,14 @@
 			"raceName": "Gnome",
 			"raceSource": "PHB",
 			"page": 115,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "EEPC",
 					"page": 5
 				}
+			],
+			"reprintedAs": [
+				"Deep Gnome|MPMM"
 			],
 			"ability": [
 				{
@@ -17347,7 +17395,6 @@
 			"raceName": "Gnome",
 			"raceSource": "PHB",
 			"page": 37,
-			"srd": true,
 			"ability": [
 				{
 					"dex": 1
@@ -17388,7 +17435,6 @@
 			"raceName": "Gnome",
 			"raceSource": "PHB",
 			"page": 47,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "UAWGE",
@@ -17635,7 +17681,6 @@
 			"raceName": "Half-Elf",
 			"raceSource": "PHB",
 			"page": 116,
-			"srd": true,
 			"speed": {
 				"walk": 30,
 				"swim": 30
@@ -17718,7 +17763,6 @@
 			"raceName": "Half-Elf",
 			"raceSource": "PHB",
 			"page": 116,
-			"srd": true,
 			"skillProficiencies": [
 				{
 					"any": 2
@@ -17823,7 +17867,6 @@
 			"raceName": "Half-Elf",
 			"raceSource": "PHB",
 			"page": 40,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "UAWGE",
@@ -17957,7 +18000,6 @@
 			"raceName": "Half-Elf",
 			"raceSource": "PHB",
 			"page": 50,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "UAWGE",
@@ -18084,7 +18126,6 @@
 			"raceName": "Half-Elf",
 			"raceSource": "PHB",
 			"page": 116,
-			"srd": true,
 			"skillProficiencies": [
 				{
 					"any": 2
@@ -18213,7 +18254,6 @@
 			"raceName": "Half-Elf",
 			"raceSource": "PHB",
 			"page": 116,
-			"srd": true,
 			"speed": 35,
 			"skillProficiencies": [
 				{
@@ -18356,7 +18396,6 @@
 			"raceName": "Halfling",
 			"raceSource": "PHB",
 			"page": 110,
-			"srd": true,
 			"ability": [
 				{
 					"wis": 1
@@ -18405,7 +18444,6 @@
 			"raceName": "Halfling",
 			"raceSource": "PHB",
 			"page": 164,
-			"srd": true,
 			"ability": [
 				{
 					"wis": 1
@@ -18462,7 +18500,6 @@
 			"raceName": "Halfling",
 			"raceSource": "PHB",
 			"page": 43,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "UAWGE",
@@ -18579,7 +18616,6 @@
 			"raceName": "Halfling",
 			"raceSource": "PHB",
 			"page": 44,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "UAWGE",
@@ -18691,7 +18727,6 @@
 			"raceName": "Halfling",
 			"raceSource": "PHB",
 			"page": 28,
-			"srd": true,
 			"basicRules": true,
 			"ability": [
 				{
@@ -18718,7 +18753,6 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 29,
-			"srd": true,
 			"basicRules": true,
 			"ability": [
 				{
@@ -18739,7 +18773,6 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 19,
-			"srd": true,
 			"ability": [
 				{
 					"str": 2,
@@ -18834,7 +18867,6 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 41,
-			"srd": true,
 			"ability": [
 				{
 					"con": 1,
@@ -18974,7 +19006,6 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 42,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "UAWGE",
@@ -19106,7 +19137,6 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 45,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "UAWGE",
@@ -19239,7 +19269,6 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 46,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "UAWGE",
@@ -19367,7 +19396,6 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 48,
-			"srd": true,
 			"otherSources": [
 				{
 					"source": "UAWGE",
@@ -19485,7 +19513,6 @@
 			"raceName": "Human",
 			"raceSource": "PHB",
 			"page": 31,
-			"srd": true,
 			"basicRules": true,
 			"ability": [
 				{
@@ -20365,7 +20392,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 1,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 2,
@@ -20522,7 +20548,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 21,
-			"srd": true,
 			"hasFluff": true,
 			"hasFluffImages": true
 		},
@@ -20540,7 +20565,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 21,
-			"srd": true,
 			"additionalSpells": [
 				{
 					"innate": {
@@ -20588,7 +20612,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 1,
-			"srd": true,
 			"additionalSpells": [
 				{
 					"innate": {
@@ -20634,7 +20657,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 21,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 2,
@@ -20691,7 +20713,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 1,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 2,
@@ -20746,7 +20767,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 21,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 2,
@@ -20803,7 +20823,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 1,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 2,
@@ -20858,7 +20877,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 22,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 2,
@@ -20915,7 +20933,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 2,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 2,
@@ -20970,7 +20987,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 22,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 2,
@@ -21027,7 +21043,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 2,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 2,
@@ -21082,7 +21097,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 22,
-			"srd": true,
 			"additionalSpells": [
 				{
 					"innate": {
@@ -21130,7 +21144,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 2,
-			"srd": true,
 			"additionalSpells": [
 				{
 					"innate": {
@@ -21176,7 +21189,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 23,
-			"srd": true,
 			"additionalSpells": [
 				{
 					"innate": {
@@ -21224,7 +21236,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 2,
-			"srd": true,
 			"additionalSpells": [
 				{
 					"innate": {
@@ -21270,7 +21281,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 118,
-			"srd": true,
 			"ability": [
 				{
 					"int": 1,
@@ -21339,7 +21349,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 118,
-			"srd": true,
 			"ability": [
 				{
 					"int": 1,
@@ -21408,7 +21417,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 118,
-			"srd": true,
 			"ability": [
 				{
 					"int": 1,
@@ -21467,7 +21475,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 118,
-			"srd": true,
 			"speed": {
 				"walk": 30,
 				"fly": 30
@@ -21519,7 +21526,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 23,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 2,
@@ -21576,7 +21582,6 @@
 			"raceName": "Tiefling",
 			"raceSource": "PHB",
 			"page": 2,
-			"srd": true,
 			"ability": [
 				{
 					"cha": 2,

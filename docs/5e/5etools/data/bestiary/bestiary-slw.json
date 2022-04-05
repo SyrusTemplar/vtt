@@ -17,7 +17,9 @@
 			"name": "Expert",
 			"source": "SLW",
 			"level": 7,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -112,7 +114,9 @@
 		{
 			"name": "Skull Flier",
 			"source": "SLW",
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -183,7 +187,9 @@
 			"name": "Spellcaster (Healer)",
 			"source": "SLW",
 			"level": 7,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -300,7 +306,9 @@
 			"name": "Spellcaster (Mage)",
 			"source": "SLW",
 			"level": 7,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -417,7 +425,9 @@
 		{
 			"name": "Statue of Talos",
 			"source": "SLW",
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "elemental",
 			"alignment": [
 				"C",
@@ -531,7 +541,9 @@
 			"name": "Tooth-N-Claw",
 			"isNpc": true,
 			"source": "SLW",
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fiend",
 			"alignment": [
 				"L",
@@ -628,7 +640,9 @@
 			"name": "Warrior",
 			"source": "SLW",
 			"level": 7,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{

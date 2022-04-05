@@ -284,7 +284,7 @@ class PageFilterBestiary extends PageFilter {
 		if (mon.mythic) mon._fMisc.push("Mythic");
 		if (mon.hasFluff) mon._fMisc.push("Has Info");
 		if (mon.hasFluffImages) mon._fMisc.push("Has Images");
-		if (mon.reprintedAs) mon._fMisc.push("Reprinted");
+		if (this._isReprinted({reprintedAs: mon.reprintedAs, tag: "creature", prop: "monster", page: UrlUtil.PG_BESTIARY})) mon._fMisc.push("Reprinted");
 		for (const it of (mon.ac || [])) {
 			if (!it.from) continue;
 			if (it.from.includes("natural armor")) mon._fMisc.push("AC from Natural Armor");

@@ -21,7 +21,9 @@
 			"name": "Animated Broom",
 			"source": "CM",
 			"page": 20,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "construct",
 			"ac": [
 				{
@@ -118,7 +120,9 @@
 			"name": "Animated Chained Library",
 			"source": "CM",
 			"page": 24,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"ac": [
 				{
@@ -208,7 +212,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 157,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -335,7 +341,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 168,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -502,7 +510,9 @@
 			"name": "Canopic Golem",
 			"source": "CM",
 			"page": 179,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"ac": [
 				{
@@ -624,7 +634,9 @@
 			"name": "Cloud Giant Ghost",
 			"source": "CM",
 			"page": 146,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"ac": [
 				{
@@ -782,7 +794,9 @@
 			"name": "Constructed Commoner",
 			"source": "CM",
 			"page": 149,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"ac": [
 				{
@@ -850,7 +864,9 @@
 			"name": "Corrupted Avatar of Lurue",
 			"source": "CM",
 			"page": 123,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"ac": [
 				{
@@ -948,7 +964,9 @@
 			"name": "Dragon Tortoise",
 			"source": "CM",
 			"page": 205,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "dragon",
 			"alignment": [
 				"N"
@@ -1056,7 +1074,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 104,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1147,7 +1167,9 @@
 			"name": "Fungal Servant",
 			"source": "CM",
 			"page": 217,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -1385,7 +1407,9 @@
 			"name": "Gingwatzim",
 			"source": "CM",
 			"page": 27,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "aberration",
 				"tags": [
@@ -1474,7 +1498,9 @@
 			"name": "Grippli Warrior",
 			"source": "CM",
 			"page": 99,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1652,7 +1678,9 @@
 			"name": "Immortal Lotus Monk",
 			"source": "CM",
 			"page": 165,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -1739,7 +1767,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 166,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1873,7 +1903,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 64,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1997,7 +2029,9 @@
 			"name": "Kiddywidget",
 			"source": "CM",
 			"page": 136,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "construct",
 			"ac": [
 				{
@@ -2093,7 +2127,9 @@
 			"name": "Lichen Lich",
 			"source": "CM",
 			"page": 223,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"ac": [
 				{
@@ -2284,7 +2320,9 @@
 			"name": "Lightning Golem",
 			"source": "CM",
 			"page": 129,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"
@@ -2408,7 +2446,9 @@
 			"name": "Master Sage",
 			"source": "CM",
 			"page": 9,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2544,7 +2584,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 16,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "undead",
 			"ac": [
 				10
@@ -2759,7 +2801,9 @@
 			"name": "Mimic Chair",
 			"source": "CM",
 			"page": 22,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -2882,7 +2926,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 197,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "fey",
 			"alignment": [
 				"C",
@@ -3043,7 +3089,9 @@
 			"name": "Parasite-infested Behir",
 			"source": "CM",
 			"page": 220,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -3156,7 +3204,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 132,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3294,7 +3344,9 @@
 			"name": "Sage",
 			"source": "CM",
 			"page": 9,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3401,7 +3453,9 @@
 			"name": "Sapphire Sentinel",
 			"source": "CM",
 			"page": 201,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -3533,7 +3587,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 69,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"ac": [
 				13
@@ -3651,7 +3707,9 @@
 			"name": "Skitterwidget",
 			"source": "CM",
 			"page": 136,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"ac": [
 				{
@@ -3767,7 +3825,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 164,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3891,7 +3951,9 @@
 			"name": "Storm Giant Skeleton",
 			"source": "CM",
 			"page": 208,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"ac": [
 				{
@@ -3991,7 +4053,9 @@
 			"name": "Swarm of Animated Books",
 			"source": "CM",
 			"page": 19,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "construct",
 				"swarmSize": "T"
@@ -4086,7 +4150,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 182,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -4332,7 +4398,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 63,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4516,7 +4584,9 @@
 			"isNamedCreature": true,
 			"source": "CM",
 			"page": 209,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",

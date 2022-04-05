@@ -21,7 +21,9 @@
 					"source": "SDW"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -138,7 +140,9 @@
 			"isNpc": true,
 			"source": "DIP",
 			"page": 56,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -238,7 +242,9 @@
 			"isNpc": true,
 			"source": "DIP",
 			"page": 56,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -342,7 +348,9 @@
 			"isNpc": true,
 			"source": "DIP",
 			"page": 58,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -447,7 +455,9 @@
 			"name": "Rock Gnome Recluse",
 			"source": "DIP",
 			"page": 62,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

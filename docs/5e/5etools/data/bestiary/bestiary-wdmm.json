@@ -44,7 +44,9 @@
 			"name": "Animated Ballista",
 			"source": "WDMM",
 			"page": 39,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -123,7 +125,9 @@
 			"name": "Animated Staff",
 			"source": "WDMM",
 			"page": 262,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"N",
@@ -232,7 +236,9 @@
 					}
 				}
 			},
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"hp": {
 				"average": 230,
 				"formula": "20d12 + 100"
@@ -256,7 +262,9 @@
 			"name": "Animated Stove",
 			"source": "WDMM",
 			"page": 186,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -684,7 +692,9 @@
 				"name": "Xorn",
 				"source": "MM"
 			},
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"hp": {
 				"formula": "9d10 + 54",
 				"average": 103
@@ -721,7 +731,9 @@
 			"name": "Bore Worm",
 			"source": "WDMM",
 			"page": 171,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -1925,7 +1937,9 @@
 			"isNamedCreature": true,
 			"source": "WDMM",
 			"page": 310,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2237,7 +2251,9 @@
 			"isNpc": true,
 			"source": "WDMM",
 			"page": 31,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"
@@ -2290,7 +2306,9 @@
 			"isNpc": true,
 			"source": "WDMM",
 			"page": 258,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -2393,7 +2411,9 @@
 				"name": "Gray Ooze",
 				"source": "MM"
 			},
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"hp": {
 				"average": 152,
 				"formula": "16d12 + 48"
@@ -2487,7 +2507,9 @@
 			"isNpc": true,
 			"source": "WDMM",
 			"page": 165,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -2764,7 +2786,9 @@
 				"name": "Mimic",
 				"source": "MM"
 			},
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"hp": {
 				"average": 67,
 				"formula": "9d10 + 18"
@@ -2775,7 +2799,9 @@
 			"name": "Lava Child",
 			"source": "WDMM",
 			"page": 313,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2880,7 +2906,9 @@
 			"name": "Living Unseen Servant",
 			"source": "WDMM",
 			"page": 313,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -2978,7 +3006,9 @@
 					}
 				}
 			},
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"hp": {
 				"average": 264,
 				"formula": "23d12 + 115"
@@ -3031,7 +3061,9 @@
 					}
 				}
 			},
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"hp": {
 				"average": 55,
 				"formula": "10d10"
@@ -3245,7 +3277,9 @@
 			"isNamedCreature": true,
 			"source": "WDMM",
 			"page": 314,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -3632,7 +3666,9 @@
 					}
 				}
 			},
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"hp": {
 				"average": 104,
 				"formula": "16d10 + 16"
@@ -3893,7 +3929,9 @@
 				"name": "Mimic",
 				"source": "MM"
 			},
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"hp": {
 				"average": 67,
 				"formula": "9d10 + 18"
@@ -3928,7 +3966,9 @@
 			"name": "Scaladar",
 			"source": "WDMM",
 			"page": 315,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -4045,7 +4085,9 @@
 			"name": "Shadow Assassin",
 			"source": "WDMM",
 			"page": 316,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"C",
@@ -4204,7 +4246,9 @@
 			"isNpc": true,
 			"source": "WDMM",
 			"page": 174,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -4544,7 +4588,9 @@
 					}
 				}
 			},
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "giant",
 			"alignment": [
 				"C",
@@ -5071,7 +5117,9 @@
 			],
 			"source": "WDMM",
 			"page": 317,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5357,7 +5405,9 @@
 			"isNamedCreature": true,
 			"source": "WDMM",
 			"page": 204,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "undead",
 				"tags": [

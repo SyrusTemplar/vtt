@@ -9717,6 +9717,12 @@
 					"headers": [
 						"The Expedition Begins",
 						"Locations in Chult",
+						"Aldani Basin",
+						"Ataaz Kahakla",
+						"Ataaz Muhahah",
+						"Ataaz Yklwazi",
+						"Bay of Chult",
+						"Camp Righteous",
 						{
 							"depth": 1,
 							"header": "1. Command Tents"
@@ -9761,6 +9767,7 @@
 							"depth": 1,
 							"header": "6E. Treasury"
 						},
+						"Camp Vengeance",
 						{
 							"depth": 1,
 							"header": "1. Boats"
@@ -9793,6 +9800,8 @@
 							"depth": 1,
 							"header": "8. Latrines"
 						},
+						"The Cauldron",
+						"Dungrunglung",
 						{
 							"depth": 1,
 							"header": "1. Thorn Maze"
@@ -9821,6 +9830,8 @@
 							"depth": 1,
 							"header": "7. Prison Pit"
 						},
+						"Firefinger",
+						"Fort Beluarian",
 						{
 							"depth": 1,
 							"header": "1. West Gate"
@@ -9901,6 +9912,7 @@
 							"depth": 1,
 							"header": "10J. Guest Quarters"
 						},
+						"Heart of Ubtao",
 						{
 							"depth": 1,
 							"header": "1. Petrified Tree"
@@ -9925,6 +9937,8 @@
 							"depth": 1,
 							"header": "6. Teleportation Circle"
 						},
+						"Hisari",
+						"Hrakhamar",
 						{
 							"depth": 1,
 							"header": "1. Magma Rift"
@@ -9965,6 +9979,9 @@
 							"depth": 1,
 							"header": "10. Mine Cart Bay"
 						},
+						"Hvalspyd",
+						"Ishau",
+						"Jahaka Anchorage",
 						{
 							"depth": 1,
 							"header": "1. Jungle Gate"
@@ -10001,33 +10018,11 @@
 							"depth": 1,
 							"header": "6C. Bosco's Bunk"
 						},
+						"Jahaka Bay",
+						"Kir Sabal",
 						{
 							"depth": 1,
 							"header": "1. Monastery"
-						},
-						{
-							"depth": 1,
-							"header": "1A. Refectory"
-						},
-						{
-							"depth": 1,
-							"header": "1B. Prayer Hall"
-						},
-						{
-							"depth": 1,
-							"header": "1C. Masters' Quarters"
-						},
-						{
-							"depth": 1,
-							"header": "1D. Antechamber"
-						},
-						{
-							"depth": 1,
-							"header": "1E. Shrine"
-						},
-						{
-							"depth": 1,
-							"header": "1F. Training Hall"
 						},
 						{
 							"depth": 1,
@@ -10035,23 +10030,7 @@
 						},
 						{
 							"depth": 1,
-							"header": "2A. Washroom"
-						},
-						{
-							"depth": 1,
-							"header": "2B. Shrine"
-						},
-						{
-							"depth": 1,
 							"header": "3. Elder's House"
-						},
-						{
-							"depth": 1,
-							"header": "3A. Shrine"
-						},
-						{
-							"depth": 1,
-							"header": "3B. Asharra's Quarters"
 						},
 						{
 							"depth": 1,
@@ -10061,6 +10040,13 @@
 							"depth": 1,
 							"header": "5. Royal House"
 						},
+						"Kitcher's Inlet",
+						"Lake Luo",
+						"Land of Ash and Smoke",
+						"Mbala",
+						"Mezro",
+						"Mistcliff",
+						"Nangalore",
 						{
 							"depth": 1,
 							"header": "1. Entrance"
@@ -10083,22 +10069,6 @@
 						},
 						{
 							"depth": 1,
-							"header": "5A. Southwest Garden"
-						},
-						{
-							"depth": 1,
-							"header": "5B. Southeast Garden"
-						},
-						{
-							"depth": 1,
-							"header": "5C. Northwest Garden"
-						},
-						{
-							"depth": 1,
-							"header": "5D. Northeast Garden"
-						},
-						{
-							"depth": 1,
 							"header": "6. Pagoda"
 						},
 						{
@@ -10109,6 +10079,27 @@
 							"depth": 1,
 							"header": "8. Zalkoré's Lair"
 						},
+						"Needle's Bones",
+						"Nsi Wastes",
+						"Omu",
+						"Orolunga",
+						"Port Castigliar",
+						"Refuge Bay",
+						"River Olung",
+						"River Soshenstar",
+						"River Tath",
+						"River Tiryki",
+						"Shilku",
+						"Shilku Bay",
+						"Snapping Turtle Bay",
+						"Snout of Omgar",
+						"Valley of Dread",
+						"Valley of Embers",
+						"Valley of Lost Honor",
+						"Vorn",
+						"Wreck of the Narwhal",
+						"Wreck of the Star Goddess",
+						"Wyrmheart Mine",
 						{
 							"depth": 1,
 							"header": "1. Office"
@@ -10173,6 +10164,7 @@
 							"depth": 1,
 							"header": "14. Tinder's Lair"
 						},
+						"Yellyark",
 						{
 							"depth": 1,
 							"header": "1. Canoes"
@@ -26499,6 +26491,571 @@
 					"ordinal": {
 						"type": "chapter",
 						"identifier": 6
+					}
+				}
+			]
+		},
+		{
+			"name": "Critical Role: Call of the Netherdeep",
+			"id": "CRCotN",
+			"source": "CRCotN",
+			"group": "supplement",
+			"coverUrl": "img/covers/CRCotN.png",
+			"published": "2022-03-15",
+			"storyline": "Critical Role",
+			"level": {
+				"start": 3,
+				"end": 13
+			},
+			"contents": [
+				{
+					"name": "Introduction: Answering the Call",
+					"headers": [
+						"World of Exandria",
+						"Story Overview",
+						"Running the Adventure",
+						"Ruidium",
+						"Rivals",
+						"Character Creation",
+						"Pronunciation Guide"
+					]
+				},
+				{
+					"name": "A Fateful Competition",
+					"ordinal": {
+						"type": "chapter",
+						"identifier": 1
+					},
+					"headers": [
+						"Running This Chapter",
+						"Jigow",
+						"Adventure Start",
+						{
+							"depth": 1,
+							"header": "J1: Best Pies in the Jumble"
+						},
+						{
+							"depth": 1,
+							"header": "J2: One-Shot Solution"
+						},
+						{
+							"depth": 1,
+							"header": "J3: The Ifolon Plunge"
+						},
+						{
+							"depth": 1,
+							"header": "J4: Call to Arms"
+						},
+						{
+							"depth": 1,
+							"header": "J5: Wetwalks Paddywhack"
+						},
+						{
+							"depth": 1,
+							"header": "J6: Herding the Horizonbacks"
+						},
+						{
+							"depth": 1,
+							"header": "J7: Riddles and Rhymes"
+						},
+						{
+							"depth": 1,
+							"header": "J8: Temple of the Luxon"
+						},
+						{
+							"depth": 1,
+							"header": "J9: Helter-Skelter"
+						},
+						{
+							"depth": 1,
+							"header": "J10: Black Islands"
+						},
+						"The Emerald Grotto",
+						{
+							"depth": 1,
+							"header": "E1: Grotto Entrance"
+						},
+						{
+							"depth": 1,
+							"header": "E2: Kelp Tangle"
+						},
+						{
+							"depth": 1,
+							"header": "E3: Cavern Fork"
+						},
+						{
+							"depth": 1,
+							"header": "E4: Ghostgrass Patch"
+						},
+						{
+							"depth": 1,
+							"header": "E5: Landslide"
+						},
+						{
+							"depth": 1,
+							"header": "E6: Quipper Den"
+						},
+						{
+							"depth": 1,
+							"header": "E7: Octopus's Garden"
+						},
+						{
+							"depth": 1,
+							"header": "E8: Riptide Tunnel"
+						},
+						{
+							"depth": 1,
+							"header": "E9: Dead End?"
+						},
+						{
+							"depth": 1,
+							"header": "E10: Moonshark Lair"
+						},
+						{
+							"depth": 1,
+							"header": "E11: Moon Weaver's Gateway"
+						},
+						{
+							"depth": 1,
+							"header": "E12: Prayer Site of Sehanine"
+						},
+						"Next Steps"
+					]
+				},
+				{
+					"name": "The Leave-Taking",
+					"ordinal": {
+						"type": "chapter",
+						"identifier": 2
+					},
+					"headers": [
+						"Running This Chapter",
+						"After the Festival",
+						"Road to Bazzoxan",
+						"Reunion with the Rivals",
+						"Emerald Loop Caravan Stop",
+						{
+							"depth": 1,
+							"header": "L1: Entrance to the Clearing"
+						},
+						{
+							"depth": 1,
+							"header": "L2: Big Yuyo"
+						},
+						{
+							"depth": 1,
+							"header": "L3: Ox Corral"
+						},
+						{
+							"depth": 1,
+							"header": "L4: Adventurers' Camp"
+						},
+						{
+							"depth": 1,
+							"header": "L5: Bonfire"
+						},
+						"Arrival at Bazzoxan"
+					]
+				},
+				{
+					"name": "Bazzoxan",
+					"ordinal": {
+						"type": "chapter",
+						"identifier": 3
+					},
+					"headers": [
+						"Running This Chapter",
+						"No Time for Pleasantries",
+						"Bazzoxan Overview",
+						{
+							"depth": 1,
+							"header": "B1: Gate of Bazzoxan"
+						},
+						{
+							"depth": 1,
+							"header": "B2: Crematorium"
+						},
+						{
+							"depth": 1,
+							"header": "B3: Infirmary"
+						},
+						{
+							"depth": 1,
+							"header": "B4: Gatehold Barracks"
+						},
+						{
+							"depth": 1,
+							"header": "B5: Dilapidated Temple"
+						},
+						{
+							"depth": 1,
+							"header": "B6: Wall of the Unforgotten"
+						},
+						{
+							"depth": 1,
+							"header": "B7: The Ready Room"
+						},
+						"Betrayers' Rise",
+						{
+							"depth": 1,
+							"header": "R1: Entrance"
+						},
+						{
+							"depth": 1,
+							"header": "R2: Hall of Holes"
+						},
+						{
+							"depth": 1,
+							"header": "R3: Vestibule"
+						},
+						{
+							"depth": 1,
+							"header": "R4: Path of Emptiness"
+						},
+						{
+							"depth": 1,
+							"header": "R5: Flagellant's Path"
+						},
+						{
+							"depth": 1,
+							"header": "R6: Cloister of Penitence"
+						},
+						{
+							"depth": 1,
+							"header": "R7: Stairs Down"
+						},
+						{
+							"depth": 1,
+							"header": "R8: Spiders' Chancel"
+						},
+						{
+							"depth": 1,
+							"header": "R9: Basilica of Revelry"
+						},
+						{
+							"depth": 1,
+							"header": "R10: Supplicant's Pit"
+						},
+						{
+							"depth": 1,
+							"header": "R11: Stairs Up"
+						},
+						{
+							"depth": 1,
+							"header": "R12: Threshold of the Excoriated"
+						},
+						{
+							"depth": 1,
+							"header": "R13: Lightless Labyrinth"
+						},
+						{
+							"depth": 1,
+							"header": "R14: Blood Font of the Ruiner"
+						},
+						{
+							"depth": 1,
+							"header": "R15: Misty Chasm"
+						},
+						{
+							"depth": 1,
+							"header": "R16: Prayer Site of Avandra"
+						},
+						"Next Steps"
+					]
+				},
+				{
+					"name": "The Jewel of Hope",
+					"ordinal": {
+						"type": "chapter",
+						"identifier": 4
+					},
+					"headers": [
+						"Running This Chapter",
+						"Rivals in Ank'Harel",
+						"Arrival in Ank'Harel",
+						"Ank'Harel Gazetteer",
+						"Faction Story Tracks",
+						{
+							"depth": 1,
+							"header": "What Lies Beneath"
+						},
+						{
+							"depth": 1,
+							"header": "Vermilion Gambits"
+						},
+						{
+							"depth": 1,
+							"header": "Knowledge Is Power"
+						}
+					]
+				},
+				{
+					"name": "The Drowned City",
+					"ordinal": {
+						"type": "chapter",
+						"identifier": 5
+					},
+					"headers": [
+						"Running This Chapter",
+						"Cael Morrow Overview",
+						{
+							"depth": 1,
+							"header": "M1: Stone Column"
+						},
+						{
+							"depth": 1,
+							"header": "M2: Warded Entrance Hall"
+						},
+						{
+							"depth": 1,
+							"header": "M3: Allegiance Base Camp"
+						},
+						{
+							"depth": 1,
+							"header": "M4: Royal Guest House"
+						},
+						{
+							"depth": 1,
+							"header": "M5: Access Corridor"
+						},
+						{
+							"depth": 1,
+							"header": "M6: Sunken Tavern"
+						},
+						{
+							"depth": 1,
+							"header": "M7: Hall of the Royal Library"
+						},
+						{
+							"depth": 1,
+							"header": "M8: Submerged Library"
+						},
+						{
+							"depth": 1,
+							"header": "M9: Temple of the Arch Heart"
+						},
+						{
+							"depth": 1,
+							"header": "M10: Crumbling Building"
+						},
+						{
+							"depth": 1,
+							"header": "M11: Kelp Forest"
+						},
+						{
+							"depth": 1,
+							"header": "M12: Cliffside Path"
+						},
+						{
+							"depth": 1,
+							"header": "M13: Villa"
+						},
+						{
+							"depth": 1,
+							"header": "M14: Watchtower"
+						},
+						{
+							"depth": 1,
+							"header": "M15: Collapsed Guard Tower"
+						},
+						{
+							"depth": 1,
+							"header": "M16: Collapsed Ruins"
+						},
+						{
+							"depth": 1,
+							"header": "M17: Rift to the Netherdeep"
+						}
+					]
+				},
+				{
+					"name": "The Netherdeep",
+					"ordinal": {
+						"type": "chapter",
+						"identifier": 6
+					},
+					"headers": [
+						"Running This Chapter",
+						"Netherdeep Overview",
+						"Netherdeep Regions",
+						"Grottoes of Regret",
+						{
+							"depth": 1,
+							"header": "N1: Antechamber"
+						},
+						{
+							"depth": 1,
+							"header": "N2: Child's Lament"
+						},
+						{
+							"depth": 1,
+							"header": "N3: Unforgotten Fallacy"
+						},
+						{
+							"depth": 1,
+							"header": "N4: Haunted Ashes"
+						},
+						{
+							"depth": 1,
+							"header": "N5: Alyxian's Refuge"
+						},
+						{
+							"depth": 1,
+							"header": "N6: Loss of Innocence"
+						},
+						{
+							"depth": 1,
+							"header": "N7: Battle at the Betrayers' Rise"
+						},
+						{
+							"depth": 1,
+							"header": "N8: Ruiner's Spear"
+						},
+						{
+							"depth": 1,
+							"header": "N9: Hall of the Portal"
+						},
+						"Vents of Fury",
+						{
+							"depth": 1,
+							"header": "N10: Belching Gallows"
+						},
+						{
+							"depth": 1,
+							"header": "N11: Frothing Hollow"
+						},
+						{
+							"depth": 1,
+							"header": "N12: Scalding Pit"
+						},
+						{
+							"depth": 1,
+							"header": "N13: Warriors of Wrath"
+						},
+						{
+							"depth": 1,
+							"header": "N14: Carmine Sepulcher"
+						},
+						{
+							"depth": 1,
+							"header": "N15: Spear of the Apotheon"
+						},
+						{
+							"depth": 1,
+							"header": "N16: Curse of Ruidus"
+						},
+						{
+							"depth": 1,
+							"header": "N17: Heart of Truth"
+						},
+						{
+							"depth": 1,
+							"header": "N18: Fragment of Melancholy"
+						},
+						"Chasm of Yearning",
+						{
+							"depth": 1,
+							"header": "N19: Cavern of Many Hands"
+						},
+						{
+							"depth": 1,
+							"header": "N20: Cavern of Many Eyes"
+						},
+						{
+							"depth": 1,
+							"header": "N21: Cavern of Many Peaceful Ends"
+						},
+						{
+							"depth": 1,
+							"header": "N22: Cavern of Many Graves"
+						},
+						{
+							"depth": 1,
+							"header": "N23: Grotto of Many Futures"
+						},
+						{
+							"depth": 1,
+							"header": "N24: Cavern of Many Waterfalls"
+						},
+						{
+							"depth": 1,
+							"header": "N25: Fragment of Loathing"
+						},
+						{
+							"depth": 1,
+							"header": "N26: Sanctuary of Despair"
+						}
+					]
+				},
+				{
+					"name": "The Heart of Despair",
+					"ordinal": {
+						"type": "chapter",
+						"identifier": 7
+					},
+					"headers": [
+						"Running This Chapter",
+						"Within the Heart",
+						{
+							"depth": 1,
+							"header": "H1: Statue of Alyxian"
+						},
+						"Battle for the Soul of the Apotheon",
+						"Back into the Light"
+					]
+				},
+				{
+					"name": "Creatures",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "A"
+					},
+					"headers": [
+						"Using a Stat Block",
+						"Adventuring Rivals",
+						"Creatures A-Z"
+					]
+				},
+				{
+					"name": "Magic Items",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "B"
+					},
+					"headers": [
+						"Ruidium Items",
+						"Magic Item Descriptions"
+					]
+				},
+				{
+					"name": "Medals of Merit",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "C"
+					},
+					"headers": [
+						"Printable Image"
+					]
+				},
+				{
+					"name": "Fragments of Suffering",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "D"
+					}
+				},
+				{
+					"name": "Story Concept Art",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "E"
+					}
+				},
+				{
+					"name": "Poster Map",
+					"ordinal": {
+						"type": "appendix",
+						"identifier": "F"
 					}
 				}
 			]

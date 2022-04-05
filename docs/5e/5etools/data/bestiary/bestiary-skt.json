@@ -19,7 +19,9 @@
 			"name": "Aarakocra Simulacrum",
 			"source": "SKT",
 			"page": 188,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -140,7 +142,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 247,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -327,7 +331,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 249,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -439,7 +445,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 140,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"C",
@@ -838,7 +846,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 192,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"N",
@@ -1024,7 +1034,9 @@
 					"source": "IDRotF"
 				}
 			],
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -1149,7 +1161,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 253,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1256,7 +1270,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 253,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1450,7 +1466,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 184,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"L",
@@ -1570,7 +1588,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 248,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1697,7 +1717,9 @@
 					]
 				}
 			},
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"alignment": [
 				"N",
 				"G"
@@ -1837,7 +1859,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 255,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2017,7 +2041,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 120,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"C",
@@ -2141,7 +2167,9 @@
 				"name": "Stone Golem",
 				"source": "MM"
 			},
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"hp": {
 				"average": 195,
 				"formula": "17d12 + 85"
@@ -2152,7 +2180,9 @@
 			"name": "Hulking Crab",
 			"source": "SKT",
 			"page": 240,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -2422,7 +2452,9 @@
 			"isNamedCreature": true,
 			"source": "SKT",
 			"page": 241,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "dragon",
 			"alignment": [
 				"L",
@@ -2626,7 +2658,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 165,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"N",
@@ -2919,7 +2953,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 222,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"C",
@@ -3069,7 +3105,9 @@
 			"isNamedCreature": true,
 			"source": "SKT",
 			"page": 95,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "dragon",
 			"alignment": [
 				"C",
@@ -3357,7 +3395,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 250,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "plant",
 			"alignment": [
 				"U"
@@ -3451,7 +3491,9 @@
 			"isNamedCreature": true,
 			"source": "SKT",
 			"page": 241,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "elemental",
 			"alignment": [
 				"C",
@@ -3620,7 +3662,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 248,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3718,7 +3762,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 251,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3918,7 +3964,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 254,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4011,7 +4059,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 252,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4289,7 +4339,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 252,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4498,7 +4550,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 255,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4742,7 +4796,9 @@
 			"name": "Purple Wormling",
 			"source": "SKT",
 			"page": 242,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -5036,7 +5092,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 250,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5220,7 +5278,9 @@
 					}
 				}
 			},
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"hp": {
 				"average": 3,
 				"formula": "1d6"
@@ -5318,7 +5378,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 249,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5415,7 +5477,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 247,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5518,7 +5582,9 @@
 			"isNamedCreature": true,
 			"source": "SKT",
 			"page": 224,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -5771,7 +5837,9 @@
 					}
 				}
 			},
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"hp": {
 				"average": 195,
 				"formula": "17d12 + 85"
@@ -5874,7 +5942,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 153,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"N",
@@ -6116,7 +6186,9 @@
 			"name": "Thunderbeast Skeleton",
 			"source": "SKT",
 			"page": 99,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"alignment": [
 				"U"
@@ -6196,7 +6268,9 @@
 					"source": "IMR"
 				}
 			],
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"A"
@@ -6373,7 +6447,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 254,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6540,7 +6616,9 @@
 			"name": "Uthgardt Shaman",
 			"source": "SKT",
 			"page": 243,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6641,7 +6719,176 @@
 			],
 			"hasToken": true,
 			"hasFluff": true,
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"_versions": [
+				{
+					"name": "Uthgardt Shaman (Black Lion)",
+					"source": "SKT",
+					"_mod": {
+						"_": {
+							"mode": "addSpells",
+							"daily": {
+								"1e": [
+									"{@spell chill touch}",
+									"{@spell feign death}",
+									"{@spell revivify}"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Uthgardt Shaman (Black Raven)",
+					"source": "SKT",
+					"_mod": {
+						"_": {
+							"mode": "addSpells",
+							"daily": {
+								"1e": [
+									"{@spell animal messenger} (raven only)",
+									"{@spell polymorph} (self only; into a raven only)"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Uthgardt Shaman (Blue Bear)",
+					"source": "SKT",
+					"_mod": {
+						"_": {
+							"mode": "addSpells",
+							"daily": {
+								"1e": [
+									"{@spell enhance ability} (bear's endurance only)",
+									"{@spell heroism}"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Uthgardt Shaman (Elk)",
+					"source": "SKT",
+					"_mod": {
+						"_": {
+							"mode": "addSpells",
+							"daily": {
+								"1e": [
+									"{@spell find steed} (cast as 1 action; elk only)",
+									"{@spell haste}"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Uthgardt Shaman (Gray Wolf)",
+					"source": "SKT",
+					"_mod": {
+						"_": {
+							"mode": "addSpells",
+							"daily": {
+								"1e": [
+									"{@spell beast sense} (wolf or dire wolf only)",
+									"{@spell moonbeam}",
+									"{@spell speak with animals} (wolf or dire wolf only)"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Uthgardt Shaman (Great Worm)",
+					"source": "SKT",
+					"_mod": {
+						"_": {
+							"mode": "addSpells",
+							"daily": {
+								"1e": [
+									"{@spell crusader's mantle}",
+									"{@spell hypnotic pattern}"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Uthgardt Shaman (Griffon)",
+					"source": "SKT",
+					"_mod": {
+						"_": {
+							"mode": "addSpells",
+							"daily": {
+								"1e": [
+									"{@spell beast sense} (birds only)",
+									"{@spell fly}"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Uthgardt Shaman (Red Tiger)",
+					"source": "SKT",
+					"_mod": {
+						"_": {
+							"mode": "addSpells",
+							"daily": {
+								"1e": [
+									"{@spell enhance ability} (cat's grace only)",
+									"{@spell jump}"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Uthgardt Shaman (Sky Pony)",
+					"source": "SKT",
+					"_mod": {
+						"_": {
+							"mode": "addSpells",
+							"daily": {
+								"1e": [
+									"{@spell gust of wind}",
+									"{@spell witch bolt}"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Uthgardt Shaman (Thunderbeast)",
+					"source": "SKT",
+					"_mod": {
+						"_": {
+							"mode": "addSpells",
+							"daily": {
+								"1e": [
+									"{@spell enhance ability} (bull's strength only)",
+									"{@spell pass without trace}"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Uthgardt Shaman (Tree Ghost)",
+					"source": "SKT",
+					"_mod": {
+						"_": {
+							"mode": "addSpells",
+							"daily": {
+								"1e": [
+									"{@spell barkskin}",
+									"{@spell speak with plants}"
+								]
+							}
+						}
+					}
+				}
+			]
 		},
 		{
 			"name": "Vaal",
@@ -6845,7 +7092,9 @@
 			"name": "Yakfolk Priest",
 			"source": "SKT",
 			"page": 245,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -6993,7 +7242,9 @@
 			"name": "Yakfolk Warrior",
 			"source": "SKT",
 			"page": 244,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -7119,7 +7370,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 180,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "giant",
 			"alignment": [
 				"L",
@@ -7189,7 +7442,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 33,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"N",
@@ -7367,7 +7622,9 @@
 			"isNpc": true,
 			"source": "SKT",
 			"page": 251,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

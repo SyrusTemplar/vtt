@@ -1874,7 +1874,9 @@
 			"source": "DD",
 			"page": 235,
 			"vehicleType": "CREATURE",
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "vehicle",
 			"terrain": [
 				"land"

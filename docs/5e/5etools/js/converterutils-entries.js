@@ -405,5 +405,6 @@ class ChanceTag {
 if (typeof module !== "undefined") {
 	module.exports = {
 		TagJsons,
+		SpellTag,
 	};
 }

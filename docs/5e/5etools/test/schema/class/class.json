@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"version": "2.10.2",
+	"version": "2.10.4",
 	"$id": "class.json",
 	"type": "object",
 	"definitions": {
@@ -120,7 +120,7 @@
 					"type": "integer"
 				},
 				"page": {
-					"type": "integer"
+					"$ref": "../util.json#/definitions/page"
 				},
 				"type": {
 					"type": "string",
@@ -189,7 +189,7 @@
 					"type": "integer"
 				},
 				"page": {
-					"type": "integer"
+					"$ref": "../util.json#/definitions/page"
 				},
 				"type": {
 					"type": "string",
@@ -341,7 +341,7 @@
 							"$ref": "../util.json#/definitions/basicRules"
 						},
 						"page": {
-							"type": "integer"
+							"$ref": "../util.json#/definitions/page"
 						},
 						"casterProgression": {
 							"enum": [
@@ -524,7 +524,7 @@
 							"$ref": "../util.json#/definitions/basicRules"
 						},
 						"page": {
-							"type": "integer"
+							"$ref": "../util.json#/definitions/page"
 						},
 						"casterProgression": {
 							"enum": [
@@ -704,7 +704,7 @@
 					"$ref": "../util.json#/definitions/basicRules"
 				},
 				"page": {
-					"type": "integer"
+					"$ref": "../util.json#/definitions/page"
 				},
 				"casterProgression": {
 					"enum": [
@@ -1212,7 +1212,7 @@
 							"type": "string"
 						},
 						"page": {
-							"type": "integer"
+							"$ref": "../util.json#/definitions/page"
 						},
 						"fluff": {
 							"type": "array",
@@ -1229,7 +1229,7 @@
 										}
 									},
 									"page": {
-										"type": "integer"
+										"$ref": "../util.json#/definitions/page"
 									},
 									"source": {
 										"type": "string"
@@ -1547,7 +1547,7 @@
 							"type": "string"
 						},
 						"page": {
-							"type": "integer"
+							"$ref": "../util.json#/definitions/page"
 						},
 						"fluff": {
 							"type": "array",
@@ -1564,7 +1564,7 @@
 										}
 									},
 									"page": {
-										"type": "integer"
+										"$ref": "../util.json#/definitions/page"
 									},
 									"source": {
 										"type": "string"
@@ -1882,7 +1882,7 @@
 					"type": "string"
 				},
 				"page": {
-					"type": "integer"
+					"$ref": "../util.json#/definitions/page"
 				},
 				"fluff": {
 					"type": "array",
@@ -1899,7 +1899,7 @@
 								}
 							},
 							"page": {
-								"type": "integer"
+								"$ref": "../util.json#/definitions/page"
 							},
 							"source": {
 								"type": "string"

@@ -81,9 +81,9 @@ i > i {
 }
 
 .text-clip-ellipsis {
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
+	white-space: nowrap !important;
+	text-overflow: ellipsis !important;
+	overflow: hidden !important;
 }
 
 .whitespace-normal {

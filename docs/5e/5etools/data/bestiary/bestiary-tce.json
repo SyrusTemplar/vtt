@@ -18,7 +18,9 @@
 			"source": "TCE",
 			"page": 109,
 			"summonedBySpell": "Summon Aberration|TCE",
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"U"
@@ -138,7 +140,9 @@
 			"source": "TCE",
 			"page": 61,
 			"summonedByClass": "Ranger|PHB",
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -213,7 +217,9 @@
 			"source": "TCE",
 			"page": 61,
 			"summonedByClass": "Ranger|PHB",
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -289,7 +295,9 @@
 			"source": "TCE",
 			"page": 61,
 			"summonedByClass": "Ranger|PHB",
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "beast",
 			"alignment": [
 				"N"
@@ -361,7 +369,9 @@
 			"source": "TCE",
 			"page": 109,
 			"summonedBySpell": "Summon Beast|TCE",
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -459,7 +469,9 @@
 			"source": "TCE",
 			"page": 110,
 			"summonedBySpell": "Summon Celestial|TCE",
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "celestial",
 			"alignment": [
 				"U"
@@ -546,7 +558,9 @@
 			"source": "TCE",
 			"page": 111,
 			"summonedBySpell": "Summon Construct|TCE",
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -642,7 +656,9 @@
 			"source": "TCE",
 			"page": 29,
 			"summonedByClass": "Bard|PHB",
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"sizeNote": "or smaller",
 			"type": "construct",
 			"alignment": [
@@ -731,7 +747,9 @@
 			"source": "TCE",
 			"page": 111,
 			"summonedBySpell": "Summon Elemental|TCE",
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "elemental",
 			"alignment": [
 				"U"
@@ -863,7 +881,9 @@
 			"source": "TCE",
 			"page": 112,
 			"summonedBySpell": "Summon Fey|TCE",
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "fey",
 			"alignment": [
 				"U"
@@ -965,7 +985,9 @@
 			"source": "TCE",
 			"page": 112,
 			"summonedBySpell": "Summon Fiend|TCE",
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "fiend",
 			"alignment": [
 				"U"
@@ -1095,7 +1117,9 @@
 				}
 			],
 			"summonedByClass": "Artificer|TCE",
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "construct",
 			"ac": [
 				{
@@ -1181,7 +1205,9 @@
 			"name": "Juvenile Mimic",
 			"source": "TCE",
 			"page": 167,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -1280,7 +1306,9 @@
 			"name": "Mighty Servant of Leuk-o",
 			"source": "TCE",
 			"page": 131,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -1460,7 +1488,9 @@
 			"source": "TCE",
 			"page": 114,
 			"summonedBySpell": "Summon Shadowspawn|TCE",
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -1568,7 +1598,9 @@
 				}
 			],
 			"summonedByClass": "Artificer|TCE",
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"ac": [
 				{
@@ -1662,7 +1694,9 @@
 			"source": "TCE",
 			"page": 114,
 			"summonedBySpell": "Summon Undead|TCE",
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"U"
@@ -1777,7 +1811,9 @@
 			"source": "TCE",
 			"page": 40,
 			"summonedByClass": "Druid|PHB",
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "elemental",
 			"alignment": [
 				"U"

@@ -160,6 +160,9 @@
 			"miscTags": [
 				"SGT"
 			],
+			"areaTags": [
+				"ST"
+			],
 			"classes": {
 				"fromClassList": [
 					{
@@ -221,7 +224,8 @@
 				"constitution"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"TP"
 			],
 			"classes": {
 				"fromClassList": [
@@ -278,7 +282,7 @@
 					"type": "entries",
 					"name": "At Higher Levels",
 					"entries": [
-						"When you cast this spell using a spell slot of 3rd level or higher, the damage increases by {@dice 1d6} for each slot above the 2nd, and the number of Hit Dice that can be spent and added to the healing roll increases by one for each slot above 2nd."
+						"When you cast this spell using a spell slot of 3rd level or higher, the damage increases by {@scaledamage 2d6|2-9|1d6} for each slot above the 2nd, and the number of Hit Dice that can be spent and added to the healing roll increases by one for each slot above 2nd."
 					]
 				}
 			],

@@ -4,7 +4,9 @@
 			"name": "Gremlin",
 			"source": "PSK",
 			"page": 26,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -68,7 +70,9 @@
 			"name": "Servo",
 			"source": "PSK",
 			"page": 32,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -123,7 +127,9 @@
 			"name": "Sky Leviathan",
 			"source": "PSK",
 			"page": 28,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"

@@ -4,7 +4,9 @@
 			"name": "Animated Object (Huge)",
 			"source": "PHB",
 			"page": 213,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -66,7 +68,9 @@
 			"name": "Animated Object (Large)",
 			"source": "PHB",
 			"page": 213,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -128,7 +132,9 @@
 			"name": "Animated Object (Medium)",
 			"source": "PHB",
 			"page": 213,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -190,7 +196,9 @@
 			"name": "Animated Object (Small)",
 			"source": "PHB",
 			"page": 213,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -252,7 +260,9 @@
 			"name": "Animated Object (Tiny)",
 			"source": "PHB",
 			"page": 213,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"

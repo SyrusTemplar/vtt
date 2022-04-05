@@ -17,7 +17,9 @@
 			"name": "Ambush Drake",
 			"source": "HotDQ",
 			"page": 88,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "dragon",
 			"alignment": [
 				"U"
@@ -104,7 +106,9 @@
 			"isNpc": true,
 			"source": "HotDQ",
 			"page": 88,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -253,7 +257,9 @@
 			"isNpc": true,
 			"source": "HotDQ",
 			"page": 89,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": {
 				"type": "giant",
 				"tags": [
@@ -409,7 +415,9 @@
 			"isNpc": true,
 			"source": "HotDQ",
 			"page": 89,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -523,7 +531,9 @@
 					"page": 89
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -630,7 +640,9 @@
 					"page": 89
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -750,7 +762,9 @@
 			"isNpc": true,
 			"source": "HotDQ",
 			"page": 90,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -918,7 +932,9 @@
 			"isNpc": true,
 			"source": "HotDQ",
 			"page": 90,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1066,7 +1082,9 @@
 			"reprintedAs": [
 				"Guard Drake|MPMM"
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "dragon",
 			"alignment": [
 				"U"
@@ -1154,7 +1172,9 @@
 			"isNpc": true,
 			"source": "HotDQ",
 			"page": 91,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1293,7 +1313,9 @@
 			"isNpc": true,
 			"source": "HotDQ",
 			"page": 91,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1505,7 +1527,9 @@
 			"isNpc": true,
 			"source": "HotDQ",
 			"page": 91,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1699,7 +1723,9 @@
 					"page": 91
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1868,7 +1894,9 @@
 					"source": "RoT"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2064,7 +2092,9 @@
 			"isNpc": true,
 			"source": "HotDQ",
 			"page": 93,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2239,7 +2269,9 @@
 			"isNpc": true,
 			"source": "HotDQ",
 			"page": 63,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "giant",
 			"alignment": [
 				"C",

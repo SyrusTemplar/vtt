@@ -4,7 +4,7 @@
 
 	"title": "Util",
 	"description": "Utility definitions to be used in other schemas.",
-	"version": "1.11.9",
+	"version": "1.11.14",
 
 	"definitions" : {
 		"metaBlock": {
@@ -31,6 +31,11 @@
 			}
 		},
 
+		"page": {
+			"$$ifSite": {"type": "integer"},
+			"$$ifBrew": {"type": ["integer", "string"]}
+		},
+
 		"otherSources": {
 			"type": "array",
 			"items": {
@@ -40,7 +45,7 @@
 						"type": "string"
 					},
 					"page": {
-						"type": "integer"
+						"$ref": "#/definitions/page"
 					}
 				},
 				"required": [
@@ -59,7 +64,7 @@
 						"type": "string"
 					},
 					"page": {
-						"type": "integer"
+						"$ref": "#/definitions/page"
 					}
 				},
 				"required": [
@@ -1004,6 +1009,12 @@
 							"additionalProperties": false
 						}
 					},
+					"alignment": {
+						"type": "array",
+						"items": {
+							"$ref": "util.json#/definitions/alignment"
+						}
+					},
 					"note": {
 						"description": "An additional note that accompanies the proficiencies, but is not part of them.",
 						"type": "string"
@@ -1509,6 +1520,7 @@
 
 		"genericFluffArray": {
 			"type": "array",
+			"uniqueItems": true,
 			"items": {
 				"anyOf": [
 					{
@@ -1798,6 +1810,78 @@
 						"saves": {"type": "integer"}
 					},
 					"required": ["mode", "saves"],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"mode": {"const": "addSenses"},
+						"senses": {
+							"anyOf": [
+								{"type":  "object"},
+								{"type":  "array"}
+							]
+						}
+					},
+					"required": ["mode", "senses"],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"mode": {"const": "scalarAddProp"},
+						"prop": {"type": "string"},
+						"scalar": {"type": "number"}
+					},
+					"required": ["mode", "scalar", "prop"],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"mode": {"const": "scalarMultProp"},
+						"prop": {"type": "string"},
+						"scalar": {"type": "number"},
+						"floor": {"type": "boolean"}
+					},
+					"required": ["mode", "scalar", "prop"],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"mode": {"const": "scalarAddHit"},
+						"scalar": {"type": "number"}
+					},
+					"required": ["mode", "scalar"],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"mode": {"const": "scalarAddDc"},
+						"scalar": {"type": "number"}
+					},
+					"required": ["mode", "scalar"],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"mode": {"const": "maxSize"},
+						"max": {"type": "string"}
+					},
+					"required": ["mode", "max"],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"mode": {"const": "scalarMultXp"},
+						"scalar": {"type": "number"},
+						"floor": {"type": "boolean"}
+					},
+					"required": ["mode", "scalar"],
 					"additionalProperties": false
 				}
 			]
@@ -2282,7 +2366,16 @@
 			}
 		},
 
+		"adventureBookData": {
+			"type": "array",
+			"items": {"$ref": "entry.json"}
+		},
+
 		"foundryDataObject": {
+			"type": "object"
+		},
+
+		"foundryFlagsObject": {
 			"type": "object"
 		},
 
@@ -2320,6 +2413,7 @@
 
 		"foundrySideDataGenericArray": {
 			"type": "array",
+			"uniqueItems": true,
 			"items": {
 				"type": "object",
 				"properties": {
@@ -2340,6 +2434,7 @@
 
 		"foundrySideDataGenericFeatureArray": {
 			"type": "array",
+			"uniqueItems": true,
 			"items": {
 				"type": "object",
 				"properties": {

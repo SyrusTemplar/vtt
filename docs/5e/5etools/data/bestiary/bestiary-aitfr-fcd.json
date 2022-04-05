@@ -4,7 +4,9 @@
 			"name": "Mercenary Envoy",
 			"source": "AitFR-FCD",
 			"page": 10,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -98,7 +100,9 @@
 			"isNamedCreature": true,
 			"source": "AitFR-FCD",
 			"page": 11,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

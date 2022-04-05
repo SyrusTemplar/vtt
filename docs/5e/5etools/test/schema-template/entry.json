@@ -4,7 +4,7 @@
 
 	"title": "Entry",
 	"description": "A recursively renderable object.",
-	"version": "1.5.4",
+	"version": "1.6.0",
 
 	"definitions" : {
 		"_arrayOfSpell": {
@@ -68,9 +68,7 @@
 					"description": "A generic object for storing special data for external use-cases. Keys prefixed with \"rd-\" should be added as \"data-\" HTML attributes when rendering to HTML.",
 					"type": "object"
 				},
-				"page": {
-					"type": "integer"
-				},
+				"page": {"$ref": "util.json#/definitions/page"},
 				"id": {
 					"type": "string"
 				}
@@ -107,15 +105,14 @@
 						"data": {
 							"type": "object"
 						},
-						"page": {
-							"type": "integer"
-						},
+						"page": {"$ref": "util.json#/definitions/page"},
 						"source": {
 							"type": "string"
 						},
 						"id": {
 							"type": "string"
-						}
+						},
+						"style": {"type": "string"}
 					},
 					"required": ["entries"],
 					"additionalProperties": false
@@ -147,15 +144,14 @@
 						"data": {
 							"type": "object"
 						},
-						"page": {
-							"type": "integer"
-						},
+						"page": {"$ref": "util.json#/definitions/page"},
 						"source": {
 							"type": "string"
 						},
 						"id": {
 							"type": "string"
-						}
+						},
+						"style": {"type": "string"}
 					},
 					"required": ["entries"],
 					"additionalProperties": false
@@ -363,7 +359,7 @@
 						"data": {
 							"type": "object"
 						},
-						"page": {"type": "integer"}
+						"page": {"$ref": "util.json#/definitions/page"}
 					},
 					"required": ["rows"],
 					"additionalProperties": false
@@ -587,7 +583,11 @@
 							"type": "array",
 							"items": {
 								"type": "string",
-								"enum": ["str", "dex", "con", "int", "wis", "cha", "spellcasting"]
+								"$$ifSiteElse_key": {
+									"keySite": "enum",
+									"keyBrew": "examples",
+									"value": ["str", "dex", "con", "int", "wis", "cha", "spellcasting"]
+								}
 							}
 						}
 					},
@@ -715,9 +715,7 @@
 										"hover": {
 											"type": "object",
 											"properties": {
-												"page": {
-													"type": "string"
-												},
+												"page": {"$ref": "util.json#/definitions/page"},
 												"source": {
 													"type": "string"
 												},
@@ -768,6 +766,12 @@
 						"type": {"const": "optfeature"},
 						"prerequisite": {
 							"type": "string"
+						},
+						"entries": {
+							"type": "array",
+							"items": {
+								"$ref": "#"
+							}
 						}
 					},
 					"required": ["name"]
@@ -793,9 +797,7 @@
 						"data": {
 							"type": "object"
 						},
-						"page": {
-							"type": "integer"
-						},
+						"page": {"$ref": "util.json#/definitions/page"},
 						"source": {
 							"type": "string"
 						},
@@ -821,9 +823,7 @@
 								"$ref": "#"
 							}
 						},
-						"page": {
-							"type": "integer"
-						},
+						"page": {"$ref": "util.json#/definitions/page"},
 						"source": {
 							"type": "string"
 						},
@@ -1109,7 +1109,8 @@
 						"maxHeightUnits": {"type": "string"},
 						"style": {
 							"enum": ["comic-speaker-left", "comic-speaker-right", "deity-symbol"]
-						}
+						},
+						"id": {"type": "string"}
 					},
 					"required": ["href"],
 					"additionalProperties": false

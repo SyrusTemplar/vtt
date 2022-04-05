@@ -169,7 +169,7 @@ class SchemaCompiler {
 
 		const dirOut = path.normalize(ut.ArgParser.ARGS.output ?? DIR_OUT);
 
-		const filesTemplate = ut.listFiles({dir: "./test/schema-template", whitelistFileExts: [".json"]});
+		const filesTemplate = ut.listFiles({dir: "./test/schema-template", whitelistFileExts: [".json"], blacklistFilePrefixes: []});
 
 		filesTemplate.forEach(filePath => {
 			filePath = path.normalize(filePath);

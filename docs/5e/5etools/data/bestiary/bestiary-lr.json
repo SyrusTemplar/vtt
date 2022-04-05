@@ -21,7 +21,9 @@
 			"isNpc": true,
 			"source": "LR",
 			"page": 15,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -319,7 +321,9 @@
 			"isNamedCreature": true,
 			"source": "LR",
 			"page": 18,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"alignment": [
 				"N",
@@ -562,7 +566,9 @@
 			"isNpc": true,
 			"source": "LR",
 			"page": 23,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -795,7 +801,9 @@
 			"name": "Young Kraken",
 			"source": "LR",
 			"page": 21,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [

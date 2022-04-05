@@ -22,7 +22,9 @@
 			"isNamedCreature": true,
 			"source": "ToA",
 			"page": 209,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -311,7 +313,9 @@
 			"name": "Albino Dwarf Spirit Warrior",
 			"source": "ToA",
 			"page": 210,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -419,7 +423,9 @@
 			"name": "Albino Dwarf Warrior",
 			"source": "ToA",
 			"page": 210,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -506,7 +512,9 @@
 			"name": "Aldani (Lobsterfolk)",
 			"source": "ToA",
 			"page": 210,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"L",
@@ -597,7 +605,9 @@
 			"name": "Almiraj",
 			"source": "ToA",
 			"page": 211,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -670,7 +680,9 @@
 			"name": "Ankylosaurus Zombie",
 			"source": "ToA",
 			"page": 240,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"alignment": [
 				"U"
@@ -747,7 +759,9 @@
 			"isNpc": true,
 			"source": "ToA",
 			"page": 212,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -884,7 +898,9 @@
 			"isNpc": true,
 			"source": "ToA",
 			"page": 69,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1032,7 +1048,9 @@
 					"source": "SDW"
 				}
 			],
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "plant",
 			"alignment": [
 				"U"
@@ -1121,7 +1139,9 @@
 			"name": "Atropal",
 			"source": "ToA",
 			"page": 214,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": {
 				"type": "undead",
 				"tags": [
@@ -1307,7 +1327,9 @@
 			"isNpc": true,
 			"source": "ToA",
 			"page": 102,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1515,7 +1537,9 @@
 			"name": "Chwinga",
 			"source": "ToA",
 			"page": 216,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "elemental",
 			"alignment": [
 				"N"
@@ -1605,7 +1629,9 @@
 			"name": "Clay Gladiator",
 			"source": "ToA",
 			"page": 100,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -1725,7 +1751,9 @@
 			"isNpc": true,
 			"source": "ToA",
 			"page": 218,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1854,7 +1882,9 @@
 			"name": "Eblis",
 			"source": "ToA",
 			"page": 219,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -2080,7 +2110,9 @@
 			"name": "Flying Monkey",
 			"source": "ToA",
 			"page": 220,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -2145,7 +2177,9 @@
 			"name": "Giant Four-Armed Gargoyle",
 			"source": "ToA",
 			"page": 221,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "elemental",
 			"alignment": [
 				"C",
@@ -2261,7 +2295,9 @@
 			"name": "Giant Snapping Turtle",
 			"source": "ToA",
 			"page": 222,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -2338,7 +2374,9 @@
 			"name": "Girallon Zombie",
 			"source": "ToA",
 			"page": 240,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "undead",
 			"alignment": [
 				"C",
@@ -2521,7 +2559,9 @@
 			"isNpc": true,
 			"source": "ToA",
 			"page": 33,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2642,7 +2682,9 @@
 			"name": "Jaculi",
 			"source": "ToA",
 			"page": 225,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -2784,7 +2826,9 @@
 			"name": "Kamadan",
 			"source": "ToA",
 			"page": 225,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -2892,7 +2936,9 @@
 			"isNpc": true,
 			"source": "ToA",
 			"page": 106,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -3097,7 +3143,9 @@
 					"source": "BGDIA"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3207,7 +3255,9 @@
 			"name": "Mantrap",
 			"source": "ToA",
 			"page": 227,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "plant",
 			"alignment": [
 				"U"
@@ -3331,7 +3381,9 @@
 			"isNpc": true,
 			"source": "ToA",
 			"page": 228,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3430,7 +3482,9 @@
 			"isNpc": true,
 			"source": "ToA",
 			"page": 228,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3615,7 +3669,9 @@
 			"name": "Pterafolk",
 			"source": "ToA",
 			"page": 229,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -3742,7 +3798,9 @@
 			"isNpc": true,
 			"source": "ToA",
 			"page": 230,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -4157,7 +4215,9 @@
 			"name": "Spiked Tomb Guardian",
 			"source": "ToA",
 			"page": 154,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"
@@ -4295,7 +4355,9 @@
 			"name": "Stone Juggernaut",
 			"source": "ToA",
 			"page": 231,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -4411,7 +4473,9 @@
 			"name": "Su-monster",
 			"source": "ToA",
 			"page": 232,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -4528,7 +4592,9 @@
 			"name": "Tabaxi Hunter",
 			"source": "ToA",
 			"page": 232,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4635,7 +4701,9 @@
 			"name": "Tabaxi Minstrel",
 			"source": "ToA",
 			"page": 233,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4789,7 +4857,9 @@
 			"name": "Tomb Dwarf",
 			"source": "ToA",
 			"page": 135,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -4911,7 +4981,9 @@
 			"name": "Tomb Guardian",
 			"source": "ToA",
 			"page": 127,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"
@@ -5041,7 +5113,9 @@
 			"name": "Tri-flower Frond",
 			"source": "ToA",
 			"page": 234,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "plant",
 			"alignment": [
 				"U"
@@ -5126,7 +5200,9 @@
 			"name": "Tyrannosaurus Zombie",
 			"source": "ToA",
 			"page": 241,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"alignment": [
 				"U"
@@ -5228,7 +5304,9 @@
 			"isNamedCreature": true,
 			"source": "ToA",
 			"page": 58,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -5501,7 +5579,9 @@
 					"source": "WDH"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5674,7 +5754,9 @@
 			"isNpc": true,
 			"source": "ToA",
 			"page": 145,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -5854,7 +5936,9 @@
 			"isNpc": true,
 			"source": "ToA",
 			"page": 236,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6001,7 +6085,9 @@
 			"name": "Yellow Musk Creeper",
 			"source": "ToA",
 			"page": 237,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "plant",
 			"alignment": [
 				"U"
@@ -6086,7 +6172,9 @@
 			"name": "Yellow Musk Zombie",
 			"source": "ToA",
 			"page": 237,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"U"
@@ -6302,7 +6390,9 @@
 			"isNpc": true,
 			"source": "ToA",
 			"page": 239,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6494,7 +6584,9 @@
 			"name": "Zorbo",
 			"source": "ToA",
 			"page": 241,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"

@@ -19,7 +19,9 @@
 			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 286,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -237,7 +239,9 @@
 			"name": "Bone Knight",
 			"source": "ERLW",
 			"page": 316,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -381,7 +385,9 @@
 			"name": "Changeling",
 			"source": "ERLW",
 			"page": 317,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -494,7 +500,9 @@
 					"page": 81
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -620,7 +628,9 @@
 			"name": "Dolgaunt",
 			"source": "ERLW",
 			"page": 290,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"L",
@@ -734,7 +744,9 @@
 			"name": "Dolgrim",
 			"source": "ERLW",
 			"page": 291,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -832,7 +844,9 @@
 			"name": "Dusk Hag",
 			"source": "ERLW",
 			"page": 292,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"N",
@@ -981,7 +995,9 @@
 			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 288,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -1172,7 +1188,9 @@
 			],
 			"source": "ERLW",
 			"page": 293,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"
@@ -1257,7 +1275,9 @@
 			],
 			"source": "ERLW",
 			"page": 289,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1329,7 +1349,9 @@
 			],
 			"source": "ERLW",
 			"page": 305,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"L",
@@ -1472,7 +1494,9 @@
 			"name": "Inspired",
 			"source": "ERLW",
 			"page": 294,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1716,7 +1740,9 @@
 			],
 			"source": "ERLW",
 			"page": 293,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"
@@ -1812,7 +1838,9 @@
 			],
 			"source": "ERLW",
 			"page": 306,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"L",
@@ -2011,7 +2039,9 @@
 			"name": "Kalashtar",
 			"source": "ERLW",
 			"page": 317,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2094,7 +2124,9 @@
 			"name": "Karrnathi Undead Soldier",
 			"source": "ERLW",
 			"page": 295,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -2216,7 +2248,9 @@
 			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 296,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -2502,7 +2536,9 @@
 			"name": "Living Burning Hands",
 			"source": "ERLW",
 			"page": 298,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -2607,7 +2643,9 @@
 			"name": "Living Cloudkill",
 			"source": "ERLW",
 			"page": 299,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -2722,7 +2760,9 @@
 			"name": "Living Lightning Bolt",
 			"source": "ERLW",
 			"page": 299,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -2836,7 +2876,9 @@
 			"name": "Magewright",
 			"source": "ERLW",
 			"page": 318,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2915,7 +2957,9 @@
 			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 301,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fiend",
 			"alignment": [
 				"L",
@@ -3084,7 +3128,9 @@
 			"name": "Radiant Idol",
 			"source": "ERLW",
 			"page": 308,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "celestial",
 			"alignment": [
 				"L",
@@ -3245,7 +3291,9 @@
 			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 303,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "fiend",
 			"alignment": [
 				"N",
@@ -3462,7 +3510,9 @@
 			"name": "Shifter",
 			"source": "ERLW",
 			"page": 319,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3551,7 +3601,9 @@
 			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 304,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "fiend",
 			"alignment": [
 				"L",
@@ -3776,7 +3828,9 @@
 			"name": "Tarkanan Assassin",
 			"source": "ERLW",
 			"page": 320,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3910,7 +3964,9 @@
 			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 300,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4146,7 +4202,9 @@
 			],
 			"source": "ERLW",
 			"page": 307,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"L",
@@ -4287,7 +4345,9 @@
 			"name": "Undying Councilor",
 			"source": "ERLW",
 			"page": 311,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -4515,7 +4575,9 @@
 			"name": "Undying Soldier",
 			"source": "ERLW",
 			"page": 311,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -4640,7 +4702,9 @@
 			"name": "Valenar Hawk",
 			"source": "ERLW",
 			"page": 312,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "fey",
 			"alignment": [
 				"N"
@@ -4716,7 +4780,9 @@
 			"name": "Valenar Hound",
 			"source": "ERLW",
 			"page": 312,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"N"
@@ -4800,7 +4866,9 @@
 			"name": "Valenar Steed",
 			"source": "ERLW",
 			"page": 313,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "fey",
 			"alignment": [
 				"N"
@@ -4867,7 +4935,9 @@
 			"name": "Warforged Colossus",
 			"source": "ERLW",
 			"page": 314,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -5032,7 +5102,9 @@
 			"name": "Warforged Soldier",
 			"source": "ERLW",
 			"page": 320,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5136,7 +5208,9 @@
 			"name": "Warforged Titan",
 			"source": "ERLW",
 			"page": 315,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "construct",
 			"alignment": [
 				"L",
@@ -5254,7 +5328,9 @@
 			"name": "Zakya Rakshasa",
 			"source": "ERLW",
 			"page": 309,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fiend",
 			"alignment": [
 				"L",

@@ -6,7 +6,9 @@
 			"isNamedCreature": true,
 			"source": "AitFR-ISF",
 			"page": 12,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "elemental",
 			"alignment": [
 				"N",
@@ -131,7 +133,9 @@
 			"isNamedCreature": true,
 			"source": "AitFR-ISF",
 			"page": 12,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

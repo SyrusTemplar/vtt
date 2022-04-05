@@ -11,7 +11,9 @@
 			"name": "Chimeric Fox",
 			"source": "NRH-AVitW",
 			"page": 8,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -81,7 +83,9 @@
 			"name": "Scarlet Sentinel",
 			"source": "NRH-AVitW",
 			"page": 10,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"

@@ -20,7 +20,9 @@
 			"name": "Aeorian Absorber",
 			"source": "EGW",
 			"page": 283,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -150,7 +152,9 @@
 			"name": "Aeorian Nullifier",
 			"source": "EGW",
 			"page": 283,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -300,7 +304,9 @@
 			"name": "Aeorian Reverser",
 			"source": "EGW",
 			"page": 284,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -482,7 +488,9 @@
 					}
 				}
 			},
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"hp": {
 				"average": 12,
 				"formula": "5d4"
@@ -532,7 +540,9 @@
 			"name": "Blood Hunter",
 			"source": "EGW",
 			"page": 284,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -670,7 +680,9 @@
 			"isNpc": true,
 			"source": "EGW",
 			"page": 261,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -822,7 +834,15 @@
 			"name": "Bristled Moorbounder",
 			"source": "EGW",
 			"page": 295,
-			"size": "L",
+			"otherSources": [
+				{
+					"source": "CRCotN",
+					"page": 295
+				}
+			],
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -907,7 +927,9 @@
 			"name": "Core Spawn Crawler",
 			"source": "EGW",
 			"page": 286,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -1014,7 +1036,9 @@
 			"name": "Core Spawn Emissary",
 			"source": "EGW",
 			"page": 286,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -1139,7 +1163,9 @@
 			"name": "Core Spawn Seer",
 			"source": "EGW",
 			"page": 286,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -1271,7 +1297,9 @@
 			"name": "Core Spawn Worm",
 			"source": "EGW",
 			"page": 287,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -1446,7 +1474,9 @@
 			"name": "Frost Giant Zombie",
 			"source": "EGW",
 			"page": 288,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -1565,7 +1595,9 @@
 			"name": "Frost Worm",
 			"source": "EGW",
 			"page": 289,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -1682,7 +1714,9 @@
 			"name": "Gearkeeper Construct",
 			"source": "EGW",
 			"page": 290,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -1819,7 +1853,15 @@
 			"name": "Gloomstalker",
 			"source": "EGW",
 			"page": 291,
-			"size": "L",
+			"otherSources": [
+				{
+					"source": "CRCotN",
+					"page": 291
+				}
+			],
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -1948,7 +1990,9 @@
 			"name": "Guardian Wolf",
 			"source": "EGW",
 			"page": 272,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -2044,7 +2088,15 @@
 			"name": "Horizonback Tortoise",
 			"source": "EGW",
 			"page": 292,
-			"size": "G",
+			"otherSources": [
+				{
+					"source": "CRCotN",
+					"page": 292
+				}
+			],
+			"size": [
+				"G"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -2180,7 +2232,9 @@
 			"name": "Husk Zombie",
 			"source": "EGW",
 			"page": 293,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -2346,7 +2400,9 @@
 			"name": "Kobold Underling",
 			"source": "EGW",
 			"page": 221,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2443,7 +2499,9 @@
 			"name": "Merrow Shallowpriest",
 			"source": "EGW",
 			"page": 294,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -2573,7 +2631,15 @@
 			"name": "Moorbounder",
 			"source": "EGW",
 			"page": 295,
-			"size": "L",
+			"otherSources": [
+				{
+					"source": "CRCotN",
+					"page": 295
+				}
+			],
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -2696,7 +2762,9 @@
 			"name": "Nergaliid",
 			"source": "EGW",
 			"page": 296,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "fiend",
 				"tags": [
@@ -2986,7 +3054,9 @@
 			"name": "Sahuagin Warlock of Uk'otoa",
 			"source": "EGW",
 			"page": 297,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3187,7 +3257,9 @@
 			],
 			"source": "EGW",
 			"page": 299,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"C",
@@ -3374,7 +3446,9 @@
 			"name": "Shadowghast",
 			"source": "EGW",
 			"page": 299,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"C",
@@ -3508,7 +3582,9 @@
 			"isNpc": true,
 			"source": "EGW",
 			"page": 221,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3676,7 +3752,9 @@
 			"name": "Swavain Basilisk",
 			"source": "EGW",
 			"page": 300,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -3806,7 +3884,9 @@
 			"name": "Udaak",
 			"source": "EGW",
 			"page": 301,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "fiend",
 			"alignment": [
 				"N",
@@ -3938,7 +4018,9 @@
 			"name": "Vox Seeker",
 			"source": "EGW",
 			"page": 270,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -4026,7 +4108,9 @@
 			"isNpc": true,
 			"source": "EGW",
 			"page": 223,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

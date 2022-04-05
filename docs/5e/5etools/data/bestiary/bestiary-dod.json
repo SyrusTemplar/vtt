@@ -5,7 +5,9 @@
 			"isNamedCreature": true,
 			"source": "DoD",
 			"page": 22,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": {
 				"type": "fey",
 				"tags": [

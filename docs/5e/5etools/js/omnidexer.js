@@ -16,7 +16,8 @@ class Omnidexer {
 		 *   s: "PHB", // source
 		 *   u: "spell name_phb, // hash
 		 *   uh: "spell name_phb, // Optional; hash for href if the link should be different from the hover lookup hash.
-		 *   p: 110, // page
+		 *   p: 110, // page number
+		 *   [q: "bestiary.html", // page; synthetic property only used by search widget]
 		 *   h: 1 // if isHover enabled, otherwise undefined
 		 *   r: 1 // if SRD
 		 *   c: 10, // category ID

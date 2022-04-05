@@ -239,7 +239,9 @@ class CreatureBuilder extends Builder {
 	_getInitialState () {
 		return {
 			name: "New Creature",
-			size: "M",
+			size: [
+				"M",
+			],
 			type: "aberration",
 			source: this._ui ? this._ui.source : "",
 			alignment: ["N"],
@@ -434,7 +436,7 @@ class CreatureBuilder extends Builder {
 		BuilderUi.$getStateIptNumber("Level", cb, this._state, {title: "Used for Sidekicks only"}, "level").appendTo(infoTab.$wrpTab);
 
 		// SPECIES
-		BuilderUi.$getStateIptEnum("Size", cb, this._state, {vals: Parser.SIZE_ABVS, fnDisplay: Parser.sizeAbvToFull, type: "string", nullable: false}, "size").appendTo(speciesTab.$wrpTab);
+		this.__$getSizeInput(cb).appendTo(speciesTab.$wrpTab);
 		this.__$getTypeInput(cb).appendTo(speciesTab.$wrpTab);
 		this.__$getSpeedInput(cb).appendTo(speciesTab.$wrpTab);
 		this.__$getSenseInput(cb).appendTo(speciesTab.$wrpTab);
@@ -537,6 +539,56 @@ class CreatureBuilder extends Builder {
 
 		// excluded fields:
 		// - otherSources: requires meta support
+	}
+
+	__$getSizeInput (cb) {
+		const [$row, $rowInner] = BuilderUi.getLabelledRowTuple("Size", {isMarked: true});
+
+		const initial = this._state.size;
+
+		const setState = () => {
+			this._state.size = rows.map(it => it.$selSize.val()).unique();
+			cb();
+		};
+
+		const rows = [];
+
+		const $btnAddSize = $(`<button class="btn btn-xs btn-default">Add Size</button>`)
+			.click(() => {
+				const $tagRow = this.__$getSizeInput__getSizeRow(null, rows, setState);
+				$wrpTagRows.append($tagRow.$wrp);
+				cb();
+			});
+
+		const $initialSizeRows = (initial ? [initial].flat() : [SZ_MEDIUM]).map(tag => this.__$getSizeInput__getSizeRow(tag, rows, setState));
+
+		const $wrpTagRows = $$`<div>${$initialSizeRows ? $initialSizeRows.map(it => it.$wrp) : ""}</div>`;
+		$$`<div>
+		${$wrpTagRows}
+		<div>${$btnAddSize}</div>
+		</div>`.appendTo($rowInner);
+
+		return $row;
+	}
+
+	__$getSizeInput__getSizeRow (size, sizeRows, setState) {
+		const $selSize = $(`<select class="form-control input-xs">
+			${Parser.SIZE_ABVS.map(sz => `<option value="${sz}">${Parser.sizeAbvToFull(sz)}</option>`)}
+		</select>`)
+			.val(size || SZ_MEDIUM)
+			.change(() => {
+				setState();
+			});
+
+		const out = {$selSize};
+
+		const $wrpBtnRemove = $(`<div class="ve-flex"></div>`);
+		const $wrp = $$`<div class="ve-flex-v-center mkbru__wrp-rows--removable mb-2">${$selSize}${$wrpBtnRemove}</div>`;
+		Builder.$getBtnRemoveRow(setState, sizeRows, out, $wrp, "Size", {isProtectLast: true}).appendTo($wrpBtnRemove).addClass("ml-2");
+
+		out.$wrp = $wrp;
+		sizeRows.push(out);
+		return out;
 	}
 
 	__$getTypeInput (cb) {

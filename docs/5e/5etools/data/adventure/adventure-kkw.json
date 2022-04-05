@@ -3,6 +3,7 @@
 		{
 			"type": "section",
 			"name": "Krenko's Way",
+			"page": 160,
 			"id": "000",
 			"entries": [
 				"\"{@creature Krenko|KKW}'s Way\" is a short adventure for a party of four to six 1st-level adventurers, who might advance to 2nd level by the adventure's conclusion. It is set in the Tenth District of Ravnica and serves as an introductory adventure to the setting. A balance of character classes is helpful, since the adventurers will face a variety of challenges. Adventurers can be affiliated with any of the guilds.",
@@ -18,6 +19,7 @@
 				{
 					"type": "section",
 					"name": "Story Overview",
+					"page": 160,
 					"id": "001",
 					"entries": [
 						"{@creature Krenko|KKW} is the boss of a notorious goblin mob, and he has made his fortune and built his reputation by mostly staying out of the guilds' way. He has managed to cause no end of trouble for the citizens of the Tenth District, but not without attracting the attention of the guilds. A cunning opportunist, {@creature Krenko|KKW} has spent years consolidating goblin street rabble into his fiercely loyal gang. He cultivated connections among the ruthless and powerful, specializing in high-value theft and mayhem. At the apex of his influence, he got into a nasty turf war with the Shattergang Brothers, a rival goblin gang that often deals in illicit arms. Rumors swirled that {@creature Krenko|KKW} killed Dargig, the youngest of the three brothers, after a weapons drop went bad.",
@@ -27,6 +29,7 @@
 						{
 							"type": "inset",
 							"name": "Guildless Villains",
+							"page": 160,
 							"id": "002",
 							"entries": [
 								"Not every villain in a Ravnica campaign is a member of a guild, and not every scheme originates in the guildhalls. As you build your own adventures in Ravnica, you can use the suggestions in the {@book Dungeon Master's Guide|DMG} for creating villains to craft a guildless villain, one who prefers the independence of operating outside the guild structure or even seeks to undermine that structure entirely. More often than not, though, the guilds turn out to be involved in the schemes of even minor villains."
@@ -37,6 +40,7 @@
 				{
 					"type": "section",
 					"name": "Running the Adventure",
+					"page": 161,
 					"id": "003",
 					"entries": [
 						"This adventure requires the fifth edition D&D rulebooks ({@book Player's Handbook|PHB}, {@book Dungeon Master's Guide|DMG}, and {@book Monster Manual|MM}). You should read the entire adventure before attempting to run it. If you'd prefer to play, you shouldn't read any farther.",
@@ -51,6 +55,7 @@
 						{
 							"type": "entries",
 							"name": "Adventure Summary",
+							"page": 161,
 							"id": "005",
 							"entries": [
 								{
@@ -70,6 +75,7 @@
 						{
 							"type": "entries",
 							"name": "Krenko's Patron",
+							"page": 161,
 							"id": "006",
 							"entries": [
 								"{@creature Krenko|KKW} arranged a deal with a faction while in prison. During his transfer, members of that faction struck down his escort and freed him.",
@@ -119,6 +125,7 @@
 				{
 					"type": "section",
 					"name": "Starting the Adventure",
+					"page": 162,
 					"id": "007",
 					"entries": [
 						"Once the players are ready to begin, read or paraphrase the following introductory text:",
@@ -143,6 +150,7 @@
 						{
 							"type": "entries",
 							"name": "Roleplaying Nassius Ven",
+							"page": 162,
 							"id": "00a",
 							"entries": [
 								{
@@ -176,12 +184,14 @@
 				{
 					"type": "section",
 					"name": "The Search for Krenko",
+					"page": 163,
 					"id": "00b",
 					"entries": [
 						"Once Nassius has departed, the characters can get to work. They can conduct their investigation however they choose, but time is of the essence since eventually word on the street gets back to the Shattergang Brothers and they start another turf war to flush {@creature Krenko|KKW} out.",
 						{
 							"type": "entries",
 							"name": "Timeline of Events",
+							"page": 163,
 							"id": "00c",
 							"entries": [
 								"Here's a timeline of what has happened since {@creature Krenko|KKW} escaped and what happens in the future, absent interference. As soon as the adventurers get involved, events might change drastically, but the following timeline can still help you determine how the various NPCs involved in the story will react to the player characters' actions.",
@@ -212,6 +222,7 @@
 						{
 							"type": "entries",
 							"name": "The Dossier",
+							"page": 163,
 							"id": "00e",
 							"entries": [
 								"The adventurers can find the following information in the Sawtooth Prison dossier:",
@@ -229,12 +240,14 @@
 						{
 							"type": "entries",
 							"name": "Hitting the Streets",
+							"page": 163,
 							"id": "00f",
 							"entries": [
 								"The characters can take several approaches to investigating {@creature Krenko|KKW}'s whereabouts: meeting with contacts, sussing out rumors, or visiting important locations.",
 								{
 									"type": "entries",
 									"name": "Meet with Contacts",
+									"page": 163,
 									"id": "010",
 									"entries": [
 										"If a character has an appropriate contact to press for information, they can reach out to that contact for assistance. It takes 1 hour to arrange a meeting with the contact and {@dice 1d6} hours for the contact to find one previously unknown piece of information, unless that contact would have the information on hand."
@@ -243,6 +256,7 @@
 								{
 									"type": "entries",
 									"name": "Gather Rumors",
+									"page": 163,
 									"id": "011",
 									"entries": [
 										"Characters can go to public gathering places to attempt to obtain information. After {@dice 1d6} hours, a character sifting through rumors makes a DC 15 Charisma ({@skill Persuasion}) check. On a success, they find out one previously unknown piece of information from among those given below:",
@@ -263,6 +277,7 @@
 						{
 							"type": "entries",
 							"name": "The Sewers at Plaza West",
+							"page": 164,
 							"id": "012",
 							"entries": [
 								"Characters heading west of the plaza on a tip they received earlier might look for a sewer grate that is out of place. It takes 1 hour and a successful DC 10 Wisdom ({@skill Perception}) check to find a grate with scrapes from a crowbar on it. Alternatively, the characters can interview residents in the area, in which case it takes half an hour and a successful DC 10 Charisma ({@skill Persuasion}) check to find the location of the grate.",
@@ -330,6 +345,7 @@
 						{
 							"type": "entries",
 							"name": "Tin Street",
+							"page": 164,
 							"id": "015",
 							"entries": [
 								{
@@ -344,6 +360,7 @@
 								{
 									"type": "entries",
 									"name": "Shattergang Eavesdropping",
+									"page": 164,
 									"id": "017",
 									"entries": [
 										"If a check to gather rumors fails by 5 or more, or the characters are otherwise indiscreet while investigating around Tin Street, word gets to the Shattergang Brothers that someone has been asking about {@creature Krenko|KKW}. They send an unremarkably dressed, beady-eyed {@creature goblin} named Erko to tail the characters (about 60 feet) and sneak up to eavesdrop on conversations. If a character's passive Wisdom ({@skill Perception}) score equals or exceeds the goblin's Dexterity ({@skill Stealth}) check, that character notices that they're being followed or observed.",
@@ -356,6 +373,7 @@
 								{
 									"type": "entries",
 									"name": "Finding Falish",
+									"page": 165,
 									"id": "018",
 									"entries": [
 										{
@@ -371,6 +389,7 @@
 										{
 											"type": "entries",
 											"name": "Taverns",
+											"page": 165,
 											"id": "019",
 											"entries": [
 												"Falish is a regular at the Millstone, a seedy tavern that caters to the rough and rowdy. The tavern's owner and barkeep is Wyroon, a male minotaur with a cracked horn and a surly disposition. He was drummed out of the Boros Legion for insubordination a few years ago. His starting attitude is indifferent, but if a character succeeds on a DC 10 Charisma ({@skill Persuasion}) check, he'll tell the characters that Falish comes down some nights for a drink or two. Falish stops by early in the evening of Day 2, without her flamethrower."
@@ -379,6 +398,7 @@
 										{
 											"type": "entries",
 											"name": "Merchants",
+											"page": 165,
 											"id": "01a",
 											"entries": [
 												"Very few merchants on Tin Street know Falish, except for a female goblin alchemist named Noggra, who runs an apothecary shop called Noggra's Remedies. Noggra often patches up injured gang members after their scuffles, and occasionally hides them from the law. She sometimes sells Falish alchemical substances to enhance her weapons. Her starting attitude toward the party is indifferent. If a character asks her about Falish and succeeds on a DC 20 Charisma ({@skill Intimidation} or {@skill Persuasion}) check, she gives up Falish's location. A character who offers Noggra 10 gp or more makes this check with advantage."
@@ -387,6 +407,7 @@
 										{
 											"type": "entries",
 											"name": "Street Talk",
+											"page": 165,
 											"id": "01b",
 											"entries": [
 												"Characters can simply ask around the neighborhood to try to find Falish. If so, use the rules for gathering rumors under \"Hitting the Streets.\""
@@ -397,6 +418,7 @@
 								{
 									"type": "entries",
 									"name": "Falish's Workshop",
+									"page": 165,
 									"id": "01c",
 									"entries": [
 										"Once the characters determine Falish's location and travel there, read:",
@@ -438,6 +460,7 @@
 										{
 											"type": "entries",
 											"name": "Treasure",
+											"page": 166,
 											"id": "020",
 											"entries": [
 												"Falish has one of each weapon in the {@book Player's Handbook|PHB} with a price of no more than 25 gp hanging from the walls of her quarters. On her work tables are three flasks of alchemist's fire, one vial of acid, alchemist's supplies, tinker's tools, a set of thieves' tools, and most of the components needed to assemble two bombs. Under one of the tables is a small, locked strongbox requiring thieves' tools and a successful DC 15 Dexterity check to open. Inside the strongbox are 200 zinos (gp), 3 strips of mizzium (a durable magical metal), and an {@item eversmoking bottle}."
@@ -450,6 +473,7 @@
 						{
 							"type": "entries",
 							"name": "Foundry Street",
+							"page": 166,
 							"id": "021",
 							"entries": [
 								"Foundry Street is where a lot of the manufacturing happens in the Tenth District. Workers toil day and night to make goods that Ravnicans buy in the market, and to supply the Boros Legion with armor and weapons.",
@@ -467,6 +491,7 @@
 								{
 									"type": "entries",
 									"name": "Welcoming Party",
+									"page": 166,
 									"id": "022",
 									"entries": [
 										"{@creature Krenko|KKW}'s goblin gang approaches the characters. Their starting attitude is hostile, and they hurl insults and try to get the characters to leave their turf. If the adventurers don't comply, the goblins fight them. If more than half the goblins are defeated, the remaining gang members try to escape.",
@@ -476,6 +501,7 @@
 								{
 									"type": "entries",
 									"name": "Shattergang's Response",
+									"page": 166,
 									"id": "023",
 									"entries": [
 										"Late in the evening on Day 2, the Shattergang Brothers blow up three of {@creature Krenko|KKW}'s safe houses along Foundry Street. The explosions attract the Azorius Senate, which sends twenty {@creature soldier|GGR|soldiers} to secure the area and question bystanders.",
@@ -489,6 +515,7 @@
 				{
 					"type": "section",
 					"name": "Krenko's Hideout",
+					"page": 167,
 					"id": "024",
 					"entries": [
 						"The characters can locate {@creature Krenko|KKW}'s hideout either by interrogating members of his gang, following the tracks from the sewer, or following a goblin back from the drop point where Falish leaves {@creature Krenko|KKW}'s weapons. Once they have found the warehouse, read:",
@@ -504,6 +531,7 @@
 						{
 							"type": "entries",
 							"name": "Krenko's Gang",
+							"page": 167,
 							"id": "026",
 							"entries": [
 								"All members of {@creature Krenko|KKW}'s gang are {@creature Goblin gang member|kkw|goblin gang members}. Each goblin carries a whistle (worn on a rope around its neck), which it can blow as an action to sound the alarm. A goblin might carry another item it obtained elsewhere, employing it in combat if an opportunity presents itself. You can roll or choose from the items on the Goblin Gang Possessions table. More information on these items can be found in {@book chapter 5|PHB|5|Adventuring Gear} of the {@book Player's Handbook|PHB}.",
@@ -550,6 +578,7 @@
 						{
 							"type": "entries",
 							"name": "Lookouts",
+							"page": 167,
 							"id": "027",
 							"entries": [
 								"A {@creature goblin gang member|kkw} is posted outside each door. If a guard sees one or more characters approaching the warehouse, it signals the other guards by blowing a whistle around its neck. It remains vigilant but doesn't signal the others if the characters are visible on the street but don't make their way to the warehouse. The goblins don't use a light source at night, relying on their {@sense darkvision}.",
@@ -557,6 +586,7 @@
 								{
 									"type": "entries",
 									"name": "Changing of the Guard",
+									"page": 167,
 									"id": "028",
 									"entries": [
 										"Every 4 hours, new goblins from {@creature Krenko|KKW}'s gang arrive to relieve the lookouts. During this time, they're usually distracted as they chat among themselves for {@dice 1d10} minutes. While they're distracted, characters have advantage on any Dexterity ({@skill Stealth}) checks to hide or move quietly in the area."
@@ -567,6 +597,7 @@
 						{
 							"type": "entries",
 							"name": "Day 2 Arrivals",
+							"page": 167,
 							"id": "029",
 							"entries": [
 								"At noon on the second day, four more goblins arrive. Two position themselves inside on the catwalk, and two walk the warehouse floor."
@@ -575,6 +606,7 @@
 						{
 							"type": "entries",
 							"name": "Day 3 Chaos",
+							"page": 167,
 							"id": "02a",
 							"entries": [
 								"In the small hours of the third day, the Shattergang Brothers finally manage to discover {@creature Krenko|KKW}'s whereabouts and send a team of ten {@creature goblin||goblins} to toss bombs at the warehouse and its occupants.",
@@ -587,6 +619,7 @@
 				{
 					"type": "section",
 					"name": "Warehouse Locations",
+					"page": 168,
 					"id": "02b",
 					"entries": [
 						"The following locations are keyed to map 4.11, which shows the interior of the warehouse.",
@@ -602,6 +635,7 @@
 						{
 							"type": "entries",
 							"name": "Office",
+							"page": 168,
 							"id": "02c",
 							"entries": [
 								"This room is unlit. If the characters have {@sense darkvision} or a light source, describe the room as follows:",
@@ -616,6 +650,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 168,
 									"id": "02e",
 									"entries": [
 										"The iron strongbox under a desk contains funds {@creature Krenko|KKW} was gathering to pay off Falish. It is locked and can be opened with the key in {@creature Krenko|KKW}'s possession, or with thieves' tools and a successful DC 15 Dexterity check. Inside the box are 350 zinos (gp), two gold rings inset with small rubies (worth 50 gp each), and a {@i potion of giant strength} (hill)."
@@ -626,6 +661,7 @@
 						{
 							"type": "entries",
 							"name": "Catwalk",
+							"page": 168,
 							"id": "02f",
 							"entries": [
 								"A 3-foot-wide wooden catwalk is attached to the inside walls of the warehouse 20 feet above the floor. A creaky, charred, narrow, wrap-around wooden staircase near the center of the east wall leads up to it.",
@@ -633,6 +669,7 @@
 								{
 									"type": "entries",
 									"name": "Weakened Staircase",
+									"page": 168,
 									"id": "030",
 									"entries": [
 										"One of the steps of the catwalk staircase is ready to collapse. This fragile board is located 10 feet off the ground and can be spotted by anyone on the stairs who has a passive Wisdom ({@skill Perception}) score of 13 or higher. A creature that weighs more than 100 pounds that steps on the board must succeed on a DC 10 Dexterity saving throw or fall 10 feet to the ground below. The gap that the collapsing board creates can be easily avoided by other creatures walking up the stairs.",
@@ -644,6 +681,7 @@
 						{
 							"type": "entries",
 							"name": "Main Floor",
+							"page": 168,
 							"id": "031",
 							"entries": [
 								"The warehouse is lit inside by lanterns placed on hooks located 5 feet up on the wall every 30 feet or so, below the catwalk. The goblins keep this area brightly lit, since their {@sense darkvision} only extends for 60 feet. When the characters enter, read:",
@@ -676,6 +714,7 @@
 				{
 					"type": "section",
 					"name": "Confronting Krenko",
+					"page": 171,
 					"id": "033",
 					"entries": [
 						"{@creature Krenko|KKW} tries to escape if he is reduced to half his hit points or fewer, ordering his goblin enforcers cover him as he makes his getaway. He runs to the {@creature loading rig|KKW} on the warehouse floor and activates it in an effort to fight his way out and flee. If he can get outside, he makes his way to the dock and jumps into the canal to swim away.",
@@ -695,6 +734,7 @@
 				{
 					"type": "section",
 					"name": "The Handoff",
+					"page": 171,
 					"id": "034",
 					"entries": [
 						"When the characters reach the meeting point that Nassius specified, read the following:",
@@ -711,6 +751,7 @@
 						{
 							"type": "entries",
 							"name": "Nassius's Patron",
+							"page": 171,
 							"id": "036",
 							"entries": [
 								"{@creature Krenko|KKW} was right about one thing: Nassius Ven has been using his position to keep himself wealthy and protected. A patron approached Nassius and made a deal to have {@creature Krenko|KKW} delivered to them instead of to his rightful place in his new cell at Udzec. Nassius was assured that {@creature Krenko|KKW} would eventually make his way back to the prison alive, but the patron wanted to have a few words with him first.",
@@ -760,6 +801,7 @@
 				{
 					"type": "section",
 					"name": "The End?",
+					"page": 171,
 					"id": "037",
 					"entries": [
 						"The characters earn 1 renown in their guild if they deliver {@creature Krenko|KKW} to Nassius.",

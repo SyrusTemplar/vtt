@@ -2471,7 +2471,7 @@
 												],
 												[
 													"3",
-													"{@creature Brain in a jar|IDRotF}",
+													"{@creature Brain in a jar|VRGR}",
 													"VGR"
 												],
 												[
@@ -4051,7 +4051,7 @@
 												],
 												[
 													"2",
-													"{@creature Wereraven|CoS}",
+													"{@creature Wereraven|VRGR}",
 													"VGR"
 												],
 												[
@@ -4722,7 +4722,7 @@
 									"id": "107",
 									"entries": [
 										"Each domain is its own demiplane, isolated from all other planes including the Material Plane. No spell\u2014not even {@spell wish}\u2014allows escape from the Domains of Dread. Spells such as {@spell astral projection}, {@spell plane shift}, {@spell teleport}, and similar magic cast for the purpose of escaping a domain simply fail, as do effects that banish a creature to another plane. These restrictions apply to all other effects, including magic items and artifacts that transport or banish creatures to other planes. Magic that allows transit to the Border Ethereal, such as the {@spell etherealness} spell and the Etherealness feature of ghosts, is the exception to this rule. A creature that enters the Border Ethereal from a domain is pulled back into the domain it left upon leaving the Ethereal.",
-										"For the purpose of spells whose effects change across or are blocked by planar boundaries (such as {@spell sending}), each domain is considered its own plane. Magic that summons creatures or objects from other planes functions normally, as does magic that involves an extradimensional space. Spells cast within an extradimensional space (such as that created by {@spell Mordenkainen's magnificent mansion} are subject to the same restrictions as magic cast within a domain.",
+										"For the purpose of spells whose effects change across or are blocked by planar boundaries (such as {@spell sending}), each domain is considered its own plane. Magic that summons creatures or objects from other planes functions normally, as does magic that involves an extradimensional space. Spells cast within an extradimensional space (such as that created by {@spell Mordenkainen's magnificent mansion}) are subject to the same restrictions as magic cast within a domain.",
 										"While in the Domains of Dread, characters who receive spells from deities or otherworldly patrons continue to do so. In addition, spells that allow contact with beings from other planes function normally, with one proviso: the domain's Darklord senses when someone in their domain casts such a spell and can choose to make themself the spell's target, so that they become the one who is contacted."
 									]
 								}
@@ -4980,7 +4980,8 @@
 											"imageType": "map",
 											"title": "Map 3.1: barovia",
 											"width": 3000,
-											"height": 1926
+											"height": 1926,
+											"id": "031"
 										},
 										{
 											"type": "image",
@@ -4991,7 +4992,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 3000,
-											"height": 1926
+											"height": 1926,
+											"mapParent": {
+												"id": "031"
+											}
 										}
 									]
 								},
@@ -5223,7 +5227,7 @@
 										],
 										[
 											"5",
-											"A dying {@creature wereraven|CoS} (see {@book chapter 5|VRGR|5|Wereraven}) gives the characters a scroll and an amulet bearing the Mark of the Raven. It begs the characters to deliver the message to the Keepers of the Feather."
+											"A dying {@creature wereraven|VRGR} (see {@book chapter 5|VRGR|5|Wereraven}) gives the characters a scroll and an amulet bearing the Mark of the Raven. It begs the characters to deliver the message to the Keepers of the Feather."
 										],
 										[
 											"6",
@@ -5823,7 +5827,7 @@
 												],
 												[
 													"5",
-													"A missing person or otherworldly being transformed into a {@creature brain in a jar|IDRotF} (see {@book chapter 5|VRGR|5|Brain in a Jar})"
+													"A missing person or otherworldly being transformed into a {@creature brain in a jar|VRGR} (see {@book chapter 5|VRGR|5|Brain in a Jar})"
 												],
 												[
 													"6",
@@ -5984,7 +5988,8 @@
 											"imageType": "map",
 											"title": "Map 3.2: borca",
 											"width": 3000,
-											"height": 2073
+											"height": 2073,
+											"id": "037"
 										},
 										{
 											"type": "image",
@@ -5995,7 +6000,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 3000,
-											"height": 2073
+											"height": 2073,
+											"mapParent": {
+												"id": "037"
+											}
 										}
 									]
 								},
@@ -7166,7 +7174,8 @@
 											"imageType": "map",
 											"title": "Map 3.3: darkon",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"id": "038"
 										},
 										{
 											"type": "image",
@@ -7177,7 +7186,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"mapParent": {
+												"id": "038"
+											}
 										}
 									]
 								},
@@ -7804,7 +7816,8 @@
 									"imageType": "map",
 									"title": "Map 3.4: dementlieu",
 									"width": 1498,
-									"height": 3000
+									"height": 3000,
+									"id": "039"
 								},
 								{
 									"type": "image",
@@ -7815,7 +7828,10 @@
 									"imageType": "mapPlayer",
 									"title": "Player Version",
 									"width": 1498,
-									"height": 3000
+									"height": 3000,
+									"mapParent": {
+										"id": "039"
+									}
 								}
 							]
 						},
@@ -8357,7 +8373,8 @@
 											"imageType": "map",
 											"title": "Map 3.5: falkovnia",
 											"width": 3000,
-											"height": 2073
+											"height": 2073,
+											"id": "03a"
 										},
 										{
 											"type": "image",
@@ -8368,7 +8385,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 3000,
-											"height": 2073
+											"height": 2073,
+											"mapParent": {
+												"id": "03a"
+											}
 										}
 									]
 								},
@@ -8901,7 +8921,8 @@
 											"imageType": "map",
 											"title": "Map 3.6: har akir",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"id": "03b"
 										},
 										{
 											"type": "image",
@@ -8912,7 +8933,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"mapParent": {
+												"id": "03b"
+											}
 										}
 									]
 								},
@@ -9479,7 +9503,8 @@
 											"imageType": "map",
 											"title": "Map 3.7: hazlan",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"id": "03c"
 										},
 										{
 											"type": "image",
@@ -9490,7 +9515,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"mapParent": {
+												"id": "03c"
+											}
 										}
 									]
 								},
@@ -10488,7 +10516,8 @@
 											"imageType": "map",
 											"title": "Map 3.8: kalakeri",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"id": "03d"
 										},
 										{
 											"type": "image",
@@ -10499,7 +10528,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"mapParent": {
+												"id": "03d"
+											}
 										}
 									]
 								},
@@ -11285,7 +11317,8 @@
 											"imageType": "map",
 											"title": "Map 3.9: kartakass",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"id": "03e"
 										},
 										{
 											"type": "image",
@@ -11296,7 +11329,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"mapParent": {
+												"id": "03e"
+											}
 										}
 									]
 								},
@@ -11740,7 +11776,8 @@
 											"imageType": "map",
 											"title": "Map 3.10: lamordia",
 											"width": 3000,
-											"height": 2073
+											"height": 2073,
+											"id": "03f"
 										},
 										{
 											"type": "image",
@@ -11751,7 +11788,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 3000,
-											"height": 2073
+											"height": 2073,
+											"mapParent": {
+												"id": "03f"
+											}
 										}
 									]
 								},
@@ -11780,7 +11820,7 @@
 									"page": 139,
 									"id": "2e5",
 									"entries": [
-										"The von Aubrecker clan has ruled Lamordia for as long as anyone remembers, from their ancestral home\u2014a wind-whipped castle on a remote island. But Lamordia's ruler, Baron Rudolph von Aubrecker, has not made a public appearance in the two decades since he alone survived a tragic shipwreck with the help of Dr. Mordenheim. Those who have business with the baron are welcome for a brief stay, but they interact only with his perpetually smiling butler, Gerta. Visitors never enter the castle's west wing, where the baron\u2014transformed into a {@creature brain in a jar|IDRotF} (see {@book chapter 5|VRGR|5}) by Mordenheim's experiments\u2014works to rebuild his lost body and exact revenge upon the doctor."
+										"The von Aubrecker clan has ruled Lamordia for as long as anyone remembers, from their ancestral home\u2014a wind-whipped castle on a remote island. But Lamordia's ruler, Baron Rudolph von Aubrecker, has not made a public appearance in the two decades since he alone survived a tragic shipwreck with the help of Dr. Mordenheim. Those who have business with the baron are welcome for a brief stay, but they interact only with his perpetually smiling butler, Gerta. Visitors never enter the castle's west wing, where the baron\u2014transformed into a {@creature brain in a jar|VRGR} (see {@book chapter 5|VRGR|5}) by Mordenheim's experiments\u2014works to rebuild his lost body and exact revenge upon the doctor."
 									]
 								},
 								{
@@ -11841,7 +11881,7 @@
 													"page": 140,
 													"id": "2eb",
 													"entries": [
-														"Dr. Mordenheim can create any Construct or corporeal Undead by working in her laboratory for a number of uninterrupted days equal to the creature's challenge rating. At the end of the final day, the creature is complete and obeys her will. She uses this ability to create {@creature Flesh Golem||flesh golems} and {@creature Homunculus||homunculi}, as well as {@creature Zombie||zombies}, {@creature Death's Head|VRGR|death's heads}, and {@creature Brain in a Jar|IDRotF|brains in jars} (see {@book chapter 5|VRGR|5}).",
+														"Dr. Mordenheim can create any Construct or corporeal Undead by working in her laboratory for a number of uninterrupted days equal to the creature's challenge rating. At the end of the final day, the creature is complete and obeys her will. She uses this ability to create {@creature Flesh Golem||flesh golems} and {@creature Homunculus||homunculi}, as well as {@creature Zombie||zombies}, {@creature Death's Head|VRGR|death's heads}, and {@creature Brain in a Jar|VRGR|brains in jars} (see {@book chapter 5|VRGR|5}).",
 														{
 															"type": "list",
 															"style": "list-hang-notitle",
@@ -12248,7 +12288,8 @@
 											"imageType": "map",
 											"title": "Map 3.11: mordent",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"id": "040"
 										},
 										{
 											"type": "image",
@@ -12259,7 +12300,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"mapParent": {
+												"id": "040"
+											}
 										}
 									]
 								},
@@ -12500,7 +12544,7 @@
 										],
 										[
 											"5",
-											"The citizens of the village of Crawford spread tales of a gigantic {@creature raven}. Sheriff Perkins hires the characters to hunt down the creature, which is actually a {@creature wereraven|CoS} (see {@book chapter 5|VRGR|5}) protecting the community from a greater threat."
+											"The citizens of the village of Crawford spread tales of a gigantic {@creature raven}. Sheriff Perkins hires the characters to hunt down the creature, which is actually a {@creature wereraven|VRGR} (see {@book chapter 5|VRGR|5}) protecting the community from a greater threat."
 										],
 										[
 											"6",
@@ -12773,7 +12817,8 @@
 									"imageType": "map",
 									"title": "Map 3.12: richemulot",
 									"width": 1773,
-									"height": 3600
+									"height": 3600,
+									"id": "042"
 								},
 								{
 									"type": "image",
@@ -12784,7 +12829,10 @@
 									"imageType": "mapPlayer",
 									"title": "Player Version",
 									"width": 1773,
-									"height": 3600
+									"height": 3600,
+									"mapParent": {
+										"id": "042"
+									}
 								}
 							]
 						},
@@ -13442,7 +13490,8 @@
 											"imageType": "map",
 											"title": "Map 3.13: tepest",
 											"width": 3000,
-											"height": 2073
+											"height": 2073,
+											"id": "043"
 										},
 										{
 											"type": "image",
@@ -13453,7 +13502,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 3000,
-											"height": 2073
+											"height": 2073,
+											"mapParent": {
+												"id": "043"
+											}
 										}
 									]
 								},
@@ -14028,7 +14080,8 @@
 											"imageType": "map",
 											"title": "Map 3.14: valachan",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"id": "049"
 										},
 										{
 											"type": "image",
@@ -14039,7 +14092,10 @@
 											"imageType": "mapPlayer",
 											"title": "Player Version",
 											"width": 3000,
-											"height": 2072
+											"height": 2072,
+											"mapParent": {
+												"id": "049"
+											}
 										}
 									]
 								},
@@ -15237,12 +15293,9 @@
 											"entry": "Kas the Bloody Handed"
 										},
 										{
-											"type": "entries",
+											"type": "item",
 											"name": "Hallmarks:",
-											"entries": [
-												"Undead military dictatorship"
-											],
-											"id": "031"
+											"entry": "Undead military dictatorship"
 										}
 									]
 								},
@@ -15265,12 +15318,9 @@
 											"entry": "Flimira Vhage"
 										},
 										{
-											"type": "entries",
+											"type": "item",
 											"name": "Hallmarks:",
-											"entries": [
-												"Detective work, memory loss"
-											],
-											"id": "037"
+											"entry": "Detective work, memory loss"
 										}
 									]
 								},
@@ -15293,12 +15343,9 @@
 											"entry": "Sodo"
 										},
 										{
-											"type": "entries",
+											"type": "item",
 											"name": "Hallmarks:",
-											"entries": [
-												"Serial murderers, urban decay"
-											],
-											"id": "038"
+											"entry": "Serial murderers, urban decay"
 										}
 									]
 								},
@@ -15352,7 +15399,7 @@
 								],
 								[
 									"4",
-									"Curious members of the Keepers of the Feather led by a {@creature wereraven|CoS} (see {@book chapter 5|VRGR|5}) in disguise"
+									"Curious members of the Keepers of the Feather led by a {@creature wereraven|VRGR} (see {@book chapter 5|VRGR|5}) in disguise"
 								],
 								[
 									"5",
@@ -15371,7 +15418,7 @@
 							"id": "3f8",
 							"entries": [
 								"When asked about the origins of their society, the members of the Keepers of the Feather speak of their traditions originating long ago and beyond the Mists. This is true, but most who repeat that story are only trying to layer a mystical facade over their dilettante spiritualism.",
-								"Only the group's highest-ranking members know that the Keepers of the Feather began in Barovia as a small sect of {@creature Wereraven|CoS|wereravens} (see {@book chapter 5|VRGR|5}) dedicated to opposing the evils of Strahd von Zarovich. Though their numbers were not enough to oppose the Darklord directly, they sought useful lore and aided brave souls from the shadows, manipulating fortune to confound some of Strahd's more diabolical plots. Over generations, the wereravens' hidden resistance to Strahd continued in Barovia, but some among them learned of other lands suffering beyond the Mists. Unwilling to let the innocents of those lands fend for themselves, some of the Keepers of the Feather ventured forth, hoping to share their wisdom and their subtle resistance to evil with those who needed it most.",
+								"Only the group's highest-ranking members know that the Keepers of the Feather began in Barovia as a small sect of {@creature Wereraven|VRGR|wereravens} (see {@book chapter 5|VRGR|5}) dedicated to opposing the evils of Strahd von Zarovich. Though their numbers were not enough to oppose the Darklord directly, they sought useful lore and aided brave souls from the shadows, manipulating fortune to confound some of Strahd's more diabolical plots. Over generations, the wereravens' hidden resistance to Strahd continued in Barovia, but some among them learned of other lands suffering beyond the Mists. Unwilling to let the innocents of those lands fend for themselves, some of the Keepers of the Feather ventured forth, hoping to share their wisdom and their subtle resistance to evil with those who needed it most.",
 								"However, the Mists find a way to twist even the best of intentions. In the cities of urbane domains like {@book Borca|VRGR|3}, {@book Darkon|VRGR|3}, and {@book Dementlieu|VRGR|3}, the mystical writings and talismans the wereravens carried from {@book Barovia|VRGR|3} came to the attention of the bored elite. Fascinated, these socialites became obsessed with the occult, seeking out esoteric works, hiring doubtful fortune-tellers, and hosting parlor séances. In most cases, the results were passing fads. In some, they were catastrophic\u2014the unprepared successfully summoned fiends and angry spirits into their salons. But a few earnest amateur spiritualists genuinely sought to learn more about the secrets beyond their homes, their lives, and the Mists. In these would-be occultists, the wereravens saw potential.",
 								{
 									"type": "inset",
@@ -17448,11 +17495,11 @@
 								],
 								[
 									"2",
-									"{@creature Wereraven|CoS}"
+									"{@creature Wereraven|VRGR}"
 								],
 								[
 									"3",
-									"{@creature Brain in a jar|IDRotF}"
+									"{@creature Brain in a jar|VRGR}"
 								],
 								[
 									"3",

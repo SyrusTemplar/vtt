@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"version": "2.10.2",
+	"version": "2.10.4",
 	"$id": "class.json",
 
 	"type": "object",
@@ -102,7 +102,7 @@
 				"classSource": {"type": "string"},
 				"level":  {"type": "integer"},
 				"header":  {"type": "integer"},
-				"page": {"type": "integer"},
+				"page": {"$ref": "../util.json#/definitions/page"},
 				"type": {"type": "string", "enum": ["inset", "item"]},
 				"entries": {
 					"type": "array",
@@ -118,6 +118,9 @@
 				"$$ifBrew": {
 					"foundryData": {
 						"$ref": "../util.json#/definitions/foundryDataObject"
+					},
+					"foundryFlags": {
+						"$ref": "../util.json#/definitions/foundryFlagsObject"
 					},
 					"foundryImg": {
 						"$ref": "../util.json#/definitions/foundryImg"
@@ -184,7 +187,7 @@
 				"subclassSource": {"type": "string"},
 				"level":  {"type": "integer"},
 				"header":  {"type": "integer"},
-				"page": {"type": "integer"},
+				"page": {"$ref": "../util.json#/definitions/page"},
 				"type": {"type": "string", "enum": ["inset", "item"]},
 				"entries": {
 					"type": "array",
@@ -204,6 +207,9 @@
 				"$$ifBrew": {
 					"foundryData": {
 						"$ref": "../util.json#/definitions/foundryDataObject"
+					},
+					"foundryFlags": {
+						"$ref": "../util.json#/definitions/foundryFlagsObject"
 					},
 					"foundryImg": {
 						"$ref": "../util.json#/definitions/foundryImg"
@@ -385,9 +391,7 @@
 				"basicRules": {
 					"$ref": "../util.json#/definitions/basicRules"
 				},
-				"page": {
-					"type": "integer"
-				},
+				"page": {"$ref": "../util.json#/definitions/page"},
 				"casterProgression": {
 					"enum": ["full", "1/2", "1/3", "pact", "artificer"]
 				},
@@ -468,6 +472,9 @@
 					},
 					"foundryData": {
 						"$ref": "../util.json#/definitions/foundryDataObject"
+					},
+					"foundryFlags": {
+						"$ref": "../util.json#/definitions/foundryFlagsObject"
 					},
 					"foundryImg": {
 						"$ref": "../util.json#/definitions/foundryImg"
@@ -803,9 +810,7 @@
 				"subclassTitle": {
 					"type": "string"
 				},
-				"page": {
-					"type": "integer"
-				},
+				"page": {"$ref": "../util.json#/definitions/page"},
 				"fluff": {
 					"type": "array",
 					"items": {
@@ -818,9 +823,7 @@
 								"type": "array",
 								"items": {"$ref": "../entry.json"}
 							},
-							"page": {
-								"type": "integer"
-							},
+							"page": {"$ref": "../util.json#/definitions/page"},
 							"source": {
 								"type": "string"
 							},
@@ -845,6 +848,9 @@
 					},
 					"foundryData": {
 						"$ref": "../util.json#/definitions/foundryDataObject"
+					},
+					"foundryFlags": {
+						"$ref": "../util.json#/definitions/foundryFlagsObject"
 					},
 					"foundryImg": {
 						"$ref": "../util.json#/definitions/foundryImg"

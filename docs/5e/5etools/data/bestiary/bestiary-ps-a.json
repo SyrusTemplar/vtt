@@ -232,7 +232,9 @@
 			"name": "Criosphinx",
 			"source": "PSA",
 			"page": 32,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N"
@@ -482,7 +484,9 @@
 			"name": "Manticore, Heart-Piercer",
 			"source": "PSA",
 			"page": 36,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -604,7 +608,9 @@
 			"name": "Serpopard",
 			"source": "PSA",
 			"page": 37,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"

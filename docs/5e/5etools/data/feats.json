@@ -165,6 +165,194 @@
 			]
 		},
 		{
+			"name": "Adept of the Black Robes",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 5,
+			"prerequisite": [
+				{
+					"level": 4,
+					"feat": [
+						"initiate of high sorcery|ua2022heroesofkrynn"
+					],
+					"alignment": [
+						"L",
+						"NX",
+						"C",
+						"NY",
+						"E"
+					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"innate": {
+						"_": {
+							"daily": {
+								"1e": [
+									{
+										"choose": "level=2|school=V;N"
+									}
+								]
+							}
+						}
+					}
+				}
+			],
+			"entries": [
+				"Your ambition and loyalty to the Order of the Black Robes has been recognized, granting you these benefits:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ambitious Magic",
+							"entries": [
+								"You learn one 2nd-level spell of your choice. The {@filter 2nd-level spell|spells|level=2|school=V;N} must be from the evocation or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the {@feat Initiate of High Sorcery|UA2022HeroesOfKrynn} feat."
+							]
+						},
+						{
+							"type": "item",
+							"name": "Life Channel",
+							"entries": [
+								"You can channel your lifeforce into the power of your magic. When a creature you can see within 60 feet of you fails on a saving throw against a spell you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll a number of Hit Die equal to half the number of Hit Dice expended (rounded up) and the damage the triggering creature takes increases by an amount equal to the total rolled of those dice."
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Adept of the Red Robes",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 5,
+			"prerequisite": [
+				{
+					"level": 4,
+					"feat": [
+						"initiate of high sorcery|ua2022heroesofkrynn"
+					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"innate": {
+						"_": {
+							"daily": {
+								"1e": [
+									{
+										"choose": "level=2|school=D;T"
+									}
+								]
+							}
+						}
+					}
+				}
+			],
+			"entries": [
+				"Your pursuit of truth and dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Insightful Magic",
+							"entries": [
+								"You learn one 2nd-level spell of your choice. The {@filter 2nd-level spell|spells|level=2|school=D;T} must be from the divination or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the {@feat Initiate of High Sorcery|UA2022HeroesOfKrynn} feat."
+							]
+						},
+						{
+							"type": "item",
+							"name": "Magical Balance",
+							"entries": [
+								"When you make an attack roll, an ability check, or a saving throw, and roll a 9 or lower on the {@dice d20}, you can use your reaction to balance fate and treat the roll as a 10. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Adept of the White Robes",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 5,
+			"prerequisite": [
+				{
+					"level": 4,
+					"feat": [
+						"initiate of high sorcery|ua2022heroesofkrynn"
+					],
+					"alignment": [
+						"L",
+						"NX",
+						"C",
+						"NY",
+						"G"
+					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"innate": {
+						"_": {
+							"daily": {
+								"1e": [
+									{
+										"choose": "level=2|school=A;C"
+									}
+								]
+							}
+						}
+					}
+				}
+			],
+			"entries": [
+				"Your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Protective Magic",
+							"entries": [
+								"You learn one 2nd-level spell of your choice. The {@filter 2nd-level spell|spells|level=2|school=A;C} must be from the abjuration or conjuration school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the {@feat Initiate of High Sorcery|UA2022HeroesOfKrynn} feat."
+							]
+						},
+						{
+							"type": "item",
+							"name": "Protective Ward",
+							"entries": [
+								"When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d4s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier."
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Alchemist",
 			"source": "UAFeats",
 			"page": 4,
@@ -758,6 +946,186 @@
 						"If you spend 1 minute talking to someone who can understand what you say, you can make a Charisma ({@skill Persuasion}) check contested by the creature's Wisdom ({@skill Insight}) check. If you or your companions are fighting the creature, your check automatically fails. If your check succeeds, the target is {@condition charmed} by you as long as it remains within 60 feet of you and for 1 minute thereafter."
 					]
 				}
+			]
+		},
+		{
+			"name": "Divine Communications",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 5,
+			"prerequisite": [
+				{
+					"level": 4,
+					"feat": [
+						"divinely favored|ua2022heroesofkrynn"
+					]
+				}
+			],
+			"ability": [
+				{
+					"choose": {
+						"from": [
+							"int",
+							"wis",
+							"cha"
+						],
+						"amount": 1
+					},
+					"hidden": true
+				}
+			],
+			"languageProficiencies": [
+				{
+					"celestial": true,
+					"any": 2
+				}
+			],
+			"entries": [
+				"Your connection to your god deepens, granting you these benefits:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Score Increase",
+							"entries": [
+								"Increase the ability score of the spellcasting ability chosen when you gained the Divinely Favored feat by 1, to a maximum of 20."
+							]
+						},
+						{
+							"type": "item",
+							"name": "Celestial Tongues",
+							"entries": [
+								"You learn to speak, read, and write Celestial, and two other languages of your choice."
+							]
+						},
+						{
+							"type": "item",
+							"name": "Divine Omens",
+							"entries": [
+								"You can cast the augury and commune spell without a spell slot, and you must finish {@dice 1d4} long rests before you can cast it in this way again. You can also cast the spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the Divinely Favored feat."
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Divinely Favored",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 5,
+			"additionalSpells": [
+				{
+					"name": "Evil",
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"_": [
+							"thaumaturgy#c"
+						]
+					},
+					"innate": {
+						"_": {
+							"daily": {
+								"1e": [
+									{
+										"choose": "level=1|class=wizard;warlock"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Good",
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"_": [
+							"thaumaturgy#c"
+						]
+					},
+					"innate": {
+						"_": {
+							"daily": {
+								"1e": [
+									{
+										"choose": "level=1|class=wizard;cleric"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Neutral",
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"_": [
+							"thaumaturgy#c"
+						]
+					},
+					"innate": {
+						"_": {
+							"daily": {
+								"1e": [
+									{
+										"choose": "level=1|class=wizard;druid"
+									}
+								]
+							}
+						}
+					}
+				}
+			],
+			"entries": [
+				"A god has chosen you to carry a spark of their divine power.",
+				"You learn the {@spell thaumaturgy} cantrip and one 1st-level spell based on the alignment of your character, as specified in the Alignment Spells table.",
+				"You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.",
+				"Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+				{
+					"type": "table",
+					"caption": "Alignment Spells",
+					"colLabels": [
+						"Alignment",
+						"1st-level Spell"
+					],
+					"colStyles": [
+						"col-2",
+						"col-10"
+					],
+					"rows": [
+						[
+							"Evil",
+							"Choose one {@filter 1st-level warlock or wizard spell|spells|level=1|class=wizard;warlock}."
+						],
+						[
+							"Good",
+							"Choose one {@filter 1st-level cleric or wizard spell|spells|level=1|class=wizard;cleric}."
+						],
+						[
+							"Neutral",
+							"Choose one {@filter 1st-level druid or wizard spell|spells|level=1|class=wizard;druid}."
+						]
+					]
+				},
+				"In addition, you can use a holy symbol as a spellcasting focus for any spell you cast that uses the spellcasting ability you choose when you select this feat."
 			]
 		},
 		{
@@ -3059,6 +3427,156 @@
 			]
 		},
 		{
+			"name": "Initiate of High Sorcery",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 6,
+			"prerequisite": [
+				{
+					"other": "Apprentice of High Sorcery"
+				}
+			],
+			"additionalSpells": [
+				{
+					"name": "Nuitari",
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"_": [
+							{
+								"choose": {
+									"from": [
+										"chill touch#c",
+										"mage hand#c",
+										"vicious mockery#c"
+									]
+								}
+							}
+						]
+					},
+					"innate": {
+						"_": {
+							"daily": {
+								"1e": [
+									{
+										"choose": "level=1|class=wizard|school=V;N"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Lunitari",
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"_": [
+							{
+								"choose": {
+									"from": [
+										"guidance#c",
+										"message#c",
+										"prestidigitation#c"
+									]
+								}
+							}
+						]
+					},
+					"innate": {
+						"_": {
+							"daily": {
+								"1e": [
+									{
+										"choose": "level=1|class=wizard|school=D;T"
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Solinari",
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"_": [
+							{
+								"choose": {
+									"from": [
+										"produce flame#c",
+										"resistance#c",
+										"spare the dying#c"
+									]
+								}
+							}
+						]
+					},
+					"innate": {
+						"_": {
+							"daily": {
+								"1e": [
+									{
+										"choose": "level=1|class=wizard|school=A;C"
+									}
+								]
+							}
+						}
+					}
+				}
+			],
+			"entries": [
+				"You've received training from magic-users affiliated with the Mages of High Sorcery. Choose one of the three moons of Krynn, each of which is associated with a distinct type of magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon Solinari. You learn one cantrip and one 1st-level spell based on the moon you choose, as specified in the Lunar Spells table.",
+				"You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.",
+				"Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+				{
+					"type": "table",
+					"caption": "Lunar Spells",
+					"colLabels": [
+						"Moon",
+						"Cantrips",
+						"1st-level Spell"
+					],
+					"colStyles": [
+						"col-1",
+						"col-5",
+						"col-6"
+					],
+					"rows": [
+						[
+							"Nuitari",
+							"Choose one from {@spell chill touch}, {@spell mage hand}, and {@spell vicious mockery}",
+							"Choose one {@filter 1st-level wizard spell from the evocation or necromancy school of magic|spells|level=1|class=wizard|school=V;N}."
+						],
+						[
+							"Lunitari",
+							"Choose one from {@spell guidance}, {@spell message}, and {@spell prestidigitation}",
+							"Choose one {@filter 1st-level wizard spell from the school of divination or transmutation|spells|level=1|class=wizard|school=D;T}."
+						],
+						[
+							"Solinari",
+							"Choose one from {@spell produce flame}, {@spell resistance}, and {@spell spare the dying}",
+							"Choose one {@filter 1st-level wizard spell from the abjuration or conjuration school of magic|spells|level=1|class=wizard|school=A;C}."
+						]
+					]
+				}
+			]
+		},
+		{
 			"name": "Inspiring Leader",
 			"source": "PHB",
 			"page": 167,
@@ -3117,6 +3635,154 @@
 						"You always know which way is north.",
 						"You always know the number of hours left before the next sunrise or sunset.",
 						"You can accurately recall anything you have seen or heard within the past month."
+					]
+				}
+			]
+		},
+		{
+			"name": "Knight of the Crown",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 6,
+			"prerequisite": [
+				{
+					"level": 4,
+					"feat": [
+						"squire of solamnia|ua2022heroesofkrynn"
+					]
+				}
+			],
+			"ability": [
+				{
+					"choose": {
+						"from": [
+							"str",
+							"dex"
+						],
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Tactical Teamwork",
+							"entries": [
+								"When a creature you can see within 30 feet of you makes an attack roll against another creature that is within 5 feet of you, you can use your reaction to grant advantage on the attack roll. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+							]
+						}
+					]
+				},
+				{
+					"type": "inset",
+					"name": "Membership in Multiple Knightly Orders",
+					"entries": [
+						"Knights of Solamnia are only ever members of one of their organization's orders. In the course of their training, most knights begin as members of the Knights of the Crown and then move on to join other orders. Whether a character follows this path or another, they retain what they learned as a member of an order even if they join another. Characters can change what knightly order they're a part of, but they always have access to any Knight of Solamnia feats they've acquired."
+					]
+				}
+			]
+		},
+		{
+			"name": "Knight of the Rose",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 6,
+			"prerequisite": [
+				{
+					"level": 4,
+					"feat": [
+						"squire of solamnia|ua2022heroesofkrynn"
+					]
+				}
+			],
+			"ability": [
+				{
+					"choose": {
+						"from": [
+							"con",
+							"cha"
+						],
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Bolstering Rally",
+							"entries": [
+								"When you roll initiative, you can choose up to three other creatures you can see within 30 of you. Each creature can gain temporary hit points equal to a roll of your Hit Die + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+							]
+						}
+					]
+				},
+				{
+					"type": "inset",
+					"name": "Membership in Multiple Knightly Orders",
+					"entries": [
+						"Knights of Solamnia are only ever members of one of their organization's orders. In the course of their training, most knights begin as members of the Knights of the Crown and then move on to join other orders. Whether a character follows this path or another, they retain what they learned as a member of an order even if they join another. Characters can change what knightly order they're a part of, but they always have access to any Knight of Solamnia feats they've acquired."
+					]
+				}
+			]
+		},
+		{
+			"name": "Knight of the Sword",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 6,
+			"prerequisite": [
+				{
+					"level": 4,
+					"feat": [
+						"squire of solamnia|ua2022heroesofkrynn"
+					]
+				}
+			],
+			"savingThrowProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"int",
+							"wis",
+							"cha"
+						]
+					}
+				}
+			],
+			"entries": [
+				"You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Disciplined Spirit",
+							"entries": [
+								"You gain proficiency in Intelligence, Wisdom, or Charisma saving throws (your choice when you take this feat)."
+							]
+						},
+						{
+							"type": "item",
+							"name": "Willpower",
+							"entries": [
+								"Immediately after you or a creature you can see within 30 feet of you fail an Intelligence, Wisdom, or Charisma saving throw, you can expend a Hit Die. The saving throw increases by an amount equal to a roll of that Hit Die, potentially turning a failure into a success. Once you turn a failed saving throw into a successful one using this feat, you can't do so again until you finish a long rest."
+							]
+						}
+					]
+				},
+				{
+					"type": "inset",
+					"name": "Membership in Multiple Knightly Orders",
+					"entries": [
+						"Knights of Solamnia are only ever members of one of their organization's orders. In the course of their training, most knights begin as members of the Knights of the Crown and then move on to join other orders. Whether a character follows this path or another, they retain what they learned as a member of an order even if they join another. Characters can change what knightly order they're a part of, but they always have access to any Knight of Solamnia feats they've acquired."
 					]
 				}
 			]
@@ -3921,7 +4587,7 @@
 					"type": "list",
 					"items": [
 						"When you take the {@action Attack} action and attack with only a {@item glaive|phb}, {@item halberd|phb}, {@item quarterstaff|phb}, or {@item spear|phb}, you can use a bonus action to make a melee attack with the opposite end of the weapon; this attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a {@dice d4}, and the attack deals bludgeoning damage.",
-						"While you are wielding a {@item glaive|phb}, {@item halberd|phb}, {@item pike|phb}, {@item quarterstaff|phb}, or {@item spear|phb}, other creatures provoke an opportunity attack from you when they enter your reach."
+						"While you are wielding a {@item glaive|phb}, {@item halberd|phb}, {@item pike|phb}, {@item quarterstaff|phb}, or {@item spear|phb}, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon."
 					]
 				}
 			]
@@ -5021,6 +5687,56 @@
 			]
 		},
 		{
+			"name": "Squire of Solamnia",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 6,
+			"prerequisite": [
+				{
+					"other": "Squireship in the Knights of Solamnia"
+				}
+			],
+			"weaponProficiencies": [
+				{
+					"martial": true
+				}
+			],
+			"armorProficiencies": [
+				{
+					"medium": true
+				}
+			],
+			"entries": [
+				"Your training in the ways of the Knights of Solamnia grants you these benefits:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Martial Training",
+							"entries": [
+								"You gain proficiency with medium armor and martial weapons."
+							]
+						},
+						{
+							"type": "item",
+							"name": "Defensive Rider",
+							"entries": [
+								"You have advantage on saving throws made to avoid falling off a mount."
+							]
+						},
+						{
+							"type": "item",
+							"name": "Encouraging Rally",
+							"entries": [
+								"When another creature you can see within 30 feet of you makes a saving throw, you can use your reaction to inspire them. If the target can hear you and understand you, it gains advantage on the saving throw. Once you use this reaction, you can't do so again until you finish a long rest."
+							]
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Stealthy",
 			"source": "UAFeatsForSkills",
 			"page": 4,
@@ -5512,7 +6228,7 @@
 				{
 					"level": 4,
 					"feat": [
-						"Strixhaven Initiate|SCC"
+						"strixhaven initiate|scc"
 					]
 				}
 			],

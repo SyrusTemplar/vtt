@@ -23,7 +23,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 192,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -221,7 +223,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 201,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -373,7 +377,9 @@
 			"name": "Black Earth Guard",
 			"source": "PotA",
 			"page": 195,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -456,7 +462,9 @@
 			"name": "Black Earth Priest",
 			"source": "PotA",
 			"page": 195,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -629,7 +637,9 @@
 			"name": "Burrowshark",
 			"source": "PotA",
 			"page": 196,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -749,7 +759,9 @@
 			"name": "Crushing Wave Priest",
 			"source": "PotA",
 			"page": 205,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -863,7 +875,9 @@
 			"name": "Crushing Wave Reaver",
 			"source": "PotA",
 			"page": 205,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -968,7 +982,9 @@
 					"source": "SLW"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1098,7 +1114,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 210,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1226,7 +1244,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 202,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1392,7 +1412,9 @@
 			"name": "Eternal Flame Guardian",
 			"source": "PotA",
 			"page": 200,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1492,7 +1514,9 @@
 			"name": "Eternal Flame Priest",
 			"source": "PotA",
 			"page": 200,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1615,7 +1639,9 @@
 					"source": "GoS"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1751,7 +1777,9 @@
 			"name": "Feathergale Knight",
 			"source": "PotA",
 			"page": 189,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1917,7 +1945,9 @@
 			"name": "Flamewrath",
 			"source": "PotA",
 			"page": 201,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2050,7 +2080,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 208,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2241,7 +2273,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 210,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2412,7 +2446,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 198,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2535,7 +2571,9 @@
 			"name": "Howling Hatred Initiate",
 			"source": "PotA",
 			"page": 190,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2620,7 +2658,9 @@
 			"name": "Howling Hatred Priest",
 			"source": "PotA",
 			"page": 190,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2762,7 +2802,9 @@
 			"name": "Hurricane",
 			"source": "PotA",
 			"page": 191,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2892,7 +2934,9 @@
 			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 214,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "elemental",
 			"alignment": [
 				"N",
@@ -3201,7 +3245,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 199,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -3333,7 +3379,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 198,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3567,7 +3615,9 @@
 			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 216,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "elemental",
 			"alignment": [
 				"N",
@@ -3769,7 +3819,9 @@
 			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 218,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "elemental",
 			"alignment": [
 				"N",
@@ -3976,7 +4028,9 @@
 			"name": "One-Eyed Shiver",
 			"source": "PotA",
 			"page": 207,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4109,7 +4163,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 212,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4276,7 +4332,9 @@
 			"name": "Razerblast",
 			"source": "PotA",
 			"page": 201,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4516,7 +4574,9 @@
 			"name": "Sacred Stone Monk",
 			"source": "PotA",
 			"page": 196,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4616,7 +4676,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 208,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4762,7 +4824,9 @@
 			"name": "Skyweaver",
 			"source": "PotA",
 			"page": 191,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4898,7 +4962,9 @@
 			"name": "Stonemelder",
 			"source": "PotA",
 			"page": 197,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5034,7 +5100,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 192,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5197,7 +5265,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 203,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5373,7 +5443,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 212,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5503,7 +5575,9 @@
 			"isNpc": true,
 			"source": "PotA",
 			"page": 192,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5659,7 +5733,9 @@
 			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 221,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "elemental",
 			"alignment": [
 				"N",

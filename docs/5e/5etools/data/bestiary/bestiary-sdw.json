@@ -18,7 +18,9 @@
 			"name": "Expert",
 			"source": "SDW",
 			"level": 9,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -119,7 +121,9 @@
 		{
 			"name": "Giant Shark Skeleton",
 			"source": "SDW",
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"alignment": [
 				"U"
@@ -196,7 +200,9 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "SDW",
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "dragon",
 			"alignment": [
 				"L",
@@ -469,7 +475,9 @@
 			"name": "Spellcaster (Healer)",
 			"source": "SDW",
 			"level": 9,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -596,7 +604,9 @@
 			"name": "Spellcaster (Mage)",
 			"source": "SDW",
 			"level": 9,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -724,7 +734,9 @@
 			"name": "Warrior",
 			"source": "SDW",
 			"level": 9,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{

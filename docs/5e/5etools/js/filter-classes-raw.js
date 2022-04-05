@@ -329,7 +329,7 @@ class PageFilterClassesRaw extends PageFilterClassesBase {
 	static async _pGetIgnoredAndApplySideData (entity, type) {
 		if (!PageFilterClassesRaw._IMPLS_SIDE_DATA[type]) throw new Error(`Unhandled type "${type}"`);
 
-		const sideData = await PageFilterClassesRaw._IMPLS_SIDE_DATA[type].pGetSideData(entity, type);
+		const sideData = await PageFilterClassesRaw._IMPLS_SIDE_DATA[type].pGetSideLoadedMatch(entity, type);
 
 		if (!sideData) return false;
 		if (sideData.isIgnored) return true;
@@ -564,19 +564,19 @@ class ModalFilterClasses extends ModalFilter {
 	/**
 	 * @param opts
 	 * @param opts.namespace
+	 * @param [opts.allData]
 	 */
 	constructor (opts) {
 		opts = opts || {};
 
 		super({
+			...opts,
 			modalTitle: "Class and Subclass",
 			pageFilter: new PageFilterClassesRaw(),
-			namespace: opts.namespace,
 			fnSort: ModalFilterClasses.fnSort,
 		});
 
 		this._pLoadingAllData = null;
-		this._allData = null;
 
 		this._ixPrevSelectedClass = null;
 		this._isClassDisabled = false;
@@ -599,7 +599,7 @@ class ModalFilterClasses extends ModalFilter {
 	async pGetSelection (classSubclassMeta) {
 		const {className, classSource, subclassName, subclassSource} = classSubclassMeta;
 
-		const allData = await this._pLoadAllData();
+		const allData = this._allData || await this._pLoadAllData();
 
 		const cls = allData.find(it => it.name === className && it.source === classSource);
 		if (!cls) throw new Error(`Could not find class with name "${className}" and source "${classSource}"`);
@@ -731,7 +731,7 @@ class ModalFilterClasses extends ModalFilter {
 
 			SortUtil.initBtnSortHandlers($wrpFormHeaders, list);
 
-			const allData = await this._pLoadAllData();
+			const allData = this._allData || await this._pLoadAllData();
 			const pageFilter = this._pageFilter;
 
 			await pageFilter.pInitFilterBox({
@@ -769,21 +769,7 @@ class ModalFilterClasses extends ModalFilter {
 			list.update();
 
 			const handleFilterChange = () => {
-				const f = pageFilter.filterBox.getValues();
-
-				// Find all the classes which have visible subclasses so we can force them to remain visible.
-				const ixsVisibleCls = new Set();
-				list.items.forEach(li => {
-					if (li.data.ixSubclass == null) return;
-					const sc = allData[li.data.ixClass].subclasses[li.data.ixSubclass];
-					const isVisible = pageFilter.toDisplay(f, sc);
-					if (isVisible) ixsVisibleCls.add(li.data.ixClass);
-				});
-
-				list.filter(li => {
-					if (li.data.ixSubclass == null) return ixsVisibleCls.has(li.data.ixClass) || pageFilter.toDisplay(f, allData[li.data.ixClass]);
-					else return pageFilter.toDisplay(f, allData[li.data.ixClass].subclasses[li.data.ixSubclass]);
-				});
+				return this.constructor.handleFilterChange({pageFilter, list, allData});
 			};
 
 			pageFilter.trimState();
@@ -802,6 +788,26 @@ class ModalFilterClasses extends ModalFilter {
 
 			this._filterCache = {$wrpModalInner, $btnConfirm, pageFilter, list, allData, $iptSearch};
 		}
+	}
+
+	static handleFilterChange ({pageFilter, list, allData}) {
+		const f = pageFilter.filterBox.getValues();
+
+		list.filter(li => {
+			const cls = allData[li.data.ixClass];
+
+			if (li.data.ixSubclass != null) {
+				const sc = cls.subclasses[li.data.ixSubclass];
+				// Both the subclass and the class must be displayed
+				return pageFilter.toDisplay(f, cls) && pageFilter.filterBox.toDisplay(
+					f,
+					sc.source,
+					sc._fMisc,
+				);
+			}
+
+			return pageFilter.toDisplay(f, cls);
+		});
 	}
 
 	static _doListDeselectAll (list, {isSubclassItemsOnly = false} = {}) {

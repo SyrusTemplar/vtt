@@ -10,7 +10,8 @@
 			"monster": {
 				"MM": "IDRotF",
 				"MTF": "IDRotF",
-				"SKT": "IDRotF"
+				"SKT": "IDRotF",
+				"VRGR": "IDRotF"
 			}
 		}
 	},
@@ -22,7 +23,9 @@
 			"source": "IDRotF",
 			"page": 169,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -135,7 +138,9 @@
 			"isNamedCreature": true,
 			"source": "IDRotF",
 			"page": 275,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -328,7 +333,9 @@
 			"isNamedCreature": true,
 			"source": "IDRotF",
 			"page": 277,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "elemental",
 			"alignment": [
 				"N",
@@ -516,7 +523,9 @@
 			"isNamedCreature": true,
 			"source": "IDRotF",
 			"page": 278,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "elemental",
 			"alignment": [
 				"N",
@@ -696,7 +705,9 @@
 			"isNpc": true,
 			"source": "IDRotF",
 			"page": 269,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -873,7 +884,9 @@
 			"source": "IDRotF",
 			"page": 82,
 			"_isCopy": true,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"N",
@@ -967,7 +980,9 @@
 			"source": "IDRotF",
 			"page": 107,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1080,7 +1095,9 @@
 			"isNamedCreature": true,
 			"source": "IDRotF",
 			"page": 306,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1173,167 +1190,12 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "Brain in a Jar",
-			"source": "IDRotF",
-			"page": 278,
-			"otherSources": [
-				{
-					"source": "VRGR",
-					"page": 278
-				}
-			],
-			"size": "S",
-			"type": "undead",
-			"alignment": [
-				"A"
-			],
-			"ac": [
-				{
-					"ac": 11,
-					"from": [
-						"natural armor"
-					]
-				}
-			],
-			"hp": {
-				"average": 55,
-				"formula": "10d6 + 20"
-			},
-			"speed": {
-				"walk": 0,
-				"fly": {
-					"number": 10,
-					"condition": "(hover)"
-				},
-				"canHover": true
-			},
-			"str": 1,
-			"dex": 3,
-			"con": 15,
-			"int": 19,
-			"wis": 10,
-			"cha": 15,
-			"save": {
-				"int": "+6",
-				"cha": "+4"
-			},
-			"senses": [
-				"blindsight 120 ft. (blind beyond this radius); see also \"detect sentience\" below"
-			],
-			"passive": 10,
-			"immune": [
-				"poison"
-			],
-			"conditionImmune": [
-				"exhaustion",
-				"paralyzed",
-				"poisoned",
-				"prone"
-			],
-			"languages": [
-				"the languages it knew in life"
-			],
-			"cr": "3",
-			"spellcasting": [
-				{
-					"name": "Innate Spellcasting (Psionics)",
-					"headerEntries": [
-						"The brain's innate spellcasting ability is Intelligence (spell save {@dc 14}, {@hit 6} to hit with spell attacks). It can innately cast the following spells, requiring no components:"
-					],
-					"will": [
-						"{@spell chill touch} (see \"Actions\" below)",
-						"{@spell detect thoughts}",
-						"{@spell mage hand}",
-						"{@spell zone of truth}"
-					],
-					"daily": {
-						"3e": [
-							"{@spell charm person}",
-							"{@spell hold person}"
-						],
-						"1e": [
-							"{@spell compulsion}",
-							"{@spell hold monster}",
-							"{@spell sleep} (3rd-level version)",
-							"{@spell Tasha's hideous laughter}"
-						]
-					},
-					"ability": "int"
-				}
-			],
-			"trait": [
-				{
-					"name": "Detect Sentience",
-					"entries": [
-						"The brain can sense the presence and location of any creature within 300 feet of it that has an Intelligence of 3 or higher, regardless of interposing barriers, unless the creature is protected by a {@spell mind blank} spell."
-					]
-				},
-				{
-					"name": "Magic Resistance",
-					"entries": [
-						"The brain has advantage on saving throws against spells and other magic effects."
-					]
-				},
-				{
-					"name": "Unusual Nature",
-					"entries": [
-						"The brain doesn't require air, food, drink, or sleep."
-					]
-				}
-			],
-			"action": [
-				{
-					"name": "Chill Touch (Cantrip)",
-					"entries": [
-						"{@atk rs} {@hit 6} to hit, range 120 ft., one creature. {@h}13 ({@damage 3d8}) necrotic damage, and the target can't regain hit points until the start of the brain's next turn. If the target is undead, it also has disadvantage on attack rolls against the brain until the end of the brain's next turn."
-					]
-				},
-				{
-					"name": "Mind Blast {@recharge 5}",
-					"entries": [
-						"The brain magically emits psychic energy in a 60-foot cone. Each creature in that area must succeed on a {@dc 14} Intelligence saving throw or take 17 ({@damage 3d8 + 4}) psychic damage and be {@condition stunned} for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
-					]
-				}
-			],
-			"traitTags": [
-				"Magic Resistance"
-			],
-			"senseTags": [
-				"B"
-			],
-			"languageTags": [
-				"LF"
-			],
-			"damageTags": [
-				"N",
-				"Y"
-			],
-			"spellcastingTags": [
-				"I",
-				"P"
-			],
-			"miscTags": [
-				"AOE"
-			],
-			"conditionInflict": [
-				"stunned"
-			],
-			"conditionInflictSpell": [
-				"charmed",
-				"incapacitated",
-				"paralyzed",
-				"prone",
-				"unconscious"
-			],
-			"hasToken": true,
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
 			"name": "Chardalyn Berserker",
 			"source": "IDRotF",
 			"page": 280,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fiend",
 			"alignment": [
 				"C",
@@ -1432,7 +1294,9 @@
 			"name": "Chardalyn Dragon",
 			"source": "IDRotF",
 			"page": 281,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "construct",
 			"alignment": [
 				"C",
@@ -1594,7 +1458,9 @@
 			"source": "IDRotF",
 			"page": 246,
 			"_isCopy": true,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1650,7 +1516,9 @@
 			"source": "IDRotF",
 			"page": 246,
 			"_isCopy": true,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1718,7 +1586,9 @@
 			"source": "IDRotF",
 			"page": 246,
 			"_isCopy": true,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1784,7 +1654,9 @@
 			"source": "IDRotF",
 			"page": 246,
 			"_isCopy": true,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1848,7 +1720,9 @@
 			"source": "IDRotF",
 			"page": 246,
 			"_isCopy": true,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1924,7 +1798,9 @@
 			"name": "Coldlight Walker",
 			"source": "IDRotF",
 			"page": 284,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"C",
@@ -2036,7 +1912,9 @@
 			"name": "Demos Magen",
 			"source": "IDRotF",
 			"page": 300,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -2146,7 +2024,9 @@
 			"source": "IDRotF",
 			"page": 270,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2295,7 +2175,9 @@
 			"isNpc": true,
 			"source": "IDRotF",
 			"page": 270,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"L",
@@ -2451,7 +2333,9 @@
 			"name": "Fox",
 			"source": "IDRotF",
 			"page": 288,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -2519,7 +2403,9 @@
 			"name": "Frost Druid",
 			"source": "IDRotF",
 			"page": 288,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2702,7 +2588,9 @@
 			"name": "Frost Giant Skeleton",
 			"source": "IDRotF",
 			"page": 288,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -2805,7 +2693,9 @@
 			"name": "Galvan Magen",
 			"source": "IDRotF",
 			"page": 301,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -2910,7 +2800,9 @@
 			"name": "Giant Walrus",
 			"source": "IDRotF",
 			"page": 312,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -2989,7 +2881,9 @@
 			"name": "Gnoll Vampire",
 			"source": "IDRotF",
 			"page": 290,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "undead",
 				"tags": [
@@ -3159,7 +3053,9 @@
 			"name": "Gnome Ceremorph",
 			"source": "IDRotF",
 			"page": 303,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "aberration",
 			"alignment": [
 				"A"
@@ -3306,7 +3202,9 @@
 			"name": "Gnome Squidling",
 			"source": "IDRotF",
 			"page": 303,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "aberration",
 			"alignment": [
 				"U"
@@ -3418,7 +3316,9 @@
 			"name": "Goliath Warrior",
 			"source": "IDRotF",
 			"page": 292,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3529,7 +3429,9 @@
 			"name": "Goliath Werebear",
 			"source": "IDRotF",
 			"page": 293,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3688,7 +3590,9 @@
 			"source": "IDRotF",
 			"page": 176,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3805,7 +3709,9 @@
 			"isNamedCreature": true,
 			"source": "IDRotF",
 			"page": 305,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3912,7 +3818,9 @@
 			"name": "Hare",
 			"source": "IDRotF",
 			"page": 294,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -3958,7 +3866,9 @@
 			"source": "IDRotF",
 			"page": 244,
 			"_isCopy": true,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -4099,7 +4009,9 @@
 			"source": "IDRotF",
 			"page": 215,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4217,7 +4129,9 @@
 			"name": "Hypnos Magen",
 			"source": "IDRotF",
 			"page": 301,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -4307,7 +4221,9 @@
 			"source": "IDRotF",
 			"page": 226,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -4390,7 +4306,9 @@
 			"name": "Ice Troll",
 			"source": "IDRotF",
 			"page": 295,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "giant",
 			"alignment": [
 				"C",
@@ -4500,7 +4418,9 @@
 			"name": "Icewind Kobold",
 			"source": "IDRotF",
 			"page": 296,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4605,7 +4525,9 @@
 			"name": "Icewind Kobold Zombie",
 			"source": "IDRotF",
 			"page": 297,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -4697,7 +4619,9 @@
 			"isNamedCreature": true,
 			"source": "IDRotF",
 			"page": 307,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4813,7 +4737,9 @@
 			"isNamedCreature": true,
 			"source": "IDRotF",
 			"page": 305,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4922,7 +4848,9 @@
 			"source": "IDRotF",
 			"page": 42,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5061,7 +4989,9 @@
 			"source": "IDRotF",
 			"page": 243,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -5131,7 +5061,9 @@
 			"source": "IDRotF",
 			"page": 259,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5266,7 +5198,9 @@
 			"name": "Knucklehead Trout",
 			"source": "IDRotF",
 			"page": 295,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -5336,7 +5270,9 @@
 			"name": "Kobold Vampire Spawn",
 			"source": "IDRotF",
 			"page": 297,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -5453,7 +5389,9 @@
 			"name": "Living Bigby's Hand",
 			"source": "IDRotF",
 			"page": 298,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -5560,7 +5498,9 @@
 			"name": "Living Blade of Disaster",
 			"source": "IDRotF",
 			"page": 299,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "construct",
 			"alignment": [
 				"C",
@@ -5673,7 +5613,9 @@
 			"name": "Living Demiplane",
 			"source": "IDRotF",
 			"page": 299,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -5765,7 +5707,9 @@
 			"source": "IDRotF",
 			"page": 81,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"C",
@@ -5898,7 +5842,9 @@
 			"source": "IDRotF",
 			"page": 215,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5999,7 +5945,9 @@
 			"name": "Mountain Goat",
 			"source": "IDRotF",
 			"page": 304,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -6066,7 +6014,9 @@
 			"isNpc": true,
 			"source": "IDRotF",
 			"page": 272,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -6243,7 +6193,9 @@
 			"source": "IDRotF",
 			"page": 160,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6363,7 +6315,9 @@
 			"source": "IDRotF",
 			"page": 152,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6481,7 +6435,9 @@
 			"source": "IDRotF",
 			"page": 152,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6600,7 +6556,9 @@
 			"source": "IDRotF",
 			"page": 152,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6704,7 +6662,9 @@
 			"source": "IDRotF",
 			"page": 152,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6797,7 +6757,9 @@
 			"name": "Seal",
 			"source": "IDRotF",
 			"page": 308,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -6870,7 +6832,9 @@
 			"source": "IDRotF",
 			"page": 23,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -6978,7 +6942,9 @@
 			"name": "Snow Golem",
 			"source": "IDRotF",
 			"page": 308,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -7101,7 +7067,9 @@
 			"source": "IDRotF",
 			"page": 309,
 			"_isCopy": true,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -7189,7 +7157,9 @@
 			"source": "IDRotF",
 			"page": 144,
 			"_isCopy": true,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7314,7 +7284,9 @@
 			"name": "Sperm Whale",
 			"source": "IDRotF",
 			"page": 309,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -7414,7 +7386,9 @@
 			"name": "Spitting Mimic",
 			"source": "IDRotF",
 			"page": 302,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -7549,7 +7523,9 @@
 			"source": "IDRotF",
 			"page": 244,
 			"_isCopy": true,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -7649,7 +7625,9 @@
 			"name": "Tomb Tapper",
 			"source": "IDRotF",
 			"page": 310,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "construct",
 			"alignment": [
 				"L",
@@ -7782,7 +7760,9 @@
 			"source": "IDRotF",
 			"page": 52,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "plant",
 			"alignment": [
 				"U"
@@ -7844,7 +7824,9 @@
 			"isNpc": true,
 			"source": "IDRotF",
 			"page": 273,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7999,7 +7981,9 @@
 			"name": "Verbeeg Longstrider",
 			"source": "IDRotF",
 			"page": 311,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "giant",
 			"alignment": [
 				"N"
@@ -8121,7 +8105,9 @@
 			"name": "Verbeeg Marauder",
 			"source": "IDRotF",
 			"page": 311,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "giant",
 			"alignment": [
 				"N",
@@ -8209,7 +8195,9 @@
 			"name": "Walrus",
 			"source": "IDRotF",
 			"page": 312,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -8267,7 +8255,9 @@
 			"isNamedCreature": true,
 			"source": "IDRotF",
 			"page": 287,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8431,7 +8421,9 @@
 			"name": "Yeti Tyke",
 			"source": "IDRotF",
 			"page": 313,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -8518,7 +8510,9 @@
 			"source": "IDRotF",
 			"page": 163,
 			"_isCopy": true,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -8601,7 +8595,9 @@
 			"source": "IDRotF",
 			"page": 163,
 			"_isCopy": true,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -8684,7 +8680,9 @@
 			"source": "IDRotF",
 			"page": 163,
 			"_isCopy": true,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"

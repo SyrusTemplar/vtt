@@ -1,7 +1,7 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"$id": "foundry-items.json",
-	"version": "1.0.0",
+	"version": "1.0.2",
 
 	"type": "object",
 
@@ -9,6 +9,7 @@
 		"variant": {"$ref": "util.json#/definitions/foundrySideDataGenericArray"},
 		"item": {
 			"type": "array",
+			"uniqueItems": true,
 			"items": {
 				"type": "object",
 				"properties": {
@@ -16,6 +17,8 @@
 					"source": {"type": "string"},
 
 					"data": {"$ref": "util.json#/definitions/foundryDataObject"},
+
+					"flags": {"$ref": "util.json#/definitions/foundryFlagsObject"},
 
 					"effects": {"type": "array", "items": {"$ref": "util.json#/definitions/foundryEffectObject"}},
 

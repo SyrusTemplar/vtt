@@ -4,7 +4,9 @@
 			"name": "Goblin Gang Member",
 			"source": "KKW",
 			"page": 167,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -92,7 +94,9 @@
 			"isNpc": true,
 			"source": "KKW",
 			"page": 168,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -202,7 +206,9 @@
 			"isNpc": true,
 			"source": "KKW",
 			"page": 170,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "construct"
 			},

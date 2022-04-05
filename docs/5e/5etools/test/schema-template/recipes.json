@@ -1,7 +1,7 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"$id": "recipes.json",
-	"version": "1.2.2",
+	"version": "1.2.4",
 	"type": "object",
 
 	"definitions": {
@@ -14,9 +14,7 @@
 				"source": {
 					"type": "string"
 				},
-				"page": {
-					"type": "integer"
-				},
+				"page": {"$ref": "util.json#/definitions/page"},
 
 				"$$ifBrew": {
 					"fluff": {
@@ -153,6 +151,7 @@
 	"properties": {
 		"recipe": {
 			"type": "array",
+			"uniqueItems": true,
 			"items": {
 				"$ref": "#/definitions/recipe"
 			}

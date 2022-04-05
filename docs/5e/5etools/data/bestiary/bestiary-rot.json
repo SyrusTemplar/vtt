@@ -146,7 +146,9 @@
 			"name": "Dragonfang",
 			"source": "RoT",
 			"page": 89,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -274,7 +276,9 @@
 			"name": "Dragonsoul",
 			"source": "RoT",
 			"page": 89,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -618,7 +622,9 @@
 			"name": "Ice Toad",
 			"source": "RoT",
 			"page": 90,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N"
@@ -824,7 +830,9 @@
 			"isNpc": true,
 			"source": "RoT",
 			"page": 90,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -952,7 +960,9 @@
 			"isNpc": true,
 			"source": "RoT",
 			"page": 91,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1109,7 +1119,9 @@
 			"isNamedCreature": true,
 			"source": "RoT",
 			"page": 92,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1342,7 +1354,9 @@
 					"source": "BGDIA"
 				}
 			],
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "fiend",
 			"alignment": [
 				"C",

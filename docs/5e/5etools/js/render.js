@@ -308,7 +308,7 @@ function Renderer () {
 		if (entry instanceof Array) {
 			entry.forEach(nxt => this.recursiveRender(nxt, textStack, meta, options));
 			setTimeout(() => { throw new Error(`Array passed to renderer! The renderer only guarantees support for primitives and basic objects.`); });
-			return;
+			return this;
 		}
 
 		// respect the API of the original, but set up for using string concatenations
@@ -323,6 +323,8 @@ function Renderer () {
 		this._recursiveRender(entry, textStack, meta, options);
 		if (this._fnPostProcess) textStack[0] = this._fnPostProcess(textStack[0]);
 		textStack.reverse();
+
+		return this;
 	};
 
 	/**
@@ -472,9 +474,12 @@ function Renderer () {
 		</div>`;
 
 		if (entry.title || entry.mapRegions) {
+			const ptAdventureBookMeta = entry.mapRegions && meta.adventureBookPage && meta.adventureBookSource && meta.adventureBookHash
+				? `data-rd-adventure-book-map-page="${meta.adventureBookPage.qq()}" data-rd-adventure-book-map-source="${meta.adventureBookSource.qq()}" data-rd-adventure-book-map-hash="${meta.adventureBookHash.qq()}"`
+				: "";
 			textStack[0] += `<div class="rd__image-title">
 				${entry.title && !entry.mapRegions ? `<div class="rd__image-title-inner ${entry.title && entry.mapRegions ? "mr-2" : ""}">${this.render(entry.title)}</div>` : ""}
-				${entry.mapRegions ? `<button class="btn btn-xs btn-default rd__image-btn-viewer" onclick="RenderMap.pShowViewer(event, this)" data-rd-packed-map="${this._renderImage_getMapRegionData(entry)}" ${entry.title ? `title="Open Dynamic Viewer"` : ""}><span class="glyphicon glyphicon-picture"></span> ${entry.title || "Dynamic Viewer"}</button>` : ""}
+				${entry.mapRegions ? `<button class="btn btn-xs btn-default rd__image-btn-viewer" onclick="RenderMap.pShowViewer(event, this)" data-rd-packed-map="${this._renderImage_getMapRegionData(entry)}" ${ptAdventureBookMeta} title="Open Dynamic Viewer (SHIFT to Open in New Window)"><span class="glyphicon glyphicon-picture"></span> ${Renderer.stripTags(entry.title) || "Dynamic Viewer"}</button>` : ""}
 			</div>`;
 		} else if (entry._galleryTitlePad) {
 			textStack[0] += `<div class="rd__image-title">&nbsp;</div>`;
@@ -1488,7 +1493,8 @@ function Renderer () {
 
 			// DCs /////////////////////////////////////////////////////////////////////////////////////////////
 			case "@dc": {
-				textStack[0] += `DC <span class="rd__dc">${text}</span>`;
+				const [dcText, displayText] = Renderer.splitTagByPipe(text);
+				textStack[0] += `DC <span class="rd__dc">${displayText || dcText}</span>`;
 				break;
 			}
 
@@ -2416,6 +2422,14 @@ Renderer.getFilterSubhashes = function (filters, namespace = null) {
 					max ? `max=${max}` : "",
 				].filter(Boolean).join(HASH_SUB_LIST_SEP);
 			}
+		} else if (fVals.startsWith("::") && fVals.endsWith("::")) { // options
+			value = fVals.substring(2, fVals.length - 2).split(";")
+				.map(it => it.trim())
+				.map(it => {
+					if (it.startsWith("!")) return `${UrlUtil.encodeForHash(it.slice(1))}=${UrlUtil.mini.compress(false)}`;
+					return `${UrlUtil.encodeForHash(it)}=${UrlUtil.mini.compress(true)}`;
+				})
+				.join(HASH_SUB_LIST_SEP);
 		} else {
 			value = fVals.split(";")
 				.map(s => s.trim())
@@ -3012,6 +3026,14 @@ Renderer.utils = {
 						case "spellcasting": return isListMode ? "Spellcasting" : "The ability to cast at least one spell";
 						case "spellcasting2020": return isListMode ? "Spellcasting" : "Spellcasting or Pact Magic feature";
 						case "psionics": return isListMode ? "Psionics" : (isTextOnly ? Renderer.stripTags : Renderer.get().render.bind(Renderer.get()))("Psionic Talent feature or {@feat Wild Talent|UA2020PsionicOptionsRevisited} feat");
+						case "alignment": {
+							return isListMode
+								? Parser.alignmentListToFull(v)
+									.replace(/\bany\b/gi, "").trim()
+									.replace(/\balignment\b/gi, "align").trim()
+									.toTitleCase()
+								: Parser.alignmentListToFull(v);
+						}
 						default: throw new Error(`Unhandled key: ${k}`);
 					}
 				})
@@ -3032,6 +3054,13 @@ Renderer.utils = {
 
 		const joinedChoices = hasNote ? listOfChoices.join(" Or, ") : listOfChoices.joinConjunct("; ", " or ");
 		return `${isSkipPrefix ? "" : `Prerequisite${cntPrerequisites === 1 ? "" : "s"}: `}${joinedChoices}`;
+	},
+
+	getRenderedSize (size) {
+		return [...(size ? [size].flat() : [])]
+			.sort(SortUtil.ascSortSize)
+			.map(sz => Parser.sizeAbvToFull(sz))
+			.joinConjunct(", ", " or ");
 	},
 
 	getMediaUrl (entry, prop, mediaDir) {
@@ -3976,7 +4005,7 @@ Renderer.spell = {
 
 			if (!isExcludedDivSoul) {
 				if (isClericSpell) {
-					const isExistingDivSoul = spell.classes.fromSubclass && spell.classes.fromSubclass.some(it => it.class.name === Renderer.spell.STR_SORCERER && it.class.source === SRC_PHB && it.subclass.name === Renderer.spell.STR_DIV_SOUL && it.subclass.source === SRC_XGE);
+					const isExistingDivSoul = spell.classes?.fromSubclass && spell.classes?.fromSubclass.some(it => it.class.name === Renderer.spell.STR_SORCERER && it.class.source === SRC_PHB && it.subclass.name === Renderer.spell.STR_DIV_SOUL && it.subclass.source === SRC_XGE);
 					if (!isExistingDivSoul) {
 						Renderer.spell._initClasses_addSubclassSpell({
 							spell,
@@ -4145,7 +4174,7 @@ Renderer.spell = {
 			const isDeathDomain = ExcludeUtil.isExcluded(hashClericDeath, "subclass", SRC_DMG, {isNoCount: true});
 
 			if (!isDeathDomain) {
-				const isExisting = spell.classes.fromSubclass && spell.classes.fromSubclass.some(it => it.class.name === Renderer.spell.STR_CLERIC && it.class.source === SRC_PHB && it.subclass.name === Renderer.spell.STR_DEATH && it.subclass.source === SRC_DMG);
+				const isExisting = spell.classes?.fromSubclass && spell.classes?.fromSubclass.some(it => it.class.name === Renderer.spell.STR_CLERIC && it.class.source === SRC_PHB && it.subclass.name === Renderer.spell.STR_DEATH && it.subclass.source === SRC_DMG);
 				if (!isExisting) {
 					Renderer.spell._initClasses_addSubclassSpell({
 						spell,
@@ -4168,7 +4197,7 @@ Renderer.spell = {
 				const isExcludedAberrantMind = ExcludeUtil.isExcluded(hashSorcererAberrantMind, "subclass", SRC_TCE, {isNoCount: true});
 
 				if (!isExcludedAberrantMind) {
-					const isExisting = spell.classes.fromSubclass && spell.classes.fromSubclass.some(it => it.class.name === Renderer.spell.STR_SORCERER && it.class.source === SRC_PHB && it.subclass.name === Renderer.spell.STR_ABERRANT_MIND && it.subclass.source === SRC_TCE);
+					const isExisting = spell.classes?.fromSubclass && spell.classes?.fromSubclass.some(it => it.class.name === Renderer.spell.STR_SORCERER && it.class.source === SRC_PHB && it.subclass.name === Renderer.spell.STR_ABERRANT_MIND && it.subclass.source === SRC_TCE);
 
 					if (!isExisting) {
 						if (isWizardSpell || isWarlockSpell || isSorcererSpell) {
@@ -4218,7 +4247,7 @@ Renderer.spell = {
 				const isExcludedClockworkSoul = ExcludeUtil.isExcluded(hashSorcererClockworkSoul, "subclass", SRC_TCE, {isNoCount: true});
 
 				if (!isExcludedClockworkSoul) {
-					const isExisting = spell.classes.fromSubclass && spell.classes.fromSubclass.some(it => it.class.name === Renderer.spell.STR_SORCERER && it.class.source === SRC_PHB && it.subclass.name === Renderer.spell.STR_CLOCKWORK_SOUL && it.subclass.source === SRC_TCE);
+					const isExisting = spell.classes?.fromSubclass && spell.classes?.fromSubclass.some(it => it.class.name === Renderer.spell.STR_SORCERER && it.class.source === SRC_PHB && it.subclass.name === Renderer.spell.STR_CLOCKWORK_SOUL && it.subclass.source === SRC_TCE);
 
 					if (!isExisting) {
 						if (isWizardSpell || isWarlockSpell || isSorcererSpell) {
@@ -4291,7 +4320,7 @@ Renderer.spell = {
 					const searchForClasses = Renderer.spell.brewSpellClasses.class[srcLower];
 
 					for (const clsLowName in searchForClasses) {
-						const spellHasClass = spell.classes.fromClassList.some(cls => (cls.source || "").toLowerCase() === srcLower && cls.name.toLowerCase() === clsLowName);
+						const spellHasClass = spell.classes && spell.classes.fromClassList.some(cls => (cls.source || "").toLowerCase() === srcLower && cls.name.toLowerCase() === clsLowName);
 						if (!spellHasClass) continue;
 
 						const fromDetails = searchForClasses[clsLowName];
@@ -4770,6 +4799,7 @@ Renderer.race = {
 		delete cpy.subraces;
 		delete cpy.srd;
 		delete cpy.basicRules;
+		delete cpy._versions;
 
 		// merge names, abilities, entries, tags
 		if (s.name) {
@@ -5554,7 +5584,7 @@ Renderer.monster = {
 		</td></tr>`;
 	},
 
-	getTypeAlignmentPart (mon) { return `${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${Parser.sizeAbvToFull(mon.size)}${mon.sizeNote ? ` ${mon.sizeNote}` : ""} ${Parser.monTypeToFullObj(mon.type).asText.toTitleCase()}${mon.alignment ? `, ${mon.alignmentPrefix ? Renderer.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment).toTitleCase()}` : ""}`; },
+	getTypeAlignmentPart (mon) { return `${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${Renderer.utils.getRenderedSize(mon.size)}${mon.sizeNote ? ` ${mon.sizeNote}` : ""} ${Parser.monTypeToFullObj(mon.type).asText.toTitleCase()}${mon.alignment ? `, ${mon.alignmentPrefix ? Renderer.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment).toTitleCase()}` : ""}`; },
 	getSavesPart (mon) { return `${Object.keys(mon.save || {}).sort(SortUtil.ascSortAtts).map(s => Renderer.monster.getSave(Renderer.get(), s, mon.save[s])).join(", ")}`; },
 	getSensesPart (mon) { return `${mon.senses ? `${Renderer.monster.getRenderedSenses(mon.senses)}, ` : ""}passive Perception ${mon.passive || "\u2014"}`; },
 
@@ -8472,6 +8502,7 @@ Renderer.hover = {
 	 * @param [opts.$pFnGetPopoutContent] A function which loads content for this window when it is popped out.
 	 * @param [opts.fnGetPopoutSize] A function which gets a `{width: ..., height: ...}` object with dimensions for a
 	 * popout window.
+	 * @param [opts.isPopout] If the window should be immediately popped out.
 	 * @param [opts.compactReferenceData] Reference (e.g. page/source/hash/others) which can be used to load the contents into the DM screen.
 	 * @param [opts.compactReferenceData.type]
 	 * @param [opts.sourceData] Source JSON (as raw as possible) used to construct this popout.
@@ -8720,86 +8751,96 @@ Renderer.hover = {
 				.appendTo($brdTopRhs);
 		}
 
-		if (!position.window._IS_POPOUT) {
+		const pDoPopout = async () => {
+			const dimensions = opts.fnGetPopoutSize ? opts.fnGetPopoutSize() : {width: 600, height: $content.height()};
+			const win = window.open(
+				"",
+				opts.title || "",
+				`width=${dimensions.width},height=${dimensions.height}location=0,menubar=0,status=0,titlebar=0,toolbar=0`,
+			);
+
+			// If this is a new window, bootstrap general page elements/variables.
+			// Otherwise, we can skip straight to using the window.
+			if (!win._IS_POPOUT) {
+				win._IS_POPOUT = true;
+				win.document.write(`
+					<!DOCTYPE html>
+					<html lang="en" class="${typeof styleSwitcher !== "undefined" ? styleSwitcher.getDayNightClassNames() : ""}"><head>
+						<meta name="viewport" content="width=device-width, initial-scale=1">
+						<title>${opts.title}</title>
+						${$(`link[rel="stylesheet"][href]`).map((i, e) => e.outerHTML).get().join("\n")}
+						<!-- Favicons -->
+						<link rel="icon" type="image/svg+xml" href="favicon.svg?v=1.115">
+						<link rel="icon" type="image/png" sizes="256x256" href="favicon-256x256.png">
+						<link rel="icon" type="image/png" sizes="144x144" href="favicon-144x144.png">
+						<link rel="icon" type="image/png" sizes="128x128" href="favicon-128x128.png">
+						<link rel="icon" type="image/png" sizes="64x64" href="favicon-64x64.png">
+						<link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+						<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+						<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+						<!-- Chrome Web App Icons -->
+						<link rel="manifest" href="manifest.webmanifest">
+						<meta name="application-name" content="5etools">
+						<meta name="theme-color" content="#006bc4">
+
+						<!-- Windows Start Menu tiles -->
+						<meta name="msapplication-config" content="browserconfig.xml"/>
+						<meta name="msapplication-TileColor" content="#006bc4">
+
+						<!-- Apple Touch Icons -->
+						<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+						<link rel="apple-touch-icon" sizes="360x360" href="apple-touch-icon-360x360.png">
+						<link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167x167.png">
+						<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+						<link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+						<meta name="apple-mobile-web-app-title" content="5etools">
+
+						<!-- macOS Safari Pinned Tab and Touch Bar -->
+						<link rel="mask-icon" href="safari-pinned-tab.svg" color="#006bc4">
+
+						<style>
+							html, body { width: 100%; height: 100%; }
+							body { overflow-y: scroll; }
+							.hwin--popout { max-width: 100%; max-height: 100%; box-shadow: initial; width: 100%; overflow-y: auto; }
+						</style>
+					</head><body class="rd__body-popout">
+					<div class="hwin hoverbox--popout hwin--popout"></div>
+					<script type="text/javascript" src="js/parser.js"></script>
+					<script type="text/javascript" src="js/utils.js"></script>
+					<script type="text/javascript" src="lib/jquery.js"></script>
+					</body></html>
+				`);
+
+				win.Renderer = Renderer;
+
+				let ticks = 50;
+				while (!win.document.body && ticks-- > 0) await MiscUtil.pDelay(5);
+
+				win.$wrpHoverContent = $(win.document).find(`.hoverbox--popout`);
+			}
+
+			let $cpyContent;
+			if (opts.$pFnGetPopoutContent) {
+				$cpyContent = await opts.$pFnGetPopoutContent();
+			} else {
+				$cpyContent = $content.clone(true, true);
+				$cpyContent.find(`.mon__btn-scale-cr`).remove();
+				$cpyContent.find(`.mon__btn-reset-cr`).remove();
+			}
+
+			$cpyContent.appendTo(win.$wrpHoverContent.empty());
+
+			doClose();
+		};
+
+		if (!position.window._IS_POPOUT && !opts.isPopout) {
 			const $btnPopout = $(`<span class="hwin__top-border-icon glyphicon glyphicon-new-window hvr__popout" title="Open as Popup Window"></span>`)
-				.on("click", async evt => {
+				.on("click", evt => {
 					evt.stopPropagation();
-
-					const dimensions = opts.fnGetPopoutSize ? opts.fnGetPopoutSize() : {width: 600, height: $content.height()};
-					const win = window.open(
-						"",
-						opts.title || "",
-						`width=${dimensions.width},height=${dimensions.height}location=0,menubar=0,status=0,titlebar=0,toolbar=0`,
-					);
-
-					win._IS_POPOUT = true;
-					win.document.write(`
-						<!DOCTYPE html>
-						<html lang="en" class="${typeof styleSwitcher !== "undefined" ? styleSwitcher.getDayNightClassNames() : ""}"><head>
-							<meta name="viewport" content="width=device-width, initial-scale=1">
-							<title>${opts.title}</title>
-							${$(`link[rel="stylesheet"][href]`).map((i, e) => e.outerHTML).get().join("\n")}
-							<!-- Favicons -->
-							<link rel="icon" type="image/svg+xml" href="favicon.svg?v=1.115">
-							<link rel="icon" type="image/png" sizes="256x256" href="favicon-256x256.png">
-							<link rel="icon" type="image/png" sizes="144x144" href="favicon-144x144.png">
-							<link rel="icon" type="image/png" sizes="128x128" href="favicon-128x128.png">
-							<link rel="icon" type="image/png" sizes="64x64" href="favicon-64x64.png">
-							<link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
-							<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-							<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-
-							<!-- Chrome Web App Icons -->
-							<link rel="manifest" href="manifest.webmanifest">
-							<meta name="application-name" content="5etools">
-							<meta name="theme-color" content="#006bc4">
-
-							<!-- Windows Start Menu tiles -->
-							<meta name="msapplication-config" content="browserconfig.xml"/>
-							<meta name="msapplication-TileColor" content="#006bc4">
-
-							<!-- Apple Touch Icons -->
-							<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
-							<link rel="apple-touch-icon" sizes="360x360" href="apple-touch-icon-360x360.png">
-							<link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167x167.png">
-							<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
-							<link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
-							<meta name="apple-mobile-web-app-title" content="5etools">
-
-							<!-- macOS Safari Pinned Tab and Touch Bar -->
-							<link rel="mask-icon" href="safari-pinned-tab.svg" color="#006bc4">
-
-							<style>
-								html, body { width: 100%; height: 100%; }
-								body { overflow-y: scroll; }
-								.hwin--popout { max-width: 100%; max-height: 100%; box-shadow: initial; width: 100%; overflow-y: auto; }
-							</style>
-						</head><body class="rd__body-popout">
-						<div class="hwin hoverbox--popout hwin--popout"></div>
-						<script type="text/javascript" src="js/parser.js"></script>
-						<script type="text/javascript" src="js/utils.js"></script>
-						<script type="text/javascript" src="lib/jquery.js"></script>
-						</body></html>
-					`);
-
-					let $cpyContent;
-					if (opts.$pFnGetPopoutContent) {
-						$cpyContent = await opts.$pFnGetPopoutContent();
-					} else {
-						$cpyContent = $content.clone(true, true);
-						$cpyContent.find(`.mon__btn-scale-cr`).remove();
-						$cpyContent.find(`.mon__btn-reset-cr`).remove();
-					}
-
-					let ticks = 50;
-					while (!win.document.body && ticks-- > 0) await MiscUtil.pDelay(5);
-
-					$cpyContent.appendTo($(win.document).find(`.hoverbox--popout`));
-
-					win.Renderer = Renderer;
-
-					doClose();
-				}).appendTo($brdTopRhs);
+					return pDoPopout(evt);
+				})
+				.appendTo($brdTopRhs);
 		}
 
 		if (opts.sourceData) {
@@ -8937,6 +8978,8 @@ Renderer.hover = {
 		out.doClose = doClose;
 		out.doMaximize = doMaximize;
 		out.doZIndexToFront = doZIndexToFront;
+
+		if (opts.isPopout) pDoPopout().then(null);
 
 		return out;
 	},
@@ -9482,9 +9525,7 @@ Renderer.hover = {
 	},
 
 	async _pCacheAndGet_pLoadClasses_addSubclassToIndex (sc, {isRaw = false} = {}) {
-		const clsHash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_CLASSES]({name: sc.className, source: sc.classSource});
-
-		const scHash = `${clsHash}${HASH_PART_SEP}${UrlUtil.getClassesPageStatePart({subclass: sc})}`;
+		const scHash = UrlUtil.URL_TO_HASH_BUILDER["subclass"](sc);
 
 		if (isRaw) {
 			Renderer.hover._addToCache("raw_subclass", sc.source || SRC_PHB, scHash, sc);
@@ -9953,14 +9994,15 @@ Renderer.hover = {
 	 * @param [opts]
 	 * @param [opts.isBookContent]
 	 * @param [opts.isStatic] If this content is to be "static," i.e. display only, containing minimal interactive UI.
+	 * @param [opts.fnRender]
 	 * @param [renderFnOpts]
 	 */
 	$getHoverContent_stats (page, toRender, opts, renderFnOpts) {
 		opts = opts || {};
 		if (page === UrlUtil.PG_RECIPES) opts = {...MiscUtil.copy(opts), isBookContent: true};
 
-		const renderFn = Renderer.hover.getFnRenderCompact(page, {isStatic: opts.isStatic});
-		return $$`<table class="stats ${opts.isBookContent ? `stats--book` : ""}">${renderFn(toRender, renderFnOpts)}</table>`;
+		const fnRender = opts.fnRender || Renderer.hover.getFnRenderCompact(page, {isStatic: opts.isStatic});
+		return $$`<table class="stats ${opts.isBookContent ? `stats--book` : ""}">${fnRender(toRender, renderFnOpts)}</table>`;
 	},
 
 	/**
@@ -10136,7 +10178,10 @@ Renderer._stripTagLayer = function (str) {
 
 					case "@h": return "Hit: ";
 
-					case "@dc": return `DC ${text}`;
+					case "@dc": {
+						const [dcText, displayText] = Renderer.splitTagByPipe(text);
+						return `DC ${displayText || dcText}`;
+					}
 
 					case "@atk": return Renderer.attackTagToFull(text);
 

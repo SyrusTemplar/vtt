@@ -1256,6 +1256,19 @@
 			]
 		},
 		{
+			"name": "Earring of Message",
+			"source": "CRCotN",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "items/CRCotN/Earring of Message.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Efreeti Bottle",
 			"source": "DMG",
 			"images": [
@@ -2232,6 +2245,19 @@
 			]
 		},
 		{
+			"name": "Jewel of Three Prayers",
+			"source": "CRCotN",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "items/CRCotN/Jewel of Three Prayers.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Keoghtom's Ointment",
 			"source": "DMG",
 			"images": [
@@ -2600,6 +2626,19 @@
 					"href": {
 						"type": "internal",
 						"path": "items/BGDIA/Matalotok.png"
+					}
+				}
+			]
+		},
+		{
+			"name": "Medal of the Maze",
+			"source": "CRCotN",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "items/CRCotN/Medal of the Maze.jpg"
 					}
 				}
 			]
@@ -3034,6 +3073,19 @@
 			]
 		},
 		{
+			"name": "Potion of Water Breathing",
+			"source": "DMG",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "items/DMG/Potion of Water Breathing.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Prosthetic Limb",
 			"source": "TCE",
 			"images": [
@@ -3276,6 +3328,19 @@
 					"href": {
 						"type": "internal",
 						"path": "items/DMG/Ring of Protection.png"
+					}
+				}
+			]
+		},
+		{
+			"name": "Ring of Red Fury",
+			"source": "CRCotN",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "items/CRCotN/Ring of Red Fury.webp"
 					}
 				}
 			]
@@ -3549,6 +3614,32 @@
 					"href": {
 						"type": "internal",
 						"path": "items/DMG/Rope of Entanglement.jpg"
+					}
+				}
+			]
+		},
+		{
+			"name": "Ruidium Shield",
+			"source": "CRCotN",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "items/CRCotN/Ruidium Shield.webp"
+					}
+				}
+			]
+		},
+		{
+			"name": "Ruidium Weapon",
+			"source": "CRCotN",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "items/CRCotN/Ruidium Weapon.webp"
 					}
 				}
 			]

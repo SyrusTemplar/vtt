@@ -25,7 +25,9 @@
 					"source": "MOT"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -133,7 +135,9 @@
 			"name": "Bullywug Croaker",
 			"source": "GoS",
 			"page": 232,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -258,7 +262,9 @@
 					"source": "WBtW"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -442,7 +448,9 @@
 					"source": "LR"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"C",
@@ -555,7 +563,9 @@
 					"source": "LR"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"C",
@@ -688,7 +698,9 @@
 					"source": "LR"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"C",
@@ -795,7 +807,9 @@
 					"source": "LR"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"C",
@@ -948,7 +962,9 @@
 			"name": "Giant Coral Snake",
 			"source": "GoS",
 			"page": 236,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1005,7 +1021,9 @@
 			"name": "Giant Sea Eel",
 			"source": "GoS",
 			"page": 237,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1124,7 +1142,9 @@
 			"name": "Harpy Matriarch",
 			"source": "GoS",
 			"page": 237,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -1244,7 +1264,9 @@
 			"name": "Juvenile Kraken",
 			"source": "GoS",
 			"page": 238,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -1426,7 +1448,9 @@
 			"name": "Koalinth",
 			"source": "GoS",
 			"page": 239,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1523,7 +1547,9 @@
 			"name": "Koalinth Sergeant",
 			"source": "GoS",
 			"page": 239,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1699,7 +1725,9 @@
 			"isNpc": true,
 			"source": "GoS",
 			"page": 240,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1813,7 +1841,9 @@
 			"name": "Living Iron Statue",
 			"source": "GoS",
 			"page": 241,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -1925,7 +1955,9 @@
 			"name": "Lizardfolk Commoner",
 			"source": "GoS",
 			"page": 241,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2010,7 +2042,9 @@
 					"source": "IMR"
 				}
 			],
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2119,7 +2153,9 @@
 			"name": "Lizardfolk Scaleshield",
 			"source": "GoS",
 			"page": 242,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2231,7 +2267,9 @@
 					"source": "SLW"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2375,7 +2413,9 @@
 					"source": "IMR"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2471,7 +2511,9 @@
 			"name": "Locathah Hunter",
 			"source": "GoS",
 			"page": 243,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2607,7 +2649,9 @@
 			"isNpc": true,
 			"source": "GoS",
 			"page": 244,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -2736,7 +2780,9 @@
 			"name": "Merfolk Salvager",
 			"source": "GoS",
 			"page": 244,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2869,7 +2915,9 @@
 			"name": "Minotaur Living Crystal Statue",
 			"source": "GoS",
 			"page": 245,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -2980,7 +3028,9 @@
 			"name": "Monstrous Peryton",
 			"source": "GoS",
 			"page": 245,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -3122,7 +3172,9 @@
 			"isNpc": true,
 			"source": "GoS",
 			"page": 246,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -3268,7 +3320,9 @@
 			"isNpc": true,
 			"source": "GoS",
 			"page": 246,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3403,7 +3457,9 @@
 			"name": "Pirate Bosun",
 			"source": "GoS",
 			"page": 247,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3494,7 +3550,9 @@
 			"name": "Pirate Captain",
 			"source": "GoS",
 			"page": 247,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3599,7 +3657,9 @@
 			"name": "Pirate Deck Wizard",
 			"source": "GoS",
 			"page": 248,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3711,7 +3771,9 @@
 			"name": "Pirate First Mate",
 			"source": "GoS",
 			"page": 248,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3793,7 +3855,9 @@
 			"name": "Rip Tide Priest",
 			"source": "GoS",
 			"page": 248,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3913,7 +3977,9 @@
 					"source": "LR"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4032,7 +4098,9 @@
 			"name": "Sahuagin Champion",
 			"source": "GoS",
 			"page": 249,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4147,7 +4215,9 @@
 			"name": "Sahuagin Coral Smasher",
 			"source": "GoS",
 			"page": 249,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4275,7 +4345,9 @@
 					"source": "LR"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4421,7 +4493,9 @@
 					"source": "LR"
 				}
 			],
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "beast",
 				"swarmSize": "T"
@@ -4526,7 +4600,9 @@
 					"source": "SDW"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4695,7 +4771,9 @@
 			"name": "Sahuagin Wave Shaper",
 			"source": "GoS",
 			"page": 251,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4838,7 +4916,9 @@
 			"isNpc": true,
 			"source": "GoS",
 			"page": 252,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4988,7 +5068,9 @@
 			"name": "Shell Shark",
 			"source": "GoS",
 			"page": 252,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -5083,7 +5165,9 @@
 			"name": "Skeletal Alchemist",
 			"source": "GoS",
 			"page": 253,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -5188,7 +5272,9 @@
 					"source": "IMR"
 				}
 			],
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -5293,7 +5379,9 @@
 					"source": "IMR"
 				}
 			],
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "undead",
 				"swarmSize": "M"
@@ -5387,7 +5475,9 @@
 			"name": "Skum",
 			"source": "GoS",
 			"page": 254,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"L",
@@ -5510,7 +5600,9 @@
 			"isNamedCreature": true,
 			"source": "GoS",
 			"page": 256,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -5628,7 +5720,9 @@
 			"name": "Vampiric Jade Statue",
 			"source": "GoS",
 			"page": 256,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"

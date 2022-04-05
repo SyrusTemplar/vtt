@@ -11,7 +11,9 @@
 			"name": "Chupacabra",
 			"source": "PSX",
 			"page": 9,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -110,7 +112,9 @@
 			"name": "Elder Dinosaur",
 			"source": "PSX",
 			"page": 33,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -256,7 +260,9 @@
 			"name": "Elder Dinosaur (Etali, Primal Storm)",
 			"source": "PSX",
 			"page": 33,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -430,7 +436,9 @@
 			"name": "Elder Dinosaur (Ghalta, Primal Hunger)",
 			"source": "PSX",
 			"page": 33,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -603,7 +611,9 @@
 			"name": "Elder Dinosaur (Nezahal, Primal Tide)",
 			"source": "PSX",
 			"page": 33,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -777,7 +787,9 @@
 			"name": "Elder Dinosaur (Tetzimoc, Primal Death)",
 			"source": "PSX",
 			"page": 33,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -975,7 +987,9 @@
 			"name": "Elder Dinosaur (Zacama, Primal Calamity)",
 			"source": "PSX",
 			"page": 33,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -1148,7 +1162,9 @@
 			"name": "Elder Dinosaur (Zetalpa, Primal Dawn)",
 			"source": "PSX",
 			"page": 33,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -1331,7 +1347,9 @@
 			"name": "Frilled Deathspitter",
 			"source": "PSX",
 			"page": 30,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1410,7 +1428,9 @@
 			"isNamedCreature": true,
 			"source": "PSX",
 			"page": 32,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1567,7 +1587,9 @@
 			"name": "Sunbird",
 			"source": "PSX",
 			"page": 32,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"

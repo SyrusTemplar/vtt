@@ -18,7 +18,9 @@
 			"isNpc": true,
 			"source": "RMBRE",
 			"page": 27,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -108,7 +110,9 @@
 			"isNpc": true,
 			"source": "RMBRE",
 			"page": 27,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"C",
@@ -212,7 +216,9 @@
 					}
 				}
 			},
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"hp": {
 				"formula": "9d8 + 18",
 				"average": 75
@@ -231,7 +237,9 @@
 			"isNpc": true,
 			"source": "RMBRE",
 			"page": 28,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"C",
@@ -346,7 +354,9 @@
 			"isNpc": true,
 			"source": "RMBRE",
 			"page": 28,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"C",
@@ -437,7 +447,9 @@
 			"isNpc": true,
 			"source": "RMBRE",
 			"page": 28,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"C",

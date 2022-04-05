@@ -16,7 +16,9 @@
 			"name": "Ash Zombie",
 			"source": "LMoP",
 			"page": 31,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -105,7 +107,9 @@
 					"source": "RMBRE"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -232,7 +236,9 @@
 			"isNpc": true,
 			"source": "LMoP",
 			"page": 59,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -340,7 +346,9 @@
 			"isNpc": true,
 			"source": "LMoP",
 			"page": 59,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -514,7 +522,9 @@
 			"name": "Redbrand Ruffian",
 			"source": "LMoP",
 			"page": 61,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -588,7 +598,9 @@
 			"isNpc": true,
 			"source": "LMoP",
 			"page": 61,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

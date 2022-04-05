@@ -1473,6 +1473,83 @@
 					"page": true
 				}
 			}
+		},
+		{
+			"name": "Lunar Magic (UA)",
+			"shortName": "Lunar Magic (UA)",
+			"source": "UA2022HeroesOfKrynn",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"page": 2,
+			"additionalSpells": [
+				{
+					"name": "Full Moon",
+					"known": {
+						"1": [
+							"faerie fire"
+						],
+						"3": [
+							"moonbeam"
+						],
+						"5": [
+							"death ward"
+						],
+						"7": [
+							"freedom of movement"
+						],
+						"9": [
+							"mass cure wounds"
+						]
+					}
+				},
+				{
+					"name": "New Moon",
+					"known": {
+						"1": [
+							"dissonant whispers"
+						],
+						"3": [
+							"darkness"
+						],
+						"5": [
+							"bestow curse"
+						],
+						"7": [
+							"Evard's black tentacles"
+						],
+						"9": [
+							"mislead"
+						]
+					}
+				},
+				{
+					"name": "Crescent Moon",
+					"known": {
+						"1": [
+							"sanctuary"
+						],
+						"3": [
+							"blindness/deafness"
+						],
+						"5": [
+							"phantom steed"
+						],
+						"7": [
+							"hallucinatory terrain"
+						],
+						"9": [
+							"dream"
+						]
+					}
+				}
+			],
+			"subclassFeatures": [
+				"Lunar Magic|Sorcerer||Lunar Magic (UA)|UA2022HeroesOfKrynn|1",
+				"Lunar Boons|Sorcerer||Lunar Magic (UA)|UA2022HeroesOfKrynn|6",
+				"Waxing and Waning|Sorcerer||Lunar Magic (UA)|UA2022HeroesOfKrynn|6",
+				"Lunar Empowerment|Sorcerer||Lunar Magic (UA)|UA2022HeroesOfKrynn|14",
+				"Lunar Phenomenon|Sorcerer||Lunar Magic (UA)|UA2022HeroesOfKrynn|18"
+			]
 		}
 	],
 	"classFeature": [
@@ -3364,6 +3441,252 @@
 			]
 		},
 		{
+			"name": "Lunar Magic",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 2,
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassShortName": "Lunar Magic (UA)",
+			"subclassSource": "UA2022HeroesOfKrynn",
+			"level": 1,
+			"entries": [
+				"On many worlds, the moon is a revered celestial body with magical properties. On Krynn, the gods of magic are associated with the world's three moons. On the world of Toril, the god Selûne uses the light of the moon to battle darkness. On Eberron, scholars of the Draconic Prophecy decipher ancient secrets from the waxing and waning of that world's twelve moons.",
+				"You, or someone from your lineage, has been exposed to the concentrated magic of the moon (or moons) of your world, imbuing you with lunar magic. Perhaps your ancestor was involved in a druidic ritual involving an eclipse, or maybe a mystical fragment of a moon crashed near you. However you came to have your magic, your connection to the moon is obvious when you cast sorcerer spells. Consult the Manifestations of Lunar Magic table, then choose or randomly determine how your connection to the moon manifests while you cast your sorcerer spells.",
+				{
+					"type": "table",
+					"caption": "Manifestations of Lunar Magic",
+					"colLabels": [
+						"d4",
+						"Manifestation"
+					],
+					"colStyles": [
+						"col-1 text-center",
+						"col-11"
+					],
+					"rows": [
+						[
+							"1",
+							"You glow with faint light that matches the color of a moon from your world."
+						],
+						[
+							"2",
+							"Your pupils shift in shape, matching the current phase of a moon from your world."
+						],
+						[
+							"3",
+							"Spectral manifestations of the moon (or moons) of your world orbit you."
+						],
+						[
+							"4",
+							"Your shadow is limned in faint light, as if it were a lunar body during a solar eclipse."
+						]
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Moon Fire",
+					"entries": [
+						"{@i 1st-Level Lunar Magic Feature}",
+						"You can call down the radiant light of the moon on command. You learn the {@spell sacred flame} spell, which doesn't count against the number of sorcerer cantrips you know. When you cast the spell, you can target one creature as normal or target two creatures within range that are within 5 feet of each other."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Lunar Embodiment",
+					"entries": [
+						"{@i 1st-Level Lunar Magic Feature}",
+						"You learn additional spells when you reach certain levels in this class, as shown on the Lunar Spells table. Each of these spells counts as a sorcerer spell for you, but it doesn't count against the number of sorcerer spells you know.",
+						{
+							"type": "table",
+							"caption": "Lunar Spells",
+							"colLabels": [
+								"Sorcerer Level",
+								"Full Moon Spells",
+								"New Moon Spells",
+								"Crescent Moon Spells"
+							],
+							"colStyles": [
+								"col-1-1 text-center",
+								"col-3-3",
+								"col-3-3",
+								"col-3-3"
+							],
+							"rows": [
+								[
+									"1st",
+									"{@spell faerie fire}",
+									"{@spell dissonant whispers}",
+									"{@spell sanctuary}"
+								],
+								[
+									"3rd",
+									"{@spell moonbeam}",
+									"{@spell darkness}",
+									"{@spell blindness/deafness}"
+								],
+								[
+									"5th",
+									"{@spell death ward}",
+									"{@spell bestow curse}",
+									"{@spell phantom steed}"
+								],
+								[
+									"7th",
+									"{@spell freedom of movement}",
+									"{@spell Evard's black tentacles}",
+									"{@spell hallucinatory terrain}"
+								],
+								[
+									"9th",
+									"{@spell mass cure wounds}",
+									"{@spell mislead}",
+									"{@spell dream}"
+								]
+							]
+						},
+						"Whenever you finish a long rest, you can choose what lunar phase manifests its power through your magic: Full Moon, New Moon, or Crescent Moon. While in the chosen phase, spells of the associated phase in the Lunar Spells table can be cast once without expending a spell slot. Once you cast a spell in this way, you can't do so again until you finish a long rest."
+					]
+				}
+			]
+		},
+		{
+			"name": "Lunar Boons",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 3,
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassShortName": "Lunar Magic (UA)",
+			"subclassSource": "UA2022HeroesOfKrynn",
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"{@i 6th-Level Lunar Magic Feature}",
+				"Lunar phases influence your metamagic. Each lunar phase is associated with spells of the following schools of magic:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Full Moon",
+							"entries": [
+								"Abjuration and conjuration spells"
+							]
+						},
+						{
+							"type": "item",
+							"name": "New Moon",
+							"entries": [
+								"Evocation and necromancy spells"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Crescent Moon",
+							"entries": [
+								"Divination and transmutation spells"
+							]
+						}
+					]
+				},
+				"Whenever you use Metamagic on a spell from the Lunar Spells table or a spell of a school of magic associated with the lunar phase you are in, you can reduce the sorcery points spent by 1 (minimum 0). You can reduce the sorcery points spent for your Metamagic a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest"
+			]
+		},
+		{
+			"name": "Waxing and Waning",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 3,
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassShortName": "Lunar Magic (UA)",
+			"subclassSource": "UA2022HeroesOfKrynn",
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"{@i 6th-Level Lunar Magic Feature}",
+				"You gain greater control over the phases of your lunar magic. As a bonus action, you can spend 1 sorcery point to change your lunar phase for a different one."
+			]
+		},
+		{
+			"name": "Lunar Empowerment",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 3,
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassShortName": "Lunar Magic (UA)",
+			"subclassSource": "UA2022HeroesOfKrynn",
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"{@i 14th-Level Lunar Magic Feature}",
+				"The power of a lunar phase saturates your being. Whenever you choose a lunar phase to affect your magic, you also gain the following benefit associated with that phase:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Full Moon:",
+							"entry": "You shed bright light in a 10-foot radius and dim light for an additional 10 feet. In addition, you and creatures of your choice have advantage on saving throws while within the bright light you shed."
+						},
+						{
+							"type": "item",
+							"name": "New Moon:",
+							"entry": "You have advantage on Dexterity ({@skill Stealth}) checks. In addition, while you are in dim light or darkness, attack rolls have disadvantage against you."
+						},
+						{
+							"type": "item",
+							"name": "Crescent Moon:",
+							"entry": "You have resistance to necrotic and radiant damage"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Lunar Phenomenon",
+			"source": "UA2022HeroesOfKrynn",
+			"page": 3,
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassShortName": "Lunar Magic (UA)",
+			"subclassSource": "UA2022HeroesOfKrynn",
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"{@i 18th-Level Lunar Magic feature}",
+				"Your lunar phase magic bursts. As a bonus action, you can tap into a special power of the lunar phase you are currently in. Alternatively, as part of the bonus action you take to change your lunar phase using your Waxing and Waning feature, you can immediately use the power of the lunar phase you are entering:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Full Moon:",
+							"entries": [
+								"You radiate intense moonlight for a moment. Each creature of your choice within 30 feet of you must succeed on a Constitution saving throw against your spell save DC or be {@condition blinded} until the end of its next turn. In addition, one creature of your choice in that area regains {@dice 3d8} hit points."
+							]
+						},
+						{
+							"type": "item",
+							"name": "New Moon:",
+							"entries": [
+								"You momentarily emanate an oppressive gloom. Each creature of your choice within 30 feet of you must succeed on a Dexterity saving throw against your spell save DC or take {@damage 3d10} necrotic damage and have its speed reduced to 0 until the end of its next turn. In addition, you become {@condition invisible} until the end of your next turn, or until you make an attack or cast a spell."
+							]
+						},
+						{
+							"type": "item",
+							"name": "Crescent Moon:",
+							"entries": [
+								"You slip through light and darkness. You can magically teleport to an unoccupied space you can see within 60 feet of yourself. In addition, you also gain resistance to all damage until the start of your next turn."
+							]
+						}
+					]
+				},
+				"Once you use a phase's bonus action, you can't do so again until you finish a long rest, unless you spend 5 sorcery points to use it again."
+			]
+		},
+		{
 			"name": "Giant Soul (UA)",
 			"source": "UAGiantSoulSorcerer",
 			"page": 1,
@@ -4806,8 +5129,8 @@
 						"Spell"
 					],
 					"colStyles": [
-						"col-5",
-						"col-7"
+						"col-6",
+						"col-6"
 					],
 					"rows": [
 						[

@@ -1061,42 +1061,42 @@ class DuplicateEntityCheck {
 
 		switch (prop) {
 			case "deity": {
-				if (name && source) {
+				if (name != null && source != null) {
 					const key = `${source} :: ${ent.pantheon} :: ${name}`;
 					(positions[key] = positions[key] || []).push(keyIx);
 				}
 				break;
 			}
 			case "subclass": {
-				if (name && source) {
+				if (name != null && source != null) {
 					const key = `${source} :: ${ent.classSource} :: ${ent.className} :: ${name}`;
 					(positions[key] = positions[key] || []).push(keyIx);
 				}
 				break;
 			}
 			case "classFeature": {
-				if (name && source) {
+				if (name != null && source != null) {
 					const key = `${source} :: ${ent.level} :: ${ent.classSource} :: ${ent.className} :: ${name}`;
 					(positions[key] = positions[key] || []).push(keyIx);
 				}
 				break;
 			}
 			case "subclassFeature": {
-				if (name && source) {
+				if (name != null && source != null) {
 					const key = `${source} :: ${ent.level} :: ${ent.classSource} :: ${ent.className} :: ${ent.subclassSource} :: ${ent.subclassShortName} :: ${name}`;
 					(positions[key] = positions[key] || []).push(keyIx);
 				}
 				break;
 			}
 			case "raceFeature": {
-				if (name && source) {
+				if (name != null && source != null) {
 					const key = `${source} :: ${ent.raceSource} :: ${ent.raceName} :: ${name}`;
 					(positions[key] = positions[key] || []).push(keyIx);
 				}
 				break;
 			}
 			default: {
-				if (name && source) {
+				if (name != null && source != null) {
 					const key = `${source} :: ${name}`;
 					(positions[key] = positions[key] || []).push(keyIx);
 				}

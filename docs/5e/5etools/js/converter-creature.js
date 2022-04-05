@@ -7,6 +7,7 @@ if (typeof module !== "undefined") {
 	Object.assign(global, cvCreature);
 	global.PropOrder = require("./utils-proporder.js");
 	Object.assign(global, require("./converterutils-markdown.js"));
+	Object.assign(global, require("./converterutils-entries.js"));
 }
 
 // TODO easy improvements to be made:
@@ -94,7 +95,7 @@ class CreatureParser extends BaseParser {
 				"Reactions?",
 				"Actions?",
 			]
-				.map(it => ({re: new RegExp(`\\n\\s*${it.split("").join("\\s*")}\\s*\\n`, "g"), original: it}))
+				.map(it => ({re: new RegExp(`\\n\\s*${it.split("").join("\\s*")}\\s*\\n`, "g"), original: it.replace(/[^a-zA-Z ]/g, "")}))
 				.forEach(({re, original}) => clean = clean.replace(re, `\n${original}\n`));
 			// endregion
 
@@ -317,6 +318,21 @@ class CreatureParser extends BaseParser {
 			let isLegendaryDescription = false;
 			let isMythicActions = false;
 			let isMythicDescription = false;
+
+			// Join together lines which are probably split over multiple lines of text
+			for (let j = i; j < toConvert.length; ++j) {
+				let line = toConvert[j];
+				let lineNxt = toConvert[j + 1];
+
+				if (!lineNxt) continue;
+				if (startNextPhase(line) || startNextPhase(lineNxt)) continue;
+				if (/[.?!]$/.test(line.trim()) || !/^[A-Z]/.test(lineNxt.trim())) continue;
+				if (ConvertUtil.isNameLine(lineNxt, {exceptions: new Set(["cantrips"]), splitterPunc: /(\.)/g})) continue;
+
+				toConvert[j] = `${line.trim()} ${lineNxt.trim()}`;
+				toConvert.splice(j + 1, 1);
+				--j;
+			}
 
 			// keep going through traits til we hit actions
 			while (i < toConvert.length) {
@@ -952,8 +968,9 @@ class CreatureParser extends BaseParser {
 	static _doStatblockPostProcess (stats, isMarkdown, options) {
 		this._doFilterAddSpellcasting(stats, "trait", isMarkdown, options);
 		this._doFilterAddSpellcasting(stats, "action", isMarkdown, options);
-		if (stats.trait) stats.trait.forEach(trait => RechargeConvert.tryConvertRecharge(trait, () => {}, () => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Manual recharge tagging required for trait "${trait.name}"`)));
-		if (stats.action) stats.action.forEach(action => RechargeConvert.tryConvertRecharge(action, () => {}, () => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Manual recharge tagging required for action "${action.name}"`)));
+		if (stats.trait) stats.trait.forEach(it => RechargeConvert.tryConvertRecharge(it, () => {}, () => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Manual recharge tagging required for trait "${it.name}"`)));
+		if (stats.action) stats.action.forEach(it => RechargeConvert.tryConvertRecharge(it, () => {}, () => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Manual recharge tagging required for action "${it.name}"`)));
+		if (stats.bonus) stats.bonus.forEach(it => RechargeConvert.tryConvertRecharge(it, () => {}, () => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Manual recharge tagging required for bonus action "${it.name}"`)));
 		CreatureParser._PROPS_ENTRIES.filter(prop => stats[prop]).forEach(prop => SpellTag.tryRun(stats[prop]));
 		AcConvert.tryPostProcessAc(
 			stats,
@@ -1194,11 +1211,23 @@ class CreatureParser extends BaseParser {
 			stats.type = mSidekick[2].split(" ").splice(1).join(" ");
 		} else {
 			// regular creatures
-			stats.size = line[0].toUpperCase();
+			stats.size = [line[0].toUpperCase()];
 
 			const spl = line.split(StrUtil.COMMAS_NOT_IN_PARENTHESES_REGEX);
 
-			stats.type = spl[0].split(" ").splice(1).join(" ");
+			const ptsOtherSizeOrType = spl[0].split(" ").map(it => it.trim()).filter(Boolean).splice(1); // Remove the initial "size" token
+
+			// region Add more sizes, if they exist
+			if (
+				/^or$/i.test(ptsOtherSizeOrType[0] || "")
+				&& Object.values(Parser.SIZE_ABV_TO_FULL).some(it => it.toLowerCase() === (ptsOtherSizeOrType[1] || "").toLowerCase())) {
+				const [, szAlt] = ptsOtherSizeOrType.splice(0, 2);
+				stats.size.push(szAlt[0].toUpperCase());
+			}
+			stats.size.sort(SortUtil.ascSortSize);
+			// endregion
+
+			stats.type = ptsOtherSizeOrType.join(" ");
 
 			stats.alignment = (spl[1] || "").toLowerCase();
 			AlignmentConvert.tryConvertAlignment(stats, (ali) => options.cbWarning(`Alignment "${ali}" requires manual conversion`));

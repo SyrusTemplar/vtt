@@ -827,6 +827,204 @@
 			]
 		},
 		{
+			"name": "Fragment of Abhorrence",
+			"source": "CRCotN",
+			"page": 214,
+			"type": "Fragment of Suffering",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Benefit",
+					"entries": [
+						"Once on each of your turns when you hit a creature with a weapon attack roll, you can force the target to move up to 10 feet away from you in a direction of your choice. A creature that can't be {@condition frightened} is immune to this effect."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Drawback",
+					"entries": [
+						"If you start your turn {@condition frightened}, you take {@damage 2d6} psychic damage."
+					]
+				}
+			]
+		},
+		{
+			"name": "Fragment of Attachment",
+			"source": "CRCotN",
+			"page": 214,
+			"type": "Fragment of Suffering",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Benefit",
+					"entries": [
+						"You can't be {@condition frightened} while within 10 feet of an ally. If you're already {@condition frightened} and move within 10 feet of an ally, the {@condition frightened} condition ends on you."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Drawback",
+					"entries": [
+						"You have disadvantage on Wisdom and Charisma saving throws while you aren't within 10 feet of an ally."
+					]
+				}
+			]
+		},
+		{
+			"name": "Fragment of Deception",
+			"source": "CRCotN",
+			"page": 214,
+			"type": "Fragment of Suffering",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Benefit",
+					"entries": [
+						"When you take damage, you can use your reaction to turn {@condition invisible} and teleport up to 60 feet to an unoccupied space you can see. You remain {@condition invisible} until the start of your next turn or until you make a damage roll or cast a spell."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Drawback",
+					"entries": [
+						"You have disadvantage on Wisdom checks."
+					]
+				}
+			]
+		},
+		{
+			"name": "Fragment of Despondence",
+			"source": "CRCotN",
+			"page": 214,
+			"type": "Fragment of Suffering",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Benefit",
+					"entries": [
+						"You are immune to the {@condition charmed} condition."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Drawback",
+					"entries": [
+						"You can't take the {@action Help} action."
+					]
+				}
+			]
+		},
+		{
+			"name": "Fragment of Intransigence",
+			"source": "CRCotN",
+			"page": 214,
+			"type": "Fragment of Suffering",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Benefit",
+					"entries": [
+						"Another creature can't force you to move anywhere you don't want to go."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Drawback",
+					"entries": [
+						"You can't take the {@action Disengage} or {@action Dodge} action."
+					]
+				}
+			]
+		},
+		{
+			"name": "Fragment of Loathing",
+			"source": "CRCotN",
+			"page": 214,
+			"type": "Fragment of Suffering",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Benefit",
+					"entries": [
+						"When a creature damages you with a weapon attack or a spell, you can focus your hatred on that creature. Until the end of your next turn, you have advantage on attack rolls you make against the creature. You can focus your hatred on only one creature at a time."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Drawback",
+					"entries": [
+						"You have disadvantage on Charisma checks."
+					]
+				}
+			]
+		},
+		{
+			"name": "Fragment of Melancholy",
+			"source": "CRCotN",
+			"page": 214,
+			"type": "Fragment of Suffering",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Benefit",
+					"entries": [
+						"When you fail a Wisdom or Charisma saving throw, you can reroll it with advantage, potentially turning a failure into a success. After you use this benefit, you must finish a long rest before you can use it again."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Drawback",
+					"entries": [
+						"If you use this fragment's benefit and it doesn't turn a failed saving throw into a success, you are {@condition incapacitated} until the end of your next turn, overcome with despair."
+					]
+				}
+			]
+		},
+		{
+			"name": "Fragment of Pity",
+			"source": "CRCotN",
+			"page": 214,
+			"type": "Fragment of Suffering",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Benefit",
+					"entries": [
+						"Each time you spend a Hit Die to regain hit points, you regain additional hit points equal to your proficiency bonus."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Drawback",
+					"entries": [
+						"You have disadvantage on death saving throws."
+					]
+				}
+			]
+		},
+		{
+			"name": "Fragment of Rancor",
+			"source": "CRCotN",
+			"page": 214,
+			"type": "Fragment of Suffering",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Benefit",
+					"entries": [
+						"When you hit a creature with an attack, you can choose to deal either an extra {@damage 2d6} psychic damage to the creature or {@damage 4d6} psychic damage to each other creature within 5 feet of it. After you use this benefit, you must finish a short or long rest before you can use it again."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Drawback",
+					"entries": [
+						"Whenever you are not {@condition unconscious} and fail a saving throw, you take {@damage 2d6} psychic damage."
+					]
+				}
+			]
+		},
+		{
 			"name": "Frightful Presence",
 			"source": "FTD",
 			"page": 28,

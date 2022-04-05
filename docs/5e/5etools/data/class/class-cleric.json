@@ -2099,7 +2099,7 @@
 				"Beginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.",
 				{
 					"type": "refClassFeature",
-					"classFeature": "Turn Undead|Cleric||2"
+					"classFeature": "Channel Divinity: Turn Undead|Cleric||2"
 				}
 			]
 		},
@@ -2136,20 +2136,7 @@
 			]
 		},
 		{
-			"name": "Divine Domain feature",
-			"source": "PHB",
-			"page": 56,
-			"srd": true,
-			"basicRules": true,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"level": 2,
-			"entries": [
-				"At 2nd level, you gain a feature from your Divine Domain."
-			]
-		},
-		{
-			"name": "Turn Undead",
+			"name": "Channel Divinity: Turn Undead",
 			"source": "PHB",
 			"page": 56,
 			"srd": true,
@@ -2164,6 +2151,19 @@
 			"entries": [
 				"As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.",
 				"A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the {@action Dash} action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the {@action Dodge} action."
+			]
+		},
+		{
+			"name": "Divine Domain feature",
+			"source": "PHB",
+			"page": 56,
+			"srd": true,
+			"basicRules": true,
+			"className": "Cleric",
+			"classSource": "PHB",
+			"level": 2,
+			"entries": [
+				"At 2nd level, you gain a feature from your Divine Domain."
 			]
 		},
 		{

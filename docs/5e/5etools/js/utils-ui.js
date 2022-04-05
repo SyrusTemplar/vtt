@@ -765,17 +765,17 @@ class ListUiUtil {
 		});
 	}
 
-	static bindPreviewButton (page, allData, item, btnShowHidePreview) {
+	static bindPreviewButton (page, allData, item, btnShowHidePreview, {$fnGetPreviewStats} = {}) {
 		btnShowHidePreview.addEventListener("click", evt => {
 			const entity = allData[item.ix];
 
 			const elePreviewWrp = this.getOrAddListItemPreviewLazy(item);
 
-			this.handleClickBtnShowHideListPreview(evt, page, entity, btnShowHidePreview, elePreviewWrp);
+			this.handleClickBtnShowHideListPreview(evt, page, entity, btnShowHidePreview, elePreviewWrp, {$fnGetPreviewStats});
 		});
 	}
 
-	static handleClickBtnShowHideListPreview (evt, page, entity, btnShowHidePreview, elePreviewWrp, nxtText = null) {
+	static handleClickBtnShowHideListPreview (evt, page, entity, btnShowHidePreview, elePreviewWrp, {nxtText = null, $fnGetPreviewStats} = {}) {
 		evt.stopPropagation();
 		evt.preventDefault();
 
@@ -797,8 +797,10 @@ class ListUiUtil {
 
 		elePreviewWrp.dataset.dataType = isFluff ? "fluff" : "stats";
 
-		if (!evt.shiftKey) {
-			Renderer.hover.$getHoverContent_stats(page, entity, {isStatic: true}).appendTo(elePreviewWrpInner);
+		const doAppendStatView = () => ($fnGetPreviewStats || Renderer.hover.$getHoverContent_stats)(page, entity, {isStatic: true}).appendTo(elePreviewWrpInner);
+
+		if (!evt.shiftKey || !UrlUtil.URL_TO_HASH_BUILDER[page]) {
+			doAppendStatView();
 			return;
 		}
 
@@ -808,7 +810,7 @@ class ListUiUtil {
 				//  loading the fluff.
 				if (elePreviewWrpInner.innerHTML) return;
 
-				if (!fluffEntity) return Renderer.hover.$getHoverContent_stats(page, entity).appendTo(elePreviewWrpInner);
+				if (!fluffEntity) return doAppendStatView();
 				Renderer.hover.$getHoverContent_fluff(page, fluffEntity).appendTo(elePreviewWrpInner);
 			});
 	}
@@ -1651,7 +1653,18 @@ class SearchWidget {
 	}
 
 	static async pGetUserLegendaryGroupSearch () {
-		await SearchWidget.pLoadCustomIndex("entity_LegendaryGroups", `${Renderer.get().baseUrl}data/bestiary/legendarygroups.json`, "legendaryGroup", Parser.CAT_ID_LEGENDARY_GROUP, "legendaryGroup", "legendary groups");
+		await SearchWidget.pLoadCustomIndex({
+			contentIndexName: "entity_LegendaryGroups",
+			errorName: "legendary groups",
+			customIndexSubSpecs: [
+				new SearchWidget.CustomIndexSubSpec({
+					dataSource: `${Renderer.get().baseUrl}data/bestiary/legendarygroups.json`,
+					prop: "legendaryGroup",
+					catId: Parser.CAT_ID_LEGENDARY_GROUP,
+					page: "legendaryGroup",
+				}),
+			],
+		});
 
 		return SearchWidget.pGetUserEntitySearch(
 			"Select Legendary Group",
@@ -1669,7 +1682,18 @@ class SearchWidget {
 
 	static async pGetUserFeatSearch () {
 		// FIXME convert to be more like spell/creature search instead of running custom indexes
-		await SearchWidget.pLoadCustomIndex("entity_Feats", `${Renderer.get().baseUrl}data/feats.json`, "feat", Parser.CAT_ID_FEAT, UrlUtil.PG_FEATS, "feats");
+		await SearchWidget.pLoadCustomIndex({
+			contentIndexName: "entity_Feats",
+			errorName: "feats",
+			customIndexSubSpecs: [
+				new SearchWidget.CustomIndexSubSpec({
+					dataSource: `${Renderer.get().baseUrl}data/feats.json`,
+					prop: "feat",
+					catId: Parser.CAT_ID_FEAT,
+					page: UrlUtil.PG_FEATS,
+				}),
+			],
+		});
 
 		return SearchWidget.pGetUserEntitySearch(
 			"Select Feat",
@@ -1687,7 +1711,18 @@ class SearchWidget {
 
 	static async pGetUserBackgroundSearch () {
 		// FIXME convert to be more like spell/creature search instead of running custom indexes
-		await SearchWidget.pLoadCustomIndex("entity_Backgrounds", `${Renderer.get().baseUrl}data/backgrounds.json`, "background", Parser.CAT_ID_BACKGROUND, UrlUtil.PG_BACKGROUNDS, "backgrounds");
+		await SearchWidget.pLoadCustomIndex({
+			contentIndexName: "entity_Backgrounds",
+			errorName: "backgrounds",
+			customIndexSubSpecs: [
+				new SearchWidget.CustomIndexSubSpec({
+					dataSource: `${Renderer.get().baseUrl}data/backgrounds.json`,
+					prop: "background",
+					catId: Parser.CAT_ID_BACKGROUND,
+					page: UrlUtil.PG_BACKGROUNDS,
+				}),
+			],
+		});
 
 		return SearchWidget.pGetUserEntitySearch(
 			"Select Background",
@@ -1708,7 +1743,18 @@ class SearchWidget {
 		const dataSource = () => {
 			return DataUtil.race.loadJSON();
 		};
-		await SearchWidget.pLoadCustomIndex("entity_Races", dataSource, "race", Parser.CAT_ID_RACE, UrlUtil.PG_RACES, "races");
+		await SearchWidget.pLoadCustomIndex({
+			contentIndexName: "entity_Races",
+			errorName: "races",
+			customIndexSubSpecs: [
+				new SearchWidget.CustomIndexSubSpec({
+					dataSource,
+					prop: "race",
+					catId: Parser.CAT_ID_RACE,
+					page: UrlUtil.PG_RACES,
+				}),
+			],
+		});
 
 		return SearchWidget.pGetUserEntitySearch(
 			"Select Race",
@@ -1726,7 +1772,18 @@ class SearchWidget {
 
 	static async pGetUserOptionalFeatureSearch () {
 		// FIXME convert to be more like spell/creature search instead of running custom indexes
-		await SearchWidget.pLoadCustomIndex("entity_OptionalFeatures", `${Renderer.get().baseUrl}data/optionalfeatures.json`, "optionalfeature", Parser.CAT_ID_OPTIONAL_FEATURE_OTHER, UrlUtil.PG_OPT_FEATURES, "optional features");
+		await SearchWidget.pLoadCustomIndex({
+			contentIndexName: "entity_OptionalFeatures",
+			errorName: "optional features",
+			customIndexSubSpecs: [
+				new SearchWidget.CustomIndexSubSpec({
+					dataSource: `${Renderer.get().baseUrl}data/optionalfeatures.json`,
+					prop: "background",
+					catId: Parser.CAT_ID_OPTIONAL_FEATURE_OTHER,
+					page: UrlUtil.PG_OPT_FEATURES,
+				}),
+			],
+		});
 
 		return SearchWidget.pGetUserEntitySearch(
 			"Select Optional Feature",
@@ -1743,8 +1800,60 @@ class SearchWidget {
 	}
 
 	static async pGetUserAdventureSearch (opts) {
-		await SearchWidget.pLoadCustomIndex("entity_Adventures", `${Renderer.get().baseUrl}data/adventures.json`, "adventure", Parser.CAT_ID_ADVENTURE, UrlUtil.PG_ADVENTURE, "adventures");
+		await SearchWidget.pLoadCustomIndex({
+			contentIndexName: "entity_Adventures",
+			errorName: "adventures",
+			customIndexSubSpecs: [
+				new SearchWidget.CustomIndexSubSpec({
+					dataSource: `${Renderer.get().baseUrl}data/adventures.json`,
+					prop: "adventure",
+					catId: Parser.CAT_ID_ADVENTURE,
+					page: UrlUtil.PG_ADVENTURE,
+				}),
+			],
+		});
 		return SearchWidget.pGetUserEntitySearch("Select Adventure", "entity_Adventures", opts);
+	}
+
+	static async pGetUserBookSearch (opts) {
+		await SearchWidget.pLoadCustomIndex({
+			contentIndexName: "entity_Books",
+			errorName: "books",
+			customIndexSubSpecs: [
+				new SearchWidget.CustomIndexSubSpec({
+					dataSource: `${Renderer.get().baseUrl}data/books.json`,
+					prop: "book",
+					catId: Parser.CAT_ID_BOOK,
+					page: UrlUtil.PG_BOOK,
+				}),
+			],
+		});
+		return SearchWidget.pGetUserEntitySearch("Select Book", "entity_Books", opts);
+	}
+
+	static async pGetUserAdventureBookSearch (opts) {
+		const contentIndexName = opts.contentIndexName || "entity_AdventuresBooks";
+		await SearchWidget.pLoadCustomIndex({
+			contentIndexName,
+			errorName: "adventures/books",
+			customIndexSubSpecs: [
+				new SearchWidget.CustomIndexSubSpec({
+					dataSource: `${Renderer.get().baseUrl}data/adventures.json`,
+					prop: "adventure",
+					catId: Parser.CAT_ID_ADVENTURE,
+					page: UrlUtil.PG_ADVENTURE,
+					pFnGetDocExtras: opts.pFnGetDocExtras,
+				}),
+				new SearchWidget.CustomIndexSubSpec({
+					dataSource: `${Renderer.get().baseUrl}data/books.json`,
+					prop: "book",
+					catId: Parser.CAT_ID_BOOK,
+					page: UrlUtil.PG_BOOK,
+					pFnGetDocExtras: opts.pFnGetDocExtras,
+				}),
+			],
+		});
+		return SearchWidget.pGetUserEntitySearch("Select Adventure or Book", contentIndexName, opts);
 	}
 
 	static async pGetUserCreatureSearch () {
@@ -1779,7 +1888,19 @@ class SearchWidget {
 			};
 		};
 		const indexName = isBasicIndex == null ? "entity_Items" : isBasicIndex ? "entity_ItemsBasic" : "entity_ItemsMagic";
-		return SearchWidget.pLoadCustomIndex(indexName, dataSource, "item", Parser.CAT_ID_ITEM, UrlUtil.PG_ITEMS, "items");
+
+		return SearchWidget.pLoadCustomIndex({
+			contentIndexName: indexName,
+			errorName: "items",
+			customIndexSubSpecs: [
+				new SearchWidget.CustomIndexSubSpec({
+					dataSource,
+					prop: "item",
+					catId: Parser.CAT_ID_ITEM,
+					page: UrlUtil.PG_ITEMS,
+				}),
+			],
+		});
 	}
 
 	static async __pGetUserItemSearch (isBasicIndex) {
@@ -1851,13 +1972,23 @@ class SearchWidget {
 	}
 
 	// region custom search indexes
-	static async pLoadCustomIndex (contentIndexName, dataSource, jsonProp, catId, page, errorName) {
+	static CustomIndexSubSpec = class {
+		constructor ({dataSource, prop, catId, page, pFnGetDocExtras}) {
+			this.dataSource = dataSource;
+			this.prop = prop;
+			this.catId = catId;
+			this.page = page;
+			this.pFnGetDocExtras = pFnGetDocExtras;
+		}
+	};
+
+	static async pLoadCustomIndex ({contentIndexName, customIndexSubSpecs, errorName}) {
 		if (SearchWidget.P_LOADING_INDICES[contentIndexName]) await SearchWidget.P_LOADING_INDICES[contentIndexName];
 		else {
 			const doClose = SearchWidget._showLoadingModal();
 
 			try {
-				SearchWidget.P_LOADING_INDICES[contentIndexName] = (SearchWidget.CONTENT_INDICES[contentIndexName] = await SearchWidget._pGetIndex(dataSource, jsonProp, catId, page));
+				SearchWidget.P_LOADING_INDICES[contentIndexName] = (SearchWidget.CONTENT_INDICES[contentIndexName] = await SearchWidget._pGetIndex(customIndexSubSpecs));
 				SearchWidget.P_LOADING_INDICES[contentIndexName] = null;
 			} catch (e) {
 				JqueryUtil.doToast({type: "danger", content: `Could not load ${errorName}! ${VeCt.STR_SEE_CONSOLE}`});
@@ -1868,28 +1999,38 @@ class SearchWidget {
 		}
 	}
 
-	static async _pGetIndex (dataSource, prop, catId, page) {
+	static async _pGetIndex (customIndexSubSpecs) {
 		const index = elasticlunr(function () {
 			this.addField("n");
 			this.addField("s");
 			this.setRef("id");
 		});
 
-		const [featJson, homebrew] = await Promise.all([
-			typeof dataSource === "string" ? DataUtil.loadJSON(dataSource) : dataSource(),
-			BrewUtil.pAddBrewData(),
-		]);
+		let id = 0;
+		for (const subSpec of customIndexSubSpecs) {
+			const [json, homebrew] = await Promise.all([
+				typeof subSpec.dataSource === "string"
+					? DataUtil.loadJSON(subSpec.dataSource)
+					: subSpec.dataSource(),
+				BrewUtil.pAddBrewData(),
+			]);
 
-		featJson[prop].concat(homebrew[prop] || []).forEach((it, i) => index.addDoc({
-			id: i,
-			c: catId,
-			cf: Parser.pageCategoryToFull(catId),
-			h: 1,
-			n: it.name,
-			p: it.page,
-			s: it.source,
-			u: UrlUtil.URL_TO_HASH_BUILDER[page](it),
-		}));
+			await [...json[subSpec.prop], ...(homebrew[subSpec.prop] || [])]
+				.pSerialAwaitMap(async ent => {
+					const doc = {
+						id: id++,
+						c: subSpec.catId,
+						cf: Parser.pageCategoryToFull(subSpec.catId),
+						h: 1,
+						n: ent.name,
+						q: subSpec.page,
+						s: ent.source,
+						u: UrlUtil.URL_TO_HASH_BUILDER[subSpec.page](ent),
+					};
+					if (subSpec.pFnGetDocExtras) Object.assign(doc, await subSpec.pFnGetDocExtras({ent, doc, subSpec}));
+					index.addDoc(doc);
+				});
+		}
 
 		return index;
 	}

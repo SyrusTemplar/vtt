@@ -373,7 +373,7 @@
 		const handleDc = (str) => {
 			return str
 				.replace(/DC (\d+)/g, (m0, m1) => `{@dc ${m1}}`)
-				.replace(/{@dc (\d+)}/g, (m0, m1) => {
+				.replace(/{@dc (\d+)(?:\|[^}]+)?}/g, (m0, m1) => {
 					const curDc = Number(m1);
 					const outDc = curDc + pbDelta;
 					return `DC ${outDc}`;
@@ -1464,7 +1464,7 @@
 		const handleDc = (str, castingAbility) => {
 			return str
 				.replace(/DC (\d+)/g, (m0, m1) => `{@dc ${m1}}`)
-				.replace(/{@dc (\d+)}/g, (m0, m1) => {
+				.replace(/{@dc (\d+)(?:\|[^}]+)?}/g, (m0, m1) => {
 					const curDc = Number(m1);
 					const origDc = curDc + pbIn - pbOut;
 					const outDc = Math.max(10, getAdjustedDcFlat(origDc));

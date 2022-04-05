@@ -111,6 +111,7 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 
 		ListPage._checkShowAllExcluded(this._dataList, this._$pgContent);
 		this._initLinkGrabbers();
+		this._initScrollToSubclassSelection();
 		UrlUtil.bindLinkExportButton(this.filterBox, $(`#btn-link-export`));
 		this._doBindBtnSettingsSidebar();
 
@@ -444,6 +445,13 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 		});
 	}
 
+	_initScrollToSubclassSelection () {
+		const $wrp = $(`#subclasstabs`);
+		$(document.body).on(`click`, `[data-jump-select-a-subclass]`, evt => {
+			$wrp[0].scrollIntoView({block: "center", inline: "center"});
+		});
+	}
+
 	_doBindBtnSettingsSidebar () {
 		const menu = ContextUtil.getMenu([
 			new ContextUtil.Action(
@@ -684,7 +692,11 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 		this._addHookBase("isShowFluff", hkDisplayFluff);
 		MiscUtil.pDefer(hkDisplayFluff);
 
+		const hkletDoToggleNoneSubclassMessages = (cntDisplayedSubclasses) => $(`[data-subclass-none-message]`).toggleVe(!cntDisplayedSubclasses && !this._state.isHideFeatures);
+
 		const hkDisplayFeatures = () => {
+			const cntDisplayedSubclasses = this.activeClass.subclasses.map(sc => Number(this._state[UrlUtil.getStateKeySubclass(sc)] || false)).sum();
+
 			const $dispClassFeatures = $(`[data-feature-type="class"]`);
 			const $dispFeaturesSubclassHeader = $(`[data-feature-type="gain-subclass"]`);
 
@@ -706,6 +718,8 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 				$dispClassFeatures.toggleVe(true);
 				$dispFeaturesSubclassHeader.toggleVe(true);
 			}
+
+			hkletDoToggleNoneSubclassMessages(cntDisplayedSubclasses);
 		};
 		this._addHookBase("isHideFeatures", hkDisplayFeatures);
 		MiscUtil.pDefer(hkDisplayFeatures);
@@ -716,6 +730,8 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 		const hkIsShowNamePrefixes = () => {
 			const cntDisplayedSubclasses = cls.subclasses.map(sc => Number(this._state[UrlUtil.getStateKeySubclass(sc)] || false)).sum();
 			$(`[data-subclass-name-prefix]`).toggleVe(cntDisplayedSubclasses > 1);
+
+			hkletDoToggleNoneSubclassMessages(cntDisplayedSubclasses);
 		};
 		const hkIsShowNamePrefixesThrottled = MiscUtil.throttle(hkIsShowNamePrefixes, 50);
 		MiscUtil.pDefer(() => hkIsShowNamePrefixesThrottled);
@@ -2103,6 +2119,12 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 		if (ptrHasHandledSubclassFeatures) ptrHasHandledSubclassFeatures._ = true;
 
 		$trClassFeature.attr("data-feature-type", "gain-subclass");
+
+		// Add a placeholder feature to display when no subclasses are active
+		const $trSubclassFeature = $(`<tr class="cls-main__sc-feature" data-subclass-none-message="true"><td colspan="6"/></tr>`)
+			.fastSetHtml(Renderer.get().setDepthTracker([]).render({type: "entries", entries: [{name: `{@note No Subclass Selected}`, type: "entries", entries: [`{@note <span class="clickable roller" data-jump-select-a-subclass="true">Select a subclass</span> to view its feature(s) here.}`]}]}))
+			.appendTo($content);
+
 		cls.subclasses.forEach(sc => {
 			const stateKey = UrlUtil.getStateKeySubclass(sc);
 

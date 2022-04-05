@@ -12,7 +12,9 @@
 			"name": "Creepy Doll",
 			"source": "PSI",
 			"page": 25,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "construct",
 			"alignment": [
 				"L",
@@ -251,7 +253,9 @@
 			"name": "Geist",
 			"source": "PSI",
 			"page": 19,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"A"
@@ -404,7 +408,7 @@
 			"page": 40,
 			"_copy": {
 				"name": "Wereraven",
-				"source": "CoS",
+				"source": "VRGR",
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -467,7 +471,9 @@
 			"name": "Skaab",
 			"source": "PSI",
 			"page": 20,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"
@@ -633,7 +639,9 @@
 			"name": "Vampire Neonate",
 			"source": "PSI",
 			"page": 17,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -798,7 +806,9 @@
 			"name": "Werewolf (Krallenhorde)",
 			"source": "PSI",
 			"page": 15,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

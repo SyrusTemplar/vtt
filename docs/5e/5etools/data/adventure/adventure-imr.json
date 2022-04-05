@@ -3,11 +3,13 @@
 		{
 			"type": "section",
 			"name": "Introduction",
+			"page": 1,
 			"id": "000",
 			"entries": [
 				{
 					"type": "inset",
 					"name": "An Adventure Supporting Extra Life",
+					"page": 1,
 					"id": "001",
 					"entries": [
 						"A fallen clock tower holds components from an ancient artifact. Upon discovery of the components, competing agents look to launch expeditions to uncover additional components scattered across distant places\u2014and times. The now-lost Temple of Moloch and the construction site of the legendary {@adventure Tomb of Horrors|TftYP} are two of those locations. However great the risks, finding the components demands the effort, for whoever does so can reassemble the fabled {@i Infernal Machine of Lum the Mad!}",
@@ -34,6 +36,7 @@
 				{
 					"type": "inset",
 					"name": "A Note from the D&d Team",
+					"page": 2,
 					"id": "002",
 					"entries": [
 						"Starting in 2017, the D&D team has added several projects to the DMs Guild in support of Extra Life (including {@i One Grung Above}, {@i The Lost Kenku}, {@adventure The Tortle Package|TTP}, and last year's {@adventure Lost Laboratory of Kwalish|LLK}). Funds raised from their sale went to this extremely worthy cause\u2014and for 2019, you'll find even more projects made available on the DMs Guild throughout the year.",
@@ -43,6 +46,7 @@
 				{
 					"type": "section",
 					"name": "Background",
+					"page": 2,
 					"id": "003",
 					"entries": [
 						"Eons ago, a planar craft of unknown origin crashed within the Barrier Peaks. The scholar Kwalish would later find this craft, converting it into his laboratory and studying its technology to fuel his own experiments. However, Kwalish was not the first explorer to do so.",
@@ -54,6 +58,7 @@
 				{
 					"type": "section",
 					"name": "Adventure Summary",
+					"page": 3,
 					"id": "004",
 					"entries": [
 						"While journeying through fey woods, the characters must choose whether to help a trio of (supposed) dryads or a unicorn, with each faction blaming the other for the woods' corruption. Either way, the characters come across a fallen clock tower containing a strange set of magical components, which appear to manipulate time within a localized area.",
@@ -63,6 +68,7 @@
 						{
 							"type": "inset",
 							"name": "Who's Who",
+							"page": 3,
 							"id": "005",
 							"entries": [
 								"This adventure explores two locations of the distant past, and as such, features artifacts and figures from the deepest history of D&D.",
@@ -76,6 +82,7 @@
 				{
 					"type": "section",
 					"name": "Running the Adventure",
+					"page": 3,
 					"id": "006",
 					"entries": [
 						"To run this adventure, you need the D&D fifth edition core rulebooks\u2014the {@book Player's Handbook|PHB}, the {@book Dungeon Master's Guide|DMG}, and the {@book Monster Manual|MM}.",
@@ -93,12 +100,14 @@
 				{
 					"type": "section",
 					"name": "Adventure Hooks",
+					"page": 3,
 					"id": "008",
 					"entries": [
 						"You can bring the characters into this adventure in any way that makes sense for your campaign. Make use of any of the following suggestions, or use them as inspiration.",
 						{
 							"type": "entries",
 							"name": "Lost Laboratory of Kwalish",
+							"page": 4,
 							"id": "009",
 							"entries": [
 								"You can make use of this adventure in conjunction with 2018's Extra Life adventure {@adventure Lost Laboratory of Kwalish|LLK} in one of two ways. If you want to use {@i Infernal Machine Rebuild} as a prelude to {@i Lost Laboratory of Kwalish}, the conclusion of this adventure can involve the characters learning that one of the functions of the {@i Infernal Machine} leads to Kwalish and his hidden laboratory, thought to be within the Barrier Peaks.",
@@ -108,6 +117,7 @@
 						{
 							"type": "entries",
 							"name": "Baldur's Gate: Descent into Avernus",
+							"page": 4,
 							"id": "00a",
 							"entries": [
 								"If you're playing through or using events from {@adventure Baldur's Gate: Descent into Avernus|BGDIA} in your campaign, you might tie that campaign to this adventure in a number of ways.",
@@ -118,6 +128,7 @@
 						{
 							"type": "entries",
 							"name": "Dragon Heist or Dungeon of the Mad Mage",
+							"page": 4,
 							"id": "00b",
 							"entries": [
 								"As a continuation of {@adventure Waterdeep: Dragon Heist|WDH}, Volo or Laeral Silverhand could ask the characters to investigate a corrupted fey wood located in the nearby mountains. Or one of the missing components might be found in the Vault of Dragons, with the various factions of {@adventure Waterdeep: Dragon Heist|WDH} replacing the agents in this adventure.",
@@ -128,6 +139,7 @@
 										{
 											"type": "flowBlock",
 											"name": "Chapter 1: The Unicorn and the Hags",
+											"page": 4,
 											"entries": [
 												"Traveling through fey woods, the characters find themselves surrounded by dangerous, corrupted trees. \"Rescued\" by a trio of hags disguised as dryads, the characters might choose to help them rid the woods of a supposedly evil unicorn. Alternatively, they might meet the unicorn\u2014actually a good creature under assault by the hags that needs their help to fight back. Either way, they encounter a fallen clock tower holding mysterious magical components that can alter the flow of time."
 											],
@@ -136,6 +148,7 @@
 										{
 											"type": "flowBlock",
 											"name": "Chapter 2: An Invitation Extended",
+											"page": 4,
 											"entries": [
 												"Two agents, {@creature Lynx Creatlach|IMR} and {@creature Sir Ursas|IMR}, compete to hire the characters onto an expedition. Both seek additional components to rebuild the fabled artifact, the {@i Infernal Machine of Lum the Mad}\u2014and are looking to history to find them. The characters choose which of two legendary locations in the ancient past to use as the starting point for their search for the components."
 											],
@@ -144,6 +157,7 @@
 										{
 											"type": "flowBlock",
 											"name": "Chapter 3: Construction of Horrors",
+											"page": 4,
 											"entries": [
 												"Traveling to the distant past, the characters explore a version of the Tomb of Horrors still under construction. To obtain the missing components, they must contend with the tomb's architect, {@creature Moghadam|IMR}, and disrupt the evil ceremony that keeps a powerful balor imprisoned."
 											],
@@ -152,6 +166,7 @@
 										{
 											"type": "flowBlock",
 											"name": "Chapter 4: Temple of Moloch",
+											"page": 4,
 											"entries": [
 												"The characters explore the ancient Temple of Moloch, also known as the laboratory of {@creature Thessalar|IMR}, creator of numerous monsters. To obtain the components, they must contend with {@creature Thessalar|IMR}, his lizardfolk guards, and the temple's monstrous denizens."
 											],
@@ -160,6 +175,7 @@
 										{
 											"type": "flowBlock",
 											"name": "Chapter 5: Final Showdown",
+											"page": 4,
 											"entries": [
 												"The characters return to the present with any components recovered. The agent who receives the components installs them in their framework for the {@i Infernal Machine of Lum the Mad}, while the other agent launches a raid to seize the machine. The characters are forced to determine who retains possession of this powerful artifact."
 											],
@@ -176,12 +192,14 @@
 		{
 			"type": "section",
 			"name": "Chapter 1: The Unicorn and the Hags",
+			"page": 4,
 			"id": "00c",
 			"entries": [
 				"Whichever hook you choose, the adventure begins while the characters are traveling through a remote fey wood. If {@i Infernal Machine Rebuild} is played in combination with {@adventure Lost Laboratory of Kwalish|LLK}, this could be part of the thick band of woods surrounding the pass leading into the Barrier Peaks, known to be infused with the power of the Feywild. The High Forest in the Forgotten Realms campaign setting, the Svalich Woods in Barovia, or Xen'drik in Eberron also make excellent starting points.",
 				{
 					"type": "section",
 					"name": "Background",
+					"page": 4,
 					"id": "00d",
 					"entries": [
 						"A large section of a fey-infused woodland has fallen under the control of a coven of green hags. Using dark gardening techniques, the hags have grafted myconids into the trees of the wood, creating dangerous hybrids and a spreading corruption.",
@@ -191,6 +209,7 @@
 				{
 					"type": "section",
 					"name": "Who Dwells Here?",
+					"page": 4,
 					"id": "00e",
 					"entries": [
 						"In addition to mundane animals, these woods are populated by numerous fey creatures (including dryads, pixies, sprites, and satyrs). These fey have taken sides in the conflict between the unicorn and the hags, with those corrupted by the hags having gained control over the woods."
@@ -199,6 +218,7 @@
 				{
 					"type": "section",
 					"name": "The Three Mothers",
+					"page": 4,
 					"id": "00f",
 					"entries": [
 						"The three {@creature Green Hag||green hags} are intent on capturing the unicorn, Banrion, and corrupting the entirety of the woods. Over time, they have taken on characteristics of certain animals. Mother Stag, their leader, has enormous antlers growing from her head, on which she hangs herb pouches, charms, and dozens of lit candles. Mother Skunk has wide, white streaks in her long black hair. Mother Mole can hardly see, and constantly sniffs the air to find her way about.",
@@ -207,6 +227,7 @@
 						{
 							"type": "inset",
 							"name": "Hag Coven",
+							"page": 4,
 							"id": "010",
 							"entries": [
 								"Three hags form a coven, which results in heightened power. For higher-level characters, run the hags with their coven benefits to make a hard encounter. For lower-level parties, consider removing the coven's Shared Spellcasting. This feature is something the hags gain only after capturing Banrion.",
@@ -218,6 +239,7 @@
 				{
 					"type": "section",
 					"name": "Banrion the Unicorn",
+					"page": 4,
 					"id": "011",
 					"entries": [
 						"As the guardian of the fey woods, the {@creature unicorn} Banrion has grown weary in her losing battle against the hags, and remains effectively confined to the rocky plateau that is her lair. She defends her home forcefully, and assumes that any characters approaching her position are the hags' hired sellswords."
@@ -226,12 +248,14 @@
 				{
 					"type": "section",
 					"name": "The Fey Woods",
+					"page": 4,
 					"id": "012",
 					"entries": [
 						"The characters' journey through the fey woods takes them through the following locations. There is no map for this section of the adventure, so you are free to place these locations anywhere and to use any appropriate forest battle maps for combat.",
 						{
 							"type": "entries",
 							"name": "Dangerous Pathways",
+							"page": 4,
 							"id": "013",
 							"entries": [
 								"As the characters travel deeper into the woods, they find themselves traversing winding pathways that seem to slowly close in from all sides. At the place where the hags' corruption begins to take hold, the plants have become living traps. Read or paraphrase the following to set the scene:",
@@ -245,6 +269,7 @@
 								{
 									"type": "entries",
 									"name": "Suspect Fey",
+									"page": 4,
 									"id": "015",
 									"entries": [
 										"At the edge of the corrupt woods, a successful DC 12 Wisdom ({@skill Perception}) check spots a number of corrupt fey ({@creature Sprite||sprites}, {@creature Pixie||pixies}, and {@creature Satyr||satyrs}) watching the characters' progress. If the check is 14 or higher, or if any character with a passive Wisdom ({@skill Perception}) score of 14 studies the fey after they've been spotted, the fey appear mean and grubby. The fey run off if they are noticed, shouting with barely disguised menace to \"enjoy our sunny woods.\""
@@ -255,18 +280,21 @@
 						{
 							"type": "entries",
 							"name": "Sinister Sunbeams",
+							"page": 4,
 							"id": "016",
 							"entries": [
 								"At some point, the hags attempt to trap the characters\u2014so that they can then facilitate their rescue. To do so, they cause the sunbeams shining through the trees to subtly shift around the characters. A successful DC 14 Intelligence ({@skill Nature}) or Wisdom ({@skill Perception}) check notices that the sunbeams are moving in an unnatural way.",
 								{
 									"type": "entries",
 									"name": "Hazards and Hindrances",
+									"page": 5,
 									"id": "017",
 									"entries": [
 										"The sunbeams act as tripwires, which can trigger a number of possible hazards. Choose from the following (or make up your own effects) depending on your preferred style of play.",
 										{
 											"type": "entries",
 											"name": "Treant Beatdown",
+											"page": 5,
 											"id": "018",
 											"entries": [
 												"Any movement causes the characters to automatically cross a sunbeam, which awakens {@creature Grandfather Oak|IMR}. This corrupted treant has several myconids grafted onto its body. {@creature Grandfather Oak|IMR} uses the {@creature treant} stat block with the following change:",
@@ -282,6 +310,7 @@
 										{
 											"type": "entries",
 											"name": "Perilous Exploration",
+											"page": 5,
 											"id": "019",
 											"entries": [
 												"As the party continues on through the woods, the characters must succeed on three DC 14 group Dexterity checks to avoid crossing the sunbeams. Each character gains a +2 bonus to their check if a ranger or druid is with the party. A failed check triggers a random effect. Roll a {@dice d4} to determine the effect, which targets the character or characters with the lowest check:",
@@ -302,6 +331,7 @@
 										{
 											"type": "entries",
 											"name": "A Friendly Voice",
+											"page": 5,
 											"id": "01a",
 											"entries": [
 												"Olitor the {@creature redcap|VGM} (wrapped in the illusion of a diminutive satyr) appears, and warns the characters about the dangers of the sunbeams. He asks them to wait for Mother Stag, who arrives shortly thereafter.",
@@ -309,6 +339,7 @@
 												{
 													"type": "inset",
 													"name": "I Call Gorgon Spit!",
+													"page": 5,
 													"id": "01b",
 													"entries": [
 														"The hags are not to be trusted, and characters (not to mention players) are often wise to be suspicious even at the best of times. You can adjust the encounters with the dryad-hags according to the players' reactions as you see fit. For example, if the characters are too wary to follow Mother Stag back to the cottage, she can make her appeal immediately and give them the bridle and the crowns in the woods. Or if the characters travel to the cottage and suss out the hags' true nature, the hags might try to threaten the characters into capturing Banrion, or claim that the unicorn is a greater evil\u2014one that might destroy the woods if left unchecked. Especially if the hags' story of Banrion being an evil unicorn seems too unbelievable, the hags can claim that Banrion is a nightmare in fey disguise.",
@@ -323,6 +354,7 @@
 								{
 									"type": "entries",
 									"name": "Offer of Help",
+									"page": 5,
 									"id": "01c",
 									"entries": [
 										"At some point, Mother Stag arrives on the scene, playing the part of a helpful dryad. Read or paraphrase the following:",
@@ -338,6 +370,7 @@
 										{
 											"type": "entries",
 											"name": "Change of Plans",
+											"page": 5,
 											"id": "01e",
 											"entries": [
 												"If the characters decide to not accompany Mother Stag to the cottage\u2014or if they attack and kill her before the offer is even made\u2014they can continue through the woods on their own. Call for three more group checks to navigate the sunbeams, after which the characters either come upon the tree cottage or the clock tower bridge, as you determine.",
@@ -360,6 +393,7 @@
 						{
 							"type": "entries",
 							"name": "Tree Cottage of the Three Mothers",
+							"page": 6,
 							"id": "01f",
 							"entries": [
 								"Mother Stag's cottage stands an hour's walk deeper into the woods. While the characters travel with her, they have no trouble with the sunbeams.",
@@ -383,6 +417,7 @@
 								{
 									"type": "entries",
 									"name": "The Dryads' Offer",
+									"page": 6,
 									"id": "022",
 									"entries": [
 										"The three mothers offer to serve as guides, leading the characters safely through the woods to their original destination. But in exchange, they ask for assistance in defeating this evil unicorn. They do not want Banrion killed, however. Instead, if the characters can capture the unicorn, Mother Stag claims that they can undo her corruption\u2014and perhaps even convert her to more goodly ways. (In reality, the hags wish to capture the unicorn and force her to become their servant and mount.)"
@@ -391,6 +426,7 @@
 								{
 									"type": "entries",
 									"name": "Bridle of Capturing",
+									"page": 6,
 									"id": "023",
 									"entries": [
 										"To help the characters in this task, the three mothers have corrupted a {@item bridle of capturing|IMR} (see {@adventure appendix C|IMR|8}), which can control the unicorn and allow it to be led back to them. (Even though the bridle normally targets only beasts, the hags' magic allows this bridle to target Banrion specifically.)"
@@ -399,6 +435,7 @@
 								{
 									"type": "entries",
 									"name": "Crowns of the Forest",
+									"page": 7,
 									"id": "024",
 									"entries": [
 										"The dryad-hags also lend each character a woven crown of willow branches\u2014an uncommon magic item called a {@item crown of the forest|IMR}. They insist that the crowns be worn at all times for the characters' own safety, claiming (truthfully) that the crowns will allow the characters to see the sunbeam tripwires and step safely through them. However, the crowns also intensify the hags' illusion of themselves as dryads and Olitor as a satyr, make the unicorn Banrion appear to be a fiendish, haggard beast, and make the fey in the unicorn's care appear as vicious kobolds.",
@@ -409,6 +446,7 @@
 								{
 									"type": "entries",
 									"name": "The Mothers' Guidance",
+									"page": 7,
 									"id": "025",
 									"entries": [
 										"The dryad-hags lead the characters toward the clock tower bridge, but are too frightened of the unicorn to approach any closer. They leave Olitor to guide the characters the rest of the way. The satyr-redcap leads the characters to the edge of the ruins before sneaking off to hide and spy on their progress."
@@ -417,6 +455,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 7,
 									"id": "026",
 									"entries": [
 										"The cottage contains brewer's supplies, cook's tools, 250 gp, five potions (of your choice), and a {@item pot of awakening|XGE} (see {@adventure appendix C|IMR|8})."
@@ -427,6 +466,7 @@
 						{
 							"type": "entries",
 							"name": "Clock Tower Bridge",
+							"page": 7,
 							"id": "027",
 							"entries": [
 								"As the characters make their way toward Banrion's lair, they come across the ruins of an old clock tower, which make an unusual and dangerous bridge.",
@@ -441,6 +481,7 @@
 								{
 									"type": "entries",
 									"name": "Ruins",
+									"page": 7,
 									"id": "029",
 									"entries": [
 										"This city once housed the {@i Infernal Machine} before Lum the Mad conquered those who dwelled here and took the machine with him when he departed. A successful DC 12 Intelligence ({@skill Investigation}) check reveals faded carvings on the stone blocks depicting stylized aspects of daily life (hunting, worship, warfare, and so forth, with humanoid figures dressed in archaic styles of clothing). Graven lines (representing silver wires) are seen throughout the image. Any character who follows the lines discovers that they converge at a huge central representation of a massive magical-mechanical device\u2014the {@i Infernal Machine}."
@@ -451,6 +492,7 @@
 						{
 							"type": "entries",
 							"name": "Fallen Clock Tower",
+							"page": 7,
 							"id": "02a",
 							"entries": [
 								"The collapsed structure crosses the 100-foot-deep chasm and appears extremely unstable. (Banrion can teleport across the chasm, but does so only rarely. Because she can teleport only once per day, she is wary of being stuck on the other side if the hags' servants are nearby.) The foundation of the tower still rests on the forest side of the chasm\u2014and holds the instrument panel that formerly operated the tower's time mechanism.",
@@ -458,6 +500,7 @@
 								{
 									"type": "entries",
 									"name": "Manual Crossing",
+									"page": 7,
 									"id": "02b",
 									"entries": [
 										"A character can attempt to cross the chasm using the exterior of the fallen clock tower as a bridge, or using its interior as a tunnel. Either way, the character must succeed on two DC 14 Dexterity ({@skill Acrobatics}) checks to safely cross. Characters who are roped together gain no benefit for these checks, but are in a better position to help each other if one falls.",
@@ -468,6 +511,7 @@
 								{
 									"type": "entries",
 									"name": "Using the Controls",
+									"page": 7,
 									"id": "02c",
 									"entries": [
 										"Within the foundation of the tower on the near side of the chasm, an instrument panel is built into the wall. Characters who have seen the planar craft in {@adventure Lost Laboratory of Kwalish|LLK} recognize the design of the panel, as well as the silver wires that connect it to the rest of the tower structure.",
@@ -476,6 +520,7 @@
 										{
 											"type": "entries",
 											"name": "Forward and Back",
+											"page": 8,
 											"id": "02d",
 											"entries": [
 												"The red component allows the time field to be adjusted toward the future. If the check to do so is successful, the tower begins to rapidly age and crumble. If advanced too far, or if any check made to operate the red component is failed by 10 or more, the tower collapses into the valley with a resounding crash.",
@@ -490,6 +535,7 @@
 						{
 							"type": "entries",
 							"name": "Banrion's Lair",
+							"page": 8,
 							"id": "02e",
 							"entries": [
 								"The rocky plateau beyond the chasm holds the crumbled shell of an ancient castle. Banrion the unicorn makes her home here, along with a number of goodly fey who shelter in a network of tiny tunnels within the ruins. Having long been hunted by the hags and their evil servants, these fey\u2014including sprites, pixies, and good boggles and satyrs\u2014are too weak and terrified to help in any fight.",
@@ -497,6 +543,7 @@
 								{
 									"type": "entries",
 									"name": "Banrion's Offer",
+									"page": 8,
 									"id": "02f",
 									"entries": [
 										"If the characters agree to fight the hags, Banrion joins them. But she asks that before the fight, the characters help escort the fey living in the ruins across the bridge, then manipulate the fallen clock tower back to its standing position. This seals off her plateau defensively, denying it to the hags in case she falls. (If she survives, the unicorn remains able to teleport across the chasm.) In this way, the characters discover the tower's controls if they have not already.",
@@ -504,6 +551,7 @@
 										{
 											"type": "inset",
 											"name": "Who's Who",
+											"page": 8,
 											"id": "030",
 											"entries": [
 												"In D&D canon, Lum the Mad discovered an artifact of unknown origin (reimagined in this adventure as technology from a crashed planar craft) and used it to conquer large territories in Greyhawk's world of Oerth.",
@@ -515,6 +563,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 8,
 									"id": "031",
 									"entries": [
 										"If the stones and small tunnels beneath the plateau are searched, a successful DC 14 Intelligence ({@skill Investigation}) check uncovers ten lengths of silver wire carefully twisted by the fey into delicate sculptures honoring Banrion. As art objects, the sculptures are worth 50 gp each."
@@ -527,6 +576,7 @@
 				{
 					"type": "section",
 					"name": "Aftermath",
+					"page": 8,
 					"id": "032",
 					"entries": [
 						"If Banrion is bridled, she must obey the characters as they deliver her to the dryad-hags. Assuming the characters don't uncover the hags' deception (or if they don't care), the unicorn's fate is a sad one, as the woods fall under the Three Mothers' corruption. ",
@@ -535,6 +585,7 @@
 						{
 							"type": "entries",
 							"name": "Components",
+							"page": 8,
 							"id": "033",
 							"entries": [
 								"With the hags defeated, Banrion has no further need for the clock tower panel's magical power. She insists that the characters take the two components, both as a reward and as items worthy of magical study. (She is also keen to ensure that the panel can never be used again to adjust time, in case doing so causes the hags or their corruption to return).",
@@ -549,6 +600,7 @@
 		{
 			"type": "section",
 			"name": "Chapter 2: An Invitation Extended",
+			"page": 9,
 			"id": "034",
 			"entries": [
 				"After the characters return from the woods (or at any appropriate time depending on which adventure hooks you've used), the party is sought out by two competing agents. {@creature Lynx Creatlach|IMR} and {@creature Sir Ursas|IMR} are both searching for any missing components from the {@i Infernal Machine of Lum the Mad}, and their spies have returned with news of the characters' knowledge or possession of the components from the clock tower. The agents look to meet with the characters, acquire the components they've found, and engage them to help find more.",
@@ -556,6 +608,7 @@
 				{
 					"type": "section",
 					"name": "Background",
+					"page": 9,
 					"id": "035",
 					"entries": [
 						"Two archdevils\u2014Zariel and Bel\u2014have longed battled for control over Avernus, the first layer of the Nine Hells. To advance their cause, both archdevils plan to rebuild the {@i Infernal Machine of Lum the Mad}, then incorporate that artifact into a powerful infernal war machine. To this end, both devils have placed competing agents into the world, tasking them with collecting as many of the missing components of the {@i Infernal Machine of Lum the Mad} as possible.",
@@ -566,12 +619,14 @@
 				{
 					"type": "section",
 					"name": "The Two Agents",
+					"page": 9,
 					"id": "036",
 					"entries": [
 						"The two agents reside in or close to the characters' current city or home base. If you are playing through {@adventure Baldur's Gate: Descent into Avernus|BGDIA}, you can arrange for both agents to reside in Baldur's Gate, where they seek the characters out after they arrive. Lynx and {@creature Sir Ursas|IMR} both send couriers to deliver invitations to their respective manors.",
 						{
 							"type": "entries",
 							"name": "Special Delivery",
+							"page": 9,
 							"id": "037",
 							"entries": [
 								"The two agents remain engaged in a constant war of espionage against one another. Even their couriers (both neutral human {@creature Spy||spies}) compete to deliver their respective invitations first. Roll on the Courier Conflict table to determine the outcome of the couriers' mission.",
@@ -624,6 +679,7 @@
 								{
 									"type": "entries",
 									"name": "Invitation",
+									"page": 9,
 									"id": "038",
 									"entries": [
 										"Each invitation extends a formal welcome to the characters and a request to meet in person. The contents are short on details beyond the agent's name, but the invitation promises a lucrative reward for services rendered that will benefit all good and free folk, and includes a map to the respective agent's manor.",
@@ -636,6 +692,7 @@
 						{
 							"type": "entries",
 							"name": "Assignment",
+							"page": 9,
 							"id": "039",
 							"entries": [
 								"When first met, each agent extends the same offer. If the characters have not already determined so on their own, the agent explains that the components they found originated in the {@i Infernal Machine of Lum the Mad}. They then offer to pay for those components already in the characters' possession, and to pay a handsome bounty for the recovery of any additional components\u20142,000 gp for each component (negotiable up to 4,000 gp, especially if there's a competing offer from the other agent in play).",
@@ -645,6 +702,7 @@
 						{
 							"type": "entries",
 							"name": "Lynx Creatlach",
+							"page": 10,
 							"id": "03a",
 							"entries": [
 								"Presenting herself as a tiefling rogue, {@creature Lynx Creatlach|IMR} talks of how she retired as an adventurer to use her assembled fortune and collected antiquities in the service of nobler causes. Chief among those causes is the defeat of the servants of the archdevil Bel. An eccentric dilettante, Lynx has had her thick horns intricately carved and inlaid with sigils and figures in silver, including multiple images of her namesake lynx. She has also lost one eye from old adventuring misfortunes, replacing it with a glass eye of hazy crystal. Several of her teeth have also been replaced with precious stones and metals.",
@@ -652,6 +710,7 @@
 								{
 									"type": "entries",
 									"name": "Lynx's Manor",
+									"page": 10,
 									"id": "03b",
 									"entries": [
 										"Lynx resides in a narrow, multistory house in a fine part of the city. While she claims ownership of the place, she has merely taken over the manor from its current owner. That owner (whose identity is left to your determination) is kept alive and bound within an extradimensional prison, treated as a permanent {@spell Leomund's tiny hut} held inside a permanent {@spell rope trick} spell that can be opened only by Lynx. When the rope from the spell hangs down, it is disguised as a curtain pull in the manor library.",
@@ -659,6 +718,7 @@
 										{
 											"type": "entries",
 											"name": "Servants",
+											"page": 10,
 											"id": "03c",
 											"entries": [
 												"The house is also occupied by a dozen servants\u2014all {@creature Cultist||cultists} of Zariel disguised in stolen livery."
@@ -669,6 +729,7 @@
 								{
 									"type": "entries",
 									"name": "Lynx's Goal",
+									"page": 10,
 									"id": "03d",
 									"entries": [
 										"Lynx states that she seeks the missing components in order to complete her version of the {@i Infernal Machine of Lum the Mad}. Her plan is to use the powerful artifact to counteract the forces of the archdevil Bel working within Baldur's Gate. She admits a rivalry with {@creature Sir Ursas|IMR}, who she says considers Lynx a criminal for her past adventuring ways and now constantly seeks to thwart her. Lynx further states that {@creature Sir Ursas|IMR} wants the missing components for his own lost cause of leading a war in the Nine Hells, which would invariably result in the components falling into diabolical hands.",
@@ -679,6 +740,7 @@
 								{
 									"type": "entries",
 									"name": "Mechanical Guide",
+									"page": 10,
 									"id": "03e",
 									"entries": [
 										"Lynx has pulled a component from her version of the {@i Infernal Machine} and installed it in a magical construct resembling a silvery skeleton with decorative wings, nicknamed Eludecia. (If you connect this adventure to {@adventure Lost Laboratory of Kwalish|LLK}, the construct has been built from one of Kwalish's old designs.) If the characters possess any missing components, she asks to buy those so that they can be added to the construct as well.",
@@ -690,6 +752,7 @@
 						{
 							"type": "entries",
 							"name": "Sir Ursas",
+							"page": 10,
 							"id": "03f",
 							"entries": [
 								"The warrior {@creature Sir Ursas|IMR} strikes an imposing figure\u2014a massive, muscular warrior with one arm replaced with a grizzly bear's paw grafted at the elbow. He grows his dark hair long and shaggy, his eyes are bloodshot, and his complexion is consistently ruddy as if from some combination of exercise, exertion, and bellowing at subordinates. Ursas proudly claims to be the very figure depicted in {@i A Paladin in Hell}\u2014a painting that has become famous throughout Faerûn\u2014and that he lost his arm on that expedition, fighting the forces of the archdevil Zariel.",
@@ -708,6 +771,7 @@
 								{
 									"type": "entries",
 									"name": "Sir Ursas's Manor",
+									"page": 12,
 									"id": "040",
 									"entries": [
 										"{@creature Sir Ursas|IMR} resides in a veritable stronghold located outside the city limits. Its grounds are surrounded by a vast and intricate hedge maze under a permanent {@spell guards and wards} spell. Any creature navigating the maze on their own without guidance must succeed on a DC 18 Wisdom saving throw or become disoriented and lost. Such creatures are unable to find their way to the manor, as all paths appear to only exit the maze.",
@@ -715,6 +779,7 @@
 										{
 											"type": "entries",
 											"name": "Servants",
+											"page": 12,
 											"id": "041",
 											"entries": [
 												"The stronghold is also occupied by a dozen mercenaries\u2014all {@creature Cultist||cultists} of Bel who appear as burly and brutish fighters."
@@ -725,6 +790,7 @@
 								{
 									"type": "entries",
 									"name": "Sir Ursas's Goal",
+									"page": 12,
 									"id": "042",
 									"entries": [
 										"Ursas states that he seeks the missing components in order to complete his version of the {@i Infernal Machine of Lum the Mad}. When complete, the powerful artifact will allow him to finish the military campaign he started long ago, letting him return to Avernus and take on the forces of Zariel. Further, he is open about his rivalry with Lynx. He claims that the retired rogue is after the missing components only to add them to her collection of stolen rarities, and that she has no intention of putting them into the service of good.",
@@ -735,6 +801,7 @@
 								{
 									"type": "entries",
 									"name": "Mechanical Guide",
+									"page": 12,
 									"id": "043",
 									"entries": [
 										"{@creature Sir Ursas|IMR} offers the characters the services of a magical construct built to resemble a smaller version of the {@i Mighty Servant of Leuk-O}, and which is nicknamed Luke. The construct is powered by one of the {@i Infernal Machine} components Ursas has collected. If the characters possess any missing components, he asks to buy those so that they can be added to the construct as well.",
@@ -748,12 +815,14 @@
 				{
 					"type": "section",
 					"name": "Expedition Options",
+					"page": 12,
 					"id": "044",
 					"entries": [
 						"This adventure is designed to provide plenty of options for you as the DM, and to help give the players a strong sense of agency and choice.",
 						{
 							"type": "entries",
 							"name": "Agents",
+							"page": 12,
 							"id": "045",
 							"entries": [
 								"The characters can ally themselves with either agent, whether choosing to deal with the first agent they meet, or meeting both before making a choice. They might even meet with both in order to play one against the other. They might distrust both agents and ally with neither, instead undertaking the adventure on their own to capture the missing components and prevent them falling into the wrong hands. In the latter case, you simply need to arrange for them to gain access to their own mechanical guide, whether through theft, purchase, or an alternative patron (such as Kwalish)."
@@ -762,6 +831,7 @@
 						{
 							"type": "entries",
 							"name": "Locations",
+							"page": 12,
 							"id": "046",
 							"entries": [
 								"Depending on which agent they ally themselves with, the characters will initially travel to either the Tomb of Horrors or the Temple of Moloch. If you want to focus on only one location in the adventure, that's fine. But plot hooks and NPC interactions at each location give you lots of opportunity to inspire or compel the characters to travel to the second location, either after or in conjunction with exploring the first location."
@@ -770,6 +840,7 @@
 						{
 							"type": "entries",
 							"name": "Mechanical Guides",
+							"page": 12,
 							"id": "047",
 							"entries": [
 								"Each mechanical guide is programmed to teleport through space and time to the adventure's set locations, effectively dropping the characters at the start of {@adventure chapter 3|IMR|3} or {@adventure chapter 4|IMR|4}. Each guide can return to its agent's manor at any time.",
@@ -780,6 +851,7 @@
 								{
 									"type": "entries",
 									"name": "Working Both Sides",
+									"page": 12,
 									"id": "048",
 									"entries": [
 										"If the characters meet with both agents, they might agree to work for both without the other agent knowing. In that case, it's possible that they acquire both mechanical guides. You can decide whether the programming of the two constructs causes them to bicker and one-up each other\u2014or whether each guide attempts to sabotage and destroy its counterpart. Or you might decide that they develop a mutual respect for each other, perhaps even becoming friends as a result of their shared adventures. If on friendly terms, a guide can restore any damage dealt to its counterpart during a short rest, by willingly sacrificing parts for the other."
@@ -792,6 +864,7 @@
 				{
 					"type": "section",
 					"name": "Manipulating Time",
+					"page": 13,
 					"id": "049",
 					"entries": [
 						"The ability to manipulate time at either the Tomb of Horrors or the Temple of Moloch is a fun part of the adventure, so make sure the players are clear on the parameters for doing so. The following information reflects what the characters learn from the mechanical guide they work with:",
@@ -814,12 +887,14 @@
 		{
 			"type": "section",
 			"name": "Chapter 3: Construction of Horrors",
+			"page": 13,
 			"id": "04a",
 			"entries": [
 				"The Tomb of Horrors is one of the most legendary dungeons in the multiverse. Shaped by the demilich Acererak as a testing ground for would-be heroes\u2014and as a place to steal the souls of those heroes whose skills where found wanting\u2014the tomb has claimed countless lives over millennia, and even some of the most hardened adventurers would think twice about entering those deadly halls. But by going back into the past, the characters have a chance to explore a version of the Tomb of Horrors that few have ever seen, and to engage one of the world's deadliest dungeons on their own terms.",
 				{
 					"type": "section",
 					"name": "Background",
+					"page": 13,
 					"id": "04b",
 					"entries": [
 						"According to legend, Acererak was a tiefling fathered by a balor named {@creature Tarnhem|IMR}. In his youth, he studied spellcasting under Vecna, and has since become an archmage of surpassing evil. While researching the means to achieve lichdom, Acererak built a number of dungeons and tombs, including his famed Tomb of Horrors. Those dungeons were created partly as a means to draw out and defeat those adventurers driven to seek and destroy him\u2014and partly to claim those adventurers' souls to feed his phylactery.",
@@ -831,6 +906,7 @@
 				{
 					"type": "section",
 					"name": "Who Dwells Here?",
+					"page": 14,
 					"id": "04c",
 					"entries": [
 						"This version of the Tomb of Horrors takes place in the distant past, when various legendary figures of in-game history (Acererak included) still operate as mere mortals. Several of such figures have been included as NPCs, but you should not treat this adventure's approach to those characters as canon. Rather, use them to flesh out this particular adventure in \"what-if\" fashion. Alternatively, if you prefer not to populate the adventure with such prominent names, you can substitute those characters with unnamed general NPCs who can fill the same roles.",
@@ -838,6 +914,7 @@
 						{
 							"type": "entries",
 							"name": "Moghadam",
+							"page": 14,
 							"id": "04d",
 							"entries": [
 								"A legendary evil human artificer, {@creature Moghadam|IMR} has long sought out interesting challenges for his immense intellect. As such, he considers the design of the Tomb of Horrors to be his masterwork. If questioned about his motivations, he claims that Acererak took his family hostage, and will not release them until {@creature Moghadam|IMR} completes his work. The truth is that the artificer has no family. He delights in creating despair, and works on the tomb in the hope that his name will go down alongside Acererak's in legend.",
@@ -848,12 +925,14 @@
 						{
 							"type": "entries",
 							"name": "Nolzur",
+							"page": 14,
 							"id": "04e",
 							"entries": [
 								"Fated to one day become a spellcaster of great renown, Nolzur (a neutral male human {@creature master thief|vgm}) has not yet begun to hone his magical art in this time, but has already started a specialization in alchemy that will one day lead to the crafting of such items as his famed {@item Nolzur's marvelous pigments}. In this age, Nolzur most recently studied with {@creature Thessalar|IMR}, learning secrets of alchemy and infusing his own blood with strange and dangerous properties. {@creature Moghadam|IMR} learned of all this and captured Nolzur. He is now held in the tomb, with his blood used as a base material for magic pigments.",
 								{
 									"type": "inset",
 									"name": "Who's Who",
+									"page": 14,
 									"id": "04f",
 									"entries": [
 										"According to game lore, Nolzur belonged to the Company of Seven, a famed group of adventurers whose names are immortalized in spells, artifacts, and magic items such as {@item Keoghtom's ointment}, {@item Quaal's feather token}, {@item Heward's handy haversack}, and {@spell Tasha's hideous laughter}. Nolzur was a noted thief, illusionist, and alchemist, most famous for creating {@item Nolzur's marvelous pigments}."
@@ -864,6 +943,7 @@
 						{
 							"type": "entries",
 							"name": "Pentival",
+							"page": 14,
 							"id": "050",
 							"entries": [
 								"A lawful good male half-dragon paladin in the service of Pelor, Pentival ventured to the tomb worksite along with several fellow paladins, drawn by rumors of a powerful balor bound there. Acererak spread these rumors, relying on combat between Pentival and {@creature Tarnhem|IMR} to weaken them both, after which he could capture and imprison them for his own purposes.",
@@ -873,6 +953,7 @@
 						{
 							"type": "entries",
 							"name": "Phenex",
+							"page": 14,
 							"id": "051",
 							"entries": [
 								"An {@creature incubus} cleric of Vecna, Phenex came to this world by way of the jungles of Chult. He first occupied an abandoned temple filled with girallons, where Acererak found and recruited him with promises of power and glory.",
@@ -882,6 +963,7 @@
 						{
 							"type": "entries",
 							"name": "Tarnhem",
+							"page": 14,
 							"id": "052",
 							"entries": [
 								"A powerful {@creature balor} and Acererak's father, {@creature Tarnhem|IMR} has been tricked into imprisonment by his son. Above all else, the demon desires his freedom, and is willing to promise anything to those who can offer it to him."
@@ -892,6 +974,7 @@
 				{
 					"type": "section",
 					"name": "Missing Components",
+					"page": 14,
 					"id": "053",
 					"entries": [
 						"The missing components of the {@i Infernal Machine} at this location can be found in the chapel of evil ({@area area 14|093|x}), worked into the altar. They resemble the components found at the clock tower in {@adventure chapter 1|IMR|1}, being gemstone-like buttons made of some unknown material, all a deep sapphire blue."
@@ -900,6 +983,7 @@
 				{
 					"type": "section",
 					"name": "Mechanical Guide",
+					"page": 14,
 					"id": "054",
 					"entries": [
 						"If the characters' mechanical guide is lost or destroyed while they explore the Tomb of Horrors, you can make use of a number of options to keep the characters from remaining stranded in the past. {@creature Moghadam|IMR} might offer to repair or rebuild the guide for a suitable price, and {@creature Thessalar|IMR} makes the same offer if an overland trek is made to reach him. (The sculptors in the tomb possess maps showing the way to the Temple of Moloch.) {@creature Tarnhem|IMR} might also be able to help restore a fallen guide using his powerful fiendish magic, but only if the characters are willing to make a deal with the demon and free him."
@@ -908,6 +992,7 @@
 				{
 					"type": "section",
 					"name": "Exploring the Tomb",
+					"page": 15,
 					"id": "055",
 					"entries": [
 						"Compared to the original {@adventure Tomb of Horrors|TftYP} adventure, this version of the tomb is still in the early stages of its construction. Areas 1 to 18 match the well-known maps of the tomb closely, but the sections of the tomb beyond those areas have not yet been constructed.",
@@ -915,6 +1000,7 @@
 						{
 							"type": "entries",
 							"name": "Hillside",
+							"page": 15,
 							"id": "056",
 							"entries": [
 								"From the characters' arrival point, a busy vista unfolds at the construction site.",
@@ -929,6 +1015,7 @@
 								{
 									"type": "entries",
 									"name": "Entrance Portals",
+									"page": 15,
 									"id": "058",
 									"entries": [
 										"The three openings across the north side of the hill lead to areas 1 to 3. With a successful DC 12 Wisdom ({@skill Perception}) check, characters atop the hill can observe umber hulks and their handlers traveling to and from {@area area 2|062|x}, and humanoid workers moving to and from {@area area 3|065|x}. {@area Area 1|05e|x} appears deserted."
@@ -937,6 +1024,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 15,
 									"id": "059",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes several workers to emerge from inside the tomb, hauling a large black rock to add to the pile atop the hill."
@@ -947,6 +1035,7 @@
 						{
 							"type": "entries",
 							"name": "Workers' Camp",
+							"page": 15,
 							"id": "05a",
 							"entries": [
 								"A number of tents along the north side of the hill house the tomb's workers, their food storage, equipment depots, latrines, and so forth. These workers include two dozen neutral dwarves split into two gangs. A surly, browbeaten lot, they have no interest in who the characters are or what their business at the tomb is. If talked to, they grumble about their poor food and lack of pay, with the two groups blaming each other for every worksite mishap and grievance. They flee into the tomb if threatened, but fight with picks and shovels if cornered.",
@@ -964,6 +1053,7 @@
 								{
 									"type": "entries",
 									"name": "Umber Hulk Handlers",
+									"page": 15,
 									"id": "05b",
 									"entries": [
 										"Three neutral evil dwarf {@creature Cult Fanatic||cult fanatics} wear spiky leather armor and serve as handlers for the pair of umber hulks found in {@area area 2|062|x}. They know certain command words that magically compel the hulks' obedience. The handlers carry long hooked poles to prod the hulks, and which are also enchanted to magically open and close the stone slab in {@area area 2|062|x}.",
@@ -973,6 +1063,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 15,
 									"id": "05c",
 									"entries": [
 										"Little of value can be found in the camp aside from personal effects. These effects include several letters offering high wages for construction workers, signed by {@creature Moghadam|IMR}."
@@ -981,6 +1072,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 15,
 									"id": "05d",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes a number of the dwarves to erupt into squabbling, allowing the characters to approach any of the tomb entrances without notice.",
@@ -1022,6 +1114,7 @@
 						{
 							"type": "entries",
 							"name": "1. Office of the Artificer",
+							"page": 15,
 							"id": "05e",
 							"entries": [
 								{
@@ -1036,6 +1129,7 @@
 								{
 									"type": "entries",
 									"name": "Moghadam's Bargain",
+									"page": 16,
 									"id": "060",
 									"entries": [
 										"{@creature Moghadam|IMR} knows about the {@i Infernal Machine} components in the tomb, and is quick to negotiate with the characters for them. In truth, he has no intention of parting with them and looks to subvert any deal, ideally by luring the characters to the evil chapel ({@area area 14|093|x}).",
@@ -1065,6 +1159,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 16,
 									"id": "061",
 									"entries": [
 										"The stone table here is the first piece of stone cut for the tomb's excavation. It holds a number of important documents of {@creature Moghadam|IMR}'s creation, including the master map of the tomb. This map features a notation in Undercommon: \"The true master of the tomb is he who plans its construction.\"",
@@ -1076,12 +1171,14 @@
 						{
 							"type": "entries",
 							"name": "2. Umber Hulk Pen",
+							"page": 16,
 							"id": "062",
 							"entries": [
 								"Before its eventual conversion into a false tomb entrance, this tunnel is being used to house a mated pair of umber hulks used as labor for the tomb's construction. During the day, they carve out tunnels for the tomb. At night and while their handlers take breaks, they are kept behind a 10-foot-thick stone block that is magically slid across the tunnel.",
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 16,
 									"id": "063",
 									"entries": [
 										"The two {@creature Umber Hulk||umber hulks} have symbols magically scribed on their mandibles by {@creature Moghadam|IMR}, placing them under the effect of a permanent {@spell dominate monster} spell. Their handlers (at area B when the characters first arrive) know the command words that compel the hulks into service.",
@@ -1091,6 +1188,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 16,
 									"id": "064",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the umber hulks to either return here to rest if they are elsewhere, or to depart for the tomb to begin work, opening or closing the stone slab accordingly."
@@ -1101,6 +1199,7 @@
 						{
 							"type": "entries",
 							"name": "3. Entrance to the Tomb",
+							"page": 17,
 							"id": "065",
 							"entries": [
 								{
@@ -1114,6 +1213,7 @@
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 17,
 									"id": "067",
 									"entries": [
 										"Twelve neutral {@creature Tiefling Muralist|IMR|tiefling muralists} work here, constantly mixing fresh pigments to be applied to the plaster walls. A muralist uses the {@creature cultist} stat block with the following changes:",
@@ -1132,6 +1232,7 @@
 								{
 									"type": "entries",
 									"name": "Murals",
+									"page": 17,
 									"id": "068",
 									"entries": [
 										"If the murals are examined, read the following (from the original {@adventure Tomb of Horrors|TftYP}):",
@@ -1147,6 +1248,7 @@
 								{
 									"type": "entries",
 									"name": "Looking South",
+									"page": 17,
 									"id": "06a",
 									"entries": [
 										"The muralists' lantern light illuminates the north half of this area. The details of {@area area 6|072|x} are visible only when characters with {@sense darkvision} or a light source move close enough to the end of the hall."
@@ -1155,6 +1257,7 @@
 								{
 									"type": "entries",
 									"name": "Open Pits",
+									"page": 17,
 									"id": "06b",
 									"entries": [
 										"In several places, the winding mosaic path crosses over a series of open pits yet to be covered and concealed. The first four pits are each 10 feet deep and empty except for refuse.",
@@ -1164,6 +1267,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 17,
 									"id": "06c",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes one of the muralists to descend the southernmost pit to collect more blood from Nolzur (held in {@area area 7|076|x}). If Nolzur has been rescued, the muralists report this to {@creature Moghadam|IMR}, who rallies available workers to hunt for the missing thief."
@@ -1174,6 +1278,7 @@
 						{
 							"type": "entries",
 							"name": "4. Side Entrance",
+							"page": 17,
 							"id": "06d",
 							"entries": [
 								"This section of the wall has not yet been plastered or painted over, leaving an open doorway leading west. The pit before the doorway is crossed by a series of wooden planks."
@@ -1182,6 +1287,7 @@
 						{
 							"type": "entries",
 							"name": "5. Control Room",
+							"page": 17,
 							"id": "06e",
 							"entries": [
 								{
@@ -1196,12 +1302,14 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 17,
 									"id": "070",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area drains more energy from the balor, causing him to fall {@condition unconscious} in area 6.",
 										{
 											"type": "inset",
 											"name": "Who's Who",
+											"page": 17,
 											"id": "071",
 											"entries": [
 												"The wizard Tuerny was the creator of the long-lost artifact called the {@i Iron Flask of Tuerny the Merciless}, used to trap demons, devils, and other creatures. This artifact later became the model for the lesser-but-still-legendary magic of the iron flask. According to lore, Tuerny became a nalfeshnee demon before vanishing from history."
@@ -1214,6 +1322,7 @@
 						{
 							"type": "entries",
 							"name": "6. Captive Balor",
+							"page": 19,
 							"id": "072",
 							"entries": [
 								{
@@ -1228,6 +1337,7 @@
 								{
 									"type": "entries",
 									"name": "Bargaining with Tarnhem",
+									"page": 19,
 									"id": "074",
 									"entries": [
 										"If the characters are free to speak with {@creature Tarnhem|IMR}, the balor asks them to disrupt the ceremony in the chapel ({@area area 14|093|x}), and then set the controls in {@area area 5|06e|x} to release him. To convince them to do so, the fiend promises anything within his power. As a show of good faith, he can relate how to safely open the treasure chests in {@area area 13|08f|x}, and how his weapons have been taken to the chapel ({@area area 14|093|x}) and worked into the altar there.",
@@ -1247,6 +1357,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 19,
 									"id": "075",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area reverts {@creature Tarnhem|IMR} to an earlier period before so much of his life force was drained, awakening him if he is {@condition unconscious}."
@@ -1257,6 +1368,7 @@
 						{
 							"type": "entries",
 							"name": "7. Forsaken Prison",
+							"page": 19,
 							"id": "076",
 							"entries": [
 								"A narrow crawl space leads here from the southernmost pit in the entrance hall ({@area area 3|065|x}). At the bottom of a 10-foot drop at the end of the crawl space, a miserable cell holds a solitary prisoner. The artisan Nolzur (a neutral male human {@creature master thief|vgm}, but he is reduced to 1 hit point) has been captured and held here, his alchemical blood continually drained to create the magic pigments used to paint the tomb's murals. The muralists drain him with tools crafted from the beaks of stirges, keeping him barely alive with healing magic.",
@@ -1264,6 +1376,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 19,
 									"id": "077",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes one of the muralists to arrive here to collect more blood, for use in either {@area area 3|065|x} or 10. Spending 2 charges also restores a measure of health to Nolzur, equivalent to the effect of a {@spell cure wounds} spell."
@@ -1274,6 +1387,7 @@
 						{
 							"type": "entries",
 							"name": "8. Sculptors' Workroom",
+							"page": 19,
 							"id": "078",
 							"entries": [
 								"This workspace is used by a number of neutral human sculptors creating objects for use in the tomb. Five are present when the characters first enter this area, watched over and assisted by a {@creature girallon|VGM}. The sculptors (use the {@creature cultist} stat block) traveled here from the Temple of Moloch under the false promise of fabulous payment for helping construct the tomb. They have since found themselves unable to leave.",
@@ -1282,6 +1396,7 @@
 								{
 									"type": "inset",
 									"name": "Nolzur's Gift",
+									"page": 19,
 									"id": "079",
 									"entries": [
 										"If the characters help him escape from the Tomb of Horrors, Nolzur later sends them a set of his {@item Nolzur's marvelous pigments}, which magically arrives wherever and whenever they end up after the adventure is done. The delivery also contains a small, unpainted miniature figure representing each character. Each figure is a tiny clockwork device. If painted and kept on hand, the figures secretly animate to help the characters with small tasks whenever they sleep."
@@ -1290,6 +1405,7 @@
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 20,
 									"id": "07a",
 									"entries": [
 										"Under the command of Phenex ({@area area 14|093|x}), the {@creature girallon|VGM} has been ordered to obey the sculptors as they work, but to not allow them to leave the tomb. The creature carries torches in two hands to provide light for the sculptors. With the other two, it hands out hammers, chisels, and other tools as needed.",
@@ -1299,6 +1415,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 20,
 									"id": "07b",
 									"entries": [
 										"The girallon wears a golden armband (worth 250 gp) on one of its left arms, scribed by {@creature Moghadam|IMR} with magical symbols that place the creature under the effect of a permanent {@spell dominate monster} spell. Phenex ({@area area 14|093|x}) knows the command words that compel the girallon into service."
@@ -1307,6 +1424,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 20,
 									"id": "07c",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the girallon to leave. Roll a {@dice d4}. On a 1\u20132, the girallon checks in with {@creature Moghadam|IMR} in {@area area 1|05e|x}. On a 3\u20134, it goes to see Phenex in {@area area 14|093|x}."
@@ -1317,6 +1435,7 @@
 						{
 							"type": "entries",
 							"name": "9. Artisans' Chambers",
+							"page": 20,
 							"id": "07d",
 							"entries": [
 								"This connected series of rooms are currently being used as small apartments and storerooms for the muralists and sculptors laboring inside the tomb. The rooms are small, sparse, and minimally furnished.",
@@ -1324,6 +1443,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 20,
 									"id": "07e",
 									"entries": [
 										"These areas contain only personal effects, including several invitations sent from {@creature Moghadam|IMR} for employment at the tomb and offering exorbitant wages. As well, one of the artisans has a map showing the overland route from the Temple of Moloch to the Tomb of Horrors."
@@ -1332,6 +1452,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 20,
 									"id": "07f",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes {@dice 1d4 + 1} artisans to either return here from their labors, or depart for their work."
@@ -1344,11 +1465,13 @@
 				{
 					"type": "section",
 					"name": "Exploring the Tomb (areas 10-18)",
+					"page": 20,
 					"id": "080",
 					"entries": [
 						{
 							"type": "entries",
 							"name": "10. Great Hall of Spheres",
+							"page": 20,
 							"id": "081",
 							"entries": [
 								{
@@ -1361,6 +1484,7 @@
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 20,
 									"id": "083",
 									"entries": [
 										"Five neutral human sculptors (use the {@creature cultist} stat block) originally from the Temple of Moloch are here creating stonework for the tomb. Desperate to escape, they are working on a secret plan.",
@@ -1371,6 +1495,7 @@
 								{
 									"type": "entries",
 									"name": "Murals",
+									"page": 20,
 									"id": "084",
 									"entries": [
 										"If the murals are examined, read the following (from the original {@adventure Tomb of Horrors|TftYP}):",
@@ -1384,6 +1509,7 @@
 										{
 											"type": "entries",
 											"name": "Golden Sphere",
+											"page": 20,
 											"id": "086",
 											"entries": [
 												"Only one of the spheres has special significance: a golden sphere located in the northwest corner that covers the entrance to area 11. The entrance can be noticed behind the sphere, whose magic does not yet fully conceal it. However, that magic prevents anyone carrying any gold or wearing any clothing that is gold in color from passing through the sphere."
@@ -1392,6 +1518,7 @@
 										{
 											"type": "entries",
 											"name": "Open Passageway",
+											"page": 20,
 											"id": "087",
 											"entries": [
 												"One section of the east wall has not yet been plastered or painted over, revealing the passageway to the chapel ({@area area 14|093|x}). The rhythmic chanting magically carried into {@area area 3|065|x} grows louder still at the entrance to the passageway. A successful DC 14 Wisdom ({@skill Perception}) check identifies the chanting as belonging to some sort of ritual involving enchantment magic."
@@ -1402,6 +1529,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 20,
 									"id": "088",
 									"entries": [
 										"The girallon wears a golden armband (worth 250 gp) on one of its left arms, scribed by {@creature Moghadam|IMR} with magical symbols that place the creature under the effect of a permanent {@spell dominate monster} spell. Phenex ({@area area 14|093|x}) knows the command words that compel the girallon into service."
@@ -1410,6 +1538,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 20,
 									"id": "089",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the girallon to leave. Roll a {@dice d4}. On a 1\u20132, the girallon checks in with {@creature Moghadam|IMR} in {@area area 1|05e|x}. On a 3\u20134, it goes to see Phenex in {@area area 14|093|x}."
@@ -1420,6 +1549,7 @@
 						{
 							"type": "entries",
 							"name": "11. Escape Room",
+							"page": 20,
 							"id": "08a",
 							"entries": [
 								"The sculptors have utilized this side chamber to plan their escape, though none of them are present when the characters first come here.",
@@ -1428,6 +1558,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 21,
 									"id": "08b",
 									"entries": [
 										"The partial {@item manual of stone golems} is hidden beneath a pile of rocks in the corner of the room, and can be found with any search of the area. Even incomplete, it is worth 500 gp.",
@@ -1437,6 +1568,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 21,
 									"id": "08c",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area either brings the statue one day of work closer or further from completion (a {@chance 50|50 percent} chance for either)."
@@ -1447,12 +1579,14 @@
 						{
 							"type": "entries",
 							"name": "12. False Doors",
+							"page": 21,
 							"id": "08d",
 							"entries": [
 								"To gain time to complete their statue in area 11, the sculptors spend much of their time building, destroying, and rebuilding a number of false doors here in the great hall. Two such doors are marked at area 12 on the map.",
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 21,
 									"id": "08e",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area creates or removes a false door at random."
@@ -1463,6 +1597,7 @@
 						{
 							"type": "entries",
 							"name": "13. Chamber of Three Chests",
+							"page": 21,
 							"id": "08f",
 							"entries": [
 								"This treasury holds resources for the construction of the tomb, including precious metals and gemstones stored here for safekeeping. A number of bones from former prisoners and creatures lie heaped about these materials, acting as magical guardians for three chests\u2014one made of gold, one made of silver, and one made of oak.",
@@ -1470,6 +1605,7 @@
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 21,
 									"id": "090",
 									"entries": [
 										"Opening the gold chest causes the bones in the room to assemble into a {@creature giant skeleton|TftYP}. Opening the silver chest results in the bones becoming a {@creature skeletal juggernaut|GoS}. Opening the oak chest creates a {@creature skeletal swarm|GoS} from the bones. If more than one chest is opened, these monsters each assemble in turn, with the next appearing when the previous threat is destroyed. However, if all three chests are opened simultaneously, the bones remain inanimate."
@@ -1478,6 +1614,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 21,
 									"id": "091",
 									"entries": [
 										"Panels meant for the tomb's walls are stored here. Each panel is approximately 2 feet wide and 3 feet long, weighs 20 pounds, and is crafted from various materials of differing value:",
@@ -1504,6 +1641,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 21,
 									"id": "092",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes any currently active animated skeletal creature to grow weaker or stronger. Roll a {@dice d4}. On a 1\u20132, the creature halves its hit points. On a 3\u20134, the creature doubles its hit points."
@@ -1514,6 +1652,7 @@
 						{
 							"type": "entries",
 							"name": "14. Chapel of Evil",
+							"page": 21,
 							"id": "093",
 							"entries": [
 								{
@@ -1528,12 +1667,14 @@
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 21,
 									"id": "095",
 									"entries": [
 										"The roughly thirty humanoids here (use the {@creature cultist} stat block) include loyal cultists pressed into service, workers being punished, and captured prisoners. None of the worshipers (except Pentival; see below) can take any actions beyond continuing to chant as long as the priest, Phenex, commands them.",
 										{
 											"type": "entries",
 											"name": "Pentival",
+											"page": 21,
 											"id": "096",
 											"entries": [
 												"One of the prisoners includes the lawful good half-dragon paladin Pentival. Drawn to the temple by rumors of its bound balor, Pentival and his party were quickly captured. All his friends have succumbed to the magic of the temple and been transformed into black rock, but Pentival has so far held out. Of all the worshipers, he alone can communicate with the characters, quickly explaining who he is and the nature of the ceremony.",
@@ -1543,6 +1684,7 @@
 										{
 											"type": "entries",
 											"name": "Phenex",
+											"page": 22,
 											"id": "097",
 											"entries": [
 												"An {@creature incubus} cleric of Vecna, Phenex directs the dark ceremony here. As long as he commands the worshipers (using a bonus action each round), they maintain their chant.",
@@ -1552,6 +1694,7 @@
 										{
 											"type": "entries",
 											"name": "Girallons",
+											"page": 22,
 											"id": "098",
 											"entries": [
 												"The two girallons that protect Phenex have each had a left hand and eye removed. They use the {@creature girallon|VGM} stat block but can make only three claw attacks as part of their multiattack action."
@@ -1562,6 +1705,7 @@
 								{
 									"type": "entries",
 									"name": "Ceremony",
+									"page": 22,
 									"id": "099",
 									"entries": [
 										"As long as the worshipers chant, the ceremony fueling the balor's prison ({@area area 6|072|x}) remains active. They continue to chant while they are physically able and while Phenex commands them. The ceremony fuels Phenex as well, allowing him to maintain it without need for sustenance or sleep.",
@@ -1573,6 +1717,7 @@
 								{
 									"type": "entries",
 									"name": "Black Rocks",
+									"page": 22,
 									"id": "09a",
 									"entries": [
 										"When a worshiper's life energy has been drained by the ceremony, they are transformed into a large black rock, carried out of the tomb, and set on the hillside (where they'll eventually form the image of a grinning skull). A {@spell greater restoration} or {@spell wish} spell can end the {@condition petrified} condition for one victim, restoring them and their gear."
@@ -1581,6 +1726,7 @@
 								{
 									"type": "entries",
 									"name": "Altar",
+									"page": 22,
 									"id": "09b",
 									"entries": [
 										"This block of strange material glows with an inner light of opalescent blue, owing to the missing components of the {@i Infernal Machine of Lum the Mad} wired into its workings. There are three such components, each a deep sapphire blue. Removing one component safely requires a successful DC 14 Dexterity check using thieves' tools, jeweler's tools, or tinker's tools.",
@@ -1590,6 +1736,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 22,
 									"id": "09c",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area reverts one of the black rocks back to a living worshiper."
@@ -1600,6 +1747,7 @@
 						{
 							"type": "entries",
 							"name": "15. Secret Door",
+							"page": 22,
 							"id": "09d",
 							"entries": [
 								"A secret door here leads to a hallway beyond. The door is unlocked and can be found with a successful DC 18 Wisdom ({@skill Perception}) check."
@@ -1608,12 +1756,14 @@
 						{
 							"type": "entries",
 							"name": "16. Rift to the Lower Planes",
+							"page": 22,
 							"id": "09e",
 							"entries": [
 								"The ceremony that summoned {@creature Tarnhem|IMR} resulted in an unstable rift to the Lower Planes opening up in this area. The far end of the hallway is scribed with glyphs and sigils, and leads to an open fiery pit\u2014a portal to the Abyss. The unstable magic of the portal prevents any creature that is not a fiend from stepping through it. If {@creature Tarnhem|IMR} is freed, he eventually comes this way and escapes.",
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 22,
 									"id": "09f",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes a ripple in the rift's magic, allowing a creature to pass through it into the tomb. Roll a {@dice d6}. On a 1\u20135, treat this effect as a {@spell summon lesser demons|XGE} spell. On a 5\u20136, treat it as a {@spell summon greater demon|XGE} spell. (See {@adventure appendix C|IMR|8} for both those spells.) Pick one character at random to be treated as the summoner."
@@ -1624,6 +1774,7 @@
 						{
 							"type": "entries",
 							"name": "17. Flooding Pit",
+							"page": 22,
 							"id": "0a0",
 							"entries": [
 								"The corridor beyond the secret door at {@area area 15|09d|x} contains three open 10-foot-deep pits. Lying at the bottom of each pit, a number of skeletons are shackled to the walls. In addition, the outline of a door on the south wall of each pit can be seen.",
@@ -1639,6 +1790,7 @@
 								{
 									"type": "entries",
 									"name": "Flooding Trap",
+									"page": 22,
 									"id": "0a1",
 									"entries": [
 										"The first two pits are trapped, such that anyone trying the false door at the bottom causes a stone slab to slide across the opening, the skeletons to animate (see below), and the pit to begin filling with water. It takes 5 rounds to completely fill a pit, leaving no air space at the top. After one hour, the slab opens and the water drains away.",
@@ -1648,6 +1800,7 @@
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 23,
 									"id": "0a2",
 									"entries": [
 										"The first pit contains four humanoid {@creature Skeleton||skeletons}. The second contains two umber hulk exoskeletons (use the {@creature minotaur skeleton} stat block, but treat its greataxe attack as a claws attack and its gore attack as a mandibles attack). The third looks like it contains the skeleton of a large wolf-headed humanoid, but a successful DC 13 Wisdom ({@skill Perception}) check reveals that the creature is a mix of humanoid and animal bones. The bones do not animate.",
@@ -1657,6 +1810,7 @@
 								{
 									"type": "entries",
 									"name": "True Doorway",
+									"page": 23,
 									"id": "0a3",
 									"entries": [
 										"The third pit contains an actual door leading to area 18."
@@ -1665,6 +1819,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 23,
 									"id": "0a4",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area opens one closed pit at random, or closes one pit at random if all the pits are open."
@@ -1675,6 +1830,7 @@
 						{
 							"type": "entries",
 							"name": "18. Guardian Door",
+							"page": 23,
 							"id": "0a5",
 							"entries": [
 								{
@@ -1688,6 +1844,7 @@
 								{
 									"type": "entries",
 									"name": "Opening Riddle",
+									"page": 23,
 									"id": "0a7",
 									"entries": [
 										"The door unlocks automatically for {@creature Moghadam|IMR} or {@creature Seodra|IMR} the gemsmith. To anyone else, it repeatedly asks, \"Who is the master?\" The correct answer to the question can be found in {@creature Moghadam|IMR}'s office ({@area area 1|05e|x}): \"The true master of the tomb is he who plans its construction.\" With any answer other than that phrase or the name \"{@creature Moghadam|IMR},\" the door replies that the speaker is not the master and refuses to open."
@@ -1696,6 +1853,7 @@
 								{
 									"type": "entries",
 									"name": "Soul Gem",
+									"page": 23,
 									"id": "0a8",
 									"entries": [
 										"The door's eye is gem set with a smaller version of one of a demilich's soul gems. The gem can be removed only by a character proficient with jeweler's tools who succeeds on a DC 13 Dexterity check using the superior jeweler's tools found in {@area area 31|151|x} of {@adventure chapter 4|IMR|4}. A successful check removes the soul gem, which destroys the gem and unlocks the door.",
@@ -1705,6 +1863,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 23,
 									"id": "0a9",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the door to intone: \"The master does not resort to feeble manipulations of a clock to open this door. You are not the master.\""
@@ -1715,6 +1874,7 @@
 						{
 							"type": "entries",
 							"name": "18a. Gemsmith's Workshop",
+							"page": 23,
 							"id": "0aa",
 							"entries": [
 								"{@creature Seodra|IMR}, a master gemsmith in the employ of {@creature Moghadam|IMR}, maintains her workshop here, although she is currently a prisoner in the Temple of Moloch (see {@adventure chapter 4|IMR|4}).",
@@ -1728,6 +1888,7 @@
 								{
 									"type": "entries",
 									"name": "Curtains",
+									"page": 23,
 									"id": "0ac",
 									"entries": [
 										"The first three curtains are sheets of thick webbing that function as the product of the {@spell web} spell. The fourth is a disguised {@creature trapper|VGM} kept by {@creature Seodra|IMR} as a pet, and which attacks anyone who passes by it except {@creature Seodra|IMR} and {@creature Moghadam|IMR}.",
@@ -1745,6 +1906,7 @@
 								{
 									"type": "entries",
 									"name": "Creature",
+									"page": 24,
 									"id": "0ae",
 									"entries": [
 										"The body is a {@creature greater zombie|TftYP}, used by {@creature Seodra|IMR} as a manikin and animated assistant. It automatically stands up whenever anyone enters the workshop, but does not attack unless {@creature Seodra|IMR}'s gems are touched (see below)."
@@ -1753,6 +1915,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 24,
 									"id": "0af",
 									"entries": [
 										"In addition to a set of {@item jeweler's tools|PHB}, one worktable contains plans for crafting the jeweled silver skull of a demilich. The three large diamonds (worth 1,000 gp each) have already been cut and fashioned into teeth. These are meant for the skull currently in {@creature Seodra|IMR}'s possession (see {@adventure chapter 4|IMR|4})."
@@ -1761,12 +1924,14 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 24,
 									"id": "0b0",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the manikin to approach the table and indefinitely pantomime searching for its missing head. Spending 2 charges causes it to search briefly, then settle back down to the couch, where it remains inert until anyone new enters the workshop.",
 										{
 											"type": "inset",
 											"name": "Completing the Skull",
+											"page": 24,
 											"id": "0b1",
 											"entries": [
 												"If {@creature Seodra|IMR} has all six diamond teeth (the three in the Tomb of Horrors, along with the three she has with her in {@area area 31|151|x} of chapter 4), the jeweled eyes from the great statue in the Temple of Moloch ({@area area 25|13a|x} of {@adventure chapter 4|IMR|4}), and the silver skull (also in {@area area 31|151|x} of chapter 4), she will have all she needs to complete Acererak's demilich skull.",
@@ -1785,12 +1950,14 @@
 		{
 			"type": "section",
 			"name": "Chapter 4: Temple of Moloch",
+			"page": 24,
 			"id": "0b2",
 			"entries": [
 				"The Temple of Moloch is an ancient site steeped in magic, and the former home of a legendary artificer. {@creature Thessalar|IMR} was a master alchemist and creator of monsters, whose own blood was said to possess dire magical properties. The artificer's mad plots, thirst for power, and pursuit of lichdom eventually left the temple a ruin long ago. But the characters now find themselves back in that long ago, facing off against the artificer and his host of monstrous guardians in pursuit of the missing components of the {@i Infernal Machine of Lum the Mad}. Having come back in time, the characters have a unique opportunity to explore a site now lost to memory\u2014and to lay claim to its legendary riches.",
 				{
 					"type": "section",
 					"name": "Background",
+					"page": 24,
 					"id": "0b3",
 					"entries": [
 						"The Temple of Moloch was said to have begun as a series of caverns where the elemental princes Olhydra and Ogrémoch once battled, and in so doing, opened a rift to their respective Elemental Planes. This rift between the Plane of Water and the Plane of Earth resulted in a stream flowing through the caverns, which carries with it gemstones of extreme size and quality\u2014particularly rubies. When ancient peoples came upon these gems, their greed led them to gather as many as possible, and to build a temple at the site to honor Moloch. They built an ornate statue to the exiled archdevil, and set two of the largest ruby gemstones for its eyes.",
@@ -1802,6 +1969,7 @@
 				{
 					"type": "section",
 					"name": "Who Dwells Here?",
+					"page": 24,
 					"id": "0b4",
 					"entries": [
 						"As with the Tomb of Horrors, this version of the temple takes place in a period of the distant past, and incorporates rare elements of D&D lore. You are, of course, free to use or not use such elements\u2014{@creature Thessalar|IMR}, the creation of the owlbear, and so forth\u2014as you see fit. You can easily substitute {@creature Thessalar|IMR} or any other NPCs in the adventure with characters specific to your campaign, or with general NPCs who can fill the same roles.",
@@ -1809,12 +1977,14 @@
 						{
 							"type": "entries",
 							"name": "Andras and Stolos",
+							"page": 25,
 							"id": "0b5",
 							"entries": [
 								"One of {@creature Thessalar|IMR}'s most loyal assistants, Andrastolos was the subject of many of the artificer's early magical trials. In a grand experiment, Andrastolos's body and mind were split across two separate beings: {@creature Andras|IMR} and {@creature Stolos|IMR}. Although they both operate in the temple, their split nature and the memory of who they once were disturbs {@creature Andras|IMR} and {@creature Stolos|IMR} so much that they seek each other's ruin. The only thing that keeps both from killing the other is a desperate belief that their original natures might somehow be restored.",
 								{
 									"type": "entries",
 									"name": "Andras",
+									"page": 25,
 									"id": "0b6",
 									"entries": [
 										"{@creature Andras|IMR} is a neutral evil male human assassin with the head of a giant snowy owl. Though he retains his full intellect, his speech is hindered, resembling the hoots and clicks of an owl. Cruel and sadistic, {@creature Andras|IMR} has been installed as the temple's torturer. When the characters arrive, he is overseeing the interrogation of {@creature Moghadam|IMR}'s thieves and their wererat leader, Mack Francache. See {@area area 9|0eb|x} for {@creature Andras|IMR}'s full statistics."
@@ -1823,6 +1993,7 @@
 								{
 									"type": "entries",
 									"name": "Stolos",
+									"page": 25,
 									"id": "0b7",
 									"entries": [
 										"A reverse of {@creature Andras|IMR}, the neutral {@creature Stolos|IMR} possesses the head of an aging man atop the body of a giant owl. Garrulous and inquisitive, {@creature Stolos|IMR} has been installed as the temple's warden, overseeing the prison and the unfortunate creatures held there. {@creature Stolos|IMR} is a warlock of the Great Old One, but see {@area area 11|0fd|x} for his full statistics."
@@ -1833,6 +2004,7 @@
 						{
 							"type": "entries",
 							"name": "Ard-Sagart",
+							"page": 25,
 							"id": "0b8",
 							"entries": [
 								"Under {@creature Thessalar|IMR}, the high priests of the temple are chosen from sculptors who craft such perfect statues that the temple's resident eidolon (containing the spirit of the first high priest) selects them for its use. As the temple's current high priest, Ard-Sagart (a lawful evil male human {@creature warlock of the fiend|VGM}) believes that the wayward sculptors who left for the Tomb of Horrors have caused the temple to lose favor with Moloch. He is eager to rectify this situation by recovering as many gemstones as possible from the temple's waters as tribute."
@@ -1841,6 +2013,7 @@
 						{
 							"type": "entries",
 							"name": "Barbatos",
+							"page": 25,
 							"id": "0b9",
 							"entries": [
 								"The ranger {@creature Barbatos|IMR} (a neutral evil male human; see {@adventure appendix B|IMR|7} for his stat block) uses his tracking, stealth, and combat prowess to trap creatures for selfish gain. He has long worked for {@creature Thessalar|IMR}, trapping animals and monsters to be used in the temple's experiments. As part of his wages, {@creature Barbatos|IMR} has undergone his own experimentation, with {@creature Thessalar|IMR} wiring items made from living creatures directly into the ranger's body.",
@@ -1850,6 +2023,7 @@
 						{
 							"type": "entries",
 							"name": "Mack Francache",
+							"page": 25,
 							"id": "0ba",
 							"entries": [
 								"This neutral {@creature wererat} thief is the leader of the band sent to the temple by {@creature Moghadam|IMR}, and charged with stealing the ruby eyes from the temple's great statue of Moloch. Having failed in his assignment, Francache now languishes in the temple's torture chamber."
@@ -1858,6 +2032,7 @@
 						{
 							"type": "entries",
 							"name": "Seodra",
+							"page": 25,
 							"id": "0bb",
 							"entries": [
 								"A lawful neutral female genasi from the Quasi-elemental Plane of Mineral, {@creature Seodra|IMR} is a gemsmith who studied under Xagy, the mysterious figure who crafted such masterpiece artifacts as {@i Queen Ehlissa's Marvelous Nightingale}. {@creature Seodra|IMR} accompanied Mack Francache and his thieves to the temple, as her expertise was needed to steal the gem eyes of the great statue of Moloch without damaging them. With the gems in hand, {@creature Seodra|IMR} would have been able to craft the jeweled skull of a demilich for Acererak. Unfortunately, she was captured along with the rest of the thieves, and is now forced to work for {@creature Thessalar|IMR}\u2014crafting the same jeweled skull for his own use. See {@area area 31|151|x} for her statistics."
@@ -1866,6 +2041,7 @@
 						{
 							"type": "entries",
 							"name": "Thessalar",
+							"page": 25,
 							"id": "0bc",
 							"entries": [
 								"As an artificer, {@creature Thessalar|IMR} is vainglorious, egotistical, and utterly ruthless in furthering his research. His career began as a priest in the service of Moloch, where he rose through the ranks before eventually taking over the temple as a working laboratory. Most of his experiments have involved the pursuit of new forms of life, resulting in such creatures as the thessalhydra and the owlbear. In recent years, he has also researched the prolonging of life\u2014namely his own. {@creature Thessalar|IMR} hopes that by becoming a lich, his research and experiments can continue indefinitely.",
@@ -1875,6 +2051,7 @@
 								{
 									"type": "inset",
 									"name": "Who's Who",
+									"page": 25,
 									"id": "0bd",
 									"entries": [
 										"Little is known regarding Xagy\u2014except as a partial anagram for 'Gygax,' and for her role in crafting Queen Ehlissa's Marvelous Nightingale, one of the artifacts appearing in the first edition {@i Dungeon Masters Guide}. When operated, this magical-mechanical marvel would shoot eye rays of different colors and effects, and produce songs able to work magical wonders."
@@ -1887,6 +2064,7 @@
 				{
 					"type": "section",
 					"name": "Missing Components",
+					"page": 26,
 					"id": "0be",
 					"entries": [
 						"The missing components of the {@i Infernal Machine} at this location can be found in various laboratory chambers throughout the temple. Removing the components deactivates various controls within these chambers, disrupting experiments and freeing creatures.",
@@ -1907,6 +2085,7 @@
 				{
 					"type": "section",
 					"name": "Mechanical Guide",
+					"page": 26,
 					"id": "0bf",
 					"entries": [
 						"If the characters' mechanical guide is lost or destroyed while they explore the Temple of Moloch, you can make use of a number of options to keep the characters from remaining stranded in the past. {@creature Thessalar|IMR} can repair or rebuild the guide for a suitable price, as can {@creature Moghadam|IMR} if an overland trek is made to reach him. (The sculptors in the temple possess maps showing the way to the Tomb of Horrors.) Alternatively, replacement parts for the guide might be recovered from the bottom of the underground lake at the end of the adventure\u2014if the characters are able to deal with the thessalkraken!"
@@ -1915,6 +2094,7 @@
 				{
 					"type": "section",
 					"name": "Exploring the Temple",
+					"page": 26,
 					"id": "0c0",
 					"entries": [
 						"The temple is divided into two main sections. Areas 1 through 23 are the working laboratories where {@creature Thessalar|IMR} resides and operates, along with many lizardfolk guards. Areas 24 through 39 make up the temple section, largely inhabited by priests and others who care for the temple's statues as well as its living demigod, the thessalkraken. That creature dwells in a deep subterranean lake beyond areas 30 and 39.",
@@ -1922,6 +2102,7 @@
 						{
 							"type": "entries",
 							"name": "Temple Approach",
+							"page": 26,
 							"id": "0c1",
 							"entries": [
 								"From the point at which the characters arrive outside the temple, they find themselves within striking distance of a small, isolated village. The villagers\u2014quiet, nervous folk\u2014can provide lodging, meager supplies to trade, and directions to the temple.",
@@ -1949,6 +2130,7 @@
 						{
 							"type": "entries",
 							"name": "Never Alone",
+							"page": 26,
 							"id": "0c3",
 							"entries": [
 								"As the characters explore the Temple of Moloch, keep in mind that this is an active, living dungeon filled with guards, servants, and monsters. Different areas provide information on lizardfolk guards heading out on patrol and monsters potentially breaking free and running amok. When that happens, keep a rough idea of where those guards and monsters might be heading, and let the characters hear or see them as they skulk about. Not every encounter with a wandering monster or patrol needs to end in combat, but knowing that they don't have free run of the dungeon will help keep the characters on their toes.",
@@ -1956,6 +2138,7 @@
 								{
 									"type": "entries",
 									"name": "Thessalhydra",
+									"page": 26,
 									"id": "0c4",
 									"entries": [
 										"When the characters first enter the temple, roll a {@dice d4}. On a 1\u20132, the temple's guardian {@creature thessalhydra|HftT} is patrolling the laboratory section (areas 1 to 23). On a 3\u20134, it patrols the temple section (areas 24 to 39). There are no fixed mechanics for encounters with the thessalhydra, but feel free to have it show up in the distance whenever the characters need incentive to keep moving. The thessalhydra ignores lizardfolk guards and known servants of {@creature Thessalar|IMR}, but attacks all other creatures on sight. Accustomed to inspiring fear, and having grown somewhat lazy in its guardian role, it is usually content to let foes flee from it rather than pursuing.",
@@ -1965,6 +2148,7 @@
 								{
 									"type": "entries",
 									"name": "Thessalheart Construct",
+									"page": 26,
 									"id": "0c5",
 									"entries": [
 										"The {@creature thessalheart construct|IMR} is a strange magical-mechanical device that struts about like a chicken, and which features a human heart beating madly behind its glass front. The construct always wanders the zone opposite to the thessalhydra's zone, and for good reason.",
@@ -2008,6 +2192,7 @@
 						{
 							"type": "entries",
 							"name": "1. Entry Chamber",
+							"page": 227,
 							"id": "0c6",
 							"entries": [
 								{
@@ -2020,6 +2205,7 @@
 								{
 									"type": "entries",
 									"name": "Arrow Slit",
+									"page": 27,
 									"id": "0c8",
 									"entries": [
 										"Any character who succeeds on a DC 16 Wisdom ({@skill Perception}) check notices an arrow slit concealed in a gap in the stairwell stones. The guards in {@area area 5|0db|x} watch the stairs through this slit, giving them a warning of the characters' approach."
@@ -2028,6 +2214,7 @@
 								{
 									"type": "entries",
 									"name": "Oak Door",
+									"page": 27,
 									"id": "0c9",
 									"entries": [
 										"Anyone who listens at the door to the west and succeeds on a DC 12 Wisdom ({@skill Perception}) check hears a moaning that rises and fades away (caused by strong breezes in {@area area 2|0cd|x}). Opening the door causes the breeze to fill this corridor, creating the effect of a {@spell gust of wind} spell."
@@ -2036,6 +2223,7 @@
 								{
 									"type": "entries",
 									"name": "Creature",
+									"page": 27,
 									"id": "0ca",
 									"entries": [
 										"The webs on the ceiling conceal a mutated giant spider with the beak of a giant owl (use the {@creature grell} stat block). This creature escaped from {@creature Thessalar|IMR}'s labs and has been allowed to lair here to watch over the entrance. The lizardfolk have nicknamed it \"Thacko.\""
@@ -2044,6 +2232,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 27,
 									"id": "0cb",
 									"entries": [
 										"A character who searches the chamber and succeeds on a DC 12 Wisdom ({@skill Perception}) check finds 19 sp and a small ruby (worth 20 gp) inside a lizardfolk skull."
@@ -2052,6 +2241,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 27,
 									"id": "0cc",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the guards in {@area area 5|0db|x} to change shifts, allowing the characters to pass through here without being noticed. Spending 2 charges also causes Thacko to grow younger or older. Roll a {@dice d4}. On a 1\u20132, the creature halves its hit points. On a 3\u20134, the creature doubles its hit points."
@@ -2062,6 +2252,7 @@
 						{
 							"type": "entries",
 							"name": "2. Water Room",
+							"page": 28,
 							"id": "0cd",
 							"entries": [
 								"This natural cavern provides fresh water for the temple from the cold and fast-flowing stream along its western edge. The stream enters from the north along a tunnel, and exits to the south in the same manner. A cold wind blows from the south tunnel, generated above the subterranean lake the stream flows into (accessed via {@area area 30|14f|x} or area 39).",
@@ -2069,6 +2260,7 @@
 								{
 									"type": "entries",
 									"name": "Pool",
+									"page": 28,
 									"id": "0ce",
 									"entries": [
 										"The stream forms a small pool 7 feet deep at its center, which is home to numerous small, white blindfish and crayfish. An unusual mineral formation occupies the bottom of the pool. With a successful DC 15 Wisdom ({@skill Perception}) check, a character identifies the formation as a limed-over skeleton."
@@ -2077,6 +2269,7 @@
 								{
 									"type": "entries",
 									"name": "Tunnels",
+									"page": 28,
 									"id": "0cf",
 									"entries": [
 										"The tunnel to the north has no air space within it, and leads back to the underground spring that is the stream's source. The tunnel to the south is higher, leaving an ample air space along which the brisk wind is channeled. Characters can make an arduous journey along the south tunnel to the underground lake (see that section at the end of the adventure), encountering hazards and monsters as you determine."
@@ -2085,6 +2278,7 @@
 								{
 									"type": "entries",
 									"name": "Skeleton",
+									"page": 28,
 									"id": "0d0",
 									"entries": [
 										"The skeleton is the remains of the temple's first high priest (whose spirit now resides as the eidolon in {@area area 25|13a|x}). If the skeleton is examined by a creature in the water, a successful DC 15 Wisdom ({@skill Perception}) check reveals a key in its hand. (This fits the secret door leading to the treasure vault in {@area area 38|16b|x}). The key can be easily claimed, but doing so disturbs the skeleton and causes a cylindrical object to dislodge from it. This object is carried off by the stream unless any character in or out of the water succeeds on a DC 18 Dexterity check to snag it."
@@ -2093,6 +2287,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 28,
 									"id": "0d1",
 									"entries": [
 										"The watertight ivory tube dislodged by the skeleton contains a vellum map of the temple complex. However, slow seepage has blurred all but a small portion, so that the map now shows only area 1; area 2; the passage to area 3, with that area only a smudge; and the passage to {@area area 26|141|x}, starting about 20 feet south of the secret door in area 3."
@@ -2101,6 +2296,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 28,
 									"id": "0d2",
 									"entries": [
 										"Having a mechanical guide spend 1 or more charges in this area creates a 10 percent cumulative chance for a ruby (worth {@dice 1d10 × 10} gp) to wash into view from upstream, as well as a 25 percent cumulative chance for {@dice 1d4} {@creature lizardfolk} to arrive on assignment to bring more water into the temple.",
@@ -2112,6 +2308,7 @@
 						{
 							"type": "entries",
 							"name": "3. Empty Ceremonial Chamber",
+							"page": 28,
 							"id": "0d3",
 							"entries": [
 								{
@@ -2125,6 +2322,7 @@
 								{
 									"type": "entries",
 									"name": "Secret Door",
+									"page": 28,
 									"id": "0d5",
 									"entries": [
 										"Seven small knobs of stone protrude from the south wall at the level of the platform. A character who succeeds on a DC 12 Intelligence ({@skill Investigation}) or Wisdom ({@skill Perception}) check notices which three knobs show the most wear. Pressing those knobs in any order opens the secret door."
@@ -2133,6 +2331,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 28,
 									"id": "0d6",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area results in four {@creature lizardfolk} guards and a {@creature lizardfolk shaman} opening the secret door to the south and conveying the bodies down the south corridor before vanishing from sight."
@@ -2143,12 +2342,14 @@
 						{
 							"type": "entries",
 							"name": "4. Guardroom",
+							"page": 28,
 							"id": "0d7",
 							"entries": [
 								"Since {@creature Moghadam|IMR}'s thieves came to the temple, {@creature Thessalar|IMR} has had the temple on heightened alert and guards stationed around the entrance at all times.",
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 28,
 									"id": "0d8",
 									"entries": [
 										"Eight {@creature lizardfolk}, a {@creature lizardfolk shaman}, and the shaman's {@creature two-headed crocodile|IMR} companion rest in this area. If they are alerted to intruders by the lizardfolk in {@area area 5|0db|x}, they head directly for {@area area 1|0c6|x} to challenge them."
@@ -2157,6 +2358,7 @@
 								{
 									"type": "entries",
 									"name": "Secret Tunnel",
+									"page": 28,
 									"id": "0d9",
 									"entries": [
 										"A secret trapdoor in the floor opens to an access tunnel leading to {@area area 5|0db|x}. It can be found with a successful DC 12 Wisdom ({@skill Perception}) check."
@@ -2165,6 +2367,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 28,
 									"id": "0da",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the guards to change shifts, leaving for the barracks ({@area area 6|0e0|x}). Spending 2 charges reverses time and causes them to instead head into the temple complex to search for {@creature Moghadam|IMR}'s thieves, believing the thieves have just arrived. You determine where the guards might be encountered as a result."
@@ -2175,12 +2378,14 @@
 						{
 							"type": "entries",
 							"name": "5. Watch Room",
+							"page": 30,
 							"id": "0db",
 							"entries": [
 								"The guards here are companions of the force resting in area 4. They are on active duty, watching the stairs down into {@area area 1|0c6|x}.",
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 30,
 									"id": "0dc",
 									"entries": [
 										"If the four {@creature lizardfolk} stationed here spot intruders, two of them travel through the secret tunnel to alert the guards in area 4 and join their hunt. The other two remain here to watch for additional foes descending the stairs, but head out in pursuit of the characters if their allies don't return within a few minutes."
@@ -2189,6 +2394,7 @@
 								{
 									"type": "entries",
 									"name": "Arrow Slit",
+									"page": 30,
 									"id": "0dd",
 									"entries": [
 										"An arrow slit opens up in a gap in the stairwell stones, and provides a view of any creatures descending the stairs into {@area area 1|0c6|x}."
@@ -2197,6 +2403,7 @@
 								{
 									"type": "entries",
 									"name": "Secret Tunnel",
+									"page": 30,
 									"id": "0de",
 									"entries": [
 										"A secret trapdoor in the floor opens to an access tunnel leading to area 4. It can be found with a successful DC 12 Wisdom ({@skill Perception}) check."
@@ -2205,6 +2412,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 30,
 									"id": "0df",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the guards to change shifts, leaving here for the barracks ({@area area 6|0e0|x}). Spending 2 charges causes them to instead head into the temple complex to search for {@creature Moghadam|IMR}'s thieves, believing the thieves have just arrived. You determine where the guards might be encountered as a result."
@@ -2215,12 +2423,14 @@
 						{
 							"type": "entries",
 							"name": "6. Barracks",
+							"page": 30,
 							"id": "0e0",
 							"entries": [
 								"This cluttered chamber serves as a barracks for {@creature Thessalar|IMR}'s lizardfolk servants. Crude sleeping pallets line the walls, and the place has a foul smell.",
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 30,
 									"id": "0e1",
 									"entries": [
 										"Eight {@creature lizardfolk} are off duty here, sleeping or leisurely playing at a rudimentary board game using dice and small stones as playing pieces. If they have been alerted to trouble by the lizardfolk in areas 4 or 5, they head into the temple to challenge intruders."
@@ -2229,6 +2439,7 @@
 								{
 									"type": "entries",
 									"name": "Prisoner",
+									"page": 30,
 									"id": "0e2",
 									"entries": [
 										"A gruesome scene plays out along the east wall. One of {@creature Moghadam|IMR}'s thieves hangs from manacles there, dead, torn open, and with his innards hanging out, having been given to the lizardfolk to consume."
@@ -2237,6 +2448,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 30,
 									"id": "0e3",
 									"entries": [
 										"A successful DC 14 Intelligence ({@skill Investigation}) check made to search through the lizardfolk's possessions uncovers 25 cp, 55 sp, and 10 gp.",
@@ -2246,6 +2458,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 30,
 									"id": "0e4",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the guards to change shifts, leaving for areas 4 and 5. Spending 2 charges also brings the prisoner back to life. Little Gadai is a lawful neutral human {@creature spy}. He joins the characters if allowed to, seeking to rescue and rejoin the other thieves to complete their original mission. His knowledge of the temple is limited to areas 1 through 6."
@@ -2256,6 +2469,7 @@
 						{
 							"type": "entries",
 							"name": "7. Storage Area",
+							"page": 30,
 							"id": "0e5",
 							"entries": [
 								"This is a general storage area for the temple, holding crates, sacks, and barrels filled with typical goods in support of temple operations (foodstuffs, cloth, oil, tools, and so forth).",
@@ -2263,6 +2477,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 30,
 									"id": "0e6",
 									"entries": [
 										"Having a mechanical guide spend 1 or more charges in this area has a 20 percent cumulative chance that {@dice 1d4} {@creature lizardfolk} guards arrive to fetch more supplies for the temple. They attack intruders at once.",
@@ -2343,6 +2558,7 @@
 						{
 							"type": "entries",
 							"name": "8. Office of the Torturer",
+							"page": 30,
 							"id": "0e7",
 							"entries": [
 								"Characters approaching this area from the north can see activity through the open doorway to {@area area 9|0eb|x}, but can't make out any details until they advance beyond the corridor leading into {@area area 8|0e7|x}.",
@@ -2350,6 +2566,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 30,
 									"id": "0e8",
 									"entries": [
 										"A successful DC 14 Intelligence ({@skill Investigation}) check made to search the desk uncovers several papers stolen from {@creature Stolos|IMR} (see {@area area 11|0fd|x}), which discuss the split nature of {@creature Andras|IMR} and {@creature Stolos|IMR}.",
@@ -2360,6 +2577,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 30,
 									"id": "0e9",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes {@creature Andras|IMR} to return here from {@area area 9|0eb|x} and prepare to rest."
@@ -2372,11 +2590,13 @@
 				{
 					"type": "section",
 					"name": "Exploring the Temple (areas 9-16)",
+					"page": 31,
 					"id": "0ea",
 					"entries": [
 						{
 							"type": "entries",
 							"name": "9. Torture Chamber",
+							"page": 31,
 							"id": "0eb",
 							"entries": [
 								"The characters can hear what's happening in this area before they see it. Read the following if any character approaches within 30 feet of the open doorway:",
@@ -2398,6 +2618,7 @@
 								{
 									"type": "entries",
 									"name": "Andras",
+									"page": 31,
 									"id": "0ee",
 									"entries": [
 										"The result of one of {@creature Thessalar|IMR}'s grand experiments, {@creature Andras|IMR} has the body of a male human and the head of a massive snowy owl. Like that of any owl, his head can rotate almost fully around for 360-degree vision.",
@@ -2416,6 +2637,7 @@
 								{
 									"type": "entries",
 									"name": "Prisoners",
+									"page": 31,
 									"id": "0ef",
 									"entries": [
 										"Mack Francache, the neutral {@creature wererat} leader of {@creature Moghadam|IMR}'s thieves, is the unwilling subject of one of {@creature Thessalar|IMR}'s sadistic experiments, conducted by {@creature Andras|IMR}. His lycanthropic blood is being drained for study by {@creature Thessalar|IMR}, who has already discovered ways in which it might be weaponized (see \"{@area Poisons|20f|x}\" in {@adventure appendix C|IMR|8}).",
@@ -2426,6 +2648,7 @@
 								{
 									"type": "entries",
 									"name": "Control Panel",
+									"page": 32,
 									"id": "0f0",
 									"entries": [
 										"The control panel is covered with dials, switches, and buttons\u2014including a speckled gold button recognizable as one of the missing components of the {@i Infernal Machine}. Removing this component deactivates the controls and releases the restraints on the tables, freeing Francache, Big Gadai, and the rat.",
@@ -2435,6 +2658,7 @@
 								{
 									"type": "entries",
 									"name": "Concealed Door",
+									"page": 32,
 									"id": "0f1",
 									"entries": [
 										"Located at the back of an empty iron maiden, this locked door leads to {@area area 23|132|x}, and is used by {@creature Andras|IMR} to check on the clones there. It can be detected with a successful DC 14 Wisdom ({@skill Perception}) check. Without the key carried by {@creature Andras|IMR}, its lock can be picked with a successful DC 18 Dexterity check using thieves' tools, or it can be forced with a successful DC 18 Strength check."
@@ -2443,6 +2667,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 32,
 									"id": "0f2",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes {@creature Andras|IMR} to return to his quarters ({@area area 8|0e7|x}) to rest. If {@creature Andras|IMR} and {@creature Stolos|IMR} are both at this location, spending 3 charges results in both transforming back into their original forms\u2014the human Andrastolos and his giant snowy owl companion. If restored to normal, Andrastolos uses {@creature Andras|IMR}'s statistics but his alignment reverts to neutral. He is endlessly grateful to the characters, providing any information about the temple he can (he is familiar with areas 1 through 23), and offering to guide the party as needed."
@@ -2453,6 +2678,7 @@
 						{
 							"type": "entries",
 							"name": "10. Prison Cells",
+							"page": 32,
 							"id": "0f3",
 							"entries": [
 								"Characters entering this area can see activity through the open doorway to {@area area 11|0fd|x}, but can't make out any details until they advance. If the characters engage in any noisy or noticeable activity here (including advancing down the corridor with light sources), {@creature Stolos|IMR} emerges from {@area area 11|0fd|x} to investigate.",
@@ -2467,12 +2693,14 @@
 								{
 									"type": "entries",
 									"name": "Prisoners",
+									"page": 32,
 									"id": "0f5",
 									"entries": [
 										"The cells are occupied as follows:",
 										{
 											"type": "entries",
 											"name": "10a",
+											"page": 32,
 											"id": "0f6",
 											"entries": [
 												"Three {@creature lizardfolk} here are being punished for various transgressions. Mean-tempered and suspicious, they nonetheless offer information regarding the temple in exchange for their freedom, knowing their fate is otherwise horrible experimentation. They are likely to turn against the party at the first opportunity."
@@ -2481,6 +2709,7 @@
 										{
 											"type": "entries",
 											"name": "10b",
+											"page": 32,
 											"id": "0f7",
 											"entries": [
 												"Two of {@creature Moghadam|IMR}'s thieves (both lawful evil {@creature Spy||spies}) are incarcerated here, one wounded and one near death, and both desperate to be freed. They are periodically taken out for interrogation in {@area area 9|0eb|x}, and are aware that experiments performed on them have created clones of themselves. They vehemently claim to be the real thieves.",
@@ -2490,6 +2719,7 @@
 										{
 											"type": "entries",
 											"name": "10c",
+											"page": 32,
 											"id": "0f8",
 											"entries": [
 												"This cell is currently empty."
@@ -2498,6 +2728,7 @@
 										{
 											"type": "entries",
 											"name": "10d",
+											"page": 32,
 											"id": "0f9",
 											"entries": [
 												"This cell contains magically created duplicates of the thieves in 10b. They also claim to be the real thieves. (At your determination, these might be the real thieves, with the duplicates in 10b unaware of their true nature.)"
@@ -2506,6 +2737,7 @@
 										{
 											"type": "entries",
 											"name": "10e",
+											"page": 32,
 											"id": "0fa",
 											"entries": [
 												"Two {@creature Doppelganger||doppelgangers} are being held here for study and as eventual experimental subjects. They attempt to look like Mack Francache, {@creature Seodra|IMR} the gemsmith, or anyone else they've seen pass through the cell area in order to escape."
@@ -2514,6 +2746,7 @@
 										{
 											"type": "entries",
 											"name": "10f",
+											"page": 32,
 											"id": "0fb",
 											"entries": [
 												"This cell is sealed off behind a padlocked sheet of transparent glassteel\u2014a resilient magical material as strong as metal\u2014to prevent the escape of the {@creature adult oblex|MTF} inside. The oblex can still use its Eat Memories action and Sulfurous Impersonation trait to create copies of anyone approaching too closely."
@@ -2524,6 +2757,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 32,
 									"id": "0fc",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes one of the cell doors (chosen at random, excluding cell F) to rust with age and weaken. In this state, a door can be forced opened with a successful DC 10 Strength check from either side."
@@ -2534,6 +2768,7 @@
 						{
 							"type": "entries",
 							"name": "11. Office of the Warden",
+							"page": 32,
 							"id": "0fd",
 							"entries": [
 								"Adjust the following text if the characters attract {@creature Stolos|IMR}'s attention as they approach this area.",
@@ -2547,6 +2782,7 @@
 								{
 									"type": "entries",
 									"name": "Stolos",
+									"page": 33,
 									"id": "0ff",
 									"entries": [
 										"The result of the same experiment that produced {@creature Andras|IMR} ({@area area 9|0eb|x}), {@creature Stolos|IMR} has the head of a male human atop the body of a giant snowy owl. He readily converses with the characters even if their initial appearance is suspicious, asking them friendly questions with the aim of discovering if {@creature Moghadam|IMR} sent them.",
@@ -2567,6 +2803,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 33,
 									"id": "100",
 									"entries": [
 										"A successful DC 14 Intelligence ({@skill Investigation}) check to search the desk uncovers a box of nine {@item Paper Bird|WDH|paper birds} (see {@adventure appendix C|IMR|8}) used to send messages to {@creature Thessalar|IMR}.",
@@ -2577,6 +2814,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 33,
 									"id": "101",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes {@creature Stolos|IMR} to leave and check on the cells in {@area area 10|0f3|x}. If {@creature Andras|IMR} and {@creature Stolos|IMR} are both at this location, spending 3 charges results in both transforming back into their original forms. See {@area area 9|0eb|x} for details."
@@ -2587,6 +2825,7 @@
 						{
 							"type": "entries",
 							"name": "12. Owl Laboratory",
+							"page": 33,
 							"id": "102",
 							"entries": [
 								"Whenever anyone enters this area, a huge cacophony of shrieks and hooting is raised from the animals kept here. The walls of the room are lined with cages filled with {@creature Owl||owls}\u2014one pair each of barn owls, horned owls, screech owls, and snowy owls. Against one wall, a huge cage holds a {@creature giant owl}. In addition, several terrariums hold live mice, lizards, and small snakes used as food for the owls. Various cabinets hold prepared owl food, supplies, and implements for both the care and dissection of these creatures.",
@@ -2594,6 +2833,7 @@
 								{
 									"type": "entries",
 									"name": "Barbatos",
+									"page": 33,
 									"id": "103",
 									"entries": [
 										"The neutral evil human ranger {@creature Barbatos|IMR} is either here or in area 13 (a {@chance 50|50 percent} chance for either; see {@adventure appendix B|IMR|7} for his stat block), accompanied by his {@creature hell hound} companion, Sadie III. He carries keys to the cages in this area and area 13. Arrogant and cruel, {@creature Barbatos|IMR} threatens and taunts the characters before attempting to capture them for {@creature Thessalar|IMR}. If they prove too powerful, he flees and sets up hit-and-run ambushes for them as they continue to explore the temple.",
@@ -2604,6 +2844,7 @@
 								{
 									"type": "entries",
 									"name": "Owls",
+									"page": 33,
 									"id": "104",
 									"entries": [
 										"If the owls are freed, they try to escape, flying out to {@area area 1|0c6|x} and up the stairs. If {@creature Barbatos|IMR} is still in the room when the owls escape, they attack him first.",
@@ -2613,6 +2854,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 33,
 									"id": "105",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes all the cage doors to rust with age and weaken, allowing the owls to break free. There is a {@chance 50|50 percent} chance that the giant owl also ages into an undead version of itself that attacks until destroyed. The {@creature Skeletal Giant Owl|IMR|skeletal, rotted creature} uses the {@creature giant owl} stat block with the following changes:",
@@ -2631,6 +2873,7 @@
 						{
 							"type": "entries",
 							"name": "13. Bear Laboratory",
+							"page": 33,
 							"id": "106",
 							"entries": [
 								"Whenever anyone enters this area, a low growling rises from the animals kept here. A number of large, sturdy cages house one pair each of {@creature Black Bear||black bears}, {@creature Brown Bear||brown bears}, and {@creature Polar Bear||polar bears}. In addition, shelves and cupboards throughout the room hold dried fish, dried berries, and grubs as food for the bears, along with tools and supplies.",
@@ -2638,6 +2881,7 @@
 								{
 									"type": "entries",
 									"name": "Barbatos",
+									"page": 34,
 									"id": "107",
 									"entries": [
 										"The ranger {@creature Barbatos|IMR} is either here or in area 12 (a {@chance 50|50 percent} chance for either), accompanied by his {@creature hell hound} companion, Sadie III. See {@adventure appendix B|IMR|7} for his stat block, and {@area area 12|102|x} for more information."
@@ -2646,6 +2890,7 @@
 								{
 									"type": "entries",
 									"name": "Bears",
+									"page": 34,
 									"id": "108",
 									"entries": [
 										"If the bears are freed, they scatter throughout the temple, attacking anyone they see before eventually making their way to {@area area 1|0c6|x} and up the stairs. If {@creature Barbatos|IMR} is still in the room when the bears escape, they attack him first.",
@@ -2655,6 +2900,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 34,
 									"id": "109",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes all the cage doors to rust with age and weaken, allowing the bears to break free. There is a {@chance 50|50 percent} chance that both polar bears also age into undead versions of themselves that attack anyone in the room until destroyed. Each {@creature Skeletal Polar Bear|IMR|skeletal, rotted bear} uses the {@creature polar bear} stat block with the following changes:",
@@ -2673,6 +2919,7 @@
 						{
 							"type": "entries",
 							"name": "14. Main Laboratory (North)",
+							"page": 34,
 							"id": "10a",
 							"entries": [
 								"Depending on how they move through this area, the characters might see into {@area area 16|119|x} at the same time. See that area for additional details.",
@@ -2687,6 +2934,7 @@
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 34,
 									"id": "10c",
 									"entries": [
 										"Four {@creature Lizardfolk Shaman||lizardfolk shamans} work here as lab managers, overseeing two {@creature Lizardfolk Render|GoS|lizardfolk renders} connected to a pair of {@creature locathah|GoS}. If attacked, the shamans release the renders to take on the characters, then one shaman flees to alert the rest of the laboratory section of the temple (areas 1 through 23).",
@@ -2696,6 +2944,7 @@
 								{
 									"type": "entries",
 									"name": "Control Panel",
+									"page": 34,
 									"id": "10d",
 									"entries": [
 										"The control panel is covered with dials, switches, and buttons\u2014including a cloudy orange button recognizable as one of the missing components of the {@i Infernal Machine}. Removing this component deactivates the controls and releases the restraints on the tables, freeing all the creatures in this area.",
@@ -2705,6 +2954,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 34,
 									"id": "10e",
 									"entries": [
 										"Any search of the room finds two vials of {@item Thessaltoxin|IMR|thessaltoxin poison} (see {@adventure appendix C|IMR|8}), whose polymorph capabilities are being used to facilitate the experiments here."
@@ -2713,6 +2963,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 34,
 									"id": "10f",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the lizardfolk renders on the tables to devolve back into standard {@creature lizardfolk}."
@@ -2723,6 +2974,7 @@
 						{
 							"type": "entries",
 							"name": "15. Thessalar's Laboratory",
+							"page": 34,
 							"id": "110",
 							"entries": [
 								"Adjoining the main laboratory, {@creature Thessalar|IMR}'s private lab is the site of the artificer's most challenging experiments.",
@@ -2738,6 +2990,7 @@
 								{
 									"type": "entries",
 									"name": "Thessalar",
+									"page": 34,
 									"id": "112",
 									"entries": [
 										"The imperturbable artificer {@creature Thessalar|IMR} readily converses with the characters, albeit with a domineering attitude. His starting assumption is that they've been sent by {@creature Moghadam|IMR}, and he wants to learn as much about his rival's machinations as he can. See {@adventure appendix B|IMR|7} for his stat block.",
@@ -2756,6 +3009,7 @@
 								{
 									"type": "entries",
 									"name": "Grand Experiments",
+									"page": 35,
 									"id": "113",
 									"entries": [
 										"If the characters poke around the room while speaking with {@creature Thessalar|IMR}, they can take in some of the experiments on display. These include the following, along with whatever other odd and wondrous examples you might think of:",
@@ -2774,6 +3028,7 @@
 								{
 									"type": "entries",
 									"name": "Thessalar's Bargain",
+									"page": 35,
 									"id": "114",
 									"entries": [
 										"{@creature Thessalar|IMR} knows about the {@i Infernal Machine} components in the temple, and appears to entertain the notion of bargaining with the characters for them. In truth, he will never part with them as long as they fuel his experiments, and he looks to subvert any deal by eventually feeding the characters to the thessalkraken in the subterranean lake.",
@@ -2792,6 +3047,7 @@
 								{
 									"type": "entries",
 									"name": "Homunculus",
+									"page": 35,
 									"id": "115",
 									"entries": [
 										"Resembling an impish version of Moloch (complete with small ruby eyes worth 100 gp each), {@creature Thessalar|IMR}'s homunculus assists with the artificer's experiments, and acts as a conduit for the complicated weave of magic in the Temple of Moloch. If the homunculus is destroyed, the eidolon in the main temple ({@area area 25|13a|x}) must immediately use its Incorporeal Movement trait to enter the nearest available sacred statue, where it remains trapped. If no sacred statues are available, the eidolon is destroyed.",
@@ -2807,6 +3063,7 @@
 								{
 									"type": "entries",
 									"name": "Control Panel",
+									"page": 35,
 									"id": "116",
 									"entries": [
 										"The control panel on the desk is covered with dials, switches, and buttons\u2014including three emerald-green buttons recognizable as missing components from the {@i Infernal Machine}. Removing these missing components deactivates the controls and releases the {@creature pseudodragon} and the ant swarm (use the {@creature swarm of insects} stat block), which attack the nearest creatures until destroyed."
@@ -2815,6 +3072,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 35,
 									"id": "117",
 									"entries": [
 										"The table is, in fact, crafted from four dryads, all subject to a diminution effect and subsequently {@condition petrified}. If the characters have the ability to undo this state for all of them, the dryads are grateful to them. They promise a favor of your determination, then leave the temple for the nearby woods where they once dwelled.",
@@ -2825,6 +3083,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 36,
 									"id": "118",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area has no effect on {@creature Thessalar|IMR} or his homunculus, but one of the experiments in the lab randomly advances as you determine. For example, using 1 charge might cause the pseudodragon to age into an undead pseudo-dracolich form, the miniature human to revert into a miniature baby that wakes from stasis and starts crying, and so forth."
@@ -2835,6 +3094,7 @@
 						{
 							"type": "entries",
 							"name": "16. Main Laboratory (South)",
+							"page": 36,
 							"id": "119",
 							"entries": [
 								"Depending on how they move through this area, the characters might see into {@area area 14|10a|x} at the same time. See that area for additional details.",
@@ -2849,6 +3109,7 @@
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 36,
 									"id": "11b",
 									"entries": [
 										"Four {@creature Lizardfolk Shaman||lizardfolk shamans} work here as lab managers, overseeing the process by which two {@creature Owlbear||owlbears} are fueling the creation of a new creature\u2014a {@creature two-headed owlbear|IMR} nicknamed Bear-Bear (see {@adventure appendix B|IMR|7} for its stat block). If the lizardfolk shamans are attacked, they release the owlbears and the two-headed owlbear to take on the characters, then flee to alert the rest of the laboratory section of the temple (areas 1 through 23).",
@@ -2858,6 +3119,7 @@
 								{
 									"type": "entries",
 									"name": "Control Panel",
+									"page": 36,
 									"id": "11c",
 									"entries": [
 										"The control panel is covered with dials, switches, and buttons\u2014including a light-purple button recognizable as one of the missing components of the {@i Infernal Machine}. Removing this component deactivates the controls and releases the restraints on the tables, freeing all the creatures in this area.",
@@ -2867,6 +3129,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 36,
 									"id": "11d",
 									"entries": [
 										"Any search of the room recovers two vials of {@item Thessaltoxin|IMR|thessaltoxin poison} (see {@adventure appendix C|IMR|8}) and a vial labeled \"Distilled Ettin Blood\" (worth 25 gp to an alchemist), all used to facilitate the experiments here."
@@ -2875,6 +3138,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 36,
 									"id": "11e",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the owlbears' chains to rust with age and weaken, even as the owlbears age into undead versions, break free, and attack until destroyed. Each of the skeletal, rotted creatures uses the {@creature skeletal owlbear|IMR} or {@creature skeletal two-headed owlbear|IMR} stat block which includes the following changes:",
@@ -2895,11 +3159,13 @@
 				{
 					"type": "section",
 					"name": "Exploring the Temple (areas 17-24)",
+					"page": 36,
 					"id": "11f",
 					"entries": [
 						{
 							"type": "entries",
 							"name": "17. Midden",
+							"page": 36,
 							"id": "120",
 							"entries": [
 								"As the characters approach this area, a foul stench begins to rise. When the door is opened, read:",
@@ -2915,6 +3181,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 36,
 									"id": "122",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes a {@creature lizardfolk} to appear here with a bucket of waste to dispose of. The lizardfolk ignores the characters, expecting that anyone hanging out in the midden must have some good reason to do so."
@@ -2925,12 +3192,14 @@
 						{
 							"type": "entries",
 							"name": "18. Disposal Pit",
+							"page": 37,
 							"id": "123",
 							"entries": [
 								"This open pit collects the waste thrown into the midden (area 17), where it feeds the {@creature otyugh} that dwells in the pit. If any creature moves within 5 feet of the pit, the otyugh clambers out and attacks.",
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 37,
 									"id": "124",
 									"entries": [
 										"Having a mechanical guide spend 1 charge within 5 feet of the pit evolves the otyugh into a {@creature neo-otyugh|IMR}, which leaves the pit and attacks any creatures it can see. If the characters flee, the neo-otyugh begins to roam the temple, attacking all creatures as it looks to establish itself as the new ruler of the site."
@@ -2941,12 +3210,14 @@
 						{
 							"type": "entries",
 							"name": "19. Sitting Room",
+							"page": 37,
 							"id": "125",
 							"entries": [
 								"Serving as {@creature Thessalar|IMR}'s private study, this area is richly furnished with ornate tables, chairs, and cabinets all carved from expensive stone. A fireplace along the west wall is carved to resemble a smaller version of the famed statue of Moloch in the main temple ({@area area 25|13a|x}).",
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 37,
 									"id": "126",
 									"entries": [
 										"With successful DC 14 Intelligence ({@skill Investigation}) checks made to search this area, the characters can uncover several items of interest:",
@@ -2967,12 +3238,14 @@
 						{
 							"type": "entries",
 							"name": "20. Thessalar's Bedroom",
+							"page": 37,
 							"id": "127",
 							"entries": [
 								"{@creature Thessalar|IMR}'s private sleeping quarters are richly furnished with an ornate bed, chests filled with clothes, and other personal effects. A fireplace along the east wall resembles a smaller version of the famed statue of Moloch in the main temple ({@area area 25|13a|x}).",
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 37,
 									"id": "128",
 									"entries": [
 										"A successful DC 12 Intelligence ({@skill Investigation}) check made to search this area uncovers a key to the treasure vault in {@area area 38|16b|x} (set with a small ruby worth 20 gp). In addition, journal entries hint at {@creature Thessalar|IMR}'s immunity to poison and his vulnerability to magic potions and salves that restore hit points."
@@ -2981,6 +3254,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 37,
 									"id": "129",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes {@creature Thessalar|IMR} to return here from his private lab ({@area area 15|110|x}) and prepare to rest. His homunculus remains in the lab to clean up experiments in progress, providing the characters with a window of opportunity to deal with it alone if they so choose."
@@ -2991,12 +3265,14 @@
 						{
 							"type": "entries",
 							"name": "21. Elite Guard Barracks",
+							"page": 37,
 							"id": "12a",
 							"entries": [
 								"This damp chamber is filled with dry straw sleeping palettes, and houses the guards responsible for the protection of {@creature Thessalar|IMR}'s apartments and laboratories.",
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 37,
 									"id": "12b",
 									"entries": [
 										"Three {@creature Lizardfolk Render|GoS|lizardfolk renders} are stationed here. They attack any intruders to subdue them, then drag them before {@creature Thessalar|IMR} in {@area area 15|110|x}."
@@ -3005,6 +3281,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 37,
 									"id": "12c",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area reverses time and causes the lizardfolk to head into the temple complex to search for {@creature Moghadam|IMR}'s thieves, believing the thieves have just arrived. You determine where the guards might be encountered as a result."
@@ -3015,6 +3292,7 @@
 						{
 							"type": "entries",
 							"name": "22. Alchemical Lab",
+							"page": 37,
 							"id": "12d",
 							"entries": [
 								{
@@ -3027,6 +3305,7 @@
 								{
 									"type": "entries",
 									"name": "Control Panel",
+									"page": 37,
 									"id": "12f",
 									"entries": [
 										"The control panel is covered with dials, switches, and buttons\u2014including a hazy yellow button recognizable as one of the missing components of the {@i Infernal Machine}. Removing this component deactivates the controls and shuts down all the experiments underway here."
@@ -3035,6 +3314,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 37,
 									"id": "130",
 									"entries": [
 										"Any search of this area recovers a set of {@item alchemist's supplies|PHB}, a set of {@item glassblower's tools|PHB}, and a set of {@item tinker's tools|PHB}. In addition, a successful DC 14 Intelligence ({@skill Arcana}) check identifies two vials of {@item Thessaltoxin|IMR|thessaltoxin poison}, one vial of {@item blood of the lycanthrope antidote|IMR}, one vial of {@item mummy rot antidote|IMR}, and one vial of {@item thessaltoxin antidote|IMR}. See {@adventure appendix C|IMR|8} for all these items."
@@ -3043,6 +3323,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 37,
 									"id": "131",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area advances the experiments underway here, producing three identical vials of liquid. One is water, one is a {@item potion of poison}, and one is a potion chosen by you."
@@ -3053,6 +3334,7 @@
 						{
 							"type": "entries",
 							"name": "23. Body Tanks",
+							"page": 37,
 							"id": "132",
 							"entries": [
 								"If the characters have met {@creature Thessalar|IMR} already, they recognize the bodies in the tank as the artificer. Adjust the following read-aloud text accordingly:",
@@ -3068,6 +3350,7 @@
 								{
 									"type": "entries",
 									"name": "Concealed Door",
+									"page": 38,
 									"id": "134",
 									"entries": [
 										"Located at the back of an empty tank, this locked door leads to {@area area 9|0eb|x}. It can be detected with a successful DC 14 Wisdom ({@skill Perception}) check. Without the key carried by {@creature Andras|IMR}, its lock can be picked with a successful DC 18 Dexterity check using thieves' tools, or it can be forced with a successful DC 18 Strength check."
@@ -3076,6 +3359,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 38,
 									"id": "135",
 									"entries": [
 										"Having a mechanical guide spend 1 or more charges in this area causes one clone per charge to gain sentience, awaken, and demand to be set free. If all four are awakened, {@creature Thessalar|IMR} arrives to investigate."
@@ -3086,12 +3370,14 @@
 						{
 							"type": "entries",
 							"name": "24. Halls of Statues",
+							"page": 38,
 							"id": "136",
 							"entries": [
 								"This series of long hallways are each lined with statues created by the temple's sculptors through the ages. Many depict Moloch, but other archdevils, demon lords, and former high priests of the temple are also represented. A successful DC 12 Intelligence ({@skill Religion}) check identifies any statue's specific subject, including several statues of Demogorgon, Asmodeus, Dagon, Bel, Zariel, Mammon, and Semuanya.",
 								{
 									"type": "entries",
 									"name": "Sacred Statues",
+									"page": 38,
 									"id": "137",
 									"entries": [
 										"Ten of the statues in this area are large enough to serve as {@creature Sacred Statue|MTF|sacred statues}. The {@creature eidolon|MTF} in area 25 can enter and animate those statues as needed (see {@adventure appendix B|IMR|7}).",
@@ -3101,6 +3387,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 38,
 									"id": "138",
 									"entries": [
 										"Having a mechanical guide spend 1 or more charges in this area causes one sacred statue per charge to age and crumble to rubble, as long as the statue is not occupied by the eidolon."
@@ -3113,11 +3400,13 @@
 				{
 					"type": "section",
 					"name": "Exploring the Temple (areas 25-32)",
+					"page": 38,
 					"id": "139",
 					"entries": [
 						{
 							"type": "entries",
 							"name": "25. Main Temple",
+							"page": 38,
 							"id": "13a",
 							"entries": [
 								{
@@ -3130,6 +3419,7 @@
 								{
 									"type": "entries",
 									"name": "Statue of Moloch",
+									"page": 38,
 									"id": "13c",
 									"entries": [
 										"The eyes of the statue are the largest rubies ever recovered from the underground lake, and were cut and faceted by the temple's first priests. With a successful DC 12 Intelligence ({@skill Arcana}) check or a {@spell detect magic} spell, a character discerns that the gem eyes are a focal point for the magic of the temple, and are magically connected to the various control panels making use of the missing components from the {@i Infernal Machine of Lum the Mad}. A successful DC 12 Wisdom ({@skill Perception}) check made to examine the gems reveals that they are connected to the statue with silver wires similar to those seen in {@creature Thessalar|IMR}'s labs.",
@@ -3141,6 +3431,7 @@
 								{
 									"type": "entries",
 									"name": "Alcove",
+									"page": 38,
 									"id": "13d",
 									"entries": [
 										"In the east wall, a narrow corridor leads to a tiny chapel room where the temple's first high priest communed with Moloch. After the priest's death, Moloch rewarded their faithful service by transforming him them into the {@creature eidolon|MTF} that still resides here.",
@@ -3150,6 +3441,7 @@
 								{
 									"type": "entries",
 									"name": "Concealed Door",
+									"page": 38,
 									"id": "13e",
 									"entries": [
 										"In the southeast corner of this area, a door concealed behind a tapestry leads to the guardroom ({@area area 34|15d|x}). A fight between the characters and the eidolon (in or out of the sacred statue) is heard by the guards, who rush up to investigate."
@@ -3158,6 +3450,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 40,
 									"id": "13f",
 									"entries": [
 										"Notwithstanding their value to {@creature Moghadam|IMR} and {@creature Thessalar|IMR}, the statue's gemstone eyes are worth 5,000 gp each."
@@ -3166,6 +3459,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 40,
 									"id": "140",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area forces the eidolon to either enter or leave the sacred statue. Doing so causes the eidolon to attack if it is not already in combat with the characters.",
@@ -3186,12 +3480,14 @@
 						{
 							"type": "entries",
 							"name": "26. Workshop",
+							"page": 40,
 							"id": "141",
 							"entries": [
 								"The temple's sculptors labor in this workshop, which is filled with tables and benches covered in tools and raw materials for the crafting and repair of statuary.",
 								{
 									"type": "entries",
 									"name": "Creatures",
+									"page": 40,
 									"id": "142",
 									"entries": [
 										"The five human sculptors here (use the {@creature cultist} stat block) work feverishly to cover for the absence of the colleagues who left for the Tomb of Horrors. If the characters talk to them, the sculptors assume they were sent from the tomb as well, and ask about their missing colleagues. The sculptors share that {@creature Thessalar|IMR} has captured the thieves sent out by {@creature Moghadam|IMR}, including the gemsmith in {@area area 31|151|x}). They also know about the eidolon in area 25, and that this area of the temple is guarded by a two-headed giant called \"the Demogorgon\" (in {@area area 35|15f|x})."
@@ -3200,6 +3496,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 40,
 									"id": "143",
 									"entries": [
 										"In addition to ten rubies (worth 50 gp each) being worked into statues, this area contains two sets of {@item jeweler's tools|PHB} and {@item mason's tools|PHB}, as well as half a {@item manual of stone golems}. This is the torn matching half of the half manual held by the sculptors in {@area area 11|08a|x} of {@adventure chapter 3|IMR|3}. Even incomplete, it is worth 500 gp."
@@ -3208,6 +3505,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 40,
 									"id": "144",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the sculptors to leave and return to their dormitory ({@area area 33|15a|x})."
@@ -3218,12 +3516,14 @@
 						{
 							"type": "entries",
 							"name": "27. Workshop and Storage",
+							"page": 40,
 							"id": "145",
 							"entries": [
 								"This area holds a large kiln, which is constantly lit and used for the crafting of statues, homunculi, and other objects for the temple. Tools, chunks of stone, and lumps of clay wrapped in cloth are scattered about.",
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 40,
 									"id": "146",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the homunculus in {@area area 15|110|x} to return here (its place of origin)."
@@ -3234,12 +3534,14 @@
 						{
 							"type": "entries",
 							"name": "28. Private Chapel",
+							"page": 40,
 							"id": "147",
 							"entries": [
 								"The temple's high priest resides in these small quarters, which contain a bed, personal effects, ceremonial robes, and religious instruments of office. A fireplace along the northeast wall is carved to resemble a smaller version of the famed statue of Moloch.",
 								{
 									"type": "entries",
 									"name": "Alcoves",
+									"page": 40,
 									"id": "148",
 									"entries": [
 										"The larger alcove to the south of this area holds a pile of sacred stones for the construction of a powerful stone golem. This stone supposedly fell from Ogrémoch's body during the fight against Olhydra that carved out the first of the temple caverns. The smaller alcove holds the golem under construction. {@creature Thessalar|IMR} hopes to recover his sculptors, their superior mason's tools, and their half of the {@item manual of stone golems} to complete this golem and send it out against {@creature Moghadam|IMR}."
@@ -3248,6 +3550,7 @@
 								{
 									"type": "entries",
 									"name": "High Priest",
+									"page": 40,
 									"id": "149",
 									"entries": [
 										"Ard-Sagart (a lawful evil male human {@creature warlock of the fiend|VGM}) is here when the characters arrive, praying before the fireplace. With the loss of the sculptors in {@creature Thessalar|IMR}'s service, he believes the temple has lost favor with Moloch. To remedy this, he has requested more lizardfolk to brave the underwater lake and collect gemstones as tribute. He is preparing to bless the next volunteers."
@@ -3256,6 +3559,7 @@
 								{
 									"type": "entries",
 									"name": "Secret Door",
+									"page": 40,
 									"id": "14a",
 									"entries": [
 										"A secret door to the underground lake is hidden within the fireplace, and can be detected with a successful DC 16 Wisdom ({@skill Perception}) check. The image of the brazier held by the statue of Moloch is worked into the fireplace hearth. Two types of offering can be placed in this graven brazier\u2014either a character's sacrifice of blood (represented by a self-inflicted wound that deals 5 piercing or slashing damage) or a gemstone of any value. Either offering is consumed when given, whereupon the fireplace flames magically lower and the secret door in the back of the fireplace opens."
@@ -3264,6 +3568,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 40,
 									"id": "14b",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the high priest to leave for area 29 by way of the secret door, then prepare for a ceremony of blessing."
@@ -3274,12 +3579,14 @@
 						{
 							"type": "entries",
 							"name": "29. Secret Equipment Room",
+							"page": 40,
 							"id": "14c",
 							"entries": [
 								"Gear and equipment related to exploring the underground lake are stored in this private chapel to the temple's living demigod, the thessalkraken. Search and salvage gear are normally assigned to the lizardfolk charged with searching the subterranean lake for gems. Before entering the lake, the lizardfolk are blessed by the high priest in front of a smaller version of the statue of Moloch, modified to resemble the thessalkraken by having its arms changed into tentacles and its mouth filled with long needle-like teeth.",
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 40,
 									"id": "14d",
 									"entries": [
 										"In addition to mundane gear, this area contains a {@item folding boat}, a {@item helm of underwater action|GoS} (see {@adventure appendix C|IMR|8}), and an incomplete {@item apparatus of Kwalish}. The missing levers of the apparatus can be found in {@area area 7|0e5|x}, and require a successful DC 14 Intelligence ({@skill Arcana}) check or a Dexterity check using thieves' tools or tinker's tools to reassemble."
@@ -3288,6 +3595,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 40,
 									"id": "14e",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes {@dice 1d4} {@creature Lizardfolk Render|GoS|lizardfolk renders} to arrive for the priest's blessing before departing down the stairs to the underground lake (area 30). They attack unless they can be convinced the characters are part of the blessing ceremony."
@@ -3298,12 +3606,14 @@
 						{
 							"type": "entries",
 							"name": "30. Hidden Stairs",
+							"page": 41,
 							"id": "14f",
 							"entries": [
 								"This winding set of stairs leads down to a natural cavern system below the temple. The main cavern is filled with a vast subterranean lake, fed by the stream at {@area area 2|0cd|x}. See \"Underground Lake\" at the end of this chapter for more information.",
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 4,
 									"id": "150",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the thessalkraken to reveal itself as it breaks the surface of the water seeking food. Spending 2 charges also causes {@dice 1d4} {@creature Lizardfolk Render|GoS|lizardfolk renders} to arrive, ready to brave the waters in search of gems. The lizardfolk take the appearance of the characters as a sign of offering, and attempt to force them into the water as sacrifices for their demigod."
@@ -3314,6 +3624,7 @@
 						{
 							"type": "entries",
 							"name": "31. Gemsmith's Cell",
+							"page": 14,
 							"id": "151",
 							"entries": [
 								"The oak door leading to this area is locked, but can be opened with a successful DC 14 Dexterity check using thieves' tools, or forced open with a successful DC 14 Strength check. The chamber beyond holds the temple's most valued prisoner, {@creature Seodra|IMR} the gemsmith.",
@@ -3328,6 +3639,7 @@
 								{
 									"type": "entries",
 									"name": "The Gemsmith",
+									"page": 41,
 									"id": "153",
 									"entries": [
 										"{@creature Seodra|IMR} is an earth genasi from the Quasi-elemental Plane of Mineral. Sent by {@creature Moghadam|IMR} to assist the thieves charged with stealing the gemstone eyes from the statue of Moloch in {@area area 25|13a|x}, she was captured and put to work.",
@@ -3346,6 +3658,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 41,
 									"id": "154",
 									"entries": [
 										"The worktable contains the workings for the jeweled skull of a demilich: a solid silver skull (worth 2,000 gp) into which three diamonds (1,000 gp each) have been cut and set as teeth. {@creature Thessalar|IMR} plans to use the skull for his own ascension to lichdom, either as his lich's phylactery or as the skull of a demilich.",
@@ -3355,6 +3668,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 41,
 									"id": "155",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area taps into the ritual magic {@creature Seodra|IMR} is using to craft the demilich's skull, causing a random character to age by one year. This effect can be reversed by casting a {@spell remove curse} spell using a 6th-level spell slot."
@@ -3365,12 +3679,14 @@
 						{
 							"type": "entries",
 							"name": "32. Guardroom",
+							"page": 41,
 							"id": "156",
 							"entries": [
 								"Four {@creature Lizardfolk Render|GoS|lizardfolk renders} are stationed here, assigned to watch over the gemsmith in area 31.",
 								{
 									"type": "entries",
 									"name": "Corridor",
+									"page": 41,
 									"id": "157",
 									"entries": [
 										"The small corridor leading east across from the guardroom dead-ends at a point with several natural fissures in the floor (leading to the underground lake below), and is used as a privy."
@@ -3379,6 +3695,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 41,
 									"id": "158",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the lizardfolk to head into the temple complex to search for {@creature Moghadam|IMR}'s thieves, believing the thieves have just arrived. You determine where the guards might be encountered as a result."
@@ -3391,17 +3708,20 @@
 				{
 					"type": "section",
 					"name": "Exploring the Temple (areas 33-39)",
+					"page": 41,
 					"id": "159",
 					"entries": [
 						{
 							"type": "entries",
 							"name": "33. Sculptors' Dormitory",
+							"page": 41,
 							"id": "15a",
 							"entries": [
 								"This cramped dormitory holds bunks and simple furnishings for the fifteen sculptors originally living in the temple. Ten of those sculptors left the temple to work at the Tomb of Horrors, with only five remaining at work in {@area area 26|141|x}.",
 								{
 									"type": "entries",
 									"name": "Belongings",
+									"page": 41,
 									"id": "15b",
 									"entries": [
 										"A successful DC 12 Intelligence ({@skill Investigation}) check made to search this area uncovers a {@item figurine of wondrous power} hidden by one of the sculptors (choose any rare figurine). The figurine is wrapped in a crumpled invitation sent from {@creature Moghadam|IMR} for employment at the Tomb of Horrors, promising exorbitant wages and offering a map showing the route to the temple."
@@ -3410,6 +3730,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 41,
 									"id": "15c",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the sculptors to leave their work in {@area area 26|141|x} and return here to rest."
@@ -3420,12 +3741,14 @@
 						{
 							"type": "entries",
 							"name": "34. Guardroom",
+							"page": 41,
 							"id": "15d",
 							"entries": [
 								"Four {@creature Lizardfolk Shaman||lizardfolk shamans} are stationed here as temple guards. If they hear any sign of trouble along the corridor from {@area area 25|13a|x}, they rush through the concealed doors to help defend the eidolon and the sacred statue there.",
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 42,
 									"id": "15e",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the lizardfolk to head into the temple complex to search for {@creature Moghadam|IMR}'s thieves, believing the thieves have just arrived. You determine where the guards might be encountered as a result."
@@ -3436,6 +3759,7 @@
 						{
 							"type": "entries",
 							"name": "35. Office of the Demogorgon",
+							"page": 42,
 							"id": "15f",
 							"entries": [
 								"This area houses an ettin, originally brought here for {@creature Thessalar|IMR}'s experiments. The giant is kept both for his blood supply, which {@creature Thessalar|IMR} uses in the crafting of new two-headed creatures, and as a guard for the treasure vault ({@area area 38|16b|x}).",
@@ -3463,6 +3787,7 @@
 								{
 									"type": "entries",
 									"name": "The Demogorgon",
+									"page": 42,
 									"id": "162",
 									"entries": [
 										"{@creature \"The Demogorgon\"|IMR|This ettin} is thoroughly deranged, with {@creature Thessalar|IMR} cruelly humoring the creature's condition in his \"honored\" treatment. See {@adventure appendix B|IMR|7} for {@creature \"The Demogorgon\"|IMR|the ettin's} stat block. At one time, he was told that he was a statue of Demogorgon brought to life by {@creature Thessalar|IMR}'s experiments. He has since come to believe that he is now the actual Demogorgon, with his two heads addressing one another as Aameul and Hathradiah\u2014mispronounced as Emmanuel and Hebediah, respectively. A successful DC 14 Intelligence ({@skill History}) check allows a character to recall the real names of Demogorgon's heads.",
@@ -3484,6 +3809,7 @@
 								{
 									"type": "entries",
 									"name": "Alcoves",
+									"page": 42,
 									"id": "163",
 									"entries": [
 										"Various alcoves and side passages around this area hold a foul-smelling clutter of chickens, pigs, and goats kept behind wicker barricades, raised as food for the ettin. They are tended by the boggle who is steward to both the ettin's heads (see areas 36 and 37)."
@@ -3492,6 +3818,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 43,
 									"id": "164",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the chickens to lay more eggs, to the delight of the ettin. Both his heads call out for their steward to gather the eggs at once."
@@ -3502,12 +3829,14 @@
 						{
 							"type": "entries",
 							"name": "36. Office of Hebediah's Steward",
+							"page": 43,
 							"id": "165",
 							"entries": [
 								"This office apartment houses the steward assigned to the ettin's left head (Hebediah). The room is meagerly furnished with a cot and a single chair, and connects to area 37 via a short hall hidden behind a poorly hung curtain. The tunnel is easily discovered with a successful DC 10 Wisdom ({@skill Perception}) check.",
 								{
 									"type": "entries",
 									"name": "\"Slippy\"",
+									"page": 43,
 									"id": "166",
 									"entries": [
 										"If not already met when summoned to area 35, there is a {@chance 50|50 percent} chance that the steward to the ettin is found in this area. If not in this area, the boggle is in area 37.",
@@ -3518,6 +3847,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 43,
 									"id": "167",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the steward to run back if they are elsewhere, or rush off to perform some task or deliver a muddled message to the ettin. In the course of doing so, they confuse matters such that their true nature as steward to both heads is accidentally revealed, incurring the ettin's wrath.",
@@ -3529,12 +3859,14 @@
 						{
 							"type": "entries",
 							"name": "37. Office of Emmanuel's Steward",
+							"page": 43,
 							"id": "168",
 							"entries": [
 								"This office apartment houses the steward assigned to the ettin's right head (Emmanuel). It is meagerly furnished with a cot and a small table, and connects to area 36 via a panel hidden behind a poorly hung curtain. The tunnel is easily discovered with a successful DC 10 Wisdom ({@skill Perception}) check.",
 								{
 									"type": "entries",
 									"name": "\"Sticky\"",
+									"page": 43,
 									"id": "169",
 									"entries": [
 										"If not already met when summoned to {@area area 35|15f|x}, there is a {@chance 50|50 percent} chance that the steward to the ettin is found in this area. If not in this area, the {@creature boggle|VGM} is in area 36. See area 36 for details on the identity of Sticky and Slippy."
@@ -3543,6 +3875,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 43,
 									"id": "16a",
 									"entries": [
 										"Having a mechanical guide spend charges in this area has the same effect as in area 36."
@@ -3553,12 +3886,14 @@
 						{
 							"type": "entries",
 							"name": "38. Treasure Vault",
+							"page": 43,
 							"id": "16b",
 							"entries": [
 								"The wealth the temple has collected over centuries is stored in this hidden vault. Much of this wealth consists of gemstones gathered from the underground lake beyond areas 30 and 39.",
 								{
 									"type": "entries",
 									"name": "Secret Door",
+									"page": 43,
 									"id": "16c",
 									"entries": [
 										"The secret door leading into this area can be detected with a successful DC 14 Wisdom ({@skill Perception}) check, but is locked. Without the key (found in {@area area 2|0cd|x} or {@area area 20|127|x}), the lock requires a successful DC 18 Dexterity check using thieves' tools to open, or it can be forced open with a successful DC 22 Strength check."
@@ -3567,6 +3902,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 43,
 									"id": "16d",
 									"entries": [
 										"Uncut rubies and other gems are piled and sorted here according to size\u2014two hundred tiny stones (worth 10 gp each), one hundred small stones (25 gp each), twenty medium stones (100 gp each), and five large stones (200 gp each).",
@@ -3577,6 +3913,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 43,
 									"id": "16e",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area either causes {@dice 1d4} of the largest uncut rubies to become cut and polished, doubling their value (a {@chance 50|50 percent} chance), or causes the same number of the largest cut rubies to degrade back to raw stones, halving their value."
@@ -3587,6 +3924,7 @@
 						{
 							"type": "entries",
 							"name": "39. Stairs to Underground Lake",
+							"page": 43,
 							"id": "16f",
 							"entries": [
 								"These twisting, turning stairs lead down to the underground lake that opens up beneath the temple complex."
@@ -3595,6 +3933,7 @@
 						{
 							"type": "entries",
 							"name": "Underground Lake",
+							"page": 43,
 							"id": "170",
 							"entries": [
 								"The full details of the natural cavern system that opens up below the temple are left for you to design if desired. The main cavern, reached by the stairs at {@area area 30|14f|x} or 39, is filled by a subterranean lake fed by the stream at {@area area 2|0cd|x}.",
@@ -3611,6 +3950,7 @@
 								{
 									"type": "entries",
 									"name": "Creature",
+									"page": 44,
 									"id": "172",
 									"entries": [
 										"One of {@creature Thessalar|IMR}'s monstrous creations, the {@creature thessalkraken|IMR} proved too dangerous to safely handle and was exiled to these caverns years ago. It has since grown too large to return to the temple, and now serves as a kind of living demigod to the cultists and lizardfolk serving {@creature Thessalar|IMR}, who refer to it as the \"Child of Moloch.\""
@@ -3619,6 +3959,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
+									"page": 44,
 									"id": "173",
 									"entries": [
 										"Lizardfolk in service to {@creature Thessalar|IMR} are sent here to brave the waters and attempt to recover more gemstones from the bottom of the lake. When the characters arrive here, the bottom of the lake is littered with {@dice 1d10} rubies. Roll a {@dice d10} to determine the value of each ruby found\u2014",
@@ -3639,6 +3980,7 @@
 								{
 									"type": "entries",
 									"name": "Manipulating Time",
+									"page": 44,
 									"id": "174",
 									"entries": [
 										"Having a mechanical guide spend 1 charge in this area causes the thessalkraken to break the surface of the water seeking food, thus revealing itself. Spending 2 charges also causes {@dice 1d4} {@creature Lizardfolk Render|GoS|lizardfolk renders} to arrive, ready to brave the waters in search of gemstones. The lizardfolk take the appearance of the characters as a sign of offering, and attempt to force them into the water as sacrifices for their demigod."
@@ -3653,12 +3995,14 @@
 		{
 			"type": "section",
 			"name": "Chapter 5: Final Showdown",
+			"page": 44,
 			"id": "175",
 			"entries": [
 				"After visiting the Tomb of Horrors or the Temple of Moloch (or both), the characters should have recovered some of the missing components of the {@i Infernal Machine}. Whenever they return to their original time, Lynx and {@creature Sir Ursas|IMR} both make a play for the components, desiring to use them to complete and control the {@i Infernal Machine of Lum the Mad}.",
 				{
 					"type": "section",
 					"name": "Special Delivery",
+					"page": 44,
 					"id": "176",
 					"entries": [
 						"Whichever agent the characters are working for, their mechanical guide is programmed to teleport them back to the agent's manor. If the characters somehow obtained both mechanical guides, they can decide which agent they want to initially return to. (Even if the characters have done secret deals with both agents, they should choose one to be their initial contact upon their return to their original time.)",
@@ -3666,6 +4010,7 @@
 						{
 							"type": "entries",
 							"name": "Formal Review",
+							"page": 44,
 							"id": "177",
 							"entries": [
 								"When the characters meet with their chosen agent, Lynx or {@creature Sir Ursas|IMR} asks to inspect any missing components they've collected. The agent agrees to pay the characters as arranged, but only after their servants test that the components are in working order. The characters are then led to the agent's workshop. As they go, the agent talks about deducting expenses for any resources used, damage to the mechanical guide, and so forth\u2014in general, becoming increasingly insidious."
@@ -3676,6 +4021,7 @@
 				{
 					"type": "section",
 					"name": "Completing the Machine",
+					"page": 44,
 					"id": "178",
 					"entries": [
 						"When the characters first see the workshop, they become aware of the scope of what the agent is hoping to achieve.",
@@ -3699,6 +4045,7 @@
 						{
 							"type": "entries",
 							"name": "Lum the Mad",
+							"page": 45,
 							"id": "17b",
 							"entries": [
 								"In response to any reaction or questions, the agent proudly explains how the partially functioning {@i Infernal Machine} was used to find and capture Lum the Mad, so that he could assist in restoring the machine to its primal state.",
@@ -3708,6 +4055,7 @@
 						{
 							"type": "entries",
 							"name": "Raid Against the Machine",
+							"page": 45,
 							"id": "17c",
 							"entries": [
 								"Immediately after the missing components are installed and Lum is presented, the other agent launches a surprise raid against the first agent's manor. Read the following, adding details as appropriate depending on whether Lynx or {@creature Sir Ursas|IMR} is the one coming for the {@i Infernal Machine}, and whether or not the characters have met the other agent:",
@@ -3727,12 +4075,14 @@
 						{
 							"type": "entries",
 							"name": "Complications",
+							"page": 45,
 							"id": "17e",
 							"entries": [
 								"During the raid, any number of complications might arise. As desired, you can roll on the Machine Fight Complications table (see the next page) at the end of each round of combat, rerolling or ignoring results that have already occurred.",
 								{
 									"type": "inset",
 									"name": "Failure Is an Option",
+									"page": 45,
 									"id": "17f",
 									"entries": [
 										"If the characters failed to recover a significant number of components from either site in the past\u2014and assuming you don't want to send them back\u2014you can work that into this final showdown. Whichever agent the characters return to is disappointed in their progress, but comes up with an alternative plan. Knowing that the other agent might also have sent their own operatives back to collect the missing components, the characters' agent invites them to help break into the rival agent's workshop to steal those components from the rival's version of the {@i Infernal Machine}. Reverse the general setup of this section to have the characters on the side that breaks into the workshop. There, they see the rival agent holding Lum the Mad, and in the process of completing the {@i Infernal Machine}."
@@ -3803,18 +4153,21 @@
 				{
 					"type": "section",
 					"name": "Concluding the Adventure",
+					"page": 46,
 					"id": "180",
 					"entries": [
 						"Depending on the hook you used and how this adventure fits into your overall campaign, a number of things can happen at the end of {@i Infernal Machine Rebuild}.",
 						{
 							"type": "entries",
 							"name": "Nine Hells or Bust",
+							"page": 46,
 							"id": "181",
 							"entries": [
 								"If either agent is successful in taking the {@i Infernal Machine of Lum the Mad} to the Nine Hells, it changes the balance of power in Avernus. Either Zariel is able to solidify her rule of that level, or Bel is able to reclaim the level using the machine's power. What happens as a result is entirely up to you, and might come into play if you are running {@adventure Baldur's Gate: Descent into Avernus|BGDIA} as part of your campaign.",
 								{
 									"type": "inset",
 									"name": "Finders Keepers",
+									"page": 46,
 									"id": "182",
 									"entries": [
 										"If the characters plan on keeping the missing {@i Infernal Machine} components for themselves, for delivery to another patron (such as Kwalish), or simply to keep them out of the hands of the agents, both Lynx and {@creature Sir Ursas|IMR} launch separate attacks to recover them. These attacks can either be spaced out to avoid overwhelming the characters, or you can have both agents attack at the same time and largely concentrate on each other."
@@ -3825,6 +4178,7 @@
 						{
 							"type": "entries",
 							"name": "Our Infernal Machine",
+							"page": 46,
 							"id": "183",
 							"entries": [
 								"If one or both of Lynx and {@creature Sir Ursas|IMR} are defeated, the characters might end up in possession of the {@i Infernal Machine}. If you opt to keep this powerful artifact in your campaign, see {@adventure appendix C|IMR|8} for its statistics. Otherwise, you can decide that the machine has been fatally programmed to disperse its components to all-new locations\u2014but only after the characters have had a bit of time to experiment with it.",
@@ -3834,6 +4188,7 @@
 						{
 							"type": "entries",
 							"name": "Mechanical Guides",
+							"page": 46,
 							"id": "184",
 							"entries": [
 								"The mechanical guides are programmed to serve their agent masters\u2014and to self-destruct in the event that anyone else attempts to take control of them. Still, exposure to the power of the components of the {@i Infernal Machine} might change a guide's programming, allowing the characters to befriend and permanently claim it as a companion or ally. If this happens, a guide's time traveling ability can be curtailed as you desire."
@@ -3842,6 +4197,7 @@
 						{
 							"type": "entries",
 							"name": "The Joys of Time Travel",
+							"page": 46,
 							"id": "185",
 							"entries": [
 								"Because this adventure traverses both time and space, you might decide that actions carried out by the characters in the past of chapters 3 and 4 create changes in the present of the campaign world when they return. For example, the construction of the Tomb of Horrors might be disrupted, in which case it holds less prominence in later times. If {@creature Thessalar|IMR} regains his missing sculptors, he might complete his stone golem and send it out to destroy {@creature Moghadam|IMR} and demolish the tomb while it's under construction. {@creature Thessalar|IMR} might also create more monsters than he is already known for, which can spread throughout the world.",
@@ -3855,18 +4211,21 @@
 		{
 			"type": "section",
 			"name": "Appendix A: Further Options",
+			"page": 47,
 			"id": "186",
 			"entries": [
 				"{@i Infernal Machine Rebuild} hopefully provides plenty of options for you to run the adventure the way that works best for your campaign. But if you'd like to customize this adventure even further, consider any of the following possibilities.",
 				{
 					"type": "section",
 					"name": "Chapter 1: The Unicorn and the Hags",
+					"page": 47,
 					"id": "187",
 					"entries": [
 						"The conflict between the hags and the unicorn Banrion can be complicated or augmented in a number of ways.",
 						{
 							"type": "entries",
 							"name": "Clandestine Hags",
+							"page": 47,
 							"id": "188",
 							"entries": [
 								"If having three dryads working together is too immediate a tipoff that these might be hags forming a coven, you can add a fourth illusory mother to the mix to help allay suspicion. Created from a few logs and branches, Mother Hedgehog sits quietly in the corner of the cottage. If the characters attempt to speak with her, the programmed illusion is able to mumble a few incoherent words. A successful DC 16 Intelligence ({@skill Investigation}) check detects this illusion.",
@@ -3877,6 +4236,7 @@
 						{
 							"type": "entries",
 							"name": "Unicorn Showdown",
+							"page": 47,
 							"id": "189",
 							"entries": [
 								"If the characters initially make an aggressive approach toward Banrion (whether because the hags have fooled them or because the unicorn is evil), you can make the fight tougher by having the unicorn appear while the characters are attempting to cross the clock tower bridge. While fighting on the bridge, Banrion looks to knock characters off the tower into the chasm below, or even to try to collapse the tower under the characters while she teleports away.",
@@ -3888,12 +4248,14 @@
 				{
 					"type": "section",
 					"name": "Chapter 2: An Invitation Extended",
+					"page": 47,
 					"id": "18a",
 					"entries": [
 						"Meeting with the infernal agents has the potential for a number of interesting story options.",
 						{
 							"type": "entries",
 							"name": "Updated Guides",
+							"page": 47,
 							"id": "18b",
 							"entries": [
 								"As written, the mechanical guides can safely teleport the characters to and from the specific adventure locations. If it fits with your campaign, you might opt to allow teleportation to other locations in time and space with a successful DC 20 Intelligence ({@skill Arcana}) check. A failed check causes the characters to be misdirected physically or temporally, as you determine. If the characters claim any missing components of the {@i Infernal Machine}, those components can be added to the mechanical guide, providing a +2 bonus to this check per component.",
@@ -3903,6 +4265,7 @@
 						{
 							"type": "entries",
 							"name": "Healthy Competition",
+							"page": 47,
 							"id": "18c",
 							"entries": [
 								"When the characters make their choice of which agent they want to work with, whatever agent they turn down immediately arranges to send out their own competing expedition. (If the characters agree to work for both agents, both agents might still send out second redundant expeditions as insurance.)",
@@ -3913,6 +4276,7 @@
 						{
 							"type": "entries",
 							"name": "Enhanced Medusa",
+							"page": 47,
 							"id": "18d",
 							"entries": [
 								"Like the enhanced sphinx from {@adventure Lost Laboratory of Kwalish|LLK}, this creature has been augmented with various technologies from the Barrier Peaks. Specifically, its eyes have been replaced with mechanical frames into which it slots different lenses. This is the same magical technology that was used to create another artifact, {@i Daoud's Wondrous Lanthorn}. The medusa is nicknamed \"Daoud's Living Lanthorn\" as a result.",
@@ -3929,6 +4293,7 @@
 								{
 									"type": "inset",
 									"name": "Who's Who",
+									"page": 48,
 									"id": "18e",
 									"entries": [
 										"While little is known of Daoud, his lanthorn was part of the treasure to be recovered in the AD&D adventure module {@i Lost Caverns of Tsojcanth}. Light cast through the different faces of the lanthorn created different magical effects, which the lanthorn fueled with crushed gemstones."
@@ -3939,6 +4304,7 @@
 						{
 							"type": "entries",
 							"name": "Brains in Iron (The Council)",
+							"page": 48,
 							"id": "18f",
 							"entries": [
 								"This creature originated from old designs of Kwalish, and takes the form of multiple brains that have been magically preserved and which collectively operate a new mechanical body. The brains share insights and knowledge with one another, and have typically been taken from creatures that desired to prolong their consciousness\u2014or that were tasked with controlling a construct for all time as punishment.",
@@ -3961,12 +4327,14 @@
 				{
 					"type": "section",
 					"name": "Chapter 3: Construction of Horrors",
+					"page": 48,
 					"id": "190",
 					"entries": [
 						"You can expand the characters' exploration of the Tomb of Horrors construction site in a number of ways.",
 						{
 							"type": "entries",
 							"name": "Hanging with Moghadam",
+							"page": 48,
 							"id": "191",
 							"entries": [
 								"Even villains have their hobbies\u2014and for {@creature Moghadam|IMR}, that hobby is death traps. Any character who discusses traps with {@creature Moghadam|IMR} can impart to him a new deadly design\u2014either using suitable roleplaying and player ingenuity, or a successful DC 16 Charisma ({@skill Persuasion}) check. Doing so gains {@creature Moghadam|IMR}'s favor and advantage on further ability checks made to negotiate with the artificer, as you determine."
@@ -3975,6 +4343,7 @@
 						{
 							"type": "entries",
 							"name": "Muralist Mutiny",
+							"page": 48,
 							"id": "192",
 							"entries": [
 								"As written, the sculptors in the Tomb of Horrors are eager to escape but the muralists are loyal to {@creature Moghadam|IMR}. However, you might decide that the muralists have their own reasons to flee servitude, and have secured a set of {@item claws of the umber hulk|PotA} (see {@adventure appendix C|IMR|8}) to do so. They might also look for the characters' help to escape, using the claws to dig a secret tunnel beneath their chambers in {@area area 9|07d|x}\u2014and potentially intersecting with the umber hulks' excavations."
@@ -3983,6 +4352,7 @@
 						{
 							"type": "entries",
 							"name": "Rock and Ruin",
+							"page": 48,
 							"id": "193",
 							"entries": [
 								"As an added element of danger and dilemma during the ceremony in the chapel ({@area area 14|093|x}), each time a character succeeds on a saving throw to resist the ceremony's power, one of the worshipers in the pews is overcome and transforms into black rock.",
@@ -3992,6 +4362,7 @@
 						{
 							"type": "entries",
 							"name": "Go to Hell",
+							"page": 48,
 							"id": "194",
 							"entries": [
 								"The fiery rift of area 16 allows {@creature Tarnhem|IMR} to return to the Abyss. But depending on the setup of your campaign (and particularly if you are playing through {@adventure Baldur's Gate: Descent into Avernus|BGDIA}), you might instead have this rift lead to the Nine Hells. There, {@creature Tarnhem|IMR} joins the demonic horde taking part in the Blood War.",
@@ -4003,12 +4374,14 @@
 				{
 					"type": "section",
 					"name": "Chapter 4: Temple of Moloch",
+					"page": 48,
 					"id": "195",
 					"entries": [
 						"The level of chaos and creative power on display in the Temple of Moloch lends itself to a number of play options.",
 						{
 							"type": "entries",
 							"name": "Trade Talk",
+							"page": 48,
 							"id": "196",
 							"entries": [
 								"{@creature Thessalar|IMR}'s fixation on monster design provides an opportunity for bonding with any character with insight into that topic\u2014or who can fake it well enough, either using suitable roleplaying and player ingenuity, or a successful DC 16 Charisma ({@skill Persuasion}) check. Suggesting a new design for a magical creature (ideally one combining the aspects of two or more existing creatures in some particularly deadly way) can grant advantage on checks made to interact with the artificer."
@@ -4017,6 +4390,7 @@
 						{
 							"type": "entries",
 							"name": "Tressym Patrol",
+							"page": 48,
 							"id": "197",
 							"entries": [
 								"Considering the variety of laboratory creatures residing in the temple, its hallways might also be populated by roving packs of wild, escaped {@creature tressym|BGDIA}. These flying cats follow and spy on the characters, but might help lead them to various locations (such as the secret door outside {@area area 38|16b|x}) if treated well. The tressym despise {@creature Barbatos|IMR}'s {@creature hell hound} ({@area areas 12|102|x} and {@area 13|106|x}), and actively aid any effort to destroy it."
@@ -4025,6 +4399,7 @@
 						{
 							"type": "entries",
 							"name": "Mixing up the Thieves",
+							"page": 48,
 							"id": "198",
 							"entries": [
 								"If the characters pass through the village mentioned in the \"{@area Temple Approach|0c1|x}\" section, they might discover that one of the villagers is one of Mack Francache's thieves, left behind to keep an eye on activities outside the temple. When the characters arrive, this thief presents themself as a seemingly reluctant guide willing to join the characters on the incursion into the temple. While there, they secretly try to direct the characters toward rescuing the imprisoned thieves.",
@@ -4034,6 +4409,7 @@
 						{
 							"type": "entries",
 							"name": "Statuesque",
+							"page": 49,
 							"id": "199",
 							"entries": [
 								"You might introduce different options for interacting with the statues in {@area area 24|136|x}, especially if combat breaks out there. For example, if the eidolon inhabits a statue of Zariel or Bel, the characters might gain advantage on attack rolls against that statue if they serve the archdevil's agent (or disadvantage on attack rolls against the statue of the competing agent's patron). Out of combat, if the characters are allied with {@creature Moghadam|IMR} and remove a hand and an eye from any statue, Vecna rewards them with some boon (advantage on attack rolls during the first round of their next fight, having a consumable magic item appear in the statue's remaining hand, and so forth)."
@@ -4042,6 +4418,7 @@
 						{
 							"type": "entries",
 							"name": "Secret Chicken",
+							"page": 49,
 							"id": "19a",
 							"entries": [
 								"One of the chickens in {@area area 35|15f|x} might be one of {@creature Thessalar|IMR}'s experiments, such that it occasionally lays silver eggs (worth 10 gp) or even golden eggs (worth 20 gp). In this scenario, both boggles originally came to the temple to steal this chicken. Or this might just be a tale the remaining boggle tells, planting false eggs with the chickens in order to better negotiate with the characters."
@@ -4052,12 +4429,14 @@
 				{
 					"type": "section",
 					"name": "Chapter 5: Final Showdown",
+					"page": 49,
 					"id": "19b",
 					"entries": [
 						"The presence of a legendary artifact in the final chapter of the adventure opens up lots of possibilities.",
 						{
 							"type": "entries",
 							"name": "An Infernal War Machine",
+							"page": 49,
 							"id": "19c",
 							"entries": [
 								"For deeper integration with {@adventure Baldur's Gate: Descent into Avernus|BGDIA}, an alternative climax could have the characters' chosen agent complete their version of the {@i Infernal Machine}\u2014which is then converted into an infernal war machine. Such a process might involve drawing on other elements of the adventure's locations (the Tomb of Horrors' still-to-be-built stone juggernaut, the skeleton of the thessalkraken, and so forth) for use in the war machine's chassis.",
@@ -4067,6 +4446,7 @@
 						{
 							"type": "entries",
 							"name": "A Mighty Servant",
+							"page": 49,
 							"id": "19d",
 							"entries": [
 								"When the characters deliver the missing components to their chosen agent and the other agent launches a raid, that raid is led by a second artifact that the agent has been constructing\u2014the {@i Mighty Servant of Leuk-O}. Alternatively, if Kwalish is involved, he might build or upgrade a suit of {@i powered armor} (from {@adventure Lost Laboratory of Kwalish|LLK}) to become the {@i Mighty Servant of Leuk-O}. The characters can then use that artifact (with features determined by you) to counter the {@i Infernal Machine of Lum the Mad}."
@@ -4077,6 +4457,7 @@
 				{
 					"type": "section",
 					"name": "Additional Locations",
+					"page": 49,
 					"id": "19e",
 					"entries": [
 						"You can turn this adventure into an entire campaign by adding additional locations containing more missing components of the {@i Infernal Machine}. Just as the Tomb of Horrors was repurposed here, you might similarly repurpose other adventures from D&D history or your previous campaigns, manipulating their time lines to create alternative scenarios.",
@@ -4084,6 +4465,7 @@
 						{
 							"type": "entries",
 							"name": "Tomb of Annihilation",
+							"page": 49,
 							"id": "19f",
 							"entries": [
 								"Missing components could be hidden in any number of locations in the jungles of Chult, including the Lost City of Omu, or even integrated into the Tomb of the Nine Gods. For example, to recover a component located at the City of Omu's amphitheater, the characters might need to overcome the King of Feathers at some point in the past (making it a younger, weaker tyrannosaurus rex) or the future (where it has become a deadly dinosaur zombie)."
@@ -4092,6 +4474,7 @@
 						{
 							"type": "entries",
 							"name": "Glacial Rift of the Frost Giant Jarl",
+							"page": 49,
 							"id": "1a0",
 							"entries": [
 								"Missing components could be hidden throughout many areas of this adventure from {@adventure Tales from the Yawning Portal|TftYP}. In the caverns of area 5, components could be buried within the ice in a way that requires the characters to access them in the past\u2014and allowing the creatures trapped in the ice to be brought back to life. In the visitors' cave of area 26, components might have been brought as special gifts by past dignitaries unaware of their true nature. And in the snow-covered dome of area 28, they might be guarded as treasure by the {@creature remorhaz}."
@@ -4100,6 +4483,7 @@
 						{
 							"type": "entries",
 							"name": "White Plume Mountain",
+							"page": 49,
 							"id": "1a1",
 							"entries": [
 								"The characters might need to travel back to a time when Keraptis first constructed his legendary dungeon (featured in {@adventure Tales from the Yawning Portal|TftYP}), and used components from the {@i Infernal Machine of Lum the Mad} to magically secure {@item Wave}, {@item Whelm}, and {@item Blackrazor} in place. Alternatively, he might trade missing components in his possession for the three famed weapons, which are still hidden elsewhere in the world, or for some of the monstrous creatures that will eventually guard the dungeon.",
@@ -4111,12 +4495,14 @@
 				{
 					"type": "section",
 					"name": "Additional NPCs",
+					"page": 50,
 					"id": "1a2",
 					"entries": [
 						"To let the characters dig even deeper into the world of the adventure, you can also consider adding a few more iconic NPCs.",
 						{
 							"type": "entries",
 							"name": "Acererak",
+							"page": 50,
 							"id": "1a3",
 							"entries": [
 								"During the time frame in which the characters visit the Tomb of Horrors, Acererak is still a mortal human spellcaster\u2014albeit an incredibly evil and powerful one. You can play him as an {@creature archmage}\u2014or for higher-level parties, use his stat block from {@adventure Tomb of Annihilation|ToA}, but without his undead traits, his Rejuvenation and Turn Resistance traits, and his Disrupt Life legendary action. Acererak does not reside in the Tomb of Horrors at the time the characters travel there in chapter 3, but he might appear if its construction is hindered. He is keen on preventing characters from utterly destroying the tomb, but might grace them with an audience if they look as though they could prove useful to furthering his plans.",
@@ -4126,6 +4512,7 @@
 						{
 							"type": "entries",
 							"name": "Mary Greymalkin",
+							"page": 50,
 							"id": "1a4",
 							"entries": [
 								"A potential guide in {@adventure Lost Laboratory of Kwalish|LLK}, Mary Greymalkin might appear in this adventure as a servant of {@creature Moghadam|IMR} or {@creature Thessalar|IMR}, a guide for the thieves who entered the Temple of Moloch, one of either agents' couriers, and so forth. As she does in {@adventure Lost Laboratory of Kwalish|LLK}, she offers to let the characters draw from her {@i deck of several things}. Some of the deck's cards bestow effects more relevant to this adventure, as follows:",
@@ -4136,6 +4523,7 @@
 										{
 											"type": "entries",
 											"name": "Donjon",
+											"page": 50,
 											"id": "1a6",
 											"entries": [
 												"You are instantly teleported to and confined within either the Tomb of Horrors (in {@area area 7|076|x}) or the Temple of Moloch (in {@area area 10|081|x}) as the DM determines. Everything you were wearing and carrying stays behind in the space you occupied when you disappeared. You draw no more cards."
@@ -4144,6 +4532,7 @@
 										{
 											"type": "entries",
 											"name": "Flames",
+											"page": 50,
 											"id": "1a7",
 											"entries": [
 												"A powerful artificer ({@creature Moghadam|IMR} or {@creature Thessalar|IMR}, at the DM's determination) becomes your enemy. The artificer seeks your ruin, savoring your suffering before attempting to slay you."
@@ -4152,6 +4541,7 @@
 										{
 											"type": "entries",
 											"name": "Gem",
+											"page": 50,
 											"id": "1a8",
 											"entries": [
 												"One of the 1,000 gp gems shaped by {@creature Seodra|IMR} the gemsmith (see {@area area 18a|0aa|x} of chapter 3 or {@area area 31|151|x} of chapter 4) appears at your feet. If all those gems are unavailable, you gain an equivalent hoard."
@@ -4160,6 +4550,7 @@
 										{
 											"type": "entries",
 											"name": "Knight",
+											"page": 50,
 											"id": "1a9",
 											"entries": [
 												"You gain the service of one of the servants of your chosen agent (see {@adventure chapter 2|IMR|2}), who appears in a space you choose within 30 feet of you. The NPC serves you loyally for the duration of the adventure, understanding that the fates have drawn them to you. However, they remain violently opposed to any servants of the opposing agent. You control this character."
@@ -4168,6 +4559,7 @@
 										{
 											"type": "entries",
 											"name": "Ruin",
+											"page": 50,
 											"id": "1aa",
 											"entries": [
 												"All forms of wealth that you carry or own, other than magic items, are lost to you. This wealth can be recovered either in the Tomb of Horrors (held by {@creature Moghadam|IMR} in {@area area 1|05e|x}) or the Temple of Moloch (locked in the treasure vault, {@area area 38|16b|x}), as the DM determines."
@@ -4176,6 +4568,7 @@
 										{
 											"type": "entries",
 											"name": "Talons",
+											"page": 50,
 											"id": "1ab",
 											"entries": [
 												"Every magic item you wear or carry is lost to you. These items can be recovered either in the Tomb of Horrors (held by {@creature Moghadam|IMR} in {@area area 1|05e|x}) or the Temple of Moloch (locked in the treasure vault, {@area area 38|16b|x}), as the DM determines."
@@ -4184,6 +4577,7 @@
 										{
 											"type": "entries",
 											"name": "Throne",
+											"page": 50,
 											"id": "1ac",
 											"entries": [
 												"You gain proficiency in the {@skill Persuasion} skill and you double your proficiency bonus for checks made with that skill for the duration of the adventure. In addition, the Temple of Moloch's high priest regards you as the temple's new champion, sent by Moloch to reclaim its former glory. You must defeat or otherwise clear out {@creature Thessalar|IMR} before you can claim the temple as yours."
@@ -4192,6 +4586,7 @@
 										{
 											"type": "entries",
 											"name": "The Void",
+											"page": 50,
 											"id": "1ad",
 											"entries": [
 												"This black card spells disaster. Your soul is drawn from your body and held within a soul gem in the Temple of Moloch (with the gemsmith in {@area area 31|151|x}). While your soul is trapped in this way, your body is {@condition incapacitated}. {@spell Divination}, {@spell contact other plane}, or a similar spell of 4th level or higher reveals the location of the soul gem. You draw no more cards."
@@ -4204,6 +4599,7 @@
 						{
 							"type": "entries",
 							"name": "Tuerny the Merciless",
+							"page": 50,
 							"id": "1ae",
 							"entries": [
 								"This lawful evil male human {@creature archmage} is no longer at the Tomb of Horrors, but contributed to the construction in his own way. Acererak hired Tuerny to install magical technology obtained from the Barrier Peaks into the tomb (including the missing components), which now hold {@creature Tarnhem|IMR} imprisoned here and drain his life force. Since leaving the tomb, Tuerny has used what he learned in crafting {@creature Tarnhem|IMR}'s prison to create the first of his fabled {@item Iron Flask||iron flasks}]. If the characters choose to stay in the time frame of the under-construction tomb, they might find a map leading to Tuerny's fortress."
@@ -4216,6 +4612,7 @@
 		{
 			"type": "section",
 			"name": "Appendix B: NPCs and Monsters",
+			"page": 51,
 			"id": "1af",
 			"entries": [
 				"This section presents new monsters and nonplayer characters introduced in {@i Infernal Machine Rebuild}, as well as stat blocks from the {@book Monster Manual|MM}, {@book Volo's Guide to Monsters|VGM}, {@book Mordenkainen's Tome of Foes|MTF}, and other books.",
@@ -4244,12 +4641,14 @@
 		{
 			"type": "section",
 			"name": "Appendix C: New Magic and Special Items",
+			"page": 93,
 			"id": "20e",
 			"entries": [
 				"This chapter details new poisons, spells, and magic items that appear in the adventure\u2014including the legendary artifact {@i The Infernal Machine of Lum the Mad}.",
 				{
 					"type": "section",
 					"name": "Poisons",
+					"page": 93,
 					"id": "20f",
 					"entries": [
 						"The artificer {@creature Thessalar|IMR} is known for his experiments with unique toxins, three of which can be found in this adventure.",
@@ -4267,6 +4666,7 @@
 				{
 					"type": "section",
 					"name": "Magic Items",
+					"page": 93,
 					"id": "21d",
 					"entries": [
 						"A number of new magic items can be utilized by the characters in this adventure, or might be used against them\u2014including the legendary {@i Infernal Machine of Lum the Mad}.",
@@ -4295,6 +4695,7 @@
 		{
 			"type": "section",
 			"name": "Appendix D: Player Handouts",
+			"page": 105,
 			"id": "236",
 			"entries": [
 				"This section contains a walk-through map of the Temple of Moloch, as well as handout versions of three of the adventure's iconic visuals.",
@@ -4302,6 +4703,7 @@
 				{
 					"type": "section",
 					"name": "Walk-Through Map",
+					"page": 106,
 					"id": "237",
 					"entries": [
 						"Artist {@link Jason Bradley Thompson|https://twitter.com/mockman} has created a high-resolution walk-through version of the {@i Temple of Moloch}.",
@@ -4351,6 +4753,7 @@
 				{
 					"type": "section",
 					"name": "Piece of the Infernal Machine of Lum the Mad",
+					"page": 109,
 					"id": "238",
 					"entries": [
 						"Click the image to download a printable PDF cert for use with any D&D Adventurers League character.",

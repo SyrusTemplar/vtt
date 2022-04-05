@@ -16,7 +16,9 @@
 					"href": {
 						"type": "internal",
 						"path": "book/PSA/001.webp"
-					}
+					},
+					"width": 1278,
+					"height": 1655
 				}
 			],
 			"id": "000"
@@ -34,7 +36,9 @@
 					"href": {
 						"type": "internal",
 						"path": "book/PSA/002.webp"
-					}
+					},
+					"width": 1280,
+					"height": 1010
 				},
 				{
 					"type": "entries",
@@ -64,7 +68,9 @@
 							"href": {
 								"type": "internal",
 								"path": "book/PSA/003.webp"
-							}
+							},
+							"width": 1275,
+							"height": 793
 						},
 						{
 							"type": "entries",
@@ -116,7 +122,9 @@
 									"href": {
 										"type": "internal",
 										"path": "book/PSA/004.webp"
-									}
+									},
+									"width": 630,
+									"height": 1651
 								}
 							],
 							"id": "005"
@@ -152,7 +160,9 @@
 							"href": {
 								"type": "internal",
 								"path": "book/PSA/005.webp"
-							}
+							},
+							"width": 630,
+							"height": 1650
 						}
 					],
 					"id": "00a"
@@ -216,7 +226,9 @@
 									"href": {
 										"type": "internal",
 										"path": "book/PSA/008.webp"
-									}
+									},
+									"width": 1276,
+									"height": 845
 								}
 							],
 							"id": "00f"
@@ -269,14 +281,18 @@
 							"href": {
 								"type": "internal",
 								"path": "book/PSA/010.webp"
-							}
+							},
+							"width": 630,
+							"height": 726
 						},
 						{
 							"type": "image",
 							"href": {
 								"type": "internal",
 								"path": "book/PSA/011.webp"
-							}
+							},
+							"width": 635,
+							"height": 725
 						}
 					]
 				},

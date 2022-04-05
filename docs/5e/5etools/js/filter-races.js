@@ -862,7 +862,7 @@ class PageFilterRaces extends PageFilter {
 		if (r.hasFluff) r._fMisc.push("Has Info");
 		if (r.hasFluffImages) r._fMisc.push("Has Images");
 		if (r.lineage) r._fMisc.push("Lineage");
-		if (r.reprintedAs) r._fMisc.push("Reprinted");
+		if (this._isReprinted({reprintedAs: r.reprintedAs, tag: "race", prop: "race", page: UrlUtil.PG_RACES})) r._fMisc.push("Reprinted");
 
 		if (r.ability) {
 			const abils = PageFilterRaces.getAbilityObjs(r.ability);

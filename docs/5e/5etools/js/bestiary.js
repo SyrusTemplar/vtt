@@ -55,7 +55,7 @@ class BestiaryPage extends ListPageMultiSource {
 				colTransforms: {
 					name: UtilsTableview.COL_TRANSFORM_NAME,
 					source: UtilsTableview.COL_TRANSFORM_SOURCE,
-					size: {name: "Size", transform: size => Parser.sizeAbvToFull(size)},
+					size: {name: "Size", transform: size => Renderer.utils.getRenderedSize(size)},
 					type: {name: "Type", transform: type => Parser.monTypeToFullObj(type).asText},
 					alignment: {name: "Alignment", transform: align => Parser.alignmentListToFull(align)},
 					ac: {name: "AC", transform: ac => Parser.acToFull(ac)},

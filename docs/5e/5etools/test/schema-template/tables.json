@@ -1,7 +1,7 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"$id": "tables.json",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"type": "object",
 	"definitions": {
 		"tableData": {
@@ -21,9 +21,7 @@
 				"source": {
 					"type": "string"
 				},
-				"page": {
-					"type": "integer"
-				},
+				"page": {"$ref": "util.json#/definitions/page"},
 				"otherSources": {
 					"$ref": "util.json#/definitions/otherSources"
 				},

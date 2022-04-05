@@ -70,6 +70,22 @@
 					]
 				]
 			}
+		},
+		{
+			"name": "Sentinel Shield",
+			"source": "DMG",
+			"effects": [
+				{
+					"name": "Sentinel's Eye",
+					"changes": [
+						{
+							"key": "flags.dnd5e.initiativeAdv",
+							"mode": "OVERRIDE",
+							"value": true
+						}
+					]
+				}
+			]
 		}
 	]
 }

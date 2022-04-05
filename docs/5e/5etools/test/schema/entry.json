@@ -3,7 +3,7 @@
 	"$id": "entry.json",
 	"title": "Entry",
 	"description": "A recursively renderable object.",
-	"version": "1.5.4",
+	"version": "1.6.0",
 	"definitions": {
 		"_arrayOfSpell": {
 			"type": "array",
@@ -82,7 +82,7 @@
 					"type": "object"
 				},
 				"page": {
-					"type": "integer"
+					"$ref": "util.json#/definitions/page"
 				},
 				"id": {
 					"type": "string"
@@ -122,12 +122,15 @@
 							"type": "object"
 						},
 						"page": {
-							"type": "integer"
+							"$ref": "util.json#/definitions/page"
 						},
 						"source": {
 							"type": "string"
 						},
 						"id": {
+							"type": "string"
+						},
+						"style": {
 							"type": "string"
 						}
 					},
@@ -168,12 +171,15 @@
 							"type": "object"
 						},
 						"page": {
-							"type": "integer"
+							"$ref": "util.json#/definitions/page"
 						},
 						"source": {
 							"type": "string"
 						},
 						"id": {
+							"type": "string"
+						},
+						"style": {
 							"type": "string"
 						}
 					},
@@ -381,7 +387,7 @@
 							"type": "object"
 						},
 						"page": {
-							"type": "integer"
+							"$ref": "util.json#/definitions/page"
 						}
 					},
 					"required": [
@@ -840,7 +846,7 @@
 											"type": "object",
 											"properties": {
 												"page": {
-													"type": "string"
+													"$ref": "util.json#/definitions/page"
 												},
 												"source": {
 													"type": "string"
@@ -908,6 +914,12 @@
 						},
 						"prerequisite": {
 							"type": "string"
+						},
+						"entries": {
+							"type": "array",
+							"items": {
+								"$ref": "#"
+							}
 						}
 					},
 					"required": [
@@ -940,7 +952,7 @@
 							"type": "object"
 						},
 						"page": {
-							"type": "integer"
+							"$ref": "util.json#/definitions/page"
 						},
 						"source": {
 							"type": "string"
@@ -976,7 +988,7 @@
 							}
 						},
 						"page": {
-							"type": "integer"
+							"$ref": "util.json#/definitions/page"
 						},
 						"source": {
 							"type": "string"
@@ -1342,6 +1354,9 @@
 								"comic-speaker-right",
 								"deity-symbol"
 							]
+						},
+						"id": {
+							"type": "string"
 						}
 					},
 					"required": [

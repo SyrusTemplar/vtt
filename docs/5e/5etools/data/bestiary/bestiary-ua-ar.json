@@ -4,7 +4,9 @@
 			"name": "Alchemical Homunculus",
 			"source": "UAArtificerRevisited",
 			"page": 6,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"
@@ -109,7 +111,9 @@
 			"name": "Iron Defender",
 			"source": "UAArtificerRevisited",
 			"page": 11,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"

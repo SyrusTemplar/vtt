@@ -46,8 +46,9 @@ class MapsUtil {
 
 		return out.length
 			? {
-				[head.source]: {
+				[head.id]: {
 					id: head.id,
+					source: head.source,
 					prop,
 					parentSource: head.parentSource,
 					chapters: out,

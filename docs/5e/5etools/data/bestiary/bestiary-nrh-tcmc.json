@@ -57,7 +57,9 @@
 			"isNamedCreature": true,
 			"source": "NRH-TCMC",
 			"page": 10,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

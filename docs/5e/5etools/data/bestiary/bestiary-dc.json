@@ -18,7 +18,9 @@
 			"name": "Ebondeath",
 			"isNpc": true,
 			"source": "DC",
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"A"
@@ -154,7 +156,9 @@
 			"name": "Expert",
 			"source": "DC",
 			"level": 11,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -262,7 +266,9 @@
 			"name": "Spellcaster (Healer)",
 			"source": "DC",
 			"level": 11,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -403,7 +409,9 @@
 			"name": "Spellcaster (Mage)",
 			"source": "DC",
 			"level": 11,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -546,7 +554,9 @@
 			"name": "Warrior",
 			"source": "DC",
 			"level": 11,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{

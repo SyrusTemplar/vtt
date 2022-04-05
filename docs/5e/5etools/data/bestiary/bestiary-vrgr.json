@@ -4,12 +4,6 @@
 			"monster": [
 				"MM"
 			]
-		},
-		"otherSources": {
-			"monster": {
-				"CoS": "VRGR",
-				"IDRotF": "VRGR"
-			}
 		}
 	},
 	"monster": [
@@ -17,7 +11,9 @@
 			"name": "Bodytaker Plant",
 			"source": "VRGR",
 			"page": 226,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "plant",
 			"ac": [
 				{
@@ -135,7 +131,9 @@
 			"name": "Boneless",
 			"source": "VRGR",
 			"page": 228,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"ac": [
 				12
@@ -232,10 +230,171 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Brain in a Jar",
+			"source": "VRGR",
+			"page": 278,
+			"otherSources": [
+				{
+					"source": "IDRotF",
+					"page": 278
+				}
+			],
+			"size": [
+				"S"
+			],
+			"type": "undead",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 11,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"average": 55,
+				"formula": "10d6 + 20"
+			},
+			"speed": {
+				"walk": 0,
+				"fly": {
+					"number": 10,
+					"condition": "(hover)"
+				},
+				"canHover": true
+			},
+			"str": 1,
+			"dex": 3,
+			"con": 15,
+			"int": 19,
+			"wis": 10,
+			"cha": 15,
+			"save": {
+				"int": "+6",
+				"cha": "+4"
+			},
+			"senses": [
+				"blindsight 120 ft. (blind beyond this radius); see also \"detect sentience\" below"
+			],
+			"passive": 10,
+			"immune": [
+				"poison"
+			],
+			"conditionImmune": [
+				"exhaustion",
+				"paralyzed",
+				"poisoned",
+				"prone"
+			],
+			"languages": [
+				"the languages it knew in life"
+			],
+			"cr": "3",
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting (Psionics)",
+					"headerEntries": [
+						"The brain's innate spellcasting ability is Intelligence (spell save {@dc 14}, {@hit 6} to hit with spell attacks). It can innately cast the following spells, requiring no components:"
+					],
+					"will": [
+						"{@spell chill touch} (see \"Actions\" below)",
+						"{@spell detect thoughts}",
+						"{@spell mage hand}",
+						"{@spell zone of truth}"
+					],
+					"daily": {
+						"3e": [
+							"{@spell charm person}",
+							"{@spell hold person}"
+						],
+						"1e": [
+							"{@spell compulsion}",
+							"{@spell hold monster}",
+							"{@spell sleep} (3rd-level version)",
+							"{@spell Tasha's hideous laughter}"
+						]
+					},
+					"ability": "int"
+				}
+			],
+			"trait": [
+				{
+					"name": "Detect Sentience",
+					"entries": [
+						"The brain can sense the presence and location of any creature within 300 feet of it that has an Intelligence of 3 or higher, regardless of interposing barriers, unless the creature is protected by a {@spell mind blank} spell."
+					]
+				},
+				{
+					"name": "Magic Resistance",
+					"entries": [
+						"The brain has advantage on saving throws against spells and other magic effects."
+					]
+				},
+				{
+					"name": "Unusual Nature",
+					"entries": [
+						"The brain doesn't require air, food, drink, or sleep."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Chill Touch (Cantrip)",
+					"entries": [
+						"{@atk rs} {@hit 6} to hit, range 120 ft., one creature. {@h}13 ({@damage 3d8}) necrotic damage, and the target can't regain hit points until the start of the brain's next turn. If the target is undead, it also has disadvantage on attack rolls against the brain until the end of the brain's next turn."
+					]
+				},
+				{
+					"name": "Mind Blast {@recharge 5}",
+					"entries": [
+						"The brain magically emits psychic energy in a 60-foot cone. Each creature in that area must succeed on a {@dc 14} Intelligence saving throw or take 17 ({@damage 3d8 + 4}) psychic damage and be {@condition stunned} for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+					]
+				}
+			],
+			"traitTags": [
+				"Magic Resistance"
+			],
+			"senseTags": [
+				"B"
+			],
+			"languageTags": [
+				"LF"
+			],
+			"damageTags": [
+				"N",
+				"Y"
+			],
+			"spellcastingTags": [
+				"I",
+				"P"
+			],
+			"miscTags": [
+				"AOE"
+			],
+			"conditionInflict": [
+				"stunned"
+			],
+			"conditionInflictSpell": [
+				"charmed",
+				"incapacitated",
+				"paralyzed",
+				"prone",
+				"unconscious"
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Carrion Stalker",
 			"source": "VRGR",
 			"page": 230,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "monstrosity",
 			"ac": [
 				{
@@ -318,7 +477,9 @@
 			"name": "Carrionette",
 			"source": "VRGR",
 			"page": 231,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "construct",
 			"ac": [
 				{
@@ -402,7 +563,9 @@
 			"name": "Death's Head",
 			"source": "VRGR",
 			"page": 232,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "undead",
 			"ac": [
 				{
@@ -488,7 +651,9 @@
 			"name": "Dullahan",
 			"source": "VRGR",
 			"page": 233,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"ac": [
 				{
@@ -649,7 +814,9 @@
 			"isNamedCreature": true,
 			"source": "VRGR",
 			"page": 143,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"
@@ -769,7 +936,9 @@
 			"name": "Gallows Speaker",
 			"source": "VRGR",
 			"page": 234,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"ac": [
 				12
@@ -887,7 +1056,9 @@
 			"name": "Greater Star Spawn Emissary",
 			"source": "VRGR",
 			"page": 245,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "aberration",
 			"ac": [
 				{
@@ -1035,7 +1206,9 @@
 			"name": "Gremishka",
 			"source": "VRGR",
 			"page": 235,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "monstrosity",
 			"ac": [
 				12
@@ -1115,7 +1288,9 @@
 			"name": "Inquisitor of the Mind Fire",
 			"source": "VRGR",
 			"page": 248,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -1249,7 +1424,9 @@
 			"name": "Inquisitor of the Sword",
 			"source": "VRGR",
 			"page": 249,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -1381,7 +1558,9 @@
 			"name": "Inquisitor of the Tome",
 			"source": "VRGR",
 			"page": 249,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				11
@@ -1518,7 +1697,9 @@
 			"isNamedCreature": true,
 			"source": "VRGR",
 			"page": 86,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "fey",
 				"tags": [
@@ -1686,7 +1867,9 @@
 			"name": "Jiangshi",
 			"source": "VRGR",
 			"page": 236,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"ac": [
 				{
@@ -1798,7 +1981,9 @@
 			"name": "Lesser Star Spawn Emissary",
 			"source": "VRGR",
 			"page": 245,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"ac": [
 				{
@@ -1957,7 +2142,9 @@
 			],
 			"source": "VRGR",
 			"page": 237,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -2116,7 +2303,9 @@
 			"name": "Necrichor",
 			"source": "VRGR",
 			"page": 238,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"ac": [
 				12
@@ -2254,7 +2443,9 @@
 			"name": "Nosferatu",
 			"source": "VRGR",
 			"page": 239,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"ac": [
 				{
@@ -2386,7 +2577,9 @@
 			"name": "Podling",
 			"source": "VRGR",
 			"page": 227,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "plant",
 			"ac": [
 				10
@@ -2459,7 +2652,9 @@
 			"name": "Priest of Osybus",
 			"source": "VRGR",
 			"page": 241,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "humanoid",
 			"ac": [
 				{
@@ -2781,7 +2976,9 @@
 			"name": "Relentless Juggernaut",
 			"source": "VRGR",
 			"page": 243,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "fiend",
 			"ac": [
 				{
@@ -2933,7 +3130,9 @@
 			"name": "Relentless Slasher",
 			"source": "VRGR",
 			"page": 242,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fiend",
 			"ac": [
 				{
@@ -3049,7 +3248,9 @@
 			"name": "Strigoi",
 			"source": "VRGR",
 			"page": 246,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"ac": [
 				{
@@ -3157,7 +3358,9 @@
 			"name": "Swarm of Gremishkas",
 			"source": "VRGR",
 			"page": 235,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "monstrosity",
 				"swarmSize": "T"
@@ -3256,7 +3459,9 @@
 			"name": "Swarm of Maggots",
 			"source": "VRGR",
 			"page": 247,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "beast",
 				"swarmSize": "T"
@@ -3363,7 +3568,9 @@
 			"name": "Swarm of Scarabs",
 			"source": "VRGR",
 			"page": 247,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "beast",
 				"swarmSize": "T"
@@ -3458,7 +3665,9 @@
 			"name": "Swarm of Zombie Limbs",
 			"source": "VRGR",
 			"page": 254,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "undead",
 				"swarmSize": "T"
@@ -3612,7 +3821,9 @@
 			"name": "Unspeakable Horror",
 			"source": "VRGR",
 			"page": 250,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"ac": [
 				{
@@ -3912,7 +4123,9 @@
 			"name": "Vampiric Mind Flayer",
 			"source": "VRGR",
 			"page": 252,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"ac": [
 				{
@@ -4051,10 +4264,142 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Wereraven",
+			"group": [
+				"Lycanthropes"
+			],
+			"source": "VRGR",
+			"page": 253,
+			"otherSources": [
+				{
+					"source": "CM"
+				},
+				{
+					"source": "CoS",
+					"page": 242
+				}
+			],
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human",
+					"shapechanger"
+				]
+			},
+			"ac": [
+				12
+			],
+			"hp": {
+				"average": 31,
+				"formula": "7d8"
+			},
+			"speed": {
+				"walk": {
+					"number": 30,
+					"condition": "(fly 50 ft. in raven and hybrid forms)"
+				}
+			},
+			"str": 10,
+			"dex": 15,
+			"con": 11,
+			"int": 13,
+			"wis": 15,
+			"cha": 14,
+			"skill": {
+				"insight": "+4",
+				"perception": "+6"
+			},
+			"passive": 16,
+			"languages": [
+				"Common (can't speak in raven form)"
+			],
+			"cr": "2",
+			"trait": [
+				{
+					"name": "Shapechanger",
+					"entries": [
+						"The wereraven can use its action to polymorph into a raven-humanoid hybrid or into a raven, or back into its human form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its human form if it dies."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"The wereraven can mimic simple sounds it has heard, such as a person whispering, a baby crying, or an animal chittering. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom (Insight) check."
+					]
+				},
+				{
+					"name": "Regeneration",
+					"entries": [
+						"The wereraven regains 10 hit points at the start of its turn. If the wereraven takes damage from a silvered weapon or a spell, this trait doesn't function at the start of the wereraven's next turn. The wereraven dies only if it starts its turn with 0 hit points and doesn't regenerate."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack (Human or Hybrid Form Only)",
+					"entries": [
+						"The wereraven makes two weapon attacks, one of which can be with its hand crossbow."
+					]
+				},
+				{
+					"name": "Beak (Raven or Hybrid Form Only)",
+					"entries": [
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}1 piercing damage in raven form, or 4 ({@damage 1d4 + 2}) piercing damage in hybrid form. If the target is humanoid, it must succeed on a {@dc 10} Constitution saving throw or be cursed with wereraven lycanthropy."
+					]
+				},
+				{
+					"name": "Shortsword (Human or Hybrid Form Only)",
+					"entries": [
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d6 + 2}) piercing damage."
+					]
+				},
+				{
+					"name": "Hand Crossbow (Human or Hybrid Form Only)",
+					"entries": [
+						"{@atk rw} {@hit 4} to hit, range 30/120 ft., one target. {@h}5 ({@damage 1d6 + 2}) piercing damage."
+					]
+				}
+			],
+			"altArt": [
+				{
+					"name": "Wereraven (Alt)",
+					"source": "CoS",
+					"page": 242
+				}
+			],
+			"traitTags": [
+				"Regeneration",
+				"Shapechanger"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"languageTags": [
+				"C",
+				"CS"
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW",
+				"RNG",
+				"RW"
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Zombie Clot",
 			"source": "VRGR",
 			"page": 255,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"ac": [
 				{
@@ -4173,7 +4518,9 @@
 			"name": "Zombie Plague Spreader",
 			"source": "VRGR",
 			"page": 255,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"ac": [
 				10

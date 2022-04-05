@@ -723,6 +723,7 @@ PropOrder._FEAT = [
 	"weaponProficiencies",
 	"armorProficiencies",
 	"skillToolLanguageProficiencies",
+	"savingThrowProficiencies",
 
 	"additionalSpells",
 

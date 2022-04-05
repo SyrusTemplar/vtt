@@ -11,7 +11,9 @@
 			"name": "Anarch",
 			"source": "GGR",
 			"page": 239,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -96,7 +98,9 @@
 			"name": "Archon of the Triumvirate",
 			"source": "GGR",
 			"page": 192,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "celestial",
 			"alignment": [
 				"L",
@@ -255,7 +259,9 @@
 			"name": "Arclight Phoenix",
 			"source": "GGR",
 			"page": 193,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "elemental",
 			"alignment": [
 				"C",
@@ -375,7 +381,9 @@
 			"isNamedCreature": true,
 			"source": "GGR",
 			"page": 230,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "celestial",
 				"tags": [
@@ -554,7 +562,9 @@
 			"name": "Battleforce Angel",
 			"source": "GGR",
 			"page": 189,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "celestial",
 			"alignment": [
 				"L",
@@ -671,7 +681,9 @@
 			"name": "Biomancer",
 			"source": "GGR",
 			"page": 256,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -843,7 +855,9 @@
 			"name": "Blistercoil Weird",
 			"source": "GGR",
 			"page": 207,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "elemental",
 			"alignment": [
 				"C",
@@ -959,7 +973,9 @@
 			"name": "Blood Drinker Vampire",
 			"source": "GGR",
 			"page": 223,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -1084,7 +1100,9 @@
 			"name": "Blood Witch",
 			"source": "GGR",
 			"page": 248,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1232,7 +1250,9 @@
 			"name": "Bloodfray Giant",
 			"source": "GGR",
 			"page": 200,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"C",
@@ -1319,7 +1339,9 @@
 			"isNamedCreature": true,
 			"source": "GGR",
 			"page": 238,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"C",
@@ -1480,7 +1502,9 @@
 			"name": "Cackler",
 			"source": "GGR",
 			"page": 195,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "fiend",
 				"tags": [
@@ -1618,7 +1642,9 @@
 			"name": "Category 1 Krasis",
 			"source": "GGR",
 			"page": 210,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -1695,7 +1721,9 @@
 			"name": "Category 2 Krasis",
 			"source": "GGR",
 			"page": 211,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -1772,7 +1800,9 @@
 			"name": "Category 3 Krasis",
 			"source": "GGR",
 			"page": 212,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -1860,7 +1890,9 @@
 			"name": "Conclave Dryad",
 			"source": "GGR",
 			"page": 194,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"L",
@@ -2019,7 +2051,9 @@
 			"name": "Cosmotronic Blastseeker",
 			"source": "GGR",
 			"page": 242,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2126,7 +2160,9 @@
 			"name": "Counterflux Blastseeker",
 			"source": "GGR",
 			"page": 242,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2230,7 +2266,9 @@
 			"name": "Deathpact Angel",
 			"source": "GGR",
 			"page": 192,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "celestial",
 			"alignment": [
 				"L",
@@ -2397,7 +2435,9 @@
 			"name": "Devkarin Lich",
 			"source": "GGR",
 			"page": 198,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -2629,7 +2669,9 @@
 			"name": "Druid of the Old Ways",
 			"source": "GGR",
 			"page": 239,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2789,7 +2831,9 @@
 			"name": "Felidar",
 			"source": "GGR",
 			"page": 199,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "celestial",
 			"alignment": [
 				"L",
@@ -2926,7 +2970,9 @@
 			"name": "Firefist",
 			"source": "GGR",
 			"page": 231,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3073,7 +3119,9 @@
 			"name": "Firemane Angel",
 			"source": "GGR",
 			"page": 190,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "celestial",
 			"alignment": [
 				"C",
@@ -3221,7 +3269,9 @@
 			"name": "Flux Blastseeker",
 			"source": "GGR",
 			"page": 242,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3325,7 +3375,9 @@
 			"name": "Fluxcharger",
 			"source": "GGR",
 			"page": 208,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "elemental",
 			"alignment": [
 				"C",
@@ -3442,7 +3494,9 @@
 			"name": "Flying Horror",
 			"source": "GGR",
 			"page": 203,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"N",
@@ -3537,7 +3591,9 @@
 			"name": "Frontline Medic",
 			"source": "GGR",
 			"page": 231,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3641,7 +3697,9 @@
 			"name": "Galvanic Blastseeker",
 			"source": "GGR",
 			"page": 243,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3758,7 +3816,9 @@
 			"name": "Galvanice Weird",
 			"source": "GGR",
 			"page": 209,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "elemental",
 			"alignment": [
 				"C",
@@ -3853,7 +3913,9 @@
 			"name": "Gloamwing",
 			"source": "GGR",
 			"page": 215,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -3986,7 +4048,9 @@
 			"name": "Golgari Shaman",
 			"source": "GGR",
 			"page": 236,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4148,7 +4212,9 @@
 			"name": "Guardian Giant",
 			"source": "GGR",
 			"page": 201,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"L",
@@ -4243,7 +4309,9 @@
 			"name": "Horncaller",
 			"source": "GGR",
 			"page": 253,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4353,7 +4421,9 @@
 			"name": "Hybrid Brute",
 			"source": "GGR",
 			"page": 217,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4435,7 +4505,9 @@
 			"name": "Hybrid Flier",
 			"source": "GGR",
 			"page": 217,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4515,7 +4587,9 @@
 			"name": "Hybrid Poisoner",
 			"source": "GGR",
 			"page": 217,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4611,7 +4685,9 @@
 			"name": "Hybrid Shocker",
 			"source": "GGR",
 			"page": 218,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4710,7 +4786,9 @@
 			"name": "Hybrid Spy",
 			"source": "GGR",
 			"page": 218,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4804,7 +4882,9 @@
 			"name": "Indentured Spirit",
 			"source": "GGR",
 			"page": 206,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"A"
@@ -4904,7 +4984,9 @@
 			"isNamedCreature": true,
 			"source": "GGR",
 			"page": 227,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"L",
@@ -5161,7 +5243,9 @@
 			"isNamedCreature": true,
 			"source": "GGR",
 			"page": 235,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -5426,7 +5510,9 @@
 			"name": "Kraul Death Priest",
 			"source": "GGR",
 			"page": 214,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5575,7 +5661,9 @@
 			"name": "Kraul Warrior",
 			"source": "GGR",
 			"page": 213,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5693,7 +5781,9 @@
 			"name": "Lawmage",
 			"source": "GGR",
 			"page": 228,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5818,7 +5908,9 @@
 			"isNamedCreature": true,
 			"source": "GGR",
 			"page": 232,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -6003,7 +6095,9 @@
 			"name": "Master of Cruelties",
 			"source": "GGR",
 			"page": 196,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "fiend",
 				"tags": [
@@ -6175,7 +6269,9 @@
 			"name": "Mind Drinker Vampire",
 			"source": "GGR",
 			"page": 224,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -6326,7 +6422,9 @@
 			"name": "Mind Mage",
 			"source": "GGR",
 			"page": 233,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6439,7 +6537,9 @@
 			"name": "Nightveil Specter",
 			"source": "GGR",
 			"page": 215,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -6569,7 +6669,9 @@
 			"isNamedCreature": true,
 			"source": "GGR",
 			"page": 241,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "dragon",
 			"alignment": [
 				"C",
@@ -6859,7 +6961,9 @@
 			"name": "Nivix Cyclops",
 			"source": "GGR",
 			"page": 216,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "giant",
 			"alignment": [
 				"U"
@@ -6968,7 +7072,9 @@
 			"name": "Obzedat Ghost",
 			"source": "GGR",
 			"page": 245,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -7181,7 +7287,9 @@
 			"name": "Orzhov Giant",
 			"source": "GGR",
 			"page": 202,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "giant",
 			"alignment": [
 				"L",
@@ -7277,7 +7385,9 @@
 			"name": "Precognitive Mage",
 			"source": "GGR",
 			"page": 228,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7394,7 +7504,9 @@
 			"isNamedCreature": true,
 			"source": "GGR",
 			"page": 247,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": {
 				"type": "fiend",
 				"tags": [
@@ -7594,7 +7706,9 @@
 			"name": "Rakdos Lampooner",
 			"source": "GGR",
 			"page": 248,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7700,7 +7814,9 @@
 			"name": "Rakdos Performer, Blade Juggler",
 			"source": "GGR",
 			"page": 249,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7786,7 +7902,9 @@
 			"name": "Rakdos Performer, Fire Eater",
 			"source": "GGR",
 			"page": 249,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7879,7 +7997,9 @@
 			"name": "Rakdos Performer, High-Wire Acrobat",
 			"source": "GGR",
 			"page": 249,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7963,7 +8083,9 @@
 			"name": "Reckoner",
 			"source": "GGR",
 			"page": 231,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8091,7 +8213,9 @@
 			"name": "Rubblebelt Stalker",
 			"source": "GGR",
 			"page": 239,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8195,7 +8319,9 @@
 			"name": "Scorchbringer Guard",
 			"source": "GGR",
 			"page": 243,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8276,7 +8402,9 @@
 			"name": "Servitor Thrull",
 			"source": "GGR",
 			"page": 221,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -8348,7 +8476,9 @@
 			"name": "Shadow Horror",
 			"source": "GGR",
 			"page": 205,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "aberration",
 			"alignment": [
 				"N",
@@ -8488,7 +8618,9 @@
 			"name": "Sire of Insanity",
 			"source": "GGR",
 			"page": 197,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": {
 				"type": "fiend",
 				"tags": [
@@ -8649,7 +8781,9 @@
 			"name": "Skittering Horror",
 			"source": "GGR",
 			"page": 205,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "aberration",
 			"alignment": [
 				"N",
@@ -8761,7 +8895,9 @@
 			"name": "Skyjek Roc",
 			"source": "GGR",
 			"page": 219,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -8846,7 +8982,9 @@
 			"name": "Skyswimmer",
 			"source": "GGR",
 			"page": 220,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -8942,7 +9080,9 @@
 					"source": "MOT"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -9090,7 +9230,9 @@
 			"name": "Sunder Shaman",
 			"source": "GGR",
 			"page": 202,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"C",
@@ -9206,7 +9348,9 @@
 			"name": "Thought Spy",
 			"source": "GGR",
 			"page": 233,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -9333,7 +9477,9 @@
 			"isNamedCreature": true,
 			"source": "GGR",
 			"page": 252,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "fey",
 			"alignment": [
 				"N",
@@ -9547,7 +9693,9 @@
 			"name": "Undercity Medusa",
 			"source": "GGR",
 			"page": 222,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N",
@@ -9673,7 +9821,9 @@
 			"name": "Winged Thrull",
 			"source": "GGR",
 			"page": 221,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -9758,7 +9908,9 @@
 			"name": "Wurm",
 			"source": "GGR",
 			"page": 225,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -9856,7 +10008,9 @@
 			"isNamedCreature": true,
 			"source": "GGR",
 			"page": 255,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

@@ -79,20 +79,20 @@ class MapsPage extends BaseComponent {
 			.mergeMap(({prop, head, body}) => MapsUtil.getImageData({prop, head, body}));
 	}
 
-	_getPropsSource (source) {
+	_getPropsId (id) {
 		return {
-			propDisplaySource: `isDisplaySource_${source}`,
+			propDisplaySource: `isDisplayId_${id}`,
 		};
 	}
 
-	_getPropsChapter (source, ixCh) {
+	_getPropsChapter (id, ixCh) {
 		return {
-			propDisplayChapter: `isDisplayChapter_${source}_${ixCh}`,
+			propDisplayChapter: `isDisplayChapter_${id}_${ixCh}`,
 		};
 	}
 
 	_render_source ({source, sourceMeta, renderState, propsDisplaySource}) {
-		const {propDisplaySource} = this._getPropsSource(source);
+		const {propDisplaySource} = this._getPropsId(sourceMeta.id);
 		if (this._state[propDisplaySource] === undefined) this.__state[propDisplaySource] = false;
 		propsDisplaySource.push(propDisplaySource);
 
@@ -165,7 +165,7 @@ class MapsPage extends BaseComponent {
 	}
 
 	_render_chapter ({chapter, ixChapter, propsDisplayChapter, renderState, source, sourceMeta, propDisplaySource}) {
-		const {propDisplayChapter} = this._getPropsChapter(source, ixChapter);
+		const {propDisplayChapter} = this._getPropsChapter(sourceMeta.id, ixChapter);
 		if (this._state[propDisplayChapter] === undefined) this.__state[propDisplayChapter] = false;
 		propsDisplayChapter.push(propDisplayChapter);
 
@@ -235,8 +235,8 @@ class MapsPage extends BaseComponent {
 
 		const propsDisplaySource = [];
 		const rendersSource = Object.entries(mapData)
-			.filter(([source, {prop}]) => !ExcludeUtil.isExcluded(UrlUtil.encodeForHash(source.toLowerCase()), prop, source, {isNoCount: true}))
-			.map(([source, sourceMeta]) => this._render_source({source, sourceMeta, renderState, propsDisplaySource}));
+			.filter(([, {source, prop}]) => !ExcludeUtil.isExcluded(UrlUtil.encodeForHash(source.toLowerCase()), prop, source, {isNoCount: true}))
+			.map(([, sourceMeta]) => this._render_source({source: sourceMeta.source, sourceMeta, renderState, propsDisplaySource}));
 
 		const hkBubbleDown = () => {
 			if (renderState.isBubblingUp) return;

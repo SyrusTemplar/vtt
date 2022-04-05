@@ -809,7 +809,7 @@ class SpellBuilder extends Builder {
 			<div class="ve-flex-v-center mb-2"><span class="mr-2 mkbru__sub-name--33">Class Source</span>${$selClassSource}</div>
 			${$wrpBtnRemove}
 		</div>`;
-		Builder.$getBtnRemoveRow(doUpdateState, classRows, out, $wrp, "Class", {isProtectLast: true}).appendTo($wrpBtnRemove);
+		Builder.$getBtnRemoveRow(doUpdateState, classRows, out, $wrp, "Class").appendTo($wrpBtnRemove);
 
 		out.$wrp = $wrp;
 		classRows.push(out);

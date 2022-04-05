@@ -4,7 +4,9 @@
 			"name": "Giant Zombie Constrictor Snake",
 			"source": "AitFR-DN",
 			"page": 11,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -112,7 +114,9 @@
 			"isNamedCreature": true,
 			"source": "AitFR-DN",
 			"page": 11,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"N",
@@ -204,7 +208,9 @@
 			"isNamedCreature": true,
 			"source": "AitFR-DN",
 			"page": 12,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"L",
@@ -394,7 +400,9 @@
 			"name": "Skeletal Horror",
 			"source": "AitFR-DN",
 			"page": 13,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",

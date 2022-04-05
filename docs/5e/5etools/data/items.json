@@ -966,7 +966,7 @@
 			"rarity": "unknown",
 			"value": null,
 			"entries": [
-				"This sticky, adhesive fluid ignites when exposed to air. As an action, you can throw this flask up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the alchemist's fire as an improvised weapon. On a hit, the target takes 7 ({@dice 2d6}) fire damage at the start of each of its turns. A creature can end this damage by using its action to make a DC 10 Dexterity check to extinguish the flames."
+				"This sticky, adhesive fluid ignites when exposed to air. As an action, you can throw this flask up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the alchemist's doom as an improvised weapon. On a hit, the target takes 7 ({@dice 2d6}) fire damage at the start of each of its turns. A creature can end this damage by using its action to make a DC 10 Dexterity check to extinguish the flames."
 			]
 		},
 		{
@@ -5455,6 +5455,12 @@
 			"name": "Breathing Bubble",
 			"source": "EGW",
 			"page": 266,
+			"otherSources": [
+				{
+					"source": "CRCotN",
+					"page": 213
+				}
+			],
 			"rarity": "common",
 			"wondrous": true,
 			"entries": [
@@ -11169,6 +11175,22 @@
 			"entries": [
 				"While held up to your ear, this horn suppresses the effects of the {@condition deafened} condition on you, allowing you to hear normally."
 			]
+		},
+		{
+			"name": "Earring of Message",
+			"source": "CRCotN",
+			"page": 212,
+			"rarity": "common",
+			"wondrous": true,
+			"recharge": "dawn",
+			"charges": 5,
+			"entries": [
+				"The blue crystal of this earring is wrapped with delicate copper wire. The earring has 5 charges. While wearing it, you can use an action to expend 1 charge and cast the {@spell message} spell. The earring regains {@dice 1d4 + 1} expended charges daily at dawn."
+			],
+			"attachedSpells": [
+				"message"
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Earworm",
@@ -18529,6 +18551,132 @@
 			]
 		},
 		{
+			"name": "Jewel of Three Prayers (Awakened)",
+			"source": "CRCotN",
+			"_copy": {
+				"name": "Jewel of Three Prayers (Dormant)",
+				"source": "CRCotN",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Awakened State",
+							"entries": [
+								"In this state, the jewel has received the blessing of Avandra the Change Bringer. Three delicate spires unfurl from the jewel's center, like the buds of flowers opening in the spring. Three lapis lazuli stones rest like dewdrops on these spires.",
+								{
+									"type": "list",
+									"items": [
+										"The following benefits of the jewel improve:",
+										"The bonus that the jewel confers to your AC increases to +2.",
+										"Its number of charges increases to 5."
+									]
+								},
+								"The jewel gains the following additional properties, which you can use while wearing or holding it:",
+								{
+									"type": "list",
+									"items": [
+										"You can expend 1 of the jewel's charges (no action required) to end one of the following conditions on yourself: {@condition grappled}, {@condition paralyzed}, or {@condition restrained}.",
+										"When another creature you can see within 60 feet of you fails a saving throw, you can expend 1 of the jewel's charges as a reaction to enable that creature to reroll the saving throw, potentially turning a failure into a success. The creature must use the new roll."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusAc": "+2",
+			"charges": 5
+		},
+		{
+			"name": "Jewel of Three Prayers (Dormant)",
+			"source": "CRCotN",
+			"page": 213,
+			"rarity": "legendary",
+			"reqAttune": true,
+			"wondrous": true,
+			"bonusAc": "+1",
+			"recharge": "dawn",
+			"charges": 3,
+			"entries": [
+				"The Jewel of Three Prayers is a Vestige of Divergence (see the \"Vestiges of Divergence\" sidebar). In ancient times, Alyxian the Apotheon bore this amulet as a symbol of his covenant with three Prime Deities: Sehanine the Moon Weaver, Avandra the Change Bringer, and Corellon the Arch Heart. When the jewel is found, only Sehanine's power thrums within its dormant heart. The power of the other two deities waits to be reawakened by a hero\u2014or heroes\u2014who can follow in Alyxian's footsteps.",
+				{
+					"type": "entries",
+					"name": "Dormant State",
+					"entries": [
+						"In this state, the Jewel of Three Prayers is a glittering golden disk attached to a fine golden chain. The chain magically resizes to function as a necklace for the creature that wears it.",
+						"In its Dormant State, the jewel has the following properties:",
+						{
+							"type": "list",
+							"items": [
+								"You gain a +1 bonus to AC while wearing the jewel.",
+								"While wearing or holding the jewel, you can use an action to cause it to shed bright light in a 15-foot radius and dim light for an additional 15 feet. The light lasts until you extinguish it (no action required).",
+								"The jewel has 3 charges and regains all its expended charges daily at dawn. While holding the jewel, you can expend 1 charge from it to cast the {@spell invisibility} spell."
+							]
+						}
+					]
+				}
+			],
+			"attachedSpells": [
+				"invisibility"
+			],
+			"hasFluffImages": true
+		},
+		{
+			"name": "Jewel of Three Prayers (Exalted)",
+			"source": "CRCotN",
+			"_copy": {
+				"name": "Jewel of Three Prayers (Awakened)",
+				"source": "CRCotN",
+				"_mod": {
+					"entries": {
+						"mode": "insertArr",
+						"index": -1,
+						"items": {
+							"type": "entries",
+							"name": "Exalted State",
+							"entries": [
+								"In this state, the jewel has received the blessing of Corellon the Arch Heart. A gleaming emerald surrounded by a halo of gold appears on the jewel.",
+								"The following benefits of the jewel improve:",
+								{
+									"type": "list",
+									"items": [
+										"The bonus that the jewel confers to your AC increases to +3.",
+										"Its number of charges increases to 7."
+									]
+								},
+								"The jewel gains the following additional properties, which you can use while wearing or holding it:",
+								{
+									"type": "list",
+									"items": [
+										"You gain the ability to breathe water, and you gain a swimming speed equal to your walking speed.",
+										"Each of your allies within 30 feet of you gains the ability to breathe water and gains a swimming speed equal to its walking speed.",
+										"As a bonus action, you can expend 1 of the jewel's charges to target yourself or one willing creature you can see within 15 feet of yourself. The target teleports to an unoccupied space of your choice within 15 feet of yourself, along with any equipment the target is wearing or carrying. The target appears in a flash of golden radiance, and each creature of your choice within 5 feet of the target's new location must make a DC 18 Constitution saving throw. On a failed save, the creature takes {@damage 4d10} radiant damage and is {@condition blinded} until the start of your next turn. On a successful save, the creature takes half as much damage and isn't {@condition blinded}."
+									]
+								}
+							]
+						}
+					}
+				},
+				"_preserve": {
+					"page": true,
+					"hasFluffImages": true
+				}
+			},
+			"bonusAc": "+3",
+			"modifySpeed": {
+				"equal": {
+					"swim": "walk"
+				}
+			},
+			"charges": 7
+		},
+		{
 			"name": "Jeweled anklet",
 			"source": "DMG",
 			"page": 135,
@@ -21033,6 +21181,83 @@
 			"rarity": "unknown",
 			"entries": [
 				"A switch made of flint is built into the bowl of this fine wooden smoking pipe. With a few flicks of the switch, the pipe lights itself."
+			]
+		},
+		{
+			"name": "Medal of Muscle",
+			"source": "CRCotN",
+			"page": 214,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"You can squeeze this medal tightly in the palm of your hand as an action. Doing so gives you advantage on Strength checks and Strength saving throws for 1 hour. Once this property has been used, it can't be used again, and the medal becomes nonmagical."
+			]
+		},
+		{
+			"name": "Medal of the Conch",
+			"source": "CRCotN",
+			"page": 214,
+			"rarity": "common",
+			"wondrous": true,
+			"modifySpeed": {
+				"equal": {
+					"swim": "walk"
+				}
+			},
+			"entries": [
+				"When you use an action to rub this medal, you gain a swimming speed equal to your walking speed for 1 hour. Once this property has been used, it can't be used again, and the medal becomes nonmagical."
+			]
+		},
+		{
+			"name": "Medal of the Horizonback",
+			"source": "CRCotN",
+			"page": 214,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"When you would be hit by an attack, you can use your reaction to increase your AC by 5 until the start of your next turn, including against the triggering attack. You must be wearing the medal and able to see the creature that made the triggering attack to use this property. Once this property has been used, it can't be used again, and the medal becomes nonmagical."
+			]
+		},
+		{
+			"name": "Medal of the Maze",
+			"source": "CRCotN",
+			"page": 214,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"When you use an action to trace the maze inscribed on this medal, you gain advantage on Wisdom checks and know the quickest route to the end of any nonmagical path or maze for 1 hour. Once this property has been used, it can't be used again, and the medal becomes nonmagical."
+			],
+			"hasFluffImages": true
+		},
+		{
+			"name": "Medal of the Meat Pie",
+			"source": "CRCotN",
+			"page": 214,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"You gain {@dice 2d4 + 2} temporary hit points when you use an action to press this medal to your mouth. Once this property has been used, it can't be used again, and the medal becomes nonmagical.",
+				"While magical, this medal is slightly warm to the touch (as if it's fresh from the oven) and smells faintly of baked pie crust."
+			]
+		},
+		{
+			"name": "Medal of the Wetlands",
+			"source": "CRCotN",
+			"page": 214,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"When you use an action to trace the edge of this medal, difficult terrain doesn't cost you extra movement for 1 hour. Once this property has been used, it can't be used again, and the medal becomes nonmagical."
+			]
+		},
+		{
+			"name": "Medal of Wit",
+			"source": "CRCotN",
+			"page": 214,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"You can press this medal to your temple as an action. Doing so gives you advantage on Intelligence checks and Intelligence saving throws for 1 hour. Once this property has been used, it can't be used again, and the medal becomes nonmagical."
 			]
 		},
 		{
@@ -25384,7 +25609,8 @@
 			],
 			"lootTables": [
 				"Magic Item Table B"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Potter's Tools",
@@ -27023,6 +27249,60 @@
 			]
 		},
 		{
+			"name": "Ring of Red Fury",
+			"source": "CRCotN",
+			"page": 214,
+			"type": "RG",
+			"rarity": "very rare",
+			"reqAttune": true,
+			"modifySpeed": {
+				"equal": {
+					"swim": "walk"
+				}
+			},
+			"entries": [
+				"This ring has a stripe of ruidium running through it. While wearing the ring, you gain the following benefits:",
+				{
+					"type": "list",
+					"items": [
+						"You can breathe water.",
+						"You gain a swimming speed equal to your walking speed."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Ruidium Rage",
+					"entries": [
+						"As a bonus action, you can use the ring to gain the following benefits, which last for 1 minute or until you are {@condition incapacitated}:",
+						{
+							"type": "list",
+							"items": [
+								"You have advantage on Strength checks and Strength saving throws.",
+								"When you hit with an attack, you can add your proficiency bonus to the damage roll.",
+								"Difficult terrain doesn't cost you extra movement, and you are immune to the {@condition paralyzed} and {@condition restrained} conditions."
+							]
+						},
+						"You can't use this property of the ring again until you finish a long rest."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Ruidium Corruption",
+					"entries": [
+						"When you use the Ruidium Rage property of the ring, you must make a DC 20 Charisma saving throw. On a failed save, you gain 1 level of {@condition exhaustion}. If you are not already suffering from ruidium corruption, you become corrupted when you fail this save."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "If Ruidium Is Destroyed",
+					"entries": [
+						"If the Apotheon is killed or redeemed, all the ruidium in Exandria is destroyed instantly, and the ring of red fury becomes a {@item ring of free action}."
+					]
+				}
+			],
+			"hasFluffImages": true
+		},
+		{
 			"name": "Ring of Regeneration",
 			"source": "DMG",
 			"page": 191,
@@ -28056,6 +28336,59 @@
 				"The gem has 3 charges and regains all expended charges daily at dawn. When you cast a spell while holding this gem, you can expend up to 3 charges to ignore the spell's material components with a gold piece cost, up to 500 gp per charge expended.",
 				"When you finish a long rest, choose a spell from any class list. The spell you choose must be of a level you can cast. You know the chosen spell and can cast it with your spell slots of the appropriate level until the end of your next long rest."
 			]
+		},
+		{
+			"name": "Ruidium Shield",
+			"source": "CRCotN",
+			"page": 215,
+			"baseItem": "shield|PHB",
+			"type": "S",
+			"resist": [
+				"psychic"
+			],
+			"rarity": "very rare",
+			"reqAttune": true,
+			"weight": 6,
+			"ac": 2,
+			"bonusAc": "+2",
+			"modifySpeed": {
+				"equal": {
+					"swim": "walk"
+				}
+			},
+			"entries": [
+				"Tendrils of ruidium extend across the metal surface of this shield. While this shield is on your person, you gain the following benefits:",
+				{
+					"type": "list",
+					"items": [
+						"You have resistance to psychic damage.",
+						"You can breathe water.",
+						"You gain a swimming speed equal to your walking speed."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Psychic Reflection",
+					"entries": [
+						"When you take psychic damage while holding the shield, you can use your reaction to choose another creature you can see within 30 feet of you. That creature takes the psychic damage you would have taken."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Ruidium Corruption",
+					"entries": [
+						"When you use the shield's Psychic Reflection property, you must make a DC 20 Charisma saving throw. On a failed save, you gain 1 level of {@condition exhaustion}. If you are not already suffering from ruidium corruption, you become corrupted when you fail this save."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "If Ruidium Is Destroyed",
+					"entries": [
+						"If the Apotheon is killed or redeemed, all the ruidium in Exandria is destroyed instantly, and a ruidium shield becomes a {@item +2 shield}."
+					]
+				}
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Ruin's Wake (Awakened)",
@@ -33973,6 +34306,18 @@
 			"weight": 5,
 			"entries": [
 				"Tej is an amber-colored, fermented drink made from honey. It's more common and popular in Chult than beer or ale. A mug of tej costs 4 cp in Port Nyanzaru or 6 cp in Fort Beluarian. A 1-gallon cask costs 2 sp in the city or 3 sp at the fort."
+			]
+		},
+		{
+			"name": "Teleportation Tablet",
+			"source": "CRCotN",
+			"page": 216,
+			"rarity": "rare",
+			"wondrous": true,
+			"entries": [
+				"This clay tablet is eight inches long, four inches wide, and half an inch thick. Inscribed on it is the sigil sequence for a permanent teleportation circle. A creature that studies the sequence for 10 minutes can make a DC 21 Intelligence ({@skill Arcana}) check, learning the circle's destination on a success.",
+				"You can use an action to break the tablet in half, turning it to dust. If the tablet is broken while it is on the same plane of existence as the teleportation circle whose sigil sequence was engraved on it, a 10-foot-diameter teleportation circle of glowing blue light appears on the ground in an unoccupied space you choose within 30 feet of you. This teleportation circle has the characteristics of one created using the {@spell teleportation circle} spell, except that it connects to the teleportation circle whose sigil sequence appears on the tablet.",
+				"The teleportation circle created by the tablet disappears at the end of your next turn."
 			]
 		},
 		{
@@ -40611,6 +40956,24 @@
 				"Ioun Stone, Language Knowledge|LLK",
 				"Ioun Stone, Self-Preservation|LLK"
 			]
+		},
+		{
+			"name": "Jewel of Three Prayers",
+			"source": "CRCotN",
+			"page": 213,
+			"rarity": "legendary",
+			"reqAttune": true,
+			"wondrous": true,
+			"recharge": "dawn",
+			"items": [
+				"Jewel of Three Prayers (Dormant)|CRCotN",
+				"Jewel of Three Prayers (Awakened)|CRCotN",
+				"Jewel of Three Prayers (Exalted)|CRCotN"
+			],
+			"attachedSpells": [
+				"invisibility"
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Lash of Shadows",

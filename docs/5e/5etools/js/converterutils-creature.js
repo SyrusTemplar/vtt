@@ -112,6 +112,7 @@ class AcConvert {
 							break;
 
 						case "scale armor": froms.push("{@item scale mail|phb}"); break;
+						case "splint armor": froms.push("{@item splint mail|phb}"); break;
 						case "chain shirt": froms.push("{@item chain shirt|phb}"); break;
 						case "shields": froms.push("{@item shield|phb|shields}"); break;
 
@@ -285,33 +286,13 @@ TagDc._PROPS = ["action", "reaction", "bonus", "trait", "legendary", "mythic", "
 
 class AlignmentConvert {
 	static tryConvertAlignment (stats, cbMan) {
-		if (!stats.alignment.trim()) return delete stats.alignment;
+		const {alignmentPrefix, alignment} = AlignmentUtil.tryGetConvertedAlignment(stats.alignment, {cbMan});
 
-		// region Support WBtW and onwards formatting
-		stats.alignment = stats.alignment.trim().replace(/^typically\s+/, () => {
-			stats.alignmentPrefix = "typically ";
-			return "";
-		});
-		// endregion
+		stats.alignment = alignment;
+		if (!stats.alignment) delete stats.alignment;
 
-		const orParts = (stats.alignment || "").split(/ or /g).map(it => it.trim().replace(/[.,;]$/g, "").trim());
-		const out = [];
-
-		orParts.forEach(part => {
-			Object.values(AlignmentUtil.ALIGNMENTS).forEach(it => {
-				if (it.regex.test(part)) out.push({alignment: it.output});
-				else {
-					const mChange = it.regexChance.exec(part);
-					if (mChange) {
-						out.push({alignment: it.output, chance: Number(mChange[1])});
-					}
-				}
-			});
-		});
-
-		if (out.length === 1) stats.alignment = out[0].alignment;
-		else if (out.length) stats.alignment = out;
-		else if (cbMan) cbMan(stats.alignment);
+		stats.alignmentPrefix = alignmentPrefix;
+		if (!stats.alignmentPrefix) delete stats.alignmentPrefix;
 	}
 }
 
@@ -1274,6 +1255,7 @@ class TagImmResVulnConditional {
 				|| note.startsWith("against ")
 				|| note.startsWith("except ")
 				|| note.startsWith("with ")
+				|| note.startsWith("that is ")
 			) {
 				obj.cond = true;
 			}

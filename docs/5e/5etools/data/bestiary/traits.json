@@ -38,6 +38,9 @@
 			"ref": "{@race Bullywug|DMG}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -86,7 +89,9 @@
 			"ref": "{@race Gnome (Deep)|DMG|Deep Gnome}",
 			"apply": {
 				"_root": {
-					"size": "S",
+					"size": [
+						"S"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -209,6 +214,9 @@
 			"ref": "{@race Elf (Drow)||Drow}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -284,6 +292,9 @@
 			"ref": "{@race Dwarf (Duergar)|mtf|Duergar}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -352,6 +363,52 @@
 					"conditionImmune": {
 						"mode": "appendIfNotExistsArr",
 						"items": "charmed"
+					}
+				}
+			}
+		},
+		{
+			"name": "Firbolg",
+			"source": "VGM",
+			"page": 107,
+			"ref": "{@race Firbolg|VGM}",
+			"apply": {
+				"_root": {
+					"size": [
+						"M"
+					],
+					"type": {
+						"type": "humanoid",
+						"tags": [
+							"firbolg"
+						]
+					}
+				},
+				"_mod": {
+					"languages": {
+						"mode": "appendIfNotExistsArr",
+						"items": [
+							"Elvish",
+							"Giant"
+						]
+					},
+					"spellcasting": {
+						"mode": "appendArr",
+						"items": [
+							{
+								"name": "Innate Spellcasting",
+								"headerEntries": [
+									"<$title_short_name$>'s innate spellcasting ability is Wisdom (spell save DC <$spell_dc__wis$>). <$title_short_name$> can innately cast the following spells, requiring no material components:"
+								],
+								"rest": {
+									"1e": [
+										"{@spell detect magic}",
+										"{@spell disguise self} (can seem up to 3 feet shorter than normal)"
+									]
+								},
+								"ability": "wis"
+							}
+						]
 					}
 				}
 			}
@@ -823,7 +880,9 @@
 			"ref": "{@race Goblin|DMG}",
 			"apply": {
 				"_root": {
-					"size": "S",
+					"size": [
+						"S"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -860,12 +919,65 @@
 			}
 		},
 		{
+			"name": "Goliath",
+			"source": "VGM",
+			"page": 108,
+			"ref": "{@race Goliath|VGM}",
+			"apply": {
+				"_root": {
+					"size": [
+						"M"
+					],
+					"type": {
+						"type": "humanoid",
+						"tags": [
+							"goliath"
+						]
+					}
+				},
+				"_mod": {
+					"_": [
+						{
+							"mode": "addSkills",
+							"skills": {
+								"athletics": 1
+							}
+						}
+					],
+					"resist": {
+						"mode": "appendIfNotExistsArr",
+						"items": "cold"
+					},
+					"languages": {
+						"mode": "appendIfNotExistsArr",
+						"items": [
+							"Giant"
+						]
+					},
+					"trait": {
+						"mode": "appendArr",
+						"items": [
+							{
+								"name": "Powerful Build",
+								"entries": [
+									"<$title_short_name$> counts as one size larger when determining their carrying capacity and the weight they can push, drag, or lift."
+								]
+							}
+						]
+					}
+				}
+			}
+		},
+		{
 			"name": "Half-Elf",
 			"source": "PHB",
 			"page": 38,
 			"ref": "{@race Half-Elf}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -908,6 +1020,9 @@
 			"ref": "{@race Half-Orc}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -962,6 +1077,9 @@
 			"ref": "{@race Elf (High)||High Elf}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -1464,13 +1582,53 @@
 			}
 		},
 		{
+			"name": "Kenku",
+			"source": "VGM",
+			"page": 109,
+			"ref": "{@race Kenku|VGM}",
+			"apply": {
+				"_root": {
+					"size": [
+						"M"
+					],
+					"type": {
+						"type": "humanoid",
+						"tags": [
+							"kenku"
+						]
+					}
+				},
+				"_mod": {
+					"languages": {
+						"mode": "appendIfNotExistsArr",
+						"items": [
+							"Auran"
+						]
+					},
+					"trait": {
+						"mode": "appendArr",
+						"items": [
+							{
+								"name": "Mimicry",
+								"entries": [
+									"<$title_short_name$> can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 14} Wisdom ({@skill Insight}) check."
+								]
+							}
+						]
+					}
+				}
+			}
+		},
+		{
 			"name": "Kobold",
 			"source": "DMG",
 			"page": 282,
 			"ref": "{@race Kobold|DMG}",
 			"apply": {
 				"_root": {
-					"size": "S",
+					"size": [
+						"S"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -2041,6 +2199,9 @@
 			"ref": "{@race Lizardfolk|DMG}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -2079,6 +2240,9 @@
 			"ref": "{@race Merfolk|dmg}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -2116,6 +2280,9 @@
 			"ref": "{@race Dwarf (Mountain)||Mountain Dwarf}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -2161,6 +2328,9 @@
 			"ref": "{@race Orc|DMG}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -2307,7 +2477,9 @@
 			"ref": "{@race Gnome (Rock)||Rock Gnome}",
 			"apply": {
 				"_root": {
-					"size": "S",
+					"size": [
+						"S"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -2382,7 +2554,6 @@
 					],
 					"languages": {
 						"mode": "appendIfNotExistsArr",
-						"replace": "understands all languages it spoke in life but can't speak",
 						"items": "understands all languages it spoke in life but can't speak"
 					}
 				}
@@ -2395,7 +2566,9 @@
 			"ref": "{@race Halfling (Stout)||Stout Halfling}",
 			"apply": {
 				"_root": {
-					"size": "S",
+					"size": [
+						"S"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -2436,6 +2609,9 @@
 			"ref": "{@race Tabaxi|VGM}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -2485,6 +2661,9 @@
 			"ref": "{@race Tiefling}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -2579,6 +2758,9 @@
 			"ref": "{@race Genasi (Water)|eepc|Water Genasi}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -2616,6 +2798,9 @@
 			"ref": "{@race Elf (Wood)||Wood Elf}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [
@@ -2671,6 +2856,9 @@
 			"ref": "{@race Yuan-ti Pureblood|VGM}",
 			"apply": {
 				"_root": {
+					"size": [
+						"M"
+					],
 					"type": {
 						"type": "humanoid",
 						"tags": [

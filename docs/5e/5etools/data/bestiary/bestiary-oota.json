@@ -134,7 +134,9 @@
 			"name": "Awakened Zurkhwood",
 			"source": "OotA",
 			"page": 230,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "plant",
 			"alignment": [
 				"U"
@@ -236,7 +238,9 @@
 			"name": "Bridesmaid of Zuggtmoy",
 			"source": "OotA",
 			"page": 230,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "plant",
 			"alignment": [
 				"C",
@@ -372,7 +376,9 @@
 			"name": "Chamberlain of Zuggtmoy",
 			"source": "OotA",
 			"page": 230,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "plant",
 			"alignment": [
 				"C",
@@ -472,7 +478,9 @@
 			"name": "Chuul Spore Servant",
 			"source": "OotA",
 			"page": 228,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "plant",
 			"alignment": [
 				"U"
@@ -551,7 +559,9 @@
 			"isNpc": true,
 			"source": "OotA",
 			"page": 82,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -718,7 +728,9 @@
 			"isNpc": true,
 			"source": "OotA",
 			"page": 231,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1024,7 +1036,9 @@
 			"name": "Drow Spore Servant",
 			"source": "OotA",
 			"page": 229,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "plant",
 			"alignment": [
 				"U"
@@ -1141,7 +1155,9 @@
 			"name": "Duergar Darkhaft",
 			"source": "OotA",
 			"page": 226,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1280,7 +1296,9 @@
 			"name": "Duergar Keeper of the Flame",
 			"source": "OotA",
 			"page": 226,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1450,7 +1468,9 @@
 			"name": "Duergar Spore Servant",
 			"source": "OotA",
 			"page": 229,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "plant",
 			"alignment": [
 				"U"
@@ -1545,7 +1565,9 @@
 			"name": "Emerald Enclave Scout",
 			"source": "OotA",
 			"page": 130,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1780,7 +1802,9 @@
 			"name": "Giant Riding Lizard",
 			"source": "OotA",
 			"page": 131,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1857,13 +1881,16 @@
 							"items": {
 								"name": "Camouflage",
 								"entries": [
-									"The octopus has advantage on Dexterity (Stealth) checks."
+									"The octopus has advantage on Dexterity ({@skill Stealth}) checks."
 								]
 							}
 						},
 						{
 							"mode": "removeArr",
-							"names": "Hold Breath"
+							"names": [
+								"Hold Breath",
+								"Water Breathing"
+							]
 						}
 					]
 				}
@@ -1924,7 +1951,9 @@
 			"isNpc": true,
 			"source": "OotA",
 			"page": 232,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2095,7 +2124,9 @@
 			"name": "Hook Horror Spore Servant",
 			"source": "OotA",
 			"page": 68,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "plant",
 			"alignment": [
 				"U"
@@ -2201,7 +2232,9 @@
 				"name": "Basilisk",
 				"source": "MM"
 			},
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"ac": [
 				{
 					"ac": 11,
@@ -2239,7 +2272,9 @@
 				"name": "Hook Horror",
 				"source": "MM"
 			},
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"ac": [
 				{
 					"ac": 10,
@@ -2266,7 +2301,9 @@
 			"name": "Ixitxachitl",
 			"source": "OotA",
 			"page": 225,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -2341,7 +2378,9 @@
 			"name": "Ixitxachitl Cleric",
 			"source": "OotA",
 			"page": 225,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -2527,7 +2566,9 @@
 					}
 				}
 			},
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"ac": [
 				{
 					"ac": 13,
@@ -2660,7 +2701,9 @@
 			"name": "Lords' Alliance Guard",
 			"source": "OotA",
 			"page": 131,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2733,7 +2776,9 @@
 			"name": "Lords' Alliance Spy",
 			"source": "OotA",
 			"page": 131,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2940,7 +2985,9 @@
 			"isNpc": true,
 			"source": "OotA",
 			"page": 232,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3696,7 +3743,9 @@
 			"isNpc": true,
 			"source": "OotA",
 			"page": 233,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3943,7 +3992,9 @@
 			"name": "Troglodyte Champion of Laogzed",
 			"source": "OotA",
 			"page": 229,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4089,7 +4140,9 @@
 			"name": "Vampiric Ixitxachitl",
 			"source": "OotA",
 			"page": 226,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -4163,7 +4216,9 @@
 			"name": "Vampiric Ixitxachitl Cleric",
 			"source": "OotA",
 			"page": 226,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -4319,7 +4374,9 @@
 			"name": "Veteran of the Gauntlet",
 			"source": "OotA",
 			"page": 130,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4532,7 +4589,9 @@
 			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 233,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -4647,7 +4706,9 @@
 				"name": "Basilisk",
 				"source": "MM"
 			},
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"ac": [
 				{
 					"ac": 13,
@@ -4709,7 +4770,9 @@
 					}
 				}
 			},
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"ac": [
 				{
 					"ac": 11,
@@ -4761,7 +4824,9 @@
 			"name": "Zhentarim Thug",
 			"source": "OotA",
 			"page": 131,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

@@ -2,7 +2,8 @@
 	"_meta": {
 		"dependencies": {
 			"monster": [
-				"MM"
+				"MM",
+				"VRGR"
 			]
 		},
 		"internalCopies": [
@@ -10,7 +11,8 @@
 		],
 		"otherSources": {
 			"monster": {
-				"MM": "CoS"
+				"MM": "CoS",
+				"VRGR": "CoS"
 			}
 		}
 	},
@@ -160,7 +162,9 @@
 			"isNpc": true,
 			"source": "CoS",
 			"page": 228,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -354,7 +358,9 @@
 			"isNpc": true,
 			"source": "CoS",
 			"page": 226,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -546,7 +552,9 @@
 			"name": "Barovian Witch",
 			"source": "CoS",
 			"page": 229,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -699,10 +707,50 @@
 			"hasToken": true
 		},
 		{
+			"name": "Bray Martikov",
+			"isNpc": true,
+			"source": "CoS",
+			"page": 98,
+			"_copy": {
+				"name": "Young Wereraven",
+				"source": "CoS",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the wereraven",
+						"with": "Bray",
+						"flags": "i"
+					}
+				}
+			},
+			"hasToken": true
+		},
+		{
+			"name": "Brom Martikov",
+			"isNpc": true,
+			"source": "CoS",
+			"page": 98,
+			"_copy": {
+				"name": "Young Wereraven",
+				"source": "CoS",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the wereraven",
+						"with": "Brom",
+						"flags": "i"
+					}
+				}
+			},
+			"hasToken": true
+		},
+		{
 			"name": "Broom of Animated Attack",
 			"source": "CoS",
 			"page": 226,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -881,13 +929,36 @@
 			"hasToken": true
 		},
 		{
+			"name": "Danika Dorakova",
+			"isNpc": true,
+			"source": "CoS",
+			"page": 98,
+			"_copy": {
+				"name": "Wereraven",
+				"source": "VRGR",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the wereraven",
+						"with": "Danika",
+						"flags": "i"
+					}
+				}
+			},
+			"alignment": [
+				"L",
+				"G"
+			],
+			"hasToken": true
+		},
+		{
 			"name": "Davian Martikov",
 			"isNpc": true,
 			"source": "CoS",
 			"page": 173,
 			"_copy": {
 				"name": "Wereraven",
-				"source": "CoS",
+				"source": "VRGR",
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -897,6 +968,10 @@
 					}
 				}
 			},
+			"alignment": [
+				"L",
+				"G"
+			],
 			"hasToken": true
 		},
 		{
@@ -993,7 +1068,8 @@
 				"average": 72,
 				"formula": "9d8 + 18"
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Escher",
@@ -1061,7 +1137,9 @@
 			"isNpc": true,
 			"source": "CoS",
 			"page": 231,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1281,7 +1359,9 @@
 			"name": "Guardian Portrait",
 			"source": "CoS",
 			"page": 227,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -1497,7 +1577,9 @@
 			"isNpc": true,
 			"source": "CoS",
 			"page": 232,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1961,7 +2043,9 @@
 			"isNpc": true,
 			"source": "CoS",
 			"page": 233,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2253,7 +2337,9 @@
 			"name": "Mongrelfolk",
 			"source": "CoS",
 			"page": 234,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2507,7 +2593,9 @@
 			"name": "Phantom Warrior",
 			"source": "CoS",
 			"page": 235,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"A"
@@ -2653,7 +2741,9 @@
 			"isNpc": true,
 			"source": "CoS",
 			"page": 236,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "construct",
 			"alignment": [
 				"N",
@@ -2741,7 +2831,9 @@
 			"isNpc": true,
 			"source": "CoS",
 			"page": 237,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2890,7 +2982,9 @@
 			"isNpc": true,
 			"source": "CoS",
 			"page": 238,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3069,7 +3163,9 @@
 					}
 				}
 			},
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"alignment": [
 				"L",
 				"G"
@@ -3367,7 +3463,9 @@
 			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 240,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "undead",
 				"tags": [
@@ -3640,7 +3738,9 @@
 			"name": "Strahd Zombie",
 			"source": "CoS",
 			"page": 241,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"U"
@@ -3739,7 +3839,9 @@
 			"isNpc": true,
 			"source": "CoS",
 			"page": 227,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"L",
@@ -4054,7 +4156,9 @@
 					}
 				}
 			},
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"alignment": [
 				"L",
 				"G"
@@ -4081,7 +4185,9 @@
 					"source": "WBtW"
 				}
 			],
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "plant",
 			"alignment": [
 				"N",
@@ -4096,8 +4202,8 @@
 				}
 			],
 			"hp": {
-				"average": 149,
-				"formula": "13d12 + 65"
+				"average": 92,
+				"formula": "8d12 + 40"
 			},
 			"speed": {
 				"walk": 30
@@ -4190,6 +4296,29 @@
 			],
 			"hasToken": true,
 			"hasFluff": true
+		},
+		{
+			"name": "Urwin Martikov",
+			"isNpc": true,
+			"source": "CoS",
+			"page": 98,
+			"_copy": {
+				"name": "Wereraven",
+				"source": "VRGR",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the wereraven",
+						"with": "Urwin",
+						"flags": "i"
+					}
+				}
+			},
+			"alignment": [
+				"L",
+				"G"
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Vasilka",
@@ -4371,7 +4500,9 @@
 			"isNpc": true,
 			"source": "CoS",
 			"page": 241,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -4561,130 +4692,6 @@
 			"hasToken": true
 		},
 		{
-			"name": "Wereraven",
-			"group": [
-				"Lycanthropes"
-			],
-			"source": "CoS",
-			"page": 242,
-			"otherSources": [
-				{
-					"source": "CM"
-				},
-				{
-					"source": "VRGR"
-				}
-			],
-			"size": "M",
-			"type": {
-				"type": "humanoid",
-				"tags": [
-					"human",
-					"shapechanger"
-				]
-			},
-			"alignment": [
-				"L",
-				"G"
-			],
-			"ac": [
-				12
-			],
-			"hp": {
-				"average": 31,
-				"formula": "7d8"
-			},
-			"speed": {
-				"walk": {
-					"number": 30,
-					"condition": "(fly 50 ft. in raven and hybrid forms)"
-				}
-			},
-			"str": 10,
-			"dex": 15,
-			"con": 11,
-			"int": 13,
-			"wis": 15,
-			"cha": 14,
-			"skill": {
-				"insight": "+4",
-				"perception": "+6"
-			},
-			"passive": 16,
-			"languages": [
-				"Common (can't speak in raven form)"
-			],
-			"cr": "2",
-			"trait": [
-				{
-					"name": "Shapechanger",
-					"entries": [
-						"The wereraven can use its action to polymorph into a raven-humanoid hybrid or into a raven, or back into its human form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its human form if it dies."
-					]
-				},
-				{
-					"name": "Mimicry",
-					"entries": [
-						"The wereraven can mimic simple sounds it has heard, such as a person whispering, a baby crying, or an animal chittering. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom (Insight) check."
-					]
-				},
-				{
-					"name": "Regeneration",
-					"entries": [
-						"The wereraven regains 10 hit points at the start of its turn. If the wereraven takes damage from a silvered weapon or a spell, this trait doesn't function at the start of the wereraven's next turn. The wereraven dies only if it starts its turn with 0 hit points and doesn't regenerate."
-					]
-				}
-			],
-			"action": [
-				{
-					"name": "Multiattack (Human or Hybrid Form Only)",
-					"entries": [
-						"The wereraven makes two weapon attacks, one of which can be with its hand crossbow."
-					]
-				},
-				{
-					"name": "Beak (Raven or Hybrid Form Only)",
-					"entries": [
-						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}1 piercing damage in raven form, or 4 ({@damage 1d4 + 2}) piercing damage in hybrid form. If the target is humanoid, it must succeed on a {@dc 10} Constitution saving throw or be cursed with wereraven lycanthropy."
-					]
-				},
-				{
-					"name": "Shortsword (Human or Hybrid Form Only)",
-					"entries": [
-						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d6 + 2}) piercing damage."
-					]
-				},
-				{
-					"name": "Hand Crossbow (Human or Hybrid Form Only)",
-					"entries": [
-						"{@atk rw} {@hit 4} to hit, range 30/120 ft., one target. {@h}5 ({@damage 1d6 + 2}) piercing damage."
-					]
-				}
-			],
-			"traitTags": [
-				"Regeneration",
-				"Shapechanger"
-			],
-			"actionTags": [
-				"Multiattack"
-			],
-			"languageTags": [
-				"C",
-				"CS"
-			],
-			"damageTags": [
-				"P"
-			],
-			"miscTags": [
-				"MW",
-				"RNG",
-				"RW"
-			],
-			"hasToken": true,
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
 			"name": "Yevgeni Krushkin",
 			"isNpc": true,
 			"source": "CoS",
@@ -4711,6 +4718,26 @@
 				"N"
 			],
 			"hasToken": true
+		},
+		{
+			"name": "Young Wereraven",
+			"source": "CoS",
+			"page": 98,
+			"_copy": {
+				"name": "Wereraven",
+				"source": "VRGR"
+			},
+			"size": [
+				"S"
+			],
+			"alignment": [
+				"L",
+				"G"
+			],
+			"hp": {
+				"average": 7,
+				"formula": "2d6"
+			}
 		},
 		{
 			"name": "Zuleika Toranescu",

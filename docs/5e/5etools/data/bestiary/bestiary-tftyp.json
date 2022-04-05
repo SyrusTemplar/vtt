@@ -48,7 +48,9 @@
 			"name": "Animated Table",
 			"source": "TftYP",
 			"page": 230,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -192,7 +194,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 9,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -359,7 +363,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 23,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "dragon",
 			"alignment": [
 				"C",
@@ -450,7 +456,9 @@
 			"name": "Centaur Mummy",
 			"source": "TftYP",
 			"page": 231,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -686,7 +694,9 @@
 			"name": "Dread Warrior",
 			"source": "TftYP",
 			"page": 233,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -875,7 +885,9 @@
 			"name": "Duergar Spy",
 			"source": "TftYP",
 			"page": 234,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1019,7 +1031,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 25,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1136,7 +1150,9 @@
 				"name": "Black Pudding",
 				"source": "MM"
 			},
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"hp": {
 				"average": 130,
 				"formula": "10d12 + 30"
@@ -1176,7 +1192,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 22,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1416,7 +1434,9 @@
 			"name": "Four-Armed Gargoyle",
 			"source": "TftYP",
 			"page": 129,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "elemental",
 			"alignment": [
 				"C",
@@ -1541,7 +1561,9 @@
 				"name": "Rug of Smothering",
 				"source": "MM"
 			},
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"hp": {
 				"average": 63,
 				"formula": "6d20"
@@ -1552,7 +1574,9 @@
 			"name": "Giant Crayfish",
 			"source": "TftYP",
 			"page": 235,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1633,7 +1657,9 @@
 			"name": "Giant Ice Toad",
 			"source": "TftYP",
 			"page": 235,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N"
@@ -1737,7 +1763,9 @@
 			"name": "Giant Lightning Eel",
 			"source": "TftYP",
 			"page": 236,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1831,7 +1859,9 @@
 					"source": "IMR"
 				}
 			],
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -1938,7 +1968,9 @@
 			"name": "Giant Subterranean Lizard",
 			"source": "TftYP",
 			"page": 236,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -2123,7 +2155,9 @@
 					"source": "IMR"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -2232,7 +2266,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 25,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2368,7 +2404,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 21,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -2492,7 +2530,9 @@
 					"source": "SLW"
 				}
 			],
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -2580,7 +2620,9 @@
 				"name": "Ochre Jelly",
 				"source": "MM"
 			},
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"hp": {
 				"average": 51,
 				"formula": "6d12 + 12"
@@ -2595,7 +2637,9 @@
 				"name": "Polar Bear",
 				"source": "MM"
 			},
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"hp": {
 				"average": 65,
 				"formula": "5d12 + 15"
@@ -2718,7 +2762,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 45,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2875,7 +2921,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 238,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N"
@@ -2978,7 +3026,9 @@
 			"name": "Kelpie",
 			"source": "TftYP",
 			"page": 238,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "plant",
 			"alignment": [
 				"N",
@@ -3345,7 +3395,9 @@
 			"name": "Malformed Kraken",
 			"source": "TftYP",
 			"page": 239,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -3516,7 +3568,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 91,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "fiend",
 				"tags": [
@@ -3661,7 +3715,9 @@
 			"name": "Nereid",
 			"source": "TftYP",
 			"page": 240,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"C",
@@ -3897,7 +3953,9 @@
 			"name": "Ooze Master",
 			"source": "TftYP",
 			"page": 241,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "undead",
 			"alignment": [
 				"L",
@@ -4629,7 +4687,9 @@
 					"page": 252
 				}
 			],
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -4805,7 +4865,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 242,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4925,7 +4987,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 243,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5024,7 +5088,9 @@
 					"source": "MOT"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"C",
@@ -5147,7 +5213,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 102,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5339,7 +5407,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 53,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5528,7 +5598,9 @@
 			"isNamedCreature": true,
 			"source": "TftYP",
 			"page": 244,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -5766,7 +5838,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 245,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N"
@@ -5894,7 +5968,9 @@
 			"name": "Thayan Apprentice",
 			"source": "TftYP",
 			"page": 245,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6010,7 +6086,9 @@
 			"name": "Thayan Warrior",
 			"source": "TftYP",
 			"page": 246,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6198,7 +6276,9 @@
 			"name": "Thorn Slinger",
 			"source": "TftYP",
 			"page": 246,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "plant",
 			"alignment": [
 				"U"
@@ -6276,7 +6356,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 68,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"N",
@@ -6498,7 +6580,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 248,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "ooze",
 			"alignment": [
 				"C",
@@ -6773,7 +6857,9 @@
 			"isNpc": true,
 			"source": "TftYP",
 			"page": 248,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

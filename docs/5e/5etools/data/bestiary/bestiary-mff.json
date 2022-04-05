@@ -4,7 +4,9 @@
 			"name": "Assassin Bug",
 			"source": "MFF",
 			"page": 4,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"N"
@@ -110,7 +112,9 @@
 			"name": "Blindheim",
 			"source": "MFF",
 			"page": 5,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -195,7 +199,9 @@
 			"name": "Crab Folk",
 			"source": "MFF",
 			"page": 6,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "giant",
 			"alignment": [
 				"N"
@@ -275,7 +281,9 @@
 			"name": "Dire Corby",
 			"source": "MFF",
 			"page": 7,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -385,7 +393,9 @@
 					"source": "IMR"
 				}
 			],
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "undead",
 			"alignment": [
 				"C",
@@ -543,7 +553,9 @@
 			"name": "Fog Giant",
 			"source": "MFF",
 			"page": 10,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "giant",
 			"alignment": [
 				"N",
@@ -676,7 +688,9 @@
 			"name": "Forlarren",
 			"source": "MFF",
 			"page": 9,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "fey",
 			"alignment": [
 				"C",
@@ -812,7 +826,9 @@
 			"name": "Jermlaine",
 			"source": "MFF",
 			"page": 11,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -916,7 +932,9 @@
 			"name": "Khargra",
 			"source": "MFF",
 			"page": 12,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "elemental",
 			"alignment": [
 				"N"
@@ -1007,7 +1025,9 @@
 			"name": "Killmoulis",
 			"source": "MFF",
 			"page": 13,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "fey",
 			"alignment": [
 				"N"
@@ -1086,7 +1106,9 @@
 			"name": "Mite",
 			"source": "MFF",
 			"page": 14,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "fey",
 			"alignment": [
 				"L",
@@ -1168,7 +1190,9 @@
 			"name": "Needle Lord",
 			"source": "MFF",
 			"page": 16,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "plant",
 			"alignment": [
 				"C",
@@ -1275,7 +1299,9 @@
 			"name": "Needle Spawn",
 			"source": "MFF",
 			"page": 16,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "plant",
 			"alignment": [
 				"C",
@@ -1364,7 +1390,9 @@
 			"name": "Norker",
 			"source": "MFF",
 			"page": 17,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1461,7 +1489,9 @@
 			"name": "Norker War Leader",
 			"source": "MFF",
 			"page": 17,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1566,7 +1596,9 @@
 			"name": "Screaming Devilkin",
 			"source": "MFF",
 			"page": 19,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "fey",
 			"alignment": [
 				"L",
@@ -1654,7 +1686,9 @@
 			"name": "Xill",
 			"source": "MFF",
 			"page": 21,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"L",
@@ -1751,7 +1785,9 @@
 			"isNamedCreature": true,
 			"source": "MFF",
 			"page": 20,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",

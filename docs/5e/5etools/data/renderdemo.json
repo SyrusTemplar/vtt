@@ -563,7 +563,9 @@
 					"type": "dataCreature",
 					"dataCreature": {
 						"name": "Unicorn",
-						"size": "L",
+						"size": [
+							"L"
+						],
 						"type": "celestial",
 						"source": "MM",
 						"alignment": [

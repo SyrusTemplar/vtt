@@ -7415,7 +7415,7 @@
 				"An affected target can't take reactions and must roll a {@dice d10} at the start of each of its turns to determine its behavior for that turn.",
 				{
 					"type": "table",
-					"caption": "Confusion Behaviour",
+					"caption": "Confusion Behavior",
 					"colLabels": [
 						"{@dice d10}",
 						"Behavior"
@@ -20555,6 +20555,9 @@
 			"savingThrow": [
 				"dexterity"
 			],
+			"miscTags": [
+				"SGT"
+			],
 			"areaTags": [
 				"ST"
 			],
@@ -33558,7 +33561,7 @@
 				}
 			],
 			"entries": [
-				"An invisible barrier of magical force appears and protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from magic missile."
+				"An invisible barrier of magical force appears and protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from {@spell magic missile}."
 			],
 			"miscTags": [
 				"MAC"

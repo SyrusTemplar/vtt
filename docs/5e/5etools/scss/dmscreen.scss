@@ -64,7 +64,7 @@ label {
 	display: none;
 }
 
-.panel-control-bar.xpander-active {
+.panel-control-bar.move-expand-active {
 	display: none;
 }
 
@@ -205,8 +205,12 @@ label {
 	margin-left: 3px;
 }
 
-.panel-mode-move .panel-content-wrapper {
-	overflow-y: hidden;
+.panel-mode-move {
+	.panel-content-wrapper {
+		overflow-y: hidden;
+	}
+
+
 }
 
 .panel-content-hovering > * {
@@ -235,7 +239,7 @@ label {
 	}
 }
 
-.panel-control {
+.panel-control-move {
 	display: none;
 	position: absolute;
 	user-select: none;
@@ -250,7 +254,7 @@ label {
 	left: 0;
 }
 
-.panel-control-top {
+.panel-control-move-top {
 	top: 0;
 	right: 40px;
 	left: 40px;
@@ -262,7 +266,7 @@ label {
 	min-width: 20px;
 }
 
-.panel-control-right {
+.panel-control-move-right {
 	top: 40px;
 	right: 0;
 	bottom: 40px;
@@ -274,7 +278,7 @@ label {
 	min-height: 20px;
 }
 
-.panel-control-bottom {
+.panel-control-move-bottom {
 	right: 40px;
 	bottom: 0;
 	left: 40px;
@@ -286,7 +290,7 @@ label {
 	min-width: 20px;
 }
 
-.panel-control-left {
+.panel-control-move-left {
 	top: 40px;
 	bottom: 40px;
 	left: 0;
@@ -298,13 +302,40 @@ label {
 	min-height: 20px;
 }
 
-.panel-control-middle {
+.panel-control-move-middle {
 	top: calc(50% - 20px);
 	left: calc(50% - 20px);
 	width: 40px;
 	height: 40px;
 	cursor: move;
 	border-radius: 50%;
+}
+
+.panel-control-move-btn-done {
+	top: 0;
+	right: 0;
+	width: 30px;
+	height: 30px;
+	border-bottom-left-radius: 5px;
+	cursor: pointer;
+}
+
+.panel-control-move-icn-done {
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+}
+
+.panel-control-move--bg {
+	background: $rgb-border-grey--trans;
+	border: 1px solid $rgb-border-grey;
+}
+
+.night-mode {
+	.panel-control-move--bg {
+		background: #777a;
+		border-color: #aaa;
+	}
 }
 
 .panel-addmenu-bar {

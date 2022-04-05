@@ -30,7 +30,9 @@
 			"isNpc": true,
 			"source": "IMR",
 			"page": 53,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "giant",
 			"alignment": [
 				"C",
@@ -243,7 +245,9 @@
 			"isNpc": true,
 			"source": "IMR",
 			"page": 52,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -396,7 +400,9 @@
 					}
 				}
 			},
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "construct",
 			"alignment": [
 				"L",
@@ -532,7 +538,9 @@
 			"isNpc": true,
 			"source": "IMR",
 			"page": 54,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "undead",
 				"tags": [
@@ -682,7 +690,9 @@
 			"isNpc": true,
 			"source": "IMR",
 			"page": 55,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -861,7 +871,9 @@
 			"name": "Neo-Otyugh",
 			"source": "IMR",
 			"page": 75,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "aberration",
 			"alignment": [
 				"N"
@@ -1045,7 +1057,9 @@
 			"isNpc": true,
 			"source": "IMR",
 			"page": 56,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1335,7 +1349,9 @@
 			"isNpc": true,
 			"source": "IMR",
 			"page": 57,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1539,7 +1555,9 @@
 			"name": "Thessalheart Construct",
 			"source": "IMR",
 			"page": 86,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"
@@ -1621,7 +1639,9 @@
 			"name": "Thessalkraken",
 			"source": "IMR",
 			"page": 87,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -1832,7 +1852,9 @@
 			"name": "Two-Headed Crocodile",
 			"source": "IMR",
 			"page": 89,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -1920,7 +1942,9 @@
 			"name": "Two-Headed Owlbear",
 			"source": "IMR",
 			"page": 90,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"

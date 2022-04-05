@@ -11,7 +11,9 @@
 			"name": "Homarid",
 			"source": "PSD",
 			"page": 15,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"C",
@@ -100,7 +102,9 @@
 			"name": "Kavu Predator",
 			"source": "PSD",
 			"page": 24,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -195,7 +199,9 @@
 			"name": "Steel Leaf Kavu",
 			"source": "PSD",
 			"page": 24,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -280,7 +286,9 @@
 				"name": "Zombie",
 				"source": "MM"
 			},
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"hasToken": true
 		}
 	]

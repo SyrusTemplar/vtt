@@ -22,7 +22,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 193,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -151,7 +153,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 193,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -374,7 +378,9 @@
 			"name": "Awakened Rat",
 			"source": "WDH",
 			"page": 102,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -445,7 +451,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 195,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -587,7 +595,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 112,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -649,7 +659,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 196,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -822,7 +834,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 199,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1017,7 +1031,9 @@
 			"name": "Dining Table Mimic",
 			"source": "WDH",
 			"page": 122,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -1135,7 +1151,9 @@
 			"name": "Drow Gunslinger",
 			"source": "WDH",
 			"page": 201,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1278,7 +1296,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 203,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1387,7 +1407,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 115,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1509,7 +1531,9 @@
 			"name": "Engineer",
 			"source": "WDH",
 			"page": 141,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1618,7 +1642,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 32,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1813,7 +1839,9 @@
 			],
 			"source": "WDH",
 			"page": 152,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -1906,7 +1934,9 @@
 			"name": "Griffon Cavalry Rider",
 			"source": "WDH",
 			"page": 197,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2028,7 +2058,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 29,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2169,7 +2201,9 @@
 			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 204,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2389,7 +2423,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 205,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2493,7 +2529,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 199,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2672,7 +2710,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 205,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2784,7 +2824,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 116,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2931,7 +2973,9 @@
 			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 206,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3132,7 +3176,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 63,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3166,7 +3212,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 158,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3312,7 +3360,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 89,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3488,7 +3538,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 152,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "elemental",
 			"alignment": [
 				"L",
@@ -3598,7 +3650,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 207,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -3858,7 +3912,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 116,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4004,7 +4060,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 85,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4152,7 +4210,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 82,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4244,7 +4304,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 149,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4395,7 +4457,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 209,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4603,7 +4667,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 208,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -4781,7 +4847,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 37,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -4831,7 +4899,9 @@
 			"name": "Mechanical Bird",
 			"source": "WDH",
 			"page": 46,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"
@@ -4880,7 +4950,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 36,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5006,7 +5078,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 210,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5113,7 +5187,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 211,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5274,7 +5350,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 63,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5326,7 +5404,9 @@
 			"name": "Nimblewright",
 			"source": "WDH",
 			"page": 212,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -5467,7 +5547,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 213,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5614,7 +5696,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 66,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "beast",
 			"alignment": [
 				"C",
@@ -5698,7 +5782,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 213,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5799,7 +5885,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 214,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5890,7 +5978,9 @@
 			"name": "Panopticus Wizard",
 			"source": "WDH",
 			"page": 106,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -5992,7 +6082,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 214,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6185,7 +6277,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 215,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6285,7 +6379,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 33,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6432,7 +6528,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 216,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6563,7 +6661,9 @@
 			"name": "Shard Shunner",
 			"source": "WDH",
 			"page": 42,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6699,7 +6799,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 200,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -6851,7 +6953,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 202,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7007,7 +7111,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 63,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7040,7 +7146,9 @@
 			"name": "Swarm of Books",
 			"source": "WDH",
 			"page": 156,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "construct",
 				"swarmSize": "T"
@@ -7117,7 +7225,9 @@
 			"name": "Swarm of Mechanical Spiders",
 			"source": "WDH",
 			"page": 143,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "construct",
 				"swarmSize": "T"
@@ -7234,7 +7344,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 220,
-			"size": "T",
+			"size": [
+				"T"
+			],
 			"type": "beast",
 			"alignment": [
 				"U"
@@ -7297,7 +7409,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 32,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7373,7 +7487,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 200,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7482,7 +7598,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 115,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7522,7 +7640,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 216,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7599,7 +7719,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 89,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7688,7 +7810,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 116,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7834,7 +7958,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 216,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -7958,7 +8084,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 217,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8157,7 +8285,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 47,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8287,7 +8417,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 218,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8542,7 +8674,9 @@
 			"name": "Walking Statue of Waterdeep",
 			"source": "WDH",
 			"page": 219,
-			"size": "G",
+			"size": [
+				"G"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -8724,7 +8858,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 20,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8838,7 +8974,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 220,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -8922,7 +9060,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 150,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -9029,7 +9169,9 @@
 			"name": "Zhent Martial Arts Adept",
 			"source": "WDH",
 			"page": 160,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -9154,7 +9296,9 @@
 			"isNpc": true,
 			"source": "WDH",
 			"page": 201,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

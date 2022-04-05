@@ -2446,6 +2446,116 @@
 			}
 		},
 		{
+			"name": "Ruidium Armor",
+			"type": "GV",
+			"requires": [
+				{
+					"type": "MA"
+				},
+				{
+					"type": "HA"
+				}
+			],
+			"excludes": {
+				"name": "Hide Armor"
+			},
+			"inherits": {
+				"namePrefix": "Ruidium ",
+				"source": "CRCotN",
+				"page": 215,
+				"resist": [
+					"psychic"
+				],
+				"rarity": "very rare",
+				"reqAttune": true,
+				"bonusAc": "+1",
+				"modifySpeed": {
+					"equal": {
+						"swim": "walk"
+					}
+				},
+				"entries": [
+					"This magic armor has a dull, rusty color or has veins of ruidium running through it. While you wear this armor, you gain the following benefits:",
+					{
+						"type": "list",
+						"items": [
+							"You have resistance to psychic damage.",
+							"You can breathe water.",
+							"You gain a swimming speed equal to your walking speed."
+						]
+					},
+					{
+						"type": "entries",
+						"name": "Ruidium Corruption",
+						"entries": [
+							"When you roll a 1 on a saving throw while wearing this armor, you must make a DC 15 Charisma saving throw. On a failed save, you gain 1 level of {@condition exhaustion}. If you are not already suffering from ruidium corruption, you become corrupted when you fail this save."
+						]
+					},
+					{
+						"type": "entries",
+						"name": "If Ruidium Is Destroyed",
+						"entries": [
+							"If the Apotheon is killed or redeemed, all the ruidium in Exandria is destroyed instantly, and ruidium armor becomes {@item +1 armor}."
+						]
+					}
+				]
+			}
+		},
+		{
+			"name": "Ruidium Weapon",
+			"type": "GV",
+			"requires": [
+				{
+					"weapon": true
+				}
+			],
+			"inherits": {
+				"namePrefix": "Ruidium ",
+				"source": "CRCotN",
+				"page": 216,
+				"rarity": "very rare",
+				"reqAttune": true,
+				"bonusWeapon": "+2",
+				"modifySpeed": {
+					"equal": {
+						"swim": "walk"
+					}
+				},
+				"entries": [
+					"This magic weapon has a dull, rusty color or has veins of ruidium running through it. While this weapon is on your person, you gain the following benefits:",
+					{
+						"type": "list",
+						"items": [
+							"You can breathe water.",
+							"You gain a swimming speed equal to your walking speed."
+						]
+					},
+					{
+						"type": "entries",
+						"name": "Ruidium Strike",
+						"entries": [
+							"A creature you hit with this weapon takes an extra {@damage 2d6} psychic damage."
+						]
+					},
+					{
+						"type": "entries",
+						"name": "Ruidium Corruption",
+						"entries": [
+							"When you roll a 1 on an attack roll made with this weapon, you must make a DC 20 Charisma saving throw. On a failed save, you gain 1 level of {@condition exhaustion}. If you are not already suffering from ruidium corruption, you become corrupted when you fail this save."
+						]
+					},
+					{
+						"type": "entries",
+						"name": "If Ruidium Is Destroyed",
+						"entries": [
+							"If the Apotheon is killed or redeemed, all the ruidium in Exandria is destroyed instantly, and a ruidium weapon becomes a {@item +2 weapon}."
+						]
+					}
+				]
+			},
+			"hasFluffImages": true
+		},
+		{
 			"name": "Silvered Ammunition",
 			"type": "GV",
 			"requires": [

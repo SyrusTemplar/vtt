@@ -693,7 +693,7 @@ MakeCards._AVAILABLE_TYPES = {
 		fnGetTags: (mon) => {
 			const types = Parser.monTypeToFullObj(mon.type);
 			const cr = mon.cr == null ? "unknown CR" : `CR ${(mon.cr.cr || mon.cr)}`;
-			return ["creature", Parser.sourceJsonToAbv(mon.source), types.type, cr, Parser.sizeAbvToFull(mon.size)];
+			return ["creature", Parser.sourceJsonToAbv(mon.source), types.type, cr, Renderer.utils.getRenderedSize(mon.size)];
 		},
 	},
 	item: {

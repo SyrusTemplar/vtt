@@ -11,7 +11,9 @@
 			"name": "Clown",
 			"source": "NRH-CoI",
 			"page": 7,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -74,7 +76,9 @@
 			"isNamedCreature": true,
 			"source": "NRH-CoI",
 			"page": 11,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -149,7 +153,9 @@
 			"isNamedCreature": true,
 			"source": "NRH-CoI",
 			"page": 9,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [

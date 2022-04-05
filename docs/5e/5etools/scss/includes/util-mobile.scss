@@ -2,7 +2,7 @@
 
 // If it's anything less than full desktop size, enable these styles
 .mobile-ish__ {
-	@media only screen and (min-width: $width-screen-lg) {
+	@media only screen and (min-width: $width-screen-lg--min) {
 		&visible {
 			display: none !important;
 		}
@@ -25,7 +25,7 @@
 }
 
 .mobile__ {
-	@media only screen and (min-width: $width-screen-sm) {
+	@media only screen and (min-width: $width-screen-sm--min) {
 		&visible {
 			display: none !important;
 		}
@@ -38,6 +38,12 @@
 
 		&text-center {
 			text-align: center !important;
+		}
+
+		&text-clip-ellipsis {
+			white-space: nowrap !important;
+			text-overflow: ellipsis !important;
+			overflow: hidden !important;
 		}
 
 		&ve-flex-col {

@@ -7,7 +7,7 @@ if (IS_NODE) require("./parser.js");
 
 // in deployment, `IS_DEPLOYED = "<version number>";` should be set below.
 IS_DEPLOYED = undefined;
-VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"1.150.1"/* 5ETOOLS_VERSION__CLOSE */;
+VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"1.152.4"/* 5ETOOLS_VERSION__CLOSE */;
 DEPLOYED_STATIC_ROOT = ""; // "https://static.5etools.com/"; // FIXME re-enable this when we have a CDN again
 // for the roll20 script to set
 IS_VTT = false;
@@ -66,7 +66,7 @@ VeCt = {
 	LEVEL_MAX: 20,
 
 	ENTDATA_TABLE_INCLUDE: "tableInclude",
-	ENTDATA_ITEM_MERGED_ENTRY_TAG: "item.mergedEntryTag",
+	ENTDATA_ITEM_MERGED_ENTRY_TAG: "item__mergedEntryTag",
 
 	DRAG_TYPE_IMPORT: "ve-Import",
 	DRAG_TYPE_LOOT: "ve-Loot",
@@ -311,21 +311,49 @@ StrUtil = {
 };
 
 CleanUtil = {
-	getCleanJson (data, minify = false) {
+	getCleanJson (data, {isMinify = false, isFast = true} = {}) {
 		data = MiscUtil.copy(data);
-		data = MiscUtil.getWalker().walk(data, {string: (str) => CleanUtil.getCleanString(str)});
-		let str = minify ? JSON.stringify(data) : `${JSON.stringify(data, null, "\t")}\n`;
+		data = MiscUtil.getWalker().walk(data, {string: (str) => CleanUtil.getCleanString(str, {isFast})});
+		let str = isMinify ? JSON.stringify(data) : `${JSON.stringify(data, null, "\t")}\n`;
 		return str.replace(CleanUtil.STR_REPLACEMENTS_REGEX, (match) => CleanUtil.STR_REPLACEMENTS[match]);
 	},
 
-	getCleanString (str) {
-		return str
+	getCleanString (str, {isFast = true} = {}) {
+		str = str
 			.replace(CleanUtil.SHARED_REPLACEMENTS_REGEX, (match) => CleanUtil.SHARED_REPLACEMENTS[match])
 			.replace(CleanUtil._SOFT_HYPHEN_REMOVE_REGEX, "")
 			.replace(CleanUtil._ELLIPSIS_COLLAPSE_REGEX, "$1")
-			.replace(CleanUtil._DASH_COLLAPSE_REGEX, "$1")
 			.replace(CleanUtil._TAG_DASH_EXPAND_REGEX, "$1 $2")
 		;
+
+		if (isFast) return str;
+
+		const ptrStack = {_: ""};
+		CleanUtil._getCleanString_walkerStringHandler(ptrStack, 0, str);
+		return ptrStack._;
+	},
+
+	_getCleanString_walkerStringHandler (ptrStack, tagCount, str) {
+		const tagSplit = Renderer.splitByTags(str);
+		const len = tagSplit.length;
+		for (let i = 0; i < len; ++i) {
+			const s = tagSplit[i];
+			if (!s) continue;
+			if (s.startsWith("{@")) {
+				const [tag, text] = Renderer.splitFirstSpace(s.slice(1, -1));
+
+				ptrStack._ += `{${tag}${text.length ? " " : ""}`;
+				this._getCleanString_walkerStringHandler(ptrStack, tagCount + 1, text);
+				ptrStack._ += `}`;
+			} else {
+				// avoid tagging things wrapped in existing tags
+				if (tagCount) {
+					ptrStack._ += s;
+				} else {
+					ptrStack._ += s.replace(CleanUtil._DASH_COLLAPSE_REGEX, "$1");
+				}
+			}
+		}
 	},
 };
 CleanUtil.SHARED_REPLACEMENTS = {
@@ -364,6 +392,16 @@ CleanUtil._TAG_DASH_EXPAND_REGEX = /({@[a-zA-Z])([\u2014\u2013])/g;
 
 // SOURCES =============================================================================================================
 SourceUtil = {
+	ADV_BOOK_GROUPS: [
+		{group: "core", displayName: "Core"},
+		{group: "supplement", displayName: "Supplements"},
+		{group: "setting", displayName: "Settings"},
+		{group: "supplement-alt", displayName: "Extras"},
+		{group: "homebrew", displayName: "Homebrew"},
+		{group: "screen", displayName: "Screens"},
+		{group: "other", displayName: "Miscellaneous"},
+	],
+
 	_subclassReprintLookup: {},
 	async pInitSubclassReprintLookup () {
 		SourceUtil._subclassReprintLookup = await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/generated/gendata-subclass-lookup.json`);
@@ -2175,10 +2213,13 @@ UrlUtil.URL_TO_HASH_BUILDER["feat"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_FEA
 UrlUtil.URL_TO_HASH_BUILDER["optionalfeature"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_OPT_FEATURES];
 UrlUtil.URL_TO_HASH_BUILDER["psionic"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_PSIONICS];
 UrlUtil.URL_TO_HASH_BUILDER["race"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES];
+UrlUtil.URL_TO_HASH_BUILDER["subrace"] = (it) => UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES]({name: `${it.name} (${it.raceName})`, source: it.source});
 UrlUtil.URL_TO_HASH_BUILDER["reward"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_REWARDS];
 UrlUtil.URL_TO_HASH_BUILDER["variantrule"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_VARIANTRULES];
 UrlUtil.URL_TO_HASH_BUILDER["adventure"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_ADVENTURES];
+UrlUtil.URL_TO_HASH_BUILDER["adventureData"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_ADVENTURES];
 UrlUtil.URL_TO_HASH_BUILDER["book"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BOOKS];
+UrlUtil.URL_TO_HASH_BUILDER["bookData"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BOOKS];
 UrlUtil.URL_TO_HASH_BUILDER["deity"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_DEITIES];
 UrlUtil.URL_TO_HASH_BUILDER["cult"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_CULTS_BOONS];
 UrlUtil.URL_TO_HASH_BUILDER["boon"] = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_CULTS_BOONS];
@@ -2520,6 +2561,14 @@ SortUtil = {
 					},
 				});
 			});
+	},
+
+	ascSortSourceGroup (a, b) {
+		const grpA = a.group || "other";
+		const grpB = b.group || "other";
+		const ixA = SourceUtil.ADV_BOOK_GROUPS.findIndex(it => it.group === grpA);
+		const ixB = SourceUtil.ADV_BOOK_GROUPS.findIndex(it => it.group === grpB);
+		return SortUtil.ascSort(ixA, ixB);
 	},
 
 	ascSortAdventure (a, b) {
@@ -3389,14 +3438,21 @@ DataUtil = {
 
 			function doMod_scalarAddDc (modInfo, prop) {
 				if (!copyTo[prop]) return;
-				copyTo[prop] = JSON.parse(JSON.stringify(copyTo[prop]).replace(/{@dc (\d+)}/g, (m0, m1) => `{@dc ${Number(m1) + modInfo.scalar}}`));
+				copyTo[prop] = JSON.parse(JSON.stringify(copyTo[prop]).replace(/{@dc (\d+)(?:\|[^}]+)?}/g, (m0, m1) => `{@dc ${Number(m1) + modInfo.scalar}}`));
 			}
 
 			function doMod_maxSize (modInfo) {
-				const ixCur = Parser.SIZE_ABVS.indexOf(copyTo.size);
+				const sizes = [...copyTo.size].sort(SortUtil.ascSortSize);
+
+				const ixsCur = sizes.map(it => Parser.SIZE_ABVS.indexOf(it));
 				const ixMax = Parser.SIZE_ABVS.indexOf(modInfo.max);
-				if (ixCur < 0 || ixMax < 0) throw new Error(`${msgPtFailed} Unhandled size!`);
-				copyTo.size = Parser.SIZE_ABVS[Math.min(ixCur, ixMax)];
+
+				if (!~ixMax || ixsCur.some(ix => !~ix)) throw new Error(`${msgPtFailed} Unhandled size!`);
+
+				const ixsNxt = ixsCur.filter(ix => ix <= ixMax);
+				if (!ixsNxt.length) ixsNxt.push(ixMax);
+
+				copyTo.size = ixsNxt.map(ix => Parser.SIZE_ABVS[ix]);
 			}
 
 			function doMod_scalarMultXp (modInfo) {
@@ -3829,6 +3885,16 @@ DataUtil = {
 		},
 
 		getDataUrl () { return `${Renderer.get().baseUrl}data/backgrounds.json`; },
+	},
+
+	backgroundFluff: {
+		_MERGE_REQUIRES_PRESERVE: {},
+		_mergeCache: {},
+		async pMergeCopy (flfList, flf, options) {
+			return DataUtil.generic._pMergeCopy(DataUtil.backgroundFluff, UrlUtil.PG_BACKGROUNDS, flfList, flf, options);
+		},
+
+		getDataUrl () { return `${Renderer.get().baseUrl}data/fluff-backgrounds.json`; },
 	},
 
 	optionalfeature: {
@@ -4875,6 +4941,15 @@ BrewUtil = {
 		}
 		// endregion
 
+		// region Creature (monster)
+		// 2022-03-22
+		if (homebrew.monster) {
+			homebrew.monster.forEach(mon => {
+				if (typeof mon.size === "string") mon.size = [mon.size];
+			});
+		}
+		// endregion
+
 		return isMigration;
 	},
 
@@ -4919,7 +4994,7 @@ BrewUtil = {
 
 		await BrewUtil._pRenderBrewScreen_pRefreshBrewList($brewList);
 
-		const $btnLoadFromFile = $(`<button class="btn btn-default btn-sm mr-2">Upload File</button>`)
+		const $btnLoadFromFile = $(`<button class="btn btn-default btn-sm mr-2">Import File</button>`)
 			.click(async () => {
 				const {jsons, errors} = await DataUtil.pUserUpload({isMultiple: true});
 
@@ -5236,7 +5311,7 @@ BrewUtil = {
 	_ALLOWED_BREW_UNDER_PROPS: new Set(["__prop"]),
 	async _pCleanSaveBrew () {
 		const cpy = MiscUtil.copy(BrewUtil.homebrew || {});
-		BrewUtil._STORABLE.forEach(prop => {
+		BrewUtil._getStorableProps().forEach(prop => {
 			(cpy[prop] || []).forEach(ent => {
 				Object.keys(ent).filter(k => !BrewUtil._ALLOWED_BREW_UNDER_PROPS.has(k) && k.startsWith("_")).forEach(k => delete ent[k]);
 			});
@@ -5561,7 +5636,7 @@ BrewUtil = {
 				"makebrewCreatureTrait",
 			];
 			case UrlUtil.PG_MANAGE_BREW:
-			case UrlUtil.PG_DEMO_RENDER: return BrewUtil._STORABLE;
+			case UrlUtil.PG_DEMO_RENDER: return BrewUtil._getStorableProps();
 			case UrlUtil.PG_VEHICLES: return ["vehicle", "vehicleUpgrade"];
 			case UrlUtil.PG_ACTIONS: return ["action"];
 			case UrlUtil.PG_CULTS_BOONS: return ["cult", "boon"];
@@ -5575,7 +5650,7 @@ BrewUtil = {
 
 	dirToProp (dir) {
 		if (!dir) return "";
-		else if (BrewUtil._STORABLE.includes(dir)) return dir;
+		else if (BrewUtil._getStorableProps().includes(dir)) return dir;
 		else {
 			switch (dir) {
 				case "creature": return "monster";
@@ -5678,6 +5753,11 @@ BrewUtil = {
 			case "book": return BrewUtil._pDeleteGenericBookBrew.bind(BrewUtil, category);
 			case "adventureData":
 			case "bookData": return () => {}; // Do nothing, handled by deleting the associated book/adventure
+			case "backgroundFeature":
+			case "raceFeature":
+			case "vehicleWeapon":
+			case "psionicDisciplineFocus":
+			case "psionicDisciplineActive": return () => {}; // no-ops
 			default: throw new Error(`No homebrew delete function defined for category ${category}`);
 		}
 	},
@@ -5807,7 +5887,8 @@ BrewUtil = {
 	},
 
 	_DIRS: ["action", "adventure", "background", "book", "boon", "charoption", "class", "condition", "creature", "cult", "deity", "disease", "feat", "hazard", "item", "language", "magicvariant", "makebrew", "object", "optionalfeature", "psionic", "race", "recipe", "reward", "spell", /* "status", */ "subclass", "subrace", "table", "trap", "variantrule", "vehicle", "classFeature", "subclassFeature"],
-	_STORABLE: ["class", "subclass", "classFeature", "subclassFeature", "spell", "spellFluff", "monster", "legendaryGroup", "monsterFluff", "background", "feat", "optionalfeature", "race", "raceFluff", "subrace", "deity", "item", "baseitem", "variant", "itemProperty", "itemType", "itemFluff", "itemGroup", "itemEntry", "psionic", "reward", "object", "trap", "hazard", "variantrule", "condition", "disease", "status", "adventure", "adventureData", "book", "bookData", "table", "tableGroup", "vehicle", "vehicleUpgrade", "action", "cult", "boon", "language", "languageScript", "makebrewCreatureTrait", "charoption", "charoptionFluff", "recipe"],
+	_STORABLE: ["class", "subclass", "classFeature", "subclassFeature", "spell", "spellFluff", "monster", "legendaryGroup", "monsterFluff", "background", "backgroundFeature", "feat", "optionalfeature", "race", "raceFeature", "raceFluff", "subrace", "deity", "item", "baseitem", "variant", "itemProperty", "itemType", "itemFluff", "itemGroup", "itemEntry", "psionic", "reward", "object", "trap", "hazard", "variantrule", "condition", "disease", "status", "adventure", "adventureData", "book", "bookData", "table", "tableGroup", "vehicle", "vehicleUpgrade", "vehicleWeapon", "action", "cult", "boon", "language", "languageScript", "makebrewCreatureTrait", "charoption", "charoptionFluff", "recipe", "psionicDisciplineFocus", "psionicDisciplineActive"],
+	_getStorableProps () { return BrewUtil._STORABLE; },
 	async pDoHandleBrewJson (json, page, pFuncRefresh) {
 		page = BrewUtil._PAGE || page;
 		await BrewUtil._lockHandleBrewJson.pLock();
@@ -5838,7 +5919,7 @@ BrewUtil = {
 		}
 
 		// prepare for storage
-		BrewUtil._STORABLE.forEach(storePrep);
+		BrewUtil._getStorableProps().forEach(storePrep);
 
 		const bookPairs = [
 			["adventure", "adventureData"],
@@ -5932,9 +6013,9 @@ BrewUtil = {
 
 		let sourcesToAdd = json._meta ? json._meta.sources : [];
 		const toAdd = {};
-		BrewUtil._STORABLE.filter(k => json[k] && (json[k] instanceof Array)).forEach(k => toAdd[k] = json[k]);
+		BrewUtil._getStorableProps().filter(k => json[k] && (json[k] instanceof Array)).forEach(k => toAdd[k] = json[k]);
 		sourcesToAdd = checkAndAddMetaGetNewSources(); // adding source(s) to Filter should happen in per-page addX functions
-		await Promise.all(BrewUtil._STORABLE.map(async k => toAdd[k] = await pCheckAndAdd(k))); // only add if unique ID not already present
+		await Promise.all(BrewUtil._getStorableProps().map(async k => toAdd[k] = await pCheckAndAdd(k))); // only add if unique ID not already present
 		// TODO ...run some `DataUtil[prop].mutateBrew(ent)` function for each thing here?
 		if (!isLocalPreload) BrewUtil._persistHomebrewDebounced(); // Debounce this for mass adds, e.g. "Add All"
 		StorageUtil.syncSet(VeCt.STORAGE_HOMEBREW_META, BrewUtil.homebrewMeta);
@@ -5977,14 +6058,6 @@ BrewUtil = {
 				case UrlUtil.PG_MAKE_BREW:
 					if (BrewUtil._pHandleBrew) await BrewUtil._pHandleBrew(MiscUtil.copy(toAdd));
 					break;
-				case UrlUtil.PG_MANAGE_BREW:
-				case UrlUtil.PG_DEMO_RENDER:
-				case UrlUtil.PG_MAPS:
-				case VeCt.PG_NONE:
-					// No-op
-					break;
-				default:
-					throw new Error(`No homebrew add function defined for category ${page}`);
 			}
 
 			if (pFuncRefresh) await pFuncRefresh();
@@ -6110,7 +6183,7 @@ BrewUtil = {
 		if (!source) return "";
 		source = source.toLowerCase();
 		const color = BrewUtil.sourceJsonToColor(source);
-		if (color) return `color: #${color}; border-color: #${color}; text-decoration-color: #${color};`;
+		if (color) return `color: #${color} !important; border-color: #${color} !important; text-decoration-color: #${color} !important;`;
 		return "";
 	},
 
@@ -7011,8 +7084,8 @@ ExcludeUtil = {
 		if (!source) throw new Error(`Entity had no source!`);
 		opts = opts || {};
 
-		source = source.source || source;
-		const out = !!ExcludeUtil._excludes.find(row => (row.source === "*" || (row.source || "").toLowerCase() === (source || "").toLowerCase()) && (row.category === "*" || row.category === category) && (row.hash === "*" || row.hash === hash));
+		source = (source.source || source || "").toLowerCase();
+		const out = !!ExcludeUtil._excludes.find(row => (row.source === "*" || (row.source || "").toLowerCase() === source) && (row.category === "*" || row.category === category) && (row.hash === "*" || row.hash === hash));
 		if (out && !opts.isNoCount) ++ExcludeUtil._excludeCount;
 		return out;
 	},

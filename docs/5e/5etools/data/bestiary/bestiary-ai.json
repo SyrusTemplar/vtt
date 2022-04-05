@@ -4,7 +4,9 @@
 			"name": "Ancient Deep Crow",
 			"source": "AI",
 			"page": 211,
-			"size": "H",
+			"size": [
+				"H"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -160,7 +162,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 208,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -268,7 +272,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 205,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -400,7 +406,9 @@
 			"name": "Chaos Quadrapod",
 			"source": "AI",
 			"page": 209,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "aberration",
 			"alignment": [
 				"C",
@@ -496,7 +504,9 @@
 			"name": "Clockwork Dragon",
 			"source": "AI",
 			"page": 209,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"N"
@@ -602,7 +612,9 @@
 			"name": "Deep Crow",
 			"source": "AI",
 			"page": 210,
-			"size": "L",
+			"size": [
+				"L"
+			],
 			"type": "monstrosity",
 			"alignment": [
 				"U"
@@ -721,7 +733,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 201,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -870,7 +884,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 200,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1010,7 +1026,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 197,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1167,7 +1185,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 202,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1343,7 +1363,9 @@
 			"name": "Keg Robot",
 			"source": "AI",
 			"page": 212,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": "construct",
 			"alignment": [
 				"U"
@@ -1470,7 +1492,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 199,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1637,7 +1661,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 205,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1760,7 +1786,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 196,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -1956,7 +1984,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 206,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2078,7 +2108,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 206,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2210,7 +2242,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 208,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "monstrosity",
 				"tags": [
@@ -2315,7 +2349,9 @@
 			"name": "Prophetess Dran",
 			"source": "AI",
 			"page": 208,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2450,7 +2486,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 203,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2607,7 +2645,9 @@
 			"name": "Splugoth the Returned",
 			"source": "AI",
 			"page": 213,
-			"size": "S",
+			"size": [
+				"S"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2735,7 +2775,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 198,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
@@ -2877,7 +2919,9 @@
 			"isNpc": true,
 			"source": "AI",
 			"page": 204,
-			"size": "M",
+			"size": [
+				"M"
+			],
 			"type": {
 				"type": "humanoid",
 				"tags": [
