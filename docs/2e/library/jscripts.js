@@ -4,10 +4,10 @@ function setstate(d, i){
     if(d.style.display=='none')
 	{
 		d.style.display='';
-		i.src='x.png';
+		i.src='images/website/x.png';
 	}    else    {
 		d.style.display='none';
-        i.src='o.png';
+        i.src='images/website/o.png';
 	}
 }
 

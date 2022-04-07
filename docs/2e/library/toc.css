@@ -47,3 +47,8 @@ a:active {
   /* text-transform: uppercase; */
   /* font-style: italic; */
 }
+
+.responsive_cover {
+  max-width: 100%;
+  height: auto;
+}
