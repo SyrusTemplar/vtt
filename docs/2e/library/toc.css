@@ -19,6 +19,8 @@
    --color-font: black;
 }
 
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -56,10 +58,10 @@ a.glow, a.glow:hover, a.glow:focus
 {
 	text-decoration: none;
 	text-shadow: none;
-	-webkit-transition: 500ms linear 0s;
-	-moz-transition: 500ms linear 0s;
-	-o-transition: 500ms linear 0s;
-	transition: 500ms linear 0s;
+	-webkit-transition: 1000ms linear 0s;
+	-moz-transition: 1000ms linear 0s;
+	-o-transition: 1000ms linear 0s;
+	transition: 1000ms linear 0s;
 	outline: 0 none;
 }
 a.glow:hover, a.glow:focus
