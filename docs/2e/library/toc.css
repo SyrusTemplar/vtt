@@ -28,7 +28,10 @@ body {
   color: var(--color-font);
   font-family: Arial, Verdana;
 }
-  
+
+
+
+
 a:link {
   color: var(--color-link);
   text-decoration: none;
@@ -45,6 +48,28 @@ a:active {
   text-decoration: none;
   /* font-weight: bold; */
 }
+
+
+
+
+a.glow, a.glow:hover, a.glow:focus
+{
+	text-decoration: none;
+	text-shadow: none;
+	-webkit-transition: 500ms linear 0s;
+	-moz-transition: 500ms linear 0s;
+	-o-transition: 500ms linear 0s;
+	transition: 500ms linear 0s;
+	outline: 0 none;
+}
+a.glow:hover, a.glow:focus
+{
+	color: var(--color-accent);
+	text-shadow: -1px 1px 8px var(--color-accent), 1px -1px 8px var(--color-accent);
+}
+
+
+
 
 button {
   background: var(--color-background-primary);
