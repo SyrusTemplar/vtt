@@ -19,6 +19,10 @@
    --color-font: black;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-background-primary);
   color: var(--color-font);
@@ -40,6 +44,22 @@ a:active {
   color: var(--color-link-hover);
   text-decoration: none;
   /* font-weight: bold; */
+}
+
+button {
+  background: var(--color-background-primary);
+  color: var(--color-link);
+  padding: 0px;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid var(--color-background-primary);
+}
+button:hover {
+  cursor: pointer;
+}
+button:active {
+  color: var(--color-link-hover);
+  text-decoration: none;
 }
 
 .chapter {
