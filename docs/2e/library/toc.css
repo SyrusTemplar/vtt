@@ -22,6 +22,7 @@
 body {
   background-color: var(--color-background-primary);
   color: var(--color-font);
+  font-family: Copperplate, Verdana, Arial;
 }
   
 a:link {
