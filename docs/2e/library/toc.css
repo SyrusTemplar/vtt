@@ -33,7 +33,6 @@ body {
 
 
 
-
 a:link {
   color: var(--color-link);
   text-decoration: none;
@@ -51,36 +50,6 @@ a:active {
   /* font-weight: bold; */
 }
 
-
-
-
-a.glow, a.glow:hover, a.glow:focus {
-	text-decoration: none;
-	text-shadow: none;
-	-webkit-transition: 1000ms linear 0s;
-	-moz-transition: 1000ms linear 0s;
-	-o-transition: 1000ms linear 0s;
-	transition: 1000ms linear 0s;
-	outline: 0 none;
-}
-a.glow:hover, a.glow:focus {
-	color: var(--color-accent);
-	text-shadow: -1px 1px 8px var(--color-accent), 1px -1px 8px var(--color-accent);
-}
-img.glow {
-  -webkit-filter: brightness(100%);
-  -webkit-transition: 1000ms linear 0s;
-  -moz-transition: 1000ms linear 0s;
-  -o-transition: 1000ms linear 0s;
-  transition: 1000ms linear 0s;
-}
-img.glow:hover, img.glow:focus {
-  -webkit-filter: brightness(150%);
-  -webkit-transition: 1000ms linear 0s;
-  -moz-transition: 1000ms linear 0s;
-  -o-transition: 1000ms linear 0s;
-  transition: 1000ms linear 0s;
-}
 
 
 button {
@@ -109,4 +78,40 @@ button:active {
 .responsive_cover {
   max-width: 100%;
   height: auto;
+}
+
+
+
+
+/* Glow Effect for Covers on first page (image & link) */
+a.glow, a.glow:hover, a.glow:focus {
+	text-decoration: none;
+	text-shadow: none;
+	-webkit-transition: 1000ms linear 0s;
+	-moz-transition: 1000ms linear 0s;
+	-o-transition: 1000ms linear 0s;
+	transition: 1000ms linear 0s;
+	outline: 0 none;
+}
+a.glow:hover, a.glow:focus {
+	color: var(--color-accent);
+	text-shadow: -1px 1px 8px var(--color-accent), 1px -1px 8px var(--color-accent);
+}
+img.glow {
+  border: 0px solid;
+  padding: 0px;
+  box-shadow: 2px 1px 0px #888888;
+  -webkit-filter: brightness(100%);
+  -webkit-transition: 1000ms linear 0s;
+  -moz-transition: 1000ms linear 0s;
+  -o-transition: 1000ms linear 0s;
+  transition: 1000ms linear 0s;
+}
+img.glow:hover, img.glow:focus {
+  box-shadow: 2px 1px 0px var(--color-accent);
+  -webkit-filter: brightness(150%);
+  -webkit-transition: 1000ms linear 0s;
+  -moz-transition: 1000ms linear 0s;
+  -o-transition: 1000ms linear 0s;
+  transition: 1000ms linear 0s;
 }
