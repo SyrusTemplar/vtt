@@ -100,7 +100,7 @@ a.glow:hover, a.glow:focus {
 img.glow {
   border: 0px solid;
   padding: 0px;
-  box-shadow: 2px 1px 0px #888888;
+  /* box-shadow: 2px 1px 0px #888888; */
   -webkit-filter: brightness(100%);
   -webkit-transition: 1000ms linear 0s;
   -moz-transition: 1000ms linear 0s;
@@ -108,7 +108,10 @@ img.glow {
   transition: 1000ms linear 0s;
 }
 img.glow:hover, img.glow:focus {
-  box-shadow: 2px 1px 0px var(--color-accent);
+  box-shadow: 0px 0px 20px var(--color-accent);
+  -moz-box-shadow: 0 0 20px var(--color-accent);
+  -webkit-box-shadow: 0 0 20px var(--color-accent);
+  /* box-shadow: 2px 1px 0px var(--color-accent); */
   -webkit-filter: brightness(150%);
   -webkit-transition: 1000ms linear 0s;
   -moz-transition: 1000ms linear 0s;
