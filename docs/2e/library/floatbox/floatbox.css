@@ -1,0 +1,59 @@
+ .fbx.fbOverlay,.fbx.fbMain,.fbMain .fbx,.fbx.fbFloater,.fbx.fbSlowLoad{box-sizing:content-box;margin:0;padding:0;border:0 solid #000;overflow:visible;background:transparent none no-repeat 0 0;background-size:auto;text-shadow:none;transition-duration:0s;clear:both}
+.fbx.fbOverlay,.fbx.fbBackground,.fbx.fbLiner,.fbx.fbContent{position:absolute;left:0;top:0;width:100%;height:100%;outline-style:none}
+.fbx.fbContentWrapper,.fbx.fbTopPanel,.fbx.fbBottomPanel,.fbx.fbHeader,.fbx.fbFooter{position:absolute;left:0;right:0;outline-style:none}
+.fbx.fbOverlay{position:fixed}
+.fbx.fbMain{position:absolute;outline-style:none}
+.fbx.fbOverlay,.fbx.fbBackground,.fbx.fbLiner{background-repeat:repeat;overflow:hidden}
+i.fbIcon{position:relative;display:inline-block;font:normal 16px/1 monospace}
+i.fbIcon svg{height:1em;margin-bottom:-.2em;fill:currentColor;stroke:currentColor;pointer-events:none}
+.fbx.fbMain{text-align:left}
+.fbx.fbContentWrapper{direction:ltr;-webkit-overflow-scrolling:touch}
+.fbx.fbFloater,.fbx.fbSlowLoad{position:absolute}
+.fbMain span.fbx{cursor:default}
+.fbx.fbMain a{cursor:pointer}
+.fbMain a.fbx,.fbMain img.fbx,img.fbx{display:inline-block;white-space:nowrap;text-decoration:none;max-width:77777px;max-height:77777px;direction:ltr}
+.fbTopPanel .fbx,.fbBottomPanel .fbx,.fbx.fbDragger{user-select:none;-webkit-user-select:none}
+.fbx.fbTopPanel,.fbx.fbBottomPanel{display:inline-flex;align-items:center;font:normal 14px/18px Verdana,Helvetica,sans-serif}
+.fbx.fbCell{display:flex;flex-direction:column;flex:none}
+.fbx.fbCell > *{display:inline-block}
+.fbx.fbCell_tl,.fbx.fbCell_bl{text-align:left}
+.fbx.fbCell_tc,.fbx.fbCell_bc{text-align:center}
+.fbx.fbCell_tr,.fbx.fbCell_br{text-align:right}
+.fbx.fbClose,.fbx.fbNav,.fbx.fbPlayPause,.fbx.fbPrev,.fbx.fbNext,.fbx.fbPlay,.fbx.fbPause{margin:0 4px}
+.fbx.fbCaption,.fbx.fbCaption2,.fbx.fbNewWindow,.fbx.fbInfo,.fbx.fbPrint,.fbx.fbItemNumber{margin:0 6px}
+.fbx.fbNav,.fbx.fbPlayPause{white-space:nowrap;text-align:center}
+.fbx.fbItemNumber{font-size:.8em}
+.fbCaption a:link,.fbCaption a:visited,.fbCaption a:active,.fbCaption2 a:link,.fbCaption2 a:visited,.fbCaption2 a:active{color:inherit}
+.fbTopPanel a.fbx,.fbBottomPanel a.fbx{position:relative}
+.fbx.fbClose2{position:absolute}
+.fbClose2 .fbIcon{font-size:28px}
+.fbx.fbResizer{position:absolute;width:32px;height:32px;border-radius:0 0 8px 0;opacity:.45;text-align:center;background-color:#eee}
+.fbResizer .fbIcon{font-size:24px;line-height:1.3;color:#000}
+.fbx.fbDragger{position:absolute;cursor:nw-resize;line-height:1;right:0;bottom:0}
+.fbx a.fbPrevPanel,.fbx a.fbNextPanel{position:absolute;top:0;bottom:0;background-color:rgba(7,7,7,0)}
+.fbx a.fbPrevPanel{left:0}
+.fbx a.fbNextPanel{right:0}
+.fbx a.fbPrev2,.fbx a.fbNext2{position:absolute;background-color:#000;opacity:.45;padding:10px}
+.fbx a.fbPrev2{left:0;padding-left:5px;border-radius:0 3px 3px 0}
+.fbx a.fbNext2{right:0;padding-right:5px;border-radius:3px 0 0 3px}
+.fbPrev2 .fbIcon,.fbNext2 .fbIcon{font-size:26px;color:#fff}
+.fbx.fbIndex a{margin:0;padding:3px 0;text-decoration:none;display:inline-block}
+.fbIndex .fbCurrentIndex{font-weight:bold}
+.fbx.fbSpacer{position:absolute;text-align:center;min-width:1em;min-height:1em;cursor:default}
+.fbSpacer .fbIcon{display:table-cell;vertical-align:middle;width:inherit;height:inherit}
+.fbVid i{width:1em;height:1em;margin:0;padding:.1em .32em .11em .45em;color:#fff;background-color:#333;opacity:.6;text-align:center;border-radius:.2em;border:2px solid #ccc}
+.fbVid:hover i{background-color:#0b183b;opacity:.75}
+body .fbContext{cursor:help}
+a[class*="fbPop"]{display:inline-block}
+a[class*="fbPop"] img:first-child{position:absolute;left:0;top:-77777px;margin:0;padding:0;z-index:88888}
+.fbIndex a img{border:1px solid #555}
+body div.fbCycler{position:relative;max-width:100%}
+div.fbCycler > *{position:absolute;display:block;visibility:hidden;max-width:100%}
+div.fbCycler > :first-child{position:static;visibility:visible}
+div.fbCycler img,div.fbCycler a{display:inline-block;max-width:100%;height:auto;line-height:0}
+div.fbCycler span{display:block;position:relative;text-align:center;margin:auto}
+div.fbCycler p{position:absolute;visibility:visible;z-index:99}
+.fbCycler .fbCyclerControl{display:none;visibility:visible;position:relative;width:auto;min-width:4.8em;border-radius:5px;z-index:77;opacity:.6;background-color:#eee;font:normal 15px/21px "Comic Sans MS",sans-serif;color:#000;text-align:center;cursor:default;padding:0 .7em .1em;margin:0;border-width:0}
+.fbCyclerControl .fbIcon{font-size:17px;line-height:21px;padding-left:5px}
+.fbCycler .fbCyclerControl:hover{opacity:1}
+html.floatbox a.floatbox,html.floatbox div.floatbox a{pointer-events:none}
