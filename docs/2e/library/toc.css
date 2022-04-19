@@ -31,7 +31,10 @@ body {
   font-family: Arial, Verdana;
 }
 
-
+.mainbody {
+  padding: 0px 16px;
+  min-height: 100vh; /* 76vh */
+}
 
 a:link {
   color: var(--color-link);

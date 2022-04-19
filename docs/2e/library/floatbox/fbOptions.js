@@ -8,8 +8,15 @@ See the options reference for details about all the available options.
 */
 
 global: {
-	activateMedia: false,
-	autoGallery: false
+  activateMedia: false,
+  colorTheme: "black",
+  shadowType: "none",
+  minHeight: "95%",
+  minWidth: "99%",
+  autoFitSpace: 0,
+  panelPadding: 5,
+  padding: 5,
+  innerBorder: 0
 },
 
 mobile: {
