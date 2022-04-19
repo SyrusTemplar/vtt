@@ -7,7 +7,7 @@ See the instructions for information about setting floatbox options.
 See the options reference for details about all the available options.
 */
 
-global: {
+global-backup: {
   activateMedia: false,
   colorTheme: "black",
   shadowType: "none",
