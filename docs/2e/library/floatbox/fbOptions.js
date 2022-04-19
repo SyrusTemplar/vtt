@@ -12,7 +12,7 @@ global: {
   colorTheme: "black",
   shadowType: "none",
   minHeight: "95%",
-  minWidth: "99%",
+  minWidth: "95%",
   autoFitSpace: 0,
   panelPadding: 5,
   padding: 5,
