@@ -15,7 +15,7 @@ global: {
   minWidth: "95%",
   autoFitSpace: 0,
   panelPadding: 5,
-  padding: 5,
+  padding: 10,
   transitionTime: 0.4,
   fadeTime: 0.2,
   resizeTime: 0.2,
