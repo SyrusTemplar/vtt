@@ -16,7 +16,10 @@ global: {
   autoFitSpace: 0,
   panelPadding: 5,
   padding: 5,
-  innerBorder: 0
+  transitionTime: 0.4,
+  fadeTime: 0.2,
+  resizeTime: 0.2,
+  overlayFadeTime: 0.2
 },
 
 mobile: {
