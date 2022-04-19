@@ -7,19 +7,14 @@ See the instructions for information about setting floatbox options.
 See the options reference for details about all the available options.
 */
 
-global-backup: {
+global: {
   activateMedia: false,
   colorTheme: "black",
   shadowType: "none",
-  minHeight: "95%",
-  minWidth: "95%",
-  autoFitSpace: 0,
-  panelPadding: 5,
-  padding: 10,
   transitionTime: 0.4,
-  fadeTime: 0.2,
-  resizeTime: 0.2,
-  overlayFadeTime: 0.2
+  fadeTime: 0.4,
+  resizeTime: 0.4,
+  overlayFadeTime: 0.4
 },
 
 mobile: {
