@@ -10,11 +10,7 @@ See the options reference for details about all the available options.
 global: {
   activateMedia: false,
   colorTheme: "black",
-  shadowType: "none",
-  transitionTime: 0.4,
-  fadeTime: 0.4,
-  resizeTime: 0.4,
-  overlayFadeTime: 0.4
+
 },
 
 mobile: {
