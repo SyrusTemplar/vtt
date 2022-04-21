@@ -10,7 +10,15 @@ See the options reference for details about all the available options.
 global: {
   activateMedia: false,
   colorTheme: "black",
-
+  strictCentering: "top",
+  controlsPos: "tr",
+  indexPos: "tl",
+  outsideClickCloses: true,
+  showOuterClose: true,
+  showClose: false,
+  fadeTime: 0.2,
+  resizeTime: 0.4,
+  overlayFadeTime: 0.2
 },
 
 mobile: {
