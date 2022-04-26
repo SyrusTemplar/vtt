@@ -5736,8 +5736,8 @@
 					"cha": -2
 				}
 			],
+			"blindsight": 30,
 			"traitTags": [
-				"Blindsight",
 				"NPC Race"
 			],
 			"languageProficiencies": [
@@ -7591,6 +7591,54 @@
 					"name": "Taunt",
 					"entries": [
 						"You have a supernatural ability to home in on a creature's emotional raw nerves and craft a taunt that flusters that creature. As a bonus action, you can unleash a barrage of insults at a creature within 60 feet of you that can hear and understand you. The target must succeed on a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Charisma modifier), or it has disadvantage on attack rolls until the start of your next turn.",
+						"You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+					]
+				}
+			],
+			"hasFluff": true
+		},
+		{
+			"name": "Kender",
+			"source": "UA2022HeroesOfKrynnRevisited",
+			"page": 1,
+			"lineage": "VRGR",
+			"size": [
+				"S"
+			],
+			"speed": 30,
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"insight",
+							"investigation",
+							"sleight of hand",
+							"stealth",
+							"survival"
+						]
+					}
+				}
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Fearless",
+					"entries": [
+						"You are immune to the {@condition frightened} condition."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Kender Curiosity",
+					"entries": [
+						"Thanks to the mystical origin of your people, you gain proficiency with one of the following skills of your choice: {@skill Insight}, {@skill Investigation}, {@skill Sleight of Hand}, {@skill Stealth}, or {@skill Survival}."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Taunt",
+					"entries": [
+						"You have an extraordinary ability to fluster creatures. As a bonus action, you can unleash a string of provoking words at a creature within 60 feet of you that can hear and understand you. The target must succeed on a Wisdom saving throw or it has disadvantage on attack rolls against targets other than you until the start of your next turn. The DC equals 8 + your proficiency bonus + your Intelligence, Wisdom, or Charisma modifier (choose when you select this race).",
 						"You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
 					]
 				}
@@ -11040,7 +11088,7 @@
 					"type": "entries",
 					"name": "Darkvision",
 					"entries": [
-						"You can see in dim light within 120 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."
+						"You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."
 					]
 				},
 				{
@@ -16459,7 +16507,7 @@
 				{
 					"name": "Earth Walk",
 					"entries": [
-						"You can move across difficult terrain made of earth or stone without expending extra movement."
+						"You can move across {@quickref difficult terrain||3} made of earth or stone without expending extra movement."
 					],
 					"type": "entries"
 				},
@@ -16712,7 +16760,7 @@
 					"type": "entries",
 					"name": "Earth Walk",
 					"entries": [
-						"You can move across difficult terrain without expending extra movement if you are using your walking speed on the ground or a floor."
+						"You can move across {@quickref difficult terrain||3} without expending extra movement if you are using your walking speed on the ground or a floor."
 					]
 				},
 				{
@@ -18487,7 +18535,7 @@
 					"type": "entries",
 					"name": "Timberwalk",
 					"entries": [
-						"Ability checks made to track you have disadvantage, and you can move across difficult terrain made of nonmagical plants and undergrowth without expending extra movement."
+						"Ability checks made to track you have disadvantage, and you can move across {@quickref difficult terrain||3} made of nonmagical plants and undergrowth without expending extra movement."
 					]
 				}
 			],
@@ -19618,7 +19666,7 @@
 				{
 					"name": "Sure-footed",
 					"entries": [
-						"When you use the {@action Dash} action, difficult terrain doesn't cost you extra movement on that turn."
+						"When you use the {@action Dash} action, {@quickref difficult terrain||3} doesn't cost you extra movement on that turn."
 					],
 					"type": "entries"
 				},

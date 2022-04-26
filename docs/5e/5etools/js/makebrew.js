@@ -1292,6 +1292,8 @@ class Makebrew {
 		// Do this asynchronously, to avoid blocking the load
 		SearchWidget.pDoGlobalInit();
 
+		TaggerUtils.init({legendaryGroups: await DataUtil.legendaryGroup.pLoadAll(), spells: await DataUtil.spell.pLoadAll()});
+
 		// page-specific init
 		await Builder.pInitAll();
 		Renderer.utils.bindPronounceButtons();
