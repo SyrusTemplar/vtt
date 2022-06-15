@@ -2,7 +2,8 @@
 
 class SearchPage {
 	static async pInit () {
-		ExcludeUtil.pInitialise(); // don't await, as this is only used for search
+		await BrewUtil2.pInit();
+		ExcludeUtil.pInitialise().then(null); // don't await, as this is only used for search
 
 		SearchPage._isAllExpanded = (await StorageUtil.pGetForPage(SearchPage._STORAGE_KEY_IS_EXPANDED)) || false;
 		SearchPage._$wrp = $(`#main_content`).empty();
@@ -143,7 +144,7 @@ class SearchPage {
 						? `<a href="${adventureBookSourceHref}">${ptPageInner}</a>`
 						: ptPageInner;
 
-					const ptSourceInner = source ? `<i>${Parser.sourceJsonToFull(source)}</i> (<span class="${Parser.sourceJsonToColor(source)}" ${BrewUtil.sourceJsonToStyle(source)}>${Parser.sourceJsonToAbv(source)}</span>)${isSrd ? `<span class="ve-muted relative help-subtle pg-search__disp-srd" title="Available in the Systems Reference Document">[SRD]</span>` : ""}` : `<span></span>`;
+					const ptSourceInner = source ? `<i>${Parser.sourceJsonToFull(source)}</i> (<span class="${Parser.sourceJsonToColor(source)}" ${BrewUtil2.sourceJsonToStyle(source)}>${Parser.sourceJsonToAbv(source)}</span>)${isSrd ? `<span class="ve-muted relative help-subtle pg-search__disp-srd" title="Available in the Systems Reference Document">[SRD]</span>` : ""}` : `<span></span>`;
 					const ptSource = ptPage || !adventureBookSourceHref
 						? ptSourceInner
 						: `<a href="${adventureBookSourceHref}">${ptSourceInner}</a>`;
@@ -183,42 +184,6 @@ class SearchPage {
 							handleIsExpanded();
 						};
 
-						const observationTarget = $row[0];
-						SearchPage._observed.set(
-							observationTarget,
-							{
-								onObserve: () => {
-									const page = UrlUtil.categoryToHoverPage(category);
-									Renderer.hover.pCacheAndGet(
-										page,
-										source,
-										hash,
-									).then(ent => {
-										// region Render tokens, where available
-										let isImagePopulated = false;
-										if (category === Parser.CAT_ID_CREATURE) {
-											const hasToken = (ent.tokenUrl && ent.uniqueId) || ent.hasToken;
-											if (hasToken) {
-												isImagePopulated = true;
-												const tokenUrl = Renderer.monster.getTokenUrl(ent);
-												$dispImage.html(`<img src="${tokenUrl}" class="w-100 h-100" alt="Token Image: ${(ent.name || "").qq()}" loading="lazy">`);
-											}
-										}
-
-										if (!isImagePopulated) $dispImage.addClass(`mobile__hidden`);
-										// endregion
-
-										// region Render preview
-										Renderer.hover.$getHoverContent_stats(page, ent)
-											.addClass("pg-search__wrp-preview mobile__w-100 br-0")
-											.appendTo($dispPreview);
-										// endregion
-									});
-								},
-							},
-						);
-						SearchPage._observer.observe(observationTarget);
-
 						const $btnTogglePreview = $(`<button class="btn btn-default btn-xs h-100" title="Toggle Preview"></button>`)
 							.click(() => {
 								out.isExpanded = !out.isExpanded;
@@ -228,6 +193,55 @@ class SearchPage {
 
 						handleIsExpanded();
 					}
+
+					const observationTarget = $row[0];
+					SearchPage._observed.set(
+						observationTarget,
+						{
+							onObserve: () => {
+								const page = UrlUtil.categoryToHoverPage(category);
+								Renderer.hover.pCacheAndGet(
+									page,
+									source,
+									hash,
+								).then(ent => {
+									// region Render tokens, where available
+									let isImagePopulated = false;
+
+									switch (category) {
+										case Parser.CAT_ID_CREATURE: {
+											const hasToken = ent.tokenUrl || ent.hasToken;
+											if (hasToken) {
+												isImagePopulated = true;
+												const tokenUrl = Renderer.monster.getTokenUrl(ent);
+												$dispImage.html(`<img src="${tokenUrl}" class="w-100 h-100" alt="Token Image: ${(ent.name || "").qq()}" loading="lazy">`);
+											}
+											break;
+										}
+
+										case Parser.CAT_ID_BOOK:
+										case Parser.CAT_ID_ADVENTURE: {
+											const prop = category === Parser.CAT_ID_BOOK ? "book" : "adventure";
+											isImagePopulated = true;
+											$dispImage.html(`<img src="${Renderer.adventureBook.getCoverUrl(ent[prop])}" class="w-100 h-100" alt="Cover Image: ${(ent[prop].name || "").qq()}" loading="lazy">`);
+										}
+									}
+
+									if (!isImagePopulated) $dispImage.addClass(`mobile__hidden`);
+									// endregion
+
+									if (isHoverable) {
+										// region Render preview
+										Renderer.hover.$getHoverContent_stats(page, ent)
+											.addClass("pg-search__wrp-preview mobile__w-100 br-0")
+											.appendTo($dispPreview);
+										// endregion
+									}
+								});
+							},
+						},
+					);
+					SearchPage._observer.observe(observationTarget);
 
 					return out;
 				});

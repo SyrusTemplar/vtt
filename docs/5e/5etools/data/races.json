@@ -42,7 +42,7 @@
 				{
 					"name": "Talons",
 					"entries": [
-						"You are proficient with your unarmed strikes, which deal {@dice 1d4} slashing damage on a hit."
+						"You are proficient with your unarmed strikes, which deal {@damage 1d4} slashing damage on a hit."
 					],
 					"type": "entries"
 				},
@@ -201,7 +201,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Aasimar",
@@ -407,6 +408,7 @@
 				}
 			],
 			"hasFluff": true,
+			"hasFluffImages": true,
 			"_versions": [
 				{
 					"name": "Aasimar; Necrotic Shroud",
@@ -1203,7 +1205,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Bugbear",
@@ -1471,7 +1474,7 @@
 					"type": "entries",
 					"name": "Hooves",
 					"entries": [
-						"Your hooves are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to {@dice 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+						"Your hooves are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to {@damage 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
 					]
 				},
 				{
@@ -1614,7 +1617,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Centaur",
@@ -1887,7 +1891,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Changeling",
@@ -2259,7 +2264,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Dhampir",
@@ -2317,13 +2323,13 @@
 					"type": "entries",
 					"name": "Vampiric Bite",
 					"entries": [
-						"Your fanged bite is a natural weapon, which counts as a simple melee weapon with which you are proficient. You add your Constitution modifier to the attack and damage rolls when you attack with your bite. Your bite deals {@dice 1d4} piercing damage on a hit. While you are missing half or more of your hit points, you have advantage on attack rolls you make with this bite.",
+						"Your fanged bite is a natural weapon, which counts as a simple melee weapon with which you are proficient. You add your Constitution modifier to the attack and damage rolls when you attack with your bite. Your bite deals {@damage 1d4} piercing damage on a hit. While you are missing half or more of your hit points, you have advantage on attack rolls you make with this bite.",
 						"When you use your bite and hit a creature that isn't a Construct or an Undead, you can empower yourself in one of the following ways of your choice:",
 						{
 							"type": "list",
 							"items": [
 								"regain hit points equal to the damage dealt by the bite",
-								"gain a bonus to the next ability check or attack roll you make; the bonus equals the damage dealt by the bite"
+								"gain a bonus to the next ability check or attack roll you make; the bonus equals the damage dealt by the bite."
 							]
 						},
 						"You can empower yourself with your bite a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
@@ -2390,7 +2396,7 @@
 					"type": "entries",
 					"name": "Vampiric Bite",
 					"entries": [
-						"Your fanged bite is a natural weapon, which counts as a simple melee weapon with which you are proficient. You add your Constitution modifier, instead of your Strength modifier, to the attack and damage rolls when you attack with this bite. It deals {@dice 1d4} piercing damage on a hit. While you are missing half or more of your hit points, you have advantage on attack rolls you make with this bite.",
+						"Your fanged bite is a natural weapon, which counts as a simple melee weapon with which you are proficient. You add your Constitution modifier, instead of your Strength modifier, to the attack and damage rolls when you attack with this bite. It deals {@damage 1d4} piercing damage on a hit. While you are missing half or more of your hit points, you have advantage on attack rolls you make with this bite.",
 						"When you attack with this bite and hit a creature that isn't a Construct or an Undead, you can empower yourself in one of the following ways of your choice:",
 						{
 							"type": "list",
@@ -2568,7 +2574,9 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Dragonborn (Chromatic)",
@@ -3478,7 +3486,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Dwarf",
@@ -3786,7 +3795,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Elf",
@@ -4142,7 +4152,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Fairy",
@@ -4357,7 +4368,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Firbolg",
@@ -4589,7 +4601,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Giff",
@@ -4801,7 +4814,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Githzerai",
@@ -4872,7 +4886,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Gnoll",
@@ -4897,7 +4912,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"Your fanged maw is a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to {@dice 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+						"Your fanged maw is a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to {@damage 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
 					],
 					"type": "entries"
 				},
@@ -5276,7 +5291,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Goblin",
@@ -5605,7 +5621,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Goliath",
@@ -6032,7 +6049,9 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Half-Orc",
@@ -6164,7 +6183,8 @@
 			},
 			"darkvision": 60,
 			"traitTags": [
-				"Dragonmark"
+				"Dragonmark",
+				"Skill Bonus Dice"
 			],
 			"languageProficiencies": [
 				{
@@ -6440,7 +6460,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Harengon",
@@ -6845,7 +6866,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Hobgoblin",
@@ -7066,7 +7088,9 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Human (Amonkhet)",
@@ -7742,7 +7766,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Kenku",
@@ -8068,6 +8093,7 @@
 				}
 			],
 			"hasFluff": true,
+			"hasFluffImages": true,
 			"_versions": [
 				{
 					"name": "Kobold; Craftiness",
@@ -8497,7 +8523,7 @@
 				{
 					"name": "Claws",
 					"entries": [
-						"Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you can deal slashing damage equal to {@dice 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+						"Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you can deal slashing damage equal to {@damage 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
 					],
 					"type": "entries"
 				},
@@ -8651,7 +8677,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Lizardfolk",
@@ -9479,7 +9506,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Minotaur",
@@ -9856,7 +9884,7 @@
 					"name": "Natural Weapons",
 					"entries": [
 						"Your fanged maw and constricting serpentine body are natural weapons, which you can use to make unarmed strikes.",
-						"If you hit with your bite, you deal piercing damage equal to {@dice 1d4} + your Strength modifier, and your target must make a Constitution saving throw (DC 8 + your proficiency bonus + your Constitution modifier). On a failed save, the target takes {@dice 1d4} poison damage.",
+						"If you hit with your bite, you deal piercing damage equal to {@damage 1d4} + your Strength modifier, and your target must make a Constitution saving throw (DC 8 + your proficiency bonus + your Constitution modifier). On a failed save, the target takes {@damage 1d4} poison damage.",
 						"If you hit with your constrict attack, you deal bludgeoning damage equal to {@dice 1d6} + your Strength modifier, and the target is {@condition grappled} (escape DC 8 + your proficiency bonus + your Strength modifier). Until this grapple ends, the target is {@condition restrained}, and you can't constrict another target."
 					],
 					"type": "entries"
@@ -10166,7 +10194,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Orc",
@@ -10711,9 +10740,6 @@
 			"resist": [
 				"poison"
 			],
-			"conditionImmune": [
-				"poisoned"
-			],
 			"entries": [
 				{
 					"type": "entries",
@@ -10928,7 +10954,7 @@
 				{
 					"name": "Ram",
 					"entries": [
-						"You can use your head and horns to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to {@dice 1d4} + your Strength modifier."
+						"You can use your head and horns to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to {@damage 1d4} + your Strength modifier."
 					],
 					"type": "entries"
 				},
@@ -11027,7 +11053,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sea Elf",
@@ -11121,7 +11148,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Shadar-Kai",
@@ -11203,7 +11231,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Shifter",
@@ -11366,6 +11395,7 @@
 				}
 			],
 			"hasFluff": true,
+			"hasFluffImages": true,
 			"_versions": [
 				{
 					"name": "Shifter; Beasthide",
@@ -12030,7 +12060,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Tabaxi",
@@ -12120,7 +12151,7 @@
 				{
 					"name": "Cat's Claws",
 					"entries": [
-						"Because of your claws, you have a climbing speed of 20 feet. In addition, your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to {@dice 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+						"Because of your claws, you have a climbing speed of 20 feet. In addition, your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to {@damage 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
 					],
 					"type": "entries"
 				},
@@ -12332,7 +12363,9 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Tortle",
@@ -12406,7 +12439,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Tortle",
@@ -12481,7 +12515,7 @@
 				{
 					"name": "Claws",
 					"entries": [
-						"Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to {@dice 1d4} + your Strength modifier, instead of bludgeoning damage normal for an unarmed strike."
+						"Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to {@damage 1d4} + your Strength modifier, instead of bludgeoning damage normal for an unarmed strike."
 					],
 					"type": "entries"
 				},
@@ -12650,7 +12684,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Triton",
@@ -13048,6 +13083,10 @@
 				"mature": 40,
 				"max": 500
 			},
+			"traitTags": [
+				"Skill Bonus Dice",
+				"Tool Bonus Dice"
+			],
 			"skillProficiencies": [
 				{
 					"choose": {
@@ -13106,7 +13145,7 @@
 				{
 					"name": "Tireless Precision",
 					"entries": [
-						"You are proficient in one of the following skills of your choice: {@skill Arcana}, {@skill History}, {@skill Investigation}, {@skill Medicine}, {@skill Performance}, or {@skill Sleight of Hand}.  You are also proficient with one {@book tool|phb|5|tools} of your choice.",
+						"You are proficient in one of the following skills of your choice: {@skill Arcana}, {@skill History}, {@skill Investigation}, {@skill Medicine}, {@skill Performance}, or {@skill Sleight of Hand}. You are also proficient with one {@book tool|phb|5|tools} of your choice.",
 						"Whenever you make an ability check with the chosen skill or tool, roll a {@dice d4} and add the number rolled to the check's total."
 					],
 					"type": "entries"
@@ -13216,6 +13255,10 @@
 				"mature": 40,
 				"max": 500
 			},
+			"traitTags": [
+				"Skill Bonus Dice",
+				"Tool Bonus Dice"
+			],
 			"languageProficiencies": [
 				{
 					"common": true
@@ -13422,14 +13465,14 @@
 					"type": "entries",
 					"name": "Bite",
 					"entries": [
-						"Your fanged maw is a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to {@dice 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+						"Your fanged maw is a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to {@damage 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
 					]
 				},
 				{
 					"type": "entries",
 					"name": "Lashing Tail",
 					"entries": [
-						"Your semi-prehensile tail is tipped with a bony blade. Immediately after a creature within 5 feet of you deals damage to you with a melee attack, you can use your reaction to make an unarmed strike against that creature with your tail. If you hit, you deal slashing damage equal to {@dice 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+						"Your semi-prehensile tail is tipped with a bony blade. Immediately after a creature within 5 feet of you deals damage to you with a melee attack, you can use your reaction to make an unarmed strike against that creature with your tail. If you hit, you deal slashing damage equal to {@damage 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
 					]
 				},
 				{
@@ -13859,7 +13902,8 @@
 					]
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Yuan-ti Pureblood",
@@ -14936,7 +14980,9 @@
 				}
 			],
 			"traitTags": [
-				"Dragonmark"
+				"Dragonmark",
+				"Skill Bonus Dice",
+				"Tool Bonus Dice"
 			],
 			"additionalSpells": [
 				{
@@ -15655,7 +15701,8 @@
 				}
 			],
 			"traitTags": [
-				"Dragonmark"
+				"Dragonmark",
+				"Skill Bonus Dice"
 			],
 			"additionalSpells": [
 				{
@@ -17495,7 +17542,9 @@
 				}
 			],
 			"traitTags": [
-				"Dragonmark"
+				"Dragonmark",
+				"Skill Bonus Dice",
+				"Tool Bonus Dice"
 			],
 			"additionalSpells": [
 				{
@@ -17937,7 +17986,8 @@
 				}
 			],
 			"traitTags": [
-				"Dragonmark"
+				"Dragonmark",
+				"Skill Bonus Dice"
 			],
 			"additionalSpells": [
 				{
@@ -18061,7 +18111,9 @@
 				}
 			],
 			"traitTags": [
-				"Dragonmark"
+				"Dragonmark",
+				"Skill Bonus Dice",
+				"Tool Bonus Dice"
 			],
 			"resist": [
 				"lightning"
@@ -18560,7 +18612,9 @@
 				}
 			],
 			"traitTags": [
-				"Dragonmark"
+				"Dragonmark",
+				"Skill Bonus Dice",
+				"Tool Bonus Dice"
 			],
 			"additionalSpells": [
 				{
@@ -18676,7 +18730,9 @@
 				}
 			],
 			"traitTags": [
-				"Dragonmark"
+				"Dragonmark",
+				"Skill Bonus Dice",
+				"Tool Bonus Dice"
 			],
 			"additionalSpells": [
 				{
@@ -18923,7 +18979,8 @@
 			],
 			"darkvision": 60,
 			"traitTags": [
-				"Dragonmark"
+				"Dragonmark",
+				"Skill Bonus Dice"
 			],
 			"languageProficiencies": [
 				{
@@ -19076,7 +19133,8 @@
 				}
 			],
 			"traitTags": [
-				"Dragonmark"
+				"Dragonmark",
+				"Skill Bonus Dice"
 			],
 			"additionalSpells": [
 				{
@@ -19207,7 +19265,9 @@
 				}
 			],
 			"traitTags": [
-				"Dragonmark"
+				"Dragonmark",
+				"Skill Bonus Dice",
+				"Tool Bonus Dice"
 			],
 			"toolProficiencies": [
 				{
@@ -19251,7 +19311,7 @@
 					"type": "entries",
 					"name": "Artisan's Intuition",
 					"entries": [
-						"When you make an {@skill Arcana} check or an ability check involving artisan's tools, you can roll a {@dice d4} and add the number rolled to the ability check."
+						"When you make an {@skill Arcana} check or an ability check involving {@filter artisan's tools|items|source=phb|miscellaneous=mundane|type=artisan's tools}, you can roll a {@dice d4} and add the number rolled to the ability check."
 					]
 				},
 				{
@@ -19385,7 +19445,7 @@
 					"type": "entries",
 					"name": "Intuitive Motion",
 					"entries": [
-						"When you make a Dexterity ({@skill Acrobatics}) check or any ability check to operate or maintain a land vehicle, you can roll a {@dice d4} and add the number rolled to the ability check."
+						"When you make a Dexterity ({@skill Acrobatics}) check or any ability check to operate or maintain a {@filter land vehicle|items|source=phb;dmg|miscellaneous=mundane|type=vehicle (land)}, you can roll a {@dice d4} and add the number rolled to the ability check."
 					]
 				},
 				{
@@ -19457,7 +19517,8 @@
 				}
 			],
 			"traitTags": [
-				"Dragonmark"
+				"Dragonmark",
+				"Skill Bonus Dice"
 			],
 			"additionalSpells": [
 				{
@@ -21729,7 +21790,7 @@
 						"As the name implies, most warforged were built to fight in the Last War. The vast majority of warforged are juggernauts or skirmishers\u2014soldiers and scouts who fought under the banner of one of the Five Nations. Warforged envoys, however, were designed to perform other functions. As an envoy, you have a skill, a tool proficiency, and a tool that's part of your body. When you make an envoy character, consider the following questions: What is your purpose? How does your skill and your tool reflect that purpose? What form does your integrated tool take? If you have embedded thieves' tools, for instance, are your fingers actually lockpicks, or can you produce keys from various parts of your body? The following characters are examples of warforged with integrated tools.",
 						"{@b Lute} is a bard with the entertainer background; his namesake instrument folds out of his left arm.",
 						"{@b Compass Rose} is a wizard with the outlander background. A keen explorer, she uses her built-in {@item cartographer's tools|phb} to record the paths she travels.",
-						"{@b Masque} is an infiltrator. A rogue with the charlatan background and an integrated {@item disguise Kit|phb}, she was built to blend in and assassinate. Cannith built six warforged of her design, and Masque has vowed to hunt down and destroy the other five.",
+						"{@b Masque} is an infiltrator. A rogue with the charlatan background and an integrated {@item disguise kit|phb}, she was built to blend in and assassinate. Cannith built six warforged of her design, and Masque has vowed to hunt down and destroy the other five.",
 						"In developing your integrated tool, remember that you must have your hands free to use it. Masque, the infiltrator mentioned above, doesn't shapeshift like a changeling; she has to manually adjust her appearance."
 					]
 				}

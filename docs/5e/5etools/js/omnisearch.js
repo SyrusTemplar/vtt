@@ -306,7 +306,7 @@ class Omnisearch {
 				? `<a href="${adventureBookSourceHref}">${ptPageInner}</a>`
 				: ptPageInner;
 
-			const ptSourceInner = source ? `<span class="${Parser.sourceJsonToColor(source)}" ${BrewUtil.sourceJsonToStyle(source)} title="${Parser.sourceJsonToFull(source)}">${Parser.sourceJsonToAbv(source)}</span>` : `<span></span>`;
+			const ptSourceInner = source ? `<span class="${Parser.sourceJsonToColor(source)}" ${BrewUtil2.sourceJsonToStyle(source)} title="${Parser.sourceJsonToFull(source)}">${Parser.sourceJsonToAbv(source)}</span>` : `<span></span>`;
 			const ptSource = ptPage || !adventureBookSourceHref
 				? ptSourceInner
 				: `<a href="${adventureBookSourceHref}">${ptSourceInner}</a>`;
@@ -406,12 +406,9 @@ class Omnisearch {
 		SearchUtil.removeStemmer(this._searchIndex);
 
 		data.forEach(it => this._addToIndex(it));
-		this.highestId = data.last().id;
 
-		// this doesn't update if the 'Brew changes later, but so be it.
-		const brewIndex = await BrewUtil.pGetSearchIndex();
+		const brewIndex = await BrewUtil2.pGetSearchIndex({id: this._maxId + 1});
 		brewIndex.forEach(it => this._addToIndex(it));
-		if (brewIndex.length) this.highestId = brewIndex.last().id;
 
 		this._adventureBookLookup = {};
 		[brewIndex, data].forEach(index => {
@@ -421,29 +418,9 @@ class Omnisearch {
 		});
 	}
 
-	static async pAddToIndex (prop, ...entries) {
-		if (!entries.length) return;
-
-		await this.pInit();
-		const indexer = new Omnidexer(this.highestId + 1);
-
-		const toIndex = {[prop]: entries};
-
-		const toIndexMultiPart = Omnidexer.TO_INDEX__FROM_INDEX_JSON.filter(it => it.listProp === prop);
-		for (const it of toIndexMultiPart) {
-			await indexer.pAddToIndex(it, toIndex);
-		}
-		const toIndexSingle = Omnidexer.TO_INDEX.filter(it => it.listProp === prop);
-		for (const it of toIndexSingle) {
-			await indexer.pAddToIndex(it, toIndex);
-		}
-
-		const toAdd = Omnidexer.decompressIndex(indexer.getIndex());
-		toAdd.forEach(it => this._addToIndex(it));
-		if (toAdd.length) this.highestId = toAdd.last().id;
-	}
-
+	static _maxId = null;
 	static _addToIndex (d) {
+		this._maxId = d.id;
 		d.cf = Parser.pageCategoryToFull(d.c);
 		if (!this._CATEGORY_COUNTS[d.cf]) this._CATEGORY_COUNTS[d.cf] = 1;
 		else this._CATEGORY_COUNTS[d.cf]++;
@@ -536,7 +513,6 @@ Omnisearch._searchIndex = null;
 Omnisearch._adventureBookLookup = null; // A map of `<sourceLower>: (adventureCatId|bookCatId)`
 Omnisearch._pLoadSearch = null;
 Omnisearch._CATEGORY_COUNTS = {};
-Omnisearch.highestId = -1;
 
 Omnisearch._$btnToggleUa = null;
 Omnisearch._$btnToggleBlacklisted = null;

@@ -318,6 +318,8 @@ class UiUtil {
 	 *
 	 * @param {string} [opts.title] Modal title.
 	 *
+	 * @param {string} [opts.window] Browser window.
+	 *
 	 * @param [opts.isUncappedHeight] {boolean}
 	 * @param [opts.isUncappedWidth] {boolean}
 	 * @param [opts.isHeight100] {boolean}
@@ -341,13 +343,19 @@ class UiUtil {
 	static getShowModal (opts) {
 		opts = opts || {};
 
-		UiUtil._initModalEscapeHandler();
-		UiUtil._initModalMouseupHandlers();
-		if (document.activeElement) document.activeElement.blur(); // blur any active element as it will be behind the modal
+		const doc = (opts.window || window).document;
+
+		UiUtil._initModalEscapeHandler({doc});
+		UiUtil._initModalMouseupHandlers({doc});
+		if (doc.activeElement) doc.activeElement.blur(); // blur any active element as it will be behind the modal
+
+		let resolveModal;
+		const pResolveModal = new Promise(resolve => { resolveModal = resolve; });
 
 		// if the user closed the modal by clicking the "cancel" background, isDataEntered is false
 		const pHandleCloseClick = async (isDataEntered, ...args) => {
 			if (opts.cbClose) await opts.cbClose(isDataEntered, ...args);
+			resolveModal([isDataEntered, ...args]);
 
 			if (opts.isIndestructible) wrpOverlay.detach();
 			else wrpOverlay.remove();
@@ -357,12 +365,12 @@ class UiUtil {
 
 		const doTeardown = () => {
 			UiUtil._popFromModalStack(modalStackMeta);
-			if (!UiUtil._MODAL_STACK.length) document.body.classList.remove(`ui-modal__body-active`);
+			if (!UiUtil._MODAL_STACK.length) doc.body.classList.remove(`ui-modal__body-active`);
 		};
 
 		const doOpen = () => {
-			wrpOverlay.appendTo(document.body);
-			document.body.classList.add(`ui-modal__body-active`);
+			wrpOverlay.appendTo(doc.body);
+			doc.body.classList.add(`ui-modal__body-active`);
 		};
 
 		const wrpOverlay = e_({tag: "div", clazz: "ui-modal__overlay"});
@@ -462,6 +470,7 @@ class UiUtil {
 			$modalFooter: $(modalFooter),
 			doClose: pHandleCloseClick,
 			doTeardown,
+			pGetResolved: () => pResolveModal,
 		};
 
 		if (opts.isIndestructible || opts.isClosed) {
@@ -485,11 +494,11 @@ class UiUtil {
 		if (~ixStack) UiUtil._MODAL_STACK.splice(ixStack, 1);
 	}
 
-	static _initModalEscapeHandler () {
+	static _initModalEscapeHandler ({doc}) {
 		if (UiUtil._MODAL_STACK) return;
 		UiUtil._MODAL_STACK = [];
 
-		document.addEventListener("keydown", evt => {
+		doc.addEventListener("keydown", evt => {
 			if (evt.which !== 27) return;
 			if (!UiUtil._MODAL_STACK.length) return;
 			if (EventUtil.isInInput(evt)) return;
@@ -501,8 +510,8 @@ class UiUtil {
 		});
 	}
 
-	static _initModalMouseupHandlers () {
-		document.addEventListener("mousedown", evt => {
+	static _initModalMouseupHandlers ({doc}) {
+		doc.addEventListener("mousedown", evt => {
 			UiUtil._MODAL_LAST_MOUSEDOWN = evt.target;
 		});
 	}
@@ -619,6 +628,8 @@ UiUtil._MODAL_STACK = null;
 UiUtil._MODAL_LAST_MOUSEDOWN = null;
 
 class ListUiUtil {
+	static _EVT_PASS_THOUGH_TAGS = new Set(["A", "BUTTON"]);
+
 	/**
 	 * (Public method for Plutonium use)
 	 * Handle doing a checkbox-based selection toggle on a list.
@@ -629,9 +640,16 @@ class ListUiUtil {
 	 * @param [opts.isNoHighlightSelection] If highlighting selected rows should be skipped.
 	 * @param [opts.fnOnSelectionChange] Function to call when selection status of an item changes.
 	 * @param [opts.fnGetCb] Function which gets the checkbox from a list item.
+	 * @param [opts.isPassThroughEvents] If e.g. click events to links/buttons in the list item should be allowed/ignored.
 	 */
 	static handleSelectClick (list, item, evt, opts) {
 		opts = opts || {};
+
+		if (opts.isPassThroughEvents) {
+			const subEles = evt.path.slice(0, evt.path.indexOf(evt.currentTarget));
+			if (subEles.some(ele => ListUiUtil._EVT_PASS_THOUGH_TAGS.has(ele?.tagName))) return;
+		}
+
 		evt.preventDefault();
 		evt.stopPropagation();
 
@@ -927,7 +945,12 @@ ProfUiUtil.PROF_TO_FULL = {
 };
 
 class TabUiUtilBase {
-	static decorate (obj) {
+	static decorate (obj, {isInitMeta = false} = {}) {
+		if (isInitMeta) {
+			obj.__meta = {};
+			obj._meta = obj._getProxy("meta", obj.__meta);
+		}
+
 		obj.__tabState = {};
 
 		obj._getTabProps = function ({propProxy = TabUiUtilBase._DEFAULT_PROP_PROXY, tabGroup = TabUiUtilBase._DEFAULT_TAB_GROUP} = {}) {
@@ -1092,8 +1115,8 @@ TabUiUtilBase.TabMeta = class {
 };
 
 class TabUiUtil extends TabUiUtilBase {
-	static decorate (obj) {
-		super.decorate(obj);
+	static decorate (obj, {isInitMeta = false} = {}) {
+		super.decorate(obj, {isInitMeta});
 
 		obj.__$getBtnTab = function ({tabMeta, _propProxy, propActive, ixTab}) {
 			return $(`<button class="btn btn-default ui-tab__btn-tab-head ${tabMeta.isHeadHidden ? "ve-hidden" : ""}">${tabMeta.name.qq()}</button>`)
@@ -1134,23 +1157,24 @@ class TabUiUtil extends TabUiUtilBase {
 TabUiUtil.TabMeta = class extends TabUiUtilBase.TabMeta {
 	constructor (opts) {
 		super(opts);
-		this.hasBorder = opts.hasBorder;
-		this.hasBackground = opts.hasBackground;
-		this.isHeadHidden = opts.isHeadHidden;
+		this.hasBorder = !!opts.hasBorder;
+		this.hasBackground = !!opts.hasBackground;
+		this.isHeadHidden = !!opts.isHeadHidden;
+		this.isNoPadding = !!opts.isNoPadding;
 	}
 };
 
 class TabUiUtilSide extends TabUiUtilBase {
-	static decorate (obj) {
-		super.decorate(obj);
+	static decorate (obj, {isInitMeta = false} = {}) {
+		super.decorate(obj, {isInitMeta});
 
 		obj.__$getBtnTab = function ({isSingleTab, tabMeta, _propProxy, propActive, ixTab}) {
 			return isSingleTab ? null : $(`<button class="btn btn-default btn-sm ui-tab-side__btn-tab mb-2 br-0 btr-0 bbr-0 text-left ve-flex-v-center" title="${tabMeta.name.qq()}"><div class="${tabMeta.icon} ui-tab-side__icon-tab mr-2 mobile-ish__mr-0 text-center"></div><div class="mobile-ish__hidden">${tabMeta.name.qq()}</div></button>`)
 				.click(() => this[_propProxy][propActive] = ixTab);
 		};
 
-		obj.__$getWrpTab = function () {
-			return $(`<div class="ve-flex-col w-100 h-100 ui-tab-side__wrp-tab px-3 py-2 overflow-y-auto"></div>`);
+		obj.__$getWrpTab = function ({tabMeta}) {
+			return $(`<div class="ve-flex-col w-100 h-100 ui-tab-side__wrp-tab ${tabMeta.isNoPadding ? "" : "px-3 py-2"} overflow-y-auto"></div>`);
 		};
 
 		obj.__renderTabs_addToParent = function ({$dispTabTitle, $parent, tabMetasOut}) {
@@ -1223,7 +1247,7 @@ class SearchUiUtil {
 			await Promise.all(options.additionalIndices.map(async add => {
 				additionalData[add] = Omnidexer.decompressIndex(await DataUtil.loadJSON(`${Renderer.get().baseUrl}search/index-${add}.json`));
 				const maxId = additionalData[add].last().id;
-				const brewIndex = await BrewUtil.pGetAdditionalSearchIndices(maxId, add);
+				const brewIndex = await BrewUtil2.pGetAdditionalSearchIndices(maxId, add);
 				if (brewIndex.length) additionalData[add] = additionalData[add].concat(brewIndex);
 			}));
 		}
@@ -1233,7 +1257,7 @@ class SearchUiUtil {
 			await Promise.all(options.alternateIndices.map(async alt => {
 				alternateData[alt] = Omnidexer.decompressIndex(await DataUtil.loadJSON(`${Renderer.get().baseUrl}search/index-alt-${alt}.json`));
 				const maxId = alternateData[alt].last().id;
-				const brewIndex = await BrewUtil.pGetAlternateSearchIndices(maxId, alt);
+				const brewIndex = await BrewUtil2.pGetAlternateSearchIndices(maxId, alt);
 				if (brewIndex.length) alternateData[alt] = alternateData[alt].concat(brewIndex);
 			}));
 		}
@@ -1279,10 +1303,7 @@ class SearchUiUtil {
 		Object.values(additionalData).forEach(arr => arr.forEach(d => handleDataItem(d)));
 		Object.values(alternateData).forEach(arr => arr.forEach(d => handleDataItem(d, true)));
 
-		// Add homebrew
-		Omnisearch.highestId = Math.max(ixMax, Omnisearch.highestId);
-
-		const brewIndex = await BrewUtil.pGetSearchIndex();
+		const brewIndex = await BrewUtil2.pGetSearchIndex({id: availContent.ALL.documentStore.length});
 
 		brewIndex.forEach(d => {
 			if (SearchUiUtil._isNoHoverCat(d.c) || fromDeepIndex(d)) return;
@@ -2017,7 +2038,7 @@ class SearchWidget {
 				typeof subSpec.dataSource === "string"
 					? DataUtil.loadJSON(subSpec.dataSource)
 					: subSpec.dataSource(),
-				BrewUtil.pAddBrewData(),
+				BrewUtil2.pGetBrewProcessed(),
 			]);
 
 			await [...json[subSpec.prop], ...(homebrew[subSpec.prop] || [])]
@@ -2052,6 +2073,10 @@ SearchWidget.CONTENT_INDICES = {};
 SearchWidget.P_LOADING_INDICES = {};
 
 class InputUiUtil {
+	static async _pGetShowModal (getShowModalOpts) {
+		return UiUtil.getShowModal(getShowModalOpts);
+	}
+
 	/**
 	 * @param opts Options.
 	 * @param opts.min Minimum value.
@@ -2076,54 +2101,61 @@ class InputUiUtil {
 			if (prev != null) defaultVal = prev;
 		}
 
-		return new Promise(resolve => {
-			const $iptNumber = $(`<input class="form-control mb-2 text-right" ${opts.min ? `min="${opts.min}"` : ""} ${opts.max ? `max="${opts.max}"` : ""}>`)
-				.keydown(evt => {
-					if (evt.key === "Escape") { $iptNumber.blur(); return; }
-					// return key
-					if (evt.which === 13) doClose(true);
-					evt.stopPropagation();
-				});
-			if (defaultVal !== undefined) $iptNumber.val(defaultVal);
+		const $iptNumber = $(`<input class="form-control mb-2 text-right" ${opts.min ? `min="${opts.min}"` : ""} ${opts.max ? `max="${opts.max}"` : ""}>`)
+			.keydown(evt => {
+				if (evt.key === "Escape") { $iptNumber.blur(); return; }
 
-			const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
-				.click(() => doClose(true));
-			const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
-				.click(() => doClose(false));
-			const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
-				.click(() => doClose(VeCt.SYM_UI_SKIP));
-
-			const {$modalInner, doClose} = UiUtil.getShowModal({
-				title: opts.title || "Enter a Number",
-				isMinHeight0: true,
-				cbClose: (isDataEntered) => {
-					if (typeof isDataEntered === "symbol") return resolve(isDataEntered);
-
-					if (!isDataEntered) return resolve(null);
-					const raw = $iptNumber.val();
-					if (!raw.trim()) return resolve(null);
-					let num = UiUtil.strToInt(raw);
-					if (opts.min) num = Math.max(opts.min, num);
-					if (opts.max) num = Math.min(opts.max, num);
-					if (opts.int) num = Math.round(num);
-
-					if (opts.storageKey_default) {
-						opts.isGlobal_default
-							? StorageUtil.pSet(opts.storageKey_default, num)
-							: StorageUtil.pSetForPage(opts.storageKey_default, num);
-					}
-
-					resolve(num);
-				},
+				evt.stopPropagation();
+				if (evt.key === "Enter") {
+					evt.preventDefault();
+					doClose(true);
+				}
 			});
+		if (defaultVal !== undefined) $iptNumber.val(defaultVal);
 
-			if (opts.$elePre) opts.$elePre.appendTo($modalInner);
-			$iptNumber.appendTo($modalInner);
-			if (opts.$elePost) opts.$elePost.appendTo($modalInner);
-			$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
-			$iptNumber.focus();
-			$iptNumber.select();
+		const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
+			.click(() => doClose(true));
+		const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
+			.click(() => doClose(false));
+		const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
+			.click(() => doClose(VeCt.SYM_UI_SKIP));
+
+		const {$modalInner, doClose, pGetResolved, doAutoResize: doAutoResizeModal} = await InputUiUtil._pGetShowModal({
+			title: opts.title || "Enter a Number",
+			isMinHeight0: true,
 		});
+
+		if (opts.$elePre) opts.$elePre.appendTo($modalInner);
+		$iptNumber.appendTo($modalInner);
+		if (opts.$elePost) opts.$elePost.appendTo($modalInner);
+		$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
+
+		if (doAutoResizeModal) doAutoResizeModal();
+
+		$iptNumber.focus();
+		$iptNumber.select();
+
+		// region Output
+		const [isDataEntered] = await pGetResolved();
+
+		if (typeof isDataEntered === "symbol") return isDataEntered;
+
+		if (!isDataEntered) return null;
+		const outRaw = $iptNumber.val();
+		if (!outRaw.trim()) return null;
+		let out = UiUtil.strToInt(outRaw);
+		if (opts.min) out = Math.max(opts.min, out);
+		if (opts.max) out = Math.min(opts.max, out);
+		if (opts.int) out = Math.round(out);
+
+		if (opts.storageKey_default) {
+			opts.isGlobal_default
+				? StorageUtil.pSet(opts.storageKey_default, out).then(null)
+				: StorageUtil.pSetForPage(opts.storageKey_default, out).then(null);
+		}
+
+		return out;
+		// endregion
 	}
 
 	/**
@@ -2149,45 +2181,49 @@ class InputUiUtil {
 			if (prev != null) return prev;
 		}
 
-		return new Promise(resolve => {
-			const $btnTrueRemember = opts.textYesRemember ? $(`<button class="btn btn-primary ve-flex-v-center mr-2"><span class="glyphicon glyphicon-ok mr-2"></span><span>${opts.textYesRemember}</span></button>`)
-				.click(() => {
-					doClose(true, true);
-					if (opts.fnRemember) {
-						opts.fnRemember(true);
-					} else {
-						opts.isGlobal
-							? StorageUtil.pSet(opts.storageKey, true)
-							: StorageUtil.pSetForPage(opts.storageKey, true);
-					}
-				}) : null;
+		const $btnTrueRemember = opts.textYesRemember ? $(`<button class="btn btn-primary ve-flex-v-center mr-2"><span class="glyphicon glyphicon-ok mr-2"></span><span>${opts.textYesRemember}</span></button>`)
+			.click(() => {
+				doClose(true, true);
+				if (opts.fnRemember) {
+					opts.fnRemember(true);
+				} else {
+					opts.isGlobal
+						? StorageUtil.pSet(opts.storageKey, true)
+						: StorageUtil.pSetForPage(opts.storageKey, true);
+				}
+			}) : null;
 
-			const $btnTrue = $(`<button class="btn btn-primary ve-flex-v-center mr-3"><span class="glyphicon glyphicon-ok mr-2"></span><span>${opts.textYes || "OK"}</span></button>`)
-				.click(() => doClose(true, true));
+		const $btnTrue = $(`<button class="btn btn-primary ve-flex-v-center mr-3"><span class="glyphicon glyphicon-ok mr-2"></span><span>${opts.textYes || "OK"}</span></button>`)
+			.click(() => doClose(true, true));
 
-			const $btnFalse = opts.isAlert ? null : $(`<button class="btn btn-default btn-sm ve-flex-v-center"><span class="glyphicon glyphicon-remove mr-2"></span><span>${opts.textNo || "Cancel"}</span></button>`)
-				.click(() => doClose(true, false));
+		const $btnFalse = opts.isAlert ? null : $(`<button class="btn btn-default btn-sm ve-flex-v-center"><span class="glyphicon glyphicon-remove mr-2"></span><span>${opts.textNo || "Cancel"}</span></button>`)
+			.click(() => doClose(true, false));
 
-			const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default btn-sm ml-3"><span class="glyphicon glyphicon-forward"></span><span>${opts.textSkip || "Skip"}</span></button>`)
-				.click(() => doClose(VeCt.SYM_UI_SKIP));
+		const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default btn-sm ml-3"><span class="glyphicon glyphicon-forward"></span><span>${opts.textSkip || "Skip"}</span></button>`)
+			.click(() => doClose(VeCt.SYM_UI_SKIP));
 
-			const {$modalInner, doClose} = UiUtil.getShowModal({
-				title: opts.title || "Choose",
-				isMinHeight0: true,
-				cbClose: (isDataEntered, value) => {
-					if (typeof isDataEntered === "symbol") return resolve(isDataEntered);
-
-					if (!isDataEntered) return resolve(null);
-					if (value == null) throw new Error(`Callback must receive a value!`); // sanity check
-					resolve(value);
-				},
-			});
-
-			if (opts.htmlDescription && opts.htmlDescription.trim()) $$`<div class="ve-flex w-100 mb-1">${opts.htmlDescription}</div>`.appendTo($modalInner);
-			$$`<div class="ve-flex-v-center ve-flex-h-right py-1 px-1">${$btnTrueRemember}${$btnTrue}${$btnFalse}${$btnSkip}</div>`.appendTo($modalInner);
-			$btnTrue.focus();
-			$btnTrue.select();
+		const {$modalInner, doClose, pGetResolved, doAutoResize: doAutoResizeModal} = await InputUiUtil._pGetShowModal({
+			title: opts.title || "Choose",
+			isMinHeight0: true,
 		});
+
+		if (opts.htmlDescription && opts.htmlDescription.trim()) $$`<div class="ve-flex w-100 mb-1">${opts.htmlDescription}</div>`.appendTo($modalInner);
+		$$`<div class="ve-flex-v-center ve-flex-h-right py-1 px-1">${$btnTrueRemember}${$btnTrue}${$btnFalse}${$btnSkip}</div>`.appendTo($modalInner);
+
+		if (doAutoResizeModal) doAutoResizeModal();
+
+		$btnTrue.focus();
+		$btnTrue.select();
+
+		// region Output
+		const [isDataEntered, out] = await pGetResolved();
+
+		if (typeof isDataEntered === "symbol") return isDataEntered;
+
+		if (!isDataEntered) return null;
+		if (out == null) throw new Error(`Callback must receive a value!`); // sanity check
+		return out;
+		// endregion
 	}
 
 	/**
@@ -2204,46 +2240,59 @@ class InputUiUtil {
 	 * @param [opts.isSkippable] If the prompt is skippable.
 	 * @return {Promise} A promise which resolves to the index of the item the user selected (or an object if fnGetExtraState is passed), or null otherwise.
 	 */
-	static pGetUserEnum (opts) {
+	static async pGetUserEnum (opts) {
 		opts = opts || {};
-		return new Promise(resolve => {
-			const $selEnum = $(`<select class="form-control mb-2"><option value="-1" disabled>${opts.placeholder || "Select..."}</option></select>`);
 
-			if (opts.isAllowNull) $(`<option value="-1"></option>`).text(opts.fnDisplay ? opts.fnDisplay(null, -1) : "(None)").appendTo($selEnum);
-
-			opts.values.forEach((v, i) => $(`<option value="${i}"></option>`).text(opts.fnDisplay ? opts.fnDisplay(v, i) : v).appendTo($selEnum));
-			if (opts.default != null) $selEnum.val(opts.default);
-			else $selEnum[0].selectedIndex = 0;
-
-			const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
-				.click(() => doClose(true));
-			const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
-				.click(() => doClose(false));
-			const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
-				.click(() => doClose(VeCt.SYM_UI_SKIP));
-
-			const {$modalInner, doClose} = UiUtil.getShowModal({
-				title: opts.title || "Select an Option",
-				isMinHeight0: true,
-				cbClose: (isDataEntered) => {
-					if (typeof isDataEntered === "symbol") return resolve(isDataEntered);
-
-					if (!isDataEntered) return resolve(null);
-					const ix = Number($selEnum.val());
-					if (!~ix) return resolve(null);
-					if (opts.fnGetExtraState) {
-						const out = {extraState: opts.fnGetExtraState()};
-						if (opts.isResolveItem) out.item = opts.values[ix];
-						else out.ix = ix;
-						resolve(out);
-					} else resolve(opts.isResolveItem ? opts.values[ix] : ix);
-				},
+		const $selEnum = $(`<select class="form-control mb-2"><option value="-1" disabled>${opts.placeholder || "Select..."}</option></select>`)
+			.keydown(async evt => {
+				evt.stopPropagation();
+				if (evt.key === "Enter") {
+					evt.preventDefault();
+					doClose(true);
+				}
 			});
-			$selEnum.appendTo($modalInner);
-			if (opts.$elePost) opts.$elePost.appendTo($modalInner);
-			$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
-			$selEnum.focus();
+
+		if (opts.isAllowNull) $(`<option value="-1"></option>`).text(opts.fnDisplay ? opts.fnDisplay(null, -1) : "(None)").appendTo($selEnum);
+
+		opts.values.forEach((v, i) => $(`<option value="${i}"></option>`).text(opts.fnDisplay ? opts.fnDisplay(v, i) : v).appendTo($selEnum));
+		if (opts.default != null) $selEnum.val(opts.default);
+		else $selEnum[0].selectedIndex = 0;
+
+		const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
+			.click(() => doClose(true));
+		const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
+			.click(() => doClose(false));
+		const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
+			.click(() => doClose(VeCt.SYM_UI_SKIP));
+
+		const {$modalInner, doClose, pGetResolved, doAutoResize: doAutoResizeModal} = await InputUiUtil._pGetShowModal({
+			title: opts.title || "Select an Option",
+			isMinHeight0: true,
 		});
+		$selEnum.appendTo($modalInner);
+		if (opts.$elePost) opts.$elePost.appendTo($modalInner);
+		$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
+
+		if (doAutoResizeModal) doAutoResizeModal();
+
+		$selEnum.focus();
+
+		// region Output
+		const [isDataEntered] = await pGetResolved();
+		if (typeof isDataEntered === "symbol") return isDataEntered;
+
+		if (!isDataEntered) return null;
+		const ix = Number($selEnum.val());
+		if (!~ix) return null;
+		if (opts.fnGetExtraState) {
+			const out = {extraState: opts.fnGetExtraState()};
+			if (opts.isResolveItem) out.item = opts.values[ix];
+			else out.ix = ix;
+			return out;
+		}
+
+		return opts.isResolveItem ? opts.values[ix] : ix;
+		// endregion
 	}
 
 	/**
@@ -2261,70 +2310,85 @@ class InputUiUtil {
 	 * @param [opts.fnDisplay] Function which takes a value and returns display text.
 	 * @param [opts.modalOpts] Options to pass through to the underlying modal class.
 	 * @param [opts.isSkippable] If the prompt is skippable.
+	 * @param [opts.isSearchable] If a search input should be created.
+	 * @param [opts.fnGetSearchText] Function which takes a value and returns search text.
 	 * @return {Promise} A promise which resolves to the indices of the items the user selected, or null otherwise.
 	 */
-	static pGetUserMultipleChoice (opts) {
-		return new Promise(resolve => {
-			const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
-				.click(() => doClose(true));
-			const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
-				.click(() => doClose(false));
-			const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
-				.click(() => doClose(VeCt.SYM_UI_SKIP));
+	static async pGetUserMultipleChoice (opts) {
+		const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
+			.click(() => doClose(true));
+		const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
+			.click(() => doClose(false));
+		const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
+			.click(() => doClose(VeCt.SYM_UI_SKIP));
 
-			const prop = "formData";
+		const prop = "formData";
 
-			const initialState = {};
-			if (opts.defaults) opts.defaults.forEach(ix => initialState[ComponentUiUtil.getMetaWrpMultipleChoice_getPropIsActive(prop, ix)] = true);
-			if (opts.required) {
-				opts.required.forEach(ix => {
-					initialState[ComponentUiUtil.getMetaWrpMultipleChoice_getPropIsActive(prop, ix)] = true; // "requires" implies "default"
-					initialState[ComponentUiUtil.getMetaWrpMultipleChoice_getPropIsRequired(prop, ix)] = true;
-				});
-			}
-
-			const comp = BaseComponent.fromObject(initialState);
-
-			let title = opts.title;
-			if (!title) {
-				if (opts.count != null) title = `Choose ${Parser.numberToText(opts.count).uppercaseFirst()}`;
-				else if (opts.min != null && opts.max != null) title = `Choose Between ${Parser.numberToText(opts.min).uppercaseFirst()} and ${Parser.numberToText(opts.max).uppercaseFirst()} Options`;
-				else if (opts.min != null) title = `Choose At Least ${Parser.numberToText(opts.min).uppercaseFirst()}`;
-				else title = `Choose At Most ${Parser.numberToText(opts.max).uppercaseFirst()}`;
-			}
-
-			const {$ele: $wrpList, propIsAcceptable} = ComponentUiUtil.getMetaWrpMultipleChoice(comp, prop, opts);
-			$wrpList.addClass(`mb-1`);
-
-			const hkIsAcceptable = () => $btnOk.attr("disabled", !comp._state[propIsAcceptable]);
-			comp._addHookBase(propIsAcceptable, hkIsAcceptable);
-			hkIsAcceptable();
-
-			const {$modalInner, doClose} = UiUtil.getShowModal({
-				...(opts.modalOpts || {}),
-				title,
-				isMinHeight0: true,
-				isUncappedHeight: true,
-				cbClose: (isDataEntered) => {
-					if (typeof isDataEntered === "symbol") return resolve(isDataEntered);
-
-					if (!isDataEntered) return resolve(null);
-
-					const ixs = ComponentUiUtil.getMetaWrpMultipleChoice_getSelectedIxs(comp, prop);
-
-					if (!opts.isResolveItems) resolve(ixs);
-					else if (opts.values) resolve(ixs.map(ix => opts.values[ix]));
-					else if (opts.valueGroups) {
-						const allValues = opts.valueGroups.map(it => it.values).flat();
-						resolve(ixs.map(ix => allValues[ix]));
-					}
-				},
+		const initialState = {};
+		if (opts.defaults) opts.defaults.forEach(ix => initialState[ComponentUiUtil.getMetaWrpMultipleChoice_getPropIsActive(prop, ix)] = true);
+		if (opts.required) {
+			opts.required.forEach(ix => {
+				initialState[ComponentUiUtil.getMetaWrpMultipleChoice_getPropIsActive(prop, ix)] = true; // "requires" implies "default"
+				initialState[ComponentUiUtil.getMetaWrpMultipleChoice_getPropIsRequired(prop, ix)] = true;
 			});
-			if (opts.htmlDescription) $modalInner.append(opts.htmlDescription);
-			$wrpList.appendTo($modalInner);
-			$$`<div class="ve-flex-v-center ve-flex-h-right no-shrink pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
-			$wrpList.focus();
+		}
+
+		const comp = BaseComponent.fromObject(initialState);
+
+		let title = opts.title;
+		if (!title) {
+			if (opts.count != null) title = `Choose ${Parser.numberToText(opts.count).uppercaseFirst()}`;
+			else if (opts.min != null && opts.max != null) title = `Choose Between ${Parser.numberToText(opts.min).uppercaseFirst()} and ${Parser.numberToText(opts.max).uppercaseFirst()} Options`;
+			else if (opts.min != null) title = `Choose At Least ${Parser.numberToText(opts.min).uppercaseFirst()}`;
+			else title = `Choose At Most ${Parser.numberToText(opts.max).uppercaseFirst()}`;
+		}
+
+		const {$ele: $wrpList, $iptSearch, propIsAcceptable} = ComponentUiUtil.getMetaWrpMultipleChoice(comp, prop, opts);
+		$wrpList.addClass(`mb-1`);
+
+		const hkIsAcceptable = () => $btnOk.attr("disabled", !comp._state[propIsAcceptable]);
+		comp._addHookBase(propIsAcceptable, hkIsAcceptable);
+		hkIsAcceptable();
+
+		const {$modalInner, doClose, pGetResolved, doAutoResize: doAutoResizeModal} = await InputUiUtil._pGetShowModal({
+			...(opts.modalOpts || {}),
+			title,
+			isMinHeight0: true,
+			isUncappedHeight: true,
 		});
+		if (opts.htmlDescription) $modalInner.append(opts.htmlDescription);
+		if ($iptSearch) {
+			$$`<label class="mb-1">
+				${$iptSearch}
+			</label>`.appendTo($modalInner);
+		}
+		$wrpList.appendTo($modalInner);
+		$$`<div class="ve-flex-v-center ve-flex-h-right no-shrink pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
+
+		if (doAutoResizeModal) doAutoResizeModal();
+
+		$wrpList.focus();
+
+		// region Output
+		const [isDataEntered] = await pGetResolved();
+
+		if (typeof isDataEntered === "symbol") return isDataEntered;
+
+		if (!isDataEntered) return null;
+
+		const ixs = ComponentUiUtil.getMetaWrpMultipleChoice_getSelectedIxs(comp, prop);
+
+		if (!opts.isResolveItems) return ixs;
+
+		if (opts.values) return ixs.map(ix => opts.values[ix]);
+
+		if (opts.valueGroups) {
+			const allValues = opts.valueGroups.map(it => it.values).flat();
+			return ixs.map(ix => allValues[ix]);
+		}
+
+		throw new Error(`Should never occur!`);
+		// endregion
 	}
 
 	/**
@@ -2337,53 +2401,55 @@ class InputUiUtil {
 	 * @param [opts.isSkippable] If the prompt is skippable.
 	 * @return {Promise<number>} A promise which resolves to the index of the item the user selected, or null otherwise.
 	 */
-	static pGetUserIcon (opts) {
+	static async pGetUserIcon (opts) {
 		opts = opts || {};
-		return new Promise(resolve => {
-			let lastIx = opts.default != null ? opts.default : -1;
-			const onclicks = [];
 
-			const {$modalInner, doClose} = UiUtil.getShowModal({
-				title: opts.title || "Select an Option",
-				isMinHeight0: true,
-				cbClose: (isDataEntered) => {
-					if (typeof isDataEntered === "symbol") return resolve(isDataEntered);
-					if (!isDataEntered) return resolve(null);
-					return resolve(~lastIx ? lastIx : null);
-				},
-			});
+		let lastIx = opts.default != null ? opts.default : -1;
+		const onclicks = [];
 
-			$$`<div class="ve-flex ve-flex-wrap ve-flex-h-center mb-2">${opts.values.map((v, i) => {
-				const $btn = $$`<div class="m-2 btn ${v.buttonClass || "btn-default"} ui__btn-xxl-square ve-flex-col ve-flex-h-center">
+		const {$modalInner, doClose, pGetResolved, doAutoResize: doAutoResizeModal} = await InputUiUtil._pGetShowModal({
+			title: opts.title || "Select an Option",
+			isMinHeight0: true,
+		});
+
+		$$`<div class="ve-flex ve-flex-wrap ve-flex-h-center mb-2">${opts.values.map((v, i) => {
+			const $btn = $$`<div class="m-2 btn ${v.buttonClass || "btn-default"} ui__btn-xxl-square ve-flex-col ve-flex-h-center">
 					${v.iconClass ? `<div class="ui-icn__wrp-icon ${v.iconClass} mb-1"></div>` : ""}
 					${v.iconContent ? v.iconContent : ""}
 					<div class="whitespace-normal w-100">${v.name}</div>
 				</div>`
-					.click(() => {
-						lastIx = i;
-						onclicks.forEach(it => it());
-					})
-					.toggleClass(v.buttonClassActive || "active", opts.default === i);
-				if (v.buttonClassActive && opts.default === i) {
-					$btn.removeClass("btn-default").addClass(v.buttonClassActive);
-				}
+				.click(() => {
+					lastIx = i;
+					onclicks.forEach(it => it());
+				})
+				.toggleClass(v.buttonClassActive || "active", opts.default === i);
+			if (v.buttonClassActive && opts.default === i) {
+				$btn.removeClass("btn-default").addClass(v.buttonClassActive);
+			}
 
-				onclicks.push(() => {
-					$btn.toggleClass(v.buttonClassActive || "active", lastIx === i);
-					if (v.buttonClassActive) $btn.toggleClass("btn-default", lastIx !== i);
-				});
-				return $btn;
-			})}</div>`.appendTo($modalInner);
+			onclicks.push(() => {
+				$btn.toggleClass(v.buttonClassActive || "active", lastIx === i);
+				if (v.buttonClassActive) $btn.toggleClass("btn-default", lastIx !== i);
+			});
+			return $btn;
+		})}</div>`.appendTo($modalInner);
 
-			const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
-				.click(() => doClose(true));
-			const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
-				.click(() => doClose(false));
-			const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
-				.click(() => doClose(VeCt.SYM_UI_SKIP));
+		const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
+			.click(() => doClose(true));
+		const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
+			.click(() => doClose(false));
+		const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
+			.click(() => doClose(VeCt.SYM_UI_SKIP));
 
-			$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
-		});
+		$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
+
+		// region Output
+		const [isDataEntered] = await pGetResolved();
+
+		if (typeof isDataEntered === "symbol") return isDataEntered;
+		if (!isDataEntered) return null;
+		return ~lastIx ? lastIx : null;
+		// endregion
 	}
 
 	/**
@@ -2395,11 +2461,12 @@ class InputUiUtil {
 	 * @param [opts.isSkippable] If the prompt is skippable.
 	 * @param [opts.fnIsValid] A function which checks if the current input is valid, and prevents the user from
 	 *        submitting the value if it is.
-	 * @param [opts.$elePost] Element to add below the input.
+	 * @param [opts.$elePre] Element to add before the input.
+	 * @param [opts.$elePost] Element to add after the input.
 	 * @param [opts.cbPostRender] Callback to call after rendering the modal
 	 * @return {Promise<String>} A promise which resolves to the string if the user entered one, or null otherwise.
 	 */
-	static pGetUserString (opts) {
+	static async pGetUserString (opts) {
 		opts = opts || {};
 
 		const propValue = "text";
@@ -2408,72 +2475,80 @@ class InputUiUtil {
 			isValid: true,
 		});
 
-		return new Promise(resolve => {
-			const $iptStr = ComponentUiUtil.$getIptStr(
-				comp,
-				propValue,
-				{
-					html: `<input class="form-control mb-2" type="text">`,
-					autocomplete: opts.autocomplete,
-				},
-			)
-				.keydown(async evt => {
-					if (evt.key === "Escape") return; // Already handled
+		const $iptStr = ComponentUiUtil.$getIptStr(
+			comp,
+			propValue,
+			{
+				html: `<input class="form-control mb-2" type="text">`,
+				autocomplete: opts.autocomplete,
+			},
+		)
+			.keydown(async evt => {
+				if (evt.key === "Escape") return; // Already handled
 
-					if (opts.autocomplete) {
-						// prevent double-binding the return key if we have autocomplete enabled
-						await MiscUtil.pDelay(17); // arbitrary delay to allow dropdown to render (~1000/60, i.e. 1 60 FPS frame)
-						if ($modalInner.find(`.typeahead.dropdown-menu`).is(":visible")) return;
-					}
-					// return key
-					if (evt.key === "Enter") doClose(true);
-					evt.stopPropagation();
-				});
-			if (opts.isCode) $iptStr.addClass("code");
+				if (opts.autocomplete) {
+					// prevent double-binding the return key if we have autocomplete enabled
+					await MiscUtil.pDelay(17); // arbitrary delay to allow dropdown to render (~1000/60, i.e. 1 60 FPS frame)
+					if ($modalInner.find(`.typeahead.dropdown-menu`).is(":visible")) return;
+				}
 
-			if (opts.fnIsValid) {
-				const hkText = () => comp._state.isValid = !comp._state.text.trim() || !!opts.fnIsValid(comp._state.text);
-				comp._addHookBase(propValue, hkText);
-				hkText();
-
-				const hkIsValid = () => $iptStr.toggleClass("form-control--error", !comp._state.isValid);
-				comp._addHookBase("isValid", hkIsValid);
-				hkIsValid();
-			}
-
-			const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
-				.click(() => {
-					if (!comp._state.isValid) return JqueryUtil.doToast({content: `Please enter valid input!`, type: "warning"});
-					return doClose(true);
-				});
-			const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
-				.click(() => doClose(false));
-			const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
-				.click(() => doClose(VeCt.SYM_UI_SKIP));
-			const {$modalInner, doClose} = UiUtil.getShowModal({
-				title: opts.title || "Enter Text",
-				isMinHeight0: true,
-				cbClose: (isDataEntered) => {
-					if (typeof isDataEntered === "symbol") return resolve(isDataEntered);
-					if (!isDataEntered) return resolve(null);
-					const raw = $iptStr.val();
-					return resolve(raw);
-				},
+				evt.stopPropagation();
+				if (evt.key === "Enter") {
+					evt.preventDefault();
+					doClose(true);
+				}
 			});
-			$iptStr.appendTo($modalInner);
-			if (opts.$elePost) opts.$elePost.appendTo($modalInner);
-			$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
-			$iptStr.focus();
-			$iptStr.select();
+		if (opts.isCode) $iptStr.addClass("code");
 
-			if (opts.cbPostRender) {
-				opts.cbPostRender({
-					comp,
-					$iptStr,
-					propValue,
-				});
-			}
+		if (opts.fnIsValid) {
+			const hkText = () => comp._state.isValid = !comp._state.text.trim() || !!opts.fnIsValid(comp._state.text);
+			comp._addHookBase(propValue, hkText);
+			hkText();
+
+			const hkIsValid = () => $iptStr.toggleClass("form-control--error", !comp._state.isValid);
+			comp._addHookBase("isValid", hkIsValid);
+			hkIsValid();
+		}
+
+		const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
+			.click(() => {
+				if (!comp._state.isValid) return JqueryUtil.doToast({content: `Please enter valid input!`, type: "warning"});
+				return doClose(true);
+			});
+		const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
+			.click(() => doClose(false));
+		const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
+			.click(() => doClose(VeCt.SYM_UI_SKIP));
+		const {$modalInner, doClose, pGetResolved, doAutoResize: doAutoResizeModal} = await InputUiUtil._pGetShowModal({
+			title: opts.title || "Enter Text",
+			isMinHeight0: true,
 		});
+		if (opts.$elePre) opts.$elePre.appendTo($modalInner);
+		$iptStr.appendTo($modalInner);
+		if (opts.$elePost) opts.$elePost.appendTo($modalInner);
+		$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
+
+		if (doAutoResizeModal) doAutoResizeModal();
+
+		$iptStr.focus();
+		$iptStr.select();
+
+		if (opts.cbPostRender) {
+			opts.cbPostRender({
+				comp,
+				$iptStr,
+				propValue,
+			});
+		}
+
+		// region Output
+		const [isDataEntered] = await pGetResolved();
+
+		if (typeof isDataEntered === "symbol") return isDataEntered;
+		if (!isDataEntered) return null;
+		const raw = $iptStr.val();
+		return raw;
+		// endregion
 	}
 
 	/**
@@ -2486,34 +2561,39 @@ class InputUiUtil {
 	 * @param [opts.isSkippable] If the prompt is skippable.
 	 * @return {Promise<String>} A promise which resolves to the string if the user entered one, or null otherwise.
 	 */
-	static pGetUserText (opts) {
+	static async pGetUserText (opts) {
 		opts = opts || {};
-		return new Promise(resolve => {
-			const $iptStr = $(`<textarea class="form-control mb-2 resize-vertical w-100" ${opts.disabled ? "disabled" : ""}></textarea>`)
-				.val(opts.default);
-			if (opts.isCode) $iptStr.addClass("code");
-			const $btnOk = $(`<button class="btn btn-primary mr-2">${opts.buttonText || "OK"}</button>`)
-				.click(() => doClose(true));
-			const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
-				.click(() => doClose(false));
-			const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
-				.click(() => doClose(VeCt.SYM_UI_SKIP));
-			const {$modalInner, doClose} = UiUtil.getShowModal({
-				title: opts.title || "Enter Text",
-				isMinHeight0: true,
-				cbClose: (isDataEntered) => {
-					if (typeof isDataEntered === "symbol") return resolve(isDataEntered);
-					if (!isDataEntered) return resolve(null);
-					const raw = $iptStr.val();
-					if (!raw.trim()) return resolve(null);
-					else return resolve(raw);
-				},
-			});
-			$iptStr.appendTo($modalInner);
-			$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
-			$iptStr.focus();
-			$iptStr.select();
+
+		const $iptStr = $(`<textarea class="form-control mb-2 resize-vertical w-100" ${opts.disabled ? "disabled" : ""}></textarea>`)
+			.val(opts.default);
+		if (opts.isCode) $iptStr.addClass("code");
+		const $btnOk = $(`<button class="btn btn-primary mr-2">${opts.buttonText || "OK"}</button>`)
+			.click(() => doClose(true));
+		const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
+			.click(() => doClose(false));
+		const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
+			.click(() => doClose(VeCt.SYM_UI_SKIP));
+		const {$modalInner, doClose, pGetResolved, doAutoResize: doAutoResizeModal} = await InputUiUtil._pGetShowModal({
+			title: opts.title || "Enter Text",
+			isMinHeight0: true,
 		});
+		$iptStr.appendTo($modalInner);
+		$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
+
+		if (doAutoResizeModal) doAutoResizeModal();
+
+		$iptStr.focus();
+		$iptStr.select();
+
+		// region Output
+		const [isDataEntered] = await pGetResolved();
+
+		if (typeof isDataEntered === "symbol") return isDataEntered;
+		if (!isDataEntered) return null;
+		const raw = $iptStr.val();
+		if (!raw.trim()) return null;
+		else return raw;
+		// endregion
 	}
 
 	/**
@@ -2523,32 +2603,37 @@ class InputUiUtil {
 	 * @param [opts.isSkippable] If the prompt is skippable.
 	 * @return {Promise<String>} A promise which resolves to the color if the user entered one, or null otherwise.
 	 */
-	static pGetUserColor (opts) {
+	static async pGetUserColor (opts) {
 		opts = opts || {};
-		return new Promise(resolve => {
-			const $iptRgb = $(`<input class="form-control mb-2" ${opts.default != null ? `value="${opts.default}"` : ""} type="color">`);
-			const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
-				.click(() => doClose(true));
-			const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
-				.click(() => doClose(false));
-			const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
-				.click(() => doClose(VeCt.SYM_UI_SKIP));
-			const {$modalInner, doClose} = UiUtil.getShowModal({
-				title: opts.title || "Choose Color",
-				isMinHeight0: true,
-				cbClose: (isDataEntered) => {
-					if (typeof isDataEntered === "symbol") return resolve(isDataEntered);
-					if (!isDataEntered) return resolve(null);
-					const raw = $iptRgb.val();
-					if (!raw.trim()) return resolve(null);
-					else return resolve(raw);
-				},
-			});
-			$iptRgb.appendTo($modalInner);
-			$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
-			$iptRgb.focus();
-			$iptRgb.select();
+
+		const $iptRgb = $(`<input class="form-control mb-2" ${opts.default != null ? `value="${opts.default}"` : ""} type="color">`);
+		const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
+			.click(() => doClose(true));
+		const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
+			.click(() => doClose(false));
+		const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
+			.click(() => doClose(VeCt.SYM_UI_SKIP));
+		const {$modalInner, doClose, pGetResolved, doAutoResize: doAutoResizeModal} = await InputUiUtil._pGetShowModal({
+			title: opts.title || "Choose Color",
+			isMinHeight0: true,
 		});
+		$iptRgb.appendTo($modalInner);
+		$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
+
+		if (doAutoResizeModal) doAutoResizeModal();
+
+		$iptRgb.focus();
+		$iptRgb.select();
+
+		// region Output
+		const [isDataEntered] = await pGetResolved();
+
+		if (typeof isDataEntered === "symbol") return isDataEntered;
+		if (!isDataEntered) return null;
+		const raw = $iptRgb.val();
+		if (!raw.trim()) return null;
+		else return raw;
+		// endregion
 	}
 
 	/**
@@ -2561,7 +2646,7 @@ class InputUiUtil {
 	 * @param [opts.isSkippable] If the prompt is skippable.
 	 * @returns {Promise<number>} A promise which resolves to the number of degrees if the user pressed "Enter," or null otherwise.
 	 */
-	static pGetUserDirection (opts) {
+	static async pGetUserDirection (opts) {
 		const X = 0;
 		const Y = 1;
 		const DEG_CIRCLE = 360;
@@ -2574,105 +2659,108 @@ class InputUiUtil {
 			return Math.atan2(p2[Y] - p1[Y], p2[X] - p1[X]) * 180 / Math.PI;
 		}
 
-		return new Promise(resolve => {
-			let active = false;
-			let curAngle = Math.min(DEG_CIRCLE, opts.default) || 0;
+		let active = false;
+		let curAngle = Math.min(DEG_CIRCLE, opts.default) || 0;
 
-			const $arm = $(`<div class="ui-dir__arm"></div>`);
-			const handleAngle = () => $arm.css({transform: `rotate(${curAngle + 180}deg)`});
+		const $arm = $(`<div class="ui-dir__arm"></div>`);
+		const handleAngle = () => $arm.css({transform: `rotate(${curAngle + 180}deg)`});
+		handleAngle();
+
+		const $pad = $$`<div class="ui-dir__face">${$arm}</div>`.on("mousedown touchstart", evt => {
+			active = true;
+			handleEvent(evt);
+		});
+
+		const $document = $(document);
+		const evtId = `ui_user_dir_${CryptUtil.uid()}`;
+		$document.on(`mousemove.${evtId} touchmove${evtId}`, evt => {
+			handleEvent(evt);
+		}).on(`mouseup.${evtId} touchend${evtId} touchcancel${evtId}`, evt => {
+			evt.preventDefault();
+			evt.stopPropagation();
+			active = false;
+		});
+		const handleEvent = (evt) => {
+			if (!active) return;
+
+			const coords = [EventUtil.getClientX(evt), EventUtil.getClientY(evt)];
+
+			const {top, left} = $pad.offset();
+			const center = [left + ($pad.width() / 2), top + ($pad.height() / 2)];
+			curAngle = getAngle(center, coords) + 90;
+			if (step !== DEG_CIRCLE) curAngle = Math.round(curAngle / stepDeg) * stepDeg;
+			else curAngle = Math.round(curAngle);
 			handleAngle();
+		};
 
-			const $pad = $$`<div class="ui-dir__face">${$arm}</div>`.on("mousedown touchstart", evt => {
-				active = true;
-				handleEvent(evt);
-			});
+		const BTN_STEP_SIZE = 26;
+		const BORDER_PAD = 16;
+		const CONTROLS_RADIUS = (92 + BTN_STEP_SIZE + BORDER_PAD) / 2;
+		const $padOuter = opts.stepButtons ? (() => {
+			const steps = opts.stepButtons;
+			const SEG_ANGLE = 360 / steps.length;
 
-			const $document = $(document);
-			const evtId = `ui_user_dir_${CryptUtil.uid()}`;
-			$document.on(`mousemove.${evtId} touchmove${evtId}`, evt => {
-				handleEvent(evt);
-			}).on(`mouseup.${evtId} touchend${evtId} touchcancel${evtId}`, evt => {
-				evt.preventDefault();
-				evt.stopPropagation();
-				active = false;
-			});
-			const handleEvent = (evt) => {
-				if (!active) return;
+			const $btns = [];
 
-				const coords = [EventUtil.getClientX(evt), EventUtil.getClientY(evt)];
+			for (let i = 0; i < steps.length; ++i) {
+				const theta = (SEG_ANGLE * i * (Math.PI / 180)) - (1.5708); // offset by -90 degrees
+				const x = CONTROLS_RADIUS * Math.cos(theta);
+				const y = CONTROLS_RADIUS * Math.sin(theta);
+				$btns.push(
+					$(`<button class="btn btn-default btn-xxs absolute">${steps[i]}</button>`)
+						.css({
+							top: y + CONTROLS_RADIUS - (BTN_STEP_SIZE / 2),
+							left: x + CONTROLS_RADIUS - (BTN_STEP_SIZE / 2),
+							width: BTN_STEP_SIZE,
+							height: BTN_STEP_SIZE,
+							zIndex: 1002,
+						})
+						.click(() => {
+							curAngle = SEG_ANGLE * i;
+							handleAngle();
+						}),
+				);
+			}
 
-				const {top, left} = $pad.offset();
-				const center = [left + ($pad.width() / 2), top + ($pad.height() / 2)];
-				curAngle = getAngle(center, coords) + 90;
-				if (step !== DEG_CIRCLE) curAngle = Math.round(curAngle / stepDeg) * stepDeg;
-				else curAngle = Math.round(curAngle);
-				handleAngle();
-			};
+			const $wrpInner = $$`<div class="ve-flex-vh-center relative">${$btns}${$pad}</div>`
+				.css({
+					width: CONTROLS_RADIUS * 2,
+					height: CONTROLS_RADIUS * 2,
+				});
 
-			const BTN_STEP_SIZE = 26;
-			const BORDER_PAD = 16;
-			const CONTROLS_RADIUS = (92 + BTN_STEP_SIZE + BORDER_PAD) / 2;
-			const $padOuter = opts.stepButtons ? (() => {
-				const steps = opts.stepButtons;
-				const SEG_ANGLE = 360 / steps.length;
+			return $$`<div class="ve-flex-vh-center">${$wrpInner}</div>`
+				.css({
+					width: (CONTROLS_RADIUS * 2) + BTN_STEP_SIZE + BORDER_PAD,
+					height: (CONTROLS_RADIUS * 2) + BTN_STEP_SIZE + BORDER_PAD,
+				});
+		})() : null;
 
-				const $btns = [];
-
-				for (let i = 0; i < steps.length; ++i) {
-					const theta = (SEG_ANGLE * i * (Math.PI / 180)) - (1.5708); // offset by -90 degrees
-					const x = CONTROLS_RADIUS * Math.cos(theta);
-					const y = CONTROLS_RADIUS * Math.sin(theta);
-					$btns.push(
-						$(`<button class="btn btn-default btn-xxs absolute">${steps[i]}</button>`)
-							.css({
-								top: y + CONTROLS_RADIUS - (BTN_STEP_SIZE / 2),
-								left: x + CONTROLS_RADIUS - (BTN_STEP_SIZE / 2),
-								width: BTN_STEP_SIZE,
-								height: BTN_STEP_SIZE,
-								zIndex: 1002,
-							})
-							.click(() => {
-								curAngle = SEG_ANGLE * i;
-								handleAngle();
-							}),
-					);
-				}
-
-				const $wrpInner = $$`<div class="ve-flex-vh-center relative">${$btns}${$pad}</div>`
-					.css({
-						width: CONTROLS_RADIUS * 2,
-						height: CONTROLS_RADIUS * 2,
-					});
-
-				return $$`<div class="ve-flex-vh-center">${$wrpInner}</div>`
-					.css({
-						width: (CONTROLS_RADIUS * 2) + BTN_STEP_SIZE + BORDER_PAD,
-						height: (CONTROLS_RADIUS * 2) + BTN_STEP_SIZE + BORDER_PAD,
-					});
-			})() : null;
-
-			const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
-				.click(() => doClose(true));
-			const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
-				.click(() => doClose(false));
-			const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
-				.click(() => doClose(VeCt.SYM_UI_SKIP));
-			const {$modalInner, doClose} = UiUtil.getShowModal({
-				title: opts.title || "Select Direction",
-				isMinHeight0: true,
-				cbClose: (isDataEntered) => {
-					if (typeof isDataEntered === "symbol") return resolve(isDataEntered);
-					$document.off(`mousemove.${evtId} touchmove${evtId} mouseup.${evtId} touchend${evtId} touchcancel${evtId}`);
-					if (!isDataEntered) return resolve(null);
-					if (curAngle < 0) curAngle += 360;
-					return resolve(curAngle); // TODO returning the step number is more useful if step is specified?
-				},
-			});
-			$$`<div class="ve-flex-vh-center mb-3">
+		const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
+			.click(() => doClose(true));
+		const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
+			.click(() => doClose(false));
+		const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
+			.click(() => doClose(VeCt.SYM_UI_SKIP));
+		const {$modalInner, doClose, pGetResolved, doAutoResize: doAutoResizeModal} = await InputUiUtil._pGetShowModal({
+			title: opts.title || "Select Direction",
+			isMinHeight0: true,
+		});
+		$$`<div class="ve-flex-vh-center mb-3">
 				${$padOuter || $pad}
 			</div>`.appendTo($modalInner);
-			$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
-		});
+		$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
+
+		if (doAutoResizeModal) doAutoResizeModal();
+
+		// region Output
+		const [isDataEntered] = await pGetResolved();
+
+		if (typeof isDataEntered === "symbol") return isDataEntered;
+		$document.off(`mousemove.${evtId} touchmove${evtId} mouseup.${evtId} touchend${evtId} touchcancel${evtId}`);
+		if (!isDataEntered) return null;
+		if (curAngle < 0) curAngle += 360;
+		return curAngle; // TODO returning the step number is more useful if step is specified?
+		// endregion
 	}
 
 	/**
@@ -2682,68 +2770,72 @@ class InputUiUtil {
 	 * @param [opts.isSkippable] If the prompt is skippable.
 	 * @return {Promise<String>} A promise which resolves to a dice string if the user entered values, or null otherwise.
 	 */
-	static pGetUserDice (opts) {
+	static async pGetUserDice (opts) {
 		opts = opts || {};
-		return new Promise(resolve => {
-			const comp = BaseComponent.fromObject({
-				num: (opts.default && opts.default.num) || 1,
-				faces: (opts.default && opts.default.faces) || 6,
-				bonus: (opts.default && opts.default.bonus) || null,
-			});
 
-			comp.render = function ($parent) {
-				$parent.empty();
-
-				const $iptNum = ComponentUiUtil.$getIptInt(this, "num", 0, {$ele: $(`<input class="form-control input-xs form-control--minimal text-center mr-1">`)})
-					.appendTo($parent)
-					.keydown(evt => {
-						if (evt.key === "Escape") { $iptNum.blur(); return; }
-						// return key
-						if (evt.which === 13) doClose(true);
-						evt.stopPropagation();
-					});
-				const $selFaces = ComponentUiUtil.$getSelEnum(this, "faces", {values: Renderer.dice.DICE})
-					.addClass("mr-2").addClass("text-center").css("textAlignLast", "center");
-
-				const $iptBonus = $(`<input class="form-control input-xs form-control--minimal text-center">`)
-					.change(() => this._state.bonus = UiUtil.strToInt($iptBonus.val(), null, {fallbackOnNaN: null}))
-					.keydown(evt => {
-						if (evt.key === "Escape") { $iptBonus.blur(); return; }
-						// return key
-						if (evt.which === 13) doClose(true);
-						evt.stopPropagation();
-					});
-				const hook = () => $iptBonus.val(this._state.bonus != null ? UiUtil.intToBonus(this._state.bonus) : this._state.bonus);
-				comp._addHookBase("bonus", hook);
-				hook();
-
-				$$`<div class="ve-flex-vh-center">${$iptNum}<div class="mr-1">d</div>${$selFaces}${$iptBonus}</div>`.appendTo($parent);
-			};
-
-			comp.getAsString = function () {
-				return `${this._state.num}d${this._state.faces}${this._state.bonus ? UiUtil.intToBonus(this._state.bonus) : ""}`;
-			};
-
-			const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
-				.click(() => doClose(true));
-			const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
-				.click(() => doClose(false));
-			const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
-				.click(() => doClose(VeCt.SYM_UI_SKIP));
-			const {$modalInner, doClose} = UiUtil.getShowModal({
-				title: opts.title || "Enter Dice",
-				isMinHeight0: true,
-				cbClose: (isDataEntered) => {
-					if (typeof isDataEntered === "symbol") return resolve(isDataEntered);
-					if (!isDataEntered) return resolve(null);
-					return resolve(comp.getAsString());
-				},
-			});
-
-			comp.render($modalInner);
-
-			$$`<div class="ve-flex-v-center ve-flex-h-center pb-1 px-1">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
+		const comp = BaseComponent.fromObject({
+			num: (opts.default && opts.default.num) || 1,
+			faces: (opts.default && opts.default.faces) || 6,
+			bonus: (opts.default && opts.default.bonus) || null,
 		});
+
+		comp.render = function ($parent) {
+			$parent.empty();
+
+			const $iptNum = ComponentUiUtil.$getIptInt(this, "num", 0, {$ele: $(`<input class="form-control input-xs form-control--minimal text-center mr-1">`)})
+				.appendTo($parent)
+				.keydown(evt => {
+					if (evt.key === "Escape") { $iptNum.blur(); return; }
+					// return key
+					if (evt.which === 13) doClose(true);
+					evt.stopPropagation();
+				});
+			const $selFaces = ComponentUiUtil.$getSelEnum(this, "faces", {values: Renderer.dice.DICE})
+				.addClass("mr-2").addClass("text-center").css("textAlignLast", "center");
+
+			const $iptBonus = $(`<input class="form-control input-xs form-control--minimal text-center">`)
+				.change(() => this._state.bonus = UiUtil.strToInt($iptBonus.val(), null, {fallbackOnNaN: null}))
+				.keydown(evt => {
+					if (evt.key === "Escape") { $iptBonus.blur(); return; }
+					// return key
+					if (evt.which === 13) doClose(true);
+					evt.stopPropagation();
+				});
+			const hook = () => $iptBonus.val(this._state.bonus != null ? UiUtil.intToBonus(this._state.bonus) : this._state.bonus);
+			comp._addHookBase("bonus", hook);
+			hook();
+
+			$$`<div class="ve-flex-vh-center">${$iptNum}<div class="mr-1">d</div>${$selFaces}${$iptBonus}</div>`.appendTo($parent);
+		};
+
+		comp.getAsString = function () {
+			return `${this._state.num}d${this._state.faces}${this._state.bonus ? UiUtil.intToBonus(this._state.bonus) : ""}`;
+		};
+
+		const $btnOk = $(`<button class="btn btn-primary mr-2">OK</button>`)
+			.click(() => doClose(true));
+		const $btnCancel = $(`<button class="btn btn-default">Cancel</button>`)
+			.click(() => doClose(false));
+		const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default ml-3">Skip</button>`)
+			.click(() => doClose(VeCt.SYM_UI_SKIP));
+		const {$modalInner, doClose, pGetResolved, doAutoResize: doAutoResizeModal} = await InputUiUtil._pGetShowModal({
+			title: opts.title || "Enter Dice",
+			isMinHeight0: true,
+		});
+
+		comp.render($modalInner);
+
+		$$`<div class="ve-flex-v-center ve-flex-h-right pb-1 px-1 mt-2">${$btnOk}${$btnCancel}${$btnSkip}</div>`.appendTo($modalInner);
+
+		if (doAutoResizeModal) doAutoResizeModal();
+
+		// region Output
+		const [isDataEntered] = await pGetResolved();
+
+		if (typeof isDataEntered === "symbol") return isDataEntered;
+		if (!isDataEntered) return null;
+		return comp.getAsString();
+		// endregion
 	}
 }
 
@@ -2943,7 +3035,7 @@ class SourceUiUtil {
 		if (options.source) $iptConverters.val((options.source.convertedBy || []).join(", "));
 
 		const $btnOk = $(`<button class="btn btn-primary">OK</button>`)
-			.click(() => {
+			.click(async () => {
 				let incomplete = false;
 				[$iptName, $iptAbv, $iptJson].forEach($ipt => {
 					const val = $ipt.val();
@@ -2952,7 +3044,7 @@ class SourceUiUtil {
 				if (incomplete) return;
 
 				const jsonVal = $iptJson.val().trim();
-				if (!isEditMode && BrewUtil.hasSourceJson(jsonVal)) {
+				if (!isEditMode && BrewUtil2.hasSourceJson(jsonVal)) {
 					$iptJson.addClass("form-control--error");
 					JqueryUtil.doToast({content: `The JSON identifier "${jsonVal}" already exists!`, type: "danger"});
 					return;
@@ -2967,7 +3059,7 @@ class SourceUiUtil {
 					convertedBy: $iptConverters.val().trim().split(",").map(it => it.trim()).filter(Boolean),
 				};
 
-				options.cbConfirm(source, options.mode !== "edit");
+				await options.cbConfirm(source, options.mode !== "edit");
 			});
 
 		const $btnCancel = options.isRequired && !isEditMode
@@ -3011,28 +3103,31 @@ class SourceUiUtil {
 			</div></div>
 			<div class="text-center mb-2">${$btnOk}${$btnCancel}</div>
 
-			${!isEditMode && BrewUtil.homebrewMeta.sources && BrewUtil.homebrewMeta.sources.length ? $$`<div class="ve-flex-vh-center mb-3 mt-3"><span class="ui-source__divider"></span>or<span class="ui-source__divider"></span></div>
+			${!isEditMode && BrewUtil2.getMetaLookup("sources")?.length ? $$`<div class="ve-flex-vh-center mb-3 mt-3"><span class="ui-source__divider"></span>or<span class="ui-source__divider"></span></div>
 			<div class="ve-flex-vh-center">${$btnUseExisting}</div>` : ""}
 		</div></div>`.appendTo(options.$parent);
 
 		const $selExisting = $$`<select class="form-control input-sm">
 			<option disabled>Select</option>
-			${(BrewUtil.homebrewMeta.sources || []).sort((a, b) => SortUtil.ascSortLower(a.full, b.full)).map(s => `<option value="${s.json.escapeQuotes()}">${s.full.escapeQuotes()}</option>`)}
+			${(BrewUtil2.getMetaLookup("sources") || []).sort((a, b) => SortUtil.ascSortLower(a.full, b.full)).map(s => `<option value="${s.json.escapeQuotes()}">${s.full.escapeQuotes()}</option>`)}
 		</select>`.change(() => $selExisting.removeClass("form-control--error"));
 		$selExisting[0].selectedIndex = 0;
 
 		const $btnConfirmExisting = $(`<button class="btn btn-default btn-sm">Confirm</button>`)
-			.click(() => {
-				if ($selExisting[0].selectedIndex !== 0) {
-					const sourceJson = $selExisting.val();
-					const source = BrewUtil.sourceJsonToSource(sourceJson);
-					options.cbConfirmExisting(source);
+			.click(async () => {
+				if ($selExisting[0].selectedIndex === 0) {
+					$selExisting.addClass("form-control--error");
+					return;
+				}
 
-					// cleanup
-					$selExisting[0].selectedIndex = 0;
-					$stageExisting.hideVe();
-					$stageInitial.showVe();
-				} else $selExisting.addClass("form-control--error");
+				const sourceJson = $selExisting.val();
+				const source = BrewUtil2.sourceJsonToSource(sourceJson);
+				await options.cbConfirmExisting(source);
+
+				// cleanup
+				$selExisting[0].selectedIndex = 0;
+				$stageExisting.hideVe();
+				$stageInitial.showVe();
 			});
 
 		const $btnBackExisting = $(`<button class="btn btn-default btn-sm mr-2">Back</button>`)

@@ -192,11 +192,12 @@ function Renderer () {
 		return MiscUtil.copy(this._trackTitles.titles);
 	};
 
-	this.getTrackedTitlesInverted = function () {
+	this.getTrackedTitlesInverted = function ({isStripTags = false} = {}) {
 		// `this._trackTitles.titles` is a map of `{[data-title-index]: "<name>"}`
 		// Invert it such that we have a map of `{"<name>": ["data-title-index-0", ..., "data-title-index-n"]}`
 		const trackedTitlesInverse = {};
 		Object.entries(this._trackTitles.titles || {}).forEach(([titleIx, titleName]) => {
+			if (isStripTags) titleName = Renderer.stripTags(titleName);
 			titleName = titleName.toLowerCase().trim();
 			(trackedTitlesInverse[titleName] = trackedTitlesInverse[titleName] || []).push(titleIx);
 		});
@@ -402,6 +403,9 @@ function Renderer () {
 				case "dataObject": this._renderDataObject(entry, textStack, meta, options); break;
 				case "dataItem": this._renderDataItem(entry, textStack, meta, options); break;
 				case "dataLegendaryGroup": this._renderDataLegendaryGroup(entry, textStack, meta, options); break;
+
+				// embedded entities
+				case "statblock": this._renderStatblock(entry, textStack, meta, options); break;
 
 				// images
 				case "image": this._renderImage(entry, textStack, meta, options); break;
@@ -648,7 +652,7 @@ function Renderer () {
 				} else {
 					toRenderCell = roRender[ixCell];
 				}
-				bodyStack[0] += `<td ${this._renderTable_makeTableTdClassText(entry, ixCell)} ${this._renderTable_getCellDataStr(roRender[ixCell])} ${roRender[ixCell].width ? `colspan="${roRender[ixCell].width}"` : ""}>`;
+				bodyStack[0] += `<td ${this._renderTable_makeTableTdClassText(entry, ixCell)} ${this._renderTable_getCellDataStr(roRender[ixCell])} ${roRender[ixCell].type === "cell" && roRender[ixCell].width ? `colspan="${roRender[ixCell].width}"` : ""}>`;
 				if (r.style === "row-indent-first" && ixCell === 0) bodyStack[0] += `<div class="rd__tab-indent"></div>`;
 				const cacheDepth = this._adjustDepth(meta, 1);
 				this._recursiveRender(toRenderCell, bodyStack, meta);
@@ -1232,12 +1236,29 @@ function Renderer () {
 	};
 
 	this._renderDataHeader = function (textStack, name) {
-		textStack[0] += `<table class="rd__b-special rd__b-data">`;
-		textStack[0] += `<thead><tr><th class="rd__data-embed-header" colspan="6" data-rd-data-embed-header="true"><span style="display: none;" class="rd__data-embed-name">${name}</span><span class="rd__data-embed-toggle">[\u2013]</span></th></tr></thead><tbody>`;
+		textStack[0] += Renderer.utils.getEmbeddedDataHeader(name);
 	};
 
 	this._renderDataFooter = function (textStack) {
-		textStack[0] += `</tbody></table>`;
+		textStack[0] += Renderer.utils.getEmbeddedDataFooter();
+	};
+
+	this._renderStatblock = function (entry, textStack, meta, options) {
+		this._renderPrefix(entry, textStack, meta, options);
+
+		const page = Renderer.hover.TAG_TO_PAGE[entry.tag];
+		const source = entry.source || Parser.TAG_TO_DEFAULT_SOURCE[entry.tag];
+		const hash = entry.hash || UrlUtil.URL_TO_HASH_BUILDER[page]({name: entry.name, source});
+
+		this._renderDataHeader(textStack, entry.name);
+		textStack[0] += `<tr>
+			<td colspan="6" data-rd-tag="${entry.tag.qq()}" data-rd-page="${page.qq()}" data-rd-source="${(source || "").qq()}" data-rd-hash="${hash.qq()}" data-rd-name="${(entry.name || "").qq()}">
+				<i>Loading ${Renderer.get().render(`{@${entry.tag} ${entry.name}|${source}}`)}...</i>
+				<style onload="Renderer.events.handleLoad_inlineStatblock(this)"></style>
+			</td>
+		</tr>`;
+		this._renderDataFooter(textStack);
+		this._renderSuffix(entry, textStack, meta, options);
 	};
 
 	this._renderGallery = function (entry, textStack, meta, options) {
@@ -1349,7 +1370,7 @@ function Renderer () {
 
 		if (!pluginResults.some(it => it.isSkip)) {
 			if (SourceUtil.isNonstandardSource(entry.source)) outList.push("spicy-sauce");
-			if (BrewUtil.hasSourceJson(entry.source)) outList.push("refreshing-brew");
+			if (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(entry.source)) outList.push("refreshing-brew");
 		}
 
 		if (this._extraSourceClasses) outList.push(...this._extraSourceClasses);
@@ -1433,7 +1454,7 @@ function Renderer () {
 				break;
 			case "@color": {
 				const [toDisplay, color] = Renderer.splitTagByPipe(text);
-				const scrubbedColor = BrewUtil.getValidColor(color);
+				const scrubbedColor = BrewUtil2.getValidColor(color);
 
 				textStack[0] += `<span class="rd__color" style="color: #${scrubbedColor}">`;
 				this._recursiveRender(toDisplay, textStack, meta);
@@ -1442,7 +1463,7 @@ function Renderer () {
 			}
 			case "@highlight": {
 				const [toDisplay, color] = Renderer.splitTagByPipe(text);
-				const scrubbedColor = color ? BrewUtil.getValidColor(color) : null;
+				const scrubbedColor = color ? BrewUtil2.getValidColor(color) : null;
 
 				textStack[0] += scrubbedColor ? `<span style="background-color: #${scrubbedColor}">` : `<span class="rd__highlight">`;
 				textStack[0] += toDisplay;
@@ -1670,7 +1691,7 @@ function Renderer () {
 			// HOMEBREW LOADING ////////////////////////////////////////////////////////////////////////////////
 			case "@loader": {
 				const {name, path} = this._renderString_getLoaderTagMeta(text);
-				textStack[0] += `<span onclick="BrewUtil.handleLoadbrewClick(this)" data-rd-loader-path="${path.escapeQuotes()}" data-rd-loader-name="${name.escapeQuotes()}" class="rd__wrp-loadbrew--ready" title="Click to install homebrew">${name}<span class="glyphicon glyphicon-download-alt rd__loadbrew-icon rd__loadbrew-icon"></span></span>`;
+				textStack[0] += `<span onclick="BrewUtil2.pAddBrewFromLoaderTag(this)" data-rd-loader-path="${path.escapeQuotes()}" data-rd-loader-name="${name.escapeQuotes()}" class="rd__wrp-loadbrew--ready" title="Click to install homebrew">${name}<span class="glyphicon glyphicon-download-alt rd__loadbrew-icon rd__loadbrew-icon"></span></span>`;
 				break;
 			}
 
@@ -1743,7 +1764,7 @@ function Renderer () {
 
 	this._renderString_getLoaderTagMeta = function (text) {
 		const [name, file] = Renderer.splitTagByPipe(text);
-		const path = /^.*?:\/\//.test(file) ? file : `https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/${file}`;
+		const path = /^.*?:\/\//.test(file) ? file : `${VeCt.URL_ROOT_BREW}${file}`;
 		return {name, path};
 	};
 
@@ -1935,6 +1956,46 @@ Renderer.events = {
 		if (childNodes.length !== 1) return eleNxt;
 		if (childNodes[0].classList.contains("rd__b")) return Renderer.events._handleClick_headerToggleButton_getEleToCheck(childNodes[0]);
 		return eleNxt;
+	},
+
+	handleLoad_inlineStatblock (ele) {
+		const observer = Renderer.utils.lazy.getCreateObserver({
+			observerId: "inlineStatblock",
+			fnOnObserve: Renderer.events._handleLoad_inlineStatblock_fnOnObserve.bind(Renderer.events),
+		});
+
+		observer.track(ele.parentNode);
+	},
+
+	_handleLoad_inlineStatblock_fnOnObserve ({entry}) {
+		const ele = entry.target;
+
+		const tag = ele.dataset.rdTag.uq();
+		const page = ele.dataset.rdPage.uq();
+		const source = ele.dataset.rdSource.uq();
+		const name = ele.dataset.rdName.uq();
+		const hash = ele.dataset.rdHash.uq();
+
+		Renderer.hover.pCacheAndGet(page, source || Parser.TAG_TO_DEFAULT_SOURCE[tag], hash)
+			.then(toRender => {
+				const tr = ele.closest("tr");
+
+				if (!toRender) {
+					tr.innerHTML = `<td colspan="6"><i>Failed to load ${Renderer.get().render(`{@${tag} ${name}|${source}}`)}!</i></td>`;
+					throw new Error(`Could not find ${tag} ${hash}`);
+				}
+
+				const fnRender = Renderer.hover.getFnRenderCompact(page);
+				const tbl = tr.closest("table");
+				tbl.parentNode.replaceChild(
+					e_({
+						outer: Renderer.utils.getEmbeddedDataHeader(toRender.name)
+							+ fnRender(toRender)
+							+ Renderer.utils.getEmbeddedDataFooter(),
+					}),
+					tbl,
+				);
+			});
 	},
 };
 
@@ -2519,8 +2580,8 @@ Renderer.utils = {
 		const tagPartSourceStart = `<${pageLinkPart ? `a href="${Renderer.get().baseUrl}${pageLinkPart}"` : "span"}`;
 		const tagPartSourceEnd = `</${pageLinkPart ? "a" : "span"}>`;
 
-		const ptBrewSourceLink = BrewUtil.hasSourceJson(it.source) && BrewUtil.sourceJsonToSource(it.source)?.url
-			? `<a href="${BrewUtil.sourceJsonToSource(it.source).url}" title="View Homebrew Source" class="self-ve-flex-center ml-2 ve-muted rd__stats-name-brew-link" target="_blank" rel="noopener noreferrer"><span class="	glyphicon glyphicon-share"></span></a>`
+		const ptBrewSourceLink = BrewUtil2.hasSourceJson(it.source) && BrewUtil2.sourceJsonToSource(it.source)?.url
+			? `<a href="${BrewUtil2.sourceJsonToSource(it.source).url}" title="View Homebrew Source" class="ve-self-flex-center ml-2 ve-muted rd__stats-name-brew-link" target="_blank" rel="noopener noreferrer"><span class="	glyphicon glyphicon-share"></span></a>`
 			: "";
 
 		// Add data-page/source/hash attributes for external script use (e.g. Rivet)
@@ -2533,7 +2594,7 @@ Renderer.utils = {
 						${!IS_VTT && ExtensionUtil.ACTIVE && opts.page ? Renderer.utils.getBtnSendToFoundryHtml() : ""}
 					</div>
 					<div class="stats-source ve-flex-v-baseline">
-						${tagPartSourceStart} class="help-subtle ${it.source ? `${Parser.sourceJsonToColor(it.source)}" title="${Parser.sourceJsonToFull(it.source)}${Renderer.utils.getSourceSubText(it)}` : ""}" ${BrewUtil.sourceJsonToStyle(it.source)}>${it.source ? Parser.sourceJsonToAbv(it.source) : ""}${tagPartSourceEnd}
+						${tagPartSourceStart} class="help-subtle ${it.source ? `${Parser.sourceJsonToColor(it.source)}" title="${Parser.sourceJsonToFull(it.source)}${Renderer.utils.getSourceSubText(it)}` : ""}" ${BrewUtil2.sourceJsonToStyle(it.source)}>${it.source ? Parser.sourceJsonToAbv(it.source) : ""}${tagPartSourceEnd}
 
 						${Renderer.utils.isDisplayPage(it.page) ? ` ${tagPartSourceStart} class="rd__stats-name-page ml-1" title="Page ${it.page}">p${it.page}${tagPartSourceEnd}` : ""}
 
@@ -2638,6 +2699,15 @@ Renderer.utils = {
 	getAbilityRoller (statblock, ability) {
 		if (statblock[ability] == null) return "\u2014";
 		return Renderer.get().render(`{@ability ${ability} ${statblock[ability]}}`);
+	},
+
+	getEmbeddedDataHeader (name) {
+		return `<table class="rd__b-special rd__b-data">
+		<thead><tr><th class="rd__data-embed-header" colspan="6" data-rd-data-embed-header="true"><span style="display: none;" class="rd__data-embed-name">${name}</span><span class="rd__data-embed-toggle">[\u2013]</span></th></tr></thead><tbody>`;
+	},
+
+	getEmbeddedDataFooter () {
+		return `</tbody></table>`;
 	},
 
 	TabButton: function ({label, fnChange, fnPopulate, isVisible}) {
@@ -2761,7 +2831,7 @@ Renderer.utils = {
 		assignPropsIfExist(entry.fluff, "name", "type", "entries", "images");
 
 		if (entry.fluff[mappedProp]) {
-			const fromList = (BrewUtil.homebrew[prop] || []).find(it =>
+			const fromList = (BrewUtil2.getBrewProcessedFromCache(prop) || []).find(it =>
 				it.name === entry.fluff[mappedProp].name
 				&& it.source === entry.fluff[mappedProp].source,
 			);
@@ -2771,7 +2841,7 @@ Renderer.utils = {
 		}
 
 		if (entry.fluff[mappedPropAppend]) {
-			const fromList = (BrewUtil.homebrew[prop] || []).find(it => it.name === entry.fluff[mappedPropAppend].name && it.source === entry.fluff[mappedPropAppend].source);
+			const fromList = (BrewUtil2.getBrewProcessedFromCache(prop) || []).find(it => it.name === entry.fluff[mappedPropAppend].name && it.source === entry.fluff[mappedPropAppend].source);
 			if (fromList) {
 				if (fromList.entries) {
 					fluff.entries = MiscUtil.copy(fluff.entries || []);
@@ -3143,9 +3213,12 @@ Renderer.utils = {
 						return fauxEntry;
 					}
 					case "@chance": {
-						// format: {@chance 25|display text|rollbox rollee name}
+						// format: {@chance 25|display text|rollbox rollee name|success text|failure text}
+						const [textSuccess, textFailure] = others;
 						fauxEntry.toRoll = `1d100`;
 						fauxEntry.successThresh = Number(rollText);
+						fauxEntry.chanceSuccessText = textSuccess;
+						fauxEntry.chanceFailureText = textFailure;
 						return fauxEntry;
 					}
 					case "@recharge": {
@@ -3156,6 +3229,8 @@ Renderer.utils = {
 						fauxEntry.successThresh = 7 - asNum;
 						fauxEntry.successMax = 6;
 						fauxEntry.displayText = `${asNum}${asNum < 6 ? `\u20136` : ""}`;
+						fauxEntry.chanceSuccessText = "Recharged!";
+						fauxEntry.chanceFailureText = "Did not recharge";
 						return fauxEntry;
 					}
 				}
@@ -3586,6 +3661,86 @@ Renderer.utils = {
 
 	initFullEntries_ (ent, {propEntries = "entries", propFullEntries = "_fullEntries"} = {}) {
 		ent[propFullEntries] = ent[propFullEntries] || (ent[propEntries] ? MiscUtil.copy(ent[propEntries]) : []);
+	},
+
+	lazy: {
+		_getIntersectionConfig () {
+			return {
+				rootMargin: "150px 0px", // if the element gets within 150px of the viewport
+				threshold: 0.01,
+			};
+		},
+
+		_OBSERVERS: {},
+		getCreateObserver ({observerId, fnOnObserve}) {
+			if (!Renderer.utils.lazy._OBSERVERS[observerId]) {
+				const observer = Renderer.utils.lazy._OBSERVERS[observerId] = new IntersectionObserver(
+					Renderer.utils.lazy.getFnOnIntersect({
+						observerId,
+						fnOnObserve,
+					}),
+					Renderer.utils.lazy._getIntersectionConfig(),
+				);
+
+				observer._TRACKED = new Set();
+
+				observer.track = it => {
+					observer._TRACKED.add(it);
+					return observer.observe(it);
+				};
+
+				observer.untrack = it => {
+					observer._TRACKED.delete(it);
+					return observer.unobserve(it);
+				};
+
+				// If we try to print a page with e.g. un-loaded images, attempt to load them all first
+				observer._printListener = evt => {
+					if (!observer._TRACKED.size) return;
+
+					// region Sadly we cannot cancel or delay the print event, so, show a blocking alert
+					[...observer._TRACKED].forEach(it => {
+						observer.untrack(it);
+						fnOnObserve({
+							observer,
+							entry: {
+								target: it,
+							},
+						});
+					});
+
+					alert(`All content must be loaded prior to printing. Please cancel the print and wait a few moments for loading to complete!`);
+					// endregion
+				};
+				window.addEventListener("beforeprint", observer._printListener);
+			}
+			return Renderer.utils.lazy._OBSERVERS[observerId];
+		},
+
+		destroyObserver ({observerId}) {
+			const observer = Renderer.utils.lazy._OBSERVERS[observerId];
+			if (!observer) return;
+
+			observer.disconnect();
+			window.removeEventListener("beforeprint", observer._printListener);
+		},
+
+		getFnOnIntersect ({observerId, fnOnObserve}) {
+			return obsEntries => {
+				const observer = Renderer.utils.lazy._OBSERVERS[observerId];
+
+				obsEntries.forEach(entry => {
+					// filter observed entries for those that intersect
+					if (entry.intersectionRatio <= 0) return;
+
+					observer.untrack(entry.target);
+					fnOnObserve({
+						observer,
+						entry,
+					});
+				});
+			};
+		},
 	},
 };
 
@@ -4925,7 +5080,7 @@ Renderer.race = {
 			(_baseRace._seenSubraces = _baseRace._seenSubraces || []).push({name: sr.name, source: sr.source});
 
 			// If this is a homebrew "base race" which is not marked as such, upgrade it to a base race
-			if (!_baseRace._isBaseRace && BrewUtil.hasSourceJson(_baseRace.source)) {
+			if (!_baseRace._isBaseRace && BrewUtil2.hasSourceJson(_baseRace.source)) {
 				Renderer.race._mutMakeBaseRace(_baseRace);
 			}
 
@@ -5284,8 +5439,9 @@ Renderer.monster = {
 		}
 	},
 
-	getMythicActionIntro (mon, renderer = Renderer.get()) {
-		if (mon.mythicHeader) return renderer.render({entries: mon.mythicHeader});
+	getSectionIntro (mon, {renderer = Renderer.get(), prop}) {
+		const headerProp = `${prop}Header`;
+		if (mon[headerProp]) return renderer.render({entries: mon[headerProp]});
 		return "";
 	},
 
@@ -5564,7 +5720,7 @@ Renderer.monster = {
 	},
 
 	getSelSummonSpellLevel (mon) {
-		if (mon._summonedBySpell_levelBase == null) return;
+		if (mon.summonedBySpellLevel == null) return;
 
 		return e_({
 			tag: "select",
@@ -5572,10 +5728,10 @@ Renderer.monster = {
 			name: "mon__sel-summon-spell-level",
 			children: [
 				e_({tag: "option", val: "-1", text: "\u2014"}),
-				...[...new Array(VeCt.SPELL_LEVEL_MAX + 1 - mon._summonedBySpell_levelBase)].map((_, i) => e_({
+				...[...new Array(VeCt.SPELL_LEVEL_MAX + 1 - mon.summonedBySpellLevel)].map((_, i) => e_({
 					tag: "option",
-					val: i + mon._summonedBySpell_levelBase,
-					text: i + mon._summonedBySpell_levelBase,
+					val: i + mon.summonedBySpellLevel,
+					text: i + mon.summonedBySpellLevel,
 				})),
 			],
 		});
@@ -5608,10 +5764,12 @@ Renderer.monster = {
 			? [{type: "entries", entries: mon[key]}]
 			: mon[key];
 
+		const ptHeader = mon[key] ? Renderer.monster.getSectionIntro(mon, {prop: key}) : "";
+
 		return `<tr class="mon__stat-header-underline"><td colspan="6"><h3 class="mon__sect-header-inner">${title}${mon[noteKey] ? ` (<span class="ve-small">${mon[noteKey]}</span>)` : ""}</h3></td></tr>
 		<tr class="text"><td colspan="6">
 		${key === "legendary" && mon.legendary ? `<p>${Renderer.monster.getLegendaryActionIntro(mon)}</p>` : ""}
-		${key === "mythic" && mon.mythic ? `<p>${Renderer.monster.getMythicActionIntro(mon)}</p>` : ""}
+		${ptHeader ? `<p>${ptHeader}</p>` : ""}
 		${toRender.map(it => it.rendered || renderer.render(it, depth)).join("")}
 		</td></tr>`;
 	},
@@ -5626,7 +5784,7 @@ Renderer.monster = {
 				"dice",
 			],
 			fnPlugin: () => {
-				if (mon._summonedBySpell_levelBase == null && mon._summonedByClass_level == null) return null;
+				if (mon.summonedBySpellLevel == null && mon._summonedByClass_level == null) return null;
 				if (mon._summonedByClass_level) {
 					return {
 						additionalData: {
@@ -5636,7 +5794,7 @@ Renderer.monster = {
 				}
 				return {
 					additionalData: {
-						"data-summoned-by-spell-level": mon._summonedBySpell_level ?? mon._summonedBySpell_levelBase,
+						"data-summoned-by-spell-level": mon._summonedBySpell_level ?? mon.summonedBySpellLevel,
 					},
 				};
 			},
@@ -5674,7 +5832,7 @@ Renderer.monster = {
 		const extraThClasses = !opts.isCompact && hasToken ? ["mon__name--token"] : null;
 
 		const isCr = Parser.crToNumber(mon.cr) !== VeCt.CR_UNKNOWN;
-		const isShowSpellLevelScaler = opts.isShowScalers && !isCr && mon._summonedBySpell_levelBase != null;
+		const isShowSpellLevelScaler = opts.isShowScalers && !isCr && mon.summonedBySpellLevel != null;
 		const isShowClassLevelScaler = opts.isShowScalers && !isShowSpellLevelScaler && mon.summonedByClass != null;
 
 		const fnGetSpellTraits = Renderer.monster.getSpellcastingRenderedTraits.bind(Renderer.monster, renderer);
@@ -5911,7 +6069,7 @@ Renderer.monster = {
 	getRenderedSenses (senses, isPlainText) {
 		if (typeof senses === "string") senses = [senses]; // handle legacy format
 		if (isPlainText) return senses.join(", ");
-		const reSenses = new RegExp(`(^| |\\()(${["tremorsense", "blindsight", "truesight", "darkvision", ...Object.keys(BrewUtil.homebrewMeta?.senses || []).map(it => it.escapeRegexp())].join("|")})(\\)| |$)`, "gi");
+		const reSenses = new RegExp(`(^| |\\()(${["tremorsense", "blindsight", "truesight", "darkvision", ...Object.keys(BrewUtil2.getMetaLookup("senses") || []).map(it => it.escapeRegexp())].join("|")})(\\)| |$)`, "gi");
 		const senseStr = senses
 			.join(", ")
 			.replace(reSenses, (...m) => `${m[1]}{@sense ${m[2]}}${m[3]}`)
@@ -6189,7 +6347,7 @@ Renderer.monster = {
 
 Renderer.item = {
 	_sortProperties (a, b) {
-		return SortUtil.ascSort(Renderer.item.propertyMap[a].name, Renderer.item.propertyMap[b].name);
+		return SortUtil.ascSort(Renderer.item.propertyMap[a]?.name || "", Renderer.item.propertyMap[b]?.name || "");
 	},
 
 	_getPropertiesText (item) {
@@ -6544,7 +6702,8 @@ Renderer.item = {
 		Renderer.item._additionalEntriesMap[e.appliesTo] = MiscUtil.copy(e.entries);
 	},
 	async _pAddBrewPropertiesAndTypes () {
-		const brew = await BrewUtil.pAddBrewData();
+		if (typeof BrewUtil2 === "undefined") return;
+		const brew = await BrewUtil2.pGetBrewProcessed();
 		(brew.itemProperty || []).forEach(p => Renderer.item._addProperty(p));
 		(brew.itemType || []).forEach(t => Renderer.item._addType(t));
 		(brew.itemEntry || []).forEach(t => Renderer.item._addEntry(t));
@@ -6806,17 +6965,6 @@ Renderer.item = {
 					[VeCt.ENTDATA_ITEM_MERGED_ENTRY_TAG]: "note",
 				},
 			});
-		}
-
-		// Create a uniqueId for this specific variant if the "parent" generic variant has one (i.e., if it's homebrew),
-		//   using only the name/source and the parent UID. This avoids changes to the base item from affecting the UID
-		//   of the specific variant.
-		if (genericVariant.uniqueId) {
-			specificVariant.uniqueId = CryptUtil.md5(JSON.stringify({
-				name: specificVariant.name,
-				source: specificVariant.source,
-				genericVariantUniqueId: genericVariant.uniqueId,
-			}));
 		}
 
 		return specificVariant;
@@ -7763,6 +7911,10 @@ Renderer.adventureBook = {
 
 		return out;
 	},
+
+	getCoverUrl (contents) {
+		return contents.coverUrl || `${Renderer.get().baseMediaUrls["img"] || Renderer.get().baseUrl}img/covers/blank.png`;
+	},
 };
 
 Renderer.charoption = {
@@ -8088,6 +8240,7 @@ Renderer.hover = {
 		"creature": UrlUtil.PG_BESTIARY,
 		"condition": UrlUtil.PG_CONDITIONS_DISEASES,
 		"disease": UrlUtil.PG_CONDITIONS_DISEASES,
+		"status": UrlUtil.PG_CONDITIONS_DISEASES,
 		"background": UrlUtil.PG_BACKGROUNDS,
 		"race": UrlUtil.PG_RACES,
 		"optfeature": UrlUtil.PG_OPT_FEATURES,
@@ -8109,6 +8262,7 @@ Renderer.hover = {
 		"language": UrlUtil.PG_LANGUAGES,
 		"classFeature": UrlUtil.PG_CLASSES,
 		"subclassFeature": UrlUtil.PG_CLASSES,
+		"table": UrlUtil.PG_TABLES,
 		"recipe": UrlUtil.PG_RECIPES,
 		"quickref": UrlUtil.PG_QUICKREF,
 	},
@@ -8803,7 +8957,7 @@ Renderer.hover = {
 						<title>${opts.title}</title>
 						${$(`link[rel="stylesheet"][href]`).map((i, e) => e.outerHTML).get().join("\n")}
 						<!-- Favicons -->
-						<link rel="icon" type="image/svg+xml" href="favicon.svg?v=1.115">
+						<link rel="icon" type="image/svg+xml" href="favicon.svg">
 						<link rel="icon" type="image/png" sizes="256x256" href="favicon-256x256.png">
 						<link rel="icon" type="image/png" sizes="144x144" href="favicon-144x144.png">
 						<link rel="icon" type="image/png" sizes="128x128" href="favicon-128x128.png">
@@ -9127,9 +9281,8 @@ Renderer.hover = {
 		const sourceJsonCorrectCase = Renderer.hover._pDoLoadFromBrew_cachedSources[source];
 		if (!sourceJsonCorrectCase) return false;
 
-		// This loads the brew as a side effect
-		const brewJson = await DataUtil.pLoadBrewBySource(sourceJsonCorrectCase);
-		return !!brewJson;
+		const brewJson = await DataUtil.pAddBrewBySource(sourceJsonCorrectCase);
+		return brewJson?.length;
 	},
 
 	_psCacheLoading: {},
@@ -9154,6 +9307,7 @@ Renderer.hover = {
 	 * @param hash
 	 * @param [opts] Options object.
 	 * @param [opts.isCopy] If a copy, rather than the original entity, should be returned.
+	 * @param [opts.isRequired] If an error should be thrown on a missing entity.
 	 */
 	async pCacheAndGet (page, source, hash, opts) {
 		opts = opts || {};
@@ -9165,6 +9319,13 @@ Renderer.hover = {
 		const existingOut = Renderer.hover.getFromCache(page, source, hash, opts);
 		if (existingOut) return existingOut;
 
+		const out = await Renderer.hover._pCacheAndGet(page, source, hash, opts);
+
+		if (!out && opts.isRequired) throw new Error(`Could not find entity for page/prop "${page}" with source "${source}" and hash "${hash}"`);
+		return out;
+	},
+
+	async _pCacheAndGet (page, source, hash, opts) {
 		switch (page) {
 			case "generic":
 			case "hover": return null;
@@ -9286,9 +9447,11 @@ Renderer.hover = {
 			hash,
 			loadKey,
 			async () => {
-				const brewData = await BrewUtil.pAddBrewData();
-				if (fnPrePopulate) fnPrePopulate(brewData, {isBrew: true});
-				if (brewData[listProp]) Renderer.hover._pCacheAndGet_populate(page, brewData, listProp, {fnGetHash: opts.fnGetHash});
+				if (typeof BrewUtil2 !== "undefined") {
+					const brewData = await BrewUtil2.pGetBrewProcessed();
+					if (fnPrePopulate) fnPrePopulate(brewData, {isBrew: true});
+					if (brewData[listProp]) Renderer.hover._pCacheAndGet_populate(page, brewData, listProp, {fnGetHash: opts.fnGetHash});
+				}
 				const index = await DataUtil.loadJSON(`${Renderer.get().baseUrl}${baseUrl}${opts.isFluff ? "fluff-" : ""}index.json`);
 				const officialSources = {};
 				Object.entries(index).forEach(([k, v]) => officialSources[k.toLowerCase()] = v);
@@ -9315,7 +9478,7 @@ Renderer.hover = {
 	},
 
 	async _pCacheAndGet_pLoadSingleBrew (page, opts, listProps, fnMutateItem) {
-		const brewData = await BrewUtil.pAddBrewData();
+		const brewData = typeof BrewUtil2 !== "undefined" ? await BrewUtil2.pGetBrewProcessed() : {};
 		Renderer.hover._pCacheAndGet_doCacheBrewData(brewData, page, opts, listProps, fnMutateItem);
 	},
 
@@ -9401,7 +9564,7 @@ Renderer.hover = {
 					isAddGroups: true,
 				});
 				// populate brew once the main item properties have been loaded
-				const brewData = await BrewUtil.pAddBrewData();
+				const brewData = await BrewUtil2.pGetBrewProcessed();
 				const itemList = await Renderer.item.pGetItemsFromHomebrew(brewData);
 				itemList.forEach(it => {
 					const itHash = UrlUtil.URL_TO_HASH_BUILDER[page](it);
@@ -9479,7 +9642,7 @@ Renderer.hover = {
 			loadKey,
 			async () => {
 				// region Brew
-				const brew = await BrewUtil.pAddBrewData();
+				const brew = await BrewUtil2.pGetBrewProcessed();
 
 				// Get only the ids that exist in both data + contents
 				const brewDataIds = (brew[propData] || []).filter(it => it.id).map(it => it.id);
@@ -9529,7 +9692,7 @@ Renderer.hover = {
 			loadKey,
 			async () => {
 				const classData = await DataUtil.class.loadJSON();
-				const brewData = await BrewUtil.pAddBrewData();
+				const brewData = await BrewUtil2.pGetBrewProcessed();
 				await Promise.all((brewData.class || []).map(cc => Renderer.hover._pCacheAndGet_pLoadClasses_addToIndex(cc)));
 				for (const sc of (brewData.subclass || [])) await Renderer.hover._pCacheAndGet_pLoadClasses_addSubclassToIndex(sc);
 				await Promise.all(classData.class.map(cc => Renderer.hover._pCacheAndGet_pLoadClasses_addToIndex(cc)));
@@ -9604,7 +9767,7 @@ Renderer.hover = {
 			loadKey,
 			async () => {
 				const classData = await DataUtil.class.loadRawJSON();
-				const brewData = await BrewUtil.pAddBrewData();
+				const brewData = await BrewUtil2.pGetBrewProcessed();
 				await Promise.all((brewData.class || []).map(cc => Renderer.hover._pCacheAndGet_pLoadClasses_addToIndex(cc, {isRaw: true})));
 				for (const sc of (brewData.subclass || [])) await Renderer.hover._pCacheAndGet_pLoadClasses_addSubclassToIndex(sc, {isRaw: true});
 				await Promise.all(classData.class.map(cc => Renderer.hover._pCacheAndGet_pLoadClasses_addToIndex(cc, {isRaw: true})));
@@ -9631,7 +9794,7 @@ Renderer.hover = {
 			hash,
 			loadKey,
 			async () => {
-				const brewData = await BrewUtil.pAddBrewData();
+				const brewData = typeof BrewUtil2 !== "undefined" ? await BrewUtil2.pGetBrewProcessed() : {};
 				await Renderer.hover.pDoDereferenceNestedAndCache(brewData.classFeature, "classFeature", UrlUtil.URL_TO_HASH_BUILDER["classFeature"]);
 				await Renderer.hover._pCacheAndGet_pLoadOfficialClassAndSubclassFeatures();
 			},
@@ -9650,7 +9813,7 @@ Renderer.hover = {
 			hash,
 			loadKey,
 			async () => {
-				const brewData = await BrewUtil.pAddBrewData();
+				const brewData = await BrewUtil2.pGetBrewProcessed();
 				await Renderer.hover.pDoDereferenceNestedAndCache(brewData.subclassFeature, "subclassFeature", UrlUtil.URL_TO_HASH_BUILDER["subclassFeature"]);
 				await Renderer.hover._pCacheAndGet_pLoadOfficialClassAndSubclassFeatures();
 			},
@@ -9767,10 +9930,6 @@ Renderer.hover = {
 
 							if (cpy) {
 								cntReplaces++;
-								delete cpy.className;
-								delete cpy.classSource;
-								delete cpy.subclassShortName;
-								delete cpy.subclassSource;
 								delete cpy.level;
 								delete cpy.header;
 								if (toReplaceMeta.name) cpy.name = toReplaceMeta.name;
@@ -10085,10 +10244,10 @@ Renderer.hover = {
 		return $$`<table class="stats ${opts.isBookContent ? `stats--book` : ""}">${Renderer.generic.getCompactRenderedString(toRender, renderFnOpts)}</table>`;
 	},
 
-	$getHoverContent_statsCode (toRender) {
-		const cleanCopy = DataUtil.cleanJson(MiscUtil.copy(toRender));
+	$getHoverContent_statsCode (toRender, {isSkipClean = false, title = null} = {}) {
+		const cleanCopy = isSkipClean ? toRender : DataUtil.cleanJson(MiscUtil.copy(toRender));
 		return Renderer.hover.$getHoverContent_miscCode(
-			`${cleanCopy.name} \u2014 Source Data`,
+			title || [cleanCopy.name, "Source Data"].filter(Boolean).join(" \u2014 "),
 			JSON.stringify(cleanCopy, null, "\t"),
 		);
 	},
@@ -10181,8 +10340,9 @@ Renderer.getNumberedNames = function (entry) {
 };
 
 // dig down until we find a name, as feature names can be nested
-Renderer.findName = function (entry) { return CollectionUtil.dfs(entry, "name"); };
-Renderer.findSource = function (entry) { return CollectionUtil.dfs(entry, "source"); };
+Renderer.findName = function (entry) { return CollectionUtil.dfs(entry, {prop: "name"}); };
+Renderer.findSource = function (entry) { return CollectionUtil.dfs(entry, {prop: "source"}); };
+Renderer.findEntry = function (entry) { return CollectionUtil.dfs(entry, {fnMatch: obj => obj.name && obj?.entries?.length}); };
 
 Renderer.stripTags = function (str) {
 	if (!str) return str;
@@ -10493,43 +10653,20 @@ Renderer.getRollableRow._handleInfiniteOpts = function (row, opts) {
 };
 
 Renderer.initLazyImageLoaders = function () {
-	function onIntersection (obsEntries) {
-		obsEntries.forEach(entry => {
-			if (entry.intersectionRatio > 0) { // filter observed entries for those that intersect
-				Renderer._imageObserver.unobserve(entry.target);
-				const $img = $(entry.target);
-				$img.attr("src", $img.attr("data-src")).removeAttr("data-src");
-			}
-		});
-	}
+	const images = document.querySelectorAll(`img[data-src]`);
 
-	let printListener = null;
-	const $images = $(`img[data-src]`);
-	const config = {
-		rootMargin: "150px 0px", // if the image gets within 150px of the viewport
-		threshold: 0.01,
-	};
+	Renderer.utils.lazy.destroyObserver({observerId: "images"});
 
-	if (Renderer._imageObserver) {
-		Renderer._imageObserver.disconnect();
-		window.removeEventListener("beforeprint", printListener);
-	}
-
-	Renderer._imageObserver = new IntersectionObserver(onIntersection, config);
-	$images.each((i, image) => Renderer._imageObserver.observe(image));
-
-	// If we try to print a page with un-loaded images, attempt to load them all first
-	printListener = () => {
-		alert(`All images in the page will now be loaded. This may take a while.`);
-		$images.each((i, image) => {
-			Renderer._imageObserver.unobserve(image);
-			const $img = $(image);
+	const observer = Renderer.utils.lazy.getCreateObserver({
+		observerId: "images",
+		fnOnObserve: ({entry}) => {
+			const $img = $(entry.target);
 			$img.attr("src", $img.attr("data-src")).removeAttr("data-src");
-		});
-	};
-	window.addEventListener("beforeprint", printListener);
+		},
+	});
+
+	images.forEach(img => observer.track(img));
 };
-Renderer._imageObserver = null;
 
 Renderer.HEAD_NEG_1 = "rd__b--0";
 Renderer.HEAD_0 = "rd__b--1";

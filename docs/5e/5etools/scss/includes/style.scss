@@ -909,6 +909,16 @@ input[type=checkbox].sidemenu__row__label__cb {
 		overflow-y: initial;
 		width: 100%;
 	}
+
+	&-row__ {
+		&icn-btn {
+			top: 2px;
+
+			&--text {
+				top: -1px;
+			}
+		}
+	}
 }
 
 .night-mode .manbrew {
@@ -972,6 +982,8 @@ th {
 .stats table {
 	width: 100%;
 	margin-bottom: 5px;
+	// Avoid outer `white-space: pre` inflating cells
+	white-space: initial;
 }
 
 .stats table.statsDataInset {
@@ -2501,7 +2513,6 @@ th.border {
 	z-index: $z-temp-effect;
 	top: -50px;
 	min-height: 40px;
-	min-width: 600px;
 	max-width: 850px;
 	display: flex;
 	width: 90vw;
@@ -3182,7 +3193,7 @@ th.border {
 
 		&token-footer {
 			color: #ddd;
-			background: rgba(255, 255, 255, 0.15);
+			background: $rgb-bg--night;
 		}
 	}
 
@@ -3864,5 +3875,9 @@ th.border {
 		break-before: auto !important;
 		break-after: auto !important;
 		break-inside: avoid !important;
+	}
+
+	.toast {
+		display: none !important;
 	}
 }

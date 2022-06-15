@@ -308,7 +308,8 @@ class LinkCheck {
 		}
 	}
 }
-LinkCheck.RE = /{@(spell|item|class|creature|condition|disease|background|race|optfeature|feat|reward|psionic|object|cult|boon|trap|hazard|deity|variantrule|action|classFeature|subclassFeature) ([^}]*?)}/g;
+LinkCheck._RE_TAG_BLACKLIST = new Set(["quickref"]);
+LinkCheck.RE = RegExp(`{@(${Object.keys(Parser.TAG_TO_DEFAULT_SOURCE).filter(tag => !LinkCheck._RE_TAG_BLACKLIST.has(tag)).join("|")}) ([^}]*?)}`, "g");
 LinkCheck.SKILL_RE = /{@skill (.*?)(\|.*?)?}/g;
 
 class ClassLinkCheck {
@@ -1057,7 +1058,7 @@ class DuplicateEntityCheck {
 		const keyIx = [ixArray, ixVersion].filter(it => it != null).join("-v");
 
 		const name = ent.name;
-		const source = ent.source ? ent.source : (ent.inherits && ent.inherits.source) ? ent.inherits.source : null;
+		const source = SourceUtil.getEntitySource(ent);
 
 		switch (prop) {
 			case "deity": {

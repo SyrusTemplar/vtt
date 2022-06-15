@@ -91,7 +91,7 @@ class BaseParser {
 
 		if (/^\d..-\d.. level\s+\(/.test(cleanLine) && !opts.noSpellcastingWarlockSlotLevel) return false;
 
-		if (/^•/.test(cleanLine)) return false;
+		if (/^[•●]/.test(cleanLine)) return false;
 
 		// A lowercase word
 		if (/^[a-z]/.test(cleanLine) && !opts.noLowercase) return true;
@@ -135,7 +135,7 @@ class TaggerUtils {
 
 		const doFind = arr => arr.find(it => it.name.toLowerCase() === name && it.source.toLowerCase() === source);
 
-		const fromBrew = typeof BrewUtil !== "undefined" && BrewUtil.homebrew?.legendaryGroup?.length ? doFind(BrewUtil.homebrew.legendaryGroup) : null;
+		const fromBrew = typeof BrewUtil2 !== "undefined" ? doFind(BrewUtil2.getBrewProcessedFromCache("legendaryGroup")) : null;
 		if (fromBrew) return fromBrew;
 
 		return doFind(this._ALL_LEGENDARY_GROUPS);
@@ -147,7 +147,7 @@ class TaggerUtils {
 
 		const doFind = arr => arr.find(s => (s.name.toLowerCase() === name || (typeof s.srd === "string" && s.srd.toLowerCase() === name)) && s.source.toLowerCase() === source);
 
-		const fromBrew = typeof BrewUtil !== "undefined" && BrewUtil.homebrew?.spell?.length ? doFind(BrewUtil.homebrew.spell) : null;
+		const fromBrew = typeof BrewUtil2 !== "undefined" ? doFind(BrewUtil2.getBrewProcessedFromCache("spell")) : null;
 		if (fromBrew) return fromBrew;
 
 		return doFind(this._ALL_SPELLS);
@@ -704,7 +704,7 @@ class EntryConvert {
 							continue;
 						}
 
-						const mBullet = /^\s*[-•]\s*(.*)$/.exec(it);
+						const mBullet = /^\s*[-•●]\s*(.*)$/.exec(it);
 						if (!mBullet) {
 							checkFinalizeList();
 							out.push(it);
@@ -793,7 +793,7 @@ class EntryConvert {
 					addEntry(list);
 				}
 
-				curLine = curLine.replace(/^\s*•\s*/, "");
+				curLine = curLine.replace(/^\s*[•●]\s*/, "");
 				addEntry(curLine.trim());
 			} else if (ConvertUtil.isNameLine(curLine)) {
 				popNestedEntries(); // this implicitly pops nested lists
@@ -878,7 +878,7 @@ class ConvertUtil {
 		return line.toTitleCase() === line;
 	}
 
-	static isListItemLine (line) { return line.trim().startsWith("•"); }
+	static isListItemLine (line) { return /^[•●]/.test(line.trim()); }
 
 	static splitNameLine (line, isKeepPunctuation) {
 		const spl = this._getMergedSplitName({line});

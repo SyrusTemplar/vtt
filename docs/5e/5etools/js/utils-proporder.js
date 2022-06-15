@@ -118,6 +118,7 @@ PropOrder._MONSTER = [
 	"reprintedAs",
 
 	"summonedBySpell",
+	"summonedBySpellLevel",
 	"summonedByClass",
 
 	"_isCopy",
@@ -166,8 +167,13 @@ PropOrder._MONSTER = [
 	"spellcasting",
 	"trait",
 	"actionNote",
+	"actionHeader",
 	"action",
+	"bonusNote",
+	"bonusHeader",
 	"bonus",
+	"reactionNote",
+	"reactionHeader",
 	"reaction",
 	"legendaryHeader",
 	"legendaryActions",
@@ -725,6 +731,12 @@ PropOrder._FEAT = [
 	"armorProficiencies",
 	"skillToolLanguageProficiencies",
 	"savingThrowProficiencies",
+	"expertise",
+
+	"immune",
+	"resist",
+	"vulnerable",
+	"conditionImmune",
 
 	"additionalSpells",
 

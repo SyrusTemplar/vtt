@@ -7,16 +7,6 @@ class SidemenuRenderCache {
 	}
 }
 
-class SideMenuListRenderCache {
-	constructor () {
-		this._metas = [];
-	}
-
-	getIxMaxRendered () { return this._metas.length; }
-	getMeta (ix) { return this._metas[ix]; }
-	setMeta (ix, meta) { this._metas[ix] = meta; }
-}
-
 class PageUi {
 	constructor () {
 		this._builders = {};
@@ -32,7 +22,7 @@ class PageUi {
 		this._allSources = [];
 		this._$selSource = null;
 
-		this.__saveableStates = null;
+		this._isInitialLoad = true;
 		this.doSaveDebounced = MiscUtil.debounce(() => this._doSave(), 50);
 
 		this._settings = {};
@@ -50,6 +40,8 @@ class PageUi {
 
 	get creatureBuilder () { return this._builders.creatureBuilder; }
 
+	get builders () { return this._builders; }
+
 	get activeBuilder () { return this._settings.activeBuilder || PageUi._DEFAULT_ACTIVE_BUILDER; }
 
 	get $wrpInput () { return this._$wrpInput; }
@@ -64,35 +56,23 @@ class PageUi {
 
 	get allSources () { return this._allSources; }
 
-	set source (json) {
-		const prevSource = this._settings.activeSource;
-
-		this._$selSource.val(json);
-		this._settings.activeSource = json;
-		this._doHandleUpdateSource();
-
-		if (!prevSource && json) this.__setStageMain();
-	}
-
 	get sidemenuRenderCache () { return this._sidemenuRenderCache; }
 	set sidemenuRenderCache (val) { this._sidemenuRenderCache = val; }
 
 	_doSave () {
-		this.__saveableStates = this.__saveableStates || {builders: {}};
-
-		Object.entries(this._builders).forEach(([name, builder]) => {
-			if (!this.__saveableStates.builders[name] || builder.isStateDirty) {
-				this.__saveableStates.builders[name] = builder.getSaveableState();
-				builder.isStateDirty = false;
-			}
-		});
-		StorageUtil.pSetForPage(PageUi.STORAGE_STATE, this.__saveableStates);
+		if (this._isInitialLoad) return;
+		return StorageUtil.pSetForPage(
+			PageUi._STORAGE_STATE,
+			{
+				builders: Object.entries(this._builders).mergeMap(([name, builder]) => ({[name]: builder.getSaveableState()})),
+			},
+		);
 	}
 
-	_doSaveSettings () { StorageUtil.pSetForPage(PageUi.STORAGE_SETTINGS, this._settings); }
+	_doSaveSettings () { return StorageUtil.pSetForPage(PageUi._STORAGE_SETTINGS, this._settings); }
 
 	async init () {
-		this._settings = await StorageUtil.pGetForPage(PageUi.STORAGE_SETTINGS) || {};
+		this._settings = await StorageUtil.pGetForPage(PageUi._STORAGE_SETTINGS) || {};
 
 		this._$wrpLoad = $(`#page_loading`);
 		this._$wrpSource = $(`#page_source`);
@@ -102,9 +82,9 @@ class PageUi {
 
 		this._initLhs();
 		this._initRhs();
-		this._initSideMenu();
+		await this._pInitSideMenu();
 
-		const storedState = await StorageUtil.pGetForPage(PageUi.STORAGE_STATE) || {};
+		const storedState = await StorageUtil.pGetForPage(PageUi._STORAGE_STATE) || {};
 		if (storedState.builders) {
 			Object.entries(storedState.builders).forEach(([name, state]) => {
 				if (this._builders[name]) this._builders[name].setStateFromLoaded(state);
@@ -114,16 +94,19 @@ class PageUi {
 		this._doRenderActiveBuilder();
 		this._doInitNavHandler();
 
-		if (this._settings.activeSource && BrewUtil.homebrewMeta.sources.some(it => it.json === this._settings.activeSource)) {
+		const brewSources = BrewUtil2.getSources();
+		if (this._settings.activeSource && brewSources.some(it => it.json === this._settings.activeSource)) {
 			this.__setStageMain();
 			this._sideMenuEnabled = true;
-		} else if (BrewUtil.homebrewMeta.sources.length) {
+		} else if (brewSources.length) {
 			this._doRebuildStageSource({mode: "select", isRequired: true});
 			this.__setStageSource();
 		} else {
 			this._doRebuildStageSource({mode: "add", isRequired: true});
 			this.__setStageSource();
 		}
+
+		this._isInitialLoad = false;
 	}
 
 	__setStageSource () {
@@ -142,20 +125,20 @@ class PageUi {
 		SourceUiUtil.render({
 			...options,
 			$parent: this._$wrpSource,
-			cbConfirm: (source, isNewSource) => {
-				if (isNewSource) BrewUtil.addSource(source);
-				else BrewUtil.updateSource(source);
+			cbConfirm: async (source, isNewSource) => {
+				if (isNewSource) await BrewUtil2.pAddSource(source);
+				else await BrewUtil2.pEditSource(source);
 
 				this._settings.activeSource = source.json;
 
 				if (isNewSource) this._doAddSourceOption(source);
-				this._doHandleUpdateSource();
+				await this._pDoHandleUpdateSource();
 				this._sideMenuEnabled = true;
 				this.__setStageMain();
 			},
-			cbConfirmExisting: (source) => {
+			cbConfirmExisting: async (source) => {
 				this._settings.activeSource = source.json;
-				this._doHandleUpdateSource();
+				await this._pDoHandleUpdateSource();
 				this._sideMenuEnabled = true;
 				this.__setStageMain();
 			},
@@ -181,13 +164,13 @@ class PageUi {
 		if (key) return this._builders[key];
 	}
 
-	setActiveBuilderById (id) {
+	async pSetActiveBuilderById (id) {
 		id = id.toLowerCase().trim();
 		const key = Object.keys(this._builders).find(k => k.toLowerCase().trim() === id);
-		this._setActiveBuilder(key);
+		await this._pSetActiveBuilder(key);
 	}
 
-	_setActiveBuilder (nxtActiveBuilder) {
+	async _pSetActiveBuilder (nxtActiveBuilder) {
 		if (!this._builders[nxtActiveBuilder]) throw new Error(`Builder "${nxtActiveBuilder}" does not exist!`);
 
 		this._$selBuilderMode.val(nxtActiveBuilder);
@@ -196,11 +179,11 @@ class PageUi {
 		const builder = this._builders[this._settings.activeBuilder];
 		builder.renderInput();
 		builder.renderOutput();
-		builder.renderSideMenu();
+		await builder.pRenderSideMenu();
 		this._saveSettingsDebounced();
 	}
 
-	_initSideMenu () {
+	async _pInitSideMenu () {
 		const $mnu = $(`.sidemenu`);
 
 		const prevMode = this._settings.activeBuilder;
@@ -215,28 +198,24 @@ class PageUi {
 			</select>
 		`)
 			.appendTo($wrpMode)
-			.change(() => {
+			.change(async () => {
 				const val = this._$selBuilderMode.val();
 				if (val === "none") {
 					InputUiUtil.pGetUserBoolean({
 						title: "Homebrew Builder Support",
 						htmlDescription: `<p>The Homebrew Builder only supports a limited set of entity types. For everything else, you will need to <a href="https://github.com/TheGiddyLimit/homebrew/blob/master/README.md" rel="noopener noreferrer">manually</a> create or convert content.</p>`,
 						isAlert: true,
-					});
+					}).then(null);
 					this._$selBuilderMode.val(this._settings.activeBuilder);
 					return;
 				}
-				this._setActiveBuilder(val);
+				await this._pSetActiveBuilder(val);
 			});
-
-		const $btnManageHomebrew = $(`<button class="btn btn-xs btn-info">Manage Homebrew</button>`)
-			.click(() => BrewUtil.manageBrew());
-		$$`<div class="sidemenu__row">${$btnManageHomebrew}</div>`.appendTo($mnu);
 
 		$mnu.append(PageUi.__$getSideMenuDivider(true));
 
 		const $wrpSource = $(`<div class="sidemenu__row split-v-center"><div class="sidemenu__row__label mr-2">Source</div></div>`).appendTo($mnu);
-		this._allSources = (BrewUtil.homebrewMeta.sources || []).sort((a, b) => SortUtil.ascSortLower(a.full, b.full))
+		this._allSources = BrewUtil2.getSources().sort((a, b) => SortUtil.ascSortLower(a.full, b.full))
 			.map(it => it.json);
 		this._$selSource = $$`
 			<select class="form-control input-xs">
@@ -244,9 +223,9 @@ class PageUi {
 				${this._allSources.map(s => `<option value="${s.escapeQuotes()}">${Parser.sourceJsonToFull(s).escapeQuotes()}</option>`)}
 			</select>`
 			.appendTo($wrpSource)
-			.change(() => {
+			.change(async () => {
 				this._settings.activeSource = this._$selSource.val();
-				this._doHandleUpdateSource();
+				await this._pDoHandleUpdateSource();
 			});
 		if (this._settings.activeSource) this._$selSource.val(this._settings.activeSource);
 		else this._$selSource[0].selectedIndex = 0;
@@ -254,7 +233,7 @@ class PageUi {
 		const $btnSourceEdit = $(`<button class="btn btn-default btn-xs mr-2">Edit Selected Source</button>`)
 			.click(() => {
 				const curSourceJson = this._settings.activeSource;
-				const curSource = BrewUtil.sourceJsonToSource(curSourceJson);
+				const curSource = BrewUtil2.sourceJsonToSource(curSourceJson);
 				if (!curSource) return;
 				this._doRebuildStageSource({mode: "edit", source: MiscUtil.copy(curSource)});
 				this.__setStageSource();
@@ -270,7 +249,7 @@ class PageUi {
 		$mnu.append(PageUi.__$getSideMenuDivider(true));
 		this._$menuInner = $(`<div/>`).appendTo($mnu);
 
-		if (prevMode) this._setActiveBuilder(prevMode);
+		if (prevMode) await this._pSetActiveBuilder(prevMode);
 	}
 
 	set _sideMenuEnabled (val) { $(`.sidemenu__toggle`).toggle(!!val); }
@@ -305,25 +284,25 @@ class PageUi {
 		this._builders[this._settings.activeBuilder].doHandleSourcesAdd();
 	}
 
-	_doHandleUpdateSource () {
+	async _pDoHandleUpdateSource () {
 		if (this._$selSource) this._$selSource.val(this._settings.activeSource);
 		this._saveSettingsDebounced();
-		this._builders[this._settings.activeBuilder].doHandleSourceUpdate();
+		await this._builders[this._settings.activeBuilder].pDoHandleSourceUpdate();
 	}
 
 	_getJsonOutputTemplate () {
 		const timestamp = Math.round(Date.now() / 1000);
 		return {
 			_meta: {
-				sources: [MiscUtil.copy(BrewUtil.sourceJsonToSource(this._settings.activeSource))],
+				sources: [MiscUtil.copy(BrewUtil2.sourceJsonToSource(this._settings.activeSource))],
 				dateAdded: timestamp,
 				dateLastModified: timestamp,
 			},
 		};
 	}
 }
-PageUi.STORAGE_STATE = "brewbuilderState";
-PageUi.STORAGE_SETTINGS = "brewbuilderSettings";
+PageUi._STORAGE_STATE = "brewbuilderState";
+PageUi._STORAGE_SETTINGS = "brewbuilderSettings";
 PageUi._DEFAULT_ACTIVE_BUILDER = "creatureBuilder";
 
 class Builder extends ProxyBase {
@@ -352,8 +331,7 @@ class Builder extends ProxyBase {
 		TabUiUtil.decorate(this);
 
 		this._ui = null;
-		this._isStateDirty = false;
-		this._isEntrySaved = true;
+		this._isInitialLoad = true;
 
 		this._sourcesCache = []; // the JSON sources from the main UI
 		this._$selSource = null;
@@ -361,50 +339,52 @@ class Builder extends ProxyBase {
 
 		this.__state = this._getInitialState();
 		this._state = null; // proxy used to access state
-		this.__meta = this.getInitialMetaState(); // meta state
+		this.__meta = this._getInitialMetaState(); // meta state
 		this._meta = null; // proxy used to access meta state
-		this.doCreateProxies(); // init proxies
 
-		this._$btnSave = null;
 		this._$wrpBtnLoadExisting = null;
 		this._$sideMenuStageSaved = null;
 		this._$sideMenuWrpList = null;
 		this._$eles = {}; // Generic internal element storage
 	}
 
-	doCreateProxies () {
+	_doResetProxies () {
 		this._resetHooks("state");
 		this._resetHooks("meta");
+	}
+
+	doCreateProxies () {
+		this._doResetProxies();
 		this._state = this._getProxy("state", this.__state);
 		this._meta = this._getProxy("meta", this.__meta);
 	}
 
 	set ui (ui) { this._ui = ui; }
 
-	get isStateDirty () { return this._isStateDirty; }
-	set isStateDirty (val) { this._isStateDirty = val; }
+	get prop () { return this._prop; }
 
-	get isEntrySaved () { return this._isEntrySaved; }
-	set isEntrySaved (val) { this._isEntrySaved = val; }
+	prepareExistingEditableBrew ({brew}) {
+		let isAnyMod = false;
+		if (!brew.body[this.prop]?.length) return;
+
+		brew.body[this.prop].forEach(ent => {
+			if (ent.uniqueId) return;
+			ent.uniqueId = CryptUtil.uid();
+			isAnyMod = true;
+		});
+		return isAnyMod;
+	}
 
 	getSaveableState () {
 		return {
 			s: this.__state,
 			m: this.__meta,
-			// parent/other meta-state
-			_m: {
-				isEntrySaved: this.isEntrySaved,
-			},
 		};
 	}
 
 	setStateFromLoaded () { throw new TypeError(`Unimplemented method!`); }
 
-	getIxBrew (entity) {
-		return (BrewUtil.homebrew[this._prop] || []).findIndex(it => it.source === entity.source && it.name === entity.name);
-	}
-
-	doHandleSourceUpdate () {
+	async pDoHandleSourceUpdate () {
 		const nuSource = this._ui.source;
 
 		// if the source we were using is gone, update
@@ -419,7 +399,7 @@ class Builder extends ProxyBase {
 
 		this.renderInput();
 		this.renderOutput();
-		this.renderSideMenu();
+		await this.pRenderSideMenu();
 		this.doUiSave();
 	}
 
@@ -440,12 +420,11 @@ class Builder extends ProxyBase {
 	}
 
 	doUiSave () {
-		// set our state to dirty, and trigger a save at a higher level
-		this._isStateDirty = true;
+		// Trigger a save at a higher level
 		this._ui.doSaveDebounced();
 	}
 
-	renderSideMenu () {
+	async pRenderSideMenu () {
 		// region Detach any sidemenu renders from other builders
 		if (this._ui.sidemenuRenderCache) {
 			if (this._ui.sidemenuRenderCache.$lastStageSaved !== this._$sideMenuStageSaved) this._ui.sidemenuRenderCache.$lastStageSaved.detach();
@@ -461,16 +440,16 @@ class Builder extends ProxyBase {
 			this._$wrpBtnLoadExisting = $$`<div class="sidemenu__row">${$btnLoadExisting}</div>`;
 
 			const $btnDownloadJson = $(`<button class="btn btn-default btn-xs mb-2">${this._titleSidebarDownloadJson}</button>`)
-				.click(() => this.handleSidebarDownloadJsonClick());
+				.click(() => this.pHandleSidebarDownloadJsonClick());
 
 			const $wrpDownloadMarkdown = (() => {
 				if (!this._metaSidebarDownloadMarkdown) return null;
 
 				const $btnDownload = $(`<button class="btn btn-default btn-xs mb-2">${this._metaSidebarDownloadMarkdown.title}</button>`)
 					.click(async () => {
-						const entities = this._getSidebarVisibleEntities();
+						const entities = await this._pGetSideMenuBrewEntities();
 						const mdOut = await this._metaSidebarDownloadMarkdown.pFnGetText(entities);
-						DataUtil.userDownloadText(`${DataUtil.getCleanFilename(BrewUtil.sourceJsonToFull(this._ui.source))}.md`, mdOut);
+						DataUtil.userDownloadText(`${DataUtil.getCleanFilename(BrewUtil2.sourceJsonToFull(this._ui.source))}.md`, mdOut);
 					});
 
 				const $btnSettings = $(`<button class="btn btn-default btn-xs mb-2"><span class="glyphicon glyphicon-cog"/></button>`)
@@ -481,10 +460,10 @@ class Builder extends ProxyBase {
 
 			this._$sideMenuWrpList = this._$sideMenuWrpList || $(`<div class="sidemenu__row ve-flex-col">`);
 			this._$sideMenuStageSaved = $$`<div>
-			${PageUi.__$getSideMenuDivider().hide()}
-			<div class="ve-flex-v-center">${$btnDownloadJson}</div>
-			${$wrpDownloadMarkdown}
-			${this._$sideMenuWrpList}
+				${PageUi.__$getSideMenuDivider().hide()}
+				<div class="ve-flex-v-center">${$btnDownloadJson}</div>
+				${$wrpDownloadMarkdown}
+				${this._$sideMenuWrpList}
 			</div>`;
 		}
 		// endregion
@@ -498,71 +477,59 @@ class Builder extends ProxyBase {
 			$lastStageSaved: this._$sideMenuStageSaved,
 		});
 
-		this.doUpdateSidemenu();
+		await this._pDoUpdateSidemenu();
 	}
 
-	get ixBrew () { return this._meta.ixBrew; }
-	set ixBrew (val) { this._meta.ixBrew = val; }
-
 	getOnNavMessage () {
-		if (!this.isEntrySaved && ~this.ixBrew) return "You have unsaved changes! Are you sure you want to leave?";
+		if (!this._meta.isPersisted && this._meta.isModified) return "You have unsaved changes! Are you sure you want to leave?";
 		else return null;
 	}
 
-	getSideMenuItems () {
-		return MiscUtil.copy((BrewUtil.homebrew[this._prop] || []).filter(entry => entry.source === this._ui.source))
+	async _pGetSideMenuBrewEntities () {
+		const brew = await BrewUtil2.pGetOrCreateEditableBrewDoc();
+		return MiscUtil.copy((brew.body[this._prop] || []).filter(entry => entry.source === this._ui.source))
 			.sort((a, b) => SortUtil.ascSort(a.name, b.name));
 	}
 
-	doUpdateSidemenu () {
-		this._sidemenuListRenderCache = this._sidemenuListRenderCache || new SideMenuListRenderCache();
+	async _pDoUpdateSidemenu () {
+		this._sidemenuListRenderCache = this._sidemenuListRenderCache || {};
 
-		const toList = this.getSideMenuItems();
+		const toList = await this._pGetSideMenuBrewEntities();
 		this._$sideMenuStageSaved.toggleVe(!!toList.length);
 
-		// region Create a sparse array, of brew index -> entry
-		const toListSparse = [];
-		toList.forEach((entry, i) => {
-			const ix = BrewUtil.getEntryIxByEntry(this._prop, entry);
-			toListSparse[ix] = {
-				entry,
-				position: i,
-			};
-		});
-		// endregion
+		const metasVisible = new Set();
+		toList.forEach((ent, ix) => {
+			metasVisible.add(ent.uniqueId);
 
-		const ixs = toList.map(entry => BrewUtil.getEntryIxByEntry(this._prop, entry));
-		const ixCap = Math.max(...ixs) + 1; // +1 so our "<" loop functions
+			if (this._sidemenuListRenderCache[ent.uniqueId]) {
+				const meta = this._sidemenuListRenderCache[ent.uniqueId];
 
-		for (let ix = 0, len = Math.max(ixCap, this._sidemenuListRenderCache.getIxMaxRendered()); ix < len; ++ix) {
-			const {entry, position} = toListSparse[ix] ?? {};
-			const meta = this._sidemenuListRenderCache.getMeta(ix);
+				meta.$row.showVe();
 
-			if (meta) {
-				if (entry) {
-					meta.$row.showVe();
-
-					if (meta.name !== entry.name) {
-						meta.$dispName.text(entry.name);
-						meta.name = entry.name;
-					}
-
-					if (meta.position !== position) {
-						meta.$row.css("order", position);
-						meta.position = position;
-					}
-				} else {
-					meta.$row.hideVe();
+				if (meta.name !== ent.name) {
+					meta.$dispName.text(ent.name);
+					meta.name = ent.name;
 				}
-				continue;
+
+				if (meta.position !== ix) {
+					meta.$row.css("order", ix);
+					meta.position = ix;
+				}
+
+				return;
 			}
 
-			if (!entry) continue;
-
 			const $btnEdit = $(`<button class="btn btn-xs btn-default mr-2" title="Edit"><span class="glyphicon glyphicon-pencil"/></button>`)
-				.click(() => {
+				.click(async () => {
 					if (this.getOnNavMessage() && !confirm("You have unsaved changes. Are you sure?")) return;
-					this.setStateFromLoaded({s: MiscUtil.copy(BrewUtil.getEntryByEntryIx(this._prop, ix)), m: {...this.getInitialMetaState(), ixBrew: ix}});
+					const entEditable = await BrewUtil2.pGetEditableBrewEntity(this._prop, ent.uniqueId);
+					this.setStateFromLoaded({
+						s: MiscUtil.copy(entEditable),
+						m: this._getInitialMetaState({
+							isModified: false,
+							isPersisted: true,
+						}),
+					});
 					this.renderInput();
 					this.renderOutput();
 					this.doUiSave();
@@ -572,21 +539,29 @@ class Builder extends ProxyBase {
 				new ContextUtil.Action(
 					"Duplicate",
 					async () => {
-						const copy = MiscUtil.copy(BrewUtil.getEntryByEntryIx(this._prop, ix));
+						const copy = MiscUtil.copy(await BrewUtil2.pGetEditableBrewEntity(this._prop, ent.uniqueId, {isDuplicate: true}));
 
 						// Get the root name without trailing numbers, e.g. "Goblin (2)" -> "Goblin"
 						const m = /^(.*?) \((\d+)\)$/.exec(copy.name.trim());
 						if (m) copy.name = `${m[1]} (${Number(m[2]) + 1})`;
 						else copy.name = `${copy.name} (1)`;
-						await BrewUtil.pAddEntry(this._prop, copy);
-						this.doUpdateSidemenu();
+
+						await BrewUtil2.pPersistEditableBrewEntity(this._prop, copy);
+
+						await this._pDoUpdateSidemenu();
 					},
 				),
 				new ContextUtil.Action(
 					"View JSON",
-					(evt) => {
+					async (evt) => {
 						const out = this._ui._getJsonOutputTemplate();
-						out[this._prop] = [PropOrder.getOrdered(DataUtil.cleanJson(MiscUtil.copy(BrewUtil.getEntryByEntryIx(this._prop, ix))), this._prop)];
+
+						out[this._prop] = [
+							PropOrder.getOrdered(
+								DataUtil.cleanJson(MiscUtil.copy(await BrewUtil2.pGetEditableBrewEntity(this._prop, ent.uniqueId))),
+								this._prop,
+							),
+						];
 
 						const $content = Renderer.hover.$getHoverContent_statsCode(this._state);
 
@@ -603,17 +578,17 @@ class Builder extends ProxyBase {
 				),
 				new ContextUtil.Action(
 					"Download JSON",
-					() => {
+					async () => {
 						const out = this._ui._getJsonOutputTemplate();
-						const cpy = MiscUtil.copy(BrewUtil.getEntryByEntryIx(this._prop, ix));
+						const cpy = MiscUtil.copy(await BrewUtil2.pGetEditableBrewEntity(this._prop, ent.uniqueId));
 						out[this._prop] = [DataUtil.cleanJson(cpy)];
 						DataUtil.userDownload(DataUtil.getCleanFilename(cpy.name), out);
 					},
 				),
 				new ContextUtil.Action(
 					"View Markdown",
-					(evt) => {
-						const entry = MiscUtil.copy(BrewUtil.getEntryByEntryIx(this._prop, ix));
+					async (evt) => {
+						const entry = MiscUtil.copy(await BrewUtil2.pGetEditableBrewEntity(this._prop, ent.uniqueId));
 						const name = `${entry._displayName || entry.name} \u2014 Markdown`;
 						const mdText = RendererMarkdown.get().render({entries: [{type: this._typeRenderData, [this._typeRenderData]: entry}]});
 						const $content = Renderer.hover.$getHoverContent_miscCode(name, mdText);
@@ -631,8 +606,8 @@ class Builder extends ProxyBase {
 				),
 				new ContextUtil.Action(
 					"Download Markdown",
-					() => {
-						const entry = MiscUtil.copy(BrewUtil.getEntryByEntryIx(this._prop, ix));
+					async () => {
+						const entry = MiscUtil.copy(await BrewUtil2.pGetEditableBrewEntity(this._prop, ent.uniqueId));
 						const mdText = CreatureBuilder._getAsMarkdown(entry).trim();
 						DataUtil.userDownloadText(`${DataUtil.getCleanFilename(entry.name)}.md`, mdText);
 					},
@@ -645,88 +620,119 @@ class Builder extends ProxyBase {
 			const $btnDelete = $(`<button class="btn btn-xs btn-danger" title="Delete"><span class="glyphicon glyphicon-trash"/></button>`)
 				.click(async () => {
 					if (confirm("Are you sure?")) {
-						if (this.ixBrew === ix) {
-							this.isEntrySaved = false;
-							this.ixBrew = null;
-							this.mutSavedButtonText();
-						} else if (this.ixBrew > ix) {
-							this.ixBrew--; // handle the splice -- our index is now one lower
+						if (this._state.uniqueId === ent.uniqueId) {
+							this.reset();
 						}
-						await BrewUtil.pRemoveEntry(this._prop, entry);
-						this.doUpdateSidemenu();
+						await BrewUtil2.pRemoveEditableBrewEntity(this._prop, ent.uniqueId);
+						await this._pDoUpdateSidemenu();
 						await this.pDoPostDelete();
 					}
 				});
 
-			const $dispName = $$`<span class="py-1">${entry.name}</span>`;
+			const $dispName = $$`<span class="py-1">${ent.name}</span>`;
 
-			const $row = $$`<div class="mkbru__sidebar-entry ve-flex-v-center split px-2" style="order: ${position}">
+			const $row = $$`<div class="mkbru__sidebar-entry ve-flex-v-center split px-2" style="order: ${ix}">
 			${$dispName}
 			<div class="py-1 no-shrink">${$btnEdit}${$btnBurger}${$btnDelete}</div>
 			</div>`.appendTo(this._$sideMenuWrpList);
 
-			const nuMeta = {
+			this._sidemenuListRenderCache[ent.uniqueId] = {
 				$dispName,
 				$row,
-				name: entry.name,
-				position,
+				name: ent.name,
+				ix,
 			};
-			this._sidemenuListRenderCache.setMeta(ix, nuMeta);
-		}
+		});
+
+		Object.entries(this._sidemenuListRenderCache)
+			.filter(([uniqueId]) => !metasVisible.has(uniqueId))
+			.forEach(([, meta]) => meta.$row.hideVe());
 	}
 
-	_getSidebarVisibleEntities () {
-		return (BrewUtil.homebrew[this._prop] || []).filter(entry => entry.source === this._ui.source);
-	}
-
-	handleSidebarDownloadJsonClick () {
+	async pHandleSidebarDownloadJsonClick () {
 		const out = this._ui._getJsonOutputTemplate();
-		out[this._prop] = this._getSidebarVisibleEntities().map(entry => PropOrder.getOrdered(DataUtil.cleanJson(MiscUtil.copy(entry)), this._prop));
-		DataUtil.userDownload(DataUtil.getCleanFilename(BrewUtil.sourceJsonToFull(this._ui.source)), out);
+		out[this._prop] = (await this._pGetSideMenuBrewEntities()).map(entry => PropOrder.getOrdered(DataUtil.cleanJson(MiscUtil.copy(entry)), this._prop));
+		DataUtil.userDownload(DataUtil.getCleanFilename(BrewUtil2.sourceJsonToFull(this._ui.source)), out);
 	}
 
 	renderInputControls () {
 		const $wrpControls = this._ui.$wrpInputControls.empty();
 
-		this._$btnSave = BuilderUi.$getSaveButton().click(async () => {
-			await this._renderInputControls_pSaveBrew();
-			this.doUpdateSidemenu();
-		}).appendTo($wrpControls);
+		const $btnSave = $(`<button class="btn btn-xs btn-default mr-2 mkbru__cnt-save">Save</button>`)
+			.click(() => this._pHandleClick_pSaveBrew())
+			.appendTo($wrpControls);
+		const hkBtnSaveText = () => $btnSave.text(this._meta.isModified ? "Save *" : "Saved");
+		this._addHook("meta", "isModified", hkBtnSaveText);
+		hkBtnSaveText();
 
-		BuilderUi.$getResetButton().click(() => {
-			if (!confirm("Are you sure?")) return;
-			this.reset();
-		}).appendTo($wrpControls);
+		$(`<button class="btn btn-xs btn-default">New</button>`)
+			.click(() => {
+				if (!confirm("Are you sure?")) return;
+				this.reset();
+			})
+			.appendTo($wrpControls);
 	}
 
 	reset () {
-		this.setStateFromLoaded({s: this._getInitialState(), m: this.getInitialMetaState()});
+		this.setStateFromLoaded({s: this._getInitialState(), m: this._getInitialMetaState()});
 		this.renderInput();
 		this.renderOutput();
-		this.isEntrySaved = true;
-		this.mutSavedButtonText();
 		this.doUiSave();
 	}
 
-	async _renderInputControls_pSaveBrew () {
-		if (this.ixBrew != null) {
-			await BrewUtil.pUpdateEntryByIx(this._prop, this.ixBrew, MiscUtil.copy(this.__state));
-			this.renderSideMenu();
+	async _pHandleClick_pSaveBrew () {
+		const source = this._state.source;
+		if (!source) throw new Error(`Current state has no "source"!`);
+
+		const clean = DataUtil.cleanJson(MiscUtil.copy(this.__state), {isDeleteUniqueId: false});
+		if (this._meta.isPersisted) {
+			await BrewUtil2.pPersistEditableBrewEntity(this._prop, clean);
+			await this.pRenderSideMenu();
 		} else {
-			const cpy = MiscUtil.copy(this.__state);
-			this.ixBrew = await BrewUtil.pAddEntry(this._prop, cpy);
-			await Omnisearch.pAddToIndex(this._prop, cpy);
+			// If we are e.g. editing a copy of a non-editable brew's entity, we need to first convert the parent brew
+			//   to "editable."
+			if (
+				BrewUtil2.sourceJsonToSource(source)
+				&& !await BrewUtil2.pIsEditableSourceJson(source)
+			) {
+				const isMove = await InputUiUtil.pGetUserBoolean({
+					title: "Move to Editable Homebrew Document",
+					htmlDescription: `<div>Saving "${this._state.name}" with source "${this._state.source}" will move all homebrew from that source to the editable homebrew document.<br>Moving homebrew to the editable document will prevent it from being automatically updated in future.<br>Do you wish to proceed?<br><i class="ve-muted">Giving "${this._state.name}" an editable source will avoid this issue.</i></div>`,
+					textYes: "Yes",
+					textNo: "Cancel",
+				});
+				if (!isMove) return;
+
+				const brew = await BrewUtil2.pMoveOrCopyToEditableBySourceJson(source);
+				if (!brew) throw new Error(`Failed to make brew for source "${source}" editable!`);
+
+				const nxtBrew = MiscUtil.copy(brew);
+				// Ensure everything has a `uniqueId`
+				let isAnyMod = this.prepareExistingEditableBrew({brew: nxtBrew});
+
+				// We then need to attempt a find-replace on the hash of our current entity, as we may be trying to update
+				//   one exact entity. This is not needed if e.g. a renamed copy of an existing entity is being made.
+				const hash = UrlUtil.URL_TO_HASH_BUILDER[this._prop](clean);
+				const ixExisting = (brew.body[this._prop] || []).findIndex(it => UrlUtil.URL_TO_HASH_BUILDER[this._prop](it) === hash);
+				if (~ixExisting) {
+					clean.uniqueId = clean.uniqueId || nxtBrew.body[this._prop][ixExisting].uniqueId;
+					nxtBrew.body[this._prop][ixExisting] = clean;
+					isAnyMod = true;
+				}
+
+				if (isAnyMod) await BrewUtil2.pSetEditableBrewDoc(nxtBrew);
+			}
+
+			await BrewUtil2.pPersistEditableBrewEntity(this._prop, clean);
+			this._meta.isPersisted = true;
 			await SearchWidget.P_LOADING_CONTENT;
-			await SearchWidget.pAddToIndexes(this._prop, cpy);
+			await SearchWidget.pAddToIndexes(this._prop, clean);
 		}
-		this.isEntrySaved = true;
-		this.mutSavedButtonText();
+
+		this._meta.isModified = false;
 		this.doUiSave();
 		await this.pDoPostSave();
-	}
-
-	mutSavedButtonText () {
-		if (this._$btnSave) this._$btnSave.text(this.isEntrySaved ? "Saved" : "Save *");
+		await this._pDoUpdateSidemenu();
 	}
 
 	// TODO use this in creature builder
@@ -875,7 +881,6 @@ class Builder extends ProxyBase {
 		});
 	}
 
-	doHandleSourcesAdd () { throw new TypeError(`Unimplemented method!`); }
 	renderInput () {
 		try {
 			this._renderInputImpl();
@@ -890,26 +895,34 @@ class Builder extends ProxyBase {
 			if (!tmp) this.reset();
 		}
 	}
+
+	_getInitialState () {
+		return {
+			uniqueId: CryptUtil.uid(),
+		};
+	}
+
+	_getInitialMetaState ({isModified = true, isPersisted = false} = {}) {
+		return {
+			isModified,
+			isPersisted,
+		};
+	}
+
+	async pInit () { await this._pInit(); }
+
+	doHandleSourcesAdd () { throw new TypeError(`Unimplemented method!`); }
 	_renderInputImpl () { throw new TypeError(`Unimplemented method!`); }
 	renderOutput () { throw new TypeError(`Unimplemented method!`); }
 	async pHandleSidebarLoadExistingClick () { throw new TypeError(`Unimplemented method!`); }
 	async pHandleSidebarLoadExistingData (entity, opts) { throw new TypeError(`Unimplemented method!`); }
-	getInitialMetaState () { return {}; }
-	async pInit () {}
+	async _pInit () {}
 	async pDoPostSave () {}
 	async pDoPostDelete () {}
 }
 Builder._BUILDERS = [];
 
 class BuilderUi {
-	static $getSaveButton () {
-		return $(`<button class="btn btn-xs btn-default mr-2 mkbru__cnt-save">Save</button>`);
-	}
-
-	static $getResetButton () {
-		return $(`<button class="btn btn-xs btn-default">Reset</button>`);
-	}
-
 	static __setProp (toVal, options, state, ...path) {
 		if (path.length > 1) {
 			let cur = state;
@@ -1286,8 +1299,10 @@ class Makebrew {
 		Makebrew._LOCK = new VeLock();
 
 		// generic init
-		ExcludeUtil.pInitialise(); // don't await, as this is only used for search
-		await BrewUtil.pAddBrewData();
+		await BrewUtil2.pInit();
+		ExcludeUtil.pInitialise().then(null); // don't await, as this is only used for search
+		await this.pPrepareExistingEditableBrew();
+		await BrewUtil2.pGetBrewProcessed();
 		await SearchUiUtil.pDoGlobalInit();
 		// Do this asynchronously, to avoid blocking the load
 		SearchWidget.pDoGlobalInit();
@@ -1305,45 +1320,56 @@ class Makebrew {
 		window.dispatchEvent(new Event("toolsLoaded"));
 	}
 
+	/**
+	 * The editor requires that each entity has a `uniqueId`, as e.g. hashing the entity does not produce a
+	 * stable ID (since there may be duplicates, or the name may change).
+	 */
+	static async pPrepareExistingEditableBrew () {
+		const brew = MiscUtil.copy(await BrewUtil2.pGetOrCreateEditableBrewDoc());
+
+		let isAnyMod = false;
+		Object.values(ui.builders)
+			.forEach(builder => {
+				const isAnyModBuilder = builder.prepareExistingEditableBrew({brew});
+				isAnyMod = isAnyMod || isAnyModBuilder;
+			});
+
+		if (!isAnyMod) return;
+
+		await BrewUtil2.pSetEditableBrewDoc(brew);
+	}
+
 	static async pHashChange () {
 		try {
 			await Makebrew._LOCK.pLock();
+			return (await this._pHashChange());
+		} finally {
+			Makebrew._LOCK.unlock();
+		}
+	}
 
-			const [builderMode, ...sub] = Hist.getHashParts();
-			Hist.initialLoad = false; // Once we've extracted the hash's parts, we no longer care about preserving it
+	static async _pHashChange () {
+		const [builderMode, ...sub] = Hist.getHashParts();
+		Hist.initialLoad = false; // Once we've extracted the hash's parts, we no longer care about preserving it
 
-			if (!builderMode) return Hist.replaceHistoryHash(UrlUtil.encodeForHash(ui.activeBuilder));
+		if (!builderMode) return Hist.replaceHistoryHash(UrlUtil.encodeForHash(ui.activeBuilder));
 
-			const builder = ui.getBuilderById(builderMode);
-			if (!builder) return Hist.replaceHistoryHash(UrlUtil.encodeForHash(ui.activeBuilder));
+		const builder = ui.getBuilderById(builderMode);
+		if (!builder) return Hist.replaceHistoryHash(UrlUtil.encodeForHash(ui.activeBuilder));
 
-			ui.setActiveBuilderById(builderMode); // (This will update the hash to the active builder)
+		await ui.pSetActiveBuilderById(builderMode); // (This will update the hash to the active builder)
 
-			if (sub.length) {
-				const initialLoadMeta = UrlUtil.unpackSubHash(sub[0]);
-				if (!initialLoadMeta.statemeta) return;
+		if (!sub.length) return;
 
-				const [page, source, hash] = initialLoadMeta.statemeta;
-				let toLoad = await Renderer.hover.pCacheAndGet(page, source, hash, {isCopy: true});
+		const initialLoadMeta = UrlUtil.unpackSubHash(sub[0]);
+		if (!initialLoadMeta.statemeta) return;
 
-				toLoad = await builder._pHashChange_pHandleSubHashes(sub, toLoad);
+		const [page, source, hash] = initialLoadMeta.statemeta;
+		let toLoad = await Renderer.hover.pCacheAndGet(page, source, hash, {isCopy: true});
 
-				// Try to link up the ixBrew for homebrew entities, so that we can cleanly edit and save them without
-				//   creating duplicates.
-				const meta = {};
-				if (toLoad.uniqueId !== null) {
-					const ixBrew = builder.getIxBrew(toLoad);
-					if (~ixBrew) {
-						meta.ixBrew = ixBrew;
+		toLoad = await builder._pHashChange_pHandleSubHashes(sub, toLoad);
 
-						// If we're using an existing ixBrew, use its source, too
-						if (toLoad.source) ui.source = toLoad.source;
-					}
-				}
-
-				return builder.pHandleSidebarLoadExistingData(toLoad, {isForce: true, meta});
-			}
-		} finally { Makebrew._LOCK.unlock(); }
+		return builder.pHandleSidebarLoadExistingData(toLoad, {isForce: true});
 	}
 }
 Makebrew._LOCK = null;

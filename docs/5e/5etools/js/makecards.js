@@ -2,6 +2,9 @@
 
 class MakeCards extends BaseComponent {
 	static async pInit () {
+		await BrewUtil2.pInit();
+		await ExcludeUtil.pInitialise();
+
 		MakeCards._ = new MakeCards();
 		await MakeCards.utils.pLoadReducedData();
 		await MakeCards._.pInit();
@@ -375,7 +378,7 @@ class MakeCards extends BaseComponent {
 		const $ele = $$`<label class="ve-flex-v-center my-1 w-100 lst__row lst--border lst__row-inner">
 			<div class="col-1 mr-2 ve-flex-vh-center">${$cbSel}</div>
 			<div class="col-3 mr-2 ve-flex-v-center">${loaded.name}</div>
-			<div class="col-1-5 mr-2 ve-flex-vh-center ${Parser.sourceJsonToColor(loaded.source)}" title="${Parser.sourceJsonToFull(loaded.source)}" ${BrewUtil.sourceJsonToStyle(loaded.source)}>${Parser.sourceJsonToAbv(loaded.source)}</div>
+			<div class="col-1-5 mr-2 ve-flex-vh-center ${Parser.sourceJsonToColor(loaded.source)}" title="${Parser.sourceJsonToFull(loaded.source)}" ${BrewUtil2.sourceJsonToStyle(loaded.source)}>${Parser.sourceJsonToAbv(loaded.source)}</div>
 			<div class="col-1-5 mr-2 ve-flex-vh-center">${Parser.getPropDisplayName(cardMeta.entityType)}</div>
 			<div class="col-1-1 mr-2 ve-flex-vh-center">${$iptRgb}</div>
 			<div class="col-1-1 mr-2 ve-flex-vh-center">${$btnIcon}</div>
@@ -468,7 +471,7 @@ class MakeCards extends BaseComponent {
 			mon.legendary ? this._ct_text(this._ct_htmlToText(Renderer.monster.getLegendaryActionIntro(mon, renderer))) : null,
 			...(mon.legendary ? this._ct_renderEntries(mon.legendary, 2) : []),
 			mon.mythic ? this._ct_section("Mythic Actions") : null,
-			mon.mythic ? this._ct_text(this._ct_htmlToText(Renderer.monster.getMythicActionIntro(mon, renderer))) : null,
+			mon.mythic ? this._ct_text(this._ct_htmlToText(Renderer.monster.getSectionIntro(mon, {renderer, prop: "mythic"}))) : null,
 			...(mon.mythic ? this._ct_renderEntries(mon.mythic, 2) : []),
 		].filter(Boolean);
 	}
@@ -501,9 +504,12 @@ class MakeCards extends BaseComponent {
 	static _getCardContents_item (item) {
 		MakeCards.utils.enhanceItemAlt(item);
 
+		const [typeRarityText, subTypeText, tierText] = Renderer.item.getTypeRarityAndAttunementText(item);
 		const [damage, damageType, propertiesTxt] = Renderer.item.getDamageAndPropertiesText(item);
-		const ptValueWeight = [Parser.itemValueToFullMultiCurrency(item), Parser.itemWeightToFull(item)].filter(Boolean).join(", ").uppercaseFirst();
-		const ptDamageProperties = this._ct_htmlToText([damage, damageType, propertiesTxt].filter(Boolean).join(" "));
+		const ptWeight = Parser.itemWeightToFull(item);
+		const ptValue = Parser.itemValueToFullMultiCurrency(item);
+		const ptDamage = this._ct_htmlToText([damage, damageType].filter(Boolean).join(" "));
+		const ptProperties = this._ct_htmlToText([propertiesTxt].filter(Boolean)).substring(2);
 
 		const itemEntries = [];
 		if (item._fullEntries || (item.entries && item.entries.length)) {
@@ -515,10 +521,13 @@ class MakeCards extends BaseComponent {
 		}
 
 		return [
-			this._ct_subtitle(Renderer.item.getTypeRarityAndAttunementText(item).join(", ").uppercaseFirst()),
-			ptValueWeight || ptDamageProperties ? this._ct_rule() : null,
-			ptValueWeight ? this._ct_text(ptValueWeight) : null,
-			ptDamageProperties ? this._ct_text(ptDamageProperties) : null,
+			typeRarityText ? this._ct_htmlToText(this._ct_subtitle(typeRarityText.uppercaseFirst())) : null,
+			ptDamage ? this._ct_property(ptDamage.startsWith("AC") ? "Armor Class" : "Damage", ptDamage) : null,
+			ptProperties ? this._ct_property("Properties", ptProperties.uppercaseFirst()) : null,
+			subTypeText ? this._ct_property("Type", subTypeText.uppercaseFirst()) : null,
+			tierText ? this._ct_property("Tier", tierText.uppercaseFirst()) : null,
+			ptWeight ? this._ct_property("Weight", ptWeight) : null,
+			ptValue ? this._ct_property("Value", ptValue) : null,
 			itemEntries.length ? this._ct_rule() : null,
 			...this._ct_renderEntries(itemEntries, 2),
 			item.charges ? this._ct_boxes(item.charges) : null,
@@ -730,8 +739,24 @@ MakeCards._AVAILABLE_TYPES = {
 		pFnSearch: SearchWidget.pGetUserSpellSearch,
 		fnGetContents: MakeCards._getCardContents_spell.bind(MakeCards),
 		fnGetTags: (spell) => {
-			const out = ["spell", Parser.sourceJsonToAbv(spell.source), Parser.spLevelToFullLevelText(spell.level), Parser.spSchoolAbvToFull(spell.school)];
+			const out = [
+				"spell",
+				Parser.sourceJsonToAbv(spell.source),
+				Parser.spLevelToFullLevelText(spell.level),
+				Parser.spSchoolAbvToFull(spell.school),
+			];
+			const fromClassList = Renderer.spell.getCombinedClasses(spell, "fromClassList");
+			const fromOptionalClassList = Renderer.spell.getCombinedClasses(spell, "fromClassListVariant");
+			if (fromClassList.length) {
+				const [current] = Parser.spClassesToCurrentAndLegacy(fromClassList);
+				current.forEach(it => out.push(it.name));
+			}
+			if (fromOptionalClassList.length) {
+				const [currentOptional] = Parser.spVariantClassesToCurrentAndLegacy(fromOptionalClassList);
+				currentOptional.forEach(it => out.push(it.name));
+			}
 			if (spell.duration.filter(d => d.concentration).length) out.push("concentration");
+			if (spell.meta?.ritual) out.push("ritual");
 			return out;
 		},
 	},

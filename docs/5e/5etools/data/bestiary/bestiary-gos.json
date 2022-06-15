@@ -3196,7 +3196,7 @@
 				{
 					"ac": 18,
 					"from": [
-						"{@item studded leather armor|phb}",
+						"{@item studded leather armor|phb|studded leather}",
 						"{@item shield|phb}"
 					]
 				}
@@ -3468,7 +3468,8 @@
 				"AB",
 				"C",
 				"DR"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Pirate Bosun",
@@ -3490,7 +3491,7 @@
 				{
 					"ac": 12,
 					"from": [
-						"{@item studded leather armor|phb}"
+						"{@item studded leather armor|phb|studded leather}"
 					]
 				}
 			],
@@ -3583,7 +3584,7 @@
 				{
 					"ac": 14,
 					"from": [
-						"{@item studded leather armor|phb}"
+						"{@item studded leather armor|phb|studded leather}"
 					]
 				}
 			],
@@ -5099,7 +5100,8 @@
 			"languageTags": [
 				"C",
 				"DR"
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Shell Shark",
@@ -5918,7 +5920,8 @@
 			"damageTags": [
 				"I",
 				"P"
-			]
+			],
+			"hasToken": true
 		}
 	]
 }

@@ -3549,13 +3549,12 @@
 		},
 		{
 			"name": "Sergeant",
-			"source": "WDH",
+			"source": "ERLW",
 			"page": 197,
 			"_copy": {
 				"name": "Guard",
 				"source": "MM"
-			},
-			"hasToken": true
+			}
 		},
 		{
 			"name": "Shifter",
@@ -3904,7 +3903,7 @@
 				{
 					"ac": 15,
 					"from": [
-						"{@item studded leather armor|phb}"
+						"{@item studded leather armor|phb|studded leather}"
 					]
 				}
 			],

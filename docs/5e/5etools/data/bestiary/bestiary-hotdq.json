@@ -791,7 +791,7 @@
 				{
 					"ac": 16,
 					"from": [
-						"{@item studded leather armor|phb}",
+						"{@item studded leather armor|phb|studded leather}",
 						"{@item shield|phb}"
 					]
 				}
@@ -943,6 +943,31 @@
 				"THW"
 			],
 			"hasToken": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Four-Armed Troll",
+			"source": "HotDQ",
+			"page": 65,
+			"_copy": {
+				"name": "Troll",
+				"source": "MM",
+				"_mod": {
+					"action": {
+						"mode": "replaceArr",
+						"replace": "Multiattack",
+						"items": {
+							"name": "Multiattack",
+							"entries": [
+								"The troll attacks five times, once with its bite and four times with its claws. If two or more claws hit the same target, the troll rends the target, dealing an extra {@dice 2d6} slashing damage."
+							]
+						}
+					}
+				}
+			},
+			"cr": "6",
+			"hasToken": true,
+			"hasFluff": true,
 			"hasFluffImages": true
 		},
 		{
@@ -1570,7 +1595,7 @@
 				{
 					"ac": 15,
 					"from": [
-						"{@item studded leather armor|phb}",
+						"{@item studded leather armor|phb|studded leather}",
 						"{@item shield|phb}"
 					]
 				}
@@ -1741,7 +1766,8 @@
 			},
 			"ac": [
 				11
-			]
+			],
+			"hasToken": true
 		},
 		{
 			"name": "Rath Modar",
