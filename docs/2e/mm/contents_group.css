@@ -1,0 +1,23 @@
+body {
+    margin:24px; margin-left:36px;
+    background-color: #f2e4ff;
+    background-image:url(conte_light.jpg);
+}
+a:link,a:visited {
+    color:black;
+    text-decoration:none;
+}
+a:hover {
+    color:white;
+    background-color:black;
+}
+h1,h2 {
+    font-family: cambria,georgia,serif;
+    font-weight: normal;
+    text-align:center;
+}
+p {
+    font-family:tahoma,sans-serif;
+    font-size:9pt;
+    margin:0;
+}

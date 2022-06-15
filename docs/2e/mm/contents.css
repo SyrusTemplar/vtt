@@ -1,0 +1,28 @@
+body {
+    background-color:#e4e3ff;
+    background-image: url(conte_light.jpg);
+    margin:50px 12px 50px 36px;
+    }
+.letter {
+    font-family: cambria,georgis,serif;
+    font-size:36pt;
+    color:#4169e1;
+    float:left;
+    position: fixed;
+    top: 0px;
+    left: 4px;
+    pointer-events:none;
+}
+p {
+    font-family:calibri,verdana,sans-serif;
+    font-size:9pt;
+    margin:0;
+    }
+a:link, a:visited {
+    color:black;
+    text-decoration:none;
+}
+a:hover {
+    color:white;
+    background-color:#4169e1;
+}
