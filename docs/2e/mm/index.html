@@ -1,15 +1,16 @@
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Monster List</title>
 
+<link rel="stylesheet" href="completemm.css" type="text/css" >
 <link rel="stylesheet" href="font-awesome-4.7.0/font-awesome.min.css">
-<link rel="stylesheet" href="mm.css">
+<script src="jscripts.js"></script>
 <!-- Floatbox deployed - https://floatboxjs.com -->
 <link rel="stylesheet" href="floatbox/floatbox.css" />
 <script type="text/javascript" src="floatbox/floatbox.js"></script>
@@ -26,43 +27,50 @@
 
 <div class="menu-left">
 
-<input type="text" maxlength="20" size="20" class="searchBox" placeholder="type to search" />
+<div>
+  <i class="fa fa-search" aria-hidden="true"></i>
+
+  <input title="type word to search" id="search_input" type="text" maxlength="20" size="20" class="searchBox" placeholder="word to search" />
+  
+  <button title="click to clear search field" onclick="document.getElementById('search_input').value = '';processResults()"><i class="fa fa-times-circle-o fa-lg" aria-hidden="true" ></i></button>
+</div>
+
 
 <ul class="animalMenu">
 
 <h1><a name="a"></a><a href="#a"></a></h1>
 
-<li><a class="floatbox" href="monsters/aarakocr.html">Aarakocra</a></li>
+<li><a class="floatbox" href="monsters/aarakocr.html">Aarakocra (Basic)</a></li>
 <li><a class="floatbox" href="monsters/aarakath.html">Aarakocra (Athas)</a></li>
-<li><a class="floatbox" href="monsters/aartuk.html">Aartuk</a></li>
-<li><a class="floatbox" href="monsters/aasimar.html">Aasimar</a></li>
-<li><a class="floatbox" href="monsters/aasimon.html">Aasimon, General Information</a></li>
-<li><a class="floatbox" href="monsters/aasiagat.html">Aasimon, Agathinon</a></li>
-<li><a class="floatbox" href="monsters/aasideva.html">Aasimon, Deva</a></li>
-<li><a class="floatbox" href="monsters/aasilite.html">Aasimon, Light</a></li>
-<li><a class="floatbox" href="monsters/aasiplan.html">Aasimon, Planetar</a></li>
-<li><a class="floatbox" href="monsters/aasisola.html">Aasimon, Solar</a></li>
-<li><a class="floatbox" href="monsters/aballin.html">Aballin</a></li>
-<li><a class="floatbox" href="monsters/aboleth.html">Aboleth</a></li>
-<li><a class="floatbox" href="monsters/aboleths.html">Aboleth, Savant</a></li>
-<li><a class="floatbox" href="monsters/abrian.html">Abrian</a></li>
-<li><a class="floatbox" href="monsters/abyssant.html">Abyss Ant</a></li>
-<li><a class="floatbox" href="monsters/achaiera.html">Achaierai</a></li>
-<li><a class="floatbox" href="monsters/actaeon.html">Actaeon</a></li>
-<li><a class="floatbox" href="monsters/addazahr.html">Addazahr</a></li>
-<li><a class="floatbox" href="monsters/adherer.html">Adherer</a></li>
-<li><a class="floatbox" href="monsters/aeserpen.html">Aeserpent</a></li>
-<li><a class="floatbox" href="monsters/afanc.html">Afanc</a></li>
-<li><a class="floatbox" href="monsters/agarat.html">Agarat</a></li>
-<li><a class="floatbox" href="monsters/aggie.html">Aggie</a></li>
-<li><a class="floatbox" href="monsters/agrutha.html">Agrutha</a></li>
-<li><a class="floatbox" href="monsters/ahuizotl.html">Ahuizotl</a></li>
-<li><a class="floatbox" href="monsters/airsenti.html">Air Sentinel</a></li>
-<li><a class="floatbox" href="monsters/akikage.html">Akikage</a></li>
-<li><a class="floatbox" href="monsters/alaghi.html">Alaghi</a></li>
-<li><a class="floatbox" href="monsters/albari.html">Albari</a></li>
-<li><a class="floatbox" href="monsters/alchplan.html">Alchemy Plant</a></li>
-<li><a class="floatbox" href="monsters/aleax.html">Aleax</a></li>
+<li><a class="floatbox" href="monsters/aartuk.html">Aartuk (Spelljammer)</a></li>
+<li><a class="floatbox" href="monsters/aasimar.html">Aasimar (Planescape)</a></li>
+<li><a class="floatbox" href="monsters/aasimon.html">Aasimon, General Information (Planescape)</a></li>
+<li><a class="floatbox" href="monsters/aasiagat.html">Aasimon, Agathinon (Planescape)</a></li>
+<li><a class="floatbox" href="monsters/aasideva.html">Aasimon, Deva (Planescape)</a></li>
+<li><a class="floatbox" href="monsters/aasilite.html">Aasimon, Light (Planescape)</a></li>
+<li><a class="floatbox" href="monsters/aasiplan.html">Aasimon, Planetar (Planescape)</a></li>
+<li><a class="floatbox" href="monsters/aasisola.html">Aasimon, Solar (Planescape)</a></li>
+<li><a class="floatbox" href="monsters/aballin.html">Aballin (Fiend Folio)</a></li>
+<li><a class="floatbox" href="monsters/aboleth.html">Aboleth (Basic)</a></li>
+<li><a class="floatbox" href="monsters/aboleths.html">Aboleth, Savant (Basic)</a></li>
+<li><a class="floatbox" href="monsters/abrian.html">Abrian (Planescape)</a></li>
+<li><a class="floatbox" href="monsters/abyssant.html">Abyss Ant (Planescape)</a></li>
+<li><a class="floatbox" href="monsters/achaiera.html">Achaierai (Fiend Folio)</a></li>
+<li><a class="floatbox" href="monsters/actaeon.html">Actaeon (Mystara)</a></li>
+<li><a class="floatbox" href="monsters/addazahr.html">Addazahr (Al-Qadim)</a></li>
+<li><a class="floatbox" href="monsters/adherer.html">Adherer (Fiend Folio)</a></li>
+<li><a class="floatbox" href="monsters/aeserpen.html">Aeserpent (Planescape)</a></li>
+<li><a class="floatbox" href="monsters/afanc.html">Afanc (Al-Qadim)</a></li>
+<li><a class="floatbox" href="monsters/agarat.html">Agarat (Mystara)</a></li>
+<li><a class="floatbox" href="monsters/aggie.html">Aggie (Revenloft)</a></li>
+<li><a class="floatbox" href="monsters/agrutha.html">Agrutha (Magazine)</a></li>
+<li><a class="floatbox" href="monsters/ahuizotl.html">Ahuizotl (Maztica)</a></li>
+<li><a class="floatbox" href="monsters/airsenti.html">Air Sentinel (Planescape)</a></li>
+<li><a class="floatbox" href="monsters/akikage.html">Akikage (Revenloft)</a></li>
+<li><a class="floatbox" href="monsters/alaghi.html">Alaghi (Forgotten)</a></li>
+<li><a class="floatbox" href="monsters/albari.html">Albari (Spelljammer)</a></li>
+<li><a class="floatbox" href="monsters/alchplan.html">Alchemy Plant (Spelljammer)</a></li>
+<li><a class="floatbox" href="monsters/aleax.html">Aleax (Planescape)</a></li>
 <li><a class="floatbox" href="monsters/algoid.html">Algoid</a></li>
 <li><a class="floatbox" href="monsters/alguduir.html">Alguduir</a></li>
 <li><a class="floatbox" href="monsters/alhoon.html">Alhoon</a></li>
@@ -136,7 +144,6 @@
 <li><a class="floatbox" href="monsters/averx.html">Averx</a></li>
 <li><a class="floatbox" href="monsters/aviarag.html">Aviarag</a></li>
 
-<li><br><hr></li>
 <h1><a name="b"></a><a href="#b"></a></h1>
 
 <li><a class="floatbox" href="monsters/baatezu.html">Baatezu, General Information</a></li>
@@ -281,7 +288,6 @@
 <li><a class="floatbox" href="monsters/byut.html">Byut</a></li>
 <li><a class="floatbox" href="monsters/bzastra.html">Bzastra</a></li>
 
-<li><br><hr></li>
 <h1><a name="c"></a><a href="#c"></a></h1>
 
 <li><a class="floatbox" href="monsters/cabhaigh.html">Cabhaigh</a></li>
@@ -391,7 +397,6 @@
 <li><a class="floatbox" href="monsters/curst.html">Curst</a></li>
 <li><a class="floatbox" href="monsters/cwnannwn.html">Cwn Annwn</a></li>
 
-<li><br><hr></li>
 <h1><a name="d"></a><a href="#d"></a></h1>
 
 <li><a class="floatbox" href="monsters/dabus.html">Dabus</a></li>
@@ -605,7 +610,6 @@
 <li><a class="floatbox" href="monsters/dwaratha.html">Dwarf (Athas)</a></li>
 <li><a class="floatbox" href="monsters/dweoborn.html">Dweomerborn</a></li>
 
-<li><br><hr></li>
 <h1><a name="e"></a><a href="#e"></a></h1>
 
 <li><a class="floatbox" href="monsters/eagle.html">Eagle</a></li>
@@ -701,7 +705,6 @@
 <li><a class="floatbox" href="monsters/eye.html">Eye, The</a></li>
 <li><a class="floatbox" href="monsters/eyewing.html">Eyewing</a></li>
 
-<li><br><hr></li>
 <h1><a name="f"></a><a href="#f"></a></h1>
 
 <li><a class="floatbox" href="monsters/facet.html">Facet</a></li>
@@ -786,7 +789,6 @@
 <li><a class="floatbox" href="monsters/furies.html">Furies</a></li>
 <li><a class="floatbox" href="monsters/fyrefly.html">Fyrefly</a></li>
 
-<li><br><hr></li>
 <h1><a name="g"></a><a href="#g"></a></h1>
 
 <li><a class="floatbox" href="monsters/gadabout.html">Gadabout</a></li>
@@ -982,7 +984,6 @@
 <li><a class="floatbox" href="monsters/gurichaa.html">Gurik Cha&rsquo;ahl</a></li>
 <li><a class="floatbox" href="monsters/gyerian.html">Gyerian</a></li>
 
-<li><br><hr></li>
 <h1><a name="h"></a><a href="#h"></a></h1>
 
 <li><a class="floatbox" href="monsters/hadozee.html">Hadozee</a></li>
@@ -1081,7 +1082,6 @@
 <li><a class="floatbox" href="monsters/hyena.html">Hyena</a></li>
 <li><a class="floatbox" href="monsters/hypnos.html">Hypnos</a></li>
 
-<li><br><hr></li>
 <h1><a name="i"></a><a href="#i"></a></h1>
 
 <li><a class="floatbox" href="monsters/ibrandli.html">Ibrandlin</a></li>
@@ -1116,7 +1116,6 @@
 <li><a class="floatbox" href="monsters/ixitxach.html">Ixitxachitl</a></li>
 <li><a class="floatbox" href="monsters/ixitixza.html">Ixitxachitl, Ixzan</a></li>
 
-<li><br><hr></li>
 <h1><a name="j"></a><a href="#j"></a></h1>
 
 <li><a class="floatbox" href="monsters/jabberwo.html">Jabberwock</a></li>
@@ -1138,7 +1137,6 @@
 <li><a class="floatbox" href="monsters/jozhal.html">Jozhal</a></li>
 <li><a class="floatbox" href="monsters/juhrion.html">Juhrion</a></li>
 
-<li><br><hr></li>
 <h1><a name="k"></a><a href="#k"></a></h1>
 
 <li><a class="floatbox" href="monsters/kaisharg.html">Kaisharga</a></li>
@@ -1189,7 +1187,6 @@
 <li><a class="floatbox" href="monsters/kyton.html">Kyton</a></li>
 <li><a class="floatbox" href="monsters/kyussson.html">Kyuss, Son of</a></li>
 
-<li><br><hr></li>
 <h1><a name="l"></a><a href="#l"></a></h1>
 
 <li><a class="floatbox" href="monsters/laerti.html">Laerti</a></li>
@@ -1281,7 +1278,6 @@
 <li><a class="floatbox" href="monsters/lyrannik.html">Lyrannikin</a></li>
 <li><a class="floatbox" href="monsters/lythlyx.html">Lythlyx</a></li>
 
-<li><br><hr></li>
 <h1><a name="m"></a><a href="#m"></a></h1>
 
 <li><a class="floatbox" href="monsters/maelepha.html">Maelephant</a></li>
@@ -1395,7 +1391,6 @@
 <li><a class="floatbox" href="monsters/myconid.html">Myconid</a></li>
 <li><a class="floatbox" href="monsters/mythfolk.html">Mythu?nn Folk</a></li>
 
-<li><br><hr></li>
 <h1><a name="n"></a><a href="#n"></a></h1>
 
 <li><a class="floatbox" href="monsters/naga.html">Naga</a></li>
@@ -1439,7 +1434,6 @@
 <li><a class="floatbox" href="monsters/nympunse.html">Nymph, Unseelie</a></li>
 <li><a class="floatbox" href="monsters/nyth.html">Nyth</a></li>
 
-<li><br><hr></li>
 <h1><a name="o"></a><a href="#o"></a></h1>
 
 <li><a class="floatbox" href="monsters/obedient.html">Obedient</a></li>
@@ -1478,7 +1472,6 @@
 <li><a class="floatbox" href="monsters/owlbear.html">Owlbear I</a></li>
 <li><a class="floatbox" href="monsters/owlbear2.html">Owlbear II</a></li>
 
-<li><br><hr></li>
 <h1><a name="p"></a><a href="#p"></a></h1>
 
 <li><a class="floatbox" href="monsters/pahari.html">Pahari</a></li>
@@ -1556,7 +1549,6 @@
 <li><a class="floatbox" href="monsters/pulpbee.html">Pulp Bee</a></li>
 <li><a class="floatbox" href="monsters/pyreen.html">Pyreen</a></li>
 
-<li><br><hr></li>
 <h1><a name="q"></a><a href="#q"></a></h1>
 
 <li><a class="floatbox" href="monsters/qnidar.html">Q&rsquo;nidar</a></li>
@@ -1569,7 +1561,6 @@
 <li><a class="floatbox" href="monsters/quicwood.html">Quickwood</a></li>
 <li><a class="floatbox" href="monsters/quill.html">Quill</a></li>
 
-<li><br><hr></li>
 <h1><a name="r"></a><a href="#r"></a></h1>
 
 <li><a class="floatbox" href="monsters/raaig.html">Raaig</a></li>
@@ -1636,7 +1627,6 @@
 <li><a class="floatbox" href="monsters/ruvoka.html">Ruvoka</a></li>
 <li><a class="floatbox" href="monsters/ruvoatha.html">Ruvoka (Athas)</a></li>
 
-<li><br><hr></li>
 <h1><a name="s"></a><a href="#s"></a></h1>
 
 <li><a class="floatbox" href="monsters/sabrecla.html">Sabreclaw</a></li>
@@ -1858,7 +1848,6 @@
 <li><a class="floatbox" href="monsters/symbshad.html">Symbiont, Shadow</a></li>
 <li><a class="floatbox" href="monsters/symbjell.html">Symbiotic Jelly</a></li>
 
-<li><br><hr></li>
 <h1><a name="t"></a><a href="#t"></a></h1>
 
 <li><a class="floatbox" href="monsters/tabaxi.html">Tabaxi</a></li>
@@ -1964,7 +1953,6 @@
 <li><a class="floatbox" href="monsters/tyminid.html">Tyminid</a></li>
 <li><a class="floatbox" href="monsters/tyrg.html">Tyrg</a></li>
 
-<li><br><hr></li>
 <h1><a name="u"></a><a href="#u"></a></h1>
 
 <li><a class="floatbox" href="monsters/ulithari.html">Ulitharid</a></li>
@@ -1987,7 +1975,6 @@
 <li><a class="floatbox" href="monsters/ursoi.html">Ursoi</a></li>
 <li><a class="floatbox" href="monsters/utukku.html">Utukku</a></li>
 
-<li><br><hr></li>
 <h1><a name="v"></a><a href="#v"></a></h1>
 
 <li><a class="floatbox" href="monsters/vaath.html">Vaath</a></li>
@@ -2038,7 +2025,6 @@
 <li><a class="floatbox" href="monsters/vortspid.html">Vortex Spider</a></li>
 <li><a class="floatbox" href="monsters/vulthoun.html">Vulturehound</a></li>
 
-<li><br><hr></li>
 <h1><a name="w"></a><a href="#w"></a></h1>
 
 <li><a class="floatbox" href="monsters/wallara.html">Wallara</a></li>
@@ -2102,7 +2088,6 @@
 <li><a class="floatbox" href="monsters/wyvern.html">Wyvern</a></li>
 <li><a class="floatbox" href="monsters/wyvedrak.html">Wyvern Drake</a></li>
 
-<li><br><hr></li>
 <h1><a name="x"></a><a href="#x"></a></h1>
 
 <li><a class="floatbox" href="monsters/xagya.html">Xag-Ya/Xeg-Yi</a></li>
@@ -2114,7 +2099,6 @@
 <li><a class="floatbox" href="monsters/xorn.html">Xorn</a></li>
 <li><a class="floatbox" href="monsters/xvart.html">Xvart</a></li>
 
-<li><br><hr></li>
 <h1><a name="y"></a><a href="#y"></a></h1>
 
 <li><a class="floatbox" href="monsters/yaggol.html">Yaggol</a></li>
@@ -2144,7 +2128,6 @@
 <li><a class="floatbox" href="monsters/yugoultr.html">Yugoloth, Greater, Ultroloth</a></li>
 <li><a class="floatbox" href="monsters/yukionna.html">Yuki-on-na</a></li>
 
-<li><br><hr></li>
 <h1><a name="z"></a><a href="#z"></a></h1>
 
 <li><a class="floatbox" href="monsters/zaratan.html">Zaratan</a></li>
