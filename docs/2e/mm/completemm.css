@@ -28,6 +28,8 @@ body {
   background-color: var(--color-background-primary);
   color: var(--color-font);
   font-family: Arial, Verdana;
+  margin:24px;
+  margin-bottom:200px;
 }
 
 .mainbody {
@@ -83,6 +85,47 @@ input {
   border-radius:10px;
   font-size: 14px;
 }
+
+
+/* Monster Block Styling */
+
+h1 { color:var(--color-accent); margin:0px; }
+h2 { color:var(--color-accent); margin-bottom:0; }
+h2 + p.f { margin-top:0; }
+
+p,td,th,ol,ul {font-family:verdana,sans-serif; font-size:9pt;}
+p {text-indent:1em; }
+p.nav { text-indent:0; text-align:center; font-size:small; margin-left:150px; }
+p.tsr { text-indent:0; font-size:xx-small; text-align:right; margin:0; float:right; }
+p.f { margin-top:3em; text-indent:0; }
+p.ni { text-indent:0; }
+p.fi { margin-top:2em; }
+p.src { font-size:x-small; text-align:right; }
+p.shm { margin:0 3em; }
+
+hr.1 { color:var(--color-accent); height:3px; margin-top:0; margin-bottom:7px; clear:both; }
+hr.2 { color:var(--color-background-primary); border:none; height:9px; margin-top:0; }
+
+table {border-top:solid 0px var(--color-accent); border-spacing:0; margin-top:0pt; margin-bottom:3pt;}
+table tr:nth-child(even) { background-color:var(--color-background-nav); }
+table.sp td { vertical-align:bottom; }
+th { text-align:left; color:var(--color-accent); font-weight:bold; }
+th,td {font-family:verdana,sans-serif; font-size:9pt;border-bottom:solid 1px var(--color-background-nav); padding:2pt; padding-right:1em; vertical-align:top; }
+tr.bk th,p.ni b,p.shm b,b.bk { color:var(--color-font); }
+tr.cn td,tr.cn th { text-align:center; }
+table.ip { border:0px solid var(--color-background-subnav); }
+
+caption {font-family:verdana,sans-serif; font-size:9pt; font-weight:bold; font-style:italic; border:none; }
+
+b { color:var(--color-accent); }
+q:before { color:var(--color-accent); }
+q:after { color:var(--color-accent); }
+q q:before { color:var(--color-accent); }
+q q:after { color:var(--color-accent); }
+ul,ol { margin-top:0; margin-bottom:0; }
+.c { text-align:center;}
+.right {float:right;}
+i i { font-style:normal; }
 
 
 
