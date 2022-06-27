@@ -10,7 +10,7 @@
 }
 
 .theme-light { /* Blue */
-   --color-background-primary: #f7fbfc;
+   --color-background-primary: white;
    --color-background-nav: #a7b7c2;
    --color-background-subnav: #b6c7d2;
    --color-link: #184a72;
