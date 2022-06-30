@@ -121,3 +121,36 @@ img.glow:hover, img.glow:focus {
   -o-transition: 1000ms linear 0s;
   transition: 1000ms linear 0s;
 }
+
+
+
+
+/* Information for Full Books */
+p { orphans: 0; widows: 0; background: transparent }
+p.western { font-family: "Arial", serif; font-size: 10pt }
+p.cjk { font-family: "Courier New"; font-size: 10pt }
+p.ctl { font-family: "Symbol"; font-size: 12pt }
+h1 { page-break-inside: avoid; orphans: 0; widows: 0; background: transparent; page-break-after: avoid }
+h1.western { font-family: "Arial", serif; font-size: 10pt }
+h1.cjk { font-family: "Courier New"; font-size: 10pt }
+h1.ctl { font-family: "Symbol"; font-size: 12pt }
+h2 { color: #ff0000; orphans: 0; widows: 0; background: transparent; page-break-after: avoid }
+h2.western { font-family: "Arial", serif; font-size: 10pt; font-weight: bold }
+h2.cjk { font-family: "Courier New"; font-size: 10pt; font-weight: bold }
+h2.ctl { font-family: "Symbol"; font-size: 12pt }
+h3 { orphans: 0; widows: 0; background: transparent; page-break-after: avoid }
+h3.western { font-family: "Arial", serif; font-size: 10pt; font-weight: bold }
+h3.cjk { font-family: "Courier New"; font-size: 10pt; font-weight: bold }
+h3.ctl { font-family: "Symbol"; font-size: 12pt }
+h4 { margin-right: -0.06in; orphans: 0; widows: 0; background: transparent; page-break-after: avoid }
+h4.western { font-family: "Arial", serif; font-size: 10pt; font-weight: bold }
+h4.cjk { font-family: "Courier New"; font-size: 10pt; font-weight: bold }
+h4.ctl { font-family: "Symbol"; font-size: 12pt }
+h5 { orphans: 0; widows: 0; background: transparent; page-break-after: avoid }
+h5.western { font-family: "Arial", serif; font-size: 10pt; font-weight: bold }
+h5.cjk { font-family: "Courier New"; font-size: 10pt; font-weight: bold }
+h5.ctl { font-family: "Symbol"; font-size: 12pt }
+h6 { color: #ff0000; orphans: 0; widows: 0; background: transparent; page-break-after: avoid }
+h6.western { font-family: "Arial", serif; font-size: 20pt; font-weight: bold }
+h6.cjk { font-family: "Courier New"; font-size: 20pt; font-weight: bold }
+h6.ctl { font-family: "Symbol"; font-size: 12pt }
