@@ -52,7 +52,3 @@ function toggleTheme() {
         setTheme('theme-dark');
     }
 })();
-
-
-/* COPY LINK ON IMAGE CLICK */
-
