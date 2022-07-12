@@ -53,3 +53,6 @@ function toggleTheme() {
     }
 })();
 
+
+/* COPY LINK ON IMAGE CLICK */
+
