@@ -234,6 +234,9 @@
 			"actionTags": [
 				"Multiattack"
 			],
+			"languageTags": [
+				"XX"
+			],
 			"damageTags": [
 				"B",
 				"O"
@@ -5137,10 +5140,10 @@
 							"{@spell imprisonment}"
 						]
 					},
+					"ability": "wis",
 					"hidden": [
 						"daily"
-					],
-					"ability": "wis"
+					]
 				},
 				{
 					"name": "Spellcasting",

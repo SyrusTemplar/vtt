@@ -1,6 +1,6 @@
 "use strict";
 
-class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
+class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProxyBase(ListPage))) {
 	static _ascSortSubclasses (scA, scB) {
 		return SortUtil.ascSortLower(scA.name, scB.name);
 	}
@@ -23,7 +23,7 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 	}
 
 	constructor () {
-		super();
+		super({});
 		// Don't include classId in the main state/proxy, as we want special handling for it as the main hash part
 		this.__classId = {_: 0};
 		this._classId = this._getProxy("classId", this.__classId);
@@ -60,9 +60,11 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 	}
 	get activeClassRaw () { return this._dataList[this._classId._]; }
 
-	get filterBox () { return this._pageFilter.filterBox; }
+	get filterBox () { return this._filterBox; }
 
 	async pOnLoad () {
+		Hist.setListPage(this);
+
 		this._$pgContent = $(`#pagecontent`);
 
 		await BrewUtil2.pInit();
@@ -70,14 +72,24 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 		Omnisearch.addScrollTopFloat();
 		const data = await DataUtil.class.loadJSON();
 
-		this._list = ListUtil.initList({listClass: "classes", isUseJquery: true, isBindFindHotkey: true});
-		ListUtil.setOptions({primaryLists: [this._list]});
+		const $btnReset = $("#reset");
+		this._list = this._initList({
+			$iptSearch: $("#lst__search"),
+			$wrpList: $(`.list.classes`),
+			$btnReset,
+			$btnClear: $(`#lst__search-glass`),
+			dispPageTagline: document.getElementById(`page__subtitle`),
+			isBindFindHotkey: true,
+			optsList: {
+				isUseJquery: true,
+			},
+		});
 		SortUtil.initBtnSortHandlers($("#filtertools"), this._list);
 
-		await this._pageFilter.pInitFilterBox({
+		this._filterBox = await this._pageFilter.pInitFilterBox({
 			$iptSearch: $(`#lst__search`),
 			$wrpFormTop: $(`#filter-search-group`),
-			$btnReset: $(`#reset`),
+			$btnReset,
 		});
 
 		this._addData(data);
@@ -88,8 +100,7 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 		this._pageFilter.trimState();
 
 		ManageBrewUi.bindBtnOpen($(`#manage-brew`));
-		await ListUtil.pLoadState();
-		RollerUtil.addListRollButton(true);
+		this._renderListFeelingLucky({isCompact: true, $btnReset});
 
 		window.onhashchange = this._handleHashChange.bind(this);
 
@@ -106,7 +117,7 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 		ListPage._checkShowAllExcluded(this._dataList, this._$pgContent);
 		this._initLinkGrabbers();
 		this._initScrollToSubclassSelection();
-		UrlUtil.bindLinkExportButton(this.filterBox, $(`#btn-link-export`));
+		this._bindLinkExportButton({$btn: $(`#btn-link-export`)});
 		this._doBindBtnSettingsSidebar();
 
 		Hist.initialLoad = false;
@@ -184,11 +195,6 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 			this._list.update();
 			this.filterBox.render();
 			this._handleFilterChange(false);
-
-			ListUtil.setOptions({
-				itemList: this._dataList,
-				primaryLists: [this._list],
-			});
 		}
 
 		return {isAddedAnyClass, isAddedAnySubclass};
@@ -294,6 +300,7 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 				Hist.lastLoadedId = ixToLoad;
 				const cls = this._dataList[ixToLoad];
 				document.title = `${cls ? cls.name : "Classes"} - 5etools`;
+				this._updateSelected();
 				target._ = ixToLoad;
 			}
 		} else {
@@ -487,86 +494,24 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 
 		const cpyCls = MiscUtil.copy(this.activeClassRaw);
 
-		const walker = MiscUtil.getWalker({
-			keyBlacklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLACKLIST,
-			isAllowDeleteObjects: true,
-			isDepthFirst: true,
-		});
+		const walker = Renderer.class.getWalkerFilterDereferencedFeatures();
 
 		const isUseSubclassSources = !this._pageFilter.isClassNaturallyDisplayed(f, cpyCls) && this._pageFilter.isAnySubclassDisplayed(f, cpyCls);
 
-		cpyCls.classFeatures = cpyCls.classFeatures.map((lvlFeatures, ixLvl) => {
-			return walker.walk(
-				lvlFeatures,
-				{
-					object: (obj) => {
-						if (!obj.source) return obj;
-						const fText = obj.isClassFeatureVariant ? {isClassFeatureVariant: true} : null;
-
-						const isDisplay = [obj.source, ...(obj.otherSources || []).map(it => it.source)]
-							.some(src => this.filterBox.toDisplayByFilters(
-								f,
-								{
-									filter: this._pageFilter.sourceFilter,
-									value: isUseSubclassSources && src === cpyCls.source
-										? this._pageFilter.getActiveSource(f)
-										: src,
-								},
-								{
-									filter: this._pageFilter.levelFilter,
-									value: ixLvl + 1,
-								},
-								{
-									filter: this._pageFilter.optionsFilter,
-									value: fText,
-								},
-							));
-
-						return isDisplay ? obj : null;
-					},
-					array: (arr) => {
-						return arr.filter(it => it != null);
-					},
-				},
-			);
+		Renderer.class.mutFilterDereferencedClassFeatures({
+			walker,
+			cpyCls,
+			pageFilter: this._pageFilter,
+			filterValues: f,
+			isUseSubclassSources,
 		});
 
 		(cpyCls.subclasses || []).forEach(sc => {
-			sc.subclassFeatures = sc.subclassFeatures.map(lvlFeatures => {
-				const level = CollectionUtil.bfs(lvlFeatures, {prop: "level"});
-
-				return walker.walk(
-					lvlFeatures,
-					{
-						object: (obj) => {
-							if (obj.entries && !obj.entries.length) return null;
-							if (!obj.source) return obj;
-							const fText = obj.isClassFeatureVariant ? {isClassFeatureVariant: true} : null;
-
-							const isDisplay = [obj.source, ...(obj.otherSources || []).map(it => it.source)]
-								.some(src => this.filterBox.toDisplayByFilters(
-									f,
-									{
-										filter: this._pageFilter.sourceFilter,
-										value: src,
-									},
-									{
-										filter: this._pageFilter.levelFilter,
-										value: level,
-									},
-									{
-										filter: this._pageFilter.optionsFilter,
-										value: fText,
-									},
-								));
-
-							return isDisplay ? obj : null;
-						},
-						array: (arr) => {
-							return arr.filter(it => it != null);
-						},
-					},
-				);
+			Renderer.class.mutFilterDereferencedSubclassFeatures({
+				walker,
+				cpySc: sc,
+				pageFilter: this._pageFilter,
+				filterValues: f,
 			});
 		});
 
@@ -1762,10 +1707,28 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 
 				const isAnySubclassDisplayed = this._pageFilter.isAnySubclassDisplayed(filterValues, cpyCls);
 
-				levelsWithFeatures.forEach((lvl, i) => {
-					const isLastRow = i === levelsWithFeatures - 1;
+				levelsWithFeatures.forEach(lvl => {
+					const isLastRow = lvl === levelsWithFeatures.last();
 
 					renderStack.push(`<div class="ve-flex ${isLastRow ? "mb-4" : ""}">`);
+
+					const isAnyFeature = cls.subclasses
+						.filter(sc => !this.constructor.isSubclassExcluded_(cls, sc))
+						.filter(sc => {
+							const key = UrlUtil.getStateKeySubclass(sc);
+							return this._state[key];
+						})
+						.some((sc, ixSubclass) => {
+							return sc.subclassFeatures
+								.some(it => it.length && it[0].level === lvl);
+						});
+
+					if (isAnyFeature) {
+						renderStack.push(`<div class="ve-flex-vh-center sticky cls-bkmv__wrp-level br-1p bt-1p bb-1p btr-5p bbr-5p mr-2 ml-n2">
+							<span class="cls-bkmv__disp-level no-shrink small-caps">Level ${lvl}</span>
+						</div>`);
+					}
+
 					cls.subclasses
 						.filter(sc => !this.constructor.isSubclassExcluded_(cls, sc))
 						.forEach((sc, ixSubclass) => {
@@ -1813,7 +1776,7 @@ class ClassesPage extends MixinComponentGlobalState(BaseComponent) {
 						});
 					renderStack.push(`</div>`);
 
-					if (!isLastRow) renderStack.push(`<hr class="hr-2 mt-3 cls-comp__hr-level"/>`);
+					if (!isLastRow && isAnyFeature) renderStack.push(`<hr class="hr-2 mt-3 cls-comp__hr-level"/>`);
 				});
 				$wrpContent.append(renderStack.join(""));
 

@@ -2,26 +2,26 @@
 	font-family: "Convergence";
 	font-style: normal;
 	font-weight: 400;
-	src: local("Convergence-Regular"), url("../fonts/Convergence-Regular.woff2") format("truetype");
+	src: local("Convergence-Regular"), url("../fonts/Convergence-Regular.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: "Roboto";
 	font-style: normal;
 	font-weight: 400;
-	src: local("Roboto"), url("../fonts/Roboto-Regular.woff2") format("truetype");
+	src: local("Roboto"), url("../fonts/Roboto-Regular.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: "Glyphicons Halflings";
 	font-style: normal;
 	font-weight: 400;
-	src: local("glyphicons-halflings-regular"), url("../fonts/glyphicons-halflings-regular.woff2") format("truetype");
+	src: local("glyphicons-halflings-regular"), url("../fonts/glyphicons-halflings-regular.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: "Blambot Casual";
-	src: local("Blambot-Casual"), url("../fonts/Blambot-Casual-Regular.ttf") format("truetype");
+	src: local("Blambot-Casual"), url("../fonts/Blambot-Casual-Regular.woff2") format("woff2");
 }
 
 @keyframes kf-fade-out {
@@ -187,6 +187,10 @@ $w-ipt-number-3-digit: 60px;
 $w-ipt-number-4-digit: 80px;
 
 $w-scroll-body: 15px;
+// endregion
+
+// region Heights
+$h-ipt-xs: 22px;
 // endregion
 
 // region Fonts

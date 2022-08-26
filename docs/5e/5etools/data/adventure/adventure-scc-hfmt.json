@@ -977,7 +977,8 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "book/SCC/thumbnail/071-map-4.1-wiltroot-hall-and-outer-grounds.webp"
-											}
+											},
+											"id": "000"
 										},
 										{
 											"type": "image",
@@ -988,7 +989,10 @@
 											"title": "Map 4.1: Wiltroot Hall/Outer Grounds (Player Version)",
 											"width": 3684,
 											"height": 5000,
-											"imageType": "map"
+											"imageType": "mapPlayer",
+											"mapParent": {
+												"id": "000"
+											}
 										}
 									]
 								},
@@ -2098,7 +2102,8 @@
 													"hrefThumbnail": {
 														"type": "internal",
 														"path": "book/SCC/thumbnail/076-map-4.2-aerojaunt-field.webp"
-													}
+													},
+													"id": "001"
 												},
 												{
 													"type": "image",
@@ -2109,7 +2114,10 @@
 													"title": "Map 4.2: Aerojaunt Field (Player Version)",
 													"width": 3000,
 													"height": 4071,
-													"imageType": "map"
+													"imageType": "mapPlayer",
+													"mapParent": {
+														"id": "001"
+													}
 												}
 											]
 										},
@@ -3116,7 +3124,8 @@
 													"hrefThumbnail": {
 														"type": "internal",
 														"path": "book/SCC/thumbnail/082-map-4.4-strixhaven-stadium.webp"
-													}
+													},
+													"id": "002"
 												},
 												{
 													"type": "image",
@@ -3124,10 +3133,13 @@
 														"type": "internal",
 														"path": "book/SCC/map-4.4-strixhaven-stadium-player.webp"
 													},
-													"title": "Map 4.4: Strixhaven Stadium(Player Version)",
+													"title": "Map 4.4: Strixhaven Stadium (Player Version)",
 													"width": 3000,
 													"height": 4071,
-													"imageType": "map"
+													"imageType": "mapPlayer",
+													"mapParent": {
+														"id": "002"
+													}
 												}
 											]
 										},

@@ -7442,7 +7442,8 @@
 									"hrefThumbnail": {
 										"type": "internal",
 										"path": "adventure/ToA/thumbnail/018-0302.webp"
-									}
+									},
+									"id": "159"
 								}
 							]
 						},
@@ -7599,7 +7600,8 @@
 									"hrefThumbnail": {
 										"type": "internal",
 										"path": "adventure/ToA/thumbnail/019-0303.webp"
-									}
+									},
+									"id": "196"
 								},
 								"Symbolic mazes are carved prominently onto the bridge and its supports. Any Chultan and most guides can confirm that maze symbols and the solving of mazes are associated with the ancient worship of Ubtao. A character can recall this information with a successful DC 20 Intelligence ({@skill Religion}) check.",
 								{
@@ -11730,7 +11732,8 @@
 									"hrefThumbnail": {
 										"type": "internal",
 										"path": "adventure/ToA/thumbnail/027-0308.webp"
-									}
+									},
+									"id": "1a2"
 								},
 								{
 									"type": "entries",
@@ -21473,7 +21476,8 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/ToA/thumbnail/045-0320.webp"
-											}
+											},
+											"id": "553"
 										}
 									]
 								},
@@ -30093,7 +30097,7 @@
 												},
 												{
 													"type": "entries",
-													"name": "Summon Swarm (Recharge 5\u20136)",
+													"name": "Summon Swarm {@recharge 5}",
 													"page": 106,
 													"id": "25e",
 													"entries": [
@@ -34526,7 +34530,7 @@
 									"page": 124,
 									"id": "2fd",
 									"entries": [
-										"When the characters arrive, a pair of rowboats are pulled up on the shore near the tunnel to {@area area 23|303|x} (see {@table Owning a Ship; Airborne and Waterborne Vehicles||chapter 5} of the{@i Dungeon Master's Guide} for more information on rowboats). A cowbell dangles from a hook at the prow of each boat. Ringing either bell summons the hydra in {@area area 21|2ff|x}, which arrives in {@dice 1d6} rounds."
+										"When the characters arrive, a pair of rowboats are pulled up on the shore near the tunnel to {@area area 23|303|x} (see {@table Owning a Ship; Airborne and Waterborne Vehicles||chapter 5} of the {@i Dungeon Master's Guide} for more information on rowboats). A cowbell dangles from a hook at the prow of each boat. Ringing either bell summons the hydra in {@area area 21|2ff|x}, which arrives in {@dice 1d6} rounds."
 									]
 								},
 								{
@@ -36404,7 +36408,8 @@
 										"offsetX": 38,
 										"offsetY": 49,
 										"scaleX": 0.822,
-										"scaleY": 0.815
+										"scaleY": 0.815,
+										"autoScale": true
 									},
 									"width": 3200,
 									"height": 2150,
@@ -37691,7 +37696,8 @@
 									},
 									"title": "Player Version",
 									"mapParent": {
-										"id": "fee"
+										"id": "fee",
+										"autoScale": true
 									},
 									"width": 2700,
 									"height": 1800,
@@ -41332,7 +41338,8 @@
 									},
 									"title": "Player Version",
 									"mapParent": {
-										"id": "fec"
+										"id": "fec",
+										"autoScale": true
 									},
 									"width": 3050,
 									"height": 2050,
@@ -42351,7 +42358,7 @@
 											"page": 167,
 											"id": "475",
 											"entries": [
-												"The recipient gains a{@i charm of the swollen}{@i hag}. This charm allows you to spit up a {@creature frog} as an action. The frog understands you and obeys your commands. Once used three times, the charm goes away."
+												"The recipient gains a {@i charm of the swollen}{@i hag}. This charm allows you to spit up a {@creature frog} as an action. The frog understands you and obeys your commands. Once used three times, the charm goes away."
 											]
 										},
 										{
@@ -43820,7 +43827,8 @@
 									},
 									"title": "Player Version",
 									"mapParent": {
-										"id": "feb"
+										"id": "feb",
+										"autoScale": true
 									},
 									"width": 3050,
 									"height": 2050,
@@ -45479,7 +45487,8 @@
 									},
 									"title": "Player Version",
 									"mapParent": {
-										"id": "fea"
+										"id": "fea",
+										"autoScale": true
 									},
 									"width": 2700,
 									"height": 1800,

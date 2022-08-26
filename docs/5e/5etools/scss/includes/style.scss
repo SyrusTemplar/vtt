@@ -378,6 +378,8 @@ input[type=checkbox].sidemenu__row__label__cb {
 			margin-left: 0;
 		}
 
+		position: relative;
+
 		&--scrolled {
 			position: fixed;
 			z-index: $z-omnisearch;
@@ -484,6 +486,20 @@ input[type=checkbox].sidemenu__row__label__cb {
 		margin-right: 1px;
 		margin-left: -2px;
 	}
+
+	// region Clear button
+	&input {
+		&:placeholder-shown + .omni__btn-clear {
+			display: none;
+		}
+	}
+
+	&wrp-input--scrolled {
+		.omni__input:not(:focus):not(:focus-within):not(&:active):not(:hover) + .omni__btn-clear {
+			display: none;
+		}
+	}
+	// endregion
 }
 
 /* *** */
@@ -527,18 +543,9 @@ input[type=checkbox].sidemenu__row__label__cb {
 	}
 }
 
-#btn-popout {
-	margin-left: auto;
-}
-
 #tabs-right {
 	margin-left: auto;
 	display: flex;
-
-	// FIXME: ID within ID
-	> #btn-popout {
-		margin-left: 0;
-	}
 }
 
 /* roller */
@@ -1662,10 +1669,6 @@ img.token:hover {
 	border-top-left-radius: 4px;
 }
 
-div#showsearch {
-	display: none;
-}
-
 /* Psionics */
 
 .psi-order-and-talent {
@@ -1793,70 +1796,6 @@ input[type=checkbox].readonly {
 }
 // endregion
 
-.ecgen__ {
-	&visible,
-	&visible--flex,
-	&visible--flex-col {
-		display: none;
-	}
-
-	&btn_list {
-		padding: 0 2px;
-		line-height: 12px;
-		font-size: 9px;
-		border-radius: 3px;
-	}
-
-	&del_players,
-	&advanced_add_col,
-	&advanced_remove_col {
-		padding: 0 2px;
-		font-size: 10px;
-		flex-shrink: 0;
-		flex-grow: 0;
-	}
-
-	&cr_input {
-		width: 100%;
-		text-align: center;
-	}
-}
-
-.night-mode .ecgen__ {
-	&wrp {
-		background: $rgb-bg--night;
-	}
-}
-
-.ecgen_active {
-	.ecgen {
-		&__visible {
-			display: block;
-		}
-
-		&__visible--flex {
-			display: flex;
-		}
-
-		&__visible--flex-col {
-			display: flex;
-			flex-direction: column;
-		}
-
-		&__hidden {
-			display: none !important;
-		}
-
-		&__name {
-			width: 26.66666666%;
-		}
-
-		&__name--sub {
-			width: 29.16666667%;
-		}
-	}
-}
-
 /* Adventures */
 
 /* ENTRY RENDERING CSS */
@@ -1929,15 +1868,15 @@ tr.regionaleffect {
 	}
 
 	.rd__list-hang-notitle {
-		p {
-			text-indent: -1.1em;
-		}
-
 		> .rd__li {
 			margin-bottom: 5px;
 
 			> * {
 				margin: 0 0 5px;
+			}
+
+			> .rd__p-list-item {
+				text-indent: -1.1em;
 			}
 		}
 	}
@@ -3243,8 +3182,6 @@ th.border {
 		background-color: $rgb-name-red--night;
 	}
 
-	.stripe-odd:nth-child(odd),
-	.stripe-even:nth-child(even),
 	.stripe-odd-table > tbody > tr:nth-child(odd),
 	.stripe-even-table > tbody > tr:nth-child(even) {
 		background-color: #4e4e4e80; // pre-blend (50% opacity): 38 38 38

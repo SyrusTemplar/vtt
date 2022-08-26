@@ -10,16 +10,6 @@
 	}
 }
 
-@keyframes kf-pop-in {
-	from {
-		transform: scale(0);
-	}
-
-	to {
-		transform: scale(1);
-	}
-}
-
 .hwin {
 	position: fixed;
 	width: 600px;
@@ -27,10 +17,11 @@
 	min-width: 150px;
 	z-index: $z-hwin;
 	box-shadow: 0 0 12px 0 black;
-	animation-name: kf-fade-in, kf-pop-in;
-	animation-duration: 150ms, 75ms;
+	animation-name: kf-fade-in;
+	animation-duration: 150ms;
 	display: flex;
 	flex-direction: column;
+	background: $rgb-bg--alt;
 
 	&--minified {
 		.hoverborder {
@@ -73,7 +64,7 @@
 		max-height: 92vh;
 		min-height: 20px;
 		overflow-y: auto;
-		background: #f0f0f0;
+		background: $rgb-bg--alt;
 		transform: translateZ(0);
 	}
 
@@ -120,7 +111,6 @@
 	}
 
 	.window-title {
-		overflow: hidden;
 		max-width: calc(100% - 45px);
 		text-align: left;
 		margin-left: 4px;
@@ -131,7 +121,6 @@
 		font-variant: small-caps;
 		text-transform: uppercase;
 		font-weight: bold;
-		flex-shrink: 0;
 	}
 
 	&[data-perm=true] .window-title {

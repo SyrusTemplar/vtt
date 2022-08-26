@@ -250,6 +250,7 @@
 			"effects": [
 				{
 					"name": "Unarmored Movement",
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.attributes.movement.walk",
@@ -392,6 +393,7 @@
 			"level": 5,
 			"effects": [
 				{
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.attributes.movement.walk",
@@ -492,10 +494,58 @@
 		{
 			"name": "Bonus Proficiencies",
 			"source": "TCE",
+			"className": "Expert Sidekick",
+			"classSource": "TCE",
+			"level": 1,
+			"entryData": {
+				"armorProficiencies": [
+					{
+						"light": true
+					}
+				],
+				"savingThrowProficiencies": [
+					{
+						"choose": {
+							"from": [
+								"dex",
+								"int",
+								"cha"
+							],
+							"count": 1
+						}
+					}
+				],
+				"skillProficiencies": [
+					{
+						"any": 5
+					}
+				]
+			}
+		},
+		{
+			"name": "Bonus Proficiencies",
+			"source": "TCE",
 			"className": "Spellcaster Sidekick",
 			"classSource": "TCE",
 			"level": 1,
 			"entryData": {
+				"armorProficiencies": [
+					{
+						"light": true
+					}
+				],
+				"savingThrowProficiencies": [
+					{
+						"choose": {
+							"from": [
+								"wis",
+								"int",
+								"cha"
+							],
+							"count": 1
+						}
+					}
+				],
 				"skillProficiencies": [
 					{
 						"choose": {
@@ -522,6 +572,25 @@
 			"classSource": "TCE",
 			"level": 1,
 			"entryData": {
+				"armorProficiencies": [
+					{
+						"light": true,
+						"medium": true,
+						"heavy": true
+					}
+				],
+				"savingThrowProficiencies": [
+					{
+						"choose": {
+							"from": [
+								"str",
+								"dex",
+								"con"
+							],
+							"count": 1
+						}
+					}
+				],
 				"skillProficiencies": [
 					{
 						"choose": {
@@ -536,6 +605,34 @@
 							],
 							"count": 2
 						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Expertise",
+			"source": "TCE",
+			"className": "Expert Sidekick",
+			"classSource": "TCE",
+			"level": 3,
+			"entryData": {
+				"expertise": [
+					{
+						"anyProficientSkill": 2
+					}
+				]
+			}
+		},
+		{
+			"name": "Expertise",
+			"source": "TCE",
+			"className": "Expert Sidekick",
+			"classSource": "TCE",
+			"level": 15,
+			"entryData": {
+				"expertise": [
+					{
+						"anyProficientSkill": 2
 					}
 				]
 			}
@@ -609,6 +706,7 @@
 			"level": 2,
 			"effects": [
 				{
+					"transfer": true,
 					"changes": [
 						{
 							"key": "flags.dnd5e.jackOfAllTrades",
@@ -627,6 +725,7 @@
 			"level": 11,
 			"effects": [
 				{
+					"transfer": true,
 					"changes": [
 						{
 							"key": "flags.dnd5e.reliableTalent",
@@ -663,6 +762,7 @@
 			"level": 9,
 			"effects": [
 				{
+					"transfer": true,
 					"changes": [
 						{
 							"key": "flags.dnd5e.meleeCriticalDamageDice",
@@ -681,6 +781,7 @@
 			"level": 13,
 			"effects": [
 				{
+					"transfer": true,
 					"changes": [
 						{
 							"key": "flags.dnd5e.meleeCriticalDamageDice",
@@ -699,6 +800,7 @@
 			"level": 17,
 			"effects": [
 				{
+					"transfer": true,
 					"changes": [
 						{
 							"key": "flags.dnd5e.meleeCriticalDamageDice",
@@ -717,6 +819,7 @@
 			"level": 20,
 			"effects": [
 				{
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.abilities.str.value",
@@ -818,6 +921,26 @@
 					}
 				]
 			}
+		},
+		{
+			"name": "Divine Health",
+			"source": "PHB",
+			"className": "Paladin",
+			"classSource": "PHB",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Disease Immunity",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "data.traits.ci.value",
+							"mode": "ADD",
+							"value": "diseased"
+						}
+					]
+				}
+			]
 		}
 	],
 	"subclassFeature": [
@@ -831,6 +954,7 @@
 			"level": 5,
 			"effects": [
 				{
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.bonuses.msak.damage",
@@ -856,6 +980,7 @@
 			"level": 7,
 			"effects": [
 				{
+					"transfer": true,
 					"changes": [
 						{
 							"key": "flags.dnd5e.remarkableAthlete",
@@ -886,6 +1011,7 @@
 			"level": 3,
 			"effects": [
 				{
+					"transfer": true,
 					"changes": [
 						{
 							"key": "flags.dnd5e.weaponCriticalThreshold",
@@ -2030,6 +2156,7 @@
 			"effects": [
 				{
 					"name": "Superior Mobility",
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.attributes.movement.walk",
@@ -2757,6 +2884,7 @@
 			"effects": [
 				{
 					"name": "Gift of the Sea",
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.attributes.movement.swim",
@@ -3619,6 +3747,28 @@
 			}
 		},
 		{
+			"name": "Disciple of Life",
+			"source": "PHB",
+			"className": "Cleric",
+			"classSource": "PHB",
+			"subclassShortName": "Life",
+			"subclassSource": "PHB",
+			"level": 1,
+			"effects": [
+				{
+					"name": "Bonus Healing",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "data.bonuses.heal.damage",
+							"mode": "ADD",
+							"value": "@item.level + 2"
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Bonus Proficiency",
 			"source": "PHB",
 			"className": "Cleric",
@@ -3910,6 +4060,7 @@
 			"effects": [
 				{
 					"name": "Natural Armor",
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.attributes.ac.calc",
@@ -3920,6 +4071,7 @@
 				},
 				{
 					"name": "HP Increase",
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.attributes.hp.max",
@@ -3941,6 +4093,7 @@
 			"effects": [
 				{
 					"name": "Flying Speed",
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.attributes.movement.fly",
@@ -3962,6 +4115,7 @@
 			"effects": [
 				{
 					"name": "HP Increase",
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.attributes.hp.max",
@@ -4004,6 +4158,7 @@
 			"level": 2,
 			"effects": [
 				{
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.attributes.init.value",
@@ -4071,6 +4226,7 @@
 			"level": 18,
 			"effects": [
 				{
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.abilities.con.value",
@@ -4295,6 +4451,7 @@
 			"effects": [
 				{
 					"name": "Powered Steps",
+					"transfer": true,
 					"changes": [
 						{
 							"key": "data.attributes.movement.walk",
@@ -4323,27 +4480,6 @@
 					]
 				]
 			}
-		},
-		{
-			"name": "Disciple of Life",
-			"source": "PHB",
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Life",
-			"subclassSource": "PHB",
-			"level": 1,
-			"effects": [
-				{
-					"name": "Bonus Healing",
-					"changes": [
-						{
-							"key": "data.bonuses.heal.damage",
-							"mode": "ADD",
-							"value": "@item.level + 2"
-						}
-					]
-				}
-			]
 		},
 		{
 			"name": "Radiant Sun Bolt",

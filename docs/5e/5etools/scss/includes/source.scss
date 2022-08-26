@@ -54,6 +54,8 @@
 	$rgb-source-SCC: #be9c56;
 	$rgb-source-MPMM: #5c758d;
 	$rgb-source-CRCotN: #ac4a70;
+	$rgb-source-JttRC: #cf48e2;
+	$rgb-source-SAiS: #056b97;
 
 	&PHB {
 		color: $rgb-source-PHB !important;
@@ -424,6 +426,22 @@
 		color: $rgb-source-CRCotN !important;
 		border-color: $rgb-source-CRCotN !important;
 		text-decoration-color: $rgb-source-CRCotN !important;
+	}
+
+	&JttRC {
+		color: $rgb-source-JttRC !important;
+		border-color: $rgb-source-JttRC !important;
+		text-decoration-color: $rgb-source-JttRC !important;
+	}
+
+	&SjA,
+	&SAiS,
+	&AAG,
+	&BAM,
+	&LoX {
+		color: $rgb-source-SAiS !important;
+		border-color: $rgb-source-SAiS !important;
+		text-decoration-color: $rgb-source-SAiS !important;
 	}
 }
 

@@ -550,7 +550,7 @@
 									"title": "Players' Map\u2014Waterdeep",
 									"width": 1429,
 									"height": 2000,
-									"imageType": "map"
+									"imageType": "mapPlayer"
 								},
 								{
 									"type": "image",
@@ -561,7 +561,7 @@
 									"title": "Players' Map\u2014Waterdeep NW",
 									"width": 2000,
 									"height": 2400,
-									"imageType": "map"
+									"imageType": "mapPlayer"
 								},
 								{
 									"type": "image",
@@ -572,7 +572,7 @@
 									"title": "Players' Map\u2014Waterdeep SW",
 									"width": 2000,
 									"height": 2400,
-									"imageType": "map"
+									"imageType": "mapPlayer"
 								},
 								{
 									"type": "image",
@@ -583,7 +583,7 @@
 									"title": "Players' Map\u2014Waterdeep W",
 									"width": 2000,
 									"height": 2400,
-									"imageType": "map"
+									"imageType": "mapPlayer"
 								},
 								{
 									"type": "image",
@@ -594,7 +594,7 @@
 									"title": "Players' Map\u2014Waterdeep E",
 									"width": 2000,
 									"height": 2400,
-									"imageType": "map"
+									"imageType": "mapPlayer"
 								},
 								{
 									"type": "image",
@@ -605,7 +605,7 @@
 									"title": "Players' Map\u2014Waterdeep NE",
 									"width": 2000,
 									"height": 2400,
-									"imageType": "map"
+									"imageType": "mapPlayer"
 								},
 								{
 									"type": "image",
@@ -616,7 +616,7 @@
 									"title": "Players' Map\u2014Waterdeep SE",
 									"width": 2000,
 									"height": 2400,
-									"imageType": "map"
+									"imageType": "mapPlayer"
 								}
 							]
 						}
@@ -773,7 +773,7 @@
 											"title": "Players' Map\u2014Waterdeep",
 											"width": 1429,
 											"height": 2000,
-											"imageType": "map"
+											"imageType": "mapPlayer"
 										},
 										{
 											"type": "image",
@@ -784,7 +784,7 @@
 											"title": "Players' Map\u2014Waterdeep NW",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "map"
+											"imageType": "mapPlayer"
 										},
 										{
 											"type": "image",
@@ -795,7 +795,7 @@
 											"title": "Players' Map\u2014Waterdeep SW",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "map"
+											"imageType": "mapPlayer"
 										},
 										{
 											"type": "image",
@@ -806,7 +806,7 @@
 											"title": "Players' Map\u2014Waterdeep W",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "map"
+											"imageType": "mapPlayer"
 										},
 										{
 											"type": "image",
@@ -817,7 +817,7 @@
 											"title": "Players' Map\u2014Waterdeep E",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "map"
+											"imageType": "mapPlayer"
 										},
 										{
 											"type": "image",
@@ -828,7 +828,7 @@
 											"title": "Players' Map\u2014Waterdeep NE",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "map"
+											"imageType": "mapPlayer"
 										},
 										{
 											"type": "image",
@@ -839,7 +839,7 @@
 											"title": "Players' Map\u2014Waterdeep SE",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "map"
+											"imageType": "mapPlayer"
 										}
 									]
 								}
@@ -2242,18 +2242,23 @@
 									"hrefThumbnail": {
 										"type": "internal",
 										"path": "adventure/WDH/thumbnail/Zhent-Warehouse-DM.webp"
-									}
+									},
+									"id": "4e8"
 								},
 								{
 									"type": "image",
-									"imageType": "map",
+									"imageType": "mapPlayer",
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Zhent-Warehouse-Lower-Players.jpg"
 									},
 									"title": "Players' Map\u2014Zhent Warehouse Lower",
 									"width": 950,
-									"height": 1250
+									"height": 1250,
+									"mapParent": {
+										"id": "4e8",
+										"autoScale": true
+									}
 								}
 							]
 						},
@@ -2359,7 +2364,7 @@
 							"entries": [
 								{
 									"type": "image",
-									"imageType": "map",
+									"imageType": "mapPlayer",
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Zhent-Warehouse-Upper-Players.jpg"
@@ -2909,7 +2914,8 @@
 										"offsetX": -16,
 										"offsetY": -27,
 										"scaleX": 0.7334,
-										"scaleY": 0.7235
+										"scaleY": 0.7235,
+										"autoScale": true
 									}
 								}
 							]
@@ -3487,18 +3493,22 @@
 									"hrefThumbnail": {
 										"type": "internal",
 										"path": "adventure/WDH/thumbnail/Trollskull-Alley-DM.webp"
-									}
+									},
+									"id": "4e9"
 								},
 								{
 									"type": "image",
-									"imageType": "map",
+									"imageType": "mapPlayer",
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Trollskull-Alley-Players.jpg"
 									},
 									"title": "Players' Map\u2014Trollskull Alley",
 									"width": 1000,
-									"height": 691
+									"height": 691,
+									"mapParent": {
+										"id": "4e9"
+									}
 								}
 							]
 						},
@@ -3525,7 +3535,7 @@
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Trollskull-Manor-Players.jpg"
@@ -5808,22 +5818,27 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Gralhund-Villa-DM.webp"
-											}
+											},
+											"id": "4ea"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Gralhund-Villa-Players.jpg"
 											},
 											"title": "Players' Map\u2014Gralhund Villa",
 											"width": 2000,
-											"height": 1800
+											"height": 1800,
+											"mapParent": {
+												"id": "4ea",
+												"autoScale": true
+											}
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Gralhund-Villa-Upper-Players.jpg"
@@ -6756,7 +6771,7 @@
 								},
 								{
 									"type": "image",
-									"imageType": "map",
+									"imageType": "mapPlayer",
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Alley-Players.jpg"
@@ -7302,18 +7317,23 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Mistshore-DM.webp"
-											}
+											},
+											"id": "4eb"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Mistshore-Players.jpg"
 											},
 											"title": "Players' Map\u2014Mistshore",
 											"width": 1350,
-											"height": 950
+											"height": 950,
+											"mapParent": {
+												"id": "4eb",
+												"autoScale": true
+											}
 										}
 									]
 								},
@@ -8072,22 +8092,27 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Mausoleum-DM.webp"
-											}
+											},
+											"id": "4ec"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Mausoleum-Players.jpg"
 											},
 											"title": "Players' Map\u2014Mausoleum",
 											"width": 1050,
-											"height": 1250
+											"height": 1250,
+											"mapParent": {
+												"id": "4ec",
+												"autoScale": true
+											}
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Crypt-Players.jpg"
@@ -8753,18 +8778,23 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Theater-DM.webp"
-											}
+											},
+											"id": "4ed"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Theater-Players.jpg"
 											},
 											"title": "Players' Map\u2014Theater",
 											"width": 1650,
-											"height": 1200
+											"height": 1200,
+											"mapParent": {
+												"id": "4ed",
+												"autoScale": true
+											}
 										}
 									]
 								},
@@ -9036,7 +9066,7 @@
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Tower-First-Players.jpg"
@@ -9047,7 +9077,7 @@
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Tower-Second-Players.jpg"
@@ -9058,7 +9088,7 @@
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Cellar-Players.jpg"
@@ -9967,22 +9997,27 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Courthouse-DM.webp"
-											}
+											},
+											"id": "4ee"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Courthouse-Main-Players.jpg"
 											},
 											"title": "Players' Map\u2014Courthouse Main",
 											"width": 950,
-											"height": 1200
+											"height": 1200,
+											"mapParent": {
+												"id": "4ee",
+												"autoScale": true
+											}
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Courthouse-Lower-Players.jpg"
@@ -11205,18 +11240,23 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Cellar-Complex-DM.webp"
-											}
+											},
+											"id": "4ef"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Cellar-Complex-Players.jpg"
 											},
 											"title": "Players' Map\u2014Cellar Complex",
 											"width": 1700,
-											"height": 1250
+											"height": 1250,
+											"mapParent": {
+												"id": "4ef",
+												"autoScale": true
+											}
 										}
 									]
 								},
@@ -12665,22 +12705,27 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Windmill-DM.webp"
-											}
+											},
+											"id": "4f0"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Windmill-First-Players.jpg"
 											},
 											"title": "Players' Map\u2014Windmill First",
 											"width": 1050,
-											"height": 1250
+											"height": 1250,
+											"mapParent": {
+												"id": "4f0",
+												"autoScale": true
+											}
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Windmill-Second-Players.jpg"
@@ -14087,22 +14132,27 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Vault-of-Dragons-DM.webp"
-											}
+											},
+											"id": "4f1"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Vault-Main-Players.jpg"
 											},
 											"title": "Players' Map\u2014Vault Main",
 											"width": 950,
-											"height": 1000
+											"height": 1000,
+											"mapParent": {
+												"id": "4f1",
+												"autoScale": true
+											}
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Vault-Lower-Players.jpg"
@@ -14113,7 +14163,7 @@
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Vault-Upper-Players.jpg"
@@ -16639,22 +16689,27 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Xanathar-Lair-DM.webp"
-											}
+											},
+											"id": "4f2"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Xanathar-L1-Players.jpg"
 											},
 											"title": "Players' Map\u2014{@creature Xanathar|WDH} L1",
 											"width": 2050,
-											"height": 1950
+											"height": 1950,
+											"mapParent": {
+												"id": "4f2",
+												"autoScale": true
+											}
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Xanathar-L2-Players.jpg"
@@ -19490,18 +19545,23 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Cassalanter-Villa-DM.webp"
-											}
+											},
+											"id": "4f3"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Villa-Main-Players.jpg"
 											},
 											"title": "Players' Map\u2014Villa Main",
 											"width": 2000,
-											"height": 2450
+											"height": 2450,
+											"mapParent": {
+												"id": "4f3",
+												"autoScale": true
+											}
 										}
 									]
 								},
@@ -19517,7 +19577,7 @@
 											"images": [
 												{
 													"type": "image",
-													"imageType": "map",
+													"imageType": "mapPlayer",
 													"href": {
 														"type": "internal",
 														"path": "adventure/WDH/Guest-Second-Players.jpg"
@@ -19528,7 +19588,7 @@
 												},
 												{
 													"type": "image",
-													"imageType": "map",
+													"imageType": "mapPlayer",
 													"href": {
 														"type": "internal",
 														"path": "adventure/WDH/Guest-Third-Players.jpg"
@@ -19932,7 +19992,7 @@
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Villa-Two-Players.jpg"
@@ -20069,7 +20129,7 @@
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Villa-Three-Players.jpg"
@@ -20234,7 +20294,7 @@
 										"A thick scent of sulfur pervades the attic. The only illumination is a beam of light that shines feebly through a shuttered window at the west end of the room.",
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Villa-Garret-Players.jpg"
@@ -20325,7 +20385,7 @@
 										"This cellar is kept free of dust and cobwebs by servants. It is unsettlingly cold, no matter the time of year. It contains spare furniture, a laundry tub, and trunks full of old clothing.",
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Villa-Cellar-Players.jpg"
@@ -22219,22 +22279,27 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Temple-of-Asmodeus-DM.webp"
-											}
+											},
+											"id": "4f4"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Temple-of-Asmodeus-Upper-Players.jpg"
 											},
 											"title": "Players' Map\u2014Temple of Asmodeus Upper",
 											"width": 1550,
-											"height": 850
+											"height": 850,
+											"mapParent": {
+												"id": "4f4",
+												"autoScale": true
+											}
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Temple-of-Asmodeus-Players.jpg"
@@ -24384,18 +24449,23 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Ships-DM.webp"
-											}
+											},
+											"id": "4f5"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Main-Deck-Players.jpg"
 											},
 											"title": "Players' Map\u2014Main Deck",
 											"width": 600,
-											"height": 1500
+											"height": 1500,
+											"mapParent": {
+												"id": "4f5",
+												"autoScale": true
+											}
 										}
 									]
 								},
@@ -24519,7 +24589,7 @@
 										"The forecastle is within sight of the sailors on the main deck ({@area J1|364}), the aft castle lower deck ({@area J9|36f}), and the aft castle upper deck ({@area J11|375}).",
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Fore-and-Aft-Players.jpg"
@@ -24627,7 +24697,7 @@
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Aft-Castle-Players.jpg"
@@ -24662,7 +24732,7 @@
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Orlop-Deck-Players.jpg"
@@ -24792,7 +24862,7 @@
 												"If the cargo elevator platform is lowered to this area while creatures are in the 15-foot-by-10-foot space where the platform lands, each of those creatures must succeed on a DC 10 Dexterity saving throw or take 11 ({@dice 2d10}) bludgeoning damage and be knocked {@condition prone} and {@condition restrained} until the platform is raised. A creature that succeeds on its saving throw moves to a space of its choice next to the elevator platform without provoking opportunity attacks.",
 												{
 													"type": "image",
-													"imageType": "map",
+													"imageType": "mapPlayer",
 													"href": {
 														"type": "internal",
 														"path": "adventure/WDH/Upper-Hold-Players.jpg"
@@ -24980,7 +25050,7 @@
 										"{@i Heartbreaker and Hellraiser only}",
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Lower-Hold-Players.jpg"
@@ -25961,7 +26031,8 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Scarlet-Marpenoth-DM.webp"
-											}
+											},
+											"id": "4f6"
 										},
 										{
 											"type": "image",
@@ -25972,7 +26043,11 @@
 											},
 											"title": "Scarlet Marpenoth Upper Deck",
 											"width": 800,
-											"height": 950
+											"height": 950,
+											"mapParent": {
+												"id": "4f6",
+												"autoScale": true
+											}
 										},
 										{
 											"type": "image",
@@ -27794,7 +27869,8 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Kolat-Towers-DM.webp"
-											}
+											},
+											"id": "4f7"
 										},
 										{
 											"type": "image",
@@ -27805,7 +27881,11 @@
 											},
 											"title": "Kolat Towers L1",
 											"width": 2050,
-											"height": 2150
+											"height": 2150,
+											"mapParent": {
+												"id": "4f7",
+												"autoScale": true
+											}
 										}
 									]
 								},
@@ -29605,18 +29685,23 @@
 											"hrefThumbnail": {
 												"type": "internal",
 												"path": "adventure/WDH/thumbnail/Sanctum-DM.webp"
-											}
+											},
+											"id": "4f8"
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Sanctum-Players.jpg"
 											},
 											"title": "Players' Map\u2014Sanctum",
 											"width": 1800,
-											"height": 1200
+											"height": 1200,
+											"mapParent": {
+												"id": "4f8",
+												"autoScale": true
+											}
 										}
 									]
 								},

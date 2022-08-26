@@ -33,6 +33,31 @@ class ListPageMultiSource extends ListPage {
 		await Promise.all(defaultSources.map(src => this._pLoadSource(src, "yes")));
 	}
 
+	async pDoLoadExportedSublistSources (exportedSublist) {
+		if (!exportedSublist?.sources?.length) return;
+		await (exportedSublist.sources || [])
+			.filter(src => SourceUtil.isSiteSource(src))
+			.pMap(src => this._pLoadSource(src, "yes"));
+
+		// region Note that we can't e.g. load the sources in the background, because the list won't update, and therefore
+		//   the sublist can't find the matching list elements.
+		// TODO(Future) have the notification include a button which, when clicked, will attempt to:
+		//    - load the brew from the repo
+		//    - cache the to-be-loaded sublist in local storage
+		//    - reload the page
+		//    - load the cached sublist
+		const sourcesUnknown = (exportedSublist.sources || [])
+			.filter(src => !SourceUtil.isSiteSource(src) && !BrewUtil2.hasSourceJson(src));
+		if (!sourcesUnknown.length) return;
+
+		JqueryUtil.doToast({
+			content: `Could not load content from the following source${sourcesUnknown.length === 1 ? "" : "s"}: ${sourcesUnknown.map(it => `"${it}"`).join(", ")}. You may need to load ${sourcesUnknown.length === 1 ? "it" : "them"} as homebrew first.`,
+			type: "danger",
+			isAutoHide: false,
+		});
+		// endregion
+	}
+
 	async _pLoadSource (src, nextFilterVal) {
 		// We only act when the user changes the filter to "yes", i.e. "load/view the source"
 		if (nextFilterVal !== "yes") return;
@@ -59,7 +84,7 @@ class ListPageMultiSource extends ListPage {
 		const hashSourceRaw = Hist.getHashSource();
 		const hashSource = hashSourceRaw ? Object.keys(src2UrlMap).find(it => it.toLowerCase() === hashSourceRaw.toLowerCase()) : null;
 		const filterSel = await this._filterBox.pGetStoredActiveSources() || defaultSel;
-		const listSel = await ListUtil.pGetSelectedSources() || [];
+		const listSel = await this._sublistManager.pGetSelectedSources() || [];
 		const userSel = [...new Set([...filterSel, ...listSel, hashSource].filter(Boolean))];
 
 		const allSources = [];

@@ -136,7 +136,7 @@ class PageFilterItems extends PageFilterEquipment {
 
 	static _getBaseItemDisplay (baseItem) {
 		if (!baseItem) return null;
-		let [name, source] = baseItem.split("|");
+		let [name, source] = baseItem.split("__");
 		name = name.toTitleCase();
 		source = source || SRC_DMG;
 		if (source.toLowerCase() === SRC_PHB.toLowerCase()) return name;
@@ -208,7 +208,16 @@ class PageFilterItems extends PageFilterEquipment {
 			displayFn: StrUtil.toTitleCase,
 		});
 		this._attunementFilter = new Filter({header: "Attunement", items: [...PageFilterItems._FILTER_BASE_ITEMS_ATTUNEMENT], itemSortFn: PageFilterItems._sortAttunementFilter});
-		this._bonusFilter = new Filter({header: "Bonus", items: ["Armor Class", "Proficiency Bonus", "Spell Attacks", "Spell Save DC", "Saving Throws", "Weapon Attack and Damage Rolls", "Weapon Attack Rolls", "Weapon Damage Rolls"]});
+		this._bonusFilter = new Filter({
+			header: "Bonus",
+			items: [
+				"Armor Class", "Proficiency Bonus", "Spell Attacks", "Spell Save DC", "Saving Throws",
+				...([...new Array(4)]).map((_, i) => `Weapon Attack and Damage Rolls${i ? ` (+${i})` : ""}`),
+				...([...new Array(4)]).map((_, i) => `Weapon Attack Rolls${i ? ` (+${i})` : ""}`),
+				...([...new Array(4)]).map((_, i) => `Weapon Damage Rolls${i ? ` (+${i})` : ""}`),
+			],
+			itemSortFn: null,
+		});
 		this._rechargeTypeFilter = new Filter({header: "Recharge Type", displayFn: Parser.itemRechargeToFull});
 		this._miscFilter = new Filter({header: "Miscellaneous", items: ["Ability Score Adjustment", "Charges", "Cursed", "Grants Proficiency", "Has Images", "Has Info", "Item Group", "Magic", "Mundane", "Sentient", "Speed Adjustment", "SRD", "Basic Rules"], isMiscFilter: true});
 		this._baseSourceFilter = new SourceFilter({header: "Base Source", selFn: null});
@@ -231,18 +240,18 @@ class PageFilterItems extends PageFilterEquipment {
 		if (item.grantsProficiency) item._fMisc.push("Grants Proficiency");
 		if (item.critThreshold) item._fMisc.push("Expanded Critical Range");
 
-		item._fBaseItemSelf = item._isBaseItem ? `${item.name}|${item.source}`.toLowerCase() : null;
+		const fBaseItemSelf = item._isBaseItem ? `${item.name}__${item.source}`.toLowerCase() : null;
 		item._fBaseItem = [
-			item.baseItem ? (item.baseItem.includes("|") ? item.baseItem : `${item.baseItem}|${SRC_DMG}`).toLowerCase() : null,
-			item._baseName ? `${item._baseName}|${item._baseSource || item.source}`.toLowerCase() : null,
+			item.baseItem ? (item.baseItem.includes("|") ? item.baseItem.replace("|", "__") : `${item.baseItem}__${SRC_DMG}`).toLowerCase() : null,
+			item._baseName ? `${item._baseName}__${item._baseSource || item.source}`.toLowerCase() : null,
 		].filter(Boolean);
-		item._fBaseItemAll = item._fBaseItemSelf ? [item._fBaseItemSelf, ...item._fBaseItem] : item._fBaseItem;
+		item._fBaseItemAll = fBaseItemSelf ? [fBaseItemSelf, ...item._fBaseItem] : item._fBaseItem;
 
 		item._fBonus = [];
 		if (item.bonusAc) item._fBonus.push("Armor Class");
-		if (item.bonusWeapon) item._fBonus.push("Weapon Attack and Damage Rolls");
-		if (item.bonusWeaponAttack) item._fBonus.push("Weapon Attack Rolls");
-		if (item.bonusWeaponDamage) item._fBonus.push("Weapon Damage Rolls");
+		this._mutateForFilters_bonusWeapon({prop: "bonusWeapon", item, text: "Weapon Attack and Damage Rolls"});
+		this._mutateForFilters_bonusWeapon({prop: "bonusWeaponAttack", item, text: "Weapon Attack Rolls"});
+		this._mutateForFilters_bonusWeapon({prop: "bonusWeaponDamage", item, text: "Weapon Damage Rolls"});
 		if (item.bonusWeaponCritDamage) item._fBonus.push("Weapon Critical Damage");
 		if (item.bonusSpellAttack) item._fBonus.push("Spell Attacks");
 		if (item.bonusSpellSaveDc) item._fBonus.push("Spell Save DC");
@@ -250,6 +259,16 @@ class PageFilterItems extends PageFilterEquipment {
 		if (item.bonusProficiencyBonus) item._fBonus.push("Proficiency Bonus");
 
 		item._fAttunement = this._getAttunementFilterItems(item);
+	}
+
+	static _mutateForFilters_bonusWeapon ({prop, item, text}) {
+		if (!item[prop]) return;
+		item._fBonus.push(text);
+		switch (item[prop]) {
+			case "+1":
+			case "+2":
+			case "+3": item._fBonus.push(`${text} (${item[prop]})`); break;
+		}
 	}
 
 	addToFilters (item, isExcluded) {

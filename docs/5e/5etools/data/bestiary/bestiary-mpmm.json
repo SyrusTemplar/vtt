@@ -68,7 +68,6 @@
 					"headerEntries": [
 						"The abjurer casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 16}):"
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell dancing lights}",
 						"{@spell mage hand}",
@@ -89,7 +88,8 @@
 							"{@spell wall of force}"
 						]
 					},
-					"ability": "int"
+					"ability": "int",
+					"displayAs": "action"
 				}
 			],
 			"action": [
@@ -116,7 +116,7 @@
 				{
 					"name": "Arcane Ward {@recharge 4}",
 					"entries": [
-						"When the abjurer or a creature it can see within 30 feet of it takes damage, the abjurer magically creates a protective barrier around itself or the other creature. The barrier reduces the damage to the protected creature by 26 ({@damage 4d10 + 4}), to a minimum of O, and then vanishes."
+						"When the abjurer or a creature it can see within 30 feet of it takes damage, the abjurer magically creates a protective barrier around itself or the other creature. The barrier reduces the damage to the protected creature by 26 ({@damage 4d10 + 4}), to a minimum of 0, and then vanishes."
 					]
 				}
 			],
@@ -138,6 +138,9 @@
 			],
 			"damageTagsSpell": [
 				"L"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"AOE"
@@ -341,9 +344,8 @@
 				{
 					"name": "Spellcasting (Psionics)",
 					"headerEntries": [
-						"The oblex casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC {@dc 15}):"
+						"The oblex casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save {@dc 15}):"
 					],
-					"displayAs": "action",
 					"daily": {
 						"3e": [
 							"{@spell charm person} (as 5th-level spell)",
@@ -352,7 +354,7 @@
 						]
 					},
 					"ability": "int",
-					"type": "spellcasting"
+					"displayAs": "action"
 				}
 			],
 			"trait": [
@@ -391,7 +393,7 @@
 				{
 					"name": "Eat Memories",
 					"entries": [
-						"The oblex targets one creature it can see within 5 feet of it. The target must succeed on a DC {@dc 15} Wisdom saving throw or take 18 ({@damage 4d8}) psychic damage and become memory drained until it finishes a short or long rest or until it benefits from the {@spell greater restoration} or {@spell heal} spell. Constructs, Oozes, Plants, and Undead succeed on the save automatically.",
+						"The oblex targets one creature it can see within 5 feet of it. The target must succeed on a {@dc 15} Wisdom saving throw or take 18 ({@damage 4d8}) psychic damage and become memory drained until it finishes a short or long rest or until it benefits from the {@spell greater restoration} or {@spell heal} spell. Constructs, Oozes, Plants, and Undead succeed on the save automatically.",
 						"While memory drained, the target must roll a {@dice d4} and subtract the number rolled from its ability checks and attack rolls. Each time the target is memory drained beyond the first, the die size increases by one: the {@dice d4} becomes a {@dice d6}, the {@dice d6} becomes a {@dice d8}, and so on until the die becomes a {@dice d20}, at which point the target becomes {@condition unconscious} for 1 hour. The effect then ends.",
 						"The oblex learns all the languages a memory-drained target knows and gains all its skill proficiencies."
 					]
@@ -415,7 +417,8 @@
 				"path": "bestiary/oblex-adult.mp3"
 			},
 			"traitTags": [
-				"Amorphous"
+				"Amorphous",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"B"
@@ -765,6 +768,9 @@
 				"O",
 				"Y"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"AOE"
 			],
@@ -935,7 +941,8 @@
 				"Amorphous",
 				"False Appearance",
 				"Magic Resistance",
-				"Spider Climb"
+				"Spider Climb",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"SD"
@@ -1089,7 +1096,8 @@
 				"path": "bestiary/allip.mp3"
 			},
 			"traitTags": [
-				"Incorporeal Movement"
+				"Incorporeal Movement",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -1312,6 +1320,9 @@
 			],
 			"damageTagsSpell": [
 				"Y"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW",
@@ -1577,6 +1588,9 @@
 				"P",
 				"S"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW"
 			],
@@ -1595,6 +1609,9 @@
 				{
 					"source": "VGM",
 					"page": 209
+				},
+				{
+					"source": "SjA"
 				}
 			],
 			"size": [
@@ -1642,7 +1659,6 @@
 					"headerEntries": [
 						"The apprentice casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 12})"
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell mage hand}",
 						"{@spell prestidigitation}"
@@ -1654,7 +1670,8 @@
 							"{@spell mage armor}"
 						]
 					},
-					"ability": "int"
+					"ability": "int",
+					"displayAs": "action"
 				}
 			],
 			"action": [
@@ -1681,6 +1698,9 @@
 			],
 			"damageTagsSpell": [
 				"F"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -1822,6 +1842,9 @@
 				"B",
 				"F",
 				"I"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW"
@@ -2244,7 +2267,8 @@
 				"path": "bestiary/astral-dreadnought.mp3"
 			},
 			"traitTags": [
-				"Legendary Resistances"
+				"Legendary Resistances",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"SD"
@@ -2506,6 +2530,9 @@
 				"S",
 				"Y"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RNG",
@@ -2658,6 +2685,9 @@
 			],
 			"damageTagsSpell": [
 				"F"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW"
@@ -2885,6 +2915,9 @@
 				"F",
 				"P",
 				"S"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW",
@@ -3388,6 +3421,9 @@
 				"O",
 				"P"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RCH"
@@ -3726,6 +3762,9 @@
 			"damageTagsSpell": [
 				"O"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW"
 			],
@@ -3864,6 +3903,9 @@
 				"P",
 				"S",
 				"Y"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW"
@@ -4033,6 +4075,9 @@
 			"damageTagsSpell": [
 				"B",
 				"C"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW"
@@ -4356,6 +4401,9 @@
 				"P",
 				"S"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RCH",
@@ -4550,6 +4598,9 @@
 				"L",
 				"P"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW"
 			],
@@ -4689,7 +4740,8 @@
 				"path": "bestiary/bodak.mp3"
 			},
 			"traitTags": [
-				"Sunlight Sensitivity"
+				"Sunlight Sensitivity",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"SD"
@@ -4993,7 +5045,8 @@
 				"path": "bestiary/boneclaw.mp3"
 			},
 			"traitTags": [
-				"Rejuvenation"
+				"Rejuvenation",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -5343,7 +5396,8 @@
 				"path": "bestiary/cadaver-collector.mp3"
 			},
 			"traitTags": [
-				"Magic Resistance"
+				"Magic Resistance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -6084,6 +6138,9 @@
 				"type": "internal",
 				"path": "bestiary/choker.mp3"
 			},
+			"traitTags": [
+				"Spider Climb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -6268,6 +6325,9 @@
 				"O",
 				"P"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RW",
@@ -6385,7 +6445,8 @@
 				"path": "bestiary/bronze-scout.mp3"
 			},
 			"traitTags": [
-				"Magic Resistance"
+				"Magic Resistance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -6519,7 +6580,8 @@
 				"path": "bestiary/iron-cobra.mp3"
 			},
 			"traitTags": [
-				"Magic Resistance"
+				"Magic Resistance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -6657,7 +6719,8 @@
 				"path": "bestiary/oaken-bolter.mp3"
 			},
 			"traitTags": [
-				"Magic Resistance"
+				"Magic Resistance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -6783,7 +6846,8 @@
 				"path": "bestiary/stone-defender.mp3"
 			},
 			"traitTags": [
-				"Magic Resistance"
+				"Magic Resistance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -6956,6 +7020,9 @@
 				"O",
 				"Y"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RCH"
@@ -7026,7 +7093,6 @@
 					"headerEntries": [
 						"The conjurer casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 14}):"
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell dancing lights}",
 						"{@spell mage hand}",
@@ -7044,7 +7110,8 @@
 							"{@spell web}"
 						]
 					},
-					"ability": "int"
+					"ability": "int",
+					"displayAs": "action"
 				}
 			],
 			"action": [
@@ -7093,6 +7160,9 @@
 			],
 			"damageTagsSpell": [
 				"F"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"conditionInflictSpell": [
 				"restrained"
@@ -7210,6 +7280,9 @@
 				"type": "internal",
 				"path": "bestiary/corpse-flower.mp3"
 			},
+			"traitTags": [
+				"Spider Climb"
+			],
 			"senseTags": [
 				"B"
 			],
@@ -7834,7 +7907,8 @@
 				"path": "bestiary/deathlock.mp3"
 			},
 			"traitTags": [
-				"Turn Resistance"
+				"Turn Resistance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -7851,6 +7925,9 @@
 			"damageTagsSpell": [
 				"A",
 				"C"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW"
@@ -8013,7 +8090,8 @@
 			},
 			"traitTags": [
 				"Devil's Sight",
-				"Turn Resistance"
+				"Turn Resistance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"SD"
@@ -8028,6 +8106,9 @@
 				"N"
 			],
 			"damageTagsSpell": [
+				"O"
+			],
+			"spellcastingTags": [
 				"O"
 			],
 			"miscTags": [
@@ -8178,7 +8259,8 @@
 				"path": "bestiary/deathlock-wight.mp3"
 			},
 			"traitTags": [
-				"Sunlight Sensitivity"
+				"Sunlight Sensitivity",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -8191,6 +8273,9 @@
 			],
 			"damageTags": [
 				"N"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"HPR",
@@ -8764,6 +8849,9 @@
 			"damageTagsSpell": [
 				"Y"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"HPR",
 				"MW",
@@ -9026,6 +9114,9 @@
 				"B",
 				"R"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW"
 			],
@@ -9138,6 +9229,9 @@
 				"type": "internal",
 				"path": "bestiary/devourer.mp3"
 			},
+			"traitTags": [
+				"Unusual Nature"
+			],
 			"senseTags": [
 				"SD"
 			],
@@ -9315,6 +9409,9 @@
 				"TP"
 			],
 			"damageTags": [
+				"O"
+			],
+			"spellcastingTags": [
 				"O"
 			],
 			"miscTags": [
@@ -9602,7 +9699,6 @@
 					"headerEntries": [
 						"The diviner casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 15}):"
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell mage hand}",
 						"{@spell message}",
@@ -9623,7 +9719,8 @@
 							"{@spell true seeing}"
 						]
 					},
-					"ability": "int"
+					"ability": "int",
+					"displayAs": "action"
 				}
 			],
 			"action": [
@@ -9673,6 +9770,9 @@
 			],
 			"damageTagsSpell": [
 				"L"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"AOE"
@@ -10034,6 +10134,9 @@
 				"P",
 				"S"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RCH"
@@ -10231,6 +10334,9 @@
 				"O",
 				"P"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RW"
@@ -10406,6 +10512,9 @@
 				"F",
 				"O"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW"
 			],
@@ -10579,6 +10688,9 @@
 				"I",
 				"P",
 				"S"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW",
@@ -10774,6 +10886,9 @@
 				"O",
 				"P",
 				"Y"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"HPR",
@@ -11007,6 +11122,9 @@
 			"damageTagsSpell": [
 				"S"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"AOE",
 				"MW",
@@ -11196,6 +11314,9 @@
 				"N",
 				"P",
 				"Y"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW",
@@ -12643,6 +12764,9 @@
 				"O",
 				"Y"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"HPR",
 				"MW"
@@ -12900,7 +13024,8 @@
 			},
 			"traitTags": [
 				"Incorporeal Movement",
-				"Turn Resistance"
+				"Turn Resistance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -13206,7 +13331,7 @@
 				{
 					"name": "Spellcasting (Psionics)",
 					"headerEntries": [
-						"The oblex casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC {@dc 18}):"
+						"The oblex casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save {@dc 18}):"
 					],
 					"will": [
 						"{@spell charm person} (as 5th-level spell)",
@@ -13220,9 +13345,8 @@
 							"{@spell telekinesis}"
 						]
 					},
-					"displayAs": "action",
 					"ability": "int",
-					"type": "spellcasting"
+					"displayAs": "action"
 				}
 			],
 			"trait": [
@@ -13285,7 +13409,8 @@
 				"path": "bestiary/elder-oblex.mp3"
 			},
 			"traitTags": [
-				"Amorphous"
+				"Amorphous",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"B"
@@ -13570,7 +13695,6 @@
 					"headerEntries": [
 						"The enchanter casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 14}):"
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell friends}",
 						"{@spell mage hand}",
@@ -13586,7 +13710,8 @@
 							"{@spell tongues}"
 						]
 					},
-					"ability": "int"
+					"ability": "int",
+					"displayAs": "action"
 				}
 			],
 			"action": [
@@ -13626,6 +13751,9 @@
 			],
 			"damageTags": [
 				"Y"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"conditionInflictSpell": [
 				"charmed",
@@ -13694,7 +13822,6 @@
 					"headerEntries": [
 						"The evoker casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 15}):"
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell light}",
 						"{@spell mage hand}",
@@ -13711,7 +13838,8 @@
 							"{@spell wall of ice}"
 						]
 					},
-					"ability": "int"
+					"ability": "int",
+					"displayAs": "action"
 				}
 			],
 			"action": [
@@ -13724,7 +13852,7 @@
 				{
 					"name": "Arcane Burst",
 					"entries": [
-						"{@atk ms,rs} {@hit 7} to hit, reach 5 ft. or range 120 ft., one target. {@h}20 ({@damage 3d10 + 3}) force damage."
+						"{@atk ms,rs} {@hit 7} to hit, reach 5 ft. or range 120 ft., one target. {@h}25 ({@damage 4d10 + 3}) force damage."
 					]
 				},
 				{
@@ -13754,6 +13882,9 @@
 				"B",
 				"C",
 				"L"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"AOE"
@@ -14248,6 +14379,9 @@
 			"damageTags": [
 				"F",
 				"P"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW"
@@ -14829,6 +14963,9 @@
 				"P",
 				"S",
 				"Y"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW",
@@ -15444,6 +15581,9 @@
 				{
 					"source": "VGM",
 					"page": 126
+				},
+				{
+					"source": "SjA"
 				}
 			],
 			"size": [
@@ -15844,6 +15984,9 @@
 				"P",
 				"S"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"HPR",
 				"MW",
@@ -15962,6 +16105,9 @@
 				{
 					"source": "MTF",
 					"page": 204
+				},
+				{
+					"source": "SjA"
 				}
 			],
 			"size": [
@@ -17303,6 +17449,9 @@
 				"type": "internal",
 				"path": "bestiary/gnoll-witherling.mp3"
 			},
+			"traitTags": [
+				"Unusual Nature"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -17642,6 +17791,9 @@
 				"A",
 				"O"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RCH"
@@ -17824,6 +17976,9 @@
 				"B",
 				"P",
 				"S"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW"
@@ -18591,6 +18746,9 @@
 			"damageTagsSpell": [
 				"P"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RNG",
@@ -18762,8 +18920,7 @@
 				{
 					"name": "Multiattack",
 					"entries": [
-						"The guard drake makes one Bite attack and one",
-						"Tail attack."
+						"The guard drake makes one Bite attack and one Tail attack."
 					]
 				},
 				{
@@ -19163,7 +19320,8 @@
 			},
 			"traitTags": [
 				"Immutable Form",
-				"Magic Resistance"
+				"Magic Resistance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"SD"
@@ -19326,6 +19484,9 @@
 				"F",
 				"L"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW"
 			],
@@ -19364,7 +19525,7 @@
 				{
 					"ac": 15,
 					"from": [
-						"unarmored defense"
+						"Unarmored Defense"
 					]
 				}
 			],
@@ -19473,6 +19634,9 @@
 			"damageTags": [
 				"B",
 				"P"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW"
@@ -19976,6 +20140,9 @@
 				"P",
 				"S"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"AOE",
 				"MW",
@@ -20182,6 +20349,9 @@
 			"damageTagsSpell": [
 				"B"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW"
 			],
@@ -20253,7 +20423,6 @@
 					"headerEntries": [
 						"The illusionist casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 13}):"
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell dancing lights}",
 						"{@spell mage hand}",
@@ -20269,7 +20438,8 @@
 							"{@spell phantom steed}"
 						]
 					},
-					"ability": "int"
+					"ability": "int",
+					"displayAs": "action"
 				}
 			],
 			"action": [
@@ -20312,6 +20482,9 @@
 			],
 			"damageTagsSpell": [
 				"Y"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"conditionInflictSpell": [
 				"invisible"
@@ -20531,6 +20704,9 @@
 			"damageTagsLegendary": [
 				"F"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RCH",
@@ -20737,6 +20913,9 @@
 			"damageTags": [
 				"O",
 				"R"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW",
@@ -21195,6 +21374,9 @@
 			"damageTags": [
 				"P"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RW",
@@ -21361,6 +21543,9 @@
 			"damageTagsSpell": [
 				"B"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RW"
@@ -21507,6 +21692,9 @@
 			],
 			"damageTagsSpell": [
 				"B"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"conditionInflict": [
 				"frightened",
@@ -22324,7 +22512,7 @@
 				{
 					"ac": 16,
 					"from": [
-						"unarmored defense"
+						"Unarmored Defense"
 					]
 				}
 			],
@@ -22582,7 +22770,8 @@
 			"traitTags": [
 				"Immutable Form",
 				"Legendary Resistances",
-				"Magic Resistance"
+				"Magic Resistance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -23551,6 +23740,9 @@
 			"damageTagsSpell": [
 				"B"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW"
 			],
@@ -23971,6 +24163,9 @@
 				"P",
 				"S"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"AOE",
 				"MW",
@@ -24198,6 +24393,9 @@
 			"damageTagsSpell": [
 				"L"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"HPR",
 				"MW",
@@ -24372,6 +24570,9 @@
 			],
 			"damageTagsSpell": [
 				"L",
+				"O"
+			],
+			"spellcastingTags": [
 				"O"
 			],
 			"miscTags": [
@@ -24839,6 +25040,9 @@
 				"O",
 				"Y"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"AOE",
 				"MW"
@@ -25083,7 +25287,6 @@
 					"headerEntries": [
 						"The necromancer casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 15}):"
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell dancing lights}",
 						"{@spell mage hand}",
@@ -25100,7 +25303,8 @@
 							"{@spell circle of death}"
 						]
 					},
-					"ability": "int"
+					"ability": "int",
+					"displayAs": "action"
 				}
 			],
 			"action": [
@@ -25153,6 +25357,9 @@
 			"damageTagsSpell": [
 				"F",
 				"N",
+				"O"
+			],
+			"spellcastingTags": [
 				"O"
 			],
 			"conditionInflictSpell": [
@@ -25305,6 +25512,9 @@
 				{
 					"source": "VGM",
 					"page": 179
+				},
+				{
+					"source": "SjA"
 				}
 			],
 			"size": [
@@ -25564,6 +25774,9 @@
 			"damageTagsSpell": [
 				"A",
 				"C",
+				"O"
+			],
+			"spellcastingTags": [
 				"O"
 			],
 			"miscTags": [
@@ -25847,6 +26060,9 @@
 				"type": "internal",
 				"path": "bestiary/nightwalker.mp3"
 			},
+			"traitTags": [
+				"Unusual Nature"
+			],
 			"senseTags": [
 				"SD"
 			],
@@ -25998,6 +26214,9 @@
 			"damageTags": [
 				"B",
 				"Y"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW"
@@ -26216,7 +26435,8 @@
 				"path": "bestiary/oblex-spawn.mp3"
 			},
 			"traitTags": [
-				"Amorphous"
+				"Amorphous",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"B"
@@ -26804,6 +27024,9 @@
 			"damageTagsSpell": [
 				"Y"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"AOE",
 				"HPR",
@@ -26939,6 +27162,11 @@
 					"headerEntries": [
 						"While holding the {@item Wand of Orcus}, Orcus casts one of the following spells (spell save {@dc 18}), some of which require charges; the wand has 7 charges to fuel these spells, and it regains {@dice 1d4 + 3} charges daily at dawn:"
 					],
+					"will": [
+						"{@spell animate dead} (as an action)",
+						"{@spell blight}",
+						"{@spell speak with dead}"
+					],
 					"charges": {
 						"1e": [
 							"{@spell circle of death}",
@@ -26949,11 +27177,6 @@
 						]
 					},
 					"chargesItem": "wand of orcus|dmg",
-					"will": [
-						"{@spell animate dead} (as an action)",
-						"{@spell blight}",
-						"{@spell speak with dead}"
-					],
 					"displayAs": "action"
 				}
 			],
@@ -27059,6 +27282,9 @@
 			],
 			"damageTagsSpell": [
 				"N"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"AOE",
@@ -27198,7 +27424,7 @@
 								{
 									"type": "item",
 									"name": "Entanglement",
-									"entry": "The target must make a successful {@dc 17} Dexterity saving throw or be {@condition restrained} for 1 hour by strands of sticky webbing. The target can escape by taking an action to make a DC {@dc 17} Strength or Dexterity check and succeeding."
+									"entry": "The target must make a successful {@dc 17} Dexterity saving throw or be {@condition restrained} for 1 hour by strands of sticky webbing. The target can escape by taking an action to make a {@dc 17} Strength or Dexterity check and succeeding."
 								},
 								{
 									"type": "item",
@@ -27227,7 +27453,7 @@
 				{
 					"name": "Explosive Retribution",
 					"entries": [
-						"In response to dropping to 15 hit points or fewer, the orthon explodes. All other creatures within 30 feet of it must each make a DC {@dc 17} Dexterity saving throw, taking 9 ({@damage 2d8}) fire damage plus 9 ({@damage 2d8}) thunder damage on a failed save, or half as much damage on a successful one. The orthon, its infernal dagger, and its brass crossbow are destroyed."
+						"In response to dropping to 15 hit points or fewer, the orthon explodes. All other creatures within 30 feet of it must each make a {@dc 17} Dexterity saving throw, taking 9 ({@damage 2d8}) fire damage plus 9 ({@damage 2d8}) thunder damage on a failed save, or half as much damage on a successful one. The orthon, its infernal dagger, and its brass crossbow are destroyed."
 					]
 				}
 			],
@@ -27495,7 +27721,7 @@
 				{
 					"name": "Swoop (Costs 2 Actions)",
 					"entries": [
-						"The phoenix moves up to its speed and makes on Fiery Talons attack."
+						"The phoenix moves up to its speed and makes one Fiery Talons attack."
 					]
 				}
 			],
@@ -28183,6 +28409,9 @@
 			"damageTagsSpell": [
 				"F"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RCH"
@@ -28542,7 +28771,8 @@
 				"path": "bestiary/sacred-statue.mp3"
 			},
 			"traitTags": [
-				"False Appearance"
+				"False Appearance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -28853,6 +29083,9 @@
 			"damageTags": [
 				"N",
 				"P"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW",
@@ -29193,6 +29426,9 @@
 			],
 			"damageTagsSpell": [
 				"N"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"AOE",
@@ -29880,6 +30116,9 @@
 			"damageTagsSpell": [
 				"Y"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RCH"
@@ -30206,7 +30445,8 @@
 				"path": "bestiary/skull-lord.mp3"
 			},
 			"traitTags": [
-				"Legendary Resistances"
+				"Legendary Resistances",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -30224,6 +30464,9 @@
 			"damageTagsSpell": [
 				"C",
 				"I",
+				"O"
+			],
+			"spellcastingTags": [
 				"O"
 			],
 			"miscTags": [
@@ -30489,7 +30732,8 @@
 				"path": "bestiary/spawn-of-kyuss.mp3"
 			},
 			"traitTags": [
-				"Regeneration"
+				"Regeneration",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -30810,6 +31054,9 @@
 				"P",
 				"S",
 				"Y"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW",
@@ -31221,6 +31468,9 @@
 			"damageTags": [
 				"B",
 				"N",
+				"O"
+			],
+			"spellcastingTags": [
 				"O"
 			],
 			"miscTags": [
@@ -31669,7 +31919,8 @@
 				"path": "bestiary/steel-predator.mp3"
 			},
 			"traitTags": [
-				"Magic Resistance"
+				"Magic Resistance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"B",
@@ -31688,6 +31939,9 @@
 				"T"
 			],
 			"damageTagsSpell": [
+				"O"
+			],
+			"spellcastingTags": [
 				"O"
 			],
 			"miscTags": [
@@ -31956,7 +32210,8 @@
 				"path": "bestiary/stone-cursed.mp3"
 			},
 			"traitTags": [
-				"False Appearance"
+				"False Appearance",
+				"Unusual Nature"
 			],
 			"languageTags": [
 				"LF"
@@ -32917,7 +33172,8 @@
 				"path": "bestiary/sword-wraith-commander.mp3"
 			},
 			"traitTags": [
-				"Turn Resistance"
+				"Turn Resistance",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -33049,6 +33305,9 @@
 				"type": "internal",
 				"path": "bestiary/sword-wraith-warrior.mp3"
 			},
+			"traitTags": [
+				"Unusual Nature"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -33532,6 +33791,9 @@
 				"P",
 				"S"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"HPR",
 				"MW"
@@ -33902,6 +34164,9 @@
 			"damageTagsSpell": [
 				"T"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW"
 			],
@@ -33970,7 +34235,6 @@
 					"headerEntries": [
 						"The transmuter casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 14}):"
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell light}",
 						"{@spell message}",
@@ -33989,7 +34253,8 @@
 							"{@spell telekinesis}"
 						]
 					},
-					"ability": "int"
+					"ability": "int",
+					"displayAs": "action"
 				}
 			],
 			"trait": [
@@ -34066,6 +34331,9 @@
 			],
 			"damageTagsSpell": [
 				"F"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"conditionInflictSpell": [
 				"restrained"
@@ -34241,7 +34509,6 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Psionics)",
-					"displayAs": "action",
 					"headerEntries": [
 						"The ulitharid casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save {@dc 17}):"
 					],
@@ -34260,7 +34527,8 @@
 							"{@spell telekinesis}"
 						]
 					},
-					"ability": "int"
+					"ability": "int",
+					"displayAs": "action"
 				}
 			],
 			"trait": [
@@ -34493,7 +34761,8 @@
 				}
 			],
 			"traitTags": [
-				"Sunlight Sensitivity"
+				"Sunlight Sensitivity",
+				"Unusual Nature"
 			],
 			"senseTags": [
 				"D"
@@ -35159,7 +35428,6 @@
 					"headerEntries": [
 						"The war priest casts one of the following spells, using Wisdom as the spellcasting ability (spell save {@dc 15}):"
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell light}",
 						"{@spell spare the dying}",
@@ -35177,7 +35445,8 @@
 							"{@spell revivify}"
 						]
 					},
-					"ability": "wis"
+					"ability": "wis",
+					"displayAs": "action"
 				}
 			],
 			"action": [
@@ -35229,6 +35498,9 @@
 			"damageTagsSpell": [
 				"F",
 				"R"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"MW"
@@ -35309,7 +35581,6 @@
 					"headerEntries": [
 						"The warlock casts one of the following spells, using Charisma as the spellcasting ability (spell save {@dc 14}): "
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell dancing lights}",
 						"{@spell disguise self}",
@@ -35326,7 +35597,8 @@
 							"{@spell hold monster}"
 						]
 					},
-					"ability": "cha"
+					"ability": "cha",
+					"displayAs": "action"
 				}
 			],
 			"action": [
@@ -35469,7 +35741,6 @@
 					"headerEntries": [
 						"The warlock casts one of the following spells, using Charisma as the spellcasting ability (spell save {@dc 15}): "
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell alter self}",
 						"{@spell mage armor} (self only)",
@@ -35484,7 +35755,8 @@
 							"{@spell suggestion}"
 						]
 					},
-					"ability": "cha"
+					"ability": "cha",
+					"displayAs": "action"
 				}
 			],
 			"trait": [
@@ -35505,7 +35777,7 @@
 				{
 					"name": "Scimitar",
 					"entries": [
-						"{@atk mw} {@hit 6} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) bludgeoning damage plus 14 ({@damage 4d6}) fire damage."
+						"{@atk mw} {@hit 6} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) slashing damage plus 14 ({@damage 4d6}) fire damage."
 					]
 				},
 				{
@@ -35628,7 +35900,6 @@
 					"headerEntries": [
 						"The warlock casts one of the following spells, using Charisma as the spellcasting ability (spell save {@dc 15}): "
 					],
-					"displayAs": "action",
 					"will": [
 						"{@spell detect magic}",
 						"{@spell guidance}",
@@ -35645,7 +35916,8 @@
 							"{@spell true seeing}"
 						]
 					},
-					"ability": "cha"
+					"ability": "cha",
+					"displayAs": "action"
 				}
 			],
 			"trait": [
@@ -36472,6 +36744,9 @@
 				"P",
 				"S"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RNG",
@@ -36955,6 +37230,9 @@
 			"damageTagsSpell": [
 				"F"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW"
 			],
@@ -37151,6 +37429,9 @@
 			],
 			"damageTagsSpell": [
 				"L"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"HPR",
@@ -37391,6 +37672,9 @@
 			],
 			"damageTagsLegendary": [
 				"P"
+			],
+			"spellcastingTags": [
+				"O"
 			],
 			"miscTags": [
 				"AOE",
@@ -38981,6 +39265,9 @@
 				"P",
 				"S"
 			],
+			"spellcastingTags": [
+				"O"
+			],
 			"miscTags": [
 				"MW",
 				"RCH"
@@ -39196,6 +39483,9 @@
 				"I"
 			],
 			"damageTagsSpell": [
+				"O"
+			],
+			"spellcastingTags": [
 				"O"
 			],
 			"miscTags": [

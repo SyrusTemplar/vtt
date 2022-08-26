@@ -2110,5 +2110,67 @@
 		"date": "2022-06-29",
 		"title": "Text-Unbased",
 		"txt": "- Revised (hopefully) all (100+) 'name of the creature on red background' tokens to have art\n- Added clear (\"x\") button to Omnisearch\n- Added button to jump from the \"Special\" to the \"Embed\" tab to DM Screen \"Basic Text Box\"'s 'use an embedded editor' note\n- Fixed Loot Generator \"Dragon Hoard\" generation failing to pick different categories/tables for each art object/gem/item\n- (Brew) Fixed optional feature prefix extraction failing to respect word boundaries\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.162.0",
+		"date": "2022-07-17",
+		"title": "Bad Debtor",
+		"txt": "- Added Printer View (with Markdown download) to Items page\n- Added Markdown popout to Items page\n- Added `/iterroll <roll> <count> [<target>]` command to Dice Roller\n- Added Adventure With Muk creatures (thanks @ JTX1000 for the initial parse)\n- Fixed Omnisearch failing to pin when scrolling down on long pages\n- Fixed Bestiary sublist \"Popout\" and \"Send to DM Screen\" failing to take into account CR/etc. scaling adjustments\n- (Brew) Renamed magic item variant `\"variant\"` prop to `\"magicvariant\"`\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.163.0",
+		"date": "2022-07-18",
+		"title": "Updates Akimbo",
+		"titleAlt": "Wonder Where My Evening Went",
+		"txt": "- Added UA: Wonders of the Multiverse\n- Fixed list page `text:...` searches failing to return results"
+	},
+	{
+		"ver": "1.164.0",
+		"date": "2022-07-20",
+		"title": "A Little Too Radiant",
+		"txt": "- Added Journeys through the Radiant Citadel\n- Added Damage Vulnerability/Resistance/Immunity; Condition Immunity filters to Races and Feats pages\n- Fixed crash when attempting to pin a spell on the Spells page\n- Fixed crash when attempting to resize a sublist\n- Fixed crash when attempting to upload a Bestiary Encounter Builder save file\n- Fixed \"Press J/K to navigate\" header rendering multiple times on Encounter Generator/Names pages\n- Fixed list ordering on Encounter Generator page \n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.165.0",
+		"date": "2022-07-21",
+		"title": "Grindset",
+		"txt": "- Added Dynamic Map Viewer support to JttRC maps\n- Added Spelljammer Academy vehicles\n- Fixed Statgen and RPG Cards JSON Builder pages failing to load\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.165.1",
+		"date": "2022-07-24",
+		"txt": "- Added Journeys through the Radiant Citadel creature tokens\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.166.0",
+		"date": "2022-08-12",
+		"title": "Listicles",
+		"txt": "- Added save/load system for pinned lists, allowing multiple named lists to be saved and switched between. _[Note that this replaces a similar system which was used only for Bestiary encounters, which should be migrated over.]_\n- Added remaining Spelljammer Academy content (an adventure, and a creature)\n- Added \"[Add] Pinned List Entries\" option to DM Screen \"Special\" panel menu, allowing the contents of any sublist (be it active or saved) to be quickly dumped into the DM Screen, as either multiple panels, or a stack of tabs\n- Added \"Homebrew\" toggle to Omnisearch and Search page\n- Added missing A Zib for your Thoughts character sheet PDFs\n- Added SHIFT-click to Bestiary Encounter Builder \"Copy as Text\" button to copy in an alternate format, with one creature per line, rather than a single comma-separated line\n- Fixed Tables page links to subclasses\n- Fixed Dynamic Map Viewer failing to open from hover window opened by clicking on a Dynamic Map Viewer area\n- Fixed Omnisearch \"clear\" button showing/hiding strangely in some cases\n- Fixed link hover windows \"flickering\" (rapidly opening and closing) in some cases, usually on small displays, where the window does not have enough space to fully open\n- Fixed DM Screen \"Reset\" creating an inconsistent number of panels, and generally creating too many panels\n- (Brew) Added `property`/`propertyAdd`/`propertyRemove` to `magicvariant.inherits`\n- (Brew) Added \"action/bonus action/reaction intro\" inputs to Creature Homebrew Builder\n- (Brew) Fixed Other Options and Features page extracting incorrect common prefix when no common prefix existed\n- (Brew) Fixed duplication of specific variants in generic variant list\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.166.1",
+		"date": "2022-08-13",
+		"txt": "- Fixed DM Screen \"[Add] Pinned List Entries\" tab-stacking options using multiple panels\n- Fixed Bestiary/Spells page saved sublist load failing to load entities outwith the current set of filtered-for sources\n- (Brew) Added tentative support for `subclass` entities in `\"statblock\"`-type entries, using an alternate `prop` format (see the example in the Renderer Demo) \n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.166.2",
+		"date": "2022-08-14",
+		"txt": "- Replaced \"Psionics\" link on homepage with \"Stat Generator\". _RIP._\n- Pinned list control bars now appear as soon as an entity is pinned, rather than when the list is saved\n- Added PHB downtime activities to Optional/etc. Rules page, making them discoverable via Omnisearch\n- Added \"+1\"/\"+2\"/\"+3\" variants of \"Weapon Attack and Damage Rolls\", \"Weapon Attack Rolls\", and \"Weapon Damage Rolls\" Item page filters\n- Added \"Other\" Spellcasting Type filter to Bestiary page, which matches all spellcasting types otherwise not represented by the filter\n- Added \"Level\" labels to Classes page Subclass Comparison View rows\n- Fixed uploading a saved pinned list failing to apply the name of the saved pinned list\n- (Brew) Improved Creature Text Converter handling of action/etc. names not ending in \".\"\n- (Brew) Fixed crash when rendering `statblock` entries\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.167.0",
+		"date": "2022-08-17",
+		"title": "Jammy Dodger",
+		"txt": "- Added Spelljammer: Adventures in Space content\n- Added \"Load Pinned List\" button to pinned list control bar\n- Re-arranged pinned list controls, compacting name input and control bar into one row, and moving the resize handle above the control bar\n- Fixed crash when loading pinned lists containing homebrew on Bestiary and Spells pages\n- Fixed Dice Roller failing to chain roll modifiers (e.g. `r1dl1`)\n- Fixed Classes page Subclass Comparison View rendering level labels underneath content, and rendering empty rows in the presence of non-standard feature levels\n- (Brew) `\"abilityAttackMod\"`-type entries may now contain arbitrary strings\n- (Brew) Improved Creature Text Converter handling of barding armor types; handling of quotes in action/etc. names\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.167.1",
+		"date": "2022-08-19",
+		"txt": "- Added Boo's Astral Menagerie (BAM)/Light of Xaryxis creature tokens\n- Added Astral Adventurer's Guide vehicle tokens\n- Added BAM encounter tables to the Encounters page\n- Overhauled the Encounters/Names pages sidebar styling\n- Added support for \"Attitude\" column/rolls to the Encounters page\n- Fixed \"Download Pinned List\" button failing to download the list\n- Fixed deleting the active saved list in the \"Load Saved List\" window hiding the pinned list control bar\n- (Brew) Fixed Creature Text Converter failing to parse \"At will:...\" spells\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.167.2",
+		"date": "2022-08-21",
+		"txt": "- (Brew) Fixed crash when copying a creature with `_versions` into the Creature Homebrew Builder\n- (Fixed typos/added tags)"
 	}
 ]

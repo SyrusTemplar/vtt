@@ -4,7 +4,7 @@
 
 	"title": "Util",
 	"description": "Utility definitions to be used in other schemas.",
-	"version": "1.11.21",
+	"version": "1.11.25",
 
 	"definitions" : {
 		"metaBlock": {
@@ -138,6 +138,13 @@
 			]
 		},
 
+		"propNameStats": {
+			"type": "string",
+			"enum": [
+				"subclass"
+			]
+		},
+
 		"languageNameLower": {
 			"type": "string",
 			"enum": [
@@ -242,7 +249,8 @@
 					"thieves' tools",
 					"poisoner's kit",
 					"vehicles (land)",
-					"vehicles (water)"
+					"vehicles (water)",
+					"vehicles (space)"
 				]
 			}
 		},
@@ -285,6 +293,7 @@
 					"poisoner's kit": {"type": "boolean"},
 					"vehicles (land)": {"type": "boolean"},
 					"vehicles (water)": {"type": "boolean"},
+					"vehicles (space)": {"type": "boolean"},
 
 					"choose": {
 						"type": "object",
@@ -446,6 +455,7 @@
 					"poisoner's kit": {"type": "boolean"},
 					"vehicles (land)": {"type": "boolean"},
 					"vehicles (water)": {"type": "boolean"},
+					"vehicles (space)": {"type": "boolean"},
 
 
 
@@ -696,6 +706,7 @@
 					"thieves' tools": {"type": "boolean"},
 					"vehicles (land)": {"type": "boolean"},
 					"vehicles (water)": {"type": "boolean"},
+					"vehicles (space)": {"type": "boolean"},
 					"poisoner's kit": {"type": "boolean"}
 				}
 			}
@@ -1834,6 +1845,16 @@
 				{
 					"type": "object",
 					"properties": {
+						"mode": {"const": "removeSpells"},
+						"spells": {"type": "object"},
+						"daily": {"type": "object"}
+					},
+					"required": ["mode"],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
 						"mode": {"const": "addSpells"},
 						"spells": {"type": "object"},
 						"will": {"type": "array"},
@@ -2543,7 +2564,8 @@
 						"additionalProperties": false
 					}
 				},
-				"disabled": {"type": "boolean"}
+				"disabled": {"const": true},
+				"transfer": {"const": true}
 			},
 			"required": ["changes"],
 			"additionalProperties": false

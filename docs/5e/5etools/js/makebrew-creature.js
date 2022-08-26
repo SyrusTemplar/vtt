@@ -97,6 +97,8 @@ class CreatureBuilder extends Builder {
 		delete creature.altArt;
 		delete creature.hasToken;
 		delete creature.uniqueId;
+		delete creature._versions;
+		if (creature.variant) creature.variant.forEach(ent => delete ent._version);
 
 		// Semi-gracefully handle e.g. ERLW's Steel Defender
 		if (creature.passive != null && typeof creature.passive === "string") delete creature.passive;
@@ -426,8 +428,11 @@ class CreatureBuilder extends Builder {
 		// ABILITIES
 		this.__$getSpellcastingInput(cb).appendTo(abilTab.$wrpTab);
 		this.__$getTraitInput(cb).appendTo(abilTab.$wrpTab);
+		BuilderUi.$getStateIptEntries("Actions Intro", cb, this._state, {}, "actionHeader").appendTo(abilTab.$wrpTab);
 		this.__$getActionInput(cb).appendTo(abilTab.$wrpTab);
+		BuilderUi.$getStateIptEntries("Bonus Actions Intro", cb, this._state, {}, "bonusHeader").appendTo(abilTab.$wrpTab);
 		this.__$getBonusActionInput(cb).appendTo(abilTab.$wrpTab);
+		BuilderUi.$getStateIptEntries("Reactions Intro", cb, this._state, {}, "reactionHeader").appendTo(abilTab.$wrpTab);
 		this.__$getReactionInput(cb).appendTo(abilTab.$wrpTab);
 		BuilderUi.$getStateIptNumber(
 			"Legendary Action Count",

@@ -132,6 +132,14 @@
 					}
 				}
 			},
+			"traitTags": [
+				"Fey Ancestry",
+				"Sunlight Sensitivity"
+			],
+			"spellcastingTags": [
+				"CC",
+				"I"
+			],
 			"hasToken": true
 		},
 		{
@@ -611,27 +619,6 @@
 			"cr": "3",
 			"trait": [
 				{
-					"name": "(Optional) Indefinite Madness",
-					"entries": [
-						{
-							"type": "inline",
-							"entries": [
-								"Horgar has been affected by the demon lords let loose in the Abyss during the Rage of Demons storyline. Roll on the ",
-								{
-									"type": "link",
-									"href": {
-										"type": "internal",
-										"path": "variantrules.html",
-										"hash": "madness_dmg"
-									},
-									"text": "Indefinite Madness table"
-								},
-								" to determine Horgar's flaw."
-							]
-						}
-					]
-				},
-				{
 					"name": "Duergar Resilience",
 					"entries": [
 						"Horgar has advantage on saving throws against poison, spells, and illusions, as well as to resist being {@condition charmed} or {@condition paralyzed}."
@@ -726,7 +713,9 @@
 			"conditionInflict": [
 				"invisible"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Derro",
@@ -897,6 +886,9 @@
 					},
 					"ability": "cha"
 				}
+			],
+			"spellcastingTags": [
+				"CS"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -2087,9 +2079,7 @@
 				"walk": 20,
 				"climb": 10
 			},
-			"traitTags": [
-				"Water Breathing"
-			],
+			"traitTags": [],
 			"hasToken": true
 		},
 		{
@@ -3175,6 +3165,10 @@
 					}
 				}
 			},
+			"spellcastingTags": [
+				"CC",
+				"I"
+			],
 			"hasToken": true
 		},
 		{
@@ -3432,10 +3426,6 @@
 			"_copy": {
 				"name": "Drow Priestess of Lolth",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				},
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -3941,6 +3931,9 @@
 					"source": "DMG"
 				}
 			},
+			"spellcastingTags": [
+				"I"
+			],
 			"hasToken": true
 		},
 		{
@@ -4723,6 +4716,13 @@
 				"E"
 			],
 			"cr": "5",
+			"traitTags": [
+				"Fey Ancestry",
+				"Sunlight Sensitivity"
+			],
+			"spellcastingTags": [
+				"I"
+			],
 			"hasToken": true
 		},
 		{

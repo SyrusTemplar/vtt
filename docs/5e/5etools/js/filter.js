@@ -787,6 +787,7 @@ class FilterBox extends ProxyBase {
 	}
 
 	setFromSubHashes (subHashes, {force = false, $iptSearch = null} = {}) {
+		// TODO(unpack) refactor
 		const unpacked = {};
 		subHashes.forEach(s => {
 			const unpackedPart = UrlUtil.unpackSubHash(s, true);
@@ -2336,6 +2337,7 @@ class SourceFilter extends Filter {
 			clazz: `btn btn-default ${opts.isMulti ? "btn-xxs" : "btn-xs"}`,
 			html: `<span class="glyphicon glyphicon-option-vertical"></span>`,
 			click: evt => ContextUtil.pOpenMenu(evt, menu),
+			title: "Other Options",
 		});
 
 		const btnOnlyPrimary = e_({

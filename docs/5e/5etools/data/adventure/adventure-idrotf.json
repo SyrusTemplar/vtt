@@ -5319,6 +5319,13 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "6fd"
+											},
+											"grid": {
+												"type": "square",
+												"size": 88,
+												"offsetX": -22,
+												"offsetY": 4,
+												"scale": 1.05
 											}
 										}
 									]
@@ -6671,6 +6678,12 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "700"
+											},
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": -38,
+												"offsetY": 28
 											}
 										}
 									]
@@ -7945,6 +7958,12 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "702"
+											},
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": -38,
+												"offsetY": -40
 											}
 										}
 									]
@@ -8453,7 +8472,7 @@
 									"page": 60,
 									"id": "164",
 									"entries": [
-										"The ice covering the cabin door has been chipped away, and the door is not locked. The space is roughly 10 feet square and contains four sleeping bags, packs of stolen rations, and a rolled-up map of Icewind Dale that marks the location of every Ten-Towns settlement, as well as the locations of the duergar outpost near Kelvin's Cairn (see \"{@area Outpost Locations|113|x}\") and Sunblight, the fortress hidden in the mountains (described in{@adventure chapter 3|IDRotF|13}). All of the place names on the map are written in Dwarvish.",
+										"The ice covering the cabin door has been chipped away, and the door is not locked. The space is roughly 10 feet square and contains four sleeping bags, packs of stolen rations, and a rolled-up map of Icewind Dale that marks the location of every Ten-Towns settlement, as well as the locations of the duergar outpost near Kelvin's Cairn (see \"{@area Outpost Locations|113|x}\") and Sunblight, the fortress hidden in the mountains (described in {@adventure chapter 3|IDRotF|13}). All of the place names on the map are written in Dwarvish.",
 										"Lurking in the cabin is Durth Sunblight. He knows when someone else boards the ship by the creaking of the deck. As a precaution, he turns {@condition invisible} and stands in an empty corner at the back of the cabin. If an intruder detects him or tries to steal his map, he attacks. If he's reduced to 20 hit points or fewer, he shrinks to Tiny size and flees through a 4-inch-diameter rathole, exiting outside the ship 5 feet above the frozen harbor and 5 feet away from the dock. If he escapes, Durth returns to his father's fortress in the mountains (see {@adventure chapter 3|IDRotF|13}), abandoning his duergar companions."
 									]
 								},
@@ -11680,6 +11699,12 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "704"
+											},
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": -38,
+												"offsetY": -30
 											}
 										}
 									]
@@ -12416,6 +12441,13 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "705"
+											},
+											"grid": {
+												"type": "square",
+												"size": 86,
+												"offsetX": -5,
+												"offsetY": -31,
+												"scale": 1.03
 											}
 										}
 									]
@@ -15351,6 +15383,12 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "707"
+											},
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": -4,
+												"offsetY": 30
 											}
 										}
 									]
@@ -17185,6 +17223,12 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "709"
+											},
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": 11,
+												"offsetY": 30
 											}
 										}
 									]
@@ -17203,7 +17247,7 @@
 												"Six elevated, white marble statues arranged in a line depict slender, robed figures facing northward. The engraving on their faces has been worn away by the wind, but pointed ears make the statues identifiable as elves."
 											]
 										},
-										"Each statue is life-sized, depicting an elf standing rigidly atop a 7-foot-high cylindrical base of wind-worn granite. (A seventh statue stands alone atop the northern tip of area E4, facing south. Three more statues, unseen from this vantage point, are located under the hill in{@area area E6|205|x}.) A {@spell detect magic} spell or similar magic reveals an aura of abjuration magic around each statue.",
+										"Each statue is life-sized, depicting an elf standing rigidly atop a 7-foot-high cylindrical base of wind-worn granite. (A seventh statue stands alone atop the northern tip of area E4, facing south. Three more statues, unseen from this vantage point, are located under the hill in {@area area E6|205|x}.) A {@spell detect magic} spell or similar magic reveals an aura of abjuration magic around each statue.",
 										"If all ten statues are toppled, the magical effect that directs the intruders away from the tomb ends (see \"Finding the Elven Tomb\" above). Toppling a statue requires a combined Strength of 25."
 									]
 								},
@@ -18706,6 +18750,12 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "70b"
+											},
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": 16,
+												"offsetY": -26
 											}
 										}
 									]
@@ -22198,6 +22248,12 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "70d"
+											},
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": -38,
+												"offsetY": 30
 											}
 										}
 									]
@@ -24405,6 +24461,12 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "70f"
+											},
+											"grid": {
+												"type": "square",
+												"size": 116,
+												"offsetX": -58,
+												"offsetY": -54
 											}
 										}
 									]
@@ -24836,6 +24898,12 @@
 													"imageType": "mapPlayer",
 													"mapParent": {
 														"id": "710"
+													},
+													"grid": {
+														"type": "square",
+														"size": 116,
+														"offsetX": -55,
+														"offsetY": -40
 													}
 												}
 											]
@@ -26636,6 +26704,12 @@
 													"imageType": "mapPlayer",
 													"mapParent": {
 														"id": "711"
+													},
+													"grid": {
+														"type": "square",
+														"size": 116,
+														"offsetX": -55,
+														"offsetY": -33
 													}
 												}
 											]
@@ -28809,6 +28883,12 @@
 													"imageType": "mapPlayer",
 													"mapParent": {
 														"id": "712"
+													},
+													"grid": {
+														"type": "square",
+														"size": 116,
+														"offsetX": -39,
+														"offsetY": -42
 													}
 												}
 											]
@@ -29027,7 +29107,7 @@
 													]
 												},
 												"An {@creature ice troll|IDRotF} (see {@adventure appendix C|IDRotF|21}) was chasing a herd of seals when it spotted the abandoned ship and crept across the ice to explore it, hoping to find something tasty inside. It spooked some kobolds in the hold and chased them into a cabin. The kobolds were able to barricade the door, and the troll is trying to break through it to get at them.",
-												"Characters can surprise the troll if they remain quiet as they make their way into the ship's hold ({@adventure area {@dice D9}|IDRotF|12|D9. Hold}). Climbing onto the ship and moving through it without alerting the troll requires a successful DC 12 Dexterity ({@skill Stealth}) check. If a character fails this check, the troll hears the character's footsteps or the creaking of the deck and realizes there's an easier meal to be had.",
+												"Characters can surprise the troll if they remain quiet as they make their way into the ship's hold ({@adventure area D9|IDRotF|12|D9. Hold}). Climbing onto the ship and moving through it without alerting the troll requires a successful DC 12 Dexterity ({@skill Stealth}) check. If a character fails this check, the troll hears the character's footsteps or the creaking of the deck and realizes there's an easier meal to be had.",
 												{
 													"type": "gallery",
 													"images": [
@@ -29837,6 +29917,9 @@
 															"imageType": "mapPlayer",
 															"mapParent": {
 																"id": "713"
+															},
+															"grid": {
+																"type": "none"
 															}
 														}
 													]
@@ -29873,7 +29956,7 @@
 													"page": 127,
 													"id": "323",
 													"entries": [
-														"The door to {@adventure area {@dice D8}|IDRotF|12|D8. Captain's Cabin} is covered in a thick layer of ice, which the characters need to remove if they want to get inside. Using a miner's pick or similar tool, a character can chip away at the ice, breaking through it after 1 hour. (The more characters who help, the more quickly the ice is removed.) The noise is loud enough to attract the ice troll in {@adventure area {@dice D9}|IDRotF|12|D9. Hold}. If the characters melt away the ice using fire, doing so takes twice as much time but doesn't attract the troll."
+														"The door to {@adventure area D8|IDRotF|12|D8. Captain's Cabin} is covered in a thick layer of ice, which the characters need to remove if they want to get inside. Using a miner's pick or similar tool, a character can chip away at the ice, breaking through it after 1 hour. (The more characters who help, the more quickly the ice is removed.) The noise is loud enough to attract the ice troll in {@adventure area D9|IDRotF|12|D9. Hold}. If the characters melt away the ice using fire, doing so takes twice as much time but doesn't attract the troll."
 													]
 												}
 											]
@@ -30021,7 +30104,7 @@
 											"page": 129,
 											"id": "334",
 											"entries": [
-												"Unless the characters lure it elsewhere, a frustrated {@creature ice troll|IDRotF} (see {@adventure appendix C|IDRotF|21}) stands at the bottom of the wooden stairs leading down from the main deck. It is trying to claw through the door that leads to {@adventure area {@dice D12}|IDRotF|12|D12. Water Storage}. The troll can't be reasoned with. After disposing of it, the characters can survey the contents of the hold:",
+												"Unless the characters lure it elsewhere, a frustrated {@creature ice troll|IDRotF} (see {@adventure appendix C|IDRotF|21}) stands at the bottom of the wooden stairs leading down from the main deck. It is trying to claw through the door that leads to {@adventure area D12|IDRotF|12|D12. Water Storage}. The troll can't be reasoned with. After disposing of it, the characters can survey the contents of the hold:",
 												{
 													"type": "insetReadaloud",
 													"id": "335",
@@ -31360,6 +31443,12 @@
 															"imageType": "mapPlayer",
 															"mapParent": {
 																"id": "714"
+															},
+															"grid": {
+																"type": "square",
+																"size": 104,
+																"offsetX": -38,
+																"offsetY": 30
 															}
 														}
 													]
@@ -31930,6 +32019,12 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "715"
+											},
+											"grid": {
+												"type": "square",
+												"size": 116,
+												"offsetX": -58,
+												"offsetY": 50
 											}
 										}
 									]
@@ -33160,6 +33255,12 @@
 															"imageType": "mapPlayer",
 															"mapParent": {
 																"id": "716"
+															},
+															"grid": {
+																"type": "square",
+																"size": 104,
+																"offsetX": -44,
+																"offsetY": 53
 															}
 														}
 													]
@@ -34589,6 +34690,12 @@
 																	"imageType": "mapPlayer",
 																	"mapParent": {
 																		"id": "717"
+																	},
+																	"grid": {
+																		"type": "square",
+																		"size": 104,
+																		"offsetX": -5,
+																		"offsetY": 30
 																	}
 																}
 															]
@@ -35229,6 +35336,12 @@
 																	"imageType": "mapPlayer",
 																	"mapParent": {
 																		"id": "718"
+																	},
+																	"grid": {
+																		"type": "square",
+																		"size": 116,
+																		"offsetX": 55,
+																		"offsetY": 12
 																	}
 																}
 															]
@@ -36387,6 +36500,13 @@
 													"imageType": "mapPlayer",
 													"mapParent": {
 														"id": "719"
+													},
+													"grid": {
+														"type": "square",
+														"size": 92,
+														"offsetX": -46,
+														"offsetY": -35,
+														"scale": 1.05
 													}
 												}
 											]
@@ -38246,6 +38366,12 @@
 													"imageType": "mapPlayer",
 													"mapParent": {
 														"id": "71a"
+													},
+													"grid": {
+														"type": "square",
+														"size": 116,
+														"offsetX": 43,
+														"offsetY": 44
 													}
 												}
 											]
@@ -39806,6 +39932,12 @@
 													"imageType": "mapPlayer",
 													"mapParent": {
 														"id": "71b"
+													},
+													"grid": {
+														"type": "square",
+														"size": 116,
+														"offsetX": -58,
+														"offsetY": 28
 													}
 												}
 											]
@@ -40955,6 +41087,9 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "71c"
+											},
+											"grid": {
+												"type": "none"
 											}
 										}
 									]
@@ -43488,6 +43623,13 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "71d"
+											},
+											"grid": {
+												"type": "square",
+												"size": 93,
+												"offsetX": -6,
+												"offsetY": 25,
+												"scale": 1.05
 											}
 										}
 									]
@@ -46398,6 +46540,13 @@
 															"imageType": "mapPlayer",
 															"mapParent": {
 																"id": "71e"
+															},
+															"grid": {
+																"type": "square",
+																"size": 92,
+																"offsetX": 42,
+																"offsetY": 3,
+																"scale": 1.05
 															}
 														}
 													]
@@ -52124,6 +52273,9 @@
 											"imageType": "mapPlayer",
 											"mapParent": {
 												"id": "71f"
+											},
+											"grid": {
+												"type": "none"
 											}
 										}
 									]
@@ -54737,7 +54889,7 @@
 													"page": 250,
 													"id": "659",
 													"entries": [
-														"Scrivenscry is a vainglorious arcanaloth who roams the planes in search of the{@i Books of Keeping}, four lost tomes that hold the true names of every yugoloth ever created. The fiend stumbled on Ythryn's library by chance and is convinced that at least one of the legendary tomes is hidden here. Alas, Scrivenscry is mistaken.",
+														"Scrivenscry is a vainglorious arcanaloth who roams the planes in search of the {@i Books of Keeping}, four lost tomes that hold the true names of every yugoloth ever created. The fiend stumbled on Ythryn's library by chance and is convinced that at least one of the legendary tomes is hidden here. Alas, Scrivenscry is mistaken.",
 														"Scrivenscry's anxious penguin servant, {@creature Kingsport|IDRotF}, was promised a life of enlightenment. The truth is that {@creature Kingsport|IDRotF} was turned into Scrivenscry's lackey, who lives in fear of his cruel, unpredictable master. The blind giant penguin hopes to be free of the arcanaloth one day."
 													]
 												}
@@ -56121,6 +56273,12 @@
 															"imageType": "mapPlayer",
 															"mapParent": {
 																"id": "721"
+															},
+															"grid": {
+																"type": "square",
+																"size": 52,
+																"offsetX": 6,
+																"offsetY": -24
 															}
 														}
 													]
