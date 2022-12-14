@@ -2603,7 +2603,7 @@
 				}
 			],
 			"entries": [
-				"While wearing this helmet, a creature has advantage on initiative rolls. In addition, the wearer can't be surprised, provided it isn't {@condition incapacitated}."
+				"While wearing this helmet, a creature has advantage on initiative rolls. In addition, the wearer can't be {@quickref Surprise|PHB|3|0|surprised}, provided it isn't {@condition incapacitated}."
 			]
 		},
 		{
@@ -2627,7 +2627,7 @@
 				}
 			],
 			"entries": [
-				"While wearing this helmet, a creature has advantage on initiative rolls. In addition, the wearer can't be surprised, provided it isn't {@condition incapacitated}."
+				"While wearing this helmet, a creature has advantage on initiative rolls. In addition, the wearer can't be {@quickref Surprise|PHB|3|0|surprised}, provided it isn't {@condition incapacitated}."
 			]
 		},
 		{
@@ -2765,7 +2765,7 @@
 				"FS:P"
 			],
 			"entries": [
-				"When a creature you can see hits a target, other than you, within 5 feet of you with an attack, you can use your reaction to reduce the damage the target takes by {@dice 1d10} + your proficiency bonus (to a minimum of 0 damage). You must be wielding a {@item shield|phb} or a simple or martial weapon to use this reaction."
+				"When a creature you can see hits a target, other than you, within 5 feet of you with an attack, you can use your reaction to reduce the damage the target takes by {@dice 1d10} + your proficiency bonus (to a minimum of 0 damage). You must be wielding a {@item shield|phb} or a {@filter simple or martial weapon|items|source=phb|category=basic|type=martial weapon;simple weapon} to use this reaction."
 			]
 		},
 		{
@@ -2779,7 +2779,7 @@
 				"FS:R"
 			],
 			"entries": [
-				"When a creature you can see hits a target that is within 5 feet of you with an attack, you can use your reaction to reduce the damage the target takes by {@dice 1d10} + your proficiency bonus (to a minimum of 0 damage). You must be wielding a shield or a simple or martial weapon to use this reaction."
+				"When a creature you can see hits a target that is within 5 feet of you with an attack, you can use your reaction to reduce the damage the target takes by {@dice 1d10} + your proficiency bonus (to a minimum of 0 damage). You must be wielding a shield or a {@filter simple or martial weapon|items|source=phb|category=basic|type=martial weapon;simple weapon} to use this reaction."
 			]
 		},
 		{
@@ -5301,7 +5301,7 @@
 				}
 			],
 			"entries": [
-				"Using this rune, you can glimpse the future like a storm giant seer. While wearing or carrying an object inscribed with this rune, you have advantage on Intelligence ({@skill Arcana}) checks, and you can't be surprised as long as you aren't {@condition incapacitated}.",
+				"Using this rune, you can glimpse the future like a storm giant seer. While wearing or carrying an object inscribed with this rune, you have advantage on Intelligence ({@skill Arcana}) checks, and you can't be {@quickref Surprise|PHB|3|0|surprised} as long as you aren't {@condition incapacitated}.",
 				"In addition, you can invoke the rune as a bonus action to enter a prophetic state for 1 minute or until you're {@condition incapacitated}. Until the state ends, when you or another creature you can see within 60 feet of you makes an attack roll, a saving throw, or an ability check, you can use your reaction to cause the roll to have advantage or disadvantage. Once you invoke this rune, you can't do so again until you finish a short or long rest."
 			]
 		},
@@ -5943,7 +5943,7 @@
 				"RN"
 			],
 			"entries": [
-				"Using this rune, you can glimpse the future like a storm giant. While wearing or carrying an object inscribed with this rune, you have advantage on Intelligence ({@skill Arcana}) checks, and you can't be surprised as long as you are not {@condition incapacitated}.",
+				"Using this rune, you can glimpse the future like a storm giant. While wearing or carrying an object inscribed with this rune, you have advantage on Intelligence ({@skill Arcana}) checks, and you can't be {@quickref Surprise|PHB|3|0|surprised} as long as you are not {@condition incapacitated}.",
 				"In addition, you can invoke the rune as a bonus action to enter a prophetic state for 1 minute or until you're {@condition incapacitated}. Until the state ends, when you or another creature you can see within 60 feet of you makes an attack roll, a saving throw, or an ability check, you can use your reaction to cause the roll to have advantage or disadvantage. Once you invoke the rune, you can't do so again until you finish a short or long rest."
 			]
 		},

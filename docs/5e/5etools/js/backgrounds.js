@@ -41,8 +41,10 @@ class BackgroundPage extends ListPage {
 	constructor () {
 		const pageFilter = new PageFilterBackgrounds();
 		super({
-			dataSource: "data/backgrounds.json",
-			dataSourceFluff: "data/fluff-backgrounds.json",
+			dataSource: DataUtil.background.loadJSON.bind(DataUtil.background),
+			dataSourceFluff: DataUtil.backgroundFluff.loadJSON.bind(DataUtil.backgroundFluff),
+
+			pFnGetFluff: Renderer.background.pGetFluff.bind(Renderer.background),
 
 			pageFilter,
 
@@ -56,7 +58,7 @@ class BackgroundPage extends ListPage {
 		this._pageFilter.mutateAndAddToFilters(bg, isExcluded);
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
+		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
 
 		const name = bg.name.replace("Variant ", "");
 		const hash = UrlUtil.autoEncodeHash(bg);
@@ -108,7 +110,7 @@ class BackgroundPage extends ListPage {
 			return Renderer.utils.pBuildFluffTab({
 				isImageTab,
 				$content: this._$pgContent,
-				pFnGetFluff: Renderer.background.pGetFluff,
+				pFnGetFluff: this._pFnGetFluff,
 				entity: bg,
 			});
 		};

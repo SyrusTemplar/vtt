@@ -592,6 +592,34 @@ class AbilityScoreFilter extends FilterBase {
 
 		Object.values(this.__wrpPillsRows).forEach(meta => meta.row.detach());
 	}
+
+	_getStateNotDefault () {
+		return Object.entries(this._state)
+			.filter(([, v]) => !!v);
+	}
+
+	getFilterTagPart () {
+		const areNotDefaultState = this._getStateNotDefault();
+		const compressedMeta = this._getCompressedMeta({isStripUiKeys: true});
+
+		// If _any_ value is non-default, we need to include _all_ values in the tag
+		// The same goes for meta values
+		if (!areNotDefaultState.length && !compressedMeta) return null;
+
+		const pt = Object.entries(this._state)
+			.filter(([, v]) => !!v)
+			.map(([k, v]) => `${v === 2 ? "!" : ""}${k}`)
+			.join(";")
+			.toLowerCase();
+
+		return [
+			this.header.toLowerCase(),
+			pt,
+			compressedMeta ? compressedMeta.join(HASH_SUB_LIST_SEP) : null,
+		]
+			.filter(it => it != null)
+			.join("=");
+	}
 }
 AbilityScoreFilter._MODIFIER_SORT_OFFSET = 10000; // Arbitrarily large value
 
@@ -1011,7 +1039,7 @@ class ModalFilterRaces extends ModalFilter {
 		const size = (race.size || [SZ_VARIES]).map(sz => Parser.sizeAbvToFull(sz)).join("/");
 		const source = Parser.sourceJsonToAbv(race.source);
 
-		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst--border no-select lst__wrp-cells">
+		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst--border veapp__list-row no-select lst__wrp-cells ${race._versionBase_isVersion ? "ve-muted" : ""}">
 			<div class="col-0-5 pl-0 ve-flex-vh-center">${this._isRadio ? `<input type="radio" name="radio" class="no-events">` : `<input type="checkbox" class="no-events">`}</div>
 
 			<div class="col-0-5 px-1 ve-flex-vh-center">

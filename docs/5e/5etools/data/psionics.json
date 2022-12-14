@@ -2284,7 +2284,7 @@
 					},
 					"name": "Danger Sense",
 					"entries": [
-						"As an action, you create a psychic model of reality in your mind and set it to show you a few seconds into the future. Until your concentration ends, you can't be surprised, attack rolls against you can't gain advantage, and you gain a +10 bonus to initiative."
+						"As an action, you create a psychic model of reality in your mind and set it to show you a few seconds into the future. Until your concentration ends, you can't be {@quickref Surprise|PHB|3|0|surprised}, attack rolls against you can't gain advantage, and you gain a +10 bonus to initiative."
 					]
 				},
 				{
@@ -2394,7 +2394,7 @@
 					},
 					"name": "Augmented Weapon",
 					"entries": [
-						"As a bonus action, touch one simple or martial weapon. Until your concentration ends, that weapon becomes a magic weapon with a +3 bonus to its attack and damage rolls."
+						"As a bonus action, touch one {@filter simple or martial weapon|items|source=phb|category=basic|type=martial weapon;simple weapon}. Until your concentration ends, that weapon becomes a magic weapon with a +3 bonus to its attack and damage rolls."
 					]
 				}
 			]

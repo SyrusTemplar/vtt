@@ -42,7 +42,8 @@
 			"ac": [
 				10
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Amarith Coppervein",
@@ -83,7 +84,8 @@
 				"B",
 				"P"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Animated Drow Statue",
@@ -244,7 +246,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Bridesmaid of Zuggtmoy",
@@ -342,7 +345,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Cave Badger",
@@ -1738,7 +1742,8 @@
 				"D",
 				"X"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Emerald Enclave Scout",
@@ -1976,7 +1981,8 @@
 					"human"
 				]
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Giant Riding Lizard",
@@ -2124,7 +2130,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Grisha",
@@ -2281,7 +2288,34 @@
 						"replace": "the drow",
 						"with": "Hanne",
 						"flags": "i"
-					}
+					},
+					"spellcasting": [
+						{
+							"mode": "appendArr",
+							"items": {
+								"name": "Spellcasting",
+								"headerEntries": [
+									"Hanne is a 1st-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 13}, {@hit 5} to hit with spell attacks). She has the following wizard spells prepared:"
+								],
+								"spells": {
+									"0": {
+										"spells": [
+											"{@spell minor illusion}",
+											"{@spell ray of frost}"
+										]
+									},
+									"1": {
+										"slots": 4,
+										"spells": [
+											"{@spell shield}",
+											"{@spell mage armor}"
+										]
+									}
+								},
+								"ability": "int"
+							}
+						}
+					]
 				}
 			},
 			"ac": [
@@ -2408,7 +2442,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Infant Basilisk",
@@ -2727,10 +2762,17 @@
 					}
 				}
 			},
+			"languages": [
+				"Common",
+				"Gnomish",
+				"Terran",
+				"Undercommon"
+			],
 			"spellcastingTags": [
 				"I"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Juvenile Hook Horror",
@@ -2831,7 +2873,8 @@
 			"spellcastingTags": [
 				"I"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Kinyel Druu'giir",
@@ -2862,7 +2905,8 @@
 			"spellcastingTags": [
 				"I"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Kurr",
@@ -2881,7 +2925,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Lords' Alliance Guard",
@@ -3342,7 +3387,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Peebles",
@@ -3368,7 +3414,8 @@
 			"spellcastingTags": [
 				"I"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Prince Derendil",
@@ -3387,7 +3434,12 @@
 					}
 				}
 			},
-			"hasToken": true
+			"languages": [
+				"Elvish",
+				"Undercommon"
+			],
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Princess Ebonmire",
@@ -3604,7 +3656,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rumpadump",
@@ -3623,7 +3676,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rystia Zav",
@@ -3652,7 +3706,8 @@
 				"C",
 				"G"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sarith Kzekarit",
@@ -3671,7 +3726,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Shedrak of the Eyes",
@@ -3708,7 +3764,8 @@
 					]
 				}
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Shuushar the Awakened",
@@ -3727,7 +3784,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Skriss",
@@ -3746,7 +3804,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sladis Vadir",
@@ -3780,7 +3839,8 @@
 			"traitTags": [
 				"Fey Ancestry"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sloopidoop",
@@ -3799,7 +3859,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sovereign Basidia",
@@ -3827,7 +3888,8 @@
 				"poisoned",
 				"stunned"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Spider King",
@@ -3898,7 +3960,8 @@
 				"athletics": "+3",
 				"stealth": "+6"
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Stool",
@@ -3917,7 +3980,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Svirfneblin Wererat",
@@ -3981,10 +4045,10 @@
 				"cha": "+7"
 			},
 			"skill": {
-				"arcana": "+5",
-				"perception": "+3",
-				"stealth": "+7",
-				"survival": "+3"
+				"arcana": "+4",
+				"perception": "+2",
+				"stealth": "+6",
+				"survival": "+2"
 			},
 			"senses": [
 				"darkvision 60 ft."
@@ -4171,7 +4235,8 @@
 				}
 			},
 			"damageTagsLegendary": [],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Topsy",
@@ -4181,6 +4246,10 @@
 			"_copy": {
 				"name": "Wererat",
 				"source": "MM",
+				"_trait": {
+					"name": "Deep Gnome",
+					"source": "DMG"
+				},
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -4190,7 +4259,13 @@
 					}
 				}
 			},
-			"hasToken": true
+			"languages": [
+				"Gnomish",
+				"Terran",
+				"Undercommon"
+			],
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Troglodyte Champion of Laogzed",
@@ -4330,6 +4405,10 @@
 			"_copy": {
 				"name": "Wererat",
 				"source": "MM",
+				"_trait": {
+					"name": "Deep Gnome",
+					"source": "DMG"
+				},
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -4339,7 +4418,13 @@
 					}
 				}
 			},
-			"hasToken": true
+			"languages": [
+				"Gnomish",
+				"Terran",
+				"Undercommon"
+			],
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Vampiric Ixitxachitl",
@@ -4759,7 +4844,8 @@
 				"CW",
 				"I"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Xazax the Eyemonger",
@@ -4778,7 +4864,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Y",
@@ -4797,7 +4884,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Yestabrod",
@@ -4947,7 +5035,7 @@
 					"name": "Petrifying Gaze",
 					"entries": [
 						"If a creature starts its turn within 15 feet of the basilisk and the two of them can see each other, the basilisk can force the creature to make a {@dc 12} Constitution saving throw if the basilisk isn't {@condition incapacitated}. On a failed save, the creature magically begins to turn to stone and is {@condition restrained}. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is {@condition petrified} until freed by the  {@spell greater restoration} spell or other magic.",
-						"A creature that isn't surprised can avert its eyes to avoid the saving throw at the start of its turn. If it does so, it can't see the basilisk until the start of its next turn, when it can avert its eyes again. If it looks at the basilisk in the meantime, it must immediately make the save.",
+						"A creature that isn't {@quickref Surprise|PHB|3|0|surprised} can avert its eyes to avoid the saving throw at the start of its turn. If it does so, it can't see the basilisk until the start of its next turn, when it can avert its eyes again. If it looks at the basilisk in the meantime, it must immediately make the save.",
 						"If the basilisk sees its reflection within 30 feet of it in bright light, it mistakes itself for a rival and targets itself with its gaze."
 					]
 				}
@@ -5034,7 +5122,8 @@
 				"athletics": "+3",
 				"stealth": "+6"
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Zhentarim Thug",
@@ -5158,7 +5247,8 @@
 				"CW",
 				"I"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		}
 	]
 }

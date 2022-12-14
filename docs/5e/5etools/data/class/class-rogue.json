@@ -146,7 +146,8 @@
 										"number": 1,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -157,7 +158,8 @@
 										"number": 1,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -168,7 +170,8 @@
 										"number": 2,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -179,7 +182,8 @@
 										"number": 2,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -190,7 +194,8 @@
 										"number": 3,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -201,7 +206,8 @@
 										"number": 3,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -212,7 +218,8 @@
 										"number": 4,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -223,7 +230,8 @@
 										"number": 4,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -234,7 +242,8 @@
 										"number": 5,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -245,7 +254,8 @@
 										"number": 5,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -256,7 +266,8 @@
 										"number": 6,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -267,7 +278,8 @@
 										"number": 6,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -278,7 +290,8 @@
 										"number": 7,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -289,7 +302,8 @@
 										"number": 7,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -300,7 +314,8 @@
 										"number": 8,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -311,7 +326,8 @@
 										"number": 8,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -322,7 +338,8 @@
 										"number": 9,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -333,7 +350,8 @@
 										"number": 9,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -344,7 +362,8 @@
 										"number": 10,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						],
 						[
@@ -355,7 +374,8 @@
 										"number": 10,
 										"faces": 6
 									}
-								]
+								],
+								"rollable": true
 							}
 						]
 					]
@@ -1833,7 +1853,7 @@
 			"level": 3,
 			"header": 1,
 			"entries": [
-				"Starting at 3rd level, you are at your deadliest when you get the drop on your enemies. You have advantage on attack rolls against any creature that hasn't taken a turn in the combat yet. In addition, any hit you score against a creature that is surprised is a critical hit."
+				"Starting at 3rd level, you are at your deadliest when you get the drop on your enemies. You have advantage on attack rolls against any creature that hasn't taken a turn in the combat yet. In addition, any hit you score against a creature that is {@quickref Surprise|PHB|3|0|surprised} is a critical hit."
 			]
 		},
 		{
@@ -1891,7 +1911,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is surprised, it must make a Constitution saving throw (DC 8 + your Dexterity modifier + your proficiency bonus). On a failed save, double the damage of your attack against the creature."
+				"Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is {@quickref Surprise|PHB|3|0|surprised}, it must make a Constitution saving throw (DC 8 + your Dexterity modifier + your proficiency bonus). On a failed save, double the damage of your attack against the creature."
 			]
 		},
 		{
@@ -1995,7 +2015,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"When you reach 17th level, you have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can't use this feature when you are surprised."
+				"When you reach 17th level, you have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can't use this feature when you are {@quickref Surprise|PHB|3|0|surprised}."
 			]
 		},
 		{
@@ -2946,7 +2966,7 @@
 			"level": 13,
 			"header": 2,
 			"entries": [
-				"Starting at 13th level, you excel at leading ambushes. If any of your foes are surprised, you can use a bonus action on your turn in the first round of the combat to grant each ally who can see you a +5 bonus to initiative that lasts until the combat ends. If the initiative bonus would increase an ally's initiative above yours, the ally's initiative instead equals your initiative.",
+				"Starting at 13th level, you excel at leading ambushes. If any of your foes are {@quickref Surprise|PHB|3|0|surprised}, you can use a bonus action on your turn in the first round of the combat to grant each ally who can see you a +5 bonus to initiative that lasts until the combat ends. If the initiative bonus would increase an ally's initiative above yours, the ally's initiative instead equals your initiative.",
 				"Each of the allies also receives a 10-foot increase to speed that lasts until the end of the ally's next turn."
 			]
 		},

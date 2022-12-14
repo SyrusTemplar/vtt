@@ -3925,6 +3925,9 @@
 				"max": 750
 			},
 			"darkvision": 60,
+			"traitTags": [
+				"Improved Resting"
+			],
 			"skillProficiencies": [
 				{
 					"perception": true
@@ -4834,7 +4837,7 @@
 					"type": "entries",
 					"name": "Astral Spark",
 					"entries": [
-						"Your psychic connection to the Astral Plane enables you to mystically access a spark of divine power, which you can channel through your weapons. When you hit a target with a simple or martial weapon, you can cause the target to take extra force damage equal to your proficiency bonus.",
+						"Your psychic connection to the Astral Plane enables you to mystically access a spark of divine power, which you can channel through your weapons. When you hit a target with a {@filter simple or martial weapon|items|source=phb|category=basic|type=martial weapon;simple weapon}, you can cause the target to take extra force damage equal to your proficiency bonus.",
 						"You can use this trait a number of times equal to your proficiency bonus, but you can use it no more than once per turn. You regain all expended uses when you finish a long rest."
 					]
 				},
@@ -5382,6 +5385,13 @@
 							]
 						},
 						"Intelligence is your spellcasting ability for these spells."
+					],
+					"type": "entries"
+				},
+				{
+					"name": "Stone Camouflage",
+					"entries": [
+						"You have advantage on Dexterity ({@skill Stealth}) checks to hide in rocky terrain."
 					],
 					"type": "entries"
 				},
@@ -6252,19 +6262,12 @@
 					"type": "entries",
 					"name": "Glide",
 					"entries": [
-						"If you are not {@condition incapacitated} or wearing heavy armor, you can extend your skin membranes and glide. When you do so, you can perform the following aerial maneuvers:",
-						{
-							"type": "list",
-							"items": [
-								"You can move up to 5 feet horizontally for every 1 foot you descend in the air, at no movement cost to you.",
-								"When you would take damage from a fall, you can use your reaction to reduce the fall's damage to 0."
-							]
-						}
+						"When you fall at least 10 feet above the ground, you can use your reaction to extend your skin membranes to glide horizontally a number of feet equal to your walking speed, and you take 0 damage from the fall. You determine the direction of the glide."
 					]
 				},
 				{
 					"type": "entries",
-					"name": "Hadozee Resilience",
+					"name": "Hadozee Dodge",
 					"entries": [
 						"The magic that runs in your veins heightens your natural defenses. When you take damage, you can use your reaction to roll a {@dice d6}. Add your proficiency bonus to the number rolled, and reduce the damage you take by an amount equal to that total (minimum of 0 damage).",
 						"You can use this trait a number of times equal to your proficiency bonus. You regain all expended uses when you finish a long rest."
@@ -7912,6 +7915,55 @@
 		},
 		{
 			"name": "Kender",
+			"source": "DSotDQ",
+			"page": 27,
+			"lineage": "VRGR",
+			"size": [
+				"S"
+			],
+			"speed": 30,
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"insight",
+							"investigation",
+							"sleight of hand",
+							"stealth",
+							"survival"
+						]
+					}
+				}
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Fearless",
+					"entries": [
+						"You have advantage on saving throws you make to avoid or end the {@condition frightened} condition on yourself. When you fail a saving throw to avoid or end the {@condition frightened} condition on yourself, you can choose to succeed instead. Once you succeed on a saving throw in this way, you can't do so again until you finish a long rest."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Kender Curiosity",
+					"entries": [
+						"Thanks to the mystical origin of your people, you gain proficiency with one of the following skills of your choice: {@skill Insight}, {@skill Investigation}, {@skill Sleight of Hand}, {@skill Stealth}, or {@skill Survival}."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Taunt",
+					"entries": [
+						"You have an extraordinary ability to fluster creatures. As a bonus action, you can unleash a string of provoking words at a creature within 60 feet of yourself that can hear and understand you. The target must succeed on a Wisdom saving throw, or it has disadvantage on attack rolls against targets other than you until the start of your next turn. The DC equals 8 + your proficiency bonus + your Intelligence, Wisdom, or Charisma modifier (choose when you select this race).",
+						"You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Kender",
 			"source": "UA2022HeroesOfKrynn",
 			"page": 1,
 			"lineage": "VRGR",
@@ -8067,7 +8119,7 @@
 				{
 					"name": "Ambusher",
 					"entries": [
-						"In the first round of a combat, you have advantage on attack rolls against any creature who is surprised."
+						"In the first round of a combat, you have advantage on attack rolls against any creature who is {@quickref Surprise|PHB|3|0|surprised}."
 					],
 					"type": "entries"
 				},
@@ -11519,7 +11571,8 @@
 			},
 			"darkvision": 60,
 			"traitTags": [
-				"Amphibious"
+				"Amphibious",
+				"Improved Resting"
 			],
 			"skillProficiencies": [
 				{
@@ -12682,7 +12735,7 @@
 					"type": "entries",
 					"name": "Thri-kreen Telepathy",
 					"entries": [
-						"Without the assistance of magic, you can't speak the non-thri-kreen languages you know. Instead you use telepathy to convey your thoughts. You have the magical ability to transmit your thoughts mentally to willing creatures you can see within 120 feet of yourself. A contacted creature doesn't need to share a language with you to understand your thoughts, but it must be able to understand at least one language. Your telepathic link to a creature is broken if you and the creature move more than 120 feet apart, if either of you is {@condition incapacitated}, or if either of you mentally breaks the contact (no action required)."
+						"Without the assistance of magic, you can't speak the non-thri-kreen languages you know. Instead you use telepathy to convey your thoughts. You have the magical ability to transmit your thoughts mentally to willing creatures within 120 feet of yourself. A contacted creature doesn't need to share a language with you to understand your thoughts, but it must be able to understand at least one language. Your telepathic link to a creature is broken if you and the creature move more than 120 feet apart, if either of you is {@condition incapacitated}, or if either of you mentally breaks the contact (no action required)."
 					]
 				}
 			],
@@ -13254,9 +13307,13 @@
 			"additionalSpells": [
 				{
 					"innate": {
-						"1": [
-							"fog cloud"
-						],
+						"1": {
+							"daily": {
+								"1": [
+									"fog cloud"
+								]
+							}
+						},
 						"3": {
 							"daily": {
 								"1": [
@@ -15445,7 +15502,8 @@
 			"overwrite": {
 				"languageProficiencies": true
 			},
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": false
 		},
 		{
 			"name": "Hill",
@@ -16027,6 +16085,13 @@
 				"baseWeight": 90,
 				"weightMod": "1d4"
 			},
+			"languageProficiencies": [
+				{
+					"common": true,
+					"elvish": true,
+					"anyStandard": 1
+				}
+			],
 			"weaponProficiencies": [
 				{
 					"longsword|phb": true,
@@ -16072,6 +16137,9 @@
 					"type": "entries"
 				}
 			],
+			"overwrite": {
+				"languageProficiencies": true
+			},
 			"hasFluff": true,
 			"hasFluffImages": true
 		},
@@ -16876,7 +16944,8 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Mul Daya Nation",
@@ -16959,7 +17028,8 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Tajuru Nation",
@@ -16997,7 +17067,8 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Air",
@@ -17289,7 +17360,9 @@
 						"Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
 					]
 				}
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Earth",
@@ -17335,7 +17408,9 @@
 						"Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
 					]
 				}
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Fire",
@@ -17394,7 +17469,9 @@
 						"Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
 					]
 				}
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Water",
@@ -17474,7 +17551,9 @@
 						"Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
 					]
 				}
-			]
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Githyanki",
@@ -18242,7 +18321,8 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Lavastep Tribe",
@@ -18258,7 +18338,8 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Tuktuk Tribe",
@@ -18277,7 +18358,8 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"source": "PHB",
@@ -18505,6 +18587,7 @@
 				"Dragonmark",
 				"Skill Bonus Dice"
 			],
+			"skillProficiencies": null,
 			"additionalSpells": [
 				{
 					"innate": {
@@ -18631,6 +18714,7 @@
 				"Skill Bonus Dice",
 				"Tool Bonus Dice"
 			],
+			"skillProficiencies": null,
 			"resist": [
 				"lightning"
 			],
@@ -20463,7 +20547,8 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Emeria Creed",
@@ -20511,7 +20596,8 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Ula Creed",
@@ -20561,7 +20647,8 @@
 					],
 					"type": "entries"
 				}
-			]
+			],
+			"hasFluff": true
 		},
 		{
 			"name": "Beasthide",
@@ -21963,7 +22050,9 @@
 			],
 			"overwrite": {
 				"ability": true
-			}
+			},
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Variant; Hellfire",
@@ -22031,7 +22120,9 @@
 			],
 			"overwrite": {
 				"ability": true
-			}
+			},
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Variant; Infernal Legacy",
@@ -22089,7 +22180,9 @@
 			],
 			"overwrite": {
 				"ability": true
-			}
+			},
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Variant; Winged",
@@ -22140,7 +22233,9 @@
 			"overwrite": {
 				"ability": true,
 				"traitTags": true
-			}
+			},
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Zariel",

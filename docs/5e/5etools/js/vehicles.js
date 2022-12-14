@@ -38,15 +38,21 @@ class VehiclesSublistManager extends SublistManager {
 class VehiclesPage extends ListPage {
 	constructor () {
 		const pageFilter = new PageFilterVehicles();
+		const pFnGetFluff = Renderer.vehicle.pGetFluff.bind(Renderer.vehicle);
+
 		super({
 			dataSource: "data/vehicles.json",
 			dataSourceFluff: "data/fluff-vehicles.json",
+
+			pFnGetFluff,
 
 			pageFilter,
 
 			listClass: "vehicles",
 
 			dataProps: ["vehicle", "vehicleUpgrade"],
+
+			listSyntax: new ListSyntaxVehicles({fnGetDataList: () => this._dataList, pFnGetFluff}),
 		});
 	}
 
@@ -54,7 +60,7 @@ class VehiclesPage extends ListPage {
 		this._pageFilter.mutateAndAddToFilters(it, isExcluded);
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
+		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
@@ -119,7 +125,7 @@ class VehiclesPage extends ListPage {
 				isImageTab,
 				$content: this._$pgContent,
 				entity: veh,
-				pFnGetFluff: Renderer.vehicle.pGetFluff,
+				pFnGetFluff: this._pFnGetFluff,
 			});
 		};
 
@@ -151,27 +157,7 @@ class VehiclesPage extends ListPage {
 
 		this._updateSelected();
 	}
-
-	_getSearchCache (entity) {
-		if (this.constructor._INDEXABLE_PROPS.every(it => !entity[it])) return "";
-		const ptrOut = {_: ""};
-		this.constructor._INDEXABLE_PROPS.forEach(it => this._getSearchCache_handleEntryProp(entity, it, ptrOut));
-		return ptrOut._;
-	}
 }
-VehiclesPage._INDEXABLE_PROPS = [
-	"control",
-	"movement",
-	"weapon",
-	"other",
-	"entries",
-
-	"actionStation",
-
-	"action",
-	"trait",
-	"reaction",
-];
 
 const vehiclesPage = new VehiclesPage();
 vehiclesPage.sublistManager = new VehiclesSublistManager();

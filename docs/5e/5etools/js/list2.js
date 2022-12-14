@@ -45,7 +45,34 @@ class ListItem {
 	get isSelected () { return this._isSelected; }
 }
 
+class _ListSearch {
+	#isInterrupted = false;
+
+	#term = null;
+	#fn = null;
+	#items = null;
+
+	constructor ({term, fn, items}) {
+		this.#term = term;
+		this.#fn = fn;
+		this.#items = [...items];
+	}
+
+	interrupt () { this.#isInterrupted = true; }
+
+	async pRun () {
+		const out = [];
+		for (const item of this.#items) {
+			if (this.#isInterrupted) break;
+			if (await this.#fn(item, this.#term)) out.push(item);
+		}
+		return {isInterrupted: this.#isInterrupted, searchedItems: out};
+	}
+}
+
 class List {
+	#activeSearch = null;
+
 	/**
 	 * @param [opts] Options object.
 	 * @param [opts.fnSort] Sort function. Should accept `(a, b, o)` where `o` is an options object. Pass `null` to
@@ -59,6 +86,7 @@ class List {
 	 * @param [opts.syntax] A dictionary of search syntax prefixes, each with an item "to display" checker function.
 	 * @param [opts.isFuzzy]
 	 * @param [opts.isSkipSearchKeybindingEnter]
+	 * @param {array} [opts.helpText]
 	 */
 	constructor (opts) {
 		if (opts.fnSearch && opts.isFuzzy) throw new Error(`The options "fnSearch" and "isFuzzy" are mutually incompatible!`);
@@ -70,6 +98,7 @@ class List {
 		this._syntax = opts.syntax;
 		this._isFuzzy = !!opts.isFuzzy;
 		this._isSkipSearchKeybindingEnter = !!opts.isSkipSearchKeybindingEnter;
+		this._helpText = opts.helpText;
 
 		this._items = [];
 		this._eventHandlers = {};
@@ -118,7 +147,19 @@ class List {
 			UiUtil.bindTypingEnd({$ipt: this._$iptSearch, fnKeyup: () => this.search(this._$iptSearch.val())});
 			this._searchTerm = List.getCleanSearchTerm(this._$iptSearch.val());
 			this._init_bindKeydowns();
+
+			// region Help text
+			const helpText = [
+				...(this._helpText || []),
+				...Object.values(this._syntax || {})
+					.filter(({help}) => help)
+					.map(({help}) => help),
+			];
+
+			if (helpText.length) this._$iptSearch.title(helpText.join(" "));
+			// endregion
 		}
+
 		this._doSearch();
 		this._isInit = true;
 	}
@@ -174,28 +215,37 @@ class List {
 
 	update ({isForce = false} = {}) {
 		if (!this._isInit || !this._isDirty || isForce) return;
-		this._doSearch();
+		return this._doSearch();
 	}
 
 	_doSearch () {
+		this._doSearch_doInterruptExistingSearch();
 		this._doSearch_doSearchTerm();
+		this._doSearch_doPostSearchTerm();
+	}
 
-		// Never show excluded items
-		this._searchedItems = this._searchedItems.filter(it => !it.data.isExcluded);
-
-		this._doFilter();
+	_doSearch_doInterruptExistingSearch () {
+		if (!this.#activeSearch) return;
+		this.#activeSearch.interrupt();
+		this.#activeSearch = null;
 	}
 
 	_doSearch_doSearchTerm () {
-		if (!this._searchTerm && !this._fnSearch) return this._searchedItems = [...this._items];
+		if (this._doSearch_doSearchTerm_preSyntax()) return;
 
-		if (this._syntax) {
-			const [command, term] = this._searchTerm.split(/^([a-z]+):/).filter(Boolean);
-			if (command && term && this._syntax[command]) {
-				const fnCommand = this._syntax[command].fn;
-				this._searchedItems = this._items.filter(it => fnCommand(it, term));
-				return;
-			}
+		const matchingSyntax = this._doSearch_getMatchingSyntax();
+		if (matchingSyntax) {
+			if (this._doSearch_doSearchTerm_syntax(matchingSyntax)) return;
+
+			// For async syntax, blank the list for now, and allow the search to "resume" later
+			this._searchedItems = [];
+			this._doSearch_doSearchTerm_pSyntax(matchingSyntax)
+				.then(isContinue => {
+					if (!isContinue) return;
+					this._doSearch_doPostSearchTerm();
+				});
+
+			return;
 		}
 
 		if (this._isFuzzy) return this._searchedItems = this._doSearch_doSearchTerm_fuzzy();
@@ -203,6 +253,41 @@ class List {
 		if (this._fnSearch) return this._searchedItems = this._items.filter(it => this._fnSearch(it, this._searchTerm));
 
 		this._searchedItems = this._items.filter(it => this.constructor.isVisibleDefaultSearch(it, this._searchTerm));
+	}
+
+	_doSearch_doSearchTerm_preSyntax () {
+		if (!this._searchTerm && !this._fnSearch) {
+			this._searchedItems = [...this._items];
+			return true;
+		}
+	}
+
+	_doSearch_getMatchingSyntax () {
+		const [command, term] = this._searchTerm.split(/^([a-z]+):/).filter(Boolean);
+		if (!command || !term || !this._syntax?.[command]) return null;
+		return {term, syntax: this._syntax[command]};
+	}
+
+	_doSearch_doSearchTerm_syntax ({term, syntax: {fn, isAsync}}) {
+		if (isAsync) return false;
+
+		this._searchedItems = this._items.filter(it => fn(it, term));
+		return true;
+	}
+
+	async _doSearch_doSearchTerm_pSyntax ({term, syntax: {fn, isAsync}}) {
+		if (!isAsync) return false;
+
+		this.#activeSearch = new _ListSearch({
+			term,
+			fn,
+			items: this._items,
+		});
+		const {isInterrupted, searchedItems} = await this.#activeSearch.pRun();
+
+		if (isInterrupted) return false;
+		this._searchedItems = searchedItems;
+		return true;
 	}
 
 	static isVisibleDefaultSearch (li, searchTerm) { return li.searchText.includes(searchTerm); }
@@ -221,6 +306,13 @@ class List {
 			);
 
 		return results.map(res => this._items[res.doc.ix]);
+	}
+
+	_doSearch_doPostSearchTerm () {
+		// Never show excluded items
+		this._searchedItems = this._searchedItems.filter(it => !it.data.isExcluded);
+
+		this._doFilter();
 	}
 
 	_doFilter () {
@@ -261,17 +353,15 @@ class List {
 
 	search (searchTerm) {
 		const nextTerm = List.getCleanSearchTerm(searchTerm);
-		if (nextTerm !== this._searchTerm) {
-			this._searchTerm = nextTerm;
-			this._doSearch();
-		}
+		if (nextTerm === this._searchTerm) return;
+		this._searchTerm = nextTerm;
+		return this._doSearch();
 	}
 
 	filter (fnFilter) {
-		if (this._fnFilter !== fnFilter) {
-			this._fnFilter = fnFilter;
-			this._doFilter();
-		}
+		if (this._fnFilter === fnFilter) return;
+		this._fnFilter = fnFilter;
+		this._doFilter();
 	}
 
 	sort (sortBy, sortDir) {
@@ -285,7 +375,7 @@ class List {
 	reset () {
 		if (this._searchTerm !== List._DEFAULTS.searchTerm) {
 			this._searchTerm = List._DEFAULTS.searchTerm;
-			this._doSearch();
+			return this._doSearch();
 		} else if (this._sortBy !== this._sortByInitial || this._sortDir !== this._sortDirInitial) {
 			this._sortBy = this._sortByInitial;
 			this._sortDir = this._sortDirInitial;

@@ -151,8 +151,10 @@ class ItemsSublistManager extends SublistManager {
 class ItemsPage extends ListPage {
 	constructor () {
 		super({
-			dataSource: DataUtil.item.loadJson,
-			brewDataSource: DataUtil.item.loadBrew,
+			dataSource: DataUtil.item.loadJSON.bind(DataUtil.item),
+			brewDataSource: DataUtil.item.loadBrew.bind(DataUtil.item),
+
+			pFnGetFluff: Renderer.item.pGetFluff.bind(Renderer.item),
 
 			pageFilter: new PageFilterItems(),
 
@@ -162,7 +164,7 @@ class ItemsPage extends ListPage {
 				$btnOpen: $(`#btn-book`),
 				$eleNoneVisible: $(`<span class="initial-message">If you wish to view multiple items, please first make a list</span>`),
 				pageTitle: "Items Book View",
-				fnGetMd: it => RendererMarkdown.get().render({type: "dataItem", dataItem: it}).trim(),
+				fnGetMd: it => RendererMarkdown.get().render({entries: [{type: "statblockInline", dataType: "item", data: it}]}),
 			},
 
 			tableViewOptions: {
@@ -181,11 +183,19 @@ class ItemsPage extends ListPage {
 			},
 
 			isMarkdownPopout: true,
-			propEntryData: "dataItem",
+			propEntryData: "item",
 		});
 
 		this._mundaneList = null;
 		this._magicList = null;
+	}
+
+	get _bindOtherButtonsOptions () {
+		return {
+			other: [
+				this._bindOtherButtonsOptions_openAsSinglePage({slugPage: "items", fnGetHash: () => Hist.getHashParts()[0]}),
+			].filter(Boolean),
+		};
 	}
 
 	get primaryLists () { return [this._mundaneList, this._magicList]; }
@@ -205,7 +215,7 @@ class ItemsPage extends ListPage {
 		if (item._fIsMundane) {
 			const eleLi = e_({
 				tag: "div",
-				clazz: `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`,
+				clazz: `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`,
 				click: (evt) => this._mundaneList.doSelect(listItem, evt),
 				contextmenu: (evt) => this._openContextMenu(evt, this._mundaneList, listItem),
 				children: [
@@ -250,7 +260,7 @@ class ItemsPage extends ListPage {
 		} else {
 			const eleLi = e_({
 				tag: "div",
-				clazz: `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`,
+				clazz: `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`,
 				click: (evt) => this._magicList.doSelect(listItem, evt),
 				contextmenu: (evt) => this._openContextMenu(evt, this._magicList, listItem),
 				children: [
@@ -319,7 +329,7 @@ class ItemsPage extends ListPage {
 				isImageTab,
 				$content: this._$pgContent,
 				entity: item,
-				pFnGetFluff: Renderer.item.pGetFluff,
+				pFnGetFluff: this._pFnGetFluff,
 			});
 		};
 
@@ -400,13 +410,11 @@ class ItemsPage extends ListPage {
 			const filterValues = this._pageFilter.filterBox.getValues();
 			const curValue = MiscUtil.get(filterValues, "Miscellaneous", "Mundane");
 			this._pageFilter.filterBox.setFromValues({Miscellaneous: {Mundane: curValue === 1 ? 0 : 1}});
-			this.handleFilterChange();
 		});
 		$(`.side-label--magic`).click(() => {
 			const filterValues = this._pageFilter.filterBox.getValues();
 			const curValue = MiscUtil.get(filterValues, "Miscellaneous", "Magic");
 			this._pageFilter.filterBox.setFromValues({Miscellaneous: {Magic: curValue === 1 ? 0 : 1}});
-			this.handleFilterChange();
 		});
 		const $outVisibleResults = $(`.lst__wrp-search-visible`);
 		const $wrpListMundane = $(`.itm__wrp-list--mundane`);

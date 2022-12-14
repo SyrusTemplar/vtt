@@ -831,7 +831,8 @@
 			],
 			"miscTags": [
 				"PRM",
-				"SMN"
+				"SMN",
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -1018,7 +1019,8 @@
 				"slashing"
 			],
 			"miscTags": [
-				"SMN"
+				"SMN",
+				"UBA"
 			],
 			"areaTags": [
 				"MT"
@@ -1631,7 +1633,8 @@
 			],
 			"miscTags": [
 				"SGT",
-				"TP"
+				"TP",
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -1985,6 +1988,9 @@
 			],
 			"conditionInflict": [
 				"unconscious"
+			],
+			"miscTags": [
+				"PS"
 			],
 			"areaTags": [
 				"MT"
@@ -2474,7 +2480,8 @@
 				"Healing energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. You can use a bonus action to cause one creature in the aura (including you) to regain {@dice 2d6} hit points."
 			],
 			"miscTags": [
-				"HL"
+				"HL",
+				"UBA"
 			],
 			"areaTags": [
 				"S"
@@ -3649,7 +3656,8 @@
 			],
 			"miscTags": [
 				"FMV",
-				"SGT"
+				"SGT",
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -7083,7 +7091,8 @@
 				"wisdom"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UBA"
 			],
 			"areaTags": [
 				"MT"
@@ -7336,17 +7345,6 @@
 						"subclass": {
 							"name": "Genie",
 							"source": "TCE",
-							"subSubclass": "Marid"
-						}
-					},
-					{
-						"class": {
-							"name": "Warlock",
-							"source": "PHB"
-						},
-						"subclass": {
-							"name": "Genie (UA)",
-							"source": "UA2020SubclassesRevisited",
 							"subSubclass": "Marid"
 						}
 					},
@@ -8798,17 +8796,6 @@
 							"source": "TCE",
 							"subSubclass": "Marid"
 						}
-					},
-					{
-						"class": {
-							"name": "Warlock",
-							"source": "PHB"
-						},
-						"subclass": {
-							"name": "Genie (UA)",
-							"source": "UA2020SubclassesRevisited",
-							"subSubclass": "Marid"
-						}
 					}
 				]
 			},
@@ -9456,7 +9443,8 @@
 			],
 			"miscTags": [
 				"PRM",
-				"SMN"
+				"SMN",
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -10023,7 +10011,8 @@
 				"As a bonus action on your turn, you can move the lights up to 60 feet to a new spot within range. A light must be within 20 feet of another light created by this spell, and a light winks out if it exceeds the spell's range."
 			],
 			"miscTags": [
-				"LGT"
+				"LGT",
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -10256,12 +10245,6 @@
 				{
 					"name": "Tiefling (Asmodeus)",
 					"source": "MTF",
-					"baseName": "Tiefling",
-					"baseSource": "PHB"
-				},
-				{
-					"name": "Tiefling (Variant)",
-					"source": "SCAG",
 					"baseName": "Tiefling",
 					"baseSource": "PHB"
 				},
@@ -13186,6 +13169,7 @@
 			"source": "PHB",
 			"page": 237,
 			"srd": true,
+			"basicRules": true,
 			"level": 0,
 			"school": "V",
 			"time": [
@@ -13738,12 +13722,6 @@
 			"races": [
 				{
 					"name": "Dwarf (Duergar)",
-					"source": "SCAG",
-					"baseName": "Dwarf",
-					"baseSource": "PHB"
-				},
-				{
-					"name": "Dwarf (Duergar)",
 					"source": "MTF",
 					"baseName": "Dwarf",
 					"baseSource": "PHB"
@@ -14114,7 +14092,8 @@
 				"force"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"PS"
 			],
 			"classes": {
 				"fromClassList": [
@@ -14308,6 +14287,9 @@
 			],
 			"entries": [
 				"This spell allows you to move at an incredible pace. When you cast this spell, and then as a bonus action on each of your turns until the spell ends, you can take the {@action Dash} action."
+			],
+			"miscTags": [
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -16189,7 +16171,8 @@
 				"M"
 			],
 			"miscTags": [
-				"LGT"
+				"LGT",
+				"UBA"
 			],
 			"areaTags": [
 				"ST"
@@ -16499,7 +16482,8 @@
 				"dexterity"
 			],
 			"miscTags": [
-				"LGT"
+				"LGT",
+				"UBA"
 			],
 			"areaTags": [
 				"S"
@@ -17118,7 +17102,7 @@
 				}
 			],
 			"entries": [
-				"You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.",
+				"You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be {@quickref Surprise|PHB|3|0|surprised} and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.",
 				"This spell immediately ends if you cast it again before its duration ends."
 			],
 			"areaTags": [
@@ -17736,7 +17720,8 @@
 				"When you cast this spell, you can speak the name of a specific creature (a pseudonym, title, or nickname doesn't work). If that creature is on a plane other than the one you are on, the portal opens in the named creature's immediate vicinity and draws the creature through it to the nearest unoccupied space on your side of the portal. You gain no special power over the creature, and it is free to act as the DM deems appropriate. It might leave, attack you, or help you."
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"PS"
 			],
 			"classes": {
 				"fromClassList": [
@@ -18453,7 +18438,8 @@
 			],
 			"miscTags": [
 				"FMV",
-				"SGT"
+				"SGT",
+				"UBA"
 			],
 			"areaTags": [
 				"ST"
@@ -18774,17 +18760,6 @@
 						"subclass": {
 							"name": "Genie",
 							"source": "TCE",
-							"subSubclass": "Djinni"
-						}
-					},
-					{
-						"class": {
-							"name": "Warlock",
-							"source": "PHB"
-						},
-						"subclass": {
-							"name": "Genie (UA)",
-							"source": "UA2020SubclassesRevisited",
 							"subSubclass": "Djinni"
 						}
 					},
@@ -19487,7 +19462,8 @@
 				"strength"
 			],
 			"miscTags": [
-				"FMV"
+				"FMV",
+				"UBA"
 			],
 			"areaTags": [
 				"L"
@@ -19578,17 +19554,6 @@
 						"subclass": {
 							"name": "Genie",
 							"source": "TCE",
-							"subSubclass": "Djinni"
-						}
-					},
-					{
-						"class": {
-							"name": "Warlock",
-							"source": "PHB"
-						},
-						"subclass": {
-							"name": "Genie (UA)",
-							"source": "UA2020SubclassesRevisited",
 							"subSubclass": "Djinni"
 						}
 					},
@@ -20427,7 +20392,8 @@
 				"constitution"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UBA"
 			],
 			"areaTags": [
 				"ST"
@@ -20899,7 +20865,8 @@
 				"necrotic"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UBA"
 			],
 			"areaTags": [
 				"ST"
@@ -21541,7 +21508,8 @@
 				"wisdom"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UBA"
 			],
 			"areaTags": [
 				"ST"
@@ -22703,12 +22671,6 @@
 				]
 			},
 			"races": [
-				{
-					"name": "Dwarf (Duergar)",
-					"source": "SCAG",
-					"baseName": "Dwarf",
-					"baseSource": "PHB"
-				},
 				{
 					"name": "Dwarf (Duergar)",
 					"source": "MTF",
@@ -24868,7 +24830,8 @@
 					"baseName": "Tiefling",
 					"baseSource": "PHB"
 				}
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Magic Mouth",
@@ -26566,7 +26529,8 @@
 				"invisible"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -27198,7 +27162,7 @@
 				"s": true,
 				"m": {
 					"text": "a miniature portal carved from ivory, a small piece of polished marble, and a tiny silver spoon, each item worth at least 5 gp",
-					"cost": 500
+					"cost": 1500
 				}
 			},
 			"duration": [
@@ -27372,7 +27336,8 @@
 				"M"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UBA"
 			],
 			"areaTags": [
 				"ST"
@@ -28781,6 +28746,9 @@
 			"savingThrow": [
 				"charisma"
 			],
+			"miscTags": [
+				"PS"
+			],
 			"areaTags": [
 				"ST",
 				"MT"
@@ -29717,7 +29685,7 @@
 				"A shimmering, multicolored plane of light forms a vertical opaque wall\u2014up to 90 feet long, 30 feet high, and 1 inch thick\u2014centered on a point you can see within range. Alternatively, you can shape the wall into a sphere up to 30 feet in diameter centered on a point you choose within range. The wall remains in place for the duration. If you position the wall so that it passes through a space occupied by a creature, the spell fails, and your action and the spell slot are wasted.",
 				"The wall sheds bright light out to a range of 100 feet and dim light for an additional 100 feet. You and creatures you designate at the time you cast the spell can pass through and remain near the wall without harm. If another creature that can see the wall moves to within 20 feet of it or starts its turn there, the creature must succeed on a Constitution saving throw or become {@condition blinded} for 1 minute.",
 				"The wall consists of seven layers, each with a different color. When a creature attempts to reach into or pass through the wall, it does so one layer at a time through all the wall's layers. As it passes or reaches through each layer, the creature must make a Dexterity saving throw or be affected by that layer's properties as described below.",
-				"The wall can be destroyed, also one layer at a time, in order from red to violet, by means specific to each layer. Once a layer is destroyed, it remains so for the duration of the spell. An antimagic field has no effect on a prismatic wall.",
+				"The wall can be destroyed, also one layer at a time, in order from red to violet, by means specific to each layer. Once a layer is destroyed, it remains so for the duration of the spell. An {@spell antimagic field} has no effect on a prismatic wall.",
 				{
 					"type": "entries",
 					"name": "Red",
@@ -30011,7 +29979,8 @@
 				"intelligence"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -32168,7 +32137,8 @@
 					"name": "Boros Legionnaire",
 					"source": "GGR"
 				}
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sanctuary",
@@ -32294,17 +32264,6 @@
 						"subclass": {
 							"name": "Genie",
 							"source": "TCE",
-							"subSubclass": "Dao"
-						}
-					},
-					{
-						"class": {
-							"name": "Warlock",
-							"source": "PHB"
-						},
-						"subclass": {
-							"name": "Genie (UA)",
-							"source": "UA2020SubclassesRevisited",
 							"subSubclass": "Dao"
 						}
 					},
@@ -32494,8 +32453,7 @@
 					"name": "Boros Legionnaire",
 					"source": "GGR"
 				}
-			],
-			"hasFluffImages": true
+			]
 		},
 		{
 			"name": "Scrying",
@@ -34529,17 +34487,6 @@
 							"source": "TCE",
 							"subSubclass": "Marid"
 						}
-					},
-					{
-						"class": {
-							"name": "Warlock",
-							"source": "PHB"
-						},
-						"subclass": {
-							"name": "Genie (UA)",
-							"source": "UA2020SubclassesRevisited",
-							"subSubclass": "Marid"
-						}
 					}
 				]
 			},
@@ -35577,6 +35524,9 @@
 			"spellAttack": [
 				"M"
 			],
+			"miscTags": [
+				"UBA"
+			],
 			"areaTags": [
 				"ST"
 			],
@@ -36583,6 +36533,9 @@
 				"You transmute your quiver so it produces an endless supply of nonmagical ammunition, which seems to leap into your hand when you reach for it.",
 				"On each of your turns until the spell ends, you can use a bonus action to make two attacks with a weapon that uses ammunition from the quiver. Each time you make such a ranged attack, your quiver magically replaces the piece of ammunition you used with a similar piece of nonmagical ammunition. Any pieces of ammunition created by this spell disintegrate when the spell ends. If the quiver leaves your possession, the spell ends."
 			],
+			"miscTags": [
+				"UBA"
+			],
 			"classes": {
 				"fromClassList": [
 					{
@@ -37440,12 +37393,6 @@
 					"baseSource": "PHB"
 				},
 				{
-					"name": "Tiefling (Variant)",
-					"source": "SCAG",
-					"baseName": "Tiefling",
-					"baseSource": "PHB"
-				},
-				{
 					"name": "Tiefling (Asmodeus)",
 					"source": "UAFiendishOptions",
 					"baseName": "Tiefling",
@@ -37819,17 +37766,6 @@
 						"subclass": {
 							"name": "Genie",
 							"source": "TCE",
-							"subSubclass": "Djinni"
-						}
-					},
-					{
-						"class": {
-							"name": "Warlock",
-							"source": "PHB"
-						},
-						"subclass": {
-							"name": "Genie (UA)",
-							"source": "UA2020SubclassesRevisited",
 							"subSubclass": "Djinni"
 						}
 					},
@@ -38516,6 +38452,9 @@
 				"This spell creates an {@condition invisible}, mindless, shapeless, Medium force that performs simple tasks at your command until the spell ends. The servant springs into existence in an unoccupied space on the ground within range. It has AC 10, 1 hit point, and a Strength of 2, and it can't attack. If it drops to 0 hit points, the spell ends.",
 				"Once on each of your turns as a bonus action, you can mentally command the servant to move up to 15 feet and interact with an object. The servant can perform simple tasks that a human servant could do, such as fetching things, cleaning, mending, folding clothes, lighting fires, serving food, and pouring wine. Once you give the command, the servant performs the task to the best of its ability until it completes the task, then waits for your next command.",
 				"If you command the servant to perform a task that would move it more than 60 feet away from you, the spell ends."
+			],
+			"miscTags": [
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -39274,17 +39213,6 @@
 					},
 					{
 						"class": {
-							"name": "Warlock",
-							"source": "PHB"
-						},
-						"subclass": {
-							"name": "Genie (UA)",
-							"source": "UA2020SubclassesRevisited",
-							"subSubclass": "Dao"
-						}
-					},
-					{
-						"class": {
 							"name": "Monk",
 							"source": "PHB"
 						},
@@ -39389,7 +39317,7 @@
 				"s": true,
 				"m": {
 					"text": "a pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration",
-					"cost": 5000
+					"cost": 10000
 				}
 			},
 			"duration": [
@@ -40393,7 +40321,8 @@
 				"You must designate a sanctuary by casting this spell within a location, such as a temple, dedicated to or strongly linked to your deity. If you attempt to cast the spell in this manner in an area that isn't dedicated to your deity, the spell has no effect."
 			],
 			"miscTags": [
-				"TP"
+				"TP",
+				"PS"
 			],
 			"classes": {
 				"fromClassList": [

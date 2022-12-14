@@ -39,7 +39,9 @@ class LanguagesPage extends ListPage {
 	constructor () {
 		const pageFilter = new PageFilterLanguages();
 		super({
-			dataSource: DataUtil.language.loadJSON,
+			dataSource: DataUtil.language.loadJSON.bind(DataUtil.language),
+
+			pFnGetFluff: Renderer.language.pGetFluff.bind(Renderer.language),
 
 			pageFilter,
 
@@ -53,7 +55,7 @@ class LanguagesPage extends ListPage {
 		this._pageFilter.mutateAndAddToFilters(it, isExcluded);
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
+		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
@@ -106,7 +108,7 @@ class LanguagesPage extends ListPage {
 				isImageTab,
 				$content: this._$pgContent,
 				entity: it,
-				pFnGetFluff: Renderer.language.pGetFluff,
+				pFnGetFluff: this._pFnGetFluff,
 			});
 		};
 

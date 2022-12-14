@@ -938,7 +938,7 @@
 				{
 					"name": "Shortsword",
 					"entries": [
-						"{@atk mw} {@hitYourSpellAttack} to hit, reach 5 ft., one target. {@h}{@damage 1d6 + 3 + summonSpellLevel} piercing damage{@damage  + 1d6} force damage."
+						"{@atk mw} {@hitYourSpellAttack} to hit, reach 5 ft., one target. {@h}{@damage 1d6 + 3 + summonSpellLevel} piercing damage {@damage + 1d6} force damage."
 					]
 				}
 			],
@@ -1668,7 +1668,7 @@
 				{
 					"name": "Vigilant",
 					"entries": [
-						"The defender can't be surprised."
+						"The defender can't be {@quickref Surprise|PHB|3|0|surprised}."
 					]
 				}
 			],

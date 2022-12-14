@@ -34,7 +34,7 @@ class TablesPage extends ListPage {
 	constructor () {
 		const pageFilter = new PageFilterTables();
 		super({
-			dataSource: DataUtil.table.loadJSON,
+			dataSource: DataUtil.table.loadJSON.bind(DataUtil.table),
 
 			pageFilter,
 
@@ -45,15 +45,19 @@ class TablesPage extends ListPage {
 
 			dataProps: ["table", "tableGroup"],
 
-			bindOtherButtonsOptions: {
-				other: [
-					{
-						name: "Copy as CSV",
-						pFn: () => this._pCopyRenderedAsCsv(),
-					},
-				],
-			},
+			listSyntax: new ListSyntaxTables({fnGetDataList: () => this._dataList}),
 		});
+	}
+
+	get _bindOtherButtonsOptions () {
+		return {
+			other: [
+				{
+					name: "Copy as CSV",
+					pFn: () => this._pCopyRenderedAsCsv(),
+				},
+			],
+		};
 	}
 
 	async _pCopyRenderedAsCsv () {
@@ -78,7 +82,7 @@ class TablesPage extends ListPage {
 		const sortName = it.name.replace(/^\s*([\d,.]+)\s*gp/, (...m) => m[1].replace(Parser._numberCleanRegexp, "").padStart(9, "0"));
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
+		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
@@ -121,14 +125,6 @@ class TablesPage extends ListPage {
 		this._$pgContent.empty().append(RenderTables.$getRenderedTable(it));
 
 		this._updateSelected();
-	}
-
-	_getSearchCache (entity) {
-		if (!entity.rows && !entity.tables) return "";
-		const ptrOut = {_: ""};
-		this._getSearchCache_handleEntryProp(entity, "rows", ptrOut);
-		this._getSearchCache_handleEntryProp(entity, "tables", ptrOut);
-		return ptrOut._;
 	}
 }
 

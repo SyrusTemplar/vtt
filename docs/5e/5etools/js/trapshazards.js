@@ -46,6 +46,8 @@ class TrapsHazardsPage extends ListPage {
 			listClass: "trapshazards",
 
 			dataProps: ["trap", "hazard"],
+
+			listSyntax: new ListSyntaxTrapsHazards({fnGetDataList: () => this._dataList}),
 		});
 	}
 
@@ -53,7 +55,7 @@ class TrapsHazardsPage extends ListPage {
 		this._pageFilter.mutateAndAddToFilters(it, isExcluded);
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
+		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
@@ -98,15 +100,6 @@ class TrapsHazardsPage extends ListPage {
 		this._$pgContent.empty().append(RenderTrapsHazards.$getRenderedTrapHazard(it));
 
 		this._updateSelected();
-	}
-	_getSearchCache (entity) {
-		if (!entity.effect && !entity.trigger && !entity.countermeasures && !entity.entries) return "";
-		const ptrOut = {_: ""};
-		this._getSearchCache_handleEntryProp(entity, "effect", ptrOut);
-		this._getSearchCache_handleEntryProp(entity, "trigger", ptrOut);
-		this._getSearchCache_handleEntryProp(entity, "countermeasures", ptrOut);
-		this._getSearchCache_handleEntryProp(entity, "entries", ptrOut);
-		return ptrOut._;
 	}
 }
 

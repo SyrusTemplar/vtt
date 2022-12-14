@@ -65,7 +65,7 @@ class RendererMarkdown {
 				textStack[0] += `${nxtPrefix}***${Renderer.stripTags(entry.name)}.*** `;
 			} else {
 				const hashCount = meta._typeStack.length === 1 && meta.depth === -1 ? 1 : Math.min(6, meta.depth + 3);
-				textStack[0] += `\n${nxtPrefix}${"#".repeat(hashCount)} ${Renderer.stripTags(entry.name)}\n`;
+				textStack[0] += `\n${nxtPrefix}${"#".repeat(hashCount)} ${Renderer.stripTags(entry.name)}\n\n`;
 			}
 		}
 
@@ -76,10 +76,10 @@ class RendererMarkdown {
 			for (let i = 0; i < len; ++i) {
 				meta.depth = nextDepth;
 				const isFirstInline = i === 0 && entry.name && isInlineTitle;
-				const suffix = meta.isDataCreature ? `  \n` : `\n\n`;
+				const suffix = meta.isStatblockInlineMonster ? `  \n` : `\n\n`;
 				this._recursiveRender(entry.entries[i], textStack, meta, {prefix: isFirstInline ? "" : RendererMarkdown._getNextPrefix(options), suffix});
 			}
-			if (meta.isDataCreature) textStack[0] += "\n";
+			if (meta.isStatblockInlineMonster) textStack[0] += "\n";
 			meta.depth = cacheDepth;
 		}
 	}
@@ -150,11 +150,8 @@ class RendererMarkdown {
 			return;
 		}
 
-		// TODO to format cell widths evenly, each header/cell should rendered to a string independently and stored in a buffer
-		//   Once all the strings are available, we can pull out all the widths and pad as appropriate
-
-		// Labels are required for markdown tables
-		let labels = entry.colLabels;
+		// Labels are required for Markdown tables
+		let labels = [...(entry.colLabels || [])];
 		if (!hasLabels) {
 			const numCells = Math.max(...entry.rows.map(r => r.length));
 			labels = [...new Array(numCells)].map(() => "");
@@ -165,34 +162,34 @@ class RendererMarkdown {
 			labels = labels.concat([...new Array(entry.colStyles.length - labels.length)].map(() => ""));
 		}
 
-		for (const label of labels) textStack[0] += `| ${label} `;
-		textStack[0] += "|\n";
-
+		// region Prepare styles
+		let styles = null;
 		if (entry.colStyles) {
-			let styles = entry.colStyles;
+			styles = [...entry.colStyles];
 			// Pad styles to label width
-			if (labels.length > entry.colStyles.length) {
-				styles = styles.concat([...new Array(labels.length - entry.colStyles.length)].map(() => ""));
+			if (labels.length > styles.length) {
+				styles = styles.concat([...new Array(labels.length - styles.length)].map(() => ""));
 			}
-
-			for (const style of styles) {
-				textStack[0] += `|`;
-				if (style.includes("text-center")) textStack[0] += ":---:";
-				else if (style.includes("text-right")) textStack[0] += "---:";
-				else textStack[0] += "---";
-			}
-			textStack[0] += "|\n";
 		}
+		// endregion
 
-		if (!entry.rows) {
-			textStack[0] += `||\n`;
-			return;
-		}
+		const mdHeaders = labels.map(label => ` ${Renderer.stripTags(label)} `);
 
-		for (const row of entry.rows) {
+		const widths = mdHeaders.map(str => str.length);
+
+		// region Build 2d array of table cells
+		const mdTable = [];
+
+		const numRows = entry.rows.length;
+		for (let ixRow = 0; ixRow < numRows; ++ixRow) {
+			const row = entry.rows[ixRow];
+
 			const rowRender = row.type === "row" ? row.row : row;
 
-			for (const cell of rowRender) {
+			const numCells = rowRender.length;
+			for (let ixCell = 0; ixCell < numCells; ++ixCell) {
+				const cell = rowRender[ixCell];
+
 				let toRenderCell;
 
 				if (cell.type === "cell") {
@@ -211,14 +208,52 @@ class RendererMarkdown {
 					toRenderCell = cell;
 				}
 
-				textStack[0] += "| ";
+				const textStackCell = [""];
 				const cacheDepth = this._adjustDepth(meta, 1);
-				this._recursiveRender(toRenderCell, textStack, meta);
+				this._recursiveRender(toRenderCell, textStackCell, meta);
 				meta.depth = cacheDepth;
-				textStack[0] += " ";
+
+				const mdCell = ` ${textStackCell.join("").trim()} `
+					// Markdown tables can't handle multi-line cells, so HTML linebreaks must be used
+					.split(/\n+/)
+					.join("<br>");
+
+				widths[ixCell] = Math.max(widths[ixCell] || 0, mdCell.length);
+				(mdTable[ixRow] = mdTable[ixRow] || [])[ixCell] = mdCell;
 			}
-			textStack[0] += "|\n";
 		}
+		// endregion
+
+		const mdHeadersPadded = mdHeaders.map((header, ixCell) => RendererMarkdown._md_getPaddedTableText({text: header, width: widths[ixCell], ixCell, styles}));
+
+		// region Build style headers
+		const mdStyles = [];
+		if (styles) {
+			styles.forEach((style, i) => {
+				const w = widths[i];
+
+				if (style.includes("text-center")) mdStyles.push(`:${"-".repeat(Math.max(w - 2, 3))}:`);
+				else if (style.includes("text-right")) mdStyles.push(`${"-".repeat(Math.max(w - 1, 3))}:`);
+				else mdStyles.push("-".repeat(Math.max(w, 3)));
+			});
+		}
+		// endregion
+
+		// region Assemble the table
+		textStack[0] += `|${mdHeadersPadded.join("|")}|\n`;
+		if (mdStyles.length) textStack[0] += `|${mdStyles.join("|")}|\n`;
+		for (const mdRow of mdTable) {
+			textStack[0] += "|";
+
+			const numCells = mdRow.length;
+			for (let ixCell = 0; ixCell < numCells; ++ixCell) {
+				textStack[0] += RendererMarkdown._md_getPaddedTableText({text: mdRow[ixCell], width: widths[ixCell], ixCell, styles});
+				textStack[0] += "|";
+			}
+
+			textStack[0] += "\n";
+		}
+		// endregion
 
 		if (entry.footnotes) {
 			for (const ent of entry.footnotes) {
@@ -227,9 +262,22 @@ class RendererMarkdown {
 				meta.depth = cacheDepth;
 			}
 		}
-		if (entry.outro) for (const ent of entry.intro) this._recursiveRender(ent, textStack, meta);
+		if (entry.outro) for (const ent of entry.outro) this._recursiveRender(ent, textStack, meta);
+
+		if (!entry.rows) {
+			textStack[0] += `||\n`;
+			return;
+		}
 
 		textStack[0] += "\n";
+	}
+
+	static _md_getPaddedTableText ({text, width, ixCell, styles}) {
+		if (text.length >= width) return text;
+
+		if (styles?.[ixCell]?.includes("text-center")) return text.padStart(Math.floor((width - text.length) / 2) + text.length, " ").padEnd(width, " ");
+		if (styles?.[ixCell]?.includes("text-right")) return text.padStart(width, " ");
+		return text.padEnd(width, " ");
 	}
 
 	/*
@@ -240,7 +288,7 @@ class RendererMarkdown {
 
 	_renderInset (entry, textStack, meta, options) {
 		textStack[0] += "\n";
-		if (entry.name != null) textStack[0] += `> ##### ${entry.name}\n`;
+		if (entry.name != null) textStack[0] += `> ##### ${entry.name}\n>\n`;
 		if (entry.entries) {
 			const len = entry.entries.length;
 			for (let i = 0; i < len; ++i) {
@@ -255,7 +303,7 @@ class RendererMarkdown {
 
 	_renderInsetReadaloud (entry, textStack, meta, options) {
 		textStack[0] += "\n";
-		if (entry.name != null) textStack[0] += `>> ##### ${entry.name}\n`;
+		if (entry.name != null) textStack[0] += `>> ##### ${entry.name}\n>>\n`;
 		if (entry.entries) {
 			const len = entry.entries.length;
 			for (let i = 0; i < len; ++i) {
@@ -270,7 +318,7 @@ class RendererMarkdown {
 
 	_renderVariant (entry, textStack, meta, options) {
 		textStack[0] += "\n";
-		if (entry.name != null) textStack[0] += `> ##### Variant: ${entry.name}\n`;
+		if (entry.name != null) textStack[0] += `> ##### Variant: ${entry.name}\n>\n`;
 		if (entry.entries) {
 			const len = entry.entries.length;
 			for (let i = 0; i < len; ++i) {
@@ -419,179 +467,30 @@ class RendererMarkdown {
 	}
 	// endregion
 
-	// region data
-	_renderDataCreature (entry, textStack, meta, options) {
-		let addedDataCreature;
-		if (!meta.isDataCreature) {
-			meta.isDataCreature = true;
-			addedDataCreature = true;
-		}
-
-		const {dataCreature: mon, legendaryGroup} = entry;
-
-		const monTypes = Parser.monTypeToFullObj(mon.type);
-		this.isSkipStylingItemLinks = true;
-		const acPart = Parser.acToFull(mon.ac, this);
-		this.isSkipStylingItemLinks = false;
-		const savePart = mon.save ? `\n>- **Saving Throws** ${Object.keys(mon.save).sort(SortUtil.ascSortAtts).map(it => RendererMarkdown.monster.getSave(it, mon.save[it])).join(", ")}` : "";
-		const skillPart = mon.skill ? `\n>- **Skills** ${RendererMarkdown.monster.getSkillsString(mon)}` : "";
-		const damVulnPart = mon.vulnerable ? `\n>- **Damage Vulnerabilities** ${Parser.getFullImmRes(mon.vulnerable)}` : "";
-		const damResPart = mon.resist ? `\n>- **Damage Resistances** ${Parser.getFullImmRes(mon.resist)}` : "";
-		const damImmPart = mon.immune ? `\n>- **Damage Immunities** ${Parser.getFullImmRes(mon.immune)}` : "";
-		const condImmPart = mon.conditionImmune ? `\n>- **Condition Immunities** ${Parser.getFullCondImm(mon.conditionImmune, true)}` : "";
-
-		const fnGetSpellTraits = RendererMarkdown.monster.getSpellcastingRenderedTraits.bind(RendererMarkdown.monster, meta);
-		const traitArray = Renderer.monster.getOrderedTraits(mon, {fnGetSpellTraits});
-		const actionArray = Renderer.monster.getOrderedActions(mon, {fnGetSpellTraits});
-
-		const traitsPart = traitArray?.length ? `\n${RendererMarkdown.monster._getRenderedSection(traitArray, 1, meta)}` : "";
-
-		const actionsPart = actionArray?.length ? `\n>### Actions\n${RendererMarkdown.monster._getRenderedSection(actionArray, 1, meta)}` : "";
-		const bonusActionsPart = mon.bonus ? `\n>### Bonus Actions\n${RendererMarkdown.monster._getRenderedSection(mon.bonus, 1, meta)}` : "";
-		const reactionsPart = mon.reaction ? `\n>### Reactions\n${RendererMarkdown.monster._getRenderedSection(mon.reaction, 1, meta)}` : "";
-		const legendaryActionsPart = mon.legendary ? `\n>### Legendary Actions\n>${Renderer.monster.getLegendaryActionIntro(mon, {renderer: RendererMarkdown.get()})}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(mon.legendary, 1, meta)}` : "";
-		const mythicActionsPart = mon.mythic ? `\n>### Mythic Actions\n>${Renderer.monster.getSectionIntro(mon, {renderer: RendererMarkdown.get(), prop: "mythic"})}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(mon.mythic, 1, meta)}` : "";
-
-		const legendaryGroupLairPart = legendaryGroup?.lairActions ? `\n>### Lair Actions\n${RendererMarkdown.monster._getRenderedSection(legendaryGroup.lairActions, -1, meta)}` : "";
-		const legendaryGroupRegionalPart = legendaryGroup?.regionalEffects ? `\n>### Regional Effects\n${RendererMarkdown.monster._getRenderedSection(legendaryGroup.regionalEffects, -1, meta)}` : "";
-
-		const footerPart = mon.footer ? `\n${RendererMarkdown.monster._getRenderedSection(mon.footer, 0, meta)}` : "";
-
-		const unbreakablePart = `___
->## ${mon._displayName || mon.name}
->*${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${Renderer.utils.getRenderedSize(mon.size)} ${monTypes.asText}${mon.alignment ? `, ${mon.alignmentPrefix ? RendererMarkdown.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment)}` : ""}*
->___
->- **Armor Class** ${acPart}
->- **Hit Points** ${Renderer.monster.getRenderedHp(mon.hp, true)}
->- **Speed** ${Parser.getSpeedString(mon)}
->___
->|${Parser.ABIL_ABVS.map(it => `${it.toUpperCase()}|`).join("")}
->|:---:|:---:|:---:|:---:|:---:|:---:|
->|${Parser.ABIL_ABVS.map(ab => `${mon[ab]} (${Parser.getAbilityModifier(mon[ab])})|`).join("")}
->___${savePart}${skillPart}${damVulnPart}${damResPart}${damImmPart}${condImmPart}
->- **Senses** ${mon.senses ? `${Renderer.monster.getRenderedSenses(mon.senses, true)}, ` : ""}passive Perception ${mon.passive || "\u2014"}
->- **Languages** ${Renderer.monster.getRenderedLanguages(mon.languages)}
->- **Challenge** ${mon.cr ? Parser.monCrToFull(mon.cr, {isMythic: !!mon.mythic}) : "\u2014"}
-${mon.pbNote || Parser.crToNumber(mon.cr) < VeCt.CR_CUSTOM ? `>- **Proficiency Bonus** ${mon.pbNote ?? UiUtil.intToBonus(Parser.crToPb(mon.cr), {isPretty: true})}` : ""}
->___`;
-
-		let breakablePart = `${traitsPart}${actionsPart}${bonusActionsPart}${reactionsPart}${legendaryActionsPart}${mythicActionsPart}${legendaryGroupLairPart}${legendaryGroupRegionalPart}${footerPart}`;
-
-		if (RendererMarkdown._isAddColumnBreaks) {
-			let charAllowanceFirstCol = 2200 - unbreakablePart.length;
-
-			const breakableLines = breakablePart.split("\n");
-			for (let i = 0; i < breakableLines.length; ++i) {
-				const l = breakableLines[i];
-				if ((charAllowanceFirstCol -= l.length) < 0) {
-					breakableLines.splice(i, 0, ">", "> \\columnbreak", ">");
-					break;
-				}
-			}
-			breakablePart = breakableLines.join("\n");
-		}
-
-		const str = `${unbreakablePart}${breakablePart}`;
-
-		const monRender = str.trim().split("\n").map(it => it.trim() ? it : `>`).join("\n");
-		textStack[0] += `\n${monRender}\n\n`;
-
-		if (addedDataCreature) delete meta.isDataCreature;
-	}
-
-	_renderDataSpell (entry, textStack, meta, options) {
-		const subStack = [""];
-
-		const sp = entry.dataSpell;
-
-		subStack[0] += `#### ${sp._displayName || sp.name}
-*${Parser.spLevelSchoolMetaToFull(sp.level, sp.school, sp.meta, sp.subschools)}*
-___
-- **Casting Time:** ${Parser.spTimeListToFull(sp.time)}
-- **Range:** ${Parser.spRangeToFull(sp.range)}
-- **Components:** ${Parser.spComponentsToFull(sp.components, sp.level, {isPlainText: true})}
-- **Duration:** ${Parser.spDurationToFull(sp.duration)}
----\n`;
-
-		const cacheDepth = meta.depth;
-		meta.depth = 2;
-		this._recursiveRender({entries: sp.entries}, subStack, meta, {suffix: "\n"});
-		if (sp.entriesHigherLevel) {
-			this._recursiveRender({entries: sp.entriesHigherLevel}, subStack, meta, {suffix: "\n"});
-		}
-		meta.depth = cacheDepth;
-
-		const spellRender = subStack.join("").trim();
-		textStack[0] += `\n${spellRender}\n\n`;
-	}
-
-	/*
-	_renderDataTrapHazard (entry, textStack, meta, options) {
-		// TODO
-	}
-
-	_renderDataObject (entry, textStack, meta, options) {
-		// TODO
-	}
-	*/
-
-	_renderDataItem (entry, textStack, meta, options) {
-		const subStack = [""];
-
-		const item = entry.dataItem;
-
-		const [damage, damageType, propertiesTxt] = Renderer.item.getDamageAndPropertiesText(item, {renderer: RendererMarkdown.get()});
-		const [typeRarityText, subTypeText, tierText] = RendererMarkdown.item.getTypeRarityAndAttunementText(item);
-
-		const typeRarityTierValueWeight = [typeRarityText, subTypeText, tierText, Parser.itemValueToFullMultiCurrency(item), Parser.itemWeightToFull(item)].filter(Boolean).join(", ").uppercaseFirst();
-		const damageProperties = [damage, damageType, propertiesTxt].filter(Boolean).join(" ").uppercaseFirst();
-
-		const ptSubtitle = [typeRarityTierValueWeight, damageProperties].filter(Boolean).join("\n\n");
-
-		subStack[0] += `#### ${item._displayName || item.name}${ptSubtitle ? `\n\n${ptSubtitle}` : ""}\n\n${ptSubtitle ? `---\n\n` : ""}`;
-
-		if (Renderer.item.hasEntries(item)) {
-			const cacheDepth = meta.depth;
-
-			if (item._fullEntries || (item.entries?.length)) {
-				const entry = {type: "entries", entries: item._fullEntries || item.entries};
-				meta.depth = 1;
-				this._recursiveRender(entry, subStack, meta, {suffix: "\n"});
-			}
-
-			if (item._fullAdditionalEntries || item.additionalEntries) {
-				const additionEntries = {type: "entries", entries: item._fullAdditionalEntries || item.additionalEntries};
-				meta.depth = 1;
-				this._recursiveRender(additionEntries, subStack, meta, {suffix: "\n"});
-			}
-
-			meta.depth = cacheDepth;
-		}
-
-		const itemRender = subStack.join("").trim();
-		textStack[0] += `\n${itemRender}\n\n`;
-	}
-
-	_renderDataLegendaryGroup (entry, textStack, meta, options) {
-		const lg = entry.dataLegendaryGroup;
-
-		const subEntry = Renderer.monster.getLegendaryGroupSummaryEntry(entry.dataLegendaryGroup);
-		if (!subEntry) return "";
-
-		const subStack = [""];
-
-		subStack[0] += `## ${lg._displayName || lg.name}`;
-		this._recursiveRender(subEntry, subStack, meta, {suffix: "\n"});
-
-		const lgRender = subStack.join("").trim();
-		textStack[0] += `\n${lgRender}\n\n`;
-	}
-	// endregion
-
 	// region embedded entities
+	/**
+	 * Note that unlike the HTML equivalent, this cannot async defer rendering by leveraging the DOM. Therefore, any
+	 * inline data passed to this method is assumed to be complete, i.e., require no further loading or mutating.
+	 */
+	_renderStatblockInline (entry, textStack, meta, options) {
+		const fnGetRenderCompact = RendererMarkdown.hover.getFnRenderCompact(entry.dataType);
+
+		if (!fnGetRenderCompact) {
+			this._renderPrefix(entry, textStack, meta, options);
+			textStack[0] += `**Cannot render "${entry.type}"\u2014unknown type "${entry.dataType}"!**\n`;
+			this._renderSuffix(entry, textStack, meta, options);
+			return;
+		}
+
+		this._renderPrefix(entry, textStack, meta, options);
+		// Pass `entry` here to allow e.g. `legendaryGroup` to be included when rendering creatures
+		textStack[0] += fnGetRenderCompact(entry.data, {...entry, meta});
+		this._renderSuffix(entry, textStack, meta, options);
+	}
+
 	/*
 	_renderStatblock (entry, textStack, meta, options) {
-		// TODO
+		// TODO assume the entity is pre-cached, and sync fetch it from the cache?
 	}
 	*/
 	// endregion
@@ -623,7 +522,7 @@ ___
 
 	_renderFlowBlock (entry, textStack, meta, options) {
 		textStack[0] += "\n";
-		if (entry.name != null) textStack[0] += `> ##### ${entry.name}\n`;
+		if (entry.name != null) textStack[0] += `> ##### ${entry.name}\n>\n`;
 		if (entry.entries) {
 			const len = entry.entries.length;
 			for (let i = 0; i < len; ++i) {
@@ -749,6 +648,7 @@ ___
 			case "@d20":
 			case "@chance":
 			case "@recharge":
+			case "@coinflip":
 				textStack[0] += Renderer.stripTags(`{${tag} ${text}}`); break;
 
 			// SCALE DICE //////////////////////////////////////////////////////////////////////////////////////
@@ -774,7 +674,8 @@ ___
 
 			// HOMEBREW LOADING ////////////////////////////////////////////////////////////////////////////////
 			case "@loader": {
-				const {name, path} = this._renderString_getLoaderTagMeta(text);
+				// FIXME this does not respect the user's homebrew base URL setting
+				const {name, path} = this._renderString_getLoaderTagMeta(text, {isDefaultUrl: true});
 				textStack[0] += `[${name}](${path})`;
 				break;
 			}
@@ -856,9 +757,11 @@ ___
 		RendererMarkdown.__$wrpSettings.appendTo($modalInner);
 	}
 	// endregion
+
+	static getSetting (key) { return this[`_${key}`]; }
 }
 RendererMarkdown._isInit = false;
-RendererMarkdown._PAGE_CHARS = 5500;
+RendererMarkdown.CHARS_PER_PAGE = 5500;
 RendererMarkdown.__$wrpSettings = null;
 RendererMarkdown._TAG_RENDER_MODES = ["Convert to Markdown", "Leave As-Is", "Convert to Text"];
 RendererMarkdown._CONFIG = {
@@ -891,6 +794,88 @@ RendererMarkdown.utils = class {
 };
 
 RendererMarkdown.monster = class {
+	static getCompactRenderedString (mon, opts = {}) {
+		const legendaryGroup = opts.legendaryGroup;
+		const meta = opts.meta || {};
+
+		let addedStatblockInline;
+		if (!meta.isStatblockInlineMonster) {
+			meta.isStatblockInlineMonster = true;
+			addedStatblockInline = true;
+		}
+
+		const monTypes = Parser.monTypeToFullObj(mon.type);
+		RendererMarkdown.get().isSkipStylingItemLinks = true;
+		const acPart = Parser.acToFull(mon.ac, RendererMarkdown.get());
+		RendererMarkdown.get().isSkipStylingItemLinks = false;
+		const savePart = mon.save ? `\n>- **Saving Throws** ${Object.keys(mon.save).sort(SortUtil.ascSortAtts).map(it => RendererMarkdown.monster.getSave(it, mon.save[it])).join(", ")}` : "";
+		const skillPart = mon.skill ? `\n>- **Skills** ${RendererMarkdown.monster.getSkillsString(mon)}` : "";
+		const damVulnPart = mon.vulnerable ? `\n>- **Damage Vulnerabilities** ${Parser.getFullImmRes(mon.vulnerable)}` : "";
+		const damResPart = mon.resist ? `\n>- **Damage Resistances** ${Parser.getFullImmRes(mon.resist)}` : "";
+		const damImmPart = mon.immune ? `\n>- **Damage Immunities** ${Parser.getFullImmRes(mon.immune)}` : "";
+		const condImmPart = mon.conditionImmune ? `\n>- **Condition Immunities** ${Parser.getFullCondImm(mon.conditionImmune, true)}` : "";
+
+		const fnGetSpellTraits = RendererMarkdown.monster.getSpellcastingRenderedTraits.bind(RendererMarkdown.monster, meta);
+		const traitArray = Renderer.monster.getOrderedTraits(mon, {fnGetSpellTraits});
+		const actionArray = Renderer.monster.getOrderedActions(mon, {fnGetSpellTraits});
+
+		const traitsPart = traitArray?.length ? `\n${RendererMarkdown.monster._getRenderedSection(traitArray, 1, meta)}` : "";
+
+		const actionsPart = actionArray?.length ? `\n>### Actions\n${RendererMarkdown.monster._getRenderedSection(actionArray, 1, meta)}` : "";
+		const bonusActionsPart = mon.bonus ? `\n>### Bonus Actions\n${RendererMarkdown.monster._getRenderedSection(mon.bonus, 1, meta)}` : "";
+		const reactionsPart = mon.reaction ? `\n>### Reactions\n${RendererMarkdown.monster._getRenderedSection(mon.reaction, 1, meta)}` : "";
+		const legendaryActionsPart = mon.legendary ? `\n>### Legendary Actions\n>${Renderer.monster.getLegendaryActionIntro(mon, {renderer: RendererMarkdown.get()})}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(mon.legendary, 1, meta)}` : "";
+		const mythicActionsPart = mon.mythic ? `\n>### Mythic Actions\n>${Renderer.monster.getSectionIntro(mon, {renderer: RendererMarkdown.get(), prop: "mythic"})}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(mon.mythic, 1, meta)}` : "";
+
+		const legendaryGroupLairPart = legendaryGroup?.lairActions ? `\n>### Lair Actions\n${RendererMarkdown.monster._getRenderedSection(legendaryGroup.lairActions, -1, meta)}` : "";
+		const legendaryGroupRegionalPart = legendaryGroup?.regionalEffects ? `\n>### Regional Effects\n${RendererMarkdown.monster._getRenderedSection(legendaryGroup.regionalEffects, -1, meta)}` : "";
+
+		const footerPart = mon.footer ? `\n${RendererMarkdown.monster._getRenderedSection(mon.footer, 0, meta)}` : "";
+
+		const unbreakablePart = `___
+>## ${mon._displayName || mon.name}
+>*${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${Renderer.utils.getRenderedSize(mon.size)} ${monTypes.asText}${mon.alignment ? `, ${mon.alignmentPrefix ? RendererMarkdown.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment)}` : ""}*
+>___
+>- **Armor Class** ${acPart}
+>- **Hit Points** ${Renderer.monster.getRenderedHp(mon.hp, true)}
+>- **Speed** ${Parser.getSpeedString(mon)}
+>___
+>|${Parser.ABIL_ABVS.map(it => `${it.toUpperCase()}|`).join("")}
+>|:---:|:---:|:---:|:---:|:---:|:---:|
+>|${Parser.ABIL_ABVS.map(ab => `${mon[ab]} (${Parser.getAbilityModifier(mon[ab])})|`).join("")}
+>___${savePart}${skillPart}${damVulnPart}${damResPart}${damImmPart}${condImmPart}
+>- **Senses** ${mon.senses ? `${Renderer.monster.getRenderedSenses(mon.senses, true)}, ` : ""}passive Perception ${mon.passive || "\u2014"}
+>- **Languages** ${Renderer.monster.getRenderedLanguages(mon.languages)}
+>- **Challenge** ${mon.cr ? Parser.monCrToFull(mon.cr, {isMythic: !!mon.mythic}) : "\u2014"}
+${mon.pbNote || Parser.crToNumber(mon.cr) < VeCt.CR_CUSTOM ? `>- **Proficiency Bonus** ${mon.pbNote ?? UiUtil.intToBonus(Parser.crToPb(mon.cr), {isPretty: true})}` : ""}
+>___`;
+
+		let breakablePart = `${traitsPart}${actionsPart}${bonusActionsPart}${reactionsPart}${legendaryActionsPart}${mythicActionsPart}${legendaryGroupLairPart}${legendaryGroupRegionalPart}${footerPart}`;
+
+		if (RendererMarkdown.getSetting("isAddColumnBreaks")) {
+			let charAllowanceFirstCol = 2200 - unbreakablePart.length;
+
+			const breakableLines = breakablePart.split("\n");
+			for (let i = 0; i < breakableLines.length; ++i) {
+				const l = breakableLines[i];
+				if ((charAllowanceFirstCol -= l.length) < 0) {
+					breakableLines.splice(i, 0, ">", "> \\columnbreak", ">");
+					break;
+				}
+			}
+			breakablePart = breakableLines.join("\n");
+		}
+
+		const str = `${unbreakablePart}${breakablePart}`;
+
+		const monRender = str.trim().split("\n").map(it => it.trim() ? it : `>`).join("\n");
+		const out = `\n${monRender}\n\n`;
+
+		if (addedStatblockInline) delete meta.isStatblockInlineMonster;
+
+		return out;
+	}
+
 	static getSave (attr, mod) {
 		if (attr === "special") return Renderer.stripTags(mod);
 		return `${attr.uppercaseFirst()} ${mod}`;
@@ -971,7 +956,7 @@ RendererMarkdown.monster = class {
 	static async pGetMarkdownDoc (monsters) {
 		const asEntries = (await Promise.all(monsters
 			.map(async (mon, i) => {
-				const monEntry = ({type: "dataCreature", dataCreature: mon});
+				const monEntry = ({type: "statblockInline", dataType: "monster", data: mon});
 
 				const fluff = await Renderer.monster.pGetFluff(mon);
 
@@ -982,21 +967,22 @@ RendererMarkdown.monster = class {
 
 				const out = [monEntry];
 
+				const isAddPageBreaks = RendererMarkdown.getSetting("isAddPageBreaks");
 				if (fluffText) {
 					// Insert a page break before every fluff section
-					if (RendererMarkdown._isAddPageBreaks) out.push("", "\\pagebreak", "");
+					if (isAddPageBreaks) out.push("", "\\pagebreak", "");
 
 					out.push(`## ${mon.name}`);
 
 					// Split into runs of <X characters, and join these with page breaks
 					let stack = [];
-					let charLimit = RendererMarkdown._PAGE_CHARS;
+					let charLimit = RendererMarkdown.CHARS_PER_PAGE;
 					fluffText.split("\n").forEach(l => {
 						if ((charLimit -= l.length) < 0) {
 							out.push(stack.join("\n"));
-							if (RendererMarkdown._isAddPageBreaks) out.push("", "\\pagebreak", "");
+							if (isAddPageBreaks) out.push("", "\\pagebreak", "");
 							stack = [];
-							charLimit = RendererMarkdown._PAGE_CHARS - l.length;
+							charLimit = RendererMarkdown.CHARS_PER_PAGE - l.length;
 						}
 						stack.push(l);
 					});
@@ -1004,7 +990,7 @@ RendererMarkdown.monster = class {
 				}
 
 				// Insert a page break after every creature statblock or fluff section
-				if (i !== monsters.length - 1 && RendererMarkdown._isAddPageBreaks) out.push("", "\\pagebreak", "");
+				if (i !== monsters.length - 1 && isAddPageBreaks) out.push("", "\\pagebreak", "");
 				return out;
 			})))
 			.flat();
@@ -1014,7 +1000,72 @@ RendererMarkdown.monster = class {
 	// endregion
 };
 
+RendererMarkdown.spell = class {
+	static getCompactRenderedString (sp, opts = {}) {
+		const meta = opts.meta || {};
+
+		const subStack = [""];
+
+		subStack[0] += `#### ${sp._displayName || sp.name}
+*${Parser.spLevelSchoolMetaToFull(sp.level, sp.school, sp.meta, sp.subschools)}*
+___
+- **Casting Time:** ${Parser.spTimeListToFull(sp.time)}
+- **Range:** ${Parser.spRangeToFull(sp.range)}
+- **Components:** ${Parser.spComponentsToFull(sp.components, sp.level, {isPlainText: true})}
+- **Duration:** ${Parser.spDurationToFull(sp.duration)}
+---\n`;
+
+		const cacheDepth = meta.depth;
+		meta.depth = 2;
+		RendererMarkdown.get().recursiveRender({entries: sp.entries}, subStack, meta, {suffix: "\n"});
+		if (sp.entriesHigherLevel) {
+			RendererMarkdown.get().recursiveRender({entries: sp.entriesHigherLevel}, subStack, meta, {suffix: "\n"});
+		}
+		meta.depth = cacheDepth;
+
+		const spellRender = subStack.join("").trim();
+		return `\n${spellRender}\n\n`;
+	}
+};
+
 RendererMarkdown.item = class {
+	static getCompactRenderedString (item, opts = {}) {
+		const meta = opts.meta || {};
+
+		const subStack = [""];
+
+		const [damage, damageType, propertiesTxt] = Renderer.item.getDamageAndPropertiesText(item, {renderer: RendererMarkdown.get()});
+		const [typeRarityText, subTypeText, tierText] = RendererMarkdown.item.getTypeRarityAndAttunementText(item);
+
+		const typeRarityTierValueWeight = [typeRarityText, subTypeText, tierText, Parser.itemValueToFullMultiCurrency(item), Parser.itemWeightToFull(item)].filter(Boolean).join(", ").uppercaseFirst();
+		const damageProperties = [damage, damageType, propertiesTxt].filter(Boolean).join(" ").uppercaseFirst();
+
+		const ptSubtitle = [typeRarityTierValueWeight, damageProperties].filter(Boolean).join("\n\n");
+
+		subStack[0] += `#### ${item._displayName || item.name}${ptSubtitle ? `\n\n${ptSubtitle}` : ""}\n\n${ptSubtitle ? `---\n\n` : ""}`;
+
+		if (Renderer.item.hasEntries(item)) {
+			const cacheDepth = meta.depth;
+
+			if (item._fullEntries || (item.entries?.length)) {
+				const entry = {type: "entries", entries: item._fullEntries || item.entries};
+				meta.depth = 1;
+				RendererMarkdown.get().recursiveRender(entry, subStack, meta, {suffix: "\n"});
+			}
+
+			if (item._fullAdditionalEntries || item.additionalEntries) {
+				const additionEntries = {type: "entries", entries: item._fullAdditionalEntries || item.additionalEntries};
+				meta.depth = 1;
+				RendererMarkdown.get().recursiveRender(additionEntries, subStack, meta, {suffix: "\n"});
+			}
+
+			meta.depth = cacheDepth;
+		}
+
+		const itemRender = subStack.join("").trim();
+		return `\n${itemRender}\n\n`;
+	}
+
 	static getTypeRarityAndAttunementText (item) {
 		const typeRarity = [
 			item._typeHtml === "other" ? "" : $(`<div></div>`).html(item._typeHtml).text(),
@@ -1026,6 +1077,29 @@ RendererMarkdown.item = class {
 			item._subTypeHtml || "",
 			item.tier ? `${item.tier} tier` : "",
 		];
+	}
+};
+
+RendererMarkdown.legendaryGroup = class {
+	static getCompactRenderedString (lg, opts = {}) {
+		const meta = opts.meta || {};
+
+		const subEntry = Renderer.legendaryGroup.getSummaryEntry(lg);
+		if (!subEntry) return "";
+
+		const subStack = [""];
+
+		subStack[0] += `## ${lg._displayName || lg.name}`;
+		RendererMarkdown.get().recursiveRender(subEntry, subStack, meta, {suffix: "\n"});
+
+		const lgRender = subStack.join("").trim();
+		return `\n${lgRender}\n\n`;
+	}
+};
+
+RendererMarkdown.hover = class {
+	static getFnRenderCompact (prop) {
+		return RendererMarkdown[prop]?.getCompactRenderedString;
 	}
 };
 
@@ -1106,7 +1180,7 @@ class MarkdownConverter {
 			if (line.mdType === "creature") {
 				buf[i] = {
 					type: "inset",
-					name: "(To convert creature statblocks, please use the Text Converter utility)",
+					name: "(To convert creature stat blocks, please use the Text Converter utility)",
 					entries: line.lines.slice(1).map(it => it.slice(1).trim()),
 				};
 			}
@@ -1659,7 +1733,6 @@ class MarkdownConverter {
 	/**
 	 * @param tbl The table to process.
 	 * @param [opts] Options object. Defaults assume statblock parsing.
-	 * @param [opts.isSkipDiceTag] If dice tagging should be skipped. Default false.
 	 * @param [opts.tableWidth] The table width, in characters. 80 is good for statblocks, 150 is good for books.
 	 * @param [opts.diceColWidth] The width (in 12ths) of any leading rollable dice column. 1 for statblocks, 2 for books.
 	 */
@@ -1766,12 +1839,6 @@ class MarkdownConverter {
 		})();
 
 		if (isDiceCol0 && !tbl.colStyles.includes("text-center")) tbl.colStyles[0] += " text-center";
-
-		if (opts.isSkipDiceTag !== true) {
-			(function tagRowDice () {
-				tbl.rows = tbl.rows.map(r => r.map(c => c.replace(RollerUtil.DICE_REGEX, `{@dice $&}`)));
-			})();
-		}
 
 		(function doCheckNumericCols () {
 			if (isDiceCol0 && tbl.colStyles.length === 2) return; // don't apply this step for generic rollable tables

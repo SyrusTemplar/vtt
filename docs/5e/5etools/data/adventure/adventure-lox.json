@@ -505,7 +505,35 @@
 													"imageType": "map",
 													"title": "Space Galleon Deck Plans",
 													"width": 1700,
-													"height": 2200
+													"height": 2200,
+													"mapRegions": [
+														{
+															"area": "024",
+															"points": [
+																[
+																	1106,
+																	37
+																],
+																[
+																	1106,
+																	126
+																],
+																[
+																	1662,
+																	126
+																],
+																[
+																	1662,
+																	37
+																]
+															]
+														}
+													],
+													"hrefThumbnail": {
+														"type": "internal",
+														"path": "adventure/LoX/thumbnail/008-map-2.11-space-galleon.webp"
+													},
+													"id": "16f"
 												},
 												{
 													"type": "image",
@@ -516,7 +544,10 @@
 													"imageType": "map",
 													"title": "Unlabeled Version",
 													"width": 1700,
-													"height": 2200
+													"height": 2200,
+													"mapParent": {
+														"id": "16f"
+													}
 												}
 											]
 										},
@@ -565,7 +596,7 @@
 										"\"Astral elves,\" curses Captain Sartell, \"and they don't look friendly. Best ready yourselves for a fight.\""
 									]
 								},
-								"The astral elf vessel is a {@vehicle star moth|AAG} called the {@i Dark Star}. It is crewed by three {@creature Astral Elf Warrior|BAM|astral elf warriors}\u2014Captain Azmadian (lawful evil), Lieutenant Jalin (lawful evil), and Lieutenant Zanth (lawful neutral)\u2014as well as a neutral evil {@creature astral elf star priest|BAM} named Altura (the ship's spelljammer), and nine {@creature Hadozee Shipmate|BAM|hadozee shipmates} of various alignments (see {@book Boo's Astral Menagerie|BAM} for the {@book astral elf|BAM|0|Bestiary} and {@book hadozee|BAM|0|Bestiary} stat blocks).",
+								"The astral elf vessel is a {@vehicle star moth|AAG} called the {@i Dark Star}. It is crewed by three {@creature Astral Elf Warrior|BAM|astral elf warriors}\u2014Captain Azmadian (lawful evil), Lieutenant Jalin (lawful evil), and Lieutenant Zanth (lawful neutral)\u2014as well as a neutral evil {@creature astral elf star priest|BAM} named Altura (the ship's spelljammer), and nine {@creature Plasmoid Explorer|BAM|plasmoid explorers} of various alignments.",
 								{
 									"type": "image",
 									"href": {
@@ -728,7 +759,7 @@
 										"As the nautilus-shaped vessel drifts closer, Captain Sartell lets out a sigh of relief. \"It's a derelict,\" she says, pointing out its stripped weaponry and broken hull. \"If there were mind flayers aboard, they would've attacked us by now. Looks like somebody's already picked it over. Still, there might be something left worth salvaging.\""
 									]
 								},
-								"The sensory input provided by the {@i Moondancer}'s {@item spelljamming helm|AAG} interfaces in a special way with Flapjack's Advanced Telepathy, enabling the flumph to sense the presence of telepathic activity on nearby vessels and making the flumph a sort of early warning system in advance of encounters with mind flayers and their ilk. The nautiloid makes Flapjack uneasy, a feeling that stems from the presence of psurlons on board it. At the same time, the {@creature Psurlon Ringer|BAM|psurlons'} Alien Mind trait confounds the {@creature Flapjack|LoX|flumph's} Advanced Telepathy. Flapjack has the vague sense that something is aboard the derelict vessel but can't say what. He shares this information with Sartell and any characters with whom he has forged a close bond.",
+								"The sensory input provided by the {@i Moondancer}'s {@item spelljamming helm|AAG} interfaces in a special way with Flapjack's Advanced Telepathy, enabling the flumph to sense the presence of telepathic activity on nearby vessels and making the flumph a sort of early warning system in advance of encounters with mind flayers and their ilk. The nautiloid makes Flapjack uneasy, a feeling that stems from the presence of psurlons on board it. At the same time, the {@creature Psurlon Ringer|BAM|psurlons'} Aberrant Mind trait confounds the {@creature Flapjack|LoX|flumph's} Advanced Telepathy. Flapjack has the vague sense that something is aboard the derelict vessel but can't say what. He shares this information with Sartell and any characters with whom he has forged a close bond.",
 								"Captain Sartell orders Flapjack to bring her ship alongside the vessel while she designates the characters as a boarding party, instructing them to kill any hostile creatures they encounter.",
 								"If the characters balk at exploring the nautiloid, Captain Sartell sarcastically apologizes for interrupting their \"pleasure cruise\" and wonders aloud whether they'd rather stay back and swab the decks while she does all the hard work. If the characters still refuse, Captain Sartell makes good on her threat and boards the vessel herself in search of salvage. When she doesn't return, Flapjack urges the party to go and find her, refusing to leave the nautiloid behind until they do so.",
 								{
@@ -760,7 +791,611 @@
 													"imageType": "map",
 													"title": "Nautiloid Deck Plans",
 													"width": 1700,
-													"height": 2200
+													"height": 2200,
+													"mapRegions": [
+														{
+															"area": "038",
+															"points": [
+																[
+																	1397,
+																	246
+																],
+																[
+																	1373,
+																	244
+																],
+																[
+																	1352,
+																	235
+																],
+																[
+																	1347,
+																	214
+																],
+																[
+																	1348,
+																	196
+																],
+																[
+																	1364,
+																	182
+																],
+																[
+																	1387,
+																	177
+																],
+																[
+																	1397,
+																	177
+																]
+															]
+														},
+														{
+															"area": "03b",
+															"points": [
+																[
+																	1550,
+																	654
+																],
+																[
+																	1550,
+																	570
+																],
+																[
+																	1506,
+																	570
+																],
+																[
+																	1506,
+																	498
+																],
+																[
+																	1570,
+																	508
+																],
+																[
+																	1611,
+																	517
+																],
+																[
+																	1638,
+																	534
+																],
+																[
+																	1655,
+																	557
+																],
+																[
+																	1664,
+																	579
+																],
+																[
+																	1651,
+																	604
+																],
+																[
+																	1629,
+																	626
+																],
+																[
+																	1599,
+																	640
+																]
+															]
+														},
+														{
+															"area": "037",
+															"points": [
+																[
+																	1199,
+																	765
+																],
+																[
+																	1199,
+																	850
+																],
+																[
+																	1553,
+																	850
+																],
+																[
+																	1553,
+																	765
+																]
+															]
+														},
+														{
+															"area": "03e",
+															"points": [
+																[
+																	295,
+																	211
+																],
+																[
+																	315,
+																	173
+																],
+																[
+																	336,
+																	156
+																],
+																[
+																	365,
+																	143
+																],
+																[
+																	403,
+																	128
+																],
+																[
+																	453,
+																	118
+																],
+																[
+																	524,
+																	106
+																],
+																[
+																	590,
+																	97
+																],
+																[
+																	612,
+																	99
+																],
+																[
+																	628,
+																	94
+																],
+																[
+																	647,
+																	103
+																],
+																[
+																	682,
+																	107
+																],
+																[
+																	718,
+																	109
+																],
+																[
+																	759,
+																	113
+																],
+																[
+																	779,
+																	122
+																],
+																[
+																	780,
+																	305
+																],
+																[
+																	728,
+																	315
+																],
+																[
+																	689,
+																	317
+																],
+																[
+																	660,
+																	314
+																],
+																[
+																	643,
+																	329
+																],
+																[
+																	628,
+																	335
+																],
+																[
+																	616,
+																	332
+																],
+																[
+																	608,
+																	322
+																],
+																[
+																	564,
+																	320
+																],
+																[
+																	492,
+																	313
+																],
+																[
+																	421,
+																	301
+																],
+																[
+																	374,
+																	285
+																],
+																[
+																	324,
+																	256
+																],
+																[
+																	306,
+																	233
+																]
+															]
+														},
+														{
+															"area": "040",
+															"points": [
+																[
+																	593,
+																	450
+																],
+																[
+																	470,
+																	449
+																],
+																[
+																	424,
+																	453
+																],
+																[
+																	400,
+																	457
+																],
+																[
+																	381,
+																	470
+																],
+																[
+																	374,
+																	479
+																],
+																[
+																	362,
+																	478
+																],
+																[
+																	354,
+																	463
+																],
+																[
+																	349,
+																	453
+																],
+																[
+																	326,
+																	451
+																],
+																[
+																	278,
+																	455
+																],
+																[
+																	237,
+																	465
+																],
+																[
+																	201,
+																	480
+																],
+																[
+																	176,
+																	507
+																],
+																[
+																	152,
+																	539
+																],
+																[
+																	146,
+																	576
+																],
+																[
+																	153,
+																	617
+																],
+																[
+																	174,
+																	652
+																],
+																[
+																	203,
+																	678
+																],
+																[
+																	237,
+																	695
+																],
+																[
+																	287,
+																	705
+																],
+																[
+																	337,
+																	707
+																],
+																[
+																	350,
+																	703
+																],
+																[
+																	360,
+																	685
+																],
+																[
+																	373,
+																	682
+																],
+																[
+																	391,
+																	695
+																],
+																[
+																	433,
+																	707
+																],
+																[
+																	482,
+																	711
+																],
+																[
+																	593,
+																	711
+																]
+															]
+														},
+														{
+															"area": "042",
+															"points": [
+																[
+																	226,
+																	1285
+																],
+																[
+																	226,
+																	1089
+																],
+																[
+																	189,
+																	1100
+																],
+																[
+																	147,
+																	1110
+																],
+																[
+																	98,
+																	1126
+																],
+																[
+																	69,
+																	1147
+																],
+																[
+																	48,
+																	1186
+																],
+																[
+																	58,
+																	1213
+																],
+																[
+																	85,
+																	1237
+																],
+																[
+																	147,
+																	1269
+																],
+																[
+																	189,
+																	1277
+																]
+															]
+														},
+														{
+															"area": "044",
+															"points": [
+																[
+																	416,
+																	1313
+																],
+																[
+																	416,
+																	1065
+																],
+																[
+																	516,
+																	1056
+																],
+																[
+																	567,
+																	1058
+																],
+																[
+																	617,
+																	1054
+																],
+																[
+																	711,
+																	1059
+																],
+																[
+																	779,
+																	1053
+																],
+																[
+																	874,
+																	1055
+																],
+																[
+																	936,
+																	1059
+																],
+																[
+																	1005,
+																	1074
+																],
+																[
+																	1062,
+																	1102
+																],
+																[
+																	1088,
+																	1122
+																],
+																[
+																	1104,
+																	1162
+																],
+																[
+																	1107,
+																	1199
+																],
+																[
+																	1097,
+																	1237
+																],
+																[
+																	1078,
+																	1263
+																],
+																[
+																	1049,
+																	1286
+																],
+																[
+																	1012,
+																	1298
+																],
+																[
+																	969,
+																	1311
+																],
+																[
+																	910,
+																	1321
+																],
+																[
+																	814,
+																	1321
+																],
+																[
+																	683,
+																	1320
+																],
+																[
+																	625,
+																	1322
+																],
+																[
+																	567,
+																	1318
+																],
+																[
+																	500,
+																	1320
+																],
+																[
+																	449,
+																	1317
+																]
+															]
+														},
+														{
+															"area": "049",
+															"points": [
+																[
+																	507,
+																	1514
+																],
+																[
+																	507,
+																	1599
+																],
+																[
+																	777,
+																	1599
+																],
+																[
+																	777,
+																	1514
+																]
+															]
+														},
+														{
+															"area": "04c",
+															"points": [
+																[
+																	874,
+																	1643
+																],
+																[
+																	876,
+																	1511
+																],
+																[
+																	739,
+																	1511
+																],
+																[
+																	739,
+																	1449
+																],
+																[
+																	798,
+																	1456
+																],
+																[
+																	867,
+																	1468
+																],
+																[
+																	906,
+																	1476
+																],
+																[
+																	956,
+																	1490
+																],
+																[
+																	992,
+																	1507
+																],
+																[
+																	1010,
+																	1534
+																],
+																[
+																	1011,
+																	1554
+																],
+																[
+																	1007,
+																	1576
+																],
+																[
+																	993,
+																	1603
+																],
+																[
+																	964,
+																	1621
+																],
+																[
+																	919,
+																	1635
+																]
+															]
+														}
+													],
+													"hrefThumbnail": {
+														"type": "internal",
+														"path": "adventure/LoX/thumbnail/012-map-2.07-nautiloid.webp"
+													},
+													"id": "170"
 												},
 												{
 													"type": "image",
@@ -771,7 +1406,10 @@
 													"imageType": "map",
 													"title": "Unlabeled Version",
 													"width": 1700,
-													"height": 2200
+													"height": 2200,
+													"mapParent": {
+														"id": "170"
+													}
 												}
 											]
 										},
@@ -1042,7 +1680,7 @@
 							]
 						},
 						"A nightspider crewed by neogi has made its presence known, but the characters aren't forced to deal with any new problems. The timely arrival of a naval patrol drives off the neogi raiders, after which the patrol sees the party safely to the Rock of Bral. There, the characters part ways with Captain Sartell, who encourages them to seek out a giff insurgent named Commodore Krux. The giff brings the characters to his spelljamming vessel, the {@i Second Wind}. They set out into Wildspace pursued by Hastain, a deadly ally of the Xaryxian Empire.",
-						"Before running this session, familiarize yourself with the Rock of Bral, which is described in {@book chapter 3|AAG|3} of the {@book Astral Adventurer's Guide|AAG}. When the characters finally arrive at the Rock, you can show players the {@book poster map|AAG|4} of the asteroid city.",
+						"Before running this session, familiarize yourself with the Rock of Bral, which is described in {@book chapter 3|AAG|3} of the {@book Astral Adventurer's Guide|AAG}. When the characters finally arrive at the Rock, you can show players the {@book poster map|AAG|5} of the asteroid city.",
 						{
 							"type": "entries",
 							"name": "Nightspider Dead Ahead",
@@ -1155,7 +1793,35 @@
 											"imageType": "map",
 											"title": "Living Ship Deck Plans",
 											"width": 1700,
-											"height": 2200
+											"height": 2200,
+											"mapRegions": [
+												{
+													"area": "09e",
+													"points": [
+														[
+															66,
+															1254
+														],
+														[
+															66,
+															1330
+														],
+														[
+															429,
+															1330
+														],
+														[
+															429,
+															1254
+														]
+													]
+												}
+											],
+											"hrefThumbnail": {
+												"type": "internal",
+												"path": "adventure/LoX/thumbnail/017-map-2.06-living.webp"
+											},
+											"id": "171"
 										},
 										{
 											"type": "image",
@@ -1166,7 +1832,10 @@
 											"imageType": "map",
 											"title": "Unlabeled Version",
 											"width": 1700,
-											"height": 2200
+											"height": 2200,
+											"mapParent": {
+												"id": "171"
+											}
 										}
 									]
 								},
@@ -1266,7 +1935,7 @@
 										"\"But forgive me, I haven't introduced myself. My name is Hastain. When the elves came looking for a suitable world to nourish their dying star, I suggested yours. It isn't every day I get to witness the destruction of a planet. I promise, it will end beautifully\u2014even if you're not alive to see it.\""
 									]
 								},
-								"Hastain uses Summon Golem on their second turn in combat. While the reigar and the golem attack the characters, the esthetic uses Jammerscream against the {@i Second Wind}, then moves close enough to the ship to attack with its tentacles if it isn't close enough already.",
+								"Hastain uses Summon Duplicate on their second turn in combat. While the reigar and the duplicate attack the characters, the esthetic uses Jammerscream against the {@i Second Wind}, then moves close enough to the ship to attack with its tentacles if it isn't close enough already.",
 								{
 									"type": "entries",
 									"name": "Victory",
@@ -1379,7 +2048,34 @@
 											"title": "Topalah's Tower",
 											"width": 1700,
 											"height": 1100,
-											"id": "16f"
+											"id": "16f",
+											"mapRegions": [
+												{
+													"area": "072",
+													"points": [
+														[
+															21,
+															30
+														],
+														[
+															21,
+															93
+														],
+														[
+															219,
+															93
+														],
+														[
+															219,
+															30
+														]
+													]
+												}
+											],
+											"hrefThumbnail": {
+												"type": "internal",
+												"path": "adventure/LoX/thumbnail/021-map-10.01-topalahs-tower.webp"
+											}
 										},
 										{
 											"type": "image",
@@ -1605,7 +2301,7 @@
 							"id": "084",
 							"entries": [
 								"Ask the players which character has the {@item Wildspace orrery|AAG}. If none of the characters want to carry it, Krux takes it. With the item in their possession, Krux and the characters can hop aboard their jolly boat and return to the {@i Second Wind}.",
-								"Have Krux and each character make a DC 21 Wisdom ({@skill Perception}) check. Those who fail the check are {@book surprised|PHB|9|Surprise} when Big Momma attacks:",
+								"Have Krux and each character make a DC 21 Wisdom ({@skill Perception}) check. Those who fail the check are {@quickref Surprise|PHB|3|0|surprised} when Big Momma attacks:",
 								{
 									"type": "insetReadaloud",
 									"id": "085",
@@ -1623,7 +2319,7 @@
 									"width": 1700,
 									"height": 1079
 								},
-								"Big Momma, a {@creature void scavver|BAM} (see {@book Boo's Astral Menagerie|BAM}), starts the encounter 40 feet from the characters' jolly boat, which is 50 feet from the end of Topolah's dock and the same distance away from the {@i Second Wind}. On its first turn, the void scavver swims up to the jolly boat and attacks a random character. Characters who were surprised can't act until the next round.",
+								"Big Momma, a {@creature void scavver|BAM} (see {@book Boo's Astral Menagerie|BAM}), starts the encounter 40 feet from the characters' jolly boat, which is 50 feet from the end of Topolah's dock and the same distance away from the {@i Second Wind}. On its first turn, the void scavver swims up to the jolly boat and attacks a random character. Characters who were {@quickref Surprise|PHB|3|0|surprised} can't act until the next round.",
 								"A character can use an action and a pair of oars to row the jolly boat 10 feet horizontally in any direction along the gravity plane shared by Topolah's asteroid and the {@i Second Wind}. Unlike the jolly boat, Big Momma flies through space like a fish through water and can move in any direction.",
 								{
 									"type": "entries",
@@ -1894,7 +2590,7 @@
 									"type": "insetReadaloud",
 									"id": "09b",
 									"entries": [
-										"As Gargenhale bellows a curse at the dwindling stern of his ship, Flinch approaches the vampirate captain with glazed eyes and a dreamy smile. In a voice dripping with sarcasm, Flinch says, \"Captain Gargenhale! Your command of the {@i Last Breath} is at an end. We've had enough ‘victory' at your hands to last ten lifetimes.\" The hadozee then shudders as a horned ghost vacates his body, cackles, and disappears. Flinch blinks his eyes back into focus, then says in his normal voice, \"Do I smell smoke?\""
+										"As Gargenhale bellows a curse at the dwindling stern of his ship, Flinch approaches the vampirate captain with glazed eyes and a dreamy smile. In a voice dripping with sarcasm, Flinch says, \"Captain Gargenhale! Your command of the {@i Last Breath} is at an end. We've had enough 'victory' at your hands to last ten lifetimes.\" The hadozee then shudders as a horned ghost vacates his body, cackles, and disappears. Flinch blinks his eyes back into focus, then says in his normal voice, \"Do I smell smoke?\""
 									]
 								},
 								"Flinch remembers nothing of what has transpired. Agony the ghost took possession of him long enough to deliver its rebuke, then vanished and took refuge in the {@i Last Breath}'s cargo hold.",
@@ -1968,7 +2664,162 @@
 													"imageType": "map",
 													"title": "Space Galleon Deck Plans",
 													"width": 1700,
-													"height": 2200
+													"height": 2200,
+													"mapRegions": [
+														{
+															"area": "0a2",
+															"points": [
+																[
+																	1126,
+																	48
+																],
+																[
+																	1126,
+																	122
+																],
+																[
+																	1638,
+																	122
+																],
+																[
+																	1638,
+																	48
+																]
+															]
+														},
+														{
+															"area": "0a5",
+															"points": [
+																[
+																	234,
+																	1176
+																],
+																[
+																	234,
+																	1066
+																],
+																[
+																	283,
+																	1059
+																],
+																[
+																	330,
+																	1061
+																],
+																[
+																	334,
+																	1176
+																]
+															]
+														},
+														{
+															"area": "0a7",
+															"points": [
+																[
+																	445,
+																	1947
+																],
+																[
+																	928,
+																	1941
+																],
+																[
+																	970,
+																	1950
+																],
+																[
+																	1013,
+																	1970
+																],
+																[
+																	1035,
+																	1986
+																],
+																[
+																	1058,
+																	2013
+																],
+																[
+																	1061,
+																	2034
+																],
+																[
+																	1051,
+																	2051
+																],
+																[
+																	1062,
+																	2067
+																],
+																[
+																	1053,
+																	2098
+																],
+																[
+																	1027,
+																	2120
+																],
+																[
+																	992,
+																	2139
+																],
+																[
+																	941,
+																	2150
+																],
+																[
+																	445,
+																	2150
+																]
+															]
+														},
+														{
+															"area": "0a8",
+															"points": [
+																[
+																	262,
+																	2038
+																],
+																[
+																	269,
+																	1994
+																],
+																[
+																	296,
+																	1966
+																],
+																[
+																	346,
+																	1949
+																],
+																[
+																	437,
+																	1949
+																],
+																[
+																	437,
+																	2040
+																],
+																[
+																	294,
+																	2040
+																],
+																[
+																	285,
+																	2030
+																],
+																[
+																	272,
+																	2032
+																]
+															]
+														}
+													],
+													"hrefThumbnail": {
+														"type": "internal",
+														"path": "adventure/LoX/thumbnail/027-map-2.11-space-galleon.webp"
+													},
+													"id": "172"
 												},
 												{
 													"type": "image",
@@ -1979,7 +2830,10 @@
 													"imageType": "map",
 													"title": "Unlabeled Version",
 													"width": 1700,
-													"height": 2200
+													"height": 2200,
+													"mapParent": {
+														"id": "172"
+													}
 												}
 											]
 										}
@@ -2310,7 +3164,7 @@
 										"Pellets of radiant light fly through the air, narrowly missing you as several starfish-like plant creatures creep out of the jungle and advance threateningly."
 									]
 								},
-								"Warwyck Blastimoff, a lawful good {@creature giff shipmate|BAM}, is out of ammunition and in a hurry. The creatures pursuing him are six {@creature Aartuk Warrior|BAM|aartuk warriors} and an {@creature aartuk priest|BAM} (see {@book Boo's Astral Menagerie|BAM} for their stat blocks). The aartuks are hostile and 30 feet away from the characters at the start of this encounter. The priest tries to snare Warwyck with its tongue while the warriors pepper the characters with radiant pellets or engage them in melee.",
+								"Warwyck Blastimoff, a lawful good {@creature giff shipmate|BAM}, is out of ammunition and in a hurry. The creatures pursuing him are six {@creature Aartuk Weedling|BAM|aartuk weedlings} and an {@creature aartuk starhorror|BAM} (see {@book Boo's Astral Menagerie|BAM} for their stat blocks). The aartuks are hostile and 30 feet away from the characters at the start of this encounter. The priest tries to snare Warwyck with its tongue while the warriors pepper the characters with radiant pellets or engage them in melee.",
 								"Once the aartuks are defeated, Warwyck lets out a long sigh of relief, salutes Commodore Krux, and asks, \"Permission to come aboard, sir?\""
 							]
 						},
@@ -2406,7 +3260,251 @@
 													},
 													"imageType": "map",
 													"width": 2550,
-													"height": 1650
+													"height": 1650,
+													"mapRegions": [
+														{
+															"area": "0ca",
+															"points": [
+																[
+																	866,
+																	83
+																],
+																[
+																	866,
+																	398
+																],
+																[
+																	1710,
+																	398
+																],
+																[
+																	1710,
+																	83
+																]
+															]
+														},
+														{
+															"area": "0cc",
+															"points": [
+																[
+																	1085,
+																	685
+																],
+																[
+																	1085,
+																	762
+																],
+																[
+																	1166,
+																	762
+																],
+																[
+																	1166,
+																	685
+																]
+															]
+														},
+														{
+															"area": "0cd",
+															"points": [
+																[
+																	1016,
+																	552
+																],
+																[
+																	1016,
+																	616
+																],
+																[
+																	1173,
+																	616
+																],
+																[
+																	1173,
+																	552
+																]
+															]
+														},
+														{
+															"area": "0ce",
+															"points": [
+																[
+																	1758,
+																	776
+																],
+																[
+																	1758,
+																	872
+																],
+																[
+																	1866,
+																	872
+																],
+																[
+																	1866,
+																	776
+																]
+															]
+														},
+														{
+															"area": "0cf",
+															"points": [
+																[
+																	298,
+																	824
+																],
+																[
+																	461,
+																	675
+																],
+																[
+																	546,
+																	621
+																],
+																[
+																	650,
+																	630
+																],
+																[
+																	624,
+																	770
+																],
+																[
+																	546,
+																	824
+																],
+																[
+																	611,
+																	915
+																],
+																[
+																	675,
+																	1003
+																],
+																[
+																	744,
+																	1048
+																],
+																[
+																	798,
+																	1110
+																],
+																[
+																	736,
+																	1258
+																],
+																[
+																	445,
+																	1285
+																],
+																[
+																	299,
+																	1282
+																],
+																[
+																	334,
+																	1170
+																],
+																[
+																	301,
+																	1040
+																],
+																[
+																	304,
+																	960
+																]
+															]
+														},
+														{
+															"area": "0d9",
+															"points": [
+																[
+																	1926,
+																	203
+																],
+																[
+																	1926,
+																	373
+																],
+																[
+																	2176,
+																	373
+																],
+																[
+																	2176,
+																	203
+																]
+															]
+														},
+														{
+															"area": "0d9",
+															"points": [
+																[
+																	2016,
+																	1202
+																],
+																[
+																	2016,
+																	1370
+																],
+																[
+																	2254,
+																	1370
+																],
+																[
+																	2254,
+																	1202
+																]
+															]
+														},
+														{
+															"area": "0d9",
+															"points": [
+																[
+																	224,
+																	1347
+																],
+																[
+																	224,
+																	1526
+																],
+																[
+																	482,
+																	1526
+																],
+																[
+																	482,
+																	1347
+																]
+															]
+														},
+														{
+															"area": "0d9",
+															"points": [
+																[
+																	261,
+																	227
+																],
+																[
+																	261,
+																	381
+																],
+																[
+																	504,
+																	381
+																],
+																[
+																	504,
+																	227
+																]
+															]
+														}
+													],
+													"hrefThumbnail": {
+														"type": "internal",
+														"path": "adventure/LoX/thumbnail/031-map-11.02-doomspace-system.webp"
+													},
+													"id": "173"
 												},
 												{
 													"type": "image",
@@ -2417,7 +3515,10 @@
 													"imageType": "mapPlayer",
 													"title": "DoomspaceView Player Version",
 													"width": 2550,
-													"height": 1650
+													"height": 1650,
+													"mapParent": {
+														"id": "173"
+													}
 												}
 											]
 										}
@@ -2578,7 +3679,7 @@
 									"entries": [
 										"\"My efforts to create a coalition have been unsuccessful. The factions of Doomspace have little interest in battling the Xaryxian Empire, which seems only a distant threat to them. They would rather fight among themselves. You saw for yourselves how prickly the aartuks were. My peaceful entreaty must have offended their war gods.",
 										"\"The only thing these factions seem to have in common is their hunger for ships, spelljamming helms, and weapons\u2014things I can't provide. War is everyone's native tongue here, and the ones most fluent in it are the mercanes. The blue giants are making a killing by selling ships, helms, and weapons to the other factions in exchange for raw mineral resources.",
-										"\"But all is not lost. I've learned that the factions are in debt to a mercane named Vocath. He might be willing to help us... for a price.\""
+										"\"But all is not lost. I've learned that the factions are in debt to a mercane named Vocath. My peaceful entreaty seems to have offended them.\""
 									]
 								},
 								{
@@ -2662,12 +3763,12 @@
 										{
 											"type": "item",
 											"name": "Dock 2",
-											"entry": "The Remora, a {@vehicle lamprey ship|AAG}, has a crew of twelve {@creature Aartuk Warrior|BAM|aartuk warriors}, three {@creature Aartuk Priest|BAM|aartuk priests}, and one {@creature aartuk elder|BAM} (see {@book Boo's Astral Menagerie|BAM} for their stat blocks)."
+											"entry": "The Remora, a {@vehicle lamprey ship|AAG}, has a crew of twelve {@creature Aartuk Weedling|BAM|aartuk weedlings}, three {@creature Aartuk Starhorror|BAM|aartuk starhorrors}, and one {@creature aartuk elder|BAM} (see {@book Boo's Astral Menagerie|BAM} for their stat blocks)."
 										},
 										{
 											"type": "item",
 											"name": "Dock 4",
-											"entry": "The Tarrasque, a {@vehicle space galleon|AAG}, has a crew of humans (one {@creature bandit captain}, eighteen {@creature Bandit||bandits}, and one {@creature cult fanatic})."
+											"entry": "The Tarrasque, a {@vehicle space galleon|AAG}, has a crew of hadozees (four {@creature hadozee explorer|BAM|hadozee explorers}, fifteen {@creature hadozee warrior|BAM|hadozee warriors}, and one hadozee {@creature druid})."
 										},
 										{
 											"type": "item",
@@ -2754,7 +3855,368 @@
 													"title": "Vocath's Base",
 													"width": 1700,
 													"height": 1105,
-													"id": "170"
+													"id": "170",
+													"mapRegions": [
+														{
+															"area": "0e4",
+															"points": [
+																[
+																	1310,
+																	950
+																],
+																[
+																	1310,
+																	1064
+																],
+																[
+																	1590,
+																	1064
+																],
+																[
+																	1590,
+																	950
+																]
+															]
+														},
+														{
+															"area": "0e5",
+															"points": [
+																[
+																	303,
+																	636
+																],
+																[
+																	303,
+																	469
+																],
+																[
+																	426,
+																	346
+																],
+																[
+																	590,
+																	346
+																],
+																[
+																	715,
+																	471
+																],
+																[
+																	715,
+																	502
+																],
+																[
+																	677,
+																	502
+																],
+																[
+																	677,
+																	598
+																],
+																[
+																	716,
+																	598
+																],
+																[
+																	716,
+																	632
+																],
+																[
+																	592,
+																	756
+																],
+																[
+																	426,
+																	756
+																]
+															]
+														},
+														{
+															"area": "0e9",
+															"points": [
+																[
+																	689,
+																	518
+																],
+																[
+																	689,
+																	586
+																],
+																[
+																	801,
+																	586
+																],
+																[
+																	801,
+																	518
+																]
+															]
+														},
+														{
+															"area": "0eb",
+															"points": [
+																[
+																	815,
+																	515
+																],
+																[
+																	815,
+																	586
+																],
+																[
+																	928,
+																	586
+																],
+																[
+																	928,
+																	515
+																]
+															]
+														},
+														{
+															"area": "0ec",
+															"points": [
+																[
+																	912,
+																	499
+																],
+																[
+																	945,
+																	456
+																],
+																[
+																	973,
+																	439
+																],
+																[
+																	1017,
+																	428
+																],
+																[
+																	1062,
+																	435
+																],
+																[
+																	1101,
+																	459
+																],
+																[
+																	1122,
+																	494
+																],
+																[
+																	1132,
+																	517
+																],
+																[
+																	1143,
+																	555
+																],
+																[
+																	1132,
+																	598
+																],
+																[
+																	1107,
+																	630
+																],
+																[
+																	1063,
+																	659
+																],
+																[
+																	1023,
+																	670
+																],
+																[
+																	975,
+																	665
+																],
+																[
+																	933,
+																	641
+																],
+																[
+																	908,
+																	599
+																],
+																[
+																	938,
+																	599
+																],
+																[
+																	938,
+																	499
+																]
+															]
+														},
+														{
+															"area": "0f0",
+															"points": [
+																[
+																	1322,
+																	550
+																],
+																[
+																	1332,
+																	509
+																],
+																[
+																	1361,
+																	467
+																],
+																[
+																	1403,
+																	436
+																],
+																[
+																	1446,
+																	429
+																],
+																[
+																	1486,
+																	438
+																],
+																[
+																	1530,
+																	463
+																],
+																[
+																	1563,
+																	510
+																],
+																[
+																	1565,
+																	557
+																],
+																[
+																	1560,
+																	594
+																],
+																[
+																	1533,
+																	639
+																],
+																[
+																	1488,
+																	665
+																],
+																[
+																	1444,
+																	672
+																],
+																[
+																	1403,
+																	668
+																],
+																[
+																	1359,
+																	641
+																],
+																[
+																	1330,
+																	592
+																]
+															]
+														},
+														{
+															"area": "0f3",
+															"points": [
+																[
+																	1364,
+																	444
+																],
+																[
+																	1364,
+																	386
+																],
+																[
+																	1424,
+																	386
+																],
+																[
+																	1424,
+																	252
+																],
+																[
+																	1411,
+																	234
+																],
+																[
+																	1403,
+																	212
+																],
+																[
+																	1405,
+																	191
+																],
+																[
+																	1418,
+																	182
+																],
+																[
+																	1443,
+																	171
+																],
+																[
+																	1466,
+																	177
+																],
+																[
+																	1483,
+																	195
+																],
+																[
+																	1485,
+																	211
+																],
+																[
+																	1485,
+																	228
+																],
+																[
+																	1466,
+																	252
+																],
+																[
+																	1466,
+																	383
+																],
+																[
+																	1530,
+																	383
+																],
+																[
+																	1530,
+																	444
+																],
+																[
+																	1493,
+																	426
+																],
+																[
+																	1459,
+																	415
+																],
+																[
+																	1426,
+																	417
+																],
+																[
+																	1397,
+																	423
+																],
+																[
+																	1376,
+																	436
+																]
+															]
+														}
+													],
+													"hrefThumbnail": {
+														"type": "internal",
+														"path": "adventure/LoX/thumbnail/035-map-11.001-vocaths-base.webp"
+													}
 												},
 												{
 													"type": "image",
@@ -2934,7 +4396,7 @@
 									"type": "insetReadaloud",
 									"id": "0f8",
 									"entries": [
-										"\"Enough with the ‘me, me, me,'\" Vocath says. With a mean glint in his eye, he adds, \"I'll arrange a private meeting for you with the faction leaders if you can survive three battles in my arena, with no rest between them. Representatives of the factions will be watching, so fight well. An excellent performance might win their favor.\""
+										"\"Enough with the 'me, me, me,'\" Vocath says. With a mean glint in his eye, he adds, \"I'll arrange a private meeting for you with the faction leaders if you can survive three battles in my arena, with no rest between them. Representatives of the factions will be watching, so fight well. An excellent performance might win their favor.\""
 									]
 								},
 								"If the characters agree to his terms, Vocath makes a dismissive gesture, teleports the characters to the arena floor ({@area area 1|0e5|x}), and heads to his private box to watch them perform. If Princess Xedalli is present, Vocath invites her to join him in his private box and watch the spectacle by his side\u2014an offer she accepts politely."
@@ -3132,15 +4594,15 @@
 									],
 									"rows": [
 										[
-											"Dakaer (neutral, human {@creature bandit captain})",
-											"Human"
+											"Dakaer (neutral, hadozee {@creature hadozee explorer|BAM}*)",
+											"Hadozee"
 										],
 										[
 											"Rika (neutral good {@creature aarakocra})",
 											"Aarakocra"
 										],
 										[
-											"Takana (chaotic neutral {@creature thri-kreen mystic|BAM}*)",
+											"T'kitka (chaotic neutral {@creature thri-kreen mystic|BAM}*)",
 											"Thri-kreen"
 										],
 										[
@@ -3171,15 +4633,15 @@
 											]
 										},
 										"To convince a faction to join the coalition, a character must make a case to the faction's representative and succeed on a Charisma check using {@skill Deception}, {@skill Intimidation}, or {@skill Persuasion}, as befits the approach. Another character can use the {@action help||Help} action to grant advantage on the check, but only if that character makes a meaningful contribution to the conversation. The difficulty of the check depends on the faction's attitude toward the characters: DC 20 if hostile, DC 15 if indifferent, or DC 10 if friendly.",
-										"On a successful check, the faction joins the coalition. On a failed check, the representative declines to join the coalition, and the characters can't change that representative's mind until they convince another faction to join the coalition (discounting any factions that have already joined). The \"Vortshu and Takana at Vocath\" sidebar shows these rules in play.",
+										"On a successful check, the faction joins the coalition. On a failed check, the representative declines to join the coalition, and the characters can't change that representative's mind until they convince another faction to join the coalition (discounting any factions that have already joined). The \"Vortshu and T'kitka at Vocath\" sidebar shows these rules in play.",
 										{
 											"type": "inset",
-											"name": "Vortshu and Takana at Vocath",
+											"name": "Vortshu and T'kitka at Vocath",
 											"id": "10d",
 											"entries": [
 												"The following is an example of the \"Forming a Coalition\" rules in play.",
-												"A character approaches Vortshu, the {@creature aartuk elder|BAM} (who is indifferent toward them), and tries to convince Vortshu that war against the Xaryxian Empire would elevate aartuks in the eyes of their gods. It's a sound approach, given aartuks' devotion to gods of war. But the character gets a failure on their DC 15 Charisma ({@skill Persuasion}) check, so Vortshu refuses to join the coalition, perhaps making the argument that the thri-kreen are a greater threat to the aartuks than the Xaryxian Empire. Further attempts to sway Vortshu fail automatically until the characters convince another faction representative to join their coalition. Having previously won over the aarakocra, the characters now set their sights on Takana, the thri-kreen representative.",
-												"Like Vortshu, Takana is indifferent toward the characters. To improve Takana's attitude, the characters give her the {@item spelljamming helm|AAG} they took from the {@i Dark Star} in {@area chapter 2|04b|x}. This fabulous gift is enough to improve Takana's attitude to friendly. A character then succeeds on the DC 10 Charisma ({@skill Persuasion}) check, convincing Takana to join their coalition. With the thri-kreen now on board, the characters can make another attempt to convince Vortshu to join the coalition."
+												"A character approaches Vortshu, the {@creature aartuk elder|BAM} (who is indifferent toward them), and tries to convince Vortshu that war against the Xaryxian Empire would give the aartuks new worlds to conquer. It's a sound approach, given aartuks' devotion to gods of war. But the character gets a failure on their DC 15 Charisma ({@skill Persuasion}) check, so Vortshu refuses to join the coalition, perhaps making the argument that the thri-kreen are a greater threat to the aartuks than the Xaryxian Empire. Further attempts to sway Vortshu fail automatically until the characters convince another faction representative to join their coalition. Having previously won over the aarakocra, the characters now set their sights on T'kitka, the thri-kreen representative.",
+												"Like Vortshu, T'kitka is indifferent toward the characters. To improve T'kitka's attitude, the characters give her the {@item spelljamming helm|AAG} they took from the {@i Dark Star} in {@area chapter 2|04b|x}. This fabulous gift is enough to improve T'kitka's attitude to friendly. A character then succeeds on the DC 10 Charisma ({@skill Persuasion}) check, convincing T'kitka to join their coalition. With the thri-kreen now on board, the characters can make another attempt to convince Vortshu to join the coalition."
 											]
 										}
 									]
@@ -3195,7 +4657,7 @@
 											"name": "Dakaer",
 											"id": "10f",
 											"entries": [
-												"{@i Human Representative}",
+												"{@i Hadozee Representative}",
 												"Dakaer commands the {@i Tarrasque}, a {@vehicle space galleon|AAG}. He often sounds terse, even when he is speaking unemotionally. He and his crew dress plainly and wield weapons made from bone.",
 												"War is not something Dakaer longs for, but he seeks to acquire better weaponry nonetheless. His crew also clamors for healing kits, tools, and musical instruments.",
 												{
@@ -3203,7 +4665,7 @@
 													"name": "Attitude Adjustment",
 													"id": "110",
 													"entries": [
-														"The characters can improve the attitude of the human faction by one step if they offer Dakaer a worthy gift, such as one of the following items:",
+														"The characters can improve the attitude of the hadozee faction by one step if they offer Dakaer a worthy gift, such as one of the following items:",
 														{
 															"type": "list",
 															"items": [
@@ -3244,17 +4706,17 @@
 										},
 										{
 											"type": "insetReadaloud",
-											"name": "Takana",
+											"name": "T'kitka",
 											"id": "113",
 											"entries": [
 												"{@i Thri-kreen Representative}",
-												"Takana serves as the spelljammer aboard the {@vehicle scorpion ship|AAG} {@i Vrusk} and is keen to acquire more {@item Spelljamming Helm|AAG|spelljamming helms} and food supplies for her faction. She admits that the thri-kreen have taken to eating aartuks because of the scarcity of food in Doomspace (which hasn't endeared the thri-kreen to the aartuk faction).",
+												"T'kitka serves as the spelljammer aboard the {@vehicle scorpion ship|AAG} {@i Vrusk} and is keen to acquire more {@item Spelljamming Helm|AAG|spelljamming helms} and food supplies for her faction. She admits that the thri-kreen have taken to eating aartuks because of the scarcity of food in Doomspace (which hasn't endeared the thri-kreen to the aartuk faction).",
 												{
 													"type": "entries",
 													"name": "Attitude Adjustment",
 													"id": "114",
 													"entries": [
-														"Characters can improve the attitude of the thri-kreen faction to friendly if they offer Takana a worthy gift, examples of which are as follows:",
+														"Characters can improve the attitude of the thri-kreen faction to friendly if they offer T'kitka a worthy gift, examples of which are as follows:",
 														{
 															"type": "list",
 															"items": [
@@ -3282,7 +4744,7 @@
 														{
 															"type": "list",
 															"items": [
-																"By challenging the thri-kreen representative to a duel (which Takana declines, but the challenge alone is enough to win over Vortshu)",
+																"By challenging the thri-kreen representative to a duel (which T'kitka declines, but the challenge alone is enough to win over Vortshu)",
 																"By defeating Vortshu in a wrestling match, which requires the character to succeed on three DC 14 Strength ({@skill Athletics}) checks before failing three of those checks"
 															]
 														}
@@ -3348,7 +4810,7 @@
 											"5 {@vehicle Lamprey Ship|AAG|lamprey ships}, including the Remora"
 										],
 										[
-											"Humans",
+											"Hadozees",
 											"3 {@vehicle Space Galleon|AAG|space galleons}, including the Tarrasque"
 										],
 										[
@@ -3479,7 +4941,7 @@
 										"An armada of crystal-winged ships patrols the region between your fleet and the citadel. The closest enemy ship is about a thousand feet away."
 									]
 								},
-								"The Xaryxian armada is not expecting an attack. Allow the characters to decide whether they want to open the engagement at range or close to boarding distance. In either case, the Xaryxian ships are surprised at the beginning of combat.",
+								"The Xaryxian armada is not expecting an attack. Allow the characters to decide whether they want to open the engagement at range or close to boarding distance. In either case, the Xaryxian ships are {@quickref Surprise|PHB|3|0|surprised} at the beginning of combat.",
 								{
 									"type": "entries",
 									"name": "The Xaryxian Armada",
@@ -3590,22 +5052,22 @@
 										[
 											"Vaerduran",
 											"Irregular earth body",
-											"600 million miles (6 days' travel)"
+											"300 million miles (3 days' travel)"
 										],
 										[
 											"Rivus",
 											"Spherical earth body",
-											"500 million miles (5 days' travel)"
+											"200 million miles (2 days' travel)"
 										],
 										[
 											"Xaryndar",
 											"Spherical earth body with one moon (Eysix)",
-											"400 million miles (4 days' travel)"
+											"100 million miles (1 days' travel)"
 										],
 										[
 											"Imperial Citadel",
 											"City in space",
-											"400 million miles (4 days' travel)"
+											"100 million miles (1 days' travel)"
 										]
 									]
 								},
@@ -3626,7 +5088,119 @@
 													},
 													"imageType": "map",
 													"width": 1200,
-													"height": 1500
+													"height": 1500,
+													"mapRegions": [
+														{
+															"area": "132",
+															"points": [
+																[
+																	263,
+																	14
+																],
+																[
+																	263,
+																	312
+																],
+																[
+																	944,
+																	312
+																],
+																[
+																	944,
+																	14
+																]
+															]
+														},
+														{
+															"area": "134",
+															"points": [
+																[
+																	324,
+																	351
+																],
+																[
+																	324,
+																	478
+																],
+																[
+																	465,
+																	478
+																],
+																[
+																	465,
+																	351
+																]
+															]
+														},
+														{
+															"area": "133",
+															"points": [
+																[
+																	178,
+																	724
+																],
+																[
+																	178,
+																	861
+																],
+																[
+																	373,
+																	861
+																],
+																[
+																	373,
+																	724
+																]
+															]
+														},
+														{
+															"area": "135",
+															"points": [
+																[
+																	865,
+																	654
+																],
+																[
+																	865,
+																	788
+																],
+																[
+																	1030,
+																	788
+																],
+																[
+																	1030,
+																	654
+																]
+															]
+														},
+														{
+															"area": "136",
+															"points": [
+																[
+																	608,
+																	964
+																],
+																[
+																	608,
+																	1131
+																],
+																[
+																	921,
+																	1131
+																],
+																[
+																	921,
+																	964
+																]
+															]
+														}
+													],
+													"hrefThumbnail": {
+														"type": "internal",
+														"path": "adventure/LoX/thumbnail/040-map-12.01-xaryxis-space.webp"
+													},
+													"id": "174"
 												},
 												{
 													"type": "image",
@@ -3637,7 +5211,10 @@
 													"imageType": "mapPlayer",
 													"title": "XaryxispaceView Player Version",
 													"width": 1200,
-													"height": 1500
+													"height": 1500,
+													"mapParent": {
+														"id": "174"
+													}
 												}
 											]
 										}
@@ -3699,7 +5276,608 @@
 											"title": "Imperial Citadel",
 											"width": 1700,
 											"height": 2200,
-											"id": "171"
+											"id": "171",
+											"mapRegions": [
+												{
+													"area": "137",
+													"points": [
+														[
+															649,
+															1642
+														],
+														[
+															649,
+															1776
+														],
+														[
+															1119,
+															1776
+														],
+														[
+															1119,
+															1642
+														]
+													]
+												},
+												{
+													"area": "13e",
+													"points": [
+														[
+															70,
+															330
+														],
+														[
+															150,
+															291
+														],
+														[
+															250,
+															308
+														],
+														[
+															291,
+															331
+														],
+														[
+															381,
+															360
+														],
+														[
+															416,
+															422
+														],
+														[
+															442,
+															465
+														],
+														[
+															429,
+															514
+														],
+														[
+															423,
+															550
+														],
+														[
+															384,
+															559
+														],
+														[
+															324,
+															571
+														],
+														[
+															244,
+															575
+														],
+														[
+															150,
+															588
+														],
+														[
+															144,
+															516
+														],
+														[
+															108,
+															450
+														],
+														[
+															67,
+															366
+														]
+													]
+												},
+												{
+													"area": "140",
+													"points": [
+														[
+															194,
+															957
+														],
+														[
+															249,
+															883
+														],
+														[
+															347,
+															858
+														],
+														[
+															516,
+															815
+														],
+														[
+															653,
+															885
+														],
+														[
+															730,
+															1067
+														],
+														[
+															735,
+															1165
+														],
+														[
+															685,
+															1230
+														],
+														[
+															569,
+															1304
+														],
+														[
+															394,
+															1288
+														],
+														[
+															270,
+															1144
+														],
+														[
+															227,
+															1050
+														],
+														[
+															211,
+															1018
+														]
+													]
+												},
+												{
+													"area": "13c",
+													"points": [
+														[
+															523,
+															413
+														],
+														[
+															441,
+															532
+														],
+														[
+															395,
+															581
+														],
+														[
+															266,
+															618
+														],
+														[
+															147,
+															616
+														],
+														[
+															111,
+															644
+														],
+														[
+															129,
+															775
+														],
+														[
+															303,
+															814
+														],
+														[
+															482,
+															771
+														],
+														[
+															664,
+															726
+														],
+														[
+															685,
+															590
+														],
+														[
+															666,
+															541
+														],
+														[
+															543,
+															455
+														]
+													]
+												},
+												{
+													"area": "13b",
+													"points": [
+														[
+															1494,
+															254
+														],
+														[
+															1462,
+															276
+														],
+														[
+															1435,
+															332
+														],
+														[
+															1422,
+															383
+														],
+														[
+															1434,
+															430
+														],
+														[
+															1488,
+															478
+														],
+														[
+															1550,
+															505
+														],
+														[
+															1638,
+															436
+														],
+														[
+															1654,
+															375
+														],
+														[
+															1604,
+															305
+														],
+														[
+															1558,
+															258
+														]
+													]
+												},
+												{
+													"area": "142",
+													"points": [
+														[
+															1624,
+															512
+														],
+														[
+															1586,
+															656
+														],
+														[
+															1492,
+															762
+														],
+														[
+															1419,
+															816
+														],
+														[
+															1229,
+															790
+														],
+														[
+															1083,
+															710
+														],
+														[
+															1055,
+															570
+														],
+														[
+															1101,
+															403
+														],
+														[
+															1279,
+															318
+														],
+														[
+															1335,
+															378
+														],
+														[
+															1409,
+															514
+														],
+														[
+															1544,
+															528
+														],
+														[
+															1595,
+															516
+														]
+													]
+												},
+												{
+													"area": "13f",
+													"points": [
+														[
+															1428,
+															1264
+														],
+														[
+															1137,
+															1253
+														],
+														[
+															949,
+															1110
+														],
+														[
+															957,
+															950
+														],
+														[
+															986,
+															823
+														],
+														[
+															1059,
+															802
+														],
+														[
+															1141,
+															811
+														],
+														[
+															1270,
+															832
+														],
+														[
+															1445,
+															879
+														],
+														[
+															1552,
+															890
+														],
+														[
+															1564,
+															1130
+														],
+														[
+															1461,
+															1230
+														]
+													]
+												},
+												{
+													"area": "13d",
+													"points": [
+														[
+															82,
+															1888
+														],
+														[
+															179,
+															1674
+														],
+														[
+															258,
+															1581
+														],
+														[
+															329,
+															1409
+														],
+														[
+															348,
+															1368
+														],
+														[
+															477,
+															1347
+														],
+														[
+															550,
+															1339
+														],
+														[
+															616,
+															1345
+														],
+														[
+															639,
+															1360
+														],
+														[
+															552,
+															1537
+														],
+														[
+															497,
+															1644
+														],
+														[
+															412,
+															1715
+														],
+														[
+															310,
+															1792
+														],
+														[
+															224,
+															1874
+														],
+														[
+															109,
+															1931
+														]
+													]
+												},
+												{
+													"area": "139",
+													"points": [
+														[
+															1079,
+															1317
+														],
+														[
+															1138,
+															1289
+														],
+														[
+															1258,
+															1310
+														],
+														[
+															1330,
+															1337
+														],
+														[
+															1412,
+															1410
+														],
+														[
+															1434,
+															1456
+														],
+														[
+															1509,
+															1534
+														],
+														[
+															1598,
+															1632
+														],
+														[
+															1658,
+															1677
+														],
+														[
+															1659,
+															1746
+														],
+														[
+															1677,
+															1841
+														],
+														[
+															1675,
+															1905
+														],
+														[
+															1484,
+															1817
+														],
+														[
+															1309,
+															1693
+														],
+														[
+															1216,
+															1550
+														],
+														[
+															1130,
+															1416
+														],
+														[
+															1119,
+															1390
+														]
+													]
+												},
+												{
+													"area": "13a",
+													"points": [
+														[
+															872,
+															1158
+														],
+														[
+															809,
+															1062
+														],
+														[
+															775,
+															928
+														],
+														[
+															774,
+															812
+														],
+														[
+															795,
+															725
+														],
+														[
+															836,
+															691
+														],
+														[
+															894,
+															692
+														],
+														[
+															921,
+															707
+														],
+														[
+															941,
+															762
+														],
+														[
+															947,
+															851
+														],
+														[
+															942,
+															937
+														],
+														[
+															916,
+															1024
+														],
+														[
+															883,
+															1135
+														]
+													]
+												},
+												{
+													"area": "141",
+													"points": [
+														[
+															864,
+															679
+														],
+														[
+															799,
+															644
+														],
+														[
+															795,
+															572
+														],
+														[
+															835,
+															523
+														],
+														[
+															909,
+															520
+														],
+														[
+															947,
+															574
+														],
+														[
+															957,
+															636
+														],
+														[
+															918,
+															678
+														]
+													]
+												}
+											],
+											"hrefThumbnail": {
+												"type": "internal",
+												"path": "adventure/LoX/thumbnail/042-map-12.02-imperial-citadel.webp"
+											}
 										},
 										{
 											"type": "image",
@@ -3910,7 +6088,34 @@
 											"title": "Temple of Light",
 											"width": 1700,
 											"height": 2200,
-											"id": "172"
+											"id": "172",
+											"mapRegions": [
+												{
+													"area": "14d",
+													"points": [
+														[
+															1109,
+															3
+														],
+														[
+															1109,
+															163
+														],
+														[
+															1600,
+															163
+														],
+														[
+															1600,
+															3
+														]
+													]
+												}
+											],
+											"hrefThumbnail": {
+												"type": "internal",
+												"path": "adventure/LoX/thumbnail/044-map-12.03-cathedral-of-light.webp"
+											}
 										},
 										{
 											"type": "image",
@@ -3979,7 +6184,7 @@
 												{
 													"type": "item",
 													"name": "Star Beam",
-													"entry": "A creature that starts its turn in the beam of light is magically teleported to the radiant core of Xaryxis, along with anything it is wearing or carrying. (The {@creature zodar|BAM} is immune to this effect.) A creature that enters the star or starts its turn there takes 132 ({@dice 24d10}) radiant damage."
+													"entry": "A creature that ends its turn in the beam of light is magically teleported to the radiant core of Xaryxis, along with anything it is wearing or carrying. (The {@creature zodar|BAM} is immune to this effect.) A creature that enters the star or starts its turn there takes 132 ({@dice 24d10}) radiant damage."
 												},
 												{
 													"type": "item",
@@ -4122,7 +6327,7 @@
 									]
 								},
 								"As a result of the zodar's {@spell wish}, the characters regain all their hit points. Each character also receives the benefit of a {@spell greater restoration} spell. Seeing the characters invigorated in this way causes all the astral elves in the Temple of Light, including Xeleth and Xedalli, to wonder if the gods have forsaken them. Why else, as they see it, would the zodar, which has defended the royal family for eons, bestow such a gift on the empire's enemies?",
-								"The zodar's pronouncement tells the characters what they must do to save their world: hurl Xeleth's or Xedalli's {@item ring of shooting stars} into the heart of Xaryxis. Doing so not only destroys the star and everything else in Xaryxispace but also kills off the crystal vines threatening the characters' world.",
+								"The zodar's pronouncement tells the characters what they must do to save their world: hurl Xeleth's or Xedalli's {@item ring of shooting stars} into the heart of Xaryxis. Doing so not only destroys the star but also kills off the crystal vines threatening the characters' world.",
 								"Depending on how the previous chapter played out, the characters might have Xedalli's ring in their possession. If not, they will need to acquire that ring or obtain its twin, which is worn by Xeleth.",
 								{
 									"type": "entries",
@@ -4134,7 +6339,7 @@
 											"type": "insetReadaloud",
 											"id": "163",
 											"entries": [
-												"\"Hurling a royal ring into the heart of Xaryxis will destroy not only the star but everything in this system!\""
+												"\"Hurling a royal ring into the heart of Xaryxis will destroy the star and everything within one hundred million miles of it! That which survives will be plunged into darkness!\""
 											]
 										},
 										"Andavier orders the audience to evacuate the Temple of Light. The priest leads the exodus, leaving the characters and their allies alone with Xeleth, Xedalli, and the siblings' royal guards.",
@@ -4188,14 +6393,6 @@
 								},
 								{
 									"type": "entries",
-									"name": "Fate of the Imperial Citadel",
-									"id": "165",
-									"entries": [
-										"Magister Theraxana and the mages of the Great Orrery have the means to move the imperial citadel out of Xaryxispace and into the Astral Sea, but not the authority. Magister Theraxana, a stickler for protocol, declares that the imperial citadel won't leave Xaryxispace \"without a command from the emperor.\" Neither Xeleth nor Xedalli will give this order, as it would mean accepting defeat."
-									]
-								},
-								{
-									"type": "entries",
 									"name": "No Coming Back",
 									"id": "166",
 									"entries": [
@@ -4232,10 +6429,10 @@
 											"type": "insetReadaloud",
 											"id": "169",
 											"entries": [
-												"The star flares, becoming a thousand times brighter. Moments later, it is gone. Shock waves of multicolored energy expand outward from the collapsed star, threatening all in their path."
+												"The star flares, becoming a thousand times brighter. Shock waves of multicolored energy expand outward from the collapsed star, threatening all in their path."
 											]
 										},
-										"The shock waves destroy everything in Xaryxispace but don't extend into the Astral Sea. The characters and their NPC allies have enough time to board a ship and use its {@item spelljamming helm|AAG} to reach the Astral Sea before the shock waves can catch up with them."
+										"The exploding star destroys everything within 100 million miles of it, including the planet Vaerduran. Rivus and Xaryndar survive but are plunged into darkness. The surviving astral elves have no choice but to evacuate all life from Xaryxispace over the coming weeks and months before retreating to the Astral Sea. Amid the chaos, the characters and their NPC allies have enough time to board a ship and use its spelljamming helm to flee the system."
 									]
 								}
 							]

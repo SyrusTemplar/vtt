@@ -1,12 +1,12 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "entry.json",
 
 	"title": "Entry",
 	"description": "A recursively renderable object.",
-	"version": "1.7.6",
+	"version": "1.8.3",
 
-	"definitions" : {
+	"$defs" : {
 		"_arrayOfSpell": {
 			"type": "array",
 			"uniqueItems": true,
@@ -46,9 +46,7 @@
 					"type": "object",
 					"properties": {
 						"type": {"const": "external"},
-						"url": {
-							"type": "string"
-						}
+						"url": {"$ref": "util.json#/$defs/url"}
 					},
 					"required": ["url"],
 					"additionalProperties": false
@@ -62,34 +60,28 @@
 				"name": {"type": "string"},
 				"type": {"type": "string"},
 				"source": {"type": "string"},
-				"page": {"$ref": "util.json#/definitions/page"},
-				"srd": {"$ref": "util.json#/definitions/srd"},
+				"page": {"$ref": "util.json#/$defs/page"},
+				"srd": {"$ref": "util.json#/$defs/srd"},
+				"basicRules": {"$ref": "util.json#/$defs/basicRules"},
 				"data": {
 					"description": "A generic object for storing special data for external use-cases. Keys prefixed with \"rd-\" should be added as \"data-\" HTML attributes when rendering to HTML.",
 					"type": "object"
 				},
 				"id": {"type": "string"}
 			},
-			"$$ifSite": {
-				"required": [
-					"type"
-				]
-			}
+			"required": [
+				"type"
+			]
 		},
 
 		"entrySection": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "section"},
-						"alias": {
-							"type": "array",
-							"items": {
-								"type": "string"
-							}
-						},
+						"alias": {"$ref": "util.json#/$defs/alias"},
 						"entries": {
 							"type": "array",
 							"items": {
@@ -106,7 +98,7 @@
 		"entryEntries": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "entries"},
@@ -116,12 +108,7 @@
 								"$ref": "#"
 							}
 						},
-						"alias": {
-							"type": "array",
-							"items": {
-								"type": "string"
-							}
-						},
+						"alias": {"$ref": "util.json#/$defs/alias"},
 						"style": {"type": "string"}
 					},
 					"required": ["entries"],
@@ -133,7 +120,7 @@
 			"entryHomebrew": {
 				"type": "object",
 				"$$merge": [
-					{"$ref" : "#/definitions/entry"},
+					{"$ref" : "#/$defs/entry"},
 					{
 						"properties": {
 							"type": {"const": "homebrew"},
@@ -161,7 +148,7 @@
 		"entryQuote": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "quote"},
@@ -193,7 +180,7 @@
 		"entryInlineEntries": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "inline"},
@@ -212,7 +199,7 @@
 		"entryEntriesInlineEntries": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "inlineBlock"},
@@ -231,7 +218,7 @@
 		"entryOptions": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "options"},
@@ -256,7 +243,7 @@
 		"entryTable": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "table"},
@@ -310,7 +297,7 @@
 										}
 									},
 									{
-										"$ref": "#/definitions/entryTableRow"
+										"$ref": "#/$defs/entryTableRow"
 									}
 								]
 							}
@@ -331,14 +318,14 @@
 			"description": "Used to group related tables together; has no effect on rendering.",
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "tableGroup"},
 						"tables": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/entryTable"
+								"$ref": "#/$defs/entryTable"
 							}
 						}
 					},
@@ -350,7 +337,7 @@
 		"entryTableRow": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {
@@ -374,7 +361,7 @@
 		"entryTableCell": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {
@@ -417,7 +404,7 @@
 		"entryList": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "list"},
@@ -452,7 +439,7 @@
 		"entryBonus": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "bonus"},
@@ -468,7 +455,7 @@
 		"entryBonusSpeed": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "bonusSpeed"},
@@ -484,7 +471,7 @@
 		"entryDice": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "dice"},
@@ -522,7 +509,7 @@
 		"entryAbilityDc": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "abilityDc"},
@@ -546,7 +533,7 @@
 		"entryAbilityAttackMod": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "abilityAttackMod"},
@@ -570,7 +557,7 @@
 		"abilityGeneric": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "abilityGeneric"},
@@ -593,7 +580,7 @@
 		"entryLink": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "link"},
@@ -660,7 +647,7 @@
 										"hover": {
 											"type": "object",
 											"properties": {
-												"page": {"$ref": "util.json#/definitions/page"},
+												"page": {"$ref": "util.json#/$defs/page"},
 												"source": {
 													"type": "string"
 												},
@@ -683,9 +670,7 @@
 									"type": "object",
 									"properties": {
 										"type": {"const": "external"},
-										"url": {
-											"type": "string"
-										}
+										"url": {"$ref": "util.json#/$defs/url"}
 									},
 									"required": ["url"],
 									"additionalProperties": false
@@ -702,7 +687,7 @@
 			"description": "For e.g. Eldritch Invocations which require prerequisite text",
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "optfeature"},
@@ -724,7 +709,7 @@
 		"entryInset": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "inset"},
@@ -744,7 +729,7 @@
 		"entryInsetReadaloud": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "insetReadaloud"},
@@ -764,7 +749,7 @@
 		"entryVariant": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "variant"},
@@ -783,7 +768,7 @@
 		"entryVariantInner": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "variantInner"},
@@ -802,7 +787,7 @@
 		"entryVariantSub": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "variantSub"},
@@ -823,7 +808,7 @@
 				{
 					"type": "object",
 					"$$merge": [
-						{"$ref" : "#/definitions/entry"},
+						{"$ref" : "#/$defs/entry"},
 						{
 							"properties": {
 								"type": {"const": "item"},
@@ -843,7 +828,7 @@
 				{
 					"type": "object",
 					"$$merge": [
-						{"$ref" : "#/definitions/entry"},
+						{"$ref" : "#/$defs/entry"},
 						{
 							"properties": {
 								"type": {"const": "item"},
@@ -868,7 +853,7 @@
 		"entryItemSub": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "itemSub"},
@@ -887,7 +872,7 @@
 		"entryItemSpell": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "itemSpell"},
@@ -903,16 +888,16 @@
 		"entryImage": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "image"},
 						"href": {
-							"$ref": "#/definitions/mediaHref"
+							"$ref": "#/$defs/mediaHref"
 						},
 						"hrefThumbnail": {
 							"title": "A thumbnail image used in rare cases, e.g. when loading a wall of maps to choose from in the DM Screen.",
-							"$ref": "#/definitions/mediaHref"
+							"$ref": "#/$defs/mediaHref"
 						},
 						"title": {
 							"type": "string"
@@ -1033,14 +1018,14 @@
 		"entryGallery": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "gallery"},
 						"images": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/entryImage"
+								"$ref": "#/$defs/entryImage"
 							}
 						}
 					},
@@ -1052,7 +1037,7 @@
 		"entryActions": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "actions"},
@@ -1071,7 +1056,7 @@
 		"entryAttack": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "attack"},
@@ -1105,14 +1090,14 @@
 		"entryFlowchart": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "flowchart"},
 						"blocks": {
 							"type": "array",
 							"items": {
-								"$ref" : "#/definitions/entry"
+								"$ref" : "#/$defs/entry"
 							}
 						}
 					},
@@ -1124,14 +1109,14 @@
 		"entryFlowBlock": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "flowBlock"},
 						"entries": {
 							"type": "array",
 							"items": {
-								"$ref" : "#/definitions/entry"
+								"$ref" : "#/$defs/entry"
 							}
 						}
 					},
@@ -1142,7 +1127,7 @@
 		"entryIngredient": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "ingredient"},
@@ -1156,81 +1141,762 @@
 				}
 			]
 		},
-		"entryDataCreature": {
-			"type": "object",
-			"properties": {
-				"type": {"const": "dataCreature"},
-				"style": {"$ref": "#/definitions/_entryDataStyle"},
-				"dataCreature": {
-					"$ref" : "bestiary/bestiary.json#/definitions/creature"
-				}
-			},
-			"required": [
-				"type",
-				"dataCreature"
-			]
-		},
-		"entryDataSpell": {
-			"type": "object",
-			"properties": {
-				"type": {"const": "dataSpell"},
-				"style": {"$ref": "#/definitions/_entryDataStyle"},
-				"dataSpell": {
-					"$ref" : "spells/spells.json#/definitions/spell"
-				}
-			},
-			"required": [
-				"type",
-				"dataSpell"
-			]
-		},
-		"entryDataTrapHazard": {
-			"type": "object",
-			"properties": {
-				"type": {"const": "dataTrapHazard"},
-				"style": {"$ref": "#/definitions/_entryDataStyle"},
-				"dataTrapHazard": {
-					"oneOf": [
-						{
-							"$ref" : "trapshazards.json#/definitions/trap"
+		"entryStatblockInline": {
+			"anyOf": [
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
 						},
-						{
-							"$ref" : "trapshazards.json#/definitions/hazard"
+						"dataType": {
+							"const": "monster"
+						},
+						"data": {
+							"$ref": "bestiary/bestiary.json#/$defs/creature"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
 						}
-					]
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "legendaryGroup"
+						},
+						"data": {
+							"$ref": "bestiary/legendarygroups.json#/$defs/legendaryGroup"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "spell"
+						},
+						"data": {
+							"$ref": "spells/spells.json#/$defs/spell"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "action"
+						},
+						"data": {
+							"$ref": "actions.json#/$defs/action"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "item"
+						},
+						"data": {
+							"$ref": "items.json#/$defs/item"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "background"
+						},
+						"data": {
+							"$ref": "backgrounds.json#/$defs/background"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "charoption"
+						},
+						"data": {
+							"$ref": "charcreationoptions.json#/$defs/charoption"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "condition"
+						},
+						"data": {
+							"$ref": "conditionsdiseases.json#/$defs/conditionDisease"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "disease"
+						},
+						"data": {
+							"$ref": "conditionsdiseases.json#/$defs/conditionDisease"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "status"
+						},
+						"data": {
+							"$ref": "conditionsdiseases.json#/$defs/conditionDisease"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "cult"
+						},
+						"data": {
+							"$ref": "cultsboons.json#/$defs/cult"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "boon"
+						},
+						"data": {
+							"$ref": "cultsboons.json#/$defs/boon"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "deity"
+						},
+						"data": {
+							"$ref": "deities.json#/$defs/deity"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "feat"
+						},
+						"data": {
+							"$ref": "feats.json#/$defs/feat"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "language"
+						},
+						"data": {
+							"$ref": "languages.json#/$defs/language"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "object"
+						},
+						"data": {
+							"$ref": "objects.json#/$defs/object"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "optionalfeature"
+						},
+						"data": {
+							"$ref": "optionalfeatures.json#/$defs/optionalfeature"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "psionic"
+						},
+						"data": {
+							"$ref": "psionics.json#/$defs/psionic"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "race"
+						},
+						"data": {
+							"$ref": "races.json#/$defs/race"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "recipe"
+						},
+						"data": {
+							"$ref": "recipes.json#/$defs/recipe"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "reward"
+						},
+						"data": {
+							"$ref": "rewards.json#/$defs/reward"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "table"
+						},
+						"data": {
+							"$ref": "tables.json#/$defs/tableData"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "trap"
+						},
+						"data": {
+							"$ref": "trapshazards.json#/$defs/trap"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "hazard"
+						},
+						"data": {
+							"$ref": "trapshazards.json#/$defs/hazard"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "variantrule"
+						},
+						"data": {
+							"$ref": "variantrules.json#/$defs/variantrule"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "vehicle"
+						},
+						"data": {
+							"$ref": "vehicles.json#/$defs/vehicle"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "vehicleUpgrade"
+						},
+						"data": {
+							"$ref": "vehicles.json#/$defs/vehicleUpgrade"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "skill"
+						},
+						"data": {
+							"$ref": "skills.json#/$defs/skill"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"type": {
+							"const": "statblockInline"
+						},
+						"dataType": {
+							"const": "sense"
+						},
+						"data": {
+							"$ref": "senses.json#/$defs/sense"
+						},
+						"style": {
+							"$ref": "#/$defs/_entryDataStyle"
+						},
+						"collapsed": {
+							"const": true
+						}
+					},
+					"required": [
+						"type",
+						"dataType",
+						"data"
+					],
+					"additionalProperties": false
 				}
-			},
-			"required": [
-				"type",
-				"dataTrapHazard"
-			]
-		},
-		"entryDataObject": {
-			"type": "object",
-			"properties": {
-				"type": {"const": "dataObject"},
-				"style": {"$ref": "#/definitions/_entryDataStyle"},
-				"dataObject": {
-					"$ref" : "objects.json#/definitions/object"
-				}
-			},
-			"required": [
-				"type",
-				"dataObject"
-			]
-		},
-		"entryDataItem": {
-			"type": "object",
-			"properties": {
-				"type": {"const": "dataItem"},
-				"style": {"$ref": "#/definitions/_entryDataStyle"},
-				"dataItem": {
-					"$ref" : "items.json#/definitions/item"
-				}
-			},
-			"required": [
-				"type",
-				"dataItem"
 			]
 		},
 		"entryStatblock": {
@@ -1238,16 +1904,17 @@
 				{
 					"type": "object",
 					"$$merge": [
-						{"$ref" : "#/definitions/entry"},
+						{"$ref" : "#/$defs/entry"},
 						{
 							"properties": {
 								"type": {"const": "statblock"},
-								"tag": {"$ref": "util.json#/definitions/tagNameStats"},
+								"tag": {"$ref": "util.json#/$defs/tagNameStats"},
 								"name": {"type": "string"},
 								"displayName": {"type": "string"},
 								"source": {"type": "string"},
 								"hash": {"type": "string"},
-								"style": {"$ref": "#/definitions/_entryDataStyle"}
+								"style": {"$ref": "#/$defs/_entryDataStyle"},
+								"collapsed": {"const": true}
 							},
 							"required": ["tag", "name"],
 							"additionalProperties": false
@@ -1257,16 +1924,17 @@
 				{
 					"type": "object",
 					"$$merge": [
-						{"$ref" : "#/definitions/entry"},
+						{"$ref" : "#/$defs/entry"},
 						{
 							"properties": {
 								"type": {"const": "statblock"},
-								"prop": {"$ref": "util.json#/definitions/propNameStats"},
+								"prop": {"$ref": "util.json#/$defs/propNameStats"},
 								"name": {"type": "string"},
 								"displayName": {"type": "string"},
 								"source": {"type": "string"},
 								"hash": {"type": "string"},
-								"style": {"$ref": "#/definitions/_entryDataStyle"}
+								"style": {"$ref": "#/$defs/_entryDataStyle"},
+								"collapsed": {"const": true}
 							},
 							"required": ["prop", "name", "source"]
 						}
@@ -1327,7 +1995,7 @@
 		"entrySpellcasting": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"headerEntries": {
@@ -1337,28 +2005,28 @@
 							}
 						},
 						"constant": {
-							"$ref": "#/definitions/_arrayOfSpell"
+							"$ref": "#/$defs/_arrayOfSpell"
 						},
 						"will": {
-							"$ref": "#/definitions/_arrayOfSpell"
+							"$ref": "#/$defs/_arrayOfSpell"
 						},
 						"ritual": {
-							"$ref": "#/definitions/_arrayOfSpell"
+							"$ref": "#/$defs/_arrayOfSpell"
 						},
 						"rest": {
-							"$ref": "#/definitions/entrySpellcasting_frequency"
+							"$ref": "#/$defs/entrySpellcasting_frequency"
 						},
 						"daily": {
-							"$ref": "#/definitions/entrySpellcasting_frequency"
+							"$ref": "#/$defs/entrySpellcasting_frequency"
 						},
 						"weekly": {
-							"$ref": "#/definitions/entrySpellcasting_frequency"
+							"$ref": "#/$defs/entrySpellcasting_frequency"
 						},
 						"yearly": {
-							"$ref": "#/definitions/entrySpellcasting_frequency"
+							"$ref": "#/$defs/entrySpellcasting_frequency"
 						},
 						"charges": {
-							"$ref": "#/definitions/entrySpellcasting_frequency"
+							"$ref": "#/$defs/entrySpellcasting_frequency"
 						},
 						"spells": {
 							"type": "object",
@@ -1380,31 +2048,31 @@
 									"additionalProperties": false
 								},
 								"1": {
-									"$ref": "#/definitions/entrySpellcasting_level1to9"
+									"$ref": "#/$defs/entrySpellcasting_level1to9"
 								},
 								"2": {
-									"$ref": "#/definitions/entrySpellcasting_level1to9"
+									"$ref": "#/$defs/entrySpellcasting_level1to9"
 								},
 								"3": {
-									"$ref": "#/definitions/entrySpellcasting_level1to9"
+									"$ref": "#/$defs/entrySpellcasting_level1to9"
 								},
 								"4": {
-									"$ref": "#/definitions/entrySpellcasting_level1to9"
+									"$ref": "#/$defs/entrySpellcasting_level1to9"
 								},
 								"5": {
-									"$ref": "#/definitions/entrySpellcasting_level1to9"
+									"$ref": "#/$defs/entrySpellcasting_level1to9"
 								},
 								"6": {
-									"$ref": "#/definitions/entrySpellcasting_level1to9"
+									"$ref": "#/$defs/entrySpellcasting_level1to9"
 								},
 								"7": {
-									"$ref": "#/definitions/entrySpellcasting_level1to9"
+									"$ref": "#/$defs/entrySpellcasting_level1to9"
 								},
 								"8": {
-									"$ref": "#/definitions/entrySpellcasting_level1to9"
+									"$ref": "#/$defs/entrySpellcasting_level1to9"
 								},
 								"9": {
-									"$ref": "#/definitions/entrySpellcasting_level1to9"
+									"$ref": "#/$defs/entrySpellcasting_level1to9"
 								}
 							},
 							"additionalProperties": false
@@ -1477,58 +2145,58 @@
 			"type": "object",
 			"properties": {
 				"9e": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"9": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"8e": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"8": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"7e": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"7": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"6e": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"6": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"5e": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"5": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"4e": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"4": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"3e": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"3": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"2e": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"2": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"1e": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				},
 				"1": {
-					"$ref": "#/definitions/_arrayOfSpell"
+					"$ref": "#/$defs/_arrayOfSpell"
 				}
 			},
 			"additionalProperties": false
@@ -1536,7 +2204,7 @@
 		"entryWrapped": {
 			"type": "object",
 			"$$merge": [
-				{"$ref" : "#/definitions/entry"},
+				{"$ref" : "#/$defs/entry"},
 				{
 					"properties": {
 						"type": {"const": "wrapper"},
@@ -1552,7 +2220,7 @@
 		"dataDamImmune": {
 			"oneOf": [
 				{
-					"$ref": "util.json#/definitions/dataDamageType"
+					"$ref": "util.json#/$defs/dataDamageType"
 				},
 				{
 					"type": "object",
@@ -1573,7 +2241,7 @@
 						"immune": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/dataDamImmune"
+								"$ref": "#/$defs/dataDamImmune"
 							}
 						},
 						"note": {
@@ -1588,7 +2256,7 @@
 		"dataCondImmune": {
 			"oneOf": [
 				{
-					"$ref": "util.json#/definitions/dataCondition"
+					"$ref": "util.json#/$defs/dataCondition"
 				},
 				{
 					"type": "object",
@@ -1609,7 +2277,7 @@
 						"conditionImmune": {
 							"type": "array",
 							"items": {
-								"$ref": "util.json#/definitions/dataCondition"
+								"$ref": "util.json#/$defs/dataCondition"
 							}
 						},
 						"note": {
@@ -1624,53 +2292,49 @@
 	},
 
 	"anyOf": [
-		{"$ref": "#/definitions/entrySection"},
-		{"$ref": "#/definitions/entryEntries"},
-		{"$$ifBrew_item": {"$ref": "#/definitions/entryHomebrew"}},
-		{"$ref": "#/definitions/entryQuote"},
-		{"$ref": "#/definitions/entryInlineEntries"},
-		{"$ref": "#/definitions/entryEntriesInlineEntries"},
-		{"$ref": "#/definitions/entryOptions"},
-		{"$ref": "#/definitions/entryTableGroup"},
-		{"$ref": "#/definitions/entryTable"},
-		{"$ref": "#/definitions/entryTableRow"},
-		{"$ref": "#/definitions/entryTableCell"},
-		{"$ref": "#/definitions/entryList"},
-		{"$ref": "#/definitions/entryBonus"},
-		{"$ref": "#/definitions/entryBonusSpeed"},
-		{"$ref": "#/definitions/entryDice"},
-		{"$ref": "#/definitions/entryAbilityDc"},
-		{"$ref": "#/definitions/entryAbilityAttackMod"},
-		{"$ref": "#/definitions/abilityGeneric"},
-		{"$ref": "#/definitions/entryLink"},
-		{"$ref": "#/definitions/entryOptFeature"},
-		{"$ref": "#/definitions/entryInset"},
-		{"$ref": "#/definitions/entryInsetReadaloud"},
-		{"$ref": "#/definitions/entryVariant"},
-		{"$ref": "#/definitions/entryVariantInner"},
-		{"$ref": "#/definitions/entryVariantSub"},
-		{"$ref": "#/definitions/entryItem"},
-		{"$ref": "#/definitions/entryItemSub"},
-		{"$ref": "#/definitions/entryItemSpell"},
-		{"$ref": "#/definitions/entryImage"},
-		{"$ref": "#/definitions/entryGallery"},
-		{"$ref": "#/definitions/entryActions"},
-		{"$ref": "#/definitions/entryAttack"},
-		{"$ref": "#/definitions/entryDataCreature"},
-		{"$ref": "#/definitions/entryDataSpell"},
-		{"$ref": "#/definitions/entryDataTrapHazard"},
-		{"$ref": "#/definitions/entryDataObject"},
-		{"$ref": "#/definitions/entryDataItem"},
-		{"$ref": "#/definitions/entryStatblock"},
-		{"$ref": "#/definitions/entryRefClassFeature"},
-		{"$ref": "#/definitions/entryRefSubclassFeature"},
-		{"$ref": "#/definitions/entryRefOptionalfeature"},
-		{"$ref": "#/definitions/entryHr"},
-		{"$ref": "#/definitions/entrySpellcasting"},
-		{"$ref": "#/definitions/entryFlowchart"},
-		{"$ref": "#/definitions/entryFlowBlock"},
-		{"$ref": "#/definitions/entryIngredient"},
-		{"$ref": "#/definitions/entryWrapped"},
+		{"$ref": "#/$defs/entrySection"},
+		{"$ref": "#/$defs/entryEntries"},
+		{"$$ifBrew_item": {"$ref": "#/$defs/entryHomebrew"}},
+		{"$ref": "#/$defs/entryQuote"},
+		{"$ref": "#/$defs/entryInlineEntries"},
+		{"$ref": "#/$defs/entryEntriesInlineEntries"},
+		{"$ref": "#/$defs/entryOptions"},
+		{"$ref": "#/$defs/entryTableGroup"},
+		{"$ref": "#/$defs/entryTable"},
+		{"$ref": "#/$defs/entryTableRow"},
+		{"$ref": "#/$defs/entryTableCell"},
+		{"$ref": "#/$defs/entryList"},
+		{"$ref": "#/$defs/entryBonus"},
+		{"$ref": "#/$defs/entryBonusSpeed"},
+		{"$ref": "#/$defs/entryDice"},
+		{"$ref": "#/$defs/entryAbilityDc"},
+		{"$ref": "#/$defs/entryAbilityAttackMod"},
+		{"$ref": "#/$defs/abilityGeneric"},
+		{"$ref": "#/$defs/entryLink"},
+		{"$ref": "#/$defs/entryOptFeature"},
+		{"$ref": "#/$defs/entryInset"},
+		{"$ref": "#/$defs/entryInsetReadaloud"},
+		{"$ref": "#/$defs/entryVariant"},
+		{"$ref": "#/$defs/entryVariantInner"},
+		{"$ref": "#/$defs/entryVariantSub"},
+		{"$ref": "#/$defs/entryItem"},
+		{"$ref": "#/$defs/entryItemSub"},
+		{"$ref": "#/$defs/entryItemSpell"},
+		{"$ref": "#/$defs/entryImage"},
+		{"$ref": "#/$defs/entryGallery"},
+		{"$ref": "#/$defs/entryActions"},
+		{"$ref": "#/$defs/entryAttack"},
+		{"$ref": "#/$defs/entryStatblockInline"},
+		{"$ref": "#/$defs/entryStatblock"},
+		{"$ref": "#/$defs/entryRefClassFeature"},
+		{"$ref": "#/$defs/entryRefSubclassFeature"},
+		{"$ref": "#/$defs/entryRefOptionalfeature"},
+		{"$ref": "#/$defs/entryHr"},
+		{"$ref": "#/$defs/entrySpellcasting"},
+		{"$ref": "#/$defs/entryFlowchart"},
+		{"$ref": "#/$defs/entryFlowBlock"},
+		{"$ref": "#/$defs/entryIngredient"},
+		{"$ref": "#/$defs/entryWrapped"},
 		{"type": "string"},
 		{"type": "integer"}
 	]

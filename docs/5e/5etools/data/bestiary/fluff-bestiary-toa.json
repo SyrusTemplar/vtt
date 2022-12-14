@@ -374,6 +374,15 @@
 						}
 					]
 				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Assassin Vine.webp"
+					}
+				}
 			]
 		},
 		{
@@ -451,6 +460,19 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/ToA/Bag of Nails.jpg"
+					}
+				}
+			]
+		},
+		{
+			"name": "Blind Artist",
+			"source": "ToA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Blind Artist.webp"
 					}
 				}
 			]
@@ -630,6 +652,19 @@
 			]
 		},
 		{
+			"name": "Ekene-Afa",
+			"source": "ToA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Ekene-Afa.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Elok Jaharwon",
 			"source": "ToA",
 			"images": [
@@ -792,6 +827,19 @@
 			]
 		},
 		{
+			"name": "Grabstab",
+			"source": "ToA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Grabstab.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Hew Hackinstone",
 			"source": "ToA",
 			"entries": [
@@ -830,6 +878,19 @@
 			]
 		},
 		{
+			"name": "Ifan Talro'a",
+			"source": "ToA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Ifan Talro'a.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Jaculi",
 			"source": "ToA",
 			"entries": [
@@ -857,6 +918,32 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/ToA/Jaculi.jpg"
+					}
+				}
+			]
+		},
+		{
+			"name": "Jessamine",
+			"source": "ToA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Jessamine.webp"
+					}
+				}
+			]
+		},
+		{
+			"name": "Jobal",
+			"source": "ToA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Jobal.webp"
 					}
 				}
 			]
@@ -920,6 +1007,19 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/ToA/King of Feathers.jpg"
+					}
+				}
+			]
+		},
+		{
+			"name": "Kwayothé",
+			"source": "ToA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Kwayothe.webp"
 					}
 				}
 			]
@@ -1097,6 +1197,32 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/ToA/Mwaxanaré.jpg"
+					}
+				}
+			]
+		},
+		{
+			"name": "Nanny Pu'pu",
+			"source": "ToA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Nanny Pu'pu.webp"
+					}
+				}
+			]
+		},
+		{
+			"name": "Orvex Ocrammas",
+			"source": "ToA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Orvex Ocrammas.webp"
 					}
 				}
 			]
@@ -1415,6 +1541,15 @@
 						}
 					]
 				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Tomb Guardian.webp"
+					}
+				}
 			]
 		},
 		{
@@ -1588,6 +1723,19 @@
 							]
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Wakanga O'tamu",
+			"source": "ToA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Wakanga O'tamu.webp"
+					}
 				}
 			]
 		},
@@ -1772,6 +1920,19 @@
 			]
 		},
 		{
+			"name": "Yorb",
+			"source": "ToA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Yorb.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Zaroum Al-Saryak",
 			"source": "ToA",
 			"images": [
@@ -1780,6 +1941,19 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/ToA/Zaroum Al-Saryak.png"
+					}
+				}
+			]
+		},
+		{
+			"name": "Zhanthi",
+			"source": "ToA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/ToA/Zhanthi.webp"
 					}
 				}
 			]

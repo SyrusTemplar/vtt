@@ -38,8 +38,10 @@ class CharCreationOptionsPage extends ListPage {
 	constructor () {
 		const pageFilter = new PageFilterCharCreationOptions();
 		super({
-			dataSource: "data/charcreationoptions.json",
-			dataSourceFluff: "data/fluff-charcreationoptions.json",
+			dataSource: DataUtil.charoption.loadJSON.bind(DataUtil.charoption),
+			dataSourceFluff: DataUtil.charoptionFluff.loadJSON.bind(DataUtil.charoptionFluff),
+
+			pFnGetFluff: Renderer.charoption.pGetFluff.bind(Renderer.charoption),
 
 			pageFilter,
 
@@ -53,7 +55,7 @@ class CharCreationOptionsPage extends ListPage {
 		this._pageFilter.mutateAndAddToFilters(it, isExcluded);
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
+		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
 
 		const hash = UrlUtil.autoEncodeHash(it);
 		const source = Parser.sourceJsonToAbv(it.source);
@@ -103,7 +105,7 @@ class CharCreationOptionsPage extends ListPage {
 				isImageTab,
 				$content: this._$pgContent,
 				entity: it,
-				pFnGetFluff: Renderer.charoption.pGetFluff,
+				pFnGetFluff: this._pFnGetFluff,
 			});
 		};
 

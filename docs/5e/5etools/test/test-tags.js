@@ -2,9 +2,9 @@ const fs = require("fs");
 require("../js/utils.js");
 require("../js/render.js");
 require("../js/render-dice.js");
-Object.assign(global, require("../js/hist.js"));
+require("../js/hist.js");
 const utS = require("../node/util-search-index");
-const od = require("../js/omnidexer.js");
+require("../js/omnidexer.js");
 const ut = require("../node/util.js");
 
 const TIME_TAG = "\tRun duration";
@@ -32,10 +32,12 @@ const MSG = {
 	BestiaryDataCheck: "",
 	RefTagCheck: "",
 	TestCopyCheck: "",
+	HasFluffCheck: "",
+	AdventureBookTagCheck: "",
 };
 
 const WALKER = MiscUtil.getWalker({
-	keyBlacklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLACKLIST,
+	keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST,
 	isNoModification: true,
 });
 
@@ -50,10 +52,10 @@ class TagTestUtil {
 	}
 
 	static async _pInit_pPopulateUrls () {
-		const primaryIndex = od.Omnidexer.decompressIndex(await utS.UtilSearchIndex.pGetIndex(false, true));
+		const primaryIndex = Omnidexer.decompressIndex(await utS.UtilSearchIndex.pGetIndex({doLogging: false, noFilter: true}));
 		primaryIndex.forEach(it => ALL_URLS.add(`${UrlUtil.categoryToPage(it.c)}#${(it.u).toLowerCase().trim()}`));
 		const highestId = primaryIndex.last().id;
-		const secondaryIndexItem = od.Omnidexer.decompressIndex(await utS.UtilSearchIndex.pGetIndexAdditionalItem(highestId + 1, false));
+		const secondaryIndexItem = Omnidexer.decompressIndex(await utS.UtilSearchIndex.pGetIndexAdditionalItem({baseIndex: highestId + 1, doLogging: false}));
 		secondaryIndexItem.forEach(it => ALL_URLS.add(`${UrlUtil.categoryToPage(it.c)}#${(it.u).toLowerCase().trim()}`));
 	}
 
@@ -302,8 +304,8 @@ class LinkCheck {
 		}
 	}
 }
-LinkCheck._RE_TAG_BLACKLIST = new Set(["quickref"]);
-LinkCheck.RE = RegExp(`{@(${Object.keys(Parser.TAG_TO_DEFAULT_SOURCE).filter(tag => !LinkCheck._RE_TAG_BLACKLIST.has(tag)).join("|")}) ([^}]*?)}`, "g");
+LinkCheck._RE_TAG_BLOCKLIST = new Set(["quickref"]);
+LinkCheck.RE = RegExp(`{@(${Object.keys(Parser.TAG_TO_DEFAULT_SOURCE).filter(tag => !LinkCheck._RE_TAG_BLOCKLIST.has(tag)).join("|")}) ([^}]*?)}`, "g");
 
 class ClassLinkCheck {
 	static addHandlers () {
@@ -386,6 +388,11 @@ class ItemDataCheck extends GenericDataCheck {
 		if (root.attachedSpells) {
 			ItemDataCheck._checkArrayDuplicates(file, name, source, root.attachedSpells, "attachedSpells", "spell");
 			ItemDataCheck._checkArrayItemsExist(file, name, source, root.attachedSpells, "attachedSpells", "spell");
+		}
+
+		if (root.optionalfeatures) {
+			ItemDataCheck._checkArrayDuplicates(file, name, source, root.optionalfeatures, "optionalfeatures", "optfeature");
+			ItemDataCheck._checkArrayItemsExist(file, name, source, root.optionalfeatures, "optionalfeatures", "optfeature");
 		}
 
 		if (root.items) {
@@ -503,7 +510,7 @@ class FilterCheck {
 				return m0;
 			}
 
-			if (!UrlUtil.PG_TO_NAME[`${spl[1]}.html`]) {
+			if (!UrlUtil.pageToDisplayPage(`${spl[1]}.html`)) {
 				MSG.FilterCheck += `Unknown page in filter tag "${str}"\n`;
 			}
 
@@ -1181,6 +1188,144 @@ class TestCopyCheck {
 	}
 }
 
+class HasFluffCheck extends GenericDataCheck {
+	static _LEN_PAD_HASH = 70;
+
+	static async pRun () {
+		const withLoaders = Object.entries(DataUtil)
+			.filter(([, impl]) => Object.getPrototypeOf(impl).name !== "_DataUtilPropConfig" && impl.loadJSON);
+
+		const metas = {};
+
+		for (const [prop, impl] of withLoaders) {
+			const isFluff = prop.endsWith("Fluff");
+			const propBase = isFluff ? prop.replace(/Fluff$/, "") : prop;
+
+			const allData = await impl.loadJSON();
+
+			const tgt = (metas[propBase] = metas[propBase] || {});
+			tgt.prop = propBase;
+			tgt.page = impl.PAGE;
+
+			if (isFluff) {
+				tgt.propFluff = prop;
+				tgt.dataFluff = allData;
+				tgt.dataFluffUnmerged = await impl.loadUnmergedJSON();
+			} else {
+				tgt.data = allData;
+			}
+		}
+
+		const [metasWithFluff, metasWithoutFluff] = Object.values(metas)
+			.segregate(it => it.propFluff);
+
+		for (const {prop, propFluff, dataFluff, dataFluffUnmerged, data, page} of metasWithFluff) {
+			const fluffLookup = dataFluff[propFluff]
+				.mergeMap(flf => ({
+					[UrlUtil.URL_TO_HASH_BUILDER[page](flf)]: {
+						hasFluff: !!flf.entries,
+						hasFluffImages: !!flf.images,
+					},
+				}));
+
+			// Tag parent fluff, so we can ignore e.g. "unused" fluff which is only used by `_copy`s
+			dataFluffUnmerged[propFluff].forEach(flfUm => {
+				if (!flfUm._copy) return;
+				const hashParent = UrlUtil.URL_TO_HASH_BUILDER[page](flfUm._copy);
+				// Track fluff vs. images, as e.g. the child overwriting the images means we don't use the parent images
+				fluffLookup[hashParent].isCopiedFluff = !flfUm.entries;
+				fluffLookup[hashParent].isCopiedFluffImages = !flfUm.images;
+			});
+
+			data[prop].forEach(ent => {
+				if (!ent.hasFluff && !ent.hasFluffImages) return;
+
+				const hash = UrlUtil.URL_TO_HASH_BUILDER[page](ent);
+
+				const fromLookup = fluffLookup[hash];
+				if (!fromLookup) {
+					MSG.HasFluffCheck += `${prop} hash ${`"${hash}"`.padEnd(this._LEN_PAD_HASH, " ")} not found in corresponding "${propFluff}" fluff!\n`;
+					return;
+				}
+
+				const ptsMessage = [];
+
+				if (!!ent.hasFluff !== fromLookup.hasFluff) {
+					ptsMessage.push(`hasFluff mismatch (entity ${ent.hasFluff} | fluff ${fromLookup.hasFluff})`);
+				} else if (ent.hasFluff) {
+					delete fluffLookup[hash].hasFluff;
+				}
+
+				if (!!ent.hasFluffImages !== fromLookup.hasFluffImages) {
+					ptsMessage.push(`hasFluffImages mismatch (entity ${ent.hasFluffImages} | fluff ${fromLookup.hasFluffImages})`);
+				} else if (ent.hasFluffImages) {
+					delete fluffLookup[hash].hasFluffImages;
+				}
+
+				if (!fluffLookup[hash].hasFluff && !fluffLookup[hash].hasFluffImages) delete fluffLookup[hash];
+
+				if (!ptsMessage.length) return;
+
+				MSG.HasFluffCheck += `${prop} hash ${`"${hash}"`.padEnd(this._LEN_PAD_HASH, " ")} fluff did not match fluff file: ${ptsMessage.join("; ")}\n`;
+			});
+
+			const unusedFluff = Object.entries(fluffLookup)
+				.filter(([, meta]) => !meta.isCopiedFluff && !meta.isCopiedFluffImages);
+
+			if (unusedFluff.length) {
+				const errors = unusedFluff
+					.map(([hash, {hasFluff, hasFluffImages}]) => `${`"${hash}"`.padEnd(this._LEN_PAD_HASH, " ")} ${[hasFluff ? "hasFluff" : null, hasFluffImages ? "hasFluffImages" : null].filter(Boolean).join(" | ")}`);
+				MSG.HasFluffCheck += `Extra ${propFluff} fluff found!\n${errors.map(it => `\t${it}`).join("\n")}\n`;
+			}
+		}
+	}
+}
+
+class AdventureBookTagCheck {
+	static _ADV_BOOK_LOOKUP = {};
+
+	static addHandlers () {
+		[
+			{
+				path: "./data/adventures.json",
+				prop: "adventure",
+				tag: "adventure",
+			},
+			{
+				path: "./data/books.json",
+				prop: "book",
+				tag: "book",
+			},
+		].forEach(({path, prop, tag}) => {
+			const json = ut.readJson(path);
+			this._ADV_BOOK_LOOKUP[tag] = json[prop].mergeMap(({id}) => ({[id.toLowerCase()]: true}));
+		});
+
+		ParsedJsonChecker.addPrimitiveHandler("string", AdventureBookTagCheck.checkString.bind(this));
+	}
+
+	static checkString (file, str) {
+		const tagSplit = Renderer.splitByTags(str);
+
+		const len = tagSplit.length;
+		for (let i = 0; i < len; ++i) {
+			const s = tagSplit[i];
+			if (!s) continue;
+			if (s.startsWith("{@")) {
+				const [tag, text] = Renderer.splitFirstSpace(s.slice(1, -1));
+				if (!["@adventure", "@book"].includes(tag)) continue;
+
+				const [, id] = text.toLowerCase().split("|");
+				if (!id) throw new Error(`${tag} tag had ${s} no source!`); // Should never occur
+
+				if (this._ADV_BOOK_LOOKUP[tag.slice(1)][id]) return;
+
+				MSG.AdventureBookTagCheck += `Missing link: ${s} in file ${file} had unknown "${tag}" ID "${id}"\n`;
+			}
+		}
+	}
+}
+
 async function main () {
 	await TagTestUtil.pInit();
 
@@ -1191,6 +1336,7 @@ async function main () {
 	ScaleDiceCheck.addHandlers();
 	StripTagTest.addHandlers();
 	TableDiceTest.addHandlers();
+	AdventureBookTagCheck.addHandlers();
 
 	ParsedJsonChecker.register(ParsedJsonChecker.checkFile.bind(ParsedJsonChecker));
 	ParsedJsonChecker.register(AreaCheck.checkFile.bind(AreaCheck));
@@ -1202,6 +1348,8 @@ async function main () {
 
 	ut.patchLoadJson();
 	await RefTagCheck.pPostRun();
+
+	await HasFluffCheck.pRun();
 	ut.unpatchLoadJson();
 
 	ItemDataCheck.run();

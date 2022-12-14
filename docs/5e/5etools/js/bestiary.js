@@ -14,6 +14,12 @@ class _BestiaryUtil {
 		if (!subhashesRaw.length) return "";
 		return `${isAddLeadingSep ? HASH_PART_SEP : ""}${subhashesRaw.join(HASH_PART_SEP)}`;
 	}
+
+	static getListDisplayType (mon) {
+		let type = mon._pTypes.asText.uppercaseFirst();
+		if (mon._pTypes.asTextSidekick) type += `, ${mon._pTypes.asTextSidekick.toTitleCase()}`;
+		return type;
+	}
 }
 
 class BestiarySublistManager extends SublistManager {
@@ -25,7 +31,6 @@ class BestiarySublistManager extends SublistManager {
 			},
 			shiftCountAddSubtract: 5,
 			isSublistItemsCountable: true,
-			isMarkdownPopout: true,
 		});
 
 		this._$dispCrTotal = null;
@@ -61,12 +66,12 @@ class BestiarySublistManager extends SublistManager {
 
 	async pGetSublistItem (mon, hash, {count = 1, customHashId = null, initialData} = {}) {
 		const name = mon._displayName || mon.name;
-		const type = mon._pTypes.asText.uppercaseFirst();
+		const type = _BestiaryUtil.getListDisplayType(mon);
 		const cr = mon._pCr;
 		const hashBase = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BESTIARY](mon);
 		const isLocked = !!initialData?.isLocked; // If e.g. reloading from a save
 
-		const $hovStatblock = $(`<span class="col-1-4 help help--hover ecgen__visible">Statblock</span>`)
+		const $hovStatblock = $(`<span class="col-1-4 help help--hover ecgen__visible">Stat Block</span>`)
 			.mouseover(evt => this._encounterBuilder.doStatblockMouseOver({
 				evt,
 				ele: $hovStatblock[0],
@@ -174,6 +179,8 @@ class BestiarySublistManager extends SublistManager {
 
 class BestiaryPage extends ListPageMultiSource {
 	constructor () {
+		const pFnGetFluff = Renderer.monster.pGetFluff.bind(Renderer.monster);
+
 		super({
 			pageFilter: new PageFilterBestiary(),
 
@@ -188,6 +195,8 @@ class BestiaryPage extends ListPageMultiSource {
 				DataUtil.monster.populateMetaReference(brew);
 				return brew;
 			},
+
+			pFnGetFluff,
 
 			hasAudio: true,
 
@@ -263,22 +272,11 @@ class BestiaryPage extends ListPageMultiSource {
 			},
 
 			isMarkdownPopout: true,
-			propEntryData: "dataCreature",
-			bindOtherButtonsOptions: {
-				upload: {
-					pFnPreLoad: (...args) => this.pPreloadSublistSources(...args),
-				},
-				sendToBrew: {
-					mode: "creatureBuilder",
-					fnGetMeta: () => ({
-						page: UrlUtil.getCurrentPage(),
-						source: Hist.getHashSource(),
-						hash: `${UrlUtil.autoEncodeHash(this._lastRender.entity)}${_BestiaryUtil.getUrlSubhashes(this._lastRender.entity)}`,
-					}),
-				},
-			},
+			propEntryData: "monster",
 
 			jsonDir: "data/bestiary/",
+
+			listSyntax: new ListSyntaxBestiary({fnGetDataList: () => this._dataList, pFnGetFluff}),
 		});
 
 		this._$btnProf = null;
@@ -288,6 +286,25 @@ class BestiaryPage extends ListPageMultiSource {
 		this._encounterBuilder = null;
 
 		this._$dispToken = null;
+	}
+
+	get _bindOtherButtonsOptions () {
+		return {
+			upload: {
+				pFnPreLoad: (...args) => this.pPreloadSublistSources(...args),
+			},
+			sendToBrew: {
+				mode: "creatureBuilder",
+				fnGetMeta: () => ({
+					page: UrlUtil.getCurrentPage(),
+					source: Hist.getHashSource(),
+					hash: `${UrlUtil.autoEncodeHash(this._lastRender.entity)}${_BestiaryUtil.getUrlSubhashes(this._lastRender.entity)}`,
+				}),
+			},
+			other: [
+				this._bindOtherButtonsOptions_openAsSinglePage({slugPage: "bestiary", fnGetHash: () => UrlUtil.autoEncodeHash(this._lastRender.entity)}),
+			].filter(Boolean),
+		};
 	}
 
 	set encounterBuilder (val) { this._encounterBuilder = val; }
@@ -305,7 +322,7 @@ class BestiaryPage extends ListPageMultiSource {
 
 		const renderCreature = (mon) => {
 			stack.push(`<div class="bkmv__wrp-item"><table class="w-100 stats stats--book stats--bkmv"><tbody>`);
-			stack.push(Renderer.monster.getCompactRenderedString(mon, Renderer.get()));
+			stack.push(Renderer.monster.getCompactRenderedString(mon));
 			stack.push(`</tbody></table></div>`);
 		};
 
@@ -359,12 +376,12 @@ class BestiaryPage extends ListPageMultiSource {
 		this._pageFilter.mutateAndAddToFilters(mon, isExcluded);
 
 		const source = Parser.sourceJsonToAbv(mon.source);
-		const type = mon._pTypes.asText.uppercaseFirst();
+		const type = _BestiaryUtil.getListDisplayType(mon);
 		const cr = mon._pCr;
 
 		const eleLi = e_({
 			tag: "div",
-			clazz: `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`,
+			clazz: `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`,
 			click: (evt) => this._handleBestiaryLiClick(evt, listItem),
 			contextmenu: (evt) => this._handleBestiaryLiContext(evt, listItem),
 			children: [
@@ -570,7 +587,7 @@ class BestiaryPage extends ListPageMultiSource {
 		// reset tabs
 		const tabMetas = [
 			new Renderer.utils.TabButton({
-				label: "Statblock",
+				label: "Stat Block",
 				fnChange: () => {
 					$wrpBtnProf.append(this._$btnProf);
 					this._$dispToken.showVe();
@@ -859,7 +876,7 @@ class BestiaryPage extends ListPageMultiSource {
 	) {
 		const pGetFluffEntries = async () => {
 			const mon = this._dataList[Hist.lastLoadedId];
-			const fluff = await Renderer.monster.pGetFluff(mon);
+			const fluff = await this._pFnGetFluff(mon);
 			return fluff.entries || [];
 		};
 
@@ -895,18 +912,9 @@ class BestiaryPage extends ListPageMultiSource {
 			isImageTab,
 			$content: this._$pgContent,
 			entity: this._dataList[Hist.lastLoadedId],
-			pFnGetFluff: Renderer.monster.pGetFluff,
+			pFnGetFluff: this._pFnGetFluff,
 			$headerControls,
 		});
-	}
-
-	_getSearchCache (entity) {
-		const legGroup = DataUtil.monster.getMetaGroup(entity);
-		if (!legGroup && this.constructor._INDEXABLE_PROPS.every(it => !entity[it])) return "";
-		const ptrOut = {_: ""};
-		this.constructor._INDEXABLE_PROPS.forEach(it => this._getSearchCache_handleEntryProp(entity, it, ptrOut));
-		if (legGroup) BestiaryPage._INDEXABLE_PROPS_LEG_GROUP.forEach(it => this._getSearchCache_handleEntryProp(legGroup, it, ptrOut));
-		return ptrOut._;
 	}
 
 	async pPreloadSublistSources (json) {
@@ -934,22 +942,15 @@ class BestiaryPage extends ListPageMultiSource {
 			Hist.hashChange();
 		}
 	}
+
+	_pOnLoad_initVisibleItemsDisplay (...args) {
+		super._pOnLoad_initVisibleItemsDisplay(...arguments);
+
+		this._list.on("updated", () => {
+			this._encounterBuilder.resetCache();
+		});
+	}
 }
-BestiaryPage._INDEXABLE_PROPS = [
-	"trait",
-	"spellcasting",
-	"action",
-	"bonus",
-	"reaction",
-	"legendary",
-	"mythic",
-	"variant",
-];
-BestiaryPage._INDEXABLE_PROPS_LEG_GROUP = [
-	"lairActions",
-	"regionalEffects",
-	"mythicEncounter",
-];
 
 const bestiaryPage = new BestiaryPage();
 const encounterBuilder = new EncounterBuilder();

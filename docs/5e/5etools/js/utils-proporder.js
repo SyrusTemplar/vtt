@@ -338,6 +338,7 @@ PropOrder._ACTION = [
 ];
 PropOrder._ADVENTURE = [
 	"name",
+	"alias",
 
 	"id",
 	"source",
@@ -355,6 +356,7 @@ PropOrder._ADVENTURE = [
 ];
 PropOrder._BOOK = [
 	"name",
+	"alias",
 
 	"id",
 	"source",
@@ -388,6 +390,8 @@ PropOrder._BACKGROUND = [
 			"_preserve",
 		],
 	}),
+
+	"prerequisite",
 
 	"feats",
 
@@ -630,6 +634,7 @@ PropOrder._CONDITION = [
 	"page",
 	"srd",
 	"basicRules",
+	"otherSources",
 
 	"entries",
 
@@ -643,6 +648,7 @@ PropOrder._DISEASE = [
 	"page",
 	"srd",
 	"basicRules",
+	"otherSources",
 
 	"entries",
 ];
@@ -775,6 +781,9 @@ PropOrder._FEAT = [
 	"optionalfeatureProgression",
 
 	"entries",
+
+	"hasFluff",
+	"hasFluffImages",
 ];
 PropOrder._VEHICLE = [
 	"name",
@@ -971,6 +980,7 @@ PropOrder._ITEM = [
 	"critThreshold",
 
 	"recharge",
+	"rechargeAmount",
 	"charges",
 
 	"axe",
@@ -1004,6 +1014,7 @@ PropOrder._ITEM = [
 	"atomicPackContents",
 	"containerCapacity",
 
+	"optionalfeatures",
 	"attachedSpells",
 	"spellScrollLevel",
 	"lootTables",
@@ -1077,6 +1088,8 @@ PropOrder._OBJECT = [
 
 	"tokenUrl",
 	"hasToken",
+	"hasFluff",
+	"hasFluffImages",
 ];
 PropOrder._OPTIONALFEATURE = [
 	"name",
@@ -1144,6 +1157,7 @@ PropOrder._VARIANTRULE = [
 	"srd",
 	"basicRules",
 	"additionalSources",
+	"otherSources",
 
 	"ruleType",
 
@@ -1251,6 +1265,8 @@ PropOrder._TABLE = [
 
 	"source",
 	"page",
+	"srd",
+	"basicRules",
 
 	"otherSources",
 
@@ -1369,10 +1385,12 @@ PropOrder._PROP_TO_LIST = {
 	"monster": PropOrder._MONSTER,
 	"monsterFluff": PropOrder._GENERIC_FLUFF,
 	"backgroundFluff": PropOrder._GENERIC_FLUFF,
+	"featFluff": PropOrder._GENERIC_FLUFF,
 	"conditionFluff": PropOrder._GENERIC_FLUFF,
 	"itemFluff": PropOrder._GENERIC_FLUFF,
 	"languageFluff": PropOrder._GENERIC_FLUFF,
 	"vehicleFluff": PropOrder._GENERIC_FLUFF,
+	"objectFluff": PropOrder._GENERIC_FLUFF,
 	"raceFluff": PropOrder._RACE_FLUFF,
 	"spell": PropOrder._SPELL,
 	"action": PropOrder._ACTION,

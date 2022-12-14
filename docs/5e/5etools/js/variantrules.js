@@ -35,7 +35,7 @@ class VariantRulesPage extends ListPage {
 	constructor () {
 		const pageFilter = new PageFilterVariantRules();
 		super({
-			dataSource: DataUtil.variantrule.loadJSON,
+			dataSource: DataUtil.variantrule.loadJSON.bind(DataUtil.variantrule),
 
 			pageFilter,
 
@@ -54,7 +54,7 @@ class VariantRulesPage extends ListPage {
 		}
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
+		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(rule.source);
 		const hash = UrlUtil.autoEncodeHash(rule);

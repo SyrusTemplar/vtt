@@ -88,6 +88,8 @@ class BrewDoc {
 		"internalCopies": (a, b) => [...(a || []), ...(b || [])].unique(),
 
 		"otherSources": (a, b) => this._metaMerge_otherSources(a, b),
+
+		"status": (a, b) => this._metaMerge_status(a, b),
 	};
 
 	static _metaMerge_dependenciesIncludes (a, b) {
@@ -109,6 +111,18 @@ class BrewDoc {
 		}
 
 		return a ?? b;
+	}
+
+	static _META_MERGE__STATUS_PRECEDENCE = [
+		"invalid",
+		"deprecated",
+		"wip",
+		"ready",
+	];
+
+	static _metaMerge_status (a, b) {
+		return [a || "ready", b || "ready"]
+			.sort((a, b) => this._META_MERGE__STATUS_PRECEDENCE.indexOf(a) - this._META_MERGE__STATUS_PRECEDENCE.indexOf(b))[0];
 	}
 
 	static _mergeObjects_key__meta ({out, val}) {
@@ -295,7 +309,7 @@ class BrewUtil2 {
 		]);
 		if (!cpyBrews.length) return this._cache_brewsProc = {};
 
-		await this._pGetBrewProcessed_pDoBlacklistExtension({cpyBrews});
+		await this._pGetBrewProcessed_pDoBlocklistExtension({cpyBrews});
 
 		// Avoid caching the meta merge, as we have our own cache. We might edit the brew, so we don't want a stale copy.
 		const cpyBrewsLoaded = await cpyBrews.pSerialAwaitMap(async ({head, body}) => DataUtil.pDoMetaMerge(head.url || head.docIdLocal, body, {isSkipMetaMergeCache: true}));
@@ -304,11 +318,11 @@ class BrewUtil2 {
 		return this._cache_brewsProc;
 	}
 
-	/** Homebrew files can contain embedded blacklists. */
-	static async _pGetBrewProcessed_pDoBlacklistExtension ({cpyBrews}) {
+	/** Homebrew files can contain embedded blocklists. */
+	static async _pGetBrewProcessed_pDoBlocklistExtension ({cpyBrews}) {
 		for (const {body} of cpyBrews) {
-			if (!body?.blacklist?.length || !(body.blacklist instanceof Array)) continue;
-			await ExcludeUtil.pExtendList(body.blacklist);
+			if (!body?.blocklist?.length || !(body.blocklist instanceof Array)) continue;
+			await ExcludeUtil.pExtendList(body.blocklist);
 		}
 	}
 
@@ -498,33 +512,35 @@ class BrewUtil2 {
 	}
 
 	static async _pAddBrewDependencies_ ({brewDocs, brewsRaw = null, brewsRawLocal = null, lockToken}) {
-		const brewIndex = await DataUtil.brew.pLoadSourceIndex();
 		const urlRoot = await this.pGetCustomUrl();
+		const brewIndex = await DataUtil.brew.pLoadSourceIndex(urlRoot);
 
-		const toLoad = [];
+		const toLoadSources = [];
+		const loadedSources = new Set();
 		const out = [];
-		const loaded = new Set();
 
 		brewsRaw = brewsRaw || await this._pGetBrewRaw({lockToken});
 		brewsRawLocal = brewsRawLocal || await this._pGetBrew_pGetLocalBrew({lockToken});
 
 		const trackLoaded = brew => (brew.body._meta?.sources || [])
 			.filter(src => src.json)
-			.forEach(src => loaded.add(src.json));
+			.forEach(src => loadedSources.add(src.json));
 		brewsRaw.forEach(brew => trackLoaded(brew));
 		brewsRawLocal.forEach(brew => trackLoaded(brew));
 
-		brewDocs.forEach(brewDoc => toLoad.push(...this._getBrewDependencySources({brewDoc, brewIndex})));
+		brewDocs.forEach(brewDoc => toLoadSources.push(...this._getBrewDependencySources({brewDoc, brewIndex})));
 
-		while (toLoad.length) {
-			const src = toLoad.pop();
-			if (loaded.has(src)) continue;
-			loaded.add(src);
+		while (toLoadSources.length) {
+			const src = toLoadSources.pop();
+			if (loadedSources.has(src)) continue;
+			loadedSources.add(src);
 
 			const url = DataUtil.brew.getFileUrl(brewIndex[src], urlRoot);
 			const brewDocDep = await this._pGetBrewDocFromUrl({url});
 			out.push(brewDocDep);
 			trackLoaded(brewDocDep);
+
+			toLoadSources.push(...this._getBrewDependencySources({brewDoc: brewDocDep, brewIndex}));
 		}
 
 		return out;
@@ -770,14 +786,20 @@ class BrewUtil2 {
 	static async pAddBrewFromLoaderTag (ele) {
 		const $ele = $(ele);
 		if (!$ele.hasClass("rd__wrp-loadbrew--ready")) return; // an existing click is being handled
-		let jsonUrl = ele.dataset.rdLoaderPath;
+		let jsonPath = ele.dataset.rdLoaderPath;
 		const name = ele.dataset.rdLoaderName;
 		const cached = $ele.html();
 		const cachedTitle = $ele.title();
 		$ele.title("");
 		$ele.removeClass("rd__wrp-loadbrew--ready").html(`${name.qq()}<span class="glyphicon glyphicon-refresh rd__loadbrew-icon rd__loadbrew-icon--active"></span>`);
-		jsonUrl = jsonUrl.unescapeQuotes();
-		await this.pAddBrewFromUrl(jsonUrl);
+
+		jsonPath = jsonPath.unescapeQuotes();
+		if (!UrlUtil.isFullUrl(jsonPath)) {
+			const brewUrl = await BrewUtil2.pGetCustomUrl();
+			jsonPath = DataUtil.brew.getFileUrl(jsonPath, brewUrl);
+		}
+
+		await this.pAddBrewFromUrl(jsonPath);
 		$ele.html(`${name.qq()}<span class="glyphicon glyphicon-saved rd__loadbrew-icon"></span>`);
 		setTimeout(() => $ele.html(cached).addClass("rd__wrp-loadbrew--ready").title(cachedTitle), 500);
 	}
@@ -1179,8 +1201,9 @@ class BrewUtil2 {
 		return BrewUtil2.getValidColor(source.color);
 	}
 
-	static getValidColor (color) {
-		// Prevent any injection shenanigans
+	/** Prevent any injection shenanigans */
+	static getValidColor (color, {isExtended = false} = {}) {
+		if (isExtended) return color.replace(/[^-a-zA-Z\d]/g, "");
 		return color.replace(/[^a-fA-F\d]/g, "").slice(0, 8);
 	}
 
@@ -1930,9 +1953,9 @@ class ManageBrewUi {
 
 		// region Filter output by selected sources
 		const cpyBrew = MiscUtil.copy(brew.body);
-		const sourceWhitelist = new Set(choices.map(it => it.json));
+		const sourceAllowlist = new Set(choices.map(it => it.json));
 
-		cpyBrew._meta.sources = cpyBrew._meta.sources.filter(it => sourceWhitelist.has(it.json));
+		cpyBrew._meta.sources = cpyBrew._meta.sources.filter(it => sourceAllowlist.has(it.json));
 
 		Object.entries(cpyBrew)
 			.forEach(([k, v]) => {
@@ -1941,7 +1964,7 @@ class ManageBrewUi {
 				cpyBrew[k] = v.filter(it => {
 					const source = SourceUtil.getEntitySource(it);
 					if (!source) return true;
-					return sourceWhitelist.has(source);
+					return sourceAllowlist.has(source);
 				});
 			});
 		// endregion
@@ -2118,7 +2141,7 @@ class GetBrewUi {
 		_getHeaderControls_addExtraStateBtns (opts, wrpStateBtnsOuter) {
 			const menu = ContextUtil.getMenu(
 				BrewUtil2.getPropPages()
-					.map(page => ({page, displayPage: UrlUtil.PG_TO_NAME[page] || page}))
+					.map(page => ({page, displayPage: UrlUtil.pageToDisplayPage(page)}))
 					.sort(SortUtil.ascSortProp.bind(SortUtil, "displayPage"))
 					.map(({page, displayPage}) => {
 						return new ContextUtil.Action(
@@ -2149,10 +2172,24 @@ class GetBrewUi {
 	};
 
 	static _PageFilterGetBrew = class extends PageFilter {
+		static _STATUS_FILTER_DEFAULT_DESELECTED = new Set(["wip", "deprecated", "invalid"]);
+
 		constructor () {
 			super();
 
 			this._typeFilter = new GetBrewUi._TypeFilter();
+			this._statusFilter = new Filter({
+				header: "Status",
+				items: [
+					"ready",
+					"wip",
+					"deprecated",
+					"invalid",
+				],
+				displayFn: StrUtil.toTitleCase,
+				itemSortFn: null,
+				deselFn: it => this.constructor._STATUS_FILTER_DEFAULT_DESELECTED.has(it),
+			});
 			this._miscFilter = new Filter({
 				header: "Miscellaneous",
 				items: ["Sample"],
@@ -2173,6 +2210,7 @@ class GetBrewUi {
 		async _pPopulateBoxOptions (opts) {
 			opts.filters = [
 				this._typeFilter,
+				this._statusFilter,
 				this._miscFilter,
 			];
 		}
@@ -2181,6 +2219,7 @@ class GetBrewUi {
 			return this._filterBox.toDisplay(
 				values,
 				it.props,
+				it._brewStatus,
 				it._fMisc,
 			);
 		}
@@ -2235,10 +2274,10 @@ class GetBrewUi {
 
 	async pInit () {
 		const urlRoot = await BrewUtil2.pGetCustomUrl();
-		const [timestamps, propIndex, nameIndex] = await Promise.all([
+		const [timestamps, propIndex, metaIndex] = await Promise.all([
 			DataUtil.brew.pLoadTimestamps(urlRoot),
 			DataUtil.brew.pLoadPropIndex(urlRoot),
-			DataUtil.brew.pLoadNameIndex(urlRoot),
+			DataUtil.brew.pLoadMetaIndex(urlRoot),
 		]);
 
 		const pathToMeta = {};
@@ -2272,7 +2311,8 @@ class GetBrewUi {
 
 				out._brewAdded = timestamps[out.path]?.a ?? 0;
 				out._brewModified = timestamps[out.path]?.m ?? 0;
-				out._brewInternalSources = nameIndex[out.name] || [];
+				out._brewInternalSources = metaIndex[out.name]?.n || [];
+				out._brewStatus = metaIndex[out.name]?.s || "ready";
 				out._brewPropDisplayName = BrewUtil2.getPropDisplayName(out.dirProp);
 
 				return out;

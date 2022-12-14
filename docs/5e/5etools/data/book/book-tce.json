@@ -5857,7 +5857,7 @@
 												],
 												[
 													"31\u201336",
-													"One simple or martial weapon that is nonmagical and carried by one character in the region gains the properties of a {@item mace of disruption} for 24 hours."
+													"One {@filter simple or martial weapon|items|source=phb|category=basic|type=martial weapon;simple weapon} that is nonmagical and carried by one character in the region gains the properties of a {@item mace of disruption} for 24 hours."
 												],
 												[
 													"37\u201342",
@@ -5992,7 +5992,7 @@
 												],
 												[
 													"91\u201395",
-													"Glaring eyes, which weep viscid tears, appear on inanimate objects throughout the region. These eyes watch the characters, and creatures within the region can't be surprised by the characters for as long as the eyes exist. An eye closes and disappears if it takes any damage. Reroll if you've already rolled this effect."
+													"Glaring eyes, which weep viscid tears, appear on inanimate objects throughout the region. These eyes watch the characters, and creatures within the region can't be {@quickref Surprise|PHB|3|0|surprised} by the characters for as long as the eyes exist. An eye closes and disappears if it takes any damage. Reroll if you've already rolled this effect."
 												],
 												[
 													"96\u201300",
@@ -6096,7 +6096,7 @@
 												],
 												[
 													"66\u201370",
-													"A spirit inhabits one character's simple or martial weapon, making it a sentient magic item until the character leaves the region. Randomly generate the item's properties as described in the \"{@book Sentient Magic Items|DMG|-1}\" section of the {@book Dungeon Master's Guide|DMG}."
+													"A spirit inhabits one character's {@filter simple or martial weapon|items|source=phb|category=basic|type=martial weapon;simple weapon}, making it a sentient magic item until the character leaves the region. Randomly generate the item's properties as described in the \"{@book Sentient Magic Items|DMG|-1}\" section of the {@book Dungeon Master's Guide|DMG}."
 												],
 												[
 													"71\u201375",
@@ -6548,7 +6548,7 @@
 												],
 												[
 													"51\u201355",
-													"Simple or martial weapons in the region that are nonmagical crackle with power. For 1 hour, they become magic weapons that grant a +1 bonus to attack and damage rolls made with them."
+													"{@filter simple or martial weapon|items|source=phb|category=basic|type=martial weapon;simple weapon}s in the region that are nonmagical crackle with power. For 1 hour, they become magic weapons that grant a +1 bonus to attack and damage rolls made with them."
 												],
 												[
 													"56\u201360",

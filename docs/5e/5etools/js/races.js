@@ -40,8 +40,10 @@ class RacesPage extends ListPage {
 		const pageFilter = new PageFilterRaces();
 		super({
 			dataSource: DataUtil.race.loadJSON.bind(DataUtil.race, {isAddBaseRaces: true}),
-			dataSourceFluff: "data/fluff-races.json",
-			brewDataSource: DataUtil.race.loadBrew,
+			dataSourceFluff: DataUtil.raceFluff.loadJSON.bind(DataUtil.raceFluff),
+			brewDataSource: DataUtil.race.loadBrew.bind(DataUtil.race),
+
+			pFnGetFluff: Renderer.race.pGetFluff.bind(Renderer.race),
 
 			pageFilter,
 
@@ -71,7 +73,7 @@ class RacesPage extends ListPage {
 		this._pageFilter.mutateAndAddToFilters(race, isExcluded);
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
+		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
 
 		const size = (race.size || [SZ_VARIES]).map(sz => Parser.sizeAbvToFull(sz)).join("/");
 		const source = Parser.sourceJsonToAbv(race.source);
@@ -127,7 +129,7 @@ class RacesPage extends ListPage {
 				isImageTab,
 				$content: this._$pgContent,
 				entity: race,
-				pFnGetFluff: Renderer.race.pGetFluff,
+				pFnGetFluff: this._pFnGetFluff,
 			});
 		};
 

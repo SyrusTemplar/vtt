@@ -6568,6 +6568,7 @@
 										{
 											"type": "table",
 											"caption": "XP Thresholds by Character Level",
+											"basicRules": true,
 											"colLabels": [
 												"Character Level",
 												"Easy",
@@ -6812,6 +6813,7 @@
 												{
 													"type": "table",
 													"caption": "Encounter Multipliers",
+													"basicRules": true,
 													"colLabels": [
 														"Number of Monsters",
 														"Multiplier"
@@ -6907,6 +6909,7 @@
 										{
 											"type": "table",
 											"caption": "Adventuring Day XP",
+											"basicRules": true,
 											"colLabels": [
 												"Level",
 												"Adjusted XP per Day per Character"
@@ -7022,7 +7025,7 @@
 								{
 									"type": "list",
 									"items": [
-										"The whole party is surprised, and the enemy isn't.",
+										"The whole party is {@quickref Surprise|PHB|3|0|surprised}, and the enemy isn't.",
 										"The enemy has cover, and the party doesn't.",
 										"The characters are unable to see the enemy.",
 										"The characters are taking damage every round from some environmental effect or magical source, and the enemy isn't.",
@@ -10628,6 +10631,7 @@
 								{
 									"type": "table",
 									"caption": "Precipitation",
+									"srd": true,
 									"colLabels": [
 										"d20",
 										"Precipitation"
@@ -12400,6 +12404,7 @@
 										{
 											"type": "table",
 											"caption": "Airborne and Waterborne Vehicles",
+											"srd": true,
 											"colLabels": [
 												"Ship",
 												"Cost",
@@ -12571,6 +12576,7 @@
 										{
 											"type": "table",
 											"caption": "Trap Save DCs and Attack Bonuses",
+											"srd": true,
 											"colLabels": [
 												"Trap Danger",
 												"Save DC",
@@ -12602,6 +12608,7 @@
 										{
 											"type": "table",
 											"caption": "Damage Severity by Level",
+											"srd": true,
 											"colLabels": [
 												"Character Level",
 												"Setback",
@@ -14946,6 +14953,7 @@
 												{
 													"type": "table",
 													"caption": "Spell Scroll",
+													"srd": true,
 													"colLabels": [
 														"Spell Level",
 														"Rarity",
@@ -17277,6 +17285,7 @@
 										{
 											"type": "table",
 											"caption": "Sentient Magic Item Communication",
+											"srd": true,
 											"colLabels": [
 												"d100",
 												"Communication"
@@ -17312,6 +17321,7 @@
 										{
 											"type": "table",
 											"caption": "Sentient Magic Item Senses",
+											"srd": true,
 											"colLabels": [
 												"d4",
 												"Senses"
@@ -17351,6 +17361,7 @@
 										{
 											"type": "table",
 											"caption": "Sentient Magic Item Alignment",
+											"srd": true,
 											"colLabels": [
 												"d100",
 												"Alignment"
@@ -17420,6 +17431,7 @@
 										{
 											"type": "table",
 											"caption": "Sentient Special Purpose",
+											"srd": true,
 											"colLabels": [
 												"d10",
 												"Purpose"
@@ -19181,6 +19193,7 @@
 										{
 											"type": "table",
 											"caption": "Object Armor Class",
+											"srd": true,
 											"colLabels": [
 												"Substance",
 												"AC"
@@ -19232,6 +19245,7 @@
 										{
 											"type": "table",
 											"caption": "Object Hit Points",
+											"srd": true,
 											"colLabels": [
 												"Size",
 												"Fragile",
@@ -20213,6 +20227,7 @@
 						{
 							"type": "table",
 							"caption": "Poisons",
+							"srd": true,
 							"colLabels": [
 								"Item",
 								"Type",
@@ -21847,7 +21862,7 @@
 								{
 									"type": "list",
 									"items": [
-										"The creature is surprised.",
+										"The creature is {@quickref Surprise|PHB|3|0|surprised}.",
 										"The creature is reduced to half its hit points or fewer for the first time in the battle.",
 										"The creature has no way to harm the opposing side on its turn."
 									]
@@ -21856,7 +21871,7 @@
 								{
 									"type": "list",
 									"items": [
-										"All the creatures in the group are surprised.",
+										"All the creatures in the group are {@quickref Surprise|PHB|3|0|surprised}.",
 										"The group's leader is reduced to 0 hit points, {@condition incapacitated}, taken prisoner, or removed from battle.",
 										"The group is reduced to half its original size with no losses on the opposing side."
 									]
@@ -22315,6 +22330,8 @@
 										{
 											"type": "table",
 											"caption": "Experience Points by Challenge Rating",
+											"basicRules": true,
+											"srd": true,
 											"colLabels": [
 												"CR",
 												"XP"
@@ -22589,6 +22606,8 @@
 												{
 													"type": "table",
 													"caption": "Hit Dice by Size",
+													"srd": true,
+													"basicRules": true,
 													"colLabels": [
 														"Monster Size",
 														"Hit Die",
@@ -25603,7 +25622,7 @@
 										],
 										[
 											"13",
-											"Prison for hold ing captured intruders"
+											"Prison for holding captured intruders"
 										],
 										[
 											"14-15",

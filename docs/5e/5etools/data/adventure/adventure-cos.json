@@ -1573,7 +1573,7 @@
 												"The dark shape in the fire takes the form of a man being knocked from his horse, a spear piercing his side.",
 												"{@creature Stanimir|CoS} continues. \"One night, a wounded soldier staggered into our camp and collapsed. We nursed his terrible injury and quenched his thirst with wine. He survived. When we asked him who he was, he wouldn't say. All he wanted was to return home, but we were deep in the land of his enemies. We took him as one of our own and followed him back toward his homeland. His enemies hunted him. They said he was a prince, yet we didn't give him up, even when their assassins fell upon us like wolves.\"",
 												"Deep in the bonfire, you see the dark figure standing with sword drawn, fighting off a host of shadowy shapes.",
-												"\"This man of royal blood fought to protect us, as we protected him. We bore him safely to his home, and he thanked us. He said, ‘I owe you my life. Stay as long as you wish, leave when you choose, and know that you will always be safe here.'\"",
+												"\"This man of royal blood fought to protect us, as we protected him. We bore him safely to his home, and he thanked us. He said, 'I owe you my life. Stay as long as you wish, leave when you choose, and know that you will always be safe here.'\"",
 												"The figure in the dancing fire vanquishes its final foe, then disperses in a cloud of smoke and embers.",
 												"{@creature Stanimir|CoS}'s face becomes a somber mask. \"A curse has befallen our noble prince, turning him into a tyrant. We alone have the power to leave his domain. We've traveled far and wide to find heroes such as yourselves to end our dread lord's curse and put his troubled soul to rest. Our leader, {@creature Madam Eva|CoS}, knows all. Will you return to Barovia with us and speak with her?\""
 											]
@@ -2833,7 +2833,7 @@
 												"You spot a wolf trap, its steel jaws caked with rust. Someone has carefully hidden the trap under a thin layer of pine needles and detritus."
 											]
 										},
-										"Barovian hunters and trappers set these traps hoping to thin out the wolf population, but Strahd's wolves are too clever to be caught in them. If none of the characters in the front rank spots the hidden trap, one random party member steps on it. Rules for the {@item hunting trap|PHB} are presented in chapter 5, \"{@book Equipment|PHB|4},\" of the {@book Player's Handbook|PHB}."
+										"Barovian hunters and trappers set these traps hoping to thin out the wolf population, but Strahd's wolves are too clever to be caught in them. If none of the characters in the front rank spots the hidden trap, one random party member steps on it. Rules for the {@item hunting trap|PHB} are presented in chapter 5, \"{@book Equipment|PHB|5},\" of the {@book Player's Handbook|PHB}."
 									]
 								},
 								{
@@ -5946,7 +5946,7 @@
 												"A crack of thunder shakes the castle, stirring the dust and cobwebs. You hear a voice: \"Good evening.\""
 											]
 										},
-										"Any character who has a passive Wisdom ({@skill Perception}) score lower than 19 is surprised as Strahd appears seemingly out of nowhere. The vampire prefers to attack a surprised character, choosing the one closest to him. Otherwise, see {@area appendix D|7c1|x} for the vampire's tactics."
+										"Any character who has a passive Wisdom ({@skill Perception}) score lower than 19 is {@quickref Surprise|PHB|3|0|surprised} as Strahd appears seemingly out of nowhere. The vampire prefers to attack a {@quickref Surprise|PHB|3|0|surprised} character, choosing the one closest to him. Otherwise, see {@area appendix D|7c1|x} for the vampire's tactics."
 									]
 								},
 								{
@@ -6041,7 +6041,7 @@
 									"page": 52,
 									"id": "196",
 									"entries": [
-										"If any character has a passive Wisdom ({@skill Perception}) score of 16 or higher, the party isn't surprised. In that case, read:",
+										"If any character has a passive Wisdom ({@skill Perception}) score of 16 or higher, the party isn't {@quickref Surprise|PHB|3|0|surprised}. In that case, read:",
 										{
 											"type": "insetReadaloud",
 											"id": "197",
@@ -8602,7 +8602,7 @@
 										"This staircase is made of old wood that strains underfoot, creaking and groaning."
 									]
 								},
-								"The staircase climbs from {@area area K16|1c9|x} to {@area area K28|1eb|x}. It seems unstable but is sturdy. The creatures in area K28 can't be surprised by anyone climbing the creaky steps."
+								"The staircase climbs from {@area area K16|1c9|x} to {@area area K28|1eb|x}. It seems unstable but is sturdy. The creatures in area K28 can't be {@quickref Surprise|PHB|3|0|surprised} by anyone climbing the creaky steps."
 							]
 						},
 						{
@@ -24116,7 +24116,7 @@
 									]
 								},
 								"The ceiling here is 20 feet high, and the rubble is {@quickref difficult terrain||3}.",
-								"{@creature Vladimir Horngaard|CoS} (see {@area area Q36|47e|x}) can hear visitors climbing over the rubble and can't be surprised by them."
+								"{@creature Vladimir Horngaard|CoS} (see {@area area Q36|47e|x}) can hear visitors climbing over the rubble and can't be {@quickref Surprise|PHB|3|0|surprised} by them."
 							]
 						},
 						{
@@ -27456,7 +27456,7 @@
 										"The road ahead is cut out of the mountainside, rising steeply to one side and falling away on the other. Mist and snow greatly reduce visibility, and the howling wind cuts through you like a knife."
 									]
 								},
-								"If no character has a passive Wisdom ({@skill Perception}) score of 16 or higher, the party is surprised. Otherwise, read:",
+								"If no character has a passive Wisdom ({@skill Perception}) score of 16 or higher, the party is {@quickref Surprise|PHB|3|0|surprised}. Otherwise, read:",
 								{
 									"type": "insetReadaloud",
 									"id": "54a",
@@ -30140,7 +30140,7 @@
 				{
 					"type": "quote",
 					"entries": [
-						"I would not be called ‘death' so soon. I made a pact with death, a pact of blood."
+						"I would not be called 'death' so soon. I made a pact with death, a pact of blood."
 					],
 					"by": "Tome of Strahd"
 				},
@@ -37790,7 +37790,7 @@
 							"page": 218,
 							"id": "712",
 							"entries": [
-								"This alcove contains a {@creature grick} that slithers out to attack the first character it sees within 5 feet of it. Any character with a passive Wisdom ({@skill Perception}) score under 12 is surprised by it. The alcove is otherwise empty."
+								"This alcove contains a {@creature grick} that slithers out to attack the first character it sees within 5 feet of it. Any character with a passive Wisdom ({@skill Perception}) score under 12 is {@quickref Surprise|PHB|3|0|surprised} by it. The alcove is otherwise empty."
 							]
 						},
 						{
@@ -38509,8 +38509,8 @@
 														"path": "adventure/CoS/144-636379873620950408.png"
 													},
 													"title": "{@creature Baba Lysaga|CoS}",
-													"width": 299,
-													"height": 402
+													"width": 745,
+													"height": 1000
 												}
 											]
 										}
@@ -39041,7 +39041,7 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "adventure/CoS/148-636985373100391611.jpeg"
+														"path": "adventure/CoS/148-636985373100391611.jpg"
 													},
 													"title": "{@creature Mongrelfolk|CoS}",
 													"width": 300,
@@ -39504,7 +39504,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/CoS/153-636988936829621698.jpeg"
+												"path": "adventure/CoS/153-636988936829621698.jpg"
 											},
 											"title": "{@creature Strahd von Zarovich|CoS}",
 											"width": 300,

@@ -1,10 +1,10 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "spells.json",
-	"version": "1.7.8",
+	"version": "1.8.2",
 	"title": "Spells",
 	"type": "object",
-	"definitions": {
+	"$defs": {
 		"spellData": {
 			"type": "object",
 			"properties": {
@@ -43,7 +43,7 @@
 				"time": {
 					"type": "array",
 					"items": {
-						"$ref": "#/definitions/time"
+						"$ref": "#/$defs/time"
 					}
 				},
 				"range": {
@@ -149,7 +149,7 @@
 				"duration": {
 					"type": "array",
 					"items": {
-						"$ref": "#/definitions/duration"
+						"$ref": "#/$defs/duration"
 					}
 				},
 				"entries": {
@@ -170,14 +170,18 @@
 						"fromClassList": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/class"
-							}
+								"$ref": "#/$defs/class"
+							},
+							"minItems": 1,
+							"uniqueItems": true
 						},
 						"fromClassListVariant": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/class"
-							}
+								"$ref": "#/$defs/class"
+							},
+							"minItems": 1,
+							"uniqueItems": true
 						},
 						"fromSubclass": {
 							"type": "array",
@@ -185,7 +189,7 @@
 								"type": "object",
 								"properties": {
 									"class": {
-										"$ref": "#/definitions/class"
+										"$ref": "#/$defs/class"
 									},
 									"subclass": {
 										"type": "object",
@@ -212,7 +216,9 @@
 									"subclass"
 								],
 								"additionalProperties": false
-							}
+							},
+							"minItems": 1,
+							"uniqueItems": true
 						}
 					},
 					"additionalProperties": false
@@ -239,7 +245,9 @@
 							"name",
 							"source"
 						]
-					}
+					},
+					"minItems": 1,
+					"uniqueItems": true
 				},
 				"backgrounds": {
 					"type": "array",
@@ -257,7 +265,9 @@
 							"name",
 							"source"
 						]
-					}
+					},
+					"minItems": 1,
+					"uniqueItems": true
 				},
 				"eldritchInvocations": {
 					"type": "array",
@@ -275,56 +285,62 @@
 							"name",
 							"source"
 						]
-					}
+					},
+					"minItems": 1,
+					"uniqueItems": true
 				},
 				"source": {
 					"type": "string"
 				},
 				"page": {
-					"$ref": "../util.json#/definitions/page"
+					"$ref": "../util.json#/$defs/page"
 				},
 				"additionalSources": {
-					"$ref": "../util.json#/definitions/additionalSources"
+					"$ref": "../util.json#/$defs/additionalSources"
 				},
 				"otherSources": {
-					"$ref": "../util.json#/definitions/otherSources"
+					"$ref": "../util.json#/$defs/otherSources"
 				},
 				"damageInflict": {
 					"type": "array",
 					"uniqueItems": true,
 					"items": {
-						"$ref": "../util.json#/definitions/dataDamageType"
+						"$ref": "../util.json#/$defs/dataDamageType"
 					}
 				},
 				"damageResist": {
 					"type": "array",
+					"minItems": 1,
 					"uniqueItems": true,
 					"items": {
-						"$ref": "../util.json#/definitions/dataDamageType"
+						"$ref": "../util.json#/$defs/dataDamageType"
 					}
 				},
 				"damageImmune": {
 					"type": "array",
+					"minItems": 1,
 					"uniqueItems": true,
 					"items": {
-						"$ref": "../util.json#/definitions/dataDamageType"
+						"$ref": "../util.json#/$defs/dataDamageType"
 					}
 				},
 				"damageVulnerable": {
 					"type": "array",
+					"minItems": 1,
 					"uniqueItems": true,
 					"items": {
-						"$ref": "../util.json#/definitions/dataDamageType"
+						"$ref": "../util.json#/$defs/dataDamageType"
 					}
 				},
 				"conditionInflict": {
-					"$ref": "../util.json#/definitions/tagsConditions"
+					"$ref": "../util.json#/$defs/tagsConditions"
 				},
 				"conditionImmune": {
-					"$ref": "../util.json#/definitions/tagsConditions"
+					"$ref": "../util.json#/$defs/tagsConditions"
 				},
 				"savingThrow": {
 					"type": "array",
+					"minItems": 1,
 					"uniqueItems": true,
 					"items": {
 						"type": "string",
@@ -340,6 +356,7 @@
 				},
 				"abilityCheck": {
 					"type": "array",
+					"minItems": 1,
 					"uniqueItems": true,
 					"items": {
 						"type": "string",
@@ -355,6 +372,7 @@
 				},
 				"spellAttack": {
 					"type": "array",
+					"minItems": 1,
 					"uniqueItems": true,
 					"items": {
 						"type": "string",
@@ -369,6 +387,7 @@
 				"areaTags": {
 					"description": "By convention, only the effects of the spell cast at its base level are considered when populating these.\n C: Cube\n H: Hemisphere\n L: Line\n MT: Multiple Targets\n N: Cone\n Q: Square\n R: Circle\n ST: Single Target\n S: Sphere\n W: Wall\n Y: Cylinder",
 					"type": "array",
+					"minItems": 1,
 					"uniqueItems": true,
 					"items": {
 						"type": "string",
@@ -389,7 +408,8 @@
 				},
 				"miscTags": {
 					"type": "array",
-					"description": "FMV: Forced Movement\n HL: Healing\n LGT: Creates Light\n LGTS: Creates Sunlight\n MAC: Modifies AC\n PRM: Permanent Effects\n RO: Rollable Effects\n SCL: Scaling Effects\n  SMN: Summons Creature\n SGT: Requires Sight\n THP: Grants Temporary Hit Points\n TP: Teleportation",
+					"description": "FMV: Forced Movement\n HL: Healing\n LGT: Creates Light\n LGTS: Creates Sunlight\n MAC: Modifies AC\n PRM: Permanent Effects\n PS: Plane Shifting\nRO: Rollable Effects\n SCL: Scaling Effects\n  SMN: Summons Creature\n SGT: Requires Sight\n THP: Grants Temporary Hit Points\n TP: Teleportation\n UBA: Uses Bonus Action",
+					"minItems": 1,
 					"uniqueItems": true,
 					"items": {
 						"type": "string",
@@ -400,37 +420,41 @@
 							"LGTS",
 							"MAC",
 							"PRM",
+							"PS",
 							"RO",
 							"SCL",
 							"SMN",
 							"SGT",
 							"THP",
-							"TP"
+							"TP",
+							"UBA"
 						]
 					}
 				},
 				"affectsCreatureType": {
 					"type": "array",
+					"minItems": 1,
+					"uniqueItems": true,
 					"items": {
-						"$ref": "../util.json#/definitions/creatureType"
+						"$ref": "../util.json#/$defs/creatureType"
 					}
 				},
 				"srd": {
-					"$ref": "../util.json#/definitions/srd"
+					"$ref": "../util.json#/$defs/srd"
 				},
 				"basicRules": {
-					"$ref": "../util.json#/definitions/basicRules"
+					"$ref": "../util.json#/$defs/basicRules"
 				},
 				"scalingLevelDice": {
 					"oneOf": [
 						{
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/scalingLevelDiceItem"
+								"$ref": "#/$defs/scalingLevelDiceItem"
 							}
 						},
 						{
-							"$ref": "#/definitions/scalingLevelDiceItem"
+							"$ref": "#/$defs/scalingLevelDiceItem"
 						}
 					]
 				},
@@ -483,7 +507,7 @@
 						"time": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/time"
+								"$ref": "#/$defs/time"
 							}
 						},
 						"range": {
@@ -589,7 +613,7 @@
 						"duration": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/duration"
+								"$ref": "#/$defs/duration"
 							}
 						},
 						"entries": {
@@ -610,14 +634,18 @@
 								"fromClassList": {
 									"type": "array",
 									"items": {
-										"$ref": "#/definitions/class"
-									}
+										"$ref": "#/$defs/class"
+									},
+									"minItems": 1,
+									"uniqueItems": true
 								},
 								"fromClassListVariant": {
 									"type": "array",
 									"items": {
-										"$ref": "#/definitions/class"
-									}
+										"$ref": "#/$defs/class"
+									},
+									"minItems": 1,
+									"uniqueItems": true
 								},
 								"fromSubclass": {
 									"type": "array",
@@ -625,7 +653,7 @@
 										"type": "object",
 										"properties": {
 											"class": {
-												"$ref": "#/definitions/class"
+												"$ref": "#/$defs/class"
 											},
 											"subclass": {
 												"type": "object",
@@ -652,7 +680,9 @@
 											"subclass"
 										],
 										"additionalProperties": false
-									}
+									},
+									"minItems": 1,
+									"uniqueItems": true
 								}
 							},
 							"additionalProperties": false
@@ -679,7 +709,9 @@
 									"name",
 									"source"
 								]
-							}
+							},
+							"minItems": 1,
+							"uniqueItems": true
 						},
 						"backgrounds": {
 							"type": "array",
@@ -697,7 +729,9 @@
 									"name",
 									"source"
 								]
-							}
+							},
+							"minItems": 1,
+							"uniqueItems": true
 						},
 						"eldritchInvocations": {
 							"type": "array",
@@ -715,56 +749,62 @@
 									"name",
 									"source"
 								]
-							}
+							},
+							"minItems": 1,
+							"uniqueItems": true
 						},
 						"source": {
 							"type": "string"
 						},
 						"page": {
-							"$ref": "../util.json#/definitions/page"
+							"$ref": "../util.json#/$defs/page"
 						},
 						"additionalSources": {
-							"$ref": "../util.json#/definitions/additionalSources"
+							"$ref": "../util.json#/$defs/additionalSources"
 						},
 						"otherSources": {
-							"$ref": "../util.json#/definitions/otherSources"
+							"$ref": "../util.json#/$defs/otherSources"
 						},
 						"damageInflict": {
 							"type": "array",
 							"uniqueItems": true,
 							"items": {
-								"$ref": "../util.json#/definitions/dataDamageType"
+								"$ref": "../util.json#/$defs/dataDamageType"
 							}
 						},
 						"damageResist": {
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
-								"$ref": "../util.json#/definitions/dataDamageType"
+								"$ref": "../util.json#/$defs/dataDamageType"
 							}
 						},
 						"damageImmune": {
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
-								"$ref": "../util.json#/definitions/dataDamageType"
+								"$ref": "../util.json#/$defs/dataDamageType"
 							}
 						},
 						"damageVulnerable": {
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
-								"$ref": "../util.json#/definitions/dataDamageType"
+								"$ref": "../util.json#/$defs/dataDamageType"
 							}
 						},
 						"conditionInflict": {
-							"$ref": "../util.json#/definitions/tagsConditions"
+							"$ref": "../util.json#/$defs/tagsConditions"
 						},
 						"conditionImmune": {
-							"$ref": "../util.json#/definitions/tagsConditions"
+							"$ref": "../util.json#/$defs/tagsConditions"
 						},
 						"savingThrow": {
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
 								"type": "string",
@@ -780,6 +820,7 @@
 						},
 						"abilityCheck": {
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
 								"type": "string",
@@ -795,6 +836,7 @@
 						},
 						"spellAttack": {
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
 								"type": "string",
@@ -809,6 +851,7 @@
 						"areaTags": {
 							"description": "By convention, only the effects of the spell cast at its base level are considered when populating these.\n C: Cube\n H: Hemisphere\n L: Line\n MT: Multiple Targets\n N: Cone\n Q: Square\n R: Circle\n ST: Single Target\n S: Sphere\n W: Wall\n Y: Cylinder",
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
 								"type": "string",
@@ -829,7 +872,8 @@
 						},
 						"miscTags": {
 							"type": "array",
-							"description": "FMV: Forced Movement\n HL: Healing\n LGT: Creates Light\n LGTS: Creates Sunlight\n MAC: Modifies AC\n PRM: Permanent Effects\n RO: Rollable Effects\n SCL: Scaling Effects\n  SMN: Summons Creature\n SGT: Requires Sight\n THP: Grants Temporary Hit Points\n TP: Teleportation",
+							"description": "FMV: Forced Movement\n HL: Healing\n LGT: Creates Light\n LGTS: Creates Sunlight\n MAC: Modifies AC\n PRM: Permanent Effects\n PS: Plane Shifting\nRO: Rollable Effects\n SCL: Scaling Effects\n  SMN: Summons Creature\n SGT: Requires Sight\n THP: Grants Temporary Hit Points\n TP: Teleportation\n UBA: Uses Bonus Action",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
 								"type": "string",
@@ -840,37 +884,41 @@
 									"LGTS",
 									"MAC",
 									"PRM",
+									"PS",
 									"RO",
 									"SCL",
 									"SMN",
 									"SGT",
 									"THP",
-									"TP"
+									"TP",
+									"UBA"
 								]
 							}
 						},
 						"affectsCreatureType": {
 							"type": "array",
+							"minItems": 1,
+							"uniqueItems": true,
 							"items": {
-								"$ref": "../util.json#/definitions/creatureType"
+								"$ref": "../util.json#/$defs/creatureType"
 							}
 						},
 						"srd": {
-							"$ref": "../util.json#/definitions/srd"
+							"$ref": "../util.json#/$defs/srd"
 						},
 						"basicRules": {
-							"$ref": "../util.json#/definitions/basicRules"
+							"$ref": "../util.json#/$defs/basicRules"
 						},
 						"scalingLevelDice": {
 							"oneOf": [
 								{
 									"type": "array",
 									"items": {
-										"$ref": "#/definitions/scalingLevelDiceItem"
+										"$ref": "#/$defs/scalingLevelDiceItem"
 									}
 								},
 								{
-									"$ref": "#/definitions/scalingLevelDiceItem"
+									"$ref": "#/$defs/scalingLevelDiceItem"
 								}
 							]
 						},
@@ -931,7 +979,7 @@
 						"time": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/time"
+								"$ref": "#/$defs/time"
 							}
 						},
 						"range": {
@@ -1037,7 +1085,7 @@
 						"duration": {
 							"type": "array",
 							"items": {
-								"$ref": "#/definitions/duration"
+								"$ref": "#/$defs/duration"
 							}
 						},
 						"entries": {
@@ -1058,14 +1106,18 @@
 								"fromClassList": {
 									"type": "array",
 									"items": {
-										"$ref": "#/definitions/class"
-									}
+										"$ref": "#/$defs/class"
+									},
+									"minItems": 1,
+									"uniqueItems": true
 								},
 								"fromClassListVariant": {
 									"type": "array",
 									"items": {
-										"$ref": "#/definitions/class"
-									}
+										"$ref": "#/$defs/class"
+									},
+									"minItems": 1,
+									"uniqueItems": true
 								},
 								"fromSubclass": {
 									"type": "array",
@@ -1073,7 +1125,7 @@
 										"type": "object",
 										"properties": {
 											"class": {
-												"$ref": "#/definitions/class"
+												"$ref": "#/$defs/class"
 											},
 											"subclass": {
 												"type": "object",
@@ -1100,7 +1152,9 @@
 											"subclass"
 										],
 										"additionalProperties": false
-									}
+									},
+									"minItems": 1,
+									"uniqueItems": true
 								}
 							},
 							"additionalProperties": false
@@ -1127,7 +1181,9 @@
 									"name",
 									"source"
 								]
-							}
+							},
+							"minItems": 1,
+							"uniqueItems": true
 						},
 						"backgrounds": {
 							"type": "array",
@@ -1145,7 +1201,9 @@
 									"name",
 									"source"
 								]
-							}
+							},
+							"minItems": 1,
+							"uniqueItems": true
 						},
 						"eldritchInvocations": {
 							"type": "array",
@@ -1163,56 +1221,62 @@
 									"name",
 									"source"
 								]
-							}
+							},
+							"minItems": 1,
+							"uniqueItems": true
 						},
 						"source": {
 							"type": "string"
 						},
 						"page": {
-							"$ref": "../util.json#/definitions/page"
+							"$ref": "../util.json#/$defs/page"
 						},
 						"additionalSources": {
-							"$ref": "../util.json#/definitions/additionalSources"
+							"$ref": "../util.json#/$defs/additionalSources"
 						},
 						"otherSources": {
-							"$ref": "../util.json#/definitions/otherSources"
+							"$ref": "../util.json#/$defs/otherSources"
 						},
 						"damageInflict": {
 							"type": "array",
 							"uniqueItems": true,
 							"items": {
-								"$ref": "../util.json#/definitions/dataDamageType"
+								"$ref": "../util.json#/$defs/dataDamageType"
 							}
 						},
 						"damageResist": {
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
-								"$ref": "../util.json#/definitions/dataDamageType"
+								"$ref": "../util.json#/$defs/dataDamageType"
 							}
 						},
 						"damageImmune": {
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
-								"$ref": "../util.json#/definitions/dataDamageType"
+								"$ref": "../util.json#/$defs/dataDamageType"
 							}
 						},
 						"damageVulnerable": {
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
-								"$ref": "../util.json#/definitions/dataDamageType"
+								"$ref": "../util.json#/$defs/dataDamageType"
 							}
 						},
 						"conditionInflict": {
-							"$ref": "../util.json#/definitions/tagsConditions"
+							"$ref": "../util.json#/$defs/tagsConditions"
 						},
 						"conditionImmune": {
-							"$ref": "../util.json#/definitions/tagsConditions"
+							"$ref": "../util.json#/$defs/tagsConditions"
 						},
 						"savingThrow": {
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
 								"type": "string",
@@ -1228,6 +1292,7 @@
 						},
 						"abilityCheck": {
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
 								"type": "string",
@@ -1243,6 +1308,7 @@
 						},
 						"spellAttack": {
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
 								"type": "string",
@@ -1257,6 +1323,7 @@
 						"areaTags": {
 							"description": "By convention, only the effects of the spell cast at its base level are considered when populating these.\n C: Cube\n H: Hemisphere\n L: Line\n MT: Multiple Targets\n N: Cone\n Q: Square\n R: Circle\n ST: Single Target\n S: Sphere\n W: Wall\n Y: Cylinder",
 							"type": "array",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
 								"type": "string",
@@ -1277,7 +1344,8 @@
 						},
 						"miscTags": {
 							"type": "array",
-							"description": "FMV: Forced Movement\n HL: Healing\n LGT: Creates Light\n LGTS: Creates Sunlight\n MAC: Modifies AC\n PRM: Permanent Effects\n RO: Rollable Effects\n SCL: Scaling Effects\n  SMN: Summons Creature\n SGT: Requires Sight\n THP: Grants Temporary Hit Points\n TP: Teleportation",
+							"description": "FMV: Forced Movement\n HL: Healing\n LGT: Creates Light\n LGTS: Creates Sunlight\n MAC: Modifies AC\n PRM: Permanent Effects\n PS: Plane Shifting\nRO: Rollable Effects\n SCL: Scaling Effects\n  SMN: Summons Creature\n SGT: Requires Sight\n THP: Grants Temporary Hit Points\n TP: Teleportation\n UBA: Uses Bonus Action",
+							"minItems": 1,
 							"uniqueItems": true,
 							"items": {
 								"type": "string",
@@ -1288,37 +1356,41 @@
 									"LGTS",
 									"MAC",
 									"PRM",
+									"PS",
 									"RO",
 									"SCL",
 									"SMN",
 									"SGT",
 									"THP",
-									"TP"
+									"TP",
+									"UBA"
 								]
 							}
 						},
 						"affectsCreatureType": {
 							"type": "array",
+							"minItems": 1,
+							"uniqueItems": true,
 							"items": {
-								"$ref": "../util.json#/definitions/creatureType"
+								"$ref": "../util.json#/$defs/creatureType"
 							}
 						},
 						"srd": {
-							"$ref": "../util.json#/definitions/srd"
+							"$ref": "../util.json#/$defs/srd"
 						},
 						"basicRules": {
-							"$ref": "../util.json#/definitions/basicRules"
+							"$ref": "../util.json#/$defs/basicRules"
 						},
 						"scalingLevelDice": {
 							"oneOf": [
 								{
 									"type": "array",
 									"items": {
-										"$ref": "#/definitions/scalingLevelDiceItem"
+										"$ref": "#/$defs/scalingLevelDiceItem"
 									}
 								},
 								{
-									"$ref": "#/definitions/scalingLevelDiceItem"
+									"$ref": "#/$defs/scalingLevelDiceItem"
 								}
 							]
 						},
@@ -1354,7 +1426,7 @@
 									"type": "string"
 								},
 								"_mod": {
-									"$ref": "../util.json#/definitions/_modObject"
+									"$ref": "../util.json#/$defs/_modObject"
 								},
 								"_trait": {
 									"type": "object",
@@ -1375,7 +1447,7 @@
 									"type": "object",
 									"patternProperties": {
 										".*": {
-											"type": "boolean"
+											"const": true
 										}
 									}
 								}
@@ -1525,11 +1597,13 @@
 		"spell": {
 			"type": "array",
 			"items": {
-				"$ref": "#/definitions/spell"
-			}
+				"$ref": "#/$defs/spell"
+			},
+			"minItems": 1,
+			"uniqueItems": true
 		},
 		"_meta": {
-			"$ref": "../util.json#/definitions/metaBlock"
+			"$ref": "../util.json#/$defs/metaBlock"
 		}
 	},
 	"required": [

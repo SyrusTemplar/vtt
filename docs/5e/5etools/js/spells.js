@@ -19,9 +19,9 @@ class SpellsSublistManager extends SublistManager {
 		const $ele = $(`<div class="lst__row lst__row--sublist ve-flex-col">
 			<a href="#${UrlUtil.autoEncodeHash(spell)}" title="${spell.name}" class="lst--border lst__row-inner">
 				<span class="bold col-3-2 pl-0">${spell.name}</span>
-				<span class="capitalise col-1-5 text-center">${PageFilterSpells.getTblLevelStr(spell)}</span>
+				<span class="capitalize col-1-5 text-center">${PageFilterSpells.getTblLevelStr(spell)}</span>
 				<span class="col-1-8 text-center">${time}</span>
-				<span class="capitalise col-1-6 sp__school-${spell.school} text-center" title="${Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools)}" ${Parser.spSchoolAbvToStyle(spell.school)}>${school}</span>
+				<span class="capitalize col-1-6 sp__school-${spell.school} text-center" title="${Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools)}" ${Parser.spSchoolAbvToStyle(spell.school)}>${school}</span>
 				<span class="concentration--sublist col-0-7 text-center" title="Concentration">${concentration}</span>
 				<span class="range col-3-2 pr-0 text-right">${range}</span>
 			</a>
@@ -53,6 +53,8 @@ class SpellsSublistManager extends SublistManager {
 
 class SpellsPage extends ListPageMultiSource {
 	constructor () {
+		const pFnGetFluff = Renderer.spell.pGetFluff.bind(Renderer.spell);
+
 		super({
 			pageFilter: new PageFilterSpells(),
 
@@ -63,12 +65,14 @@ class SpellsPage extends ListPageMultiSource {
 
 			dataProps: ["spell"],
 
+			pFnGetFluff,
+
 			bookViewOptions: {
 				$btnOpen: $(`#btn-spellbook`),
 				$eleNoneVisible: $(`<span class="initial-message">If you wish to view multiple spells, please first make a list</span>`),
 				pageTitle: "Spells Book View",
 				fnSort: (a, b) => this._bookViewLastOrder === "0" ? SortUtil.ascSort(a.level, b.level) : SortUtil.ascSortLower(a.name, b.name),
-				fnGetMd: sp => RendererMarkdown.get().render({type: "dataSpell", dataSpell: sp}).trim(),
+				fnGetMd: sp => RendererMarkdown.get().render({type: "statblockInline", dataType: "spell", data: sp}).trim(),
 			},
 
 			tableViewOptions: {
@@ -91,8 +95,15 @@ class SpellsPage extends ListPageMultiSource {
 					_classes: {
 						name: "Classes",
 						transform: (sp) => {
-							const fromClassList = Renderer.spell.getCombinedClasses(sp, "fromClassList");
-							return Parser.spMainClassesToFull(fromClassList);
+							const [current] = Parser.spClassesToCurrentAndLegacy(Renderer.spell.getCombinedClasses(sp, "fromClassList"));
+							return Parser.spMainClassesToFull(current);
+						},
+					},
+					_classesVariant: {
+						name: "Optional/Variant Classes",
+						transform: (sp) => {
+							const [current] = Parser.spVariantClassesToCurrentAndLegacy(Renderer.spell.getCombinedClasses(sp, "fromClassListVariant"));
+							return Parser.spMainClassesToFull(current);
 						},
 					},
 					entries: {name: "Text", transform: (it) => Renderer.get().render({type: "entries", entries: it}, 1), flex: 3},
@@ -101,26 +112,34 @@ class SpellsPage extends ListPageMultiSource {
 			},
 
 			isMarkdownPopout: true,
-			bindOtherButtonsOptions: {
-				upload: {
-					pFnPreLoad: (...args) => this.pPreloadSublistSources(...args),
-				},
-				sendToBrew: {
-					mode: "spellBuilder",
-					fnGetMeta: () => ({
-						page: UrlUtil.getCurrentPage(),
-						source: Hist.getHashSource(),
-						hash: Hist.getHashParts()[0],
-					}),
-				},
-			},
 
 			jsonDir: "data/spells/",
+
+			listSyntax: new ListSyntaxSpells({fnGetDataList: () => this._dataList, pFnGetFluff}),
 		});
 
 		this._lastFilterValues = null;
 		this._subclassLookup = {};
 		this._bookViewLastOrder = null;
+	}
+
+	get _bindOtherButtonsOptions () {
+		return {
+			upload: {
+				pFnPreLoad: (...args) => this.pPreloadSublistSources(...args),
+			},
+			sendToBrew: {
+				mode: "spellBuilder",
+				fnGetMeta: () => ({
+					page: UrlUtil.getCurrentPage(),
+					source: Hist.getHashSource(),
+					hash: Hist.getHashParts()[0],
+				}),
+			},
+			other: [
+				this._bindOtherButtonsOptions_openAsSinglePage({slugPage: "spells", fnGetHash: () => Hist.getHashParts()[0]}),
+			].filter(Boolean),
+		};
 	}
 
 	_bookView_popTblGetNumShown ({$wrpContent, $dispName, $wrpControls}) {
@@ -213,7 +232,7 @@ class SpellsPage extends ListPageMultiSource {
 
 		const eleLi = e_({
 			tag: "div",
-			clazz: `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`,
+			clazz: `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`,
 			click: (evt) => this._list.doSelect(listItem, evt),
 			contextmenu: (evt) => this._openContextMenu(evt, this._list, listItem),
 			children: [
@@ -293,7 +312,7 @@ class SpellsPage extends ListPageMultiSource {
 				isImageTab,
 				$content: this._$pgContent,
 				entity: spell,
-				pFnGetFluff: Renderer.spell.pGetFluff,
+				pFnGetFluff: this._pFnGetFluff,
 			});
 		};
 
@@ -338,13 +357,6 @@ class SpellsPage extends ListPageMultiSource {
 		Renderer.spell.populateHomebrewLookup(homebrew);
 	}
 
-	_getSearchCache (entity) {
-		if (this.constructor._INDEXABLE_PROPS.every(it => !entity[it])) return "";
-		const ptrOut = {_: ""};
-		this.constructor._INDEXABLE_PROPS.forEach(it => this._getSearchCache_handleEntryProp(entity, it, ptrOut));
-		return ptrOut._;
-	}
-
 	async pPreloadSublistSources (json) {
 		const loaded = Object.keys(this._loadedSources)
 			.filter(it => this._loadedSources[it].loaded);
@@ -368,10 +380,6 @@ class SpellsPage extends ListPageMultiSource {
 	}
 }
 SpellsPage._BOOK_VIEW_MODE_K = "bookViewMode";
-SpellsPage._INDEXABLE_PROPS = [
-	"entries",
-	"entriesHigherLevel",
-];
 
 const spellsPage = new SpellsPage();
 spellsPage.sublistManager = new SpellsSublistManager();

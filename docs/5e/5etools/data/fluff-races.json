@@ -2308,7 +2308,7 @@
 			]
 		},
 		{
-			"name": "Elf (Zendikar) (Joraga Nation)",
+			"name": "Elf (Zendikar; Joraga Nation)",
 			"source": "PSZ",
 			"_copy": {
 				"name": "Elf (Zendikar)",
@@ -2332,7 +2332,7 @@
 			}
 		},
 		{
-			"name": "Elf (Zendikar) (Mul Daya Nation)",
+			"name": "Elf (Zendikar; Mul Daya Nation)",
 			"source": "PSZ",
 			"_copy": {
 				"name": "Elf (Zendikar)",
@@ -2357,7 +2357,7 @@
 			}
 		},
 		{
-			"name": "Elf (Zendikar) (Tajuru Nation)",
+			"name": "Elf (Zendikar; Tajuru Nation)",
 			"source": "PSZ",
 			"_copy": {
 				"name": "Elf (Zendikar)",
@@ -3475,7 +3475,7 @@
 			]
 		},
 		{
-			"name": "Goblin (Zendikar) (Grotag Tribe)",
+			"name": "Goblin (Zendikar; Grotag Tribe)",
 			"source": "PSZ",
 			"_copy": {
 				"name": "Goblin (Zendikar)",
@@ -3499,7 +3499,7 @@
 			}
 		},
 		{
-			"name": "Goblin (Zendikar) (Lavastep Tribe)",
+			"name": "Goblin (Zendikar; Lavastep Tribe)",
 			"source": "PSZ",
 			"_copy": {
 				"name": "Goblin (Zendikar)",
@@ -3523,7 +3523,7 @@
 			}
 		},
 		{
-			"name": "Goblin (Zendikar) (Tuktuk Tribe)",
+			"name": "Goblin (Zendikar; Tuktuk Tribe)",
 			"source": "PSZ",
 			"_copy": {
 				"name": "Goblin (Zendikar)",
@@ -3650,9 +3650,8 @@
 			"name": "Hadozee",
 			"source": "AAG",
 			"entries": [
-				"The first hadozees were timid mammals no bigger than housecats. Hunted by larger natural predators, the hadozees took to the trees and evolved wing-like flaps that enabled them to glide from branch to branch.",
-				"Several hundred years ago, a wizard visited Yazir, the hadozee home world, with a small fleet of spelljamming ships. Under the wizard's direction, apprentices laid magic traps and captured dozens of hadozees. The wizard fed the captives an experimental elixir that enlarged them and turned them into sapient, bipedal beings. The elixir had the side effect of intensifying the hadozees' panic response, making them more resilient when harmed. The wizard's plan was to create an army of enhanced hadozee warriors for sale to the highest bidder. But instead, the wizard's apprentices grew fond of the hadozees and helped them escape. The apprentices and the hadozees were forced to kill the wizard, after which they fled, taking with them all remaining vials of the wizard's experimental elixir.",
-				"With the help of their liberators, the hadozees returned to their home world and used the elixir to create more of their kind. In time, all hadozee newborns came to possess the traits of the enhanced hadozees. Then, centuries ago, hadozees took to the stars, leaving Yazir's fearsome predators behind.",
+				"Hadozees' progenitors were mammals no bigger than housecats. Hunted by larger natural predators, they took to the trees and evolved wing-like flaps that enabled them to glide from branch to branch.",
+				"Today, hadozees are sapient, bipedal beings eager to leave behind the fearsome predators of their homeworld and explore other worlds.",
 				"In addition to being natural climbers, hadozees have feet that are as dexterous as their hands, even to the extent of having opposable thumbs. Membranes of skin hang loosely from their arms and legs. When stretched taut, these membranes enable hadozees to glide. Hadozees wrap these wings around themselves to keep warm."
 			],
 			"images": [
@@ -4711,6 +4710,24 @@
 		},
 		{
 			"name": "Kender",
+			"source": "DSotDQ",
+			"entries": [
+				"During the mythical origins of Krynn, Reorx, god of craft, indulged in an age of unfettered creation. Many peoples sprang from his divine forge, but not all among them remained as the god created them. Altered by unbridled magic, a group of gnomes were transformed and given almost supernatural curiosity and fearlessness. These were the first kender.",
+				"Originating on the world of Krynn, kender are diminutive Humanoids who look like humans with pointed ears and diverse appearances. Kender have a supernatural curiosity that drives them to adventure. Due to this inquisitiveness, many kender find themselves falling through portals to other planes and worlds.",
+				"Kender sometimes amass impressive collections of curiosities. Some might collect mundane knickknacks or relics from magical sites, while others might become professional thieves."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/DSotDQ/Kender.webp"
+					}
+				}
+			]
+		},
+		{
+			"name": "Kender",
 			"source": "UA2022HeroesOfKrynn",
 			"entries": [
 				"Native to the world of Krynn, Kender are diminutive Humanoids that look like humans with pointed ears and diverse appearances. Kender have a supernatural curiosity that drives them on to adventures big and small. This curiosity is said to be connected to the whimsical magic of the Feywild, that some believe kender have a high affinity for. Due to their curiosity, many kender have found themselves falling through gates and portals to other planes and worlds.",
@@ -5419,7 +5436,7 @@
 			]
 		},
 		{
-			"name": "Merfolk (Zendikar) (Cosi Creed)",
+			"name": "Merfolk (Zendikar; Cosi Creed)",
 			"source": "PSZ",
 			"_copy": {
 				"name": "Merfolk (Zendikar)",
@@ -5443,7 +5460,7 @@
 			}
 		},
 		{
-			"name": "Merfolk (Zendikar) (Emeria Creed)",
+			"name": "Merfolk (Zendikar; Emeria Creed)",
 			"source": "PSZ",
 			"_copy": {
 				"name": "Merfolk (Zendikar)",
@@ -5467,7 +5484,7 @@
 			}
 		},
 		{
-			"name": "Merfolk (Zendikar) (Ula Creed)",
+			"name": "Merfolk (Zendikar; Ula Creed)",
 			"source": "PSZ",
 			"_copy": {
 				"name": "Merfolk (Zendikar)",
@@ -7174,6 +7191,38 @@
 						}
 					}
 				}
+			}
+		},
+		{
+			"name": "Tiefling (Variant; Devil's Tongue)",
+			"source": "SCAG",
+			"_copy": {
+				"name": "Tiefling (Variant)",
+				"source": "SCAG"
+			}
+		},
+		{
+			"name": "Tiefling (Variant; Hellfire)",
+			"source": "SCAG",
+			"_copy": {
+				"name": "Tiefling (Variant)",
+				"source": "SCAG"
+			}
+		},
+		{
+			"name": "Tiefling (Variant; Infernal Legacy)",
+			"source": "SCAG",
+			"_copy": {
+				"name": "Tiefling (Variant)",
+				"source": "SCAG"
+			}
+		},
+		{
+			"name": "Tiefling (Variant; Winged)",
+			"source": "SCAG",
+			"_copy": {
+				"name": "Tiefling (Variant)",
+				"source": "SCAG"
 			}
 		},
 		{

@@ -12,13 +12,6 @@ class LootGenUi extends BaseComponent {
 		this._modalFilterItems = new ModalFilterItems({
 			namespace: "LootGenUi.items",
 			allData: items,
-			pageFilterOpts: {
-				filterOpts: {
-					"Category": {
-						deselFn: (it) => it === "Generic Variant",
-					},
-				},
-			},
 		});
 
 		this._data = null;
@@ -1683,25 +1676,8 @@ class LootGenMagicItem extends BaseComponent {
 		if (isItemsAltChooseRoll) {
 			const item = RollerUtil.rollOnArray(itemsAltChoose);
 
-			const baseEntry = item ? `{@item ${item.name}|${item.source}}` : `<span class="help-subtle" title="${LootGenMagicItemNull.TOOLTIP_NOTHING.qq()}">(no item)</span>`;
-
-			if (item?.spellScrollLevel != null) {
-				return new LootGenMagicItemSpellScroll({
-					lootGenMagicItems,
-					spells,
-					magicItemTable,
-					itemsAltChoose,
-					itemsAltChooseDisplayText,
-					isItemsAltChooseRoll,
-					fnGetIsPreferAltChoose,
-					baseEntry,
-					item,
-					spellLevel: item.spellScrollLevel,
-					spell: RollerUtil.rollOnArray(spells.filter(it => it.level === item.spellScrollLevel)),
-				});
-			}
-
-			return new LootGenMagicItem({
+			return this._pGetMagicItemRoll_singleItem({
+				item,
 				lootGenMagicItems,
 				spells,
 				magicItemTable,
@@ -1709,8 +1685,6 @@ class LootGenMagicItem extends BaseComponent {
 				itemsAltChooseDisplayText,
 				isItemsAltChooseRoll,
 				fnGetIsPreferAltChoose,
-				baseEntry,
-				item,
 			});
 		}
 
@@ -1833,7 +1807,8 @@ class LootGenMagicItem extends BaseComponent {
 			});
 		}
 
-		return new LootGenMagicItem({
+		return this._pGetMagicItemRoll_singleItem({
+			item: await this._pGetMagicItemRoll_pGetItem({nameOrUid: row.item}),
 			lootGenMagicItems,
 			spells,
 			magicItemTable,
@@ -1842,8 +1817,74 @@ class LootGenMagicItem extends BaseComponent {
 			isItemsAltChooseRoll,
 			fnGetIsPreferAltChoose,
 			baseEntry: row.item,
-			item: await this._pGetMagicItemRoll_pGetItem({nameOrUid: row.item}),
 			roll: rowRoll,
+		});
+	}
+
+	static async _pGetMagicItemRoll_singleItem (
+		{
+			item,
+			lootGenMagicItems,
+			spells,
+			magicItemTable,
+			itemsAltChoose,
+			itemsAltChooseDisplayText,
+			isItemsAltChooseRoll = false,
+			fnGetIsPreferAltChoose = null,
+			baseEntry,
+			roll,
+		},
+	) {
+		baseEntry = baseEntry || item
+			? `{@item ${item.name}|${item.source}}`
+			: `<span class="help-subtle" title="${LootGenMagicItemNull.TOOLTIP_NOTHING.qq()}">(no item)</span>`;
+
+		if (item?.spellScrollLevel != null) {
+			return new LootGenMagicItemSpellScroll({
+				lootGenMagicItems,
+				spells,
+				magicItemTable,
+				itemsAltChoose,
+				itemsAltChooseDisplayText,
+				isItemsAltChooseRoll,
+				fnGetIsPreferAltChoose,
+				baseEntry,
+				item,
+				spellLevel: item.spellScrollLevel,
+				spell: RollerUtil.rollOnArray(spells.filter(it => it.level === item.spellScrollLevel)),
+				roll,
+			});
+		}
+
+		if (item?.variants?.length) {
+			const subItems = item.variants.map(({specificVariant}) => specificVariant);
+
+			return new LootGenMagicItemSubItems({
+				lootGenMagicItems,
+				spells,
+				magicItemTable,
+				itemsAltChoose,
+				itemsAltChooseDisplayText,
+				isItemsAltChooseRoll,
+				fnGetIsPreferAltChoose,
+				baseEntry: baseEntry,
+				item: RollerUtil.rollOnArray(subItems),
+				roll,
+				subItems,
+			});
+		}
+
+		return new LootGenMagicItem({
+			lootGenMagicItems,
+			spells,
+			magicItemTable,
+			itemsAltChoose,
+			itemsAltChooseDisplayText,
+			isItemsAltChooseRoll,
+			fnGetIsPreferAltChoose,
+			baseEntry,
+			item,
+			roll,
 		});
 	}
 

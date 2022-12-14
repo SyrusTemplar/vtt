@@ -66,6 +66,8 @@ class PsionicsPage extends ListPage {
 					_text: {name: "Text", transform: (it) => Renderer.psionic.getBodyText(it, Renderer.get()), flex: 3},
 				},
 			},
+
+			listSyntax: new ListSyntaxPsionics({fnGetDataList: () => this._dataList}),
 		});
 	}
 
@@ -86,7 +88,7 @@ class PsionicsPage extends ListPage {
 		this._pageFilter.mutateAndAddToFilters(p, isExcluded);
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
+		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(p.source);
 		const hash = UrlUtil.autoEncodeHash(p);
@@ -138,15 +140,6 @@ class PsionicsPage extends ListPage {
 	async pDoLoadSubHash (sub) {
 		sub = await super.pDoLoadSubHash(sub);
 		await this._bookView.pHandleSub(sub);
-	}
-
-	_getSearchCache (entity) {
-		if (!entity.entries && !entity.modes && !entity.focus) return "";
-		const ptrOut = {_: ""};
-		this._getSearchCache_handleEntryProp(entity, "entries", ptrOut);
-		this._getSearchCache_handleEntryProp(entity, "modes", ptrOut);
-		this._getSearchCache_handleEntryProp(entity, "focus", ptrOut);
-		return ptrOut._;
 	}
 }
 

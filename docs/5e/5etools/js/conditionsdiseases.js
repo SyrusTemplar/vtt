@@ -40,6 +40,8 @@ class ConditionsDiseasesPage extends ListPage {
 		super({
 			dataSource: "data/conditionsdiseases.json",
 
+			pFnGetFluff: Renderer.condition.pGetFluff.bind(Renderer.condition),
+
 			pageFilter,
 
 			listClass: "conditions",
@@ -54,7 +56,7 @@ class ConditionsDiseasesPage extends ListPage {
 		this._pageFilter.mutateAndAddToFilters(it, isExcluded);
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
+		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
@@ -109,7 +111,7 @@ class ConditionsDiseasesPage extends ListPage {
 				isImageTab,
 				$content: this._$pgContent,
 				entity: it,
-				pFnGetFluff: Renderer.condition.pGetFluff,
+				pFnGetFluff: this._pFnGetFluff,
 			});
 		};
 

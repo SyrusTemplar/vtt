@@ -1,11 +1,12 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "magicvariants.json",
-	"version": "1.6.1",
+	"version": "1.7.0",
 	"type": "object",
 	"properties": {
 		"magicvariant": {
 			"type": "array",
+			"minItems": 1,
 			"uniqueItems": true,
 			"items": {
 				"type": "object",
@@ -14,7 +15,7 @@
 						"type": "string"
 					},
 					"type": {
-						"$ref": "shared-items.json#/definitions/itemType"
+						"$ref": "items-shared.json#/$defs/itemType"
 					},
 					"entries": {
 						"type": "array",
@@ -49,7 +50,7 @@
 									"type": "boolean"
 								},
 								"dmgType": {
-									"$ref": "util.json#/definitions/dataDamageTags"
+									"$ref": "util.json#/$defs/dataDamageTags"
 								},
 								"name": {
 									"type": "string"
@@ -58,16 +59,16 @@
 									"type": "string"
 								},
 								"type": {
-									"$ref": "shared-items.json#/definitions/itemType"
+									"$ref": "items-shared.json#/$defs/itemType"
 								},
 								"scfType": {
-									"$ref": "shared-items.json#/definitions/itemScfType"
+									"$ref": "items-shared.json#/$defs/itemScfType"
 								},
 								"net": {
 									"type": "boolean"
 								},
 								"weaponCategory": {
-									"$ref": "shared-items.json#/definitions/itemWeaponCategory"
+									"$ref": "items-shared.json#/$defs/itemWeaponCategory"
 								},
 								"property": {
 									"type": "string"
@@ -81,19 +82,19 @@
 						"properties": {
 							"type": {
 								"description": "Generally this should be omitted, as the type of the base item will be used.",
-								"$ref": "shared-items.json#/definitions/itemType"
+								"$ref": "items-shared.json#/$defs/itemType"
 							},
 							"property": {
 								"description": "Generally this should be omitted, as the properties of the base item will be used.",
-								"$ref": "shared-items.json#/definitions/itemProperty"
+								"$ref": "items-shared.json#/$defs/itemProperty"
 							},
 							"propertyAdd": {
 								"description": "Additional properties to grant the specific variant, if not already present on the base item.",
-								"$ref": "shared-items.json#/definitions/itemProperty"
+								"$ref": "items-shared.json#/$defs/itemProperty"
 							},
 							"propertyRemove": {
 								"description": "Properties to remove from the specific variant, if present on the base item.",
-								"$ref": "shared-items.json#/definitions/itemProperty"
+								"$ref": "items-shared.json#/$defs/itemProperty"
 							},
 							"bonusAc": {
 								"type": "string"
@@ -117,13 +118,13 @@
 								"type": "string"
 							},
 							"modifySpeed": {
-								"$ref": "shared-items.json#/definitions/itemModifySpeed"
+								"$ref": "items-shared.json#/$defs/itemModifySpeed"
 							},
 							"tier": {
-								"$ref": "shared-items.json#/definitions/itemTier"
+								"$ref": "items-shared.json#/$defs/itemTier"
 							},
 							"rarity": {
-								"$ref": "shared-items.json#/definitions/itemRarity",
+								"$ref": "items-shared.json#/$defs/itemRarity",
 								"not": {
 									"enum": [
 										"varies"
@@ -134,7 +135,7 @@
 								"type": "string"
 							},
 							"page": {
-								"$ref": "util.json#/definitions/page"
+								"$ref": "util.json#/$defs/page"
 							},
 							"namePrefix": {
 								"type": "string"
@@ -155,16 +156,16 @@
 								"type": "boolean"
 							},
 							"vulnerable": {
-								"$ref": "util.json#/definitions/damageVulnerabilityArray"
+								"$ref": "util.json#/$defs/damageVulnerabilityArray"
 							},
 							"resist": {
-								"$ref": "util.json#/definitions/damageResistArray"
+								"$ref": "util.json#/$defs/damageResistArray"
 							},
 							"immune": {
-								"$ref": "util.json#/definitions/damageImmunityArray"
+								"$ref": "util.json#/$defs/damageImmunityArray"
 							},
 							"conditionImmune": {
-								"$ref": "util.json#/definitions/conditionImmunityArray"
+								"$ref": "util.json#/$defs/conditionImmunityArray"
 							},
 							"stealth": {
 								"type": "boolean"
@@ -191,7 +192,10 @@
 								]
 							},
 							"recharge": {
-								"$ref": "shared-items.json#/definitions/itemRecharge"
+								"$ref": "items-shared.json#/$defs/itemRecharge"
+							},
+							"rechargeAmount": {
+								"$ref": "items-shared.json#/$defs/itemRechargeAmount"
 							},
 							"attachedSpells": {
 								"type": "array",
@@ -221,13 +225,13 @@
 								}
 							},
 							"srd": {
-								"$ref": "util.json#/definitions/srd"
+								"$ref": "util.json#/$defs/srd"
 							},
 							"basicRules": {
-								"$ref": "util.json#/definitions/basicRules"
+								"$ref": "util.json#/$defs/basicRules"
 							},
 							"otherSources": {
-								"$ref": "util.json#/definitions/otherSources"
+								"$ref": "util.json#/$defs/otherSources"
 							},
 							"valueMult": {
 								"type": "number"
@@ -247,10 +251,10 @@
 								"type": "boolean"
 							},
 							"reqAttuneTags": {
-								"$ref": "util.json#/definitions/reqAttuneTags"
+								"$ref": "util.json#/$defs/reqAttuneTags"
 							},
 							"reqAttuneAltTags": {
-								"$ref": "util.json#/definitions/reqAttuneTags"
+								"$ref": "util.json#/$defs/reqAttuneTags"
 							},
 							"hasRefs": {
 								"type": "boolean",
@@ -281,7 +285,7 @@
 								]
 							},
 							"page": {
-								"$ref": "util.json#/definitions/page"
+								"$ref": "util.json#/$defs/page"
 							},
 							"property": {
 								"oneOf": [
@@ -321,13 +325,13 @@
 						"type": "boolean"
 					},
 					"reqAttuneTags": {
-						"$ref": "util.json#/definitions/reqAttuneTags"
+						"$ref": "util.json#/$defs/reqAttuneTags"
 					},
 					"reqAttuneAltTags": {
-						"$ref": "util.json#/definitions/reqAttuneTags"
+						"$ref": "util.json#/$defs/reqAttuneTags"
 					},
 					"weaponCategory": {
-						"$ref": "shared-items.json#/definitions/itemWeaponCategory"
+						"$ref": "items-shared.json#/$defs/itemWeaponCategory"
 					},
 					"hasFluff": {
 						"type": "boolean"

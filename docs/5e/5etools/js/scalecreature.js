@@ -2240,7 +2240,7 @@
 
 		if (!mon.summonedBySpell || mon.summonedBySpellLevel == null) return mon;
 
-		ScaleSpellSummonedCreature._WALKER = ScaleSpellSummonedCreature._WALKER || MiscUtil.getWalker({keyBlacklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLACKLIST});
+		ScaleSpellSummonedCreature._WALKER = ScaleSpellSummonedCreature._WALKER || MiscUtil.getWalker({keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST});
 
 		const state = new ScaleSpellSummonedCreature.State({});
 
@@ -2251,6 +2251,7 @@
 
 		this._scale_traits(mon, toSpellLevel, state);
 		this._scale_actions(mon, toSpellLevel, state);
+		this._scale_bonusActions(mon, toSpellLevel, state);
 		this._scale_reactions(mon, toSpellLevel, state);
 
 		mon._summonedBySpell_level = toSpellLevel;
@@ -2324,6 +2325,7 @@
 
 	_scale_traits (mon, toSpellLevel, state) { this._scale_genericEntries(mon, toSpellLevel, state, "trait"); },
 	_scale_actions (mon, toSpellLevel, state) { this._scale_genericEntries(mon, toSpellLevel, state, "action"); },
+	_scale_bonusActions (mon, toSpellLevel, state) { this._scale_genericEntries(mon, toSpellLevel, state, "bonus"); },
 	_scale_reactions (mon, toSpellLevel, state) { this._scale_genericEntries(mon, toSpellLevel, state, "reaction"); },
 
 	State: function () {
@@ -2340,7 +2342,7 @@
 
 		if (!mon.summonedByClass || toClassLevel < 1) return mon;
 
-		ScaleClassSummonedCreature._WALKER = ScaleClassSummonedCreature._WALKER || MiscUtil.getWalker({keyBlacklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLACKLIST});
+		ScaleClassSummonedCreature._WALKER = ScaleClassSummonedCreature._WALKER || MiscUtil.getWalker({keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST});
 
 		const className = mon.summonedByClass.split("|")[0].toTitleCase();
 		const state = new ScaleClassSummonedCreature.State({
@@ -2357,6 +2359,7 @@
 
 		this._scale_traits(mon, toClassLevel, state);
 		this._scale_actions(mon, toClassLevel, state);
+		this._scale_bonusActions(mon, toClassLevel, state);
 		this._scale_reactions(mon, toClassLevel, state);
 
 		mon._summonedByClass_level = toClassLevel;
@@ -2471,6 +2474,7 @@
 
 	_scale_traits (mon, toClassLevel, state) { this._scale_genericEntries(mon, toClassLevel, state, "trait"); },
 	_scale_actions (mon, toClassLevel, state) { this._scale_genericEntries(mon, toClassLevel, state, "action"); },
+	_scale_bonusActions (mon, toClassLevel, state) { this._scale_genericEntries(mon, toClassLevel, state, "bonus"); },
 	_scale_reactions (mon, toClassLevel, state) { this._scale_genericEntries(mon, toClassLevel, state, "reaction"); },
 
 	_scale_pbNote (mon, toClassLevel, state) {

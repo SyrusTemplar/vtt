@@ -44,15 +44,21 @@ class RecipesSublistManager extends SublistManager {
 class RecipesPage extends ListPage {
 	constructor () {
 		const pageFilter = new PageFilterRecipes();
+		const pFnGetFluff = Renderer.recipe.pGetFluff.bind(Renderer.recipe);
+
 		super({
-			dataSource: DataUtil.recipe.loadJSON,
-			brewDataSource: DataUtil.recipe.loadBrew,
+			dataSource: DataUtil.recipe.loadJSON.bind(DataUtil.recipe),
+			brewDataSource: DataUtil.recipe.loadBrew.bind(DataUtil.recipe),
+
+			pFnGetFluff,
 
 			pageFilter,
 
 			listClass: "recipes",
 
 			dataProps: ["recipe"],
+
+			listSyntax: new ListSyntaxRecipes({fnGetDataList: () => this._dataList, pFnGetFluff}),
 		});
 	}
 
@@ -60,7 +66,7 @@ class RecipesPage extends ListPage {
 		this._pageFilter.mutateAndAddToFilters(it, isExcluded);
 
 		const eleLi = document.createElement("div");
-		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blacklisted" : ""}`;
+		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
 
 		const source = Parser.sourceJsonToAbv(it.source);
 		const hash = UrlUtil.autoEncodeHash(it);
@@ -152,7 +158,7 @@ class RecipesPage extends ListPage {
 		return Renderer.utils.pBuildFluffTab({
 			isImageTab,
 			$content: this._$pgContent,
-			pFnGetFluff: Renderer.recipe.pGetFluff,
+			pFnGetFluff: this._pFnGetFluff,
 			entity: it,
 		});
 	}
@@ -166,14 +172,6 @@ class RecipesPage extends ListPage {
 			const r = this._dataList[Hist.lastLoadedId];
 			this._renderStats(r, scaleTo);
 		}
-	}
-
-	_getSearchCache (entity) {
-		if (!entity.ingredients && !entity.instructions) return "";
-		const ptrOut = {_: ""};
-		this._getSearchCache_handleEntryProp(entity, "ingredients", ptrOut);
-		this._getSearchCache_handleEntryProp(entity, "instructions", ptrOut);
-		return ptrOut._;
 	}
 }
 RecipesPage._HASH_START_SCALED = `${VeCt.HASH_SCALED}${HASH_SUB_KV_SEP}`;

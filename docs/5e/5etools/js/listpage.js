@@ -668,7 +668,7 @@ class SublistManager {
 		if (this._isRolling) return;
 
 		if (this._listSub.items.length <= 1) {
-			JqueryUtil.doToast({
+			return JqueryUtil.doToast({
 				content: "Not enough entries to roll!",
 				type: "danger",
 			});
@@ -685,7 +685,7 @@ class SublistManager {
 		const timerMult = RollerUtil.randomise(125, 75);
 		const timers = [0, 1, 1, 1, 1, 1, 1.5, 1.5, 1.5, 2, 2, 2, 2.5, 3, 4, -1] // last element is always sliced off
 			.map(it => it * timerMult)
-			.slice(0, -RollerUtil.randomise(4, 1));
+			.slice(0, -RollerUtil.randomise(4));
 
 		function generateSequence (array, length) {
 			const out = [RollerUtil.rollOnArray(array)];
@@ -725,6 +725,7 @@ class ListPage {
 	 * @param opts Options object.
 	 * @param opts.dataSource Main JSON data url or function to fetch main data.
 	 * @param [opts.brewDataSource] Function to fetch brew data.
+	 * @param [opts.pFnGetFluff] Function to fetch fluff for a given entity.
 	 * @param [opts.dataSourceFluff] Fluff JSON data url or function to fetch fluff data.
 	 * @param [opts.filters] Array of filters to use in the filter box. (Either `filters` and `filterSource` or
 	 * `pageFilter` must be specified.)
@@ -745,15 +746,16 @@ class ListPage {
 	 * @param [opts.tableViewOptions] Table view options.
 	 * @param [opts.hasAudio] True if the entities have pronunciation audio.
 	 * @param [opts.isPreviewable] True if the entities can be previewed in-line as part of the list.
-	 * @param [opts.bindOtherButtonsOptions]
 	 * @param [opts.isLoadDataAfterFilterInit] If the order of data loading and filter-state loading should be flipped.
 	 * @param [opts.isBindHashHandlerUnknown] If the "unknown hash" handler function should be bound.
 	 * @param [opts.isMarkdownPopout] If the sublist Popout button supports Markdown on CTRL.
 	 * @param [opts.propEntryData]
+	 * @param [opts.listSyntax]
 	 */
 	constructor (opts) {
 		this._dataSource = opts.dataSource;
 		this._brewDataSource = opts.brewDataSource;
+		this._pFnGetFluff = opts.pFnGetFluff;
 		this._dataSourcefluff = opts.dataSourceFluff;
 		this._filters = opts.filters;
 		this._filterSource = opts.filterSource;
@@ -766,10 +768,10 @@ class ListPage {
 		this._hasAudio = opts.hasAudio;
 		this._isPreviewable = opts.isPreviewable;
 		this._isMarkdownPopout = !!opts.isMarkdownPopout;
-		this._bindOtherButtonsOptions = opts.bindOtherButtonsOptions;
 		this._isLoadDataAfterFilterInit = !!opts.isLoadDataAfterFilterInit;
 		this._isBindHashHandlerUnknown = !!opts.isBindHashHandlerUnknown;
 		this._propEntryData = opts.propEntryData;
+		this._listSyntax = opts.listSyntax || new ListUiUtil.ListSyntax({fnGetDataList: () => this._dataList, pFnGetFluff: opts.pFnGetFluff});
 
 		this._renderer = Renderer.get();
 		this._list = null;
@@ -877,7 +879,7 @@ class ListPage {
 			$btnClear: $(`#lst__search-glass`),
 			dispPageTagline: document.getElementById(`page__subtitle`),
 			isPreviewable: this._isPreviewable,
-			syntax: this._listSyntax,
+			syntax: this._listSyntax.build(),
 			isBindFindHotkey: true,
 			optsList: this._listOptions,
 		});
@@ -982,15 +984,15 @@ class ListPage {
 			.map(this._bookViewOptions.fnGetMd);
 
 		const out = [];
-		let charLimit = RendererMarkdown._PAGE_CHARS;
+		let charLimit = RendererMarkdown.CHARS_PER_PAGE;
 		for (let i = 0; i < parts.length; ++i) {
 			const part = parts[i];
 			out.push(part);
 
 			if (i < parts.length - 1) {
 				if ((charLimit -= part.length) < 0) {
-					if (RendererMarkdown._isAddPageBreaks) out.push("", "\\pagebreak", "");
-					charLimit = RendererMarkdown._PAGE_CHARS;
+					if (RendererMarkdown.getSetting("isAddPageBreaks")) out.push("", "\\pagebreak", "");
+					charLimit = RendererMarkdown.CHARS_PER_PAGE;
 				}
 			}
 		}
@@ -1021,10 +1023,9 @@ class ListPage {
 	_pOnLoad_tableView () {
 		if (!this._tableViewOptions) return;
 
-		const sublisted = this._sublistManager.getSublistedEntities();
-
 		$(`#btn-show-table`)
 			.click(() => {
+				const sublisted = this._sublistManager.getSublistedEntities();
 				UtilsTableview.show({
 					entities: sublisted.length
 						? sublisted
@@ -1066,6 +1067,18 @@ class ListPage {
 		this._bindOtherButtons({
 			...(this._bindOtherButtonsOptions || {}),
 		});
+	}
+
+	/* Implement as required */
+	get _bindOtherButtonsOptions () { return null; }
+
+	_bindOtherButtonsOptions_openAsSinglePage ({slugPage, fnGetHash}) {
+		if (!IS_DEPLOYED) return null;
+		return {
+			name: "Open Page",
+			type: "link",
+			fn: () => `${location.origin}/${slugPage}/${UrlUtil.getSluggedHash(fnGetHash())}`,
+		};
 	}
 
 	_addListItem (listItem) {
@@ -1134,46 +1147,13 @@ class ListPage {
 		dispExpandedInner.innerHTML = "";
 	}
 
-	get _listSyntax () {
-		return {
-			text: {
-				help: `"text:<text>" to search within text.`,
-				fn: (listItem, searchTerm) => {
-					if (listItem.data._textCache == null) listItem.data._textCache = this._getSearchCache(this._dataList[listItem.ix]);
-					return listItem.data._textCache && listItem.data._textCache.includes(searchTerm);
-				},
-			},
-		};
-	}
-
-	// TODO(Future) the ideal solution to this is to render every entity to plain text (or failing that, Markdown) and
-	//   indexing that text with e.g. elasticlunr.
-	_getSearchCache (entity) {
-		if (!entity.entries) return "";
-		const ptrOut = {_: ""};
-		this._getSearchCache_handleEntryProp(entity, "entries", ptrOut);
-		return ptrOut._;
-	}
-
-	_getSearchCache_handleEntryProp (entity, prop, ptrOut) {
-		if (!entity[prop]) return;
-		ListPage._READONLY_WALKER.walk(
-			entity[prop],
-			{
-				string: (str) => this._getSearchCache_handleString(ptrOut, str),
-			},
-		);
-	}
-
-	_getSearchCache_handleString (ptrOut, str) {
-		ptrOut._ += `${Renderer.stripTags(str).toLowerCase()} -- `;
-	}
+	// ==================
 
 	static _checkShowAllExcluded (list, $pagecontent) {
 		if (!ExcludeUtil.isAllContentExcluded(list)) return;
 
 		$pagecontent.html(`<tr><th class="border" colspan="6"></th></tr>
-			<tr><td colspan="6">${ExcludeUtil.getAllContentBlacklistedHtml()}</td></tr>
+			<tr><td colspan="6">${ExcludeUtil.getAllContentBlocklistedHtml()}</td></tr>
 			<tr><th class="border" colspan="6"></th></tr>`);
 	}
 
@@ -1270,10 +1250,18 @@ class ListPage {
 	}
 
 	_bindPopoutButton_doShowMarkdown (evt) {
-		const propData = this._propEntryData || `data${this._lastRender.entity.__prop.uppercaseFirst()}`;
+		const propData = this._propEntryData || this._lastRender.entity.__prop;
 
 		const name = `${this._lastRender.entity._displayName || this._lastRender.entity.name} \u2014 Markdown`;
-		const mdText = RendererMarkdown.get().render({entries: [{type: propData, [propData]: this._lastRender.entity}]});
+		const mdText = RendererMarkdown.get().render({
+			entries: [
+				{
+					type: "statblockInline",
+					dataType: propData,
+					data: this._lastRender.entity,
+				},
+			],
+		});
 		const $content = Renderer.hover.$getHoverContent_miscCode(name, mdText);
 
 		Renderer.hover.getShowWindow(
@@ -1300,13 +1288,12 @@ class ListPage {
 			optsList,
 		},
 	) {
-		const list = new List({$iptSearch, $wrpList, syntax, ...optsList});
-
 		const helpText = [];
+		if (isBindFindHotkey) helpText.push(`Hotkey: f.`);
+
+		const list = new List({$iptSearch, $wrpList, syntax, helpText, ...optsList});
 
 		if (isBindFindHotkey) {
-			helpText.push(`Hotkey: f.`);
-
 			$(document.body).on("keypress", (evt) => {
 				if (!EventUtil.noModifierKeys(evt) || EventUtil.isInInput(evt)) return;
 				if (EventUtil.getKeyIgnoreCapsLock(evt) === "f") {
@@ -1315,16 +1302,6 @@ class ListPage {
 				}
 			});
 		}
-
-		if (syntax) {
-			Object.values(syntax)
-				.filter(({help}) => help)
-				.forEach(({help}) => {
-					helpText.push(help);
-				});
-		}
-
-		if (helpText.length) $iptSearch.title(helpText.join(" "));
 
 		$btnReset.click(() => {
 			$iptSearch.val("");
@@ -1602,14 +1579,19 @@ class ListPage {
 			contextOptions.push(action);
 		}
 
-		if (opts.other) {
+		if (opts.other?.length) {
 			if (contextOptions.length) contextOptions.push(null); // Add a spacer after the previous group
 
 			opts.other.forEach(oth => {
-				const action = new ContextUtil.Action(
-					oth.name,
-					oth.pFn,
-				);
+				const action = oth.type === "link"
+					? new ContextUtil.ActionLink(
+						oth.name,
+						oth.fn,
+					)
+					: new ContextUtil.Action(
+						oth.name,
+						oth.pFn,
+					);
 				contextOptions.push(action);
 			});
 		}
@@ -1643,7 +1625,3 @@ class ListPage {
 		return sub;
 	}
 }
-ListPage._READONLY_WALKER = MiscUtil.getWalker({
-	keyBlacklist: new Set(["type", "colStyles", "style"]),
-	isNoModification: true,
-});
