@@ -2,7 +2,10 @@
 
 class MakeCards extends BaseComponent {
 	static async pInit () {
-		await BrewUtil2.pInit();
+		await Promise.all([
+			PrereleaseUtil.pInit(),
+			BrewUtil2.pInit(),
+		]);
 		await ExcludeUtil.pInitialise();
 
 		MakeCards._ = new MakeCards();
@@ -303,7 +306,7 @@ class MakeCards extends BaseComponent {
 		}
 		cardMeta.count = cardMeta.count || 1;
 
-		const loaded = await Renderer.hover.pCacheAndGet(cardMeta.page, cardMeta.source, cardMeta.hash);
+		const loaded = await DataLoader.pCacheAndGet(cardMeta.page, cardMeta.source, cardMeta.hash);
 
 		const $cbSel = $(`<input type="checkbox">`);
 
@@ -378,7 +381,7 @@ class MakeCards extends BaseComponent {
 		const $ele = $$`<label class="ve-flex-v-center my-1 w-100 lst__row lst--border lst__row-inner">
 			<div class="col-1 mr-2 ve-flex-vh-center">${$cbSel}</div>
 			<div class="col-3 mr-2 ve-flex-v-center">${loaded.name}</div>
-			<div class="col-1-5 mr-2 ve-flex-vh-center ${Parser.sourceJsonToColor(loaded.source)}" title="${Parser.sourceJsonToFull(loaded.source)}" ${BrewUtil2.sourceJsonToStyle(loaded.source)}>${Parser.sourceJsonToAbv(loaded.source)}</div>
+			<div class="col-1-5 mr-2 ve-flex-vh-center ${Parser.sourceJsonToColor(loaded.source)}" title="${Parser.sourceJsonToFull(loaded.source)}" ${Parser.sourceJsonToStyle(loaded.source)}>${Parser.sourceJsonToAbv(loaded.source)}</div>
 			<div class="col-1-5 mr-2 ve-flex-vh-center">${Parser.getPropDisplayName(cardMeta.entityType)}</div>
 			<div class="col-1-1 mr-2 ve-flex-vh-center">${$iptRgb}</div>
 			<div class="col-1-1 mr-2 ve-flex-vh-center">${$btnIcon}</div>
@@ -537,7 +540,7 @@ class MakeCards extends BaseComponent {
 	static _getCardContents_race (race) {
 		return [
 			this._ct_property("Ability Scores", Renderer.getAbilityData(race.ability).asText),
-			this._ct_property("Size", (race.size || [SZ_VARIES]).map(sz => Parser.sizeAbvToFull(sz)).join("/")),
+			this._ct_property("Size", (race.size || [Parser.SZ_VARIES]).map(sz => Parser.sizeAbvToFull(sz)).join("/")),
 			this._ct_property("Speed", Parser.getSpeedString(race)),
 			this._ct_rule(),
 			...this._ct_renderEntries(race.entries, 2),
@@ -551,17 +554,19 @@ class MakeCards extends BaseComponent {
 	}
 
 	static _getCardContents_feat (feat) {
-		const prerequisite = Renderer.utils.getPrerequisiteHtml(feat.prerequisite, {isListMode: true});
+		const prerequisite = Renderer.utils.prerequisite.getHtml(feat.prerequisite, {isListMode: true});
+		const ptRepeatable = Renderer.utils.getRepeatableHtml(feat, {isListMode: true});
 		Renderer.feat.initFullEntries(feat);
 		return [
-			prerequisite ? this._ct_property("Prerequisites", prerequisite) : null,
-			prerequisite ? this._ct_rule() : null,
+			(prerequisite && prerequisite !== "\u2014") ? this._ct_property("Prerequisites", prerequisite) : null,
+			(ptRepeatable && ptRepeatable !== "\u2014") ? this._ct_property("Repeatable", ptRepeatable) : null,
+			(prerequisite || ptRepeatable) ? this._ct_rule() : null,
 			...this._ct_renderEntries(feat._fullEntries || feat.entries, 2),
 		].filter(Boolean);
 	}
 
 	static _getCardContents_optionalfeature (optfeat) {
-		const prerequisite = Renderer.utils.getPrerequisiteHtml(optfeat.prerequisite, {isListMode: true});
+		const prerequisite = Renderer.utils.prerequisite.getHtml(optfeat.prerequisite, {isListMode: true});
 		Renderer.feat.initFullEntries(optfeat);
 		return [
 			prerequisite ? this._ct_property("Prerequisites", prerequisite) : null,

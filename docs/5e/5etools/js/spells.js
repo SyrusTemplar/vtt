@@ -51,6 +51,14 @@ class SpellsSublistManager extends SublistManager {
 	}
 }
 
+class SpellsPageSettingsManager extends ListPageSettingsManager {
+	_getSettings () {
+		return {
+			...RenderSpells.SETTINGS,
+		};
+	}
+}
+
 class SpellsPage extends ListPageMultiSource {
 	constructor () {
 		const pFnGetFluff = Renderer.spell.pGetFluff.bind(Renderer.spell);
@@ -113,9 +121,11 @@ class SpellsPage extends ListPageMultiSource {
 
 			isMarkdownPopout: true,
 
-			jsonDir: "data/spells/",
+			propLoader: "spell",
 
 			listSyntax: new ListSyntaxSpells({fnGetDataList: () => this._dataList, pFnGetFluff}),
+
+			compSettings: new SpellsPageSettingsManager(),
 		});
 
 		this._lastFilterValues = null;
@@ -256,7 +266,7 @@ class SpellsPage extends ListPageMultiSource {
 						e_({
 							tag: "span",
 							clazz: `col-1-7 text-center ${Parser.sourceJsonToColor(spell.source)} pr-0`,
-							style: BrewUtil2.sourceJsonToStylePart(spell.source),
+							style: Parser.sourceJsonToStylePart(spell.source),
 							title: `${Parser.sourceJsonToFull(spell.source)}${Renderer.utils.getSourceSubText(spell)}`,
 							text: source,
 						}),
@@ -304,7 +314,7 @@ class SpellsPage extends ListPageMultiSource {
 		const spell = this._dataList[id];
 
 		const buildStatsTab = () => {
-			this._$pgContent.append(RenderSpells.$getRenderedSpell(spell, this._subclassLookup));
+			this._$pgContent.append(RenderSpells.$getRenderedSpell(spell, this._subclassLookup, {settings: this._compSettings.getValues()}));
 		};
 
 		const buildFluffTab = (isImageTab) => {
@@ -353,8 +363,8 @@ class SpellsPage extends ListPageMultiSource {
 	}
 
 	async _pOnLoad_pPreDataAdd () {
-		const homebrew = await BrewUtil2.pGetBrewProcessed();
-		Renderer.spell.populateHomebrewLookup(homebrew);
+		Renderer.spell.populatePrereleaseLookup(await PrereleaseUtil.pGetBrewProcessed());
+		Renderer.spell.populateBrewLookup(await BrewUtil2.pGetBrewProcessed());
 	}
 
 	async pPreloadSublistSources (json) {

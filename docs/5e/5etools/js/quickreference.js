@@ -16,7 +16,10 @@ window.addEventListener("load", async () => {
 			.append(Renderer.utils.getBorderTr());
 	}
 
-	await BrewUtil2.pInit();
+	await Promise.all([
+		PrereleaseUtil.pInit(),
+		BrewUtil2.pInit(),
+	]);
 	await ExcludeUtil.pInitialise();
 	DataUtil.loadJSON(JSON_URL).then(onJsonLoad);
 });

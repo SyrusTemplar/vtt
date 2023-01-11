@@ -66,6 +66,8 @@ TagJsons.WALKER = MiscUtil.getWalker({
 	keyBlocklist: TagJsons.WALKER_KEY_BLOCKLIST,
 });
 
+globalThis.TagJsons = TagJsons;
+
 class SpellTag {
 	static _NON_STANDARD = new Set([
 		// Skip "Divination" to avoid tagging occurrences of the school
@@ -115,7 +117,7 @@ class SpellTag {
 			strMod = strMod
 				.replace(SpellTag._SPELL_NAME_REGEX_SPELL, (...m) => {
 					const spellMeta = SpellTag._SPELL_NAMES[m[1].toLowerCase()];
-					return `{@spell ${m[1]}${spellMeta.source !== SRC_PHB ? `|${spellMeta.source}` : ""}} ${m[2]}`;
+					return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_PHB ? `|${spellMeta.source}` : ""}} ${m[2]}`;
 				});
 		}
 
@@ -123,30 +125,30 @@ class SpellTag {
 		strMod = strMod
 			.replace(/\b(antimagic field|dispel magic)\b/gi, (...m) => {
 				const spellMeta = SpellTag._SPELL_NAMES[m[1].toLowerCase()];
-				return `{@spell ${m[1]}${spellMeta.source !== SRC_PHB ? `|${spellMeta.source}` : ""}}`;
+				return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_PHB ? `|${spellMeta.source}` : ""}}`;
 			});
 
 		strMod
 			.replace(SpellTag._SPELL_NAME_REGEX_CAST, (...m) => {
 				const spellMeta = SpellTag._SPELL_NAMES[m.last().spell.toLowerCase()];
-				return `${m.last().prefix}{@spell ${m.last().spell}${spellMeta.source !== SRC_PHB ? `|${spellMeta.source}` : ""}}`;
+				return `${m.last().prefix}{@spell ${m.last().spell}${spellMeta.source !== Parser.SRC_PHB ? `|${spellMeta.source}` : ""}}`;
 			});
 
 		return strMod
 			.replace(SpellTag._SPELL_NAME_REGEX_AND, (...m) => {
 				const spellMeta = SpellTag._SPELL_NAMES[m[1].toLowerCase()];
-				return `{@spell ${m[1]}${spellMeta.source !== SRC_PHB ? `|${spellMeta.source}` : ""}} ${m[2]}`;
+				return `{@spell ${m[1]}${spellMeta.source !== Parser.SRC_PHB ? `|${spellMeta.source}` : ""}} ${m[2]}`;
 			})
 			.replace(/(spells(?:|[^.!?:{]*): )([^.!?]+)/gi, (...m) => {
 				const spellPart = m[2].replace(SpellTag._SPELL_NAME_REGEX, (...n) => {
 					const spellMeta = SpellTag._SPELL_NAMES[n[1].toLowerCase()];
-					return `{@spell ${n[1]}${spellMeta.source !== SRC_PHB ? `|${spellMeta.source}` : ""}}`;
+					return `{@spell ${n[1]}${spellMeta.source !== Parser.SRC_PHB ? `|${spellMeta.source}` : ""}}`;
 				});
 				return `${m[1]}${spellPart}`;
 			})
 			.replace(SpellTag._SPELL_NAME_REGEX_CAST, (...m) => {
 				const spellMeta = SpellTag._SPELL_NAMES[m.last().spell.toLowerCase()];
-				return `${m.last().prefix}{@spell ${m.last().spell}${spellMeta.source !== SRC_PHB ? `|${spellMeta.source}` : ""}}`;
+				return `${m.last().prefix}{@spell ${m.last().spell}${spellMeta.source !== Parser.SRC_PHB ? `|${spellMeta.source}` : ""}}`;
 			})
 		;
 	}
@@ -157,9 +159,11 @@ SpellTag._SPELL_NAME_REGEX_SPELL = null;
 SpellTag._SPELL_NAME_REGEX_AND = null;
 SpellTag._SPELL_NAME_REGEX_CAST = null;
 
+globalThis.SpellTag = SpellTag;
+
 class ItemTag {
 	static async pInit () {
-		const itemArr = await Renderer.item.pBuildList({isAddGroups: true});
+		const itemArr = await Renderer.item.pBuildList();
 
 		const standardItems = itemArr.filter(it => !SourceUtil.isNonstandardSource(it.source));
 
@@ -177,9 +181,9 @@ class ItemTag {
 		const otherItems = standardItems.filter(it => {
 			if (toolTypes.has(it.type)) return false;
 			// Disallow specific items
-			if (it.name === "Wave" && it.source === SRC_DMG) return false;
+			if (it.name === "Wave" && it.source === Parser.SRC_DMG) return false;
 			// Allow all non-specific-variant DMG items
-			if (it.source === SRC_DMG && !Renderer.item.isMundane(it) && it._category !== "Specific Variant") return true;
+			if (it.source === Parser.SRC_DMG && !Renderer.item.isMundane(it) && it._category !== "Specific Variant") return true;
 			// Allow "sufficiently complex name" items
 			return it.name.split(" ").length > 2;
 		});
@@ -217,11 +221,11 @@ class ItemTag {
 		return strMod
 			.replace(ItemTag._ITEM_NAMES_REGEX_TOOLS, (...m) => {
 				const itemMeta = ItemTag._ITEM_NAMES[m[1].toLowerCase()];
-				return `{@item ${m[1]}${itemMeta.source !== SRC_DMG ? `|${itemMeta.source}` : ""}}`;
+				return `{@item ${m[1]}${itemMeta.source !== Parser.SRC_DMG ? `|${itemMeta.source}` : ""}}`;
 			})
 			.replace(ItemTag._ITEM_NAMES_REGEX_OTHER, (...m) => {
 				const itemMeta = ItemTag._ITEM_NAMES[m[1].toLowerCase()];
-				return `{@item ${m[1]}${itemMeta.source !== SRC_DMG ? `|${itemMeta.source}` : ""}}`;
+				return `{@item ${m[1]}${itemMeta.source !== Parser.SRC_DMG ? `|${itemMeta.source}` : ""}}`;
 			})
 		;
 	}
@@ -351,7 +355,7 @@ class CreatureTag {
 		const fnTag = strMod => {
 			Object.entries(res)
 				.forEach(([source, re]) => {
-					strMod = strMod.replace(re, (...m) => `{@creature ${m[0]}${source !== SRC_DMG ? `|${source}` : ""}}`);
+					strMod = strMod.replace(re, (...m) => `{@creature ${m[0]}${source !== Parser.SRC_DMG ? `|${source}` : ""}}`);
 				});
 			return strMod;
 		};
@@ -439,14 +443,12 @@ class QuickrefTag {
 		;
 	}
 }
-QuickrefTag._RE_BASIC = /\b(difficult terrain)\b/g;
+QuickrefTag._RE_BASIC = /\b(difficult terrain|dim light|bright light|lightly obscured|heavily obscured|Vision and Light)\b/g;
 QuickrefTag._LOOKUP = {
 	"difficult terrain": "difficult terrain||3",
+	"Vision and Light": "Vision and Light||2",
+	"bright light": "Vision and Light||2",
+	"dim light": "Vision and Light||2",
+	"lightly obscured": "Vision and Light||2",
+	"heavily obscured": "Vision and Light||2",
 };
-
-if (typeof module !== "undefined") {
-	module.exports = {
-		TagJsons,
-		SpellTag,
-	};
-}

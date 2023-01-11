@@ -65,7 +65,7 @@ class TableListPage extends ListPage {
 				const $btnHeader = $$`<div class="lst__item-group-header mt-3 split-v-center py-1 no-select clickable">
 					<div class="split-v-center w-100 min-w-0 mr-2">
 						<div class="bold">${ent.name}</div>
-						<div class="${Parser.sourceJsonToColor(ent.source)}" title="${Parser.sourceJsonToFull(ent.source).qq()}" ${BrewUtil2.sourceJsonToStyle(ent.source)}>${Parser.sourceJsonToAbv(ent.source)}</div>
+						<div class="${Parser.sourceJsonToColor(ent.source)}" title="${Parser.sourceJsonToFull(ent.source).qq()}" ${Parser.sourceJsonToStyle(ent.source)}>${Parser.sourceJsonToAbv(ent.source)}</div>
 					</div>
 					${$dispShowHide}
 				</div>`
@@ -126,7 +126,6 @@ class TableListPage extends ListPage {
 
 		const table = ent.table;
 		const tableName = this._getDisplayName(ent);
-		const diceType = ent.diceType;
 
 		const htmlRows = table.map(it => {
 			const range = it.min === it.max ? this.constructor._pad(it.min) : `${this.constructor._pad(it.min)}-${this.constructor._pad(it.max)}`;
@@ -144,10 +143,10 @@ class TableListPage extends ListPage {
 					<thead>
 						<tr>
 							<th class="col-2 text-center">
-								<span class="roller" data-name="btn-roll">d${diceType}</span>
+								<span class="roller" data-name="btn-roll">${ent.diceExpression}</span>
 							</th>
 							<th class="${ent.rollAttitude ? "col-8" : "col-10"}">${this.constructor._COL_NAME_1}</th>
-							${ent.rollAttitude ? `<th class="col-2 text-center">"Attitude</th>` : ""}
+							${ent.rollAttitude ? `<th class="col-2 text-center">Attitude</th>` : ""}
 						</tr>
 					</thead>
 					<tbody>
@@ -161,30 +160,19 @@ class TableListPage extends ListPage {
 			.html(htmlText)
 			.find(`[data-name="btn-roll"]`)
 			.click(() => {
-				this._roll(ent);
+				this._pRoll(ent);
 			})
 			.mousedown(evt => {
 				evt.preventDefault();
 			});
 	}
 
-	_roll (ent) {
+	async _pRoll (ent) {
 		const rollTable = ent.table;
 
-		rollTable._rMax = rollTable._rMax == null
-			? Math.max(...rollTable.filter(it => it.min != null).map(it => it.min), ...rollTable.filter(it => it.max != null).map(it => it.max))
-			: rollTable._rMax;
-		rollTable._rMin = rollTable._rMin == null
-			? Math.min(...rollTable.filter(it => it.min != null).map(it => it.min), ...rollTable.filter(it => it.max != null).map(it => it.max))
-			: rollTable._rMin;
+		const roll = await Renderer.dice.parseRandomise2(ent.diceExpression);
 
-		const roll = RollerUtil.randomise(rollTable._rMax, rollTable._rMin);
-
-		const row = rollTable.find(row => {
-			const trueMin = row.max != null && row.max < row.min ? row.max : row.min;
-			const trueMax = row.max != null && row.max > row.min ? row.max : row.min;
-			return roll >= trueMin && roll <= trueMax;
-		});
+		const row = rollTable.find(row => roll >= row.min && roll <= (row.max === 0 ? 100 : row.max));
 
 		if (!row) {
 			return Renderer.dice.addRoll({

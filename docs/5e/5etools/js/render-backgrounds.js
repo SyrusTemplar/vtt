@@ -1,6 +1,8 @@
+"use strict";
+
 class RenderBackgrounds {
 	static $getRenderedBackground (bg) {
-		const prerequisite = Renderer.utils.getPrerequisiteHtml(bg.prerequisite);
+		const prerequisite = Renderer.utils.prerequisite.getHtml(bg.prerequisite);
 		const renderStack = [];
 		const entryList = {type: "entries", entries: bg.entries};
 		Renderer.get().setFirstSection(true).recursiveRender(entryList, renderStack);

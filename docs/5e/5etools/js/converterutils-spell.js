@@ -355,16 +355,12 @@ class AffectedCreatureTypeTagger {
 }
 AffectedCreatureTypeTagger._RE_TYPES = new RegExp(`\\b(${[...Parser.MON_TYPES, ...Object.values(Parser.MON_TYPE_TO_PLURAL)].map(it => it.escapeRegexp()).join("|")})\\b`, "gi");
 
-if (typeof module !== "undefined") {
-	module.exports = {
-		DamageInflictTagger,
-		DamageResVulnImmuneTagger,
-		ConditionInflictTagger,
-		SavingThrowTagger,
-		AbilityCheckTagger,
-		SpellAttackTagger,
-		MiscTagsTagger,
-		ScalingLevelDiceTagger,
-		AffectedCreatureTypeTagger,
-	};
-}
+globalThis.DamageInflictTagger = DamageInflictTagger;
+globalThis.DamageResVulnImmuneTagger = DamageResVulnImmuneTagger;
+globalThis.ConditionInflictTagger = ConditionInflictTagger;
+globalThis.SavingThrowTagger = SavingThrowTagger;
+globalThis.AbilityCheckTagger = AbilityCheckTagger;
+globalThis.SpellAttackTagger = SpellAttackTagger;
+globalThis.MiscTagsTagger = MiscTagsTagger;
+globalThis.ScalingLevelDiceTagger = ScalingLevelDiceTagger;
+globalThis.AffectedCreatureTypeTagger = AffectedCreatureTypeTagger;

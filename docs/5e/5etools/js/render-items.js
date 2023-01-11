@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderItems {
 	static $getRenderedItem (item) {
 		const [damage, damageType, propertiesTxt] = Renderer.item.getDamageAndPropertiesText(item);

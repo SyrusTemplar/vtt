@@ -172,7 +172,10 @@ class Board {
 		this.doAdjust$creenCss();
 		this.doShowLoading();
 
-		await BrewUtil2.pInit();
+		await Promise.all([
+			PrereleaseUtil.pInit(),
+			BrewUtil2.pInit(),
+		]);
 		await ExcludeUtil.pInitialise();
 
 		await Promise.all([
@@ -314,8 +317,6 @@ class Board {
 			indexIdField,
 		},
 	) {
-		const brew = await BrewUtil2.pGetBrewProcessed();
-
 		const data = await DataUtil.loadJSON(dataPath);
 		adventureOrBookIdToSource[dataProp] = adventureOrBookIdToSource[dataProp] || {};
 
@@ -362,7 +363,8 @@ class Board {
 		};
 
 		data[dataProp].forEach(adventureOrBook => handleAdventureOrBook(adventureOrBook));
-		(brew[dataProp] || []).forEach(adventureOrBook => handleAdventureOrBook(adventureOrBook, true));
+		((await PrereleaseUtil.pGetBrewProcessed())[dataProp] || []).forEach(adventureOrBook => handleAdventureOrBook(adventureOrBook, true));
+		((await BrewUtil2.pGetBrewProcessed())[dataProp] || []).forEach(adventureOrBook => handleAdventureOrBook(adventureOrBook, true));
 	}
 
 	getPanel (x, y) {
@@ -1098,7 +1100,7 @@ class Panel {
 			PANEL_TYP_STATS,
 			meta,
 		);
-		return Renderer.hover.pCacheAndGet(
+		return DataLoader.pCacheAndGet(
 			page,
 			source,
 			hash,
@@ -1115,7 +1117,7 @@ class Panel {
 			$contentStats.append(fn(it));
 
 			const fnBind = Renderer.hover.getFnBindListenersCompact(page);
-			if (fnBind) fnBind(it, $contentStats[0]);
+			if (fnBind) fnBind(it, $contentInner[0]);
 
 			this._stats_bindCrScaleClickHandler(it, meta, $contentInner, $contentStats);
 			this._stats_bindSummonScaleClickHandler(it, meta, $contentInner, $contentStats);
@@ -1296,7 +1298,7 @@ class Panel {
 			PANEL_TYP_CREATURE_SCALED_CR,
 			meta,
 		);
-		return Renderer.hover.pCacheAndGet(
+		return DataLoader.pCacheAndGet(
 			page,
 			source,
 			hash,
@@ -1327,7 +1329,7 @@ class Panel {
 			PANEL_TYP_CREATURE_SCALED_SPELL_SUMMON,
 			meta,
 		);
-		return Renderer.hover.pCacheAndGet(
+		return DataLoader.pCacheAndGet(
 			page,
 			source,
 			hash,
@@ -1360,7 +1362,7 @@ class Panel {
 			PANEL_TYP_CREATURE_SCALED_CLASS_SUMMON,
 			meta,
 		);
-		return Renderer.hover.pCacheAndGet(
+		return DataLoader.pCacheAndGet(
 			page,
 			source,
 			hash,
@@ -3570,9 +3572,17 @@ class AdventureOrBookLoader {
 		}
 	}
 
+	async _pGetPrereleaseData ({advBookId, prop}) {
+		return this._pGetPrereleaseBrewData({advBookId, prop, brewUtil: PrereleaseUtil});
+	}
+
 	async _pGetBrewData ({advBookId, prop}) {
+		return this._pGetPrereleaseBrewData({advBookId, prop, brewUtil: BrewUtil2});
+	}
+
+	async _pGetPrereleaseBrewData ({advBookId, prop, brewUtil}) {
 		const searchFor = advBookId.toLowerCase();
-		const brew = await BrewUtil2.pGetBrewProcessed();
+		const brew = await brewUtil.pGetBrewProcessed();
 		switch (this._type) {
 			case "adventure":
 			case "book": {
@@ -3704,6 +3714,7 @@ class NoteBox {
 							evt.type = "mouseover";
 							evt.shiftKey = true;
 							evt.ctrlKey = false;
+							evt.metaKey = false;
 							$(r).trigger(evt);
 						} else if (tag === "link") {
 							const [txt, link] = Renderer.splitTagByPipe(text);

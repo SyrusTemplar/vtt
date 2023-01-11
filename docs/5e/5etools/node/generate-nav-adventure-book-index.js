@@ -1,7 +1,7 @@
-const fs = require("fs");
-require("../js/utils");
-require("../js/parser");
-const ut = require("./util");
+import * as fs from "fs";
+import "../js/parser.js";
+import "../js/utils.js";
+import * as ut from "./util.js";
 
 const _PROPS_TO_INDEX = [
 	"name",

@@ -1,6 +1,7 @@
-const fs = require("fs");
-require("../js/utils");
-const ut = require("../node/util.js");
+import * as fs from "fs";
+import "../js/parser.js";
+import "../js/utils.js";
+import * as ut from "../node/util.js";
 
 class _TestTokenImages {
 	static _IS_CLEAN_MM_EXTRAS = false;
@@ -178,4 +179,4 @@ function main () {
 	return true;
 }
 
-module.exports = main();
+export default main();

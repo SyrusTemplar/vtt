@@ -1,3 +1,5 @@
+"use strict";
+
 class MapsPage extends BaseComponent {
 	static _STORAGE_STATE = "state";
 	static _PROPS_STORABLE_STATE = [
@@ -25,7 +27,10 @@ class MapsPage extends BaseComponent {
 	}
 
 	async pOnLoad () {
-		await BrewUtil2.pInit();
+		await Promise.all([
+			PrereleaseUtil.pInit(),
+			BrewUtil2.pInit(),
+		]);
 		await ExcludeUtil.pInitialise();
 
 		const savedState = await StorageUtil.pGetForPage(this.constructor._STORAGE_STATE);
@@ -46,19 +51,19 @@ class MapsPage extends BaseComponent {
 
 	async _pGetMapData () {
 		const mapDataBase = await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/generated/gendata-maps.json`);
-		const mapDataBrew = await this._pGetBrewMaps();
 
 		const mapData = {};
 
-		// Apply the brew data first, so the "official" data takes precedence, where required
-		Object.assign(mapData, MiscUtil.copy(mapDataBrew));
+		// Apply the prerelease/brew data first, so the "official" data takes precedence, where required
+		Object.assign(mapData, MiscUtil.copy(await this._pGetPrereleaseBrewMaps({brewUtil: BrewUtil2})));
+		Object.assign(mapData, MiscUtil.copy(await this._pGetPrereleaseBrewMaps({brewUtil: PrereleaseUtil})));
 		Object.assign(mapData, MiscUtil.copy(mapDataBase));
 
 		return mapData;
 	}
 
-	async _pGetBrewMaps () {
-		const brew = await BrewUtil2.pGetBrewProcessed();
+	async _pGetPrereleaseBrewMaps ({brewUtil}) {
+		const brew = await brewUtil.pGetBrewProcessed();
 
 		const tuples = [
 			{prop: "adventure", propData: "adventureData"},

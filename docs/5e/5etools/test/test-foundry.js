@@ -1,8 +1,9 @@
-const fs = require("fs");
-const ut = require("../node/util.js");
-require("../js/utils.js");
-require("../js/render.js");
-require("../js/render-dice.js");
+import * as fs from "fs";
+import * as ut from "../node/util.js";
+import "../js/parser.js";
+import "../js/utils.js";
+import "../js/render.js";
+import "../js/render-dice.js";
 
 class TestFoundry {
 	static async pLoadData (originalFilename, originalPath) {
@@ -161,4 +162,4 @@ async function main () {
 	return !errors.length;
 }
 
-module.exports = main();
+export default main();

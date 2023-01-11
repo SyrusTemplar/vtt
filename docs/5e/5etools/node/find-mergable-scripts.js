@@ -2,9 +2,9 @@
  * Can be used to inspect which HTML files depend on which scripts.
  */
 
-const fs = require("fs");
-const ut = require("./util");
-require("../js/utils");
+import * as fs from "fs";
+import * as ut from "./util.js";
+import "../js/utils.js";
 
 const files = ut.listFiles({
 	dir: ".",

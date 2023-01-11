@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderActions {
 	static $getRenderedAction (it) {
 		return $$`

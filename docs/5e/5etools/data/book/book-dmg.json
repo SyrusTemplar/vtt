@@ -11802,79 +11802,79 @@
 									"rows": [
 										[
 											"2",
-											"Animals on the loose"
+											"{@book Animals on the loose|DMG|5|Animals on the loose}"
 										],
 										[
 											"3",
-											"Announcement"
+											"{@book Announcement|DMG|5|Announcement}"
 										],
 										[
 											"4",
-											"Brawl"
+											"{@book Brawl|DMG|5|Brawl}"
 										],
 										[
 											"5",
-											"Bullies"
+											"{@book Bullies|DMG|5|Bullies}"
 										],
 										[
 											"6",
-											"Companion"
+											"{@book Companion|DMG|5|Companion}"
 										],
 										[
 											"7",
-											"Contest"
+											"{@book Contest|DMG|5|Contest}"
 										],
 										[
 											"8",
-											"Corpse"
+											"{@book Corpse|DMG|5|Corpse}"
 										],
 										[
 											"9",
-											"Draft"
+											"{@book Draft|DMG|5|Draft}"
 										],
 										[
 											"10",
-											"Drunk"
+											"{@book Drunk|DMG|5|Drunk}"
 										],
 										[
 											"11",
-											"Fire"
+											"{@book Fire|DMG|5|Fire}"
 										],
 										[
 											"12",
-											"Found trinket"
+											"{@book Found trinket|DMG|5|Found trinket}"
 										],
 										[
 											"13",
-											"Guard harassment"
+											"{@book Guard harassment|DMG|5|Guard harassment}"
 										],
 										[
 											"14",
-											"Pickpocket"
+											"{@book Pickpocket|DMG|5|Pickpocket}"
 										],
 										[
 											"15",
-											"Procession"
+											"{@book Procession|DMG|5|Procession}"
 										],
 										[
 											"16",
-											"Protest"
+											"{@book Protest|DMG|5|Protest}"
 										],
 										[
 											"17",
-											"Runaway cart"
+											"{@book Runaway cart|DMG|5|Runaway cart}"
 										],
 										[
 											"18",
-											"Shady transaction"
+											"{@book Shady transaction|DMG|5|Shady transaction}"
 										],
 										[
 											"19",
-											"Spectacle"
+											"{@book Spectacle|DMG|5|Spectacle}"
 										],
 										[
 											"20",
-											"Urchin"
+											"{@book Urchin|DMG|5|Urchin}"
 										]
 									]
 								},
@@ -16852,15 +16852,15 @@
 										],
 										[
 											"77",
-											"{@item Ioun stone, absorption},"
+											"{@item Ioun stone, absorption}"
 										],
 										[
 											"78",
-											"{@item Ioun stone, agility},"
+											"{@item Ioun stone, agility}"
 										],
 										[
 											"79",
-											"{@item Ioun stone, fortitude},"
+											"{@item Ioun stone, fortitude}"
 										],
 										[
 											"80",
@@ -24416,7 +24416,7 @@
 							"type": "table",
 							"caption": "Passage Width",
 							"colLabels": [
-								"{@dice d12}/{@dice d20}",
+								"{@dice d12;d20}",
 								"Width"
 							],
 							"colStyles": [

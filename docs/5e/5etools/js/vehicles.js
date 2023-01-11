@@ -69,7 +69,7 @@ class VehiclesPage extends ListPage {
 		eleLi.innerHTML = `<a href="#${UrlUtil.autoEncodeHash(it)}" class="lst--border lst__row-inner">
 			<span class="col-6 pl-0 text-center">${displayType}</span>
 			<span class="bold col-4">${it.name}</span>
-			<span class="col-2 text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${BrewUtil2.sourceJsonToStyle(it.source)}>${source}</span>
+			<span class="col-2 text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${Parser.sourceJsonToStyle(it.source)}>${source}</span>
 		</a>`;
 
 		const listItem = new ListItem(

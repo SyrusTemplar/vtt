@@ -41,14 +41,18 @@ class PageFilter {
 	static _getClassFilterItem ({className, classSource, isVariantClass, definedInSource}) {
 		const nm = className.split("(")[0].trim();
 		const variantSuffix = isVariantClass ? ` [${definedInSource ? Parser.sourceJsonToAbv(definedInSource) : "Unknown"}]` : "";
-		const sourceSuffix = (SourceUtil.isNonstandardSource(classSource || SRC_PHB) || BrewUtil2.hasSourceJson(classSource || SRC_PHB))
+		const sourceSuffix = (
+			SourceUtil.isNonstandardSource(classSource || Parser.SRC_PHB)
+			|| (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(classSource || Parser.SRC_PHB))
+			|| (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(classSource || Parser.SRC_PHB))
+		)
 			? ` (${Parser.sourceJsonToAbv(classSource)})` : "";
 		const name = `${nm}${variantSuffix}${sourceSuffix}`;
 
 		const opts = {
 			item: name,
 			userData: {
-				group: SourceUtil.getFilterGroup(classSource || SRC_PHB),
+				group: SourceUtil.getFilterGroup(classSource || Parser.SRC_PHB),
 			},
 		};
 
@@ -61,11 +65,11 @@ class PageFilter {
 		return new FilterItem(opts);
 	}
 
-	static _getSubclassFilterItem ({className, classSource, subclassShortName, subclassSource, subSubclassName, isVariantClass, definedInSource}) {
-		const group = SourceUtil.isSubclassReprinted(className, classSource, subclassShortName, subclassSource) || Parser.sourceJsonToFull(subclassSource).startsWith(UA_PREFIX) || Parser.sourceJsonToFull(subclassSource).startsWith(PS_PREFIX);
+	static _getSubclassFilterItem ({className, classSource, subclassShortName, subclassName, subclassSource, subSubclassName, isVariantClass, definedInSource}) {
+		const group = SourceUtil.isSubclassReprinted(className, classSource, subclassShortName, subclassSource) || Parser.sourceJsonToFull(subclassSource).startsWith(Parser.UA_PREFIX) || Parser.sourceJsonToFull(subclassSource).startsWith(Parser.PS_PREFIX);
 
 		const classFilterItem = this._getClassFilterItem({
-			className: subclassShortName,
+			className: subclassShortName || subclassName,
 			classSource: subclassSource,
 		});
 
@@ -211,10 +215,7 @@ class ModalFilter {
 
 		const handleFilterChange = () => {
 			const f = this._pageFilter.filterBox.getValues();
-			this._list.filter(li => {
-				const it = this._allData[li.ix];
-				return this._pageFilter.toDisplay(f, it);
-			});
+			this._list.filter(li => this._isListItemMatchingFilter(f, li));
 		};
 
 		this._pageFilter.trimState();
@@ -243,6 +244,9 @@ class ModalFilter {
 		};
 	}
 
+	_isListItemMatchingFilter (f, li) { return this._isEntityItemMatchingFilter(f, this._allData[li.ix]); }
+	_isEntityItemMatchingFilter (f, it) { return this._pageFilter.toDisplay(f, it); }
+
 	async pPopulateHiddenWrapper () {
 		await this._pInit();
 
@@ -263,6 +267,41 @@ class ModalFilter {
 
 	handleHiddenResetButtonClick (evt) {
 		this._pageFilter.filterBox.reset(evt.shiftKey);
+	}
+
+	_getStateFromFilterExpression (filterExpression) {
+		const filterSubhashMeta = Renderer.getFilterSubhashes(Renderer.splitTagByPipe(filterExpression), this._namespace);
+		const subhashes = filterSubhashMeta.subhashes.map(it => `${it.key}${HASH_SUB_KV_SEP}${it.value}`);
+		const unpackedSubhashes = this.pageFilter.filterBox.unpackSubHashes(subhashes, {force: true});
+		return this.pageFilter.filterBox.getNextStateFromSubHashes({unpackedSubhashes});
+	}
+
+	/**
+	 * N.b.: assumes any preloading has already been done
+	 * @param filterExpression
+	 */
+	getItemsMatchingFilterExpression ({filterExpression}) {
+		const nxtStateOuter = this._getStateFromFilterExpression(filterExpression);
+
+		const f = this._pageFilter.filterBox.getValues({nxtStateOuter});
+		const filteredItems = this._filterCache.list.getFilteredItems({
+			items: this._filterCache.list.items,
+			fnFilter: li => this._isListItemMatchingFilter(f, li),
+		});
+
+		return this._filterCache.list.getSortedItems({items: filteredItems});
+	}
+
+	getEntitiesMatchingFilterExpression ({filterExpression}) {
+		const nxtStateOuter = this._getStateFromFilterExpression(filterExpression);
+
+		const f = this._pageFilter.filterBox.getValues({nxtStateOuter});
+		return this._allData.filter(this._isEntityItemMatchingFilter.bind(this, f));
+	}
+
+	getRenderedFilterExpression ({filterExpression}) {
+		const nxtStateOuter = this._getStateFromFilterExpression(filterExpression);
+		return this.pageFilter.filterBox.getDisplayState({nxtStateOuter});
 	}
 
 	/**
@@ -348,6 +387,8 @@ class ModalFilter {
 	async _pLoadAllData () { throw new Error(`Unimplemented!`); }
 	async _getListItem () { throw new Error(`Unimplemented!`); }
 }
+
+globalThis.ModalFilter = ModalFilter;
 
 class FilterBox extends ProxyBase {
 	static TITLE_BTN_RESET = "Reset filters. SHIFT to reset everything.";
@@ -571,7 +612,7 @@ class FilterBox extends ProxyBase {
 
 		const sourceFilter = this._filters.find(it => it.header === FilterBox.SOURCE_HEADER);
 		if (sourceFilter) {
-			const selFnAlt = (val) => !SourceUtil.isNonstandardSource(val) && !BrewUtil2.hasSourceJson(val);
+			const selFnAlt = (val) => !SourceUtil.isNonstandardSource(val) && !PrereleaseUtil.hasSourceJson(val) && !BrewUtil2.hasSourceJson(val);
 			const hkSelFn = () => {
 				if (this._meta.isBrewDefaultHidden) sourceFilter.setTempFnSel(selFnAlt);
 				else sourceFilter.setTempFnSel(null);
@@ -713,9 +754,9 @@ class FilterBox extends ProxyBase {
 		const $sels = this._filters.map(f => UiUtil.$getAddModalRowSel($modalInner, f.header, this._combineAs, f.header, ["and", "or"], {fnDisplay: (it) => it.toUpperCase()}));
 	}
 
-	getValues () {
+	getValues ({nxtStateOuter = null} = {}) {
 		const outObj = {};
-		this._filters.forEach(f => Object.assign(outObj, f.getValues()));
+		this._filters.forEach(f => Object.assign(outObj, f.getValues({nxtState: nxtStateOuter?.filters})));
 		return outObj;
 	}
 
@@ -723,20 +764,38 @@ class FilterBox extends ProxyBase {
 		(this._$wrpFormTop ? this._$wrpFormTop[0] : this._$btnOpen[0]).addEventListener(type, listener);
 	}
 
+	_mutNextState_reset_meta ({tgt}) {
+		Object.assign(tgt, this._getDefaultMeta());
+	}
+
+	_mutNextState_minisHidden ({tgt}) {
+		Object.assign(tgt, this._getDefaultMinisHidden(tgt));
+	}
+
+	_mutNextState_combineAs ({tgt}) {
+		Object.assign(tgt, this._getDefaultCombineAs(tgt));
+	}
+
 	_reset_meta () {
-		Object.assign(this._meta, this._getDefaultMeta());
+		const nxtBoxState = this._getNextBoxState_base();
+		this._mutNextState_reset_meta({tgt: nxtBoxState.meta});
+		this._setBoxStateFromNextBoxState(nxtBoxState);
 	}
 
 	_reset_minisHidden () {
-		Object.keys(this._minisHidden).forEach(k => this._minisHidden[k] = false);
+		const nxtBoxState = this._getNextBoxState_base();
+		this._mutNextState_minisHidden({tgt: nxtBoxState.minisHidden});
+		this._setBoxStateFromNextBoxState(nxtBoxState);
 	}
 
 	_reset_combineAs () {
-		Object.keys(this._combineAs).forEach(k => this._combineAs[k] = "and");
+		const nxtBoxState = this._getNextBoxState_base();
+		this._mutNextState_combineAs({tgt: nxtBoxState.combineAs});
+		this._setBoxStateFromNextBoxState(nxtBoxState);
 	}
 
 	reset (isResetAll) {
-		this._filters.forEach(f => f.reset(isResetAll));
+		this._filters.forEach(f => f.reset({isResetAll}));
 		if (isResetAll) {
 			this._reset_meta();
 			this._reset_minisHidden();
@@ -788,7 +847,7 @@ class FilterBox extends ProxyBase {
 		this._filters.forEach(f => f.hide());
 	}
 
-	setFromSubHashes (subHashes, {force = false, $iptSearch = null} = {}) {
+	unpackSubHashes (subHashes, {force = false} = {}) {
 		// TODO(unpack) refactor
 		const unpacked = {};
 		subHashes.forEach(s => {
@@ -798,14 +857,16 @@ class FilterBox extends ProxyBase {
 			unpackedPart[k] = {clean: unpackedPart[k], raw: s};
 			Object.assign(unpacked, unpackedPart);
 		});
+
 		const urlHeaderToFilter = {};
 		this._filters.forEach(f => {
 			const childFilters = f.getChildFilters();
 			if (childFilters.length) childFilters.forEach(f => urlHeaderToFilter[f.header.toLowerCase()] = f);
 			urlHeaderToFilter[f.header.toLowerCase()] = f;
 		});
-		const updatedUrlHeaders = new Set();
-		const consumed = new Set();
+
+		const urlHeadersUpdated = new Set();
+		const subHashesConsumed = new Set();
 		let filterInitialSearch;
 
 		const filterBoxState = {};
@@ -820,50 +881,121 @@ class FilterBox extends ProxyBase {
 
 				if (FilterUtil.SUB_HASH_PREFIXES.has(prefix) && urlHeaderToFilter[urlHeader]) {
 					(statePerFilter[urlHeader] = statePerFilter[urlHeader] || {})[prefix] = data.clean;
-					updatedUrlHeaders.add(urlHeader);
-					consumed.add(data.raw);
-				} else if (Object.values(FilterBox._SUB_HASH_PREFIXES).includes(prefix)) {
+					urlHeadersUpdated.add(urlHeader);
+					subHashesConsumed.add(data.raw);
+					return;
+				}
+
+				if (Object.values(FilterBox._SUB_HASH_PREFIXES).includes(prefix)) {
 					// special case for the search """state"""
 					if (prefix === VeCt.FILTER_BOX_SUB_HASH_SEARCH_PREFIX) filterInitialSearch = data.clean[0];
 					else filterBoxState[prefix] = data.clean;
-					consumed.add(data.raw);
-				} else if (FilterUtil.SUB_HASH_PREFIXES.has(prefix)) throw new Error(`Could not find filter with header ${urlHeader} for subhash ${data.raw}`);
+					subHashesConsumed.add(data.raw);
+					return;
+				}
+
+				if (FilterUtil.SUB_HASH_PREFIXES.has(prefix)) throw new Error(`Could not find filter with header ${urlHeader} for subhash ${data.raw}`);
 			});
 
-		if (!consumed.size && !force) return subHashes;
+		if (!subHashesConsumed.size && !force) return null;
 
-		this._setFromSubHashState(urlHeaderToFilter, filterBoxState);
+		return {
+			urlHeaderToFilter,
+			filterBoxState,
+			statePerFilter,
+			urlHeadersUpdated,
+			unpacked,
+			subHashesConsumed,
+			filterInitialSearch,
+		};
+	}
 
-		Object.entries(statePerFilter).forEach(([urlHeader, state]) => {
-			const filter = urlHeaderToFilter[urlHeader];
-			filter.setFromSubHashState(state);
-		});
+	setFromSubHashes (subHashes, {force = false, $iptSearch = null} = {}) {
+		const unpackedSubhashes = this.unpackSubHashes(subHashes, {force});
 
-		// reset any other state/meta state/etc
-		Object.keys(urlHeaderToFilter)
-			.filter(k => !updatedUrlHeaders.has(k))
-			.forEach(k => {
-				const filter = urlHeaderToFilter[k];
-				filter.resetShallow(true);
-			});
+		if (unpackedSubhashes == null) return subHashes;
 
+		const {
+			unpacked,
+			subHashesConsumed,
+			filterInitialSearch,
+		} = unpackedSubhashes;
+
+		// region Update filter state
+		const {box: nxtStateBox, filters: nxtStatesFilters} = this.getNextStateFromSubHashes({unpackedSubhashes});
+
+		this._setBoxStateFromNextBoxState(nxtStateBox);
+
+		this._filters
+			.flatMap(f => [
+				f,
+				...f.getChildFilters(),
+			])
+			.filter(filter => nxtStatesFilters[filter.header])
+			.forEach(filter => filter.setStateFromNextState(nxtStatesFilters));
+		// endregion
+
+		// region Update search input value
+		if (filterInitialSearch && ($iptSearch || this._$iptSearch)) ($iptSearch || this._$iptSearch).val(filterInitialSearch).change().keydown().keyup().trigger("instantKeyup");
+		// endregion
+
+		// region Re-assemble and return remaining subhashes
 		const [link] = Hist.getHashParts();
 
 		const outSub = [];
 		Object.values(unpacked)
-			.filter(v => !consumed.has(v.raw))
+			.filter(v => !subHashesConsumed.has(v.raw))
 			.forEach(v => outSub.push(v.raw));
 
 		Hist.setSuppressHistory(true);
 		Hist.replaceHistoryHash(`${link}${outSub.length ? `${HASH_PART_SEP}${outSub.join(HASH_PART_SEP)}` : ""}`);
 
-		if (filterInitialSearch && ($iptSearch || this._$iptSearch)) ($iptSearch || this._$iptSearch).val(filterInitialSearch).change().keydown().keyup().trigger("instantKeyup");
 		this.fireChangeEvent();
 		Hist.hashChange({isBlankFilterLoad: true});
 		return outSub;
+		// endregion
 	}
 
-	_setFromSubHashState (urlHeaderToFilter, filterBoxState) {
+	getNextStateFromSubHashes ({unpackedSubhashes}) {
+		const {
+			urlHeaderToFilter,
+			filterBoxState,
+			statePerFilter,
+			urlHeadersUpdated,
+		} = unpackedSubhashes;
+
+		const nxtStateBox = this._getNextBoxStateFromSubHashes(urlHeaderToFilter, filterBoxState);
+
+		const nxtStateFilters = {};
+
+		Object.entries(statePerFilter)
+			.forEach(([urlHeader, state]) => {
+				const filter = urlHeaderToFilter[urlHeader];
+				Object.assign(nxtStateFilters, filter.getNextStateFromSubhashState(state));
+			});
+
+		// reset any other state/meta state/etc
+		Object.keys(urlHeaderToFilter)
+			.filter(k => !urlHeadersUpdated.has(k))
+			.forEach(k => {
+				const filter = urlHeaderToFilter[k];
+				Object.assign(nxtStateFilters, filter.getNextStateFromSubhashState(null));
+			});
+
+		return {box: nxtStateBox, filters: nxtStateFilters};
+	}
+
+	_getNextBoxState_base () {
+		return {
+			meta: MiscUtil.copyFast(this.__meta),
+			minisHidden: MiscUtil.copyFast(this.__minisHidden),
+			combineAs: MiscUtil.copyFast(this.__combineAs),
+		};
+	}
+
+	_getNextBoxStateFromSubHashes (urlHeaderToFilter, filterBoxState) {
+		const nxtBoxState = this._getNextBoxState_base();
+
 		let hasMeta = false;
 		let hasMinisHidden = false;
 		let hasCombineAs = false;
@@ -874,37 +1006,45 @@ class FilterBox extends ProxyBase {
 				case "meta": {
 					hasMeta = true;
 					const data = vals.map(v => UrlUtil.mini.decompress(v));
-					Object.keys(this._getDefaultMeta()).forEach((k, i) => this._meta[k] = data[i]);
+					Object.keys(this._getDefaultMeta()).forEach((k, i) => nxtBoxState.meta[k] = data[i]);
 					break;
 				}
 				case "minisHidden": {
 					hasMinisHidden = true;
-					Object.keys(this._minisHidden).forEach(k => this._minisHidden[k] = false);
+					Object.keys(nxtBoxState.minisHidden).forEach(k => nxtBoxState.minisHidden[k] = false);
 					vals.forEach(v => {
 						const [urlHeader, isHidden] = v.split("=");
 						const filter = urlHeaderToFilter[urlHeader];
 						if (!filter) throw new Error(`Could not find filter with name "${urlHeader}"`);
-						this._minisHidden[filter.header] = !!Number(isHidden);
+						nxtBoxState.minisHidden[filter.header] = !!Number(isHidden);
 					});
 					break;
 				}
 				case "combineAs": {
 					hasCombineAs = true;
-					Object.keys(this._combineAs).forEach(k => this._combineAs[k] = "and");
+					Object.keys(nxtBoxState.combineAs).forEach(k => nxtBoxState.combineAs[k] = "and");
 					vals.forEach(v => {
 						const [urlHeader, ixCombineMode] = v.split("=");
 						const filter = urlHeaderToFilter[urlHeader];
 						if (!filter) throw new Error(`Could not find filter with name "${urlHeader}"`);
-						this._combineAs[filter.header] = FilterBox._COMBINE_MODES[ixCombineMode] || FilterBox._COMBINE_MODES[0];
+						nxtBoxState.combineAs[filter.header] = FilterBox._COMBINE_MODES[ixCombineMode] || FilterBox._COMBINE_MODES[0];
 					});
 					break;
 				}
 			}
 		});
 
-		if (!hasMeta) this._reset_meta();
-		if (!hasMinisHidden) this._reset_minisHidden();
-		if (!hasCombineAs) this._reset_combineAs();
+		if (!hasMeta) this._mutNextState_reset_meta({tgt: nxtBoxState.meta});
+		if (!hasMinisHidden) this._mutNextState_minisHidden({tgt: nxtBoxState.minisHidden});
+		if (!hasCombineAs) this._mutNextState_combineAs({tgt: nxtBoxState.combineAs});
+
+		return nxtBoxState;
+	}
+
+	_setBoxStateFromNextBoxState (nxtBoxState) {
+		this._proxyAssignSimple("meta", nxtBoxState.meta, true);
+		this._proxyAssignSimple("minisHidden", nxtBoxState.minisHidden, true);
+		this._proxyAssignSimple("combineAs", nxtBoxState.combineAs, true);
 	}
 
 	/**
@@ -954,6 +1094,13 @@ class FilterBox extends ProxyBase {
 	getFilterTag () {
 		const parts = this._filters.map(f => f.getFilterTagPart()).filter(Boolean);
 		return `{@filter |${UrlUtil.getCurrentPage().replace(/\.html$/, "")}|${parts.join("|")}}`;
+	}
+
+	getDisplayState ({nxtStateOuter = null} = {}) {
+		return this._filters
+			.map(filter => filter.getDisplayStatePart({nxtState: nxtStateOuter?.filters}))
+			.filter(Boolean)
+			.join("; ");
 	}
 
 	setFromValues (values) {
@@ -1027,6 +1174,18 @@ class FilterBox extends ProxyBase {
 		const out = MiscUtil.copy(FilterBox._DEFAULT_META);
 		if (this._isCompact) out.isSummaryHidden = true;
 		return out;
+	}
+
+	_getDefaultMinisHidden (minisHidden) {
+		if (!minisHidden) throw new Error(`Missing "minisHidden" argument!`);
+		return Object.keys(minisHidden)
+			.mergeMap(k => ({[k]: false}));
+	}
+
+	_getDefaultCombineAs (combineAs) {
+		if (!combineAs) throw new Error(`Missing "combineAs" argument!`);
+		return Object.keys(combineAs)
+			.mergeMap(k => ({[k]: "and"}));
 	}
 }
 FilterBox.EVNT_VALCHANGE = "valchange";
@@ -1107,8 +1266,28 @@ class FilterBase extends BaseComponent {
 
 	getBaseSaveableState () { return {meta: {...this.__meta}}; }
 
-	resetBase () {
-		Object.assign(this._meta, MiscUtil.copy(this.getDefaultMeta()));
+	_getNextState_base () {
+		return {
+			[this.header]: {
+				state: MiscUtil.copyFast(this.__state),
+				meta: MiscUtil.copyFast(this.__meta),
+			},
+		};
+	}
+
+	setStateFromNextState (nxtState) {
+		this._proxyAssignSimple("state", nxtState[this.header].state, true);
+		this._proxyAssignSimple("meta", nxtState[this.header].meta, true);
+	}
+
+	reset ({isResetAll = false} = {}) {
+		const nxtState = this._getNextState_base();
+		this._mutNextState_reset(nxtState, {isResetAll});
+		this.setStateFromNextState(nxtState);
+	}
+
+	_mutNextState_resetBase (nxtState, {isResetAll = false} = {}) {
+		Object.assign(nxtState[this.header].meta, MiscUtil.copy(this.getDefaultMeta()));
 	}
 
 	getMetaSubHashes () {
@@ -1117,24 +1296,27 @@ class FilterBase extends BaseComponent {
 		return [UrlUtil.packSubHash(this.getSubHashPrefix("meta", this.header), compressedMeta)];
 	}
 
-	setMetaFromSubHashState (state) {
-		const hasMeta = this._doApplyMeta(state, this.getDefaultMeta());
-		if (!hasMeta) this.resetBase();
+	_mutNextState_meta_fromSubHashState (nxtState, subHashState) {
+		const hasMeta = this._mutNextState_meta_fromSubHashState_mutGetHasMeta(nxtState, subHashState, this.getDefaultMeta());
+		if (!hasMeta) this._mutNextState_resetBase(nxtState);
 	}
 
-	_doApplyMeta (state, defaultMeta) {
+	_mutNextState_meta_fromSubHashState_mutGetHasMeta (nxtState, state, defaultMeta) {
 		let hasMeta = false;
-		Object.entries(state).forEach(([k, vals]) => {
-			const prop = FilterBase.getProp(k);
-			if (prop === "meta") {
+
+		Object.entries(state)
+			.forEach(([k, vals]) => {
+				const prop = FilterBase.getProp(k);
+				if (prop !== "meta") return;
+
 				hasMeta = true;
 				const data = vals.map(v => UrlUtil.mini.decompress(v));
 				Object.keys(defaultMeta).forEach((k, i) => {
-					if (data[i] !== undefined) this._meta[k] = data[i];
-					else this._meta[k] = defaultMeta[k];
+					if (data[i] !== undefined) nxtState[this.header].meta[k] = data[i];
+					else nxtState[this.header].meta[k] = defaultMeta[k];
 				});
-			}
-		});
+			});
+
 		return hasMeta;
 	}
 
@@ -1201,9 +1383,8 @@ class FilterBase extends BaseComponent {
 
 	$render () { throw new Error(`Unimplemented!`); }
 	$renderMinis () { throw new Error(`Unimplemented!`); }
-	getValues () { throw new Error(`Unimplemented!`); }
-	reset () { throw new Error(`Unimplemented!`); }
-	resetShallow () { throw new Error(`Unimplemented!`); }
+	getValues ({nxtState = null} = {}) { throw new Error(`Unimplemented!`); }
+	_mutNextState_reset () { throw new Error(`Unimplemented!`); }
 	update () { throw new Error(`Unimplemented!`); }
 	toDisplay () { throw new Error(`Unimplemented!`); }
 	addItem () { throw new Error(`Unimplemented!`); }
@@ -1211,10 +1392,11 @@ class FilterBase extends BaseComponent {
 	getSaveableState () { throw new Error(`Unimplemented!`); }
 	setStateFromLoaded () { throw new Error(`Unimplemented!`); }
 	getSubHashes () { throw new Error(`Unimplemented!`); }
-	setFromSubHashState () { throw new Error(`Unimplemented!`); }
+	getNextStateFromSubhashState () { throw new Error(`Unimplemented!`); }
 	setFromValues () { throw new Error(`Unimplemented!`); }
 	handleSearch () { throw new Error(`Unimplemented`); }
 	getFilterTagPart () { throw new Error(`Unimplemented`); }
+	getDisplayStatePart ({nxtState = null} = {}) { throw new Error(`Unimplemented`); }
 	_doTeardown () { /* No-op */ }
 	trimState_ () { /* No-op */ }
 }
@@ -1337,8 +1519,10 @@ class Filter extends FilterBase {
 		}
 	}
 
-	_getStateNotDefault () {
-		return Object.entries(this._state)
+	_getStateNotDefault ({nxtState = null} = {}) {
+		const state = nxtState?.[this.header]?.state || this.__state;
+
+		return Object.entries(state)
 			.filter(([k, v]) => {
 				if (k.startsWith("_")) return false;
 				const defState = this._getDefaultState(k);
@@ -1397,6 +1581,30 @@ class Filter extends FilterBase {
 			.join("=");
 	}
 
+	getDisplayStatePart ({nxtState = null} = {}) {
+		const state = nxtState?.[this.header]?.state || this.__state;
+
+		const areNotDefaultState = this._getStateNotDefault({nxtState});
+
+		// If _any_ value is non-default, we need to include _all_ values in the tag
+		if (!areNotDefaultState.length) return null;
+
+		const ptState = Object.entries(state)
+			.filter(([k]) => !k.startsWith("_"))
+			.filter(([, v]) => v)
+			.map(([k, v]) => {
+				const item = this._items.find(item => `${item.item}` === k);
+				if (!item) return null; // Should never occur
+				return `${v === 2 ? "not " : ""}${this._displayFn ? this._displayFn(item.item, item) : item.item}`;
+			})
+			.filter(Boolean)
+			.join(", ");
+
+		if (!ptState) return null;
+
+		return `${this.header}: ${ptState}`;
+	}
+
 	/**
 	 * Get transient options used when setting state from URL.
 	 * @private
@@ -1421,8 +1629,20 @@ class Filter extends FilterBase {
 		return new FilterTransientOptions(opts);
 	}
 
-	setFromSubHashState (state) {
-		this.setMetaFromSubHashState(state);
+	setStateFromNextState (nxtState) {
+		super.setStateFromNextState(nxtState);
+		this._proxyAssignSimple("nestsHidden", nxtState[this.header].nestsHidden, true);
+	}
+
+	getNextStateFromSubhashState (state) {
+		const nxtState = this._getNextState_base();
+
+		if (state == null) {
+			this._mutNextState_reset(nxtState);
+			return nxtState;
+		}
+
+		this._mutNextState_meta_fromSubHashState(nxtState, state);
 		const transientOptions = this._getOptionsFromSubHashState(state);
 
 		let hasState = false;
@@ -1433,43 +1653,40 @@ class Filter extends FilterBase {
 			switch (prop) {
 				case "state": {
 					hasState = true;
-					const nxtState = {};
-
 					if (transientOptions.isExtendDefaultState) {
-						Object.keys(this._state).forEach(k => nxtState[k] = this._getDefaultState(k));
+						Object.keys(nxtState[this.header].state).forEach(k => nxtState[this.header].state[k] = this._getDefaultState(k));
 					} else {
 						// This allows e.g. @filter tags to cleanly specify their sources
-						Object.keys(this._state).forEach(k => nxtState[k] = 0);
+						Object.keys(nxtState[this.header].state).forEach(k => nxtState[this.header].state[k] = 0);
 					}
 
 					vals.forEach(v => {
 						const [statePropLower, state] = v.split("=");
-						const stateProp = Object.keys(this._state).find(k => k.toLowerCase() === statePropLower);
-						if (stateProp) nxtState[stateProp] = Number(state);
+						const stateProp = Object.keys(nxtState[this.header].state).find(k => k.toLowerCase() === statePropLower);
+						if (stateProp) nxtState[this.header].state[stateProp] = Number(state);
 					});
-					this._setState(nxtState);
 					break;
 				}
 				case "nestsHidden": {
 					hasNestsHidden = true;
-					const nxtNestsHidden = {};
-					Object.keys(this._nestsHidden).forEach(k => {
+					Object.keys(nxtState[this.header].nestsHidden).forEach(k => {
 						const nestKey = Object.keys(this._nests).find(it => k.toLowerCase() === it.toLowerCase());
-						nxtNestsHidden[k] = this._nests[nestKey] && this._nests[nestKey].isHidden;
+						nxtState[this.header].nestsHidden[k] = this._nests[nestKey] && this._nests[nestKey].isHidden;
 					});
 					vals.forEach(v => {
 						const [nestNameLower, state] = v.split("=");
-						const nestName = Object.keys(this._nestsHidden).find(k => k.toLowerCase() === nestNameLower);
-						if (nestName) nxtNestsHidden[nestName] = !!Number(state);
+						const nestName = Object.keys(nxtState[this.header].nestsHidden).find(k => k.toLowerCase() === nestNameLower);
+						if (nestName) nxtState[this.header].nestsHidden[nestName] = !!Number(state);
 					});
-					this._proxyAssign("nestsHidden", "_nestsHidden", "__nestsHidden", nxtNestsHidden, true);
 					break;
 				}
 			}
 		});
 
-		if (!hasState) this.reset();
-		if (!hasNestsHidden) this._resetNestsHidden();
+		if (!hasState) this._mutNextState_reset(nxtState);
+		if (!hasNestsHidden && this._nests) this._mutNextState_resetNestsHidden({tgt: nxtState[this.header].nestsHidden});
+
+		return nxtState;
 	}
 
 	setFromValues (values) {
@@ -1481,8 +1698,9 @@ class Filter extends FilterBase {
 
 	setValue (k, v) { this._state[k] = v; }
 
-	_resetNestsHidden () {
-		if (this._nests) Object.entries(this._nests).forEach(([nestName, nestMeta]) => this._nestsHidden[nestName] = !!nestMeta.isHidden);
+	_mutNextState_resetNestsHidden ({tgt}) {
+		if (!this._nests) return;
+		Object.entries(this._nests).forEach(([nestName, nestMeta]) => tgt[nestName] = !!nestMeta.isHidden);
 	}
 
 	_defaultItemState (item) {
@@ -1492,27 +1710,19 @@ class Filter extends FilterBase {
 
 	_getDefaultState (k) { return this._deselFn && this._deselFn(k) ? 2 : this._selFn && this._selFn(k) ? 1 : 0; }
 
+	_getDisplayText (item) {
+		return this._displayFn ? this._displayFn(item.item, item) : item.item;
+	}
+
 	_getPill (item) {
-		const displayText = this._displayFn ? this._displayFn(item.item, item) : item.item;
+		const displayText = this._getDisplayText(item);
 
 		const btnPill = e_({
 			tag: "div",
 			clazz: "fltr__pill",
 			html: displayText,
-			click: evt => {
-				if (evt.shiftKey) {
-					const nxtState = {};
-					Object.keys(this._state).forEach(k => nxtState[k] = 0);
-					this._proxyAssign("state", "_state", "__state", nxtState, true);
-				}
-
-				if (++this._state[item.item] > 2) this._state[item.item] = 0;
-			},
-			contextmenu: (evt) => {
-				evt.preventDefault();
-
-				if (--this._state[item.item] < 0) this._state[item.item] = 2;
-			},
+			click: evt => this._getPill_handleClick({evt, item}),
+			contextmenu: evt => this._getPill_handleContextmenu({evt, item}),
 		});
 
 		const hook = () => {
@@ -1525,6 +1735,24 @@ class Filter extends FilterBase {
 		item.searchText = displayText.toLowerCase();
 
 		return btnPill;
+	}
+
+	_getPill_handleClick ({evt, item}) {
+		if (evt.shiftKey) {
+			this._doSetPillsClear();
+		}
+
+		if (++this._state[item.item] > 2) this._state[item.item] = 0;
+	}
+
+	_getPill_handleContextmenu ({evt, item}) {
+		evt.preventDefault();
+
+		if (evt.shiftKey) {
+			this._doSetPillsClear();
+		}
+
+		if (--this._state[item.item] < 0) this._state[item.item] = 2;
 	}
 
 	setTempFnSel (tempFnSel) {
@@ -1572,21 +1800,30 @@ class Filter extends FilterBase {
 	}
 
 	_doSetPillsAll () {
-		Object.keys(this._state).forEach(k => {
-			if (this._state[k] !== 1) this._state[k] = 1;
-		});
+		this._proxyAssignSimple(
+			"state",
+			Object.keys(this._state)
+				.mergeMap(k => ({[k]: 1})),
+			true,
+		);
 	}
 
 	_doSetPillsClear () {
-		Object.keys(this._state).forEach(k => {
-			if (this._state[k] !== 0) this._state[k] = 0;
-		});
+		this._proxyAssignSimple(
+			"state",
+			Object.keys(this._state)
+				.mergeMap(k => ({[k]: 0})),
+			true,
+		);
 	}
 
 	_doSetPillsNone () {
-		Object.keys(this._state).forEach(k => {
-			if (this._state[k] !== 2) this._state[k] = 2;
-		});
+		this._proxyAssignSimple(
+			"state",
+			Object.keys(this._state)
+				.mergeMap(k => ({[k]: 2})),
+			true,
+		);
 	}
 
 	_doSetPinsDefault () {
@@ -1719,7 +1956,7 @@ class Filter extends FilterBase {
 
 		if (this._nests) {
 			const wrpNestHead = e_({tag: "div", clazz: "fltr__wrp-pills--sub"}).appendTo(this.__wrpPills);
-			this.__$wrpNestHeadInner = e_({tag: "div", clazz: "ve-flex ve-flex-wrap"}).appendTo(wrpNestHead);
+			this.__$wrpNestHeadInner = e_({tag: "div", clazz: "ve-flex ve-flex-wrap fltr__container-pills"}).appendTo(wrpNestHead);
 
 			const wrpNestHeadSummary = e_({tag: "div", clazz: "fltr__summary_nest"}).appendTo(wrpNestHead);
 
@@ -1763,7 +2000,11 @@ class Filter extends FilterBase {
 		this.__$wrpFilter = $$`<div>
 			${opts.isFirst ? "" : `<div class="fltr__dropdown-divider ${opts.isMulti ? "fltr__dropdown-divider--indented" : ""} mb-1"></div>`}
 			<div class="split fltr__h ${this._minimalUi ? "fltr__minimal-hide" : ""} mb-1">
-				<div class="ml-2 fltr__h-text ve-flex-h-center mobile__w-100">${opts.isMulti ? `<span class="mr-2">\u2012</span>` : ""}${this._getRenderedHeader()}${btnMobToggleControls}</div>
+				<div class="fltr__h-text ve-flex-h-center mobile__w-100">
+					${opts.isMulti ? `<span class="mr-2">\u2012</span>` : ""}
+					${this._getRenderedHeader()}
+					${btnMobToggleControls}
+				</div>
 				${wrpControls}
 			</div>
 			${this.__wrpPills}
@@ -1787,16 +2028,22 @@ class Filter extends FilterBase {
 		this._filterBox = opts.filterBox;
 		this.__wrpMiniPills = e_({ele: opts.$wrpMini[0]});
 
-		this.__wrpPills = e_({tag: "div", clazz: `fltr__wrp-pills ${this._groupFn ? "fltr__wrp-subs" : ""}`});
-		const hook = () => this.__wrpPills.toggleVe(!this._meta.isHidden);
-		this._addHook("meta", "isHidden", hook);
-		hook();
+		this._renderMinis_initWrpPills();
 
 		this._doRenderMiniPills();
 	}
 
-	getValues () {
-		const state = MiscUtil.copy(this._state);
+	_renderMinis_initWrpPills () {
+		this.__wrpPills = e_({tag: "div", clazz: `fltr__wrp-pills ${this._groupFn ? "fltr__wrp-subs" : "fltr__container-pills"}`});
+		const hook = () => this.__wrpPills.toggleVe(!this._meta.isHidden);
+		this._addHook("meta", "isHidden", hook);
+		hook();
+	}
+
+	getValues ({nxtState = null} = {}) {
+		const state = MiscUtil.copy(nxtState?.[this.header]?.state || this.__state);
+		const meta = nxtState?.[this.header]?.meta || this.__meta;
+
 		// remove state for any currently-absent filters
 		Object.keys(state).filter(k => !this._items.some(it => `${it.item}` === k)).forEach(k => delete state[k]);
 		const out = {...state};
@@ -1808,24 +2055,31 @@ class Filter extends FilterBase {
 			const totalKey = v === 0 ? "ignored" : v === 1 ? "yes" : "no";
 			out._totals[totalKey]++;
 		});
-		out._combineBlue = this._meta.combineBlue;
-		out._combineRed = this._meta.combineRed;
+		out._combineBlue = meta.combineBlue;
+		out._combineRed = meta.combineRed;
 		return {[this.header]: out};
 	}
 
-	reset (isResetAll) {
-		if (isResetAll) {
-			this.resetBase();
-			this._resetNestsHidden();
-		} else {
-			// Always reset "AND/OR" states
-			Object.assign(this._meta, {combineBlue: Filter._DEFAULT_META.combineBlue, combineRed: Filter._DEFAULT_META.combineRed});
-		}
-		Object.keys(this._state).forEach(k => delete this._state[k]);
-		this._items.forEach(it => this._defaultItemState(it));
+	_getNextState_base () {
+		return {
+			[this.header]: {
+				...super._getNextState_base()[this.header],
+				nestsHidden: MiscUtil.copyFast(this.__nestsHidden),
+			},
+		};
 	}
 
-	resetShallow () { return this.reset(); }
+	_mutNextState_reset (nxtState, {isResetAll = false} = {}) {
+		if (isResetAll) {
+			this._mutNextState_resetBase(nxtState);
+			this._mutNextState_resetNestsHidden({tgt: nxtState[this.header].nestsHidden});
+		} else {
+			// Always reset "AND/OR" states
+			Object.assign(nxtState[this.header].meta, {combineBlue: Filter._DEFAULT_META.combineBlue, combineRed: Filter._DEFAULT_META.combineRed});
+		}
+		Object.keys(nxtState[this.header].state).forEach(k => delete nxtState[this.header].state[k]);
+		this._items.forEach(item => nxtState[this.header].state[item.item] = this._getDefaultState(item.item));
+	}
 
 	_doRenderPills () {
 		if (this._itemSortFn) this._items.sort(this._isSortByDisplayItems && this._displayFn ? (a, b) => this._itemSortFn(this._displayFn(a.item, a), this._displayFn(b.item, b)) : this._itemSortFn);
@@ -1899,7 +2153,7 @@ class Filter extends FilterBase {
 	}
 
 	_doRenderPills_doRenderWrpGroup_getHrDivider () { return e_({tag: "hr", clazz: `fltr__dropdown-divider--sub hr-2 mx-3`}); }
-	_doRenderPills_doRenderWrpGroup_getWrpPillsSub () { return e_({tag: "div", clazz: `fltr__wrp-pills--sub`}); }
+	_doRenderPills_doRenderWrpGroup_getWrpPillsSub () { return e_({tag: "div", clazz: `fltr__wrp-pills--sub fltr__container-pills`}); }
 
 	_doRenderMiniPills () {
 		// create a list view so we can freely sort
@@ -2210,6 +2464,302 @@ class FilterTransientOptions {
 	}
 }
 
+class SearchableFilter extends Filter {
+	constructor (opts) {
+		super(opts);
+
+		this._compSearch = BaseComponent.fromObject({
+			search: "",
+			searchTermParent: "",
+		});
+	}
+
+	handleSearch (searchTerm) {
+		const out = super.handleSearch(searchTerm);
+
+		this._compSearch._state.searchTermParent = searchTerm;
+
+		return out;
+	}
+
+	_getPill (item) {
+		const btnPill = super._getPill(item);
+
+		const hkIsVisible = () => {
+			if (this._compSearch._state.searchTermParent) return btnPill.toggleClass("fltr__hidden--inactive", false);
+
+			btnPill.toggleClass("fltr__hidden--inactive", this._state[item.item] === 0);
+		};
+		this._addHook("state", item.item, hkIsVisible);
+		this._compSearch._addHookBase("searchTermParent", hkIsVisible);
+		hkIsVisible();
+
+		return btnPill;
+	}
+
+	_getPill_handleClick ({evt, item}) {
+		if (this._compSearch._state.searchTermParent) return super._getPill_handleClick({evt, item});
+
+		this._state[item.item] = 0;
+	}
+
+	_getPill_handleContextmenu ({evt, item}) {
+		if (this._compSearch._state.searchTermParent) return super._getPill_handleContextmenu({evt, item});
+
+		evt.preventDefault();
+		this._state[item.item] = 0;
+	}
+
+	_$render_getRowBtn ({fnsCleanup, $iptSearch, item, subtype, state}) {
+		const handleClick = evt => {
+			evt.stopPropagation();
+			evt.preventDefault();
+
+			// Keep the dropdown open
+			$iptSearch.focus();
+
+			if (evt.shiftKey) {
+				this._doSetPillsClear();
+			}
+
+			if (this._state[item.item] === state) this._state[item.item] = 0;
+			else this._state[item.item] = state;
+		};
+
+		const btn = e_({
+			tag: "div",
+			clazz: `no-shrink clickable fltr-search__btn-activate fltr-search__btn-activate--${subtype} ve-flex-vh-center`,
+			click: evt => handleClick(evt),
+			contextmenu: evt => handleClick(evt),
+			mousedown: evt => {
+				evt.stopPropagation();
+				evt.preventDefault();
+			},
+		});
+
+		const hkIsActive = () => {
+			btn.innerText = this._state[item.item] === state ? "×" : "";
+		};
+		this._addHookBase(item.item, hkIsActive);
+		hkIsActive();
+		fnsCleanup.push(() => this._removeHookBase(item.item, hkIsActive));
+
+		return btn;
+	}
+
+	$render (opts) {
+		const $out = super.$render(opts);
+
+		const $iptSearch = ComponentUiUtil.$getIptStr(
+			this._compSearch,
+			"search",
+			{
+				html: `<input class="form-control form-control--minimal input-xs" placeholder="Search...">`,
+			},
+		);
+
+		const wrpValues = e_({
+			tag: "div",
+			clazz: "overflow-y-auto bt-0 absolute fltr-search__wrp-values",
+		});
+
+		const fnsCleanup = [];
+		const rowMetas = [];
+
+		this._$render_bindSearchHandler_keydown({$iptSearch, fnsCleanup, rowMetas});
+		this._$render_bindSearchHandler_focus({$iptSearch, fnsCleanup, rowMetas, wrpValues});
+		this._$render_bindSearchHandler_blur({$iptSearch});
+
+		const $wrp = $$`<div class="fltr-search__wrp-search ve-flex-col relative mt-1 mx-2p mb-1">
+			${$iptSearch}
+			${wrpValues}
+		</div>`.prependTo(this.__wrpPills);
+
+		const hkParentSearch = () => {
+			$wrp.toggleVe(!this._compSearch._state.searchTermParent);
+		};
+		this._compSearch._addHookBase("searchTermParent", hkParentSearch);
+		hkParentSearch();
+
+		return $out;
+	}
+
+	_$render_bindSearchHandler_keydown ({$iptSearch, rowMetas}) {
+		$iptSearch
+			.on("keydown", evt => {
+				switch (evt.key) {
+					case "Escape": evt.stopPropagation(); return $iptSearch.blur();
+
+					case "ArrowDown": {
+						evt.preventDefault();
+						const visibleRowMetas = rowMetas.filter(it => it.isVisible);
+						if (!visibleRowMetas.length) return;
+						visibleRowMetas[0].row.focus();
+						break;
+					}
+
+					case "Enter": {
+						const visibleRowMetas = rowMetas.filter(it => it.isVisible);
+						if (!visibleRowMetas.length) return;
+						if (evt.shiftKey) this._doSetPillsClear();
+						this._state[visibleRowMetas[0].item.item] = (evt.ctrlKey || evt.metaKey) ? 2 : 1;
+						$iptSearch.blur();
+						break;
+					}
+				}
+			});
+	}
+
+	_$render_bindSearchHandler_focus ({$iptSearch, fnsCleanup, rowMetas, wrpValues}) {
+		$iptSearch
+			.on("focus", () => {
+				fnsCleanup
+					.splice(0, fnsCleanup.length)
+					.forEach(fn => fn());
+
+				rowMetas.splice(0, rowMetas.length);
+
+				wrpValues.innerHTML = "";
+
+				rowMetas.push(
+					...this._items
+						.map(item => this._$render_bindSearchHandler_focus_getRowMeta({$iptSearch, fnsCleanup, rowMetas, wrpValues, item})),
+				);
+
+				this._$render_bindSearchHandler_focus_addHookSearch({rowMetas, fnsCleanup});
+
+				wrpValues.scrollIntoView({block: "nearest", inline: "nearest"});
+			});
+	}
+
+	_$render_bindSearchHandler_focus_getRowMeta ({$iptSearch, fnsCleanup, rowMetas, wrpValues, item}) {
+		const dispName = this._getDisplayText(item);
+
+		const eleName = e_({
+			tag: "div",
+			clazz: "fltr-search__disp-name ml-2",
+		});
+
+		const btnBlue = this._$render_getRowBtn({
+			fnsCleanup,
+			$iptSearch,
+			item,
+			subtype: "yes",
+			state: 1,
+		});
+		btnBlue.addClass("br-0");
+		btnBlue.addClass("btr-0");
+		btnBlue.addClass("bbr-0");
+
+		const btnRed = this._$render_getRowBtn({
+			fnsCleanup,
+			$iptSearch,
+			item,
+			subtype: "no",
+			state: 2,
+		});
+		btnRed.addClass("bl-0");
+		btnRed.addClass("btl-0");
+		btnRed.addClass("bbl-0");
+
+		const row = e_({
+			tag: "div",
+			clazz: "py-1p px-2 ve-flex-v-center fltr-search__wrp-row",
+			children: [
+				btnBlue,
+				btnRed,
+				eleName,
+			],
+			attrs: {
+				tabindex: "0",
+			},
+			keydown: evt => {
+				switch (evt.key) {
+					case "Escape": evt.stopPropagation(); return row.blur();
+
+					case "ArrowDown": {
+						evt.preventDefault();
+						const visibleRowMetas = rowMetas.filter(it => it.isVisible);
+						if (!visibleRowMetas.length) return;
+						const ixCur = visibleRowMetas.indexOf(out);
+						const nxt = visibleRowMetas[ixCur + 1];
+						if (nxt) nxt.row.focus();
+						break;
+					}
+
+					case "ArrowUp": {
+						evt.preventDefault();
+						const visibleRowMetas = rowMetas.filter(it => it.isVisible);
+						if (!visibleRowMetas.length) return;
+						const ixCur = visibleRowMetas.indexOf(out);
+						const prev = visibleRowMetas[ixCur - 1];
+						if (prev) return prev.row.focus();
+						$iptSearch.focus();
+						break;
+					}
+
+					case "Enter": {
+						if (evt.shiftKey) this._doSetPillsClear();
+						this._state[item.item] = (evt.ctrlKey || evt.metaKey) ? 2 : 1;
+						row.blur();
+						break;
+					}
+				}
+			},
+		});
+
+		wrpValues.appendChild(row);
+
+		const out = {
+			isVisible: true,
+			item,
+			row,
+			dispName,
+			eleName,
+		};
+
+		return out;
+	}
+
+	_$render_bindSearchHandler_focus_addHookSearch ({rowMetas, fnsCleanup}) {
+		const hkSearch = () => {
+			const searchTerm = this._compSearch._state.search.toLowerCase();
+
+			rowMetas.forEach(({item, row}) => {
+				row.isVisible = item.searchText.includes(searchTerm);
+				row.toggleVe(row.isVisible);
+			});
+
+			// region Underline matching part
+			if (!this._compSearch._state.search) {
+				rowMetas.forEach(({dispName, eleName}) => eleName.textContent = dispName);
+				return;
+			}
+
+			const re = new RegExp(this._compSearch._state.search.qq().escapeRegexp(), "gi");
+
+			rowMetas.forEach(({dispName, eleName}) => {
+				eleName.innerHTML = dispName
+					.qq()
+					.replace(re, (...m) => `<u>${m[0]}</u>`);
+			});
+			// endregion
+		};
+		this._compSearch._addHookBase("search", hkSearch);
+		hkSearch();
+		fnsCleanup.push(() => this._compSearch._removeHookBase("search", hkSearch));
+	}
+
+	_$render_bindSearchHandler_blur ({$iptSearch}) {
+		$iptSearch
+			.on("blur", () => {
+				this._compSearch._state.search = "";
+			});
+	}
+}
+
+globalThis.SearchableFilter = SearchableFilter;
+
 class SourceFilterItem extends FilterItem {
 	/**
 	 * @param options
@@ -2225,15 +2775,15 @@ class SourceFilter extends Filter {
 	static _SORT_ITEMS_MINI (a, b) {
 		a = a.item ?? a;
 		b = b.item ?? b;
-		const valA = BrewUtil2.hasSourceJson(a) ? 2 : SourceUtil.isNonstandardSource(a) ? 1 : 0;
-		const valB = BrewUtil2.hasSourceJson(b) ? 2 : SourceUtil.isNonstandardSource(b) ? 1 : 0;
+		const valA = BrewUtil2.hasSourceJson(a) ? 2 : (SourceUtil.isNonstandardSource(a) || PrereleaseUtil.hasSourceJson(a)) ? 1 : 0;
+		const valB = BrewUtil2.hasSourceJson(b) ? 2 : (SourceUtil.isNonstandardSource(b) || PrereleaseUtil.hasSourceJson(b)) ? 1 : 0;
 		return SortUtil.ascSort(valA, valB) || SortUtil.ascSortLower(Parser.sourceJsonToFull(a), Parser.sourceJsonToFull(b));
 	}
 
 	static _getDisplayHtmlMini (item) {
 		item = item.item || item;
 		const isBrewSource = BrewUtil2.hasSourceJson(item);
-		const isNonStandardSource = !isBrewSource && SourceUtil.isNonstandardSource(item);
+		const isNonStandardSource = !isBrewSource && (SourceUtil.isNonstandardSource(item) || PrereleaseUtil.hasSourceJson(item));
 		return `<span ${isBrewSource ? `title="(Homebrew)"` : isNonStandardSource ? `title="(UA/Etc.)"` : ""} class="glyphicon ${isBrewSource ? `glyphicon-glass` : isNonStandardSource ? `glyphicon-file` : `glyphicon-book`}"></span> ${Parser.sourceJsonToAbv(item)}`;
 	}
 
@@ -2394,7 +2944,7 @@ class SourceFilter extends Filter {
 	}
 
 	_doSetPinsSrd () {
-		SourceFilter._SRD_SOURCES = SourceFilter._SRD_SOURCES || new Set([SRC_PHB, SRC_MM, SRC_DMG]);
+		SourceFilter._SRD_SOURCES = SourceFilter._SRD_SOURCES || new Set([Parser.SRC_PHB, Parser.SRC_MM, Parser.SRC_DMG]);
 
 		Object.keys(this._state).forEach(k => this._state[k] = SourceFilter._SRD_SOURCES.has(k) ? 1 : 0);
 
@@ -2410,7 +2960,7 @@ class SourceFilter extends Filter {
 	}
 
 	_doSetPinsBasicRules () {
-		SourceFilter._BASIC_RULES_SOURCES = SourceFilter._BASIC_RULES_SOURCES || new Set([SRC_PHB, SRC_MM, SRC_DMG]);
+		SourceFilter._BASIC_RULES_SOURCES = SourceFilter._BASIC_RULES_SOURCES || new Set([Parser.SRC_PHB, Parser.SRC_MM, Parser.SRC_DMG]);
 
 		Object.keys(this._state).forEach(k => this._state[k] = SourceFilter._BASIC_RULES_SOURCES.has(k) ? 1 : 0);
 
@@ -2611,6 +3161,694 @@ SourceFilter._DEFAULT_META = {
 SourceFilter._SRD_SOURCES = null;
 SourceFilter._BASIC_RULES_SOURCES = null;
 
+class AbilityScoreFilter extends FilterBase {
+	static _MODIFIER_SORT_OFFSET = 10000; // Arbitrarily large value
+
+	constructor (opts) {
+		super(opts);
+
+		this._items = [];
+		this._isItemsDirty = false;
+		this._itemsLookup = {}; // Cache items for fast lookup
+		this._seenUids = {};
+
+		this.__$wrpFilter = null;
+		this.__wrpPills = null;
+		this.__wrpPillsRows = {};
+		this.__wrpMiniPills = null;
+
+		this._maxMod = 2;
+		this._minMod = 0;
+
+		// region Init state
+		Parser.ABIL_ABVS.forEach(ab => {
+			const itemAnyIncrease = new AbilityScoreFilter.FilterItem({isAnyIncrease: true, ability: ab});
+			const itemAnyDecrease = new AbilityScoreFilter.FilterItem({isAnyDecrease: true, ability: ab});
+			this._items.push(itemAnyIncrease, itemAnyDecrease);
+			this._itemsLookup[itemAnyIncrease.uid] = itemAnyIncrease;
+			this._itemsLookup[itemAnyDecrease.uid] = itemAnyDecrease;
+			if (this.__state[itemAnyIncrease.uid] == null) this.__state[itemAnyIncrease.uid] = 0;
+			if (this.__state[itemAnyDecrease.uid] == null) this.__state[itemAnyDecrease.uid] = 0;
+		});
+
+		for (let i = this._minMod; i <= this._maxMod; ++i) {
+			if (i === 0) continue;
+			Parser.ABIL_ABVS.forEach(ab => {
+				const item = new AbilityScoreFilter.FilterItem({modifier: i, ability: ab});
+				this._items.push(item);
+				this._itemsLookup[item.uid] = item;
+				if (this.__state[item.uid] == null) this.__state[item.uid] = 0;
+			});
+		}
+		// endregion
+	}
+
+	/**
+	 * @param opts Options.
+	 * @param opts.filterBox The FilterBox to which this filter is attached.
+	 * @param opts.isFirst True if this is visually the first filter in the box.
+	 * @param opts.$wrpMini The form mini-view element.
+	 * @param opts.isMulti The name of the MultiFilter this filter belongs to, if any.
+	 */
+	$render (opts) {
+		this._filterBox = opts.filterBox;
+		this.__wrpMiniPills = e_({ele: opts.$wrpMini[0]});
+
+		const wrpControls = this._getHeaderControls(opts);
+
+		this.__wrpPills = e_({tag: "div", clazz: `fltr__wrp-pills overflow-x-auto ve-flex-col w-100`});
+		const hook = () => this.__wrpPills.toggleVe(!this._meta.isHidden);
+		this._addHook("meta", "isHidden", hook);
+		hook();
+
+		this._doRenderPills();
+
+		// FIXME refactor this so we're not stealing the private method
+		const btnMobToggleControls = Filter.prototype._getBtnMobToggleControls.bind(this)(wrpControls);
+
+		this.__$wrpFilter = $$`<div>
+			${opts.isFirst ? "" : `<div class="fltr__dropdown-divider ${opts.isMulti ? "fltr__dropdown-divider--indented" : ""} mb-1"></div>`}
+			<div class="split fltr__h mb-1">
+				<div class="ml-2 fltr__h-text ve-flex-h-center">${opts.isMulti ? `<span class="mr-2">\u2012</span>` : ""}${this._getRenderedHeader()}${btnMobToggleControls}</div>
+				${wrpControls}
+			</div>
+			${this.__wrpPills}
+		</div>`;
+
+		this.update(); // Force an update, to properly mute/unmute our pills
+
+		return this.__$wrpFilter;
+	}
+
+	_getHeaderControls (opts) {
+		const btnClear = e_({
+			tag: "button",
+			clazz: `btn btn-default ${opts.isMulti ? "btn-xxs" : "btn-xs"} fltr__h-btn--clear w-100`,
+			click: () => this._doSetPillsClear(),
+			html: "Clear",
+		});
+
+		const wrpStateBtnsOuter = e_({
+			tag: "div",
+			clazz: "ve-flex-v-center fltr__h-wrp-state-btns-outer",
+			children: [
+				e_({
+					tag: "div",
+					clazz: "btn-group ve-flex-v-center w-100",
+					children: [
+						btnClear,
+					],
+				}),
+			],
+		});
+
+		const wrpSummary = e_({tag: "div", clazz: "ve-flex-vh-center ve-hidden"});
+
+		const btnShowHide = e_({
+			tag: "button",
+			clazz: `btn btn-default ${opts.isMulti ? "btn-xxs" : "btn-xs"} ml-2`,
+			click: () => this._meta.isHidden = !this._meta.isHidden,
+			html: "Hide",
+		});
+		const hookShowHide = () => {
+			e_({ele: btnShowHide}).toggleClass("active", this._meta.isHidden);
+			wrpStateBtnsOuter.toggleVe(!this._meta.isHidden);
+
+			// TODO
+			// region Render summary
+			const cur = this.getValues()[this.header];
+
+			const htmlSummary = [
+				cur._totals?.yes
+					? `<span class="fltr__summary_item fltr__summary_item--include" title="${cur._totals.yes} hidden &quot;required&quot; tags">${cur._totals.yes}</span>`
+					: null,
+			].filter(Boolean).join("");
+			e_({ele: wrpSummary, html: htmlSummary}).toggleVe(this._meta.isHidden);
+			// endregion
+		};
+		this._addHook("meta", "isHidden", hookShowHide);
+		hookShowHide();
+
+		return e_({
+			tag: "div",
+			clazz: `ve-flex-v-center fltr__h-wrp-btns-outer`,
+			children: [
+				wrpSummary,
+				wrpStateBtnsOuter,
+				btnShowHide,
+			],
+		});
+	}
+
+	_doRenderPills () {
+		this._items.sort(this.constructor._ascSortItems.bind(this.constructor));
+
+		if (!this.__wrpPills) return;
+		this._items.forEach(it => {
+			if (!it.rendered) it.rendered = this._getPill(it);
+			if (!it.isAnyIncrease && !it.isAnyDecrease) it.rendered.toggleClass("fltr__pill--muted", !this._seenUids[it.uid]);
+
+			if (!this.__wrpPillsRows[it.ability]) {
+				this.__wrpPillsRows[it.ability] = {
+					row: e_({
+						tag: "div",
+						clazz: "ve-flex-v-center w-100 my-1",
+						children: [
+							e_({
+								tag: "div",
+								clazz: "mr-3 text-right fltr__label-ability-score no-shrink no-grow",
+								text: Parser.attAbvToFull(it.ability),
+							}),
+						],
+					}).appendTo(this.__wrpPills),
+					searchText: Parser.attAbvToFull(it.ability).toLowerCase(),
+				};
+			}
+
+			it.rendered.appendTo(this.__wrpPillsRows[it.ability].row);
+		});
+	}
+
+	_getPill (item) {
+		const unsetRow = () => {
+			const nxtState = {};
+			for (let i = this._minMod; i <= this._maxMod; ++i) {
+				if (!i || i === item.modifier) continue;
+				const siblingUid = AbilityScoreFilter.FilterItem.getUid_({ability: item.ability, modifier: i});
+				nxtState[siblingUid] = 0;
+			}
+
+			if (!item.isAnyIncrease) nxtState[AbilityScoreFilter.FilterItem.getUid_({ability: item.ability, isAnyIncrease: true})] = 0;
+			if (!item.isAnyDecrease) nxtState[AbilityScoreFilter.FilterItem.getUid_({ability: item.ability, isAnyDecrease: true})] = 0;
+
+			this._proxyAssignSimple("state", nxtState);
+		};
+
+		const btnPill = e_({
+			tag: "div",
+			clazz: `fltr__pill fltr__pill--ability-bonus px-2`,
+			html: item.getPillDisplayHtml(),
+			click: evt => {
+				if (evt.shiftKey) {
+					const nxtState = {};
+					Object.keys(this._state).forEach(k => nxtState[k] = 0);
+					this._proxyAssign("state", "_state", "__state", nxtState, true);
+				}
+
+				this._state[item.uid] = this._state[item.uid] ? 0 : 1;
+				if (this._state[item.uid]) unsetRow();
+			},
+			contextmenu: (evt) => {
+				evt.preventDefault();
+
+				this._state[item.uid] = this._state[item.uid] ? 0 : 1;
+				if (this._state[item.uid]) unsetRow();
+			},
+		});
+
+		const hook = () => {
+			const val = FilterBox._PILL_STATES[this._state[item.uid] || 0];
+			btnPill.attr("state", val);
+		};
+		this._addHook("state", item.uid, hook);
+		hook();
+
+		return btnPill;
+	}
+
+	_doRenderMiniPills () {
+		// create a list view so we can freely sort
+		this._items.slice(0)
+			.sort(this.constructor._ascSortMiniPills.bind(this.constructor))
+			.forEach(it => {
+				// re-append existing elements to sort them
+				(it.btnMini = it.btnMini || this._getBtnMini(it)).appendTo(this.__wrpMiniPills);
+			});
+	}
+
+	_getBtnMini (item) {
+		const btnMini = e_({
+			tag: "div",
+			clazz: `fltr__mini-pill ${this._filterBox.isMinisHidden(this.header) ? "ve-hidden" : ""}`,
+			text: item.getMiniPillDisplayText(),
+			title: `Filter: ${this.header}`,
+			click: () => {
+				this._state[item.uid] = 0;
+				this._filterBox.fireChangeEvent();
+			},
+		}).attr("state", FilterBox._PILL_STATES[this._state[item.uid] || 0]);
+
+		const hook = () => btnMini.attr("state", FilterBox._PILL_STATES[this._state[item.uid] || 0]);
+		this._addHook("state", item.uid, hook);
+
+		const hideHook = () => btnMini.toggleClass("ve-hidden", this._filterBox.isMinisHidden(this.header));
+		this._filterBox.registerMinisHiddenHook(this.header, hideHook);
+
+		return btnMini;
+	}
+
+	static _ascSortItems (a, b) {
+		return SortUtil.ascSort(Number(b.isAnyIncrease), Number(a.isAnyIncrease))
+			|| SortUtil.ascSortAtts(a.ability, b.ability)
+			// Offset ability scores to ensure they're all in positive space. This forces the "any decrease" section to
+			//   appear last.
+			|| SortUtil.ascSort(b.modifier ? b.modifier + AbilityScoreFilter._MODIFIER_SORT_OFFSET : b.modifier, a.modifier ? a.modifier + AbilityScoreFilter._MODIFIER_SORT_OFFSET : a.modifier)
+			|| SortUtil.ascSort(Number(b.isAnyDecrease), Number(a.isAnyDecrease));
+	}
+
+	static _ascSortMiniPills (a, b) {
+		return SortUtil.ascSort(Number(b.isAnyIncrease), Number(a.isAnyIncrease))
+			|| SortUtil.ascSort(Number(b.isAnyDecrease), Number(a.isAnyDecrease))
+			// Offset ability scores to ensure they're all in positive space. This forces the "any decrease" section to
+			//   appear last.
+			|| SortUtil.ascSort(b.modifier ? b.modifier + AbilityScoreFilter._MODIFIER_SORT_OFFSET : b.modifier, a.modifier ? a.modifier + AbilityScoreFilter._MODIFIER_SORT_OFFSET : a.modifier)
+			|| SortUtil.ascSortAtts(a.ability, b.ability);
+	}
+
+	/**
+	 * @param opts Options.
+	 * @param opts.filterBox The FilterBox to which this filter is attached.
+	 * @param opts.isFirst True if this is visually the first filter in the box.
+	 * @param opts.$wrpMini The form mini-view element.
+	 * @param opts.isMulti The name of the MultiFilter this filter belongs to, if any.
+	 */
+	$renderMinis (opts) {
+		this._filterBox = opts.filterBox;
+		this.__wrpMiniPills = e_({ele: opts.$wrpMini[0]});
+
+		this._doRenderMiniPills();
+	}
+
+	getValues ({nxtState = null} = {}) {
+		const out = {
+			_totals: {yes: 0},
+		};
+
+		const state = nxtState?.[this.header]?.state || this.__state;
+
+		Object.entries(state)
+			.filter(([, value]) => value)
+			.forEach(([uid]) => {
+				out._totals.yes++;
+				out[uid] = true;
+			});
+
+		return {[this.header]: out};
+	}
+
+	_mutNextState_reset (nxtState, {isResetAll = false} = {}) {
+		Object.keys(nxtState[this.header].state).forEach(k => delete nxtState[this.header].state[k]);
+	}
+
+	update () {
+		if (this._isItemsDirty) {
+			this._isItemsDirty = false;
+
+			this._doRenderPills();
+		}
+
+		// always render the mini-pills, to ensure the overall order in the grid stays correct (shared between multiple filters)
+		this._doRenderMiniPills();
+	}
+
+	_doSetPillsClear () {
+		Object.keys(this._state).forEach(k => {
+			if (this._state[k] !== 0) this._state[k] = 0;
+		});
+	}
+
+	toDisplay (boxState, entryVal) {
+		const filterState = boxState[this.header];
+		if (!filterState) return true;
+
+		const activeItems = Object.keys(filterState)
+			.filter(it => !it.startsWith("_"))
+			.map(it => this._itemsLookup[it])
+			.filter(Boolean);
+
+		if (!activeItems.length) return true;
+		if ((!entryVal || !entryVal.length) && activeItems.length) return false;
+
+		return entryVal.some(abilObject => {
+			const cpyAbilObject = MiscUtil.copy(abilObject);
+			const vewActiveItems = [...activeItems];
+
+			// region Stage 1. Exact ability score match.
+			Parser.ABIL_ABVS.forEach(ab => {
+				if (!cpyAbilObject[ab] || !vewActiveItems.length) return;
+
+				const ixExact = vewActiveItems.findIndex(it => it.ability === ab && it.modifier === cpyAbilObject[ab]);
+				if (~ixExact) return vewActiveItems.splice(ixExact, 1);
+			});
+			if (!vewActiveItems.length) return true;
+			// endregion
+
+			// region Stage 2. "Choice" ability score match
+			if (cpyAbilObject.choose?.from) {
+				const amount = cpyAbilObject.choose.amount || 1;
+				const count = cpyAbilObject.choose.count || 1;
+
+				for (let i = 0; i < count; ++i) {
+					if (!vewActiveItems.length) break;
+
+					const ix = vewActiveItems.findIndex(it => cpyAbilObject.choose.from.includes(it.ability) && amount === it.modifier);
+					if (~ix) {
+						const [cpyActiveItem] = vewActiveItems.splice(ix, 1);
+						cpyAbilObject.choose.from = cpyAbilObject.choose.from.filter(it => it !== cpyActiveItem.ability);
+					}
+				}
+			} else if (cpyAbilObject.choose?.weighted?.weights && cpyAbilObject.choose?.weighted?.from) {
+				cpyAbilObject.choose.weighted.weights.forEach(weight => {
+					const ix = vewActiveItems.findIndex(it => cpyAbilObject.choose.weighted.from.includes(it.ability) && weight === it.modifier);
+					if (~ix) {
+						const [cpyActiveItem] = vewActiveItems.splice(ix, 1);
+						cpyAbilObject.choose.weighted.from = cpyAbilObject.choose.weighted.from.filter(it => it !== cpyActiveItem.ability);
+					}
+				});
+			}
+			if (!vewActiveItems.length) return true;
+			// endregion
+
+			// region Stage 3. "Any" ability score match
+			Parser.ABIL_ABVS.forEach(ab => {
+				if (!cpyAbilObject[ab] || !vewActiveItems.length) return;
+
+				const ix = vewActiveItems.findIndex(it => it.ability === ab && ((cpyAbilObject[ab] > 0 && it.isAnyIncrease) || (cpyAbilObject[ab] < 0 && it.isAnyDecrease)));
+				if (~ix) return vewActiveItems.splice(ix, 1);
+			});
+			if (!vewActiveItems.length) return true;
+
+			if (cpyAbilObject.choose?.from) {
+				const amount = cpyAbilObject.choose.amount || 1;
+				const count = cpyAbilObject.choose.count || 1;
+
+				for (let i = 0; i < count; ++i) {
+					if (!vewActiveItems.length) return true;
+
+					const ix = vewActiveItems.findIndex(it => cpyAbilObject.choose.from.includes(it.ability) && ((amount > 0 && it.isAnyIncrease) || (amount < 0 && it.isAnyDecrease)));
+					if (~ix) {
+						const [cpyActiveItem] = vewActiveItems.splice(ix, 1);
+						cpyAbilObject.choose.from = cpyAbilObject.choose.from.filter(it => it !== cpyActiveItem.ability);
+					}
+				}
+			} else if (cpyAbilObject.choose?.weighted?.weights && cpyAbilObject.choose?.weighted?.from) {
+				cpyAbilObject.choose.weighted.weights.forEach(weight => {
+					if (!vewActiveItems.length) return;
+
+					const ix = vewActiveItems.findIndex(it => cpyAbilObject.choose.weighted.from.includes(it.ability) && ((weight > 0 && it.isAnyIncrease) || (weight < 0 && it.isAnyDecrease)));
+					if (~ix) {
+						const [cpyActiveItem] = vewActiveItems.splice(ix, 1);
+						cpyAbilObject.choose.weighted.from = cpyAbilObject.choose.weighted.from.filter(it => it !== cpyActiveItem.ability);
+					}
+				});
+			}
+			return !vewActiveItems.length;
+			// endregion
+		});
+	}
+
+	addItem (abilArr) {
+		if (!abilArr?.length) return;
+
+		// region Update our min/max scores
+		let nxtMaxMod = this._maxMod;
+		let nxtMinMod = this._minMod;
+
+		abilArr.forEach(abilObject => {
+			Parser.ABIL_ABVS.forEach(ab => {
+				if (abilObject[ab] != null) {
+					nxtMaxMod = Math.max(nxtMaxMod, abilObject[ab]);
+					nxtMinMod = Math.min(nxtMinMod, abilObject[ab]);
+
+					const uid = AbilityScoreFilter.FilterItem.getUid_({ability: ab, modifier: abilObject[ab]});
+					if (!this._seenUids[uid]) this._isItemsDirty = true;
+					this._seenUids[uid] = true;
+				}
+			});
+
+			if (abilObject.choose?.from) {
+				const amount = abilObject.choose.amount || 1;
+				nxtMaxMod = Math.max(nxtMaxMod, amount);
+				nxtMinMod = Math.min(nxtMinMod, amount);
+
+				abilObject.choose.from.forEach(ab => {
+					const uid = AbilityScoreFilter.FilterItem.getUid_({ability: ab, modifier: amount});
+					if (!this._seenUids[uid]) this._isItemsDirty = true;
+					this._seenUids[uid] = true;
+				});
+			}
+
+			if (abilObject.choose?.weighted?.weights) {
+				nxtMaxMod = Math.max(nxtMaxMod, ...abilObject.choose.weighted.weights);
+				nxtMinMod = Math.min(nxtMinMod, ...abilObject.choose.weighted.weights);
+
+				abilObject.choose.weighted.from.forEach(ab => {
+					abilObject.choose.weighted.weights.forEach(weight => {
+						const uid = AbilityScoreFilter.FilterItem.getUid_({ability: ab, modifier: weight});
+						if (!this._seenUids[uid]) this._isItemsDirty = true;
+						this._seenUids[uid] = true;
+					});
+				});
+			}
+		});
+		// endregion
+
+		// region If we have a new max score, populate items
+		if (nxtMaxMod > this._maxMod) {
+			for (let i = this._maxMod + 1; i <= nxtMaxMod; ++i) {
+				if (i === 0) continue;
+				Parser.ABIL_ABVS.forEach(ab => {
+					const item = new AbilityScoreFilter.FilterItem({modifier: i, ability: ab});
+					this._items.push(item);
+					this._itemsLookup[item.uid] = item;
+					if (this.__state[item.uid] == null) this.__state[item.uid] = 0;
+				});
+			}
+
+			this._isItemsDirty = true;
+			this._maxMod = nxtMaxMod;
+		}
+		// endregion
+
+		// region If we have a new min score, populate items
+		if (nxtMinMod < this._minMod) {
+			for (let i = nxtMinMod; i < this._minMod; ++i) {
+				if (i === 0) continue;
+				Parser.ABIL_ABVS.forEach(ab => {
+					const item = new AbilityScoreFilter.FilterItem({modifier: i, ability: ab});
+					this._items.push(item);
+					this._itemsLookup[item.uid] = item;
+					if (this.__state[item.uid] == null) this.__state[item.uid] = 0;
+				});
+			}
+
+			this._isItemsDirty = true;
+			this._minMod = nxtMinMod;
+		}
+		// endregion
+	}
+
+	getSaveableState () {
+		return {
+			[this.header]: {
+				...this.getBaseSaveableState(),
+				state: {...this.__state},
+			},
+		};
+	}
+
+	setStateFromLoaded (filterState) {
+		if (!filterState || !filterState[this.header]) return;
+		const toLoad = filterState[this.header];
+		this.setBaseStateFromLoaded(toLoad);
+		Object.assign(this._state, toLoad.state);
+	}
+
+	getSubHashes () {
+		const out = [];
+
+		const baseMeta = this.getMetaSubHashes();
+		if (baseMeta) out.push(...baseMeta);
+
+		const areNotDefaultState = Object.entries(this._state).filter(([k, v]) => {
+			if (k.startsWith("_")) return false;
+			return !!v;
+		});
+		if (areNotDefaultState.length) {
+			// serialize state as `key=value` pairs
+			const serPillStates = areNotDefaultState.map(([k, v]) => `${k.toUrlified()}=${v}`);
+			out.push(UrlUtil.packSubHash(this.getSubHashPrefix("state", this.header), serPillStates));
+		}
+
+		if (!out.length) return null;
+
+		return out;
+	}
+
+	getNextStateFromSubhashState (state) {
+		const nxtState = this._getNextState_base();
+
+		if (state == null) {
+			this._mutNextState_reset(nxtState);
+			return nxtState;
+		}
+
+		let hasState = false;
+
+		Object.entries(state).forEach(([k, vals]) => {
+			const prop = FilterBase.getProp(k);
+			switch (prop) {
+				case "state": {
+					hasState = true;
+					Object.keys(nxtState[this.header].state).forEach(k => nxtState[this.header].state[k] = 0);
+
+					vals.forEach(v => {
+						const [statePropLower, state] = v.split("=");
+						const stateProp = Object.keys(nxtState[this.header].state).find(k => k.toLowerCase() === statePropLower);
+						if (stateProp) nxtState[this.header].state[stateProp] = Number(state) ? 1 : 0;
+					});
+					break;
+				}
+			}
+		});
+
+		if (!hasState) this._mutNextState_reset(nxtState);
+
+		return nxtState;
+	}
+
+	setFromValues (values) {
+		if (!values[this.header]) return;
+		const nxtState = {};
+		Object.keys(this._state).forEach(k => nxtState[k] = 0);
+		Object.assign(nxtState, values[this.header]);
+	}
+
+	handleSearch (searchTerm) {
+		const isHeaderMatch = this.header.toLowerCase().includes(searchTerm);
+
+		if (isHeaderMatch) {
+			Object.values(this.__wrpPillsRows).forEach(meta => meta.row.removeClass("fltr__hidden--search"));
+
+			if (this.__$wrpFilter) this.__$wrpFilter.toggleClass("fltr__hidden--search", false);
+
+			return true;
+		}
+
+		// Simply display all if the user searched a "+x" or "-x" value; we don't care if this produces false positives.
+		const isModNumber = /^[-+]\d*$/.test(searchTerm);
+
+		let visibleCount = 0;
+		Object.values(this.__wrpPillsRows).forEach(({row, searchText}) => {
+			const isVisible = isModNumber || searchText.includes(searchTerm);
+			row.toggleClass("fltr__hidden--search", !isVisible);
+			if (isVisible) visibleCount++;
+		});
+
+		if (this.__$wrpFilter) this.__$wrpFilter.toggleClass("fltr__hidden--search", visibleCount === 0);
+
+		return visibleCount !== 0;
+	}
+
+	_doTeardown () {
+		this._items.forEach(it => {
+			if (it.rendered) it.rendered.detach();
+			if (it.btnMini) it.btnMini.detach();
+		});
+
+		Object.values(this.__wrpPillsRows).forEach(meta => meta.row.detach());
+	}
+
+	_getStateNotDefault () {
+		return Object.entries(this._state)
+			.filter(([, v]) => !!v);
+	}
+
+	getFilterTagPart () {
+		const areNotDefaultState = this._getStateNotDefault();
+		const compressedMeta = this._getCompressedMeta({isStripUiKeys: true});
+
+		// If _any_ value is non-default, we need to include _all_ values in the tag
+		// The same goes for meta values
+		if (!areNotDefaultState.length && !compressedMeta) return null;
+
+		const pt = Object.entries(this._state)
+			.filter(([, v]) => !!v)
+			.map(([k, v]) => `${v === 2 ? "!" : ""}${k}`)
+			.join(";")
+			.toLowerCase();
+
+		return [
+			this.header.toLowerCase(),
+			pt,
+			compressedMeta ? compressedMeta.join(HASH_SUB_LIST_SEP) : null,
+		]
+			.filter(it => it != null)
+			.join("=");
+	}
+
+	getDisplayStatePart ({nxtState = null} = {}) {
+		const state = nxtState?.[this.header]?.state || this.__state;
+
+		const areNotDefaultState = this._getStateNotDefault({nxtState});
+
+		// If _any_ value is non-default, we need to include _all_ values in the tag
+		// The same goes for meta values
+		if (!areNotDefaultState.length) return null;
+
+		const ptState = Object.entries(state)
+			.filter(([, v]) => !!v)
+			.map(([k, v]) => {
+				const item = this._items.find(item => item.uid === k);
+				if (!item) return null; // Should never occur
+				return `${v === 2 ? "not " : ""}${item.getMiniPillDisplayText()}`;
+			})
+			.join(", ");
+
+		return `${this.header}: ${ptState}`;
+	}
+}
+
+AbilityScoreFilter.FilterItem = class {
+	static getUid_ ({ability = null, isAnyIncrease = false, isAnyDecrease = false, modifier = null}) {
+		return `${Parser.attAbvToFull(ability)} ${modifier != null ? UiUtil.intToBonus(modifier) : (isAnyIncrease ? `+any` : isAnyDecrease ? `-any` : "?")}`;
+	}
+
+	constructor ({isAnyIncrease = false, isAnyDecrease = false, modifier = null, ability = null}) {
+		if (isAnyIncrease && isAnyDecrease) throw new Error(`Invalid arguments!`);
+		if ((isAnyIncrease || isAnyDecrease) && modifier != null) throw new Error(`Invalid arguments!`);
+
+		this._ability = ability;
+		this._modifier = modifier;
+		this._isAnyIncrease = isAnyIncrease;
+		this._isAnyDecrease = isAnyDecrease;
+		this._uid = AbilityScoreFilter.FilterItem.getUid_({
+			isAnyIncrease: this._isAnyIncrease,
+			isAnyDecrease: this._isAnyDecrease,
+			modifier: this._modifier,
+			ability: this._ability,
+		});
+	}
+
+	get ability () { return this._ability; }
+	get modifier () { return this._modifier; }
+	get isAnyIncrease () { return this._isAnyIncrease; }
+	get isAnyDecrease () { return this._isAnyDecrease; }
+	get uid () { return this._uid; }
+
+	getMiniPillDisplayText () {
+		if (this._isAnyIncrease) return `+Any ${Parser.attAbvToFull(this._ability)}`;
+		if (this._isAnyDecrease) return `\u2012Any ${Parser.attAbvToFull(this._ability)}`;
+		return `${UiUtil.intToBonus(this._modifier, {isPretty: true})} ${Parser.attAbvToFull(this._ability)}`;
+	}
+
+	getPillDisplayHtml () {
+		if (this._isAnyIncrease) return `+Any`;
+		if (this._isAnyDecrease) return `\u2012Any`;
+		return UiUtil.intToBonus(this._modifier, {isPretty: true});
+	}
+};
+
 class RangeFilter extends FilterBase {
 	/**
 	 * @param opts Options object.
@@ -2741,9 +3979,14 @@ class RangeFilter extends FilterBase {
 		return out.length ? out : null;
 	}
 
+	_isAtDefaultPosition ({nxtState = null} = {}) {
+		const state = nxtState?.[this.header]?.state || this.__state;
+		return state.min === state.curMin && state.max === state.curMax;
+	}
+
 	// `meta` is not included, as it is used purely for UI
 	getFilterTagPart () {
-		if (this._state.min === this._state.curMin && this._state.max === this._state.curMax) return null;
+		if (this._isAtDefaultPosition()) return null;
 
 		if (!this._labels) {
 			if (this._state.curMin === this._state.curMax) return `${this.header}=[${this._state.curMin}]`;
@@ -2760,8 +4003,23 @@ class RangeFilter extends FilterBase {
 		return `${this.header}=[&${labelLow};&${labelHigh}]`;
 	}
 
-	setFromSubHashState (state) {
-		this.setMetaFromSubHashState(state);
+	getDisplayStatePart ({nxtState = null} = {}) {
+		if (this._isAtDefaultPosition({nxtState})) return null;
+
+		const {summary} = this._getDisplaySummary({nxtState});
+
+		return `${this.header}: ${summary}`;
+	}
+
+	getNextStateFromSubhashState (state) {
+		const nxtState = this._getNextState_base();
+
+		if (state == null) {
+			this._mutNextState_reset(nxtState);
+			return nxtState;
+		}
+
+		this._mutNextState_meta_fromSubHashState(nxtState, state);
 
 		let hasState = false;
 
@@ -2782,12 +4040,12 @@ class RangeFilter extends FilterBase {
 
 					switch (prop) {
 						case "min":
-							if (num < this._state.min) this._state.min = num;
-							this._state.curMin = Math.max(this._state.min, num);
+							if (num < nxtState.state.min) nxtState[this.header].state.min = num;
+							nxtState[this.header].state.curMin = Math.max(nxtState[this.header].state.min, num);
 							break;
 						case "max":
-							if (num > this._state.max) this._state.max = num;
-							this._state.curMax = Math.min(this._state.max, num);
+							if (num > nxtState[this.header].state.max) nxtState[this.header].state.max = num;
+							nxtState[this.header].state.curMax = Math.min(nxtState[this.header].state.max, num);
 							break;
 						default: throw new Error(`Unknown prop "${prop}"`);
 					}
@@ -2795,19 +4053,21 @@ class RangeFilter extends FilterBase {
 			}
 		});
 
-		if (!hasState) this.reset();
+		if (!hasState) this._mutNextState_reset(nxtState);
+
+		return nxtState;
 	}
 
 	setFromValues (values) {
-		if (values[this.header]) {
-			const vals = values[this.header];
+		if (!values[this.header]) return;
 
-			if (vals.min != null) this._state.curMin = Math.max(this._state.min, vals.min);
-			else this._state.curMin = this._state.min;
+		const vals = values[this.header];
 
-			if (vals.max != null) this._state.curMax = Math.max(this._state.max, vals.max);
-			else this._state.curMax = this._state.max;
-		}
+		if (vals.min != null) this._state.curMin = Math.max(this._state.min, vals.min);
+		else this._state.curMin = this._state.min;
+
+		if (vals.max != null) this._state.curMax = Math.max(this._state.max, vals.max);
+		else this._state.curMax = this._state.max;
 	}
 
 	_$getHeaderControls () {
@@ -2833,14 +4093,10 @@ class RangeFilter extends FilterBase {
 			$wrpSummary.toggleVe(this._meta.isHidden);
 
 			// render summary
-			const cur = this.getValues()[this.header];
-
-			const isRange = !cur.isMinVal && !cur.isMaxVal;
-			const isCapped = !cur.isMinVal || !cur.isMaxVal;
-
+			const {summaryTitle, summary} = this._getDisplaySummary();
 			$wrpSummary
-				.title(isRange ? `Hidden range` : isCapped ? `Hidden limit` : "")
-				.text(isRange ? `${this._getDisplayText(cur.min)}-${this._getDisplayText(cur.max)}` : !cur.isMinVal ? `≥ ${this._getDisplayText(cur.min)}` : !cur.isMaxVal ? `≤ ${this._getDisplayText(cur.max)}` : "");
+				.title(summaryTitle)
+				.text(summary);
 		};
 		this._addHook("meta", "isHidden", hkIsHidden);
 		hkIsHidden();
@@ -2851,6 +4107,18 @@ class RangeFilter extends FilterBase {
 			${$wrpSummary}
 			${$btnShowHide}
 		</div>`;
+	}
+
+	_getDisplaySummary ({nxtState = null} = {}) {
+		const cur = this.getValues({nxtState})[this.header];
+
+		const isRange = !cur.isMinVal && !cur.isMaxVal;
+		const isCapped = !cur.isMinVal || !cur.isMaxVal;
+
+		return {
+			summaryTitle: isRange ? `Hidden range` : isCapped ? `Hidden limit` : "",
+			summary: isRange ? `${this._getDisplayText(cur.min)}-${this._getDisplayText(cur.max)}` : !cur.isMinVal ? `≥ ${this._getDisplayText(cur.min)}` : !cur.isMaxVal ? `≤ ${this._getDisplayText(cur.max)}` : "",
+		};
 	}
 
 	_getDisplayText (value, {isBeyondMax = false, isTooltip = false} = {}) {
@@ -3039,7 +4307,7 @@ class RangeFilter extends FilterBase {
 				this._$btnMiniLt.attr("state", FilterBox._PILL_STATES[0]);
 
 				this._$btnMiniEq
-					.attr("state", this._state.min === this._state.curMin && this._state.max === this._state.curMax ? FilterBox._PILL_STATES[0] : FilterBox._PILL_STATES[1])
+					.attr("state", this._isAtDefaultPosition() ? FilterBox._PILL_STATES[0] : FilterBox._PILL_STATES[1])
 					.text(`${this.header} = ${this._getDisplayText(this._state.curMin, {isBeyondMax: this._isAllowGreater && this._state.curMin === this._state.max})}`);
 			} else {
 				if (this._state.min !== this._state.curMin) {
@@ -3084,24 +4352,24 @@ class RangeFilter extends FilterBase {
 		return sel;
 	}
 
-	getValues () {
+	getValues ({nxtState = null} = {}) {
+		const state = nxtState?.[this.header]?.state || this.__state;
+
 		const out = {
-			isMaxVal: this._state.max === this._state.curMax,
-			isMinVal: this._state.min === this._state.curMin,
-			max: this._state.curMax,
-			min: this._state.curMin,
+			isMaxVal: state.max === state.curMax,
+			isMinVal: state.min === state.curMin,
+			max: state.curMax,
+			min: state.curMin,
 		};
 		out._isActive = !(out.isMinVal && out.isMaxVal);
 		return {[this.header]: out};
 	}
 
-	reset (isResetAll) {
-		if (isResetAll) this.resetBase();
-		this._state.curMin = this._state.min;
-		this._state.curMax = this._state.max;
+	_mutNextState_reset (nxtState, {isResetAll = false} = {}) {
+		if (isResetAll) this._mutNextState_resetBase(nxtState, {isResetAll});
+		nxtState[this.header].state.curMin = nxtState[this.header].state.min;
+		nxtState[this.header].state.curMax = nxtState[this.header].state.max;
 	}
-
-	resetShallow (isResetAll) { return this.reset(); }
 
 	update () {
 		if (!this.__$wrpMini) return;
@@ -3124,9 +4392,17 @@ class RangeFilter extends FilterBase {
 			const slice = this._labels.slice(filterState.min, filterState.max + 1);
 
 			// Special case for "isAllowGreater" filters, which assumes the labels are numerical values
-			if (this._isAllowGreater && filterState.max === this._state.max && entryVal > this._state.max) return true;
+			if (this._isAllowGreater) {
+				if (filterState.max === this._state.max && entryVal > this._state.max) return true;
 
-			if (entryVal instanceof Array) return !!entryVal.find(it => slice.includes(it));
+				const sliceMin = Math.min(...slice);
+				const sliceMax = Math.max(...slice);
+
+				if (entryVal instanceof Array) return entryVal.some(it => it >= sliceMin && it <= sliceMax);
+				return entryVal >= sliceMin && entryVal <= sliceMax;
+			}
+
+			if (entryVal instanceof Array) return entryVal.some(it => slice.includes(it));
 			return slice.includes(entryVal);
 		} else {
 			if (entryVal instanceof Array) {
@@ -3312,8 +4588,20 @@ class OptionsFilter extends FilterBase {
 		return `${this.header.toLowerCase()}=::${pt}::`;
 	}
 
-	setFromSubHashState (state) {
-		this.setMetaFromSubHashState(state);
+	getDisplayStatePart ({nxtState = null} = {}) {
+		/* Implement if required */
+		return null;
+	}
+
+	getNextStateFromSubhashState (state) {
+		const nxtState = this._getNextState_base();
+
+		if (state == null) {
+			this._mutNextState_reset(nxtState);
+			return nxtState;
+		}
+
+		this._mutNextState_meta_fromSubHashState(nxtState, state);
 
 		let hasState = false;
 
@@ -3329,11 +4617,13 @@ class OptionsFilter extends FilterBase {
 				const casedProp = Object.keys(this._defaultState).find(k => k.toLowerCase() === prop);
 				if (!casedProp) return;
 
-				if (this._defaultState[casedProp] != null && typeof val === typeof this._defaultState[casedProp]) this._state[casedProp] = val;
+				if (this._defaultState[casedProp] != null && typeof val === typeof this._defaultState[casedProp]) nxtState[this.header].state[casedProp] = val;
 			});
 		});
 
-		if (!hasState) this.reset();
+		if (!hasState) this._mutNextState_reset(nxtState);
+
+		return nxtState;
 	}
 
 	setFromValues (values) {
@@ -3463,21 +4753,21 @@ class OptionsFilter extends FilterBase {
 		</div>`;
 	}
 
-	getValues () {
+	getValues ({nxtState = null} = {}) {
+		const state = nxtState?.[this.header]?.state || this.__state;
+
 		const out = Object.entries(this._defaultState)
-			.mergeMap(([k, v]) => ({[k]: this._state[k] == null ? v : this._state[k]}));
-		out._isActive = Object.entries(this._defaultState).some(([k, v]) => this._state[k] != null && this._state[k] !== v);
+			.mergeMap(([k, v]) => ({[k]: state[k] == null ? v : state[k]}));
+		out._isActive = Object.entries(this._defaultState).some(([k, v]) => state[k] != null && state[k] !== v);
 		return {
 			[this.header]: out,
 		};
 	}
 
-	reset (isResetAll) {
-		if (isResetAll) this.resetBase();
-		this._proxyAssignSimple("state", MiscUtil.copy(this._defaultState));
+	_mutNextState_reset (nxtState, {isResetAll = false} = {}) {
+		if (isResetAll) this._mutNextState_resetBase(nxtState, {isResetAll});
+		Object.assign(nxtState[this.header].state, MiscUtil.copy(this._defaultState));
 	}
-
-	resetShallow (isResetAll) { return this.reset(); }
 
 	update () { /* No-op */ }
 
@@ -3596,13 +4886,30 @@ class MultiFilter extends FilterBase {
 		return `${this.header.toLowerCase()}=${this._getCompressedState().join(HASH_SUB_LIST_SEP)}`;
 	}
 
+	getDisplayStatePart ({nxtState = null} = {}) {
+		return this._filters.map(it => it.getDisplayStatePart({nxtState}))
+			.filter(Boolean)
+			.join(", ");
+	}
+
 	_getCompressedState () {
 		return Object.keys(this._defaultState)
 			.map(k => UrlUtil.mini.compress(this._state[k] === undefined ? this._defaultState[k] : this._state[k]));
 	}
 
-	setFromSubHashState (state) {
-		this.setMetaFromSubHashState(state);
+	setStateFromNextState (nxtState) {
+		super.setStateFromNextState(nxtState);
+	}
+
+	getNextStateFromSubhashState (state) {
+		const nxtState = this._getNextState_base();
+
+		if (state == null) {
+			this._mutNextState_reset_self(nxtState);
+			return nxtState;
+		}
+
+		this._mutNextState_meta_fromSubHashState(nxtState, state);
 
 		let hasState = false;
 
@@ -3611,11 +4918,13 @@ class MultiFilter extends FilterBase {
 			if (prop === "state") {
 				hasState = true;
 				const data = vals.map(v => UrlUtil.mini.decompress(v));
-				Object.keys(this._defaultState).forEach((k, i) => this._state[k] = data[i]);
+				Object.keys(this._defaultState).forEach((k, i) => nxtState[this.header].state[k] = data[i]);
 			}
 		});
 
-		if (!hasState) this._reset();
+		if (!hasState) this._mutNextState_reset_self(nxtState);
+
+		return nxtState;
 	}
 
 	setFromValues (values) {
@@ -3725,25 +5034,24 @@ class MultiFilter extends FilterBase {
 		return this._filters.some(it => it.isActive(vals));
 	}
 
-	getValues () {
+	getValues ({nxtState = null} = {}) {
 		const out = {};
-		this._filters.forEach(it => Object.assign(out, it.getValues()));
+		this._filters.forEach(it => Object.assign(out, it.getValues({nxtState})));
 		return out;
 	}
 
-	_reset () {
-		Object.assign(this._state, this._defaultState);
+	_mutNextState_reset_self (nxtState) {
+		Object.assign(nxtState[this.header].state, MiscUtil.copy(this._defaultState));
 	}
 
-	reset (isResetAll) {
-		if (isResetAll) this.resetBase();
-		this._reset();
-		this._filters.forEach(it => it.reset(isResetAll));
+	_mutNextState_reset (nxtState, {isResetAll = false} = {}) {
+		if (isResetAll) this._mutNextState_resetBase(nxtState, {isResetAll});
+		this._mutNextState_reset_self(nxtState);
 	}
 
-	resetShallow (isResetAll) {
-		if (isResetAll) this.resetBase();
-		this._reset();
+	reset ({isResetAll = false} = {}) {
+		super.reset({isResetAll});
+		this._filters.forEach(it => it.reset({isResetAll}));
 	}
 
 	update () {
@@ -3805,16 +5113,12 @@ MultiFilter._DETAULT_STATE = {
 })();
 FilterUtil.SUB_HASH_PREFIXES = new Set([...Object.values(FilterBox._SUB_HASH_PREFIXES), ...Object.values(FilterBase._SUB_HASH_PREFIXES)]);
 
-if (typeof module !== "undefined") {
-	module.exports = {
-		FilterUtil,
-		PageFilter,
-		FilterBox,
-		FilterItem,
-		FilterBase,
-		Filter,
-		SourceFilter,
-		RangeFilter,
-		MultiFilter,
-	};
-}
+globalThis.FilterUtil = FilterUtil;
+globalThis.PageFilter = PageFilter;
+globalThis.FilterBox = FilterBox;
+globalThis.FilterItem = FilterItem;
+globalThis.FilterBase = FilterBase;
+globalThis.Filter = Filter;
+globalThis.SourceFilter = SourceFilter;
+globalThis.RangeFilter = RangeFilter;
+globalThis.MultiFilter = MultiFilter;

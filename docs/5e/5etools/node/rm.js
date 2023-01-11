@@ -1,4 +1,4 @@
-const {rmDirRecursiveSync} = require("./util.js");
+import {rmDirRecursiveSync} from "./util.js";
 
 if (process.argv.length < 3) throw new Error(`An argument is required!`);
 

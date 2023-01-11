@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderDeities {
 	static $getRenderedDeity (deity) {
 		return $$`

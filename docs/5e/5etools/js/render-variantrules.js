@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderVariantRules {
 	static $getRenderedVariantRule (rule) {
 		const cpy = MiscUtil.copy(rule);

@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderConditionDiseases {
 	static $getRenderedConditionDisease (it) {
 		const entryList = {type: "entries", entries: it.entries};

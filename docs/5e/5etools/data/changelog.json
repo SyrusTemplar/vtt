@@ -2276,5 +2276,58 @@
 		"date": "2022-12-05",
 		"title": "Seasoned Veterans",
 		"txt": "- Added Monstrous Compendium Volume 2: Dragonlance Creatures content\n- Fixed missing thumbnail images for various adventures/books, including DSotDQ\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.172.0",
+		"date": "2022-12-19",
+		"title": "Winter Breakage",
+		"txt": "- Reworked site-wide data loading, to (hopefully) be more performant, easier to maintain, and allow for the addition of new features in the future. _[This *shouldn't* have any immediate impact, but given the scope of the changes, expect things to be broken.]_\n- Reworked Spells page \"spell list/sources\" section to be auto-generated from class/subclass/etc. data, ensuring the list of ways to acquire a spell is always in sync with the features providing that spell\n    - This fixes a variety of bugs, including many broken links from the Spells page to other pages\n    - This fixes the long-standing issue where new content (subclasses, races, backgrounds, etc.) would not appear in filters on the Spells page, and would not appear in the sources section of a viewed spell\n- Added \"Feat\" and \"Optional Feature\" filters to Spells page\n- Added new \"searchable\" filter UI type (currently used in Spells page \"Background\", \"Feat\", and \"Optional Feature\" filters; Bestiary page \"Spells Known\" filter; and Items page \"Attached Spells\" filter)\n- Added \"Settings\" button to Spells page, which allows toggling of various spell source display elements, to optionally allow for a de-cluttered spell view\n- Added Shadow of the Dragon Queen NPCs\n- Added tokens for remaining Shadow of the Dragon Queen creatures\n- Added page numbers to all Shadow of the Dragon Queen content\n- Added MCV2: Dragonlance Creatures tokens\n- Moved Mythic Odysseys of Theros' \"Piety\" rewards to Supernatural Gifts & Rewards page\n- Fixed application of list syntax (`text:`, etc.) on Items page\n- Fixed Omnidexer failing to index fluff for some entity types (notably items)\n- Fixed various \"CTRL\" hotkeys failing to also support \"CMD\" on MacOS\n- Fixed a variety of layout issues in filters, resulting in a marginally-less-headache-inducing look\n- (Brew) Added the ability to drag-drop JSON files to the page to load them as homebrew\n- (Brew) Added support for `\"all\"` spells matching a filter expression in `additionalSpells`, allowing e.g. the spell list of one class to be copied to the `additionalSpells` of another (see e.g. Arcane Trickster Rogue)\n- (Brew) Added support for \"varies\" rarity on `\"magicvariant\"`s, which additionally has any generated specific variants use the rarity of the base item they were applied to\n- (Brew) Fixed JSON cleaner applying site-specific formatting to `homebrew/` dir\n- (Brew) Fixed Creature Homebrew Builder outputting non-schema-compliant `\"speed\"` data\n- (Brew) Fixed item `\"currencyConversion\"` tables resulting in no item value being rendered\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.172.1",
+		"date": "2022-12-20",
+		"txt": "- Converted Spells page \"Classes\"/\"Subclasses\"/etc. sources to hoverable links\n- SHIFT-clicking a toast message will now dismiss all toast messages\n- Reworked searchable filter keybinds to better match existing filter click keybinds (SHIFT to select one; CTRL to select as red)\n- Fixed spell source generation failing to take class into account, resulting in spells having far more sources than intended\n- Fixed DM Screen Adventure/Book Map Dynamic Viewer failing to load\n- Fixed crash when loading a Classes page URL which contains filter state\n- (Brew) Reworked \"failed to load references\" messages to reduce repetitive spam\n- (Brew) Fixed loading of `\"refOptionalfeature\"`s in class/subclass content\n- (Brew) Fixed Classes page crash on missing features\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.172.2",
+		"date": "2022-12-20",
+		"txt": "- (Brew) Fixed crash when changing chapter in adventures/books"
+	},
+	{
+		"ver": "1.172.3",
+		"date": "2022-12-22",
+		"txt": "- Added system for incremental Docker image builds (thanks @ cs96and) _[note that *this* build, as the first from the new system, is a full-sized freestanding image]_\n- Fixed crash when resetting filters on certain pages\n- (Brew) Fixed `refSubclassFeature`s (and potentially others) silently failing to load, resulting in initial subclass features never being displayed \n- (Brew) Fixed Spells page crash when constructing subclass filters\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.172.4",
+		"date": "2022-12-23",
+		"txt": "- Fixed hovering quick-reference rules tags (difficult terrain, etc.) failing to load\n- Fixed items failing to expand `{#itemEntry...}` content in some cases\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.173.0",
+		"date": "2022-12-26",
+		"title": "Empty Box",
+		"txt": "- Added Prerelease Content system. This can be accessed via Utilities -> Prerelease Content Manager, and functions (very) similarly to the existing Homebrew system. _[Note that the only piece of content available at time of writing is 2015's \"UA: When Armies Clash,\" as this was the oldest UA not already available on the site, so made for a good/simple test case. More on this Soon:tm:]_\n- Fixed some range filters (notable, the Items page Cost filter) failing to match values within the selected range\n- Fixed grouped filters (notably, the Spells page Class filter(s)) failing to set their state from URL\n- (Brew) Added support for `\"vulnerable\"`/`\"resist\"`/`\"immune\"`/`\"conditionImmune\"` on `\"baseitem\"`s\n- (Brew) Fixed scaling controls failing to function in embedded creature statblocks\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.173.1",
+		"date": "2022-12-27",
+		"txt": "- (Brew) Mis-cased sources are now tolerated when finding/loading dependencies (although getting the case correct is still recommended, for performance reasons)\n- (Brew) Fixed crash when loading homebrew with dependencies\n- (Brew) Fixed unnecessary re-caching of content, causing slow loads (notably on the Classes page)"
+	},
+	{
+		"ver": "1.174.0",
+		"date": "2023-01-01",
+		"title": "One",
+		"txt": "- Added support for various One D&D UA additions/content formatting\n  - Added Ability Scores filter to Backgrounds page\n  - Added background selector, and background ability score support, to Statgen\n  - Added \"Group\" filter and display to Spells page\n  - Added \"Repeatable\" filter and display to feats\n  - Added group display to classes\n  - _[Note that the three One D&D UAs are now available via the Prerelease Manager]_\n- Added DMG encounters to Encounters page\n- (Brew) Added support for local prerelease content (matching functionality for local homebrew)\n- (Brew) Added support for homebrew `\"itemTypeAdditionalEntries\"`\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.174.1",
+		"date": "2023-01-01",
+		"txt": "- (Literally nothing)"
+	},
+	{
+		"ver": "1.174.2",
+		"date": "2023-01-04",
+		"txt": "- Added an \"Add Predefined Action\" button to the Creature Homebrew Builder, similar in function to the existing \"Add Predefined Trait\" button (thanks @ FishCrystals for the prototype and data entry) \n- (Prerelease/Brew) Fixed Prerelease/Homebrew races failing to load in Statgen\n- (Brew) Fixed crash when opening the \"Manage [Editable Homebrew] Contents\" dialog\n- (Fixed typos/added tags)"
 	}
 ]

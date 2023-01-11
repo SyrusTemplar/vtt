@@ -6,7 +6,7 @@
 			"tables": [
 				{
 					"option": "Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -262,7 +262,7 @@
 				},
 				{
 					"option": "Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -518,7 +518,7 @@
 				},
 				{
 					"option": "Clan",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -781,7 +781,7 @@
 			"tables": [
 				{
 					"option": "Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -1037,7 +1037,7 @@
 				},
 				{
 					"option": "Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -1293,7 +1293,7 @@
 				},
 				{
 					"option": "Clan",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -1549,7 +1549,7 @@
 				},
 				{
 					"option": "Duergar Clan",
-					"diceType": 12,
+					"diceExpression": "d12",
 					"table": [
 						{
 							"min": 1,
@@ -1622,7 +1622,7 @@
 			"tables": [
 				{
 					"option": "Child",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -1878,7 +1878,7 @@
 				},
 				{
 					"option": "Female Adult",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -2134,7 +2134,7 @@
 				},
 				{
 					"option": "Male Adult",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -2390,7 +2390,7 @@
 				},
 				{
 					"option": "Family",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -2653,7 +2653,7 @@
 			"tables": [
 				{
 					"option": "Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -2909,7 +2909,7 @@
 				},
 				{
 					"option": "Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -3165,7 +3165,7 @@
 				},
 				{
 					"option": "Clan",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -3428,7 +3428,7 @@
 			"tables": [
 				{
 					"option": "Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -3684,7 +3684,7 @@
 				},
 				{
 					"option": "Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -3940,7 +3940,7 @@
 				},
 				{
 					"option": "Clan",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -4203,7 +4203,7 @@
 			"tables": [
 				{
 					"option": "Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -4459,7 +4459,7 @@
 				},
 				{
 					"option": "Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -4722,7 +4722,7 @@
 			"tables": [
 				{
 					"option": "Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -4978,7 +4978,7 @@
 				},
 				{
 					"option": "Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -5234,7 +5234,7 @@
 				},
 				{
 					"option": "Virtue",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -5497,7 +5497,7 @@
 			"tables": [
 				{
 					"option": "Arabic, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -5753,7 +5753,7 @@
 				},
 				{
 					"option": "Arabic, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -6009,7 +6009,7 @@
 				},
 				{
 					"option": "Celtic, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -6265,7 +6265,7 @@
 				},
 				{
 					"option": "Celtic, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -6521,7 +6521,7 @@
 				},
 				{
 					"option": "Chinese, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -6777,7 +6777,7 @@
 				},
 				{
 					"option": "Chinese, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -7033,7 +7033,7 @@
 				},
 				{
 					"option": "Egyptian, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -7289,7 +7289,7 @@
 				},
 				{
 					"option": "Egyptian, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -7545,7 +7545,7 @@
 				},
 				{
 					"option": "English, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -7801,7 +7801,7 @@
 				},
 				{
 					"option": "English, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -8057,7 +8057,7 @@
 				},
 				{
 					"option": "French, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -8313,7 +8313,7 @@
 				},
 				{
 					"option": "French, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -8569,7 +8569,7 @@
 				},
 				{
 					"option": "German, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -8825,7 +8825,7 @@
 				},
 				{
 					"option": "German, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -9081,7 +9081,7 @@
 				},
 				{
 					"option": "Indian, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -9337,7 +9337,7 @@
 				},
 				{
 					"option": "Indian, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -9593,7 +9593,7 @@
 				},
 				{
 					"option": "Mesoamerican, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -9849,7 +9849,7 @@
 				},
 				{
 					"option": "Mesoamerican, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -10105,7 +10105,7 @@
 				},
 				{
 					"option": "Japanese, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -10361,7 +10361,7 @@
 				},
 				{
 					"option": "Japanese, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -10617,7 +10617,7 @@
 				},
 				{
 					"option": "Niger-Congo, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -10873,7 +10873,7 @@
 				},
 				{
 					"option": "Niger-Congo, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -11129,7 +11129,7 @@
 				},
 				{
 					"option": "Norse, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -11385,7 +11385,7 @@
 				},
 				{
 					"option": "Norse, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -11641,7 +11641,7 @@
 				},
 				{
 					"option": "Polynesian, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -11897,7 +11897,7 @@
 				},
 				{
 					"option": "Polynesian, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -12153,7 +12153,7 @@
 				},
 				{
 					"option": "Roman, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -12409,7 +12409,7 @@
 				},
 				{
 					"option": "Roman, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -12665,7 +12665,7 @@
 				},
 				{
 					"option": "Slavic, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -12921,7 +12921,7 @@
 				},
 				{
 					"option": "Slavic, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -13177,7 +13177,7 @@
 				},
 				{
 					"option": "Spanish, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -13433,7 +13433,7 @@
 				},
 				{
 					"option": "Spanish, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -13689,7 +13689,7 @@
 				},
 				{
 					"option": "Greek, Female",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -13945,7 +13945,7 @@
 				},
 				{
 					"option": "Greek, Male",
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -14208,7 +14208,7 @@
 			"tables": [
 				{
 					"option": "Githyanki, Male",
-					"diceType": 10,
+					"diceExpression": "d10",
 					"table": [
 						{
 							"min": 1,
@@ -14264,7 +14264,7 @@
 				},
 				{
 					"option": "Githyanki, Female",
-					"diceType": 10,
+					"diceExpression": "d10",
 					"table": [
 						{
 							"min": 1,
@@ -14320,7 +14320,7 @@
 				},
 				{
 					"option": "Githzerai, Male",
-					"diceType": 10,
+					"diceExpression": "d10",
 					"table": [
 						{
 							"min": 1,
@@ -14376,7 +14376,7 @@
 				},
 				{
 					"option": "Githzerai, Female",
-					"diceType": 10,
+					"diceExpression": "d10",
 					"table": [
 						{
 							"min": 1,
@@ -14439,7 +14439,7 @@
 			"tables": [
 				{
 					"option": "General",
-					"diceType": 20,
+					"diceExpression": "d20",
 					"table": [
 						{
 							"min": 1,

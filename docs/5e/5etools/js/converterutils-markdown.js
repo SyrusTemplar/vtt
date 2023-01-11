@@ -1,9 +1,5 @@
 "use strict";
 
-if (typeof module !== "undefined") {
-	Object.assign(global, require("./converterutils.js"));
-}
-
 class ConverterUtilsMarkdown { // Or "CUM" for short.
 	static _RE_LI_LEADING_SYMBOL = /^[-*]\s+/;
 
@@ -42,8 +38,4 @@ class ConverterUtilsMarkdown { // Or "CUM" for short.
 	static getNoLeadingListSymbol (line) { return line.replace(this._RE_LI_LEADING_SYMBOL, "").trim(); }
 }
 
-if (typeof module !== "undefined") {
-	module.exports = {
-		ConverterUtilsMarkdown,
-	};
-}
+globalThis.ConverterUtilsMarkdown = ConverterUtilsMarkdown;

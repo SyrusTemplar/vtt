@@ -4,10 +4,14 @@ const JSON_URL = "data/renderdemo.json";
 const STORAGE_LOCATION = "demoInput";
 
 window.addEventListener("load", async () => {
-	await BrewUtil2.pInit();
+	await Promise.all([
+		PrereleaseUtil.pInit(),
+		BrewUtil2.pInit(),
+	]);
 	const rendererType = await StorageUtil.pGetForPage("renderer");
 	ExcludeUtil.pInitialise().then(null); // don't await, as this is only used for search
-	BrewUtil2.pGetBrewProcessed(); // don't await, as this is only used for tags
+	PrereleaseUtil.pGetBrewProcessed().then(null); // don't await, as this is only used for tags
+	BrewUtil2.pGetBrewProcessed().then(null); // don't await, as this is only used for tags
 	const data = await DataUtil.loadJSON(JSON_URL);
 	return initDemo(data, rendererType);
 });

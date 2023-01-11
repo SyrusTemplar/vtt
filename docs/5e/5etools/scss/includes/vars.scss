@@ -357,3 +357,10 @@ $fltr-2stripe: 22px;
 	}
 }
 // endregion
+
+:root {
+	--safe-area-inset-top: 0;
+	--safe-area-inset-right: 0;
+	--safe-area-inset-bottom: 0;
+	--safe-area-inset-left: 0;
+}

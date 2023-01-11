@@ -176,10 +176,11 @@ class ModalFilterOptionalFeatures extends ModalFilter {
 	}
 
 	async _pLoadAllData () {
-		const brew = await BrewUtil2.pGetBrewProcessed();
-		const fromData = (await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/optionalfeatures.json`)).optionalfeature;
-		const fromBrew = brew.optionalfeature || [];
-		return [...fromData, ...fromBrew];
+		return [
+			...(await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/optionalfeatures.json`)).optionalfeature,
+			...((await PrereleaseUtil.pGetBrewProcessed()).optionalfeature || []),
+			...((await BrewUtil2.pGetBrewProcessed()).optionalfeature || []),
+		];
 	}
 
 	_getListItem (pageFilter, optfeat, ftI) {
@@ -188,21 +189,21 @@ class ModalFilterOptionalFeatures extends ModalFilter {
 
 		const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_OPT_FEATURES](optfeat);
 		const source = Parser.sourceJsonToAbv(optfeat.source);
-		const prerequisite = Renderer.utils.getPrerequisiteHtml(optfeat.prerequisite, {isListMode: true, blocklistKeys: new Set(["level"])});
+		const prerequisite = Renderer.utils.prerequisite.getHtml(optfeat.prerequisite, {isListMode: true, blocklistKeys: new Set(["level"])});
 		const level = Renderer.optionalfeature.getListPrerequisiteLevelText(optfeat.prerequisite);
 
-		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst--border veapp__list-row no-select lst__wrp-cells ${optfeat._versionBase_isVersion ? "ve-muted" : ""}">
+		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst--border veapp__list-row no-select lst__wrp-cells">
 			<div class="col-0-5 pl-0 ve-flex-vh-center">${this._isRadio ? `<input type="radio" name="radio" class="no-events">` : `<input type="checkbox" class="no-events">`}</div>
 
 			<div class="col-0-5 px-1 ve-flex-vh-center">
 				<div class="ui-list__btn-inline px-2" title="Toggle Preview (SHIFT to Toggle Info Preview)">[+]</div>
 			</div>
 
-			<div class="col-3 ${this._getNameStyle()}">${optfeat.name}</div>
+			<div class="col-3 ${optfeat._versionBase_isVersion ? "italic" : ""} ${this._getNameStyle()}">${optfeat._versionBase_isVersion ? `<span class="px-3"></span>` : ""}${optfeat.name}</div>
 			<span class="col-2 text-center" title="${optfeat._dFeatureType}">${optfeat._lFeatureType}</span>
 			<span class="col-4 text-center">${prerequisite}</span>
 			<span class="col-1 text-center">${level}</span>
-			<div class="col-1 pr-0 text-center ${Parser.sourceJsonToColor(optfeat.source)}" title="${Parser.sourceJsonToFull(optfeat.source)}" ${BrewUtil2.sourceJsonToStyle(optfeat.source)}>${source}</div>
+			<div class="col-1 pr-0 text-center ${Parser.sourceJsonToColor(optfeat.source)}" title="${Parser.sourceJsonToFull(optfeat.source)}" ${Parser.sourceJsonToStyle(optfeat.source)}>${source}</div>
 		</div>`;
 
 		const btnShowHidePreview = eleRow.firstElementChild.children[1].firstElementChild;

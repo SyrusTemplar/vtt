@@ -7,15 +7,20 @@ class StatGenPage {
 	}
 
 	async pInit () {
-		await BrewUtil2.pInit();
+		await Promise.all([
+			PrereleaseUtil.pInit(),
+			BrewUtil2.pInit(),
+		]);
 		await ExcludeUtil.pInitialise();
-		const [races, feats] = await Promise.all([
+		const [races, backgrounds, feats] = await Promise.all([
 			await this._pLoadRaces(),
+			await this._pLoadBackgrounds(),
 			await this._pLoadFeats(),
 		]);
 
 		this._statGenUi = new StatGenUi({
 			races,
+			backgrounds,
 			feats,
 			tabMetasAdditional: this._getAdditionalTabMetas(),
 		});
@@ -102,33 +107,39 @@ class StatGenPage {
 	}
 
 	async _pLoadRaces () {
-		const fromData = await DataUtil.race.loadJSON();
-		const fromBrew = await DataUtil.race.loadBrew({isAddBaseRaces: false});
+		return [
+			...(await DataUtil.race.loadJSON()).race,
+			...((await DataUtil.race.loadPrerelease({isAddBaseRaces: false})).race || []),
+			...((await DataUtil.race.loadBrew({isAddBaseRaces: false})).race || []),
+		]
+			.filter(it => {
+				const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES](it);
+				return !ExcludeUtil.isExcluded(hash, "race", it.source);
+			});
+	}
 
-		let races = [...fromData.race, ...fromBrew.race];
-
-		races = races.filter(it => {
-			const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES](it);
-			return !ExcludeUtil.isExcluded(hash, "race", it.source);
-		});
-
-		return races;
+	async _pLoadBackgrounds () {
+		return [
+			...(await DataUtil.loadJSON("data/backgrounds.json")).background,
+			...((await PrereleaseUtil.pGetBrewProcessed()).background || []),
+			...((await BrewUtil2.pGetBrewProcessed()).background || []),
+		]
+			.filter(it => {
+				const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BACKGROUNDS](it);
+				return !ExcludeUtil.isExcluded(hash, "background", it.source);
+			});
 	}
 
 	async _pLoadFeats () {
-		const data = await DataUtil.loadJSON("data/feats.json");
-
-		const brew = await BrewUtil2.pGetBrewProcessed();
-
-		let feats = data.feat;
-		if (brew.feat) feats = [...feats, ...brew.feat];
-
-		feats = feats.filter(it => {
-			const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_FEATS](it);
-			return !ExcludeUtil.isExcluded(hash, "feat", it.source);
-		});
-
-		return feats;
+		return [
+			...(await DataUtil.loadJSON("data/feats.json")).feat,
+			...((await PrereleaseUtil.pGetBrewProcessed()).feat || []),
+			...((await BrewUtil2.pGetBrewProcessed()).feat || []),
+		]
+			.filter(it => {
+				const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_FEATS](it);
+				return !ExcludeUtil.isExcluded(hash, "feat", it.source);
+			});
 	}
 
 	_setTabFromHash (tabName) {

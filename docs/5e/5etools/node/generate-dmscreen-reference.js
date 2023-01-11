@@ -1,6 +1,7 @@
-const fs = require("fs");
-const utB = require("./util-book-reference");
-require("../js/utils");
+import * as fs from "fs";
+import "../js/parser.js";
+import "../js/utils.js";
+import * as utB from "./util-book-reference.js";
 
 const index = utB.UtilBookReference.getIndex(
 	{

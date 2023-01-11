@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderTrapsHazards {
 	static $getRenderedTrapHazard (it) {
 		const renderStack = [];

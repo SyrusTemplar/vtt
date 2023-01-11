@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderBestiary {
 	/**
 	 * @param mon Creature data.

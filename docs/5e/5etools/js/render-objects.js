@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderObjects {
 	static $getRenderedObject (obj) {
 		return $$`${Renderer.utils.getBorderTr()}

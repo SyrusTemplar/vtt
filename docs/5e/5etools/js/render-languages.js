@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderLanguages {
 	static $getRenderedLanguage (it) {
 		return $$`${Renderer.utils.getBorderTr()}

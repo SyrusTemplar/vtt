@@ -1,5 +1,6 @@
-const ut = require("../node/util");
-require("../js/utils");
+import * as ut from "../node/util.js";
+import "../js/parser.js";
+import "../js/utils.js";
 
 const _MULTISOURCE_DIRS = [
 	"bestiary",
@@ -45,4 +46,4 @@ function main () {
 	console.error(`##### Multisource source test failed! #####\n${sourceIncorrect.map(it => `\t${it}`).join("\n")}`);
 }
 
-module.exports = main();
+export default main();

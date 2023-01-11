@@ -123,7 +123,7 @@ class BestiarySublistManager extends SublistManager {
 				$elesCount: [$eleCount1, $eleCount2],
 				fnsUpdate: [],
 				entity: mon,
-				entityBase: await Renderer.hover.pCacheAndGetHash(
+				entityBase: await DataLoader.pCacheAndGetHash(
 					UrlUtil.PG_BESTIARY,
 					hashBase,
 				),
@@ -178,6 +178,12 @@ class BestiarySublistManager extends SublistManager {
 }
 
 class BestiaryPage extends ListPageMultiSource {
+	static async _prereleaseBrewDataSource ({brewUtil}) {
+		const brew = await brewUtil.pGetBrewProcessed();
+		DataUtil.monster.populateMetaReference(brew);
+		return brew;
+	}
+
 	constructor () {
 		const pFnGetFluff = Renderer.monster.pGetFluff.bind(Renderer.monster);
 
@@ -190,11 +196,8 @@ class BestiaryPage extends ListPageMultiSource {
 			},
 
 			dataProps: ["monster"],
-			brewDataSource: async () => {
-				const brew = await BrewUtil2.pGetBrewProcessed();
-				DataUtil.monster.populateMetaReference(brew);
-				return brew;
-			},
+			prereleaseDataSource: () => BestiaryPage._prereleaseBrewDataSource({brewUtil: PrereleaseUtil}),
+			brewDataSource: () => BestiaryPage._prereleaseBrewDataSource({brewUtil: BrewUtil2}),
 
 			pFnGetFluff,
 
@@ -274,7 +277,7 @@ class BestiaryPage extends ListPageMultiSource {
 			isMarkdownPopout: true,
 			propEntryData: "monster",
 
-			jsonDir: "data/bestiary/",
+			propLoader: "monster",
 
 			listSyntax: new ListSyntaxBestiary({fnGetDataList: () => this._dataList, pFnGetFluff}),
 		});
@@ -398,7 +401,7 @@ class BestiaryPage extends ListPageMultiSource {
 						e_({
 							tag: "span",
 							clazz: `col-2 text-center ${Parser.sourceJsonToColor(mon.source)} pr-0`,
-							style: BrewUtil2.sourceJsonToStylePart(mon.source),
+							style: Parser.sourceJsonToStylePart(mon.source),
 							title: `${Parser.sourceJsonToFull(mon.source)}${Renderer.utils.getSourceSubText(mon)}`,
 							text: source,
 						}),
@@ -629,7 +632,7 @@ class BestiaryPage extends ListPageMultiSource {
 			isScaledClassSummon,
 		},
 	) {
-		const $btnScaleCr = !ScaleCreature.isCrInScaleRange(mon) ? null : $(`<button id="btn-scale-cr" title="Scale Creature By CR (Highly Experimental)" class="mon__btn-scale-cr btn btn-xs btn-default"><span class="glyphicon glyphicon-signal"></span></button>`)
+		const $btnScaleCr = !ScaleCreature.isCrInScaleRange(mon) ? null : $(`<button id="btn-scale-cr" title="Scale Creature By CR (Highly Experimental)" class="mon__btn-scale-cr btn btn-xs btn-default ve-popwindow__hidden"><span class="glyphicon glyphicon-signal"></span></button>`)
 			.click((evt) => {
 				evt.stopPropagation();
 				const win = (evt.view || {}).window;
@@ -646,7 +649,7 @@ class BestiaryPage extends ListPageMultiSource {
 				});
 			});
 
-		const $btnResetScaleCr = !ScaleCreature.isCrInScaleRange(mon) ? null : $(`<button id="btn-reset-cr" title="Reset CR Scaling" class="mon__btn-reset-cr btn btn-xs btn-default"><span class="glyphicon glyphicon-refresh"></span></button>`)
+		const $btnResetScaleCr = !ScaleCreature.isCrInScaleRange(mon) ? null : $(`<button id="btn-reset-cr" title="Reset CR Scaling" class="mon__btn-reset-cr btn btn-xs btn-default ve-popwindow__hidden"><span class="glyphicon glyphicon-refresh"></span></button>`)
 			.click(() => Hist.setSubhash(VeCt.HASH_SCALED, null))
 			.toggle(isScaledCr);
 

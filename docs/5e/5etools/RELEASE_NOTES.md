@@ -1,5 +1,6 @@
-v1.171.0, "Seasoned Veterans" Edition
+v1.174.2
 
-- Added Monstrous Compendium Volume 2: Dragonlance Creatures content
-- Fixed missing thumbnail images for various adventures/books, including DSotDQ
+- Added an "Add Predefined Action" button to the Creature Homebrew Builder, similar in function to the existing "Add Predefined Trait" button (thanks @ FishCrystals for the prototype and data entry) 
+- (Prerelease/Brew) Fixed Prerelease/Homebrew races failing to load in Statgen
+- (Brew) Fixed crash when opening the "Manage [Editable Homebrew] Contents" dialog
 - (Fixed typos/added tags)

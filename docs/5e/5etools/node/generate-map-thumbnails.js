@@ -1,7 +1,7 @@
-const fs = require("fs");
-const sharp = require("sharp");
-const ut = require("./util.js");
-require("../js/utils.js");
+import * as fs from "fs";
+import sharp from "sharp";
+import * as ut from "./util.js";
+import "../js/utils.js";
 
 const _NUM_WORKERS = 16;
 const _QUALITY = 70;

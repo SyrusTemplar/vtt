@@ -1,13 +1,5 @@
 "use strict";
 
-if (typeof module !== "undefined") {
-	const cv = require("./converterutils.js");
-	Object.assign(global, cv);
-	global.PropOrder = require("./utils-proporder.js");
-	Object.assign(global, require("./converterutils-markdown.js"));
-	Object.assign(global, require("./converterutils-race.js"));
-}
-
 class RaceParser extends BaseParser {
 	static _StateMd = class {
 		constructor ({options, race}) {
@@ -277,7 +269,7 @@ class RaceParser extends BaseParser {
 		const types = [];
 		text = text
 			.replace(/^You are a Humanoid(?:\.|$)/, () => {
-				types.push(TP_HUMANOID);
+				types.push(Parser.TP_HUMANOID);
 				return "";
 			})
 			.trim()
@@ -293,7 +285,7 @@ class RaceParser extends BaseParser {
 		;
 
 		// Filter out "redundant" creature type info, as we assume "undefined" = "humanoid"
-		if (types.length === 1 && types[0] === TP_HUMANOID && !race.creatureTypeTags?.length) {
+		if (types.length === 1 && types[0] === Parser.TP_HUMANOID && !race.creatureTypeTags?.length) {
 			race.entries = race.entries.filter(it => it !== entry);
 		} else {
 			race.creatureTypes = types;
@@ -330,8 +322,4 @@ class RaceParser extends BaseParser {
 	}
 }
 
-if (typeof module !== "undefined") {
-	module.exports = {
-		RaceParser,
-	};
-}
+globalThis.RaceParser = RaceParser;

@@ -1,8 +1,11 @@
-const fs = require("fs");
-require("../js/utils");
-const ut = require("./util");
-const UtilGenTables = require("./util-generate-tables-data.js");
-require("../js/hist.js");
+import * as fs from "fs";
+import "../js/parser.js";
+import "../js/utils.js";
+import "../js/render.js";
+import * as ut from "./util.js";
+import "../js/utils-generate-tables-data.js";
+import "../js/utils-dataloader.js";
+import "../js/hist.js";
 
 class GenTables {
 	_doLoadAdventureData () {
@@ -194,7 +197,7 @@ class GenTables {
 			page: group.page,
 			caption: nameCaption,
 			colLabels: [
-				`d${tableRaw.diceType}`,
+				`d${tableRaw.diceExpression}`,
 				colLabel1,
 				tableRaw.rollAttitude ? `Attitude` : null,
 			].filter(Boolean),
@@ -215,9 +218,9 @@ class GenTables {
 }
 GenTables.BOOK_BLOCKLIST = {};
 GenTables.ADVENTURE_ALLOWLIST = {
-	[SRC_SKT]: true,
-	[SRC_TTP]: true,
+	[Parser.SRC_SKT]: true,
+	[Parser.SRC_TTP]: true,
 };
 
 const generator = new GenTables();
-module.exports = generator.pRun();
+export default generator.pRun();

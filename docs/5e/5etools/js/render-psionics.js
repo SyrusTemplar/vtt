@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderPsionics {
 	static $getRenderedPsionic (psi) {
 		const renderer = Renderer.get().setFirstSection(true);

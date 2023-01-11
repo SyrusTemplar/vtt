@@ -1,7 +1,7 @@
 "use strict";
 
-const fs = require("fs");
-const ut = require("./util");
+import * as fs from "fs";
+import * as ut from "./util.js";
 
 function minifyFolder (folder) {
 	const files = ut.listFiles({dir: folder});

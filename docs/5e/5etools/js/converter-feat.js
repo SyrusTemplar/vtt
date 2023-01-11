@@ -1,11 +1,5 @@
 "use strict";
 
-if (typeof module !== "undefined") {
-	const cv = require("./converterutils.js");
-	Object.assign(global, cv);
-	global.PropOrder = require("./utils-proporder.js");
-}
-
 class FeatParser extends BaseParser {
 	/**
 	 * Parses feats from raw text pastes
@@ -228,8 +222,4 @@ class FeatParser extends BaseParser {
 	}
 }
 
-if (typeof module !== "undefined") {
-	module.exports = {
-		FeatParser,
-	};
-}
+globalThis.FeatParser = FeatParser;

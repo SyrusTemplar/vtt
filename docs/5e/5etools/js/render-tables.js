@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderTables {
 	static _getPartTableFrom (it) {
 		if (it.parentEntity) {

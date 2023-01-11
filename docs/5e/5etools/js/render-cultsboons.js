@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderCultsBoons {
 	static $getRenderedCultBoon (it) {
 		return it.__prop === "cult"

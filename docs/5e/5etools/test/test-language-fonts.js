@@ -1,5 +1,5 @@
-const fs = require("fs");
-const ut = require("../node/util.js");
+import * as fs from "fs";
+import * as ut from "../node/util.js";
 
 async function main () {
 	console.log(`##### Validating language fonts #####`);
@@ -23,4 +23,4 @@ async function main () {
 	return true;
 }
 
-module.exports = main();
+export default main();

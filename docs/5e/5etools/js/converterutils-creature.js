@@ -1,10 +1,5 @@
 "use strict";
 
-if (typeof module !== "undefined") {
-	const cv = require("./converterutils.js");
-	Object.assign(global, cv);
-}
-
 class AcConvert {
 	static tryPostProcessAc (mon, cbMan, cbErr) {
 		let nuAc = [];
@@ -221,8 +216,8 @@ class AcConvert {
 				if (AcConvert._ITEM_LOOKUP[fromLow]) {
 					const itemMeta = AcConvert._ITEM_LOOKUP[fromLow];
 
-					if (itemMeta.isExact) return `{@item ${fromLow}${itemMeta.source === SRC_DMG ? "" : `|${itemMeta.source}`}}`;
-					return `{@item ${itemMeta.name}${itemMeta.source === SRC_DMG ? "|" : `|${itemMeta.source}`}|${fromLow}}`;
+					if (itemMeta.isExact) return `{@item ${fromLow}${itemMeta.source === Parser.SRC_DMG ? "" : `|${itemMeta.source}`}}`;
+					return `{@item ${itemMeta.name}${itemMeta.source === Parser.SRC_DMG ? "|" : `|${itemMeta.source}`}|${fromLow}}`;
 				}
 
 				if (/scraps of .*?armor/i.test(fromLow)) { // e.g. "scraps of hide armor"
@@ -259,6 +254,8 @@ class AcConvert {
 	}
 }
 AcConvert._ITEM_LOOKUP = null;
+
+globalThis.AcConvert = AcConvert;
 
 class TagAttack {
 	static tryTagAttacks (m, cbMan) {
@@ -301,6 +298,8 @@ TagAttack.MAP = {
 	"melee or ranged attack:": "{@atk m,r}",
 };
 
+globalThis.TagAttack = TagAttack;
+
 class TagHit {
 	static tryTagHits (m) {
 		TagHit._PROPS.forEach(prop => this._handleProp({m, prop}));
@@ -321,6 +320,8 @@ class TagHit {
 }
 TagHit._PROPS = ["action", "reaction", "bonus", "trait", "legendary", "mythic", "variant"];
 
+globalThis.TagHit = TagHit;
+
 class TagDc {
 	static tryTagDcs (m) {
 		TagDc._PROPS.forEach(prop => this._handleProp({m, prop}));
@@ -339,6 +340,8 @@ class TagDc {
 }
 TagDc._PROPS = ["action", "reaction", "bonus", "trait", "legendary", "mythic", "variant", "spellcasting"];
 
+globalThis.TagDc = TagDc;
+
 class AlignmentConvert {
 	static tryConvertAlignment (stats, cbMan) {
 		const {alignmentPrefix, alignment} = AlignmentUtil.tryGetConvertedAlignment(stats.alignment, {cbMan});
@@ -350,6 +353,8 @@ class AlignmentConvert {
 		if (!stats.alignmentPrefix) delete stats.alignmentPrefix;
 	}
 }
+
+globalThis.AlignmentConvert = AlignmentConvert;
 
 class TraitActionTag {
 	static _doTag ({m, cbMan, prop, outProp}) {
@@ -533,6 +538,8 @@ TraitActionTag.tagsDeep = {
 	},
 };
 
+globalThis.TraitActionTag = TraitActionTag;
+
 class LanguageTag {
 	/**
 	 * @param m A creature statblock.
@@ -664,6 +671,8 @@ LanguageTag.LANGUAGE_MAP = {
 	"spoke in life": "LF",
 };
 
+globalThis.LanguageTag = LanguageTag;
+
 class SenseFilterTag {
 	static tryRun (m, cbAll) {
 		if (m.senses) {
@@ -695,6 +704,8 @@ SenseFilterTag.TAGS = {
 	"tremorsense": "T",
 	"truesight": "U",
 };
+
+globalThis.SenseFilterTag = SenseFilterTag;
 
 class SpellcastingTypeTag {
 	static tryRun (m, cbAll) {
@@ -745,6 +756,8 @@ SpellcastingTypeTag.CLASSES = {
 	"CL": /(^|[^a-zA-Z])warlock([^a-zA-Z]|$)/gi,
 	"CW": /(^|[^a-zA-Z])wizard([^a-zA-Z]|$)/gi,
 };
+
+globalThis.SpellcastingTypeTag = SpellcastingTypeTag;
 
 class DamageTypeTag {
 	static _init () {
@@ -893,6 +906,8 @@ DamageTypeTag._BLOCKLIST_NAMES = new Set([
 	"vampire weaknesses",
 ]);
 
+globalThis.DamageTypeTag = DamageTypeTag;
+
 class MiscTag {
 	/** @return empty string for easy use in `.replace` */
 	static _addTag ({tagSet, allowlistTags, tag}) {
@@ -984,6 +999,8 @@ MiscTag._RANGED_WEAPONS = [
 	"longbow",
 ];
 MiscTag._RANGED_WEAPON_MATCHERS = MiscTag._RANGED_WEAPONS.map(it => new RegExp(`(^|[^\\w])(${it})([^\\w]|$)`, "gi"));
+
+globalThis.MiscTag = MiscTag;
 
 class SpellcastingTraitConvert {
 	static init (spellData) {
@@ -1116,7 +1133,7 @@ class SpellcastingTraitConvert {
 
 	static _parseSpell_getSourcePart (spellName) {
 		const source = SpellcastingTraitConvert._getSpellSource(spellName);
-		return `${source && source !== SRC_PHB ? `|${source}` : ""}`;
+		return `${source && source !== Parser.SRC_PHB ? `|${source}` : ""}`;
 	}
 
 	static _parseToHit (line) {
@@ -1185,7 +1202,7 @@ class SpellcastingTraitConvert {
 	static _getSpellUids (str) {
 		const uids = [];
 		str.replace(/{@spell ([^}]+)}/gi, (...m) => {
-			const [name, source = SRC_PHB.toLowerCase()] = m[1].toLowerCase().split("|").map(it => it.trim());
+			const [name, source = Parser.SRC_PHB.toLowerCase()] = m[1].toLowerCase().split("|").map(it => it.trim());
 			uids.push(`${name}|${source}`);
 		});
 		return uids;
@@ -1200,6 +1217,8 @@ class SpellcastingTraitConvert {
 	}
 }
 SpellcastingTraitConvert.SPELL_SRC_MAP = {};
+
+globalThis.SpellcastingTraitConvert = SpellcastingTraitConvert;
 
 class RechargeConvert {
 	static tryConvertRecharge (traitOrAction, cbAll, cbMan) {
@@ -1217,6 +1236,8 @@ class RechargeConvert {
 		}
 	}
 }
+
+globalThis.RechargeConvert = RechargeConvert;
 
 class SpeedConvert {
 	static _splitSpeed (str) {
@@ -1309,6 +1330,8 @@ class SpeedConvert {
 }
 SpeedConvert._SPEED_TYPES = new Set(Parser.SPEED_MODES);
 
+globalThis.SpeedConvert = SpeedConvert;
+
 class DetectNamedCreature {
 	static tryRun (mon) {
 		const totals = {yes: 0, no: 0};
@@ -1345,6 +1368,8 @@ class DetectNamedCreature {
 	}
 }
 
+globalThis.DetectNamedCreature = DetectNamedCreature;
+
 class TagImmResVulnConditional {
 	static tryRun (mon) {
 		this._handleProp(mon, "resist");
@@ -1378,6 +1403,8 @@ class TagImmResVulnConditional {
 	}
 }
 
+globalThis.TagImmResVulnConditional = TagImmResVulnConditional;
+
 class DragonAgeTag {
 	static tryRun (mon) {
 		const type = mon.type?.type ?? mon.type;
@@ -1389,24 +1416,4 @@ class DragonAgeTag {
 	}
 }
 
-if (typeof module !== "undefined") {
-	module.exports = {
-		AcConvert,
-		TagAttack,
-		TagHit,
-		TagDc,
-		AlignmentConvert,
-		TraitActionTag,
-		LanguageTag,
-		SenseFilterTag,
-		SpellcastingTypeTag,
-		DamageTypeTag,
-		MiscTag,
-		SpellcastingTraitConvert,
-		RechargeConvert,
-		DetectNamedCreature,
-		TagImmResVulnConditional,
-		SpeedConvert,
-		DragonAgeTag,
-	};
-}
+globalThis.DragonAgeTag = DragonAgeTag;

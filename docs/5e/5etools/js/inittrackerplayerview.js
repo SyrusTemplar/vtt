@@ -1,7 +1,10 @@
 "use strict";
 
 window.addEventListener("load", async () => {
-	await BrewUtil2.pInit();
+	await Promise.all([
+		PrereleaseUtil.pInit(),
+		BrewUtil2.pInit(),
+	]);
 	ExcludeUtil.pInitialise().then(null); // don't await, as this is only used for search
 
 	const hash = window.location.hash.slice(1);

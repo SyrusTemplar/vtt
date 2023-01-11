@@ -12,7 +12,7 @@ class RacesSublistManager extends SublistManager {
 				<a href="#${UrlUtil.autoEncodeHash(race)}" class="lst--border lst__row-inner">
 					<span class="bold col-5 pl-0">${race.name}</span>
 					<span class="col-5 ${race._slAbility === "Lineage (choose)" ? "italic" : ""}">${race._slAbility}</span>
-					<span class="col-2 text-center pr-0">${(race.size || [SZ_VARIES]).map(sz => Parser.sizeAbvToFull(sz)).join("/")}</span>
+					<span class="col-2 text-center pr-0">${(race.size || [Parser.SZ_VARIES]).map(sz => Parser.sizeAbvToFull(sz)).join("/")}</span>
 				</a>
 			</div>
 		`)
@@ -41,6 +41,7 @@ class RacesPage extends ListPage {
 		super({
 			dataSource: DataUtil.race.loadJSON.bind(DataUtil.race, {isAddBaseRaces: true}),
 			dataSourceFluff: DataUtil.raceFluff.loadJSON.bind(DataUtil.raceFluff),
+			prereleaseDataSource: DataUtil.race.loadPrerelease.bind(DataUtil.race),
 			brewDataSource: DataUtil.race.loadBrew.bind(DataUtil.race),
 
 			pFnGetFluff: Renderer.race.pGetFluff.bind(Renderer.race),
@@ -75,14 +76,14 @@ class RacesPage extends ListPage {
 		const eleLi = document.createElement("div");
 		eleLi.className = `lst__row ve-flex-col ${isExcluded ? "lst__row--blocklisted" : ""}`;
 
-		const size = (race.size || [SZ_VARIES]).map(sz => Parser.sizeAbvToFull(sz)).join("/");
+		const size = (race.size || [Parser.SZ_VARIES]).map(sz => Parser.sizeAbvToFull(sz)).join("/");
 		const source = Parser.sourceJsonToAbv(race.source);
 
 		eleLi.innerHTML = `<a href="#${hash}" class="lst--border lst__row-inner">
 			<span class="bold col-4 pl-0">${race.name}</span>
 			<span class="col-4 ${race._slAbility === "Lineage (choose)" ? "italic" : ""}">${race._slAbility}</span>
 			<span class="col-2 text-center">${size}</span>
-			<span class="col-2 text-center ${Parser.sourceJsonToColor(race.source)} pr-0" title="${Parser.sourceJsonToFull(race.source)}" ${BrewUtil2.sourceJsonToStyle(race.source)}>${source}</span>
+			<span class="col-2 text-center ${Parser.sourceJsonToColor(race.source)} pr-0" title="${Parser.sourceJsonToFull(race.source)}" ${Parser.sourceJsonToStyle(race.source)}>${source}</span>
 		</a>`;
 
 		const listItem = new ListItem(

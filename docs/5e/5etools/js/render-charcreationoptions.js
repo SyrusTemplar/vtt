@@ -1,8 +1,10 @@
+"use strict";
+
 class RenderCharCreationOptions {
 	static $getRenderedCharCreationOption (it) {
 		const renderStack = [];
 
-		const prerequisite = Renderer.utils.getPrerequisiteHtml(it.prerequisite);
+		const prerequisite = Renderer.utils.prerequisite.getHtml(it.prerequisite);
 
 		const preText = Renderer.charoption.getOptionTypePreText(it.optionType);
 		if (preText) renderStack.push(preText);

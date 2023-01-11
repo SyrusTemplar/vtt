@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderVehicles {
 	static $getRenderedVehicle (vehicle) {
 		return $$`${Renderer.utils.getBorderTr()}

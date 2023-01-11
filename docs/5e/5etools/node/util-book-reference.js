@@ -1,7 +1,8 @@
-require("../js/utils.js");
-require("../js/render.js");
+import * as ut from "./util.js";
+import "../js/utils.js";
+import "../js/render.js";
 
-UtilBookReference = {
+const UtilBookReference = {
 	getSections (refId) {
 		switch (refId) {
 			case "bookref-quick":
@@ -24,10 +25,10 @@ UtilBookReference = {
 	},
 
 	getIndex (...refTypes) {
-		const index = require(`../data/books.json`);
+		const index = ut.readJson(`./data/books.json`);
 		const books = {};
 		index.book.forEach(b => {
-			books[b.id.toLowerCase()] = require(`../data/book/book-${b.id.toLowerCase()}.json`);
+			books[b.id.toLowerCase()] = ut.readJson(`./data/book/book-${b.id.toLowerCase()}.json`);
 		});
 
 		const outJson = {
@@ -132,4 +133,4 @@ UtilBookReference = {
 	},
 };
 
-module.exports.UtilBookReference = UtilBookReference;
+export {UtilBookReference};

@@ -1,10 +1,5 @@
 "use strict";
 
-if (typeof module !== "undefined") {
-	const imports = require("./filter");
-	Object.assign(global, imports);
-}
-
 class VariantClassFilter extends Filter {
 	constructor (opts) {
 		super({
@@ -196,51 +191,60 @@ class PageFilterSpells extends PageFilter {
 	}
 
 	static getNormalisedRange (range) {
-		let multiplier = 1;
-		let distance = 0;
-		let offset = 0;
+		const state = {
+			multiplier: 1,
+			distance: 0,
+			offset: 0,
+		};
 
 		switch (range.type) {
-			case RNG_SPECIAL: return 1000000000;
-			case RNG_POINT: adjustForDistance(); break;
-			case RNG_LINE: offset = 1; adjustForDistance(); break;
-			case RNG_CONE: offset = 2; adjustForDistance(); break;
-			case RNG_RADIUS: offset = 3; adjustForDistance(); break;
-			case RNG_HEMISPHERE: offset = 4; adjustForDistance(); break;
-			case RNG_SPHERE: offset = 5; adjustForDistance(); break;
-			case RNG_CYLINDER: offset = 6; adjustForDistance(); break;
-			case RNG_CUBE: offset = 7; adjustForDistance(); break;
+			case Parser.RNG_SPECIAL: return 1000000000;
+			case Parser.RNG_POINT: this._getNormalisedRange_getAdjustedForDistance({range, state}); break;
+			case Parser.RNG_LINE: state.offset = 1; this._getNormalisedRange_getAdjustedForDistance({range, state}); break;
+			case Parser.RNG_CONE: state.offset = 2; this._getNormalisedRange_getAdjustedForDistance({range, state}); break;
+			case Parser.RNG_RADIUS: state.offset = 3; this._getNormalisedRange_getAdjustedForDistance({range, state}); break;
+			case Parser.RNG_HEMISPHERE: state.offset = 4; this._getNormalisedRange_getAdjustedForDistance({range, state}); break;
+			case Parser.RNG_SPHERE: state.offset = 5; this._getNormalisedRange_getAdjustedForDistance({range, state}); break;
+			case Parser.RNG_CYLINDER: state.offset = 6; this._getNormalisedRange_getAdjustedForDistance({range, state}); break;
+			case Parser.RNG_CUBE: state.offset = 7; this._getNormalisedRange_getAdjustedForDistance({range, state}); break;
 		}
 
 		// value in inches, to allow greater granularity
-		return (multiplier * distance) + offset;
+		return (state.multiplier * state.distance) + state.offset;
+	}
 
-		function adjustForDistance () {
-			const dist = range.distance;
-			switch (dist.type) {
-				case UNT_FEET: multiplier = PageFilterSpells.INCHES_PER_FOOT; distance = dist.amount; break;
-				case UNT_MILES: multiplier = PageFilterSpells.INCHES_PER_FOOT * PageFilterSpells.FEET_PER_MILE; distance = dist.amount; break;
-				case RNG_SELF: distance = 0; break;
-				case RNG_TOUCH: distance = 1; break;
-				case RNG_SIGHT: multiplier = PageFilterSpells.INCHES_PER_FOOT * PageFilterSpells.FEET_PER_MILE; distance = 12; break; // assume sight range of person ~100 ft. above the ground
-				case RNG_UNLIMITED_SAME_PLANE: distance = 900000000; break; // from BolS (homebrew)
-				case RNG_UNLIMITED: distance = 900000001; break;
-				default: {
-					// it's homebrew?
-					const fromBrew = BrewUtil2.getMetaLookup("spellDistanceUnits")?.[dist.type];
-					if (fromBrew) {
-						const ftPerUnit = fromBrew.feetPerUnit;
-						if (ftPerUnit != null) {
-							multiplier = PageFilterSpells.INCHES_PER_FOOT * ftPerUnit;
-							distance = dist.amount;
-						} else {
-							distance = 910000000; // default to max distance, to have them displayed at the bottom
-						}
-					}
-					break;
-				}
+	static _getNormalisedRange_getAdjustedForDistance ({range, state}) {
+		const dist = range.distance;
+		switch (dist.type) {
+			case Parser.UNT_FEET: state.multiplier = PageFilterSpells.INCHES_PER_FOOT; state.distance = dist.amount; break;
+			case Parser.UNT_MILES: state.multiplier = PageFilterSpells.INCHES_PER_FOOT * PageFilterSpells.FEET_PER_MILE; state.distance = dist.amount; break;
+			case Parser.RNG_SELF: state.distance = 0; break;
+			case Parser.RNG_TOUCH: state.distance = 1; break;
+			case Parser.RNG_SIGHT: state.multiplier = PageFilterSpells.INCHES_PER_FOOT * PageFilterSpells.FEET_PER_MILE; state.distance = 12; break; // assume sight range of person ~100 ft. above the ground
+			case Parser.RNG_UNLIMITED_SAME_PLANE: state.distance = 900000000; break; // from BolS (homebrew)
+			case Parser.RNG_UNLIMITED: state.distance = 900000001; break;
+			default: {
+				// it's prerelease/homebrew?
+				this._getNormalisedRange_getAdjustedForDistance_prereleaseBrew({range, state, brewUtil: PrereleaseUtil})
+					|| this._getNormalisedRange_getAdjustedForDistance_prereleaseBrew({range, state, brewUtil: BrewUtil2});
 			}
 		}
+	}
+
+	static _getNormalisedRange_getAdjustedForDistance_prereleaseBrew ({range, state, brewUtil}) {
+		const dist = range.distance;
+		const fromBrew = brewUtil.getMetaLookup("spellDistanceUnits")?.[dist.type];
+		if (!fromBrew) return false;
+
+		const ftPerUnit = fromBrew.feetPerUnit;
+		if (ftPerUnit != null) {
+			state.multiplier = PageFilterSpells.INCHES_PER_FOOT * ftPerUnit;
+			state.distance = dist.amount;
+		} else {
+			state.distance = 910000000; // default to max distance, to have them displayed at the bottom
+		}
+
+		return true;
 	}
 
 	static getFltrSpellLevelStr (level) {
@@ -249,20 +253,20 @@ class PageFilterSpells extends PageFilter {
 
 	static getRangeType (range) {
 		switch (range.type) {
-			case RNG_SPECIAL: return PageFilterSpells.F_RNG_SPECIAL;
-			case RNG_POINT:
+			case Parser.RNG_SPECIAL: return PageFilterSpells.F_RNG_SPECIAL;
+			case Parser.RNG_POINT:
 				switch (range.distance.type) {
-					case RNG_SELF: return PageFilterSpells.F_RNG_SELF;
-					case RNG_TOUCH: return PageFilterSpells.F_RNG_TOUCH;
+					case Parser.RNG_SELF: return PageFilterSpells.F_RNG_SELF;
+					case Parser.RNG_TOUCH: return PageFilterSpells.F_RNG_TOUCH;
 					default: return PageFilterSpells.F_RNG_POINT;
 				}
-			case RNG_LINE:
-			case RNG_CONE:
-			case RNG_RADIUS:
-			case RNG_HEMISPHERE:
-			case RNG_SPHERE:
-			case RNG_CYLINDER:
-			case RNG_CUBE:
+			case Parser.RNG_LINE:
+			case Parser.RNG_CONE:
+			case Parser.RNG_RADIUS:
+			case Parser.RNG_HEMISPHERE:
+			case Parser.RNG_SPHERE:
+			case Parser.RNG_CYLINDER:
+			case Parser.RNG_CUBE:
 				return PageFilterSpells.F_RNG_SELF_AREA;
 		}
 	}
@@ -276,12 +280,17 @@ class PageFilterSpells extends PageFilter {
 	static getTblLevelStr (spell) { return `${Parser.spLevelToFull(spell.level)}${spell.meta && spell.meta.ritual ? " (rit.)" : ""}${spell.meta && spell.meta.technomagic ? " (tec.)" : ""}`; }
 
 	static getRaceFilterItem (r) {
-		const addSuffix = (r.source === SRC_DMG || SourceUtil.isNonstandardSource(r.source || SRC_PHB) || BrewUtil2.hasSourceJson(r.source || SRC_PHB)) && !r.name.includes(Parser.sourceJsonToAbv(r.source));
+		const addSuffix = (
+			r.source === Parser.SRC_DMG
+			|| SourceUtil.isNonstandardSource(r.source || Parser.SRC_PHB)
+			|| (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(r.source || Parser.SRC_PHB))
+			|| (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(r.source || Parser.SRC_PHB))
+		) && !r.name.includes(Parser.sourceJsonToAbv(r.source));
 		const name = `${r.name}${addSuffix ? ` (${Parser.sourceJsonToAbv(r.source)})` : ""}`;
 		const opts = {
 			item: name,
 			userData: {
-				group: SourceUtil.getFilterGroup(r.source || SRC_PHB),
+				group: SourceUtil.getFilterGroup(r.source || Parser.SRC_PHB),
 			},
 		};
 		if (r.baseName) opts.nest = r.baseName;
@@ -293,77 +302,84 @@ class PageFilterSpells extends PageFilter {
 	constructor () {
 		super();
 
-		const levelFilter = new Filter({
+		this._classFilter = new Filter({
+			header: "Class",
+			groupFn: it => it.userData.group,
+		});
+		this._subclassFilter = new Filter({
+			header: "Subclass",
+			nests: {},
+			groupFn: it => it.userData.group,
+		});
+		this._levelFilter = new Filter({
 			header: "Level",
 			items: [
 				0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
 			],
 			displayFn: PageFilterSpells.getFltrSpellLevelStr,
 		});
-		const classFilter = new Filter({
-			header: "Class",
-			groupFn: it => it.userData.group,
+		this._variantClassFilter = new VariantClassFilter();
+		this._classAndSubclassFilter = new MultiFilterClasses({
+			classFilter: this._classFilter,
+			subclassFilter: this._subclassFilter,
+			variantClassFilter: this._variantClassFilter,
 		});
-		const subclassFilter = new Filter({
-			header: "Subclass",
-			nests: {},
-			groupFn: it => it.userData.group,
-		});
-		const variantClassFilter = new VariantClassFilter();
-		const classAndSubclassFilter = new MultiFilterClasses({classFilter, subclassFilter, variantClassFilter});
-		const raceFilter = new Filter({
+		this._raceFilter = new Filter({
 			header: "Race",
 			nests: {},
 			groupFn: it => it.userData.group,
 		});
-		const backgroundFilter = new Filter({header: "Background"});
-		const metaFilter = new Filter({
+		this._backgroundFilter = new SearchableFilter({header: "Background"});
+		this._featFilter = new SearchableFilter({header: "Feat"});
+		this._optionalfeaturesFilter = new SearchableFilter({header: "Other Option/Feature"});
+		this._metaFilter = new Filter({
 			header: "Components & Miscellaneous",
 			items: [...PageFilterSpells._META_FILTER_BASE_ITEMS, "Ritual", "SRD", "Basic Rules", "Has Images", "Has Token"],
 			itemSortFn: PageFilterSpells.sortMetaFilter,
 			isMiscFilter: true,
 			displayFn: it => Parser.spMiscTagToFull(it),
 		});
-		const schoolFilter = new Filter({
+		this._groupFilter = new Filter({header: "Group"});
+		this._schoolFilter = new Filter({
 			header: "School",
 			items: [...Parser.SKL_ABVS],
 			displayFn: Parser.spSchoolAbvToFull,
 			itemSortFn: (a, b) => SortUtil.ascSortLower(Parser.spSchoolAbvToFull(a.item), Parser.spSchoolAbvToFull(b.item)),
 		});
-		const subSchoolFilter = new Filter({
+		this._subSchoolFilter = new Filter({
 			header: "Subschool",
 			items: [],
 			displayFn: Parser.spSchoolAbvToFull,
 		});
-		const damageFilter = new Filter({
+		this._damageFilter = new Filter({
 			header: "Damage Type",
 			items: MiscUtil.copy(Parser.DMG_TYPES),
 			displayFn: StrUtil.uppercaseFirst,
 		});
-		const conditionFilter = new Filter({
+		this._conditionFilter = new Filter({
 			header: "Conditions Inflicted",
 			items: [...Parser.CONDITIONS],
 			displayFn: uid => uid.split("|")[0].toTitleCase(),
 		});
-		const spellAttackFilter = new Filter({
+		this._spellAttackFilter = new Filter({
 			header: "Spell Attack",
 			items: ["M", "R", "O"],
 			displayFn: Parser.spAttackTypeToFull,
 			itemSortFn: null,
 		});
-		const saveFilter = new Filter({
+		this._saveFilter = new Filter({
 			header: "Saving Throw",
 			items: ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
 			displayFn: PageFilterSpells.getFilterAbilitySave,
 			itemSortFn: null,
 		});
-		const checkFilter = new Filter({
+		this._checkFilter = new Filter({
 			header: "Ability Check",
 			items: ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"],
 			displayFn: PageFilterSpells.getFilterAbilityCheck,
 			itemSortFn: null,
 		});
-		const timeFilter = new Filter({
+		this._timeFilter = new Filter({
 			header: "Cast Time",
 			items: [
 				Parser.SP_TM_ACTION,
@@ -376,13 +392,13 @@ class PageFilterSpells extends PageFilter {
 			displayFn: Parser.spTimeUnitToFull,
 			itemSortFn: null,
 		});
-		const durationFilter = new RangeFilter({
+		this._durationFilter = new RangeFilter({
 			header: "Duration",
 			isLabelled: true,
 			labelSortFn: null,
 			labels: ["Instant", "1 Round", "1 Minute", "10 Minutes", "1 Hour", "8 Hours", "24+ Hours", "Permanent", "Special"],
 		});
-		const rangeFilter = new Filter({
+		this._rangeFilter = new Filter({
 			header: "Range",
 			items: [
 				PageFilterSpells.F_RNG_SELF,
@@ -393,33 +409,12 @@ class PageFilterSpells extends PageFilter {
 			],
 			itemSortFn: null,
 		});
-		const areaTypeFilter = new Filter({
+		this._areaTypeFilter = new Filter({
 			header: "Area Style",
 			items: ["ST", "MT", "R", "N", "C", "Y", "H", "L", "S", "Q", "W"],
 			displayFn: Parser.spAreaTypeToFull,
 			itemSortFn: null,
 		});
-
-		this._classFilter = classFilter;
-		this._subclassFilter = subclassFilter;
-		this._levelFilter = levelFilter;
-		this._variantClassFilter = variantClassFilter;
-		this._classAndSubclassFilter = classAndSubclassFilter;
-		this._raceFilter = raceFilter;
-		this._backgroundFilter = backgroundFilter;
-		this._eldritchInvocationFilter = new Filter({header: "Eldritch Invocation"});
-		this._metaFilter = metaFilter;
-		this._schoolFilter = schoolFilter;
-		this._subSchoolFilter = subSchoolFilter;
-		this._damageFilter = damageFilter;
-		this._conditionFilter = conditionFilter;
-		this._spellAttackFilter = spellAttackFilter;
-		this._saveFilter = saveFilter;
-		this._checkFilter = checkFilter;
-		this._timeFilter = timeFilter;
-		this._durationFilter = durationFilter;
-		this._rangeFilter = rangeFilter;
-		this._areaTypeFilter = areaTypeFilter;
 		this._affectsCreatureTypeFilter = new Filter({
 			header: "Affects Creature Types",
 			items: [...Parser.MON_TYPES],
@@ -428,7 +423,7 @@ class PageFilterSpells extends PageFilter {
 	}
 
 	static mutateForFilters (s) {
-		Renderer.spell.initClasses(s);
+		Renderer.spell.initBrewSources(s);
 
 		// used for sorting
 		s._normalisedTime = PageFilterSpells.getNormalisedTime(s.time);
@@ -450,7 +445,8 @@ class PageFilterSpells extends PageFilter {
 				return this._getSubclassFilterItem({
 					className: c.class.name,
 					classSource: c.class.source,
-					subclassShortName: c.subclass.name,
+					subclassName: c.subclass.name,
+					subclassShortName: c.subclass.shortName,
 					subclassSource: c.subclass.source,
 					subSubclassName: c.subclass.subSubclass,
 				});
@@ -469,9 +465,11 @@ class PageFilterSpells extends PageFilter {
 				.map(it => (it.userData.definedInSource && !SourceUtil.isNonstandardSource(it.userData.definedInSource)) ? new FilterItem({item: it.userData.equivalentClassName}) : null)
 				.filter(Boolean),
 		];
-		s._fRaces = Renderer.spell.getCombinedRaces(s).map(PageFilterSpells.getRaceFilterItem);
-		s._fBackgrounds = Renderer.spell.getCombinedBackgrounds(s).map(bg => bg.name);
-		s._fEldritchInvocations = s.eldritchInvocations ? s.eldritchInvocations.map(ei => ei.name) : [];
+		s._fRaces = Renderer.spell.getCombinedGeneric(s, {propSpell: "races", prop: "race"}).map(PageFilterSpells.getRaceFilterItem);
+		s._fBackgrounds = Renderer.spell.getCombinedGeneric(s, {propSpell: "backgrounds", prop: "background"}).map(it => it.name);
+		s._fFeats = Renderer.spell.getCombinedGeneric(s, {propSpell: "feats", prop: "feat"}).map(it => it.name);
+		s._fOptionalfeatures = Renderer.spell.getCombinedGeneric(s, {propSpell: "optionalfeatures", prop: "optionalfeature"}).map(it => it.name);
+		s._fGroups = Renderer.spell.getCombinedGeneric(s, {propSpell: "groups"}).map(it => it.name);
 		s._fTimeType = s.time.map(t => t.unit);
 		s._fDurationType = PageFilterSpells.getFilterDuration(s);
 		s._fRangeType = PageFilterSpells.getRangeType(s.range);
@@ -482,15 +480,28 @@ class PageFilterSpells extends PageFilter {
 		s._fAffectsCreatureType = s.affectsCreatureType || [...Parser.MON_TYPES];
 	}
 
+	static unmutateForFilters (s) {
+		Renderer.spell.uninitBrewSources(s);
+
+		delete s._normalisedTime;
+		delete s._normalisedRange;
+
+		Object.keys(s)
+			.filter(it => it.startsWith("_f"))
+			.forEach(it => delete s[it]);
+	}
+
 	addToFilters (s, isExcluded) {
 		if (isExcluded) return;
 
 		if (s.level > 9) this._levelFilter.addItem(s.level);
+		this._groupFilter.addItem(s._fGroups);
 		this._schoolFilter.addItem(s.school);
 		this._sourceFilter.addItem(s._fSources);
 		this._metaFilter.addItem(s._fMeta);
 		this._backgroundFilter.addItem(s._fBackgrounds);
-		this._eldritchInvocationFilter.addItem(s._fEldritchInvocations);
+		this._featFilter.addItem(s._fFeats);
+		this._optionalfeaturesFilter.addItem(s._fOptionalfeatures);
 		s._fClasses.forEach(c => this._classFilter.addItem(c));
 		s._fSubclasses.forEach(sc => {
 			this._subclassFilter.addNest(sc.nest, {isHidden: true});
@@ -518,8 +529,10 @@ class PageFilterSpells extends PageFilter {
 			this._classAndSubclassFilter,
 			this._raceFilter,
 			this._backgroundFilter,
-			this._eldritchInvocationFilter,
+			this._featFilter,
+			this._optionalfeaturesFilter,
 			this._metaFilter,
+			this._groupFilter,
 			this._schoolFilter,
 			this._subSchoolFilter,
 			this._damageFilter,
@@ -547,8 +560,10 @@ class PageFilterSpells extends PageFilter {
 			],
 			s._fRaces,
 			s._fBackgrounds,
-			s._fEldritchInvocations,
+			s._fFeats,
+			s._fOptionalfeatures,
 			s._fMeta,
+			s._fGroups,
 			s.school,
 			s.subschools,
 			s.damageInflict,
@@ -585,6 +600,8 @@ PageFilterSpells._META_FILTER_BASE_ITEMS = [PageFilterSpells._META_ADD_CONC, Pag
 PageFilterSpells.INCHES_PER_FOOT = 12;
 PageFilterSpells.FEET_PER_MILE = 5280;
 
+globalThis.PageFilterSpells = PageFilterSpells;
+
 class ModalFilterSpells extends ModalFilter {
 	/**
 	 * @param opts
@@ -616,15 +633,16 @@ class ModalFilterSpells extends ModalFilter {
 	}
 
 	async _pInit () {
-		const brew = await BrewUtil2.pGetBrewProcessed();
-		Renderer.spell.populateHomebrewLookup(brew);
+		if (typeof PrereleaseUtil !== "undefined") Renderer.spell.populatePrereleaseLookup(await PrereleaseUtil.pGetBrewProcessed());
+		if (typeof BrewUtil2 !== "undefined") Renderer.spell.populateBrewLookup(await BrewUtil2.pGetBrewProcessed());
 	}
 
 	async _pLoadAllData () {
-		const brew = await BrewUtil2.pGetBrewProcessed();
-		const fromData = await DataUtil.spell.pLoadAll();
-		const fromBrew = brew.spell || [];
-		return [...fromData, ...fromBrew];
+		return [
+			...(await DataUtil.spell.pLoadAll()),
+			...((await PrereleaseUtil.pGetBrewProcessed()).spell || []),
+			...((await BrewUtil2.pGetBrewProcessed()).spell || []),
+		];
 	}
 
 	_getListItem (pageFilter, spell, spI) {
@@ -639,20 +657,20 @@ class ModalFilterSpells extends ModalFilter {
 		const concentration = spell._isConc ? "×" : "";
 		const range = Parser.spRangeToFull(spell.range);
 
-		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst--border veapp__list-row no-select lst__wrp-cells ${spell._versionBase_isVersion ? "ve-muted" : ""}">
+		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst--border veapp__list-row no-select lst__wrp-cells">
 			<div class="col-0-5 pl-0 ve-flex-vh-center">${this._isRadio ? `<input type="radio" name="radio" class="no-events">` : `<input type="checkbox" class="no-events">`}</div>
 
 			<div class="col-0-5 px-1 ve-flex-vh-center">
 				<div class="ui-list__btn-inline px-2" title="Toggle Preview (SHIFT to Toggle Info Preview)">[+]</div>
 			</div>
 
-			<div class="col-3 ${this._getNameStyle()}">${spell.name}</div>
+			<div class="col-3 ${spell._versionBase_isVersion ? "italic" : ""} ${this._getNameStyle()}">${spell._versionBase_isVersion ? `<span class="px-3"></span>` : ""}${spell.name}</div>
 			<div class="col-1-5 text-center">${levelText}</div>
 			<div class="col-2 text-center">${time}</div>
 			<div class="col-1 sp__school-${spell.school} text-center" title="${Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools)}" ${Parser.spSchoolAbvToStyle(spell.school)}>${school}</div>
 			<div class="col-0-5 text-center" title="Concentration">${concentration}</div>
 			<div class="col-2 text-right">${range}</div>
-			<div class="col-1 pr-0 text-center ${Parser.sourceJsonToColor(spell.source)}" title="${Parser.sourceJsonToFull(spell.source)}" ${BrewUtil2.sourceJsonToStyle(spell.source)}>${source}</div>
+			<div class="col-1 pr-0 text-center ${Parser.sourceJsonToColor(spell.source)}" title="${Parser.sourceJsonToFull(spell.source)}" ${Parser.sourceJsonToStyle(spell.source)}>${source}</div>
 		</div>`;
 
 		const btnShowHidePreview = eleRow.firstElementChild.children[1].firstElementChild;
@@ -685,6 +703,8 @@ class ModalFilterSpells extends ModalFilter {
 	}
 }
 
+globalThis.ModalFilterSpells = ModalFilterSpells;
+
 class ListSyntaxSpells extends ListUiUtil.ListSyntax {
 	static _INDEXABLE_PROPS = [
 		"entries",
@@ -699,6 +719,4 @@ class ListSyntaxSpells extends ListUiUtil.ListSyntax {
 	}
 }
 
-if (typeof module !== "undefined") {
-	module.exports = PageFilterSpells;
-}
+globalThis.PageFilterSpells = PageFilterSpells;

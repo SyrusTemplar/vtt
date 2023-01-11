@@ -10,11 +10,13 @@ class StatGenUi extends BaseComponent {
 	/**
 	 * @param opts
 	 * @param opts.races
+	 * @param opts.backgrounds
 	 * @param opts.feats
 	 * @param [opts.tabMetasAdditional]
 	 * @param [opts.isCharacterMode] Disables some functionality (e.g. changing number of ability scores)
 	 * @param [opts.isFvttMode]
 	 * @param [opts.modalFilterRaces]
+	 * @param [opts.modalFilterBackgrounds]
 	 * @param [opts.modalFilterFeats]
 	 * @param [opts.existingScores]
 	 */
@@ -25,6 +27,7 @@ class StatGenUi extends BaseComponent {
 		TabUiUtilSide.decorate(this, {isInitMeta: true});
 
 		this._races = opts.races;
+		this._backgrounds = opts.backgrounds;
 		this._feats = opts.feats;
 		this._tabMetasAdditional = opts.tabMetasAdditional;
 		this._isCharacterMode = opts.isCharacterMode;
@@ -48,6 +51,7 @@ class StatGenUi extends BaseComponent {
 		}
 
 		this._modalFilterRaces = opts.modalFilterRaces || new ModalFilterRaces({namespace: "statgen.races", isRadio: true, allData: this._races});
+		this._modalFilterBackgrounds = opts.modalFilterBackgrounds || new ModalFilterBackgrounds({namespace: "statgen.backgrounds", isRadio: true, allData: this._backgrounds});
 		this._modalFilterFeats = opts.modalFilterFeats || new ModalFilterFeats({namespace: "statgen.feats", isRadio: true, allData: this._feats});
 
 		this._isLevelUp = !!opts.existingScores;
@@ -59,7 +63,6 @@ class StatGenUi extends BaseComponent {
 
 		// region Point buy
 		this._compAsi = new StatGenUi.CompAsi({parent: this});
-		this._pbRaceHookMetas = [];
 		// endregion
 	}
 
@@ -112,6 +115,10 @@ class StatGenUi extends BaseComponent {
 	get ixRace () { return this._state.common_ixRace; }
 	set ixRace (ixRace) { this._state.common_ixRace = ixRace; }
 
+	addHookIxBackground (hook) { this._addHookBase("common_ixBackground", hook); }
+	get ixBackground () { return this._state.common_ixBackground; }
+	set ixBackground (ixBackground) { this._state.common_ixBackground = ixBackground; }
+
 	addCustomFeat () { this._state.common_cntFeatsCustom = Math.min(StatGenUi._MAX_CUSTOM_FEATS, (this._state.common_cntFeatsCustom || 0) + 1); }
 	setCntCustomFeats (val) { this._state.common_cntFeatsCustom = Math.min(StatGenUi._MAX_CUSTOM_FEATS, val || 0); }
 	// endregion
@@ -125,6 +132,7 @@ class StatGenUi extends BaseComponent {
 	removeHookBase (prop, hook) { return this._removeHookBase(prop, hook); }
 	proxyAssignSimple (hookProp, toObj, isOverwrite) { return this._proxyAssignSimple(hookProp, toObj, isOverwrite); }
 	get race () { return this._races[this._state.common_ixRace]; }
+	get background () { return this._backgrounds[this._state.common_ixBackground]; }
 	get isLevelUp () { return this._isLevelUp; }
 	// endregion
 
@@ -165,6 +173,7 @@ class StatGenUi extends BaseComponent {
 
 	async pInit () {
 		await this._modalFilterRaces.pPreloadHidden();
+		await this._modalFilterBackgrounds.pPreloadHidden();
 		await this._modalFilterFeats.pPreloadHidden();
 	}
 
@@ -752,145 +761,20 @@ class StatGenUi extends BaseComponent {
 
 		const metasTotalAndMod = this._render_getMetasTotalAndMod();
 
-		const $wrpRace = $(`<div class="ve-flex"></div>`);
-		const $wrpRaceOuter = $$`<div class="ve-flex-col">
-			<div class="my-1 statgen-pb__header statgen-pb__header--group mr-3 text-center italic">Race</div>
+		const {
+			$wrpOuter: $wrpRaceOuter,
+			$stgSel: $stgRaceSel,
+			$dispPreview: $dispPreviewRace,
+			$hrPreview: $hrPreviewRaceTashas,
+			$dispTashas,
+		} = this._renderLevelOneRace.render();
 
-			${$wrpRace}
-		</div>`;
-
-		// Ensure this is run first, and doesn't trigger further state changes
-		this._addHookBase("common_ixRace", () => this.__state.common_ixAbilityScoreSet = 0);
-
-		const hkIxRace = (prop) => {
-			this._pb_unhookRaceRender();
-			const isInitialLoad = prop == null;
-			if (!isInitialLoad) this._state.common_raceChoiceMetasFrom = [];
-			if (!isInitialLoad) this._state.common_raceChoiceMetasWeighted = [];
-			const isAnyRacial = this._render_pointBuy_races($wrpRace);
-			$wrpRaceOuter.toggleVe(isAnyRacial);
-		};
-		this._addHookBase("common_ixRace", hkIxRace);
-		this._addHookBase("common_isTashas", hkIxRace);
-		this._addHookBase("common_ixAbilityScoreSet", hkIxRace);
-		hkIxRace();
-
-		const {$wrp: $selRace, fnUpdateHidden: fnUpdateSelRaceHidden} = ComponentUiUtil.$getSelSearchable(
-			this,
-			"common_ixRace",
-			{
-				values: this._races.map((_, i) => i),
-				isAllowNull: true,
-				fnDisplay: ix => {
-					const r = this._races[ix];
-					if (!r) return "(Unknown)";
-					return `${r.name} ${r.source !== SRC_PHB ? `[${Parser.sourceJsonToAbv(r.source)}]` : ""}`;
-				},
-				asMeta: true,
-			},
-		);
-
-		const doApplyFilterToSelRace = () => {
-			const f = this._modalFilterRaces.pageFilter.filterBox.getValues();
-			const isHiddenPerRace = this._races.map(it => !this._modalFilterRaces.pageFilter.toDisplay(f, it));
-			fnUpdateSelRaceHidden(isHiddenPerRace, false);
-		};
-
-		this._modalFilterRaces.pageFilter.filterBox.on(FilterBox.EVNT_VALCHANGE, () => doApplyFilterToSelRace());
-		doApplyFilterToSelRace();
-
-		const $btnFilterForRace = $(`<button class="btn btn-xs btn-default br-0 pr-2" title="Filter for Race"><span class="glyphicon glyphicon-filter"></span> Filter</button>`)
-			.click(async () => {
-				const selected = await this._modalFilterRaces.pGetUserSelection();
-				if (selected == null || !selected.length) return;
-
-				const selectedRace = selected[0];
-				const ixRace = this._races.findIndex(it => it.name === selectedRace.name && it.source === selectedRace.values.sourceJson);
-				if (!~ixRace) throw new Error(`Could not find selected race: ${JSON.stringify(selectedRace)}`); // Should never occur
-				this._state.common_ixRace = ixRace;
-			});
-
-		const $btnPreviewRace = ComponentUiUtil.$getBtnBool(
-			this,
-			"common_isPreviewRace",
-			{
-				html: `<button class="btn btn-xs btn-default" title="Toggle Race Preview"><span class="glyphicon glyphicon-eye-open"></span></button>`,
-			},
-		);
-		const hkBtnPreviewRace = () => $btnPreviewRace.toggleVe(this._state.common_ixRace != null && ~this._state.common_ixRace);
-		this._addHookBase("common_ixRace", hkBtnPreviewRace);
-		hkBtnPreviewRace();
-
-		// region Ability score set selection
-		const {$sel: $selAbilitySet, setValues: setValuesSelAbilitySet} = ComponentUiUtil.$getSelEnum(
-			this,
-			"common_ixAbilityScoreSet",
-			{
-				values: [],
-				asMeta: true,
-				fnDisplay: ixAbSet => {
-					const lst = this._pb_getRacialAbilityList();
-					if (!lst?.[ixAbSet]) return "(Unknown)";
-					return Renderer.getAbilityData([lst[ixAbSet]]).asText;
-				},
-			},
-		);
-
-		const $stgAbilityScoreSet = $$`<div class="ve-flex-v-center mb-2">
-			<div class="mr-2">Ability Score Increase</div>
-			<div>${$selAbilitySet}</div>
-		</div>`;
-
-		const hkSetValuesSelAbilitySet = () => {
-			const race = this.race;
-			$stgAbilityScoreSet.toggleVe(!!race && race.ability?.length > 1);
-			setValuesSelAbilitySet(
-				[...new Array(race?.ability?.length || 0)].map((_, ix) => ix),
-				{isForce: true},
-			);
-		};
-		this._addHookBase("common_ixRace", hkSetValuesSelAbilitySet);
-		this._addHookBase("common_isTashas", hkSetValuesSelAbilitySet);
-		hkSetValuesSelAbilitySet();
-		// endregion
-
-		const $dispPreviewRace = $(`<div class="ve-flex-col mb-2"></div>`);
-		const hkPreviewRace = () => {
-			if (!this._state.common_isPreviewRace) return $dispPreviewRace.hideVe();
-
-			const race = this._state.common_ixRace != null ? this._races[this._state.common_ixRace] : null;
-			if (!race) return $dispPreviewRace.hideVe();
-
-			$dispPreviewRace.empty().showVe().append(Renderer.hover.$getHoverContent_stats(UrlUtil.PG_RACES, race));
-		};
-		this._addHookBase("common_ixRace", hkPreviewRace);
-		this._addHookBase("common_isPreviewRace", hkPreviewRace);
-		hkPreviewRace();
-
-		const $btnToggleTashasPin = ComponentUiUtil.$getBtnBool(
-			this,
-			"common_isShowTashasRules",
-			{
-				html: `<button class="btn btn-xxs btn-default ve-small p-0 statgen-shared__btn-toggle-tashas-rules ve-flex-vh-center" title="Toggle &quot;Customizing Your Origin&quot; Section"><span class="glyphicon glyphicon-eye-open"></span></button>`,
-			},
-		);
-
-		const $dispTashas = $(`<div class="ve-flex-col"><div class="italic ve-muted">Loading...</div></div>`);
-		Renderer.hover.pCacheAndGet(UrlUtil.PG_VARIANTRULES, SRC_TCE, UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_VARIANTRULES]({name: "Customizing Your Origin", source: SRC_TCE}))
-			.then(rule => {
-				$$($dispTashas.empty())`${Renderer.hover.$getHoverContent_stats(UrlUtil.PG_VARIANTRULES, rule)}<hr class="hr-3">`;
-			});
-		const hkIsShowTashas = () => {
-			$dispTashas.toggleVe(this._state.common_isShowTashasRules);
-		};
-		this._addHookBase("common_isShowTashasRules", hkIsShowTashas);
-		hkIsShowTashas();
-
-		const $hrPreviewRaceTashas = $(`<hr class="hr-3">`);
-		const hkPreviewAndTashas = () => $hrPreviewRaceTashas.toggleVe(this._state.common_isPreviewRace && this._state.common_isShowTashasRules);
-		this._addHookBase("common_isPreviewRace", hkPreviewAndTashas);
-		this._addHookBase("common_isShowTashasRules", hkPreviewAndTashas);
-		hkPreviewAndTashas();
+		const {
+			$wrpOuter: $wrpBackgroundOuter,
+			$stgSel: $stgBackgroundSel,
+			$dispPreview: $dispPreviewBackground,
+			$hrPreview: $hrPreviewBackground,
+		} = this._renderLevelOneBackground.render();
 
 		const $wrpAsi = this._render_$getWrpAsi();
 
@@ -923,6 +807,8 @@ class StatGenUi extends BaseComponent {
 
 						${$wrpRaceOuter}
 
+						${$wrpBackgroundOuter}
+
 						<div class="ve-flex-col mr-3">
 							<div class="my-1 statgen-pb__header"></div>
 							<div class="my-1 statgen-pb__header ve-flex-vh-center help text-muted" title="Input any additional/custom bonuses here">User</div>
@@ -942,23 +828,8 @@ class StatGenUi extends BaseComponent {
 						</div>
 					</div>
 
-					<div class="ve-flex-col">
-						<div class="mb-1">Select a Race</div>
-						<div class="ve-flex-v-center mb-2">
-							<div class="ve-flex-v-center btn-group w-100 mr-2">${$btnFilterForRace}${$selRace}</div>
-							<div>${$btnPreviewRace}</div>
-						</div>
-						${$stgAbilityScoreSet}
-						<label class="ve-flex-v-center mb-1">
-							<div class="mr-2">Allow Origin Customization</div>
-							${ComponentUiUtil.$getCbBool(this, "common_isTashas")}
-						</label>
-						<div class="ve-flex">
-							<div class="ve-small ve-muted italic mr-1">${Renderer.get().render(`An {@variantrule Customizing Your Origin|TCE|optional rule}`)}</div>
-							${$btnToggleTashasPin}
-							<div class="ve-small ve-muted italic ml-1">${Renderer.get().render(`from Tasha's Cauldron of Everything, page 8.`)}</div>
-						</div>
-					</div>
+					${$stgRaceSel}
+					${$stgBackgroundSel}
 				</div>
 
 				${$vrPbCustom}
@@ -973,6 +844,9 @@ class StatGenUi extends BaseComponent {
 			${$hrPreviewRaceTashas}
 			${$dispTashas}
 
+			${$dispPreviewBackground}
+			${$hrPreviewBackground}
+
 			${$wrpAsi}
 		</div>`;
 
@@ -982,6 +856,423 @@ class StatGenUi extends BaseComponent {
 			.append($stgMain)
 			.append($stgNone);
 	}
+
+	static _RenderLevelOneEntity = class {
+		_title;
+		_titleShort;
+		_propIxEntity;
+		_propIxAbilityScoreSet;
+		_propData;
+		_propModalFilter;
+		_propIsPreview;
+		_propEntity;
+		_page;
+		_propChoiceMetasFrom;
+		_propChoiceWeighted;
+
+		constructor ({parent}) {
+			this._parent = parent;
+
+			this._pbHookMetas = [];
+		}
+
+		render () {
+			const $wrp = $(`<div class="ve-flex"></div>`);
+			const $wrpOuter = $$`<div class="ve-flex-col">
+				<div class="my-1 statgen-pb__header statgen-pb__header--group mr-3 text-center italic ve-small help-subtle" title="Ability Score Changes from ${this._title}">${this._titleShort}</div>
+
+				${$wrp}
+			</div>`;
+
+			// Ensure this is run first, and doesn't trigger further state changes
+			this._parent._addHookBase(this._propIxEntity, () => this._parent.__state[this._propIxAbilityScoreSet] = 0);
+
+			const hkIxEntity = (prop) => {
+				this._pb_unhookRender();
+				const isInitialLoad = prop == null;
+				if (!isInitialLoad) this._parent._state[this._propChoiceMetasFrom] = [];
+				if (!isInitialLoad) this._parent._state[this._propChoiceWeighted] = [];
+				const isAnyFromEntity = this._render_pointBuy($wrp);
+				$wrpOuter.toggleVe(isAnyFromEntity);
+			};
+			this._parent._addHookBase(this._propIxEntity, hkIxEntity);
+			this._bindAdditionalHooks_hkIxEntity(hkIxEntity);
+			this._parent._addHookBase(this._propIxAbilityScoreSet, hkIxEntity);
+			hkIxEntity();
+
+			const {$wrp: $selEntity, fnUpdateHidden: fnUpdateSelEntityHidden} = ComponentUiUtil.$getSelSearchable(
+				this._parent,
+				this._propIxEntity,
+				{
+					values: this._parent[this._propData].map((_, i) => i),
+					isAllowNull: true,
+					fnDisplay: ix => {
+						const r = this._parent[this._propData][ix];
+						if (!r) return "(Unknown)";
+						return `${r.name} ${r.source !== Parser.SRC_PHB ? `[${Parser.sourceJsonToAbv(r.source)}]` : ""}`;
+					},
+					asMeta: true,
+				},
+			);
+
+			const doApplyFilterToSelEntity = () => {
+				const f = this._parent[this._propModalFilter].pageFilter.filterBox.getValues();
+				const isHiddenPerEntity = this._parent[this._propData].map(it => !this._parent[this._propModalFilter].pageFilter.toDisplay(f, it));
+				fnUpdateSelEntityHidden(isHiddenPerEntity, false);
+			};
+
+			this._parent[this._propModalFilter].pageFilter.filterBox.on(FilterBox.EVNT_VALCHANGE, () => doApplyFilterToSelEntity());
+			doApplyFilterToSelEntity();
+
+			const $btnFilterForEntity = $(`<button class="btn btn-xs btn-default br-0 pr-2" title="Filter for ${this._title}"><span class="glyphicon glyphicon-filter"></span> Filter</button>`)
+				.click(async () => {
+					const selected = await this._parent[this._propModalFilter].pGetUserSelection();
+					if (selected == null || !selected.length) return;
+
+					const selectedEntity = selected[0];
+					const ixEntity = this._parent[this._propData].findIndex(it => it.name === selectedEntity.name && it.source === selectedEntity.values.sourceJson);
+					if (!~ixEntity) throw new Error(`Could not find selected ${this._title.toLowerCase()}: ${JSON.stringify(selectedEntity)}`); // Should never occur
+					this._parent._state[this._propIxEntity] = ixEntity;
+				});
+
+			const $btnPreview = ComponentUiUtil.$getBtnBool(
+				this._parent,
+				this._propIsPreview,
+				{
+					html: `<button class="btn btn-xs btn-default" title="Toggle ${this._title} Preview"><span class="glyphicon glyphicon-eye-open"></span></button>`,
+				},
+			);
+			const hkBtnPreviewEntity = () => $btnPreview.toggleVe(this._parent._state[this._propIxEntity] != null && ~this._parent._state[this._propIxEntity]);
+			this._parent._addHookBase(this._propIxEntity, hkBtnPreviewEntity);
+			hkBtnPreviewEntity();
+
+			// region Ability score set selection
+			const {$sel: $selAbilitySet, setValues: setValuesSelAbilitySet} = ComponentUiUtil.$getSelEnum(
+				this._parent,
+				this._propIxAbilityScoreSet,
+				{
+					values: [],
+					asMeta: true,
+					fnDisplay: ixAbSet => {
+						const lst = this._pb_getAbilityList();
+						if (!lst?.[ixAbSet]) return "(Unknown)";
+						return Renderer.getAbilityData([lst[ixAbSet]]).asText;
+					},
+				},
+			);
+
+			const $stgAbilityScoreSet = $$`<div class="ve-flex-v-center mb-2">
+				<div class="mr-2">Ability Score Increase</div>
+				<div>${$selAbilitySet}</div>
+			</div>`;
+
+			const hkSetValuesSelAbilitySet = () => {
+				const entity = this._parent[this._propEntity];
+				$stgAbilityScoreSet.toggleVe(!!entity && entity.ability?.length > 1);
+				setValuesSelAbilitySet(
+					[...new Array(entity?.ability?.length || 0)].map((_, ix) => ix),
+					{isForce: true},
+				);
+			};
+			this._parent._addHookBase(this._propIxEntity, hkSetValuesSelAbilitySet);
+			this._bindAdditionalHooks_hkSetValuesSelAbilitySet(hkSetValuesSelAbilitySet);
+			hkSetValuesSelAbilitySet();
+			// endregion
+
+			const $dispPreview = $(`<div class="ve-flex-col mb-2"></div>`);
+			const hkPreviewEntity = () => {
+				if (!this._parent._state[this._propIsPreview]) return $dispPreview.hideVe();
+
+				const entity = this._parent._state[this._propIxEntity] != null ? this._parent[this._propData][this._parent._state[this._propIxEntity]] : null;
+				if (!entity) return $dispPreview.hideVe();
+
+				$dispPreview.empty().showVe().append(Renderer.hover.$getHoverContent_stats(this._page, entity));
+			};
+			this._parent._addHookBase(this._propIxEntity, hkPreviewEntity);
+			this._parent._addHookBase(this._propIsPreview, hkPreviewEntity);
+			hkPreviewEntity();
+
+			const {$hrPreview} = this._getHrPreviewMeta();
+
+			const $stgSel = $$`<div class="ve-flex-col mt-3">
+				<div class="mb-1">Select a ${this._title}</div>
+				<div class="ve-flex-v-center mb-2">
+					<div class="ve-flex-v-center btn-group w-100 mr-2">${$btnFilterForEntity}${$selEntity}</div>
+					<div>${$btnPreview}</div>
+				</div>
+				${$stgAbilityScoreSet}
+			</div>`;
+
+			return {
+				$wrpOuter,
+
+				$stgSel,
+
+				$dispPreview,
+				$hrPreview,
+			};
+		}
+
+		_pb_unhookRender () {
+			this._pbHookMetas.forEach(it => it.unhook());
+			this._pbHookMetas = [];
+		}
+
+		_render_pointBuy ($wrp) {
+			$wrp.empty();
+
+			const fromEntity = this._pb_getAbility();
+			if (fromEntity == null) return false;
+
+			let $ptBase = null;
+			if (Parser.ABIL_ABVS.some(it => fromEntity[it])) {
+				const $wrpsEntity = Parser.ABIL_ABVS.map(ab => {
+					return $$`<div class="my-1 statgen-pb__cell">
+						<input class="form-control form-control--minimal statgen-shared__ipt text-right" type="number" readonly value="${fromEntity[ab] || 0}">
+					</div>`;
+				});
+
+				$ptBase = $$`<div class="ve-flex-col mr-3">
+					<div class="my-1 statgen-pb__header ve-flex-vh-center">Static</div>
+					${$wrpsEntity}
+				</div>`;
+			}
+
+			let $ptChooseFrom = null;
+			if (fromEntity.choose && fromEntity.choose.from) {
+				const amount = fromEntity.choose.amount || 1;
+				const count = fromEntity.choose.count || 1;
+
+				const $wrpsChoose = Parser.ABIL_ABVS.map(ab => {
+					if (!fromEntity.choose.from.includes(ab)) return `<div class="my-1 statgen-pb__cell"></div>`;
+
+					const $cb = $(`<input type="checkbox">`)
+						.change(() => {
+							const existing = this._parent._state[this._propChoiceMetasFrom].find(it => it.ability === ab);
+							if (existing) {
+								this._parent._state[this._propChoiceMetasFrom] = this._parent._state[this._propChoiceMetasFrom].filter(it => it !== existing);
+								return;
+							}
+
+							// If we're already at the max number of choices, remove the oldest one
+							if (this._parent._state[this._propChoiceMetasFrom].length >= count) {
+								while (this._parent._state[this._propChoiceMetasFrom].length >= count) this._parent._state[this._propChoiceMetasFrom].shift();
+								this._parent._state[this._propChoiceMetasFrom] = [...this._parent._state[this._propChoiceMetasFrom]];
+							}
+
+							this._parent._state[this._propChoiceMetasFrom] = [
+								...this._parent._state[this._propChoiceMetasFrom],
+								{ability: ab, amount},
+							];
+						});
+
+					const hk = () => $cb.prop("checked", this._parent._state[this._propChoiceMetasFrom].some(it => it.ability === ab));
+					this._parent._addHookBase(this._propChoiceMetasFrom, hk);
+					this._pbHookMetas.push({unhook: () => this._parent._removeHookBase(this._propChoiceMetasFrom, hk)});
+					hk();
+
+					return $$`<label class="my-1 statgen-pb__cell ve-flex-vh-center">${$cb}</label>`;
+				});
+
+				$ptChooseFrom = $$`<div class="ve-flex-col mr-3">
+					<div class="my-1 statgen-pb__header statgen-pb__header--choose-from ve-flex-vh-center">
+						<div class="${count !== 1 ? `mr-1` : ""}">${UiUtil.intToBonus(amount, {isPretty: true})}</div>${count !== 1 ? `<div class="ve-small ve-muted">(x${count})</div>` : ""}
+					</div>
+					${$wrpsChoose}
+				</div>`;
+			}
+
+			let $ptsChooseWeighted = null;
+			if (fromEntity.choose && fromEntity.choose.weighted && fromEntity.choose.weighted.weights) {
+				$ptsChooseWeighted = fromEntity.choose.weighted.weights.map((weight, ixWeight) => {
+					const $wrpsChoose = Parser.ABIL_ABVS.map(ab => {
+						if (!fromEntity.choose.weighted.from.includes(ab)) return `<div class="my-1 statgen-pb__cell"></div>`;
+
+						const $cb = $(`<input type="checkbox">`)
+							.change(() => {
+								const existing = this._parent._state[this._propChoiceWeighted].find(it => it.ability === ab && it.ix === ixWeight);
+								if (existing) {
+									this._parent._state[this._propChoiceWeighted] = this._parent._state[this._propChoiceWeighted].filter(it => it !== existing);
+									return;
+								}
+
+								// Remove other selections for the same ability score, or selections for the same weight
+								const withSameAbil = this._parent._state[this._propChoiceWeighted].filter(it => it.ability === ab || it.ix === ixWeight);
+								if (withSameAbil.length) {
+									this._parent._state[this._propChoiceWeighted] = this._parent._state[this._propChoiceWeighted].filter(it => it.ability !== ab && it.ix !== ixWeight);
+								}
+
+								this._parent._state[this._propChoiceWeighted] = [
+									...this._parent._state[this._propChoiceWeighted],
+									{ability: ab, amount: weight, ix: ixWeight},
+								];
+							});
+
+						const hk = () => {
+							$cb.prop("checked", this._parent._state[this._propChoiceWeighted].some(it => it.ability === ab && it.ix === ixWeight));
+						};
+						this._parent._addHookBase(this._propChoiceWeighted, hk);
+						this._pbHookMetas.push({unhook: () => this._parent._removeHookBase(this._propChoiceWeighted, hk)});
+						hk();
+
+						return $$`<label class="my-1 statgen-pb__cell ve-flex-vh-center">${$cb}</label>`;
+					});
+
+					return $$`<div class="ve-flex-col mr-3">
+						<div class="my-1 statgen-pb__header statgen-pb__header--choose-from ve-flex-vh-center">${UiUtil.intToBonus(weight, {isPretty: true})}</div>
+						${$wrpsChoose}
+					</div>`;
+				});
+			}
+
+			$$($wrp)`
+				${$ptBase}
+				${$ptChooseFrom}
+				${$ptsChooseWeighted}
+			`;
+
+			return $ptBase || $ptChooseFrom || $ptsChooseWeighted;
+		}
+
+		/** @abstract */
+		_pb_getAbilityList () { throw new Error("Unimplemented!"); }
+
+		/** @abstract */
+		_pb_getAbility () { throw new Error("Unimplemented!"); }
+
+		_bindAdditionalHooks_hkIxEntity (hkIxEntity) { /* Implement as required */ }
+		_bindAdditionalHooks_hkSetValuesSelAbilitySet (hkSetValuesSelAbilitySet) { /* Implement as required */ }
+
+		_getHrPreviewMeta () {
+			const $hrPreview = $(`<hr class="hr-3">`);
+			const hkPreview = this._getHkPreview({$hrPreview});
+			this._parent._addHookBase(this._propIsPreview, hkPreview);
+			hkPreview();
+
+			return {
+				$hrPreview,
+				hkPreview,
+			};
+		}
+
+		_getHkPreview ({$hrPreview}) {
+			return () => $hrPreview.toggleVe(this._parent._state[this._propIsPreview]);
+		}
+	};
+
+	static _RenderLevelOneRace = class extends this._RenderLevelOneEntity {
+		_title = "Race";
+		_titleShort = "Race";
+		_propIxEntity = "common_ixRace";
+		_propIxAbilityScoreSet = "common_ixAbilityScoreSetRace";
+		_propData = "_races";
+		_propModalFilter = "_modalFilterRaces";
+		_propIsPreview = "common_isPreviewRace";
+		_propEntity = "race";
+		_page = UrlUtil.PG_RACES;
+		_propChoiceMetasFrom = "common_raceChoiceMetasFrom";
+		_propChoiceWeighted = "common_raceChoiceMetasWeighted";
+
+		render () {
+			const out = super.render();
+
+			const {$btnToggleTashasPin, $dispTashas} = this._$getPtsTashas();
+
+			out.$stgSel.append($$`<label class="ve-flex-v-center mb-1">
+				<div class="mr-2">Allow Origin Customization</div>
+				${ComponentUiUtil.$getCbBool(this._parent, "common_isTashas")}
+			</label>`);
+
+			out.$stgSel.append($$`<div class="ve-flex">
+				<div class="ve-small ve-muted italic mr-1">${Renderer.get().render(`An {@variantrule Customizing Your Origin|TCE|optional rule}`)}</div>
+				${$btnToggleTashasPin}
+				<div class="ve-small ve-muted italic ml-1">${Renderer.get().render(`from Tasha's Cauldron of Everything, page 8.`)}</div>
+			</div>`);
+
+			out.$dispTashas = $dispTashas;
+
+			return out;
+		}
+
+		_pb_getAbilityList () {
+			return this._parent._pb_getRaceAbilityList();
+		}
+
+		_pb_getAbility () {
+			return this._parent._pb_getRaceAbility();
+		}
+
+		_bindAdditionalHooks_hkIxEntity (hkIxEntity) {
+			this._parent._addHookBase("common_isTashas", hkIxEntity);
+		}
+
+		_bindAdditionalHooks_hkSetValuesSelAbilitySet (hkSetValuesSelAbilitySet) {
+			this._parent._addHookBase("common_isTashas", hkSetValuesSelAbilitySet);
+		}
+
+		_getHrPreviewMeta () {
+			const out = super._getHrPreviewMeta();
+			const {hkPreview} = out;
+			this._parent._addHookBase("common_isShowTashasRules", hkPreview);
+			return out;
+		}
+
+		_getHkPreview ({$hrPreview}) {
+			return () => $hrPreview.toggleVe(this._parent._state[this._propIsPreview] && this._parent._state.common_isShowTashasRules);
+		}
+
+		_$getPtsTashas () {
+			const $btnToggleTashasPin = ComponentUiUtil.$getBtnBool(
+				this._parent,
+				"common_isShowTashasRules",
+				{
+					html: `<button class="btn btn-xxs btn-default ve-small p-0 statgen-shared__btn-toggle-tashas-rules ve-flex-vh-center" title="Toggle &quot;Customizing Your Origin&quot; Section"><span class="glyphicon glyphicon-eye-open"></span></button>`,
+				},
+			);
+
+			const $dispTashas = $(`<div class="ve-flex-col"><div class="italic ve-muted">Loading...</div></div>`);
+			DataLoader.pCacheAndGet(UrlUtil.PG_VARIANTRULES, Parser.SRC_TCE, UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_VARIANTRULES]({name: "Customizing Your Origin", source: Parser.SRC_TCE}))
+				.then(rule => {
+					$$($dispTashas.empty())`${Renderer.hover.$getHoverContent_stats(UrlUtil.PG_VARIANTRULES, rule)}<hr class="hr-3">`;
+				});
+			const hkIsShowTashas = () => {
+				$dispTashas.toggleVe(this._parent._state.common_isShowTashasRules);
+			};
+			this._parent._addHookBase("common_isShowTashasRules", hkIsShowTashas);
+			hkIsShowTashas();
+
+			return {
+				$btnToggleTashasPin,
+				$dispTashas,
+			};
+		}
+	};
+
+	_renderLevelOneRace = new this.constructor._RenderLevelOneRace({parent: this});
+
+	static _RenderLevelOneBackground = class extends this._RenderLevelOneEntity {
+		_title = "Background";
+		_titleShort = "Backg.";
+		_propIxEntity = "common_ixBackground";
+		_propIxAbilityScoreSet = "common_ixAbilityScoreSetBackground";
+		_propData = "_backgrounds";
+		_propModalFilter = "_modalFilterBackgrounds";
+		_propIsPreview = "common_isPreviewBackground";
+		_propEntity = "background";
+		_page = UrlUtil.PG_BACKGROUNDS;
+		_propChoiceMetasFrom = "common_backgroundChoiceMetasFrom";
+		_propChoiceWeighted = "common_backgroundChoiceMetasWeighted";
+
+		_pb_getAbilityList () {
+			return this._parent._pb_getBackgroundAbilityList();
+		}
+
+		_pb_getAbility () {
+			return this._parent._pb_getBackgroundAbility();
+		}
+	};
+
+	_renderLevelOneBackground = new this.constructor._RenderLevelOneBackground({parent: this});
 
 	_render_isLevelUp ($wrpTab) {
 		const $wrpsExisting = Parser.ABIL_ABVS.map(ab => {
@@ -1128,12 +1419,7 @@ class StatGenUi extends BaseComponent {
 		};
 	}
 
-	_pb_unhookRaceRender () {
-		this._pbRaceHookMetas.forEach(it => it.unhook());
-		this._pbRaceHookMetas = [];
-	}
-
-	_pb_getRacialAbilityList () {
+	_pb_getRaceAbilityList () {
 		const race = this.race;
 		if (!race?.ability?.length) return null;
 
@@ -1172,8 +1458,18 @@ class StatGenUi extends BaseComponent {
 			});
 	}
 
-	_pb_getRacialAbility () {
-		return this._pb_getRacialAbilityList()?.[this._state.common_ixAbilityScoreSet || 0];
+	_pb_getBackgroundAbilityList () {
+		const background = this.background;
+		if (!background?.ability?.length) return null;
+		return background.ability;
+	}
+
+	_pb_getRaceAbility () {
+		return this._pb_getRaceAbilityList()?.[this._state.common_ixAbilityScoreSetRace || 0];
+	}
+
+	_pb_getBackgroundAbility () {
+		return this._pb_getBackgroundAbilityList()?.[this._state.common_ixAbilityScoreSetBackground || 0];
 	}
 
 	_pb_getPointsRemaining (baseState) {
@@ -1186,122 +1482,6 @@ class StatGenUi extends BaseComponent {
 		}).reduce((a, b) => a + b, 0);
 
 		return this._state.pb_budget - spent;
-	}
-
-	_render_pointBuy_races ($wrpRaces) {
-		$wrpRaces.empty();
-
-		const fromRace = this._pb_getRacialAbility();
-		if (fromRace == null) return false;
-
-		let $ptBase = null;
-		if (Parser.ABIL_ABVS.some(it => fromRace[it])) {
-			const $wrpsRace = Parser.ABIL_ABVS.map(ab => {
-				return $$`<div class="my-1 statgen-pb__cell">
-					<input class="form-control form-control--minimal statgen-shared__ipt text-right" type="number" readonly value="${fromRace[ab] || 0}">
-				</div>`;
-			});
-
-			$ptBase = $$`<div class="ve-flex-col mr-3">
-				<div class="my-1 statgen-pb__header ve-flex-vh-center">Static</div>
-				${$wrpsRace}
-			</div>`;
-		}
-
-		let $ptChooseFrom = null;
-		if (fromRace.choose && fromRace.choose.from) {
-			const amount = fromRace.choose.amount || 1;
-			const count = fromRace.choose.count || 1;
-
-			const $wrpsChoose = Parser.ABIL_ABVS.map(ab => {
-				if (!fromRace.choose.from.includes(ab)) return `<div class="my-1 statgen-pb__cell"></div>`;
-
-				const $cb = $(`<input type="checkbox">`)
-					.change(() => {
-						const existing = this._state.common_raceChoiceMetasFrom.find(it => it.ability === ab);
-						if (existing) {
-							this._state.common_raceChoiceMetasFrom = this._state.common_raceChoiceMetasFrom.filter(it => it !== existing);
-							return;
-						}
-
-						// If we're already at the max number of choices, remove the oldest one
-						if (this._state.common_raceChoiceMetasFrom.length >= count) {
-							while (this._state.common_raceChoiceMetasFrom.length >= count) this._state.common_raceChoiceMetasFrom.shift();
-							this._state.common_raceChoiceMetasFrom = [...this._state.common_raceChoiceMetasFrom];
-						}
-
-						this._state.common_raceChoiceMetasFrom = [
-							...this._state.common_raceChoiceMetasFrom,
-							{ability: ab, amount},
-						];
-					});
-
-				const hk = () => $cb.prop("checked", this._state.common_raceChoiceMetasFrom.some(it => it.ability === ab));
-				this._addHookBase("common_raceChoiceMetasFrom", hk);
-				this._pbRaceHookMetas.push({unhook: () => this._removeHookBase("common_raceChoiceMetasFrom", hk)});
-				hk();
-
-				return $$`<label class="my-1 statgen-pb__cell ve-flex-vh-center">${$cb}</label>`;
-			});
-
-			$ptChooseFrom = $$`<div class="ve-flex-col mr-3">
-				<div class="my-1 statgen-pb__header statgen-pb__header--choose-from ve-flex-vh-center">
-					<div class="${count !== 1 ? `mr-1` : ""}">${UiUtil.intToBonus(amount, {isPretty: true})}</div>${count !== 1 ? `<div class="ve-small ve-muted">(x${count})</div>` : ""}
-				</div>
-				${$wrpsChoose}
-			</div>`;
-		}
-
-		let $ptsChooseWeighted = null;
-		if (fromRace.choose && fromRace.choose.weighted && fromRace.choose.weighted.weights) {
-			$ptsChooseWeighted = fromRace.choose.weighted.weights.map((weight, ixWeight) => {
-				const $wrpsChoose = Parser.ABIL_ABVS.map(ab => {
-					if (!fromRace.choose.weighted.from.includes(ab)) return `<div class="my-1 statgen-pb__cell"></div>`;
-
-					const $cb = $(`<input type="checkbox">`)
-						.change(() => {
-							const existing = this._state.common_raceChoiceMetasWeighted.find(it => it.ability === ab && it.ix === ixWeight);
-							if (existing) {
-								this._state.common_raceChoiceMetasWeighted = this._state.common_raceChoiceMetasWeighted.filter(it => it !== existing);
-								return;
-							}
-
-							// Remove other selections for the same ability score, or selections for the same weight
-							const withSameAbil = this._state.common_raceChoiceMetasWeighted.filter(it => it.ability === ab || it.ix === ixWeight);
-							if (withSameAbil.length) {
-								this._state.common_raceChoiceMetasWeighted = this._state.common_raceChoiceMetasWeighted.filter(it => it.ability !== ab && it.ix !== ixWeight);
-							}
-
-							this._state.common_raceChoiceMetasWeighted = [
-								...this._state.common_raceChoiceMetasWeighted,
-								{ability: ab, amount: weight, ix: ixWeight},
-							];
-						});
-
-					const hk = () => {
-						$cb.prop("checked", this._state.common_raceChoiceMetasWeighted.some(it => it.ability === ab && it.ix === ixWeight));
-					};
-					this._addHookBase("common_raceChoiceMetasWeighted", hk);
-					this._pbRaceHookMetas.push({unhook: () => this._removeHookBase("common_raceChoiceMetasWeighted", hk)});
-					hk();
-
-					return $$`<label class="my-1 statgen-pb__cell ve-flex-vh-center">${$cb}</label>`;
-				});
-
-				return $$`<div class="ve-flex-col mr-3">
-					<div class="my-1 statgen-pb__header statgen-pb__header--choose-from ve-flex-vh-center">${UiUtil.intToBonus(weight, {isPretty: true})}</div>
-					${$wrpsChoose}
-				</div>`;
-			});
-		}
-
-		$$($wrpRaces)`
-			${$ptBase}
-			${$ptChooseFrom}
-			${$ptsChooseWeighted}
-		`;
-
-		return $ptBase || $ptChooseFrom || $ptsChooseWeighted;
 	}
 
 	_rolled_getTotalScore (ab) {
@@ -1337,24 +1517,37 @@ class StatGenUi extends BaseComponent {
 		let total = 0;
 
 		if (!this._isLevelUp) {
-			const fromRace = this._pb_getRacialAbility();
-			if (fromRace) {
-				if (fromRace[ab]) total += fromRace[ab];
+			const handleEntityAbility = ({fromEntity, propChoiceMetasFrom, propChoiceWeighted}) => {
+				if (fromEntity) {
+					if (fromEntity[ab]) total += fromEntity[ab];
 
-				if (fromRace.choose && fromRace.choose.from) {
-					total += this._state.common_raceChoiceMetasFrom
-						.filter(it => it.ability === ab)
-						.map(it => it.amount)
-						.reduce((a, b) => a + b, 0);
-				}
+					if (fromEntity.choose && fromEntity.choose.from) {
+						total += this._state[propChoiceMetasFrom]
+							.filter(it => it.ability === ab)
+							.map(it => it.amount)
+							.reduce((a, b) => a + b, 0);
+					}
 
-				if (fromRace.choose && fromRace.choose.weighted && fromRace.choose.weighted.weights) {
-					total += this._state.common_raceChoiceMetasWeighted
-						.filter(it => it.ability === ab)
-						.map(it => it.amount)
-						.reduce((a, b) => a + b, 0);
+					if (fromEntity.choose && fromEntity.choose.weighted && fromEntity.choose.weighted.weights) {
+						total += this._state[propChoiceWeighted]
+							.filter(it => it.ability === ab)
+							.map(it => it.amount)
+							.reduce((a, b) => a + b, 0);
+					}
 				}
-			}
+			};
+
+			handleEntityAbility({
+				fromEntity: this._pb_getRaceAbility(),
+				propChoiceMetasFrom: "common_raceChoiceMetasFrom",
+				propChoiceWeighted: "common_raceChoiceMetasWeighted",
+			});
+
+			handleEntityAbility({
+				fromEntity: this._pb_getBackgroundAbility(),
+				propChoiceMetasFrom: "common_backgroundChoiceMetasFrom",
+				propChoiceWeighted: "common_backgroundChoiceMetasWeighted",
+			});
 		}
 
 		const formDataAsi = this._compAsi.getFormData();
@@ -1366,10 +1559,26 @@ class StatGenUi extends BaseComponent {
 	getSaveableState () {
 		const out = super.getSaveableState();
 
-		if (out.common_ixRace != null && !~this._state.common_ixRace) {
-			out._pb_raceHash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES](this._races[out.common_ixRace]);
-			delete out.common_ixRace;
-		}
+		const handleEntity = ({propIxEntity, page, propData, propHash}) => {
+			if (out[propIxEntity] != null && !~this._state[propIxEntity]) {
+				out[propHash] = UrlUtil.URL_TO_HASH_BUILDER[page](this[propData][out[propIxEntity]]);
+				delete out[propIxEntity];
+			}
+		};
+
+		handleEntity({
+			propIxEntity: "common_ixRace",
+			page: UrlUtil.PG_RACES,
+			propData: "_races",
+			propHash: "_pb_raceHash",
+		});
+
+		handleEntity({
+			propIxEntity: "common_ixBackground",
+			page: UrlUtil.PG_BACKGROUNDS,
+			propData: "_backgrounds",
+			propHash: "_pb_backgroundHash",
+		});
 
 		return out;
 	}
@@ -1388,13 +1597,29 @@ class StatGenUi extends BaseComponent {
 
 		MiscUtil.getOrSet(saved, "state", {});
 
-		if (saved._pb_raceHash) {
-			const ixRace = this._races.findIndex(it => {
-				const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES](it);
-				return hash === saved._pb_raceHash;
+		const handleEntityHash = ({propHash, page, propData, propIxEntity}) => {
+			if (!saved[propHash]) return;
+
+			const ixEntity = this[propData].findIndex(it => {
+				const hash = UrlUtil.URL_TO_HASH_BUILDER[page](it);
+				return hash === saved[propHash];
 			});
-			if (~ixRace) saved.common_ixRace = ixRace;
-		}
+			if (~ixEntity) saved[propIxEntity] = ixEntity;
+		};
+
+		handleEntityHash({
+			propHash: "_pb_raceHash",
+			page: UrlUtil.PG_RACES,
+			propData: "_races",
+			propIxEntity: "common_ixRace",
+		});
+
+		handleEntityHash({
+			propHash: "_pb_backgroundHash",
+			page: UrlUtil.PG_BACKGROUNDS,
+			propData: "_backgrounds",
+			propIxEntity: "common_ixBackground",
+		});
 
 		const validKeys = new Set(Object.keys(this._getDefaultState()));
 		const validKeyPrefixes = [
@@ -1434,6 +1659,9 @@ class StatGenUi extends BaseComponent {
 
 			common_raceChoiceMetasFrom: [],
 			common_raceChoiceMetasWeighted: [],
+
+			common_backgroundChoiceMetasFrom: [],
+			common_backgroundChoiceMetasWeighted: [],
 		};
 	}
 
@@ -1501,6 +1729,10 @@ class StatGenUi extends BaseComponent {
 			common_isShowTashasRules: false,
 			common_ixRace: null,
 			common_ixAbilityScoreSet: 0,
+
+			common_isPreviewBackground: false,
+			common_ixBackground: null,
+			common_ixAbilityScoreSetBackground: 0,
 
 			common_pulseAsi: false, // Used as a general pulse for all changes in form data
 			common_cntAsi: 0,
@@ -1612,7 +1844,7 @@ StatGenUi.CompAsi = class extends BaseComponent {
 		super();
 		this._parent = parent;
 
-		this._metasAsi = {ability: [], race: [], custom: []};
+		this._metasAsi = {ability: [], race: [], background: [], custom: []};
 
 		this._doPulseThrottled = MiscUtil.throttle(this._doPulse_.bind(this), 50);
 	}
@@ -2019,23 +2251,34 @@ StatGenUi.CompAsi = class extends BaseComponent {
 	render ($wrpAsi) {
 		const $wrpRowsAsi = $(`<div class="ve-flex-col w-100 overflow-y-auto"></div>`);
 		const $wrpRowsRace = $(`<div class="ve-flex-col w-100 overflow-y-auto"></div>`);
+		const $wrpRowsBackground = $(`<div class="ve-flex-col w-100 overflow-y-auto"></div>`);
 		const $wrpRowsCustom = $(`<div class="ve-flex-col w-100 overflow-y-auto"></div>`);
 
 		this._render_renderAsiFeatSection("common_cntAsi", "ability", $wrpRowsAsi);
 		this._render_renderAsiFeatSection("common_cntFeatsCustom", "custom", $wrpRowsCustom);
 		this._render_renderAdditionalFeatSection({propEntity: "common_ixRace", namespace: "race", $wrpRows: $wrpRowsRace});
+		this._render_renderAdditionalFeatSection({propEntity: "common_ixBackground", namespace: "background", $wrpRows: $wrpRowsBackground});
 
-		const $stgRace = $$`<div class="ve-flex-col">
-			<hr class="hr-3 hr--dotted">
-			<h4 class="my-2 bold">Racial Feats</h4>
-			${$wrpRowsRace}
-		</div>`;
-		const hkIxRace = () => {
-			const race = this._parent.race;
-			$stgRace.toggleVe(!this._parent.isLevelUp && !!race?.feats);
+		const $getStgEntity = ({title, $wrpRows, propEntity, propIxEntity}) => {
+			const $stg = $$`<div class="ve-flex-col">
+				<hr class="hr-3 hr--dotted">
+				<h4 class="my-2 bold">${title} Feats</h4>
+				${$wrpRows}
+			</div>`;
+
+			const hkIxEntity = () => {
+				const entity = this._parent[propEntity];
+				$stg.toggleVe(!this._parent.isLevelUp && !!entity?.feats);
+			};
+			this._parent.addHookBase(propIxEntity, hkIxEntity);
+			hkIxEntity();
+
+			return $stg;
 		};
-		this._parent.addHookBase("common_ixRace", hkIxRace);
-		hkIxRace();
+
+		const $stgRace = $getStgEntity({title: "Race", $wrpRows: $wrpRowsRace, propEntity: "race", propIxEntity: "common_ixRace"});
+
+		const $stgBackground = $getStgEntity({title: "Background", $wrpRows: $wrpRowsBackground, propEntity: "background", propIxEntity: "common_ixBackground"});
 
 		const $iptCountFeatsCustom = ComponentUiUtil.$getIptInt(this._parent, "common_cntFeatsCustom", 0, {min: 0, max: StatGenUi._MAX_CUSTOM_FEATS})
 			.addClass("w-100p text-center");
@@ -2046,6 +2289,8 @@ StatGenUi.CompAsi = class extends BaseComponent {
 			${$wrpRowsAsi}
 
 			${$stgRace}
+
+			${$stgBackground}
 
 			<hr class="hr-3 hr--dotted">
 			<h4 class="my-2 bold">Additional Feats</h4>
@@ -2200,11 +2445,12 @@ StatGenUi.CompAsi = class extends BaseComponent {
 	getFormData () {
 		const outs = [];
 		const isFormCompletes = [];
-		const feats = {ability: [], race: [], custom: []};
+		const feats = {ability: [], race: [], background: [], custom: []};
 
 		this._getFormData_getForNamespace_basic(outs, isFormCompletes, feats, "common_cntAsi", "ability");
 		this._getFormData_getForNamespace_basic(outs, isFormCompletes, feats, "common_cntFeatsCustom", "custom");
 		this._getFormData_getForNamespace_additional(outs, isFormCompletes, feats, "race");
+		this._getFormData_getForNamespace_additional(outs, isFormCompletes, feats, "background");
 
 		const data = {};
 		outs.filter(Boolean).forEach(abilBonuses => Object.entries(abilBonuses).forEach(([ab, bonus]) => data[ab] = (data[ab] || 0) + bonus));

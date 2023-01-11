@@ -6,14 +6,14 @@ function handleFail () {
 }
 
 async function main () {
-	if (!(await require("./test-tags"))) handleFail();
-	if (!(await require("./test-images"))) handleFail();
-	await require("./test-pagenumbers"); // don't fail on missing page numbers
-	if (!(await require("./test-json"))) handleFail();
-	if (!(await require("./test-misc"))) handleFail();
-	if (!(await require("./test-multisource.js"))) handleFail();
-	if (!(await require("./test-language-fonts.js"))) handleFail();
-	if (!(await require("./test-foundry.js"))) handleFail();
+	if (!(await (await import("./test-tags.js")).default)) handleFail();
+	if (!(await (await import("./test-images.js")).default)) handleFail();
+	await (await import("./test-pagenumbers.js")).default; // don't fail on missing page numbers
+	if (!(await (await import("./test-json.js")).default)) handleFail();
+	if (!(await (await import("./test-misc.js")).default)) handleFail();
+	if (!(await (await import("./test-multisource.js")).default)) handleFail();
+	if (!(await (await import("./test-language-fonts.js")).default)) handleFail();
+	if (!(await (await import("./test-foundry.js")).default)) handleFail();
 	process.exit(0);
 }
 

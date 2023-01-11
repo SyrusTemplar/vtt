@@ -556,19 +556,38 @@ class BookUtil {
 			return this._booksHashChange_pHandleFound({fromIndex, bookId, hashParts, $contents, isNewBook});
 		}
 
-		// if it's homebrew
-		const fromIndexBrew = BookUtil.bookIndexBrew.find(bk => UrlUtil.encodeForHash(bk.id) === UrlUtil.encodeForHash(bookId));
-		if (fromIndexBrew) {
-			const brew = await BrewUtil2.pGetBrewProcessed();
-			if (!brew[BookUtil.propHomebrewData]) return this._booksHashChange_handleNotFound({$contents, bookId});
-
-			const bookData = (brew[BookUtil.propHomebrewData] || []).find(bk => UrlUtil.encodeForHash(bk.id) === UrlUtil.encodeForHash(bookId));
-
-			if (!bookData) return this._booksHashChange_handleNotFound({$contents, bookId});
-			return this._booksHashChange_pHandleFound({fromIndex: fromIndexBrew, homebrewData: bookData, bookId, hashParts, $contents, isNewBook});
-		}
+		// if it's prerelease/homebrew
+		if (await this._booksHashChange_pDoLoadPrerelease({bookId, $contents, hashParts, isNewBook})) return;
+		if (await this._booksHashChange_pDoLoadBrew({bookId, $contents, hashParts, isNewBook})) return;
 
 		return this._booksHashChange_handleNotFound({$contents, bookId});
+	}
+
+	static async _booksHashChange_pDoLoadPrerelease ({bookId, $contents, hashParts, isNewBook}) {
+		return this._booksHashChange_pDoLoadPrereleaseBrew({bookId, $contents, hashParts, isNewBook, brewUtil: PrereleaseUtil, propIndex: "bookIndexPrerelease"});
+	}
+
+	static async _booksHashChange_pDoLoadBrew ({bookId, $contents, hashParts, isNewBook}) {
+		return this._booksHashChange_pDoLoadPrereleaseBrew({bookId, $contents, hashParts, isNewBook, brewUtil: BrewUtil2, propIndex: "bookIndexBrew"});
+	}
+
+	static async _booksHashChange_pDoLoadPrereleaseBrew ({bookId, $contents, hashParts, isNewBook, brewUtil, propIndex}) {
+		const fromIndexBrew = BookUtil[propIndex].find(bk => UrlUtil.encodeForHash(bk.id) === UrlUtil.encodeForHash(bookId));
+		if (!fromIndexBrew) return false;
+
+		const brew = await brewUtil.pGetBrewProcessed();
+		if (!brew[BookUtil.propHomebrewData]) return false;
+
+		const bookData = (brew[BookUtil.propHomebrewData] || [])
+			.find(bk => UrlUtil.encodeForHash(bk.id) === UrlUtil.encodeForHash(bookId));
+
+		if (!bookData) {
+			this._booksHashChange_handleNotFound({$contents, bookId});
+			return true; // We found the book, just not its data
+		}
+
+		await this._booksHashChange_pHandleFound({fromIndex: fromIndexBrew, homebrewData: bookData, bookId, hashParts, $contents, isNewBook});
+		return true;
 	}
 
 	static _booksHashChange_getCleanName (fromIndex) {
@@ -914,6 +933,7 @@ BookUtil._$CACHE_HEADER_BLOCKS = {};
 // region Hashchange
 BookUtil.baseDataUrl = "";
 BookUtil.bookIndex = [];
+BookUtil.bookIndexPrerelease = [];
 BookUtil.bookIndexBrew = [];
 BookUtil.propHomebrewData = null;
 BookUtil.typeTitle = null;
@@ -1123,12 +1143,10 @@ BookUtil.Search = class {
 };
 BookUtil.Search._EXTRA_WORDS = 2;
 
+globalThis.BookUtil = BookUtil;
+
 if (typeof window !== "undefined") {
 	window.addEventListener("load", () => $("body").on("click", "a", (evt) => {
 		BookUtil._handleCheckReNav(evt);
 	}));
-}
-
-if (typeof module !== "undefined") {
-	module.exports = BookUtil;
 }

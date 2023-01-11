@@ -1,6 +1,6 @@
-const fs = require("fs");
-require("../js/utils");
-const ut = require("./util");
+import * as fs from "fs";
+import "../js/utils.js";
+import * as ut from "./util.js";
 
 class GenVariantrules {
 	_doLoadAdventureData () {
@@ -121,4 +121,4 @@ GenVariantrules.ADVENTURE_ALLOWLIST = {};
 GenVariantrules._WALKER = null;
 
 const generator = new GenVariantrules();
-module.exports = generator.pRun();
+export default generator.pRun();

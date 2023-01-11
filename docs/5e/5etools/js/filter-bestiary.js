@@ -69,13 +69,13 @@ class PageFilterBestiary extends PageFilter {
 		this._sizeFilter = new Filter({
 			header: "Size",
 			items: [
-				SZ_TINY,
-				SZ_SMALL,
-				SZ_MEDIUM,
-				SZ_LARGE,
-				SZ_HUGE,
-				SZ_GARGANTUAN,
-				SZ_VARIES,
+				Parser.SZ_TINY,
+				Parser.SZ_SMALL,
+				Parser.SZ_MEDIUM,
+				Parser.SZ_LARGE,
+				Parser.SZ_HUGE,
+				Parser.SZ_GARGANTUAN,
+				Parser.SZ_VARIES,
 			],
 			displayFn: Parser.sizeAbvToFull,
 			itemSortFn: null,
@@ -218,7 +218,7 @@ class PageFilterBestiary extends PageFilter {
 			max: 9,
 			displayFn: it => Parser.getOrdinalForm(it),
 		});
-		this._spellKnownFilter = new Filter({header: "Spells Known", displayFn: (it) => it.split("|")[0].toTitleCase(), itemSortFn: SortUtil.ascSortLower});
+		this._spellKnownFilter = new SearchableFilter({header: "Spells Known", displayFn: (it) => it.split("|")[0].toTitleCase(), itemSortFn: SortUtil.ascSortLower});
 		this._dragonAgeFilter = new Filter({
 			header: "Dragon Age",
 			items: [...PageFilterBestiary._DRAGON_AGES],
@@ -348,7 +348,7 @@ class PageFilterBestiary extends PageFilter {
 	static _getSpellcasterMeta_stringHandler (spellSet, str) {
 		str.replace(PageFilterBestiary._RE_SPELL_TAG, (...m) => {
 			const parts = m[1].split("|").slice(0, 2);
-			parts[1] = parts[1] || SRC_PHB;
+			parts[1] = parts[1] || Parser.SRC_PHB;
 			spellSet.add(parts.join("|").toLowerCase());
 			return "";
 		});
@@ -542,10 +542,11 @@ class ModalFilterBestiary extends ModalFilter {
 	}
 
 	async _pLoadAllData () {
-		const brew = await BrewUtil2.pGetBrewProcessed();
-		const fromData = await DataUtil.monster.pLoadAll();
-		const fromBrew = brew.monster || [];
-		return [...fromData, ...fromBrew];
+		return [
+			...(await DataUtil.monster.pLoadAll()),
+			...((await PrereleaseUtil.pGetBrewProcessed()).monster || []),
+			...((await BrewUtil2.pGetBrewProcessed()).monster || []),
+		];
 	}
 
 	_getListItem (pageFilter, mon, itI) {
@@ -560,17 +561,17 @@ class ModalFilterBestiary extends ModalFilter {
 		const type = mon._pTypes.asText.uppercaseFirst();
 		const cr = mon._pCr;
 
-		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst--border veapp__list-row no-select lst__wrp-cells ${mon._versionBase_isVersion ? "ve-muted" : ""}">
+		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst--border veapp__list-row no-select lst__wrp-cells">
 			<div class="col-0-5 pl-0 ve-flex-vh-center">${this._isRadio ? `<input type="radio" name="radio" class="no-events">` : `<input type="checkbox" class="no-events">`}</div>
 
 			<div class="col-0-5 px-1 ve-flex-vh-center">
 				<div class="ui-list__btn-inline px-2" title="Toggle Preview (SHIFT to Toggle Info Preview)">[+]</div>
 			</div>
 
-			<div class="col-4 ${this._getNameStyle()}">${mon.name}</div>
+			<div class="col-4 ${mon._versionBase_isVersion ? "italic" : ""} ${this._getNameStyle()}">${mon._versionBase_isVersion ? `<span class="px-3"></span>` : ""}${mon.name}</div>
 			<div class="col-4">${type}</div>
 			<div class="col-2 text-center">${cr}</div>
-			<div class="col-1 text-center ${Parser.sourceJsonToColor(mon.source)} pr-0" title="${Parser.sourceJsonToFull(mon.source)}" ${BrewUtil2.sourceJsonToStyle(mon.source)}>${source}</div>
+			<div class="col-1 text-center ${Parser.sourceJsonToColor(mon.source)} pr-0" title="${Parser.sourceJsonToFull(mon.source)}" ${Parser.sourceJsonToStyle(mon.source)}>${source}</div>
 		</div>`;
 
 		const btnShowHidePreview = eleRow.firstElementChild.children[1].firstElementChild;

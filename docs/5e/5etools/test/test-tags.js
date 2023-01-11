@@ -1,40 +1,16 @@
-const fs = require("fs");
-require("../js/utils.js");
-require("../js/render.js");
-require("../js/render-dice.js");
-require("../js/hist.js");
-const utS = require("../node/util-search-index");
-require("../js/omnidexer.js");
-const ut = require("../node/util.js");
+import "../js/parser.js";
+import "../js/utils.js";
+import "../js/render.js";
+import "../js/render-dice.js";
+import "../js/hist.js";
+import "../js/utils-dataloader.js";
+import * as utS from "../node/util-search-index.js";
+import "../js/omnidexer.js";
+import * as ut from "../node/util.js";
+import {DataTesterBase, DataTester, ObjectWalker, BraceCheck, EscapeCharacterCheck} from "5etools-utils";
 
 const TIME_TAG = "\tRun duration";
 console.time(TIME_TAG);
-
-const MSG = {
-	LinkCheck: "",
-	ItemDataCheck: "",
-	ActionDataCheck: "",
-	DeityDataCheck: "",
-	BraceCheck: "",
-	FilterCheck: "",
-	ScaleDiceCheck: "",
-	StripTagTest: "",
-	AreaCheck: "",
-	LootCheck: "",
-	TableDiceTest: "",
-	SpellDataCheck: "",
-	EscapeCharacterCheck: "",
-	DuplicateEntityCheck: "",
-	ClassDataCheck: "",
-	RaceDataCheck: "",
-	FeatDataCheck: "",
-	BackgroundDataCheck: "",
-	BestiaryDataCheck: "",
-	RefTagCheck: "",
-	TestCopyCheck: "",
-	HasFluffCheck: "",
-	AdventureBookTagCheck: "",
-};
 
 const WALKER = MiscUtil.getWalker({
 	keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST,
@@ -60,14 +36,12 @@ class TagTestUtil {
 	}
 
 	static async _pInit_pPopulateClassSubclassIndex () {
-		ut.patchLoadJson();
 		const classData = await DataUtil.class.loadJSON();
-		ut.unpatchLoadJson();
 
 		const tmpClassIxFeatures = {};
 		classData.class.forEach(cls => {
 			cls.name = cls.name.toLowerCase();
-			cls.source = (cls.source || SRC_PHB).toLowerCase();
+			cls.source = (cls.source || Parser.SRC_PHB).toLowerCase();
 
 			this._CLASS_SUBCLASS_LOOKUP[cls.source] = this._CLASS_SUBCLASS_LOOKUP[cls.source] || {};
 			this._CLASS_SUBCLASS_LOOKUP[cls.source][cls.name] = {};
@@ -90,13 +64,13 @@ class TagTestUtil {
 			if (sc.className === VeCt.STR_GENERIC.toLowerCase() && sc.classSource === VeCt.STR_GENERIC.toLowerCase()) return;
 
 			this._CLASS_SUBCLASS_LOOKUP[sc.classSource][sc.className][sc.source] = this._CLASS_SUBCLASS_LOOKUP[sc.classSource][sc.className][sc.source] || {};
-			this._CLASS_SUBCLASS_LOOKUP[sc.classSource][sc.className][sc.source][sc.shortName] = MiscUtil.copy(MiscUtil.get(tmpClassIxFeatures, sc.classSource, sc.className));
+			this._CLASS_SUBCLASS_LOOKUP[sc.classSource][sc.className][sc.source][sc.shortName] = MiscUtil.copyFast(MiscUtil.get(tmpClassIxFeatures, sc.classSource, sc.className));
 		});
 	}
 
 	static getSubclassFeatureIndex (className, classSource, subclassName, subclassSource) {
 		classSource = classSource || Parser.getTagSource("class");
-		subclassSource = subclassSource || SRC_PHB;
+		subclassSource = subclassSource || Parser.SRC_PHB;
 
 		className = className.toLowerCase();
 		classSource = classSource.toLowerCase();
@@ -105,27 +79,10 @@ class TagTestUtil {
 
 		return MiscUtil.get(this._CLASS_SUBCLASS_LOOKUP, classSource, className, subclassSource, subclassName);
 	}
-
-	static _isIgnoredFile (file) {
-		return file === "./data/changelog.json";
-	}
-
-	static _isIgnoredDir (directory) {
-		return false;
-	}
-
-	static fileRecurse (file, fileHandler, doParse, filenameMatcher) {
-		if (file.endsWith(".json") && !this._isIgnoredFile(file) && (filenameMatcher == null || filenameMatcher.test(file.split("/").last()))) {
-			doParse ? fileHandler(file, JSON.parse(fs.readFileSync(file, "utf-8"))) : fileHandler(file);
-			Object.keys(MSG).forEach(k => {
-				if (MSG[k] && MSG[k].trim() && MSG[k].slice(-5) !== "\n---\n") MSG[k] = `${MSG[k].trimRight()}\n---\n`;
-			});
-		} else if (fs.lstatSync(file).isDirectory() && !this._isIgnoredDir(file)) fs.readdirSync(file).forEach(nxt => this.fileRecurse(`${file}/${nxt}`, fileHandler, doParse, filenameMatcher));
-	}
 }
 
-class GenericDataCheck {
-	static _doCheckSeeAlso ({entity, prop, propMsg, tag, file}) {
+class GenericDataCheck extends DataTesterBase {
+	static _doCheckSeeAlso ({entity, prop, tag, file}) {
 		if (!entity[prop]) return;
 
 		const defaultSource = Parser.getTagSource(tag).toLowerCase();
@@ -136,18 +93,18 @@ class GenericDataCheck {
 			return it;
 		}).unique();
 		if (deduped.length !== entity[prop].length) {
-			MSG[propMsg] += `Duplicate "${prop}" in ${file} for ${entity.source}, ${entity.name}\n`;
+			this._addMessage(`Duplicate "${prop}" in ${file} for ${entity.source}, ${entity.name}\n`);
 		}
 
 		entity[prop].forEach(s => {
 			const url = getEncoded(s, tag);
-			if (!ALL_URLS.has(url)) MSG[propMsg] += `Missing link: ${s} in file ${file} (evaluates to "${url}") in "${prop}"\nSimilar URLs were:\n${getSimilar(url)}\n`;
+			if (!ALL_URLS.has(url)) this._addMessage(`Missing link: ${s} in file ${file} (evaluates to "${url}") in "${prop}"\nSimilar URLs were:\n${getSimilar(url)}\n`);
 		});
 	}
 
-	static _testAdditionalSpells_testSpellExists (file, msgProp, spellOrObj) {
+	static _testAdditionalSpells_testSpellExists (file, spellOrObj) {
 		if (typeof spellOrObj === "object") {
-			if (spellOrObj.choose) {
+			if (spellOrObj.choose || spellOrObj.all) {
 				// e.g. "level=0|class=Sorcerer"
 				// (no-op)
 			} else throw new Error(`Unhandled additionalSpells special object: ${JSON.stringify(spellOrObj)}`);
@@ -159,21 +116,27 @@ class GenericDataCheck {
 		const url = getEncoded(spellOrObj, "spell");
 
 		if (!ALL_URLS.has(url)) {
-			MSG[msgProp] += `Missing link: ${url} in file ${file} (evaluates to "${url}") in "additionalSpells"\nSimilar URLs were:\n${getSimilar(url)}\n`;
+			this._addMessage(`Missing link: ${url} in file ${file} (evaluates to "${url}") in "additionalSpells"\nSimilar URLs were:\n${getSimilar(url)}\n`);
 		}
 	}
 
-	static _testAdditionalSpells (file, msgProp, obj) {
+	static _ADDITIONAL_SPELLS_IGNORED_KEYS = new Set([
+		"ability",
+		"name",
+		"resourceName",
+	]);
+
+	static _testAdditionalSpells (file, obj) {
 		if (!obj.additionalSpells) return;
 		obj.additionalSpells
 			.forEach(additionalSpellOption => {
 				Object.entries(additionalSpellOption)
 					.forEach(([k, levelToSpells]) => {
-						if (k === "ability" || k === "name") return;
+						if (this._ADDITIONAL_SPELLS_IGNORED_KEYS.has(k)) return;
 
 						Object.values(levelToSpells).forEach(spellListOrMeta => {
 							if (spellListOrMeta instanceof Array) {
-								return spellListOrMeta.forEach(sp => this._testAdditionalSpells_testSpellExists(file, msgProp, sp));
+								return spellListOrMeta.forEach(sp => this._testAdditionalSpells_testSpellExists(file, sp));
 							}
 
 							Object.entries(spellListOrMeta)
@@ -181,12 +144,13 @@ class GenericDataCheck {
 									switch (prop) {
 										case "daily":
 										case "rest":
-											Object.values(val).forEach(spellList => spellList.forEach(sp => this._testAdditionalSpells_testSpellExists(file, msgProp, sp)));
+										case "resource":
+											Object.values(val).forEach(spellList => spellList.forEach(sp => this._testAdditionalSpells_testSpellExists(file, sp)));
 											break;
 										case "will":
 										case "ritual":
 										case "_":
-											val.forEach(sp => this._testAdditionalSpells_testSpellExists(file, msgProp, sp));
+											val.forEach(sp => this._testAdditionalSpells_testSpellExists(file, sp));
 											break;
 										default: throw new Error(`Unhandled additionalSpells prop "${prop}"`);
 									}
@@ -196,7 +160,7 @@ class GenericDataCheck {
 			});
 	}
 
-	static _testAdditionalFeats (file, msgProp, obj) {
+	static _testAdditionalFeats (file, obj) {
 		if (!obj.feats) return;
 
 		obj.feats.forEach(featsObj => {
@@ -206,41 +170,12 @@ class GenericDataCheck {
 
 					const url = getEncoded(k, "feat");
 					if (!ALL_URLS.has(url)) {
-						MSG[msgProp] += `Missing link: ${url} in file ${file} (evaluates to "${url}") in "feats"\nSimilar URLs were:\n${getSimilar(url)}\n`;
+						this._addMessage(`Missing link: ${url} in file ${file} (evaluates to "${url}") in "feats"\nSimilar URLs were:\n${getSimilar(url)}\n`);
 					}
 				});
 		});
 	}
 }
-
-// Runs multiple handlers on each file, to avoid re-reading each file for each handler
-class ParsedJsonChecker {
-	static runAll () {
-		TagTestUtil.fileRecurse("./data", (file, contents) => {
-			ParsedJsonChecker._FILE_HANDLERS.forEach(handler => handler(file, contents));
-		}, true);
-	}
-
-	static register (clazz) {
-		ParsedJsonChecker._FILE_HANDLERS.push(clazz);
-	}
-
-	static addPrimitiveHandler (primitiveType, handler) {
-		ParsedJsonChecker._PRIMITIVE_HANDLERS[primitiveType].push(handler);
-	}
-
-	static checkFile (file, contents) {
-		return ut.dataRecurse(file, contents, this._PRIMITIVE_HANDLERS);
-	}
-}
-ParsedJsonChecker._FILE_HANDLERS = [];
-ParsedJsonChecker._PRIMITIVE_HANDLERS = {
-	undefined: [],
-	boolean: [],
-	number: [],
-	string: [],
-	object: [],
-};
 
 function getSimilar (url) {
 	// scan for a list of similar entries, to aid debugging
@@ -262,12 +197,12 @@ function getEncodedDeity (str, tag) {
 	return `${Renderer.hover.TAG_TO_PAGE[tag]}#${UrlUtil.encodeForHash([name, pantheon, Parser.getTagSource(tag, source)])}`.toLowerCase().trim();
 }
 
-class LinkCheck {
-	static addHandlers () {
-		ParsedJsonChecker.addPrimitiveHandler("string", LinkCheck.checkString);
+class LinkCheck extends DataTesterBase {
+	static registerParsedPrimitiveHandlers (parsedJsonChecker) {
+		parsedJsonChecker.addPrimitiveHandler("string", this._checkString.bind(this));
 	}
 
-	static checkString (file, str) {
+	static _checkString (str, {filePath}) {
 		let match;
 		while ((match = LinkCheck.RE.exec(str))) {
 			const tag = match[1];
@@ -299,7 +234,7 @@ class LinkCheck {
 			const url = `${Renderer.hover.TAG_TO_PAGE[tag]}#${UrlUtil.encodeForHash(toEncode)}`.toLowerCase().trim()
 				.replace(/%5c/gi, ""); // replace slashes
 			if (!ALL_URLS.has(url)) {
-				MSG.LinkCheck += `Missing link: ${match[0]} in file ${file} (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`;
+				this._addMessage(`Missing link: ${match[0]} in file ${filePath} (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`);
 			}
 		}
 	}
@@ -307,12 +242,12 @@ class LinkCheck {
 LinkCheck._RE_TAG_BLOCKLIST = new Set(["quickref"]);
 LinkCheck.RE = RegExp(`{@(${Object.keys(Parser.TAG_TO_DEFAULT_SOURCE).filter(tag => !LinkCheck._RE_TAG_BLOCKLIST.has(tag)).join("|")}) ([^}]*?)}`, "g");
 
-class ClassLinkCheck {
-	static addHandlers () {
-		ParsedJsonChecker.addPrimitiveHandler("string", ClassLinkCheck.checkString);
+class ClassLinkCheck extends DataTesterBase {
+	static registerParsedPrimitiveHandlers (parsedJsonChecker) {
+		parsedJsonChecker.addPrimitiveHandler("string", this._checkString.bind(this));
 	}
 
-	static checkString (file, str) {
+	static _checkString (str, {filePath}) {
 		// e.g. "{@class fighter|phb|and class feature added|Eldritch Knight|phb|2-0}"
 
 		let match;
@@ -327,11 +262,11 @@ class ClassLinkCheck {
 
 			const featureIndex = TagTestUtil.getSubclassFeatureIndex(className, classSource, subclassShortName, subclassSource);
 			if (!featureIndex) {
-				MSG.LinkCheck += `Missing subclass link: ${match[0]} in file ${file} -- could not find subclass with matching shortname/source\n`;
+				this._addMessage(`Missing subclass link: ${match[0]} in file ${filePath} -- could not find subclass with matching shortname/source\n`);
 			}
 
 			if (featureIndex && ixFeature && !featureIndex.includes(ixFeature)) {
-				MSG.LinkCheck += `Malformed subclass link: ${match[0]} in file ${file} -- feature index "${ixFeature}" was outside expected range\n`;
+				this._addMessage(`Malformed subclass link: ${match[0]} in file ${filePath} -- feature index "${ixFeature}" was outside expected range\n`);
 			}
 		}
 	}
@@ -350,7 +285,7 @@ class ItemDataCheck extends GenericDataCheck {
 			.filter(Boolean);
 
 		if (asUrls.length !== new Set(asUrls).size) {
-			MSG.ItemDataCheck += `Duplicate ${prop} in ${file} for ${source}, ${name}: ${asUrls.filter(s => asUrls.filter(it => it === s).length > 1).join(", ")}\n`;
+			this._addMessage(`Duplicate ${prop} in ${file} for ${source}, ${name}: ${asUrls.filter(s => asUrls.filter(it => it === s).length > 1).join(", ")}\n`);
 		}
 	}
 
@@ -360,7 +295,7 @@ class ItemDataCheck extends GenericDataCheck {
 			if (s.special) return;
 
 			const url = getEncoded(s, tag);
-			if (!ALL_URLS.has(url)) MSG.ItemDataCheck += `Missing link: ${s} in file ${file} (evaluates to "${url}") in "${prop}"\nSimilar URLs were:\n${getSimilar(url)}\n`;
+			if (!ALL_URLS.has(url)) this._addMessage(`Missing link: ${s} in file ${file} (evaluates to "${url}") in "${prop}"\nSimilar URLs were:\n${getSimilar(url)}\n`);
 		});
 	}
 
@@ -375,7 +310,7 @@ class ItemDataCheck extends GenericDataCheck {
 						case "race":
 						case "class": {
 							const url = getEncoded(val, prop);
-							if (!ALL_URLS.has(url)) MSG.ItemDataCheck += `Missing link: ${val} in file ${file} "${prop}" (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`;
+							if (!ALL_URLS.has(url)) this._addMessage(`Missing link: ${val} in file ${file} "${prop}" (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`);
 						}
 					}
 				});
@@ -422,96 +357,72 @@ class ItemDataCheck extends GenericDataCheck {
 				.replace(/%5c/gi, "");
 
 			if (!ALL_URLS.has(url)) {
-				MSG.ItemDataCheck += `Missing link: ${root.baseItem} in file ${file} (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`;
+				this._addMessage(`Missing link: ${root.baseItem} in file ${file} (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`);
 			}
 		}
 
-		this._doCheckSeeAlso({entity: root, prop: "seeAlsoVehicle", propMsg: "ItemDataCheck", tag: "vehicle", file});
+		this._doCheckSeeAlso({entity: root, prop: "seeAlsoVehicle", tag: "vehicle", file});
 
 		if (root.reqAttuneTags) this._checkReqAttuneTags(file, root, name, source, "reqAttuneTags");
 		if (root.reqAttuneAltTags) this._checkReqAttuneTags(file, root, name, source, "reqAttuneAltTags");
 	}
 
-	static run () {
-		const basicItems = require(`../data/items-base.json`);
+	static pRun () {
+		const basicItems = ut.readJson(`./data/items-base.json`);
 		basicItems.baseitem.forEach(it => this._checkRoot("data/items-base.json", it, it.name, it.source));
 
-		const items = require(`../data/items.json`);
+		const items = ut.readJson(`./data/items.json`);
 		items.item.forEach(it => this._checkRoot("data/items.json", it, it.name, it.source));
 		items.itemGroup.forEach(it => this._checkRoot("data/items.json", it, it.name, it.source));
 
-		const magicVariants = require(`../data/magicvariants.json`);
+		const magicVariants = ut.readJson(`./data/magicvariants.json`);
 		magicVariants.magicvariant.forEach(va => this._checkRoot("data/magicvariants.json", va, va.name, va.source) || (va.inherits && this._checkRoot("data/magicvariants.json", va.inherits, `${va.name} (inherits)`, va.source)));
 	}
 }
 
 class ActionData extends GenericDataCheck {
-	static run () {
+	static pRun () {
 		const file = `data/actions.json`;
-		const actions = require(`../${file}`);
+		const actions = ut.readJson(`./${file}`);
 		actions.action.forEach(it => {
 			if (it.fromVariant) {
 				const url = getEncoded(it.fromVariant, "variantrule");
-				if (!ALL_URLS.has(url)) MSG.ActionDataCheck += `Missing link: ${it.fromVariant} in file ${file} (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`;
+				if (!ALL_URLS.has(url)) this._addMessage(`Missing link: ${it.fromVariant} in file ${file} (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`);
 			}
 
-			this._doCheckSeeAlso({entity: it, prop: "seeAlsoAction", propMsg: "ActionDataCheck", tag: "action", file});
+			this._doCheckSeeAlso({entity: it, prop: "seeAlsoAction", tag: "action", file});
 		});
 	}
 }
 
 class DeityDataCheck extends GenericDataCheck {
-	static run () {
+	static pRun () {
 		const file = `data/deities.json`;
-		const deities = require(`../${file}`);
+		const deities = ut.readJson(`./${file}`);
 		deities.deity.forEach(it => {
 			if (!it.customExtensionOf) return;
 
 			const url = getEncodedDeity(it.customExtensionOf, "deity");
-			if (!ALL_URLS.has(url)) MSG.DeityDataCheck += `Missing link: ${it.customExtensionOf} in file ${file} (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`;
+			if (!ALL_URLS.has(url)) this._addMessage(`Missing link: ${it.customExtensionOf} in file ${file} (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`);
 		});
 	}
 }
 
-class BraceCheck {
-	static addHandlers () {
-		ParsedJsonChecker.addPrimitiveHandler("string", BraceCheck.checkString);
+class FilterCheck extends DataTesterBase {
+	static registerParsedPrimitiveHandlers (parsedJsonChecker) {
+		parsedJsonChecker.addPrimitiveHandler("string", this._checkString.bind(this));
 	}
 
-	static checkString (file, str) {
-		let total = 0;
-		for (let i = 0; i < str.length; ++i) {
-			const c = str[i];
-			switch (c) {
-				case "{":
-					++total;
-					break;
-				case "}":
-					--total;
-					break;
-			}
-		}
-		if (total !== 0) {
-			MSG.BraceCheck += `Mismatched braces in ${file}: "${str}"\n`;
-		}
-	}
-}
-
-class FilterCheck {
-	static addHandlers () {
-		ParsedJsonChecker.addPrimitiveHandler("string", FilterCheck.checkString);
-	}
-
-	static checkString (file, str) {
+	static _checkString (str, {filePath}) {
 		str.replace(/{@filter ([^}]*)}/g, (m0, m1) => {
 			const spl = m1.split("|");
 			if (spl.length < 3) {
-				MSG.FilterCheck += `Filter tag "${str}" was too short!\n`;
+				this._addMessage(`Invalid filter tag in file ${filePath}: "${str}" was too short!\n`);
 				return m0;
 			}
 
 			if (!UrlUtil.pageToDisplayPage(`${spl[1]}.html`)) {
-				MSG.FilterCheck += `Unknown page in filter tag "${str}"\n`;
+				this._addMessage(`Invalid filter tag in file ${filePath}: unknown page in "${str}"\n`);
 			}
 
 			const missingEq = [];
@@ -525,18 +436,18 @@ class FilterCheck {
 				const hasCloseRange = part.startsWith("]");
 				if (hasOpenRange || hasCloseRange) {
 					if (!(hasOpenRange && hasCloseRange)) {
-						MSG.FilterCheck += `Malformed range expression in filter tag "${str}"\n`;
+						this._addMessage(`Invalid filter tag in file ${filePath}: malformed range expression in  "${str}"\n`);
 					}
 
 					const [header, values] = part.split("=");
 					const valuesSpl = values.replace(/^\[/, "").replace(/]$/, "").split(";");
 					if (valuesSpl.length > 2) {
-						MSG.FilterCheck += `Too many values in range expression in filter tag "${str}" (expected 1-2)\n`;
+						this._addMessage(`Invalid filter tag in file ${filePath}: too many values in range expression in "${str}" (expected 1-2)\n`);
 					}
 				}
 			}
 			if (missingEq.length) {
-				MSG.FilterCheck += `Missing equals in filter tag "${str}" in part${missingEq.length > 1 ? "s" : ""} ${missingEq.join(", ")}\n`;
+				this._addMessage(`Invalid filter tag in file ${filePath}: missing equals in "${str}" in part${missingEq.length > 1 ? "s" : ""} ${missingEq.join(", ")}\n`);
 			}
 
 			return m0;
@@ -544,62 +455,62 @@ class FilterCheck {
 	}
 }
 
-class ScaleDiceCheck {
-	static addHandlers () {
-		ParsedJsonChecker.addPrimitiveHandler("string", ScaleDiceCheck.checkString);
+class ScaleDiceCheck extends DataTesterBase {
+	static registerParsedPrimitiveHandlers (parsedJsonChecker) {
+		parsedJsonChecker.addPrimitiveHandler("string", this._checkString.bind(this));
 	}
 
-	static checkString (file, str) {
+	static _checkString (str, {filePath}) {
 		str.replace(/{@(scaledice|scaledamage) ([^}]*)}/g, (m0, m1, m2) => {
 			const spl = m2.split("|");
 			if (spl.length < 3) {
-				MSG.ScaleDiceCheck += `${m1} tag "${str}" was too short!\n`;
+				this._addMessage(`${m1} tag "${str}" was too short!\n`);
 			} else if (spl.length > 4) {
-				MSG.ScaleDiceCheck += `${m1} tag "${str}" was too long!\n`;
+				this._addMessage(`${m1} tag "${str}" was too long!\n`);
 			} else {
 				let range;
 				try {
 					range = MiscUtil.parseNumberRange(spl[1], 1, 9);
 				} catch (e) {
-					MSG.ScaleDiceCheck += `Range "${spl[1]}" is invalid!\n`;
+					this._addMessage(`Range "${spl[1]}" is invalid!\n`);
 					return;
 				}
-				if (range.size < 2) MSG.ScaleDiceCheck += `Range "${spl[1]}" has too few entries! Should be 2 or more.\n`;
-				if (spl[4] && spl[4] !== "psi") MSG.ScaleDiceCheck += `Unknown mode "${spl[4]}".\n`;
+				if (range.size < 2) this._addMessage(`Invalid scaling dice in file ${filePath}: range "${spl[1]}" has too few entries! Should be 2 or more.\n`);
+				if (spl[4] && spl[4] !== "psi") this._addMessage(`Unknown mode "${spl[4]}".\n`);
 			}
 			return m0;
 		});
 	}
 }
 
-class StripTagTest {
-	static addHandlers () {
-		ParsedJsonChecker.addPrimitiveHandler("string", StripTagTest.checkString);
+class StripTagTest extends DataTesterBase {
+	static registerParsedPrimitiveHandlers (parsedJsonChecker) {
+		parsedJsonChecker.addPrimitiveHandler("string", this._checkString.bind(this));
 	}
 
-	static checkString (file, str) {
-		if (file === "./data/bestiary/traits.json") return;
+	static _checkString (str, {filePath}) {
+		if (filePath === "./data/bestiary/traits.json") return;
 
 		try {
 			Renderer.stripTags(str);
 		} catch (e) {
 			if (!StripTagTest._seenErrors.has(e.message)) {
 				StripTagTest._seenErrors.add(e.message);
-				if (MSG.StripTagTest) MSG.StripTagTest = `${MSG.StripTagTest.trim()}\n`;
-				MSG.StripTagTest += `Tag stripper error: ${e.message} (${file})\n`;
+				this._addMessage(`Tag stripper error: ${e.message} (${filePath})\n`);
 			}
 		}
 	}
 }
 StripTagTest._seenErrors = new Set();
 
-class TableDiceTest {
-	static addHandlers () {
-		ParsedJsonChecker.addPrimitiveHandler("string", TableDiceTest.checkTable);
+class TableDiceTest extends DataTesterBase {
+	static registerParsedPrimitiveHandlers (parsedJsonChecker) {
+		parsedJsonChecker.addPrimitiveHandler("object", this._checkTable.bind(this));
 	}
 
-	static checkTable (file, obj) {
+	static _checkTable (obj, {filePath}) {
 		if (obj.type !== "table") return;
+
 		const autoRollMode = Renderer.getAutoConvertedTableRollMode(obj);
 		if (!autoRollMode) return;
 
@@ -608,7 +519,7 @@ class TableDiceTest {
 
 		const possibleResults = new Set();
 		const errors = [];
-		const cbErr = (cell, e) => MSG.TableDiceTest += `Row parse failed! Cell was: "${cell}"; error was: "${e.message}"\n`;
+		const cbErr = (cell, e) => this._addMessage(`Row parse failed! Cell was: "${JSON.stringify(cell)}"; error was: "${e.message}"\n`);
 
 		const len = obj.rows.length;
 		obj.rows.forEach((r, i) => {
@@ -650,8 +561,8 @@ class TableDiceTest {
 
 			const wrpRollTree = Renderer.dice.lang.getTree3(rollable);
 			if (wrpRollTree) {
-				const min = wrpRollTree.tree.min();
-				const max = wrpRollTree.tree.max();
+				const min = wrpRollTree.tree.min({});
+				const max = wrpRollTree.tree.max({});
 				for (let i = min; i < max + 1; ++i) possibleRolls.add(i);
 			} else {
 				if (!hasPrompt) errors.push(`"${obj.colLabels[0]}" was not a valid rollable header?!`);
@@ -662,7 +573,7 @@ class TableDiceTest {
 			errors.push(`Possible results did not match possible rolls!\nPossible results: (${TableDiceTest._flattenSequence([...possibleResults])})\nPossible rolls: (${TableDiceTest._flattenSequence([...possibleRolls])})`);
 		}
 
-		if (errors.length) MSG.TableDiceTest += `Errors in ${obj.caption ? `table "${obj.caption}"` : `${JSON.stringify(obj.rows[0]).substring(0, 30)}...`} in ${file}:\n${errors.map(it => `\t${it}`).join("\n")}\n`;
+		if (errors.length) this._addMessage(`Errors in ${obj.caption ? `table "${obj.caption}"` : `${JSON.stringify(obj.rows[0]).substring(0, 30)}...`} in ${filePath}:\n${errors.map(it => `\t${it}`).join("\n")}\n`);
 	}
 
 	static _flattenSequence (nums) {
@@ -688,12 +599,16 @@ class TableDiceTest {
 }
 TableDiceTest._INF_CAP = 999;
 
-class AreaCheck {
+class AreaCheck extends DataTesterBase {
+	static registerParsedFileCheckers (parsedJsonChecker) {
+		parsedJsonChecker.registerFileHandler(this);
+	}
+
 	static _buildMap (file, data) {
 		AreaCheck.headerMap = Renderer.adventureBook.getEntryIdLookup(data, false);
 	}
 
-	static checkString (file, str) {
+	static _checkString (str) {
 		str.replace(/{@area ([^}]*)}/g, (m0, m1) => {
 			const [text, areaId, ...otherData] = m1.split("|");
 			if (!AreaCheck.headerMap[areaId]) {
@@ -703,21 +618,27 @@ class AreaCheck {
 		});
 	}
 
-	static checkFile (file, contents) {
+	static handleFile (file, contents) {
 		if (!AreaCheck.fileMatcher.test(file)) return;
 
 		AreaCheck.errorSet = new Set();
 		AreaCheck._buildMap(file, contents.data);
-		ut.dataRecurse(file, contents, {string: AreaCheck.checkString});
+		ObjectWalker.walk({
+			obj: contents,
+			filePath: file,
+			primitiveHandlers: {
+				string: this._checkString.bind(this),
+			},
+		});
 		if (AreaCheck.errorSet.size) {
-			MSG.AreaCheck += `Errors in ${file}! See below:\n`;
+			this._addMessage(`Errors in ${file}! See below:\n`);
 
 			const toPrint = [...AreaCheck.errorSet].sort(SortUtil.ascSortLower);
-			toPrint.forEach(tp => MSG.AreaCheck += `${tp}\n`);
+			toPrint.forEach(tp => this._addMessage(`${tp}\n`));
 		}
 
 		if (AreaCheck.headerMap.__BAD) {
-			AreaCheck.headerMap.__BAD.forEach(dupId => MSG.AreaCheck += `Duplicate ID: "${dupId}"\n`);
+			AreaCheck.headerMap.__BAD.forEach(dupId => this._addMessage(`Duplicate ID: "${dupId}"\n`));
 		}
 	}
 }
@@ -725,14 +646,14 @@ AreaCheck.errorSet = new Set();
 AreaCheck.fileMatcher = /\/(adventure-).*\.json/;
 
 class LootDataCheck extends GenericDataCheck {
-	static run () {
+	static pRun () {
 		function handleItem (it) {
-			const toCheck = typeof it === "string" ? {name: it, source: SRC_DMG} : it;
+			const toCheck = typeof it === "string" ? {name: it, source: Parser.SRC_DMG} : it;
 			const url = `${Renderer.hover.TAG_TO_PAGE["item"]}#${UrlUtil.encodeForHash([toCheck.name, toCheck.source])}`.toLowerCase().trim();
-			if (!ALL_URLS.has(url)) MSG.LootCheck += `Missing link: ${JSON.stringify(it)} in file "${LootDataCheck.file}" (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`;
+			if (!ALL_URLS.has(url)) this._addMessage(`Missing link: ${JSON.stringify(it)} in file "${LootDataCheck.file}" (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`);
 		}
 
-		const loot = require(`../${LootDataCheck.file}`);
+		const loot = ut.readJson(`./${LootDataCheck.file}`);
 		loot.magicItems.forEach(it => {
 			if (it.table) {
 				it.table.forEach(row => {
@@ -756,61 +677,6 @@ class LootDataCheck extends GenericDataCheck {
 }
 LootDataCheck.file = `data/loot.json`;
 
-class SpellDataCheck extends GenericDataCheck {
-	static run () {
-		const classIndex = JSON.parse(fs.readFileSync(SpellDataCheck._FILE_CLASS_INDEX, "utf8"));
-
-		const allClassJsons = Object.values(classIndex)
-			.map(f => JSON.parse(fs.readFileSync(`data/class/${f}`, "utf8")));
-
-		const allClassData = allClassJsons
-			.map(it => (it.class || []))
-			.flat();
-
-		const allSubclassData = allClassJsons
-			.map(it => (it.subclass || []))
-			.flat();
-
-		allClassData
-			.forEach(cls => {
-				const classMeta = {name: cls.name, source: cls.source};
-
-				const matchingSubclasses = allSubclassData.filter(it => it.className === cls.name && it.classSource === cls.source);
-				if (matchingSubclasses.length) classMeta.availableSubclasses = matchingSubclasses.map(sc => ({name: sc.shortName, source: sc.source}));
-
-				SpellDataCheck._CLASS_LIST.push(classMeta);
-			});
-
-		const spellIndex = JSON.parse(fs.readFileSync(SpellDataCheck._FILE_SPELL_INDEX, "utf8"));
-		Object.values(spellIndex).forEach(f => {
-			const data = JSON.parse(fs.readFileSync(`data/spells/${f}`, "utf8"));
-			data.spell.filter(sp => sp.classes).forEach(sp => {
-				if (sp.classes.fromClassList) {
-					const invalidClasses = sp.classes.fromClassList
-						.filter(c => !SpellDataCheck._IGNORED_CLASSES.some(it => it.name === c.name && it.source === c.source))
-						.filter(c => !SpellDataCheck._CLASS_LIST.some(it => it.name === c.name && it.source === c.source));
-					invalidClasses.forEach(ic => MSG.SpellDataCheck += `Invalid class: ${JSON.stringify(ic)} in spell "${sp.name}" in file "${f}"\n`);
-				}
-
-				if (sp.classes.fromSubclass) {
-					sp.classes.fromSubclass.forEach(sc => {
-						const clazz = SpellDataCheck._CLASS_LIST.find(it => it.name === sc.class.name && it.source === sc.class.source);
-						if (!clazz) return MSG.SpellDataCheck += `Invalid subclass class: ${JSON.stringify(sc)} in spell "${sp.name}" in file "${f}"\n`;
-						if (!clazz.availableSubclasses) return MSG.SpellDataCheck += `Subclass class has no known subclasses: ${JSON.stringify(sc)} in spell "${sp.name}" in file "${f}"\n`;
-
-						const isValidSubclass = clazz.availableSubclasses.some(it => it.name === sc.subclass.name && it.source === sc.subclass.source);
-						if (!isValidSubclass) return MSG.SpellDataCheck += `Subclass (shortName) does not exist: ${JSON.stringify(sc)} in spell "${sp.name}" in file "${f}"\n`;
-					});
-				}
-			});
-		});
-	}
-}
-SpellDataCheck._IGNORED_CLASSES = []; // This can be pre-loaded with any exotic UA (see history)
-SpellDataCheck._FILE_CLASS_INDEX = `data/class/index.json`;
-SpellDataCheck._FILE_SPELL_INDEX = `data/spells/index.json`;
-SpellDataCheck._CLASS_LIST = [];
-
 class ClassDataCheck extends GenericDataCheck {
 	static _doCheckClass (file, data, cls) {
 		// region Check `classFeatures` -> `classFeature` links
@@ -824,7 +690,7 @@ class ClassDataCheck extends GenericDataCheck {
 			const uid = ref.classFeature || ref;
 			const unpacked = DataUtil.class.unpackUidClassFeature(uid, {isLower: true});
 			const hash = UrlUtil.URL_TO_HASH_BUILDER["classFeature"](unpacked);
-			if (!featureLookup[hash]) MSG.ClassDataCheck += `Missing class feature: ${uid} in file ${file} not found in the files "classFeature" array\n`;
+			if (!featureLookup[hash]) this._addMessage(`Missing class feature: ${uid} in file ${file} not found in the files "classFeature" array\n`);
 		});
 
 		const handlersNestedRefsClass = {
@@ -836,7 +702,7 @@ class ClassDataCheck extends GenericDataCheck {
 					const unpacked = DataUtil.class.unpackUidClassFeature(uid, {isLower: true});
 					const hash = UrlUtil.URL_TO_HASH_BUILDER["classFeature"](unpacked);
 
-					if (!featureLookup[hash]) MSG.ClassDataCheck += `Missing class feature: ${uid} in file ${file} not found in the files "classFeature" array\n`;
+					if (!featureLookup[hash]) this._addMessage(`Missing class feature: ${uid} in file ${file} not found in the files "classFeature" array\n`);
 				});
 				return arr;
 			},
@@ -853,7 +719,7 @@ class ClassDataCheck extends GenericDataCheck {
 					if (it.type !== "refOptionalfeature") return;
 
 					const url = getEncoded(it.optionalfeature, "optfeature");
-					if (!ALL_URLS.has(url)) MSG.ClassDataCheck += `Missing optional feature: ${it.optionalfeature} in file ${file} (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`;
+					if (!ALL_URLS.has(url)) this._addMessage(`Missing optional feature: ${it.optionalfeature} in file ${file} (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`);
 				});
 				return arr;
 			},
@@ -875,13 +741,13 @@ class ClassDataCheck extends GenericDataCheck {
 			const unpacked = DataUtil.class.unpackUidSubclassFeature(uid, {isLower: true});
 			const hash = UrlUtil.URL_TO_HASH_BUILDER["subclassFeature"](unpacked);
 
-			if (!subclassFeatureLookup[hash]) MSG.ClassDataCheck += `Missing subclass feature: ${uid} in file ${file} not found in the files "subclassFeature" array\n`;
+			if (!subclassFeatureLookup[hash]) this._addMessage(`Missing subclass feature: ${uid} in file ${file} not found in the files "subclassFeature" array\n`);
 		});
 
-		this._testAdditionalSpells(file, "ClassDataCheck", sc);
+		this._testAdditionalSpells(file, sc);
 	}
 
-	static run () {
+	static pRun () {
 		const index = ut.readJson("./data/class/index.json");
 		Object.values(index)
 			.map(filename => ({filename: filename, data: ut.readJson(`./data/class/${filename}`)}))
@@ -916,7 +782,7 @@ class ClassDataCheck extends GenericDataCheck {
 					const unpacked = DataUtil.class.unpackUidSubclassFeature(uid, {isLower: true});
 					const hash = UrlUtil.URL_TO_HASH_BUILDER["subclassFeature"](unpacked);
 
-					if (!subclassFeatureLookup[hash]) MSG.ClassDataCheck += `Missing subclass feature in "refSubclassFeature": ${it.subclassFeature} in file ${filename} not found in the files "subclassFeature" array\n`;
+					if (!subclassFeatureLookup[hash]) this._addMessage(`Missing subclass feature in "refSubclassFeature": ${it.subclassFeature} in file ${filename} not found in the files "subclassFeature" array\n`);
 				});
 				return arr;
 			},
@@ -929,13 +795,13 @@ class ClassDataCheck extends GenericDataCheck {
 
 class RaceDataCheck extends GenericDataCheck {
 	static _handleRaceOrSubraceRaw (file, rsr, r) {
-		this._testAdditionalSpells(file, "RaceDataCheck", rsr);
-		this._testAdditionalFeats(file, "RaceDataCheck", rsr);
+		this._testAdditionalSpells(file, rsr);
+		this._testAdditionalFeats(file, rsr);
 	}
 
-	static run () {
+	static pRun () {
 		const file = `data/races.json`;
-		const races = require(`../${file}`);
+		const races = ut.readJson(`./${file}`);
 		races.race.forEach(r => this._handleRaceOrSubraceRaw(file, r));
 		races.subrace.forEach(sr => this._handleRaceOrSubraceRaw(file, sr));
 	}
@@ -943,25 +809,25 @@ class RaceDataCheck extends GenericDataCheck {
 
 class FeatDataCheck extends GenericDataCheck {
 	static _handleFeat (file, feat) {
-		this._testAdditionalSpells(file, "FeatDataCheck", feat);
+		this._testAdditionalSpells(file, feat);
 	}
 
-	static run () {
+	static pRun () {
 		const file = `data/feats.json`;
-		const featJson = require(`../${file}`);
+		const featJson = ut.readJson(`./${file}`);
 		featJson.feat.forEach(f => this._handleFeat(file, f));
 	}
 }
 
 class BackgroundDataCheck extends GenericDataCheck {
 	static _handleBackground (file, bg) {
-		this._testAdditionalSpells(file, "BackgroundDataCheck", bg);
-		this._testAdditionalFeats(file, "BackgroundDataCheck", bg);
+		this._testAdditionalSpells(file, bg);
+		this._testAdditionalFeats(file, bg);
 	}
 
-	static run () {
+	static pRun () {
 		const file = `data/backgrounds.json`;
-		const backgroundJson = require(`../${file}`);
+		const backgroundJson = ut.readJson(`./${file}`);
 		backgroundJson.background.forEach(f => this._handleBackground(file, f));
 	}
 }
@@ -970,18 +836,18 @@ class BestiaryDataCheck extends GenericDataCheck {
 	static _handleCreature (file, mon) {
 		if (mon.summonedBySpell) {
 			const url = getEncoded(mon.summonedBySpell, "spell");
-			if (!ALL_URLS.has(url)) MSG.BestiaryDataCheck += `Missing link: ${mon.summonedBySpell} in file ${file} "summonedBySpell" (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`;
+			if (!ALL_URLS.has(url)) this._addMessage(`Missing link: ${mon.summonedBySpell} in file ${file} "summonedBySpell" (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`);
 		}
 	}
 
-	static run () {
-		const index = JSON.parse(fs.readFileSync(`data/bestiary/index.json`, "utf-8"));
+	static pRun () {
+		const index = ut.readJson(`data/bestiary/index.json`, "utf-8");
 		const fileMetas = Object.values(index)
 			.map(filename => {
 				const file = `data/bestiary/${filename}`;
 				return {
 					file,
-					contents: JSON.parse(fs.readFileSync(file, "utf-8")),
+					contents: ut.readJson(file, "utf-8"),
 				};
 			});
 		fileMetas.forEach(({file, contents}) => {
@@ -990,38 +856,20 @@ class BestiaryDataCheck extends GenericDataCheck {
 	}
 }
 
-class EscapeCharacterCheck {
-	static checkString (file, str) {
-		let re = /([\n\t\r])/g;
-		let m;
-		while ((m = re.exec(str))) {
-			const startIx = Math.max(m.index - EscapeCharacterCheck._CHARS, 0);
-			const endIx = Math.min(m.index + EscapeCharacterCheck._CHARS, str.length);
-			EscapeCharacterCheck.errors.push(`...${str.substring(startIx, endIx)}...`.replace(/[\n\t\r]/g, (...m) => m[0] === "\n" ? "***\\n***" : m[0] === "\t" ? "***\\t***" : "***\\r***"));
-		}
+class DuplicateEntityCheck extends DataTesterBase {
+	static registerParsedFileCheckers (parsedJsonChecker) {
+		parsedJsonChecker.registerFileHandler(this);
 	}
 
-	static checkFile (file, contents) {
-		EscapeCharacterCheck.errors = [];
-		ut.dataRecurse(file, contents, {string: EscapeCharacterCheck.checkString});
-		if (EscapeCharacterCheck.errors.length) {
-			MSG.EscapeCharacterCheck += `Unwanted escape characters in ${file}! See below:\n`;
-			MSG.EscapeCharacterCheck += `\t${EscapeCharacterCheck.errors.join("\n\t")}`;
-		}
-	}
-}
-EscapeCharacterCheck._CHARS = 16;
-
-class DuplicateEntityCheck {
-	static checkFile (file, contents, {isSkipVersionCheck = false, isSkipBaseCheck = false} = {}) {
+	static handleFile (file, contents, {isSkipVersionCheck = false, isSkipBaseCheck = false} = {}) {
 		DuplicateEntityCheck.errors = [];
 
 		if (file.endsWith("data/races.json") && !isSkipVersionCheck) {
 			// First, run check for races on the raw race/subrace data
-			this.checkFile(file, contents, {isSkipVersionCheck: true});
+			this.handleFile(file, contents, {isSkipVersionCheck: true});
 
 			// Then, merge races+subraces, so we can run a check on versions
-			contents = MiscUtil.copy(contents);
+			contents = MiscUtil.copyFast(contents);
 			contents = DataUtil.race.getPostProcessedSiteJson(contents);
 			isSkipBaseCheck = true;
 		}
@@ -1045,9 +893,9 @@ class DuplicateEntityCheck {
 					const withDuplicates = Object.entries(positions)
 						.filter(([, v]) => v.length > 1);
 					if (withDuplicates.length) {
-						MSG.DuplicateEntityCheck += `Duplicate entity keys in ${file} array .${prop}! See below:\n`;
+						this._addMessage(`Duplicate entity keys in ${file} array .${prop}! See below:\n`);
 						withDuplicates.forEach(([k, v]) => {
-							MSG.DuplicateEntityCheck += `\t${k} (at indexes ${v.join(", ")})\n`;
+							this._addMessage(`\t${k} (at indexes ${v.join(", ")})\n`);
 						});
 					}
 				}
@@ -1096,6 +944,13 @@ class DuplicateEntityCheck {
 				}
 				break;
 			}
+			case "subrace": {
+				if (name != null && source != null) {
+					const key = `${source} :: ${ent.raceSource} :: ${ent.raceName} :: ${name}`;
+					(positions[key] = positions[key] || []).push(keyIx);
+				}
+				break;
+			}
 			default: {
 				if (name != null && source != null) {
 					const key = `${source} :: ${name}`;
@@ -1107,8 +962,12 @@ class DuplicateEntityCheck {
 	}
 }
 
-class RefTagCheck {
-	static checkFile (file, contents) {
+class RefTagCheck extends DataTesterBase {
+	static registerParsedFileCheckers (parsedJsonChecker) {
+		parsedJsonChecker.registerFileHandler(this);
+	}
+
+	static handleFile (file, contents) {
 		Object.entries(contents)
 			.filter(([_, arr]) => arr instanceof Array)
 			.forEach(([prop, arr]) => {
@@ -1143,9 +1002,9 @@ class RefTagCheck {
 			const refUnpacked = DataUtil.generic.unpackUid(toCheckMeta[prop], prop);
 			const refHash = UrlUtil.URL_TO_HASH_BUILDER[prop](refUnpacked);
 
-			const cpy = await Renderer.hover.pCacheAndGetHash(prop, refHash, {isCopy: true});
+			const cpy = await DataLoader.pCacheAndGetHash(prop, refHash, {isCopy: true});
 			if (!cpy) {
-				MSG.RefTagCheck += `Missing ref tag: ${toCheck}\n`;
+				this._addMessage(`Missing ref tag: ${toCheck}\n`);
 			}
 		}
 	}
@@ -1153,8 +1012,12 @@ class RefTagCheck {
 RefTagCheck._RE_TAG = /^ref[A-Z]/;
 RefTagCheck._TO_CHECK = [];
 
-class TestCopyCheck {
-	static checkFile (file, contents) {
+class TestCopyCheck extends DataTesterBase {
+	static registerParsedFileCheckers (parsedJsonChecker) {
+		parsedJsonChecker.registerFileHandler(this);
+	}
+
+	static handleFile (file, contents) {
 		if (!contents._meta) return;
 
 		const fileErrors = [];
@@ -1181,9 +1044,9 @@ class TestCopyCheck {
 
 		if (!fileErrors.length) return;
 
-		MSG.TestCopyCheck += `Self-referencing _copy hashes in ${file}! See below:\n`;
+		this._addMessage(`Self-referencing _copy hashes in ${file}! See below:\n`);
 		fileErrors.forEach(({prop, hash, ent}) => {
-			MSG.TestCopyCheck += `\t${prop} "${ent.name}" with hash "${hash}"\n`;
+			this._addMessage(`\t${prop} "${ent.name}" with hash "${hash}"\n`);
 		});
 	}
 }
@@ -1244,7 +1107,7 @@ class HasFluffCheck extends GenericDataCheck {
 
 				const fromLookup = fluffLookup[hash];
 				if (!fromLookup) {
-					MSG.HasFluffCheck += `${prop} hash ${`"${hash}"`.padEnd(this._LEN_PAD_HASH, " ")} not found in corresponding "${propFluff}" fluff!\n`;
+					this._addMessage(`${prop} hash ${`"${hash}"`.padEnd(this._LEN_PAD_HASH, " ")} not found in corresponding "${propFluff}" fluff!\n`);
 					return;
 				}
 
@@ -1266,7 +1129,7 @@ class HasFluffCheck extends GenericDataCheck {
 
 				if (!ptsMessage.length) return;
 
-				MSG.HasFluffCheck += `${prop} hash ${`"${hash}"`.padEnd(this._LEN_PAD_HASH, " ")} fluff did not match fluff file: ${ptsMessage.join("; ")}\n`;
+				this._addMessage(`${prop} hash ${`"${hash}"`.padEnd(this._LEN_PAD_HASH, " ")} fluff did not match fluff file: ${ptsMessage.join("; ")}\n`);
 			});
 
 			const unusedFluff = Object.entries(fluffLookup)
@@ -1275,16 +1138,16 @@ class HasFluffCheck extends GenericDataCheck {
 			if (unusedFluff.length) {
 				const errors = unusedFluff
 					.map(([hash, {hasFluff, hasFluffImages}]) => `${`"${hash}"`.padEnd(this._LEN_PAD_HASH, " ")} ${[hasFluff ? "hasFluff" : null, hasFluffImages ? "hasFluffImages" : null].filter(Boolean).join(" | ")}`);
-				MSG.HasFluffCheck += `Extra ${propFluff} fluff found!\n${errors.map(it => `\t${it}`).join("\n")}\n`;
+				this._addMessage(`Extra ${propFluff} fluff found!\n${errors.map(it => `\t${it}`).join("\n")}\n`);
 			}
 		}
 	}
 }
 
-class AdventureBookTagCheck {
+class AdventureBookTagCheck extends DataTesterBase {
 	static _ADV_BOOK_LOOKUP = {};
 
-	static addHandlers () {
+	static registerParsedPrimitiveHandlers (parsedJsonChecker) {
 		[
 			{
 				path: "./data/adventures.json",
@@ -1301,10 +1164,10 @@ class AdventureBookTagCheck {
 			this._ADV_BOOK_LOOKUP[tag] = json[prop].mergeMap(({id}) => ({[id.toLowerCase()]: true}));
 		});
 
-		ParsedJsonChecker.addPrimitiveHandler("string", AdventureBookTagCheck.checkString.bind(this));
+		parsedJsonChecker.addPrimitiveHandler("string", this._checkString.bind(this));
 	}
 
-	static checkString (file, str) {
+	static _checkString (str, {filePath}) {
 		const tagSplit = Renderer.splitByTags(str);
 
 		const len = tagSplit.length;
@@ -1320,59 +1183,58 @@ class AdventureBookTagCheck {
 
 				if (this._ADV_BOOK_LOOKUP[tag.slice(1)][id]) return;
 
-				MSG.AdventureBookTagCheck += `Missing link: ${s} in file ${file} had unknown "${tag}" ID "${id}"\n`;
+				this._addMessage(`Missing link: ${s} in file ${filePath} had unknown "${tag}" ID "${id}"\n`);
 			}
 		}
 	}
 }
 
 async function main () {
+	ut.patchLoadJson();
+
 	await TagTestUtil.pInit();
 
-	LinkCheck.addHandlers();
-	ClassLinkCheck.addHandlers();
-	BraceCheck.addHandlers();
-	FilterCheck.addHandlers();
-	ScaleDiceCheck.addHandlers();
-	StripTagTest.addHandlers();
-	TableDiceTest.addHandlers();
-	AdventureBookTagCheck.addHandlers();
+	const ClazzDataTesters = [
+		LinkCheck,
+		ClassLinkCheck,
+		BraceCheck,
+		FilterCheck,
+		ScaleDiceCheck,
+		StripTagTest,
+		TableDiceTest,
+		AdventureBookTagCheck,
+		AreaCheck,
+		EscapeCharacterCheck,
+		DuplicateEntityCheck,
+		RefTagCheck,
+		TestCopyCheck,
+		HasFluffCheck,
+		ItemDataCheck,
+		ActionData,
+		DeityDataCheck,
+		LootDataCheck,
+		ClassDataCheck,
+		RaceDataCheck,
+		FeatDataCheck,
+		BackgroundDataCheck,
+		BestiaryDataCheck,
+	];
 
-	ParsedJsonChecker.register(ParsedJsonChecker.checkFile.bind(ParsedJsonChecker));
-	ParsedJsonChecker.register(AreaCheck.checkFile.bind(AreaCheck));
-	ParsedJsonChecker.register(EscapeCharacterCheck.checkFile.bind(EscapeCharacterCheck));
-	ParsedJsonChecker.register(DuplicateEntityCheck.checkFile.bind(DuplicateEntityCheck));
-	ParsedJsonChecker.register(RefTagCheck.checkFile.bind(RefTagCheck));
-	ParsedJsonChecker.register(TestCopyCheck.checkFile.bind(TestCopyCheck));
-	ParsedJsonChecker.runAll();
+	await DataTester.pRun(
+		"./data",
+		ClazzDataTesters,
+		{
+			fnIsIgnoredFile: filePath => filePath.endsWith("changelog.json"),
+		},
+	);
 
-	ut.patchLoadJson();
-	await RefTagCheck.pPostRun();
-
-	await HasFluffCheck.pRun();
 	ut.unpatchLoadJson();
 
-	ItemDataCheck.run();
-	ActionData.run();
-	DeityDataCheck.run();
-	LootDataCheck.run();
-	SpellDataCheck.run();
-	ClassDataCheck.run();
-	RaceDataCheck.run();
-	FeatDataCheck.run();
-	BackgroundDataCheck.run();
-	BestiaryDataCheck.run();
-
-	let outMessage = "";
-	Object.entries(MSG).forEach(([k, v]) => {
-		if (v) outMessage += `Error messages for ${k}:\n\n${v}`;
-		else console.log(`##### ${k} passed! #####`);
-	});
-	if (outMessage) console.error(outMessage);
+	const outMessage = DataTester.getLogReport(ClazzDataTesters);
 
 	console.timeEnd(TIME_TAG);
 
 	return !outMessage;
 }
 
-module.exports = main();
+export default main();

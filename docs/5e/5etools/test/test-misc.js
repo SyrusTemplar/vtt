@@ -1,4 +1,5 @@
-require("../js/utils.js");
+import "../js/parser.js";
+import "../js/utils.js";
 
 function testCatIds () {
 	const errors = [];
@@ -23,4 +24,4 @@ async function main () {
 	return !anyErrors; // invert the result as this is what the test runner expects
 }
 
-module.exports = main();
+export default main();

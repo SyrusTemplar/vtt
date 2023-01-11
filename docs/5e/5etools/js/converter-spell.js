@@ -1,13 +1,5 @@
 "use strict";
 
-if (typeof module !== "undefined") {
-	const cv = require("./converterutils.js");
-	Object.assign(global, cv);
-	const cvSpells = require("./converterutils-spell.js");
-	Object.assign(global, cvSpells);
-	global.PropOrder = require("./utils-proporder.js");
-}
-
 class SpellParser extends BaseParser {
 	/**
 	 * Parses spells from raw text pastes
@@ -501,8 +493,4 @@ Object.entries({
 	});
 });
 
-if (typeof module !== "undefined") {
-	module.exports = {
-		SpellParser,
-	};
-}
+globalThis.SpellParser = SpellParser;

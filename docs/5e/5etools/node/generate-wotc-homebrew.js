@@ -1,6 +1,6 @@
-const fs = require("fs");
-const ut = require("./util");
-require("../js/utils");
+import * as fs from "fs";
+import * as ut from "./util.js";
+import "../js/utils.js";
 
 const toDump = [
 	{prop: "book", json: JSON.parse(fs.readFileSync("./data/books.json", "utf-8"))},

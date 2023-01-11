@@ -1,3 +1,5 @@
+"use strict";
+
 class FilterCommon {
 	static getDamageVulnerableFilter () {
 		return this._getDamageResistVulnImmuneFilter({

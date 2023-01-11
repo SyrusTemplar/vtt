@@ -1,14 +1,5 @@
 "use strict";
 
-if (typeof module !== "undefined") {
-	const cv = require("./converterutils.js");
-	Object.assign(global, cv);
-	const cvItem = require("./converterutils-item.js");
-	Object.assign(global, cvItem);
-	global.PropOrder = require("./utils-proporder.js");
-	Object.assign(global, require("./converterutils-entries.js"));
-}
-
 class ItemParser extends BaseParser {
 	static init (itemData, classData) {
 		ItemParser._ALL_ITEMS = itemData;
@@ -196,7 +187,7 @@ class ItemParser extends BaseParser {
 				const [rarityRaw, ...rest] = part.split("(");
 				const rarity = rarityRaw.trim().toLowerCase();
 
-				const isHandledRarity = handlePartRarity(rarity);
+				const isHandledRarity = rarity ? handlePartRarity(rarity) : true;
 				if (!isHandledRarity) options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Rarity "${rarityRaw}" requires manual conversion`);
 
 				let attunement = rest.join("(");
@@ -332,7 +323,7 @@ class ItemParser extends BaseParser {
 		delete stats.armor;
 		delete stats.value;
 
-		stats.baseItem = `${baseItem.name.toLowerCase()}${baseItem.source === SRC_DMG ? "" : `|${baseItem.source}`}`;
+		stats.baseItem = `${baseItem.name.toLowerCase()}${baseItem.source === Parser.SRC_DMG ? "" : `|${baseItem.source}`}`;
 	}
 
 	static _setCleanTaglineInfo_handleGenericType (stats, options) {
@@ -388,7 +379,7 @@ class ItemParser extends BaseParser {
 	}
 
 	static _setQuarterstaffStats (stats) {
-		const cpyStatsQuarterstaff = MiscUtil.copy(ItemParser._ALL_ITEMS.find(it => it.name === "Quarterstaff" && it.source === SRC_PHB));
+		const cpyStatsQuarterstaff = MiscUtil.copy(ItemParser._ALL_ITEMS.find(it => it.name === "Quarterstaff" && it.source === Parser.SRC_PHB));
 
 		// remove unwanted properties
 		delete cpyStatsQuarterstaff.name;
@@ -413,8 +404,4 @@ ItemParser._MAPPED_ITEM_NAMES = {
 	"scale": "scale mail",
 };
 
-if (typeof module !== "undefined") {
-	module.exports = {
-		ItemParser,
-	};
-}
+globalThis.ItemParser = ItemParser;

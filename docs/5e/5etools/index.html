@@ -8,7 +8,7 @@
 	<meta charset="utf-8">
 	<meta name="description" content="A suite of browser-based tools for 5th Edition  Dungeons &amp; Dragons players and Dungeon Masters.">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 
 	<title>5etools</title>
@@ -494,6 +494,7 @@ Unearthed Arcana content can be accessed by cycling the &quot;All Sources&quot; 
 <script type="text/javascript" src="js/omnidexer.js"></script>
 <script type="text/javascript" src="js/omnisearch.js"></script>
 <script type="text/javascript" src="js/filter.js"></script>
+<script type="text/javascript" src="js/utils-dataloader.js"></script>
 <script type="text/javascript" src="js/utils-brew.js"></script>
 <script type="text/javascript" src="js/render.js"></script>
 <script type="text/javascript" src="js/render-dice.js"></script>
@@ -503,7 +504,10 @@ Unearthed Arcana content can be accessed by cycling the &quot;All Sources&quot; 
 <script type="text/javascript" src="lib/elasticlunr.js"></script>
 <script>
 	(async () => {
-		await BrewUtil2.pInit();
+		await Promise.all([
+			PrereleaseUtil.pInit(),
+			BrewUtil2.pInit(),
+		]);
 		ExcludeUtil.pInitialise().then(null);
 
 		const $demoRoller = $(`#demo_roller`);

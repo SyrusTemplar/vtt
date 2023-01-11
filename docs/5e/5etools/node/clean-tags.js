@@ -1,8 +1,8 @@
 "use strict";
 
-const fs = require("fs");
-const ut = require("./util");
-require("../js/utils");
+import * as fs from "fs";
+import * as ut from "./util.js";
+import "../js/utils.js";
 
 const BLOCKLIST_FILE_PREFIXES = [
 	...ut.FILE_PREFIX_BLOCKLIST,

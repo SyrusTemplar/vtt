@@ -1313,7 +1313,10 @@ class Makebrew {
 		Makebrew._LOCK = new VeLock();
 
 		// generic init
-		await BrewUtil2.pInit();
+		await Promise.all([
+			PrereleaseUtil.pInit(),
+			BrewUtil2.pInit(),
+		]);
 		ExcludeUtil.pInitialise().then(null); // don't await, as this is only used for search
 		await this.pPrepareExistingEditableBrew();
 		await BrewUtil2.pGetBrewProcessed();
@@ -1379,7 +1382,7 @@ class Makebrew {
 		if (!initialLoadMeta.statemeta) return;
 
 		const [page, source, hash] = initialLoadMeta.statemeta;
-		let toLoad = await Renderer.hover.pCacheAndGet(page, source, hash, {isCopy: true});
+		let toLoad = await DataLoader.pCacheAndGet(page, source, hash, {isCopy: true});
 
 		toLoad = await builder._pHashChange_pHandleSubHashes(sub, toLoad);
 

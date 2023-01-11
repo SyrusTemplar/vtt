@@ -1999,7 +1999,7 @@
 												"The ladder descends into a dimly lit room smelling of dust and sweet spices. Musty furniture and crates are strewn about the space. A door leads north."
 											]
 										},
-										"The challenge area is depicted on {@adventure map 2.2|JttRC|2|Map 2.2: market challenges} and includes seven rooms. Unlocked doors connect the spaces, all of which are filled with colorful but worthless clutter. The doors are rickety and fit loosely in their frames, allowing tut-krogh caterpillars to move between the rooms unimpeded. Area H1 is lit by a lantern shedding {@book dim light|PHB|8|Vision and Light}; the other areas are dark.",
+										"The challenge area is depicted on {@adventure map 2.2|JttRC|2|Map 2.2: market challenges} and includes seven rooms. Unlocked doors connect the spaces, all of which are filled with colorful but worthless clutter. The doors are rickety and fit loosely in their frames, allowing tut-krogh caterpillars to move between the rooms unimpeded. Area H1 is lit by a lantern shedding {@quickref Vision and Light|PHB|2||dim light}; the other areas are dark.",
 										{
 											"type": "entries",
 											"name": "Starting the Challenge",
@@ -8832,7 +8832,7 @@
 											"name": "Spirit Fog",
 											"id": "1b2",
 											"entries": [
-												"Won-Ha's gwishin can cause fog to {@book lightly obscure|PHB|8|Vision and Light} the city within 1 mile of the Park of the Elders. The fog lasts for 5 minutes, though the gwishin can disperse it sooner. The gwishin can summon this fog up to three times per day."
+												"Won-Ha's gwishin can cause fog to {@quickref Vision and Light|PHB|2||lightly obscure} the city within 1 mile of the Park of the Elders. The fog lasts for 5 minutes, though the gwishin can disperse it sooner. The gwishin can summon this fog up to three times per day."
 											]
 										},
 										{
@@ -9113,7 +9113,7 @@
 									"name": "Work Site Attack",
 									"id": "1c5",
 									"entries": [
-										"During the conversation with Jung-Soon, the character who has the highest passive Wisdom ({@skill Persuasion}) score is the first to notice fog drifting into the work site from the southeast. A round later, the work site is {@book lightly obscured|PHB|8|Vision and Light} by the fog.",
+										"During the conversation with Jung-Soon, the character who has the highest passive Wisdom ({@skill Persuasion}) score is the first to notice fog drifting into the work site from the southeast. A round later, the work site is {@quickref Vision and Light|PHB|2||lightly obscured} by the fog.",
 										"A moment after the fog rises, four tigers (use the {@creature saber-toothed tiger} stat block) appear from the direction of the forest. These hostile tigers are 12 feet long and have blue-tinged fur. The site's workers and hired guards flee upon seeing the tigers, but Jung-Soon stands her ground. The tigers attack her or any creature that appears to be a greater threat.",
 										{
 											"type": "entries",
@@ -13700,7 +13700,7 @@
 										],
 										[
 											"2",
-											"Falling ash {@book lightly obscures|PHB|8|Vision and Light} the characters' surroundings for the next hour."
+											"Falling ash {@quickref Vision and Light|PHB|2||lightly obscures} the characters' surroundings for the next hour."
 										],
 										[
 											"3",
@@ -14003,12 +14003,12 @@
 										{
 											"type": "item",
 											"name": "Heat and Gas",
-											"entry": "The air in the shrine is heavy with smoke and heat. The shrine's magic keeps the temperature at 90 degrees Fahrenheit, despite its proximity to the volcano's magma. This same magic prevents volcanic gases from posing a threat, but these gases still {@book lightly obscure|PHB|8|Vision and Light} every area within the shrine."
+											"entry": "The air in the shrine is heavy with smoke and heat. The shrine's magic keeps the temperature at 90 degrees Fahrenheit, despite its proximity to the volcano's magma. This same magic prevents volcanic gases from posing a threat, but these gases still {@quickref Vision and Light|PHB|2||lightly obscure} every area within the shrine."
 										},
 										{
 											"type": "item",
 											"name": "Illumination",
-											"entry": "Veins of magma thread the walls and fill magical lanterns throughout the shrine, illuminating each area with {@book dim light|PHB|8|Vision and Light}."
+											"entry": "Veins of magma thread the walls and fill magical lanterns throughout the shrine, illuminating each area with {@quickref Vision and Light|PHB|2||dim light}."
 										}
 									]
 								}
@@ -15477,7 +15477,7 @@
 							"rows": [
 								[
 									"1\u20132",
-									"It rains heavily. For the next hour, the boat and its surroundings are {@book heavily obscured|PHB|8|Vision and Light}. Roll again on this table, ignoring another result of 1 or 2."
+									"It rains heavily. For the next hour, the boat and its surroundings are {@quickref Vision and Light|PHB|2||heavily obscured}. Roll again on this table, ignoring another result of 1 or 2."
 								],
 								[
 									"3",
@@ -15650,7 +15650,7 @@
 								],
 								[
 									"3",
-									"Fog rises and {@book lightly obscures|PHB|8|Vision and Light} the forest. Through it, two {@creature Will-o'-Wisp||will-o-wisps} try to lead the characters into the path of a hostile {@creature hydra}."
+									"Fog rises and {@quickref Vision and Light|PHB|2||lightly obscures} the forest. Through it, two {@creature Will-o'-Wisp||will-o-wisps} try to lead the characters into the path of a hostile {@creature hydra}."
 								],
 								[
 									"4",
@@ -16899,7 +16899,7 @@
 										"Beyond the camp, the ash-heavy air closes in. Decay and ruin are everywhere, from the murky water flowing through the endless swamp to the mildewed vines and the rotting roots of swollen mangrove and banyan trees."
 									]
 								},
-								"The Weeping Paths is a treacherous quagmire home to malicious spirits. The swamp and the overgrown hills beyond are {@book difficult terrain|PHB|8|Difficult Terrain}. At a normal pace, it takes the party a full day to reach Bathalang Puno (24 miles away), or half a day to reach Sorrow's Zenith (12 miles away) and then two thirds of a day to reach Bathalang Puno (9 miles away; see the {@book Player's Handbook|PHB} for {@book details on travel pace|PHB|8|Travel Pace}). The entire region is also {@book lightly obscured|PHB|8|Vision and Light} by foliage and haze, causing creatures to have disadvantage on Wisdom ({@skill Perception}) checks that rely on sight.",
+								"The Weeping Paths is a treacherous quagmire home to malicious spirits. The swamp and the overgrown hills beyond are {@book difficult terrain|PHB|8|Difficult Terrain}. At a normal pace, it takes the party a full day to reach Bathalang Puno (24 miles away), or half a day to reach Sorrow's Zenith (12 miles away) and then two thirds of a day to reach Bathalang Puno (9 miles away; see the {@book Player's Handbook|PHB} for {@book details on travel pace|PHB|8|Travel Pace}). The entire region is also {@quickref Vision and Light|PHB|2||lightly obscured} by foliage and haze, causing creatures to have disadvantage on Wisdom ({@skill Perception}) checks that rely on sight.",
 								"Threats lurk amid the wilds. For every 3 miles the party travels, roll on the Weeping Paths Encounters table.",
 								{
 									"type": "table",
@@ -19577,7 +19577,7 @@
 								"Distant music provides an almost hypnotic undertone to a calm night. Then shouts ring out, shattering the peace. Someone's calling for help!"
 							]
 						},
-						"The characters can tell the shouts are coming from the inn's common room. Following the sound, the characters find the common room {@book lightly obscured|PHB|8|Vision and Light}, filled with swirling mist. The haze makes the area feel like it's full of fog and floating on a stormy sea. Staff and other patrons who've stumbled out of their rooms are frightened by the sight.",
+						"The characters can tell the shouts are coming from the inn's common room. Following the sound, the characters find the common room {@quickref Vision and Light|PHB|2||lightly obscured}, filled with swirling mist. The haze makes the area feel like it's full of fog and floating on a stormy sea. Staff and other patrons who've stumbled out of their rooms are frightened by the sight.",
 						"Amid the mist are two terrified figures who cry out, saying \"Please, they're coming after us!\" and \"We can't lose them again!\" These {@creature Haint|JttRC|haints} (detailed at the {@area end of this adventure|42e|x}) are spirits murdered during the Passage of Vultures. They've both taken on the lifelike appearances of the artisans they were in life and seek to escape the wicked souls who hold them captive in death. Their sorrow causes them to fear the characters are allies of the invaders who murdered them.",
 						"Before the haints can say much, or after 1 round of combat, a {@creature wraith} that looks like a faceless sea raider manifests near them. This is the spirit of one of the wicked captors the haints are trying to escape. The wraith looks around, then signals toward the characters. If the haints haven't already attacked, they back away from the wraith and reluctantly join it in attacking the characters. All three Undead attack until the wraith is destroyed.",
 						{
@@ -28733,7 +28733,7 @@
 									"id": "4e8",
 									"entries": [
 										"Two {@creature Aboleth||aboleths}, Glol and Kilzilg, lurk in the brackish but mundane waters of this pool. These servants of the Drought Elder infiltrated the tepui and used their master's magic to corrupt Chimagua and the Sleeping Stone. When {@creature Yarana|JttRC} arrived, they took control of her. They are using the warrior to watch Chimagua's final days.",
-										"The aboleths prefer to stay in the cavern's foul water, which {@book heavily obscures|PHB|8|Vision and Light} them while they're below the surface. If the aboleths are revealed or the characters enter the water, the aboleths attack. Both use their telepathy to threaten foes, promising eternities of desiccated doom within the Drought Elder's immortal corpse.",
+										"The aboleths prefer to stay in the cavern's foul water, which {@quickref Vision and Light|PHB|2||heavily obscures} them while they're below the surface. If the aboleths are revealed or the characters enter the water, the aboleths attack. Both use their telepathy to threaten foes, promising eternities of desiccated doom within the Drought Elder's immortal corpse.",
 										{
 											"type": "inset",
 											"name": "Ghost Orchids",

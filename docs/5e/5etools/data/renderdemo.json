@@ -75,7 +75,7 @@
 								"The purpose of this tag is to open the given page, pre-filtered with the specified filtering options. There's one major caveat that makes this tricky to use for aspiring JSONtranauts\u2014the filter values use the {@i internal} version, as you'd find in the data. So, for example, ..|school=D|.. would filter spells to Divination school spells, as 'D' is the Divination identifier in the data. Trying to do e.g. ..|school=Divination|.. will not work.",
 								"The 'filter_name_X' here matches the literal text name of the filter, as displayed in the dropdown.",
 								"Some examples of the tag in action:",
-								"{@filter Races that have a bonus to Intelligence|races|Ability Bonus (Including Subrace)=Intelligence +any}",
+								"{@filter Races that have a bonus to Intelligence|races|Ability Scores (Including Subrace)=Intelligence +any}",
 								"{@filter Bard cantrips and first-level spells|spells|level=0;1|class=bard}",
 								"{@filter Beast with challenge rating 1 or lower|bestiary|challenge rating=[&0;&1]|type=beast}",
 								"{@filter Creatures with a Strength score of 18 or more|bestiary|strength=[18;]}",
@@ -137,7 +137,8 @@
 										"Bestiary 'attack' tags: {@atk m}, {@atk r}, {@atk m,r}, {@atk mw}, {@atk rw}, {@atk ms}, {@atk rs}; (homebrew only) {@atk a}, {@atk aw}. Commas separate or'd attack types; the general form is: '@atk &lt;m|r|a&gt;[&lt;w|s&gt;][,&lt;m|r|a&gt;[&lt;w|s&gt;][,...]]'"
 									]
 								},
-								"Homebrew loading tags: {@loader Tome of Beasts|creature/Kobold Press; Tome of Beasts.json}. The URL after the pipe is assumed to be from the root of the homebrew repository, unless it starts with a \"...://\" prefix (i.e., any link should work, but there's a shorthand for homebrew repository links)."
+								"Homebrew loading tags: {@loader Tome of Beasts|creature/Kobold Press; Tome of Beasts.json}. The URL after the pipe is assumed to be from the root of the homebrew repository, unless it starts with a \"...://\" prefix (i.e., any link should work, but there's a shorthand for homebrew repository links).",
+								"Prerelease loading tags; as above: {@loader UA: When Armies Clash|collection/Unearthed Arcana - When Armies Clash.json|prerelease}."
 							]
 						}
 					]
@@ -763,50 +764,6 @@
 										"type": "instant"
 									}
 								],
-								"classes": {
-									"fromClassList": [
-										{
-											"name": "Sorcerer",
-											"source": "PHB"
-										},
-										{
-											"name": "Wizard",
-											"source": "PHB"
-										}
-									],
-									"fromSubclass": [
-										{
-											"class": {
-												"name": "Cleric",
-												"source": "PHB"
-											},
-											"subclass": {
-												"name": "Light",
-												"source": "PHB"
-											}
-										},
-										{
-											"class": {
-												"name": "Warlock",
-												"source": "PHB"
-											},
-											"subclass": {
-												"name": "Fiend",
-												"source": "PHB"
-											}
-										},
-										{
-											"class": {
-												"name": "Cleric",
-												"source": "PHB"
-											},
-											"subclass": {
-												"name": "Zeal (PSA)",
-												"source": "PSA"
-											}
-										}
-									]
-								},
 								"source": "PHB",
 								"entries": [
 									"A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes {@dice 8d6} fire damage on a failed save, or half as much damage on a successful one.",

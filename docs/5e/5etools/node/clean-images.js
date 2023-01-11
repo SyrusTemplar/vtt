@@ -4,8 +4,8 @@
  * This script assumes the user has a symlink to the image repo as "img".
  */
 
-const fs = require("fs");
-const ut = require("./util");
+import * as fs from "fs";
+import * as ut from "./util.js";
 
 function cleanBestiaryFluffImages () {
 	console.log(`##### Cleaning bestiary fluff images #####`);

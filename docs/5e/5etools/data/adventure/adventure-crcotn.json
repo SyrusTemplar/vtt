@@ -403,11 +403,11 @@
 											"60 ft."
 										],
 										[
-											"Clear water, {@book dim light|PHB|8|Vision and Light}",
+											"Clear water, {@quickref Vision and Light|PHB|2||dim light}",
 											"30 ft."
 										],
 										[
-											"Murky water or {@book no light|PHB|8|Vision and Light}",
+											"Murky water or {@quickref Vision and Light|PHB|2||no light}",
 											"10 ft."
 										]
 									]
@@ -7802,7 +7802,7 @@
 												"A snarling face of stone is carved into the north wall of the foggy chasm, its gaping mouth forming the entrance to a hallway. Fire blazes in one of the face's eye sockets, and its fangs are stained with blood."
 											]
 										},
-										"The 1,000-foot-deep chasm swirls with fog that makes the entire area {@book lightly obscured|PHB|8|Vision and Light}. The carving of Gruumsh's face is 100 feet below the opening in the ceiling to {@area area R1|129|x} and 900 feet above the chasm's floor.",
+										"The 1,000-foot-deep chasm swirls with fog that makes the entire area {@quickref Vision and Light|PHB|2||lightly obscured}. The carving of Gruumsh's face is 100 feet below the opening in the ceiling to {@area area R1|129|x} and 900 feet above the chasm's floor.",
 										"When a creature passes through the gaping mouth of the stone-carved face, a planar rift opens in the floor on the east side of the chasm (see \"Abyssal Rift\" below), and a hostile {@creature vrock} flies out of it. The vrock begins searching the chasm for food, attacking the characters on sight.",
 										{
 											"type": "entries",
@@ -18894,7 +18894,7 @@
 										"It has a swimming speed equal to its flying speed."
 									]
 								},
-								"The cloaker attacks the character, ignoring all other creatures. When either the cloaker or its target drops to 0 hit points, the cloaker disappears in a vermilion haze that fills its space and disperses after 1 minute. The area within the haze is {@book lightly obscured|PHB|8|Vision and Light}."
+								"The cloaker attacks the character, ignoring all other creatures. When either the cloaker or its target drops to 0 hit points, the cloaker disappears in a vermilion haze that fills its space and disperses after 1 minute. The area within the haze is {@quickref Vision and Light|PHB|2||lightly obscured}."
 							]
 						},
 						{

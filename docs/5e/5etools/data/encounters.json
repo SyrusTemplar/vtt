@@ -1,13 +1,417 @@
 {
 	"encounter": [
 		{
+			"name": "Sylvan Forest",
+			"source": "DMG",
+			"tables": [
+				{
+					"diceExpression": "d12 + d8",
+					"table": [
+						{
+							"min": 2,
+							"max": 2,
+							"result": "1 {@creature displacer beast}"
+						},
+						{
+							"min": 3,
+							"max": 3,
+							"result": "1 {@creature gnoll pack lord} and {@dice 2d4} {@creature gnoll||gnolls}"
+						},
+						{
+							"min": 4,
+							"max": 4,
+							"result": "{@dice 1d4} {@creature gnoll||gnolls} and {@dice 2d4} {@creature hyena||hyenas}"
+						},
+						{
+							"min": 5,
+							"max": 5,
+							"result": "A grove of burned trees. Characters searching the area and succeeding on a DC 10 Wisdom ({@skill Survival}) check find {@creature gnoll} tracks. Following the tracks for {@dice 1d4} hours leads to an encounter with {@creature gnoll||gnolls}, or the discovery of dead {@creature gnoll||gnolls} with elven arrows sticking out of their flea-ridden corpses."
+						},
+						{
+							"min": 6,
+							"max": 6,
+							"result": "1 {@creature giant owl}"
+						},
+						{
+							"min": 7,
+							"max": 7,
+							"result": "An ivy-covered statue of an elven deity or hero."
+						},
+						{
+							"min": 8,
+							"max": 8,
+							"result": "1 {@creature dryad} (50%) or {@dice 1d4} {@creature satyr||satyrs} (50%)"
+						},
+						{
+							"min": 9,
+							"max": 9,
+							"result": "{@dice 1d4} {@creature centaur||centaurs}"
+						},
+						{
+							"min": 10,
+							"max": 10,
+							"result": "{@dice 2d4} {@creature scout||scouts} (elves). One {@creature scout} carries a horn and can use its action to blow it. If the horn is blown within the forest, roll on this table again. If the result indicates a monster encounter, the indicated monster or monsters arrive in {@dice 1d4} minutes. New arrivals other than {@creature gnoll||gnolls}, {@creature hyena||hyenas}, {@creature owlbear||owlbears}, and {@creature displacer beast||displacer beasts} are friendly toward the {@creature scout||scouts}."
+						},
+						{
+							"min": 11,
+							"max": 11,
+							"result": "{@dice 2d4} {@creature pixie||pixies} (50%) or {@dice 2d4} {@creature sprite||sprites} (50%)"
+						},
+						{
+							"min": 12,
+							"max": 12,
+							"result": "1 {@creature owlbear}"
+						},
+						{
+							"min": 13,
+							"max": 13,
+							"result": "{@dice 1d4} {@creature elk||elks} (75%) or 1 {@creature giant elk} (25%)"
+						},
+						{
+							"min": 14,
+							"max": 14,
+							"result": "{@dice 1d4} {@creature blink dog||blink dogs}"
+						},
+						{
+							"min": 15,
+							"max": 15,
+							"result": "A magical plant with {@dice 2d4} glowing berries. A creature that ingests a berry becomes {@condition invisible} for 1 hour, or until it attacks or casts a spell. Once picked, a berry loses its magic after 12 hours. Berries regrow at midnight, but if all its berries are picked, the plant becomes nonmagical and grows no more berries."
+						},
+						{
+							"min": 16,
+							"max": 16,
+							"result": "An elven tune carried on a gentle breeze"
+						},
+						{
+							"min": 17,
+							"max": 17,
+							"result": "{@dice 1d4} {@creature Faerie Dragon (Orange)||orange} (75%) or {@creature Faerie Dragon (Blue)||blue} (25%) faerie dragons"
+						},
+						{
+							"min": 18,
+							"max": 18,
+							"result": "1 {@creature druid} (elf). The {@creature druid} is initially indifferent toward the party but becomes friendly if the characters agree to rid the forest of its gnoll infestation."
+						},
+						{
+							"min": 19,
+							"max": 19,
+							"result": "1 {@creature treant}. The {@creature treant} is friendly if the party includes one or more elves or is accompanied by a visible fey creature. The {@creature treant} is hostile if the characters are carrying open flames. Otherwise, it is indifferent and doesn't announce its presence as the characters pass by."
+						},
+						{
+							"min": 20,
+							"max": 20,
+							"result": "1 {@creature unicorn}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Urban",
+			"source": "DMG",
+			"tables": [
+				{
+					"diceExpression": "d12 + d8",
+					"table": [
+						{
+							"min": 2,
+							"max": 2,
+							"result": "{@book Animals on the loose|DMG|5|Animals on the loose}"
+						},
+						{
+							"min": 3,
+							"max": 3,
+							"result": "{@book Announcement|DMG|5|Announcement}"
+						},
+						{
+							"min": 4,
+							"max": 4,
+							"result": "{@book Brawl|DMG|5|Brawl}"
+						},
+						{
+							"min": 5,
+							"max": 5,
+							"result": "{@book Bullies|DMG|5|Bullies}"
+						},
+						{
+							"min": 6,
+							"max": 6,
+							"result": "{@book Companion|DMG|5|Companion}"
+						},
+						{
+							"min": 7,
+							"max": 7,
+							"result": "{@book Contest|DMG|5|Contest}"
+						},
+						{
+							"min": 8,
+							"max": 8,
+							"result": "{@book Corpse|DMG|5|Corpse}"
+						},
+						{
+							"min": 9,
+							"max": 9,
+							"result": "{@book Draft|DMG|5|Draft}"
+						},
+						{
+							"min": 10,
+							"max": 10,
+							"result": "{@book Drunk|DMG|5|Drunk}"
+						},
+						{
+							"min": 11,
+							"max": 11,
+							"result": "{@book Fire|DMG|5|Fire}"
+						},
+						{
+							"min": 12,
+							"max": 12,
+							"result": "{@book Found trinket|DMG|5|Found trinket}"
+						},
+						{
+							"min": 13,
+							"max": 13,
+							"result": "{@book Guard harassment|DMG|5|Guard harassment}"
+						},
+						{
+							"min": 14,
+							"max": 14,
+							"result": "{@book Pickpocket|DMG|5|Pickpocket}"
+						},
+						{
+							"min": 15,
+							"max": 15,
+							"result": "{@book Procession|DMG|5|Procession}"
+						},
+						{
+							"min": 16,
+							"max": 16,
+							"result": "{@book Protest|DMG|5|Protest}"
+						},
+						{
+							"min": 17,
+							"max": 17,
+							"result": "{@book Runaway cart|DMG|5|Runaway cart}"
+						},
+						{
+							"min": 18,
+							"max": 18,
+							"result": "{@book Shady transaction|DMG|5|Shady transaction}"
+						},
+						{
+							"min": 19,
+							"max": 19,
+							"result": "{@book Spectacle|DMG|5|Spectacle}"
+						},
+						{
+							"min": 20,
+							"max": 20,
+							"result": "{@book Urchin|DMG|5|Urchin}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Undersea",
+			"source": "DMG",
+			"tables": [
+				{
+					"diceExpression": "d12 + d8",
+					"table": [
+						{
+							"min": 2,
+							"max": 2,
+							"result": "Sunken ship covered in barnacles ({@chance 25} chance that the ship contains treasure\u2014roll randomly on the treasure tables in chapter 7)"
+						},
+						{
+							"min": 3,
+							"max": 3,
+							"result": "Sunken ship with {@creature reef shark||reef sharks} (shallow waters) or {@creature hunter shark||hunter sharks} (deep waters) circling around it ({@chance 50} chance that the ship contains treasure\u2014roll randomly on the treasure tables in chapter 7)"
+						},
+						{
+							"min": 4,
+							"max": 4,
+							"result": "Bed of giant oysters (each oyster has a {@chance 1} chance of having a giant 5,000 gp pearl inside)"
+						},
+						{
+							"min": 5,
+							"max": 5,
+							"result": "Underwater steam vent ({@chance 25} chance that the vent is a portal to the Elemental Plane of Fire)"
+						},
+						{
+							"min": 6,
+							"max": 6,
+							"result": "Sunken ruin (uninhabited)"
+						},
+						{
+							"min": 7,
+							"max": 7,
+							"result": "Sunken ruin (inhabited or haunted)"
+						},
+						{
+							"min": 8,
+							"max": 8,
+							"result": "Sunken statue or monolith"
+						},
+						{
+							"min": 9,
+							"max": 9,
+							"result": "Friendly and curious {@creature giant sea horse}"
+						},
+						{
+							"min": 10,
+							"max": 10,
+							"result": "Patrol of friendly {@creature merfolk}"
+						},
+						{
+							"min": 11,
+							"max": 11,
+							"result": "Patrol of hostile {@creature merrow} (coastal waters) or {@creature sahuagin} (deep waters)"
+						},
+						{
+							"min": 12,
+							"max": 12,
+							"result": "Enormous kelp bed (roll again on the table to determine what's hidden in the kelp bed)"
+						},
+						{
+							"min": 13,
+							"max": 13,
+							"result": "Undersea cave (empty)"
+						},
+						{
+							"min": 14,
+							"max": 14,
+							"result": "Undersea cave ({@creature sea hag} lair)"
+						},
+						{
+							"min": 15,
+							"max": 15,
+							"result": "Undersea cave ({@creature merfolk} lair)"
+						},
+						{
+							"min": 16,
+							"max": 16,
+							"result": "Undersea cave ({@creature giant octopus} lair)"
+						},
+						{
+							"min": 17,
+							"max": 17,
+							"result": "Undersea cave ({@creature dragon turtle} lair)"
+						},
+						{
+							"min": 18,
+							"max": 18,
+							"result": "Bronze dragon searching for treasure"
+						},
+						{
+							"min": 19,
+							"max": 19,
+							"result": "{@creature Storm giant} walking on the ocean floor"
+						},
+						{
+							"min": 20,
+							"max": 20,
+							"result": "Sunken treasure chest ({@chance 25} chance that it contains something of value\u2014roll treasure randomly using the tables in chapter 7)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "At Sea",
+			"source": "DMG",
+			"tables": [
+				{
+					"diceExpression": "d12 + d8",
+					"table": [
+						{
+							"min": 2,
+							"max": 2,
+							"result": "Ghost ship"
+						},
+						{
+							"min": 3,
+							"max": 3,
+							"result": "Friendly and curious bronze dragon"
+						},
+						{
+							"min": 4,
+							"max": 4,
+							"result": "Whirlpool ({@chance 25} chance that the whirlpool is a portal to the Elemental Plane of Water)"
+						},
+						{
+							"min": 5,
+							"max": 5,
+							"result": "{@creature Merfolk} traders"
+						},
+						{
+							"min": 6,
+							"max": 6,
+							"result": "Passing warship (friendly or hostile)"
+						},
+						{
+							"min": 7,
+							"max": 8,
+							"result": "Pirate ship (hostile)"
+						},
+						{
+							"min": 9,
+							"max": 10,
+							"result": "Passing merchant ship (galley or sailing ship)"
+						},
+						{
+							"min": 11,
+							"max": 12,
+							"result": "{@creature Killer whale} sighting"
+						},
+						{
+							"min": 13,
+							"max": 14,
+							"result": "Floating debris"
+						},
+						{
+							"min": 15,
+							"max": 15,
+							"result": "Longship crewed by hostile {@creature berserker||berserkers}"
+						},
+						{
+							"min": 16,
+							"max": 16,
+							"result": "Hostile {@creature griffon||griffons} or {@creature harpy||harpies}"
+						},
+						{
+							"min": 17,
+							"max": 17,
+							"result": "Iceberg (easily avoided if seen from a distance)"
+						},
+						{
+							"min": 18,
+							"max": 18,
+							"result": "{@creature Sahuagin} boarding party"
+						},
+						{
+							"min": 19,
+							"max": 19,
+							"result": "NPC in the water (clinging to floating debris)"
+						},
+						{
+							"min": 20,
+							"max": 20,
+							"result": "Sea monster (such as a {@creature dragon turtle} or {@creature kraken})"
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Arctic",
 			"source": "XGE",
 			"tables": [
 				{
 					"minlvl": 1,
 					"maxlvl": 4,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -209,7 +613,7 @@
 				{
 					"minlvl": 5,
 					"maxlvl": 10,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -453,12 +857,12 @@
 							"result": "1 {@creature ancient white dragon}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 17,
 					"maxlvl": 20,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -562,7 +966,7 @@
 				{
 					"minlvl": 1,
 					"maxlvl": 4,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -779,7 +1183,7 @@
 				{
 					"minlvl": 5,
 					"maxlvl": 10,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -961,7 +1365,7 @@
 				{
 					"minlvl": 11,
 					"maxlvl": 16,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -1088,7 +1492,7 @@
 				{
 					"minlvl": 17,
 					"maxlvl": 20,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -1167,7 +1571,7 @@
 				{
 					"minlvl": 1,
 					"maxlvl": 4,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -1691,7 +2095,7 @@
 							"result": "1 {@creature adult brass dragon}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 11,
@@ -1878,7 +2282,7 @@
 							"result": "1 {@creature ancient blue dragon}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 17,
@@ -1980,7 +2384,7 @@
 							"result": "{@dice 1d4} {@creature adult brass dragon||adult brass dragons}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				}
 			],
 			"page": 95
@@ -1992,7 +2396,7 @@
 				{
 					"minlvl": 1,
 					"maxlvl": 4,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -2419,7 +2823,7 @@
 				{
 					"minlvl": 5,
 					"maxlvl": 10,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -2741,7 +3145,7 @@
 				{
 					"minlvl": 11,
 					"maxlvl": 16,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -2913,7 +3317,7 @@
 				{
 					"minlvl": 17,
 					"maxlvl": 20,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -3047,7 +3451,7 @@
 				{
 					"minlvl": 1,
 					"maxlvl": 5,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -3264,7 +3668,7 @@
 				{
 					"minlvl": 6,
 					"maxlvl": 10,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -3471,7 +3875,7 @@
 				{
 					"minlvl": 11,
 					"maxlvl": 16,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -3568,7 +3972,7 @@
 				{
 					"minlvl": 17,
 					"maxlvl": 20,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -3652,7 +4056,7 @@
 				{
 					"minlvl": 1,
 					"maxlvl": 4,
-					"diceType": 100,
+					"diceExpression": "d100",
 					"table": [
 						{
 							"min": 1,
@@ -4206,7 +4610,7 @@
 							"result": "1 {@creature roc}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 11,
@@ -4353,7 +4757,7 @@
 							"result": "1 {@creature ancient copper dragon}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 17,
@@ -4470,7 +4874,7 @@
 							"result": "{@dice 1d2} {@creature adult red dragon||adult red dragons} with {@dice 1d3} {@creature young red dragon||young red dragons}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				}
 			],
 			"page": 101
@@ -4714,7 +5118,7 @@
 							"result": "1 {@creature frost giant}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 5,
@@ -4891,7 +5295,7 @@
 							"result": "{@dice 1d4} {@creature frost giant||frost giants}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 11,
@@ -5023,7 +5427,7 @@
 							"result": "1 {@creature ancient red dragon}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 17,
@@ -5130,7 +5534,7 @@
 							"result": "1 {@creature ancient red dragon}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				}
 			],
 			"page": 104
@@ -5379,7 +5783,7 @@
 							"result": "1 {@creature hydra}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 5,
@@ -5571,7 +5975,7 @@
 							"result": "{@dice 1d3} {@creature hydra||hydras}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 11,
@@ -5663,7 +6067,7 @@
 							"result": "1 {@creature ancient black dragon}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				}
 			],
 			"page": 105
@@ -6077,7 +6481,7 @@
 							"result": "1 {@creature spirit naga}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 5,
@@ -6479,7 +6883,7 @@
 							"result": "1 {@creature beholder}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 11,
@@ -6806,7 +7210,7 @@
 							"result": "1 {@creature purple worm}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 17,
@@ -7023,7 +7427,7 @@
 							"result": "{@dice 2d4} {@creature aboleth||aboleths}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				}
 			],
 			"page": 106
@@ -7152,7 +7556,7 @@
 							"result": "1 {@creature sahuagin baron}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 5,
@@ -7274,7 +7678,7 @@
 							"result": "1 {@creature storm giant}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 11,
@@ -7336,7 +7740,7 @@
 							"result": "1 {@creature kraken}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				}
 			],
 			"page": 109
@@ -7685,7 +8089,7 @@
 							"result": "1 {@creature assassin}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 5,
@@ -7947,7 +8351,7 @@
 							"result": "1 {@creature rakshasa} or 1 {@creature vampire}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 11,
@@ -8134,7 +8538,7 @@
 							"result": "1 {@creature archmage} speeding down the street on a {@creature riding horse}, blasting 1d4 {@creature guard||guards} with spells"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 17,
@@ -8266,7 +8670,7 @@
 							"result": "1 {@creature tarrasque}"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				}
 			],
 			"page": 110
@@ -8405,7 +8809,7 @@
 							"result": "A ship ({@variantrule Random Ships|GoS|generated at random})"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 5,
@@ -8542,7 +8946,7 @@
 							"result": "A mysterious island ({@variantrule Mysterious Islands|GoS|generated at random})"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				},
 				{
 					"minlvl": 11,
@@ -8644,7 +9048,7 @@
 							"result": "A mysterious island ({@variantrule Mysterious Islands|GoS|generated at random})"
 						}
 					],
-					"diceType": 100
+					"diceExpression": "d100"
 				}
 			],
 			"page": 207
@@ -8654,7 +9058,7 @@
 			"source": "BAM",
 			"tables": [
 				{
-					"diceType": 100,
+					"diceExpression": "d100",
 					"rollAttitude": true,
 					"table": [
 						{
@@ -8801,7 +9205,7 @@
 			"source": "BAM",
 			"tables": [
 				{
-					"diceType": 100,
+					"diceExpression": "d100",
 					"rollAttitude": true,
 					"table": [
 						{
@@ -8961,7 +9365,7 @@
 			"source": "BAM",
 			"tables": [
 				{
-					"diceType": 100,
+					"diceExpression": "d100",
 					"rollAttitude": true,
 					"table": [
 						{

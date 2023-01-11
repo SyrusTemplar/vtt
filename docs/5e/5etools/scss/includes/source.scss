@@ -1,6 +1,13 @@
 @import "vars";
 
 .source {
+	$rgb-source-category-site: #e50711;
+	$rgb-source-category-extras: #9d4c4f;
+	$rgb-source-category-prerelease: $rgb-subclass-ua;
+	$rgb-source-category-prerelease--local: #54ce19;
+	$rgb-source-category-homebrew: $rgb-class-brew;
+	$rgb-source-category-homebrew--local: #4b40ed;
+
 	$rgb-source-PHB: #4a6898;
 	$rgb-source-DMG: purple;
 	$rgb-source-MM: green;
@@ -17,8 +24,6 @@
 	$rgb-source-PotA: #57b6c6;
 	$rgb-source-LMoP: #8da851;
 	$rgb-source-TftYP: #c94029;
-	$rgb-source-Homebrew: $rgb-class-brew;
-	$rgb-source-Homebrew--local: #281ce5;
 	$rgb-source-ToA: #666f30;
 	$rgb-source-MTF: #1f6e7b;
 	$rgb-source-WDH: #d4af37;
@@ -40,7 +45,7 @@
 	$rgb-source-MOT: #556b2e;
 	$rgb-source-IDRotF: #8fb8c0;
 	$rgb-source-TCE: #a24d08;
-	$rgb-source-AL: #e50711;
+	$rgb-source-AL: $rgb-source-category-site;
 	$rgb-source-HF: #ac9544;
 	$rgb-source-CM: #e6585e;
 	$rgb-source-VRGR: #bd000f;
@@ -58,6 +63,50 @@
 	$rgb-source-SAiS: #056b97;
 	$rgb-source-DoSI: #478bb8;
 	$rgb-source-DSotDQ: #851e20;
+
+	// region Categories
+
+	&-category- {
+		&site {
+			color: $rgb-source-category-site !important;
+			border-color: $rgb-source-category-site !important;
+			text-decoration-color: $rgb-source-category-site !important;
+		}
+
+		&extras {
+			color: $rgb-source-category-extras !important;
+			border-color: $rgb-source-category-extras !important;
+			text-decoration-color: $rgb-source-category-extras !important;
+		}
+
+		&homebrew {
+			color: $rgb-source-category-homebrew !important;
+			border-color: $rgb-source-category-homebrew !important;
+			text-decoration-color: $rgb-source-category-homebrew !important;
+
+			&--local {
+				color: $rgb-source-category-homebrew--local !important;
+				border-color: $rgb-source-category-homebrew--local !important;
+				text-decoration-color: $rgb-source-category-homebrew--local !important;
+			}
+		}
+
+		&spicy {
+			color: $rgb-source-category-prerelease !important;
+			border-color: $rgb-source-category-prerelease !important;
+			text-decoration-color: $rgb-source-category-prerelease !important;
+
+			&--local {
+				color: $rgb-source-category-prerelease--local !important;
+				border-color: $rgb-source-category-prerelease--local !important;
+				text-decoration-color: $rgb-source-category-prerelease--local !important;
+			}
+		}
+	}
+
+	// endregion
+
+	// region Specific sources
 
 	&PHB {
 		color: $rgb-source-PHB !important;
@@ -155,24 +204,6 @@
 		color: $rgb-source-TftYP !important;
 		border-color: $rgb-source-TftYP !important;
 		text-decoration-color: $rgb-source-TftYP !important;
-	}
-
-	&Homebrew {
-		color: $rgb-source-Homebrew !important;
-		border-color: $rgb-source-Homebrew !important;
-		text-decoration-color: $rgb-source-Homebrew !important;
-
-		&--local {
-			color: $rgb-source-Homebrew--local !important;
-			border-color: $rgb-source-Homebrew--local !important;
-			text-decoration-color: $rgb-source-Homebrew--local !important;
-		}
-	}
-
-	&Spicy {
-		color: $rgb-subclass-ua !important;
-		border-color: $rgb-subclass-ua !important;
-		text-decoration-color: $rgb-subclass-ua !important;
 	}
 
 	&ToA {
@@ -457,6 +488,8 @@
 		border-color: $rgb-source-DSotDQ !important;
 		text-decoration-color: $rgb-source-DSotDQ !important;
 	}
+
+	// endregion
 }
 
 .sp__ {

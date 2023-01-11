@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderRewards {
 	static $getRenderedReward (reward) {
 		return $$`

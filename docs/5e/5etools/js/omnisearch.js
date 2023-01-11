@@ -54,7 +54,7 @@ class Omnisearch {
 			Renderer.hover.cleanTempWindows();
 			switch (evt.key) {
 				case "Enter":
-					if (evt.ctrlKey) {
+					if (evt.ctrlKey || evt.metaKey) {
 						window.location = `${Renderer.get().baseUrl}${UrlUtil.PG_SEARCH}?${this._$iptSearch.val()}`;
 						break;
 					}
@@ -244,7 +244,7 @@ class Omnisearch {
 					continue;
 				}
 
-				const item = await Renderer.hover.pCacheAndGetHash(UrlUtil.PG_ITEMS, r.doc.u);
+				const item = await DataLoader.pCacheAndGetHash(UrlUtil.PG_ITEMS, r.doc.u);
 				if (!Renderer.item.isExcluded(item, {hash: r.doc.u})) resultsNxt.push(r);
 			}
 			results = resultsNxt;
@@ -354,7 +354,7 @@ class Omnisearch {
 				? `<a href="${adventureBookSourceHref}">${ptPageInner}</a>`
 				: ptPageInner;
 
-			const ptSourceInner = source ? `<span class="${Parser.sourceJsonToColor(source)}" ${BrewUtil2.sourceJsonToStyle(source)} title="${Parser.sourceJsonToFull(source)}">${Parser.sourceJsonToAbv(source)}</span>` : `<span></span>`;
+			const ptSourceInner = source ? `<span class="${Parser.sourceJsonToColor(source)}" ${Parser.sourceJsonToStyle(source)} title="${Parser.sourceJsonToFull(source)}">${Parser.sourceJsonToAbv(source)}</span>` : `<span></span>`;
 			const ptSource = ptPage || !adventureBookSourceHref
 				? ptSourceInner
 				: `<a href="${adventureBookSourceHref}">${ptSourceInner}</a>`;
@@ -466,6 +466,9 @@ class Omnisearch {
 		SearchUtil.removeStemmer(this._searchIndex);
 
 		data.forEach(it => this._addToIndex(it));
+
+		const prereleaseIndex = await PrereleaseUtil.pGetSearchIndex({id: this._maxId + 1});
+		prereleaseIndex.forEach(it => this._addToIndex(it));
 
 		const brewIndex = await BrewUtil2.pGetSearchIndex({id: this._maxId + 1});
 		brewIndex.forEach(it => this._addToIndex(it));

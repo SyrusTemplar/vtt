@@ -152,6 +152,7 @@ class ItemsPage extends ListPage {
 	constructor () {
 		super({
 			dataSource: DataUtil.item.loadJSON.bind(DataUtil.item),
+			prereleaseDataSource: DataUtil.item.loadPrerelease.bind(DataUtil.item),
 			brewDataSource: DataUtil.item.loadBrew.bind(DataUtil.item),
 
 			pFnGetFluff: Renderer.item.pGetFluff.bind(Renderer.item),
@@ -231,7 +232,7 @@ class ItemsPage extends ListPage {
 							e_({
 								tag: "span",
 								clazz: `col-1 text-center ${Parser.sourceJsonToColor(item.source)} pr-0`,
-								style: BrewUtil2.sourceJsonToStylePart(item.source),
+								style: Parser.sourceJsonToStylePart(item.source),
 								title: `${Parser.sourceJsonToFull(item.source)}${Renderer.utils.getSourceSubText(item)}`,
 								text: source,
 							}),
@@ -277,7 +278,7 @@ class ItemsPage extends ListPage {
 							e_({
 								tag: "span",
 								clazz: `col-1 text-center ${Parser.sourceJsonToColor(item.source)} pr-0`,
-								style: BrewUtil2.sourceJsonToStylePart(item.source),
+								style: Parser.sourceJsonToStylePart(item.source),
 								title: `${Parser.sourceJsonToFull(item.source)}${Renderer.utils.getSourceSubText(item)}`,
 								text: source,
 							}),
@@ -374,7 +375,7 @@ class ItemsPage extends ListPage {
 			$btnClear,
 			dispPageTagline: document.getElementById(`page__subtitle`),
 			$wrpList: $(`.list.mundane`),
-			syntax: this._listSyntax,
+			syntax: this._listSyntax.build(),
 			isBindFindHotkey: true,
 			optsList: {
 				fnSort: PageFilterItems.sortItems,
@@ -385,7 +386,7 @@ class ItemsPage extends ListPage {
 			$btnReset,
 			$btnClear,
 			$wrpList: $(`.list.magic`),
-			syntax: this._listSyntax,
+			syntax: this._listSyntax.build(),
 			optsList: {
 				fnSort: PageFilterItems.sortItems,
 			},

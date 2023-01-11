@@ -1,3 +1,5 @@
+"use strict";
+
 class RenderRecipes {
 	/**
 	 * @param it

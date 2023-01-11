@@ -1,3 +1,5 @@
+"use strict";
+
 import {Ro_Lexer, Ro_Parser, Ro_Lang} from "./rolang.js";
 
 class LangDemoUi {

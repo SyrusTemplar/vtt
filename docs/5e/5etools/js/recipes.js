@@ -48,6 +48,7 @@ class RecipesPage extends ListPage {
 
 		super({
 			dataSource: DataUtil.recipe.loadJSON.bind(DataUtil.recipe),
+			prereleaseDataSource: DataUtil.recipe.loadPrerelease.bind(DataUtil.recipe),
 			brewDataSource: DataUtil.recipe.loadBrew.bind(DataUtil.recipe),
 
 			pFnGetFluff,
@@ -74,7 +75,7 @@ class RecipesPage extends ListPage {
 		eleLi.innerHTML = `<a href="#${hash}" class="lst--border lst__row-inner">
 			<span class="col-6 bold pl-0">${it.name}</span>
 			<span class="col-4 text-center">${it.type || "\u2014"}</span>
-			<span class="col-2 text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${BrewUtil2.sourceJsonToStyle(it.source)}>${source}</span>
+			<span class="col-2 text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${Parser.sourceJsonToStyle(it.source)}>${source}</span>
 		</a>`;
 
 		const listItem = new ListItem(
@@ -137,7 +138,7 @@ class RecipesPage extends ListPage {
 		if (scaleFactor != null) it = Renderer.recipe.getScaledRecipe(it, scaleFactor);
 
 		const $selScaleFactor = $(`
-			<select title="Scale Recipe" class="form-control input-xs form-control--minimal">
+			<select title="Scale Recipe" class="form-control input-xs form-control--minimal ve-popwindow__hidden">
 				${[0.5, 1, 2, 3, 4].map(it => `<option value="${it}">×${it}</option>`)}
 			</select>`)
 			.change(() => {

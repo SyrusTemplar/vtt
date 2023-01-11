@@ -1041,7 +1041,7 @@ class EncounterBuilder extends ProxyBase {
 
 		try {
 			// Fetch original
-			const mon = await Renderer.hover.pCacheAndGetHash(
+			const mon = await DataLoader.pCacheAndGetHash(
 				UrlUtil.PG_BESTIARY,
 				UrlUtil.autoEncodeHash(monScaled),
 			);
@@ -1924,12 +1924,12 @@ class EncounterPartyMeta {
 			this.avgPlayerLevel += meta.level * meta.count;
 			this.maxPlayerLevel = Math.max(this.maxPlayerLevel, meta.level);
 
-			this.threshEasy += LEVEL_TO_XP_EASY[meta.level] * meta.count;
-			this.threshMedium += LEVEL_TO_XP_MEDIUM[meta.level] * meta.count;
-			this.threshHard += LEVEL_TO_XP_HARD[meta.level] * meta.count;
-			this.threshDeadly += LEVEL_TO_XP_DEADLY[meta.level] * meta.count;
+			this.threshEasy += Parser.LEVEL_TO_XP_EASY[meta.level] * meta.count;
+			this.threshMedium += Parser.LEVEL_TO_XP_MEDIUM[meta.level] * meta.count;
+			this.threshHard += Parser.LEVEL_TO_XP_HARD[meta.level] * meta.count;
+			this.threshDeadly += Parser.LEVEL_TO_XP_DEADLY[meta.level] * meta.count;
 
-			this.dailyBudget += LEVEL_TO_XP_DAILY[meta.level] * meta.count;
+			this.dailyBudget += Parser.LEVEL_TO_XP_DAILY[meta.level] * meta.count;
 		});
 		if (this.avgPlayerLevel) this.avgPlayerLevel /= this.cntPlayers;
 

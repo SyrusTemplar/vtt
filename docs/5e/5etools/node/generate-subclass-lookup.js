@@ -1,6 +1,6 @@
-const fs = require("fs");
-require("./util.js");
-require("../js/utils");
+import * as fs from "fs";
+import "../js/parser.js";
+import "../js/utils.js";
 
 const out = {};
 const classIndex = JSON.parse(fs.readFileSync("./data/class/index.json", "utf-8"));

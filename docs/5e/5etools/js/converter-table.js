@@ -1,11 +1,5 @@
 "use strict";
 
-if (typeof module !== "undefined") {
-	const cv = require("./converterutils.js");
-	Object.assign(global, cv);
-	global.PropOrder = require("./utils-proporder.js");
-}
-
 class TableParser extends BaseParser {
 	/**
 	 * Parses tables from HTML.
@@ -143,8 +137,4 @@ class TableParser extends BaseParser {
 	}
 }
 
-if (typeof module !== "undefined") {
-	module.exports = {
-		TableParser,
-	};
-}
+globalThis.TableParser = TableParser;

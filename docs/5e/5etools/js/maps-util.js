@@ -1,3 +1,5 @@
+"use strict";
+
 class MapsUtil {
 	static _IMAGE_TYPES = new Set(["map", "mapPlayer"]);
 
@@ -30,7 +32,7 @@ class MapsUtil {
 
 						if (obj.mapRegions) {
 							const page = prop === "adventure" ? UrlUtil.PG_ADVENTURE : UrlUtil.PG_BOOK;
-							obj = MiscUtil.copy(obj);
+							obj = MiscUtil.copyFast(obj);
 							obj.page = page;
 							obj.source = head.source;
 							obj.hash = UrlUtil.URL_TO_HASH_BUILDER[page](head);
@@ -58,6 +60,4 @@ class MapsUtil {
 	}
 }
 
-if (typeof module !== "undefined") {
-	module.exports = {MapsUtil};
-}
+globalThis.MapsUtil = MapsUtil;
