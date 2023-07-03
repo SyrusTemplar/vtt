@@ -1,0 +1,5224 @@
+{
+	"_meta": {
+		"internalCopies": [
+			"deck"
+		]
+	},
+	"deck": [
+		{
+			"name": "Condition Cards",
+			"source": "ScreenDungeonKit",
+			"cards": [
+				{
+					"uid": "Deafened|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Charmed|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Blinded|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Incapacitated|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Grappled|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Frightened|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Petrified|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Paralyzed|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Invisible|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Restrained|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Prone|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Poisoned|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Exhaustion|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Unconscious|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Stunned|Condition Cards|ScreenDungeonKit",
+					"replacement": true
+				}
+			],
+			"entries": [
+				"{@note These double-sided cards can be used to track conditions by your players; either physically with the {@book printed copies|ScreenDungeonKit|1}, or in a VTT.}"
+			],
+			"hasCardArt": true
+		},
+		{
+			"name": "Deck of Illusions",
+			"source": "DMG",
+			"page": 161,
+			"srd": true,
+			"cards": [
+				"Red Dragon|Deck of Illusions|DMG",
+				"Knight and Four Guards|Deck of Illusions|DMG",
+				"Succubus/Incubus|Deck of Illusions|DMG",
+				"Druid|Deck of Illusions|DMG",
+				"Cloud Giant|Deck of Illusions|DMG",
+				"Ettin|Deck of Illusions|DMG",
+				"Bugbear|Deck of Illusions|DMG",
+				"Goblin|Deck of Illusions|DMG",
+				"Beholder|Deck of Illusions|DMG",
+				"Archmage and Mage Apprentice|Deck of Illusions|DMG",
+				"Night Hag|Deck of Illusions|DMG",
+				"Assassin|Deck of Illusions|DMG",
+				"Fire Giant|Deck of Illusions|DMG",
+				"Ogre Mage|Deck of Illusions|DMG",
+				"Gnoll|Deck of Illusions|DMG",
+				"Kobold|Deck of Illusions|DMG",
+				"Lich|Deck of Illusions|DMG",
+				"Priest and Two Acolytes|Deck of Illusions|DMG",
+				"Medusa|Deck of Illusions|DMG",
+				"Veteran|Deck of Illusions|DMG",
+				"Frost Giant|Deck of Illusions|DMG",
+				"Troll|Deck of Illusions|DMG",
+				"Hobgoblin|Deck of Illusions|DMG",
+				"Goblin|Deck of Illusions|DMG",
+				"Iron Golem|Deck of Illusions|DMG",
+				"Bandit Captain and Three Bandits|Deck of Illusions|DMG",
+				"Erinyes|Deck of Illusions|DMG",
+				"Berserker|Deck of Illusions|DMG",
+				"Hill Giant|Deck of Illusions|DMG",
+				"Ogre|Deck of Illusions|DMG",
+				"Orc|Deck of Illusions|DMG",
+				"Kobold|Deck of Illusions|DMG",
+				"You (The Deck's Owner)|Deck of Illusions|DMG"
+			],
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/back.webp"
+				},
+				"width": 411,
+				"height": 561
+			},
+			"entries": [
+				"This box contains a set of parchment cards. A full deck has 34 cards. A deck found as treasure is usually missing {@dice 1d20 - 1} cards.",
+				"The magic of the deck functions only if cards are drawn at random (you can use an altered deck of playing cards to simulate the deck). You can use an action to draw a card at random from the deck and throw it to the ground at a point within 30 feet of you.",
+				"An illusion of one or more creatures forms over the thrown card and remains until dispelled. An illusory creature appears real, of the appropriate size, and behaves as if it were a real creature, except that it can do no harm. While you are within 120 feet of the illusory creature and can see it, you can use an action to move it magically anywhere within 30 feet of its card. Any physical interaction with the illusory creature reveals it to be an illusion, because objects pass through it. Someone who uses an action to visually inspect the creature identifies it as illusory with a successful DC 15 Intelligence ({@skill Investigation}) check. The creature then appears translucent.",
+				"The illusion lasts until its card is moved or the illusion is dispelled. When the illusion ends, the image on its card disappears, and that card can't be used again.",
+				{
+					"type": "table",
+					"colLabels": [
+						"{@dice 1d33|Playing Card}",
+						"Illusion"
+					],
+					"colStyles": [
+						"col-3",
+						"col-9"
+					],
+					"rows": [
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 1
+								},
+								"entry": "Ace of hearts"
+							},
+							"{@creature adult red dragon||Red dragon}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 2
+								},
+								"entry": "King of hearts"
+							},
+							"{@creature Knight} and four {@creature guard||guards}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 3
+								},
+								"entry": "Queen of hearts"
+							},
+							"{@creature Succubus||Succubus/Incubus}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 4
+								},
+								"entry": "Jack of hearts"
+							},
+							"{@creature Druid}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 5
+								},
+								"entry": "Ten of hearts"
+							},
+							"{@creature Cloud giant}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 6
+								},
+								"entry": "Nine of hearts"
+							},
+							"{@creature Ettin}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 7
+								},
+								"entry": "Eight of hearts"
+							},
+							"{@creature Bugbear}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 8
+								},
+								"entry": "Two of hearts"
+							},
+							"{@creature Goblin}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 9
+								},
+								"entry": "Ace of diamonds"
+							},
+							"{@creature Beholder}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 10
+								},
+								"entry": "King of diamonds"
+							},
+							"{@creature Archmage} and {@creature mage} apprentice"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 11
+								},
+								"entry": "Queen of diamonds"
+							},
+							"{@creature Night hag}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 12
+								},
+								"entry": "Jack of diamonds"
+							},
+							"{@creature Assassin}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 13
+								},
+								"entry": "Ten of diamonds"
+							},
+							"{@creature Fire giant}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 14
+								},
+								"entry": "Nine of diamonds"
+							},
+							"{@creature oni||Ogre mage}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 15
+								},
+								"entry": "Eight of diamonds"
+							},
+							"{@creature Gnoll}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 16
+								},
+								"entry": "Two of diamonds"
+							},
+							"{@creature Kobold}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 17
+								},
+								"entry": "Ace of spades"
+							},
+							"{@creature Lich}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 18
+								},
+								"entry": "King of spades"
+							},
+							"{@creature Priest} and two {@creature acolyte||acolytes}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 19
+								},
+								"entry": "Queen of spades"
+							},
+							"{@creature Medusa}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 20
+								},
+								"entry": "Jack of spades"
+							},
+							"{@creature Veteran}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 21
+								},
+								"entry": "Ten of spades"
+							},
+							"{@creature Frost giant}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 22
+								},
+								"entry": "Nine of spades"
+							},
+							"{@creature Troll}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 23
+								},
+								"entry": "Eight of spades"
+							},
+							"{@creature Hobgoblin}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 24
+								},
+								"entry": "Two of spades"
+							},
+							"{@creature Goblin}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 25
+								},
+								"entry": "Ace of clubs"
+							},
+							"{@creature Iron golem}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 26
+								},
+								"entry": "King of clubs"
+							},
+							"{@creature Bandit captain} and three {@creature bandit||bandits}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 27
+								},
+								"entry": "Queen of clubs"
+							},
+							"{@creature Erinyes}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 28
+								},
+								"entry": "Jack of clubs"
+							},
+							"{@creature Berserker}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 29
+								},
+								"entry": "Ten of clubs"
+							},
+							"{@creature Hill giant}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 30
+								},
+								"entry": "Nine of clubs"
+							},
+							"{@creature Ogre}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 31
+								},
+								"entry": "Eight of clubs"
+							},
+							"{@creature Orc}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 32
+								},
+								"entry": "Two of clubs"
+							},
+							"{@creature Kobold}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"min": 33,
+									"max": 34
+								},
+								"entry": "jokers (2)"
+							},
+							"You (the deck's owner)"
+						]
+					]
+				}
+			],
+			"hasCardArt": false
+		},
+		{
+			"name": "Deck of Many Things",
+			"source": "DMG",
+			"page": 162,
+			"srd": true,
+			"cards": [
+				{
+					"uid": "Vizier|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Sun|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Moon|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Star|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Comet|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "The Fates|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Throne|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Key|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Knight|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Gem|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Talons|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "The Void|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Flames|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Skull|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Idiot|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Donjon|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Ruin|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Euryale|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Rogue|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Balance|Deck of Many Things",
+					"replacement": true
+				},
+				"Fool|Deck of Many Things",
+				"Jester|Deck of Many Things"
+			],
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/00-back.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Usually found in a box or pouch, this deck contains a number of cards made of ivory or vellum. Most ({@chance 75|75 percent}) of these decks have only thirteen cards, but the rest have twenty-two.",
+				"Before you draw a card, you must declare how many cards you intend to draw and then draw them randomly (you can use an altered deck of playing cards to simulate the deck). Any cards drawn in excess of this number have no effect. Otherwise, as soon as you draw a card from the deck, its magic takes effect. You must draw each card no more than 1 hour after the previous draw. If you fail to draw the chosen number, the remaining number of cards fly from the deck on their own and take effect all at once.",
+				"Once a card is drawn, it fades from existence. Unless the card is the {@card Fool|Deck of Many Things} or the {@card Jester|Deck of Many Things}, the card reappears in the deck, making it possible to draw the same card twice.",
+				{
+					"type": "entries",
+					"name": "A Question of Enmity",
+					"entries": [
+						"Two of the cards in a deck of many things can earn a character the enmity of another being. With the {@card Flames|Deck of Many Things} card, the enmity is overt. The character should experience the devil's malevolent efforts on multiple occasions. Seeking out the fiend shouldn't be a simple task, and the adventurer should clash with the devil's allies and followers a few times before being able to confront the devil itself.",
+						"In the case of the {@card Rogue|Deck of Many Things} card, the enmity is secret and should come from someone thought to be a friend or an ally. As Dungeon Master, you should wait for a dramatically appropriate moment to reveal this enmity, leaving the adventurer guessing who is likely to become a betrayer."
+					]
+				},
+				{
+					"type": "table",
+					"colLabels": [
+						"{@dice 1d22|Playing Card}",
+						"Card"
+					],
+					"colStyles": [
+						"col-6 text-center",
+						"col-6 text-center"
+					],
+					"rows": [
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 1
+								},
+								"entry": "Ace of diamonds"
+							},
+							"{@card Vizier|Deck of Many Things}*"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 2
+								},
+								"entry": "King of diamonds"
+							},
+							"{@card Sun|Deck of Many Things}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 3
+								},
+								"entry": "Queen of diamonds"
+							},
+							"{@card Moon|Deck of Many Things}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 4
+								},
+								"entry": "Jack of diamonds"
+							},
+							"{@card Star|Deck of Many Things}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 5
+								},
+								"entry": "Two of diamonds"
+							},
+							"{@card Comet|Deck of Many Things}*"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 6
+								},
+								"entry": "Ace of hearts"
+							},
+							"{@card The Fates|Deck of Many Things}*"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 7
+								},
+								"entry": "King of hearts"
+							},
+							"{@card Throne|Deck of Many Things}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 8
+								},
+								"entry": "Queen of hearts"
+							},
+							"{@card Key|Deck of Many Things}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 9
+								},
+								"entry": "Jack of hearts"
+							},
+							"{@card Knight|Deck of Many Things}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 10
+								},
+								"entry": "Two of hearts"
+							},
+							"{@card Gem|Deck of Many Things}*"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 11
+								},
+								"entry": "Ace of clubs"
+							},
+							"{@card Talons|Deck of Many Things}*"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 12
+								},
+								"entry": "King of clubs"
+							},
+							"{@card The Void|Deck of Many Things}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 13
+								},
+								"entry": "Queen of clubs"
+							},
+							"{@card Flames|Deck of Many Things}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 14
+								},
+								"entry": "Jack of clubs"
+							},
+							"{@card Skull|Deck of Many Things}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 15
+								},
+								"entry": "Two of clubs"
+							},
+							"{@card Idiot|Deck of Many Things}*"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 16
+								},
+								"entry": "Ace of spades"
+							},
+							"{@card Donjon|Deck of Many Things}*"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 17
+								},
+								"entry": "King of spades"
+							},
+							"{@card Ruin|Deck of Many Things}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 18
+								},
+								"entry": "Queen of spades"
+							},
+							"{@card Euryale|Deck of Many Things}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 19
+								},
+								"entry": "Jack of spades"
+							},
+							"{@card Rogue|Deck of Many Things}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 20
+								},
+								"entry": "Two of spades"
+							},
+							"{@card Balance|Deck of Many Things}*"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 21
+								},
+								"entry": "Joker (with TM)"
+							},
+							"{@card Fool|Deck of Many Things}*"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 22
+								},
+								"entry": "Joker (without TM)"
+							},
+							"{@card Jester|Deck of Many Things}"
+						]
+					],
+					"footnotes": [
+						"* Found only in a deck with twenty-two cards"
+					]
+				}
+			],
+			"hasCardArt": true
+		},
+		{
+			"name": "Deck of Many Things (13 Cards)",
+			"source": "DMG",
+			"page": 162,
+			"srd": true,
+			"_copy": {
+				"name": "Deck of Many Things",
+				"source": "DMG",
+				"_mod": {
+					"entries": {
+						"mode": "replaceArr",
+						"replace": {
+							"index": 4
+						},
+						"items": {
+							"type": "table",
+							"colLabels": [
+								"{@dice 1d13|Playing Card}",
+								"Card"
+							],
+							"colStyles": [
+								"col-6 text-center",
+								"col-6 text-center"
+							],
+							"rows": [
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 1
+										},
+										"entry": "King of diamonds"
+									},
+									"{@card Sun|Deck of Many Things}"
+								],
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 2
+										},
+										"entry": "Queen of diamonds"
+									},
+									"{@card Moon|Deck of Many Things}"
+								],
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 3
+										},
+										"entry": "Jack of diamonds"
+									},
+									"{@card Star|Deck of Many Things}"
+								],
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 4
+										},
+										"entry": "King of hearts"
+									},
+									"{@card Throne|Deck of Many Things}"
+								],
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 5
+										},
+										"entry": "Queen of hearts"
+									},
+									"{@card Key|Deck of Many Things}"
+								],
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 6
+										},
+										"entry": "Jack of hearts"
+									},
+									"{@card Knight|Deck of Many Things}"
+								],
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 7
+										},
+										"entry": "King of clubs"
+									},
+									"{@card The Void|Deck of Many Things}"
+								],
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 8
+										},
+										"entry": "Queen of clubs"
+									},
+									"{@card Flames|Deck of Many Things}"
+								],
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 9
+										},
+										"entry": "Jack of clubs"
+									},
+									"{@card Skull|Deck of Many Things}"
+								],
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 10
+										},
+										"entry": "King of spades"
+									},
+									"{@card Ruin|Deck of Many Things}"
+								],
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 11
+										},
+										"entry": "Queen of spades"
+									},
+									"{@card Euryale|Deck of Many Things}"
+								],
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 12
+										},
+										"entry": "Jack of spades"
+									},
+									"{@card Rogue|Deck of Many Things}"
+								],
+								[
+									{
+										"type": "cell",
+										"roll": {
+											"exact": 13
+										},
+										"entry": "Joker (without TM)"
+									},
+									"{@card Jester|Deck of Many Things}"
+								]
+							]
+						}
+					}
+				}
+			},
+			"cards": [
+				{
+					"uid": "Sun|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Moon|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Star|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Throne|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Key|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Knight|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "The Void|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Flames|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Skull|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Ruin|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Euryale|Deck of Many Things",
+					"replacement": true
+				},
+				{
+					"uid": "Rogue|Deck of Many Things",
+					"replacement": true
+				},
+				"Jester|Deck of Many Things"
+			]
+		},
+		{
+			"name": "Deck of Several Things",
+			"source": "LLK",
+			"page": 53,
+			"cards": [
+				{
+					"uid": "Balance|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Comet|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Donjon|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Euryale|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "The Fates|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Flames|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				"Fool|Deck of Several Things|LLK",
+				{
+					"uid": "Gem|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Idiot|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				"Jester|Deck of Several Things|LLK",
+				{
+					"uid": "Key|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Knight|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Moon|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Rogue|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Ruin|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Skull|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Star|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Sun|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Talons|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Throne|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "Vizier|Deck of Several Things|LLK",
+					"replacement": true
+				},
+				{
+					"uid": "The Void|Deck of Several Things|LLK",
+					"replacement": true
+				}
+			],
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/00-back.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Stored in a leather pouch, this unique deck contains twenty-two colored cards made of some strong but unknown metal, each of which features a design printed as a mosaic of raised dots. Before you draw a card, you must declare how many cards you intend to draw and then draw them randomly (you can use an altered deck of playing cards to simulate the deck). Any cards drawn in excess of this number have no effect. Otherwise, as soon as you draw a card from the deck, its magic takes effect. You must draw each card no more than 1 hour after the previous draw. If you fail to draw the chosen number, the remaining number of cards fly from the deck on their own and take effect all at once.",
+				"Once a card is drawn, it fades from existence. Unless the card is the {@card Fool|Deck of Several Things|LLK} or the {@card Jester|Deck of Several Things|LLK}, the card reappears in the deck, making it possible to draw the same card twice.",
+				{
+					"type": "table",
+					"colLabels": [
+						"{@dice 1d22|Playing Card}",
+						"Card"
+					],
+					"colStyles": [
+						"col-6 text-center",
+						"col-6 text-center"
+					],
+					"rows": [
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 1
+								},
+								"entry": "Ace of diamonds"
+							},
+							"{@card Vizier|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 2
+								},
+								"entry": "King of diamonds"
+							},
+							"{@card Sun|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 3
+								},
+								"entry": "Queen of diamonds"
+							},
+							"{@card Moon|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 4
+								},
+								"entry": "Jack of diamonds"
+							},
+							"{@card Star|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 5
+								},
+								"entry": "Two of diamonds"
+							},
+							"{@card Comet|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 6
+								},
+								"entry": "Ace of hearts"
+							},
+							"{@card The Fates|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 7
+								},
+								"entry": "King of hearts"
+							},
+							"{@card Throne|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 8
+								},
+								"entry": "Queen of hearts"
+							},
+							"{@card Key|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 9
+								},
+								"entry": "Jack of hearts"
+							},
+							"{@card Knight|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 10
+								},
+								"entry": "Two of hearts"
+							},
+							"{@card Gem|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 11
+								},
+								"entry": "Ace of clubs"
+							},
+							"{@card Talons|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 12
+								},
+								"entry": "King of clubs"
+							},
+							"{@card The Void|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 13
+								},
+								"entry": "Queen of clubs"
+							},
+							"{@card Flames|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 14
+								},
+								"entry": "Jack of clubs"
+							},
+							"{@card Skull|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 15
+								},
+								"entry": "Two of clubs"
+							},
+							"{@card Idiot|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 16
+								},
+								"entry": "Ace of spades"
+							},
+							"{@card Donjon|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 17
+								},
+								"entry": "King of spades"
+							},
+							"{@card Ruin|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 18
+								},
+								"entry": "Queen of spades"
+							},
+							"{@card Euryale|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 19
+								},
+								"entry": "Jack of spades"
+							},
+							"{@card Rogue|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 20
+								},
+								"entry": "Two of spades"
+							},
+							"{@card Balance|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 21
+								},
+								"entry": "Joker (with TM)"
+							},
+							"{@card Fool|Deck of Several Things|LLK}"
+						],
+						[
+							{
+								"type": "cell",
+								"roll": {
+									"exact": 22
+								},
+								"entry": "Joker (without TM)"
+							},
+							"{@card Jester|Deck of Several Things|LLK}"
+						]
+					]
+				},
+				{
+					"type": "inset",
+					"name": "Using the Deck of Several Things",
+					"entries": [
+						"The special nature of this deck (carried by {@creature Mary Greymalkin|LLK} if she is used as an NPC) means that many of its effects operate only within and with respect to this specific adventure. This typically covers any time the characters spend between setting out for the Barrier Peaks and the resolution of whatever events transpire in Kwalish's lab (area O7).",
+						"For cards that effectively remove a character from play for a period of time ({@card Donjon|Deck of Several Things|LLK} and {@card the Void|Deck of Several Things|LLK}), you can allow a player to take on the role of one of the party's NPC hirelings, or introduce a temporary character as an NPC met during the party's journey. Alternatively, you can decide that only some aspect of the character's will disappears and is imprisoned, leaving the character to operate in a robotic state until freed."
+					]
+				}
+			]
+		},
+		{
+			"name": "Geomorph Cards",
+			"source": "ScreenDungeonKit",
+			"cards": [
+				"One|Geomorph Cards|ScreenDungeonKit",
+				"Two|Geomorph Cards|ScreenDungeonKit",
+				"Three|Geomorph Cards|ScreenDungeonKit",
+				"Four|Geomorph Cards|ScreenDungeonKit",
+				"Five|Geomorph Cards|ScreenDungeonKit",
+				"Six|Geomorph Cards|ScreenDungeonKit",
+				"Seven|Geomorph Cards|ScreenDungeonKit",
+				"Eight|Geomorph Cards|ScreenDungeonKit",
+				"Nine|Geomorph Cards|ScreenDungeonKit",
+				"Ten|Geomorph Cards|ScreenDungeonKit",
+				"Eleven|Geomorph Cards|ScreenDungeonKit",
+				"Twelve|Geomorph Cards|ScreenDungeonKit",
+				"Thirteen|Geomorph Cards|ScreenDungeonKit",
+				"Fourteen|Geomorph Cards|ScreenDungeonKit",
+				"Fifteen|Geomorph Cards|ScreenDungeonKit",
+				"Sixteen|Geomorph Cards|ScreenDungeonKit",
+				"Seventeen|Geomorph Cards|ScreenDungeonKit",
+				"Eighteen|Geomorph Cards|ScreenDungeonKit",
+				"Nineteen|Geomorph Cards|ScreenDungeonKit",
+				"Twenty|Geomorph Cards|ScreenDungeonKit",
+				"Twenty-One|Geomorph Cards|ScreenDungeonKit",
+				"Twenty-Two|Geomorph Cards|ScreenDungeonKit",
+				"Twenty-Three|Geomorph Cards|ScreenDungeonKit",
+				"Twenty-Four|Geomorph Cards|ScreenDungeonKit",
+				"Twenty-Five|Geomorph Cards|ScreenDungeonKit",
+				"Twenty-Six|Geomorph Cards|ScreenDungeonKit",
+				"Twenty-Seven|Geomorph Cards|ScreenDungeonKit",
+				"Twenty-Eight|Geomorph Cards|ScreenDungeonKit",
+				"Twenty-Nine|Geomorph Cards|ScreenDungeonKit",
+				"Thirty|Geomorph Cards|ScreenDungeonKit",
+				"Thirty-One|Geomorph Cards|ScreenDungeonKit",
+				"Thirty-Two|Geomorph Cards|ScreenDungeonKit",
+				"Thirty-Three|Geomorph Cards|ScreenDungeonKit",
+				"Thirty-Four|Geomorph Cards|ScreenDungeonKit",
+				"Thirty-Five|Geomorph Cards|ScreenDungeonKit",
+				"Thirty-Six|Geomorph Cards|ScreenDungeonKit"
+			],
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/Back.webp"
+				},
+				"width": 563,
+				"height": 710
+			},
+			"entries": [
+				"{@note These cards can be used to plan a dungeon during game preparation or come up with a map in the middle of play; either physically with the {@book printed copies|ScreenDungeonKit|1}, or in a VTT.}"
+			],
+			"hasCardArt": true
+		},
+		{
+			"name": "Hazard Cards",
+			"source": "ScreenDungeonKit",
+			"cards": [
+				{
+					"uid": "Brown Mold|Hazard Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Green Slime|Hazard Cards|ScreenDungeonKit",
+					"replacement": true
+				},
+				{
+					"uid": "Yellow Mold|Hazard Cards|ScreenDungeonKit",
+					"replacement": true
+				}
+			],
+			"entries": [
+				"{@note These double-sided cards can be used to track hazards your players have encountered; either physically with the {@book printed copies|ScreenDungeonKit|1}, or in a VTT.}"
+			],
+			"hasCardArt": true
+		},
+		{
+			"name": "Initiative Cards",
+			"source": "ScreenDungeonKit",
+			"cards": [
+				"One|Initiative Cards|ScreenDungeonKit",
+				"Two|Initiative Cards|ScreenDungeonKit",
+				"Three|Initiative Cards|ScreenDungeonKit",
+				"Four|Initiative Cards|ScreenDungeonKit",
+				"Five|Initiative Cards|ScreenDungeonKit",
+				"Six|Initiative Cards|ScreenDungeonKit",
+				"Seven|Initiative Cards|ScreenDungeonKit",
+				"Eight|Initiative Cards|ScreenDungeonKit",
+				"Nine|Initiative Cards|ScreenDungeonKit"
+			],
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Initiative/Back.webp"
+				},
+				"width": 563,
+				"height": 710
+			},
+			"entries": [
+				"{@note These cards can be used to track initiative order; either physically with the {@book printed copies|ScreenDungeonKit|1}, or in a VTT.}"
+			],
+			"hasCardArt": true
+		},
+		{
+			"name": "Tarokka Deck",
+			"source": "CoS",
+			"page": 243,
+			"cards": [
+				"Artifact|Tarokka Deck|CoS",
+				"Beast|Tarokka Deck|CoS",
+				"Broken One|Tarokka Deck|CoS",
+				"Darklord|Tarokka Deck|CoS",
+				"Donjon|Tarokka Deck|CoS",
+				"Ghost|Tarokka Deck|CoS",
+				"Executioner|Tarokka Deck|CoS",
+				"Horseman|Tarokka Deck|CoS",
+				"Innocent|Tarokka Deck|CoS",
+				"Marionette|Tarokka Deck|CoS",
+				"Mists|Tarokka Deck|CoS",
+				"Raven|Tarokka Deck|CoS",
+				"Seer|Tarokka Deck|CoS",
+				"Tempter|Tarokka Deck|CoS",
+				"Warrior|Tarokka Deck|CoS",
+				"Avenger|Tarokka Deck|CoS",
+				"Paladin|Tarokka Deck|CoS",
+				"Soldier|Tarokka Deck|CoS",
+				"Mercenary|Tarokka Deck|CoS",
+				"Myrmidon|Tarokka Deck|CoS",
+				"Berserker|Tarokka Deck|CoS",
+				"Hooded One|Tarokka Deck|CoS",
+				"Dictator|Tarokka Deck|CoS",
+				"Torturer|Tarokka Deck|CoS",
+				"Wizard|Tarokka Deck|CoS",
+				"Transmuter|Tarokka Deck|CoS",
+				"Diviner|Tarokka Deck|CoS",
+				"Enchanter|Tarokka Deck|CoS",
+				"Abjurer|Tarokka Deck|CoS",
+				"Elementalist|Tarokka Deck|CoS",
+				"Evoker|Tarokka Deck|CoS",
+				"Illusionist|Tarokka Deck|CoS",
+				"Necromancer|Tarokka Deck|CoS",
+				"Conjurer|Tarokka Deck|CoS",
+				"Rogue|Tarokka Deck|CoS",
+				"Swashbuckler|Tarokka Deck|CoS",
+				"Philanthropist|Tarokka Deck|CoS",
+				"Trader|Tarokka Deck|CoS",
+				"Merchant|Tarokka Deck|CoS",
+				"Guild Member|Tarokka Deck|CoS",
+				"Beggar|Tarokka Deck|CoS",
+				"Thief|Tarokka Deck|CoS",
+				"Tax Collector|Tarokka Deck|CoS",
+				"Miser|Tarokka Deck|CoS",
+				"Priest|Tarokka Deck|CoS",
+				"Monk|Tarokka Deck|CoS",
+				"Missionary|Tarokka Deck|CoS",
+				"Healer|Tarokka Deck|CoS",
+				"Shepherd|Tarokka Deck|CoS",
+				"Druid|Tarokka Deck|CoS",
+				"Anarchist|Tarokka Deck|CoS",
+				"Charlatan|Tarokka Deck|CoS",
+				"Bishop|Tarokka Deck|CoS",
+				"Traitor|Tarokka Deck|CoS"
+			],
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/999-dnd_tarroka_back.png"
+				},
+				"width": 366,
+				"height": 512
+			},
+			"entries": [
+				"The Vistani have long been masters of fortune-telling. In the hands of a Vistani seer, a deck of tarokka cards can tell tales of the future and provide answers to many a dark and mysterious question.",
+				"Although the workmanship and artistic quality of the cards can vary from deck to deck, the ability of the cards to call forth information about the future is far more valuable than the monetary worth of a deck.",
+				"Anyone can craft a deck of tarokka cards, but only someone of Vistani blood can imbue the cards with the gift of prophecy. Once they are crafted and empowered, they must be stored in accordance with ancient tradition, or they lose their efficacy. When not in use, tarokka cards must be wrapped in silk and stored in a wooden box.",
+				{
+					"type": "section",
+					"name": "Composition",
+					"page": 243,
+					"entries": [
+						"A tarokka deck has fifty-four cards, each of which has its own name. Forty of them comprise the common deck, which is divided into four suits: swords, coins, stars, and glyphs.",
+						"Each suit contains cards numbered one through nine, plus a tenth card that is called the master of that suit. A card can be referred to by its suit designation or by its name. For instance, the three of glyphs is also known as the {@card healer|Tarokka Deck|CoS}, and the {@card wizard|Tarokka Deck|CoS} card is also known as the master of stars.",
+						"The remaining fourteen cards make up the high deck, which symbolizes the natural forces of the multiverse. These cards are represented by a crown symbol and are the most powerful cards in the deck.",
+						{
+							"type": "entries",
+							"name": "High Deck",
+							"page": 243,
+							"entries": [
+								"The cards that compose the high deck aren't considered to be one suit, although they are often denoted with a crown icon to mark their importance. Rather, each card is an important power in its own right. If one of these cards comes out in a casting and seems to contradict the prediction of an earlier card, the Vistani always assume that this card takes precedence."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Common Deck",
+							"page": 243,
+							"entries": [
+								"The four suits and their respective cards are described in more detail below.",
+								{
+									"type": "entries",
+									"name": "Swords",
+									"page": 243,
+									"entries": [
+										"This suit symbolizes aggression and violence. It is the suit of warriors, be they paladins, soldiers, mercenaries, or gladiators. It also symbolizes the power of governments and leaders, whether noble or corrupt."
+									]
+								},
+								{
+									"type": "entries",
+									"name": "Stars",
+									"page": 243,
+									"entries": [
+										"This suit symbolizes the desire for personal power and control over things beyond the ken of mortals. It is the suit of arcane mages, sages, and intellectuals. It also represents the triumph of magic, science, and reason over religion, mysticism, and superstition."
+									]
+								},
+								{
+									"type": "entries",
+									"name": "Coins",
+									"page": 243,
+									"entries": [
+										"This suit symbolizes avarice and the desire for personal and material gain. It is also symbolic of gluttony, lust, and obsession. On the side of good, this suit can suggest the accumulation of wealth for the benefit of a charity or a just cause. On the side of evil, it embodies the worst aspects of greed. It speaks to the power of gold, and how that power can build or destroy nations."
+									]
+								},
+								{
+									"type": "entries",
+									"name": "Glyphs",
+									"page": 243,
+									"entries": [
+										"This suit symbolizes faith, spirituality, and inner strength. It is the suit of priests and those who devote themselves to the service of a deity, a higher power, or a heightened philosophy. On the side of good, it represents willpower and dedication. On the side of evil, the suit signifies weakness of character, self-doubt, and betrayal of one's ideals or beliefs. It symbolizes health and healing, as well as illness and disease."
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"hasCardArt": true
+		}
+	],
+	"card": [
+		{
+			"name": "Blinded",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/3-1.webp"
+				},
+				"width": 563,
+				"height": 710
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/3-2.webp"
+				},
+				"width": 563,
+				"height": 711
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Blinded"
+				}
+			]
+		},
+		{
+			"name": "Charmed",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/2-1.webp"
+				},
+				"width": 564,
+				"height": 710
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/2-2.webp"
+				},
+				"width": 563,
+				"height": 711
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Charmed"
+				}
+			]
+		},
+		{
+			"name": "Deafened",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/1-1.webp"
+				},
+				"width": 564,
+				"height": 710
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/1-2.webp"
+				},
+				"width": 563,
+				"height": 711
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Deafened"
+				}
+			]
+		},
+		{
+			"name": "Exhaustion",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/13-1.webp"
+				},
+				"width": 563,
+				"height": 710
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/13-2.webp"
+				},
+				"width": 561,
+				"height": 709
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Exhaustion"
+				}
+			]
+		},
+		{
+			"name": "Frightened",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/6-1.webp"
+				},
+				"width": 563,
+				"height": 710
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/6-2.webp"
+				},
+				"width": 563,
+				"height": 711
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Frightened"
+				}
+			]
+		},
+		{
+			"name": "Grappled",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/5-1.webp"
+				},
+				"width": 564,
+				"height": 710
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/5-2.webp"
+				},
+				"width": 563,
+				"height": 711
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Grappled"
+				}
+			]
+		},
+		{
+			"name": "Incapacitated",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/4-1.webp"
+				},
+				"width": 564,
+				"height": 710
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/4-2.webp"
+				},
+				"width": 563,
+				"height": 711
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Incapacitated"
+				}
+			]
+		},
+		{
+			"name": "Invisible",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/9-1.webp"
+				},
+				"width": 563,
+				"height": 709
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/9-2.webp"
+				},
+				"width": 563,
+				"height": 709
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Invisible"
+				}
+			]
+		},
+		{
+			"name": "Paralyzed",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/8-1.webp"
+				},
+				"width": 564,
+				"height": 709
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/8-2.webp"
+				},
+				"width": 563,
+				"height": 709
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Paralyzed"
+				}
+			]
+		},
+		{
+			"name": "Petrified",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/7-1.webp"
+				},
+				"width": 564,
+				"height": 709
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/7-2.webp"
+				},
+				"width": 563,
+				"height": 709
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Petrified"
+				}
+			]
+		},
+		{
+			"name": "Poisoned",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/12-1.webp"
+				},
+				"width": 562,
+				"height": 710
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/12-2.webp"
+				},
+				"width": 563,
+				"height": 709
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Poisoned"
+				}
+			]
+		},
+		{
+			"name": "Prone",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/11-1.webp"
+				},
+				"width": 563,
+				"height": 710
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/11-2.webp"
+				},
+				"width": 563,
+				"height": 709
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Prone"
+				}
+			]
+		},
+		{
+			"name": "Restrained",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/10-1.webp"
+				},
+				"width": 563,
+				"height": 710
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/10-2.webp"
+				},
+				"width": 561,
+				"height": 709
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Restrained"
+				}
+			]
+		},
+		{
+			"name": "Stunned",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/15-1.webp"
+				},
+				"width": 562,
+				"height": 710
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/15-2.webp"
+				},
+				"width": 563,
+				"height": 709
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Stunned"
+				}
+			]
+		},
+		{
+			"name": "Unconscious",
+			"source": "ScreenDungeonKit",
+			"set": "Condition Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/14-1.webp"
+				},
+				"width": 563,
+				"height": 710
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Conditions/14-2.webp"
+				},
+				"width": 563,
+				"height": 709
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "condition",
+					"style": "inset",
+					"source": "PHB",
+					"name": "Unconscious"
+				}
+			]
+		},
+		{
+			"name": "Archmage and Mage Apprentice",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Assassin",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Bandit Captain and Three Bandits",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Beholder",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Berserker",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Bugbear",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Cloud Giant",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Druid",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Erinyes",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Ettin",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Fire Giant",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Frost Giant",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Gnoll",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Goblin",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Hill Giant",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Hobgoblin",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Iron Golem",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Knight and Four Guards",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Kobold",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Lich",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Medusa",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Night Hag",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Ogre",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Ogre Mage",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Orc",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Priest and Two Acolytes",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Red Dragon",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Succubus/Incubus",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Troll",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Veteran",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "You (The Deck's Owner)",
+			"source": "DMG",
+			"set": "Deck of Illusions",
+			"page": 161,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/generic/unknown.webp"
+				},
+				"width": 411,
+				"height": 561
+			}
+		},
+		{
+			"name": "Balance",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/20-balance.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Your mind suffers a wrenching alteration, causing your alignment to change. Lawful becomes chaotic, good becomes evil, and vice versa. If you are true neutral or unaligned, this card has no effect on you."
+			]
+		},
+		{
+			"name": "Comet",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/05-comet.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"If you single-handedly defeat the next hostile monster or group of monsters you encounter, you gain experience points enough to gain one level. Otherwise, this card has no effect."
+			]
+		},
+		{
+			"name": "Donjon",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/16-donjon.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You disappear and become entombed in a state of suspended animation in an extradimensional sphere. Everything you were wearing and carrying stays behind in the space you occupied when you disappeared. You remain imprisoned until you are found and removed from the sphere. You can't be located by any divination magic, but a {@spell wish} spell can reveal the location of your prison. You draw no more cards."
+			]
+		},
+		{
+			"name": "Euryale",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/18-euryale.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"The card's {@creature medusa}-like visage curses you. You take a \u22122 penalty on saving throws while cursed in this way. Only a god or the magic of {@card The Fates|Deck of Many Things} card can end this curse."
+			]
+		},
+		{
+			"name": "Flames",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/13-flames.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"A powerful devil becomes your enemy. The devil seeks your ruin and plagues your life, savoring your suffering before attempting to slay you. This enmity lasts until either you or the devil dies."
+			]
+		},
+		{
+			"name": "Fool",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/21-fool.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You lose 10,000 XP, discard this card, and draw from the deck again, counting both draws as one of your declared draws. If losing that much XP would cause you to lose a level, you instead lose an amount that leaves you with just enough XP to keep your level."
+			]
+		},
+		{
+			"name": "Gem",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/10-gem.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Twenty-five pieces of jewelry worth 2,000 gp each or fifty gems worth 1,000 gp each appear at your feet."
+			]
+		},
+		{
+			"name": "Idiot",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/15-idiot.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Permanently reduce your Intelligence by {@dice 1d4 + 1} (to a minimum score of 1). You can draw one additional card beyond your declared draws."
+			]
+		},
+		{
+			"name": "Jester",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/22-jester.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You gain 10,000 XP, or you can draw two additional cards beyond your declared draws."
+			]
+		},
+		{
+			"name": "Key",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/08-key.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"A rare or rarer magic weapon with which you are proficient appears in your hands. The DM chooses the weapon."
+			]
+		},
+		{
+			"name": "Knight",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/09-knight.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You gain the service of a 4th-level fighter who appears in a space you choose within 30 feet of you. The fighter is of the same race as you and serves you loyally until death, believing the fates have drawn him or her to you. You control this character."
+			]
+		},
+		{
+			"name": "Moon",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/03-moon.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You are granted the ability to cast the {@spell wish} spell {@dice 1d3} times."
+			]
+		},
+		{
+			"name": "Rogue",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/19-rogue.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"A nonplayer character of the DM's choice becomes hostile toward you. The identity of your new enemy isn't known until the NPC or someone else reveals it. Nothing less than a {@spell wish} spell or divine intervention can end the NPC's hostility toward you."
+			]
+		},
+		{
+			"name": "Ruin",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/17-ruin.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"All forms of wealth that you carry or own, other than magic items, are lost to you. Portable property vanishes. Businesses, buildings, and land you own are lost in a way that alters reality the least. Any documentation that proves you should own something lost to this card also disappears."
+			]
+		},
+		{
+			"name": "Skull",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/14-skull.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You summon an {@creature avatar of death|DMG}\u2014a ghostly humanoid skeleton clad in a tattered black robe and carrying a spectral scythe. It appears in a space of the DM's choice within 10 feet of you and attacks you, warning all others that you must win the battle alone. The avatar fights until you die or it drops to 0 hit points, whereupon it disappears. If anyone tries to help you, the helper summons its own {@creature avatar of death|DMG}. A creature slain by an {@creature avatar of death|DMG} can't be restored to life."
+			]
+		},
+		{
+			"name": "Star",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/04-star.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Increase one of your ability scores by 2. The score can exceed 20 but can't exceed 24."
+			]
+		},
+		{
+			"name": "Sun",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/02-sun.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You gain 50,000 XP, and a wondrous item (which the DM determines randomly) appears in your hands."
+			]
+		},
+		{
+			"name": "Talons",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/11-talons.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Every magic item you wear or carry disintegrates. Artifacts in your possession aren't destroyed but do vanish."
+			]
+		},
+		{
+			"name": "The Fates",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/06-fates.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Reality's fabric unravels and spins anew, allowing you to avoid or erase one event as if it never happened. You can use the card's magic as soon as you draw the card or at any other time before you die."
+			]
+		},
+		{
+			"name": "The Void",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/12-void.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"This black card spells disaster. Your soul is drawn from your body and contained in an object in a place of the DM's choice. One or more powerful beings guard the place. While your soul is trapped in this way, your body is {@condition incapacitated}. A {@spell wish} spell can't restore your soul, but the spell reveals the location of the object that holds it. You draw no more cards."
+			]
+		},
+		{
+			"name": "Throne",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/07-throne.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You gain proficiency in the {@skill Persuasion} skill, and you double your proficiency bonus on checks made with that skill. In addition, you gain rightful ownership of a small keep somewhere in the world. However, the keep is currently in the hands of monsters, which you must clear out before you can claim the keep as yours."
+			]
+		},
+		{
+			"name": "Vizier",
+			"source": "DMG",
+			"set": "Deck of Many Things",
+			"page": 162,
+			"srd": true,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/01-vizier.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"At any time you choose within one year of drawing this card, you can ask a question in meditation and mentally receive a truthful answer to that question. Besides information, the answer helps you solve a puzzling problem or other dilemma. In other words, the knowledge comes with wisdom on how to apply it."
+			]
+		},
+		{
+			"name": "Balance",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/20-balance.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Your mind suffers a wrenching alteration, causing your alignment to change for the duration of the adventure. Lawful becomes chaotic, good becomes evil, and vice versa. If you are true neutral or unaligned, this card has no effect on you."
+			]
+		},
+		{
+			"name": "Comet",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/05-comet.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"If you single-handedly defeat the next hostile monster or group of monsters you encounter, you have advantage on ability checks made using one skill of your choice for the duration of the adventure. Otherwise, this card has no effect."
+			]
+		},
+		{
+			"name": "Donjon",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/16-donjon.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You are instantly teleported to and confined within the prison of the Monastery of the Distressed Body (area M6). Everything you were wearing and carrying stays behind in the space you occupied when you disappeared. You draw no more cards."
+			]
+		},
+		{
+			"name": "Euryale",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/18-euryale.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"The card's medusa-like visage curses you. You take a \u22121 penalty on saving throws for the duration of the adventure."
+			]
+		},
+		{
+			"name": "Flames",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/13-flames.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"The Grand Master of the Monastery of the Distressed Body becomes your enemy. The bone devil seeks your ruin, savoring your suffering before attempting to slay you. If the Grand Master has already been defeated, you gain the enmity of {@creature Garret Levistusson|LLK|Garret Levistusson's} patron\u2014a similarly powerful devil."
+			]
+		},
+		{
+			"name": "Fool",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/21-fool.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"For the duration of the adventure, you lose proficiency with one skill or gain disadvantage on all checks made with one skill (with the skill and the penalty determined by the DM). Discard this card and draw from the deck again, counting both draws as one of your declared draws."
+			]
+		},
+		{
+			"name": "Gem",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/10-gem.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"The 1,000 gp hoard of the leprechaun from the {@table Wilderness Encounters|LLK} table (see appendix A) appears at your feet. If that treasure has already been claimed, you gain an equivalent hoard."
+			]
+		},
+		{
+			"name": "Idiot",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/15-idiot.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Reduce your Intelligence by {@dice 1d4 + 1} (to a minimum score of 1) for the duration of the adventure. You can draw one additional card beyond your declared draws."
+			]
+		},
+		{
+			"name": "Jester",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/22-jester.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You gain proficiency in a skill of your choice for the duration of the adventure, or you can draw two additional cards beyond your declared draws."
+			]
+		},
+		{
+			"name": "Key",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/08-key.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"A common or uncommon magic weapon with which you are proficient, or a {@item spell scroll} featuring a spell of a level you can cast, appears in your hands. The DM chooses the weapon or spell, which you possess for the duration of this adventure."
+			]
+		},
+		{
+			"name": "Knight",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/09-knight.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You gain the service of any of the NPCs in the \"{@book Hirelings|phb|5|services}\" section not currently with the party, who appears in a space you choose within 30 feet of you. The NPC serves you loyally for the duration of the adventure, believing that the fates have drawn them to you. You control this character."
+			]
+		},
+		{
+			"name": "Moon",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/03-moon.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You are granted the ability to cast any spell of 5th level or lower, and can use that ability {@dice 1d3} times for the duration of the adventure."
+			]
+		},
+		{
+			"name": "Rogue",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/19-rogue.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"An NPC of the DM's choice becomes secretly hostile toward you. The identity of your new enemy isn't known until the NPC or someone else reveals it. Any enchantment spell cast on the NPC at 6th level or higher can end the NPC's hostility toward you."
+			]
+		},
+		{
+			"name": "Ruin",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/17-ruin.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"All forms of wealth that you carry or own, other than magic items, are lost to you. This wealth can be recovered either in the treasury of the Monastery of the Distressed Body (area M10) or Kwalish's lab in Daoine Gloine (area O7), whichever comes later in the adventure."
+			]
+		},
+		{
+			"name": "Skull",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/14-skull.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You summon an avatar of death\u2014a mechanical skeleton (use bone naga statistics) clad in a tattered black robe. It appears in a space of the DM's choice within 10 feet of you and attacks you, warning all others that you must win the battle alone. The avatar fights until you die or it drops to 0 hit points, whereupon it disappears. If anyone tries to help you, the helper summons its own avatar of death. A creature slain by an avatar of death can't be restored to life."
+			]
+		},
+		{
+			"name": "Star",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/04-star.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Increase one of your ability scores by 1 for the duration of the adventure. The score can exceed 20 but can't exceed 24."
+			]
+		},
+		{
+			"name": "Sun",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/02-sun.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You gain proficiency in the skill of your choice for the duration of the adventure. In addition, a common or uncommon wondrous item appears in your hands. The DM chooses the item, which you possess for the duration of this adventure."
+			]
+		},
+		{
+			"name": "Talons",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/11-talons.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Every magic item you wear or carry is lost to you. These items can be recovered either in the treasury of the Monastery of the Distressed Body (area M10) or Kwalish's lab in Daoine Gloine (area O7), whichever comes later in the adventure."
+			]
+		},
+		{
+			"name": "The Fates",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/06-fates.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"Reality's fabric unravels and spins anew, allowing you to avoid or erase one event as if it never happened. You can use the card's magic as soon as you draw the card or at any other point during the adventure."
+			]
+		},
+		{
+			"name": "The Void",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/12-void.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"This black card spells disaster. Your soul is drawn from your body and held within machinery in either the control room of the Monastery of the Distressed Body (area M8) or Kwalish's lab in Daoine Gloine (area O7), whichever comes later in the adventure. While your soul is trapped in this way, your body is {@condition incapacitated}. {@spell Divination}, {@spell contact other plane}, or a similar spell of 4th level or higher reveals the location of the machinery that holds your soul. You draw no more cards."
+			]
+		},
+		{
+			"name": "Throne",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/07-throne.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"You gain proficiency in the {@skill Persuasion} skill and you double your proficiency bonus on checks made with that skill for the duration of the adventure. In addition, the Monastery of the Distressed Body's brains in jars regard you thereafter as the monastery's rightful master. You must defeat or otherwise clear out the Grand Master and its servants before you can claim the monastery as yours."
+			]
+		},
+		{
+			"name": "Vizier",
+			"source": "LLK",
+			"set": "Deck of Several Things",
+			"page": 53,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/DMG/Deck of Many Things/01-vizier.webp"
+				},
+				"width": 742,
+				"height": 959
+			},
+			"entries": [
+				"At any one time you choose within the duration of the adventure, you can ask a question in meditation and mentally receive a truthful answer to that question. Besides information, the answer helps you solve a puzzling problem or other dilemma. In other words, the knowledge comes with wisdom on how to apply it."
+			]
+		},
+		{
+			"name": "Eight",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/008.webp"
+				},
+				"width": 564,
+				"height": 708
+			}
+		},
+		{
+			"name": "Eighteen",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/018.webp"
+				},
+				"width": 564,
+				"height": 709
+			}
+		},
+		{
+			"name": "Eleven",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/011.webp"
+				},
+				"width": 564,
+				"height": 711
+			}
+		},
+		{
+			"name": "Fifteen",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/015.webp"
+				},
+				"width": 564,
+				"height": 711
+			}
+		},
+		{
+			"name": "Five",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/005.webp"
+				},
+				"width": 564,
+				"height": 709
+			}
+		},
+		{
+			"name": "Four",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/004.webp"
+				},
+				"width": 564,
+				"height": 709
+			}
+		},
+		{
+			"name": "Fourteen",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/014.webp"
+				},
+				"width": 564,
+				"height": 711
+			}
+		},
+		{
+			"name": "Nine",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/009.webp"
+				},
+				"width": 564,
+				"height": 708
+			}
+		},
+		{
+			"name": "Nineteen",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/019.webp"
+				},
+				"width": 564,
+				"height": 711
+			}
+		},
+		{
+			"name": "One",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/001.webp"
+				},
+				"width": 564,
+				"height": 709
+			}
+		},
+		{
+			"name": "Seven",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/007.webp"
+				},
+				"width": 564,
+				"height": 708
+			}
+		},
+		{
+			"name": "Seventeen",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/017.webp"
+				},
+				"width": 564,
+				"height": 709
+			}
+		},
+		{
+			"name": "Six",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/006.webp"
+				},
+				"width": 564,
+				"height": 709
+			}
+		},
+		{
+			"name": "Sixteen",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/016.webp"
+				},
+				"width": 564,
+				"height": 709
+			}
+		},
+		{
+			"name": "Ten",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/010.webp"
+				},
+				"width": 564,
+				"height": 711
+			}
+		},
+		{
+			"name": "Thirteen",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/013.webp"
+				},
+				"width": 564,
+				"height": 711
+			}
+		},
+		{
+			"name": "Thirty",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/030.webp"
+				},
+				"width": 566,
+				"height": 712
+			}
+		},
+		{
+			"name": "Thirty-Five",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/035.webp"
+				},
+				"width": 566,
+				"height": 712
+			}
+		},
+		{
+			"name": "Thirty-Four",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/034.webp"
+				},
+				"width": 566,
+				"height": 712
+			}
+		},
+		{
+			"name": "Thirty-One",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/031.webp"
+				},
+				"width": 566,
+				"height": 712
+			}
+		},
+		{
+			"name": "Thirty-Six",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/036.webp"
+				},
+				"width": 566,
+				"height": 712
+			}
+		},
+		{
+			"name": "Thirty-Three",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/033.webp"
+				},
+				"width": 566,
+				"height": 712
+			}
+		},
+		{
+			"name": "Thirty-Two",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/032.webp"
+				},
+				"width": 566,
+				"height": 712
+			}
+		},
+		{
+			"name": "Three",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/003.webp"
+				},
+				"width": 564,
+				"height": 709
+			}
+		},
+		{
+			"name": "Twelve",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/012.webp"
+				},
+				"width": 564,
+				"height": 711
+			}
+		},
+		{
+			"name": "Twenty",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/020.webp"
+				},
+				"width": 564,
+				"height": 711
+			}
+		},
+		{
+			"name": "Twenty-Eight",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/028.webp"
+				},
+				"width": 566,
+				"height": 712
+			}
+		},
+		{
+			"name": "Twenty-Five",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/025.webp"
+				},
+				"width": 564,
+				"height": 710
+			}
+		},
+		{
+			"name": "Twenty-Four",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/024.webp"
+				},
+				"width": 564,
+				"height": 711
+			}
+		},
+		{
+			"name": "Twenty-Nine",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/029.webp"
+				},
+				"width": 566,
+				"height": 712
+			}
+		},
+		{
+			"name": "Twenty-One",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/021.webp"
+				},
+				"width": 564,
+				"height": 711
+			}
+		},
+		{
+			"name": "Twenty-Seven",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/027.webp"
+				},
+				"width": 564,
+				"height": 710
+			}
+		},
+		{
+			"name": "Twenty-Six",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/026.webp"
+				},
+				"width": 564,
+				"height": 710
+			}
+		},
+		{
+			"name": "Twenty-Three",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/023.webp"
+				},
+				"width": 564,
+				"height": 711
+			}
+		},
+		{
+			"name": "Twenty-Two",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/022.webp"
+				},
+				"width": 564,
+				"height": 711
+			}
+		},
+		{
+			"name": "Two",
+			"source": "ScreenDungeonKit",
+			"set": "Geomorph Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "book/ScreenDungeonKit/Cards-Geomorph/002.webp"
+				},
+				"width": 564,
+				"height": 709
+			}
+		},
+		{
+			"name": "Brown Mold",
+			"source": "ScreenDungeonKit",
+			"set": "Hazard Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Hazards/16-1.webp"
+				},
+				"width": 563,
+				"height": 708
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Hazards/16-2.webp"
+				},
+				"width": 561,
+				"height": 709
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "hazard",
+					"style": "inset",
+					"source": "DMG",
+					"name": "Brown Mold"
+				}
+			]
+		},
+		{
+			"name": "Green Slime",
+			"source": "ScreenDungeonKit",
+			"set": "Hazard Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Hazards/17-1.webp"
+				},
+				"width": 563,
+				"height": 708
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Hazards/17-2.webp"
+				},
+				"width": 563,
+				"height": 709
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "hazard",
+					"style": "inset",
+					"source": "DMG",
+					"name": "Green Slime"
+				}
+			]
+		},
+		{
+			"name": "Yellow Mold",
+			"source": "ScreenDungeonKit",
+			"set": "Hazard Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Hazards/18-1.webp"
+				},
+				"width": 562,
+				"height": 708
+			},
+			"back": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Hazards/18-2.webp"
+				},
+				"width": 563,
+				"height": 709
+			},
+			"entries": [
+				{
+					"type": "statblock",
+					"tag": "hazard",
+					"style": "inset",
+					"source": "DMG",
+					"name": "Yellow Mold"
+				}
+			]
+		},
+		{
+			"name": "Eight",
+			"source": "ScreenDungeonKit",
+			"set": "Initiative Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Initiative/8.webp"
+				},
+				"width": 564,
+				"height": 708
+			},
+			"entries": [
+				"You will go eighth in the initiative order."
+			]
+		},
+		{
+			"name": "Five",
+			"source": "ScreenDungeonKit",
+			"set": "Initiative Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Initiative/5.webp"
+				},
+				"width": 564,
+				"height": 710
+			},
+			"entries": [
+				"You will go fifth in the initiative order."
+			]
+		},
+		{
+			"name": "Four",
+			"source": "ScreenDungeonKit",
+			"set": "Initiative Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Initiative/4.webp"
+				},
+				"width": 564,
+				"height": 710
+			},
+			"entries": [
+				"You will go fourth in the initiative order."
+			]
+		},
+		{
+			"name": "Nine",
+			"source": "ScreenDungeonKit",
+			"set": "Initiative Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Initiative/9.webp"
+				},
+				"width": 564,
+				"height": 708
+			},
+			"entries": [
+				"You will go ninth in the initiative order."
+			]
+		},
+		{
+			"name": "One",
+			"source": "ScreenDungeonKit",
+			"set": "Initiative Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Initiative/1.webp"
+				},
+				"width": 564,
+				"height": 710
+			},
+			"entries": [
+				"You will go first in the initiative order."
+			]
+		},
+		{
+			"name": "Seven",
+			"source": "ScreenDungeonKit",
+			"set": "Initiative Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Initiative/7.webp"
+				},
+				"width": 564,
+				"height": 708
+			},
+			"entries": [
+				"You will go seventh in the initiative order."
+			]
+		},
+		{
+			"name": "Six",
+			"source": "ScreenDungeonKit",
+			"set": "Initiative Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Initiative/6.webp"
+				},
+				"width": 564,
+				"height": 710
+			},
+			"entries": [
+				"You will go sixth in the initiative order."
+			]
+		},
+		{
+			"name": "Three",
+			"source": "ScreenDungeonKit",
+			"set": "Initiative Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Initiative/3.webp"
+				},
+				"width": 564,
+				"height": 710
+			},
+			"entries": [
+				"You will go third in the initiative order."
+			]
+		},
+		{
+			"name": "Two",
+			"source": "ScreenDungeonKit",
+			"set": "Initiative Cards",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/ScreenDungeonKit/Initiative/2.webp"
+				},
+				"width": 564,
+				"height": 710
+			},
+			"entries": [
+				"You will go second in the initiative order."
+			]
+		},
+		{
+			"name": "Abjurer",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Stars",
+			"value": 4,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/184-dnd_tarokka_abjurer.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Those guided by logic and reasoning; warns of an overlooked clue or piece of information"
+			]
+		},
+		{
+			"name": "Anarchist",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Glyphs",
+			"value": 6,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/206-dnd_tarokka_anarchist.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"A fundamental change brought on by one whose beliefs are being put to the test"
+			]
+		},
+		{
+			"name": "Artifact",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/156-dnd_tarokka_artifact.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"The importance of some physical object that must be obtained, protected, or destroyed at all costs"
+			]
+		},
+		{
+			"name": "Avenger",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Swords",
+			"value": 1,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/171-dnd_tarokka_avenger.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Justice and revenge for great wrongs; those on a quest to rid the world of great evil"
+			]
+		},
+		{
+			"name": "Beast",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/157-dnd_tarokka_beast.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Great rage or passion; something bestial or malevolent hiding in plain sight or lurking just below the surface"
+			]
+		},
+		{
+			"name": "Beggar",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Coins",
+			"value": 6,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/196-dnd_tarokka_beggar.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Sudden change in economic status or fortune"
+			]
+		},
+		{
+			"name": "Berserker",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Swords",
+			"value": 6,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/176-dnd_tarokka_berserker.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"The brutal and barbaric side of warfare; bloodlust; those with a bestial nature"
+			]
+		},
+		{
+			"name": "Bishop",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Glyphs",
+			"value": 8,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/208-dnd_tarokka_bishop.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Strict adherence to a code or a belief; those who plot, plan, and scheme"
+			]
+		},
+		{
+			"name": "Broken One",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/158-dnd_tarokka_brokenone.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Defeat, failure, and despair; the loss of something or someone important, without which one feels incomplete"
+			]
+		},
+		{
+			"name": "Charlatan",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Glyphs",
+			"value": 7,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/207-dnd_tarokka_charlatan.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Liars; those who profess to believe one thing but actually believe another"
+			]
+		},
+		{
+			"name": "Conjurer",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Stars",
+			"value": 9,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/189-dnd_tarokka_conjurer.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"The coming of an unexpected supernatural threat; those who think of themselves as gods"
+			]
+		},
+		{
+			"name": "Darklord",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/159-dnd_tarokka_darklord.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"A single, powerful individual of an evil nature, one whose goals have enormous and far-reaching consequences"
+			]
+		},
+		{
+			"name": "Dictator",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Swords",
+			"value": 8,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/178-dnd_tarokka_dictator.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"All that is wrong with government and leadership; those who rule through fear and violence"
+			]
+		},
+		{
+			"name": "Diviner",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Stars",
+			"value": 2,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/182-dnd_tarokka_diviner.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"The pursuit of knowledge tempered by wisdom; truth and honesty; sages and prophecy"
+			]
+		},
+		{
+			"name": "Donjon",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/160-dnd_tarokka_donjon.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Isolation and imprisonment; being so conservative in thinking as to be a prisoner of one's own beliefs"
+			]
+		},
+		{
+			"name": "Druid",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Glyphs",
+			"value": 5,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/205-dnd_tarokka_druid.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"The ambivalence and cruelty of nature and those who feel drawn to it; inner turmoil"
+			]
+		},
+		{
+			"name": "Elementalist",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Stars",
+			"value": 5,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/185-dnd_tarokka_elementalist.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"The triumph of nature over civilization; natural disasters and bountiful harvests"
+			]
+		},
+		{
+			"name": "Enchanter",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Stars",
+			"value": 3,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/183-dnd_tarokka_enchanter.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Inner turmoil that comes from confusion, fear of failure, or false information"
+			]
+		},
+		{
+			"name": "Evoker",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Stars",
+			"value": 6,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/186-dnd_tarokka_evoker.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Magical or supernatural power that can't be controlled; magic for destructive ends"
+			]
+		},
+		{
+			"name": "Executioner",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/162-dnd_tarokka_executioner.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"The imminent death of one rightly or wrongly convicted of a crime; false accusations and unjust prosecution"
+			]
+		},
+		{
+			"name": "Ghost",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/161-dnd_tarokka_ghost.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"The looming past; the return of an old enemy or the discovery of a secret buried long ago"
+			]
+		},
+		{
+			"name": "Guild Member",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Coins",
+			"value": 5,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/195-dnd_tarokka_guildmember.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Like-minded individuals joined together in a common goal; pride in one's work"
+			]
+		},
+		{
+			"name": "Healer",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Glyphs",
+			"value": 3,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/203-dnd_tarokka_healer.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Healing; a contagious illness, disease, or curse; those who practice the healing arts"
+			]
+		},
+		{
+			"name": "Hooded One",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Swords",
+			"value": 7,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/177-dnd_tarokka_hoodedone.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Bigotry, intolerance, and xenophobia; a mysterious presence or newcomer"
+			]
+		},
+		{
+			"name": "Horseman",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/163-dnd_tarokka_horseman.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Death; disaster in the form of the loss of wealth or property, a horrible defeat, or the end of a bloodline"
+			]
+		},
+		{
+			"name": "Illusionist",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Stars",
+			"value": 7,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/187-dnd_tarokka_illusionist.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Lies and deceit; grand conspiracies; secret societies; the presence of a dupe or a saboteur"
+			]
+		},
+		{
+			"name": "Innocent",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/164-dnd_tarokka_innocent.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"A being of great importance whose life is in danger (who might be helpless or simply unaware of the peril)"
+			]
+		},
+		{
+			"name": "Marionette",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/165-dnd_tarokka_marionette.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"The presence of a spy or a minion of some greater power; an encounter with a puppet or an underling"
+			]
+		},
+		{
+			"name": "Mercenary",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Swords",
+			"value": 4,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/174-dnd_tarokka_mercenary.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Inner strength and fortitude; those who fight for power or wealth"
+			]
+		},
+		{
+			"name": "Merchant",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Coins",
+			"value": 4,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/194-dnd_tarokka_merchant.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"A rare commodity or business opportunity; deceitful or dangerous business transactions"
+			]
+		},
+		{
+			"name": "Miser",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Coins",
+			"value": 9,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/199-dnd_tarokka_miser.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Hoarded wealth; those who are irreversibly unhappy or who think money is meaningless"
+			]
+		},
+		{
+			"name": "Missionary",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Glyphs",
+			"value": 2,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/202-dnd_tarokka_missionary.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Those who spread wisdom and faith to others; warnings of the spread of fear and ignorance"
+			]
+		},
+		{
+			"name": "Mists",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/166-dnd_tarokka_mists.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Something unexpected or mysterious that can't be avoided; a great quest or journey that will try one's spirit"
+			]
+		},
+		{
+			"name": "Monk",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Glyphs",
+			"value": 1,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/201-dnd_tarokka_monk.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Serenity; inner strength and self-reliance; supreme confidence bereft of arrogance"
+			]
+		},
+		{
+			"name": "Myrmidon",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Swords",
+			"value": 5,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/175-dnd_tarokka_myrmidon.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Great heroes; a sudden reversal of fate; the triumph of the underdog over a mighty enemy"
+			]
+		},
+		{
+			"name": "Necromancer",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Stars",
+			"value": 8,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/188-dnd_tarokka_necromancer.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Unnatural events and unhealthy obsessions; those who follow a destructive path"
+			]
+		},
+		{
+			"name": "Paladin",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Swords",
+			"value": 2,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/172-dnd_tarokka_paladin.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Just and noble warriors; those who live by a code of honor and integrity"
+			]
+		},
+		{
+			"name": "Philanthropist",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Coins",
+			"value": 2,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/192-dnd_tarokka_philanth.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Charity and giving on a grand scale; those who use wealth to fight evil and sickness"
+			]
+		},
+		{
+			"name": "Priest",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Glyphs",
+			"value": 10,
+			"valueName": "master",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/200-dnd_tarokka_priest.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Enlightenment; those who follow a deity, a system of values, or a higher purpose"
+			]
+		},
+		{
+			"name": "Raven",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/167-dnd_tarokka_raven.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"A hidden source of information; a fortunate turn of events; a secret potential for good"
+			]
+		},
+		{
+			"name": "Rogue",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Coins",
+			"value": 10,
+			"valueName": "master",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/190-dnd_tarokka_rogue.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Anyone for whom money is important; those who believe money is the key to their success"
+			]
+		},
+		{
+			"name": "Seer",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/168-dnd_tarokka_seer.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Inspiration and keen intellect; a future event, the outcome of which will hinge on a clever mind"
+			]
+		},
+		{
+			"name": "Shepherd",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Glyphs",
+			"value": 4,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/204-dnd_tarokka_shepherd.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Those who protect others; one who bears a burden far too great to be shouldered alone"
+			]
+		},
+		{
+			"name": "Soldier",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Swords",
+			"value": 3,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/173-dnd_tarokka_soldier.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"War and sacrifice; the stamina to endure great hardship"
+			]
+		},
+		{
+			"name": "Swashbuckler",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Coins",
+			"value": 1,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/191-dnd_tarokka_swashbuckler.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Those who like money yet give it up freely; likable rogues and rapscallions"
+			]
+		},
+		{
+			"name": "Tax Collector",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Coins",
+			"value": 8,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/198-dnd_tarokka_taxcollector.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Corruption; honesty in an otherwise corrupt government or organization"
+			]
+		},
+		{
+			"name": "Tempter",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/169-dnd_tarokka_tempter.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"One who has been compromised or led astray by temptation or foolishness; one who tempts others for evil ends"
+			]
+		},
+		{
+			"name": "Thief",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Coins",
+			"value": 7,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/197-dnd_tarokka_thief.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Those who steal or burgle; a loss of property, beauty, innocence, friendship, or reputation"
+			]
+		},
+		{
+			"name": "Torturer",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Swords",
+			"value": 9,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/179-dnd_tarokka_torturer.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"The coming of suffering or merciless cruelty; one who is irredeemably evil or sadistic"
+			]
+		},
+		{
+			"name": "Trader",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Coins",
+			"value": 3,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/193-dnd_tarokka_trader.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Commerce; smuggling and black markets; fair and equitable trades"
+			]
+		},
+		{
+			"name": "Traitor",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Glyphs",
+			"value": 9,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/209-dnd_tarokka_traitor.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Betrayal by someone close and trusted; a weakening or loss of faith"
+			]
+		},
+		{
+			"name": "Transmuter",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Stars",
+			"value": 1,
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/181-dnd_tarokka_transmuter.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"A new discovery; the coming of unexpected things; unforeseen consequences and chaos"
+			]
+		},
+		{
+			"name": "Warrior",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Swords",
+			"value": 10,
+			"valueName": "master",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/170-dnd_tarokka_warrior.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Strength and force personified; violence; those who use force to accomplish their goals"
+			]
+		},
+		{
+			"name": "Wizard",
+			"source": "CoS",
+			"set": "Tarokka Deck",
+			"page": 243,
+			"suit": "Stars",
+			"value": 10,
+			"valueName": "master",
+			"face": {
+				"type": "image",
+				"href": {
+					"type": "internal",
+					"path": "decks/CoS/Tarokka Deck/180-dnd_tarokka_wizard.png"
+				},
+				"width": 714,
+				"height": 1000
+			},
+			"entries": [
+				"Mystery and riddles; the unknown; those who crave magical power and great knowledge"
+			]
+		}
+	]
+}

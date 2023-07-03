@@ -1,5 +1,271 @@
 {
+	"_meta": {
+		"dependencies": {
+			"monster": [
+				"MM"
+			]
+		}
+	},
 	"monster": [
+		{
+			"name": "Angel",
+			"source": "PSK",
+			"page": 27,
+			"_copy": {
+				"name": "Deva",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "deva",
+						"with": "angel"
+					},
+					"trait": {
+						"mode": "replaceArr",
+						"replace": "Angelic Weapons",
+						"items": {
+							"name": "Angelic Weapons",
+							"entries": [
+								"The deva's weapon attacks are magical. When the deva hits with any weapon, the weapon deals an extra {@dice 1d10} radiant damage (included in the attack)."
+							]
+						}
+					},
+					"action": [
+						{
+							"mode": "replaceArr",
+							"replace": "Multiattack",
+							"items": {
+								"name": "Multiattack",
+								"entries": [
+									"The deva makes four melee attacks."
+								]
+							}
+						},
+						{
+							"mode": "replaceArr",
+							"replace": "Mace",
+							"items": {
+								"name": "Shortsword",
+								"entries": [
+									"{@atk mw} {@hit 8} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d6 + 4}) slashing damage plus 13 ({@damage 1d10}) radiant damage."
+								]
+							}
+						}
+					]
+				}
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Construct (Animated Armor)",
+			"source": "PSK",
+			"page": 32,
+			"_copy": {
+				"name": "Animated Armor",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "armor",
+						"with": "construct"
+					}
+				}
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Construct (Helmed Horror)",
+			"source": "PSK",
+			"page": 32,
+			"_copy": {
+				"name": "Helmed Horror",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "helmed horror",
+						"with": "construct"
+					}
+				}
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Construct (Modron)",
+			"source": "PSK",
+			"page": 32,
+			"_copy": {
+				"name": "Monodrone",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "monodrone",
+						"with": "construct"
+					}
+				}
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Construct (Shield Guardian)",
+			"source": "PSK",
+			"page": 32,
+			"_copy": {
+				"name": "Shield Guardian",
+				"source": "MM",
+				"_mod": {
+					"*": [
+						{
+							"mode": "replaceTxt",
+							"replace": "shield guardian",
+							"with": "construct"
+						},
+						{
+							"mode": "replaceTxt",
+							"replace": "guardian",
+							"with": "construct"
+						}
+					]
+				}
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Demon",
+			"source": "PSK",
+			"page": 27,
+			"_copy": {
+				"name": "Erinyes",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "erinyes",
+						"with": "demon"
+					},
+					"trait": {
+						"mode": "replaceArr",
+						"replace": "Hellish Weapons",
+						"items": {
+							"name": "Hellish Weapons",
+							"entries": [
+								"The erinyes's weapon attacks are magical and deal an extra 13 ({@dice 3d8}) necrotic damage on a hit (included in the attacks)."
+							]
+						}
+					},
+					"action": [
+						{
+							"mode": "replaceArr",
+							"replace": "Longsword",
+							"items": {
+								"name": "Longsword",
+								"entries": [
+									"{@atk mw} {@hit 8} to hit, reach 5 ft., one target. {@h}8 ({@damage 1d8 + 4}) slashing damage, or 9 ({@damage 1d10 + 4}) slashing damage if used with two hands, plus 13 ({@damage 3d8}) necrotic damage."
+								]
+							}
+						},
+						{
+							"mode": "replaceArr",
+							"replace": "Longbow",
+							"items": {
+								"name": "Longbow",
+								"entries": [
+									"{@atk rw} {@hit 7} to hit, range 150/600 ft., one target. {@h}7 ({@damage 1d8 + 3}) piercing damage plus 13 ({@damage 3d8}) necrotic damage."
+								]
+							}
+						}
+					]
+				}
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Dragon",
+			"source": "PSK",
+			"page": 29,
+			"_copy": {
+				"name": "Adult Red Dragon",
+				"source": "MM",
+				"_mod": {
+					"action": {
+						"mode": "appendArr",
+						"items": {
+							"name": "Fiery Bite",
+							"entries": [
+								"{@atk mw} {@hit 14} to hit, reach 10 ft., one target. {@h}19 ({@damage 2d10 + 8}) piercing damage plus 63 ({@damage 18d6}) fire damage. This counts as a use of the dragon's breath weapon."
+							]
+						}
+					}
+				}
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Drake (Large)",
+			"source": "PSK",
+			"page": 29,
+			"_copy": {
+				"name": "Giant Eagle",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "eagle",
+						"with": "drake"
+					}
+				}
+			},
+			"languages": null,
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Drake (Small)",
+			"source": "PSK",
+			"page": 29,
+			"_copy": {
+				"name": "Pteranodon",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "pteranodon",
+						"with": "drake"
+					}
+				}
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Giant",
+			"source": "PSK",
+			"page": 30,
+			"_copy": {
+				"name": "Stone Giant",
+				"source": "MM"
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
 		{
 			"name": "Gremlin",
 			"source": "PSK",
@@ -64,7 +330,59 @@
 			"miscTags": [
 				"MW"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Hellion (Huge)",
+			"source": "PSK",
+			"page": 31,
+			"_copy": {
+				"name": "Remorhaz",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "remorhaz",
+						"with": "hellion"
+					}
+				}
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Hellion (Large)",
+			"source": "PSK",
+			"page": 31,
+			"_copy": {
+				"name": "Young Remorhaz",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "remorhaz",
+						"with": "hellion"
+					}
+				}
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Hydra",
+			"source": "PSK",
+			"page": 30,
+			"_copy": {
+				"name": "Hydra",
+				"source": "MM"
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Servo",
@@ -121,7 +439,9 @@
 			"miscTags": [
 				"MW"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Sky Leviathan",
@@ -189,7 +509,244 @@
 				"blinded",
 				"restrained"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Thopter (Bat)",
+			"source": "PSK",
+			"page": 33,
+			"_copy": {
+				"name": "Bat",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "bat",
+						"with": "thopter"
+					}
+				}
+			},
+			"type": "construct",
+			"immune": [
+				"poison"
+			],
+			"conditionImmune": [
+				"charmed",
+				"poisoned"
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Thopter (Blood Hawk)",
+			"source": "PSK",
+			"page": 33,
+			"_copy": {
+				"name": "Blood Hawk",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "hawk",
+						"with": "thopter"
+					}
+				}
+			},
+			"type": "construct",
+			"immune": [
+				"poison"
+			],
+			"conditionImmune": [
+				"charmed",
+				"poisoned"
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Thopter (Eagle)",
+			"source": "PSK",
+			"page": 33,
+			"_copy": {
+				"name": "Eagle",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "eagle",
+						"with": "thopter"
+					}
+				}
+			},
+			"type": "construct",
+			"immune": [
+				"poison"
+			],
+			"conditionImmune": [
+				"charmed",
+				"poisoned"
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Thopter (Hawk)",
+			"source": "PSK",
+			"page": 33,
+			"_copy": {
+				"name": "Hawk",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "hawk",
+						"with": "thopter"
+					}
+				}
+			},
+			"type": "construct",
+			"immune": [
+				"poison"
+			],
+			"conditionImmune": [
+				"charmed",
+				"poisoned"
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Thopter (Owl)",
+			"source": "PSK",
+			"page": 33,
+			"_copy": {
+				"name": "Owl",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "owl",
+						"with": "thopter"
+					}
+				}
+			},
+			"type": "construct",
+			"immune": [
+				"poison"
+			],
+			"conditionImmune": [
+				"charmed",
+				"poisoned"
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Thopter (Pseudodragon)",
+			"source": "PSK",
+			"page": 33,
+			"_copy": {
+				"name": "Pseudodragon",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "pseudodragon",
+						"with": "thopter"
+					}
+				}
+			},
+			"type": "construct",
+			"immune": [
+				"poison"
+			],
+			"conditionImmune": [
+				"charmed",
+				"poisoned"
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Thopter (Raven)",
+			"source": "PSK",
+			"page": 33,
+			"_copy": {
+				"name": "Raven",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "raven",
+						"with": "thopter"
+					}
+				}
+			},
+			"type": "construct",
+			"immune": [
+				"poison"
+			],
+			"conditionImmune": [
+				"charmed",
+				"poisoned"
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Thopter (Vulture)",
+			"source": "PSK",
+			"page": 33,
+			"_copy": {
+				"name": "Vulture",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "vulture",
+						"with": "thopter"
+					}
+				}
+			},
+			"type": "construct",
+			"immune": [
+				"poison"
+			],
+			"conditionImmune": [
+				"charmed",
+				"poisoned"
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Wurm",
+			"source": "PSK",
+			"page": 31,
+			"_copy": {
+				"name": "Purple Worm",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "worm",
+						"with": "wurm"
+					}
+				}
+			},
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
 		}
 	]
 }

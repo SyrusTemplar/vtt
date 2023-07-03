@@ -3,6 +3,7 @@
 class PageFilterBackgrounds extends PageFilter {
 	static _getToolDisplayText (tool) {
 		if (tool === "anyArtisansTool") return "Any Artisan's Tool";
+		if (tool === "anyMusicalInstrument") return "Any Musical Instrument";
 		return tool.toTitleCase();
 	}
 
@@ -25,8 +26,8 @@ class PageFilterBackgrounds extends PageFilter {
 		bg._fMisc = [];
 		if (bg.srd) bg._fMisc.push("SRD");
 		if (bg.basicRules) bg._fMisc.push("Basic Rules");
-		if (bg.hasFluff) bg._fMisc.push("Has Info");
-		if (bg.hasFluffImages) bg._fMisc.push("Has Images");
+		if (bg.hasFluff || bg.fluff?.entries) bg._fMisc.push("Has Info");
+		if (bg.hasFluffImages || bg.fluff?.images) bg._fMisc.push("Has Images");
 		bg._fOtherBenifits = [];
 		if (bg.feats) bg._fOtherBenifits.push("Feat");
 		if (bg.additionalSpells) bg._fOtherBenifits.push("Additional Spells");
@@ -69,6 +70,8 @@ class PageFilterBackgrounds extends PageFilter {
 		);
 	}
 }
+
+globalThis.PageFilterBackgrounds = PageFilterBackgrounds;
 
 class ModalFilterBackgrounds extends ModalFilter {
 	/**
@@ -145,3 +148,5 @@ class ModalFilterBackgrounds extends ModalFilter {
 		return listItem;
 	}
 }
+
+globalThis.ModalFilterBackgrounds = ModalFilterBackgrounds;

@@ -10,8 +10,8 @@ class PageFilterObjects extends PageFilter {
 	static mutateForFilters (obj) {
 		obj._fMisc = obj.srd ? ["SRD"] : [];
 		if (obj.tokenUrl || obj.hasToken) obj._fMisc.push("Has Token");
-		if (obj.hasFluff) obj._fMisc.push("Has Info");
-		if (obj.hasFluffImages) obj._fMisc.push("Has Images");
+		if (obj.hasFluff || obj.fluff?.entries) obj._fMisc.push("Has Info");
+		if (obj.hasFluffImages || obj.fluff?.images) obj._fMisc.push("Has Images");
 	}
 
 	addToFilters (obj, isExcluded) {
@@ -36,12 +36,13 @@ class PageFilterObjects extends PageFilter {
 	}
 }
 
+globalThis.PageFilterObjects = PageFilterObjects;
+
 class ListSyntaxObjects extends ListUiUtil.ListSyntax {
-	_getSearchCacheStats (entity) {
-		if (!entity.entries && !entity.actionEntries) return "";
-		const ptrOut = {_: ""};
-		this._getSearchCache_handleEntryProp(entity, "entries", ptrOut);
-		this._getSearchCache_handleEntryProp(entity, "actionEntries", ptrOut);
-		return ptrOut._;
-	}
+	static _INDEXABLE_PROPS_ENTRIES = [
+		"entries",
+		"actionEntries",
+	];
 }
+
+globalThis.ListSyntaxObjects = ListSyntaxObjects;

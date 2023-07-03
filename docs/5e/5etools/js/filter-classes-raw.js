@@ -2,6 +2,9 @@
 
 // TODO refactor the "feature" parts of this to a `PageFilterFeatures`
 class PageFilterClassesRaw extends PageFilterClassesBase {
+	static _WALKER = null;
+	static _IMPLS_SIDE_DATA = {};
+
 	async _pPopulateBoxOptions (opts) {
 		await super._pPopulateBoxOptions(opts);
 		opts.isCompact = false;
@@ -354,7 +357,7 @@ class PageFilterClassesRaw extends PageFilterClassesBase {
 	static async _pGetIgnoredAndApplySideData (entity, type) {
 		if (!PageFilterClassesRaw._IMPLS_SIDE_DATA[type]) throw new Error(`Unhandled type "${type}"`);
 
-		const sideData = await PageFilterClassesRaw._IMPLS_SIDE_DATA[type].pGetSideLoadedMatch(entity, type);
+		const sideData = await PageFilterClassesRaw._IMPLS_SIDE_DATA[type].pGetSideLoaded(entity, {isSilent: true});
 
 		if (!sideData) return false;
 		if (sideData.isIgnored) return true;
@@ -371,7 +374,7 @@ class PageFilterClassesRaw extends PageFilterClassesBase {
 	static async _pLoadSubEntries (walker, entityRoot, {ancestorType, ancestorMeta, ...opts}) {
 		const out = [];
 
-		const pRecurse = async toWalk => {
+		const pRecurse = async (parent, toWalk) => {
 			const references = [];
 			const path = [];
 
@@ -386,6 +389,8 @@ class PageFilterClassesRaw extends PageFilterClassesBase {
 					},
 					preObject: (obj) => {
 						if (obj.type === "options") {
+							const parentName = (path.last() || {}).name ?? parent.name;
+
 							// Add metadata to options--only if they have a "count" specified, otherwise we assume
 							//   that the entire option set is to be imported as per regular features.
 							if (obj.count != null) {
@@ -394,12 +399,11 @@ class PageFilterClassesRaw extends PageFilterClassesBase {
 									ent._optionsMeta = {
 										setId: optionSetId,
 										count: obj.count,
-										name: (path.last() || {}).name,
+										name: parentName,
 									};
 								});
 							}
 
-							const parentName = MiscUtil.get(path.last(), "name");
 							if (parentName) {
 								obj.entries.forEach(ent => {
 									if (typeof ent !== "object") return;
@@ -456,7 +460,7 @@ class PageFilterClassesRaw extends PageFilterClassesBase {
 							isRequiredOption,
 						});
 
-						entity = await pRecurse(entity.entries);
+						entity = await pRecurse(entity, entity.entries);
 
 						break;
 					}
@@ -497,7 +501,7 @@ class PageFilterClassesRaw extends PageFilterClassesBase {
 							isRequiredOption,
 						});
 
-						entity = await pRecurse(entity.entries);
+						entity = await pRecurse(entity, entity.entries);
 
 						break;
 					}
@@ -553,7 +557,7 @@ class PageFilterClassesRaw extends PageFilterClassesBase {
 			return toWalk;
 		};
 
-		if (entityRoot.entries) entityRoot.entries = await pRecurse(entityRoot.entries);
+		if (entityRoot.entries) entityRoot.entries = await pRecurse(entityRoot, entityRoot.entries);
 
 		return {entityRoot, subLoadeds: out};
 	}
@@ -597,8 +601,8 @@ class PageFilterClassesRaw extends PageFilterClassesBase {
 	static setImplSideData (prop, Impl) { PageFilterClassesRaw._IMPLS_SIDE_DATA[prop] = Impl; }
 	// endregion
 }
-PageFilterClassesRaw._WALKER = null;
-PageFilterClassesRaw._IMPLS_SIDE_DATA = {};
+
+globalThis.PageFilterClassesRaw = PageFilterClassesRaw;
 
 class ModalFilterClasses extends ModalFilter {
 	/**
@@ -746,7 +750,7 @@ class ModalFilterClasses extends ModalFilter {
 
 			const $ovlLoading = $(`<div class="w-100 h-100 ve-flex-vh-center"><i class="dnd-font ve-muted">Loading...</i></div>`).appendTo($modalInner);
 
-			const $iptSearch = $(`<input class="form-control" type="search" placeholder="Search...">`);
+			const $iptSearch = $(`<input class="form-control h-100" type="search" placeholder="Search...">`);
 			const $btnReset = $(`<button class="btn btn-default">Reset</button>`);
 			const $wrpFormTop = $$`<div class="ve-flex input-group btn-group w-100 lst__form-top">${$iptSearch}${$btnReset}</div>`;
 
@@ -993,3 +997,5 @@ class ModalFilterClasses extends ModalFilter {
 		);
 	}
 }
+
+globalThis.ModalFilterClasses = ModalFilterClasses;

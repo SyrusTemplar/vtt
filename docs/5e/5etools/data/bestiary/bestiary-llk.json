@@ -360,6 +360,7 @@
 		{
 			"name": "Garret Levistusson",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "LLK",
 			"page": 41,
 			"size": [
@@ -468,6 +469,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Sneak Attack"
 			],
@@ -558,6 +562,7 @@
 		{
 			"name": "Gloine Nathair-Nathair",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "LLK",
 			"page": 23,
 			"_copy": {
@@ -601,6 +606,7 @@
 		{
 			"name": "Mary Greymalkin",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "LLK",
 			"page": 41,
 			"size": [
@@ -711,6 +717,9 @@
 						"{@atk mw} {@hit 2} to hit, reach 5 ft., one target. {@h}3 ({@damage 1d6}) bludgeoning damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"quarterstaff|phb"
 			],
 			"traitTags": [
 				"Fey Ancestry"

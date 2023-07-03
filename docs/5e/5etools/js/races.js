@@ -109,55 +109,8 @@ class RacesPage extends ListPage {
 		return listItem;
 	}
 
-	handleFilterChange () {
-		const f = this._pageFilter.filterBox.getValues();
-		this._list.filter(it => this._pageFilter.toDisplay(f, this._dataList[it.ix]));
-		FilterBox.selectFirstVisible(this._dataList);
-	}
-
-	_doLoadHash (id) {
-		const renderer = this._renderer;
-		renderer.setFirstSection(true);
-		this._$pgContent.empty();
-		const race = this._dataList[id];
-
-		const buildStatsTab = () => {
-			this._$pgContent.append(RenderRaces.$getRenderedRace(race));
-		};
-
-		const buildFluffTab = (isImageTab) => {
-			return Renderer.utils.pBuildFluffTab({
-				isImageTab,
-				$content: this._$pgContent,
-				entity: race,
-				pFnGetFluff: this._pFnGetFluff,
-			});
-		};
-
-		const tabMetas = [
-			new Renderer.utils.TabButton({
-				label: "Traits",
-				fnPopulate: buildStatsTab,
-				isVisible: true,
-			}),
-			new Renderer.utils.TabButton({
-				label: "Info",
-				fnPopulate: buildFluffTab,
-				isVisible: Renderer.utils.hasFluffText(race, "raceFluff"),
-			}),
-			new Renderer.utils.TabButton({
-				label: "Images",
-				fnPopulate: buildFluffTab.bind(null, true),
-				isVisible: Renderer.utils.hasFluffImages(race, "raceFluff"),
-			}),
-		];
-
-		Renderer.utils.bindTabButtons({
-			tabButtons: tabMetas.filter(it => it.isVisible),
-			tabLabelReference: tabMetas.map(it => it.label),
-		});
-
-		this._updateSelected();
+	_renderStats_doBuildStatsTab ({ent}) {
+		this._$pgContent.empty().append(RenderRaces.$getRenderedRace(ent));
 	}
 }
 

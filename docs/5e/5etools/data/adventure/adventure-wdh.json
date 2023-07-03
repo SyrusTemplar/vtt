@@ -417,210 +417,6 @@
 							"height": 800
 						}
 					]
-				},
-				{
-					"type": "entries",
-					"name": "Information",
-					"page": 2,
-					"id": "002",
-					"entries": [
-						{
-							"type": "image",
-							"href": {
-								"type": "internal",
-								"path": "adventure/WDH/Flowchart.jpg"
-							},
-							"width": 1000,
-							"height": 1377
-						},
-						{
-							"type": "image",
-							"href": {
-								"type": "internal",
-								"path": "adventure/WDH/EncounterChains.jpg"
-							},
-							"width": 1000,
-							"height": 1026
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "DM Map Links",
-					"id": "003",
-					"entries": [
-						{
-							"type": "gallery",
-							"images": [
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-DM.jpg"
-									},
-									"title": "DMs' Map\u2014Waterdeep",
-									"width": 1429,
-									"height": 2000,
-									"imageType": "map"
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-NW-DM.jpg"
-									},
-									"title": "DMs' Map\u2014Waterdeep NW",
-									"width": 2000,
-									"height": 2400,
-									"imageType": "map"
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-SW-DM.jpg"
-									},
-									"title": "DMs' Map\u2014Waterdeep SW",
-									"width": 2000,
-									"height": 2400,
-									"imageType": "map"
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-W-DM.jpg"
-									},
-									"title": "DMs' Map\u2014Waterdeep W",
-									"width": 2000,
-									"height": 2400,
-									"imageType": "map"
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-E-DM.jpg"
-									},
-									"title": "DMs' Map\u2014Waterdeep E",
-									"width": 2000,
-									"height": 2400,
-									"imageType": "map"
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-NE-DM.jpg"
-									},
-									"title": "DMs' Map\u2014Waterdeep NE",
-									"width": 2000,
-									"height": 2400,
-									"imageType": "map"
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-SE-DM.jpg"
-									},
-									"title": "DMs' Map\u2014Waterdeep SE",
-									"width": 2000,
-									"height": 2400,
-									"imageType": "map"
-								}
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Player Map Links",
-					"id": "004",
-					"entries": [
-						{
-							"type": "gallery",
-							"images": [
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-Players.jpg"
-									},
-									"title": "Players' Map\u2014Waterdeep",
-									"width": 1429,
-									"height": 2000,
-									"imageType": "mapPlayer"
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-NW-Players.jpg"
-									},
-									"title": "Players' Map\u2014Waterdeep NW",
-									"width": 2000,
-									"height": 2400,
-									"imageType": "mapPlayer"
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-SW-Players.jpg"
-									},
-									"title": "Players' Map\u2014Waterdeep SW",
-									"width": 2000,
-									"height": 2400,
-									"imageType": "mapPlayer"
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-W-Players.jpg"
-									},
-									"title": "Players' Map\u2014Waterdeep W",
-									"width": 2000,
-									"height": 2400,
-									"imageType": "mapPlayer"
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-E-Players.jpg"
-									},
-									"title": "Players' Map\u2014Waterdeep E",
-									"width": 2000,
-									"height": 2400,
-									"imageType": "mapPlayer"
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-NE-Players.jpg"
-									},
-									"title": "Players' Map\u2014Waterdeep NE",
-									"width": 2000,
-									"height": 2400,
-									"imageType": "mapPlayer"
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/Waterdeep-SE-Players.jpg"
-									},
-									"title": "Players' Map\u2014Waterdeep SE",
-									"width": 2000,
-									"height": 2400,
-									"imageType": "mapPlayer"
-								}
-							]
-						}
-					]
 				}
 			]
 		},
@@ -681,10 +477,14 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Waterdeep",
+											"title": "Waterdeep",
 											"width": 1429,
 											"height": 2000,
-											"imageType": "map"
+											"imageType": "map",
+											"grid": {
+												"type": "none"
+											},
+											"id": "501"
 										},
 										{
 											"type": "image",
@@ -692,10 +492,14 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-NW-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Waterdeep NW",
+											"title": "Waterdeep NW",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "map"
+											"imageType": "map",
+											"grid": {
+												"type": "none"
+											},
+											"id": "502"
 										},
 										{
 											"type": "image",
@@ -703,10 +507,14 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-SW-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Waterdeep SW",
+											"title": "Waterdeep SW",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "map"
+											"imageType": "map",
+											"grid": {
+												"type": "none"
+											},
+											"id": "503"
 										},
 										{
 											"type": "image",
@@ -714,10 +522,14 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-W-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Waterdeep W",
+											"title": "Waterdeep W",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "map"
+											"imageType": "map",
+											"grid": {
+												"type": "none"
+											},
+											"id": "504"
 										},
 										{
 											"type": "image",
@@ -725,10 +537,14 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-E-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Waterdeep E",
+											"title": "Waterdeep E",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "map"
+											"imageType": "map",
+											"grid": {
+												"type": "none"
+											},
+											"id": "505"
 										},
 										{
 											"type": "image",
@@ -736,10 +552,14 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-NE-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Waterdeep NE",
+											"title": "Waterdeep NE",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "map"
+											"imageType": "map",
+											"grid": {
+												"type": "none"
+											},
+											"id": "506"
 										},
 										{
 											"type": "image",
@@ -747,10 +567,14 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-SE-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Waterdeep SE",
+											"title": "Waterdeep SE",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "map"
+											"imageType": "map",
+											"grid": {
+												"type": "none"
+											},
+											"id": "507"
 										}
 									]
 								}
@@ -770,10 +594,16 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-Players.jpg"
 											},
-											"title": "Players' Map\u2014Waterdeep",
+											"title": "Player Version",
 											"width": 1429,
 											"height": 2000,
-											"imageType": "mapPlayer"
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "none"
+											},
+											"mapParent": {
+												"id": "501"
+											}
 										},
 										{
 											"type": "image",
@@ -781,10 +611,16 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-NW-Players.jpg"
 											},
-											"title": "Players' Map\u2014Waterdeep NW",
+											"title": "Player Version",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "mapPlayer"
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "none"
+											},
+											"mapParent": {
+												"id": "502"
+											}
 										},
 										{
 											"type": "image",
@@ -792,10 +628,16 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-SW-Players.jpg"
 											},
-											"title": "Players' Map\u2014Waterdeep SW",
+											"title": "Player Version",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "mapPlayer"
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "none"
+											},
+											"mapParent": {
+												"id": "503"
+											}
 										},
 										{
 											"type": "image",
@@ -803,10 +645,16 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-W-Players.jpg"
 											},
-											"title": "Players' Map\u2014Waterdeep W",
+											"title": "Player Version",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "mapPlayer"
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "none"
+											},
+											"mapParent": {
+												"id": "504"
+											}
 										},
 										{
 											"type": "image",
@@ -814,10 +662,16 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-E-Players.jpg"
 											},
-											"title": "Players' Map\u2014Waterdeep E",
+											"title": "Player Version",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "mapPlayer"
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "none"
+											},
+											"mapParent": {
+												"id": "505"
+											}
 										},
 										{
 											"type": "image",
@@ -825,10 +679,16 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-NE-Players.jpg"
 											},
-											"title": "Players' Map\u2014Waterdeep NE",
+											"title": "Player Version",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "mapPlayer"
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "none"
+											},
+											"mapParent": {
+												"id": "506"
+											}
 										},
 										{
 											"type": "image",
@@ -836,10 +696,16 @@
 												"type": "internal",
 												"path": "adventure/WDH/Waterdeep-SE-Players.jpg"
 											},
-											"title": "Players' Map\u2014Waterdeep SE",
+											"title": "Player Version",
 											"width": 2000,
 											"height": 2400,
-											"imageType": "mapPlayer"
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "none"
+											},
+											"mapParent": {
+												"id": "507"
+											}
 										}
 									]
 								}
@@ -851,8 +717,8 @@
 							"page": 5,
 							"id": "00b",
 							"entries": [
-								"Beneath the city streets lurks a criminal underworld, its leader a beholder called {@creature Xanathar|WDH}. Hoping to gain a political foothold in Waterdeep, agents of the Zhentarim (also known as the Black Network) recently tried to ally their organization with the {@creature Xanathar|WDH} Guild. The architect of this attempt was a clone of the wizard {@creature Manshoon|WDH}, a founder of the Black Network long thought dead.",
-								"While the two sides were negotiating in {@creature Xanathar|WDH}'s lair, the {@item Stone of Golorr|WDH} suddenly disappeared from where {@creature Xanathar|WDH} had hidden it. The paranoid beholder accused the Black Network of stealing it and slew the Zhentarim envoys who were present. When the Zhents retaliated by attacking {@creature Xanathar|WDH} Guild outposts, {@creature Xanathar|WDH} took their actions as confirmation of the Black Network's vile intentions. Now the bad blood between the Zhentarim and {@creature Xanathar|WDH} has begun to spill into the streets, threatening peace throughout the city.",
+								"Beneath the city streets lurks a criminal underworld, its leader a beholder called {@creature Xanathar|WDH}. Hoping to gain a political foothold in Waterdeep, agents of the Zhentarim (also known as the Black Network) recently tried to ally their organization with the Xanathar Guild. The architect of this attempt was a clone of the wizard {@creature Manshoon|WDH}, a founder of the Black Network long thought dead.",
+								"While the two sides were negotiating in {@creature Xanathar|WDH}'s lair, the {@item Stone of Golorr|WDH} suddenly disappeared from where {@creature Xanathar|WDH} had hidden it. The paranoid beholder accused the Black Network of stealing it and slew the Zhentarim envoys who were present. When the Zhents retaliated by attacking Xanathar Guild outposts, {@creature Xanathar|WDH} took their actions as confirmation of the Black Network's vile intentions. Now the bad blood between the Zhentarim and {@creature Xanathar|WDH} has begun to spill into the streets, threatening peace throughout the city.",
 								"Who actually stole the {@item Stone of Golorr|WDH}? The answer: a rock gnome named Dalakhar. After Lord Neverember used magic to discern the gemstone's location, he sent forth a succession of spies to infiltrate {@creature Xanathar|WDH}'s lair and obtain it. Dalakhar succeeded where many others before him had failed, but his success turns out to be short-lived."
 							]
 						},
@@ -1128,13 +994,183 @@
 						"Chapters 5 through 8 describe the lairs of the story's villains and can be used at any time, in any order, or not at all. The characters might have reason to visit one or more of these lairs in the course of the adventure. Thwarting the villains doesn't require the characters to invade their lairs or defeat them in combat, so it's possible to complete the adventure without these chapters coming into play.",
 						"Be prepared to make adjustments on the fly if the characters find themselves in a villain's lair prior to completing chapter 4, as the challenges within each lair are difficult for characters of lower than 5th level to overcome. You can gently steer characters in a different direction, drop hints that urge them to use extreme caution, or make deadly encounters easier. It also bears remembering that the villains are meant to be thwarted, not killed, and they are rarely spoiling for a fight. Adventurers who get in over their heads can be knocked {@condition unconscious} rather than killed. Such characters might awaken in an alley, a sewer tunnel, or a prison cell, with or without their gear. Conversely, they might awaken safe and sound with all their gear in a private residence, being cared for by friendly NPCs who took them in.",
 						{
-							"type": "image",
-							"href": {
-								"type": "internal",
-								"path": "adventure/WDH/Flowchart.jpg"
-							},
-							"width": 1000,
-							"height": 1377
+							"type": "entries",
+							"entries": [
+								{
+									"type": "entries",
+									"name": "Adventure Flowchart",
+									"entries": [
+										{
+											"type": "flowchart",
+											"blocks": [
+												{
+													"type": "flowBlock",
+													"name": "Chapter 1: A Friend in Need",
+													"entries": [
+														"Volo gives the adventurers a quest and an estate as their reward."
+													],
+													"id": "004"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Chapter 2: Trollskull Alley",
+													"entries": [
+														"Adventurers settle into their new estate and meet the neighbors."
+													],
+													"id": "4e8"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Chapter 3: Fireball",
+													"entries": [
+														"A fireball explodes in Trollskull Alley, setting off an investigation."
+													],
+													"id": "4e9"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Chapter 4: Dragon Season",
+													"entries": [
+														"Adventurers join the race to find and unlock the Vault of Dragons."
+													],
+													"id": "4ea"
+												}
+											]
+										}
+									],
+									"id": "003"
+								},
+								{
+									"type": "entries",
+									"name": "Adventure Background",
+									"entries": [
+										{
+											"type": "flowchart",
+											"blocks": [
+												{
+													"type": "flowBlock",
+													"name": "Gold Embezzled",
+													"entries": [
+														"Lord Dagult Neverember embezzles half a million gold pieces and hides them in the Vault of Dragons."
+													],
+													"id": "4ec"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Stone Crafted",
+													"entries": [
+														"Dagult hires a wizard to create the Stone of Golorr, then hides the artifact in the Palace of Waterdeep."
+													],
+													"id": "4ed"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Dagult Ousted",
+													"entries": [
+														"Dagult leaves Waterdeep to rebuild Neverwinter and is ousted as Open Lord of Waterdeep."
+													],
+													"id": "4ee"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Stone Stolen",
+													"entries": [
+														"The Stone of Golorr is stolen from the Palace of Waterdeep and ends up in Xanathar's possession."
+													],
+													"id": "4ef"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Stone Stolen Again",
+													"entries": [
+														"As Zhents loyal to Manshoon try to forge an alliance with Xanathar, the Stone of Golorr is stolen."
+													],
+													"id": "4f0"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Alliance Ended",
+													"entries": [
+														"War erupts when Xanathar accuses the Zhents of stealing the Stone of Golorr, which they didn't do."
+													],
+													"id": "4f1"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Dalakhar Flees",
+													"entries": [
+														"Dalakhar, a gnome thief working for Dagult. tries to smuggle the Stone of Golorr out of Waterdeep."
+													],
+													"id": "4f2"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Dalakhar Dies",
+													"entries": [
+														"Dalakhar is killed by a fireball spell. Urstul Floxin steals the Stone of Golorr from Dalakhar's corpse."
+													],
+													"id": "4f3"
+												}
+											]
+										}
+									],
+									"id": "4eb"
+								},
+								{
+									"type": "entries",
+									"name": "Villain Lairs",
+									"entries": [
+										{
+											"type": "flowchart",
+											"blocks": [
+												{
+													"type": "flowBlock",
+													"name": "Chapter 5: Spring Madness",
+													"entries": [
+														"Adventurers invade Xanathar's dungeon under the city and confront the beholder in its lair."
+													],
+													"id": "4f5"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Chapter 6: Hell of a Summer",
+													"entries": [
+														"Adventurers storm House Cassalanter and make a diabolical discovery."
+													],
+													"id": "4f6"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Chapter 7: Maestro's Fall",
+													"entries": [
+														"Adventurers board Jarlaxle's ships and learn the sinister secrets of the Sea Maidens Faire."
+													],
+													"id": "4f7"
+												},
+												{
+													"type": "flowBlock",
+													"name": "Chapter 8: Winter Wizardry",
+													"entries": [
+														"Adventurers search Kolat Towers for Manshoon's clone and find his extradimensional den."
+													],
+													"id": "4f8"
+												}
+											]
+										}
+									],
+									"id": "4f4"
+								},
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "adventure/WDH/Flowchart.jpg"
+									},
+									"width": 1000,
+									"height": 1377
+								}
+							],
+							"id": "002"
 						},
 						{
 							"type": "entries",
@@ -1311,7 +1347,7 @@
 							"id": "02f",
 							"entries": [
 								"Any characters with the guild artisan background are assumed to have free membership in one Waterdeep guild of their choice. Arcane spellcasters living in the city are required by law to register with the Watchful Order of Magists and Protectors, so that they can be called on to defend the city with their magic in times of need.",
-								"Waterdeep's most prominent guilds appear on the Guilds of Waterdeep list. By law, there are no active thieves' guilds in Waterdeep, and the {@creature Xanathar|WDH} Guild isn't an actual guild but a faction (see \"Factions in Waterdeep,\").",
+								"Waterdeep's most prominent guilds appear on the Guilds of Waterdeep list. By law, there are no active thieves' guilds in Waterdeep, and the Xanathar Guild isn't an actual guild but a faction (see \"Factions in Waterdeep,\").",
 								"To join a guild, one must possess a background, a proficiency, or a status that the guild values. For example, a character with the sailor background is welcome to join the Master Mariners' Guild. One can practice a profession and not be a guild member, but such autonomy carries a cost. The guilds do everything they can to entice new members to join and pay for membership, and they go out of their way to hinder independent business owners, up to and including driving them out of business. A baker who refuses to join the Bakers' Guild might find her flour supply cut off, while a wizard who refuses to join the Watchful Order of Magists and Protectors might be denied access to sages, libraries, and other useful resources.",
 								"Guilds charge members monthly or yearly dues that vary. For simplicity, you can have a guild charge 1 gp per month or 10 gp for a year's dues paid in advance. A guild can expel a member for any number of reasons, not the least of which is failing to pay dues.",
 								{
@@ -1387,7 +1423,7 @@
 									"page": 14,
 									"id": "032",
 									"entries": [
-										"This adventure includes side quests available only to characters who join the factions described in this adventure. You can use the optional renown rules in chapter 1 of the Dungeon Master's Guide to track a character's rank and ascent within a given faction. The Dungeon Master's Guide gives names for various ranks within the Harpers, the Emerald Enclave, the Lords' Alliance, the Order of the Gauntlet, and the Zhentarim. Rank names for members of Bregan D'aerthe, Force Grey, and the {@creature Xanathar|WDH} Guild are given below, with the renown needed to attain each rank.",
+										"This adventure includes side quests available only to characters who join the factions described in this adventure. You can use the optional renown rules in chapter 1 of the Dungeon Master's Guide to track a character's rank and ascent within a given faction. The Dungeon Master's Guide gives names for various ranks within the Harpers, the Emerald Enclave, the Lords' Alliance, the Order of the Gauntlet, and the Zhentarim. Rank names for members of Bregan D'aerthe, Force Grey, and the Xanathar Guild are given below, with the renown needed to attain each rank.",
 										{
 											"type": "entries",
 											"name": "Bregan D'aerthe Ranks",
@@ -1632,10 +1668,10 @@
 							"page": 17,
 							"id": "03e",
 							"entries": [
-								"Anyone can join the {@creature Xanathar|WDH} Guild, which, despite its name, doesn't have official guild status in Waterdeep. Before membership is granted, however, an applicant must pass a test that always involves the perpetration of a serious crime. Possibilities include murdering a guild member who has failed {@creature Xanathar|WDH} in some fashion, kidnapping a Waterdavian citizen, collecting a ransom, robbing a hire-coach, or looting a warehouse.",
+								"Anyone can join the Xanathar Guild, which, despite its name, doesn't have official guild status in Waterdeep. Before membership is granted, however, an applicant must pass a test that always involves the perpetration of a serious crime. Possibilities include murdering a guild member who has failed {@creature Xanathar|WDH} in some fashion, kidnapping a Waterdavian citizen, collecting a ransom, robbing a hire-coach, or looting a warehouse.",
 								"Among low-ranking guild members, rampant speculation goes on about the true nature of {@creature Xanathar|WDH}. Few have any inkling that their boss is a beholder, and fewer still have seen or spoken to the eye tyrant.",
 								"Given that the faction is fundamentally evil, advancement is based on one's wiles or one's ability to dispose of rivals. Competition within the organization is fierce and often deadly. Evil characters can thrive in this environment, but the risks are seldom worth the reward.",
-								"{@creature Xanathar|WDH} Guild support comes in these ways:",
+								"Xanathar Guild support comes in these ways:",
 								{
 									"type": "list",
 									"items": [
@@ -1655,7 +1691,7 @@
 								"The Black Network has an open recruitment policy. Anyone can join. Tenacity and loyalty are highly valued (but not essential) traits in new members.",
 								"The Zhentarim is a shadow organization that trades mercenaries and goods (including weapons) for profit. It has long sought to gain political influence in Waterdeep, but the strength of the city's Masked Lords, nobility, and professional guilds makes that difficult.",
 								"The Zhentarim in Waterdeep is a fractured organization. Those who support {@creature Manshoon|WDH} want to destroy {@creature Xanathar|WDH} and seize political and economic control of the city. Those who oppose {@creature Manshoon|WDH} want to expose and destroy him before they are themselves apprehended or driven out of the city by the local authorities.",
-								"Adventurers can't join {@creature Manshoon|WDH}'s cause, but they can join and receive aid from the Zhents who are opposed to him. The leaders of this branch of the Black Network are retired adventurers who have become business entrepreneurs. Their adventuring party was called the Doom Raiders because their specialty was plundering lich lairs (which are called \"dooms\"). They are desperately trying to gain a legitimate economic foothold in Waterdeep, which requires making alliances with local guilds and nobles. {@creature Manshoon|WDH}'s war against the {@creature Xanathar|WDH} Guild has thrown their plans into upheaval.",
+								"Adventurers can't join {@creature Manshoon|WDH}'s cause, but they can join and receive aid from the Zhents who are opposed to him. The leaders of this branch of the Black Network are retired adventurers who have become business entrepreneurs. Their adventuring party was called the Doom Raiders because their specialty was plundering lich lairs (which are called \"dooms\"). They are desperately trying to gain a legitimate economic foothold in Waterdeep, which requires making alliances with local guilds and nobles. {@creature Manshoon|WDH}'s war against the Xanathar Guild has thrown their plans into upheaval.",
 								"The Doom Raiders (described in appendix B) consider themselves the true Zhentarim of Waterdeep. The group's leaders are {@creature Davil Starsong|WDH} (Master of Opportunities and Negotiations), {@creature Istrid Horn|WDH} (Master of Trade and Coin), {@creature Skeemo Weirdbottle|WDH} (Master of Magic), {@creature Tashlyn Yafeera|WDH} (Master of Arms and Mercenaries), and {@creature Ziraj the Hunter|WDH} (Master of Assassination).",
 								"Zhentarim support comes in these ways:",
 								{
@@ -1787,7 +1823,7 @@
 									"id": "048",
 									"entries": [
 										"{@i N female half-orc thug-for-hire}",
-										"Yagra is a Black Network mercenary who gets paid to protect a Zhent negotiator named {@creature Davil Starsong|WDH} (see {@adventure appendix B|WDH|12} for more information on him). Yagra finds the job boring and likes to pass the time by challenging adventurers to arm wrestle. (Resolve such contests using contested Strength checks.) If the characters express their opposition to the {@creature Xanathar|WDH} Guild, Yagra might urge them to speak to Davil about joining forces with the Zhentarim to destroy the beholder crime lord.",
+										"Yagra is a Black Network mercenary who gets paid to protect a Zhent negotiator named {@creature Davil Starsong|WDH} (see {@adventure appendix B|WDH|12} for more information on him). Yagra finds the job boring and likes to pass the time by challenging adventurers to arm wrestle. (Resolve such contests using contested Strength checks.) If the characters express their opposition to the Xanathar Guild, Yagra might urge them to speak to Davil about joining forces with the Zhentarim to destroy the beholder crime lord.",
 										"Yagra is a half-orc thug. When reduced to 0 hit points, she drops to 1 hit point instead (but can't do this again until she finishes a long rest). She has darkvision out to a range of 60 feet. She speaks Common and Orc."
 									]
 								}
@@ -1812,7 +1848,7 @@
 					"width": 1000,
 					"height": 691
 				},
-				"A bar brawl in the Yawning Portal proves that nowhere is safe from the gang war between the Zhentarim and the {@creature Xanathar|WDH} Guild. In this atmosphere of danger, the characters are offered a quest by Volothamp Geddarm. Volo promises a reward if they can rescue his missing friend, {@creature Floon Blagmaar|WDH}, who he fears has been caught up in the conflict. Volo's quest is a straightforward introduction to the streets of Waterdeep, providing the characters with an excuse to explore the city.",
+				"A bar brawl in the Yawning Portal proves that nowhere is safe from the gang war between the Zhentarim and the Xanathar Guild. In this atmosphere of danger, the characters are offered a quest by Volothamp Geddarm. Volo promises a reward if they can rescue his missing friend, {@creature Floon Blagmaar|WDH}, who he fears has been caught up in the conflict. Volo's quest is a straightforward introduction to the streets of Waterdeep, providing the characters with an excuse to explore the city.",
 				"In their hunt for Volo's friend, the characters might make allies and enemies who can resurface throughout the adventure. Following the completion of Volo's quest, the characters gain a home base with an address in Trollskull Alley, in Waterdeep's North Ward. From their new base, the characters can plot their own course, whether it involves interacting with Waterdeep's people, joining one of the city's many factions, or simply poking around for danger.",
 				{
 					"type": "section",
@@ -1836,16 +1872,16 @@
 										"Then all the noise is eclipsed by a shout: \"Ya pig! Like killin' me mates, does ya?\" Then a seven-foot-tall half-orc is hit by a wild, swinging punch from a male human whose shaved head is covered with eye-shaped tattoos. Four other humans stand behind him, ready to jump into the fray. The half-orc cracks her knuckles, roars, and leaps at the tattooed figure-but before you can see if blood is drawn, a crowd of spectators clusters around the brawl. What do you do?"
 									]
 								},
-								"The human combatants are five members of the {@creature Xanathar|WDH} Guild (CE human {@creature bandit||bandits}). The one with the eyeshaped tattoos on his bald pate is their leader, Krentz. Their foe, Yagra Strongfist, is a half-orc employed by the Zhentarim (see the Yawning Portal Friendly Faces handout in appendix C). Yagra fights for her pride.",
+								"The human combatants are five members of the Xanathar Guild (CE human {@creature bandit||bandits}). The one with the eyeshaped tattoos on his bald pate is their leader, Krentz. Their foe, Yagra Strongfist, is a half-orc employed by the Zhentarim (see the Yawning Portal Friendly Faces handout in appendix C). Yagra fights for her pride.",
 								{
 									"type": "entries",
 									"name": "Getting Involved",
 									"page": 22,
 									"id": "04d",
 									"entries": [
-										"If the characters choose to join the fray, have everyone roll initiative. But the fight is almost over by the time they push through the rowdy spectators. Krentz has only 3 hit points remaining and is trying to escape from underneath Yagra, but the four other {@creature Xanathar|WDH} Guild members are poised to tackle her.",
+										"If the characters choose to join the fray, have everyone roll initiative. But the fight is almost over by the time they push through the rowdy spectators. Krentz has only 3 hit points remaining and is trying to escape from underneath Yagra, but the four other Xanathar Guild members are poised to tackle her.",
 										"Pulling Yagra away from Krentz requires a successful Strength check contested by Yagra's Strength check. Yagra thanks the characters if they help her, but is disappointed that they interfered in the fight.",
-										"Remember how the characters deal with Krentz in this scene. If he survives, the characters might meet him again in one of the {@creature Xanathar|WDH} Guild's sewer hideouts (see {@area Q5|07f}, page 28)."
+										"Remember how the characters deal with Krentz in this scene. If he survives, the characters might meet him again in one of the Xanathar Guild's sewer hideouts (see {@area Q5|07f}, page 28)."
 									]
 								},
 								{
@@ -1854,7 +1890,7 @@
 									"page": 22,
 									"id": "04e",
 									"entries": [
-										"If the characters don't interfere in the brawl, Yagra knocks Krentz out cold but is then beaten {@condition unconscious} by his companions. {@creature Durnan|WDH}, the proprietor of the Yawning Portal, points toward the door. \"Out!\" he snarls, and the {@creature Xanathar|WDH} Guild members flee carrying Krentz's {@condition unconscious} form."
+										"If the characters don't interfere in the brawl, Yagra knocks Krentz out cold but is then beaten {@condition unconscious} by his companions. {@creature Durnan|WDH}, the proprietor of the Yawning Portal, points toward the door. \"Out!\" he snarls, and the Xanathar Guild members flee carrying Krentz's {@condition unconscious} form."
 									]
 								}
 							]
@@ -1905,8 +1941,8 @@
 									"entries": [
 										"Volo is embarrassed to admit he might have gotten his friend Floon in trouble, and he resists providing all the details of what happened the night Floon disappeared.",
 										"Beset by writer's block, Volo met {@creature Floon Blagmaar|WDH} for drinks at the Skewered Dragon two nights ago. They drank and gambled for a few hours, and then Volo left. That's the last he saw of Floon.",
-										"Unbeknownst to Volo, not long after he departed, a drunken Floon met another acquaintance, Lord {@creature Renaer Neverember|wdh}, at the tavern. The two left together, with Renaer offering to walk Floon home. Five Zhentarim thugs working for {@creature Urstul Floxin|wdh} (see {@adventure appendix B|WDH|12}) jumped both Floon and Renaer. They took them to a warehouse in the Dock Ward, so they could question Renaer-the son of Lord Dagult Neverember-about the whereabouts of the Stone of Golorr and his father's hidden cache of dragons. Before the interrogation could begin, members of the {@creature Xanathar|WDH} Guild ambushed and killed the Zhent guards in the warehouse. The new arrivals mistook Floon for Renaer, knocked Floon {@condition unconscious}, and dragged him away while Renaer hid and escaped their notice.",
-										"Floon was taken to a {@creature Xanathar|WDH} Guild hideout in the sewers. A small gang of kenku was left behind at the Zhentarim warehouse to kill any other Zhents who might show up at the warehouse. The presence of the kenku has prevented Renaer from trying to leave the warehouse."
+										"Unbeknownst to Volo, not long after he departed, a drunken Floon met another acquaintance, Lord {@creature Renaer Neverember|wdh}, at the tavern. The two left together, with Renaer offering to walk Floon home. Five Zhentarim thugs working for {@creature Urstul Floxin|wdh} (see {@adventure appendix B|WDH|12}) jumped both Floon and Renaer. They took them to a warehouse in the Dock Ward, so they could question Renaer-the son of Lord Dagult Neverember-about the whereabouts of the Stone of Golorr and his father's hidden cache of dragons. Before the interrogation could begin, members of the Xanathar Guild ambushed and killed the Zhent guards in the warehouse. The new arrivals mistook Floon for Renaer, knocked Floon {@condition unconscious}, and dragged him away while Renaer hid and escaped their notice.",
+										"Floon was taken to a Xanathar Guild hideout in the sewers. A small gang of kenku was left behind at the Zhentarim warehouse to kill any other Zhents who might show up at the warehouse. The presence of the kenku has prevented Renaer from trying to leave the warehouse."
 									]
 								}
 							]
@@ -1925,7 +1961,7 @@
 									"page": 23,
 									"id": "055",
 									"entries": [
-										"As the characters travel through the Dock Ward, they come upon the aftermath of a bloody clash between the {@creature Xanathar|WDH} Guild and the Zhentarim:",
+										"As the characters travel through the Dock Ward, they come upon the aftermath of a bloody clash between the Xanathar Guild and the Zhentarim:",
 										{
 											"type": "insetReadaloud",
 											"id": "056",
@@ -1933,7 +1969,7 @@
 												"As you turn a corner, you find yourselves on a street that has been cordoned off by the City Watch. Lying on the cobblestones are a half-dozen corpses, seemingly the victims of some terrible skirmish. Watch officers have disarmed and arrested three blood-drenched humans and are in the midst of questioning witnesses. One of the officers sees you. \"Get on,\" she says. \"Nothing to see here.\""
 											]
 										},
-										"The skirmish that occurred here has nothing to do with Floon's disappearance but represents an escalation in the conflict between the Zhentarim and the {@creature Xanathar|WDH} Guild. A dozen {@creature guard||guards} of the City Watch have arrested three {@creature bandit||bandits} and are questioning witnesses while waiting for wagons to take away the criminals and the corpses. The survivors of the skirmish have been stripped of their weapons and forced to kneel with their hands on their heads. All three, loyal Zhentarim agents (employed by {@creature Urstul Floxin|wdh}; see {@adventure appendix B|WDH|12}), are likely to be accused of murder. They coldly catch the eye of anyone who passes by, but the City Watch won't let the characters anywhere near the prisoners."
+										"The skirmish that occurred here has nothing to do with Floon's disappearance but represents an escalation in the conflict between the Zhentarim and the Xanathar Guild. A dozen {@creature guard||guards} of the City Watch have arrested three {@creature bandit||bandits} and are questioning witnesses while waiting for wagons to take away the criminals and the corpses. The survivors of the skirmish have been stripped of their weapons and forced to kneel with their hands on their heads. All three, loyal Zhentarim agents (employed by {@creature Urstul Floxin|wdh}; see {@adventure appendix B|WDH|12}), are likely to be accused of murder. They coldly catch the eye of anyone who passes by, but the City Watch won't let the characters anywhere near the prisoners."
 									]
 								},
 								{
@@ -1978,7 +2014,7 @@
 											]
 										},
 										"The shop is named after the stuffed beholder in the window-a fixture that is actually a magical sensor, through which {@creature Xanathar|WDH} can peer whenever it wishes.",
-										"The shopkeeper is a wizened {@creature deep gnome (svirfneblin)||deep gnome} who spies for the {@creature Xanathar|WDH} Guild. A few years ago, he survived the detonation of a gas spore in Undermountain and inherited some stray beholder memories. Driven by a compulsion to carve out his own domain, the gnome settled in Waterdeep, bought the Old Xoblob Shop from its previous owner, and tried renaming it after himself, yet everyone kept calling it the Old Xoblob Shop. He therefore restored the old name and changed his name to Xoblob. \"No relation to the eye tyrant hanging in the window!\" he says.",
+										"The shopkeeper is a wizened {@creature deep gnome (svirfneblin)||deep gnome} who spies for the Xanathar Guild. A few years ago, he survived the detonation of a gas spore in Undermountain and inherited some stray beholder memories. Driven by a compulsion to carve out his own domain, the gnome settled in Waterdeep, bought the Old Xoblob Shop from its previous owner, and tried renaming it after himself, yet everyone kept calling it the Old Xoblob Shop. He therefore restored the old name and changed his name to Xoblob. \"No relation to the eye tyrant hanging in the window!\" he says.",
 										{
 											"type": "entries",
 											"name": "Trinkets",
@@ -2069,11 +2105,18 @@
 								{
 									"type": "image",
 									"imageType": "map",
+									"grid": {
+										"type": "square",
+										"size": 58,
+										"offsetX": 26,
+										"offsetY": -10,
+										"scale": 2
+									},
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Zhent-Warehouse-DM.jpg"
 									},
-									"title": "DMs' Map\u2014Zhent Warehouse",
+									"title": "Zhent Warehouse",
 									"width": 1000,
 									"height": 691,
 									"mapRegions": [
@@ -2248,22 +2291,24 @@
 								{
 									"type": "image",
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"offsetX": 1,
+										"offsetY": 1
+									},
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Zhent-Warehouse-Lower-Players.jpg"
 									},
-									"title": "Players' Map\u2014Zhent Warehouse Lower",
+									"title": "Zhent Warehouse, Lower (Player Version)",
 									"width": 950,
-									"height": 1250,
-									"mapParent": {
-										"id": "4e8",
-										"autoScale": true
-									}
+									"height": 1250
 								}
 							]
 						},
 						"The warehouse stands at the back of an outer yard behind a high fence. The gate on the fence isn't locked. The building's three points of entry-a front door, a large warehouse loading door, and a painted-over window-are locked. The front door has a sliding peephole that can be opened from the inside. Either of the doors or the window can be unlocked by a character who makes a successful DC 12 Dexterity check using thieves' tools, or can be forced open with a successful DC 10 Strength (Athletics) check.",
-						"Knocking at the doors or the window alerts a group of {@creature kenku} inside that someone is coming. The kenku scramble to hide behind toppled furniture, making a ruckus that any character who has a passive Wisdom (Perception) score of 16 or higher can hear. These kenku are all that remain of the {@creature Xanathar|WDH} Guild force that murdered almost everyone in the warehouse after the five Zhentarim thugs captured {@creature Renaer Neverember|wdh} and {@creature Floon Blagmaar|WDH} and brought them here. Floon was taken away, but Renaer succeeded in staying alive by hiding. Now, the young noble is trying to figure out how to slip past the kenku, who are lazily searching the warehouse for loot while waiting to see if any more Zhents show up.",
+						"Knocking at the doors or the window alerts a group of {@creature kenku} inside that someone is coming. The kenku scramble to hide behind toppled furniture, making a ruckus that any character who has a passive Wisdom (Perception) score of 16 or higher can hear. These kenku are all that remain of the Xanathar Guild force that murdered almost everyone in the warehouse after the five Zhentarim thugs captured {@creature Renaer Neverember|wdh} and {@creature Floon Blagmaar|WDH} and brought them here. Floon was taken away, but Renaer succeeded in staying alive by hiding. Now, the young noble is trying to figure out how to slip past the kenku, who are lazily searching the warehouse for loot while waiting to see if any more Zhents show up.",
 						{
 							"type": "entries",
 							"name": "Z1. Main Room",
@@ -2288,7 +2333,7 @@
 										"Four short, avian creatures with long beaks and black feathers look over in surprise from where they stand in the middle of the warehouse. Each wears a hooded cloak and wields a shortsword."
 									]
 								},
-								"The corpses belong to five human Zhentarim sellswords (the same ones who kidnapped Floon and Renaer) and seven human {@creature Xanathar|WDH} Guild thugs, all of them clad in leather armor. Each Zhent has a black tattoo of a winged snake on his neck or forearm, and one of the {@creature Xanathar|WDH} Guild members has a black tattoo on the palm of his right hand that looks like a circle with ten spokes radiating out from its circumference (the symbol of {@creature Xanathar|WDH}).",
+								"The corpses belong to five human Zhentarim sellswords (the same ones who kidnapped Floon and Renaer) and seven human Xanathar Guild thugs, all of them clad in leather armor. Each Zhent has a black tattoo of a winged snake on his neck or forearm, and one of the Xanathar Guild members has a black tattoo on the palm of his right hand that looks like a circle with ten spokes radiating out from its circumference (the symbol of {@creature Xanathar|WDH}).",
 								"The kenku fight until two of them are {@condition incapacitated} or killed, whereupon the survivors try to flee. A successful DC 10 Charisma (Intimidation) check forces captured kenku to divulge what they know.",
 								{
 									"type": "entries",
@@ -2301,7 +2346,7 @@
 											"type": "list",
 											"items": [
 												"In a deep voice with an orcish accent: \"{@creature Xanathar|WDH} sends its regards.\"",
-												"In a thin, nasally voice: \"Tie up the pretty boy in the back room!\" and \"Follow the yellow signs in the sewers.\" (This remark refers to tunnels in the sewers that are marked with {@creature Xanathar|WDH}'s symbol where they lead to the {@creature Xanathar|WDH} Guild hideout.)",
+												"In a thin, nasally voice: \"Tie up the pretty boy in the back room!\" and \"Follow the yellow signs in the sewers.\" (This remark refers to tunnels in the sewers that are marked with {@creature Xanathar|WDH}'s symbol where they lead to the Xanathar Guild hideout.)",
 												"In a scratchy voice: \"No time to loot the place. Just get him to the boss.\""
 											]
 										}
@@ -2330,7 +2375,7 @@
 											"type": "insetReadaloud",
 											"id": "06a",
 											"entries": [
-												"\"The Zhentarim thinks that my father embezzled a large amount of gold while he was Open Lord, and that he hid the dragons somewhere in the city. They think they can find it by using an artifact called the Stone of Golorr, which was in the hands of the {@creature Xanathar|WDH} Guild until recently. Apparently, someone stole it. The Zhents thought I knew something about all of this, but I don't. My father and I haven't spoken in years.\""
+												"\"The Zhentarim thinks that my father embezzled a large amount of gold while he was Open Lord, and that he hid the dragons somewhere in the city. They think they can find it by using an artifact called the Stone of Golorr, which was in the hands of the Xanathar Guild until recently. Apparently, someone stole it. The Zhents thought I knew something about all of this, but I don't. My father and I haven't spoken in years.\""
 											]
 										}
 									]
@@ -2365,11 +2410,17 @@
 								{
 									"type": "image",
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"offsetX": 2,
+										"offsetY": 1
+									},
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Zhent-Warehouse-Upper-Players.jpg"
 									},
-									"title": "Players' Map\u2014Zhent Warehouse Upper",
+									"title": "Zhent Warehouse, Upper (Player Version)",
 									"width": 800,
 									"height": 1200
 								},
@@ -2403,8 +2454,8 @@
 					"page": 27,
 					"id": "070",
 					"entries": [
-						"Shortly after the characters find Renaer, a captain of the City Watch named Hyustus Staget (LG male Illuskan human {@creature veteran}) leads a dozen {@creature veteran||veterans} to the warehouse. Having received a report of suspicious activity, they barge in and try to prevent anyone from leaving. Kenku that are still alive and present are taken into custody, and it doesn't take long for the City Watch to conclude that the dead men are members of the Zhentarim and the {@creature Xanathar|WDH} Guild, since violent encounters between the two factions are becoming ever more frequent. While his constables search the warehouse, Captain Staget questions the characters.",
-						"Captain Staget is an uptight man who helps keep the peace in the Dock Ward. Every shopkeeper, guild member, innkeeper, and tavern keeper in the Dock Ward knows him, and most respect him regardless of their opinions of the City Watch in general. Staget doesn't believe in rumors or gossip, he doesn't drink, and he doesn't let anger get the better of him. His job is to curb the violence in the Dock Ward, but he has been dragging his heels. After all, he reasons, if the {@creature Xanathar|WDH} Guild and the Zhentarim want to destroy each other, why not let them?",
+						"Shortly after the characters find Renaer, a captain of the City Watch named Hyustus Staget (LG male Illuskan human {@creature veteran}) leads a dozen {@creature veteran||veterans} to the warehouse. Having received a report of suspicious activity, they barge in and try to prevent anyone from leaving. Kenku that are still alive and present are taken into custody, and it doesn't take long for the City Watch to conclude that the dead men are members of the Zhentarim and the Xanathar Guild, since violent encounters between the two factions are becoming ever more frequent. While his constables search the warehouse, Captain Staget questions the characters.",
+						"Captain Staget is an uptight man who helps keep the peace in the Dock Ward. Every shopkeeper, guild member, innkeeper, and tavern keeper in the Dock Ward knows him, and most respect him regardless of their opinions of the City Watch in general. Staget doesn't believe in rumors or gossip, he doesn't drink, and he doesn't let anger get the better of him. His job is to curb the violence in the Dock Ward, but he has been dragging his heels. After all, he reasons, if the Xanathar Guild and the Zhentarim want to destroy each other, why not let them?",
 						"Staget once had the warehouse under surveillance, but elected to pull the detail to bolster patrols throughout the Dock Ward-a decision he now regrets. That surveillance was part of an attempt to catch a known Zhent instigator named {@creature Urstul Floxin|wdh}, a \"big fish\" rumored to be responsible for much of the recent strife. Staget doesn't share this information with strangers.",
 						"Staget and Renaer recognize each other, though they aren't well acquainted. The involvement of a Neverember noble prompts the captain to be on his best behavior. He is prepared to overlook any crimes committed by the characters as long as Renaer is with them, but he gives them a folded sheet of parchment with the Code Legal written on it and encourages them to read it. (Give the players a copy of the Code Legal handout in appendix C, if you haven't done so already.)",
 						{
@@ -2416,7 +2467,7 @@
 							"width": 2201,
 							"height": 2714
 						},
-						"If the characters ask for the Watch's help in locating Floon, Staget makes it clear that he won't send a force into the sewers in search of someone who might well be a Zhent or {@creature Xanathar|WDH} Guild spy. If they appear intent on involving themselves further in the conflict between the Zhentarim and the {@creature Xanathar|WDH} Guild, Staget imparts some free advice before letting them go:",
+						"If the characters ask for the Watch's help in locating Floon, Staget makes it clear that he won't send a force into the sewers in search of someone who might well be a Zhent or Xanathar Guild spy. If they appear intent on involving themselves further in the conflict between the Zhentarim and the Xanathar Guild, Staget imparts some free advice before letting them go:",
 						{
 							"type": "list",
 							"items": [
@@ -2434,7 +2485,7 @@
 					"page": 27,
 					"id": "071",
 					"entries": [
-						"At this point, the characters likely know that Floon was kidnapped by {@creature Xanathar|WDH} Guild members who mistook him for {@creature Renaer Neverember|wdh}, and that he was taken to a hideout in the sewers. If the characters didn't learn from the kenku where Floon was taken, asking questions of the locals can reveal that many people saw him being dragged off. A successful DC 15 Intelligence (Investigation) check or 5 gp in bribes allows the characters to trace the kidnappers' path through back alleys to a circular metal cover inset in the pavement. The cover is easily lifted, revealing a ladder down into the sewers.",
+						"At this point, the characters likely know that Floon was kidnapped by Xanathar Guild members who mistook him for {@creature Renaer Neverember|wdh}, and that he was taken to a hideout in the sewers. If the characters didn't learn from the kenku where Floon was taken, asking questions of the locals can reveal that many people saw him being dragged off. A successful DC 15 Intelligence (Investigation) check or 5 gp in bribes allows the characters to trace the kidnappers' path through back alleys to a circular metal cover inset in the pavement. The cover is easily lifted, revealing a ladder down into the sewers.",
 						{
 							"type": "entries",
 							"name": "Navigating the Sewers",
@@ -2449,14 +2500,14 @@
 										"A putrid stream flows along this sewer tunnel, which leads in two directions. In one direction, you see a tiny symbol drawn on the wall in yellow chalk: a palm-sized circle with ten equidistant spokes radiating out from its circumference."
 									]
 								},
-								"The hideout of the {@creature Xanathar|WDH} Guild operatives who snatched up Floon is deep in the city's labyrinthine sewers. At every location where characters must make a decision about which direction to go, a symbol scrawled in yellow chalk-a stylized representation of {@creature Xanathar|WDH}-is marked next to the tunnel that leads in the right direction. The symbols are erased by members of the {@creature Xanathar|WDH} Guild or the Dungsweepers' Guild every few days, but these markings have yet to be removed.",
+								"The hideout of the Xanathar Guild operatives who snatched up Floon is deep in the city's labyrinthine sewers. At every location where characters must make a decision about which direction to go, a symbol scrawled in yellow chalk-a stylized representation of {@creature Xanathar|WDH}-is marked next to the tunnel that leads in the right direction. The symbols are erased by members of the Xanathar Guild or the Dungsweepers' Guild every few days, but these markings have yet to be removed.",
 								{
 									"type": "entries",
 									"name": "Gazer Guard",
 									"page": 27,
 									"id": "074",
 									"entries": [
-										"Before arriving at the {@creature Xanathar|WDH} Guild hideout, the characters have an encounter in the sewers:",
+										"Before arriving at the Xanathar Guild hideout, the characters have an encounter in the sewers:",
 										{
 											"type": "insetReadaloud",
 											"id": "075",
@@ -2464,7 +2515,7 @@
 												"After an hour of following signs through the tunnels, you come to a three-way intersection where a ladder leads up into a stone shaft capped by a circular metal cover. One of the familiar chalk symbols is marked on a wall nearby, and floating near the symbol is a spherical, grapefruit-sized creature with a bulging central eye and four stumpy eyestalks. It bares its teeth at you."
 											]
 										},
-										"A hostile {@creature gazer|VGM} (see {@adventure appendix B|WDH|12}) that is in league with {@creature Grum'shar|wdh}, the local {@creature Xanathar|WDH} Guild boss, guards this intersection. Once the characters defeat it, they can press on, following the corridor where the chalk symbol is located; they reach the hideout after following the correct tunnel for 5 minutes.",
+										"A hostile {@creature gazer|VGM} (see {@adventure appendix B|WDH|12}) that is in league with {@creature Grum'shar|wdh}, the local Xanathar Guild boss, guards this intersection. Once the characters defeat it, they can press on, following the corridor where the chalk symbol is located; they reach the hideout after following the correct tunnel for 5 minutes.",
 										{
 											"type": "entries",
 											"name": "Ladder",
@@ -2486,21 +2537,28 @@
 					"page": 28,
 					"id": "077",
 					"entries": [
-						"The {@creature Xanathar|WDH} Guild has hideouts throughout Waterdeep's sewers. The floor plan of this locale (see map 1.2) can be reused for other hideouts.",
+						"The Xanathar Guild has hideouts throughout Waterdeep's sewers. The floor plan of this locale (see map 1.2) can be reused for other hideouts.",
 						{
 							"type": "gallery",
 							"images": [
 								{
 									"type": "image",
 									"imageType": "map",
+									"grid": {
+										"type": "square",
+										"size": 73,
+										"offsetX": -21,
+										"offsetY": 6,
+										"scale": 2
+									},
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Xanathar-Guild-Hideout-DM.jpg"
 									},
-									"title": "DMs' Map\u2014{@creature Xanathar|WDH} Guild Hideout",
+									"title": "Xanathar Guild Hideout",
 									"width": 1158,
 									"height": 800,
-									"id": "fff",
+									"id": "4f9",
 									"mapRegions": [
 										{
 											"area": "078",
@@ -2902,15 +2960,20 @@
 								{
 									"type": "image",
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"offsetX": 3
+									},
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Xanathar-Guild-Hideout-Players.jpg"
 									},
-									"title": "Players' Map\u2014{@creature Xanathar|WDH} Guild Hideout",
+									"title": "Player Version",
 									"width": 1650,
 									"height": 1150,
 									"mapParent": {
-										"id": "fff",
+										"id": "4f9",
 										"offsetX": -16,
 										"offsetY": -27,
 										"scaleX": 0.7334,
@@ -2956,7 +3019,7 @@
 					"page": 28,
 					"id": "07b",
 					"entries": [
-						"Two {@creature goblin||goblins} are stationed here, one in Q2a and one in Q2b. Allies of the {@creature Xanathar|WDH} Guild, they came here from Undermountain. The goblins rely on darkvision to see and are supposed to be watching {@area Q1|078}, but both have dozed off. Characters who succeed on a DC 9 Dexterity (Stealth) check can sneak past the sleeping goblins without waking them.",
+						"Two {@creature goblin||goblins} are stationed here, one in Q2a and one in Q2b. Allies of the Xanathar Guild, they came here from Undermountain. The goblins rely on darkvision to see and are supposed to be watching {@area Q1|078}, but both have dozed off. Characters who succeed on a DC 9 Dexterity (Stealth) check can sneak past the sleeping goblins without waking them.",
 						{
 							"type": "entries",
 							"name": "Treasure",
@@ -2992,7 +3055,7 @@
 					"page": 28,
 					"id": "07f",
 					"entries": [
-						"This room contains six tattered, straw-stuffed mattresses and a hostile member of the {@creature Xanathar|WDH} Guild, a {@creature duergar} named Zemk. If Krentz (CE human {@creature bandit}) escaped from the Yawning Portal after the tavern brawl that kicked off the adventure, he's here as well.",
+						"This room contains six tattered, straw-stuffed mattresses and a hostile member of the Xanathar Guild, a {@creature duergar} named Zemk. If Krentz (CE human {@creature bandit}) escaped from the Yawning Portal after the tavern brawl that kicked off the adventure, he's here as well.",
 						"When the characters arrive, Zemk is using pieces of furniture to barricade the door to {@area Q6|080}. If Krentz is here, he's trying to explain that Zemk's approach won't work, and is telling him to plug the gap at the bottom of the door with blankets. Neither of them notices intruders right away unless the interlopers make a lot of noise.",
 						"Once combat starts, Zemk fights to the death. How Krentz reacts to the adventurers depends on how they treated him earlier. If they helped him, he gives them a chance to leave in peace, but he fights alongside Zemk if they refuse to withdraw. If the duergar is killed, Krentz flees if he can or surrenders if he must.",
 						"Neither Zemk nor Krentz carries any treasure. Both report to {@creature Grum'shar|wdh} (see {@area Q7|081})."
@@ -3024,7 +3087,7 @@
 						},
 						"The tentacled creature is {@creature Nihiloor|WDH} (see {@adventure appendix B|WDH|12}), a {@creature mind flayer} that is caressing an {@creature intellect devourer}. Upon seeing the adventurers, {@creature Nihiloor|WDH} rises from the stone chair, sets its pet down, and glides across the room, intending to leave through the double door in the west wall. The mind flayer expects {@creature Grum'shar|wdh} and the intellect devourer to cover its escape.",
 						"{@creature Nihiloor|WDH} carries a 3-inch-diameter stone orb carved to resemble an eyeball, similar to what one might see at the end of a beholder's eyestalk. This stone eye is the key to activating the magic portal in {@area Q11|089}. The mind flayer uses it to return to {@creature Xanathar|WDH}'s lair (described in chapter 5). It uses {@spell dominate monster} to control someone who gets in its way and turns any such individuals against their allies.",
-						"The half-orc is {@creature Grum'shar|WDH}, a low-end {@creature Xanathar|WDH} Guild boss. As soon as his minions retrieved who they thought was {@creature Renaer Neverember|wdh}, the half-orc begged {@creature Nihiloor|WDH} let him witness the interrogation of the captive, not realizing until after he did so that he had mistaken the prisoner's identity. {@creature Grum'shar|WDH} attacks the characters in the hope of salvaging his reputation. He is an {@creature apprentice wizard|VGM} (see {@adventure appendix B|WDH|12}), with these changes:",
+						"The half-orc is {@creature Grum'shar|WDH}, a low-end Xanathar Guild boss. As soon as his minions retrieved who they thought was {@creature Renaer Neverember|wdh}, the half-orc begged {@creature Nihiloor|WDH} let him witness the interrogation of the captive, not realizing until after he did so that he had mistaken the prisoner's identity. {@creature Grum'shar|WDH} attacks the characters in the hope of salvaging his reputation. He is an {@creature apprentice wizard|VGM} (see {@adventure appendix B|WDH|12}), with these changes:",
 						{
 							"type": "list",
 							"items": [
@@ -3069,7 +3132,7 @@
 					"id": "086",
 					"entries": [
 						"An innocent halfling family, the Peabodys, brews beer in this cellar, which lies beneath their home on Fishgut Alley in the Dock Ward. Their cellar contains brewing supplies and lots of worthless clutter.",
-						"The halflings haven't noticed the secret tunnel that leads to the {@creature Xanathar|WDH} Guild hideout; it's concealed beneath a large flagstone that requires a Strength score of 10 or higher to be lifted.",
+						"The halflings haven't noticed the secret tunnel that leads to the Xanathar Guild hideout; it's concealed beneath a large flagstone that requires a Strength score of 10 or higher to be lifted.",
 						{
 							"type": "entries",
 							"name": "Development",
@@ -3122,7 +3185,7 @@
 					"page": 30,
 					"id": "08c",
 					"entries": [
-						"A narrow passage leads to the cellar of a halfling-owned hostel on Spices Street in the Dock Ward. Medium characters must squeeze to reach this area from the tunnel. The hostel is used as a base by the Shard Shunners, a gang of halfling wererats. They are aware of the {@creature Xanathar|WDH} Guild hideout, and the two gangs are tenuous allies.",
+						"A narrow passage leads to the cellar of a halfling-owned hostel on Spices Street in the Dock Ward. Medium characters must squeeze to reach this area from the tunnel. The hostel is used as a base by the Shard Shunners, a gang of halfling wererats. They are aware of the Xanathar Guild hideout, and the two gangs are tenuous allies.",
 						"Roscoe Underbough, a {@creature Shard Shunner|WDH} in hybrid form, guards the cellar. He hides in the northwest storeroom, ready to jump out and scare away anyone who heads for the stairs. Not eager to commit murder, Roscoe allows retreating characters to flee back to the sewers. He is a {@creature wererat}, with these changes:",
 						{
 							"type": "list",
@@ -3195,7 +3258,7 @@
 					"page": 30,
 					"id": "093",
 					"entries": [
-						"If you're using milestone level advancement instead of tracking experience points, the characters advance from 1st to 2nd level when they return to Volo after having explored the {@creature Xanathar|WDH} Guild hideout."
+						"If you're using milestone level advancement instead of tracking experience points, the characters advance from 1st to 2nd level when they return to Volo after having explored the Xanathar Guild hideout."
 					]
 				}
 			]
@@ -3230,11 +3293,19 @@
 								{
 									"type": "image",
 									"imageType": "map",
+									"grid": {
+										"type": "square",
+										"size": 56,
+										"offsetX": -18,
+										"offsetY": 28,
+										"scale": 4,
+										"distance": 10
+									},
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Trollskull-Alley-DM.jpg"
 									},
-									"title": "DMs' Map\u2014Trollskull Alley",
+									"title": "Trollskull Alley",
 									"width": 1000,
 									"height": 691,
 									"mapRegions": [
@@ -3499,11 +3570,19 @@
 								{
 									"type": "image",
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "square",
+										"size": 56,
+										"offsetX": -18,
+										"offsetY": 28,
+										"scale": 4,
+										"distance": 10
+									},
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Trollskull-Alley-Players.jpg"
 									},
-									"title": "Players' Map\u2014Trollskull Alley",
+									"title": "Player Version",
 									"width": 1000,
 									"height": 691,
 									"mapParent": {
@@ -3525,24 +3604,42 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 57,
+												"offsetY": 19,
+												"scale": 2
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Trollskull-Manor-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Trollskull Manor",
+											"title": "Trollskull Manor",
 											"width": 589,
-											"height": 800
+											"height": 800,
+											"id": "508"
 										},
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 71,
+												"offsetX": 2,
+												"offsetY": 28,
+												"scale": 2
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Trollskull-Manor-Players.jpg"
 											},
-											"title": "Players' Map\u2014Trollskull Manor",
+											"title": "Player Version",
 											"width": 737,
-											"height": 1000
+											"height": 1000,
+											"mapParent": {
+												"id": "508",
+												"autoScale": true
+											}
 										}
 									]
 								},
@@ -3849,7 +3946,7 @@
 												],
 												[
 													"4th",
-													"\"We've captured a member of the {@creature Xanathar|WDH} Guild, and I'd like you to guard him for three nights until I or another member of Bregan D'aerthe reclaims him. You'll find him trapped in your basement.\"",
+													"\"We've captured a member of the Xanathar Guild, and I'd like you to guard him for three nights until I or another member of Bregan D'aerthe reclaims him. You'll find him trapped in your basement.\"",
 													"Characters who search the basement of their Trollskull Alley tavern (see below) find {@creature Ott Steeltoes|wdh} (see {@adventure appendix B|WDH|12}) bound by {@item iron bands of Bilarro}. How he got there is anyone's guess; even he doesn't know. On the first night, {@creature Xanathar|WDH} sends a gang of six {@creature bugbear||bugbears} to attack the tavern and rescue Ott. If the characters have moved Ott elsewhere, the bugbears attack the tavern anyway. On the second night, four members of the Dungsweepers' Guild ({@creature commoner||commoners}) with {@creature intellect devourer||intellect devourers} in their skulls visit the tavern. They order drinks and scope out the tavern, attacking if they find Ott or leaving if they don't. On the third night, a {@creature beholder zombie} attacks. After the third attack, Ott disappears as mysteriously as he arrived, along with the {@item iron bands of Bilarro}. {@i Reward}: Each Bregan D'aerthe character gains 2 renown."
 												],
 												[
@@ -3864,23 +3961,33 @@
 											"images": [
 												{
 													"type": "image",
-													"imageType": "map",
+													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 101,
+														"offsetX": -7,
+														"offsetY": 29
+													},
 													"href": {
 														"type": "internal",
 														"path": "adventure/WDH/Basement.jpg"
 													},
-													"title": "Trollskull Alley Basement",
+													"title": "Trollskull Alley, Basement",
 													"width": 880,
 													"height": 625
 												},
 												{
 													"type": "image",
-													"imageType": "map",
+													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 50
+													},
 													"href": {
 														"type": "internal",
 														"path": "adventure/WDH/Taproom.jpg"
 													},
-													"title": "Trollskull Alley Taproom",
+													"title": "Trollskull Alley, Taproom",
 													"width": 550,
 													"height": 750
 												}
@@ -3960,7 +4067,7 @@
 												],
 												[
 													"5th",
-													"\"The {@creature Xanathar|WDH} Guild is releasing monsters to distract the City Watch and the City Guard while its members stir up trouble elsewhere. The authorities are having trouble catching and killing a flying horror known as a grell. This aberration was latest seen snatching up an old woman in the Dock Ward. Unless we intervene, she won't be the last.\"",
+													"\"The Xanathar Guild is releasing monsters to distract the City Watch and the City Guard while its members stir up trouble elsewhere. The authorities are having trouble catching and killing a flying horror known as a grell. This aberration was latest seen snatching up an old woman in the Dock Ward. Unless we intervene, she won't be the last.\"",
 													"Locating the grell requires a successful DC 18 Intelligence (Investigation) check followed by a successful DC 18 Wisdom (Survival) check. Each check, whether successful or not, represents 1 hour of gathering information or tracking spoor. In fact, there are two {@creature grell||grells}. One grell tries to flee if the other is killed. {@i Reward}: Each Emerald Enclave character gains 2 renown. Jeryth bestows a charm of heroism (see \"Supernatural Gifts\" in chapter 7 of the {@book Dungeon Master's Guide|dmg}) on each party member who helped slay the grells."
 												]
 											]
@@ -4023,7 +4130,7 @@
 												[
 													"5th",
 													"\"{@creature Xanathar|WDH} is using intellect devourers to take control of Waterdavians in key positions throughout the city. We must deal with this problem at once. Infiltrate {@creature Xanathar|WDH}'s lair and destroy whatever is responsible for creating these creatures.\"",
-													"The characters must slay {@b Nihiloor} the {@creature mind flayer} (see {@adventure appendix B|WDH|12}). They can stake out a {@creature Xanathar|WDH} Guild hideout (see chapter 1) and wait for {@creature Nihiloor|WDH} to show up there, or confront the mind flayer in {@creature Xanathar|WDH}'s lair (see chapter 5). {@i Reward}: Each Gray Hand character gains 2 renown. Every character who participated in the raid receives a {@item potion of resistance}. In addition, Vajra covers the cost of any {@spell raise dead} spells needed to bring back dead characters."
+													"The characters must slay {@b Nihiloor} the {@creature mind flayer} (see {@adventure appendix B|WDH|12}). They can stake out a Xanathar Guild hideout (see chapter 1) and wait for {@creature Nihiloor|WDH} to show up there, or confront the mind flayer in {@creature Xanathar|WDH}'s lair (see chapter 5). {@i Reward}: Each Gray Hand character gains 2 renown. Every character who participated in the raid receives a {@item potion of resistance}. In addition, Vajra covers the cost of any {@spell raise dead} spells needed to bring back dead characters."
 												]
 											]
 										}
@@ -4070,7 +4177,7 @@
 												[
 													"2nd",
 													"\"One of the drays working in the city is pulled by a talking mare named {@creature Maxeene|wdh}. Locate her, find out if she's learned the identity of any Zhent operatives, and if so, determine their whereabouts.\"",
-													"Characters can find {@creature Maxeene|WDH}, a {@creature draft horse} with an Intelligence score of 10, with a successful DC 13 Intelligence (Investigation) check. {@creature Maxeene|WDH} speaks Common, and characters must try to convince her that they're Harpers by making a DC 13 Charisma (Persuasion) check. If the check succeeds, the horse recalls giving a ride to a sun elf and his half-orc bodyguard two days ago; she picked them up at an intersection (she doesn't recall which one) and dropped them off at the Yawning Portal. They talked about hiring spies to root out {@creature Xanathar|WDH} Guild hideouts in the city. {@creature Maxeene|WDH}'s descriptions of the passengers match the appearances of {@creature Davil Starsong|WDH} and {@creature Yagra Stonefist|wdh}. {@i Reward}: Each Harper character gains 1 renown."
+													"Characters can find {@creature Maxeene|WDH}, a {@creature draft horse} with an Intelligence score of 10, with a successful DC 13 Intelligence (Investigation) check. {@creature Maxeene|WDH} speaks Common, and characters must try to convince her that they're Harpers by making a DC 13 Charisma (Persuasion) check. If the check succeeds, the horse recalls giving a ride to a sun elf and his half-orc bodyguard two days ago; she picked them up at an intersection (she doesn't recall which one) and dropped them off at the Yawning Portal. They talked about hiring spies to root out Xanathar Guild hideouts in the city. {@creature Maxeene|WDH}'s descriptions of the passengers match the appearances of {@creature Davil Starsong|WDH} and {@creature Yagra Stonefist|wdh}. {@i Reward}: Each Harper character gains 1 renown."
 												],
 												[
 													"3rd",
@@ -4128,7 +4235,7 @@
 												],
 												[
 													"3rd",
-													"\"Harko Swornhold, an evil adventurer who was exiled three years ago for attempting to bribe a city magistrate, has returned to Waterdeep illegally. We think the {@creature Xanathar|WDH} Guild is using him to incite violence. He was last seen recruiting kenku in the Dock Ward. Find him and quietly put him to the sword.\"",
+													"\"Harko Swornhold, an evil adventurer who was exiled three years ago for attempting to bribe a city magistrate, has returned to Waterdeep illegally. We think the Xanathar Guild is using him to incite violence. He was last seen recruiting kenku in the Dock Ward. Find him and quietly put him to the sword.\"",
 													"Whichever character leads the search must succeed on three DC 14 Intelligence (Investigation) checks before gaining three failures, with each check representing 8 hours of investigation. Other characters can assist, granting advantage on the checks. Harko ({@creature bandit captain}) has two {@creature kenku} companions that fight by his side. {@i Reward}: Each Lords' Alliance character gains 1 renown."
 												],
 												[
@@ -4177,7 +4284,7 @@
 											"rows": [
 												[
 													"2nd",
-													"\"We hear that the Zhents are paying gangs in the Field Ward to attack suspected {@creature Xanathar|WDH} Guild members. Fights are breaking out in the ward daily. Stop a fight before it happens. We need to send a message to these thugs that further altercations won't be tolerated.\"",
+													"\"We hear that the Zhents are paying gangs in the Field Ward to attack suspected Xanathar Guild members. Fights are breaking out in the ward daily. Stop a fight before it happens. We need to send a message to these thugs that further altercations won't be tolerated.\"",
 													"The characters must visit the Field Ward and, as a fight threatens to break out, make three successful DC 12 Charisma (Intimidation) checks before failing three checks, or else defeat four {@creature thug||thugs} (preferably without killing them) to disperse the would-be brawlers. {@i Reward}: Each Order of the Gauntlet character gains 1 renown."
 												],
 												[
@@ -4227,7 +4334,7 @@
 											"type": "list",
 											"items": [
 												"Davil is a retired adventurer. He and his adventuring companions joined the Zhentarim a few years back. They help people in need. (More specifically, they provide loans, mercenaries, and other services.)",
-												"Another Black Network gang has recently infiltrated the city and tried to take over the {@creature Xanathar|WDH} Guild. They failed, setting off a war in the streets. Davil and his colleagues want to end the violence and restore the peace."
+												"Another Black Network gang has recently infiltrated the city and tried to take over the Xanathar Guild. They failed, setting off a war in the streets. Davil and his colleagues want to end the violence and restore the peace."
 											]
 										},
 										"Davil offers membership in the faction to interested characters, then assigns them their first mission (see the Zhentarim Missions table). Subsequent mission briefings are written on scrolls and delivered by flying snakes."
@@ -4571,7 +4678,7 @@
 					"page": 43,
 					"id": "0cc",
 					"entries": [
-						"Dalakhar, a rock gnome spy working for Lord Dagult Neverember, was on his way to see the characters when the fireball went off, killing him and ten other people. The gnome is important because he was carrying the {@item Stone of Golorr|WDH} (see {@adventure appendix A|WDH|11})-the key to finding Lord Neverember's hidden cache of gold. Hounded by agents of the Zhentarim, the {@creature Xanathar|WDH} Guild, and Bregan D'aerthe, Dalakhar was unable to escape from Waterdeep with the artifact, so he planned to entrust it to the characters briefly, for surely the folk who rescued Lord Neverember's son could keep it safe where he could not.",
+						"Dalakhar, a rock gnome spy working for Lord Dagult Neverember, was on his way to see the characters when the fireball went off, killing him and ten other people. The gnome is important because he was carrying the {@item Stone of Golorr|WDH} (see {@adventure appendix A|WDH|11})-the key to finding Lord Neverember's hidden cache of gold. Hounded by agents of the Zhentarim, the Xanathar Guild, and Bregan D'aerthe, Dalakhar was unable to escape from Waterdeep with the artifact, so he planned to entrust it to the characters briefly, for surely the folk who rescued Lord Neverember's son could keep it safe where he could not.",
 						"By the time the events of this chapter have played out, the {@item Stone of Golorr|WDH} has changed hands a few times and the characters have learned more about the big picture-though they still have a long chase ahead of them.",
 						{
 							"type": "entries",
@@ -4994,7 +5101,7 @@
 							"entries": [
 								"\"When the Lords of Waterdeep ousted my father, I thought his long, dark shadow was finally gone for good. The truth is, I want nothing to do with him. But his spies hound me. One of them, a gnome named Dalakhar, had been watching me for months. Then, about two tendays ago, the spy was suddenly nowhere to be seen. My father didn't trust many people, but he trusted that gnome.\"",
 								"",
-								"\"I spoke to a few of Dalakhar's friends. Apparently, he was on a special mission to retrieve the Stone of Golorr and was afraid that the Zhentarim and the {@creature Xanathar|WDH} Guild were close to catching him. When he heard about my kidnapping, he wanted more information about the adventurers who had rescued me. I think Dalakhar was planning to pay you to deliver the {@item Stone of Golorr|WDH} to my father in Neverwinter.\""
+								"\"I spoke to a few of Dalakhar's friends. Apparently, he was on a special mission to retrieve the Stone of Golorr and was afraid that the Zhentarim and the Xanathar Guild were close to catching him. When he heard about my kidnapping, he wanted more information about the adventurers who had rescued me. I think Dalakhar was planning to pay you to deliver the {@item Stone of Golorr|WDH} to my father in Neverwinter.\""
 							]
 						},
 						"Any attempt to follow up with Dalakhar's friends proves futile, since they have gone into hiding in the wake of the gnome's sudden demise.",
@@ -5100,11 +5207,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 62,
+												"offsetX": 31,
+												"offsetY": -18,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Gralhund-Villa-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Gralhund Villa",
+											"title": "Gralhund Villa",
 											"width": 800,
 											"height": 1086,
 											"mapRegions": [
@@ -5824,26 +5938,32 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Gralhund-Villa-Players.jpg"
 											},
-											"title": "Players' Map\u2014Gralhund Villa",
+											"title": "Gralhund Villa, Ground Floor (Player Version)",
 											"width": 2000,
-											"height": 1800,
-											"mapParent": {
-												"id": "4ea",
-												"autoScale": true
-											}
+											"height": 1800
 										},
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50,
+												"offsetX": 2,
+												"offsetY": 2
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Gralhund-Villa-Upper-Players.jpg"
 											},
-											"title": "Players' Map\u2014Gralhund Villa Upper",
+											"title": "Gralhund Villa, Upper Floor (Player Version)",
 											"width": 1050,
 											"height": 1250
 										}
@@ -6428,6 +6548,9 @@
 												{
 													"type": "image",
 													"imageType": "map",
+													"grid": {
+														"type": "none"
+													},
 													"href": {
 														"type": "internal",
 														"path": "adventure/WDH/Dock-Ward.jpg"
@@ -6444,12 +6567,18 @@
 														"path": "adventure/WDH/City-of-the-Dead-Map.jpg"
 													},
 													"title": "City of the Dead Map",
+													"grid": {
+														"type": "none"
+													},
 													"width": 512,
 													"height": 800
 												},
 												{
 													"type": "image",
 													"imageType": "map",
+													"grid": {
+														"type": "none"
+													},
 													"href": {
 														"type": "internal",
 														"path": "adventure/WDH/Trades-Ward-Map.jpg"
@@ -6461,6 +6590,9 @@
 												{
 													"type": "image",
 													"imageType": "map",
+													"grid": {
+														"type": "none"
+													},
 													"href": {
 														"type": "internal",
 														"path": "adventure/WDH/Field-Ward-Map.jpg"
@@ -6523,13 +6655,291 @@
 							]
 						},
 						{
-							"type": "image",
-							"href": {
-								"type": "internal",
-								"path": "adventure/WDH/EncounterChains.jpg"
-							},
-							"width": 1000,
-							"height": 1026
+							"type": "entries",
+							"entries": [
+								{
+									"type": "entries",
+									"name": "Spring: Xanathar",
+									"entries": [
+										{
+											"type": "flowchart",
+											"blocks": [
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 2: Mistshore|157|x}"
+													],
+													"id": "4fb"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 4: Mausoleum|176|x}"
+													],
+													"id": "4fc"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 10: Converted Windmill|205|x}"
+													],
+													"id": "4fd"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 9: Cellar Complex|1e0|x}"
+													],
+													"id": "4fe"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 3: Street Chase|16c|x}"
+													],
+													"id": "4ff"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 7: Old Tower|1a8|x}"
+													],
+													"id": "500"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 1: Alley|13e|x}"
+													],
+													"id": "501"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 6: Theater|18f|x}"
+													],
+													"id": "502"
+												}
+											]
+										}
+									],
+									"id": "4fa"
+								},
+								{
+									"type": "entries",
+									"name": "Summer: The Cassalanters",
+									"entries": [
+										{
+											"type": "flowchart",
+											"blocks": [
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 4: Mausoleum|176|x}"
+													],
+													"id": "504"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 10: Converted Windmill|205|x}"
+													],
+													"id": "505"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 5: Rooftop Chase|188|x}"
+													],
+													"id": "506"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 1: Alley|13e|x}"
+													],
+													"id": "507"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 3: Street Chase|16c|x}"
+													],
+													"id": "508"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 9: Cellar Complex|1e0|x}"
+													],
+													"id": "509"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 8: Courthouse|1c6|x}"
+													],
+													"id": "50a"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 7: Old Tower|1a8|x}"
+													],
+													"id": "50b"
+												}
+											]
+										}
+									],
+									"id": "503"
+								},
+								{
+									"type": "entries",
+									"name": "Autumn: Jarlaxle Baenre",
+									"entries": [
+										{
+											"type": "flowchart",
+											"blocks": [
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 1: Alley|13e|x}"
+													],
+													"id": "50d"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 9: Cellar Complex|1e0|x}"
+													],
+													"id": "50e"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 6: Theater|18f|x}"
+													],
+													"id": "50f"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 8: Courthouse|1c6|x}"
+													],
+													"id": "510"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 7: Old Tower|1a8|x}"
+													],
+													"id": "511"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 5: Rooftop Chase|188|x}"
+													],
+													"id": "512"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 2: Mistshore|157|x}"
+													],
+													"id": "513"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 10: Converted Windmill|205|x}"
+													],
+													"id": "514"
+												}
+											]
+										}
+									],
+									"id": "50c"
+								},
+								{
+									"type": "entries",
+									"name": "Winter: Manshoon",
+									"entries": [
+										{
+											"type": "flowchart",
+											"blocks": [
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 10: Converted Windmill|205|x}"
+													],
+													"id": "516"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 1: Alley|13e|x}"
+													],
+													"id": "517"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 5: Rooftop Chase|188|x}"
+													],
+													"id": "518"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 6: Theater|18f|x}"
+													],
+													"id": "519"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 3: Street Chase|16c|x}"
+													],
+													"id": "51a"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 2: Mistshore|157|x}"
+													],
+													"id": "51b"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 7: Old Tower|1a8|x}"
+													],
+													"id": "51c"
+												},
+												{
+													"type": "flowBlock",
+													"entries": [
+														"{@area Encounter 4: Mausoleum|176|x}"
+													],
+													"id": "51d"
+												}
+											]
+										}
+									],
+									"id": "515"
+								},
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "adventure/WDH/EncounterChains.jpg"
+									},
+									"width": 1000,
+									"height": 1026
+								}
+							],
+							"id": "4f9"
 						},
 						{
 							"type": "entries",
@@ -6539,23 +6949,14 @@
 							"entries": [
 								"Ah, springtime-when beholder eyestalks are in bloom. The Stone of Golorr was originally snatched from {@creature Xanathar|WDH}, and the eye tyrant wants it back. It sends monsters and minions to do its dirty work.",
 								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/EncounterChains.jpg"
-									},
-									"width": 1000,
-									"height": 1026
-								},
-								{
 									"type": "entries",
 									"name": "Summary",
 									"page": 58,
 									"id": "12c",
 									"entries": [
-										"The stone is delivered to {@creature Grinda Garloth|WDH}, a mage who has worked for {@creature Xanathar|WDH} in the past. When she refuses to give up the stone, members of the {@creature Xanathar|WDH} Guild try to take it by force (encounter 2, \"Mistshore\"). After the characters defeat these attackers, they learn that Grinda told her rat familiar to hide the stone in her family's crypt in the City of the Dead. From this point on, the characters are followed by a gazer (see {@adventure appendix B|WDH|12}), through whose eyes {@creature Xanathar|WDH} can see. If this gazer is killed, {@creature Xanathar|WDH} doesn't send another one to replace it.",
-										"{@creature Losser Mirklav|wdh}, a halfling necromancer, raids the Garloth mausoleum and takes the stone shortly before the characters arrive (encounter 4, \"Mausoleum\"). As they emerge from the mausoleum, members of the {@creature Xanathar|WDH} Guild attack them, believing they have the stone. A clue left behind in the mausoleum leads the characters to an old windmill in the Southern Ward and a pair of grave robbers (encounter 10, \"Converted Windmill\"). Fearing arrest, the grave robbers point them to a cellar complex under the Trades Ward (encounter 9, \"Cellar Complex\"). When the characters arrive, they find Losser surrounded by foes and kenku working for the {@creature Xanathar|WDH} Guild making off with the stone. A chase through the streets on or before Trolltide (encounter 3, \"Street Chase\") ends when the kenku, fearing capture, duck into an old tower (encounter 7, \"Old Tower\"). If they are caught and confronted, the kenku hand over the stone.",
-										"The {@creature Xanathar|WDH} Guild makes one last attempt to regain the stone (encounter 1, \"Alley\"). Any character who becomes attuned to the stone learns that the Vault of Dragons lies beneath a theater in the Castle Ward (encounter 6, \"Theater\")."
+										"The stone is delivered to {@creature Grinda Garloth|WDH}, a mage who has worked for {@creature Xanathar|WDH} in the past. When she refuses to give up the stone, members of the Xanathar Guild try to take it by force (encounter 2, \"Mistshore\"). After the characters defeat these attackers, they learn that Grinda told her rat familiar to hide the stone in her family's crypt in the City of the Dead. From this point on, the characters are followed by a gazer (see {@adventure appendix B|WDH|12}), through whose eyes {@creature Xanathar|WDH} can see. If this gazer is killed, {@creature Xanathar|WDH} doesn't send another one to replace it.",
+										"{@creature Losser Mirklav|wdh}, a halfling necromancer, raids the Garloth mausoleum and takes the stone shortly before the characters arrive (encounter 4, \"Mausoleum\"). As they emerge from the mausoleum, members of the Xanathar Guild attack them, believing they have the stone. A clue left behind in the mausoleum leads the characters to an old windmill in the Southern Ward and a pair of grave robbers (encounter 10, \"Converted Windmill\"). Fearing arrest, the grave robbers point them to a cellar complex under the Trades Ward (encounter 9, \"Cellar Complex\"). When the characters arrive, they find Losser surrounded by foes and kenku working for the Xanathar Guild making off with the stone. A chase through the streets on or before Trolltide (encounter 3, \"Street Chase\") ends when the kenku, fearing capture, duck into an old tower (encounter 7, \"Old Tower\"). If they are caught and confronted, the kenku hand over the stone.",
+										"The Xanathar Guild makes one last attempt to regain the stone (encounter 1, \"Alley\"). Any character who becomes attuned to the stone learns that the Vault of Dragons lies beneath a theater in the Castle Ward (encounter 6, \"Theater\")."
 									]
 								},
 								{
@@ -6594,15 +6995,6 @@
 							"id": "130",
 							"entries": [
 								"As Waterdavians contend with sweltering heat, the Cassalanters send disciples of their Asmodeus-worshiping cult to seize the Stone of Golorr while deftly avoiding entanglements with local authorities.",
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/EncounterChains.jpg"
-									},
-									"width": 1000,
-									"height": 1026
-								},
 								{
 									"type": "entries",
 									"name": "Summary",
@@ -6643,22 +7035,13 @@
 							"entries": [
 								"Deception and misdirection are Jarlaxle's forte, and he likes to trick his rivals into working for him. He steers the characters toward the {@item Stone of Golorr|WDH} and lets them think they're always one step ahead. Drow player characters who are members of Bregan D'aerthe might find their loyalty to the party put to the test.",
 								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/EncounterChains.jpg"
-									},
-									"width": 1000,
-									"height": 1026
-								},
-								{
 									"type": "entries",
 									"name": "Summary",
 									"page": 60,
 									"id": "135",
 									"entries": [
-										"The characters visit the residence of Fenerus Stormcastle, a lamplighter and retired brigand who funnels information to Bregan D'aerthe. They arrive to find the place ransacked (encounter 1, \"Alley\"). The duergar who looted the residence work for the {@creature Xanathar|WDH} Guild, and Bregan D'aerthe spies have tracked them to a cellar complex in the Southern Ward. In the guise of {@creature Laeral Silverhand|WDH}, Jarlaxle steers the characters in that direction (encounter 9, \"Cellar Complex\"). A search of the cellar complex yields a fake stone, but not the real {@item Stone of Golorr|WDH}. With no other leads, the characters can follow up with \"Laeral\" at a theater in the Dock Ward (encounter 6, \"Theater\"). Jarlaxle makes the characters an offer they can't refuse, setting his agents on them if they dare to do so.",
-										"Once he realizes the {@creature Xanathar|WDH} Guild doesn't have the stone, Jarlaxle asks the characters to interrogate Fenerus to find out where he hid it. Jarlaxle has learned that Fenerus is awaiting trial at a courthouse in the Castle Ward (encounter 8, \"Courthouse\"). Fenerus wants immunity for all of his past crimes. The characters are in no position to grant his wish, but they might threaten him, persuade him, or use magic to charm him. If he is compelled to reveal the stone's location, Fenerus points the characters to an old tower in the Dock Ward (encounter 7, \"Old Tower\").",
+										"The characters visit the residence of Fenerus Stormcastle, a lamplighter and retired brigand who funnels information to Bregan D'aerthe. They arrive to find the place ransacked (encounter 1, \"Alley\"). The duergar who looted the residence work for the Xanathar Guild, and Bregan D'aerthe spies have tracked them to a cellar complex in the Southern Ward. In the guise of {@creature Laeral Silverhand|WDH}, Jarlaxle steers the characters in that direction (encounter 9, \"Cellar Complex\"). A search of the cellar complex yields a fake stone, but not the real {@item Stone of Golorr|WDH}. With no other leads, the characters can follow up with \"Laeral\" at a theater in the Dock Ward (encounter 6, \"Theater\"). Jarlaxle makes the characters an offer they can't refuse, setting his agents on them if they dare to do so.",
+										"Once he realizes the Xanathar Guild doesn't have the stone, Jarlaxle asks the characters to interrogate Fenerus to find out where he hid it. Jarlaxle has learned that Fenerus is awaiting trial at a courthouse in the Castle Ward (encounter 8, \"Courthouse\"). Fenerus wants immunity for all of his past crimes. The characters are in no position to grant his wish, but they might threaten him, persuade him, or use magic to charm him. If he is compelled to reveal the stone's location, Fenerus points the characters to an old tower in the Dock Ward (encounter 7, \"Old Tower\").",
 										"Jarlaxle's lieutenants reach the stone first and flee across the rooftops in the Dock Ward to escape the characters (encounter 5, \"Rooftop Chase\"). They go to ground in Mistshore (encounter 2, \"Mistshore\"). Once the characters wrest the stone away from these drow, they can use it to guide them to the home of a famous painter in the Sea Ward (encounter 10, \"Converted Windmill\"), beneath which is a tunnel that leads to the Vault of Dragons."
 									]
 								},
@@ -6689,15 +7072,6 @@
 							"id": "138",
 							"entries": [
 								"Now is the winter of Waterdeep's discontent. The Zhents who serve {@creature Manshoon|WDH} believe their master to be all-powerful, which has made them reckless. Against a frigid backdrop, they're willing to thumb their noses at local authorities and risk death in pursuit of the {@item Stone of Golorr|WDH}.",
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "adventure/WDH/EncounterChains.jpg"
-									},
-									"width": 1000,
-									"height": 1026
-								},
 								{
 									"type": "entries",
 									"name": "Summary",
@@ -6761,24 +7135,40 @@
 								{
 									"type": "image",
 									"imageType": "map",
+									"grid": {
+										"type": "square",
+										"size": 85,
+										"offsetX": 24,
+										"offsetY": -35,
+										"scale": 3
+									},
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Alley-DM.jpg"
 									},
-									"title": "DMs' Map\u2014Alley",
+									"title": "Alley",
 									"width": 1000,
-									"height": 691
+									"height": 691,
+									"id": "509"
 								},
 								{
 									"type": "image",
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "square",
+										"size": 50
+									},
 									"href": {
 										"type": "internal",
 										"path": "adventure/WDH/Alley-Players.jpg"
 									},
-									"title": "Players' Map\u2014Alley",
+									"title": "Player Version",
 									"width": 1800,
-									"height": 1250
+									"height": 1250,
+									"mapParent": {
+										"id": "509",
+										"autoScale": true
+									}
 								}
 							]
 						},
@@ -7019,7 +7409,7 @@
 										"Fenerus Stormcastle was the founder of the Blood Hawk Posse, a gang of horse-riding brigands that, to this day, harries travelers on the road to Amphail. When he was drummed out of the gang after a botched raid, Fenerus \"retired\" to Waterdeep and joined the Guild of Chandlers and Lamplighters.",
 										"Until recently, Fenerus supplemented his income by spying for the city of Luskan and providing his contacts with information on the political climate in Waterdeep, as well as juicy bits of news overheard on his nightly rounds through the Trades Ward. He has no clue that his contacts are drow members of Bregan D'aerthe, since they wear cloaks and keep to the shadows.",
 										"Agents of the Lords' Alliance recently labeled Fenerus as a wanted brigand and notified the Lords of Waterdeep, who sent the City Watch to arrest him. Fenerus had the good sense to hide the {@item Stone of Golorr|WDH} elsewhere and hopes to use it as leverage to gain his freedom as well as forgiveness for past crimes.",
-										"Shortly after Fenerus's arrest, drow agents of Bregan D'aerthe showed up to collect the stone and were waylaid by {@condition invisible} duergar hiding in the alley. The duergar were members of the {@creature Xanathar|WDH} Guild that had been sent by {@creature Nar'l Xibrindas|wdh} (see {@adventure appendix B|WDH|12}) to retrieve the stone. After searching Fenerus's home and finding nothing, they were waiting for Fenerus to return when the drow showed up. The drow barely got away with their lives.",
+										"Shortly after Fenerus's arrest, drow agents of Bregan D'aerthe showed up to collect the stone and were waylaid by {@condition invisible} duergar hiding in the alley. The duergar were members of the Xanathar Guild that had been sent by {@creature Nar'l Xibrindas|wdh} (see {@adventure appendix B|WDH|12}) to retrieve the stone. After searching Fenerus's home and finding nothing, they were waiting for Fenerus to return when the drow showed up. The drow barely got away with their lives.",
 										{
 											"type": "inset",
 											"name": "The Three Urchins",
@@ -7046,7 +7436,7 @@
 											]
 										},
 										"\"Laeral\" tells the characters that Fenerus had a sentient magic item in his possession called the {@item Stone of Golorr|WDH}, which knows the location of a large cache of gold that was embezzled from the city by its previous Open Lord. She asks the characters to retrieve the stone, for the good of Waterdeep, and deliver it to her at the Seven Masks Theater in the Dock Ward. \"Laeral\" offers no reward other than the gratitude of Waterdeep's Open Lord.",
-										"Jarlaxle suspects that {@creature Nar'l Xibrindas|wdh}, his spy in the {@creature Xanathar|WDH} Guild, has betrayed him and is now using the resources of Bregan D'aerthe to help the beholder retrieve the stone. Jarlaxle also knows that the {@creature Xanathar|WDH} Guild has a refuge fairly close by, in a cellar complex under the Southern Ward. \"Laeral\" suggests that the characters search for the stone there. (Jarlaxle doesn't want Nar'l to know that he's onto him, which is why he would rather send a small group of adventurers than call upon a Bregan D'aerthe attack force.)",
+										"Jarlaxle suspects that {@creature Nar'l Xibrindas|wdh}, his spy in the Xanathar Guild, has betrayed him and is now using the resources of Bregan D'aerthe to help the beholder retrieve the stone. Jarlaxle also knows that the Xanathar Guild has a refuge fairly close by, in a cellar complex under the Southern Ward. \"Laeral\" suggests that the characters search for the stone there. (Jarlaxle doesn't want Nar'l to know that he's onto him, which is why he would rather send a small group of adventurers than call upon a Bregan D'aerthe attack force.)",
 										"Characters who are suspicious of Laeral's intentions can ascertain that she's hiding something with a successful Wisdom (Insight) check contested by Jarlaxle's Charisma (Deception) check. If the characters somehow penetrate Jarlaxle's disguise, he smiles and offers them 10,000 gp if they promptly deliver the stone to him at the Seven Masks Theater. He assures them, in all honesty, that he plans to give the gold back to Waterdeep in exchange for some political goodwill."
 									]
 								},
@@ -7056,7 +7446,7 @@
 									"page": 64,
 									"id": "151",
 									"entries": [
-										"If the characters invade the {@creature Xanathar|WDH} Guild refuge, proceed with encounter 9, \"Cellar Complex.\""
+										"If the characters invade the Xanathar Guild refuge, proceed with encounter 9, \"Cellar Complex.\""
 									]
 								}
 							]
@@ -7068,7 +7458,7 @@
 							"id": "152",
 							"entries": [
 								"The characters' search for the {@item Stone of Golorr|WDH} leads them to a snow-covered alley in the Trades Ward that contains a windowless Zhentarim safe house ({@area L1|140}) and a meat shop called Cuttle's Meat Pies ({@area L2|141}).",
-								"The characters approach from either end of the alley. Hoofprints and wheel ruts in the snow testify that Justyn Rassk's delivery cart passed through the alley recently after a brief stop outside the meat shop. A character who inspects the tracks and succeeds on a DC 10 Wisdom (Survival) check can tell that the deliverer visited both the shop and the alley residence. Before the characters can investigate further, they are assaulted by members of the {@creature Xanathar|WDH} Guild.",
+								"The characters approach from either end of the alley. Hoofprints and wheel ruts in the snow testify that Justyn Rassk's delivery cart passed through the alley recently after a brief stop outside the meat shop. A character who inspects the tracks and succeeds on a DC 10 Wisdom (Survival) check can tell that the deliverer visited both the shop and the alley residence. Before the characters can investigate further, they are assaulted by members of the Xanathar Guild.",
 								{
 									"type": "entries",
 									"name": "Bugbears Attack",
@@ -7097,7 +7487,7 @@
 									"entries": [
 										"This windowless house is occupied by two Zhents loyal to {@creature Manshoon|WDH}-the same individuals that Sora describes. Their names are Avareen Windrivver (LE female Illuskan human {@creature spy}) and Zorbog Jyarkoth (NE male Turami human {@creature thug}).",
 										"When the characters first enter the alley, Avareen is in the front doorway of the house, handing the {@item Stone of Golorr|WDH} to a high-ranking Zhent named Vevette Blackwater (CE female Tethyrian human {@creature swashbuckler|VGM}; see {@adventure appendix B|WDH|12}). Zorbog is stoking a fire in the fireplace while quietly observing the transaction. With stone in hand, Vevette scrambles up to the rooftops, leaving Avareen and Zorbog to deal with the survivors of the conflict between the characters and the bugbears.",
-										"Gagged and tied to a chair in the back room of the house is a known member of the {@creature Xanathar|WDH} Guild-a shield dwarf who wears a leather skullcap stitched with fake beholder eyestalks. The dwarf, {@creature Ott Steeltoes|wdh} (see {@adventure appendix B|WDH|12}), was captured while buying fish food in a Dock Ward market. After the Zhents interrogated Ott, it became clear to them that {@creature Xanathar|WDH} would want him back. He is being held until a ransom is paid, but {@creature Xanathar|WDH} has learned where he is being kept. Any bugbears that survived the initial attack try to rescue Ott, while Avareen and Zorbog do their best to fight them off. If Ott is set free, he runs back to the waiting eyestalks of his insane beholder master. Characters who follow him are led straight to {@creature Xanathar|WDH}'s lair (see chapter 5)."
+										"Gagged and tied to a chair in the back room of the house is a known member of the Xanathar Guild-a shield dwarf who wears a leather skullcap stitched with fake beholder eyestalks. The dwarf, {@creature Ott Steeltoes|wdh} (see {@adventure appendix B|WDH|12}), was captured while buying fish food in a Dock Ward market. After the Zhents interrogated Ott, it became clear to them that {@creature Xanathar|WDH} would want him back. He is being held until a ransom is paid, but {@creature Xanathar|WDH} has learned where he is being kept. Any bugbears that survived the initial attack try to rescue Ott, while Avareen and Zorbog do their best to fight them off. If Ott is set free, he runs back to the waiting eyestalks of his insane beholder master. Characters who follow him are led straight to {@creature Xanathar|WDH}'s lair (see chapter 5)."
 									]
 								},
 								{
@@ -7134,11 +7524,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 56,
+												"offsetX": -10,
+												"offsetY": -11,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Mistshore-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Mistshore",
+											"title": "Mistshore",
 											"width": 1000,
 											"height": 691,
 											"mapRegions": [
@@ -7323,11 +7720,17 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50,
+												"offsetX": 4,
+												"scale": 2
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Mistshore-Players.jpg"
 											},
-											"title": "Players' Map\u2014Mistshore",
+											"title": "Player Version",
 											"width": 1350,
 											"height": 950,
 											"mapParent": {
@@ -7409,16 +7812,16 @@
 							"id": "15e",
 							"entries": [
 								"{@creature Xanathar|WDH} has sent forces to collect the {@item Stone of Golorr|WDH} from {@creature Grinda Garloth|WDH}, known up and down the wharf as an eccentric wizard who owns a submersible contraption that she uses to hunt for treasure on the bottom of Deepwater Harbor. The characters have no trouble getting directions to her Mistshore residence ({@area D2|15a}).",
-								"When the characters arrive at her home, Grinda is holed up inside, having barricaded the doors with furniture. Trying to break down the doors are four members of the {@creature Xanathar|WDH} Guild (CE male human {@creature bandit||bandits}) under the command of a dwarf enforcer named {@creature Noska Ur'gray|wdh} (see {@adventure appendix B|WDH|12}). A {@creature merrow} also under Noska's command swims beneath the docks. It surfaces to attack when the characters arrive.",
+								"When the characters arrive at her home, Grinda is holed up inside, having barricaded the doors with furniture. Trying to break down the doors are four members of the Xanathar Guild (CE male human {@creature bandit||bandits}) under the command of a dwarf enforcer named {@creature Noska Ur'gray|wdh} (see {@adventure appendix B|WDH|12}). A {@creature merrow} also under Noska's command swims beneath the docks. It surfaces to attack when the characters arrive.",
 								"If the characters come to Grinda's defense, Noska orders his thugs to attack them while he takes potshots at the characters with his crossbow. Two rounds later, eight more {@creature bandit||bandits} leap down from the {@i Kraken's Folly} ({@area D1|159}) and join the fray. These hooligans were paid 1 gp each to watch Noska's back. The characters can turn them against Noska by offering a larger bribe (at least 5 gp each).",
-								"If the characters turn the hooligans against Noska or reduce the dwarf to half his hit points or fewer, Noska flees. Any remaining {@creature Xanathar|WDH} Guild members cover his escape. Grinda emerges from her residence to thank the characters once the fight has concluded.",
+								"If the characters turn the hooligans against Noska or reduce the dwarf to half his hit points or fewer, Noska flees. Any remaining Xanathar Guild members cover his escape. Grinda emerges from her residence to thank the characters once the fight has concluded.",
 								{
 									"type": "entries",
 									"name": "Where's the Stone?",
 									"page": 67,
 									"id": "15f",
 									"entries": [
-										"Grinda admits that she has done business with the {@creature Xanathar|WDH} Guild in the past. Her orders were to protect the stone until Noska arrived to claim it, but she changed her mind and decided to keep the stone for herself. She now realizes that decision was a mistake.",
+										"Grinda admits that she has done business with the Xanathar Guild in the past. Her orders were to protect the stone until Noska arrived to claim it, but she changed her mind and decided to keep the stone for herself. She now realizes that decision was a mistake.",
 										"Grinda tells the characters that she gave the stone to her rat familiar and told the creature to stash it in her family's mausoleum in the City of the Dead. The mage gives the characters directions to the site and a key to the mausoleum. (They won't need the key, since the mausoleum is open when they arrive.)"
 									]
 								},
@@ -7555,7 +7958,7 @@
 							"page": 68,
 							"id": "16d",
 							"entries": [
-								"A {@creature kenku} in cahoots with the {@creature Xanathar|WDH} Guild has the {@item Stone of Golorr|WDH} and is running through the streets with it. The kenku is 60 feet away from the characters at the start of the chase.",
+								"A {@creature kenku} in cahoots with the Xanathar Guild has the {@item Stone of Golorr|WDH} and is running through the streets with it. The kenku is 60 feet away from the characters at the start of the chase.",
 								"If at any point the kenku is {@condition incapacitated}, another {@creature kenku} previously hidden by the rain or fog joins the chase, acting next in the initiative count. It suddenly appears, snatches the stone, and flees with it.",
 								{
 									"type": "entries",
@@ -7662,11 +8065,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 69,
+												"offsetX": -5,
+												"offsetY": -22,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Mausoleum-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Mausoleum",
+											"title": "Mausoleum",
 											"width": 800,
 											"height": 553,
 											"mapRegions": [
@@ -8098,26 +8508,33 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50,
+												"offsetX": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Mausoleum-Players.jpg"
 											},
-											"title": "Players' Map\u2014Mausoleum",
+											"title": "Mausoleum, Ground (Player Version)",
 											"width": 1050,
-											"height": 1250,
-											"mapParent": {
-												"id": "4ec",
-												"autoScale": true
-											}
+											"height": 1250
 										},
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50,
+												"offsetX": 4,
+												"offsetY": -1
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Crypt-Players.jpg"
 											},
-											"title": "Players' Map\u2014Crypt",
+											"title": "Mausoleum, Catacombs (Player Version)",
 											"width": 800,
 											"height": 950
 										}
@@ -8151,7 +8568,7 @@
 							"id": "17a",
 							"entries": [
 								"This encounter begins when the characters come to the Garloth mausoleum seeking the {@item Stone of Golorr|WDH}. The double door to the mausoleum is open when they arrive.",
-								"Earlier, {@creature Grinda Garloth|WDH}'s rat familiar arrived to find the mausoleum open and grave robbers inside. They killed the rat, took the stone, and fled along with the skeletal remains of Grinda's ancestors. Characters who search the plundered crypts find neither the rat nor the stone, but they do find a clue left behind by one of the grave robbers (see \"Crypt Clue\" below). As the characters make their way out, {@creature Xanathar|WDH} Guild members attack them in an attempt to retrieve the stone.",
+								"Earlier, {@creature Grinda Garloth|WDH}'s rat familiar arrived to find the mausoleum open and grave robbers inside. They killed the rat, took the stone, and fled along with the skeletal remains of Grinda's ancestors. Characters who search the plundered crypts find neither the rat nor the stone, but they do find a clue left behind by one of the grave robbers (see \"Crypt Clue\" below). As the characters make their way out, Xanathar Guild members attack them in an attempt to retrieve the stone.",
 								{
 									"type": "entries",
 									"name": "Crypt Clue",
@@ -8170,7 +8587,7 @@
 									"page": 70,
 									"id": "17c",
 									"entries": [
-										"As the characters leave the mausoleum, they are jumped by four {@creature duergar}, members of the {@creature Xanathar|WDH} Guild, who slipped past the cemetery guards using their invisibility. The leader, Gorath, accosts the characters in Dwarvish, demands the {@item Stone of Golorr|WDH}, and refuses to believe that they don't have it. If the stone isn't turned over to them promptly, the duergar enlarge themselves and attack. {@creature Xanathar|WDH} watches the battle unfold through the eyes of a gazer (see {@adventure appendix B|WDH|12}), which stays out of the fight and tries to remain unseen.",
+										"As the characters leave the mausoleum, they are jumped by four {@creature duergar}, members of the Xanathar Guild, who slipped past the cemetery guards using their invisibility. The leader, Gorath, accosts the characters in Dwarvish, demands the {@item Stone of Golorr|WDH}, and refuses to believe that they don't have it. If the stone isn't turned over to them promptly, the duergar enlarge themselves and attack. {@creature Xanathar|WDH} watches the battle unfold through the eyes of a gazer (see {@adventure appendix B|WDH|12}), which stays out of the fight and tries to remain unseen.",
 										"If this encounter occurs at night, there's a {@chance 50|50 percent chance} that Ambrose Everdawn hears the disturbance and investigates, arriving after two duergar fall in battle. The characters can convince him that they're not grave robbers with a successful DC 15 Charisma (Persuasion) check. If they're polite, Ambrose escorts them out of the City of the Dead and warns them not to trespass again. Otherwise, he attempts to subdue them and turn them over to the City Guard."
 									]
 								},
@@ -8456,11 +8873,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 89,
+												"offsetX": -54,
+												"offsetY": -31,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Theater-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Theater",
+											"title": "Theater",
 											"width": 1000,
 											"height": 691,
 											"mapRegions": [
@@ -8784,11 +9208,18 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 95,
+												"offsetX": 28,
+												"offsetY": -39,
+												"scale": 2
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Theater-Players.jpg"
 											},
-											"title": "Players' Map\u2014Theater",
+											"title": "Player Version",
 											"width": 1650,
 											"height": 1200,
 											"mapParent": {
@@ -9056,55 +9487,77 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 78,
+												"offsetX": 5,
+												"offsetY": 2,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Tower-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Tower",
+											"title": "Tower",
 											"width": 1000,
 											"height": 691
 										},
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Tower-First-Players.jpg"
 											},
-											"title": "Players' Map\u2014Tower First",
+											"title": "Tower, First Floor (Player Version)",
 											"width": 550,
 											"height": 850
 										},
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Tower-Second-Players.jpg"
 											},
-											"title": "Players' Map\u2014Tower Second",
+											"title": "Tower, Second Floor (Player Version)",
 											"width": 550,
 											"height": 750
 										},
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Cellar-Players.jpg"
 											},
-											"title": "Players' Map\u2014Cellar",
+											"title": "Tower, Cellar (Player Version)",
 											"width": 550,
 											"height": 800
 										},
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "none"
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Tower-View.jpg"
 											},
-											"title": "Tower View",
+											"title": "Tower, View",
 											"width": 556,
 											"height": 800
 										}
@@ -9463,11 +9916,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 86,
+												"offsetX": 7,
+												"offsetY": 21,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Courthouse-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Courthouse",
+											"title": "Courthouse",
 											"width": 1000,
 											"height": 691,
 											"mapRegions": [
@@ -10003,26 +10463,30 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Courthouse-Main-Players.jpg"
 											},
-											"title": "Players' Map\u2014Courthouse Main",
+											"title": "Courthouse, Main Level (Player Version)",
 											"width": 950,
-											"height": 1200,
-											"mapParent": {
-												"id": "4ee",
-												"autoScale": true
-											}
+											"height": 1200
 										},
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Courthouse-Lower-Players.jpg"
 											},
-											"title": "Players' Map\u2014Courthouse Lower",
+											"title": "Courthouse, Lower Level (Player Version)",
 											"width": 800,
 											"height": 1100
 										}
@@ -10363,11 +10827,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 89,
+												"offsetX": 15,
+												"offsetY": -2,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Cellar-Complex-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Cellar Complex",
+											"title": "Cellar Complex",
 											"width": 1000,
 											"height": 691,
 											"mapRegions": [
@@ -11246,11 +11717,15 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Cellar-Complex-Players.jpg"
 											},
-											"title": "Players' Map\u2014Cellar Complex",
+											"title": "Player Version",
 											"width": 1700,
 											"height": 1250,
 											"mapParent": {
@@ -11478,7 +11953,7 @@
 							"id": "1f5",
 							"entries": [
 								"The characters have learned that a halfling necromancer named {@creature Losser Mirklav|wdh} took the {@item Stone of Golorr|WDH}. He lives in a cellar complex under a powdered wig shop in the Trades Ward. The shop, Dandymops, is closed and locked with an iron gate. The lock can be picked by a character who makes a successful DC 15 Dexterity check using thieves' tools, or the gate can be forced open with a successful DC 25 Strength (Athletics) check. Since the shop is in a highly visible location, an attempt to break into it is 75 percent likely to be noticed by someone who alerts the City Watch. Two {@creature veteran||veterans} of the City Watch arrive in {@dice 1d10} minutes to investigate the shop and talk to witnesses.",
-								"{@creature Xanathar|WDH}'s {@creature gazer|VGM} (see {@adventure appendix B|WDH|12}) doesn't follow characters into the shop. It remains outside and waits for {@creature Xanathar|WDH} Guild forces to arrive. If the characters destroyed the gazer in an earlier encounter, another one arrives with the {@creature Xanathar|WDH} Guild forces.",
+								"{@creature Xanathar|WDH}'s {@creature gazer|VGM} (see {@adventure appendix B|WDH|12}) doesn't follow characters into the shop. It remains outside and waits for Xanathar Guild forces to arrive. If the characters destroyed the gazer in an earlier encounter, another one arrives with the Xanathar Guild forces.",
 								{
 									"type": "entries",
 									"name": "Dungeon Entrance",
@@ -11530,7 +12005,7 @@
 									"page": 85,
 									"id": "1f9",
 									"entries": [
-										"Before the characters reach Losser, kenku members of the {@creature Xanathar|WDH} Guild break down the door leading into the cellar complex via {@area B8|1ea} and confront the necromancer. The characters find Losser cowering in one corner of {@area B7|1e8}. Two {@creature skeleton||skeletons} stand between him and three {@creature kenku}. The kenku aim to kill the halfling. Lying on the floor around them are four dead kenku and the remains of two destroyed (and previously animated) skeletons.",
+										"Before the characters reach Losser, kenku members of the Xanathar Guild break down the door leading into the cellar complex via {@area B8|1ea} and confront the necromancer. The characters find Losser cowering in one corner of {@area B7|1e8}. Two {@creature skeleton||skeletons} stand between him and three {@creature kenku}. The kenku aim to kill the halfling. Lying on the floor around them are four dead kenku and the remains of two destroyed (and previously animated) skeletons.",
 										"If the characters demand the {@item Stone of Golorr|WDH}, Losser tells them the truth: he surrendered it to the kenku, two of which fled south with it. In {@area B8|1ea}, the characters see one {@creature kenku} standing over the bodies of Losser's murdered human apprentices, Retchyn and Kreela. This kenku is joined by {@creature Xanathar|WDH}'s {@creature gazer|VGM} (see {@adventure appendix B|WDH|12}). The kenku and the gazer try to hold off the characters for as long as possible, buying time for a second kenku to flee with the Stone of Golorr.",
 										"If the characters pursue the stone and leave Losser alive, he eventually slips away and retreats to {@area B11|1f2}."
 									]
@@ -11600,7 +12075,7 @@
 							"page": 86,
 							"id": "200",
 							"entries": [
-								"The characters have been encouraged to explore a {@creature Xanathar|WDH} Guild hideout under the Southern Ward. They enter the location through {@area B1|1e2}. The {@creature Xanathar|WDH} Guild Roster table provides a summary of the forces stationed throughout the complex. The sections that follow describe some of the hideout's features.",
+								"The characters have been encouraged to explore a Xanathar Guild hideout under the Southern Ward. They enter the location through {@area B1|1e2}. The Xanathar Guild Roster table provides a summary of the forces stationed throughout the complex. The sections that follow describe some of the hideout's features.",
 								{
 									"type": "table",
 									"caption": "Xanathar Guild Roster",
@@ -11710,11 +12185,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 88,
+												"offsetX": -17,
+												"offsetY": 15,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Windmill-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Windmill",
+											"title": "Windmill",
 											"width": 1000,
 											"height": 691,
 											"mapRegions": [
@@ -12711,26 +13193,30 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Windmill-First-Players.jpg"
 											},
-											"title": "Players' Map\u2014Windmill First",
+											"title": "Windmill, Ground Floor (Player Version)",
 											"width": 1050,
-											"height": 1250,
-											"mapParent": {
-												"id": "4f0",
-												"autoScale": true
-											}
+											"height": 1250
 										},
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Windmill-Second-Players.jpg"
 											},
-											"title": "Players' Map\u2014Windmill Second",
+											"title": "Windmill, Upper Floor (Player Version)",
 											"width": 650,
 											"height": 650
 										}
@@ -13291,7 +13777,7 @@
 									"page": 94,
 									"id": "22f",
 									"entries": [
-										"The {@creature Xanathar|WDH} Guild employs {@creature bugbear||bugbears}, and characters can chop the ears off any of them. A live bugbear also counts as this key."
+										"The Xanathar Guild employs {@creature bugbear||bugbears}, and characters can chop the ears off any of them. A live bugbear also counts as this key."
 									]
 								},
 								{
@@ -13399,11 +13885,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 77,
+												"offsetX": -25,
+												"offsetY": 16,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Vault-of-Dragons-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Vault of Dragons",
+											"title": "Vault of Dragons",
 											"width": 1000,
 											"height": 691,
 											"mapRegions": [
@@ -14138,37 +14631,45 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Vault-Main-Players.jpg"
 											},
-											"title": "Players' Map\u2014Vault Main",
+											"title": "Vault of Dragons, Main Level (Player Version)",
 											"width": 950,
-											"height": 1000,
-											"mapParent": {
-												"id": "4f1",
-												"autoScale": true
-											}
+											"height": 1000
 										},
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Vault-Lower-Players.jpg"
 											},
-											"title": "Players' Map\u2014Vault Lower",
+											"title": "Vault of Dragons, Lower Level (Player Version)",
 											"width": 900,
 											"height": 750
 										},
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Vault-Upper-Players.jpg"
 											},
-											"title": "Players' Map\u2014Vault Upper",
+											"title": "Vault of Dragons, Upper Level (Player Version)",
 											"width": 1150,
 											"height": 750
 										}
@@ -14597,10 +15098,10 @@
 					"width": 1000,
 					"height": 691
 				},
-				"{@creature Xanathar|WDH} has let its paranoia get the better of it, and the beholder trusts no one. The {@item Stone of Golorr|WDH} disappeared from its lair while it was brokering a deal that would have merged the {@creature Xanathar|WDH} Guild and the Zhentarim into a single criminal organization. Although the Zhents didn't steal the {@item Stone of Golorr|WDH}, {@creature Xanathar|WDH} believes they did. Once content to merely possess the stone, the beholder is no longer confident of the gold's safety in the Vault of Dragons. {@creature Xanathar|WDH} thinks that the gold would be safer under its watchful gaze, but without the {@item Stone of Golorr|WDH}, it can't remember where the gold is hidden.",
+				"{@creature Xanathar|WDH} has let its paranoia get the better of it, and the beholder trusts no one. The {@item Stone of Golorr|WDH} disappeared from its lair while it was brokering a deal that would have merged the Xanathar Guild and the Zhentarim into a single criminal organization. Although the Zhents didn't steal the {@item Stone of Golorr|WDH}, {@creature Xanathar|WDH} believes they did. Once content to merely possess the stone, the beholder is no longer confident of the gold's safety in the Vault of Dragons. {@creature Xanathar|WDH} thinks that the gold would be safer under its watchful gaze, but without the {@item Stone of Golorr|WDH}, it can't remember where the gold is hidden.",
 				"Before running this chapter, review the \"Beholders\" section of the {@book Monster Manual|mm}, particularly the section titled \"A Beholder's Lair.\" Within its lair, {@creature Xanathar|WDH} has access to lair actions, and characters might encounter the beholder's regional effects as well.",
 				"Characters who don't visit {@creature Xanathar|WDH}'s lair in the course of this adventure might have reason to do so in {@i Waterdeep: Dungeon of the Mad Mage}. In that adventure, the characters are most likely to approach the beholder's lair from Skullport (see {@area X4|278} for details).",
-				"As they explore {@creature Xanathar|WDH}'s lair, characters will see a recurring symbol that looks like a circle with ten equidistant spokes radiating out from its circumference. This symbol is {@creature Xanathar|WDH}'s personal rune as well as the symbol used to represent the {@creature Xanathar|WDH} Guild.",
+				"As they explore {@creature Xanathar|WDH}'s lair, characters will see a recurring symbol that looks like a circle with ten equidistant spokes radiating out from its circumference. This symbol is {@creature Xanathar|WDH}'s personal rune as well as the symbol used to represent the Xanathar Guild.",
 				{
 					"type": "section",
 					"name": "Facing Xanathar",
@@ -14650,7 +15151,7 @@
 					"page": 100,
 					"id": "25e",
 					"entries": [
-						"Killing the beholder is probably beyond the characters' capabilities, but they can sabotage its operation in several ways, affecting either the beholder personally or the smooth functioning of the {@creature Xanathar|WDH} Guild. They might even be able to marshal sufficient resources (including enough explosives) to bring down {@creature Xanathar|WDH}'s lair.",
+						"Killing the beholder is probably beyond the characters' capabilities, but they can sabotage its operation in several ways, affecting either the beholder personally or the smooth functioning of the Xanathar Guild. They might even be able to marshal sufficient resources (including enough explosives) to bring down {@creature Xanathar|WDH}'s lair.",
 						{
 							"type": "entries",
 							"name": "Enrage Xanathar",
@@ -14693,7 +15194,7 @@
 							"page": 100,
 							"id": "263",
 							"entries": [
-								"Even though the beholder is the supreme leader of the {@creature Xanathar|WDH} Guild, its lieutenants manage the guild's day-to-day operations. The chain of command can be disrupted in any of the following ways.",
+								"Even though the beholder is the supreme leader of the Xanathar Guild, its lieutenants manage the guild's day-to-day operations. The chain of command can be disrupted in any of the following ways.",
 								{
 									"type": "entries",
 									"name": "Assassination",
@@ -14725,7 +15226,7 @@
 											"page": 100,
 											"id": "267",
 											"entries": [
-												"{@creature Xanathar|WDH} relies on underlings for advice, information, and day-to-day oversight of the {@creature Xanathar|WDH} Guild. The following important underlings are described in appendix B:",
+												"{@creature Xanathar|WDH} relies on underlings for advice, information, and day-to-day oversight of the Xanathar Guild. The following important underlings are described in appendix B:",
 												{
 													"type": "list",
 													"style": "list-hang-notitle",
@@ -14801,14 +15302,14 @@
 							"page": 101,
 							"id": "26a",
 							"entries": [
-								"Very few members of the {@creature Xanathar|WDH} Guild have access to the beholder's secret lair. If the characters want to get there, the following factions know where it is and can help them find it.",
+								"Very few members of the Xanathar Guild have access to the beholder's secret lair. If the characters want to get there, the following factions know where it is and can help them find it.",
 								{
 									"type": "entries",
 									"name": "Bregan D'aerthe",
 									"page": 101,
 									"id": "26b",
 									"entries": [
-										"Jarlaxle has a spy in the {@creature Xanathar|WDH} Guild: the advisor {@creature Nar'l Xibrindas|wdh}, who uses {@spell sending} spells to transmit intelligence to his drow brethren. Bregan D'aerthe knows that the safest route to the beholder's lair is a secret staircase in the sewers of the Castle Ward. Any character who belongs to this faction can get this information from Jarlaxle or another source.",
+										"Jarlaxle has a spy in the Xanathar Guild: the advisor {@creature Nar'l Xibrindas|wdh}, who uses {@spell sending} spells to transmit intelligence to his drow brethren. Bregan D'aerthe knows that the safest route to the beholder's lair is a secret staircase in the sewers of the Castle Ward. Any character who belongs to this faction can get this information from Jarlaxle or another source.",
 										"If the party includes at least one Bregan D'aerthe member with renown of 4 or more in the faction, four male {@creature drow} are waiting for the party at the top of the staircase. Their names are Arannis Nur'zekk, Beldar Tlabbath, Rylvar Tlabbath, and Draknafein Uriss. Their orders are to help the characters complete their mission, whatever the cost. These drow also have secret orders to kill {@creature Nar'l Xibrindas|wdh}, if he's still alive, and retrieve Jarlaxle's bag of holding (see {@area X35|2c7}). If you're tracking experience points, each drow gets an equal share of the XP while a member of the adventuring party."
 									]
 								},
@@ -14849,7 +15350,7 @@
 									"page": 102,
 									"id": "26f",
 									"entries": [
-										"Characters who are members of the Zhentarim can approach {@creature Yagra Stonefist|wdh} at the Yawning Portal (see \"Familiar Faces\"). She recently learned about a \"back door\" to the beholder's lair from a drunken blabbermouth with ties to the {@creature Xanathar|WDH} Guild. Yagra offers to lead them to a secret staircase in the sewers under the Castle Ward ({@area X1|271}). \"Trust me,\" she says, \"it's safer than the route through Undermountain and Skullport.\"",
+										"Characters who are members of the Zhentarim can approach {@creature Yagra Stonefist|wdh} at the Yawning Portal (see \"Familiar Faces\"). She recently learned about a \"back door\" to the beholder's lair from a drunken blabbermouth with ties to the Xanathar Guild. Yagra offers to lead them to a secret staircase in the sewers under the Castle Ward ({@area X1|271}). \"Trust me,\" she says, \"it's safer than the route through Undermountain and Skullport.\"",
 										"Yagra will join their descent if the characters promise to pay her at least 1,000 gp. Otherwise, she wishes them well and heads back to the Yawning Portal. If you're tracking experience points, Yagra gets an equal share of the XP while a member of the adventuring party."
 									]
 								}
@@ -14868,11 +15369,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 55,
+												"offsetX": -13,
+												"offsetY": 32,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Xanathar-Lair-DM.jpg"
 											},
-											"title": "DMs' Map\u2014{@creature Xanathar|WDH} Lair",
+											"title": "Xanathar Lair",
 											"width": 737,
 											"height": 1000,
 											"mapRegions": [
@@ -16695,26 +17203,30 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Xanathar-L1-Players.jpg"
 											},
-											"title": "Players' Map\u2014{@creature Xanathar|WDH} L1",
+											"title": "Xanathar Lair, Level 1 (Player Version)",
 											"width": 2050,
-											"height": 1950,
-											"mapParent": {
-												"id": "4f2",
-												"autoScale": true
-											}
+											"height": 1950
 										},
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Xanathar-L2-Players.jpg"
 											},
-											"title": "Players' Map\u2014{@creature Xanathar|WDH} L2",
+											"title": "Xanathar Lair, Level 2 (Player Version)",
 											"width": 2050,
 											"height": 900
 										}
@@ -16829,7 +17341,7 @@
 											]
 										},
 										"If {@creature Xanathar|WDH} is elsewhere, the arena is empty but under surveillance (see \"Scrying Sensor\" below).",
-										"If {@creature Xanathar|WDH} is present, it hovers in the southeast alcove and uses its {@item ring of invisibility} to remain unseen. Standing on the steps of the alcove are two dwarves: {@creature Xanathar|WDH}'s majordomo, {@creature Ahmaergo|WDH} (see {@adventure appendix B|WDH|12}), who presides over fight tournaments, and {@creature Xanathar|WDH}'s chief enforcer, {@creature Noska Ur'gray|wdh} (see {@adventure appendix B|WDH|12}), who releases arena combatants from {@area X7|27e}. Ten human {@creature bandit||bandits} and five {@creature bugbear||bugbears} (all members of the {@creature Xanathar|WDH} Guild) guzzle ale and heckle combatants from the bleachers, while two {@creature goblin||goblins} serve up salted rat intestines and stirge meat pies.",
+										"If {@creature Xanathar|WDH} is present, it hovers in the southeast alcove and uses its {@item ring of invisibility} to remain unseen. Standing on the steps of the alcove are two dwarves: {@creature Xanathar|WDH}'s majordomo, {@creature Ahmaergo|WDH} (see {@adventure appendix B|WDH|12}), who presides over fight tournaments, and {@creature Xanathar|WDH}'s chief enforcer, {@creature Noska Ur'gray|wdh} (see {@adventure appendix B|WDH|12}), who releases arena combatants from {@area X7|27e}. Ten human {@creature bandit||bandits} and five {@creature bugbear||bugbears} (all members of the Xanathar Guild) guzzle ale and heckle combatants from the bleachers, while two {@creature goblin||goblins} serve up salted rat intestines and stirge meat pies.",
 										{
 											"type": "entries",
 											"name": "Joining a Tournament",
@@ -16905,7 +17417,7 @@
 									"page": 104,
 									"id": "27f",
 									"entries": [
-										"This 20-foot-wide, magically lit hallway connects various areas controlled by the {@creature Xanathar|WDH} Guild. It has the following features:",
+										"This 20-foot-wide, magically lit hallway connects various areas controlled by the Xanathar Guild. It has the following features:",
 										{
 											"type": "list",
 											"items": [
@@ -16940,7 +17452,7 @@
 											"page": 104,
 											"id": "281",
 											"entries": [
-												"The statues are the {@condition petrified} remains of intruders and {@creature Xanathar|WDH} Guild members that were turned to stone by {@creature Xanathar|WDH}. There are a dozen statues in all: four humans, three goblins, two drow, a dwarf, a halfling, and a tiefling."
+												"The statues are the {@condition petrified} remains of intruders and Xanathar Guild members that were turned to stone by {@creature Xanathar|WDH}. There are a dozen statues in all: four humans, three goblins, two drow, a dwarf, a halfling, and a tiefling."
 											]
 										},
 										{
@@ -16975,7 +17487,7 @@
 											"page": 105,
 											"id": "284",
 											"entries": [
-												"When they're not watching a tournament in the arena ({@area X6|27a}) or listening to {@creature Xanathar|WDH} give a speech in the audience chamber ({@area X18|29a}), ten human {@creature bandit||bandits}, members of the {@creature Xanathar|WDH} Guild, sleep here. They're so drunk that, for the next few hours, they awaken only if they take damage. Also, they are {@condition poisoned} while they remain intoxicated."
+												"When they're not watching a tournament in the arena ({@area X6|27a}) or listening to {@creature Xanathar|WDH} give a speech in the audience chamber ({@area X18|29a}), ten human {@creature bandit||bandits}, members of the Xanathar Guild, sleep here. They're so drunk that, for the next few hours, they awaken only if they take damage. Also, they are {@condition poisoned} while they remain intoxicated."
 											]
 										}
 									]
@@ -17366,7 +17878,7 @@
 									"page": 110,
 									"id": "2a5",
 									"entries": [
-										"Any creature holding the correct key that steps through the magical portal in {@area Q11|089} of the {@creature Xanathar|WDH} Guild hideout (see chapter 1) appears here, between the columns of rock.",
+										"Any creature holding the correct key that steps through the magical portal in {@area Q11|089} of the Xanathar Guild hideout (see chapter 1) appears here, between the columns of rock.",
 										"A curling staircase in the southwest corner descends 20 feet to {@area X32|2be}."
 									]
 								},
@@ -17490,7 +18002,7 @@
 											"page": 111,
 											"id": "2b0",
 											"entries": [
-												"The {@creature Xanathar|WDH} Guild captures homeless Waterdavians and brings them here for {@creature Nihiloor|WDH} to feed on. After devouring their brains, the mind flayer gives their corpses to his kuo-toa thralls to eat.",
+												"The Xanathar Guild captures homeless Waterdavians and brings them here for {@creature Nihiloor|WDH} to feed on. After devouring their brains, the mind flayer gives their corpses to his kuo-toa thralls to eat.",
 												"The two men, a locksmith named Skarn Zarphoul and a broadcrier named Holvan Ebberek, recently heard a dwarf getting his brain sucked out. Skarn is {@condition stunned} and catatonic from the shock of it, and Holvan is a gibbering lunatic. A {@spell greater restoration} spell or similar magic restores either man's sanity. The men were hooded and brought here separately, so they know nothing of the dungeon's layout or occupants (other than the mind flayer). If their sanity is restored, they are eager to return to their families in Waterdeep."
 											]
 										}
@@ -17560,7 +18072,7 @@
 										{
 											"type": "list",
 											"items": [
-												"Ten human {@creature bandit||bandits} (members of the {@creature Xanathar|WDH} Guild) sit around two trellis tables, drinking Wyrmwizz Ale, smoking pipes, clapping their hands, and stomping their feet while two {@creature goblin||goblins} wearing chamber pots on their heads dance and sing atop a third table.",
+												"Ten human {@creature bandit||bandits} (members of the Xanathar Guild) sit around two trellis tables, drinking Wyrmwizz Ale, smoking pipes, clapping their hands, and stomping their feet while two {@creature goblin||goblins} wearing chamber pots on their heads dance and sing atop a third table.",
 												"If he's not with {@creature Xanathar|WDH} in the arena ({@area X6|27a}), {@creature Noska Ur'gray|wdh} (see {@adventure appendix B|WDH|12}) is here, drinking with the others.",
 												"A wooden rack along the east wall holds five large ale barrels with spigots punched into them. Protruding from the ceiling above the barrels is a ghostly eyestalk (scrying sensor)."
 											]
@@ -17652,7 +18164,7 @@
 											"id": "2bd",
 											"entries": [
 												"When the halfling spots the characters, a relieved smile crosses his face. \"Finally!\" he says excitedly. \"I haven't had a break in half a tenday. Make sure you stir the sauce once every five minutes.\" He then hands the characters his apron, mistaking them for the actual kitchen staff.",
-												"{@creature Bepis Honeymaker|wdh} is a honey merchant who was kidnapped from his Trades Ward home a month ago. The {@creature Xanathar|WDH} Guild tried to ransom him back, but seemingly his relatives either couldn't pay or decided not to. (In truth, his rotten in-laws destroyed the ransom notes and told Bepis's wife and children that he ran away with another family.) {@creature Ahmaergo|WDH} has put him to work as a cook but threatens to give him over to the mind flayer {@creature Nihiloor|WDH} every so often.",
+												"{@creature Bepis Honeymaker|wdh} is a honey merchant who was kidnapped from his Trades Ward home a month ago. The Xanathar Guild tried to ransom him back, but seemingly his relatives either couldn't pay or decided not to. (In truth, his rotten in-laws destroyed the ransom notes and told Bepis's wife and children that he ran away with another family.) {@creature Ahmaergo|WDH} has put him to work as a cook but threatens to give him over to the mind flayer {@creature Nihiloor|WDH} every so often.",
 												"Bepis is a strongheart halfling commoner, with these changes:",
 												{
 													"type": "list",
@@ -17903,7 +18415,7 @@
 							"id": "2d2",
 							"entries": [
 								"Trolltide is a fun springtime holiday for most Waterdeep denizens, including {@creature Xanathar|WDH}, but the beholder has planned a cruel twist on the holiday this year.",
-								"The {@creature Xanathar|WDH} Guild recently captured some trolls in Undermountain. The trolls are fitted with eyeless helms and ball-and-chain shackles around their ankles. They are then set loose in different wards of the city during Trolltide. When the characters happen upon such a scene, read:",
+								"The Xanathar Guild recently captured some trolls in Undermountain. The trolls are fitted with eyeless helms and ball-and-chain shackles around their ankles. They are then set loose in different wards of the city during Trolltide. When the characters happen upon such a scene, read:",
 								{
 									"type": "insetReadaloud",
 									"id": "2d3",
@@ -18299,11 +18811,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 65,
+												"offsetX": -35,
+												"offsetY": 22,
+												"scale": 4
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Cassalanter-Villa-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Cassalanter Villa",
+											"title": "Cassalanter Villa",
 											"width": 1000,
 											"height": 1200,
 											"mapRegions": [
@@ -19551,17 +20070,17 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Villa-Main-Players.jpg"
 											},
-											"title": "Players' Map\u2014Villa Main",
+											"title": "Cassalanter Villa, Main Area (Player Version)",
 											"width": 2000,
-											"height": 2450,
-											"mapParent": {
-												"id": "4f3",
-												"autoScale": true
-											}
+											"height": 2450
 										}
 									]
 								},
@@ -19578,22 +20097,30 @@
 												{
 													"type": "image",
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 50
+													},
 													"href": {
 														"type": "internal",
 														"path": "adventure/WDH/Guest-Second-Players.jpg"
 													},
-													"title": "Players' Map\u2014Guest Second",
+													"title": "Cassalanter Villa, Guest Second Floor (Player Version)",
 													"width": 850,
 													"height": 1000
 												},
 												{
 													"type": "image",
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 50
+													},
 													"href": {
 														"type": "internal",
 														"path": "adventure/WDH/Guest-Third-Players.jpg"
 													},
-													"title": "Players' Map\u2014Guest Third",
+													"title": "Cassalanter Villa, Guest Third Floor (Player Version)",
 													"width": 750,
 													"height": 650
 												}
@@ -19993,11 +20520,15 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Villa-Two-Players.jpg"
 											},
-											"title": "Players' Map\u2014Villa Two",
+											"title": "Cassalanter Villa, Second Floor (Player Version)",
 											"width": 1100,
 											"height": 1050
 										},
@@ -20130,11 +20661,15 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Villa-Three-Players.jpg"
 											},
-											"title": "Players' Map\u2014Villa Three",
+											"title": "Cassalanter Villa, Third Floor (Player Version)",
 											"width": 1050,
 											"height": 1050
 										},
@@ -20295,11 +20830,15 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Villa-Garret-Players.jpg"
 											},
-											"title": "Players' Map\u2014Villa Garret",
+											"title": "Cassalanter Villa, Garret (Player Version)",
 											"width": 1050,
 											"height": 650
 										},
@@ -20386,11 +20925,15 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Villa-Cellar-Players.jpg"
 											},
-											"title": "Players' Map\u2014Villa Cellar",
+											"title": "Cassalanter Villa, Cellar (Player Version)",
 											"width": 850,
 											"height": 950
 										}
@@ -20503,11 +21046,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 65,
+												"offsetX": -25,
+												"offsetY": 5,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Temple-of-Asmodeus-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Temple of Asmodeus",
+											"title": "Temple of Asmodeus",
 											"width": 1000,
 											"height": 691,
 											"mapRegions": [
@@ -22285,28 +22835,32 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
-											"href": {
-												"type": "internal",
-												"path": "adventure/WDH/Temple-of-Asmodeus-Upper-Players.jpg"
+											"grid": {
+												"type": "square",
+												"size": 50
 											},
-											"title": "Players' Map\u2014Temple of Asmodeus Upper",
-											"width": 1550,
-											"height": 850,
-											"mapParent": {
-												"id": "4f4",
-												"autoScale": true
-											}
-										},
-										{
-											"type": "image",
-											"imageType": "mapPlayer",
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Temple-of-Asmodeus-Players.jpg"
 											},
-											"title": "Players' Map\u2014Temple of Asmodeus",
+											"title": "Temple of Asmodeus, Lower Level (Player Version)",
 											"width": 2350,
 											"height": 1000
+										},
+										{
+											"type": "image",
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
+											"href": {
+												"type": "internal",
+												"path": "adventure/WDH/Temple-of-Asmodeus-Upper-Players.jpg"
+											},
+											"title": "Temple of Asmodeus, Upper Level (Player Version)",
+											"width": 1550,
+											"height": 850
 										}
 									]
 								},
@@ -22850,11 +23404,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 54,
+												"offsetX": -7,
+												"offsetY": 7,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Ships-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Ships",
+											"title": "Ships",
 											"width": 737,
 											"height": 1000,
 											"mapRegions": [
@@ -24455,17 +25016,17 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Main-Deck-Players.jpg"
 											},
-											"title": "Players' Map\u2014Main Deck",
+											"title": "Ships, Main Deck (Player Version)",
 											"width": 600,
-											"height": 1500,
-											"mapParent": {
-												"id": "4f5",
-												"autoScale": true
-											}
+											"height": 1500
 										}
 									]
 								},
@@ -24590,11 +25151,15 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Fore-and-Aft-Players.jpg"
 											},
-											"title": "Players' Map\u2014Fore and Aft",
+											"title": "Ships, Fore and Aft (Player Version)",
 											"width": 550,
 											"height": 1500
 										},
@@ -24698,11 +25263,15 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Aft-Castle-Players.jpg"
 											},
-											"title": "Players' Map\u2014Aft Castle",
+											"title": "Ships, Aft Castle (Player Version)",
 											"width": 500,
 											"height": 400
 										},
@@ -24733,11 +25302,15 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Orlop-Deck-Players.jpg"
 											},
-											"title": "Players' Map\u2014Orlop Deck",
+											"title": "Ships, Orlop Deck (Player Version)",
 											"width": 600,
 											"height": 1500
 										},
@@ -24863,11 +25436,15 @@
 												{
 													"type": "image",
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 50
+													},
 													"href": {
 														"type": "internal",
 														"path": "adventure/WDH/Upper-Hold-Players.jpg"
 													},
-													"title": "Players' Map\u2014Upper Hold",
+													"title": "Ships, Upper Hold (Player Version)",
 													"width": 550,
 													"height": 1250
 												}
@@ -24950,10 +25527,14 @@
 												"type": "internal",
 												"path": "adventure/WDH/Upper-Hold-Heartbreaker.jpg"
 											},
-											"title": "Heartbreakers' Map\u2014Upper Hold",
+											"title": "Ships, Heartbreakers' Upper Hold (Player Version)",
 											"width": 500,
 											"height": 1250,
-											"imageType": "map"
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											}
 										},
 										"Beastly odors fill the hold of the {@i Heartbreaker}, becoming stronger as the characters get closer to the creature pens ({@area J20|387}). The hold is mostly empty on parade days. On other days, it contains disassembled wagons (axles, wheels, and cages) that are used to pull exotic creatures through crowded streets. Tools needed to assemble and repair the wagons hang from hooks on the walls.",
 										{
@@ -25051,11 +25632,15 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Lower-Hold-Players.jpg"
 											},
-											"title": "Players' Map\u2014Lower Hold",
+											"title": "Ships, Lower Hold (Player Version)",
 											"width": 500,
 											"height": 1150
 										},
@@ -25169,12 +25754,16 @@
 										"The doors to these closets are locked from the outside.",
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Lower-Hold-Eyecatcher.jpg"
 											},
-											"title": "Eyecatchers' Map\u2014Lower Hold",
+											"title": "Ships, Eyecatchers' Lower Hold (Player Version)",
 											"width": 500,
 											"height": 1200
 										},
@@ -25440,11 +26029,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 75,
+												"offsetX": 32,
+												"offsetY": -18,
+												"scale": 2
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Scarlet-Marpenoth-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Scarlet Marpenoth",
+											"title": "Scarlet Marpenoth",
 											"width": 1000,
 											"height": 691,
 											"mapRegions": [
@@ -26036,27 +26632,31 @@
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Scarlet-Marpenoth-Upper-Deck.jpg"
 											},
-											"title": "Scarlet Marpenoth Upper Deck",
+											"title": "Scarlet Marpenoth, Upper Deck (Player Version)",
 											"width": 800,
-											"height": 950,
-											"mapParent": {
-												"id": "4f6",
-												"autoScale": true
-											}
+											"height": 950
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Scarlet-Marpenoth-Lower-Deck.jpg"
 											},
-											"title": "Scarlet Marpenoth Lower Deck",
+											"title": "Scarlet Marpenoth, Lower Deck (Player Version)",
 											"width": 500,
 											"height": 950
 										}
@@ -26250,12 +26850,16 @@
 									"entries": [
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Scarlet-Marpenoth-Lower-Deck.jpg"
 											},
-											"title": "Scarlet Marpenoth Lower Deck",
+											"title": "Scarlet Marpenoth, Lower Deck (Player Version)",
 											"width": 500,
 											"height": 950
 										},
@@ -26655,11 +27259,16 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "none",
+												"size": 61,
+												"scale": 4
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Kolat-Towers-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Kolat Towers",
+											"title": "Kolat Towers",
 											"width": 737,
 											"height": 1000,
 											"mapRegions": [
@@ -27874,18 +28483,20 @@
 										},
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 51,
+												"offsetX": 28,
+												"offsetY": -13
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Kolat-Towers-L1.jpg"
 											},
-											"title": "Kolat Towers L1",
+											"title": "Kolat Towers, Level 1 (Player Version)",
 											"width": 2050,
-											"height": 2150,
-											"mapParent": {
-												"id": "4f7",
-												"autoScale": true
-											}
+											"height": 2150
 										}
 									]
 								},
@@ -28046,12 +28657,17 @@
 									"entries": [
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50,
+												"offsetY": -1
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Kolat-Towers-L2.jpg"
 											},
-											"title": "Kolat Towers L2",
+											"title": "Kolat Towers, Level 2 (Player Version)",
 											"width": 1450,
 											"height": 1300
 										},
@@ -28214,12 +28830,17 @@
 									"entries": [
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50,
+												"offsetY": -1
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Kolat-Towers-L3.jpg"
 											},
-											"title": "Kolat Towers L3",
+											"title": "Kolat Towers, Level 3 (Player Version)",
 											"width": 1200,
 											"height": 700
 										},
@@ -28331,12 +28952,17 @@
 									"entries": [
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50,
+												"offsetX": 4
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Kolat-Towers-L4.jpg"
 											},
-											"title": "Kolat Towers L4",
+											"title": "Kolat Towers, Level 4 (Player Version)",
 											"width": 650,
 											"height": 600
 										},
@@ -28360,12 +28986,16 @@
 									"entries": [
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Kolat-Towers-L5.jpg"
 											},
-											"title": "Kolat Towers L5",
+											"title": "Kolat Towers, Level 5 (Player Version)",
 											"width": 600,
 											"height": 600
 										},
@@ -28408,12 +29038,16 @@
 									"entries": [
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Kolat-Towers-L6.jpg"
 											},
-											"title": "Kolat Towers L6",
+											"title": "Kolat Towers, Level 6 (Player Version)",
 											"width": 650,
 											"height": 600
 										},
@@ -28519,12 +29153,16 @@
 									"entries": [
 										{
 											"type": "image",
-											"imageType": "map",
+											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Kolat-Towers-Outer.jpg"
 											},
-											"title": "Kolat Towers Outer",
+											"title": "Kolat Towers, Level Outer (Player Version)",
 											"width": 1150,
 											"height": 550
 										},
@@ -28668,11 +29306,18 @@
 										{
 											"type": "image",
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 87,
+												"offsetX": 19,
+												"offsetY": -17,
+												"scale": 3
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Sanctum-DM.jpg"
 											},
-											"title": "DMs' Map\u2014Sanctum",
+											"title": "Sanctum",
 											"width": 1000,
 											"height": 691,
 											"mapRegions": [
@@ -29691,11 +30336,16 @@
 										{
 											"type": "image",
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 50,
+												"offsetY": 2
+											},
 											"href": {
 												"type": "internal",
 												"path": "adventure/WDH/Sanctum-Players.jpg"
 											},
-											"title": "Players' Map\u2014Sanctum",
+											"title": "Player Version",
 											"width": 1800,
 											"height": 1200,
 											"mapParent": {
@@ -29947,7 +30597,7 @@
 											"page": 159,
 											"id": "426",
 											"entries": [
-												"Vevette and Agorn are two of {@creature Manshoon|WDH}'s most trusted followers. Vevette commands the wizard's forces against the {@creature Xanathar|WDH} Guild, while Agorn commands those who oppose the Zhents that aren't loyal to {@creature Manshoon|WDH}. At the moment, they are resting in the sanctum while awaiting orders from {@creature Manshoon|WDH}."
+												"Vevette and Agorn are two of {@creature Manshoon|WDH}'s most trusted followers. Vevette commands the wizard's forces against the Xanathar Guild, while Agorn commands those who oppose the Zhents that aren't loyal to {@creature Manshoon|WDH}. At the moment, they are resting in the sanctum while awaiting orders from {@creature Manshoon|WDH}."
 											]
 										},
 										{
@@ -30073,7 +30723,7 @@
 										},
 										"The handsome young figure is {@creature Manshoon|WDH} (see {@adventure appendix B|WDH|12}), who is much older than he looks.",
 										"This version of {@creature Manshoon|WDH} isn't spoiling for a fight. He commends the characters for making it this far and shows no concern for the Zhents they defeated to reach him, since he considers all his followers expendable.",
-										"The characters' best chance of survival is to convince {@creature Manshoon|WDH} that they can be cowed or bribed into working for him. Weary of his conflict with the {@creature Xanathar|WDH} Guild, {@creature Manshoon|WDH} suggests that the characters prove their usefulness to him by hunting down and killing {@creature Xanathar|WDH} in its lair (see chapter 5). {@creature Manshoon|WDH} also demands that they keep his presence in Waterdeep a secret for now, saying that he will reward them for their discretion \"when the time comes.\" In exchange, he allows the characters to return to Waterdeep and promises them positions of power in his organization once {@creature Xanathar|WDH}'s death is confirmed. He has no intention of making good on this promise, but refusing to work for him puts the characters in a tight spot, since the evil archwizard can't risk exposure.",
+										"The characters' best chance of survival is to convince {@creature Manshoon|WDH} that they can be cowed or bribed into working for him. Weary of his conflict with the Xanathar Guild, {@creature Manshoon|WDH} suggests that the characters prove their usefulness to him by hunting down and killing {@creature Xanathar|WDH} in its lair (see chapter 5). {@creature Manshoon|WDH} also demands that they keep his presence in Waterdeep a secret for now, saying that he will reward them for their discretion \"when the time comes.\" In exchange, he allows the characters to return to Waterdeep and promises them positions of power in his organization once {@creature Xanathar|WDH}'s death is confirmed. He has no intention of making good on this promise, but refusing to work for him puts the characters in a tight spot, since the evil archwizard can't risk exposure.",
 										"If a fight breaks out, {@creature Manshoon|WDH} grabs his {@item staff of power} (which he hides under the bed) and holds his ground. For more information on how to play {@creature Manshoon|WDH}, see \"Facing {@creature Manshoon|WDH}\" at the beginning of this chapter.",
 										{
 											"type": "entries",
@@ -31524,7 +32174,7 @@
 					"id": "495",
 					"entries": [
 						"{@creature Ahmaergo|WDH}, {@creature Xanathar|WDH}'s majordomo, has a fascination  with minotaurs. Although outwardly civil, the shield  dwarf is as devious and corrupt as the worst devil, yet  also unflinchingly loyal to his beholder master.",
-						"After the beholder, {@creature Ahmaergo|WDH} is the most influential  member of the {@creature Xanathar|WDH} Guild.",
+						"After the beholder, {@creature Ahmaergo|WDH} is the most influential  member of the Xanathar Guild.",
 						{
 							"type": "image",
 							"href": {
@@ -31867,7 +32517,7 @@
 							"page": 202,
 							"id": "4af",
 							"entries": [
-								"Soluun is a sadistic, fanatical bully who is fiercely loyal to Bregan D'aerthe, and to Jarlaxle in particular. His younger brother, Nar'l, has infiltrated the {@creature Xanathar|WDH} Guild. Soluun considers Nar'l a weakling who turned to arcane magic by way of compensation, and he has never had much faith in his brother or his abilities.",
+								"Soluun is a sadistic, fanatical bully who is fiercely loyal to Bregan D'aerthe, and to Jarlaxle in particular. His younger brother, Nar'l, has infiltrated the Xanathar Guild. Soluun considers Nar'l a weakling who turned to arcane magic by way of compensation, and he has never had much faith in his brother or his abilities.",
 								"Soluun has a burning hatred of surface elves and halfelves, having been taught from a young age to kill them as opportunity permits. When not engaged in a Bregan D'aerthe operation, Soluun spends his nights haunting the darkened streets and alleys of Waterdeep, looking for solitary elves or half-elves to pick off. He conceals his nighttime escapades as well as he can, but Jarlaxle, Fel'rekt, and Krebbyg know what he's up to.",
 								{
 									"type": "entries",
@@ -32028,7 +32678,7 @@
 							"width": 455,
 							"height": 800
 						},
-						"Anamanué {@creature Laeral Silverhand|wdh|Laeral Silverhand} was born in the Year of the Cowl (765 DR), the fifth of seven daughters of the goddess Mystra. Each of the Seven Sisters is a powerful and ageless beauty with a penchant for arcane magic.",
+						"Anamanué {@creature Laeral Silverhand|wdh} was born in the Year of the Cowl (765 DR), the fifth of seven daughters of the goddess Mystra. Each of the Seven Sisters is a powerful and ageless beauty with a penchant for arcane magic.",
 						"Long ago, Laeral ruled a kingdom called Stornanter and held the title of Witch-Queen of the North. After that, she led a band of adventurers called the Nine. She met and married Khelben Arunsun, who would later become the Blackstaff, the Lord Mage of Waterdeep. After Khelben died, Laeral retired from public life. She resurfaced after the Spellplague and the Sundering, weakened by Mystra's death, rebirth, and withdrawal from the world.",
 						"Laeral's magic isn't as great as it once was, though she does her utmost to hide this fact. Only Elminster, her trusted friend and advisor, knows the extent of her decline. Despite her diminished abilities, Laeral remains a formidable, clear-headed wizard with plenty of magic at her disposal.",
 						"A few years ago, Dagult Neverember was ousted as Open Lord of Waterdeep. Laeral reluctantly stepped into the vacancy at the request of the Masked Lords, and has served as Waterdeep's Open Lord ever since. Initially overwhelmed by the demands of the nobles and guildmasters, she has settled nicely into her new role. She uses her magic sparingly and relies on trusted advisors and deputies. As time allows, she likes to venture outside the Palace of Waterdeep in disguise, just to clear her head or check up on old friends (and enemies).",
@@ -32083,7 +32733,7 @@
 					"id": "4be",
 					"entries": [
 						"{@creature Meloon Wardragon|wdh|Meloon} is a handsome, formidable warrior in his prime, who serves the goddess Tymora and loves a good fight. His friends-among them {@creature Renaer Neverember|wdh} and {@creature Vajra Safahr|WDH}-describe him as honest, optimistic, and extraordinarily lucky. Until recently, he was a member of Force Grey and reported directly to the Blackstaff. In recent months, Meloon has spent much of his time at the Yawning Portal.",
-						"Three months ago, out of boredom, Meloon accompanied a fledgling band of adventurers on an expedition to Undermountain. There, his luck ran out. While resting in the dungeon, the adventuring party was attacked by monsters unleashed by {@creature Xanathar|WDH}-including a number of intellect devourers. One of the creatures succeeded in magically devouring and replacing Meloon's brain, turning the champion of Tymora into a puppet. After finishing off his unsuspecting companions, Meloon returned to Waterdeep as a {@creature Xanathar|WDH} Guild spy.",
+						"Three months ago, out of boredom, Meloon accompanied a fledgling band of adventurers on an expedition to Undermountain. There, his luck ran out. While resting in the dungeon, the adventuring party was attacked by monsters unleashed by {@creature Xanathar|WDH}-including a number of intellect devourers. One of the creatures succeeded in magically devouring and replacing Meloon's brain, turning the champion of Tymora into a puppet. After finishing off his unsuspecting companions, Meloon returned to Waterdeep as a Xanathar Guild spy.",
 						"The intellect devourer that inhabits Meloon's skull was bred by {@creature Nihiloor|WDH}, a mind flayer in {@creature Xanathar|WDH}'s employ. It knows everything Meloon knew, and Meloon behaves much as he did before his descent into Undermountain. He hangs out at the Yawning Portal, tries to bond with adventurers, and offers a helping hand whenever doing so feels appropriate. The intellect devourer's primary goals are to steer adventurers away from Undermountain and get them to undertake quests that further the aims of {@creature Xanathar|WDH}. Such quests usually involve the eradication of {@creature Xanathar|WDH}'s enemies, and Meloon is all too eager to fight alongside those who fall for his ruse.",
 						{
 							"type": "entries",
@@ -32150,7 +32800,7 @@
 							"width": 454,
 							"height": 800
 						},
-						"{@creature Xanathar|WDH}'s advisor is a nervous and conniving male drow named {@creature Nar'l Xibrindas|wdh}. Nar'l's house was wiped out long ago, but he and his elder brother Soluun survived and joined Bregan D'aerthe. A year ago, Nar'l was given the difficult task of infiltrating the {@creature Xanathar|WDH} Guild and getting as close to the beholder as possible. Not only did he succeed, but in the course of gaining {@creature Xanathar|WDH}'s trust, he managed to convince the beholder to eliminate its other advisors. The beholder's paranoia will eventually cause {@creature Xanathar|WDH} to question the drow's loyalty, though, and Nar'l has become increasingly worried about his future. If forced to decide between himself and Bregan D'aerthe, he'll choose the former and betray his drow allies to save his own skin.",
+						"{@creature Xanathar|WDH}'s advisor is a nervous and conniving male drow named {@creature Nar'l Xibrindas|wdh}. Nar'l's house was wiped out long ago, but he and his elder brother Soluun survived and joined Bregan D'aerthe. A year ago, Nar'l was given the difficult task of infiltrating the Xanathar Guild and getting as close to the beholder as possible. Not only did he succeed, but in the course of gaining {@creature Xanathar|WDH}'s trust, he managed to convince the beholder to eliminate its other advisors. The beholder's paranoia will eventually cause {@creature Xanathar|WDH} to question the drow's loyalty, though, and Nar'l has become increasingly worried about his future. If forced to decide between himself and Bregan D'aerthe, he'll choose the former and betray his drow allies to save his own skin.",
 						"{@creature Xanathar|WDH} is aware that something is off with Nar'l, and recently assigned him a {@creature grell} bodyguard. The grell has instructions to dispose of Nar'l at the first sign of disloyalty.",
 						{
 							"type": "entries",
@@ -32244,7 +32894,7 @@
 							"width": 558,
 							"height": 800
 						},
-						"Noska is a ruthless enforcer in the {@creature Xanathar|WDH} Guild. A green slime in Undermountain dissolved his left hand and forearm, and the lost appendage has been replaced with a heavy crossbow that attaches to the stump.",
+						"Noska is a ruthless enforcer in the Xanathar Guild. A green slime in Undermountain dissolved his left hand and forearm, and the lost appendage has been replaced with a heavy crossbow that attaches to the stump.",
 						{
 							"type": "entries",
 							"name": "Game Statistics",
@@ -32584,8 +33234,8 @@
 					"id": "4e2",
 					"entries": [
 						"{@creature Xanathar|WDH} is the name given to the beholder crime lord that lives in the dungeons under Waterdeep. It isn't the first beholder to claim this mantle, nor will it be the last.",
-						"Like all beholders, {@creature Xanathar|WDH} is a paranoid tyrant that charms and bullies its minions into servitude. The {@creature Xanathar|WDH} Guild is made up of some of Waterdeep's most disreputable folk, as well as monsters forced into subservience or drawn to the beholder by the promise of treasure, food, or power. Treachery within the ranks of the guild is common as servants vie for the beholder's favor and affection. Such boons are fleeting, though, as the beholder is quick to distrust those who finagle their way into its good graces.",
-						"{@creature Xanathar|WDH} lives in a dungeon under Skullport, a subterranean settlement connected to Undermountain's third level. The place resembles a ramshackle town, built inside a giant cavern connected to an underground river. Members of the {@creature Xanathar|WDH} Guild haunt Skullport's dilapidated buildings, and flameskulls patrol its streets.",
+						"Like all beholders, {@creature Xanathar|WDH} is a paranoid tyrant that charms and bullies its minions into servitude. The Xanathar Guild is made up of some of Waterdeep's most disreputable folk, as well as monsters forced into subservience or drawn to the beholder by the promise of treasure, food, or power. Treachery within the ranks of the guild is common as servants vie for the beholder's favor and affection. Such boons are fleeting, though, as the beholder is quick to distrust those who finagle their way into its good graces.",
+						"{@creature Xanathar|WDH} lives in a dungeon under Skullport, a subterranean settlement connected to Undermountain's third level. The place resembles a ramshackle town, built inside a giant cavern connected to an underground river. Members of the Xanathar Guild haunt Skullport's dilapidated buildings, and flameskulls patrol its streets.",
 						"The only creature {@creature Xanathar|WDH} truly cares about aside from itself is a fish, named {@creature Sylgar|wdh}, that it keeps in a large glass tank. {@creature Xanathar|WDH} has minions that look after the fish constantly, but even their ministrations can't keep such a creature alive forever. Whenever the fish dies, panic spreads through the occupants of the lair as minions try to replace the fish before {@creature Xanathar|WDH} realizes what has happened. Luckily for them, the beholder can't tell one fish from another.",
 						"{@creature Xanathar|WDH} is extremely fond of gold. A few years ago, its spies stole the Stone of Golorr, which contained information that led to the discovery of a dwarven vault under Waterdeep. {@creature Xanathar|WDH} was able to open the vault, but was forced out by the dragon inside the place. Recently, someone stole the Stone of Golorr from where it was hidden inside its lair, and the beholder is convinced that the Black Network is behind the theft.",
 						"The beholder is caught up in the unbreakable grip of its own paranoia. It sees enemies everywhere, and lashes out at anyone it suspects of being a Zhentarim spy or assassin. Adventurers who attract its attention by dealing with known or suspected Black Network operatives are quickly branded as enemies that must be destroyed.",
@@ -32700,24 +33350,34 @@
 						{
 							"type": "image",
 							"imageType": "map",
+							"grid": {
+								"type": "none"
+							},
 							"href": {
 								"type": "internal",
 								"path": "adventure/WDH/poster-map-dm.jpg"
 							},
-							"title": "Poster Map\u2014DM",
+							"title": "Poster Map",
 							"width": 6429,
-							"height": 9000
+							"height": 9000,
+							"id": "50a"
 						},
 						{
 							"type": "image",
 							"imageType": "mapPlayer",
+							"grid": {
+								"type": "none"
+							},
 							"href": {
 								"type": "internal",
 								"path": "adventure/WDH/poster-map-player.jpg"
 							},
-							"title": "Poster Map\u2014Player",
+							"title": "Player Version",
 							"width": 6429,
-							"height": 9000
+							"height": 9000,
+							"mapParent": {
+								"id": "50a"
+							}
 						}
 					]
 				}

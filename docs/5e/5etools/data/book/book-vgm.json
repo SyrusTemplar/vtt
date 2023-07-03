@@ -85,6 +85,15 @@
 									"id": "005"
 								},
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/c1-1.webp"
+									},
+									"width": 995,
+									"height": 1000
+								},
+								{
 									"type": "entries",
 									"name": "Eye Tyrants",
 									"page": 7,
@@ -803,6 +812,15 @@
 							"entries": [
 								"A beholder analyzes its opponents, makes note of armor, weapons, and tactics, and adjusts its strategy to eliminate the most dangerous threats as quickly as possible. Although a beholder's specific actions will vary with each encounter, the creature's behavior is largely governed by the tactics discussed below.",
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/volo01-02.webp"
+									},
+									"width": 1000,
+									"height": 627
+								},
+								{
 									"type": "entries",
 									"name": "Stay out of Range and Sight",
 									"page": 9,
@@ -968,6 +986,15 @@
 							"id": "013"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/VGM/c1-2.webp"
+							},
+							"width": 1000,
+							"height": 710
+						},
+						{
 							"type": "entries",
 							"name": "Variant Abilities",
 							"page": 12,
@@ -1055,6 +1082,14 @@
 										"path": "book/VGM/Beholder-Lair-DM.jpg"
 									},
 									"title": "Beholder Lair (DM)",
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"offsetX": 5,
+										"offsetY": -15,
+										"scale": 2,
+										"distance": 10
+									},
 									"width": 800,
 									"height": 1100,
 									"imageType": "map"
@@ -1068,6 +1103,10 @@
 									"title": "Beholder Lair (Players)",
 									"width": 3200,
 									"height": 4500,
+									"grid": {
+										"type": "square",
+										"distance": 10
+									},
 									"imageType": "mapPlayer"
 								},
 								"Common rooms found in a beholder's lair are described in the sections that follow.",
@@ -1722,6 +1761,15 @@
 							"id": "046"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/VGM/volo01-04.webp"
+							},
+							"width": 376,
+							"height": 1000
+						},
+						{
 							"type": "entries",
 							"name": "A Giant's Bag",
 							"page": 21,
@@ -1755,6 +1803,15 @@
 							"entries": [
 								"Giants have a well-deserved reputation as living siege engines-all of them can hurl boulders with accuracy across great distances. Rock throwing-for battle, hunting, and sport-is a tradition that goes back to the ancient times of the giants. Other races developed the sling, the spear-thrower, or the bow to artificially improve the strength and accuracy of their ranged attacks, but giants never perceived a need for mechanical assistance. Even in places where giants have adapted bows or javelins for use in combat, they've never neglected the straightforward strategy of picking up a rock and letting it fly. Few activities, in fact, seem to give them as much satisfaction as the simple act of tossing boulders.",
 								"Most of the games that giants play involve throwing rocks in ways that hone their skills for hunting and war. One of the most popular contests, especially among fire giants, involves nothing more than taking turns trying to knock each other down with boulders. Frost giants build targets out of snow and ice and compete to see who can knock down the most with a single toss. A popular one-on-one game begins with the challenger throwing a stone as far as it can. The giant who was challenged then goes to where the stone landed and hurls it back at the challenger. A challenger who is stronger wins, because the return throw will fall short, but a giant who took on a better thrower will stumble away, nursing its injuries, as a lesson that arrogance has a price.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/volo01-05.webp"
+									},
+									"width": 916,
+									"height": 1000
+								},
 								"In battle against puny creatures, giants use boulders that fit in one hand. When giants fight enormous foes (such as dragons) or enormous targets (such as castles), they prefer to hurl stones so large that even a giant must use both arms to lift and throw one. Giants throw just as accurately with both arms as with one, a feat most humans would find impossible. These attacks are effective only at shorter ranges, however, for obvious reasons.",
 								"When they hunt by rock throwing, giants use smaller stones, about the size of a human head, that can kill an elk or a bear without smashing it into pulp."
 							],
@@ -1998,6 +2055,15 @@
 								"Cloud giants are aptly named, or at least were at one time. Few of them live literally on clouds anymore, but most do reside atop high mountains, inside or even above a near-perpetual cloud layer. A select few-those at the apex of the clan's ordning-claim the last of the ancient cloud castles that still drift across the sky.",
 								"No one can build those majestic structures any longer. The methods of their construction were lost (along with much other knowledge) when Ostoria fell. Some cloud giants believe the information might yet be buried in some long-forgotten, ruined library. Rumors of its existence crop up from time to time, stirring debate and dreams of resurgent glory among the cloud giants, but definite information has proven impossible to obtain. Many cloud giants think that someday, a hero will unearth this ancient secret. Until then, they must be satisfied with watching clouds drift past their mountaintop  homes instead of living atop those clouds as in days of yore.",
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/volo01-06.webp"
+									},
+									"width": 1000,
+									"height": 627
+								},
+								{
 									"type": "entries",
 									"name": "Family First",
 									"page": 23,
@@ -2059,6 +2125,15 @@
 							"name": "Fire Giants",
 							"page": 25,
 							"entries": [
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/volo01-07.webp"
+									},
+									"width": 1000,
+									"height": 627
+								},
 								"The fire giants were the officers, engineers, and crafters of ancient Ostoria. Their position and unparalleled skill, along with their domineering outlook, make them haughty and arrogant.",
 								{
 									"type": "entries",
@@ -2113,6 +2188,15 @@
 							"name": "Frost Giants",
 							"page": 26,
 							"entries": [
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/volo01-08.webp"
+									},
+									"width": 1000,
+									"height": 627
+								},
 								"Frost giants dwell in the remote, frozen places of the world. Anything warmer than the flesh of a recently killed elk is as flame to them. As a sailor fears the howl of the wind heralding a storm, the denizens of ice-capped mountains and northern steppes shudder at the war horns that presage the arrival of Thrym's blue-skinned, icy children.",
 								{
 									"type": "entries",
@@ -2178,6 +2262,15 @@
 										"Since eating is the only thing hill giants care about, a tribe is always led by its fattest, heaviest member-the most successful and thus the most admired one in the group. The qualities that other creatures expect or demand of their leaders-such as intellect, decision-making ability, and personal magnetism-have no importance to hill giants. They are neither recognized nor rewarded, except to the extent that a hill giant with slightly above average smarts might use trickery or intimidation to grab more food than its neighbors."
 									],
 									"id": "05e"
+								},
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/c1-3.webp"
+									},
+									"width": 699,
+									"height": 1000
 								},
 								{
 									"type": "entries",
@@ -2299,6 +2392,15 @@
 							"name": "Storm Giants",
 							"page": 31,
 							"entries": [
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/volo01-09.webp"
+									},
+									"width": 1000,
+									"height": 627
+								},
 								"Storm giants, the most powerful and majestic of giant-kind, are also the most aloof and the least understood. Uvarjotens aren't just forces of nature; they are bound to nature, and are extensions of it, in mystical ways that humans find hard to comprehend.",
 								{
 									"type": "entries",
@@ -2359,6 +2461,15 @@
 					"entries": [
 						"Gnolls remind the world of the horrors posed by the hordes of the Abyss, and the damage that even the briefest demonic incursion can inflict on the world.",
 						"Whenever the demon lord Yeenoghu enters the Material Plane and goes on a rampage, he leaves a great trail of corpses in his wake. As the Lord of Savagery despoils the land, packs of hyenas trail him and feast on the victims until the dead flesh of Yeenoghu's prey leave them bloated and unable to move. Then, in a shower of blood and gristle, the hyenas transform into gnolls, which take up Yeenoghu's awful mission to kill and destroy anything in their path.",
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/VGM/volo01-10.webp"
+							},
+							"width": 1000,
+							"height": 627
+						},
 						{
 							"type": "entries",
 							"name": "Yeenoghu",
@@ -2896,6 +3007,15 @@
 							"id": "07f"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/VGM/volo01-11.webp"
+							},
+							"width": 1000,
+							"height": 627
+						},
+						{
 							"type": "entries",
 							"name": "Gnoll Allies",
 							"page": 38,
@@ -2951,6 +3071,15 @@
 										"Large packs of hyenas follow gnoll war bands. For their part, the gnolls largely ignore these animals. They tend to gather around fangs in battle, eager to partake of Yeenoghu's blessing and its horrid transformation."
 									],
 									"id": "08c"
+								},
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/c1-4.webp"
+									},
+									"width": 1000,
+									"height": 484
 								},
 								{
 									"type": "entries",
@@ -3319,6 +3448,15 @@
 							"entries": [
 								"Goblins occupy an uneasy place in a dangerous world, and they react by lashing out at any creatures they believe they can bully. Cunning in battle and cruel in victory, goblins are fawning and servile in defeat, just as in their own society lower castes must scrape before those of greater status and as goblin tribes bow before other goblinoids.",
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/volo01-12.webp"
+									},
+									"width": 1000,
+									"height": 627
+								},
+								{
 									"type": "entries",
 									"name": "Beast Masters and Slave Drivers",
 									"page": 40,
@@ -3574,6 +3712,15 @@
 										"Tribes of goblins take up residence in shrouded valleys, shadowy forests, and caves and tunnels beneath the surface of the world. Capable miners and crafters, they seek to settle in places where they can get the raw materials to make weapons and armor. Their need for iron and other metals sometimes puts them in conflict with other races, but just as often, goblins get what they need by claiming mines abandoned by other races and scratching away at veins thought to be played out.",
 										"When goblins expand a mine, the tunnels they dig are narrow and warren-like. Goblins live both within these tunnels and on the surface around the outside of the area. They guard the territory around the mine for miles, sending out patrols of hunters equipped with war horns and using wolves as watchdogs to alert them to intruders.",
 										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/VGM/c1-5.webp"
+											},
+											"width": 360,
+											"height": 1000
+										},
+										{
 											"type": "entries",
 											"name": "Outskirts",
 											"page": 43,
@@ -3660,7 +3807,16 @@
 									"entries": [
 										"Bugbears have no use for priests or shamans. No one needs to tell them what their gods want. If the brother gods are angry with them, they let the bugbears know with bolts of lightning (Hruggek) or by striking them blind or dead (Grankhul). Bugbears worship their gods simply by preying on other creatures, using no other sort of ceremony to show obeisance-with one exception.",
 										"In an act of worship that also sometimes attracts favorable attention from their gods, bugbears sever the heads of defeated foes, cut away or stitch open the eyelids, and leave the mouths hanging open. The heads are then placed on spikes or hung from cords around a bugbear den. The heads themselves are trophies that honor Hruggek, and their ever-staring eyes are an homage to sleepless Grankhul.",
-										"The heads of leaders and mighty opponents are particularly sacred, and offering up such a trophy can provide a bugbear gang with a special boon. A gang that gains the favor of Hruggek and Grankhul in this way might find that the head will emit a shout when an enemy gets too close (in the fashion of an alarm spell). Sometimes the heads of people who have information the bugbears need speak their secrets amid blubbered pleas for mercy (as with the {@spell speak with dead} spell)."
+										"The heads of leaders and mighty opponents are particularly sacred, and offering up such a trophy can provide a bugbear gang with a special boon. A gang that gains the favor of Hruggek and Grankhul in this way might find that the head will emit a shout when an enemy gets too close (in the fashion of an alarm spell). Sometimes the heads of people who have information the bugbears need speak their secrets amid blubbered pleas for mercy (as with the {@spell speak with dead} spell).",
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/VGM/volo01-13.webp"
+											},
+											"width": 1000,
+											"height": 424
+										}
 									],
 									"id": "0aa"
 								}
@@ -3857,6 +4013,15 @@
 							"id": "0ab"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/VGM/volo01-14.webp"
+							},
+							"width": 1000,
+							"height": 686
+						},
+						{
 							"type": "entries",
 							"name": "Maglubiyet's Will Be Done",
 							"page": 48,
@@ -4038,6 +4203,13 @@
 									"title": "Goblin War Camp (DM)",
 									"width": 1164,
 									"height": 800,
+									"grid": {
+										"type": "square",
+										"size": 56,
+										"offsetX": 19,
+										"offsetY": 7,
+										"scale": 4
+									},
 									"imageType": "map"
 								},
 								{
@@ -4049,6 +4221,9 @@
 									"title": "Goblin War Camp (Players)",
 									"width": 5900,
 									"height": 5500,
+									"grid": {
+										"type": "square"
+									},
 									"imageType": "mapPlayer"
 								},
 								"Inside the surrounding bulwark, the goblinoids all have their separate quarters, organized according to their wonts. Typical of any camp are the wide paths that crisscross it, running from each gate through the center of the camp and out the other side. This configuration enables all the goblinoids to swiftly rally and exit the camp en masse to meet an approaching threat.",
@@ -4157,6 +4332,15 @@
 					"page": 52,
 					"entries": [
 						"Hags are crones who represent corruption of ideals and goals, and they delight in seeing the innocent and good brought low. They are inhuman monsters, their forms twisted by evil. Shapechangers and blasphemers, they ally with other hags to form magical covens with extra powers. They collect and remember secret knowledge that is better lost and forgotten. Desperate mortals come to them looking for advice, only to have their requests fulfilled in ways that bring great suffering to themselves and their loved ones.",
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/VGM/volo01-16.webp"
+							},
+							"width": 1000,
+							"height": 627
+						},
 						{
 							"type": "entries",
 							"name": "Ugly, Unpredictable, and Old",
@@ -4517,6 +4701,15 @@
 							"id": "0de"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/VGM/c1-6.webp"
+							},
+							"width": 1000,
+							"height": 634
+						},
+						{
 							"type": "entries",
 							"name": "Types of Hags",
 							"page": 56,
@@ -4702,6 +4895,14 @@
 									"title": "Hag Lairs (DM)",
 									"width": 1091,
 									"height": 750,
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"offsetX": 19,
+										"offsetY": 15,
+										"scale": 1.87,
+										"distance": 10
+									},
 									"imageType": "map"
 								},
 								{
@@ -4713,6 +4914,10 @@
 									"title": "Hag Lairs (Players)",
 									"width": 4200,
 									"height": 2900,
+									"grid": {
+										"type": "square",
+										"distance": 10
+									},
 									"imageType": "mapPlayer"
 								},
 								"Whether naturally or by manufactured means, the lair is well defended from intrusion. It might be reachable only by a steep mountain path, or it might be surrounded by a fence the hag builds out of posts capped with magically warded skulls. Often, a lair reflects the outlook of its primary inhabitant-a murderous hag's home might be crafted to look like a coffin or a mausoleum, and that of a gluttonous one might look like a tavern or a gingerbread house. Because such places are convenient for them, sea hags often establish their lairs inside the hulls of wrecked or abandoned ships.",
@@ -5113,6 +5318,15 @@
 							"id": "0f6"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/VGM/c1-7.webp"
+							},
+							"width": 1000,
+							"height": 435
+						},
+						{
 							"type": "entries",
 							"name": "Able Scavengers",
 							"page": 63,
@@ -5436,6 +5650,15 @@
 							"name": "Tactics",
 							"page": 67,
 							"entries": [
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/volo01-18.webp"
+									},
+									"width": 393,
+									"height": 1000
+								},
 								"Because they are physically weak individually, kobolds know they have to use superior numbers and cunning to take down powerful foes. In addition to their Pack Tactics trait described in the Monster Manual, they use traps, ambushes, terrain, allied monsters, and any other advantage they can squeeze out of their environment. Essentially, the only way kobolds can win is not to play fair.",
 								"Kobolds work together to accomplish difficult tasks they couldn't manage alone. They carve intricate tunnel systems that enable them to hold off and discourage enemies several times their size. Without engaging in much verbal communication, each kobold knows what has to be done to succeed. Kobolds' ability to work together is remarkable, especially compared to the behavior of other small humanoids like goblins, which tend to squabble among themselves and cooperate only when threatened by a strong leader.",
 								"Kobolds avoid combat on a large scale, instead sticking to hit-and-run raids using smaller groups of warriors. If they have time, they prepare the battlefield with small bolt-holes for them to hide in and simple pit traps to hamper their opponents.",
@@ -5491,6 +5714,13 @@
 									"title": "Kobold Lair (DM)",
 									"width": 545,
 									"height": 750,
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"offsetX": 19,
+										"offsetY": 6,
+										"scale": 4.15
+									},
 									"imageType": "map"
 								},
 								{
@@ -5502,6 +5732,13 @@
 									"title": "Kobold Lair (Players)",
 									"width": 1600,
 									"height": 2200,
+									"grid": {
+										"type": "square",
+										"size": 72,
+										"offsetX": -8,
+										"offsetY": 25,
+										"scale": 2
+									},
 									"imageType": "mapPlayer"
 								},
 								"Creatures larger than a kobold have to squat or crawl in order to fit through the tunnels of a kobold warren, which by itself is enough to deter most hostile humanoids (such as orcs or hobgoblins) from trying to invade the kobolds' territory. Adventurers trying to eradicate a kobold infestation often find themselves stuck in low passages too narrow to turn around in, forcing them to move in single file and putting the burden of combat on the first and last people in line.",
@@ -5670,6 +5907,15 @@
 									"id": "115"
 								},
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/c1-8.webp"
+									},
+									"width": 908,
+									"height": 1000
+								},
+								{
 									"type": "entries",
 									"name": "Ceremorphosis",
 									"page": 72,
@@ -5696,6 +5942,15 @@
 								"An elder brain has a perfect recollection of its race's history. Consequently, it views itself as both a refugee and a victim, forced into hiding by barbaric monsters.",
 								"An elder brain also sees itself as a savior of the mind flayer race and a living memorial that preserves the memories of the mind flayers' prey. By its twisted logic, humanoids whose brains are devoured by the colony are rendered immortal, their memories preserved forever in the elder brain's labyrinthine mind. When a mind flayer grows old, becomes infirm, or is grievously injured, the elder brain absorbs it-another form of immortality, as the mind flayer's mind dwells within the hive mind forever after.",
 								"See chapter 3 for more information on elder brains.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/volo01-19.webp"
+									},
+									"width": 1000,
+									"height": 627
+								},
 								{
 									"type": "entries",
 									"name": "Renegade Illithids",
@@ -6171,6 +6426,15 @@
 							"id": "12c"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/VGM/volo01-20.webp"
+							},
+							"width": 377,
+							"height": 1000
+						},
+						{
 							"type": "entries",
 							"name": "Mind Flayer Lairs",
 							"page": 77,
@@ -6185,6 +6449,11 @@
 									"title": "Mind Flayer Colony (DM)",
 									"width": 545,
 									"height": 750,
+									"grid": {
+										"type": "none",
+										"size": 138,
+										"distance": 50
+									},
 									"imageType": "map"
 								},
 								"No two lairs are the same, as the resident elder brain drives the form and function of each one. The lair shown in the accompanying map is typical and includes many elements found in every colony's stronghold.",
@@ -6483,6 +6752,15 @@
 						"Every soldier who lives through a fight with orcs tells of confronting a hulking foe that can cleave through a warrior with a single blow, part of a force that can cut down enemies as though they were trembling stalks of wheat before the scythe. Only a skilled and determined hero can hope to survive single combat with an orc.",
 						"Savage and fearless, orc tribes are ever in search of elves, dwarves, and humans to destroy. Motivated by their hatred of the civilized races of the world and their need to satisfy the demands of their deities, the orcs know that if they fight well and bring glory to their tribe, Gruumsh will call them home to the plane of Acheron. It is there in the afterlife where the chosen ones will join Gruumsh and his armies in their endless extraplanar battle for supremacy.",
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/VGM/volo01-22.webp"
+							},
+							"width": 1000,
+							"height": 627
+						},
+						{
 							"type": "entries",
 							"name": "Gods of the Orcs",
 							"page": 82,
@@ -6556,6 +6834,15 @@
 									"id": "154"
 								},
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/c1-9.webp"
+									},
+									"width": 1000,
+									"height": 517
+								},
+								{
 									"type": "entries",
 									"name": "All Are Fighters",
 									"page": 85,
@@ -6598,6 +6885,15 @@
 								}
 							],
 							"id": "150"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/VGM/volo01-23.webp"
+							},
+							"width": 1000,
+							"height": 627
 						},
 						{
 							"type": "entries",
@@ -7067,6 +7363,13 @@
 									"title": "Orc Stronghold (DM)",
 									"width": 800,
 									"height": 1100,
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"offsetX": 10,
+										"offsetY": 3,
+										"scale": 3.5
+									},
 									"imageType": "map"
 								},
 								{
@@ -7078,6 +7381,10 @@
 									"title": "Orc Stronghold (Players)",
 									"width": 5500,
 									"height": 7500,
+									"grid": {
+										"type": "square",
+										"distance": 10
+									},
 									"imageType": "mapPlayer"
 								},
 								"Every encampment is divided along lines of worship. Those who revere Gruumsh, Ilneval, Bahgtru, and Luthic are given the best parts of the lair, while the followers of Yurtrus and Shargaas are relegated to the deep, dark recesses of the site, away from the rest of the tribe.",
@@ -7264,6 +7571,15 @@
 								"The detached, intellectual nature of the yuan-ti doesn't lend itself to fervent or devout worship in the manner that others revere their deities. Nonetheless, they acknowledge a wide range of supernatural and divine entities. Some of these are true deities, some are primordial spirits as powerful as gods, and some are creatures of questionable origin.",
 								"In addition to the three primary deities discussed below, the yuan-ti worship over a dozen other \"serpent gods\"-lesser beings such as animal spirits, ascended heroes, divine servants of more powerful gods, and demon lords. Many of the cults devoted to these lesser gods are unique to a particular city, and followers of the three main yuan-ti deities usually consider these religious practices quaint rather than threatening.",
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/volo01-25.webp"
+									},
+									"width": 377,
+									"height": 1000
+								},
+								{
 									"type": "entries",
 									"name": "Dendar",
 									"page": 93,
@@ -7289,80 +7605,80 @@
 									"page": 94,
 									"entries": [
 										"In the last years before the yuan-ti empire collapsed, Sseth appeared to the serpent folk in the form of a winged yuan-ti. He promised to lead the yuan-ti away from the brink of defeat and back to the pinnacle of world domination in return for their veneration. Many of Merrshaulk's devout turned to the worship of the Sibilant Death, believing him to be an avatar of their deity. They granted him enough power to mount a brief recovery, but those actions were too little and too late to prevent the collapse of the empire. Sseth chose to rest and gather strength during the years of decline, as more and more of the yuan-ti adopted his worship.",
-										"His most devout followers, known as mind whisperers, use their god-given magic to emulate Sseth's tactics and principles. They strive to succeed by offering an alternative choice to contesting viewpoints or plans, and in so doing they exude an air of self-importance that gives them a less than savory reputation among yuan-ti that follow other gods.",
-										{
-											"type": "inset",
-											"name": "Gods of Other Worlds",
-											"entries": [
-												"In worlds other than the Forgotten Realms, yuan-ti make pacts with deities of the pantheons presented in appendix B of the Player's Handbook. The following are suggested yuan-ti deities for each pantheon.",
-												{
-													"type": "entries",
-													"name": "Greyhawk",
-													"page": 94,
-													"entries": [
-														"Erythnul, Iuz, Tharizdun, Vecna."
-													],
-													"id": "175"
-												},
-												{
-													"type": "entries",
-													"name": "Dragonlance",
-													"page": 94,
-													"entries": [
-														"Chemosh, Sargonnas."
-													],
-													"id": "176"
-												},
-												{
-													"type": "entries",
-													"name": "Eberron",
-													"page": 94,
-													"entries": [
-														"The Fury, the Keeper, the Mockery, the Shadow, the Traveler."
-													],
-													"id": "177"
-												},
-												{
-													"type": "entries",
-													"name": "Celtic",
-													"page": 94,
-													"entries": [
-														"Math Mathonwy, Morrigan."
-													],
-													"id": "178"
-												},
-												{
-													"type": "entries",
-													"name": "Greek",
-													"page": 94,
-													"entries": [
-														"Ares, Hecate."
-													],
-													"id": "179"
-												},
-												{
-													"type": "entries",
-													"name": "Egyptian",
-													"page": 94,
-													"entries": [
-														"Apep, Set."
-													],
-													"id": "17a"
-												},
-												{
-													"type": "entries",
-													"name": "Norse",
-													"page": 94,
-													"entries": [
-														"Hel, Loki."
-													],
-													"id": "17b"
-												}
-											],
-											"id": "174"
-										}
+										"His most devout followers, known as mind whisperers, use their god-given magic to emulate Sseth's tactics and principles. They strive to succeed by offering an alternative choice to contesting viewpoints or plans, and in so doing they exude an air of self-importance that gives them a less than savory reputation among yuan-ti that follow other gods."
 									],
 									"id": "173"
+								},
+								{
+									"type": "inset",
+									"name": "Gods of Other Worlds",
+									"entries": [
+										"In worlds other than the Forgotten Realms, yuan-ti make pacts with deities of the pantheons presented in appendix B of the Player's Handbook. The following are suggested yuan-ti deities for each pantheon.",
+										{
+											"type": "entries",
+											"name": "Greyhawk",
+											"page": 94,
+											"entries": [
+												"Erythnul, Iuz, Tharizdun, Vecna."
+											],
+											"id": "175"
+										},
+										{
+											"type": "entries",
+											"name": "Dragonlance",
+											"page": 94,
+											"entries": [
+												"Chemosh, Sargonnas."
+											],
+											"id": "176"
+										},
+										{
+											"type": "entries",
+											"name": "Eberron",
+											"page": 94,
+											"entries": [
+												"The Fury, the Keeper, the Mockery, the Shadow, the Traveler."
+											],
+											"id": "177"
+										},
+										{
+											"type": "entries",
+											"name": "Celtic",
+											"page": 94,
+											"entries": [
+												"Math Mathonwy, Morrigan."
+											],
+											"id": "178"
+										},
+										{
+											"type": "entries",
+											"name": "Greek",
+											"page": 94,
+											"entries": [
+												"Ares, Hecate."
+											],
+											"id": "179"
+										},
+										{
+											"type": "entries",
+											"name": "Egyptian",
+											"page": 94,
+											"entries": [
+												"Apep, Set."
+											],
+											"id": "17a"
+										},
+										{
+											"type": "entries",
+											"name": "Norse",
+											"page": 94,
+											"entries": [
+												"Hel, Loki."
+											],
+											"id": "17b"
+										}
+									],
+									"id": "174"
 								},
 								{
 									"type": "entries",
@@ -7376,6 +7692,15 @@
 								}
 							],
 							"id": "170"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/VGM/volo01-26.webp"
+							},
+							"width": 1000,
+							"height": 348
 						},
 						{
 							"type": "entries",
@@ -8298,6 +8623,15 @@
 							"entries": [
 								"Most yuan-ti cities were built during the height of their empire centuries ago. Since they no longer have the vast number of expendable slaves necessary for large work projects, the yuan-ti content themselves with maintaining these ancient places rather than building new ones for their needs. Although these sites are hundreds or even thousands of years old, they don't look or feel primitive-the yuan-ti empire was once very advanced, and although it has declined, its culture is still thriving on a smaller scale.",
 								"Because the yuan-ti were previously human, their architecture reflects human ideas about art and beauty. Over time this perspective was skewed toward the concept that the snake is the perfect form, so serpents are a common theme in their aesthetic.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/VGM/volo01-27.webp"
+									},
+									"width": 381,
+									"height": 1000
+								},
 								"The major buildings in a city usually have four sides and a sloped or staggered pyramid-like exterior. It is customary for stone buildings to have a series of tiles or carvings of snakes encircling the ground level at head height. These features are sometimes trapped or magically warded to prevent anyone from climbing the building's exterior. Interior walls usually have floor-level holes or tunnels that a Medium or Large snake could pass through, allowing the yuan-ti's serpentine pets, as well as abominations and malisons in snake form, to bypass human-style doors for convenience or in order to respond quickly to invaders. In well-traveled areas, ramps replace stairs, making it easier to snake-bodied yuan-ti to move between levels.",
 								"A yuan-ti settlement usually has a paved plaza, and major roads are also paved. Fountains, gardens, and carved, freestanding columns are common elements. Six-foot-high walls divide the community into city blocks or districts, with open arches allowing traffic to pass through.",
 								"Yuan-ti lairs in human settlements are nothing like the accommodations in their own cities. Because these locations are used mainly by humanoid purebloods and cultists (or were built by humanoids and taken over by yuan-ti), stairs and humanoid architecture are the norm. Each of these sites resembles the headquarters of a spy ring, a thieves' guild, or a hedonistic cult rather than the outpost of an evil empire bent on cannibalism and world domination, but it usually has a sacrificial slab tucked away in a corner for special events.",
@@ -8320,6 +8654,14 @@
 									"title": "Yuan-Ti Temple (DM)",
 									"width": 1091,
 									"height": 1500,
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"offsetX": 24,
+										"offsetY": 38,
+										"scale": 2.32,
+										"distance": 10
+									},
 									"imageType": "map"
 								},
 								{
@@ -8331,6 +8673,11 @@
 									"title": "Yuan-Ti Temple\u2014Level 1 (Players)",
 									"width": 1350,
 									"height": 1200,
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"distance": 10
+									},
 									"imageType": "mapPlayer"
 								},
 								{
@@ -8342,6 +8689,11 @@
 									"title": "Yuan-Ti Temple\u2014Level 2 (Players)",
 									"width": 1100,
 									"height": 1000,
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"distance": 10
+									},
 									"imageType": "mapPlayer"
 								},
 								{
@@ -8353,6 +8705,11 @@
 									"title": "Yuan-Ti Temple\u2014Level 3 (Players)",
 									"width": 900,
 									"height": 850,
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"distance": 10
+									},
 									"imageType": "mapPlayer"
 								},
 								{
@@ -8364,6 +8721,11 @@
 									"title": "Yuan-Ti Temple\u2014Level 4 (Players)",
 									"width": 750,
 									"height": 700,
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"distance": 10
+									},
 									"imageType": "mapPlayer"
 								},
 								{
@@ -8375,6 +8737,11 @@
 									"title": "Yuan-Ti Temple\u2014Level 5 (Players)",
 									"width": 856,
 									"height": 812,
+									"grid": {
+										"type": "square",
+										"size": 50,
+										"distance": 10
+									},
 									"imageType": "mapPlayer"
 								},
 								{
@@ -8591,6 +8958,15 @@
 				}
 			],
 			"id": "000"
+		},
+		{
+			"type": "image",
+			"href": {
+				"type": "internal",
+				"path": "book/VGM/c1-10.webp"
+			},
+			"width": 759,
+			"height": 1000
 		},
 		{
 			"type": "section",

@@ -59,6 +59,104 @@ class SpellsPageSettingsManager extends ListPageSettingsManager {
 	}
 }
 
+class SpellPageBookView extends ListPageBookView {
+	static _BOOK_VIEW_MODE_K = "bookViewMode";
+
+	constructor (opts) {
+		super({
+			pageTitle: "Spells Book View",
+			namePlural: "spells",
+			propMarkdown: "spell",
+			...opts,
+		});
+
+		this._bookViewLastOrder = null;
+	}
+
+	_getSorted (a, b) {
+		return this._bookViewLastOrder === "0" ? SortUtil.ascSort(a.level, b.level) : SortUtil.ascSortLower(a.name, b.name);
+	}
+
+	async _pGetRenderContentMeta ({$wrpContent, $wrpControls}) {
+		$wrpContent.addClass("p-2");
+
+		this._bookViewToShow = this._sublistManager.getSublistedEntities()
+			.sort((a, b) => SortUtil.ascSortLower(a.name, b.name));
+
+		let isAnyEntityRendered = false;
+
+		const renderSpell = (stack, sp) => {
+			isAnyEntityRendered = true;
+			stack.push(`<div class="bkmv__wrp-item ve-inline-block print__ve-block print__my-2"><table class="w-100 stats stats--book stats--bkmv"><tbody>`);
+			stack.push(Renderer.spell.getCompactRenderedString(sp));
+			stack.push(`</tbody></table></div>`);
+		};
+
+		this._bookViewLastOrder = StorageUtil.syncGetForPage(SpellPageBookView._BOOK_VIEW_MODE_K);
+		if (this._bookViewLastOrder != null) this._bookViewLastOrder = `${this._bookViewLastOrder}`;
+
+		const $selSortMode = $(`<select class="form-control input-sm">
+			<option value="0">Spell Level</option>
+			<option value="1">Alphabetical</option>
+		</select>`)
+			.change(() => {
+				if (!this._bookViewToShow.length && Hist.lastLoadedId != null) return;
+
+				const val = $selSortMode.val();
+				if (val === "0") renderByLevel();
+				else renderByAlpha();
+
+				StorageUtil.syncSetForPage(SpellPageBookView._BOOK_VIEW_MODE_K, val);
+			});
+		if (this._bookViewLastOrder != null) $selSortMode.val(this._bookViewLastOrder);
+
+		$$`<div class="ve-flex-vh-center ml-3"><div class="mr-2 no-wrap">Sort order:</div>${$selSortMode}</div>`.appendTo($wrpControls);
+
+		// region Markdown
+		this._$getControlsMarkdown().appendTo($wrpControls);
+		// endregion
+
+		const renderByLevel = () => {
+			const stack = [];
+			for (let i = 0; i < 10; ++i) {
+				const atLvl = this._bookViewToShow.filter(sp => sp.level === i);
+				if (atLvl.length) {
+					stack.push(`<div class="bkmv__no-breaks">`);
+					stack.push(`<div class="bkmv__spacer-name ve-flex-v-center no-shrink no-print">${Parser.spLevelToFullLevelText(i)}</div>`);
+					atLvl.forEach(sp => renderSpell(stack, sp));
+					stack.push(`</div>`);
+				}
+			}
+			$wrpContent.empty().append(stack.join(""));
+			this._bookViewLastOrder = "0";
+		};
+
+		const renderByAlpha = () => {
+			const stack = [];
+			this._bookViewToShow.forEach(sp => renderSpell(stack, sp));
+			$wrpContent.empty().append(stack.join(""));
+			this._bookViewLastOrder = "1";
+		};
+
+		const renderNoneSelected = () => {
+			const stack = [];
+			stack.push(`<div class="w-100 h-100 no-breaks">`);
+			renderSpell(stack, this._fnGetEntLastLoaded());
+			stack.push(`</div>`);
+			$wrpContent.empty().append(stack.join(""));
+		};
+
+		if (!this._bookViewToShow.length && Hist.lastLoadedId != null) renderNoneSelected();
+		else if (this._bookViewLastOrder === "1") renderByAlpha();
+		else renderByLevel();
+
+		return {
+			cntSelectedEnts: this._bookViewToShow.length,
+			isAnyEntityRendered,
+		};
+	}
+}
+
 class SpellsPage extends ListPageMultiSource {
 	constructor () {
 		const pFnGetFluff = Renderer.spell.pGetFluff.bind(Renderer.spell);
@@ -76,11 +174,7 @@ class SpellsPage extends ListPageMultiSource {
 			pFnGetFluff,
 
 			bookViewOptions: {
-				$btnOpen: $(`#btn-spellbook`),
-				$eleNoneVisible: $(`<span class="initial-message">If you wish to view multiple spells, please first make a list</span>`),
-				pageTitle: "Spells Book View",
-				fnSort: (a, b) => this._bookViewLastOrder === "0" ? SortUtil.ascSort(a.level, b.level) : SortUtil.ascSortLower(a.name, b.name),
-				fnGetMd: sp => RendererMarkdown.get().render({type: "statblockInline", dataType: "spell", data: sp}).trim(),
+				ClsBookView: SpellPageBookView,
 			},
 
 			tableViewOptions: {
@@ -150,79 +244,6 @@ class SpellsPage extends ListPageMultiSource {
 				this._bindOtherButtonsOptions_openAsSinglePage({slugPage: "spells", fnGetHash: () => Hist.getHashParts()[0]}),
 			].filter(Boolean),
 		};
-	}
-
-	_bookView_popTblGetNumShown ({$wrpContent, $dispName, $wrpControls}) {
-		this._bookViewToShow = this._sublistManager.getSublistedEntities()
-			.sort((a, b) => SortUtil.ascSortLower(a.name, b.name));
-
-		const renderSpell = (stack, sp) => {
-			stack.push(`<div class="bkmv__wrp-item"><table class="w-100 stats stats--book stats--bkmv"><tbody>`);
-			stack.push(Renderer.spell.getCompactRenderedString(sp));
-			stack.push(`</tbody></table></div>`);
-		};
-
-		this._bookViewLastOrder = StorageUtil.syncGetForPage(SpellsPage._BOOK_VIEW_MODE_K);
-		if (this._bookViewLastOrder != null) this._bookViewLastOrder = `${this._bookViewLastOrder}`;
-
-		const $selSortMode = $(`<select class="form-control input-sm">
-			<option value="0">Spell Level</option>
-			<option value="1">Alphabetical</option>
-		</select>`)
-			.change(() => {
-				if (!this._bookViewToShow.length && Hist.lastLoadedId != null) return;
-
-				const val = $selSortMode.val();
-				if (val === "0") renderByLevel();
-				else renderByAlpha();
-
-				StorageUtil.syncSetForPage(SpellsPage._BOOK_VIEW_MODE_K, val);
-			});
-		if (this._bookViewLastOrder != null) $selSortMode.val(this._bookViewLastOrder);
-
-		$$`<div class="ve-flex-vh-center ml-3"><div class="mr-2 no-wrap">Sort order:</div>${$selSortMode}</div>`.appendTo($wrpControls);
-
-		// region Markdown
-		this._bookView_$getControlsMarkdown().appendTo($wrpControls);
-		// endregion
-
-		const renderByLevel = () => {
-			const stack = [];
-			for (let i = 0; i < 10; ++i) {
-				const atLvl = this._bookViewToShow.filter(sp => sp.level === i);
-				if (atLvl.length) {
-					stack.push(`<div class="w-100 h-100 bkmv__no-breaks">`);
-					stack.push(`<div class="bkmv__spacer-name ve-flex-v-center no-shrink">${Parser.spLevelToFullLevelText(i)}</div>`);
-					atLvl.forEach(sp => renderSpell(stack, sp));
-					stack.push(`</div>`);
-				}
-			}
-			$wrpContent.empty().append(stack.join(""));
-			this._bookViewLastOrder = "0";
-		};
-
-		const renderByAlpha = () => {
-			const stack = [];
-			this._bookViewToShow.forEach(sp => renderSpell(stack, sp));
-			$wrpContent.empty().append(stack.join(""));
-			this._bookViewLastOrder = "1";
-		};
-
-		const renderNoneSelected = () => {
-			const stack = [];
-			stack.push(`<div class="w-100 h-100 no-breaks">`);
-			const sp = this._dataList[Hist.lastLoadedId];
-			renderSpell(stack, sp);
-			$dispName.text(Parser.spLevelToFullLevelText(sp.level));
-			stack.push(`</div>`);
-			$wrpContent.empty().append(stack.join(""));
-		};
-
-		if (!this._bookViewToShow.length && Hist.lastLoadedId != null) renderNoneSelected();
-		else if (this._bookViewLastOrder === "1") renderByAlpha();
-		else renderByLevel();
-
-		return this._bookViewToShow.length;
 	}
 
 	getListItem (spell, spI) {
@@ -298,63 +319,10 @@ class SpellsPage extends ListPageMultiSource {
 		return listItem;
 	}
 
-	handleFilterChange () {
-		const f = this._pageFilter.filterBox.getValues();
-		this._list.filter(li => {
-			const s = this._dataList[li.ix];
-			return this._pageFilter.toDisplay(f, s);
-		});
-		this._onFilterChangeMulti(this._dataList, f);
-	}
+	_tabTitleStats = "Spell";
 
-	doLoadHash (id) {
-		this._lastRender.entity = this._dataList[id];
-		Renderer.get().setFirstSection(true);
-		this._$pgContent.empty();
-		const spell = this._dataList[id];
-
-		const buildStatsTab = () => {
-			this._$pgContent.append(RenderSpells.$getRenderedSpell(spell, this._subclassLookup, {settings: this._compSettings.getValues()}));
-		};
-
-		const buildFluffTab = (isImageTab) => {
-			return Renderer.utils.pBuildFluffTab({
-				isImageTab,
-				$content: this._$pgContent,
-				entity: spell,
-				pFnGetFluff: this._pFnGetFluff,
-			});
-		};
-
-		const tabMetas = [
-			new Renderer.utils.TabButton({
-				label: "Spell",
-				fnPopulate: buildStatsTab,
-				isVisible: true,
-			}),
-			new Renderer.utils.TabButton({
-				label: "Info",
-				fnPopulate: buildFluffTab,
-				isVisible: Renderer.utils.hasFluffText(spell, "spellFluff"),
-			}),
-			new Renderer.utils.TabButton({
-				label: "Images",
-				fnPopulate: buildFluffTab.bind(null, true),
-				isVisible: Renderer.utils.hasFluffImages(spell, "spellFluff"),
-			}),
-		];
-
-		Renderer.utils.bindTabButtons({
-			tabButtons: tabMetas.filter(it => it.isVisible),
-			tabLabelReference: tabMetas.map(it => it.label),
-		});
-
-		this._updateSelected();
-	}
-
-	async pDoLoadSubHash (sub) {
-		sub = await super.pDoLoadSubHash(sub);
-		await this._bookView.pHandleSub(sub);
+	_renderStats_doBuildStatsTab ({ent}) {
+		this._$pgContent.empty().append(RenderSpells.$getRenderedSpell(ent, this._subclassLookup, {settings: this._compSettings.getValues()}));
 	}
 
 	async _pOnLoad_pPreDataLoad () {
@@ -389,7 +357,6 @@ class SpellsPage extends ListPageMultiSource {
 		}
 	}
 }
-SpellsPage._BOOK_VIEW_MODE_K = "bookViewMode";
 
 const spellsPage = new SpellsPage();
 spellsPage.sublistManager = new SpellsSublistManager();

@@ -23,8 +23,8 @@ class PageFilterConditionsDiseases extends PageFilter {
 		it._fMisc = [];
 		if (it.srd) it._fMisc.push("SRD");
 		if (it.basicRules) it._fMisc.push("Basic Rules");
-		if (it.hasFluff) it._fMisc.push("Has Info");
-		if (it.hasFluffImages) it._fMisc.push("Has Images");
+		if (it.hasFluff || it.fluff?.entries) it._fMisc.push("Has Info");
+		if (it.hasFluffImages || it.fluff?.images) it._fMisc.push("Has Images");
 	}
 
 	addToFilters (it, isExcluded) {
@@ -50,3 +50,5 @@ class PageFilterConditionsDiseases extends PageFilter {
 		);
 	}
 }
+
+globalThis.PageFilterConditionsDiseases = PageFilterConditionsDiseases;

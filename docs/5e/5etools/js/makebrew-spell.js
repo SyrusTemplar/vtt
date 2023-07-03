@@ -38,6 +38,7 @@ class SpellBuilder extends Builder {
 
 		delete spell.srd;
 		delete spell.uniqueId;
+		delete spell.reprintedAs;
 
 		const meta = {...(opts.meta || {}), ...this._getInitialMetaState()};
 

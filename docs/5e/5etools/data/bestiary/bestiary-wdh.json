@@ -20,6 +20,7 @@
 		{
 			"name": "Ahmaergo",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 193,
 			"size": [
@@ -124,6 +125,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greataxe|phb",
+				"heavy crossbow|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -151,6 +156,7 @@
 		{
 			"name": "Ammalia Cassalanter",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 193,
 			"size": [
@@ -275,6 +281,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"quarterstaff|phb"
+			],
 			"languageTags": [
 				"C",
 				"DR",
@@ -316,11 +325,13 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Avi",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 32,
 			"_copy": {
@@ -454,6 +465,7 @@
 		{
 			"name": "Barnibus Blastwind",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 195,
 			"size": [
@@ -574,6 +586,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"C",
 				"D",
@@ -598,6 +613,7 @@
 		{
 			"name": "Bepis Honeymaker",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 112,
 			"size": [
@@ -763,6 +779,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"hand crossbow|phb",
+				"rapier|phb"
+			],
 			"traitTags": [
 				"Sneak Attack"
 			],
@@ -814,6 +834,7 @@
 		{
 			"name": "Bonnie",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 20,
 			"_copy": {
@@ -837,6 +858,7 @@
 		{
 			"name": "Davil Starsong",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 199,
 			"size": [
@@ -973,6 +995,9 @@
 						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage. Or Ranged Weapon Attack: {@hit 5} to hit, range 20/60 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"traitTags": [
 				"Fey Ancestry"
@@ -1270,6 +1295,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry",
 				"Sunlight Sensitivity"
@@ -1302,6 +1330,7 @@
 		{
 			"name": "Durnan",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 203,
 			"size": [
@@ -1413,6 +1442,7 @@
 		{
 			"name": "Elzerina Cassalanter",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 115,
 			"size": [
@@ -1450,11 +1480,13 @@
 			"languageTags": [
 				"C"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Embric",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 32,
 			"_copy": {
@@ -1520,6 +1552,7 @@
 		{
 			"name": "Emmek Frewn",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 42,
 			"_copy": {
@@ -1629,6 +1662,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -1654,6 +1690,7 @@
 		{
 			"name": "Fala Lefaliir",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 32,
 			"size": [
@@ -1758,6 +1795,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"quarterstaff|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -1809,6 +1849,7 @@
 		{
 			"name": "Fel'rekt Lafeen",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 67,
 			"_copy": {
@@ -1832,6 +1873,7 @@
 		{
 			"name": "Floon Blagmaar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 202,
 			"_copy": {
@@ -2017,6 +2059,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb",
+				"lance|phb"
+			],
 			"languageTags": [
 				"C",
 				"X"
@@ -2035,6 +2081,7 @@
 		{
 			"name": "Grinda Garloth",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 65,
 			"_copy": {
@@ -2071,11 +2118,13 @@
 				"H",
 				"U"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Grum'shar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 29,
 			"size": [
@@ -2162,6 +2211,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -2187,6 +2239,7 @@
 		{
 			"name": "Hester Barch",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 83,
 			"_copy": {
@@ -2412,6 +2465,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dart|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -2447,6 +2503,7 @@
 		{
 			"name": "Hrabbaz",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 205,
 			"size": [
@@ -2530,6 +2587,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"morningstar|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -2553,6 +2613,7 @@
 		{
 			"name": "Istrid Horn",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 199,
 			"size": [
@@ -2703,6 +2764,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"maul|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -2740,6 +2804,7 @@
 		{
 			"name": "Jalester Silvermane",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 205,
 			"size": [
@@ -2833,6 +2898,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb",
+				"longsword|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -2854,6 +2923,7 @@
 		{
 			"name": "Jandar Chergoba",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 116,
 			"size": [
@@ -2971,6 +3041,9 @@
 						"{@atk mw} {@hit 4} to hit, reach 5 ft., one creature. {@h}4 ({@damage 1d4 + 2}) piercing damage. Or Ranged Weapon Attack: {@hit 4} to hit, range 20/60 ft., one creature. {@h}4 ({@damage 1d4 + 2}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"senseTags": [
 				"D"
@@ -3173,6 +3246,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"+3 rapier|dmg"
+			],
 			"traitTags": [
 				"Fey Ancestry",
 				"Legendary Resistances",
@@ -3211,6 +3287,7 @@
 		{
 			"name": "Jenks",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 63,
 			"size": [
@@ -3242,11 +3319,13 @@
 			"cha": 10,
 			"passive": 10,
 			"cr": "Unknown",
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Kaevja Cynavern",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 158,
 			"size": [
@@ -3374,6 +3453,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"C",
 				"D",
@@ -3401,6 +3483,7 @@
 		{
 			"name": "Kalain",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 89,
 			"size": [
@@ -3524,6 +3607,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortbow|phb",
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -3560,6 +3647,7 @@
 		{
 			"name": "Krebbyg Masq'il'yr",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 67,
 			"_copy": {
@@ -3583,6 +3671,7 @@
 		{
 			"name": "Lady Gondafrey",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 152,
 			"size": [
@@ -3695,6 +3784,7 @@
 		{
 			"name": "Laeral Silverhand",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 207,
 			"size": [
@@ -3966,6 +4056,7 @@
 		{
 			"name": "Laiba \"Nana\" Rosse",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 116,
 			"size": [
@@ -4084,6 +4175,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -4119,6 +4213,7 @@
 		{
 			"name": "Losser Mirklav",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 85,
 			"size": [
@@ -4250,6 +4345,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"C",
 				"H"
@@ -4276,6 +4374,7 @@
 		{
 			"name": "Magister Umbero Zastro",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 82,
 			"size": [
@@ -4345,6 +4444,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"rapier|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -4370,6 +4472,7 @@
 		{
 			"name": "Manafret Cherryport",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 149,
 			"size": [
@@ -4501,6 +4604,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"C",
 				"H"
@@ -4529,6 +4635,7 @@
 		{
 			"name": "Manshoon",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 209,
 			"size": [
@@ -4907,6 +5014,7 @@
 		{
 			"name": "Mattrim \"Threestrings\" Mereg",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 20,
 			"_copy": {
@@ -4936,6 +5044,7 @@
 		{
 			"name": "Maxeene",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 37,
 			"size": [
@@ -5039,6 +5148,7 @@
 		{
 			"name": "Melannor Fellbranch",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 36,
 			"size": [
@@ -5139,6 +5249,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"quarterstaff|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -5171,6 +5284,7 @@
 		{
 			"name": "Meloon Wardragon",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 210,
 			"size": [
@@ -5259,6 +5373,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"azuredge|wdh"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -5280,6 +5397,7 @@
 		{
 			"name": "Mirt",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 211,
 			"size": [
@@ -5387,6 +5505,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"+1 dagger|dmg",
+				"+1 longsword|dmg"
+			],
 			"traitTags": [
 				"Brute",
 				"Sneak Attack"
@@ -5413,6 +5535,7 @@
 		{
 			"name": "Nar'l Xibrindas",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 211,
 			"_copy": {
@@ -5443,6 +5566,7 @@
 		{
 			"name": "Nat",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 63,
 			"size": [
@@ -5474,11 +5598,13 @@
 			"cha": 10,
 			"passive": 10,
 			"cr": "Unknown",
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Nihiloor",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 212,
 			"_copy": {
@@ -5493,7 +5619,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Nimblewright",
@@ -5613,6 +5740,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb",
+				"rapier|phb"
+			],
 			"traitTags": [
 				"Magic Resistance",
 				"Magic Weapons"
@@ -5640,6 +5771,7 @@
 		{
 			"name": "Noska Ur'gray",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 213,
 			"size": [
@@ -5731,6 +5863,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"heavy crossbow|phb",
+				"mace|phb"
+			],
 			"traitTags": [
 				"Pack Tactics"
 			],
@@ -5760,6 +5896,7 @@
 		{
 			"name": "Obaya Uday",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 20,
 			"_copy": {
@@ -5789,6 +5926,7 @@
 		{
 			"name": "Obliteros",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 66,
 			"size": [
@@ -5875,6 +6013,7 @@
 		{
 			"name": "Orond Gralhund",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 213,
 			"size": [
@@ -5940,6 +6079,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"rapier|phb"
+			],
 			"actionTags": [
 				"Parry"
 			],
@@ -5959,6 +6101,7 @@
 		{
 			"name": "Osvaldo Cassalanter",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 124,
 			"_copy": {
@@ -5973,11 +6116,13 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Ott Steeltoes",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 214,
 			"size": [
@@ -6051,6 +6196,9 @@
 						"{@atk mw} {@hit 3} to hit, reach 5 ft., one creature. {@h}4 ({@damage 1d6 + 1}) slashing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"scimitar|phb"
 			],
 			"senseTags": [
 				"D"
@@ -6156,6 +6304,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"C",
 				"D"
@@ -6178,6 +6329,7 @@
 		{
 			"name": "Remallia Haventree",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 214,
 			"size": [
@@ -6336,6 +6488,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -6379,6 +6534,7 @@
 		{
 			"name": "Renaer Neverember",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 215,
 			"size": [
@@ -6462,6 +6618,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb",
+				"rapier|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -6481,6 +6641,7 @@
 		{
 			"name": "Rishaal the Page-Turner",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 33,
 			"size": [
@@ -6605,6 +6766,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"actionTags": [
 				"Breath Weapon"
 			],
@@ -6636,6 +6800,7 @@
 		{
 			"name": "Saeth Cromley",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 216,
 			"size": [
@@ -6711,6 +6876,11 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"heavy crossbow|phb",
+				"longsword|phb",
+				"shortsword|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -6733,6 +6903,7 @@
 		{
 			"name": "Samara Strongbones",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 104,
 			"_copy": {
@@ -6878,6 +7049,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"hand crossbow|phb",
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Keen Senses",
 				"Shapechanger"
@@ -6907,6 +7082,7 @@
 		{
 			"name": "Skeemo Weirdbottle",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 200,
 			"size": [
@@ -7036,6 +7212,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -7067,6 +7246,7 @@
 		{
 			"name": "Soluun Xibrindas",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 202,
 			"size": [
@@ -7193,6 +7373,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"scimitar|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry",
 				"Sunlight Sensitivity"
@@ -7225,6 +7408,7 @@
 		{
 			"name": "Squiddly",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 63,
 			"size": [
@@ -7256,7 +7440,8 @@
 			"cha": 10,
 			"passive": 10,
 			"cr": "Unknown",
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Swarm of Books",
@@ -7458,6 +7643,7 @@
 		{
 			"name": "Sylgar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 220,
 			"size": [
@@ -7523,6 +7709,7 @@
 		{
 			"name": "Talisolvanar \"Tally\" Fellbranch",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 32,
 			"size": [
@@ -7579,6 +7766,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"club|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -7601,6 +7791,7 @@
 		{
 			"name": "Tashlyn Yafeera",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 200,
 			"size": [
@@ -7690,6 +7881,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greatsword|phb",
+				"shortbow|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -7712,6 +7907,7 @@
 		{
 			"name": "Terenzio Cassalanter",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 115,
 			"size": [
@@ -7754,6 +7950,7 @@
 		{
 			"name": "Thorvin Twinbeard",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 216,
 			"size": [
@@ -7813,6 +8010,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"club|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -7833,6 +8033,7 @@
 		{
 			"name": "Thrakkus",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 89,
 			"size": [
@@ -7900,6 +8101,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greataxe|phb"
+			],
 			"traitTags": [
 				"Reckless"
 			],
@@ -7924,6 +8128,7 @@
 		{
 			"name": "Tissina Khyret",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 116,
 			"size": [
@@ -8042,6 +8247,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -8077,6 +8285,7 @@
 		{
 			"name": "Urstul Floxin",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 216,
 			"size": [
@@ -8176,6 +8385,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"light crossbow|phb",
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Sneak Attack"
 			],
@@ -8203,6 +8416,7 @@
 		{
 			"name": "Vajra Safahr",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 217,
 			"size": [
@@ -8415,6 +8629,7 @@
 		{
 			"name": "Valetta",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 47,
 			"size": [
@@ -8526,6 +8741,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"mace|phb"
+			],
 			"languageTags": [
 				"C",
 				"DR"
@@ -8552,6 +8770,7 @@
 		{
 			"name": "Victoro Cassalanter",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 218,
 			"size": [
@@ -8750,6 +8969,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"rapier|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -8799,6 +9021,7 @@
 		{
 			"name": "Vincent Trench",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 32,
 			"_copy": {
@@ -8950,6 +9173,7 @@
 		{
 			"name": "Willifort Crowelle",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 62,
 			"_copy": {
@@ -8969,6 +9193,7 @@
 		{
 			"name": "Xanathar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 220,
 			"_copy": {
@@ -8996,11 +9221,13 @@
 				}
 			},
 			"hasToken": true,
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Yagra Stonefist",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 20,
 			"size": [
@@ -9088,6 +9315,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"heavy crossbow|phb",
+				"mace|phb"
+			],
 			"traitTags": [
 				"Pack Tactics"
 			],
@@ -9117,6 +9348,7 @@
 		{
 			"name": "Yalah Gralhund",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 220,
 			"size": [
@@ -9183,6 +9415,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"rapier|phb"
+			],
 			"actionTags": [
 				"Parry"
 			],
@@ -9203,6 +9438,7 @@
 		{
 			"name": "Yorn",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 150,
 			"size": [
@@ -9284,6 +9520,10 @@
 						"{@atk rw} {@hit 2} to hit, range 100/400 ft., one target. {@h}5 ({@damage 1d10}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"heavy crossbow|phb",
+				"mace|phb"
 			],
 			"traitTags": [
 				"Pack Tactics"
@@ -9413,6 +9653,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dart|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -9439,6 +9682,7 @@
 		{
 			"name": "Ziraj the Hunter",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WDH",
 			"page": 201,
 			"size": [
@@ -9552,6 +9796,10 @@
 						"Ziraj exudes magical menace. Each enemy within 30 feet of him must succeed on a {@dc 13} Wisdom saving throw or be {@condition frightened} for 1 minute of Ziraj. If a {@condition frightened} enemy ends its turn more than 30 feet away from Ziraj, the enemy can repeat the saving throw, ending the effect on itself on a success."
 					]
 				}
+			],
+			"attachedItems": [
+				"glaive|phb",
+				"oversized longbow|wdh"
 			],
 			"senseTags": [
 				"D"

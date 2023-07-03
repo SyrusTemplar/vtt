@@ -81,3 +81,5 @@ class PageFilterDeities extends PageFilter {
 		);
 	}
 }
+
+globalThis.PageFilterDeities = PageFilterDeities;

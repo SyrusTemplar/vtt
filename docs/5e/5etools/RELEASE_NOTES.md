@@ -1,6 +1,7 @@
-v1.174.2
+v1.181.8
 
-- Added an "Add Predefined Action" button to the Creature Homebrew Builder, similar in function to the existing "Add Predefined Trait" button (thanks @ FishCrystals for the prototype and data entry) 
-- (Prerelease/Brew) Fixed Prerelease/Homebrew races failing to load in Statgen
-- (Brew) Fixed crash when opening the "Manage [Editable Homebrew] Contents" dialog
+- Added more images to various books (PHB, MM, VGM, MTF, SCAG, XGE)
+- Added Printer View button to Backgrounds page; Feats page
+- Improved CR Scaler handling of heavy armor with shields at high CRs
+- Fixed rare Bestiary crash when loading a specific subset of sources 
 - (Fixed typos/added tags)

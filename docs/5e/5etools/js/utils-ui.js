@@ -115,6 +115,7 @@ function MixinProxyBase (Cls) {
 		_addHook (hookProp, prop, hook) {
 			ProxyBase._addHook_to(this.__hooks, hookProp, prop, hook);
 			if (this.__hooksTmp) ProxyBase._addHook_to(this.__hooksTmp, hookProp, prop, hook);
+			return hook;
 		}
 
 		static _addHook_to (obj, hookProp, prop, hook) {
@@ -124,6 +125,7 @@ function MixinProxyBase (Cls) {
 		_addHookAll (hookProp, hook) {
 			ProxyBase._addHookAll_to(this.__hooksAll, hookProp, hook);
 			if (this.__hooksAllTmp) ProxyBase._addHookAll_to(this.__hooksAllTmp, hookProp, hook);
+			return hook;
 		}
 
 		static _addHookAll_to (obj, hookProp, hook) {
@@ -339,7 +341,7 @@ class UiUtil {
 	 * @param [opts.isHeaderBorder] {boolean}
 	 *
 	 * @param {function} [opts.cbClose] Callback run when the modal is closed.
-	 * @param {JQuery} [opts.$titleSplit] Element to have split alongside the title.
+	 * @param {jQuery} [opts.$titleSplit] Element to have split alongside the title.
 	 * @param {int} [opts.zIndex] Z-index of the modal.
 	 * @param {number} [opts.overlayColor] Overlay color.
 	 * @param {boolean} [opts.isPermanent] If the modal should be impossible to close.
@@ -420,7 +422,7 @@ class UiUtil {
 		const modalFooter = opts.hasFooter
 			? e_({
 				tag: "div",
-				clazz: `"no-shrink w-100 ve-flex-col ui-modal__footer ${opts.isFullscreenModal ? `ui-modal__footer--fullscreen mt-1` : ""}`,
+				clazz: `no-shrink w-100 ve-flex-col ui-modal__footer ${opts.isFullscreenModal ? `ui-modal__footer--fullscreen mt-1` : "mt-auto"}`,
 			})
 			: null;
 
@@ -455,7 +457,7 @@ class UiUtil {
 		}).appendTo(opts.isFullscreenModal ? overlayBlind : wrpOverlay);
 
 		wrpOverlay
-			.addEventListener("mouseup", evt => {
+			.addEventListener("mouseup", async evt => {
 				if (evt.target !== wrpOverlay) return;
 				if (evt.target !== UiUtil._MODAL_LAST_MOUSEDOWN) return;
 				if (opts.isPermanent) return;
@@ -537,7 +539,7 @@ class UiUtil {
 	}
 
 	static addModalSep ($modalInner) {
-		$modalInner.append(`<hr class="ui-modal__row-sep">`);
+		$modalInner.append(`<hr class="hr-2">`);
 	}
 
 	static $getAddModalRow ($modalInner, tag = "div") {
@@ -570,6 +572,28 @@ class UiUtil {
 			})
 			.prop("checked", objectWithProp[propName])
 			.on("change", () => objectWithProp[propName] = $cb.prop("checked"));
+		return $cb;
+	}
+
+	/**
+	 *
+	 * @param $wrp
+	 * @param comp
+	 * @param prop
+	 * @param text
+	 * @param {?string} title
+	 * @return {jQuery}
+	 */
+	static $getAddModalRowCb2 ({$wrp, comp, prop, text, title = null }) {
+		const $cb = ComponentUiUtil.$getCbBool(comp, prop);
+
+		const $row = $$`<label class="split-v-center py-1 veapp__ele-hoverable">
+			<span>${text}</span>
+			${$cb}
+		</label>`
+			.appendTo($wrp);
+		if (title) $row.title(title);
+
 		return $cb;
 	}
 
@@ -653,14 +677,41 @@ UiUtil.TYPE_TIMEOUT_MS = 100; // auto-search after 100ms
 UiUtil._MODAL_STACK = null;
 UiUtil._MODAL_LAST_MOUSEDOWN = null;
 
-class ListUiUtil {
+class ListSelectClickHandlerBase {
 	static _EVT_PASS_THOUGH_TAGS = new Set(["A", "BUTTON"]);
+
+	constructor () {
+		this._firstSelection = null;
+		this._lastSelection = null;
+
+		this._selectionInitialValue = null;
+	}
+
+	/**
+	 * @abstract
+	 * @return {Array}
+	 */
+	get _visibleItems () { throw new Error("Unimplemented!"); }
+
+	/**
+	 * @abstract
+	 * @return {Array}
+	 */
+	get _allItems () { throw new Error("Unimplemented!"); }
+
+	/** @abstract */
+	_getCb (item, opts) { throw new Error("Unimplemented!"); }
+
+	/** @abstract */
+	_setCheckbox (item, opts) { throw new Error("Unimplemented!"); }
+
+	/** @abstract */
+	_setHighlighted (item, opts) { throw new Error("Unimplemented!"); }
 
 	/**
 	 * (Public method for Plutonium use)
 	 * Handle doing a checkbox-based selection toggle on a list.
-	 * @param list
-	 * @param item List item. Must have a "data" property with a "cbSel" (the checkbox).
+	 * @param item List item.
 	 * @param evt Click event.
 	 * @param [opts] Options object.
 	 * @param [opts.isNoHighlightSelection] If highlighting selected rows should be skipped.
@@ -668,13 +719,13 @@ class ListUiUtil {
 	 * @param [opts.fnGetCb] Function which gets the checkbox from a list item.
 	 * @param [opts.isPassThroughEvents] If e.g. click events to links/buttons in the list item should be allowed/ignored.
 	 */
-	static handleSelectClick (list, item, evt, opts) {
+	handleSelectClick (item, evt, opts) {
 		opts = opts || {};
 
 		if (opts.isPassThroughEvents) {
 			const evtPath = evt.composedPath();
 			const subEles = evtPath.slice(0, evtPath.indexOf(evt.currentTarget));
-			if (subEles.some(ele => ListUiUtil._EVT_PASS_THOUGH_TAGS.has(ele?.tagName))) return;
+			if (subEles.some(ele => this.constructor._EVT_PASS_THOUGH_TAGS.has(ele?.tagName))) return;
 		}
 
 		evt.preventDefault();
@@ -683,56 +734,58 @@ class ListUiUtil {
 		const cb = this._getCb(item, opts);
 		if (cb.disabled) return true;
 
-		if (evt && evt.shiftKey && list.__firstListSelection) {
-			if (list.__lastListSelection === item) {
+		if (evt && evt.shiftKey && this._firstSelection) {
+			if (this._lastSelection === item) {
 				// on double-tapping the end of the selection, toggle it on/off
 
-				this.setCheckbox(item, {...opts, toVal: !cb.checked});
-			} else if (list.__firstListSelection === item && list.__lastListSelection) {
+				this._setCheckbox(item, {...opts, toVal: !cb.checked});
+			} else if (this._firstSelection === item && this._lastSelection) {
 				// If the item matches the last clicked, clear all checkboxes from our last selection
 
-				const ix1 = list.visibleItems.indexOf(list.__firstListSelection);
-				const ix2 = list.visibleItems.indexOf(list.__lastListSelection);
+				const ix1 = this._visibleItems.indexOf(this._firstSelection);
+				const ix2 = this._visibleItems.indexOf(this._lastSelection);
 
 				const [ixStart, ixEnd] = [ix1, ix2].sort(SortUtil.ascSort);
 				for (let i = ixStart; i <= ixEnd; ++i) {
-					const it = list.visibleItems[i];
-					this.setCheckbox(it, {...opts, toVal: false});
+					const it = this._visibleItems[i];
+					this._setCheckbox(it, {...opts, toVal: false});
 				}
 
-				this.setCheckbox(item, opts);
+				this._setCheckbox(item, opts);
 			} else {
-				// on a shift-click, toggle all the checkboxes to true...
+				// on a shift-click, toggle all the checkboxes to the value of the initial item...
+				this._selectionInitialValue = this._getCb(this._firstSelection, opts).checked;
 
-				const ix1 = list.visibleItems.indexOf(list.__firstListSelection);
-				const ix2 = list.visibleItems.indexOf(item);
-				const ix2Prev = list.__lastListSelection ? list.visibleItems.indexOf(list.__lastListSelection) : null;
+				const ix1 = this._visibleItems.indexOf(this._firstSelection);
+				const ix2 = this._visibleItems.indexOf(item);
+				const ix2Prev = this._lastSelection ? this._visibleItems.indexOf(this._lastSelection) : null;
 
 				const [ixStart, ixEnd] = [ix1, ix2].sort(SortUtil.ascSort);
+				const nxtOpts = {...opts, toVal: this._selectionInitialValue};
 				for (let i = ixStart; i <= ixEnd; ++i) {
-					const it = list.visibleItems[i];
-					this.setCheckbox(it, opts);
+					const it = this._visibleItems[i];
+					this._setCheckbox(it, nxtOpts);
 				}
 
-				// ...except those between the last selection and this selection, set those to false
-				if (ix2Prev != null) {
+				// ...except when selecting; for those between the last selection and this selection, those to unchecked
+				if (this._selectionInitialValue && ix2Prev != null) {
 					if (ix2Prev > ixEnd) {
-						const nxtOpts = {...opts, toVal: false};
+						const nxtOpts = {...opts, toVal: !this._selectionInitialValue};
 						for (let i = ixEnd + 1; i <= ix2Prev; ++i) {
-							const it = list.visibleItems[i];
-							this.setCheckbox(it, nxtOpts);
+							const it = this._visibleItems[i];
+							this._setCheckbox(it, nxtOpts);
 						}
 					} else if (ix2Prev < ixStart) {
-						const nxtOpts = {...opts, toVal: false};
+						const nxtOpts = {...opts, toVal: !this._selectionInitialValue};
 						for (let i = ix2Prev; i < ixStart; ++i) {
-							const it = list.visibleItems[i];
-							this.setCheckbox(it, nxtOpts);
+							const it = this._visibleItems[i];
+							this._setCheckbox(it, nxtOpts);
 						}
 					}
 				}
 			}
 
-			list.__lastListSelection = item;
+			this._lastSelection = item;
 		} else {
 			// on a normal click, or if there's been no initial selection, just toggle the checkbox
 
@@ -743,48 +796,74 @@ class ListUiUtil {
 				if (opts.fnOnSelectionChange) opts.fnOnSelectionChange(item, cbMaster.checked);
 
 				if (!opts.isNoHighlightSelection) {
-					if (cbMaster.checked) item.ele instanceof $ ? item.ele.addClass("list-multi-selected") : item.ele.classList.add("list-multi-selected");
-					else item.ele instanceof $ ? item.ele.removeClass("list-multi-selected") : item.ele.classList.remove("list-multi-selected");
+					this._setHighlighted(item, cbMaster.checked);
 				}
 			} else {
 				if (!opts.isNoHighlightSelection) {
-					item.ele instanceof $ ? item.ele.removeClass("list-multi-selected") : item.ele.classList.remove("list-multi-selected");
+					this._setHighlighted(item, false);
 				}
 			}
 
-			list.__firstListSelection = item;
-			list.__lastListSelection = null;
+			this._firstSelection = item;
+			this._lastSelection = null;
+			this._selectionInitialValue = null;
 		}
 	}
 
 	/**
 	 * Handle doing a radio-based selection toggle on a list.
-	 * @param list
-	 * @param item List item. Must have a "data" property with a "cbSel" (the radio input).
+	 * @param item List item.
 	 * @param evt Click event.
 	 */
-	static handleSelectClickRadio (list, item, evt) {
+	handleSelectClickRadio (item, evt) {
 		evt.preventDefault();
 		evt.stopPropagation();
 
-		list.items.forEach(it => {
-			if (it === item) {
+		this._allItems.forEach(itemOther => {
+			const cb = this._getCb(itemOther);
+
+			if (itemOther === item) {
 				// Setting this to true *should* cause the browser to update the rest for us, but since list items can
 				//   be filtered/hidden, the browser won't necessarily update them all. Therefore, forcibly set
 				//   `checked = false` below.
-				it.data.cbSel.checked = true;
-				it.ele.classList.add("list-multi-selected");
+				cb.checked = true;
+				this._setHighlighted(itemOther, true);
 			} else {
-				it.data.cbSel.checked = false;
-				it.ele.classList.remove("list-multi-selected");
+				cb.checked = false;
+				this._setHighlighted(itemOther, false);
 			}
 		});
 	}
+}
 
-	static _getCb (item, opts) { return opts.fnGetCb ? opts.fnGetCb(item) : item.data.cbSel; }
+globalThis.ListSelectClickHandlerBase = ListSelectClickHandlerBase;
 
-	static setCheckbox (item, {fnGetCb, fnOnSelectionChange, isNoHighlightSelection, toVal = true} = {}) {
+class ListSelectClickHandler extends ListSelectClickHandlerBase {
+	constructor ({list}) {
+		super();
+		this._list = list;
+	}
+
+	get _visibleItems () { return this._list.visibleItems; }
+
+	get _allItems () { return this._list.items; }
+
+	_getCb (item, opts = {}) { return opts.fnGetCb ? opts.fnGetCb(item) : item.data.cbSel; }
+
+	_setCheckbox (item, opts = {}) { return this.setCheckbox(item, opts); }
+
+	_setHighlighted (item, isHighlighted) {
+		if (isHighlighted) item.ele instanceof $ ? item.ele.addClass("list-multi-selected") : item.ele.classList.add("list-multi-selected");
+		else item.ele instanceof $ ? item.ele.removeClass("list-multi-selected") : item.ele.classList.remove("list-multi-selected");
+	}
+
+	/* -------------------------------------------- */
+
+	setCheckbox (item, {fnGetCb, fnOnSelectionChange, isNoHighlightSelection, toVal = true} = {}) {
 		const cbSlave = this._getCb(item, {fnGetCb, fnOnSelectionChange, isNoHighlightSelection});
+
+		if (cbSlave?.disabled) return;
+
 		if (cbSlave) {
 			cbSlave.checked = toVal;
 			if (fnOnSelectionChange) fnOnSelectionChange(item, toVal);
@@ -792,29 +871,34 @@ class ListUiUtil {
 
 		if (isNoHighlightSelection) return;
 
-		if (toVal) item.ele instanceof $ ? item.ele.addClass("list-multi-selected") : item.ele.classList.add("list-multi-selected");
-		else item.ele instanceof $ ? item.ele.removeClass("list-multi-selected") : item.ele.classList.remove("list-multi-selected");
+		this._setHighlighted(item, toVal);
 	}
 
 	/**
 	 * (Public method for Plutonium use)
 	 */
-	static bindSelectAllCheckbox ($cbAll, list) {
+	bindSelectAllCheckbox ($cbAll) {
 		$cbAll.change(() => {
 			const isChecked = $cbAll.prop("checked");
-			this.setCheckboxes({isChecked, list});
+			this.setCheckboxes({isChecked});
 		});
 	}
 
-	static setCheckboxes ({isChecked, isIncludeHidden, list}) {
-		(isIncludeHidden ? list.items : list.visibleItems).forEach(item => {
-			if (item.data.cbSel) item.data.cbSel.checked = isChecked;
+	setCheckboxes ({isChecked, isIncludeHidden}) {
+		(isIncludeHidden ? this._list.items : this._list.visibleItems)
+			.forEach(item => {
+				if (item.data.cbSel?.disabled) return;
 
-			if (isChecked) item.ele instanceof $ ? item.ele.addClass("list-multi-selected") : item.ele.classList.add("list-multi-selected");
-			else item.ele instanceof $ ? item.ele.removeClass("list-multi-selected") : item.ele.classList.remove("list-multi-selected");
-		});
+				if (item.data.cbSel) item.data.cbSel.checked = isChecked;
+
+				this._setHighlighted(item, isChecked);
+			});
 	}
+}
 
+globalThis.ListSelectClickHandler = ListSelectClickHandler;
+
+class ListUiUtil {
 	static bindPreviewButton (page, allData, item, btnShowHidePreview, {$fnGetPreviewStats} = {}) {
 		btnShowHidePreview.addEventListener("click", evt => {
 			const entity = allData[item.ix];
@@ -925,14 +1009,14 @@ class ListUiUtil {
 		build () {
 			return {
 				stats: {
-					help: `"stats:<text>" to search within stat blocks.`,
+					help: `"stats:<text>" ("/text/" for regex) to search within stat blocks.`,
 					fn: (listItem, searchTerm) => {
 						if (listItem.data._textCacheStats == null) listItem.data._textCacheStats = this._getSearchCacheStats(this._dataList[listItem.ix]);
 						return this._listSyntax_isTextMatch(listItem.data._textCacheStats, searchTerm);
 					},
 				},
 				info: {
-					help: `"info:<text>" to search within info.`,
+					help: `"info:<text>" ("/text/" for regex) to search within info.`,
 					fn: async (listItem, searchTerm) => {
 						if (listItem.data._textCacheFluff == null) listItem.data._textCacheFluff = await this._pGetSearchCacheFluff(this._dataList[listItem.ix]);
 						return this._listSyntax_isTextMatch(listItem.data._textCacheFluff, searchTerm);
@@ -940,7 +1024,7 @@ class ListUiUtil {
 					isAsync: true,
 				},
 				text: {
-					help: `"text:<text>" to search within stat blocks plus info.`,
+					help: `"text:<text>" ("/text/" for regex) to search within stat blocks plus info.`,
 					fn: async (listItem, searchTerm) => {
 						if (listItem.data._textCacheAll == null) {
 							const {textCacheStats, textCacheFluff, textCacheAll} = await this._pGetSearchCacheAll(this._dataList[listItem.ix], {textCacheStats: listItem.data._textCacheStats, textCacheFluff: listItem.data._textCacheFluff});
@@ -955,7 +1039,11 @@ class ListUiUtil {
 			};
 		}
 
-		_listSyntax_isTextMatch (str, searchTerm) { return str && str.includes(searchTerm); }
+		_listSyntax_isTextMatch (str, searchTerm) {
+			if (!str) return false;
+			if (searchTerm instanceof RegExp) return searchTerm.test(str);
+			return str.includes(searchTerm);
+		}
 
 		// TODO(Future) the ideal solution to this is to render every entity to plain text (or failing that, Markdown) and
 		//   indexing that text with e.g. elasticlunr.
@@ -963,10 +1051,14 @@ class ListUiUtil {
 			return this._getSearchCache_entries(entity);
 		}
 
-		_getSearchCache_entries (entity) {
-			if (!entity.entries) return "";
+		static _INDEXABLE_PROPS_ENTRIES = [
+			"entries",
+		];
+
+		_getSearchCache_entries (entity, {indexableProps = null} = {}) {
+			if ((indexableProps || this.constructor._INDEXABLE_PROPS_ENTRIES).every(it => !entity[it])) return "";
 			const ptrOut = {_: ""};
-			this._getSearchCache_handleEntryProp(entity, "entries", ptrOut);
+			(indexableProps || this.constructor._INDEXABLE_PROPS_ENTRIES).forEach(it => this._getSearchCache_handleEntryProp(entity, it, ptrOut));
 			return ptrOut._;
 		}
 
@@ -992,7 +1084,7 @@ class ListUiUtil {
 
 		async _pGetSearchCacheFluff (entity) {
 			const fluff = this._pFnGetFluff ? await this._pFnGetFluff(entity) : null;
-			return fluff ? this._getSearchCache_entries(fluff) : "";
+			return fluff ? this._getSearchCache_entries(fluff, {indexableProps: ["entries"]}) : "";
 		}
 
 		async _pGetSearchCacheAll (entity, {textCacheStats = null, textCacheFluff = null}) {
@@ -1287,6 +1379,9 @@ class TabUiUtil extends TabUiUtilBase {
 		obj.__$getDispTabTitle = function () { return null; };
 	}
 }
+
+globalThis.TabUiUtil = TabUiUtil;
+
 TabUiUtil.TabMeta = class extends TabUiUtilBase.TabMeta {
 	constructor (opts) {
 		super(opts);
@@ -1351,6 +1446,8 @@ class TabUiUtilSide extends TabUiUtilBase {
 		};
 	}
 }
+
+globalThis.TabUiUtilSide = TabUiUtilSide;
 
 // TODO have this respect the blocklist?
 class SearchUiUtil {
@@ -1468,7 +1565,6 @@ SearchUiUtil.NO_HOVER_CATEGORIES = new Set([
 	Parser.CAT_ID_BOOK,
 	Parser.CAT_ID_QUICKREF,
 	Parser.CAT_ID_PAGE,
-	Parser.CAT_ID_LEGENDARY_GROUP,
 ]);
 
 // based on DM screen's AddMenuSearchTab
@@ -1556,7 +1652,7 @@ class SearchWidget {
 		});
 	}
 
-	static bindRowHandlers ({result, $row, $ptrRows, fnHandleClick}) {
+	static bindRowHandlers ({result, $row, $ptrRows, fnHandleClick, $iptSearch}) {
 		return $row
 			.keydown(evt => {
 				switch (evt.which) {
@@ -1568,7 +1664,7 @@ class SearchWidget {
 						const ixRow = $ptrRows._.indexOf($row);
 						const $prev = $ptrRows._[ixRow - 1];
 						if ($prev) $prev.focus();
-						else $ptrRows.focus();
+						else $iptSearch.focus();
 						break;
 					}
 					case 40: { // down
@@ -1741,7 +1837,7 @@ class SearchWidget {
 
 			res.forEach(r => {
 				const $row = this.__$getRow(r).appendTo(this._$wrpResults);
-				SearchWidget.bindRowHandlers({result: r, $row, $ptrRows: this._$ptrRows, fnHandleClick: handleClick});
+				SearchWidget.bindRowHandlers({result: r, $row, $ptrRows: this._$ptrRows, fnHandleClick: handleClick, $iptSearch: this._$iptSearch});
 				this._$ptrRows._.push($row);
 			});
 
@@ -3101,6 +3197,7 @@ class DragReorderUiUtil {
 	 * @param opts.swapRowPositions
 	 * @param [opts.$children] An array of row elements.
 	 * @param [opts.$getChildren] Should return an array as described in the "$children" option.
+	 * @param [opts.fnOnDragComplete] A function to run when dragging is completed.
 	 */
 	static $getDragPadOpts ($fnGetRow, opts) {
 		if (!opts.$parent || !opts.swapRowPositions || (!opts.$children && !opts.$getChildren)) throw new Error("Missing required option(s)!");
@@ -3111,6 +3208,7 @@ class DragReorderUiUtil {
 			dragMeta.$wrap.remove();
 			dragMeta.$dummies.forEach($d => $d.remove());
 			$(document.body).off(`mouseup.drag__stop`);
+			if (opts.fnOnDragComplete) opts.fnOnDragComplete();
 		};
 
 		const doDragRender = () => {
@@ -3129,7 +3227,7 @@ class DragReorderUiUtil {
 
 			$children.forEach(($child, i) => {
 				const dimensions = {w: $child.outerWidth(true), h: $child.outerHeight(true)};
-				const $dummy = $(`<div class="${i === ixRow ? "ui-drag__wrp-drag-dummy--highlight" : "ui-drag__wrp-drag-dummy--lowlight"}"></div>`)
+				const $dummy = $(`<div class="no-shrink ${i === ixRow ? "ui-drag__wrp-drag-dummy--highlight" : "ui-drag__wrp-drag-dummy--lowlight"}"></div>`)
 					.width(dimensions.w).height(dimensions.h)
 					.mouseup(() => {
 						if (dragMeta.on) doDragCleanup();
@@ -3211,6 +3309,11 @@ class SourceUiUtil {
 				$iptJson.removeClass("form-control--error");
 			});
 		if (options.source) $iptJson.val(options.source.json);
+		let hasColor = false;
+		const $iptColor = $(`<input type="color" class="w-100 b-0">`)
+			.keydown(evt => { if (evt.key === "Escape") $iptColor.blur(); })
+			.change(() => hasColor = true);
+		if (options.source?.color != null) (hasColor = true) && $iptColor.val(options.source.color);
 		const $iptUrl = $(`<input class="form-control ui-source__ipt-named">`)
 			.keydown(evt => { if (evt.key === "Escape") $iptUrl.blur(); });
 		if (options.source) $iptUrl.val(options.source.url);
@@ -3245,6 +3348,7 @@ class SourceUiUtil {
 					authors: $iptAuthors.val().trim().split(",").map(it => it.trim()).filter(Boolean),
 					convertedBy: $iptConverters.val().trim().split(",").map(it => it.trim()).filter(Boolean),
 				};
+				if (hasColor) source.color = $iptColor.val().trim();
 
 				await options.cbConfirm(source, options.mode !== "edit");
 			});
@@ -3275,6 +3379,10 @@ class SourceUiUtil {
 			<div class="ui-source__row mb-2"><div class="col-12 ve-flex-v-center">
 				<span class="mr-2 ui-source__name help" title="This will be used to identify your homebrew universally, so should be unique to you and you alone">JSON Identifier</span>
 				${$iptJson}
+			</div></div>
+			<div class="ui-source__row mb-2"><div class="col-12 ve-flex-v-center">
+				<span class="mr-2 ui-source__name help" title="A color which should be used when displaying the source abbreviation">Color</span>
+				${$iptColor}
 			</div></div>
 			<div class="ui-source__row mb-2"><div class="col-12 ve-flex-v-center">
 				<span class="mr-2 ui-source__name help" title="A link to the original homebrew, e.g. a GM Binder page">Source URL</span>
@@ -3722,6 +3830,92 @@ class RenderableCollectionBase {
 		});
 	}
 }
+
+class RenderableCollectionGenericRows extends RenderableCollectionBase {
+	/**
+	 * @param comp
+	 * @param prop
+	 * @param $wrpRows
+	 * @param [opts]
+	 * @param [opts.namespace]
+	 * @param [opts.isDiffMode]
+	 */
+	constructor (comp, prop, $wrpRows, opts) {
+		super(comp, prop, opts);
+		this._$wrpRows = $wrpRows;
+	}
+
+	doUpdateExistingRender (renderedMeta, entity, i) {
+		renderedMeta.comp._proxyAssignSimple("state", entity.entity, true);
+		if (!renderedMeta.$wrpRow.parent().is(this._$wrpRows)) renderedMeta.$wrpRow.appendTo(this._$wrpRows);
+	}
+
+	doReorderExistingComponent (renderedMeta, entity, i) {
+		const ix = this._comp._state[this._prop].map(it => it.id).indexOf(entity.id);
+		const curIx = this._$wrpRows.find(`> *`).index(renderedMeta.$wrpRow);
+
+		const isMove = !this._$wrpRows.length || curIx !== ix;
+		if (isMove) renderedMeta.$wrpRow.detach().appendTo(this._$wrpRows);
+	}
+
+	getNewRender (entity, i) {
+		const comp = BaseComponent.fromObject(entity.entity, "*");
+		comp._addHookAll("state", () => {
+			this._getCollectionItem(entity.id).entity = comp.toObject("*");
+			this._comp._triggerCollectionUpdate(this._prop);
+		});
+
+		const $wrpRow = this._$getWrpRow()
+			.appendTo(this._$wrpRows);
+
+		this._populateRow({comp, $wrpRow, entity});
+
+		return {
+			comp,
+			$wrpRow,
+		};
+	}
+
+	_$getWrpRow () {
+		return $(`<div class="ve-flex-v-center w-100"></div>`);
+	}
+
+	/**
+	 * @return void
+	 */
+	_populateRow ({comp, $wrpRow, entity}) {
+		throw new Error(`Unimplemented!`);
+	}
+
+	_$getBtnDelete ({entity}) {
+		return $(`<button class="btn btn-xxs btn-danger" title="Delete"><span class="glyphicon glyphicon-trash"></span></button>`)
+			.click(() => this._doDelete({entity}));
+	}
+
+	_doDelete ({entity}) {
+		this._comp._state[this._prop] = this._comp._state[this._prop].filter(it => it !== entity);
+	}
+
+	_$getPadDrag ({$wrpRow}) {
+		return DragReorderUiUtil.$getDragPadOpts(
+			() => $wrpRow,
+			{
+				swapRowPositions: (ixA, ixB) => {
+					[this._comp._state[this._prop][ixA], this._comp._state[this._prop][ixB]] = [this._comp._state[this._prop][ixB], this._comp._state[this._prop][ixA]];
+					this._comp._triggerCollectionUpdate(this._prop);
+				},
+				$getChildren: () => {
+					const rendered = this._comp._getRenderedCollection({prop: this._prop, namespace: this._namespace});
+					return this._comp._state[this._prop]
+						.map(it => rendered[it.id].$wrpRow);
+				},
+				$parent: this._$wrpRows,
+			},
+		);
+	}
+}
+
+globalThis.RenderableCollectionGenericRows = RenderableCollectionGenericRows;
 
 class RenderableCollectionAsyncBase {
 	/**
@@ -5566,6 +5760,18 @@ class SettingsUtil {
 			this.name = name;
 			this.help = help;
 			this.defaultVal = defaultVal;
+		}
+	};
+
+	static EnumSetting = class extends SettingsUtil.Setting {
+		constructor (
+			{
+				enumVals,
+				...rest
+			},
+		) {
+			super(rest);
+			this.enumVals = enumVals;
 		}
 	};
 

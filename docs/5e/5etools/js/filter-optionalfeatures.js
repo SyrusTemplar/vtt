@@ -148,6 +148,8 @@ class PageFilterOptionalFeatures extends PageFilter {
 	}
 }
 
+globalThis.PageFilterOptionalFeatures = PageFilterOptionalFeatures;
+
 class ModalFilterOptionalFeatures extends ModalFilter {
 	/**
 	 * @param opts
@@ -231,3 +233,5 @@ class ModalFilterOptionalFeatures extends ModalFilter {
 		return listItem;
 	}
 }
+
+globalThis.ModalFilterOptionalFeatures = ModalFilterOptionalFeatures;

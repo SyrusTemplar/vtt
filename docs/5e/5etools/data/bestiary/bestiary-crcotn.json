@@ -117,6 +117,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"spear|phb"
+			],
 			"traitTags": [
 				"Amphibious"
 			],
@@ -154,6 +157,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 21,
 			"_copy": {
 				"name": "Orc",
 				"source": "MM",
@@ -170,13 +174,15 @@
 				"C",
 				"G"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Aloysia Telfan",
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 61,
 			"_copy": {
 				"name": "Occult Initiate",
 				"source": "CRCotN",
@@ -203,7 +209,8 @@
 				"L",
 				"E"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Alyxian Aboleth",
@@ -498,6 +505,9 @@
 				"name": "Alyxian the Absolved",
 				"source": "CRCotN"
 			},
+			"attachedItems": [
+				"spear|phb"
+			],
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -854,6 +864,9 @@
 				"name": "Alyxian the Dispossessed",
 				"source": "CRCotN"
 			},
+			"attachedItems": [
+				"spear|phb"
+			],
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -995,6 +1008,9 @@
 						"The golem targets one or more creatures it can see within 10 feet of it. Each target must make a {@dc 17} Wisdom saving throw against this magic. On a failed save, a target can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the target can take either an action or a bonus action on its turn, not both. These effects last for 1 minute. A target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 					]
 				}
+			],
+			"attachedItems": [
+				"ruidium dart|crcotn"
 			],
 			"traitTags": [
 				"Immutable Form",
@@ -1290,6 +1306,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 82,
 			"_copy": {
 				"name": "Occult Silvertongue",
 				"source": "CRCotN",
@@ -1317,13 +1334,15 @@
 				"L",
 				"N"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Ashann",
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 115,
 			"_copy": {
 				"name": "Occult Initiate",
 				"source": "CRCotN",
@@ -1350,7 +1369,8 @@
 				"C",
 				"N"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Ayo Jabe (Tier 1)",
@@ -1365,7 +1385,10 @@
 				"type": "humanoid",
 				"tags": [
 					"ranger",
-					"water genasi"
+					{
+						"tag": "genasi",
+						"prefix": "Water"
+					}
 				]
 			},
 			"alignment": [
@@ -1457,6 +1480,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"longbow|phb"
+			],
 			"traitTags": [
 				"Amphibious"
 			],
@@ -1499,7 +1525,10 @@
 				"type": "humanoid",
 				"tags": [
 					"ranger",
-					"water genasi"
+					{
+						"tag": "genasi",
+						"prefix": "Water"
+					}
 				]
 			},
 			"alignment": [
@@ -1600,6 +1629,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"longbow|phb"
+			],
 			"traitTags": [
 				"Amphibious"
 			],
@@ -1641,7 +1673,10 @@
 				"type": "humanoid",
 				"tags": [
 					"ranger",
-					"water genasi"
+					{
+						"tag": "genasi",
+						"prefix": "Water"
+					}
 				]
 			},
 			"alignment": [
@@ -1753,6 +1788,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"longbow|phb"
+			],
 			"traitTags": [
 				"Amphibious"
 			],
@@ -1791,6 +1829,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 150,
 			"_copy": {
 				"name": "Ghost",
 				"source": "MM",
@@ -1803,7 +1842,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Corrupted Giant Shark",
@@ -2241,6 +2281,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"warhammer|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -2374,6 +2417,9 @@
 						"{@atk rs} {@hit 7} to hit, range 60 ft., one creature. {@h}18 ({@damage 4d8}) radiant damage, and the target is {@condition blinded} until the end of its next turn."
 					]
 				}
+			],
+			"attachedItems": [
+				"warhammer|phb"
 			],
 			"senseTags": [
 				"D"
@@ -2520,6 +2566,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"ruidium warhammer|crcotn"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -2555,7 +2604,7 @@
 			"source": "CRCotN",
 			"page": 71,
 			"_copy": {
-				"name": "Orc",
+				"name": "Orc War Chief",
 				"source": "MM"
 			},
 			"type": {
@@ -2580,6 +2629,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 58,
 			"_copy": {
 				"name": "Priest",
 				"source": "MM",
@@ -2604,7 +2654,8 @@
 				"CC",
 				"I"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Galeokaerda",
@@ -3156,6 +3207,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"ruidium dagger|crcotn"
+			],
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -3201,6 +3255,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 81,
 			"_copy": {
 				"name": "Scholarly Mastermind",
 				"source": "CRCotN",
@@ -3228,7 +3283,8 @@
 				"N",
 				"G"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Insight Acuere",
@@ -3446,6 +3502,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -3543,6 +3602,9 @@
 						"{@atk mw,rw} {@hit 6} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}5 ({@damage 1d4 + 3}) piercing damage plus 14 ({@damage 4d6}) poison damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -3659,6 +3721,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb",
+				"ruidium shortsword|crcotn"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -3689,6 +3755,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 81,
 			"_copy": {
 				"name": "Scholarly Mastermind",
 				"source": "CRCotN",
@@ -3715,13 +3782,15 @@
 				"L",
 				"N"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Jamil A'alithiya",
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 83,
 			"_copy": {
 				"name": "Monastic High Curator",
 				"source": "CRCotN",
@@ -3749,13 +3818,15 @@
 				"C",
 				"G"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Koris",
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 106,
 			"_copy": {
 				"name": "Assassin",
 				"source": "MM",
@@ -3785,7 +3856,8 @@
 			"spellcastingTags": [
 				"I"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Laurin Ophidas",
@@ -3903,6 +3975,9 @@
 						"{@atk mw,rw} {@hit 4} to hit, reach 5 ft. or range 20/60 ft., one creature. {@h}4 ({@damage 1d4 + 2}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -4418,6 +4493,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 150,
 			"_copy": {
 				"name": "Ghost",
 				"source": "MM",
@@ -4430,13 +4506,15 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Meri",
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 150,
 			"_copy": {
 				"name": "Ghost",
 				"source": "MM",
@@ -4449,7 +4527,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Monastic High Curator",
@@ -5070,6 +5149,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"languageTags": [
 				"C",
 				"X"
@@ -5318,6 +5400,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"longbow|phb",
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Amphibious",
 				"Fey Ancestry",
@@ -5348,6 +5434,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 168,
 			"_copy": {
 				"name": "Deva",
 				"source": "MM",
@@ -5360,13 +5447,15 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Prolix Yusaf",
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 54,
 			"_copy": {
 				"name": "Scholarly Agent",
 				"source": "CRCotN",
@@ -5404,7 +5493,8 @@
 				"I",
 				"O"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Ruidium Elephant",
@@ -5799,6 +5889,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 126,
 			"_copy": {
 				"name": "Scholarly Agent",
 				"source": "CRCotN",
@@ -5825,7 +5916,8 @@
 					"wizard"
 				]
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Scuttling Serpentmaw",
@@ -5989,6 +6081,9 @@
 						"{@atk mw} {@hit 2} to hit, reach 5 ft., one target. {@h}2 ({@damage 1d4}) bludgeoning damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"club|phb"
 			],
 			"languageTags": [
 				"C"
@@ -6493,6 +6588,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"glaive|phb",
+				"hand crossbow|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry",
 				"Sunlight Sensitivity"
@@ -6532,6 +6631,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "CRCotN",
+			"page": 126,
 			"_copy": {
 				"name": "Scholarly Excavator",
 				"source": "CRCotN",
@@ -6551,7 +6651,8 @@
 			"size": [
 				"M"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Young Horizonback Tortoise",

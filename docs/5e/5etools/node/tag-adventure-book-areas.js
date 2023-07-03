@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import * as ut from "./util.js";
+import "../js/parser.js";
 import "../js/utils.js";
 import "../js/render.js";
 

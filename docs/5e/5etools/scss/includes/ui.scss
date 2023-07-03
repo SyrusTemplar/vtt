@@ -110,17 +110,6 @@ Shared UI components
 			padding: 0 3px;
 		}
 
-		&--stats-header {
-			min-height: initial;
-			font-weight: bold;
-			font-size: 12px;
-			margin-bottom: 0;
-		}
-
-		&--stats {
-			flex-direction: column;
-		}
-
 		> * {
 			margin-right: 5px;
 
@@ -128,13 +117,6 @@ Shared UI components
 				margin-right: 0;
 			}
 		}
-	}
-
-	&row-sep {
-		height: 1px;
-		width: calc(100% - 12px);
-		margin: 2px 2px 7px;
-		background: $rgb-border-grey;
 	}
 
 	&header {
@@ -334,7 +316,6 @@ Shared UI components
 		border: 1px solid $rgb-border-grey;
 		height: 34px;
 		border-left: 0;
-		display: flex;
 	}
 
 	&ipt-search-sub-lbl {
@@ -721,8 +702,6 @@ Shared UI components
 	}
 
 	&disp-copied {
-		@include shadow-2();
-
 		position: fixed;
 		white-space: nowrap;
 		width: auto;
@@ -730,10 +709,9 @@ Shared UI components
 		pointer-events: none;
 		user-select: none;
 		height: 24px;
-		line-height: 24px;
 		font-size: 12px;
 		z-index: $z-temp-effect;
-		display: block;
+		background: radial-gradient(ellipse at center, $rgb-bg 0%, $rgb-bg 35%, transparent 75%, transparent 100%);
 	}
 }
 /* endregion */

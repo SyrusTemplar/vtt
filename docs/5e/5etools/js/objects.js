@@ -94,48 +94,36 @@ class ObjectsPage extends ListPage {
 		return listItem;
 	}
 
-	handleFilterChange () {
-		const f = this._filterBox.getValues();
-		this._list.filter(item => this._pageFilter.toDisplay(f, this._dataList[item.ix]));
-		FilterBox.selectFirstVisible(this._dataList);
-	}
+	_tabTitleStats = "Stats";
 
-	_doLoadHash (id) {
-		const obj = this._dataList[id];
+	async _pDoLoadHash (id) {
+		const ent = this._dataList[id];
 
-		const tabMetas = [
-			new Renderer.utils.TabButton({
-				label: "Stat Block",
-				fnChange: () => {
-					this._$dispToken.showVe();
-				},
-				fnPopulate: () => this._renderStatblock_doBuildStatsTab(obj),
-				isVisible: true,
-			}),
-			new Renderer.utils.TabButton({
-				label: "Info",
-				fnChange: () => {
-					this._$dispToken.hideVe();
-				},
-				fnPopulate: () => this._renderStatblock_doBuildFluffTab(obj),
-				isVisible: Renderer.utils.hasFluffText(obj, "objectFluff"),
-			}),
-			new Renderer.utils.TabButton({
-				label: "Images",
-				fnChange: () => {
-					this._$dispToken.hideVe();
-				},
-				fnPopulate: () => this._renderStatblock_doBuildFluffTab(obj, {isImageTab: true}),
-				isVisible: Renderer.utils.hasFluffImages(obj, "objectFluff"),
-			}),
-		];
+		const tabMetaStats = new Renderer.utils.TabButton({
+			label: this._tabTitleStats,
+			fnChange: () => {
+				this._$dispToken.showVe();
+			},
+			fnPopulate: () => this._renderStatblock_doBuildStatsTab(ent),
+			isVisible: true,
+		});
+
+		const tabMetasAdditional = this._renderStats_getTabMetasAdditional({ent});
 
 		Renderer.utils.bindTabButtons({
-			tabButtons: tabMetas.filter(it => it.isVisible),
-			tabLabelReference: tabMetas.map(it => it.label),
+			tabButtons: [tabMetaStats, ...tabMetasAdditional],
+			tabLabelReference: [tabMetaStats, ...tabMetasAdditional].map(it => it.label),
+			$wrpTabs: this._$wrpTabs,
+			$pgContent: this._$pgContent,
 		});
 
 		this._updateSelected();
+
+		await this._renderStats_pBuildFluffTabs({
+			ent,
+			tabMetaStats,
+			tabMetasAdditional,
+		});
 	}
 
 	_renderStatblock_doBuildStatsTab (obj) {
@@ -155,13 +143,12 @@ class ObjectsPage extends ListPage {
 		}
 	}
 
-	_renderStatblock_doBuildFluffTab (obj, {isImageTab = false} = {}) {
-		return Renderer.utils.pBuildFluffTab({
-			isImageTab,
-			$content: this._$pgContent,
-			entity: obj,
-			pFnGetFluff: this._pFnGetFluff,
-		});
+	_renderStats_onTabChangeStats () {
+		this._$dispToken.showVe();
+	}
+
+	_renderStats_onTabChangeFluff () {
+		this._$dispToken.hideVe();
 	}
 }
 

@@ -77,3 +77,5 @@ class UtilsChangelog {
 		});
 	}
 }
+
+globalThis.UtilsChangelog = UtilsChangelog;

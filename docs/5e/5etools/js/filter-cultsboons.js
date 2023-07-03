@@ -54,3 +54,5 @@ class PageFilterCultsBoons extends PageFilter {
 		);
 	}
 }
+
+globalThis.PageFilterCultsBoons = PageFilterCultsBoons;

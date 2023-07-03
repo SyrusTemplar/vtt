@@ -163,6 +163,62 @@
 					}
 				}
 			},
+			"int": 18,
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"Diderius is a 10th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 17}, {@hit 9} to hit with spell attacks). He has the following wizard spells prepared:"
+					],
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell minor illusion}",
+								"{@spell ray of frost}"
+							]
+						},
+						"1": {
+							"slots": 4,
+							"spells": [
+								"{@spell charm person}",
+								"{@spell detect magic}",
+								"{@spell shield}",
+								"{@spell thunderwave}"
+							]
+						},
+						"2": {
+							"slots": 3,
+							"spells": [
+								"{@spell cloud of daggers}",
+								"{@spell hold person}",
+								"{@spell see invisibility}"
+							]
+						},
+						"3": {
+							"slots": 3,
+							"spells": [
+								"{@spell animate dead}",
+								"{@spell dispel magic}"
+							]
+						},
+						"4": {
+							"slots": 3,
+							"spells": [
+								"{@spell fire shield}",
+								"{@spell greater invisibility}"
+							]
+						},
+						"5": {
+							"slots": 2,
+							"spells": [
+								"{@spell cloudkill}",
+								"{@spell wall of stone}"
+							]
+						}
+					},
+					"ability": "int"
+				}
+			],
 			"hasToken": true
 		},
 		{
@@ -280,6 +336,9 @@
 						"{@atk rs} {@hit 5} to hit, range 50 ft., one target. {@h}22 ({@dice 5d8}) damage of the type to which the dragonfang has damage resistance."
 					]
 				}
+			],
+			"attachedItems": [
+				"shortsword|phb"
 			],
 			"traitTags": [
 				"Pack Tactics"
@@ -417,10 +476,14 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Pack Tactics"
 			],
 			"actionTags": [
+				"Breath Weapon",
 				"Multiattack"
 			],
 			"languageTags": [
@@ -439,6 +502,7 @@
 		{
 			"name": "Galvan",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "RoT",
 			"page": 9,
 			"otherSources": [
@@ -799,6 +863,7 @@
 		{
 			"name": "Iskander",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "RoT",
 			"page": 62,
 			"otherSources": [
@@ -837,6 +902,7 @@
 		{
 			"name": "Maccath the Crimson",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "RoT",
 			"page": 33,
 			"otherSources": [
@@ -880,6 +946,7 @@
 		{
 			"name": "Marfulb",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "RoT",
 			"page": 35,
 			"otherSources": [
@@ -898,6 +965,7 @@
 		{
 			"name": "Mend-nets",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "RoT",
 			"page": 32,
 			"otherSources": [
@@ -921,6 +989,7 @@
 		{
 			"name": "Naergoth Bladelord",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "RoT",
 			"page": 90,
 			"otherSources": [
@@ -1028,6 +1097,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"longbow|phb",
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Sunlight Sensitivity"
 			],
@@ -1058,6 +1131,7 @@
 		{
 			"name": "Neronvain",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "RoT",
 			"page": 91,
 			"otherSources": [
@@ -1161,6 +1235,9 @@
 						"Poison gas fills a 20-foot-radius sphere centered on a point Neronvain can see within 50 feet of him. The gas spreads around corners and remains until the start of Neronvain's next turn. Each creature that starts its turn in the gas must succeed on a {@dc 16} Constitution saving throw or be {@condition poisoned} for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 					]
 				}
+			],
+			"attachedItems": [
+				"shortsword|phb"
 			],
 			"traitTags": [
 				"Fey Ancestry"
@@ -1739,6 +1816,7 @@
 		{
 			"name": "Varram",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "RoT",
 			"page": 9,
 			"otherSources": [

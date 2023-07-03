@@ -1,5 +1,10 @@
 {
 	"_meta": {
+		"dependencies": {
+			"monster": [
+				"MM"
+			]
+		},
 		"otherSources": {
 			"monster": {
 				"MM": "DIP",
@@ -142,6 +147,7 @@
 		{
 			"name": "Don-Jon Raskin",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "DIP",
 			"page": 56,
 			"size": [
@@ -220,6 +226,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb",
+				"sling|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -244,6 +254,7 @@
 		{
 			"name": "Falcon the Hunter",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "DIP",
 			"page": 56,
 			"size": [
@@ -328,6 +339,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"longbow|phb",
+				"longsword|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -350,6 +365,7 @@
 		{
 			"name": "Gorthok the Thunder Boar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "DIP",
 			"page": 58,
 			"size": [
@@ -575,6 +591,18 @@
 			],
 			"hasToken": true,
 			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Skeletal Riding Horse",
+			"source": "DIP",
+			"page": 21,
+			"_copy": {
+				"name": "Riding Horse",
+				"source": "MM"
+			},
+			"type": "undead",
+			"hasToken": true,
 			"hasFluffImages": true
 		}
 	]

@@ -28,6 +28,7 @@
 		{
 			"name": "\"The Demogorgon\"",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "IMR",
 			"page": 53,
 			"size": [
@@ -142,6 +143,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"battleaxe|phb",
+				"morningstar|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -174,6 +179,7 @@
 		{
 			"name": "Andras",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "IMR",
 			"page": 31,
 			"_copy": {
@@ -244,6 +250,7 @@
 		{
 			"name": "Barbatos",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "IMR",
 			"page": 52,
 			"size": [
@@ -359,6 +366,9 @@
 						"If the object touched is either metal armor or a metal shield being worn or carried, it takes a permanent and cumulative 1 penalty to the AC it offers. Armor reduced to an AC of 10 or a shield that drops to a +0 bonus is destroyed. If the object touched is a held metal weapon, it rusts as described in Barbatos's Rust Monster Cloak trait."
 					]
 				}
+			],
+			"attachedItems": [
+				"light crossbow|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -517,6 +527,7 @@
 		{
 			"name": "Grandfather Oak",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "IMR",
 			"page": 5,
 			"_copy": {
@@ -545,6 +556,7 @@
 		{
 			"name": "Lynx Creatlach",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "IMR",
 			"page": 54,
 			"size": [
@@ -669,6 +681,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Damage Absorption",
 				"Immutable Form",
@@ -698,6 +713,7 @@
 		{
 			"name": "Moghadam",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "IMR",
 			"page": 55,
 			"size": [
@@ -856,6 +872,9 @@
 						"Moghadam overloads the thoughts of one creature within 5 feet of either himself or his artificial mind. The target must succeed on a {@dc 16} Intelligence saving throw or take 22 ({@damage 4d8 + 4}) psychic damage, and the next attack roll made against the target before the end of Moghadam's next turn has advantage."
 					]
 				}
+			],
+			"attachedItems": [
+				"ruinblade|imr"
 			],
 			"languageTags": [
 				"AB",
@@ -1018,6 +1037,7 @@
 		{
 			"name": "Seodra",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "IMR",
 			"page": 41,
 			"_copy": {
@@ -1070,6 +1090,7 @@
 		{
 			"name": "Sir Ursas",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "IMR",
 			"page": 56,
 			"size": [
@@ -1178,6 +1199,9 @@
 						"Sir Ursas adds 3 to his AC against one melee attack that would hit him. To do so, he must see the attacker and be wielding a melee weapon."
 					]
 				}
+			],
+			"attachedItems": [
+				"spear|phb"
 			],
 			"traitTags": [
 				"Brute"
@@ -1293,6 +1317,7 @@
 		{
 			"name": "Stolos",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "IMR",
 			"page": 33,
 			"_copy": {
@@ -1335,6 +1360,7 @@
 		{
 			"name": "Tarnhem",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "IMR",
 			"page": 19,
 			"_copy": {
@@ -1369,6 +1395,7 @@
 		{
 			"name": "Thessalar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "IMR",
 			"page": 57,
 			"size": [
@@ -1523,6 +1550,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"C",
 				"DR",
@@ -1555,6 +1585,7 @@
 		{
 			"name": "Thessalar's Homunculus",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "IMR",
 			"page": 35,
 			"_copy": {

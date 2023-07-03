@@ -49,3 +49,5 @@ class PageFilterRewards extends PageFilter {
 		);
 	}
 }
+
+globalThis.PageFilterRewards = PageFilterRewards;

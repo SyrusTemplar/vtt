@@ -16,8 +16,8 @@ class _BestiaryUtil {
 	}
 
 	static getListDisplayType (mon) {
-		let type = mon._pTypes.asText.uppercaseFirst();
-		if (mon._pTypes.asTextSidekick) type += `, ${mon._pTypes.asTextSidekick.toTitleCase()}`;
+		let type = mon._pTypes.asTextShort.uppercaseFirst();
+		if (mon._pTypes.asTextSidekick) type += `, ${mon._pTypes.asTextSidekick}`;
 		return type;
 	}
 }
@@ -177,11 +177,91 @@ class BestiarySublistManager extends SublistManager {
 	}
 }
 
+class BestiaryPageBookView extends ListPageBookView {
+	constructor (opts) {
+		super({
+			namePlural: "creatures",
+			pageTitle: "Bestiary Printer View",
+			...opts,
+		});
+	}
+
+	_$getWrpControls ({$wrpContent}) {
+		const out = super._$getWrpControls({$wrpContent});
+		const {$wrpPrint} = out;
+
+		// region Markdown
+		// TODO refactor this and spell markdown section
+		const pGetAsMarkdown = async () => {
+			const toRender = this._bookViewToShow.length ? this._bookViewToShow : [this._fnGetEntLastLoaded()];
+			return RendererMarkdown.monster.pGetMarkdownDoc(toRender);
+		};
+
+		const $btnDownloadMarkdown = $(`<button class="btn btn-default btn-sm">Download as Markdown</button>`)
+			.click(async () => DataUtil.userDownloadText("bestiary.md", await pGetAsMarkdown()));
+
+		const $btnCopyMarkdown = $(`<button class="btn btn-default btn-sm px-2" title="Copy Markdown to Clipboard"><span class="glyphicon glyphicon-copy"/></button>`)
+			.click(async () => {
+				await MiscUtil.pCopyTextToClipboard(await pGetAsMarkdown());
+				JqueryUtil.showCopiedEffect($btnCopyMarkdown);
+			});
+
+		const $btnDownloadMarkdownSettings = $(`<button class="btn btn-default btn-sm px-2" title="Markdown Settings"><span class="glyphicon glyphicon-cog"/></button>`)
+			.click(async () => RendererMarkdown.pShowSettingsModal());
+
+		$$`<div class="ve-flex-v-center btn-group ml-2">
+			${$btnDownloadMarkdown}
+			${$btnCopyMarkdown}
+			${$btnDownloadMarkdownSettings}
+		</div>`.appendTo($wrpPrint);
+		// endregion
+
+		return out;
+	}
+
+	async _pGetRenderContentMeta ({$wrpContent}) {
+		this._bookViewToShow = this._sublistManager.getPinnedEntities()
+			.sort(this._getSorted.bind(this));
+
+		let cntSelectedEnts = 0;
+		let isAnyEntityRendered = false;
+
+		const stack = [];
+
+		const renderCreature = (mon) => {
+			isAnyEntityRendered = true;
+			stack.push(`<div class="bkmv__wrp-item ve-inline-block print__ve-block print__my-2"><table class="w-100 stats stats--book stats--bkmv"><tbody>`);
+			stack.push(Renderer.monster.getCompactRenderedString(mon));
+			stack.push(`</tbody></table></div>`);
+		};
+
+		this._bookViewToShow.forEach(mon => renderCreature(mon));
+		if (!this._bookViewToShow.length && Hist.lastLoadedId != null) {
+			renderCreature(this._fnGetEntLastLoaded());
+		}
+
+		cntSelectedEnts += this._bookViewToShow.length;
+		$wrpContent.append(stack.join(""));
+
+		return {cntSelectedEnts, isAnyEntityRendered};
+	}
+
+	_getSorted (a, b) {
+		return SortUtil.ascSort(a._displayName || a.name, b._displayName || b.name);
+	}
+}
+
 class BestiaryPage extends ListPageMultiSource {
 	static async _prereleaseBrewDataSource ({brewUtil}) {
 		const brew = await brewUtil.pGetBrewProcessed();
 		DataUtil.monster.populateMetaReference(brew);
 		return brew;
+	}
+
+	static _tableView_getEntryPropTransform ({mon, fnGet}) {
+		const fnGetSpellTraits = Renderer.monster.getSpellcastingRenderedTraits.bind(Renderer.monster, Renderer.get());
+		const allEntries = fnGet(mon, {fnGetSpellTraits});
+		return (allEntries || []).map(it => it.rendered || Renderer.get().render(it, 2)).join("");
 	}
 
 	constructor () {
@@ -204,9 +284,7 @@ class BestiaryPage extends ListPageMultiSource {
 			hasAudio: true,
 
 			bookViewOptions: {
-				$btnOpen: $(`#btn-printbook`),
-				$eleNoneVisible: $(`<span class="initial-message">If you wish to view multiple creatures, please first make a list</span>`),
-				pageTitle: "Bestiary Printer View",
+				ClsBookView: BestiaryPageBookView,
 			},
 
 			tableViewOptions: {
@@ -232,24 +310,24 @@ class BestiaryPage extends ListPageMultiSource {
 					_cr: {name: "CR", transform: mon => Parser.monCrToFull(mon.cr, {isMythic: !!mon.mythic})},
 					_trait: {
 						name: "Traits",
-						transform: mon => {
-							const fnGetSpellTraits = Renderer.monster.getSpellcastingRenderedTraits.bind(Renderer.monster, Renderer.get());
-							const allTraits = Renderer.monster.getOrderedTraits(mon, {fnGetSpellTraits});
-							return (allTraits || []).map(it => it.rendered || Renderer.get().render(it, 2)).join("");
-						},
+						transform: mon => BestiaryPage._tableView_getEntryPropTransform({mon, fnGet: Renderer.monster.getOrderedTraits}),
 						flex: 3,
 					},
 					_action: {
 						name: "Actions",
-						transform: mon => {
-							const fnGetSpellTraits = Renderer.monster.getSpellcastingRenderedTraits.bind(Renderer.monster, Renderer.get());
-							const allActions = Renderer.monster.getOrderedActions(mon, {fnGetSpellTraits});
-							return (allActions || []).map(it => it.rendered || Renderer.get().render(it, 2)).join("");
-						},
+						transform: mon => BestiaryPage._tableView_getEntryPropTransform({mon, fnGet: Renderer.monster.getOrderedActions}),
 						flex: 3,
 					},
-					bonus: {name: "Bonus Actions", transform: it => (it || []).map(x => Renderer.get().render(x, 2)).join(""), flex: 3},
-					reaction: {name: "Reactions", transform: it => (it || []).map(x => Renderer.get().render(x, 2)).join(""), flex: 3},
+					_bonus: {
+						name: "Bonus Actions",
+						transform: mon => BestiaryPage._tableView_getEntryPropTransform({mon, fnGet: Renderer.monster.getOrderedBonusActions}),
+						flex: 3,
+					},
+					_reaction: {
+						name: "Reactions",
+						transform: mon => BestiaryPage._tableView_getEntryPropTransform({mon, fnGet: Renderer.monster.getOrderedReactions}),
+						flex: 3,
+					},
 					legendary: {name: "Legendary Actions", transform: it => (it || []).map(x => Renderer.get().render(x, 2)).join(""), flex: 3},
 					mythic: {name: "Mythic Actions", transform: it => (it || []).map(x => Renderer.get().render(x, 2)).join(""), flex: 3},
 					_lairActions: {
@@ -282,6 +360,7 @@ class BestiaryPage extends ListPageMultiSource {
 			listSyntax: new ListSyntaxBestiary({fnGetDataList: () => this._dataList, pFnGetFluff}),
 		});
 
+		this._$wrpBtnProf = null;
 		this._$btnProf = null;
 
 		this._profDicMode = PROF_MODE_BONUS;
@@ -313,60 +392,6 @@ class BestiaryPage extends ListPageMultiSource {
 	set encounterBuilder (val) { this._encounterBuilder = val; }
 
 	get list_ () { return this._list; }
-
-	async _bookView_popTblGetNumShown ({$wrpContent, $dispName, $wrpControls}) {
-		this._bookViewToShow = await this._sublistManager.getPinnedEntities();
-
-		this._bookViewToShow.sort((a, b) => SortUtil.ascSort(a._displayName || a.name, b._displayName || b.name));
-
-		let numShown = 0;
-
-		const stack = [];
-
-		const renderCreature = (mon) => {
-			stack.push(`<div class="bkmv__wrp-item"><table class="w-100 stats stats--book stats--bkmv"><tbody>`);
-			stack.push(Renderer.monster.getCompactRenderedString(mon));
-			stack.push(`</tbody></table></div>`);
-		};
-
-		stack.push(`<div class="w-100 h-100">`);
-		this._bookViewToShow.forEach(mon => renderCreature(mon));
-		if (!this._bookViewToShow.length && Hist.lastLoadedId != null) {
-			renderCreature(this._dataList[Hist.lastLoadedId]);
-		}
-		stack.push(`</div>`);
-
-		numShown += this._bookViewToShow.length;
-		$wrpContent.append(stack.join(""));
-
-		// region Markdown
-		// TODO refactor this and spell markdown section
-		const pGetAsMarkdown = async () => {
-			const toRender = this._bookViewToShow.length ? this._bookViewToShow : [this._dataList[Hist.lastLoadedId]];
-			return RendererMarkdown.monster.pGetMarkdownDoc(toRender);
-		};
-
-		const $btnDownloadMarkdown = $(`<button class="btn btn-default btn-sm">Download as Markdown</button>`)
-			.click(async () => DataUtil.userDownloadText("bestiary.md", await pGetAsMarkdown()));
-
-		const $btnCopyMarkdown = $(`<button class="btn btn-default btn-sm px-2" title="Copy Markdown to Clipboard"><span class="glyphicon glyphicon-copy"/></button>`)
-			.click(async () => {
-				await MiscUtil.pCopyTextToClipboard(await pGetAsMarkdown());
-				JqueryUtil.showCopiedEffect($btnCopyMarkdown);
-			});
-
-		const $btnDownloadMarkdownSettings = $(`<button class="btn btn-default btn-sm px-2" title="Markdown Settings"><span class="glyphicon glyphicon-cog"/></button>`)
-			.click(async () => RendererMarkdown.pShowSettingsModal());
-
-		$$`<div class="ve-flex-v-center btn-group ml-2">
-			${$btnDownloadMarkdown}
-			${$btnCopyMarkdown}
-			${$btnDownloadMarkdownSettings}
-		</div>`.appendTo($wrpControls);
-		// endregion
-
-		return numShown;
-	}
 
 	getListItem (mon, mI) {
 		const hash = UrlUtil.autoEncodeHash(mon);
@@ -432,16 +457,11 @@ class BestiaryPage extends ListPageMultiSource {
 	}
 
 	handleFilterChange () {
-		const f = this._pageFilter.filterBox.getValues();
-		this._list.filter(li => {
-			const m = this._dataList[li.ix];
-			return this._pageFilter.toDisplay(f, m);
-		});
-		this._onFilterChangeMulti(this._dataList, f);
+		super.handleFilterChange();
 		this._encounterBuilder.resetCache();
 	}
 
-	doLoadHash (id) {
+	pDoLoadHash (id) {
 		const mon = this._dataList[id];
 
 		this._renderStatblock(mon);
@@ -575,53 +595,71 @@ class BestiaryPage extends ListPageMultiSource {
 		this._lastRender.isScaledSpellSummon = isScaledSpellSummon;
 		this._lastRender.isScaledClassSummon = isScaledClassSummon;
 
-		Renderer.get().setFirstSection(true);
+		this._$wrpBtnProf = this._$wrpBtnProf || $(`#wrp-profbonusdice`);
+		this._$dispToken = this._$dispToken || $(`#float-token`);
 
 		this._$pgContent.empty();
-		const $wrpBtnProf = $(`#wrp-profbonusdice`);
 
 		if (this._$btnProf != null) {
-			$wrpBtnProf.append(this._$btnProf);
+			this._$wrpBtnProf.append(this._$btnProf);
 			this._$btnProf = null;
 		}
 
-		this._$dispToken = this._$dispToken || $(`#float-token`);
-
-		// reset tabs
-		const tabMetas = [
-			new Renderer.utils.TabButton({
-				label: "Stat Block",
-				fnChange: () => {
-					$wrpBtnProf.append(this._$btnProf);
-					this._$dispToken.showVe();
-				},
-				fnPopulate: () => this._renderStatblock_doBuildStatsTab({mon, isScaledCr, isScaledSpellSummon, isScaledClassSummon}),
-				isVisible: true,
-			}),
-			new Renderer.utils.TabButton({
-				label: "Info",
-				fnChange: () => {
-					this._$btnProf = $wrpBtnProf.children().length ? $wrpBtnProf.children().detach() : this._$btnProf;
-					this._$dispToken.hideVe();
-				},
-				fnPopulate: () => this._renderStatblock_doBuildFluffTab(),
-				isVisible: Renderer.utils.hasFluffText(mon, "monsterFluff"),
-			}),
-			new Renderer.utils.TabButton({
-				label: "Images",
-				fnChange: () => {
-					this._$btnProf = $wrpBtnProf.children().length ? $wrpBtnProf.children().detach() : this._$btnProf;
-					this._$dispToken.hideVe();
-				},
-				fnPopulate: () => this._renderStatblock_doBuildFluffTab({isImageTab: true}),
-				isVisible: Renderer.utils.hasFluffImages(mon, "monsterFluff"),
-			}),
-		];
+		const tabMetaStats = new Renderer.utils.TabButton({
+			label: "Stat Block",
+			fnChange: () => {
+				this._$wrpBtnProf.append(this._$btnProf);
+				this._$dispToken.showVe();
+			},
+			fnPopulate: () => this._renderStatblock_doBuildStatsTab({mon, isScaledCr, isScaledSpellSummon, isScaledClassSummon}),
+			isVisible: true,
+		});
 
 		Renderer.utils.bindTabButtons({
-			tabButtons: tabMetas.filter(it => it.isVisible),
-			tabLabelReference: tabMetas.map(it => it.label),
+			tabButtons: [tabMetaStats],
+			tabLabelReference: [tabMetaStats].map(it => it.label),
+			$wrpTabs: this._$wrpTabs,
+			$pgContent: this._$pgContent,
 		});
+
+		Promise.all([
+			Renderer.utils.pHasFluffText(mon, "monsterFluff"),
+			Renderer.utils.pHasFluffImages(mon, "monsterFluff"),
+		])
+			.then(([hasFluffText, hasFluffImages]) => {
+				if (!hasFluffText && !hasFluffImages) return;
+
+				if (this._lastRender.entity !== mon) return;
+
+				const tabMetas = [
+					tabMetaStats,
+					new Renderer.utils.TabButton({
+						label: "Info",
+						fnChange: () => {
+							this._$btnProf = this._$wrpBtnProf.children().length ? this._$wrpBtnProf.children().detach() : this._$btnProf;
+							this._$dispToken.hideVe();
+						},
+						fnPopulate: () => this._renderStats_doBuildFluffTab({ent: mon}),
+						isVisible: hasFluffText,
+					}),
+					new Renderer.utils.TabButton({
+						label: "Images",
+						fnChange: () => {
+							this._$btnProf = this._$wrpBtnProf.children().length ? this._$wrpBtnProf.children().detach() : this._$btnProf;
+							this._$dispToken.hideVe();
+						},
+						fnPopulate: () => this._renderStats_doBuildFluffTab({ent: mon, isImageTab: true}),
+						isVisible: hasFluffImages,
+					}),
+				];
+
+				Renderer.utils.bindTabButtons({
+					tabButtons: tabMetas.filter(it => it.isVisible),
+					tabLabelReference: tabMetas.map(it => it.label),
+					$wrpTabs: this._$wrpTabs,
+					$pgContent: this._$pgContent,
+				});
+			});
 	}
 
 	_renderStatblock_doBuildStatsTab (
@@ -632,6 +670,8 @@ class BestiaryPage extends ListPageMultiSource {
 			isScaledClassSummon,
 		},
 	) {
+		Renderer.get().setFirstSection(true);
+
 		const $btnScaleCr = !ScaleCreature.isCrInScaleRange(mon) ? null : $(`<button id="btn-scale-cr" title="Scale Creature By CR (Highly Experimental)" class="mon__btn-scale-cr btn btn-xs btn-default ve-popwindow__hidden"><span class="glyphicon glyphicon-signal"></span></button>`)
 			.click((evt) => {
 				evt.stopPropagation();
@@ -743,7 +783,7 @@ class BestiaryPage extends ListPageMultiSource {
 			Renderer.get().addPlugin("string_@dc", pluginDc);
 			Renderer.get().addPlugin("dice", pluginDice);
 
-			this._$pgContent.append(RenderBestiary.$getRenderedCreature(mon, {$btnScaleCr, $btnResetScaleCr, selSummonSpellLevel, selSummonClassLevel}));
+			this._$pgContent.empty().append(RenderBestiary.$getRenderedCreature(mon, {$btnScaleCr, $btnResetScaleCr, selSummonSpellLevel, selSummonClassLevel}));
 		} finally {
 			Renderer.get().removePlugin("dice", pluginDice);
 			Renderer.get().removePlugin("string_@dc", pluginDc);
@@ -870,54 +910,6 @@ class BestiaryPage extends ListPageMultiSource {
 
 	static _addSpacesToDiceExp (exp) {
 		return exp.replace(/([^0-9d])/gi, " $1 ").replace(/\s+/g, " ").trim().replace(/^([-+])\s*/, "$1");
-	}
-
-	_renderStatblock_doBuildFluffTab (
-		{
-			isImageTab = false,
-		} = {},
-	) {
-		const pGetFluffEntries = async () => {
-			const mon = this._dataList[Hist.lastLoadedId];
-			const fluff = await this._pFnGetFluff(mon);
-			return fluff.entries || [];
-		};
-
-		const $headerControls = isImageTab ? null : (() => {
-			const actions = [
-				new ContextUtil.Action(
-					"Copy as JSON",
-					async () => {
-						const fluffEntries = await pGetFluffEntries();
-						MiscUtil.pCopyTextToClipboard(JSON.stringify(fluffEntries, null, "\t"));
-						JqueryUtil.showCopiedEffect($btnOptions);
-					},
-				),
-				new ContextUtil.Action(
-					"Copy as Markdown",
-					async () => {
-						const fluffEntries = await pGetFluffEntries();
-						const rendererMd = RendererMarkdown.get().setFirstSection(true);
-						MiscUtil.pCopyTextToClipboard(fluffEntries.map(f => rendererMd.render(f)).join("\n"));
-						JqueryUtil.showCopiedEffect($btnOptions);
-					},
-				),
-			];
-			const menu = ContextUtil.getMenu(actions);
-
-			const $btnOptions = $(`<button class="btn btn-default btn-xs btn-stats-name" title="Other Options"><span class="glyphicon glyphicon-option-vertical"/></button>`)
-				.click(evt => ContextUtil.pOpenMenu(evt, menu));
-
-			return $$`<div class="ve-flex-v-center btn-group ml-2">${$btnOptions}</div>`;
-		})();
-
-		return Renderer.utils.pBuildFluffTab({
-			isImageTab,
-			$content: this._$pgContent,
-			entity: this._dataList[Hist.lastLoadedId],
-			pFnGetFluff: this._pFnGetFluff,
-			$headerControls,
-		});
 	}
 
 	async pPreloadSublistSources (json) {

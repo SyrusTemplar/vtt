@@ -48,3 +48,5 @@ class PageFilterActions extends PageFilter {
 		);
 	}
 }
+
+globalThis.PageFilterActions = PageFilterActions;

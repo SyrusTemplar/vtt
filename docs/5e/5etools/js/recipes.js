@@ -98,44 +98,10 @@ class RecipesPage extends ListPage {
 		return listItem;
 	}
 
-	handleFilterChange () {
-		const f = this._filterBox.getValues();
-		this._list.filter(item => this._pageFilter.toDisplay(f, this._dataList[item.ix]));
-		FilterBox.selectFirstVisible(this._dataList);
-	}
+	_tabTitleStats = "Recipe";
 
-	_doLoadHash (id) {
-		const it = this._dataList[id];
-		this._$pgContent.empty();
-
-		const tabMetas = [
-			new Renderer.utils.TabButton({
-				label: "Recipe",
-				fnPopulate: this._renderStats.bind(this, it),
-				isVisible: true,
-			}),
-			new Renderer.utils.TabButton({
-				label: "Info",
-				fnPopulate: this._renderFluff.bind(this, it),
-				isVisible: Renderer.utils.hasFluffText(it, "recipeFluff"),
-			}),
-			new Renderer.utils.TabButton({
-				label: "Images",
-				fnPopulate: this._renderFluff.bind(this, it, true),
-				isVisible: Renderer.utils.hasFluffImages(it, "recipeFluff"),
-			}),
-		];
-
-		Renderer.utils.bindTabButtons({
-			tabButtons: tabMetas.filter(it => it.isVisible),
-			tabLabelReference: tabMetas.map(it => it.label),
-		});
-
-		this._updateSelected();
-	}
-
-	_renderStats (it, scaleFactor = null) {
-		if (scaleFactor != null) it = Renderer.recipe.getScaledRecipe(it, scaleFactor);
+	_renderStats_doBuildStatsTab ({ent, scaleFactor = null}) {
+		if (scaleFactor != null) ent = Renderer.recipe.getScaledRecipe(ent, scaleFactor);
 
 		const $selScaleFactor = $(`
 			<select title="Scale Recipe" class="form-control input-xs form-control--minimal ve-popwindow__hidden">
@@ -151,17 +117,8 @@ class RecipesPage extends ListPage {
 			});
 		$selScaleFactor.val(`${scaleFactor || 1}`);
 
-		this._$pgContent.empty().append(RenderRecipes.$getRenderedRecipe(it, {$selScaleFactor}));
-		this._lastRender = {entity: it};
-	}
-
-	_renderFluff (it, isImageTab) {
-		return Renderer.utils.pBuildFluffTab({
-			isImageTab,
-			$content: this._$pgContent,
-			pFnGetFluff: this._pFnGetFluff,
-			entity: it,
-		});
+		this._$pgContent.empty().append(RenderRecipes.$getRenderedRecipe(ent, {$selScaleFactor}));
+		this._lastRender = {entity: ent};
 	}
 
 	async pDoLoadSubHash (sub) {
@@ -169,9 +126,9 @@ class RecipesPage extends ListPage {
 
 		const scaledHash = sub.find(it => it.startsWith(RecipesPage._HASH_START_SCALED));
 		if (scaledHash) {
-			const scaleTo = Number(UrlUtil.unpackSubHash(scaledHash)[VeCt.HASH_SCALED][0]);
+			const scaleFactor = Number(UrlUtil.unpackSubHash(scaledHash)[VeCt.HASH_SCALED][0]);
 			const r = this._dataList[Hist.lastLoadedId];
-			this._renderStats(r, scaleTo);
+			this._renderStats_doBuildStatsTab({ent: r, scaleFactor});
 		}
 	}
 }

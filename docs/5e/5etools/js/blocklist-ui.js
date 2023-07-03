@@ -33,6 +33,7 @@ class BlocklistUtil {
 		"trapshazards.json",
 		"variantrules.json",
 		"vehicles.json",
+		"decks.json",
 	];
 
 	static async pLoadData () {
@@ -61,6 +62,8 @@ class BlocklistUtil {
 			.forEach(k => out[k] ? out[k] = out[k].concat(json[k]) : out[k] = json[k]);
 	}
 }
+
+globalThis.BlocklistUtil = BlocklistUtil;
 
 class BlocklistUi {
 	constructor (
@@ -155,13 +158,27 @@ class BlocklistUi {
 			MiscUtil.set(this._subBlocklistEntries, "itemGroup", itemGroupHash, subBlocklist);
 		}
 
-		for (const it of (this._data.race || []).filter(it => it._isBaseRace)) {
+		for (const it of (this._data.race || []).filter(it => it._isBaseRace || it._versions?.length)) {
 			const baseRaceHash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES](it);
+			const subBlocklist = [];
 
-			const subBlocklist = it._subraces.map(sr => {
-				const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES](sr);
-				return {displayName: sr.name, hash, category: "race", source: sr.source};
-			});
+			if (it._isBaseRace) {
+				subBlocklist.push(
+					...it._subraces.map(sr => {
+						const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES](sr);
+						return {displayName: sr.name, hash, category: "race", source: sr.source};
+					}),
+				);
+			}
+
+			if (it._versions?.length) {
+				subBlocklist.push(
+					...DataUtil.proxy.getVersions(it.__prop, it).map(ver => {
+						const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_RACES](ver);
+						return {displayName: ver.name, hash, category: "race", source: ver.source};
+					}),
+				);
+			}
 
 			MiscUtil.set(this._subBlocklistEntries, "race", baseRaceHash, subBlocklist);
 		}
@@ -658,6 +675,8 @@ class BlocklistUi {
 		this._list.update();
 	}
 }
+
+globalThis.BlocklistUi = BlocklistUi;
 
 BlocklistUi.Component = class extends BaseComponent {
 	get source () { return this._state.source; }

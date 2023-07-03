@@ -31,6 +31,7 @@
 		{
 			"name": "Anastrasya Karelova",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 93,
 			"_copy": {
@@ -72,11 +73,15 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"halberd|phb"
+			],
 			"hasToken": true
 		},
 		{
 			"name": "Arabelle",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 38,
 			"_copy": {
@@ -129,6 +134,7 @@
 		{
 			"name": "Arrigal",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 121,
 			"_copy": {
@@ -162,6 +168,7 @@
 				"Hags"
 			],
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 228,
 			"size": [
@@ -330,6 +337,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"quarterstaff|phb"
+			],
 			"traitTags": [
 				"Shapechanger"
 			],
@@ -369,6 +379,7 @@
 		{
 			"name": "Baba Lysaga's Creeping Hut",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 226,
 			"size": [
@@ -489,6 +500,7 @@
 		{
 			"name": "Baron Vargas Vallakovich",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 105,
 			"_copy": {
@@ -655,6 +667,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -687,6 +702,7 @@
 		{
 			"name": "Beucephalus",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 93,
 			"_copy": {
@@ -711,6 +727,7 @@
 		{
 			"name": "Bluto Krogarov",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 38,
 			"_copy": {
@@ -732,6 +749,7 @@
 		{
 			"name": "Bray Martikov",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 98,
 			"_copy": {
@@ -752,6 +770,7 @@
 		{
 			"name": "Brom Martikov",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 98,
 			"_copy": {
@@ -891,6 +910,7 @@
 		{
 			"name": "Clovin Belview",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 147,
 			"_copy": {
@@ -925,6 +945,7 @@
 		{
 			"name": "Cyrus Belview",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 77,
 			"_copy": {
@@ -958,6 +979,7 @@
 		{
 			"name": "Danika Dorakova",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 98,
 			"_copy": {
@@ -982,6 +1004,7 @@
 		{
 			"name": "Davian Martikov",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 173,
 			"_copy": {
@@ -1031,6 +1054,7 @@
 		{
 			"name": "Donavich",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 46,
 			"_copy": {
@@ -1061,6 +1085,7 @@
 		{
 			"name": "Doru",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 47,
 			"_copy": {
@@ -1081,6 +1106,7 @@
 		{
 			"name": "Emil Toranescu",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 81,
 			"_copy": {
@@ -1105,6 +1131,7 @@
 		{
 			"name": "Escher",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 70,
 			"_copy": {
@@ -1125,6 +1152,7 @@
 		{
 			"name": "Exethanter",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 189,
 			"_copy": {
@@ -1171,6 +1199,7 @@
 		{
 			"name": "Ezmerelda d'Avenir",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 231,
 			"size": [
@@ -1323,6 +1352,11 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"+1 handaxe|dmg",
+				"+1 rapier|dmg",
+				"silvered shortsword|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1357,6 +1391,7 @@
 		{
 			"name": "Gadof Blinsky",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 118,
 			"_copy": {
@@ -1379,6 +1414,7 @@
 		{
 			"name": "Gertruda",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 68,
 			"_copy": {
@@ -1516,6 +1552,7 @@
 		{
 			"name": "Helga Ruvak",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 64,
 			"_copy": {
@@ -1535,6 +1572,7 @@
 		{
 			"name": "Henrik van der Voort",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 116,
 			"_copy": {
@@ -1557,6 +1595,7 @@
 		{
 			"name": "Ireena Kolyana",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 44,
 			"_copy": {
@@ -1591,6 +1630,7 @@
 		{
 			"name": "Ismark Kolyanovich",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 43,
 			"_copy": {
@@ -1621,6 +1661,7 @@
 		{
 			"name": "Izek Strazni",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 232,
 			"size": [
@@ -1694,6 +1735,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"battleaxe|phb"
+			],
 			"traitTags": [
 				"Brute"
 			],
@@ -1717,6 +1761,7 @@
 		{
 			"name": "Kasimir Velikov",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 233,
 			"_copy": {
@@ -1751,7 +1796,10 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"dusk elf"
+					{
+						"tag": "elf",
+						"prefix": "Dusk"
+					}
 				]
 			},
 			"alignment": [
@@ -1828,6 +1876,7 @@
 		{
 			"name": "Kiril Stoyanovich",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 203,
 			"_copy": {
@@ -1907,6 +1956,7 @@
 		{
 			"name": "Lady Fiona Wachter",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 110,
 			"_copy": {
@@ -1981,6 +2031,7 @@
 		{
 			"name": "Lady Lydia Petrovna",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 105,
 			"_copy": {
@@ -2002,6 +2053,7 @@
 		{
 			"name": "Lief Lipsiege",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 62,
 			"_copy": {
@@ -2023,6 +2075,7 @@
 		{
 			"name": "Ludmilla Vilisevic",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 93,
 			"_copy": {
@@ -2042,6 +2095,7 @@
 		{
 			"name": "Luvash",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 121,
 			"_copy": {
@@ -2072,6 +2126,7 @@
 		{
 			"name": "Mad Mary",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 44,
 			"_copy": {
@@ -2088,11 +2143,13 @@
 				"C",
 				"N"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Madam Eva",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 233,
 			"size": [
@@ -2243,6 +2300,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"AB",
 				"C",
@@ -2278,6 +2338,7 @@
 		{
 			"name": "Majesto",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 115,
 			"_copy": {
@@ -2292,11 +2353,13 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Marzena Belview",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 150,
 			"_copy": {
@@ -2330,6 +2393,7 @@
 		{
 			"name": "Milivoj",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 97,
 			"_copy": {
@@ -2360,6 +2424,7 @@
 		{
 			"name": "Mishka Belview",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 150,
 			"_copy": {
@@ -2487,6 +2552,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -2509,6 +2577,7 @@
 		{
 			"name": "Morgantha",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 48,
 			"_copy": {
@@ -2528,6 +2597,7 @@
 		{
 			"name": "Nikolai Wachter",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 110,
 			"_copy": {
@@ -2557,6 +2627,7 @@
 		{
 			"name": "Otto Belview",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 147,
 			"_copy": {
@@ -2587,6 +2658,7 @@
 		{
 			"name": "Parriwimple",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 43,
 			"_copy": {
@@ -2625,6 +2697,7 @@
 		{
 			"name": "Patrina Velikovna",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 89,
 			"_copy": {
@@ -2642,7 +2715,10 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"dusk elf"
+					{
+						"tag": "elf",
+						"prefix": "Dusk"
+					}
 				]
 			},
 			"alignment": [
@@ -2782,7 +2858,6 @@
 		},
 		{
 			"name": "Phantom Warrior (Archer)",
-			"isNpc": true,
 			"source": "CoS",
 			"page": 142,
 			"_copy": {
@@ -2819,6 +2894,7 @@
 		{
 			"name": "Piccolo",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 118,
 			"_copy": {
@@ -2839,6 +2915,7 @@
 		{
 			"name": "Pidlwick II",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 236,
 			"size": [
@@ -2908,6 +2985,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"club|phb",
+				"dart|phb"
+			],
 			"traitTags": [
 				"Ambusher"
 			],
@@ -2930,6 +3011,7 @@
 		{
 			"name": "Rahadin",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 237,
 			"size": [
@@ -3045,6 +3127,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"scimitar|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -3082,6 +3167,7 @@
 				"Rudolph van Richten"
 			],
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 238,
 			"size": [
@@ -3248,6 +3334,7 @@
 		{
 			"name": "Rosavalda \"Rose\" Durst",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 217,
 			"_copy": {
@@ -3290,6 +3377,7 @@
 		{
 			"name": "Sangzor",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 160,
 			"_copy": {
@@ -3330,6 +3418,7 @@
 		{
 			"name": "Savid",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 133,
 			"_copy": {
@@ -3347,7 +3436,10 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"dusk elf"
+					{
+						"tag": "elf",
+						"prefix": "Dusk"
+					}
 				]
 			},
 			"alignment": [
@@ -3358,6 +3450,7 @@
 		{
 			"name": "Sir Godfrey Gwilym",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 139,
 			"_copy": {
@@ -3464,6 +3557,7 @@
 		{
 			"name": "Stanimir",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 20,
 			"_copy": {
@@ -3552,6 +3646,7 @@
 		{
 			"name": "Stella Wachter",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 113,
 			"_copy": {
@@ -3854,7 +3949,8 @@
 				"unconscious"
 			],
 			"hasToken": true,
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Strahd Zombie",
@@ -3959,6 +4055,7 @@
 		{
 			"name": "Strahd's Animated Armor",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 227,
 			"size": [
@@ -4060,6 +4157,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greatsword|phb"
+			],
 			"traitTags": [
 				"Antimagic Susceptibility",
 				"False Appearance"
@@ -4088,6 +4188,7 @@
 		{
 			"name": "Szoldar Szoldarovich",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 100,
 			"_copy": {
@@ -4111,11 +4212,13 @@
 			"alignment": [
 				"N"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "The Abbot",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 151,
 			"_copy": {
@@ -4139,6 +4242,7 @@
 		{
 			"name": "The Mad Mage of Mount Baratok",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 39,
 			"_copy": {
@@ -4268,6 +4372,7 @@
 		{
 			"name": "Thornboldt \"Thorn\" Durst",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 217,
 			"_copy": {
@@ -4432,6 +4537,7 @@
 		{
 			"name": "Urwin Martikov",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 98,
 			"_copy": {
@@ -4455,6 +4561,7 @@
 		{
 			"name": "Vasilka",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 151,
 			"_copy": {
@@ -4474,6 +4581,7 @@
 		{
 			"name": "Victor Vallakovich",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 105,
 			"_copy": {
@@ -4498,11 +4606,13 @@
 				"N",
 				"E"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Vilnius",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 185,
 			"_copy": {
@@ -4632,6 +4742,7 @@
 		{
 			"name": "Vladimir Horngaard",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 241,
 			"size": [
@@ -4751,6 +4862,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"+2 greatsword|dmg"
+			],
 			"traitTags": [
 				"Regeneration",
 				"Rejuvenation",
@@ -4780,6 +4894,7 @@
 		{
 			"name": "Volenta Popofsky",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 93,
 			"_copy": {
@@ -4829,6 +4944,7 @@
 		{
 			"name": "Yevgeni Krushkin",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 100,
 			"_copy": {
@@ -4852,7 +4968,8 @@
 			"alignment": [
 				"N"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Young Wereraven",
@@ -4878,6 +4995,7 @@
 		{
 			"name": "Zuleika Toranescu",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 204,
 			"_copy": {
@@ -4898,6 +5016,7 @@
 		{
 			"name": "Zygfrek Belview",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "CoS",
 			"page": 148,
 			"_copy": {

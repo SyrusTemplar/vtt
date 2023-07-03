@@ -1,6 +1,102 @@
 "use strict";
 
 class LootGenUi extends BaseComponent {
+	static _CHALLENGE_RATING_RANGES = {
+		0: "0\u20134",
+		5: "5\u201310",
+		11: "11\u201316",
+		17: "17+",
+	};
+	static _PARTY_LOOT_LEVEL_RANGES = {
+		4: "1\u20134",
+		10: "5\u201310",
+		16: "11\u201316",
+		20: "17+",
+	};
+	static _PARTY_LOOT_ITEMS_PER_LEVEL = {
+		1: {
+			"major": {
+				"uncommon": 0,
+				"rare": 0,
+				"very rare": 0,
+				"legendary": 0,
+			},
+			"minor": {
+				"common": 0,
+				"uncommon": 0,
+				"rare": 0,
+				"very rare": 0,
+				"legendary": 0,
+			},
+		},
+		4: {
+			"major": {
+				"uncommon": 2,
+				"rare": 0,
+				"very rare": 0,
+				"legendary": 0,
+			},
+			"minor": {
+				"common": 6,
+				"uncommon": 2,
+				"rare": 1,
+				"very rare": 0,
+				"legendary": 0,
+			},
+		},
+		10: {
+			"major": {
+				"uncommon": 5,
+				"rare": 1,
+				"very rare": 0,
+				"legendary": 0,
+			},
+			"minor": {
+				"common": 10,
+				"uncommon": 12,
+				"rare": 5,
+				"very rare": 1,
+				"legendary": 0,
+			},
+		},
+		16: {
+			"major": {
+				"uncommon": 1,
+				"rare": 2,
+				"very rare": 2,
+				"legendary": 1,
+			},
+			"minor": {
+				"common": 3,
+				"uncommon": 6,
+				"rare": 9,
+				"very rare": 5,
+				"legendary": 1,
+			},
+		},
+		20: {
+			"major": {
+				"uncommon": 0,
+				"rare": 1,
+				"very rare": 2,
+				"legendary": 3,
+			},
+			"minor": {
+				"common": 0,
+				"uncommon": 0,
+				"rare": 4,
+				"very rare": 9,
+				"legendary": 6,
+			},
+		},
+	};
+	static _DRAGON_AGES = [
+		"Wyrmling",
+		"Young",
+		"Adult",
+		"Ancient",
+	];
+
 	constructor ({spells, items, ClsLootGenOutput}) {
 		super();
 
@@ -1211,103 +1307,12 @@ class LootGenUi extends BaseComponent {
 		};
 	}
 }
-LootGenUi._CHALLENGE_RATING_RANGES = {
-	0: "0\u20134",
-	5: "5\u201310",
-	11: "11\u201316",
-	17: "17+",
-};
-LootGenUi._PARTY_LOOT_LEVEL_RANGES = {
-	4: "1\u20134",
-	10: "5\u201310",
-	16: "11\u201316",
-	20: "17+",
-};
-LootGenUi._PARTY_LOOT_ITEMS_PER_LEVEL = {
-	1: {
-		"major": {
-			"uncommon": 0,
-			"rare": 0,
-			"very rare": 0,
-			"legendary": 0,
-		},
-		"minor": {
-			"common": 0,
-			"uncommon": 0,
-			"rare": 0,
-			"very rare": 0,
-			"legendary": 0,
-		},
-	},
-	4: {
-		"major": {
-			"uncommon": 2,
-			"rare": 0,
-			"very rare": 0,
-			"legendary": 0,
-		},
-		"minor": {
-			"common": 6,
-			"uncommon": 2,
-			"rare": 1,
-			"very rare": 0,
-			"legendary": 0,
-		},
-	},
-	10: {
-		"major": {
-			"uncommon": 5,
-			"rare": 1,
-			"very rare": 0,
-			"legendary": 0,
-		},
-		"minor": {
-			"common": 10,
-			"uncommon": 12,
-			"rare": 5,
-			"very rare": 1,
-			"legendary": 0,
-		},
-	},
-	16: {
-		"major": {
-			"uncommon": 1,
-			"rare": 2,
-			"very rare": 2,
-			"legendary": 1,
-		},
-		"minor": {
-			"common": 3,
-			"uncommon": 6,
-			"rare": 9,
-			"very rare": 5,
-			"legendary": 1,
-		},
-	},
-	20: {
-		"major": {
-			"uncommon": 0,
-			"rare": 1,
-			"very rare": 2,
-			"legendary": 3,
-		},
-		"minor": {
-			"common": 0,
-			"uncommon": 0,
-			"rare": 4,
-			"very rare": 9,
-			"legendary": 6,
-		},
-	},
-};
-LootGenUi._DRAGON_AGES = [
-	"Wyrmling",
-	"Young",
-	"Adult",
-	"Ancient",
-];
+
+globalThis.LootGenUi = LootGenUi;
 
 class LootGenOutput {
+	static _TIERS = ["other", "minor", "major"];
+
 	constructor (
 		{
 			type,
@@ -1604,7 +1609,8 @@ class LootGenOutput {
 
 	static _ascSortTier (a, b) { return LootGenOutput._TIERS.indexOf(a) - LootGenOutput._TIERS.indexOf(b); }
 }
-LootGenOutput._TIERS = ["other", "minor", "major"];
+
+globalThis.LootGenOutput = LootGenOutput;
 
 class LootGenOutputGemsArtObjects {
 	constructor (

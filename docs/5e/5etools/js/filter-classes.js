@@ -193,6 +193,8 @@ class PageFilterClassesBase extends PageFilter {
 	}
 }
 
+globalThis.PageFilterClassesBase = PageFilterClassesBase;
+
 class PageFilterClasses extends PageFilterClassesBase {
 	static _getClassSubclassLevelArray (it) {
 		return it.classFeatures.map((_, i) => i + 1);
@@ -263,3 +265,5 @@ class PageFilterClasses extends PageFilterClassesBase {
 		];
 	}
 }
+
+globalThis.PageFilterClasses = PageFilterClasses;

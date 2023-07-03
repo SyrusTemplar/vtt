@@ -1,6 +1,7 @@
 import * as fs from "fs";
+import "../js/parser.js";
 import "../js/utils.js";
-const probe = require("probe-image-size");
+import probe from "probe-image-size";
 import {ObjectWalker} from "5etools-utils";
 
 const allFiles = [];
@@ -8,9 +9,13 @@ const allFiles = [];
 function addDir (dir) {
 	fs.readdirSync(dir).forEach(filename => {
 		const path = `${dir}/${filename}`;
-		const json = JSON.parse(fs.readFileSync(path, "utf-8"));
-		allFiles.push({json, path});
+		addFile(path);
 	});
+}
+
+function addFile (path) {
+	const json = JSON.parse(fs.readFileSync(path, "utf-8"));
+	allFiles.push({json, path});
 }
 
 async function pMutImageDimensions (imgEntry) {
@@ -28,16 +33,17 @@ async function pMutImageDimensions (imgEntry) {
 }
 
 const _PROMISES = [];
-function addMutImageDimensions (file, imgEntry) {
-	if (imgEntry.type === "image" && imgEntry.href && imgEntry.href.type === "internal") {
-		_PROMISES.push(pMutImageDimensions(imgEntry));
+function addMutImageDimensions (obj) {
+	if (obj.type === "image" && obj.href && obj.href.type === "internal") {
+		_PROMISES.push(pMutImageDimensions(obj));
 	}
-	return imgEntry;
+	return obj;
 }
 
 async function main () {
 	addDir("./data/adventure");
 	addDir("./data/book");
+	addFile("./data/decks.json");
 	allFiles.forEach(meta => {
 		ObjectWalker.walk({
 			filePath: meta.path,

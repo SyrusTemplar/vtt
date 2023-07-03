@@ -5,6 +5,15 @@
 			"name": "The Blood War",
 			"page": 5,
 			"entries": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/MTF/mtf_chapterstarts_ch1.webp"
+					},
+					"width": 1000,
+					"height": 714
+				},
 				"Throughout history, the teeming hordes of the Abyss and the strictly regimented legions of the Nine Hells have battled for supremacy in the cosmos. In the mortal world, the scant few scholars, arcanists, and adventurers who know the conflict for what it is refer to it as the Blood War.",
 				"The fighting takes place across the Lower Planes, on the Material Plane, and anywhere else that demons and devils might congregate. From time to time, demons spill out of the Abyss to invade Avernus, the uppermost layer of the Nine Hells. While the devils defend their home turf, they also make strikes against locations in the Abyss. Although the intensity of the conflict waxes and wanes, and the front lines of the war can shift drastically, a moment never goes by when demons and devils aren't battling each other somewhere in the multiverse.",
 				{
@@ -59,6 +68,15 @@
 									"entries": [
 										"The Blood War rages along the length of the River Styx. Direct confrontations between demons and devils erupt along its banks, making any of the Lower Planes the Styx touches a potential battleground.",
 										"The devils view fighting demons on Avernus as a net benefit for their cause. Although most devils slain there are destroyed forever, ready access to supplies and support from the Nine Hells tilts the tide heavily against invading demons. Also, the prospect of a permanent death compels the devils fighting on Avernus to maintain the utmost readiness and coordination. Wounded devils retreat, knowing that fresh reinforcements can continue the fight. Hordes of lemures, devils that are permanently destroyed only if subjected to holy energies, are used to blunt demonic incursions. The terrain of Avernus is thoroughly mapped and festooned with ambush points, strongholds, and other defensive measures.",
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/MTF/315529_cn.webp"
+											},
+											"width": 1000,
+											"height": 748
+										},
 										{
 											"type": "inset",
 											"name": "Sailing the Styx",
@@ -172,6 +190,15 @@
 						}
 					],
 					"id": "001"
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/MTF/315590_cn_wmask.webp"
+					},
+					"width": 1000,
+					"height": 642
 				},
 				{
 					"type": "section",
@@ -796,6 +823,15 @@
 						"Each description also includes a list of signature spells associated with the cult. If a cult member can cast spells, you can replace any of those spells with spells from that list, as long as the new spell is of the same level as the spell it replaces.",
 						"The customization options here will typically have no appreciable effect on the challenge rating of a creature that gains them.",
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315531_cn_wmask.webp"
+							},
+							"width": 1000,
+							"height": 642
+						},
+						{
 							"type": "list",
 							"items": [
 								"{@cult Cult of Asmodeus}",
@@ -1205,6 +1241,15 @@
 							"id": "046"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315584_cn_wmask.webp"
+							},
+							"width": 1000,
+							"height": 642
+						},
+						{
 							"type": "entries",
 							"name": "Chaos Incarnate",
 							"page": 25,
@@ -1341,6 +1386,15 @@
 								}
 							],
 							"id": "055"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315585_cn_wmask.webp"
+							},
+							"width": 1000,
+							"height": 624
 						},
 						{
 							"type": "entries",
@@ -1516,6 +1570,15 @@
 					"page": 32,
 					"entries": [
 						"Cambions spawned by demon lords sometimes manifest different abilities from a typical cambion. {@creature Graz'zt|MTF} is notable among demon lords for the many cambions he has spawned across the multiverse. Most famous among them is Iuz, who combined his father's abyssal heritage and his mother's peerless arcane tutelage to become a demigod.",
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315587_cn.webp"
+							},
+							"width": 1000,
+							"height": 645
+						},
 						{
 							"type": "entries",
 							"name": "Signature Spells",
@@ -1800,6 +1863,15 @@
 					"entries": [
 						"The following tables can be used to generate random cults dedicated to fiends. Roll on the tables in the order in which they appear to build up the cult's traits.",
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315588_cn_wmask.webp"
+							},
+							"width": 709,
+							"height": 1000
+						},
+						{
 							"type": "table",
 							"caption": "Cult Goals",
 							"colLabels": [
@@ -1874,6 +1946,15 @@
 									"The cult's leader is a renegade fiend seeking to evade its enemies."
 								]
 							]
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315589_cn.webp"
+							},
+							"width": 1031,
+							"height": 1000
 						},
 						{
 							"type": "table",
@@ -1963,6 +2044,15 @@
 			"name": "Elves",
 			"page": 35,
 			"entries": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/MTF/mtf_chapterstarts_ch2.webp"
+					},
+					"width": 1000,
+					"height": 696
+				},
 				"The most ancient tales speak of elves as the children of the god Corellon. Unlike many similar myths involving other races, these tales are true. Elves are all descended from a deity, and their origin led to a tragedy that shapes their culture to this day.",
 				"The gulf between the elves and Corellon, and the split between Corellon and Lolth, arose from the same transgression. That one incident set all the many races of elves on their present paths, determined their unique life cycle, and triggered an unflagging hatred between the drow and the elves of the Material Plane. No other event has had such momentous impact on elven history as the one that began it all.",
 				{
@@ -2000,6 +2090,15 @@
 						"One group of elves, the eladrin, never left that first refuge. After being exposed to the pervasive magic of the Feywild for centuries, these elves have a supernatural quality not shared by their cousins on the Material Plane. Some eladrin have been transformed so thoroughly that they have become fey creatures again and have been permitted to return to Arvandor, where they are a fascination and a delight to the Seldarine."
 					],
 					"id": "06f"
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/MTF/315608_cn_wmask.webp"
+					},
+					"width": 1000,
+					"height": 608
 				},
 				{
 					"type": "section",
@@ -2070,6 +2169,15 @@
 								"Most elves undergo this experience in their third or fourth century. Elves who led extremely active and dangerous lives, such as adventurers, seem to be affected earlier than those who pursue more sedate occupations. Notably, elves who have been revived from death by magical means seem to experience their first other-life memory earlier than they otherwise might.",
 								"Regardless of how soon or how often elves experience such memories, most consider them a blessing from the gods. The experiences of other lives that are revisited during trance can be examined for lessons to be applied during one's waking life, signs from the gods, or ways to open an elf's perspective to other points of view.",
 								"A handful of elves in any generation never experience an other-life memory during trance. It's hypothesized that these select few might be reincarnations of the original primal elves who sprang from Corellon's blood and were allowed to stay in his company. Although most elder elves become more serene, these rare folk spend the rest of their lives throwing themselves into dangerous situations, as if daring death to try to take them.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/136866_cn.webp"
+									},
+									"width": 654,
+									"height": 1000
+								},
 								{
 									"type": "inset",
 									"name": "Dreams from beyond Memory",
@@ -2174,7 +2282,16 @@
 								"Much preferred are memories of faraway places, excellent meals, and fascinating people. As such, most elf \"adventurers\" are primarily sightseers, not valiant crusaders or heroes for hire.",
 								"This aspect of elven life isn't as well known among other races as it might be, because elves spend much of their \"adventuring\" years in places far away from other societies. They're more interested in remote forests, lonely valleys, high mountains, and other natural places than in cities. Traveling elves want to meet people, but not too many.",
 								"A small fraction of elves are born with or develop the qualities that mark them as potential adventurers, as other races define the term. Many traditional adventuring groups are happy to count an elf among their members, and some elves take to this life enthusiastically. Elves have a reputation for remaining unruffled in the face of danger, a very good quality to have among folk who regularly find themselves in difficult situations.",
-								"On extremely rare occasions, an elf might join an adventuring party for reasons that are based in fear. A tiny percentage of elves develop an irrational fear of the serene, contemplative life that awaits them in their later years. Even if such a future life seems tepid and unbearably dull during an elf's prime, the psychological changes that come with age make this peaceful period of existence the most satisfying experience possible for an elf's later years. Nevertheless, this fear is immune to logic when it arises in adult elves. To avoid the fate they dread, consciously or subconsciously, they throw themselves into dangerous situations, not caring whether they survive or perhaps even hoping they don't. In effect, they're looking for another chance, seeing their current life or perceived future as unbearable and hoping to stop the clock on this mortal body and start afresh."
+								"On extremely rare occasions, an elf might join an adventuring party for reasons that are based in fear. A tiny percentage of elves develop an irrational fear of the serene, contemplative life that awaits them in their later years. Even if such a future life seems tepid and unbearably dull during an elf's prime, the psychological changes that come with age make this peaceful period of existence the most satisfying experience possible for an elf's later years. Nevertheless, this fear is immune to logic when it arises in adult elves. To avoid the fate they dread, consciously or subconsciously, they throw themselves into dangerous situations, not caring whether they survive or perhaps even hoping they don't. In effect, they're looking for another chance, seeing their current life or perceived future as unbearable and hoping to stop the clock on this mortal body and start afresh.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315615_cn.webp"
+									},
+									"width": 911,
+									"height": 1000
+								}
 							],
 							"id": "07e"
 						}
@@ -2471,6 +2588,16 @@
 								"Services in Corellon's honor are typically conducted in natural stone amphitheaters or bowl-shaped forest clearings. In keeping with Corellon's chief commandment for everyone to be free, all who attend are allowed to show their obeisance however they choose, as long as their way of contributing combines with the others to form a grand display of reverence. Such a gathering has the atmosphere of a festival rather than of an organized worship service.",
 								"Many elf wizards honor Corellon and adorn their spellbooks and towers with the god's symbols. Some of them speculate that Corellon is the personification of raw magic itself, the primal force that underlies the multiverse. Corellon is not magic tamed or shaped-not the Weave, as some name it-but magic in its original form: a well of endless, splendid possibilities.",
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315612_cn_wmask.webp"
+									},
+									"title": "Priest of Corellon",
+									"width": 712,
+									"height": 1000
+								},
+								{
 									"type": "entries",
 									"name": "The Mysteries of Arvandor",
 									"page": 44,
@@ -2504,6 +2631,15 @@
 								"Hanali is the elven god of beauty and love. Usually depicted as a beautiful female, in some stories the god appears to mortals as a gorgeous male. Hanali's gender in a story seldom matters, for no matter how much heartache and confusion the stories contain, they end with affairs of the heart properly sorted out and everyone in love with the person, or persons, they were fated to be with. Stories of Hanali's romantic adventures among elves and other mortals are perennial favorites when sung by elf bards and poets.",
 								"In Arvandor, Hanali maintains a hidden pool called Evergold. She bathes in it at least once a day. It's said that the water of Evergold keeps her young and breathtakingly beautiful, but this is certainly a poetic myth, since all the Seldarine appear young and beautiful, with or without having bathed in this fountain. Mortal elves who are invited to join Hanali in the pool are said to retain their youthfulness and to delay the onset of Transcendence by at least a century. More than a few elves claim to have experienced this benefit, and the truth of it is attested by many bards-sometimes in all earnestness, sometimes with a knowing wink.",
 								"Priests of Hanali perform weddings between elves and preside over most other family-related ceremonies. Other than nuptials and a spate of spring celebrations, the priests conduct few observances.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315619_cn_wmask.webp"
+									},
+									"width": 754,
+									"height": 1000
+								},
 								{
 									"type": "entries",
 									"name": "Pools of Beauty",
@@ -2588,6 +2724,15 @@
 							"id": "08d"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315607_cn_wmask.webp"
+							},
+							"width": 1000,
+							"height": 642
+						},
+						{
 							"type": "entries",
 							"name": "Deep Sashelas",
 							"page": 48,
@@ -2653,6 +2798,15 @@
 						"The Feywild exists separate from but parallel to the Material Plane. It's a realm of nature run amok, and most of its inhabitants are sylvan or fey creatures. In these respects, the Feywild has certain similarities to Arvandor. First-time visitors might be excused for not being sure which of the two planes they're on for a time after arriving. Unlike Arvandor, however, which is a plane of good, the Feywild leans toward neither good nor evil; both are equally prevalent and powerful there. For that reason, parts of the Feywild where evil holds sway are substantially more dangerous than any place in Arvandor.",
 						"All kinds of elves live in the Feywild, but one subrace\u2014the eladrin\u2014has adopted it as their home. Of all the elves, eladrin are closest in form and ability to the first generation of elves. Some could pass for high elves, but most are distinctly eladrin in appearance: very slender, with hair and skin color determined by the season with which they feel the closest affinity. And their eyes often glimmer with fey magic.",
 						"Continued exposure to the Feywild, over a century or more, hastens the onset of Remembrance significantly among most elves. Elves who have spent most of their lives in the Feywild can experience their first other-life memory as early as the age of 200 years. Eladrin aren't affected this way.",
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315610_cn_wmask.webp"
+							},
+							"width": 523,
+							"height": 1000
+						},
 						"Because of their link to the primal elves, eladrin tend to be haughty around other elves. They're proud of their heritage and equally proud of their ability to thrive in the Feywild, a land full of threats that would overwhelm and destroy weaker creatures. Some eladrin trade haughtiness for a tender kindness toward their elf cousins, knowing that many elves have never felt the ecstasies of a life amid the fey and of years spent near the ancient shrines and other glories created by the primal elves who first arrived in Faerie. These kinder eladrin take a special pleasure in introducing their realm to others.",
 						"Eladrin cities represent the pinnacle of elven architecture. Their soaring towers, arching bridges, and gracefully filigreed homes are a perfect blend of construction, natural elements, and magic-inspired motifs. Streams and waterfalls, gardens and copses, and structures of stone and wood are commingled in ways that are original and yet completely natural-looking.",
 						"Eladrin culture is older than any other elven civilization, and it's also the most decadent. Most elves are impetuous to some extent, but eladrin are known for their fickleness. Many of them change their minds on the spur of the moment without giving reasons. Their system of justice vacillates between capriciously harsh and whimsically mild, depending on the mood of the eladrin passing judgment, and eladrin are more susceptible to flattery than other elves are.",
@@ -2721,6 +2875,15 @@
 								"A male drow can advance in standing as a combatant, a consort, or both. Physical beauty and fitness are highly prized in male drow, and those who are especially favored in this regard can earn protection and gifts from their matrons. A few males can attain high status in their society, especially those who serve as mages, but they never overshadow the females of their houses. Even the most intelligent, strong-willed, and devious male will never be more than a second-class citizen in any drow city or house. That situation will never change as long as Lolth reigns as their queen."
 							],
 							"id": "099"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315613_cn_wmask.webp"
+							},
+							"width": 1000,
+							"height": 642
 						},
 						{
 							"type": "entries",
@@ -2935,6 +3098,15 @@
 									"id": "0a4"
 								},
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315614_cn_wmask.webp"
+									},
+									"width": 1000,
+									"height": 669
+								},
+								{
 									"type": "entries",
 									"name": "Vhaeraun",
 									"page": 55,
@@ -3066,6 +3238,15 @@
 								}
 							],
 							"id": "0ad"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315609_cn_wmask.webp"
+							},
+							"width": 1000,
+							"height": 612
 						},
 						{
 							"type": "entries",
@@ -3319,6 +3500,15 @@
 							]
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315616_cn_wmask.webp"
+							},
+							"width": 734,
+							"height": 1000
+						},
+						{
 							"type": "table",
 							"caption": "Drow Adventurer Story Hooks",
 							"colLabels": [
@@ -3429,6 +3619,15 @@
 			"name": "Dwarves and Duergar",
 			"page": 65,
 			"entries": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/MTF/mtf_chapterstarts_ch3.webp"
+					},
+					"width": 1000,
+					"height": 687
+				},
 				"To impartial observers, the tale of the ancient war between dwarves and duergar is at its heart a tragedy, the story of a people turned against each other by bitterness and resentment. Once the dwarves were unified in their worship of Moradin, the deity who crafted the first dwarves from metal and fire. Today, the race is splintered into those who still embrace him as their father and creator-and those who have sworn to topple him from his divine throne.",
 				"While the dwarves loyal to Moradin take joy in the art of crafting and form strong family bonds, the duergar are joyless, hateful creatures who create their works out of an urge to build and acquire. They come closest to feeling true joy when they raid dwarven strongholds to satisfy their lust for blood and treasure.",
 				{
@@ -3484,6 +3683,15 @@
 						"The dwarf god Moradin forged the first dwarves in his great workshop, causing them to spring to life from inert metal when he cooled the heated castings with his breath. Since then, the dwarves have revered Moradin and sought to follow in his footsteps. Through constant, steady work, they strive to emulate the perfect example set by the originator of the arts and skills the dwarves pursue.",
 						"To the dwarves, Moradin is the Creator. With his impeccable skills, he crafted the first dwarves and imbued them with a sense of relentless purpose, driven to apply their own crafting skills to the raw materials around them and thereby unlock the beauty that hides within.",
 						"Moradin is also worshiped as the All-Father, in acknowledgment of his role as the progenitor of the dwarven race. In this aspect as well, he is credited not only for the birth of the dwarves but for fostering in them a deep appreciation for clan and family. He demonstrates how dwarf parents should raise their children, instilling in them the urge to further not only themselves but to contribute to the success of the larger group. Just as Moradin looks out for all dwarves, all dwarves in a clan look out for one another.",
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/135520_cn_wmask.webp"
+							},
+							"width": 1000,
+							"height": 642
+						},
 						{
 							"type": "entries",
 							"name": "The Path to Perfection",
@@ -3602,6 +3810,15 @@
 									"id": "0cd"
 								},
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315521_cn_wmask.webp"
+									},
+									"width": 1000,
+									"height": 642
+								},
+								{
 									"type": "entries",
 									"name": "Island of Stability",
 									"page": 70,
@@ -3635,6 +3852,15 @@
 								}
 							],
 							"id": "0cc"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315523_cn_wmask.webp"
+							},
+							"width": 1000,
+							"height": 681
 						},
 						{
 							"type": "entries",
@@ -3746,6 +3972,15 @@
 								"The religion of the dwarves is at the root of the societal roles that dwarves follow. Where most other creatures view their deities as ultrapowerful beings who stand forever apart from their worshipers, the dwarves see their gods as exemplars who blaze a path for their lives to follow. Dwarven deities exist in a wide variety, with a few common across many worlds. They are collectively known as the Mordinsamman.",
 								"Moradin is foremost among the dwarven pantheon, the epitome of everything dwarves strive to be. The rest of the group consists of those first dwarves who performed their labors so well that they could almost duplicate Moradin's level of skill.",
 								"The Dwarf Deities table lists the members of the Mordinsamman. For each god, the table notes alignment, province (the god's main areas of interest and responsibility), suggested domains for clerics who serve the god, and a common symbol of the god. Several of the gods in the table are described below.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315522_cn_wmask.webp"
+									},
+									"width": 1000,
+									"height": 642
+								},
 								{
 									"type": "table",
 									"caption": "Dwarf Deities (The Mordinsamman)",
@@ -4220,6 +4455,15 @@
 							"id": "0f5"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315519_cn_wmask.webp"
+							},
+							"width": 1000,
+							"height": 642
+						},
+						{
 							"type": "entries",
 							"name": "Three Rules of Conduct",
 							"page": 78,
@@ -4370,6 +4614,15 @@
 							"id": "0fe"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/MTF/315524_cn_wmask.webp"
+							},
+							"width": 1000,
+							"height": 667
+						},
+						{
 							"type": "entries",
 							"name": "Power of the Mind",
 							"page": 80,
@@ -4457,6 +4710,15 @@
 							"page": 81,
 							"entries": [
 								"When dwarves journey away from their strongholds, they prefer to move in substantial, heavily defended groups. Use the following tables to generate a band of dwarf travelers and some additional details of their situation. Roll once on each line of the Group Composition table and once on each table that follows it.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315622_cn.webp"
+									},
+									"width": 663,
+									"height": 1000
+								},
 								{
 									"type": "table",
 									"caption": "Group Leader",
@@ -4790,6 +5052,15 @@
 							"entries": [
 								"The tables below are designed to add depth to a dwarf character by offering possible reasons why the character left the clan for the life of an adventurer and a set of personality quirks tailored for dwarven sensibilities.",
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315526_cn.webp"
+									},
+									"width": 728,
+									"height": 1000
+								},
+								{
 									"type": "table",
 									"caption": "Dwarf Adventurer Story Hooks",
 									"colLabels": [
@@ -4892,6 +5163,15 @@
 							"page": 83,
 							"entries": [
 								"When duergar emerge from the Underdark, they generally do so in the form of small but vicious raiding parties. Use the following tables to generate a band of duergar raiders and some additional details of their situation. Roll once on each line of the Group Composition table and once on each table that follows it.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315527_cn.webp"
+									},
+									"width": 771,
+									"height": 1000
+								},
 								{
 									"type": "table",
 									"caption": "",
@@ -5352,6 +5632,15 @@
 			"name": "Gith and Their Endless War",
 			"page": 85,
 			"entries": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/MTF/mtf_chapterstarts_ch4.webp"
+					},
+					"width": 1000,
+					"height": 690
+				},
 				"The story of the gith is rooted in a cruel twist of cosmic fate. Inspired by the great leader for whom the race is named, the gith rose up to overthrow the mind flayers that held them in servitude. But after they won their freedom, two factions among the gith disagreed on what kind of civilization they would forge. That disagreement quickly flared into open hostility, and the two groups distanced themselves from one another to pursue their separate agendas. They remain bitter enemies today, each side willing to fight to the death whenever they cross paths.",
 				"The githyanki were motivated by revenge and convinced that they deserved to take whatever they wanted from the worlds they traveled. Ranging out from the titanic city of Tu'narath on the Astral Plane, they send raiders out to plunder the Material Plane and other worlds, bringing treasures and slaves back to their ageless realm. At the same time, they hunt down and kill mind flayers whenever possible, as recompense for what the illithids did to them.",
 				"The githzerai believed that the path to an enlightened civilization lay in seclusion, not conflict. Their dedication to the principles of order is so strong that they can manipulate the stuff of chaos and use it to their benefit; thus, they have carved out a stronghold for themselves on the plane of Limbo that is virtually impervious. Though the githzerai are pacifists by nature, they share the githyanki's racial hatred for mind flayers, and from time to time they send out squads to destroy illithid outposts.",
@@ -5417,6 +5706,15 @@
 									"by": "Adaka Fell Hand, githzerai monk"
 								},
 								"From birth, githyanki are conditioned to fight and die for their queen. Children endure a brutal upbringing that constantly preaches devotion to Vlaakith. Each of the fortified settlements where young githyanki are raised and trained is a combination of military academy and cult headquarters.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315591_cn_wmask.webp"
+									},
+									"width": 1000,
+									"height": 642
+								},
 								{
 									"type": "entries",
 									"name": "Only the Best Survive",
@@ -5520,6 +5818,15 @@
 										"The first silver swords were created eons ago, when the gith were still a single race, by those who would become the first githyanki knights. A silver sword, which functions as a +3 greatsword, is a conduit through which its wielder can assail a foe both physically and psychically. The weapon is particularly effective on the Astral Plane against any travelers who are connected to their physical bodies by a silver cord-a strike against such an enemy has a chance of severing the silver cord, causing instant death.",
 										"Knights and their silver swords are inseparable, and a knight will fight to the death to prevent the loss of its weapon. If a silver sword falls into the possession of someone other than a githyanki, Vlaakith sends a squad of knights out from Tu'narath to destroy the malefactor and recover the weapon.",
 										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/MTF/315596_cn.webp"
+											},
+											"width": 1000,
+											"height": 1003
+										},
+										{
 											"type": "list",
 											"items": [
 												"{@item Greater Silver Sword|MTF}"
@@ -5560,6 +5867,15 @@
 								"The githyanki sky ships attack from above in the dead of night, gaining an instant advantage since communities on the surface rarely offer strong defenses against attacks from the air. Red dragons ridden by knights accompany the vessels, serving as outriders and shock trips to pave the way for the githyanki warriors to descend en masse.",
 								"In battle, the githyanki use mobile tactics combining psionics and magic to devastate their foes. They hit hard, setting buildings aflame and killing all in their path, to foster a panic among their victims that cripples any hope of an organized defense.",
 								"Because the githyanki strike to plunder rather than conquer, raiders linger over their target for no more than a few hours. By daybreak the attackers are gone, purposely leaving behind enough survivors to rebuild the ruined community-so that the githyanki might visit the place years or decades later and lay it low all over again.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315592_cn_wmask.webp"
+									},
+									"width": 1000,
+									"height": 572
+								},
 								{
 									"type": "entries",
 									"name": "The Helm",
@@ -5675,6 +5991,15 @@
 												}
 											],
 											"id": "124"
+										},
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/MTF/315593_cn_wmask.webp"
+											},
+											"width": 1000,
+											"height": 626
 										},
 										{
 											"type": "entries",
@@ -5829,6 +6154,15 @@
 								"Aside from its inhabitants, the most well-defended element of a githzerai fortress is its food supply. Because Limbo provides no sustenance, the githzerai rely on crops and livestock they appropriate from elsewhere. Plants are grown in hydroponic chambers, and livestock are raised in pens where light, temperature, and other conditions are tailored to their needs.",
 								"A community's activity is overseen by monks who assign duties to each occupant. Everyone participates in mock combats and ongoing academic instruction, and each fortress allocates personnel and resources as needed. Every fortress is designed to be self-sufficient, even though no two of them are ever out of psychic contact.",
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315594_cn_wmask.webp"
+									},
+									"width": 1000,
+									"height": 642
+								},
+								{
 									"type": "entries",
 									"name": "Shra'kt'lor",
 									"page": 94,
@@ -5905,6 +6239,15 @@
 											"id": "13d"
 										},
 										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/MTF/315595_cn_wmask.webp"
+											},
+											"width": 1000,
+											"height": 642
+										},
+										{
 											"type": "inset",
 											"name": "The Sha'sal Khou",
 											"entries": [
@@ -5938,7 +6281,7 @@
 						{
 							"type": "entries",
 							"name": "Gith Random Height and Weight",
-							"page": 0,
+							"page": 96,
 							"entries": [
 								{
 									"type": "table",
@@ -6710,6 +7053,15 @@
 			"name": "Halflings and Gnomes",
 			"page": 99,
 			"entries": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/MTF/mtf_chapterstarts_ch5.webp"
+					},
+					"width": 1000,
+					"height": 684
+				},
 				"Creatures of many races and cultures are embroiled in struggles that flare up across the multiverse. Other folk survive in the face of all this turmoil by keeping a low profile and avoiding the wars and other depredations that keep the outside world in a state of flux.",
 				"Halflings and gnomes are two groups that have survived by remaining largely unnoticed by the aggressive powers of the cosmos. Both races are exceptions in a multiverse wracked by conflict-peaceful folk who have found niches for themselves away from the battles and rivalries that fill the lives of the larger folk.",
 				{
@@ -6790,6 +7142,15 @@
 							"page": 100,
 							"entries": [
 								"On the surface, halflings seem to be simple folk, but those who have lived with them or who have had a halfling in their company know that there is much more to the lives of these small folk than meets the eye. The members of a halfling community have a set of shared values and purposes, whether they are tucked away in a hillside burrow or occupying a neighborhood of their own in a city or town dominated by another race.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315600_cn_wmask.webp"
+									},
+									"width": 663,
+									"height": 1000
+								},
 								{
 									"type": "entries",
 									"name": "Everything Has a Story",
@@ -7002,6 +7363,15 @@
 									"id": "156"
 								},
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315601_cn_wmask.webp"
+									},
+									"width": 777,
+									"height": 1000
+								},
+								{
 									"type": "entries",
 									"name": "Arvoreen",
 									"page": 103,
@@ -7137,6 +7507,15 @@
 										"Some elders-especially those who once had fancy feet themselves-just shrug, smile, and say it is the way of things. Nevertheless, well-meaning villagers might try to dissuade a youngster from leaving the community. Other villages are much more supportive of one of their members who demonstrates the urge to adventure, likely because some of their elders have gone into the world and returned to tell about it. In one of these places, a youngster about to set out is celebrated with a rousing party that goes far into the night, during which the adventurer-to-be is regaled by tales of other \"fancy-footed\" heroes of halfling history."
 									],
 									"id": "163"
+								},
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315599_cn_wmask.webp"
+									},
+									"width": 834,
+									"height": 1000
 								},
 								{
 									"type": "entries",
@@ -7389,6 +7768,15 @@
 								"Though this pursuit of knowledge might compel a gnome to spend long periods in the workshop or the laboratory, the activity is never seen as drudgery-quite the opposite. Gnomes enjoy making an unexciting aspect of life more enjoyable, such as inventing a shovel that whistles a tune to lighten the toil of digging, or creating a telescoping fork that can reach across the table to enliven mealtime.",
 								"Their fun-loving attitude also comes through in the form of jokes that gnomes tell to, or about, their companions, and in the good-spirited pranks that they play on each other-and on other folk (who might not always appreciate being the target of their humor).",
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315602_cn_wmask.webp"
+									},
+									"width": 1000,
+									"height": 642
+								},
+								{
 									"type": "entries",
 									"name": "The Journey Is the Destination",
 									"page": 106,
@@ -7438,6 +7826,15 @@
 										"Exploration is a part of invention, as the gnomes see it, so there's nothing wrong with creating machines and artifacts that seem to have no purpose. The gnomes who produce these works of art are using new ideas and new approaches, breaking through old boundaries and advancing the frontier of knowledge. For instance, an artist might create a beautiful articulated sculpture whose pieces can be manipulated in a unique way. Another artisan might take that idea and apply it to a new form of invention-but no one forgets that it was the artist's idea that blazed the trail for that journey."
 									],
 									"id": "16d"
+								},
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315604_cn_wmask.webp"
+									},
+									"width": 765,
+									"height": 1000
 								},
 								{
 									"type": "entries",
@@ -7514,6 +7911,15 @@
 								"Forest gnome settlements often escape notice. Roving hunters can wander through without ever suspecting they are walking through anything but wilderness. A community of elves might be surprised to discover they have been neighbors of a forest gnome village for years.",
 								"Forest gnomes are good at making their homes vanish into the landscape. It helps that they are small folk, and that they fashion their homes by digging down and living within rather than building up and living above. Like the badgers and raccoons that are often their companions, they live in the hollows of trees and warrens dug into hillsides, each home connected to the others in the community by elaborate burrows.",
 								"Beyond the secret doors into their houses, the homes of forest gnomes are gaily decorated, tidy spaces that take advantage of natural features. A great glass bowl swimming with fish and frogs might serve as a skylight for a gnome burrow, while appearing to the world above as a small pond. The gnarled and tangled roots of a tree might be used for shelves, seats, tables, and bed spaces. Such houses often have many little channels open to the outside, allowing scraps of sunlight to dapple the walls and floors and providing a means of egress for the many animals that live with the gnomes. Similar small openings are used for their cleverly hidden chimneys, disguised as tree branches, which carry smoke from their small fires high into the treetops, reducing it to little more than a haze before it disperses.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/MTF/315603_cn.webp"
+									},
+									"width": 1200,
+									"height": 964
+								},
 								{
 									"type": "entries",
 									"name": "Animal Helpers",

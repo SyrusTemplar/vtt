@@ -55,10 +55,6 @@ Shared UI components
 		background-color: $rgb-bg--night;
 	}
 
-	&row-sep {
-		border-color: $rgb-border-grey--night;
-	}
-
 	&inner {
 		background: $rgb-bg--night;
 		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.56);
@@ -215,6 +211,14 @@ Shared UI components
 		&disp-text {
 			border-color: $rgb-border-grey--night;
 		}
+	}
+}
+/* endregion */
+
+/* region "Copied" tooltip */
+.night-mode .clp__ {
+	&disp-copied {
+		background: radial-gradient(ellipse at center, $rgb-bg--night 0%, $rgb-bg--night 35%, transparent 75%, transparent 100%);
 	}
 }
 /* endregion */

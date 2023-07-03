@@ -313,6 +313,12 @@
 									"width": 2550,
 									"height": 1650,
 									"imageType": "map",
+									"grid": {
+										"type": "square",
+										"size": 70,
+										"offsetX": 8,
+										"offsetY": 20
+									},
 									"mapRegions": [
 										{
 											"area": "878",
@@ -1529,10 +1535,16 @@
 										"type": "internal",
 										"path": "book/EGW/118-5.9-croaker-cave-player.png"
 									},
-									"title": "Map 5.9: Croaker Cave (Player Version)",
+									"title": "Player Version",
 									"width": 2550,
 									"height": 1650,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "square",
+										"size": 70,
+										"offsetX": 8,
+										"offsetY": 20
+									},
 									"mapParent": {
 										"id": "000"
 									}
@@ -2111,7 +2123,7 @@
 									"page": 244,
 									"id": "8a8",
 									"entries": [
-										"The entrance to Salsvault is frozen shut. The characters can force the door open with a successful DC 15 Strength check or by dealing 10 bludgeoning or fire damage to the ice that seals the door. Unsealing the door with bludgeoning damage draws the attention of three suits of animated armor in area{@adventure S3|FS|0|S3. Animated Armor Laboratory}, which gather in {@adventure area S1|FS|0|S1. Entrance Chamber} and attack the characters as soon as they enter.",
+										"The entrance to Salsvault is frozen shut. The characters can force the door open with a successful DC 15 Strength check or by dealing 10 bludgeoning or fire damage to the ice that seals the door. Unsealing the door with bludgeoning damage draws the attention of three suits of animated armor in area {@adventure S3|FS|0|S3. Animated Armor Laboratory}, which gather in {@adventure area S1|FS|0|S1. Entrance Chamber} and attack the characters as soon as they enter.",
 										{
 											"type": "gallery",
 											"images": [
@@ -2125,6 +2137,12 @@
 													"width": 2550,
 													"height": 1650,
 													"imageType": "map",
+													"grid": {
+														"type": "square",
+														"size": 51,
+														"offsetX": -9,
+														"offsetY": -11
+													},
 													"mapRegions": [
 														{
 															"area": "8bc",
@@ -2737,10 +2755,16 @@
 														"type": "internal",
 														"path": "book/EGW/120-5.10-salsvault-player.png"
 													},
-													"title": "Map 5.10: Salsvault (Player Version)",
+													"title": "Player Version",
 													"width": 2550,
 													"height": 1650,
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 51,
+														"offsetX": -9,
+														"offsetY": -11
+													},
 													"mapParent": {
 														"id": "001"
 													}

@@ -29,9 +29,7 @@ class EncountersPage extends TableListPage {
 	}
 
 	_getDisplayName (ent) {
-		const ptHead = `${ent.name} Encounters`;
-		if (ent.minlvl == null && ent.maxlvl == null) return ptHead;
-		return `${ptHead} (Levels ${ent.minlvl}\u2013${ent.maxlvl})`;
+		return Renderer.table.getConvertedEncounterTableName(ent, ent);
 	}
 }
 

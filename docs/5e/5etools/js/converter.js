@@ -817,6 +817,18 @@ class ConverterUi extends BaseComponent {
 					return;
 				}
 
+				const brewDocEditable = await BrewUtil2.pGetEditableBrewDoc();
+				const uneditableSources = entries
+					.filter(ent => !(brewDocEditable?.body?._meta?.sources || []).some(src => src.json === ent.source))
+					.map(ent => ent.source);
+				if (uneditableSources.length) {
+					JqueryUtil.doToast({
+						content: `One or more entries have sources which belong to non-editable homebrew: ${uneditableSources.join(", ")}`,
+						type: "danger",
+					});
+					return;
+				}
+
 				// ignore duplicates
 				const _dupes = {};
 				const dupes = [];
@@ -1093,6 +1105,7 @@ async function doPageInit () {
 	TaggerUtils.init({legendaryGroups, spells});
 	await TagJsons.pInit({spells});
 	RaceTraitTag.init({itemsRaw});
+	AttachedItemTag.init({items});
 
 	const ui = new ConverterUi();
 

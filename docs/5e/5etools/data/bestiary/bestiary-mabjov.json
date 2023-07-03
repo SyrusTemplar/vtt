@@ -276,6 +276,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Magic Resistance",
 				"Regeneration",
@@ -527,7 +530,7 @@
 				{
 					"name": "Insect Gorge (Costs 2 Actions)",
 					"entries": [
-						"Baalzebul disgorges a swarm of biting flies (otherwise same as insect plague) that deals 44 ({@damage 8d10}) piercing damage and does not require concentration."
+						"Baalzebul disgorges a swarm of biting flies (otherwise same as insect plague) that deals 44 ({@damage 8d10}) piercing damage and does not require {@status concentration}."
 					]
 				}
 			],
@@ -1484,6 +1487,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"heavy crossbow|phb",
+				"shortsword|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1681,6 +1688,9 @@
 						"{@atk mw,rw} {@hit 6} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"traitTags": [
 				"Magic Resistance"
@@ -2084,9 +2094,12 @@
 				{
 					"name": "Invisibility (Recharges after a Short or Long Rest)",
 					"entries": [
-						"Dagryn magically turns {@condition invisible} until he attacks, casts a spell, or until its concentration is broken, up to 1 hour (as if concentrating on a spell). Any equipment Dagryn wears or carries is {@condition invisible} with it."
+						"Dagryn magically turns {@condition invisible} until he attacks, casts a spell, or until its {@status concentration} is broken, up to 1 hour (as if {@status concentration||concentrating} on a spell). Any equipment Dagryn wears or carries is {@condition invisible} with it."
 					]
 				}
+			],
+			"attachedItems": [
+				"club|phb"
 			],
 			"senseTags": [
 				"SD"
@@ -2258,7 +2271,7 @@
 				{
 					"name": "Eldritch Mind",
 					"entries": [
-						"Darien has advantage on Constitution saving throws that she makes to maintain concentration on a spell."
+						"Darien has advantage on Constitution saving throws that she makes to maintain {@status concentration} on a spell."
 					]
 				}
 			],
@@ -2301,6 +2314,9 @@
 						"When Darien takes damage, she can entomb herself in ice, which melts away at the end of her next turn. She gains 150 temporary hit points, which take as much of the triggering damage as possible. Immediately after she takes the damage, she gains vulnerability to fire damage, her speed is reduced to 0, and she is {@condition incapacitated}. These effects, including any remaining temporary hit points, all end when the ice melts."
 					]
 				}
+			],
+			"attachedItems": [
+				"war pick|phb"
 			],
 			"traitTags": [
 				"Devil's Sight"
@@ -3161,7 +3177,7 @@
 				{
 					"name": "Read Thoughts",
 					"entries": [
-						"The dread doppelganger magically reads the surface thoughts of one creature within 60 ft. of it. The effect can penetrate barriers, but 3 ft. of wood or dirt, 2 ft. of stone, 2 inches of metal, or a thin sheet of lead blocks it. While the target is in range, the dread doppelganger can continue reading its thoughts, as long as the dread doppelganger's Concentration isn't broken (as if concentrating on a spell). While reading the target's mind, the doppelganger has advantage on Wisdom (Insight) and Charisma ({@skill Deception}, {@skill Intimidation}, and {@skill Persuasion}) checks against the target."
+						"The dread doppelganger magically reads the surface thoughts of one creature within 60 ft. of it. The effect can penetrate barriers, but 3 ft. of wood or dirt, 2 ft. of stone, 2 inches of metal, or a thin sheet of lead blocks it. While the target is in range, the dread doppelganger can continue reading its thoughts, as long as the dread doppelganger's Concentration isn't broken (as if {@status concentration||concentrating} on a spell). While reading the target's mind, the doppelganger has advantage on Wisdom (Insight) and Charisma ({@skill Deception}, {@skill Intimidation}, and {@skill Persuasion}) checks against the target."
 					]
 				}
 			],
@@ -3343,7 +3359,7 @@
 				{
 					"name": "Focused Conjuration",
 					"entries": [
-						"While Edwin is concentrating on a conjuration spell, his concentration cannot be broken as a result of taking damage."
+						"While Edwin is {@status concentration||concentrating} on a conjuration spell, his {@status concentration} cannot be broken as a result of taking damage."
 					]
 				},
 				{
@@ -3587,6 +3603,9 @@
 						"Eo Ashmajiir casts a spell from her spell list that targets only one creature and doesn't have a range of self. This spell targets a second creature in range. Eo cannot use this action in conjunction with her Lightning Affinity ability."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"languageTags": [
 				"AB",
@@ -3986,6 +4005,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"+2 warhammer|dmg"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -4095,6 +4117,9 @@
 						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. The target is {@condition grappled} (escape {@dc 10}). All gibberlings within 5 ft. of the target can use a reaction to make a dagger attack with advantage on the attack roll."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"traitTags": [
 				"Light Sensitivity",
@@ -4338,6 +4363,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Sneak Attack",
 				"Spider Climb",
@@ -4534,6 +4562,9 @@
 						"Jaheira casts the spell conjure animals using a 7th level slot. She can choose to summon three {@filter CR 2 beasts|bestiary|challenge rating=[&2]|type=beast|miscellaneous=!swarm} or six {@filter CR 1 beasts|bestiary|challenge rating=[&1]|type=beast|miscellaneous=!swarm}. All summoned beasts have maximum hit points. The damage from the summoned beasts natural weapons are considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks and damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"quarterstaff|phb"
 			],
 			"traitTags": [
 				"Fey Ancestry"
@@ -4810,6 +4841,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"mace|phb"
+			],
 			"traitTags": [
 				"Legendary Resistances",
 				"Rejuvenation",
@@ -4962,6 +4996,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"heavy crossbow|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -5080,6 +5117,9 @@
 						"Kivan can use his action to make a ranged attack against any number of creatures with 10 feet of a point he can see within the range of his weapon. He must make a separate attack roll for each target."
 					]
 				}
+			],
+			"attachedItems": [
+				"longbow|phb"
 			],
 			"traitTags": [
 				"Fey Ancestry",
@@ -5251,6 +5291,9 @@
 						"{@atk mw} {@hit 8} to hit, reach 5 ft., one target. {@h}1 piercing damage in raven form, or 4 ({@damage 1d4 + 4}) piercing damage in hybrid form. If the target is humanoid, it must succeed on a {@dc 15} Constitution saving throw or be cursed with wereraven lycanthropy."
 					]
 				}
+			],
+			"attachedItems": [
+				"greataxe|phb"
 			],
 			"traitTags": [
 				"Shapechanger"
@@ -5903,6 +5946,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"light crossbow|phb",
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Sneak Attack"
 			],
@@ -6091,6 +6138,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"mace|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -6237,7 +6287,7 @@
 						{
 							"type": "list",
 							"items": [
-								"Potion of heroism: Nauk gains 10 temporary hit points for 1 hour. For the same duration, Nauk is under the effect of the {@spell bless} spell (no concentration required).",
+								"Potion of heroism: Nauk gains 10 temporary hit points for 1 hour. For the same duration, Nauk is under the effect of the {@spell bless} spell (no {@status concentration} required).",
 								"Potion of resistance: Nauk gains resistance from one damage type for 1 hour. Nauk chooses from one of these damage types: cold, fire, lightning.",
 								"Potion of superior healing: Nauk regains 28 hit points."
 							]
@@ -6252,6 +6302,10 @@
 						"Nauk adds 4 to his AC against one melee attack that would hit him. To do so, Nauk must see the attacker and be wielding a melee weapon."
 					]
 				}
+			],
+			"attachedItems": [
+				"+1 heavy crossbow|dmg",
+				"+1 maul|dmg"
 			],
 			"actionTags": [
 				"Multiattack",
@@ -6472,6 +6526,9 @@
 				"name": "Pazuzu",
 				"source": "MaBJoV"
 			},
+			"attachedItems": [
+				"greatsword|phb"
+			],
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -6681,6 +6738,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"hand crossbow|phb",
+				"scimitar|phb"
+			],
 			"traitTags": [
 				"Hold Breath",
 				"Shapechanger"
@@ -6885,7 +6946,7 @@
 				{
 					"name": "Extended Concentration",
 					"entries": [
-						"The phaerimm can concentrate on two different spells at the same time. If concentration is broken, then both spells fade immediately."
+						"The phaerimm can concentrate on two different spells at the same time. If {@status concentration} is broken, then both spells fade immediately."
 					]
 				},
 				{
@@ -7137,6 +7198,9 @@
 						"Saemon casts the spell animate objects, targeting hand axes that he has hurled at enemies up to a total of 10. If there are not enough hand axes to equal 10, then he provides the remaining hand axes from his quiver of ehlonna. The hand axes are considered tiny objects."
 					]
 				}
+			],
+			"attachedItems": [
+				"handaxe|phb"
 			],
 			"actionTags": [
 				"Multiattack",
@@ -7495,6 +7559,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb",
+				"shortbow|phb"
+			],
 			"traitTags": [
 				"Amphibious",
 				"Magic Resistance"
@@ -7635,6 +7703,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greatsword|phb"
+			],
 			"traitTags": [
 				"Magic Resistance",
 				"Magic Weapons"
@@ -7761,6 +7832,9 @@
 						"{@atk mw} {@hit 9} to hit, reach 5 ft., one target. {@h}13 ({@damage 2d6 + 6}) slashing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"greatsword|phb"
 			],
 			"traitTags": [
 				"Magic Resistance",
@@ -8207,6 +8281,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"C",
 				"CE",
@@ -8434,6 +8511,11 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"javelin|phb",
+				"net|phb",
+				"shortsword|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -8538,6 +8620,11 @@
 						"{@atk mw} {@hit 6} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d6 + 4}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"blowgun|phb",
+				"javelin|phb",
+				"shortsword|phb"
 			],
 			"senseTags": [
 				"D"
@@ -8658,6 +8745,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"heavy crossbow|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -8738,7 +8828,7 @@
 				{
 					"name": "Mage Slaying",
 					"entries": [
-						"When Valygar deals damage to a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration."
+						"When Valygar deals damage to a creature that is {@status concentration||concentrating} on a spell, that creature has disadvantage on the saving throw it makes to maintain its {@status concentration}."
 					]
 				}
 			],
@@ -8769,6 +8859,9 @@
 						"When a creature within 5 feet of Valygar casts a spell, he can use his reaction to make a melee weapon attack against that creature."
 					]
 				}
+			],
+			"attachedItems": [
+				"hand crossbow|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -8902,6 +8995,10 @@
 						"{@atk rw} {@hit 9} to hit, ranged 80/320 ft., one target. {@h}8 ({@damage 1d6 + 5}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"shortbow|phb",
+				"shortsword|phb"
 			],
 			"traitTags": [
 				"Keen Senses"
@@ -9083,7 +9180,7 @@
 				{
 					"name": "Special Equipment",
 					"entries": [
-						"Viconia wears a belt of fire giant strength and a cloak of protection and wields a mace +3. Without the belt, her strength is 12 and her speed is reduced to 20 ft."
+						"Viconia wears a {@item belt of fire giant strength} and a {@item cloak of protection} and wields a {@item +3 Mace||mace +3}. Without the belt, her strength is 12 and her speed is reduced to 20 ft."
 					]
 				},
 				{
@@ -9118,6 +9215,9 @@
 						"{@atk mw} {@hit 15} to hit, reach 5 ft., one target. {@h}13 ({@damage 1d6 + 10}) bludgeoning damage plus 9 ({@damage 2d8}) necrotic damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"+3 mace|dmg"
 			],
 			"traitTags": [
 				"Fey Ancestry",
@@ -9295,6 +9395,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"heavy crossbow|phb",
+				"sun blade|dmg"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -9442,6 +9546,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Keen Senses",
 				"Pack Tactics",
@@ -9582,6 +9689,9 @@
 						"The wolfwere plays a magical melody on an instrument. Every humanoid within 200 ft. of the wolfwere that can hear the melody must succeed on a {@dc 16} Wisdom saving throw or be {@spell slow||slowed} for 10 minutes. A creature can repeat the saving throw at the end of each of its turns. If a creature's saving throw is successful, the effect ends on it. A target that successfully saves is immune to this wolfwere's melody for the next 24 hours."
 					]
 				}
+			],
+			"attachedItems": [
+				"longsword|phb"
 			],
 			"traitTags": [
 				"Keen Senses",
@@ -9724,7 +9834,7 @@
 				{
 					"name": "Bladesong",
 					"entries": [
-						"Xan can use a bonus action to start a bladesong. His bladesong lasts for 1 minute. While using bladesong his movement increases to 40 ft., he gains a +3 bonus to his AC and he gains a +3 bonus to all concentration checks."
+						"Xan can use a bonus action to start a bladesong. His bladesong lasts for 1 minute. While using bladesong his movement increases to 40 ft., he gains a +3 bonus to his AC and he gains a +3 bonus to all {@status concentration} checks."
 					]
 				},
 				{
@@ -9747,6 +9857,9 @@
 						"{@atk mw} {@hit 9} to hit, reach 5 ft., one target. {@h}10 ({@damage 1d8 + 6}) slashing damage or 11 ({@damage 1d10 + 6}) slashing damage if wielded with two hands."
 					]
 				}
+			],
+			"attachedItems": [
+				"moonblade|dmg"
 			],
 			"traitTags": [
 				"Fey Ancestry"

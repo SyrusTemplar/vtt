@@ -279,7 +279,24 @@
 						}
 					]
 				}
-			]
+			],
+			"ignoreSrdEffects": true
+		},
+		{
+			"name": "Unarmored Defense",
+			"source": "PHB",
+			"className": "Monk",
+			"classSource": "PHB",
+			"level": 1,
+			"ignoreSrdEffects": true
+		},
+		{
+			"name": "Unarmored Defense",
+			"source": "PHB",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"level": 1,
+			"ignoreSrdEffects": true
 		},
 		{
 			"name": "Metamagic",
@@ -941,6 +958,18 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Channel Divinity: Harness Divine Power",
+			"source": "TCE",
+			"className": "Cleric",
+			"classSource": "PHB",
+			"level": 2,
+			"system": {
+				"uses.per": "day",
+				"uses.value": 1,
+				"uses.max": "1 + min(floor(@classes.cleric.levels / 6), 1) + min(floor(@classes.cleric.levels / 18), 1)"
+			}
 		}
 	],
 	"subclassFeature": [
@@ -1046,7 +1075,7 @@
 			"entryData": {
 				"resources": [
 					{
-						"name": "Superiority Dice",
+						"name": "Superiority Die",
 						"type": "dicePool",
 						"recharge": "restShort",
 						"count": "floor((<$level$> + 1) / 8) + 4",
@@ -1613,7 +1642,13 @@
 				"target.value": 1,
 				"target.type": "creature",
 				"range.value": 120,
-				"range.units": "ft"
+				"range.units": "ft",
+				"uses.per": "charges",
+				"uses.value": 2,
+				"uses.max": "@classes.druid.levels",
+				"uses.recovery": "@classes.druid.levels",
+				"formula": "1d6",
+				"actionType": "healing"
 			}
 		},
 		{
@@ -4161,7 +4196,7 @@
 					"transfer": true,
 					"changes": [
 						{
-							"key": "data.attributes.init.value",
+							"key": "data.attributes.init.total",
 							"mode": "ADD",
 							"value": "@abilities.int.mod"
 						}
@@ -4248,7 +4283,7 @@
 			"entryData": {
 				"resources": [
 					{
-						"name": "Psionic Energy Dice",
+						"name": "Psionic Energy Die",
 						"type": "dicePool",
 						"recharge": "restLong",
 						"count": "2 * PB",
@@ -4269,7 +4304,7 @@
 			"entryData": {
 				"resources": [
 					{
-						"name": "Psionic Energy Dice",
+						"name": "Psionic Energy Die",
 						"type": "dicePool",
 						"recharge": "restLong",
 						"count": "2 * PB",
@@ -4516,6 +4551,106 @@
 					}
 				]
 			}
+		},
+		{
+			"name": "Fighting Style",
+			"source": "UAKitsOfOld",
+			"className": "Bard",
+			"classSource": "PHB",
+			"subclassShortName": "Swords (UA)",
+			"subclassSource": "UAKitsOfOld",
+			"level": 3,
+			"isIgnored": true
+		},
+		{
+			"name": "Fighting Style",
+			"source": "UARevisedSubclasses",
+			"className": "Bard",
+			"classSource": "PHB",
+			"subclassShortName": "Swords v2 (UA)",
+			"subclassSource": "UARevisedSubclasses",
+			"level": 3,
+			"isIgnored": true
+		},
+		{
+			"name": "Fighting Style",
+			"source": "XGE",
+			"className": "Bard",
+			"classSource": "PHB",
+			"subclassShortName": "Swords",
+			"subclassSource": "XGE",
+			"level": 3,
+			"isIgnored": true
+		},
+		{
+			"name": "Alchemical Formula",
+			"source": "UAArtificer",
+			"className": "Artificer",
+			"classSource": "UAArtificer",
+			"subclassShortName": "Alchemist",
+			"subclassSource": "UAArtificer",
+			"level": 1,
+			"isIgnored": true
+		},
+		{
+			"name": "Extra Alchemical Formula",
+			"source": "UAArtificer",
+			"className": "Artificer",
+			"classSource": "UAArtificer",
+			"subclassShortName": "Alchemist",
+			"subclassSource": "UAArtificer",
+			"level": 3,
+			"isIgnored": true
+		},
+		{
+			"name": "Extra Alchemical Formula",
+			"source": "UAArtificer",
+			"className": "Artificer",
+			"classSource": "UAArtificer",
+			"subclassShortName": "Alchemist",
+			"subclassSource": "UAArtificer",
+			"level": 9,
+			"isIgnored": true
+		},
+		{
+			"name": "Extra Alchemical Formula",
+			"source": "UAArtificer",
+			"className": "Artificer",
+			"classSource": "UAArtificer",
+			"subclassShortName": "Alchemist",
+			"subclassSource": "UAArtificer",
+			"level": 14,
+			"isIgnored": true
+		},
+		{
+			"name": "Extra Alchemical Formula",
+			"source": "UAArtificer",
+			"className": "Artificer",
+			"classSource": "UAArtificer",
+			"subclassShortName": "Alchemist",
+			"subclassSource": "UAArtificer",
+			"level": 17,
+			"isIgnored": true
+		},
+		{
+			"name": "Resonants Known",
+			"source": "UAClericDruidWizard",
+			"className": "Wizard",
+			"classSource": "PHB",
+			"subclassShortName": "Onomancy (UA)",
+			"subclassSource": "UAClericDruidWizard",
+			"level": 6,
+			"isIgnored": true
+		},
+		{
+			"name": "Resonant Options",
+			"source": "UAClericDruidWizard",
+			"className": "Wizard",
+			"classSource": "PHB",
+			"subclassShortName": "Onomancy (UA)",
+			"subclassSource": "UAClericDruidWizard",
+			"level": 6,
+			"isIgnored": true
 		}
 	]
 }

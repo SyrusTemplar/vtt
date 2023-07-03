@@ -22,4 +22,14 @@
 			}
 		}
 	}
+
+	.veapp {
+		&__ {
+			&ele-hoverable {
+				&:hover {
+					background: $rgb-bg--alt-night;
+				}
+			}
+		}
+	}
 }

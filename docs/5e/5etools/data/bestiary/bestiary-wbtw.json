@@ -133,6 +133,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -333,6 +336,9 @@
 						"Amidor adds 2 to its AC against one melee attack that would hit it. To do so, Amidor must see the attacker and be wielding a melee weapon."
 					]
 				}
+			],
+			"attachedItems": [
+				"rapier|phb"
 			],
 			"actionTags": [
 				"Parry"
@@ -636,7 +642,8 @@
 				}
 			],
 			"traitTags": [
-				"Fey Ancestry"
+				"Fey Ancestry",
+				"Tunneler"
 			],
 			"languageTags": [
 				"C",
@@ -750,6 +757,9 @@
 						"The knight makes a loud croak while targeting one creature it can see within 30 feet of it. The target must succeed on a {@dc 12} Wisdom saving throw or be {@condition charmed} until the end of its next turn."
 					]
 				}
+			],
+			"attachedItems": [
+				"glaive|phb"
 			],
 			"traitTags": [
 				"Amphibious"
@@ -1165,6 +1175,10 @@
 						"Elkhorn regains 12 hit points."
 					]
 				}
+			],
+			"attachedItems": [
+				"+1 longsword|dmg",
+				"dagger|phb"
 			],
 			"senseTags": [
 				"D"
@@ -1963,6 +1977,7 @@
 		{
 			"name": "Gloam",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WBtW",
 			"page": 93,
 			"size": [
@@ -2108,6 +2123,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"club|phb",
+				"sling|phb"
+			],
 			"traitTags": [
 				"Pack Tactics"
 			],
@@ -2193,6 +2212,10 @@
 						"{@atk rw} {@hit 5} to hit (the target gains no benefit from less than total cover), range 320 ft., one target. {@h}7 ({@damage 1d8 + 3}) piercing damage. Hit or Miss: Immediately after making this attack, the harengon can use the Hide action."
 					]
 				}
+			],
+			"attachedItems": [
+				"club|phb",
+				"light crossbow|phb"
 			],
 			"languageTags": [
 				"C",
@@ -2972,6 +2995,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -3231,6 +3257,9 @@
 						"Mercion creates a magical explosion of fiery radiance centered on a point she can see within 120 feet of her. Each creature in a 20-foot-radius sphere centered on that point must make a {@dc 13} Dexterity saving throw, taking 28 ({@damage 8d6}) radiant damage on a failed save, or half as much damage on a successful one."
 					]
 				}
+			],
+			"attachedItems": [
+				"+1 quarterstaff|dmg"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -3652,6 +3681,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb",
+				"shortsword|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -3895,6 +3928,10 @@
 						"{@atk rw} {@hit 4} to hit, range 30/120 ft., one target. {@h}5 ({@damage 1d6 + 2}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"hand crossbow|phb",
+				"shortsword|phb"
 			],
 			"traitTags": [
 				"Fey Ancestry",
@@ -4168,9 +4205,12 @@
 				{
 					"name": "Twin Sight (Recharges after a Short or Long Rest)",
 					"entries": [
-						"In her mind's eye, a Selenelion twin can see what the other twin sees for up to 1 minute, provided both twins are alive and on the same plane of existence. Maintaining this effect requires concentration (as if concentrating on a spell)."
+						"In her mind's eye, a Selenelion twin can see what the other twin sees for up to 1 minute, provided both twins are alive and on the same plane of existence. Maintaining this effect requires {@status concentration} (as if {@status concentration||concentrating} on a spell)."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"traitTags": [
 				"Fey Ancestry",
@@ -4274,7 +4314,7 @@
 				{
 					"name": "Superior Invisibility",
 					"entries": [
-						"As a bonus action, Sir Talavar can magically turn {@condition invisible} until his concentration ends (as if concentrating on a spell). Any equipment Sir Talavar wears or carries is {@condition invisible} with him."
+						"As a bonus action, Sir Talavar can magically turn {@condition invisible} until his {@status concentration} ends (as if {@status concentration||concentrating} on a spell). Any equipment Sir Talavar wears or carries is {@condition invisible} with him."
 					]
 				},
 				{
@@ -4624,6 +4664,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"eldritch staff|wbtw"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -4873,6 +4916,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"steel|wbtw"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -5010,6 +5056,7 @@
 		{
 			"name": "Thinnings",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "WBtW",
 			"page": 15,
 			"_copy": {
@@ -5349,6 +5396,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -5471,6 +5521,9 @@
 						"The hand sprinkles a pinch of pixie dust on itself or another creature it can see within 5 feet of it. The recipient gains a flying speed of 30 feet for 1 minute. If the creature is airborne when this effect ends, it falls safely to the ground, taking no damage and landing on its feet."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"languageTags": [
 				"C",
@@ -5615,6 +5668,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -5750,9 +5806,12 @@
 				{
 					"name": "Animate Corpse (1/Day)",
 					"entries": [
-						"Zargash targets the lifeless corpse of one Humanoid he can see within 30 feet of him and commands it to rise, transforming it into a zombie under his control. The zombie takes its turn immediately after Zargash. Animating the zombie requires Zargash's concentration (as if concentrating on a spell). The zombie reverts to an inanimate corpse after 10 minutes, when it drops to 0 hit points, or when Zargash's concentration ends."
+						"Zargash targets the lifeless corpse of one Humanoid he can see within 30 feet of him and commands it to rise, transforming it into a zombie under his control. The zombie takes its turn immediately after Zargash. Animating the zombie requires Zargash's {@status concentration} (as if {@status concentration||concentrating} on a spell). The zombie reverts to an inanimate corpse after 10 minutes, when it drops to 0 hit points, or when Zargash's {@status concentration} ends."
 					]
 				}
+			],
+			"attachedItems": [
+				"warhammer|phb"
 			],
 			"languageTags": [
 				"C"

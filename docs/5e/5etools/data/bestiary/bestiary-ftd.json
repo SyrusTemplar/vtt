@@ -1143,7 +1143,8 @@
 			],
 			"dragonAge": "adult",
 			"traitTags": [
-				"Legendary Resistances"
+				"Legendary Resistances",
+				"Tunneler"
 			],
 			"senseTags": [
 				"B",
@@ -1729,7 +1730,8 @@
 			"dragonAge": "adult",
 			"traitTags": [
 				"Legendary Resistances",
-				"Spider Climb"
+				"Spider Climb",
+				"Tunneler"
 			],
 			"senseTags": [
 				"B",
@@ -3552,7 +3554,7 @@
 				{
 					"name": "Amphibious",
 					"entries": [
-						"The dragon turtle can breathe air and water"
+						"The dragon turtle can breathe air and water."
 					]
 				},
 				{
@@ -4033,7 +4035,8 @@
 			],
 			"dragonAge": "ancient",
 			"traitTags": [
-				"Legendary Resistances"
+				"Legendary Resistances",
+				"Tunneler"
 			],
 			"senseTags": [
 				"B",
@@ -4618,7 +4621,8 @@
 			"dragonAge": "ancient",
 			"traitTags": [
 				"Legendary Resistances",
-				"Spider Climb"
+				"Spider Climb",
+				"Tunneler"
 			],
 			"senseTags": [
 				"B",
@@ -8198,6 +8202,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Death Burst"
 			],
@@ -8308,6 +8315,9 @@
 						"{@atk mw,rw} {@hit 5} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}5 ({@damage 1d4 + 3}) piercing damage plus 7 ({@damage 2d6}) poison damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"traitTags": [
 				"Death Burst"
@@ -8437,6 +8447,9 @@
 						"{@atk rs} {@hit 4} to hit, range 60 ft., one target. {@h}10 ({@damage 3d6}) necrotic damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"trident|phb"
 			],
 			"traitTags": [
 				"Death Burst"
@@ -9073,6 +9086,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"mace|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -9176,6 +9192,10 @@
 						"Immediately after the chosen takes damage from a creature within 5 feet of it, it can make a Shortsword attack with advantage against that creature."
 					]
 				}
+			],
+			"attachedItems": [
+				"handaxe|phb",
+				"shortsword|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -9837,6 +9857,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -10094,6 +10117,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greataxe|phb"
+			],
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -10316,6 +10342,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greatclub|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -10435,6 +10464,7 @@
 			"name": "Drake Companion",
 			"source": "FTD",
 			"page": 15,
+			"summonedByClass": "Ranger|PHB",
 			"size": [
 				"S"
 			],
@@ -10855,7 +10885,7 @@
 				{
 					"name": "Shatter Concentration (Costs 2 Actions)",
 					"entries": [
-						"The dragon targets a creature it is grappling. The target's concentration on a spell it has cast or an ability it is maintaining ends, and the target takes 19 ({@damage 3d12}) psychic damage."
+						"The dragon targets a creature it is grappling. The target's {@status concentration} on a spell it has cast or an ability it is maintaining ends, and the target takes 19 ({@damage 3d12}) psychic damage."
 					]
 				}
 			],
@@ -11086,6 +11116,9 @@
 				}
 			],
 			"dragonAge": "wyrmling",
+			"traitTags": [
+				"Tunneler"
+			],
 			"senseTags": [
 				"B",
 				"D"
@@ -13947,7 +13980,8 @@
 			],
 			"dragonAge": "wyrmling",
 			"traitTags": [
-				"Spider Climb"
+				"Spider Climb",
+				"Tunneler"
 			],
 			"senseTags": [
 				"B",
@@ -16610,6 +16644,9 @@
 				}
 			],
 			"dragonAge": "young",
+			"traitTags": [
+				"Tunneler"
+			],
 			"senseTags": [
 				"B",
 				"SD"
@@ -17086,7 +17123,8 @@
 			],
 			"dragonAge": "young",
 			"traitTags": [
-				"Spider Climb"
+				"Spider Climb",
+				"Tunneler"
 			],
 			"senseTags": [
 				"B",

@@ -3,7 +3,7 @@ var oop = require("../lib/oop");
 var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
 // region Custom additions
-var keywords = Renderer.TAGS.join("|");
+var keywords = Renderer.tag.TAGS.map(tag => tag.tagName).join("|");
 var coreSources = Object.keys(Parser.SOURCE_JSON_TO_FULL).map(it => it.escapeRegexp()).join("|");
 var brewSources = [
 	...BrewUtil2.getSources().map(it => it.json).map(it => it.escapeRegexp()),

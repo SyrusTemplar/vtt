@@ -183,7 +183,8 @@
 			},
 			"traitTags": [
 				"Keen Senses",
-				"Pack Tactics"
+				"Pack Tactics",
+				"Tunneler"
 			],
 			"senseTags": [
 				"D",
@@ -496,6 +497,9 @@
 				"type": "internal",
 				"path": "bestiary/air-elemental-myrmidon.mp3"
 			},
+			"attachedItems": [
+				"flail|phb"
+			],
 			"traitTags": [
 				"Magic Weapons"
 			],
@@ -626,7 +630,7 @@
 					"name": "Foment Madness",
 					"entries": [
 						"Any creature that isn't a demon that starts its turn within 30 feet of the alkilith must succeed on a {@dc 18} Wisdom saving throw, or it hears a faint buzzing in its head for a moment and has disadvantage on its next attack roll, saving throw, or ability check.",
-						"If the saving throw against Foment Madness fails by 5 or more, the creature is instead subjected to the {@spell confusion} spell for 1 minute (no concentration required by the alkilith). While under the effect of that confusion, the creature is immune to Foment Madness."
+						"If the saving throw against Foment Madness fails by 5 or more, the creature is instead subjected to the {@spell confusion} spell for 1 minute (no {@status concentration} required by the alkilith). While under the effect of that confusion, the creature is immune to Foment Madness."
 					]
 				},
 				{
@@ -1532,6 +1536,10 @@
 				"type": "internal",
 				"path": "bestiary/autumn-eladrin.mp3"
 			},
+			"attachedItems": [
+				"longbow|phb",
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -2482,6 +2490,9 @@
 				"type": "internal",
 				"path": "bestiary/black-abishai.mp3"
 			},
+			"attachedItems": [
+				"scimitar|phb"
+			],
 			"traitTags": [
 				"Devil's Sight",
 				"Magic Resistance",
@@ -2711,6 +2722,9 @@
 				"type": "internal",
 				"path": "bestiary/blue-abishai.mp3"
 			},
+			"attachedItems": [
+				"quarterstaff|phb"
+			],
 			"traitTags": [
 				"Devil's Sight",
 				"Magic Resistance",
@@ -4838,6 +4852,9 @@
 				"type": "internal",
 				"path": "bestiary/derro.mp3"
 			},
+			"attachedItems": [
+				"light crossbow|phb"
+			],
 			"traitTags": [
 				"Magic Resistance",
 				"Sunlight Sensitivity"
@@ -4987,6 +5004,9 @@
 				"type": "internal",
 				"path": "bestiary/derro-savant.mp3"
 			},
+			"attachedItems": [
+				"quarterstaff|phb"
+			],
 			"traitTags": [
 				"Magic Resistance",
 				"Sunlight Sensitivity"
@@ -5771,6 +5791,10 @@
 				"type": "internal",
 				"path": "bestiary/drow-favored-consort.mp3"
 			},
+			"attachedItems": [
+				"hand crossbow|phb",
+				"scimitar|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry",
 				"Sunlight Sensitivity"
@@ -5957,6 +5981,11 @@
 				"type": "internal",
 				"path": "bestiary/drow-house-captain.mp3"
 			},
+			"attachedItems": [
+				"hand crossbow|phb",
+				"scimitar|phb",
+				"whip|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry",
 				"Sunlight Sensitivity"
@@ -6711,6 +6740,9 @@
 				"type": "internal",
 				"path": "bestiary/drow-shadowblade.mp3"
 			},
+			"attachedItems": [
+				"hand crossbow|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry",
 				"Sunlight Sensitivity"
@@ -7143,7 +7175,7 @@
 				{
 					"name": "Shared Invisibility (Recharges after a Short or Long Rest)",
 					"entries": [
-						"The duergar magically turns {@condition invisible} for up to 1 hour or until it attacks, it casts a spell, or its concentration is broken (as if concentrating on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it. While the {@condition invisible} duergar is mounted on a female steeder, the steeder is {@condition invisible} as well. The invisibility ends early on the steeder immediately after it attacks."
+						"The duergar magically turns {@condition invisible} for up to 1 hour or until it attacks, it casts a spell, or its {@status concentration} is broken (as if {@status concentration||concentrating} on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it. While the {@condition invisible} duergar is mounted on a female steeder, the steeder is {@condition invisible} as well. The invisibility ends early on the steeder immediately after it attacks."
 					]
 				}
 			],
@@ -7155,6 +7187,10 @@
 				"type": "internal",
 				"path": "bestiary/duergar-kavalrachni.mp3"
 			},
+			"attachedItems": [
+				"heavy crossbow|phb",
+				"war pick|phb"
+			],
 			"traitTags": [
 				"Sunlight Sensitivity"
 			],
@@ -7283,7 +7319,7 @@
 				{
 					"name": "Invisibility {@recharge 4}",
 					"entries": [
-						"The duergar magically turns {@condition invisible} for up to 1 hour or until it attacks, it casts a spell, it uses its Reduce, or its concentration is broken (as if concentrating on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
+						"The duergar magically turns {@condition invisible} for up to 1 hour or until it attacks, it casts a spell, it uses its Reduce, or its {@status concentration} is broken (as if {@status concentration||concentrating} on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
 					]
 				},
 				{
@@ -7563,7 +7599,7 @@
 				{
 					"name": "Invisibility (Recharges after a Short or Long Rest)",
 					"entries": [
-						"The duergar magically turns {@condition invisible} for up to 1 hour or until it attacks, it casts a spell, it uses its Enlarge, or its concentration is broken (as if concentrating on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
+						"The duergar magically turns {@condition invisible} for up to 1 hour or until it attacks, it casts a spell, it uses its Enlarge, or its {@status concentration} is broken (as if {@status concentration||concentrating} on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
 					]
 				}
 			],
@@ -7703,7 +7739,7 @@
 				{
 					"name": "Invisibility (Recharges after a Short or Long Rest)",
 					"entries": [
-						"The duergar magically turns {@condition invisible} for up to 1 hour or until it attacks, it casts a spell, it uses its Enlarge, or its concentration is broken (as if concentrating on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
+						"The duergar magically turns {@condition invisible} for up to 1 hour or until it attacks, it casts a spell, it uses its Enlarge, or its {@status concentration} is broken (as if {@status concentration||concentrating} on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
 					]
 				}
 			],
@@ -7715,6 +7751,9 @@
 				"type": "internal",
 				"path": "bestiary/duergar-stone-guard.mp3"
 			},
+			"attachedItems": [
+				"javelin|phb"
+			],
 			"traitTags": [
 				"Sunlight Sensitivity"
 			],
@@ -7842,7 +7881,7 @@
 				{
 					"name": "Invisibility {@recharge 4}",
 					"entries": [
-						"The duergar magically turns {@condition invisible} for up to 1 hour or until it attacks, it casts a spell, it uses its Enlarge, or its concentration is broken (as if concentrating on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
+						"The duergar magically turns {@condition invisible} for up to 1 hour or until it attacks, it casts a spell, it uses its Enlarge, or its {@status concentration} is broken (as if {@status concentration||concentrating} on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
 					]
 				}
 			],
@@ -7862,6 +7901,9 @@
 				"type": "internal",
 				"path": "bestiary/duergar-warlord.mp3"
 			},
+			"attachedItems": [
+				"javelin|phb"
+			],
 			"traitTags": [
 				"Sunlight Sensitivity"
 			],
@@ -7986,7 +8028,7 @@
 				{
 					"name": "Invisibility (Recharges after a Short or Long Rest)",
 					"entries": [
-						"The duergar magically turns {@condition invisible} for up to 1 hour or until it attacks, it casts a spell, it uses its Enlarge, or its concentration is broken (as if concentrating on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
+						"The duergar magically turns {@condition invisible} for up to 1 hour or until it attacks, it casts a spell, it uses its Enlarge, or its {@status concentration} is broken (as if {@status concentration||concentrating} on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
 					]
 				}
 			],
@@ -8309,6 +8351,9 @@
 				"type": "internal",
 				"path": "bestiary/earth-elemental-myrmidon.mp3"
 			},
+			"attachedItems": [
+				"maul|phb"
+			],
 			"traitTags": [
 				"Magic Weapons"
 			],
@@ -9065,6 +9110,9 @@
 				"type": "internal",
 				"path": "bestiary/fire-elemental-myrmidon.mp3"
 			},
+			"attachedItems": [
+				"scimitar|phb"
+			],
 			"traitTags": [
 				"Illumination",
 				"Magic Weapons"
@@ -9271,7 +9319,7 @@
 				{
 					"name": "Phantasmal Killer (Costs 2 Actions)",
 					"entries": [
-						"Fraz-Urb'luu casts {@spell phantasmal killer}, no concentration required."
+						"Fraz-Urb'luu casts {@spell phantasmal killer}, no {@status concentration} required."
 					]
 				}
 			],
@@ -9821,6 +9869,11 @@
 				"type": "internal",
 				"path": "bestiary/giff.mp3"
 			},
+			"attachedItems": [
+				"longsword|phb",
+				"musket|dmg",
+				"pistol|dmg"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -10006,6 +10059,9 @@
 				"type": "internal",
 				"path": "bestiary/githyanki-gish.mp3"
 			},
+			"attachedItems": [
+				"longsword|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -10151,6 +10207,9 @@
 				"type": "internal",
 				"path": "bestiary/githyanki-kith_rak.mp3"
 			},
+			"attachedItems": [
+				"greatsword|phb"
+			],
 			"actionTags": [
 				"Multiattack",
 				"Parry"
@@ -11333,6 +11392,9 @@
 				"type": "internal",
 				"path": "bestiary/green-abishai.mp3"
 			},
+			"attachedItems": [
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Devil's Sight",
 				"Magic Resistance",
@@ -11879,6 +11941,9 @@
 				"type": "internal",
 				"path": "bestiary/hutijin.mp3"
 			},
+			"attachedItems": [
+				"mace|phb"
+			],
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -12611,7 +12676,8 @@
 			},
 			"traitTags": [
 				"Keen Senses",
-				"Pack Tactics"
+				"Pack Tactics",
+				"Tunneler"
 			],
 			"senseTags": [
 				"D",
@@ -13332,6 +13398,9 @@
 				"type": "internal",
 				"path": "bestiary/meazel.mp3"
 			},
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"senseTags": [
 				"SD"
 			],
@@ -13474,6 +13543,10 @@
 				"type": "internal",
 				"path": "bestiary/merregon.mp3"
 			},
+			"attachedItems": [
+				"halberd|phb",
+				"heavy crossbow|phb"
+			],
 			"traitTags": [
 				"Devil's Sight",
 				"Magic Resistance"
@@ -14711,6 +14784,9 @@
 				"type": "internal",
 				"path": "bestiary/narzugon.mp3"
 			},
+			"attachedItems": [
+				"hellfire lance|bgdia"
+			],
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -15575,6 +15651,9 @@
 				"type": "internal",
 				"path": "bestiary/ogre-howdah.mp3"
 			},
+			"attachedItems": [
+				"mace|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -16574,6 +16653,9 @@
 				"type": "internal",
 				"path": "bestiary/red-abishai.mp3"
 			},
+			"attachedItems": [
+				"morningstar|phb"
+			],
 			"traitTags": [
 				"Devil's Sight",
 				"Magic Resistance",
@@ -16967,7 +17049,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}12 ({@damage 3d6 + 2}) piercing damage. If the target is a creature, it must succeed on a {@dc 13} Constitution saving throw against disease or become {@condition poisoned}. At the end of each long rest, the {@condition poisoned} target can repeat the saving throw, ending the effect on itself on a success. If the target is reduced to 0 hit points while {@condition poisoned} in this way, it dies and instantly transforms into a living {@creature abyssal wretch|mtf}. The transformation of the body can be undone only by a {@spell wish} spell. (See notes)"
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}12 ({@damage 3d6 + 2}) piercing damage. If the target is a creature, it must succeed on a {@dc 13} Constitution saving throw against disease or become {@condition poisoned}. At the end of each long rest, the {@condition poisoned} target can repeat the saving throw, ending the effect on itself on a success. If the target is reduced to 0 hit points while {@condition poisoned} in this way, it dies and instantly transforms into a living {@creature abyssal wretch|mtf}. The transformation of the body can be undone only by a {@spell wish} spell."
 					]
 				}
 			],
@@ -18459,6 +18541,10 @@
 				"type": "internal",
 				"path": "bestiary/spring-eladrin.mp3"
 			},
+			"attachedItems": [
+				"longbow|phb",
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -19630,7 +19716,7 @@
 			"senses": [
 				"darkvision 60 ft."
 			],
-			"passive": 9,
+			"passive": 11,
 			"resist": [
 				{
 					"resist": [
@@ -19704,6 +19790,10 @@
 				"type": "internal",
 				"path": "bestiary/summer-eladrin.mp3"
 			},
+			"attachedItems": [
+				"longbow|phb",
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -19864,6 +19954,10 @@
 				"type": "internal",
 				"path": "bestiary/sword-wraith-commander.mp3"
 			},
+			"attachedItems": [
+				"longbow|phb",
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Turn Resistance"
 			],
@@ -19997,6 +20091,10 @@
 				"type": "internal",
 				"path": "bestiary/sword-wraith-warrior.mp3"
 			},
+			"attachedItems": [
+				"longbow|phb",
+				"longsword|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -20793,6 +20891,9 @@
 				"type": "internal",
 				"path": "bestiary/titivilus.mp3"
 			},
+			"attachedItems": [
+				"silver sword|mtf"
+			],
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -20944,6 +21045,10 @@
 				"type": "internal",
 				"path": "bestiary/tortle.mp3"
 			},
+			"attachedItems": [
+				"light crossbow|phb",
+				"quarterstaff|phb"
+			],
 			"traitTags": [
 				"Hold Breath"
 			],
@@ -21092,6 +21197,9 @@
 				"type": "internal",
 				"path": "bestiary/tortle-druid.mp3"
 			},
+			"attachedItems": [
+				"quarterstaff|phb"
+			],
 			"traitTags": [
 				"Hold Breath"
 			],
@@ -21685,6 +21793,9 @@
 				"type": "internal",
 				"path": "bestiary/water-elemental-myrmidon.mp3"
 			},
+			"attachedItems": [
+				"trident|phb"
+			],
 			"traitTags": [
 				"Magic Weapons"
 			],
@@ -21857,6 +21968,9 @@
 				"type": "internal",
 				"path": "bestiary/white-abishai.mp3"
 			},
+			"attachedItems": [
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Devil's Sight",
 				"Magic Resistance",
@@ -22019,6 +22133,10 @@
 				"type": "internal",
 				"path": "bestiary/winter-eladrin.mp3"
 			},
+			"attachedItems": [
+				"longbow|phb",
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Magic Resistance"
 			],
@@ -22449,6 +22567,9 @@
 				"name": "Yeenoghu",
 				"source": "MTF"
 			},
+			"attachedItems": [
+				"flail|phb"
+			],
 			"traitTags": [
 				"Legendary Resistances",
 				"Magic Resistance",
@@ -22579,7 +22700,8 @@
 			},
 			"traitTags": [
 				"Keen Senses",
-				"Pack Tactics"
+				"Pack Tactics",
+				"Tunneler"
 			],
 			"senseTags": [
 				"D",
@@ -22675,7 +22797,7 @@
 				{
 					"name": "Earth-Shaking Movement",
 					"entries": [
-						"As a bonus action after moving at least 10 feet on the ground, the zaratan can send a shock wave through the ground in a 120-foot-radius circle centered on itself. That area becomes {@quickref difficult terrain||3} for 1 minute. Each creature on the ground that is concentrating must succeed on a {@dc 25} Constitution saving throw or the creature's concentration is broken.",
+						"As a bonus action after moving at least 10 feet on the ground, the zaratan can send a shock wave through the ground in a 120-foot-radius circle centered on itself. That area becomes {@quickref difficult terrain||3} for 1 minute. Each creature on the ground that is {@status concentration||concentrating} must succeed on a {@dc 25} Constitution saving throw or the creature's {@status concentration} is broken.",
 						"The shock wave deals 100 thunder damage to all structures in contact with the ground in the area. If a creature is near a structure that collapses, the creature might be buried; a creature within half the distance of the structure's height must make a {@dc 25} Dexterity saving throw. On a failed save, the creature takes 17 ({@damage 5d6}) bludgeoning damage, is knocked {@condition prone}, and is trapped in the rubble. A trapped creature is {@condition restrained}, requiring a successful {@dc 20} Strength (Athletics) check as an action to escape. Another creature within 5 feet of the buried creature can use its action to clear rubble and grant advantage on the check. If three creatures use their actions in this way, the check is an automatic success. On a successful save, the creature takes half as much damage and doesn't fall {@condition prone} or become trapped."
 					]
 				},
@@ -23001,6 +23123,10 @@
 				"name": "Zariel",
 				"source": "MTF"
 			},
+			"attachedItems": [
+				"javelin|phb",
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Devil's Sight",
 				"Legendary Resistances",

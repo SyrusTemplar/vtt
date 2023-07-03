@@ -107,7 +107,8 @@
 										"path": "adventure/IDRotF/001-00-001.png"
 									},
 									"width": 1700,
-									"height": 1137
+									"height": 1137,
+									"title": "Fragments of chardalyn\u2014the remains of an evil artifact\u2014are scattered throughout Icewind Dale."
 								}
 							]
 						}
@@ -267,7 +268,7 @@
 									"page": 9,
 									"id": "017",
 									"entries": [
-										"{@i For 6th-level characters}",
+										"{@i For characters of 4th or 5th level}",
 										"A duergar tyrant is building a chardalyn dragon to destroy Ten-Towns. The characters learn of this plot and try to thwart it."
 									]
 								},
@@ -277,7 +278,7 @@
 									"page": 9,
 									"id": "018",
 									"entries": [
-										"{@i For characters of 4th level and higher}",
+										"{@i For 6th-level characters}",
 										"After {@creature Xardorok Sunblight|IDRotF} unleashes his dragon, the characters must stop it before it destroys Ten-Towns."
 									]
 								},
@@ -572,7 +573,7 @@
 											"Evil, gray-skinned dwarves that dwell in the Underdark"
 										],
 										[
-											"{@creature Dzaan|IDRotF}",
+											"Dzaan",
 											"duh-ZAWN",
 											"Red Wizard of Thay and member of the Arcane Brotherhood"
 										],
@@ -639,7 +640,7 @@
 										[
 											"Krintaas",
 											"KRIN-tass",
-											"{@creature Dzaan|IDRotF}'s wight bodyguard"
+											"Dzaan's wight bodyguard"
 										],
 										[
 											"Lac Dinneshere",
@@ -784,55 +785,55 @@
 									],
 									"rows": [
 										[
-											"Acolyte",
+											"{@background Acolyte}",
 											"Auril the Frostmaiden, the god of winter's fury, has cast an evil spell over Icewind Dale. You can bring hope and faith to the people of Ten-Towns or, even better, free them from winter's cold embrace in the name of your god."
 										],
 										[
-											"Charlatan",
+											"{@background Charlatan}",
 											"Your cons and deceptions nearly got the better of you. You needed to disappear for a while, and Icewind Dale was the perfect place to do so. Nothing could prepare you for the cold and the dark desolation, but at least there's money to be made."
 										],
 										[
-											"Criminal",
+											"{@background Criminal}",
 											"You are wanted for crimes in the cities of Luskan and Mirabar, but no one will think to look for you in Ten-Towns, the cold heart of Icewind Dale. Thankfully, nobody in Ten-Towns cares who you are\u2014or what you've done."
 										],
 										[
-											"Entertainer",
+											"{@background Entertainer}",
 											"You came to Icewind Dale three years ago seeking inspiration for a new song or poem, drawn by tales of the land's harsh beauty and the legendary exploits of Drizzt Do'Urden. Since then, Auril the Frostmaiden has cast an evil spell over the dale, preventing you from returning home."
 										],
 										[
-											"Folk Hero",
+											"{@background Folk Hero}",
 											"Your name is synonymous with heroism throughout Ten-Towns. Did you save a fisher who fell into the ice, scare away a yeti armed with only a fishing pole and a basket, or beat a drunk goliath at arm wrestling?"
 										],
 										[
-											"Guild Artisan",
+											"{@background Guild Artisan}",
 											"You came to Icewind Dale to start a business. Your shop was doing well until Auril the Frostmaiden cast her evil spell to banish the sun. Now, businesses throughout Ten-Towns are suffering, yours included. To avoid hardship, you might need to supplement your income."
 										],
 										[
-											"Hermit",
+											"{@background Hermit}",
 											"You've never felt at ease in civilized society, and there's no place farther from the trappings of civilization than Icewind Dale. This is a land without pretense, and the people of Ten-Towns pay you little mind. To them, you're just another silly old fool."
 										],
 										[
-											"Noble",
+											"{@background Noble}",
 											"Your wealthy grandfather or grandmother sent you to Icewind Dale to learn a hard lesson. Perhaps the cruel indifference of this frozen land will prepare you for the cruel indifference of Waterdeep's politics."
 										],
 										[
-											"Outlander",
+											"{@background Outlander}",
 											"You're a child of the icy wilderness, born and raised in one of the Reghed tribes. Imagine, after following herds of migrating {@creature reindeer|IDRotF} your whole life, getting a taste of what life in Ten-Towns has to offer."
 										],
 										[
-											"Sage",
+											"{@background Sage}",
 											"You came to Icewind Dale in search of ruins and artifacts left behind by the giants who ruled the ancient empire of Ostoria. To find even one Ostorian relic would fulfill a lifelong dream and make your rivals back home green with envy."
 										],
 										[
-											"Sailor",
+											"{@background Sailor}",
 											"You've sailed ships up and down the Sword Coast, but a shipwreck made you reevaluate your life choices. Two years ago, you headed north, bought a house and a fishing boat in Ten-Towns, and became a fisher. You were told that the summers here are beautiful, but you have yet to see one."
 										],
 										[
-											"Soldier",
+											"{@background Soldier}",
 											"You are a soldier of Ten-Towns, trained to fight orcs and other threats lurking in the Spine of the World mountains. Auril the Frostmaiden has cast an evil spell over Icewind Dale, and you struggle to see how your soldier's training can save this land from so terrible a doom. Still, you are not about to give up on the people of Ten-Towns."
 										],
 										[
-											"Urchin",
+											"{@background Urchin}",
 											"Because you grew up in Ten-Towns, your familiarity with the residents makes you useful to Harper spies and Zhentarim bounty hunters who are looking for criminals and other ne'er-do-wells hiding in your midst. Ratting out these newcomers keeps coin in your pockets."
 										]
 									]
@@ -2006,10 +2007,15 @@
 										"type": "internal",
 										"path": "adventure/IDRotF/013-map-1.1-bremen.jpg"
 									},
-									"title": "Map 1.1: bremen",
+									"title": "Map 1.1: Bremen",
 									"width": 2208,
 									"height": 3000,
 									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 123,
+										"distance": 100
+									},
 									"id": "388",
 									"mapRegions": [
 										{
@@ -2091,6 +2097,11 @@
 									"width": 2208,
 									"height": 3000,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 123,
+										"distance": 100
+									},
 									"mapParent": {
 										"id": "388"
 									}
@@ -2591,10 +2602,15 @@
 										"type": "internal",
 										"path": "adventure/IDRotF/018-map-1.2-bryn-shander.jpg"
 									},
-									"title": "Map 1.2: bryn shander",
+									"title": "Map 1.2: Bryn Shander",
 									"width": 3000,
 									"height": 2143,
 									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 66,
+										"distance": 100
+									},
 									"id": "67c",
 									"mapRegions": [
 										{
@@ -2697,6 +2713,11 @@
 									"width": 3000,
 									"height": 2143,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 66,
+										"distance": 100
+									},
 									"mapParent": {
 										"id": "67c"
 									}
@@ -3116,10 +3137,15 @@
 										"type": "internal",
 										"path": "adventure/IDRotF/024-map-1.3-caer-dineval.jpg"
 									},
-									"title": "Map 1.3: caer-dineval",
+									"title": "Map 1.3: Caer-Dineval",
 									"width": 2202,
 									"height": 3000,
 									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 108,
+										"distance": 100
+									},
 									"id": "67d",
 									"mapRegions": [
 										{
@@ -3222,6 +3248,11 @@
 									"width": 2201,
 									"height": 3000,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 108,
+										"distance": 100
+									},
 									"mapParent": {
 										"id": "67d",
 										"autoScale": true
@@ -3439,6 +3470,13 @@
 											"width": 4000,
 											"height": 2765,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 88,
+												"offsetX": -22,
+												"offsetY": 4,
+												"scale": 1.05
+											},
 											"id": "6fd",
 											"mapRegions": [
 												{
@@ -5680,7 +5718,7 @@
 											"page": 44,
 											"id": "0eb",
 											"entries": [
-												"At the eastern end of the cistern is a 10-foot-square, 2-foot-thick, half-submerged slab of blue marble that blocks access to{@area area C23|0f5|x}. This slab is far enough away that characters won't see it with torches or {@sense darkvision} unless they move farther into the cistern. The lever that lowers and raises this gate is in {@area area C22|0f4|x}. The gate can also be opened with a {@spell knock} spell or similar magic."
+												"At the eastern end of the cistern is a 10-foot-square, 2-foot-thick, half-submerged slab of blue marble that blocks access to {@area area C23|0f5|x}. This slab is far enough away that characters won't see it with torches or {@sense darkvision} unless they move farther into the cistern. The lever that lowers and raises this gate is in {@area area C22|0f4|x}. The gate can also be opened with a {@spell knock} spell or similar magic."
 											]
 										},
 										{
@@ -5956,10 +5994,15 @@
 										"type": "internal",
 										"path": "adventure/IDRotF/032-map-1.5-caer-konig.jpg"
 									},
-									"title": "Map 1.5: caer-konig",
+									"title": "Map 1.5: Caer-Konig",
 									"width": 2206,
 									"height": 3000,
 									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 105,
+										"distance": 100
+									},
 									"id": "6ff",
 									"mapRegions": [
 										{
@@ -6062,6 +6105,11 @@
 									"width": 2206,
 									"height": 3000,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 105,
+										"distance": 100
+									},
 									"mapParent": {
 										"id": "6ff"
 									}
@@ -6266,10 +6314,17 @@
 												"type": "internal",
 												"path": "adventure/IDRotF/035-map-1.6-duergar-outpost.jpg"
 											},
-											"title": "Map 1.6: duergar outpost",
+											"title": "Map 1.6: Duergar Outpost",
 											"width": 4000,
 											"height": 2765,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": -38,
+												"offsetY": 28,
+												"distance": 10
+											},
 											"id": "700",
 											"mapRegions": [
 												{
@@ -6683,7 +6738,8 @@
 												"type": "square",
 												"size": 104,
 												"offsetX": -38,
-												"offsetY": 28
+												"offsetY": 28,
+												"distance": 10
 											}
 										}
 									]
@@ -6904,7 +6960,7 @@
 											]
 										},
 										"The barred opening in the northeast corner is similar to the ones in {@area area O3|11a|x}.",
-										"The three cells along the west wall are empty at present. Each of the five cells along the south wall holds one prisoner, formerly a Ten-Towner or a Reghed nomad who was abducted and killed by the duergar. Using the animating spores of a myconid sovereign, the duergar have turned these dead humans into five spore servants (as described in the \"Myconids\" entry in the {@book Monster Manual|MM}) covered with fungal growths. The spore servants emerge from their cells to attack intruders who enter the room. They use the {@creature Tribal Warrior Spore Servants|IDRotF|tribal warrior} stat block, with these changes:",
+										"The three cells along the west wall are empty at present. Each of the five cells along the south wall holds one prisoner, formerly a Ten-Towner or a Reghed nomad who was abducted and killed by the duergar. Using the animating spores of a myconid sovereign, the duergar have turned these dead humans into five spore servants (as described in the \"Myconids\" entry in the {@book Monster Manual|MM}) covered with fungal growths. The spore servants emerge from their cells to attack intruders who enter the room. They use the {@creature Tribal Warrior Spore Servant|IDRotF|tribal warrior} stat block, with these changes:",
 										{
 											"type": "list",
 											"items": [
@@ -7092,6 +7148,11 @@
 									"width": 2202,
 									"height": 3000,
 									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 124,
+										"distance": 100
+									},
 									"id": "701",
 									"mapRegions": [
 										{
@@ -7152,6 +7213,11 @@
 									"width": 2202,
 									"height": 3000,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 124,
+										"distance": 100
+									},
 									"mapParent": {
 										"id": "701"
 									}
@@ -7286,6 +7352,13 @@
 											"width": 4000,
 											"height": 2765,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": -37,
+												"offsetY": -40,
+												"distance": 10
+											},
 											"id": "702",
 											"mapRegions": [
 												{
@@ -7963,7 +8036,8 @@
 												"type": "square",
 												"size": 104,
 												"offsetX": -38,
-												"offsetY": -40
+												"offsetY": -40,
+												"distance": 10
 											}
 										}
 									]
@@ -8325,10 +8399,15 @@
 										"type": "internal",
 										"path": "adventure/IDRotF/046-map-1.9-easthaven.jpg"
 									},
-									"title": "Map 1.9: easthaven",
+									"title": "Map 1.9: Easthaven",
 									"width": 3000,
 									"height": 2139,
 									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 66,
+										"distance": 100
+									},
 									"id": "703",
 									"mapRegions": [
 										{
@@ -8431,6 +8510,11 @@
 									"width": 3000,
 									"height": 2139,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 66,
+										"distance": 100
+									},
 									"mapParent": {
 										"id": "703"
 									}
@@ -8580,7 +8664,7 @@
 					"page": 62,
 					"id": "16c",
 					"entries": [
-						"The quest in Easthaven begins at the same time as the burning of the Red Wizard, {@creature Dzaan|IDRotF}, who is described in the \"Arcane Brotherhood\" section of {@area appendix C|6fe|x}. Whether the characters are starting the adventure in Easthaven or have just arrived, they are present during {@creature Dzaan|IDRotF}'s fiery execution. They're too late to save {@creature Dzaan|IDRotF}, but they might encounter a magical copy of him again in chapter 2 (see \"{@area Lost Spire of Netheril|3a8|x}\").",
+						"The quest in Easthaven begins at the same time as the burning of the Red Wizard, Dzaan, who is described in the \"Arcane Brotherhood\" section of {@area appendix C|6fe|x}. Whether the characters are starting the adventure in Easthaven or have just arrived, they are present during Dzaan's fiery execution. They're too late to save Dzaan, but they might encounter a magical copy of him again in chapter 2 (see \"{@area Lost Spire of Netheril|3a8|x}\").",
 						"The captain of Easthaven's militia, Imdra Arlaggath, takes notice of the characters during the burning and offers them a quest. Some fishers have gone missing on Lac Dinneshere, and she wants the characters to take a boat and search for them. She knows where the fishers like to fish and urges the characters to search that part of the lake first. If they heed Imdra's advice, they find the fishers' boats pulled up on the ice within short walking distance from a frozen cave previously hidden under snow and ice. This cave, the characters soon discover, is the lair of a hag named Maud Chiselbone.",
 						"Characters who explore the cave complex find the bodies of the fishers, as well as Maud's {@item cauldron of plenty|IDRotF} (see {@adventure appendix D|IDRotF|22|{@item Cauldron of Plenty|IDRotF}}). The cauldron is a stunning discovery and a welcome one for the people of Ten-Towns, if the characters choose to part with it. If news of the cauldron spreads, the characters will quickly find themselves the center of attention as various towns strive to obtain it. With no end to winter in sight, the cauldron might be the last thing standing between one town's survival and another's extinction.",
 						{
@@ -8599,15 +8683,15 @@
 							"page": 63,
 							"id": "16d",
 							"entries": [
-								"Events begin to unfold when the characters find themselves in the vicinity as {@creature Dzaan|IDRotF}'s execution takes place:",
+								"Events begin to unfold when the characters find themselves in the vicinity as Dzaan's execution takes place:",
 								{
 									"type": "insetReadaloud",
 									"id": "16e",
 									"entries": [
-										"A crowd has gathered in front of the Town Hall to watch the public execution of {@creature Dzaan|IDRotF}, a human wizard who, despite efforts to disguise himself, was recognized and arrested for the crimes he has inflicted upon dale-folk. He has been bound to a stake and gagged. Members of the militia use torches to light the straw tucked around his feet. Fanned by the wind, the fire catches quickly. {@creature Dzaan|IDRotF} does not struggle or scream as he is quickly engulfed in flames. Bundled-up spectators move closer to the human bonfire, eager to feel its warmth."
+										"A crowd has gathered in front of the Town Hall to watch the public execution of Dzaan, a human wizard who, despite efforts to disguise himself, was recognized and arrested for the crimes he has inflicted upon dale-folk. He has been bound to a stake and gagged. Members of the militia use torches to light the straw tucked around his feet. Fanned by the wind, the fire catches quickly. Dzaan does not struggle or scream as he is quickly engulfed in flames. Bundled-up spectators move closer to the human bonfire, eager to feel its warmth."
 									]
 								},
-								"A woman bedecked in a tailored coat and a fur hat approaches the characters as people huddle around the burning wizard. She introduces herself as Imdra Arlaggath, captain of Easthaven's militia. Captain Arlaggath (lawful good half-elf {@creature veteran}) speaks curtly but is not unfriendly. If any of the characters ask about {@creature Dzaan|IDRotF}, she tells them that he coldly murdered some adventurers who had aided the people of Icewind Dale in the past; his public execution isn't an act of vengeance but is meant to deter others from engaging in similar behavior."
+								"A woman bedecked in a tailored coat and a fur hat approaches the characters as people huddle around the burning wizard. She introduces herself as Imdra Arlaggath, captain of Easthaven's militia. Captain Arlaggath (lawful good half-elf {@creature veteran}) speaks curtly but is not unfriendly. If any of the characters ask about Dzaan, she tells them that he coldly murdered some adventurers who had aided the people of Icewind Dale in the past; his public execution isn't an act of vengeance but is meant to deter others from engaging in similar behavior."
 							]
 						},
 						{
@@ -8625,7 +8709,7 @@
 									]
 								},
 								"If the characters need a boat, they can borrow one from the angler docks and drag it across the ice to the open water. A rowboat can hold up to four Medium characters, while a single-masted skiff can hold up to eight. A skiff requires at least one crew member who has proficiency with water vehicles.",
-								"If the characters request a reward for their services, Captain Arlaggath says she's not authorized to give one. But she did confiscate two items from {@creature Dzaan|IDRotF} that might interest the characters: a {@item spell scroll} of {@spell fireball} in a copper tube and a gray {@item bag of tricks}. They can have one or the other if they find the missing fishers."
+								"If the characters request a reward for their services, Captain Arlaggath says she's not authorized to give one. But she did confiscate two items from Dzaan that might interest the characters: a {@item spell scroll} of {@spell fireball} in a copper tube and a gray {@item bag of tricks}. They can have one or the other if they find the missing fishers."
 							]
 						},
 						{
@@ -8729,6 +8813,13 @@
 											"width": 4000,
 											"height": 2765,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": -38,
+												"offsetY": 30,
+												"distance": 10
+											},
 											"id": "704",
 											"mapRegions": [
 												{
@@ -11704,7 +11795,8 @@
 												"type": "square",
 												"size": 104,
 												"offsetX": -38,
-												"offsetY": -30
+												"offsetY": 30,
+												"distance": 10
 											}
 										}
 									]
@@ -11986,10 +12078,17 @@
 												"type": "internal",
 												"path": "adventure/IDRotF/055-map-1.11-easthaven-town-hall.jpg"
 											},
-											"title": "Map 1.11: easthaven town hall",
+											"title": "Map 1.11: Easthaven Town Hall",
 											"width": 4000,
 											"height": 2765,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 86,
+												"offsetX": -5,
+												"offsetY": -31,
+												"scale": 1.03
+											},
 											"id": "705",
 											"mapRegions": [
 												{
@@ -12660,7 +12759,7 @@
 											"page": 70,
 											"id": "1a6",
 											"entries": [
-												"Characters who spend at least 10 minutes searching the bookshelves discover a worn book with a red leather cover and yellow pages. The edges of the pages are stained with dry blood. The writing inside suggests the book is nothing more than a poetry anthology. However, it's actually the spellbook of a Red Wizard of Thay named {@creature Dzaan|IDRotF}. The book's true contents are hidden by an {@spell illusory script} spell that ends 5 days after {@creature Dzaan|IDRotF}'s execution (see \"{@area Public Execution|16d|x}\").",
+												"Characters who spend at least 10 minutes searching the bookshelves discover a worn book with a red leather cover and yellow pages. The edges of the pages are stained with dry blood. The writing inside suggests the book is nothing more than a poetry anthology. However, it's actually the spellbook of a Red Wizard of Thay named Dzaan. The book's true contents are hidden by an {@spell illusory script} spell that ends 5 days after Dzaan's execution (see \"{@area Public Execution|16d|x}\").",
 												"After the book was confiscated by a member of the town militia, it was brought to the Town Hall, where a clerk saw fit to place it in this library for safe keeping. Casting {@spell dispel magic} on the book ends the {@spell illusory script} spell placed upon it. When the {@spell illusory script} spell ends, the book's true contents are revealed. It contains the following spells: {@spell animate objects}, {@spell arcane eye}, {@spell arcane lock}, {@spell blur}, {@spell confusion}, {@spell conjure elemental}, {@spell detect magic}, {@spell disguise self}, {@spell fireball}, {@spell hallucinatory terrain}, {@spell illusory script}, {@spell invisibility}, {@spell knock}, {@spell levitate}, {@spell magic missile}, {@spell major image}, {@spell mirror image}, {@spell mislead}, {@spell phantasmal force}, {@spell phantasmal killer}, {@spell seeming}, {@spell sending}, {@spell silent image}, and {@spell slow}."
 											]
 										}
@@ -12876,10 +12975,15 @@
 										"type": "internal",
 										"path": "adventure/IDRotF/059-map-1.12-good-mead.jpg"
 									},
-									"title": "Map 1.12: good mead",
+									"title": "Map 1.12: Good Mead",
 									"width": 2196,
 									"height": 3000,
 									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 136,
+										"distance": 100
+									},
 									"id": "706",
 									"mapRegions": [
 										{
@@ -12961,6 +13065,11 @@
 									"width": 2196,
 									"height": 3000,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 136,
+										"distance": 100
+									},
 									"mapParent": {
 										"id": "706"
 									}
@@ -13089,10 +13198,16 @@
 												"type": "internal",
 												"path": "adventure/IDRotF/062-map-1.13-verbeeg-lair.jpg"
 											},
-											"title": "Map 1.13: verbeeg lair",
+											"title": "Map 1.13: Verbeeg Lair",
 											"width": 4000,
 											"height": 2765,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": -4,
+												"offsetY": 29
+											},
 											"id": "707",
 											"mapRegions": [
 												{
@@ -15388,7 +15503,7 @@
 												"type": "square",
 												"size": 104,
 												"offsetX": -4,
-												"offsetY": 30
+												"offsetY": 29
 											}
 										}
 									]
@@ -15625,7 +15740,7 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "adventure/IDRotF/064-01-031.gang-the-verbeeg.png"
+														"path": "adventure/IDRotF/064-01-031.gahg-the-verbeeg.png"
 													},
 													"title": "Gahg the verbeeg has a basket of goodies for her beloved Duhg",
 													"width": 1700,
@@ -15856,10 +15971,15 @@
 										"type": "internal",
 										"path": "adventure/IDRotF/066-map-1.14-lonelywood.jpg"
 									},
-									"title": "Map 1.14: lonelywood",
+									"title": "Map 1.14: Lonelywood",
 									"width": 2199,
 									"height": 3000,
 									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 124,
+										"distance": 100
+									},
 									"id": "708",
 									"mapRegions": [
 										{
@@ -15941,6 +16061,11 @@
 									"width": 2199,
 									"height": 3000,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 124,
+										"distance": 100
+									},
 									"mapParent": {
 										"id": "708"
 									}
@@ -16150,6 +16275,12 @@
 											"width": 4000,
 											"height": 2765,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": 11,
+												"offsetY": 29
+											},
 											"id": "709",
 											"mapRegions": [
 												{
@@ -17228,7 +17359,7 @@
 												"type": "square",
 												"size": 104,
 												"offsetX": 11,
-												"offsetY": 30
+												"offsetY": 29
 											}
 										}
 									]
@@ -17487,7 +17618,7 @@
 							"page": 85,
 							"id": "210",
 							"entries": [
-								"Once they slay the awakened white moose, the characters can return to Lonelywood with proof of the moose's demise. After every three hours the characters spend in the forest, check for a random encounter using the{@adventure Lonelywood Forest Encounters table|IDRotF|9|Lonelywood Forest Encounters}.",
+								"Once they slay the awakened white moose, the characters can return to Lonelywood with proof of the moose's demise. After every three hours the characters spend in the forest, check for a random encounter using the {@adventure Lonelywood Forest Encounters table|IDRotF|9|Lonelywood Forest Encounters}.",
 								"If Ravisin the frost druid is not dealt with, Lonelywood is doomed to experience more of the same harassment from newly awakened beasts such as {@creature Polar Bear||polar bears}, {@creature Rhinoceros||woolly rhinoceroses}, and {@creature Saber-Toothed Tiger||saber-toothed tigers}."
 							]
 						}
@@ -17664,10 +17795,15 @@
 										"type": "internal",
 										"path": "adventure/IDRotF/075-map-1.16-targos.jpg"
 									},
-									"title": "Map 1.16: targos",
+									"title": "Map 1.16: Targos",
 									"width": 2196,
 									"height": 3000,
 									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 78,
+										"distance": 100
+									},
 									"id": "70a",
 									"mapRegions": [
 										{
@@ -17770,6 +17906,11 @@
 									"width": 2196,
 									"height": 3000,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 78,
+										"distance": 100
+									},
 									"mapParent": {
 										"id": "70a"
 									}
@@ -17899,10 +18040,16 @@
 												"type": "internal",
 												"path": "adventure/IDRotF/077-map-1.17-kelvins-cairn.jpg"
 											},
-											"title": "Map 1.17: kelvin's cairn",
+											"title": "Map 1.17: Kelvin's Cairn",
 											"width": 4000,
 											"height": 2765,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": 16,
+												"offsetY": -25
+											},
 											"id": "70b",
 											"mapRegions": [
 												{
@@ -18755,7 +18902,7 @@
 												"type": "square",
 												"size": 104,
 												"offsetX": 16,
-												"offsetY": -26
+												"offsetY": -25
 											}
 										}
 									]
@@ -19158,10 +19305,15 @@
 										"type": "internal",
 										"path": "adventure/IDRotF/082-map-1.18-termalaine.jpg"
 									},
-									"title": "Map 1.18: termalaine",
+									"title": "Map 1.18: Termalaine",
 									"width": 2196,
 									"height": 3000,
 									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 77,
+										"distance": 100
+									},
 									"id": "70c",
 									"mapRegions": [
 										{
@@ -19243,6 +19395,11 @@
 									"width": 2196,
 									"height": 3000,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 77,
+										"distance": 100
+									},
 									"mapParent": {
 										"id": "70c"
 									}
@@ -19407,10 +19564,16 @@
 												"type": "internal",
 												"path": "adventure/IDRotF/085-map-1.19-gem-mine.jpg"
 											},
-											"title": "Map 1.19: gem mine",
+											"title": "Map 1.19: Gem Mine",
 											"width": 4000,
 											"height": 2765,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 104,
+												"offsetX": -38,
+												"offsetY": 30
+											},
 											"id": "70d",
 											"mapRegions": [
 												{
@@ -22587,7 +22750,7 @@
 											"id": "277",
 											"entries": [
 												"The crystal shard lodged inside the fossilized mind flayer skull is a {@item psi crystal|IDRotF} (see {@adventure appendix D|IDRotF|22|{@item Psi Crystal|IDRotF}}). The psychic trauma that the mind flayer endured when it died caused the crystal to form in its mind. A character can use a miner's pick to pry loose the psi crystal.",
-												"A character who attunes to this {@i psi crystal} gains a form of indefinite madness (see the{@table indefinite madness|| Indefinite Madness table} in the {@book Dungeon Master's Guide|DMG}). Determine the result secretly, then convey this information only to the character's player. The madness does not end until the character is no longer attuned to the {@i psi crystal}. While the madness lasts, the character can hear a repeating telepathic distress signal put out by an illithid ship that crashed in the mountains and track the signal to its source (see \"{@area Id Ascendant|346|x}\"). The only way to block the signal is by ending the character's attunement to the {@i psi crystal}."
+												"A character who attunes to this {@i psi crystal} gains a form of indefinite madness (see the {@table indefinite madness|| Indefinite Madness table} in the {@book Dungeon Master's Guide|DMG}). Determine the result secretly, then convey this information only to the character's player. The madness does not end until the character is no longer attuned to the {@i psi crystal}. While the madness lasts, the character can hear a repeating telepathic distress signal put out by an illithid ship that crashed in the mountains and track the signal to its source (see \"{@area Id Ascendant|346|x}\"). The only way to block the signal is by ending the character's attunement to the {@i psi crystal}."
 											]
 										}
 									]
@@ -23467,7 +23630,7 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "adventure/IDRotF/093-02-004.reindeer-hero.png"
+														"path": "adventure/IDRotF/093-02-004.reindeer-herd.png"
 													},
 													"title": "{@creature Reindeer|IDRotF} Herd",
 													"width": 1700,
@@ -23813,10 +23976,17 @@
 										"type": "internal",
 										"path": "adventure/IDRotF/095-map-2.1-icewind-dale.png"
 									},
-									"title": "Map 2.1: icewind dale",
+									"title": "Map 2.1: Icewind Dale",
 									"width": 2550,
 									"height": 1704,
 									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 50,
+										"scale": 1.88,
+										"distance": 1,
+										"units": "miles"
+									},
 									"id": "70e",
 									"mapRegions": [
 										{
@@ -24150,6 +24320,12 @@
 									"width": 6000,
 									"height": 4215,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 63,
+										"distance": 1,
+										"units": "miles"
+									},
 									"mapParent": {
 										"id": "70e",
 										"autoScale": true
@@ -24177,10 +24353,16 @@
 												"type": "internal",
 												"path": "adventure/IDRotF/097-map-2.2-angajuks-bell.jpg"
 											},
-											"title": "Map 2.2: angajuk's bell",
+											"title": "Map 2.2: Angajuk's Bell",
 											"width": 2210,
 											"height": 3000,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 116,
+												"offsetX": -57,
+												"offsetY": -61
+											},
 											"id": "70f",
 											"mapRegions": [
 												{
@@ -24465,8 +24647,8 @@
 											"grid": {
 												"type": "square",
 												"size": 116,
-												"offsetX": -58,
-												"offsetY": -54
+												"offsetX": -57,
+												"offsetY": -61
 											}
 										}
 									]
@@ -24682,10 +24864,16 @@
 														"type": "internal",
 														"path": "adventure/IDRotF/100-map-2.3-black-cabin.jpg"
 													},
-													"title": "Map 2.3: black cabin",
+													"title": "Map 2.3: Black Cabin",
 													"width": 2210,
 													"height": 3000,
 													"imageType": "map",
+													"grid": {
+														"type": "square",
+														"size": 116,
+														"offsetX": -53,
+														"offsetY": -40
+													},
 													"id": "710",
 													"mapRegions": [
 														{
@@ -24902,7 +25090,7 @@
 													"grid": {
 														"type": "square",
 														"size": 116,
-														"offsetX": -55,
+														"offsetX": -53,
 														"offsetY": -40
 													}
 												}
@@ -25252,10 +25440,16 @@
 														"type": "internal",
 														"path": "adventure/IDRotF/105-map-2.4-cackling-chasm.jpg"
 													},
-													"title": "Map 2.4: cackling chasm",
+													"title": "Map 2.4: Cackling Chasm",
 													"width": 2210,
 													"height": 3000,
 													"imageType": "map",
+													"grid": {
+														"type": "square",
+														"size": 116,
+														"offsetX": -54,
+														"offsetY": -32
+													},
 													"id": "711",
 													"mapRegions": [
 														{
@@ -26708,8 +26902,8 @@
 													"grid": {
 														"type": "square",
 														"size": 116,
-														"offsetX": -55,
-														"offsetY": -33
+														"offsetX": -54,
+														"offsetY": -32
 													}
 												}
 											]
@@ -26971,6 +27165,12 @@
 													"width": 2210,
 													"height": 3000,
 													"imageType": "map",
+													"grid": {
+														"type": "square",
+														"size": 116,
+														"offsetX": -39,
+														"offsetY": -41
+													},
 													"id": "712",
 													"mapRegions": [
 														{
@@ -28888,7 +29088,7 @@
 														"type": "square",
 														"size": 116,
 														"offsetX": -39,
-														"offsetY": -42
+														"offsetY": -41
 													}
 												}
 											]
@@ -29117,10 +29317,16 @@
 																"type": "internal",
 																"path": "adventure/IDRotF/110-map-2.6-dark-duchess.jpg"
 															},
-															"title": "Map 2.6: dark duchess",
+															"title": "Map 2.6: Dark Duchess",
 															"width": 4000,
 															"height": 2765,
 															"imageType": "map",
+															"grid": {
+																"type": "square",
+																"size": 104,
+																"offsetX": -17,
+																"offsetY": 29
+															},
 															"id": "713",
 															"mapRegions": [
 																{
@@ -29919,7 +30125,10 @@
 																"id": "713"
 															},
 															"grid": {
-																"type": "none"
+																"type": "square",
+																"size": 104,
+																"offsetX": -17,
+																"offsetY": 29
 															}
 														}
 													]
@@ -30438,10 +30647,16 @@
 																"type": "internal",
 																"path": "adventure/IDRotF/114-map-2.7-id-ascendant.jpg"
 															},
-															"title": "Map 2.7: id ascendant",
+															"title": "Map 2.7: Id Ascendant",
 															"width": 4000,
 															"height": 2765,
 															"imageType": "map",
+															"grid": {
+																"type": "square",
+																"size": 104,
+																"offsetX": -37,
+																"offsetY": 29
+															},
 															"id": "714",
 															"mapRegions": [
 																{
@@ -31447,8 +31662,8 @@
 															"grid": {
 																"type": "square",
 																"size": 104,
-																"offsetX": -38,
-																"offsetY": 30
+																"offsetX": -37,
+																"offsetY": 29
 															}
 														}
 													]
@@ -31798,10 +32013,17 @@
 												"type": "internal",
 												"path": "adventure/IDRotF/117-map-2.8-jarlmoot.jpg"
 											},
-											"title": "Map 2.8: jarlmoot",
+											"title": "Map 2.8: Jarlmoot",
 											"width": 2210,
 											"height": 3000,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 116,
+												"offsetX": -56,
+												"offsetY": -65,
+												"distance": 10
+											},
 											"id": "715",
 											"mapRegions": [
 												{
@@ -32023,8 +32245,9 @@
 											"grid": {
 												"type": "square",
 												"size": 116,
-												"offsetX": -58,
-												"offsetY": 50
+												"offsetX": -56,
+												"offsetY": -65,
+												"distance": 10
 											}
 										}
 									]
@@ -32408,10 +32631,17 @@
 																"type": "internal",
 																"path": "adventure/IDRotF/128-map-2.9-karkolohk.jpg"
 															},
-															"title": "Map 2.9: karkolohk",
+															"title": "Map 2.9: Karkolohk",
 															"width": 4000,
 															"height": 2765,
 															"imageType": "map",
+															"grid": {
+																"type": "square",
+																"size": 104,
+																"offsetX": -45,
+																"offsetY": -53,
+																"distance": 10
+															},
 															"id": "716",
 															"mapRegions": [
 																{
@@ -33259,8 +33489,9 @@
 															"grid": {
 																"type": "square",
 																"size": 104,
-																"offsetX": -44,
-																"offsetY": 53
+																"offsetX": -45,
+																"offsetY": -53,
+																"distance": 10
 															}
 														}
 													]
@@ -33527,16 +33758,16 @@
 								"Buried in the tundra is the spire of a tower that broke away from the Netherese city of Ythryn when it fell from the sky nearly two thousand years ago. The spire shattered into pieces as it embedded itself in the earth, upside down. There it has remained for centuries, buried under snow and ice.",
 								"The Netherese wizard who lived inside the spire did not survive the crash. The wizard's shield guardian not only survived but also dug its way out, creating a tunnel that others can use to reach the spire's interior. Until recently, the mouth of this tunnel was buried under ice and snow. After exiting the spire, the shield guardian wandered into the Spine of the World, where it shut down and was lost for centuries until a band of goblins found it recently and brought it to their mountain fort (see \"{@area Karkolohk|389|x}\").",
 								"The characters can learn about the spire in Ten-Towns (see \"{@area Tall Tales in Ten-Towns|27f|x}\"), or they might stumble upon it accidentally while hunting (see \"{@area Hunt for the Red Yeti|288|x}\"). The NPC who tells the tale is willing to guide the characters to the spire's location for no less than 20 gp. After doing so, the guide wishes the party luck before heading back to Ten-Towns.",
-								"Before the characters face the challenges of the spire, review the information about {@creature Dzaan|IDRotF} in the \"{@area Arcane Brotherhood|6fe|x}\" section of {@adventure appendix C|IDRotF|21}. The details concerning {@creature Dzaan|IDRotF}'s simulacrum and bodyguard are especially pertinent, given what the characters are about to discover.",
+								"Before the characters face the challenges of the spire, review the information about Dzaan in the \"{@area Arcane Brotherhood|6fe|x}\" section of {@adventure appendix C|IDRotF|21}. The details concerning Dzaan's simulacrum and bodyguard are especially pertinent, given what the characters are about to discover.",
 								{
 									"type": "entries",
 									"name": "Not-So-Dead Wizard of Thay",
 									"page": 145,
 									"id": "3a9",
 									"entries": [
-										"{@creature Dzaan|IDRotF} instructed his simulacrum to remain in the spire and ordered Krintaas, his {@creature wight} bodyguard, to watch over it. The simulacrum is keen to activate the rune chamber on the lowest level ({@area area P16|3d7|x}), because this room's magic can transform an illusory creature or object into a real one (within limits). The {@creature Dzaan's Simulacrum|IDRotF|simulacrum} thinks it can use the rune chamber to turn itself into a flesh-and-blood clone of {@creature Dzaan|IDRotF}, but activating the chamber requires a life-spark, which the simulacrum does not possess. Krintaas, who also lacks a life-spark, is impatiently waiting for {@creature Dzaan|IDRotF} to return and quash the simulacrum's efforts to test the rune chamber. Neither the simulacrum nor Krintaas is aware that the real {@creature Dzaan|IDRotF} is dead (see \"{@area Toil and Trouble|16c|x}\").",
-										"When the characters show up, {@creature Dzaan's simulacrum|IDRotF} is ecstatic. Finally, some potentially helpful living creatures have arrived! The simulacrum will bargain, befriend, threaten, or do whatever else it thinks might work in order to get one or more of them to accompany it to the rune chamber. If the characters know that the real {@creature Dzaan|IDRotF} is dead and convey that information to the simulacrum, it becomes even more determined.",
-										"Once it learns that {@creature Dzaan|IDRotF} is dead, Krintaas does whatever it takes to make sure the simulacrum gets the life-spark it needs to activate the rune chamber."
+										"Dzaan instructed his simulacrum to remain in the spire and ordered Krintaas, his {@creature wight} bodyguard, to watch over it. The simulacrum is keen to activate the rune chamber on the lowest level ({@area area P16|3d7|x}), because this room's magic can transform an illusory creature or object into a real one (within limits). The {@creature Dzaan's Simulacrum|IDRotF|simulacrum} thinks it can use the rune chamber to turn itself into a flesh-and-blood clone of Dzaan, but activating the chamber requires a life-spark, which the simulacrum does not possess. Krintaas, who also lacks a life-spark, is impatiently waiting for Dzaan to return and quash the simulacrum's efforts to test the rune chamber. Neither the simulacrum nor Krintaas is aware that the real Dzaan is dead (see \"{@area Toil and Trouble|16c|x}\").",
+										"When the characters show up, {@creature Dzaan's simulacrum|IDRotF} is ecstatic. Finally, some potentially helpful living creatures have arrived! The simulacrum will bargain, befriend, threaten, or do whatever else it thinks might work in order to get one or more of them to accompany it to the rune chamber. If the characters know that the real Dzaan is dead and convey that information to the simulacrum, it becomes even more determined.",
+										"Once it learns that Dzaan is dead, Krintaas does whatever it takes to make sure the simulacrum gets the life-spark it needs to activate the rune chamber."
 									]
 								},
 								{
@@ -33624,6 +33855,12 @@
 																	"width": 4000,
 																	"height": 2765,
 																	"imageType": "map",
+																	"grid": {
+																		"type": "square",
+																		"size": 104,
+																		"offsetX": -5,
+																		"offsetY": 30
+																	},
 																	"id": "717",
 																	"mapRegions": [
 																		{
@@ -34751,7 +34988,7 @@
 														"Tall bookshelves affixed to the outer wall have spilled their contents onto the ceiling-turned-floor. A large table lies on its side, one leg broken. A five-foot-wide tunnel in the floor to the east leads down."
 													]
 												},
-												"Most of the books in this library have been destroyed by time and neglect. The group of adventurers {@creature Dzaan|IDRotF} hired to help him search the spire removed all the books they considered valuable, including spellbooks. They left behind a few that might interest certain characters:",
+												"Most of the books in this library have been destroyed by time and neglect. The group of adventurers Dzaan hired to help him search the spire removed all the books they considered valuable, including spellbooks. They left behind a few that might interest certain characters:",
 												"{@i Magical Wonders of Netheril.} This book is a collection of interviews with Netherese archmages, who discuss their studies of ancient elven magic and the creation of {@i mythallars} (see {@adventure appendix D|IDRotF|22}). The book includes sketches of such devices.",
 												"{@i Mysteries of the Phaerimm.} This book sheds light on the phaerimm\u2014telepathic, funnel-shaped monsters of malevolent intellect that lurk in the Underdark\u2014and includes disturbing sketches of them.",
 												"{@i Wizards in the Hollow.} The birth of the Netherese empire is chronicled in this otherwise dull, plodding story about the lives of three Netherese wizards.",
@@ -34948,10 +35185,10 @@
 													"id": "3cb",
 													"entries": [
 														"Some effort has been taken to arrange the contents of this upside-down room, creating a functional office. A table stands in the middle of the room, surrounded by small stacks of books. Lying on the table is a whirring amulet on a chain.",
-														"Two figures stand behind the table. One is an undead warrior in studded leather armor, its dead-gray flesh drawn tightly over its bones and its face locked in a terrible scowl. The other is an attractive young man in cold weather clothing. His face, beneath a frayed witch's hat, displays studious eyes and a warm smile. \"Welcome to the lost spire of Netheril,\" he says. \"My name is {@creature Dzaan|IDRotF}.\""
+														"Two figures stand behind the table. One is an undead warrior in studded leather armor, its dead-gray flesh drawn tightly over its bones and its face locked in a terrible scowl. The other is an attractive young man in cold weather clothing. His face, beneath a frayed witch's hat, displays studious eyes and a warm smile. \"Welcome to the lost spire of Netheril,\" he says. \"My name is Dzaan.\""
 													]
 												},
-												"Characters who watched {@creature Dzaan|IDRotF}'s fiery execution (see \"{@area Toil and Trouble|16c|x}\") recognize the young man as {@creature Dzaan|IDRotF}\u2014back from the dead, or so it seems. The simulacrum, on the other hand, has never met the characters before. To earn their trust, it tries to be honest and forthcoming. It is self-aware enough to know what it is, but it can't grow or learn in its current form. It asks the characters to help it become a flesh-and-blood creature like the wizard who created it. It knows nothing about {@creature Dzaan|IDRotF}'s fate or the crimes for which the real {@creature Dzaan|IDRotF} was executed.",
+												"Characters who watched Dzaan's fiery execution (see \"{@area Toil and Trouble|16c|x}\") recognize the young man as Dzaan\u2014back from the dead, or so it seems. The simulacrum, on the other hand, has never met the characters before. To earn their trust, it tries to be honest and forthcoming. It is self-aware enough to know what it is, but it can't grow or learn in its current form. It asks the characters to help it become a flesh-and-blood creature like the wizard who created it. It knows nothing about Dzaan's fate or the crimes for which the real Dzaan was executed.",
 												"In the course of a conversation, the simulacrum shares the following information:",
 												{
 													"type": "insetReadaloud",
@@ -34961,14 +35198,14 @@
 														"\"On the lowest level of this inverted tower, my creator found a chamber that can turn illusions into reality. The life-spark of a living creature is needed to activate its power. As a creation of snow and shadow, I have no life-spark of my own, and Krintaas, my undead bodyguard, is of no help in this regard. I assure you, the chamber can in no way harm anyone.\""
 													]
 												},
-												"{@creature Dzaan|IDRotF}'s simulacrum lacks a spellbook. If attacked, its impulse is to turn {@condition invisible} and flee, then use its {@spell levitate} spell to ascend the tower while Krintaas covers its escape. If it escapes the spire, it makes its way to Ten-Towns; as a thing made of ice and snow, the simulacrum can cross the tundra without fear of freezing to death.",
+												"Dzaan's simulacrum lacks a spellbook. If attacked, its impulse is to turn {@condition invisible} and flee, then use its {@spell levitate} spell to ascend the tower while Krintaas covers its escape. If it escapes the spire, it makes its way to Ten-Towns; as a thing made of ice and snow, the simulacrum can cross the tundra without fear of freezing to death.",
 												{
 													"type": "image",
 													"href": {
 														"type": "internal",
 														"path": "adventure/IDRotF/134-02-022.shield-guardian-amulet.png"
 													},
-													"title": "guardian amulet",
+													"title": "Guardian Amulet",
 													"width": 850,
 													"height": 1107
 												},
@@ -34978,7 +35215,7 @@
 													"page": 149,
 													"id": "3cd",
 													"entries": [
-														"The object on the table is the amulet for a {@creature shield guardian}. {@creature Dzaan|IDRotF} retrieved it from {@area area P15|3d4|x} and brought it here for examination. Neither the simulacrum nor Krintaas know what the amulet does, nor do they care. The simulacrum will happily give it to the characters if one or more of them agrees to accompany it to the rune chamber on the lowest level. A {@spell detect magic} spell reveals a magical aura of enchantment around the amulet.",
+														"The object on the table is the amulet for a {@creature shield guardian}. Dzaan retrieved it from {@area area P15|3d4|x} and brought it here for examination. Neither the simulacrum nor Krintaas know what the amulet does, nor do they care. The simulacrum will happily give it to the characters if one or more of them agrees to accompany it to the rune chamber on the lowest level. A {@spell detect magic} spell reveals a magical aura of enchantment around the amulet.",
 														"The amulet is a 4-inch-wide disk composed of silver-framed wood, with a rune carved into its face. (This rune matches the one on the shield guardian's forearms and is the personal sigil of the wizard who created both.)",
 														"This particular {@item shield guardian amulet|IDRotF} is a rare magic item that requires attunement, and only humanoids can attune to it. A humanoid that attunes to the amulet knows the distance and direction of the shield guardian, provided the amulet and the guardian are on the same plane of existence. As an action, the amulet's attuned wearer can try to reactivate the shield guardian, doing so with a successful DC 20 Intelligence ({@skill Arcana}) check. Reactivation can only be attempted while the amulet and guardian are within 10 feet of each other. The amulet otherwise functions as described in the shield guardian's entry in {@book Monster Manual|MM}."
 													]
@@ -35032,7 +35269,7 @@
 											"page": 150,
 											"id": "3d2",
 											"entries": [
-												"This room is where the old tenants of the spire gathered for meals. Characters who befriended {@creature Dzaan|IDRotF}'s simulacrum are warned about the creature in this room:",
+												"This room is where the old tenants of the spire gathered for meals. Characters who befriended Dzaan's simulacrum are warned about the creature in this room:",
 												{
 													"type": "insetReadaloud",
 													"id": "3d3",
@@ -35109,7 +35346,7 @@
 													"items": [
 														"The rune chamber can't produce magic items, animated objects, constructs, or undead.",
 														"A life-spark is needed to turn an illusory creature into a physical one. Acting much like a spark of electricity, it gives the room the jolt it needs to complete the transformation. (No such component is needed for objects.)",
-														"The cracks in the walls have damaged enough of the runes to compromise the room's magic, which might give rise to unexpected results. (Warning {@creature Dzaan|IDRotF}'s simulacrum about this risk does not discourage it from using the rune chamber.)"
+														"The cracks in the walls have damaged enough of the runes to compromise the room's magic, which might give rise to unexpected results. (Warning Dzaan's simulacrum about this risk does not discourage it from using the rune chamber.)"
 													]
 												},
 												{
@@ -35128,7 +35365,7 @@
 													"id": "3dc",
 													"entries": [
 														"When an illusory creature stands beneath the crystal disk, the disk gives off a soft golden light. However, nothing happens until a living creature touches the illusory one. When that happens, roll percentile dice and consult the Rune Chamber Effect table to determine what happens next.",
-														"If {@creature Dzaan|IDRotF}'s simulacrum becomes real, see the \"{@area Dzaan Lives!|3dd|x}\" section below.",
+														"If Dzaan's simulacrum becomes real, see the \"{@area Dzaan Lives!|3dd|x}\" section below.",
 														{
 															"type": "table",
 															"caption": "Rune Chamber Effect",
@@ -35143,7 +35380,7 @@
 															"rows": [
 																[
 																	"01\u201310",
-																	"The illusory object or creature is destroyed. If this happens to {@creature Dzaan|IDRotF}'s simulacrum, it instantly drops to 0 hit points and collapses into a pile of ice and snow."
+																	"The illusory object or creature is destroyed. If this happens to Dzaan's simulacrum, it instantly drops to 0 hit points and collapses into a pile of ice and snow."
 																],
 																[
 																	"11\u201350",
@@ -35171,8 +35408,8 @@
 									"page": 151,
 									"id": "3dd",
 									"entries": [
-										"If the rune chamber works properly and the simulacrum becomes a true clone of {@creature Dzaan|IDRotF}, the wizard thanks the characters for their help and asks them not to discuss what has happened with anyone in Ten-Towns. See {@creature Dzaan|IDRotF}'s description in {@adventure appendix C|IDRotF|21} for information about modifying the simulacrum's stat block to account for its transformation into a clone of {@creature Dzaan|IDRotF}. Krintaas remains by {@creature Dzaan|IDRotF}'s side as his faithful, undead bodyguard.",
-										"{@creature Dzaan|IDRotF}'s ultimate goal is to plunder Ythryn. Without his spellbook, however, the wizard is woefully underpowered. Concealed under layers of cold weather clothing, {@creature Dzaan|IDRotF} and Krintaas must travel to Bryn Shander to obtain a blank spellbook, as well as writing supplies and provisions. In the meantime, {@creature Dzaan|IDRotF} urges the characters to seek out and destroy his rivals in the Arcane Brotherhood. {@creature Dzaan|IDRotF} assumes his rivals are hiding out in Ten-Towns and paints an unflattering portrait of each one:",
+										"If the rune chamber works properly and the simulacrum becomes a true clone of Dzaan, the wizard thanks the characters for their help and asks them not to discuss what has happened with anyone in Ten-Towns. See Dzaan's description in {@adventure appendix C|IDRotF|21} for information about modifying the simulacrum's stat block to account for its transformation into a clone of Dzaan. Krintaas remains by Dzaan's side as his faithful, undead bodyguard.",
+										"Dzaan's ultimate goal is to plunder Ythryn. Without his spellbook, however, the wizard is woefully underpowered. Concealed under layers of cold weather clothing, Dzaan and Krintaas must travel to Bryn Shander to obtain a blank spellbook, as well as writing supplies and provisions. In the meantime, Dzaan urges the characters to seek out and destroy his rivals in the Arcane Brotherhood. Dzaan assumes his rivals are hiding out in Ten-Towns and paints an unflattering portrait of each one:",
 										{
 											"type": "list",
 											"items": [
@@ -35318,10 +35555,17 @@
 																		"type": "internal",
 																		"path": "adventure/IDRotF/135-map-2.11-reghed-camp.jpg"
 																	},
-																	"title": "Map 2.11: reghed tribe camp",
+																	"title": "Map 2.11: Reghed Tribe Camp",
 																	"width": 2210,
 																	"height": 3000,
 																	"imageType": "map",
+																	"grid": {
+																		"type": "square",
+																		"size": 116,
+																		"offsetX": -62,
+																		"offsetY": 12,
+																		"distance": 10
+																	},
 																	"id": "718"
 																},
 																{
@@ -35340,8 +35584,9 @@
 																	"grid": {
 																		"type": "square",
 																		"size": 116,
-																		"offsetX": 55,
-																		"offsetY": 12
+																		"offsetX": -62,
+																		"offsetY": 12,
+																		"distance": 10
 																	}
 																}
 															]
@@ -35545,10 +35790,18 @@
 														"type": "internal",
 														"path": "adventure/IDRotF/138-map-2.12-revels-end.jpg"
 													},
-													"title": "Map 2.12: revel's end",
+													"title": "Map 2.12: Revel's End",
 													"width": 3684,
 													"height": 5000,
 													"imageType": "map",
+													"grid": {
+														"type": "square",
+														"size": 92,
+														"offsetX": -46,
+														"offsetY": -56,
+														"scale": 1.05,
+														"distance": 10
+													},
 													"id": "719",
 													"mapRegions": [
 														{
@@ -36505,8 +36758,9 @@
 														"type": "square",
 														"size": 92,
 														"offsetX": -46,
-														"offsetY": -35,
-														"scale": 1.05
+														"offsetY": -56,
+														"scale": 1.05,
+														"distance": 10
 													}
 												}
 											]
@@ -36972,7 +37226,7 @@
 													"type": "list",
 													"items": [
 														"About {@creature Avarice|IDRotF}, Gant says: \"The tiefling albino? I think she has a promising future.\"",
-														"About {@creature Dzaan|IDRotF}, Gant says: \"He's a Red Wizard of Thay. Need I say more?\" (If asked to elaborate, he adds: \"{@creature Dzaan|IDRotF} doesn't shave his head or wear red robes, but that doesn't change the fact that he's Thayan. The Red Wizards want the Weave all to themselves. If they get their way, no one else will be able to use magic.\")",
+														"About Dzaan, Gant says: \"He's a Red Wizard of Thay. Need I say more?\" (If asked to elaborate, he adds: \"Dzaan doesn't shave his head or wear red robes, but that doesn't change the fact that he's Thayan. The Red Wizards want the Weave all to themselves. If they get their way, no one else will be able to use magic.\")",
 														"About Nass Lantomir, Gant says: \"She's a nobody.\"",
 														"About {@creature Vellynne Harpell|IDRotF}, Gant says: \"Had powerful members of her family not pulled strings to get her into the Brotherhood, that old scarecrow would still be reanimating dead cats in Longsaddle.\""
 													]
@@ -37008,10 +37262,17 @@
 														"type": "internal",
 														"path": "adventure/IDRotF/141-map-2.13-skytower-shelter.jpg"
 													},
-													"title": "Map 2.13: skytower shelter",
+													"title": "Map 2.13: Skytower Shelter",
 													"width": 2210,
 													"height": 3000,
 													"imageType": "map",
+													"grid": {
+														"type": "square",
+														"size": 116,
+														"offsetX": -71,
+														"offsetY": -68,
+														"distance": 10
+													},
 													"id": "71a",
 													"mapRegions": [
 														{
@@ -38370,8 +38631,9 @@
 													"grid": {
 														"type": "square",
 														"size": 116,
-														"offsetX": 43,
-														"offsetY": 44
+														"offsetX": -71,
+														"offsetY": -68,
+														"distance": 10
 													}
 												}
 											]
@@ -38749,10 +39011,17 @@
 														"type": "internal",
 														"path": "adventure/IDRotF/144-map-2.14-wyrmdoom-crag.jpg"
 													},
-													"title": "Map 2.14: wyrmdoom crag",
+													"title": "Map 2.14: Wyrmdoom Crag",
 													"width": 2210,
 													"height": 3000,
 													"imageType": "map",
+													"grid": {
+														"type": "square",
+														"size": 116,
+														"offsetX": 58,
+														"offsetY": 30,
+														"distance": 10
+													},
 													"id": "71b",
 													"mapRegions": [
 														{
@@ -39936,8 +40205,9 @@
 													"grid": {
 														"type": "square",
 														"size": 116,
-														"offsetX": -58,
-														"offsetY": 28
+														"offsetX": 58,
+														"offsetY": 30,
+														"distance": 10
 													}
 												}
 											]
@@ -40200,7 +40470,7 @@
 					"page": 171,
 					"id": "459",
 					"entries": [
-						"Characters who learn of Xardorok's plot to forge a dragon of chardalyn and unleash it upon Ten-Towns might decide to launch a preemptive strike on Xardorok's fortress. This chapter describes the fortress of Sunblight in detail, in the event the adventurers decide to attack it. But the characters are in for a surprise: by the time they arrive, Xardorok has already finished his construct and set it loose, leaving the characters with an agonizing decision: press the attack against the duergar fortress, or intercept the dragon in Ten-Towns. If they choose the latter course, skip over this chapter for now and proceed with{@adventure chapter 4|IDRotF|14}.",
+						"Characters who learn of Xardorok's plot to forge a dragon of chardalyn and unleash it upon Ten-Towns might decide to launch a preemptive strike on Xardorok's fortress. This chapter describes the fortress of Sunblight in detail, in the event the adventurers decide to attack it. But the characters are in for a surprise: by the time they arrive, Xardorok has already finished his construct and set it loose, leaving the characters with an agonizing decision: press the attack against the duergar fortress, or intercept the dragon in Ten-Towns. If they choose the latter course, skip over this chapter for now and proceed with {@adventure chapter 4|IDRotF|14}.",
 						"The characters are more likely to survive an invasion of Xardorok's fortress if they are at least 4th level. Characters of lower level can succeed if they take frequent rests or have an edge, such as plenty of healing magic or allies to back them up.",
 						{
 							"type": "entries",
@@ -40305,7 +40575,7 @@
 												"From high above comes a loud grinding noise as large sheets of ice break off the fortress walls and tumble down the mountainside. Suddenly, great doors of ice previously hidden under snow stand open more than three hundred feet above you, and from between them flies a huge dragon made of dark ice. Its eyes glow with a bright golden light as it lets out a terrible roar, hurls itself into the air, and glides away from the fortress, then turns and heads north toward Ten-Towns."
 											]
 										},
-										"The {@creature chardalyn dragon|IDRotF} (see {@adventure appendix C|IDRotF|21}) exits the fortress by climbing up a shaft that leads from the forge level to the fortress's summit. The doors at the top of the shaft remain open until the dragon returns or until someone closes them by using the levers in areas{@area X13|496|x} and {@area X15|49d|x}.",
+										"The {@creature chardalyn dragon|IDRotF} (see {@adventure appendix C|IDRotF|21}) exits the fortress by climbing up a shaft that leads from the forge level to the fortress's summit. The doors at the top of the shaft remain open until the dragon returns or until someone closes them by using the levers in areas {@area X13|496|x} and {@area X15|49d|x}.",
 										"The dragon stays at least 250 feet away from the party and does not pay any attention to the characters as it flies off on its mission to destroy Ten-Towns. Given the dragon's impressive flying speed, it's unlikely that the characters will be able to catch up to it.",
 										"The characters must now make a big decision: do they assault Xardorok's fortress as planned or follow the dragon back to Ten-Towns? If they continue their climb to the fortress, continue with the next section; if they pursue the dragon, move on to {@adventure chapter 4|IDRotF|14}."
 									]
@@ -40432,6 +40702,13 @@
 											"width": 3684,
 											"height": 5000,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 88,
+												"offsetX": -40,
+												"offsetY": -47,
+												"distance": 10
+											},
 											"id": "71c",
 											"mapRegions": [
 												{
@@ -41089,7 +41366,11 @@
 												"id": "71c"
 											},
 											"grid": {
-												"type": "none"
+												"type": "square",
+												"size": 88,
+												"offsetX": -40,
+												"offsetY": -47,
+												"distance": 10
 											}
 										}
 									]
@@ -42204,7 +42485,7 @@
 												"{@b Chest 4} holds a bundled-up gray spider-silk robe sewn with darkmantle eyes, wrapped inside which is a {@item wand of web}.",
 												"{@b Chest 5} contains a folded {@item Piwafwi (Cloak of Elvenkind)|OotA|piwafwi}\u2014a dark spider-silk cloak made by drow. This item has the properties of a {@item cloak of elvenkind} but loses its magic if it's exposed to sunlight for 1 hour without interruption.",
 												"{@b Chest 6} holds an amber headdress set with three large purple pearls (2,500 gp).",
-												"{@b Chest 7} contains a 2-foot-tall stone statuette of Demogorgon that weighs 50 pounds. Anyone who looks into the statue's eyes must succeed on a DC 14 Charisma saving throw or contract a random form of short-term madness (see \"{@table indefinite madness||Madness}\" in the {@book Dungeon Master's Guide|DMG}). A creature can be affected only once by the statue, after which it becomes immune to the effect.",
+												"{@b Chest 7} contains a 2-foot-tall stone statuette of Demogorgon that weighs 50 pounds. Anyone who looks into the statue's eyes must succeed on a DC 14 Charisma saving throw or contract a random form of short-term madness (see \"{@variantrule Madness}\" in the {@book Dungeon Master's Guide|DMG}). A creature can be affected only once by the statue, after which it becomes immune to the effect.",
 												"{@b Chest 8} houses an inanimate svirfneblin skeleton encrusted with {@hazard yellow mold} (see \"{@book Dungeon Hazards|DMG|5|Dungeon Hazards}\" in the {@book Dungeon Master's Guide|DMG}). The mold releases its spores as soon as the chest's lid is opened. Embedded in one of the skull's eye sockets is a false eye made of moonstone (75 gp)."
 											]
 										}
@@ -42250,7 +42531,7 @@
 						"type": "internal",
 						"path": "adventure/IDRotF/154-04-000.intro-splash.jpg"
 					},
-					"title": "{@creature Xardorok Sunblight|IDRotF}'s merciles construct slices through Ten-Towns with its radiant beam",
+					"title": "{@creature Xardorok Sunblight|IDRotF}'s merciless construct slices through Ten-Towns with its radiant beam",
 					"width": 1700,
 					"height": 2250
 				},
@@ -42385,10 +42666,16 @@
 										"type": "internal",
 										"path": "adventure/IDRotF/155-map-4.1-dragons-flight-path.png"
 									},
-									"title": "Map 4.1: dragons flight path",
+									"title": "Map 4.1: Dragons Flight Path",
 									"width": 1700,
 									"height": 1102,
-									"imageType": "map"
+									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 236,
+										"distance": 8.48,
+										"units": "miles"
+									}
 								},
 								{
 									"type": "entries",
@@ -43244,10 +43531,17 @@
 												"type": "internal",
 												"path": "adventure/IDRotF/160-map-5.1-island-of-solstice.jpg"
 											},
-											"title": "Map 5.1: island of solstice",
+											"title": "Map 5.1: Island of Solstice",
 											"width": 3684,
 											"height": 5000,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 88,
+												"offsetX": -11,
+												"offsetY": 16,
+												"distance": 200
+											},
 											"id": "71d",
 											"mapRegions": [
 												{
@@ -43626,10 +43920,10 @@
 											},
 											"grid": {
 												"type": "square",
-												"size": 93,
-												"offsetX": -6,
-												"offsetY": 25,
-												"scale": 1.05
+												"size": 88,
+												"offsetX": -11,
+												"offsetY": 16,
+												"distance": 200
 											}
 										}
 									]
@@ -43942,7 +44236,7 @@
 																"type": "internal",
 																"path": "adventure/IDRotF/164-map-5.2-grimskalle.jpg"
 															},
-															"title": "Map 5.2: grimskalle",
+															"title": "Map 5.2: Grimskalle",
 															"width": 3684,
 															"height": 5000,
 															"imageType": "map",
@@ -46523,6 +46817,13 @@
 																	]
 																}
 															],
+															"grid": {
+																"type": "square",
+																"size": 88,
+																"offsetX": 30,
+																"offsetY": -6,
+																"distance": 10
+															},
 															"hrefThumbnail": {
 																"type": "internal",
 																"path": "adventure/IDRotF/thumbnail/164-map-5.2-grimskalle.webp"
@@ -46543,10 +46844,10 @@
 															},
 															"grid": {
 																"type": "square",
-																"size": 92,
-																"offsetX": 42,
-																"offsetY": 3,
-																"scale": 1.05
+																"size": 88,
+																"offsetX": 30,
+																"offsetY": -6,
+																"distance": 10
 															}
 														}
 													]
@@ -46729,7 +47030,7 @@
 											"page": 204,
 											"id": "55c",
 											"entries": [
-												"The stairs in the northwest corner of this room descend 90 feet to{@area area G5|554|x}."
+												"The stairs in the northwest corner of this room descend 90 feet to {@area area G5|554|x}."
 											]
 										}
 									]
@@ -47439,7 +47740,7 @@
 					"page": 215,
 					"id": "59b",
 					"entries": [
-						"This chapter focuses on the characters' exploration of the ice caves. There's a good chance that {@creature Vellynne Harpell|IDRotF} is present as well, serving as an NPC guide. If she died earlier in the adventure, the characters can use {@item Professor Skant|IDRotF} as a substitute guide, assuming they retrieved Vellynne's {@i professor orb} from Auril's island in {@area chapter 5|538|x}. If neither Vellynne nor Professor Skant are around, you can furnish another NPC with the information needed to reach the Caves of Hunger. Likely candidates include {@creature Hengar Aesnvaard|IDRotF} (see \"Elk Tribe Escort\" below) and {@creature Dzaan|IDRotF}'s simulacrum (see {@adventure appendix C|IDRotF|21}).",
+						"This chapter focuses on the characters' exploration of the ice caves. There's a good chance that {@creature Vellynne Harpell|IDRotF} is present as well, serving as an NPC guide. If she died earlier in the adventure, the characters can use {@item Professor Skant|IDRotF} as a substitute guide, assuming they retrieved Vellynne's {@i professor orb} from Auril's island in {@area chapter 5|538|x}. If neither Vellynne nor Professor Skant are around, you can furnish another NPC with the information needed to reach the Caves of Hunger. Likely candidates include {@creature Hengar Aesnvaard|IDRotF} (see \"Elk Tribe Escort\" below) and Dzaan's simulacrum (see {@adventure appendix C|IDRotF|21}).",
 						{
 							"type": "entries",
 							"name": "Character Advancement",
@@ -47752,10 +48053,17 @@
 												"type": "internal",
 												"path": "adventure/IDRotF/171-map-6.1-caves-of-hunger.jpg"
 											},
-											"title": "Map 6.1: caves of hunger",
+											"title": "Map 6.1: Caves of Hunger",
 											"width": 4421,
 											"height": 6000,
 											"imageType": "map",
+											"grid": {
+												"type": "square",
+												"size": 158,
+												"offsetX": 28,
+												"offsetY": 55,
+												"scale": 3
+											},
 											"id": "71f",
 											"mapRegions": [
 												{
@@ -52275,7 +52583,11 @@
 												"id": "71f"
 											},
 											"grid": {
-												"type": "none"
+												"type": "square",
+												"size": 158,
+												"offsetX": 28,
+												"offsetY": 55,
+												"scale": 3
 											}
 										}
 									]
@@ -52736,7 +53048,7 @@
 												"The yips and barks abate as you descend the stairs leading to this cave in which hangs the faint whiff of death."
 											]
 										},
-										"Five {@creature kobold vampire spawn|IDRotF} (see {@area appendix C|755|x}) dwell here. Add a sixth if the one from{@area area H4|5b8|x} escaped and made it all the way here. These creatures have sharp senses and know when living creatures are nearby. They use their Spider Climb trait to cling to the walls and pounce on the first character to enter their lair. The vampires fight until two or more of their number are slain, whereupon the rest retreat to {@area area H19|5e5|x} to make their final stand. {@item Professor Skant|IDRotF} recognizes the creature as vampires and knows their weaknesses.",
+										"Five {@creature kobold vampire spawn|IDRotF} (see {@area appendix C|755|x}) dwell here. Add a sixth if the one from {@area area H4|5b8|x} escaped and made it all the way here. These creatures have sharp senses and know when living creatures are nearby. They use their Spider Climb trait to cling to the walls and pounce on the first character to enter their lair. The vampires fight until two or more of their number are slain, whereupon the rest retreat to {@area area H19|5e5|x} to make their final stand. {@item Professor Skant|IDRotF} recognizes the creature as vampires and knows their weaknesses.",
 										"Aside from the vampires, the cave is empty. The 20-foot-high ceiling is festooned with icicles.",
 										{
 											"type": "entries",
@@ -53388,7 +53700,6 @@
 			"page": 231,
 			"id": "620",
 			"entries": [
-				"Ythryn is haunted by nothics who were once powerful netherese spellcasters.",
 				"Ythryn rests in the silent depths of the Reghed Glacier. Ice encloses the enclave on all sides, yet the magic imbued in its stonework shields it from utter destruction. Ythryn is now a corpse city\u2014a tomb for those who perished here and a death trap for those who dare to explore its ruined, glaciated halls.",
 				{
 					"type": "image",
@@ -53417,7 +53728,7 @@
 								{
 									"type": "list",
 									"items": [
-										"The characters gain a level after overcoming the challenges of all eight towers of magic (areas{@area Y4|640|x}, {@area Y7|64c|x}, {@area Y11|660|x}, {@area Y18|677|x}, {@area Y20|6ae|x}, {@area Y22|6b7|x}, {@area Y24|6bc|x}, and {@area Y26|6c4|x}).",
+										"The characters gain a level after overcoming the challenges of all eight towers of magic (areas {@area Y4|640|x}, {@area Y7|64c|x}, {@area Y11|660|x}, {@area Y18|677|x}, {@area Y20|6ae|x}, {@area Y22|6b7|x}, {@area Y24|6bc|x}, and {@area Y26|6c4|x}).",
 										"The characters gain a level when they reach Iriolarthas's study ({@area area Y19q|6a9|x}).",
 										"The characters gain a level if they accomplish something extraordinary, such as destroying Iriolarthas the demilich, all three of Auril's forms, or the obelisk in {@area area Y21|6b3|x}."
 									]
@@ -53493,6 +53804,11 @@
 									"width": 5000,
 									"height": 3100,
 									"imageType": "map",
+									"grid": {
+										"type": "none",
+										"size": 286,
+										"distance": 100
+									},
 									"id": "720",
 									"mapRegions": [
 										{
@@ -54120,6 +54436,11 @@
 									"width": 5000,
 									"height": 3100,
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 286,
+										"distance": 100
+									},
 									"mapParent": {
 										"id": "720"
 									}
@@ -55292,10 +55613,16 @@
 																"type": "internal",
 																"path": "adventure/IDRotF/184-map-7.3-spire-of-iriolarthas.jpg"
 															},
-															"title": "Map 7.3: spire of iriolarthas",
+															"title": "Map 7.3: Spire of Iriolarthas",
 															"width": 4000,
 															"height": 2765,
 															"imageType": "map",
+															"grid": {
+																"type": "square",
+																"size": 52,
+																"offsetX": 6,
+																"offsetY": -24
+															},
 															"id": "721",
 															"mapRegions": [
 																{
@@ -56291,7 +56618,7 @@
 						},
 						{
 							"type": "entries",
-							"name": "Spire of Iriolarthas (Y19a-Y19h)",
+							"name": "Spire of Iriolarthas (Y19a-Y19q)",
 							"page": 247,
 							"id": "67b",
 							"entries": [
@@ -56497,15 +56824,7 @@
 											]
 										}
 									]
-								}
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Spire of Iriolarthas (Y19i-Y19hq)",
-							"page": 249,
-							"id": "691",
-							"entries": [
+								},
 								{
 									"type": "entries",
 									"name": "Y19i. Force Bridge",
@@ -57227,7 +57546,7 @@
 						"In this chapter, two wizards of the Arcane Brotherhood attempt to realize their grand ambitions: {@creature Vellynne Harpell|IDRotF} and {@creature Avarice|IDRotF}. Both are described in {@area appendix C|6fe|x}.",
 						"If the characters are having trouble solving a puzzle in Ythryn, such as how to deactivate the force field around the Spire of Iriolarthas, you can use Vellynne or {@creature Avarice|IDRotF} to help them. Both NPCs are highly intelligent and can help the characters arrive at a solution. You, as the DM, can use them to keep the adventure from grinding to a halt.",
 						"Both Vellynne and {@creature Avarice|IDRotF} will do almost anything to obtain Iriolarthas's spellbook, and they are only slightly less determined when it comes time to choose who gets Iriolarthas's {@item staff of power}, the {@item scroll of the comet|IDRotF}, and the {@item scroll of tarrasque summoning|IDRotF}.",
-						"If the characters helped {@creature Dzaan|IDRotF}'s simulacrum become a real person in chapter 2 (see \"{@area Lost Spire of Netheril|3a8|x}\"), he might be present as well. Without a full complement of spells, {@creature Dzaan|IDRotF} isn't nearly as helpful as Vellynne nor as dangerous as {@creature Avarice|IDRotF}, but he's just as greedy and self-serving. Roleplay him accordingly.",
+						"If the characters helped Dzaan's simulacrum become a real person in chapter 2 (see \"{@area Lost Spire of Netheril|3a8|x}\"), he might be present as well. Without a full complement of spells, Dzaan isn't nearly as helpful as Vellynne nor as dangerous as {@creature Avarice|IDRotF}, but he's just as greedy and self-serving. Roleplay him accordingly.",
 						{
 							"type": "entries",
 							"name": "Vellynne's Help",
@@ -58255,7 +58574,13 @@
 					"title": "Poster Map: Icewind Dale",
 					"width": 6000,
 					"height": 4215,
-					"imageType": "map"
+					"imageType": "map",
+					"grid": {
+						"type": "none",
+						"size": 63,
+						"distance": 1,
+						"units": "miles"
+					}
 				},
 				{
 					"type": "image",
@@ -58263,10 +58588,15 @@
 						"type": "internal",
 						"path": "adventure/IDRotF/264-ten-towns.jpg"
 					},
-					"title": "Poster Map: Icewind Dale (Ten Towns)",
+					"title": "Poster Map: Ten Towns",
 					"width": 6000,
 					"height": 4215,
-					"imageType": "map"
+					"imageType": "map",
+					"grid": {
+						"type": "none",
+						"size": 122,
+						"distance": 250
+					}
 				}
 			],
 			"id": "01f"

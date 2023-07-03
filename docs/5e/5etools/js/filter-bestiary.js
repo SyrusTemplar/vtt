@@ -1,6 +1,21 @@
 "use strict";
 
 class PageFilterBestiary extends PageFilter {
+	static _NEUT_ALIGNS = ["NX", "NY"];
+	static MISC_FILTER_SPELLCASTER = "Spellcaster, ";
+	static _RE_SPELL_TAG = /{@spell ([^}]+)}/g;
+	static _RE_ITEM_TAG = /{@item ([^}]+)}/g;
+	static _WALKER = null;
+	static _BASIC_ENTRY_PROPS = [
+		"trait",
+		"action",
+		"bonus",
+		"reaction",
+		"legendary",
+		"mythic",
+	];
+	static _DRAGON_AGES = ["wyrmling", "young", "adult", "ancient", "greatwyrm", "aspect"];
+
 	// region static
 	static sortMonsters (a, b, o) {
 		if (o.sortBy === "count") return SortUtil.ascSort(a.data.count, b.data.count) || SortUtil.compareListNames(a, b);
@@ -190,7 +205,7 @@ class PageFilterBestiary extends PageFilter {
 		this._traitFilter = new Filter({
 			header: "Traits",
 			items: [
-				"Aggressive", "Ambusher", "Amorphous", "Amphibious", "Antimagic Susceptibility", "Brute", "Charge", "Damage Absorption", "Death Burst", "Devil's Sight", "False Appearance", "Fey Ancestry", "Flyby", "Hold Breath", "Illumination", "Immutable Form", "Incorporeal Movement", "Keen Senses", "Legendary Resistances", "Light Sensitivity", "Magic Resistance", "Magic Weapons", "Pack Tactics", "Pounce", "Rampage", "Reckless", "Regeneration", "Rejuvenation", "Shapechanger", "Siege Monster", "Sneak Attack", "Spider Climb", "Sunlight Sensitivity", "Turn Immunity", "Turn Resistance", "Undead Fortitude", "Water Breathing", "Web Sense", "Web Walker",
+				"Aggressive", "Ambusher", "Amorphous", "Amphibious", "Antimagic Susceptibility", "Brute", "Charge", "Damage Absorption", "Death Burst", "Devil's Sight", "False Appearance", "Fey Ancestry", "Flyby", "Hold Breath", "Illumination", "Immutable Form", "Incorporeal Movement", "Keen Senses", "Legendary Resistances", "Light Sensitivity", "Magic Resistance", "Magic Weapons", "Pack Tactics", "Pounce", "Rampage", "Reckless", "Regeneration", "Rejuvenation", "Shapechanger", "Siege Monster", "Sneak Attack", "Spider Climb", "Sunlight Sensitivity", "Tunneler", "Turn Immunity", "Turn Resistance", "Undead Fortitude", "Water Breathing", "Web Sense", "Web Walker",
 			],
 		});
 		this._actionReactionFilter = new Filter({
@@ -219,6 +234,7 @@ class PageFilterBestiary extends PageFilter {
 			displayFn: it => Parser.getOrdinalForm(it),
 		});
 		this._spellKnownFilter = new SearchableFilter({header: "Spells Known", displayFn: (it) => it.split("|")[0].toTitleCase(), itemSortFn: SortUtil.ascSortLower});
+		this._equipmentFilter = new SearchableFilter({header: "Equipment", displayFn: (it) => it.split("|")[0].toTitleCase(), itemSortFn: SortUtil.ascSortLower});
 		this._dragonAgeFilter = new Filter({
 			header: "Dragon Age",
 			items: [...PageFilterBestiary._DRAGON_AGES],
@@ -269,6 +285,13 @@ class PageFilterBestiary extends PageFilter {
 		mon._fSources = SourceFilter.getCompleteFilterSources(mon);
 		mon._fPassive = !isNaN(mon.passive) ? Number(mon.passive) : null;
 
+		Parser.ABIL_ABVS
+			.forEach(ab => {
+				if (mon[ab] == null) return;
+				const propF = `_f${ab.uppercaseFirst()}`;
+				mon[propF] = typeof mon[ab] !== "number" ? null : mon[ab];
+			});
+
 		mon._fMisc = [...mon.miscTags || []];
 		for (const it of (mon.trait || [])) {
 			if (it.name && it.name.startsWith("Unarmored Defense")) mon._fMisc.push("AC from Unarmored Defense");
@@ -303,8 +326,8 @@ class PageFilterBestiary extends PageFilter {
 		if (mon.basicRules) mon._fMisc.push("Basic Rules");
 		if (mon.tokenUrl || mon.hasToken) mon._fMisc.push("Has Token");
 		if (mon.mythic) mon._fMisc.push("Mythic");
-		if (mon.hasFluff) mon._fMisc.push("Has Info");
-		if (mon.hasFluffImages) mon._fMisc.push("Has Images");
+		if (mon.hasFluff || mon.fluff?.entries) mon._fMisc.push("Has Info");
+		if (mon.hasFluffImages || mon.fluff?.images) mon._fMisc.push("Has Images");
 		if (this._isReprinted({reprintedAs: mon.reprintedAs, tag: "creature", prop: "monster", page: UrlUtil.PG_BESTIARY})) mon._fMisc.push("Reprinted");
 		if (this._hasRecharge(mon)) mon._fMisc.push("Has Recharge");
 		if (mon._versionBase_isVersion) mon._fMisc.push("Is Variant");
@@ -319,12 +342,22 @@ class PageFilterBestiary extends PageFilter {
 
 		if (mon.languageTags?.length) mon._fLanguageTags = mon.languageTags;
 		else mon._fLanguageTags = ["None"];
+
+		mon._fEquipment = this._getEquipmentList(mon);
 	}
+
+	/* -------------------------------------------- */
+
+	static _getInitWalker () {
+		return PageFilterBestiary._WALKER = PageFilterBestiary._WALKER || MiscUtil.getWalker({isNoModification: true});
+	}
+
+	/* -------------------------------------------- */
 
 	static _getSpellcasterMeta (mon) {
 		if (!mon.spellcasting?.length) return null;
 
-		PageFilterBestiary._WALKER = PageFilterBestiary._WALKER || MiscUtil.getWalker({isNoModification: true});
+		const walker = this._getInitWalker();
 
 		const spellSet = new Set();
 		const spellLevels = new Set();
@@ -334,10 +367,10 @@ class PageFilterBestiary extends PageFilter {
 				for (const slotLevel of slotLevels) spellLevels.add(slotLevel);
 			}
 
-			PageFilterBestiary._WALKER.walk(
+			walker.walk(
 				spc,
 				{
-					string: this._getSpellcasterMeta_stringHandler.bind(null, spellSet),
+					string: this._getSpellcasterMeta_stringHandler.bind(this, spellSet),
 				},
 			);
 		}
@@ -354,6 +387,8 @@ class PageFilterBestiary extends PageFilter {
 		});
 	}
 
+	/* -------------------------------------------- */
+
 	static _hasRecharge (mon) {
 		for (const prop of PageFilterBestiary._BASIC_ENTRY_PROPS) {
 			if (!mon[prop]) continue;
@@ -365,17 +400,54 @@ class PageFilterBestiary extends PageFilter {
 		return false;
 	}
 
+	/* -------------------------------------------- */
+
+	static _getEquipmentList (mon) {
+		const itemSet = new Set(mon.attachedItems || []);
+
+		const walker = this._getInitWalker();
+
+		for (const acItem of (mon.ac || [])) {
+			if (!acItem?.from?.length) continue;
+			for (const from of acItem.from) this._getEquipmentList_stringHandler(itemSet, from);
+		}
+
+		for (const trait of (mon.trait || [])) {
+			if (!trait.name.toLowerCase().startsWith("special equipment")) continue;
+			walker.walk(
+				trait.entries,
+				{
+					string: this._getEquipmentList_stringHandler.bind(this, itemSet),
+				},
+			);
+			break;
+		}
+
+		return [...itemSet];
+	}
+
+	static _getEquipmentList_stringHandler (itemSet, str) {
+		str
+			.replace(PageFilterBestiary._RE_ITEM_TAG, (...m) => {
+				const unpacked = DataUtil.proxy.unpackUid("item", m[1], "item", {isLower: true});
+				itemSet.add(DataUtil.proxy.getUid("item", unpacked));
+				return "";
+			});
+	}
+
+	/* -------------------------------------------- */
+
 	addToFilters (mon, isExcluded) {
 		if (isExcluded) return;
 
 		this._sourceFilter.addItem(mon._fSources);
 		this._crFilter.addItem(mon._fCr);
-		this._strengthFilter.addItem(mon.str);
-		this._dexterityFilter.addItem(mon.dex);
-		this._constitutionFilter.addItem(mon.con);
-		this._intelligenceFilter.addItem(mon.int);
-		this._wisdomFilter.addItem(mon.wis);
-		this._charismaFilter.addItem(mon.cha);
+		this._strengthFilter.addItem(mon._fStr);
+		this._dexterityFilter.addItem(mon._fDex);
+		this._constitutionFilter.addItem(mon._fCon);
+		this._intelligenceFilter.addItem(mon._fInt);
+		this._wisdomFilter.addItem(mon._fWis);
+		this._charismaFilter.addItem(mon._fCha);
 		this._speedFilter.addItem(mon._fSpeed);
 		mon.ac.forEach(it => this._acFilter.addItem(it.ac || it));
 		if (mon.hp.average) this._averageHpFilter.addItem(mon.hp.average);
@@ -392,6 +464,7 @@ class PageFilterBestiary extends PageFilter {
 		this._passivePerceptionFilter.addItem(mon._fPassive);
 		this._spellSlotLevelFilter.addItem(mon._fSpellSlotLevels);
 		this._spellKnownFilter.addItem(mon._fSpellsKnown);
+		this._equipmentFilter.addItem(mon._fEquipment);
 		if (mon._versionBase_isVersion) this._miscFilter.addItem("Is Variant");
 		this._damageTypeFilterBase.addItem(mon.damageTags);
 		this._damageTypeFilterLegendary.addItem(mon.damageTagsLegendary);
@@ -441,6 +514,7 @@ class PageFilterBestiary extends PageFilter {
 			this._averageHpFilter,
 			this._abilityScoreFilter,
 			this._spellKnownFilter,
+			this._equipmentFilter,
 		];
 	}
 
@@ -449,7 +523,7 @@ class PageFilterBestiary extends PageFilter {
 			values,
 			m._fSources,
 			m._fCr,
-			m._pTypes.type,
+			m._pTypes.types,
 			m._pTypes.tags,
 			m._pTypes.typeSidekick,
 			m._pTypes.tagsSidekick,
@@ -489,30 +563,20 @@ class PageFilterBestiary extends PageFilter {
 			m._fAc,
 			m._fHp,
 			[
-				m.str,
-				m.dex,
-				m.con,
-				m.int,
-				m.wis,
-				m.cha,
+				m._fStr,
+				m._fDex,
+				m._fCon,
+				m._fInt,
+				m._fWis,
+				m._fCha,
 			],
 			m._fSpellsKnown,
+			m._fEquipment,
 		);
 	}
 }
-PageFilterBestiary._NEUT_ALIGNS = ["NX", "NY"];
-PageFilterBestiary.MISC_FILTER_SPELLCASTER = "Spellcaster, ";
-PageFilterBestiary._RE_SPELL_TAG = /{@spell ([^}]+)}/g;
-PageFilterBestiary._WALKER = null;
-PageFilterBestiary._BASIC_ENTRY_PROPS = [
-	"trait",
-	"action",
-	"bonus",
-	"reaction",
-	"legendary",
-	"mythic",
-];
-PageFilterBestiary._DRAGON_AGES = ["wyrmling", "young", "adult", "ancient", "greatwyrm", "aspect"];
+
+globalThis.PageFilterBestiary = PageFilterBestiary;
 
 class ModalFilterBestiary extends ModalFilter {
 	/**
@@ -558,7 +622,7 @@ class ModalFilterBestiary extends ModalFilter {
 
 		const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BESTIARY](mon);
 		const source = Parser.sourceJsonToAbv(mon.source);
-		const type = mon._pTypes.asText.uppercaseFirst();
+		const type = mon._pTypes.asText;
 		const cr = mon._pCr;
 
 		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst--border veapp__list-row no-select lst__wrp-cells">
@@ -599,8 +663,10 @@ class ModalFilterBestiary extends ModalFilter {
 	}
 }
 
+globalThis.ModalFilterBestiary = ModalFilterBestiary;
+
 class ListSyntaxBestiary extends ListUiUtil.ListSyntax {
-	static _INDEXABLE_PROPS = [
+	static _INDEXABLE_PROPS_ENTRIES = [
 		"trait",
 		"spellcasting",
 		"action",
@@ -618,10 +684,12 @@ class ListSyntaxBestiary extends ListUiUtil.ListSyntax {
 
 	_getSearchCacheStats (entity) {
 		const legGroup = DataUtil.monster.getMetaGroup(entity);
-		if (!legGroup && this.constructor._INDEXABLE_PROPS.every(it => !entity[it])) return "";
+		if (!legGroup && this.constructor._INDEXABLE_PROPS_ENTRIES.every(it => !entity[it])) return "";
 		const ptrOut = {_: ""};
-		this.constructor._INDEXABLE_PROPS.forEach(it => this._getSearchCache_handleEntryProp(entity, it, ptrOut));
+		this.constructor._INDEXABLE_PROPS_ENTRIES.forEach(it => this._getSearchCache_handleEntryProp(entity, it, ptrOut));
 		if (legGroup) this.constructor._INDEXABLE_PROPS_LEG_GROUP.forEach(it => this._getSearchCache_handleEntryProp(legGroup, it, ptrOut));
 		return ptrOut._;
 	}
 }
+
+globalThis.ListSyntaxBestiary = ListSyntaxBestiary;

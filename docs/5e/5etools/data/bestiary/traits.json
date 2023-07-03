@@ -118,10 +118,15 @@
 					"type": {
 						"type": "humanoid",
 						"tags": [
-							"gnome"
+							{
+								"tag": "gnome",
+								"prefix": "Deep"
+							}
 						]
 					},
-					"speed": 20
+					"speed": {
+						"walk": 20
+					}
 				},
 				"_mod": {
 					"_": {
@@ -145,7 +150,7 @@
 							{
 								"name": "Innate Spellcasting",
 								"headerEntries": [
-									"<$title_short_name$>'s innate spellcasting ability is Intelligence (spell save DC <$spell_dc__int$>). <$title_short_name$> can innately cast the following spells, requiring no material components:"
+									"<$title_short_name$>'s innate spellcasting ability is Intelligence (spell save {@dc <$spell_dc__int$>}). <$title_short_name$> can innately cast the following spells, requiring no material components:"
 								],
 								"will": [
 									"{@spell nondetection} (self only)"
@@ -278,7 +283,10 @@
 					"type": {
 						"type": "humanoid",
 						"tags": [
-							"elf"
+							{
+								"tag": "elf",
+								"prefix": "Drow"
+							}
 						]
 					}
 				},
@@ -308,7 +316,7 @@
 							{
 								"name": "Innate Spellcasting",
 								"headerEntries": [
-									"<$title_short_name$>'s innate spellcasting ability is Charisma (spell save DC <$spell_dc__cha$>). <$title_short_name$> can innately cast the following spells, requiring no material components:"
+									"<$title_short_name$>'s innate spellcasting ability is Charisma (spell save {@dc <$spell_dc__cha$>}). <$title_short_name$> can innately cast the following spells, requiring no material components:"
 								],
 								"will": [
 									"{@spell dancing lights}"
@@ -356,10 +364,15 @@
 					"type": {
 						"type": "humanoid",
 						"tags": [
-							"dwarf"
+							{
+								"tag": "dwarf",
+								"prefix": "Duergar"
+							}
 						]
 					},
-					"speed": 25
+					"speed": {
+						"walk": 25
+					}
 				},
 				"_mod": {
 					"_": {
@@ -400,7 +413,7 @@
 							{
 								"name": "Invisibility (Recharges after a Short or Long Rest)",
 								"entries": [
-									"<$title_short_name$> magically turns {@condition invisible} until they attack, cast a spell, or use their Enlarge, or until their concentration is broken, up to 1 hour (as if concentrating on a spell). Any equipment <$short_name$> wears or carries is invisible with them."
+									"<$title_short_name$> magically turns {@condition invisible} until they attack, cast a spell, or use their Enlarge, or until their {@status concentration} is broken, up to 1 hour (as if {@status concentration||concentrating} on a spell). Any equipment <$short_name$> wears or carries is invisible with them."
 								]
 							}
 						]
@@ -456,7 +469,7 @@
 							{
 								"name": "Innate Spellcasting",
 								"headerEntries": [
-									"<$title_short_name$>'s innate spellcasting ability is Wisdom (spell save DC <$spell_dc__wis$>). <$title_short_name$> can innately cast the following spells, requiring no material components:"
+									"<$title_short_name$>'s innate spellcasting ability is Wisdom (spell save {@dc <$spell_dc__wis$>}). <$title_short_name$> can innately cast the following spells, requiring no material components:"
 								],
 								"rest": {
 									"1e": [
@@ -1135,7 +1148,10 @@
 					"type": {
 						"type": "humanoid",
 						"tags": [
-							"elf"
+							{
+								"tag": "elf",
+								"prefix": "High"
+							}
 						]
 					}
 				},
@@ -2338,10 +2354,15 @@
 					"type": {
 						"type": "humanoid",
 						"tags": [
-							"dwarf"
+							{
+								"tag": "dwarf",
+								"prefix": "Shield"
+							}
 						]
 					},
-					"speed": 25
+					"speed": {
+						"walk": 25
+					}
 				},
 				"_mod": {
 					"_": {
@@ -2410,7 +2431,7 @@
 							{
 								"name": "Aggressive",
 								"entries": [
-									"As a bonus action, <$title_short_name$> can move up to your speed toward a hostile creature that they can see."
+									"As a bonus action, <$short_name$> can move up to your speed toward a hostile creature that they can see."
 								]
 							}
 						]
@@ -2536,10 +2557,15 @@
 					"type": {
 						"type": "humanoid",
 						"tags": [
-							"gnome"
+							{
+								"tag": "gnome",
+								"prefix": "Rock"
+							}
 						]
 					},
-					"speed": 25
+					"speed": {
+						"walk": 25
+					}
 				},
 				"_mod": {
 					"_": {
@@ -2625,10 +2651,15 @@
 					"type": {
 						"type": "humanoid",
 						"tags": [
-							"halfling"
+							{
+								"tag": "halfling",
+								"prefix": "Stout"
+							}
 						]
 					},
-					"speed": 25
+					"speed": {
+						"walk": 25
+					}
 				},
 				"_mod": {
 					"languages": {
@@ -2688,7 +2719,7 @@
 							{
 								"name": "Feline Agility",
 								"entries": [
-									"When <$title_short_name$> moves on its turn in combat, they can double their speed until the end of the turn. Once they uses this ability, <$title_short_name$> can't use it again until they moves 0 feet on one of their turns."
+									"When <$short_name$> moves on its turn in combat, they can double their speed until the end of the turn. Once they uses this ability, <$title_short_name$> can't use it again until they moves 0 feet on one of their turns."
 								]
 							}
 						]
@@ -2746,7 +2777,7 @@
 							{
 								"name": "Innate Spellcasting",
 								"headerEntries": [
-									"<$title_short_name$>'s innate spellcasting ability is Charisma (spell save DC <$spell_dc__cha$>). <$title_short_name$> can innately cast the following spells, requiring no material components:"
+									"<$title_short_name$>'s innate spellcasting ability is Charisma (spell save {@dc <$spell_dc__cha$>}). <$title_short_name$> can innately cast the following spells, requiring no material components:"
 								],
 								"will": [
 									"{@spell thaumaturgy}"
@@ -2817,7 +2848,10 @@
 					"type": {
 						"type": "humanoid",
 						"tags": [
-							"water genasi"
+							{
+								"tag": "genasi",
+								"prefix": "Water"
+							}
 						]
 					},
 					"speed": {
@@ -2857,10 +2891,15 @@
 					"type": {
 						"type": "humanoid",
 						"tags": [
-							"elf"
+							{
+								"tag": "elf",
+								"prefix": "Wood"
+							}
 						]
 					},
-					"speed": 35
+					"speed": {
+						"walk": 35
+					}
 				},
 				"_mod": {
 					"_": [
@@ -2918,7 +2957,9 @@
 							"yuan-ti"
 						]
 					},
-					"speed": 35
+					"speed": {
+						"walk": 35
+					}
 				},
 				"_mod": {
 					"_": [
@@ -2951,7 +2992,7 @@
 							{
 								"name": "Innate Spellcasting",
 								"headerEntries": [
-									"<$title_short_name$>'s innate spellcasting ability is Charisma (spell save DC <$spell_dc__cha$>). <$title_short_name$> can innately cast the following spells, requiring no material components:"
+									"<$title_short_name$>'s innate spellcasting ability is Charisma (spell save {@dc <$spell_dc__cha$>}). <$title_short_name$> can innately cast the following spells, requiring no material components:"
 								],
 								"will": [
 									"{@spell animal friendship} (snakes only)",

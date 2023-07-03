@@ -1,5 +1,144 @@
 "use strict";
 
+class UtilConditions {
+	static getDefaultState ({name, color, turns}) {
+		return {
+			id: CryptUtil.uid(),
+			entity: {
+				name,
+				color,
+				turns: turns ? Number(turns) : null,
+			},
+		};
+	}
+}
+
+class RenderableCollectionConditions extends RenderableCollectionGenericRows {
+	constructor (
+		{
+			comp,
+			$wrpRows,
+			isReadOnly = false,
+			barWidth = null,
+			barHeight = null,
+		},
+	) {
+		super(comp, "conditions", $wrpRows);
+		this._isReadOnly = isReadOnly;
+		this._barWidth = barWidth;
+		this._barHeight = barHeight;
+	}
+
+	_$getWrpRow () {
+		const ptStyle = [
+			this._barWidth != null ? `width: ${this._barWidth}px` : null,
+			this._barHeight != null ? `height: ${this._barHeight}px` : null,
+		]
+			.filter(Boolean)
+			.join(" ");
+
+		return $$`<div class="init__cond relative" ${ptStyle ? `style="${ptStyle}"` : ""}></div>`;
+	}
+
+	/* -------------------------------------------- */
+
+	_populateRow ({comp, $wrpRow, entity}) {
+		this._populateRow_bindHookTooltip({comp, $wrpRow, entity});
+		this._populateRow_bindHookBars({comp, $wrpRow, entity});
+		this._populateRow_bindHookConditionHover({comp, $wrpRow, entity});
+
+		$wrpRow
+			.on("contextmenu", evt => {
+				if (this._isReadOnly) return;
+				evt.preventDefault();
+				this._doTickDown({comp, entity, isFromClick: true});
+			})
+			.on("click", () => {
+				if (this._isReadOnly) return;
+				this._doTickUp({comp, entity, isFromClick: true});
+			});
+	}
+
+	_populateRow_bindHookTooltip ({comp, $wrpRow, entity}) {
+		const hkTooltip = () => {
+			const turnsText = `${comp._state.turns} turn${comp._state.turns > 1 ? "s" : ""} remaining`;
+			$wrpRow.title(
+				comp._state.name && comp._state.turns
+					? `${comp._state.name.escapeQuotes()} (${turnsText})`
+					: comp._state.name
+						? comp._state.name.escapeQuotes()
+						: comp._state.turns
+							? turnsText
+							: "",
+			);
+		};
+		comp._addHookBase("turns", hkTooltip);
+		comp._addHookBase("name", hkTooltip);
+		hkTooltip();
+	}
+
+	_populateRow_bindHookBars ({comp, $wrpRow, entity}) {
+		comp._addHookBase("turns", () => {
+			const htmlBars = comp._state.turns
+				? [...new Array(Math.min(comp._state.turns, 3))]
+					.map(() => this._populateRow_getHtmlBar({comp, $wrpRow, entity}))
+					.join("")
+				: this._populateRow_getHtmlBar({comp, $wrpRow, entity});
+
+			$wrpRow
+				.empty()
+				.html(htmlBars);
+		})();
+	}
+
+	_populateRow_bindHookConditionHover ({comp, $wrpRow, entity}) {
+		comp._addHookBase("name", () => {
+			$wrpRow
+				.off("mouseover")
+				.off("mousemove")
+				.off("mouseleave");
+
+			const cond = InitiativeTrackerUtil.CONDITIONS.find(it => it.condName !== null && it.name.toLowerCase() === comp._state.name.toLowerCase().trim());
+			if (!cond) return;
+
+			const ele = $wrpRow[0];
+			$wrpRow.on("mouseover", (evt) => {
+				if (!evt.shiftKey) return;
+
+				evt.shiftKey = false;
+				const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_CONDITIONS_DISEASES]({name: cond.condName || cond.name, source: Parser.SRC_PHB});
+				Renderer.hover.pHandleLinkMouseOver(evt, ele, {page: UrlUtil.PG_CONDITIONS_DISEASES, source: Parser.SRC_PHB, hash}).then(null);
+			});
+			$wrpRow.on("mousemove", (evt) => Renderer.hover.handleLinkMouseMove(evt, ele));
+			$wrpRow.on("mouseleave", (evt) => Renderer.hover.handleLinkMouseLeave(evt, ele));
+		})();
+	}
+
+	_populateRow_getHtmlBar ({comp, $wrpRow, entity}) {
+		const styleStack = [
+			comp._state.turns == null || comp._state.turns > 3
+				? `background-image: linear-gradient(135deg, ${comp._state.color} 41.67%, transparent 41.67%, transparent 50%, ${comp._state.color} 50%, ${comp._state.color} 91.67%, transparent 91.67%, transparent 100%); background-size: 8.49px 8.49px;`
+				: `background: ${comp._state.color};`,
+		];
+		if (this._barWidth != null) styleStack.push(`width: ${this._barWidth}px;`);
+		return `<div class="init__cond_bar" style="${styleStack.join(" ")}"></div>`;
+	}
+
+	/* -------------------------------------------- */
+
+	_doTickDown ({comp, entity, isFromClick = false}) {
+		if (isFromClick && comp._state.turns == null) return this._doDelete({entity}); // remove permanent conditions
+
+		if (comp._state.turns != null && (--comp._state.turns <= 0)) this._doDelete({entity});
+	}
+
+	_doTickUp ({comp, entity, isFromClick = false}) {
+		if (isFromClick && comp._state.turns == null) return comp._state.turns = 1; // convert permanent condition
+
+		if (comp._state.turns != null) comp._state.turns++;
+	}
+}
+
 class InitiativeTrackerUtil {
 	static getWoundLevel (pctHp) {
 		pctHp = Math.round(Math.max(Math.min(pctHp, 100), 0));
@@ -11,101 +150,6 @@ class InitiativeTrackerUtil {
 	}
 
 	static getWoundMeta (woundLevel) { return InitiativeTrackerUtil._WOUND_META[woundLevel] || InitiativeTrackerUtil._WOUND_META[-1]; }
-
-	/**
-	 * @param opts Options, which include:
-	 *   `name` Condition name.
-	 *   `color` Condition color.
-	 *   `turns` Condition duration in turns.
-	 *   `onStateChange` Function to be called on state change.
-	 *   `readonly` If the marker is read-only.
-	 *   `width` Width of the marker.
-	 *   `height` Height of the marker.
-	 * @return {JQuery} A condition marker.
-	 */
-	static get$condition (opts) {
-		const fnOnStateChange = opts.onStateChange;
-
-		const state = {
-			name: opts.name,
-			color: opts.color,
-			turns: opts.turns ? Number(opts.turns) : null,
-		};
-
-		const tickDown = (fromClick) => {
-			if (opts.readonly) return;
-			if (fromClick && state.turns == null) doRemove(); // remove permanent conditions
-			if (state.turns == null) return fnOnStateChange && fnOnStateChange();
-			else state.turns--;
-			if (state.turns <= 0) doRemove();
-			else doRender();
-			fnOnStateChange && fnOnStateChange();
-		};
-
-		const tickUp = (fromClick) => {
-			if (opts.readonly) return;
-			if (fromClick && state.turns == null) state.turns = 0; // convert permanent condition
-			if (state.turns == null) return fnOnStateChange && fnOnStateChange();
-			else state.turns++;
-			doRender();
-			fnOnStateChange && fnOnStateChange();
-		};
-
-		const doRemove = () => $cond.remove();
-
-		const doRender = () => {
-			const turnsText = `${state.turns} turn${state.turns > 1 ? "s" : ""} remaining`;
-			const ttpText = state.name && state.turns ? `${state.name.escapeQuotes()} (${turnsText})` : state.name ? state.name.escapeQuotes() : state.turns ? turnsText : "";
-			const getBar = () => {
-				const styleStack = [
-					state.turns == null || state.turns > 3
-						? `background-image: linear-gradient(135deg, ${state.color} 41.67%, transparent 41.67%, transparent 50%, ${state.color} 50%, ${state.color} 91.67%, transparent 91.67%, transparent 100%); background-size: 8.49px 8.49px;`
-						: `background: ${state.color};`,
-				];
-				if (opts.width) styleStack.push(`width: ${opts.width}px;`);
-				return `<div class="init__cond_bar" style="${styleStack.join(" ")}"/>`;
-			};
-
-			const inner = state.turns
-				? [...new Array(Math.min(state.turns, 3))].map(() => getBar()).join("")
-				: getBar();
-
-			$cond.title(ttpText);
-
-			$cond.html(inner);
-			fnOnStateChange && fnOnStateChange();
-		};
-
-		const styleStack = [];
-		if (opts.width) styleStack.push(`width: ${opts.width}px;`);
-		if (opts.height) styleStack.push(`height: ${opts.height}px;`);
-
-		const $cond = $$`<div class="init__cond relative" ${styleStack.length ? `style="${styleStack.join(" ")}"` : ""}></div>`
-			.data("doTickDown", tickDown)
-			.data("getState", () => MiscUtil.copy(state))
-			.on("contextmenu", (e) => e.preventDefault() || tickDown(true))
-			.click(() => tickUp(true));
-
-		if (opts.name) {
-			const cond = InitiativeTrackerUtil.CONDITIONS.find(it => it.condName !== null && it.name.toLowerCase() === opts.name.toLowerCase().trim());
-			if (cond) {
-				const ele = $cond[0];
-				$cond.on("mouseover", (evt) => {
-					if (evt.shiftKey) {
-						evt.shiftKey = false;
-						const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_CONDITIONS_DISEASES]({name: cond.condName || cond.name, source: Parser.SRC_PHB});
-						Renderer.hover.pHandleLinkMouseOver(evt, ele, {page: UrlUtil.PG_CONDITIONS_DISEASES, source: Parser.SRC_PHB, hash});
-					}
-				});
-				$cond.on("mousemove", (evt) => Renderer.hover.handleLinkMouseMove(evt, ele));
-				$cond.on("mouseleave", (evt) => Renderer.hover.handleLinkMouseLeave(evt, ele));
-			}
-		}
-
-		doRender();
-
-		return $cond;
-	}
 }
 InitiativeTrackerUtil._WOUND_META = {
 	[-1]: {
@@ -292,55 +336,64 @@ class InitiativeTrackerPlayerMessageHandlerV1 {
 		this._$head.append(`
 			<div class="initp__h_name${this._isCompact ? " initp__h_name--compact" : ""}">Creature/Status</div>
 			<div class="initp__h_hp${this._isCompact ? " initp__h_hp--compact" : ""}">Health</div>
-			${(data.c || []).map(statCol => `<div class="initp__h_stat">${statCol.a || ""}</div>`).join("")}
+			${(data.statsCols || []).map(statCol => `<div class="initp__h_stat">${statCol.abbreviation || ""}</div>`).join("")}
 			<div class="initp__h_score${this._isCompact ? " initp__h_score--compact" : ""}">${this._isCompact ? "#" : "Init."}</div>
 		`);
 
-		(data.r || []).forEach(rowData => {
+		(data.rows || []).forEach(rowData => {
 			this._$rows.append(this._get$row(rowData));
 		});
 	}
 
 	_get$row (rowData) {
-		const $conds = $(`<div class="init__wrp_conds"/>`);
-		(rowData.c || []).forEach(cond => {
-			const opts = {
-				...cond,
-				readonly: true,
-			};
-			if (!this._isCompact) {
-				opts.width = 24;
-				opts.height = 24;
-			}
-			InitiativeTrackerUtil.get$condition(opts).appendTo($conds);
+		const comp = BaseComponent.fromObject(
+			{
+				conditions: rowData.conditions || [],
+			},
+			"*",
+		);
+
+		const $wrpConds = $$`<div class="init__wrp_conds"></div>`;
+
+		const collectionConditions = new RenderableCollectionConditions({
+			comp: comp,
+			isReadOnly: true,
+			barWidth: !this._isCompact ? 24 : null,
+			barHeight: !this._isCompact ? 24 : null,
+			$wrpRows: $wrpConds,
 		});
+		collectionConditions.render();
 
 		const getHpContent = () => {
-			if (rowData.hh != null) {
-				const {text, color} = InitiativeTrackerUtil.getWoundMeta(rowData.hh);
+			if (rowData.hpWoundLevel != null) {
+				const {text, color} = InitiativeTrackerUtil.getWoundMeta(rowData.hpWoundLevel);
 				return {hpText: text, hpColor: color};
 			} else {
 				const woundLevel = InitiativeTrackerUtil.getWoundLevel(100 * Number(rowData.h) / Number(rowData.g));
-				return {hpText: `${rowData.h == null ? "?" : rowData.h}/${rowData.g == null ? "?" : rowData.g}`, hpColor: InitiativeTrackerUtil.getWoundMeta(woundLevel).color};
+				return {hpText: `${rowData.hpCurrent == null ? "?" : rowData.hpCurrent}/${rowData.hpMax == null ? "?" : rowData.hpMax}`, hpColor: InitiativeTrackerUtil.getWoundMeta(woundLevel).color};
 			}
 		};
 		const {hpText, hpColor} = getHpContent();
 
-		const $namePart = $(`<div/>`).text(`${(rowData.m || rowData.n || "")}${rowData.o != null ? ` (${rowData.o})` : ""}`);
+		const $dispName = $(`<div></div>`).text(`${(rowData.nameMeta?.customName || rowData.nameMeta?.name || "")}${rowData.ordinal != null ? ` (${rowData.ordinal})` : ""}`);
+
+		const ptStatColData = (rowData.rowStatColData || [])
+			.map(statVal => `<div class="initp__r_stat ve-flex-vh-center">
+				${statVal.isUnknown ? `<span class="ve-muted italic" title="This value is hidden!">?</span>` : statVal.value === true ? `<span class="text-success glyphicon glyphicon-ok"></span>` : statVal.value === false ? `<span class="text-danger glyphicon glyphicon-remove"></span>` : statVal.value}
+			</div>`)
+			.join("");
 
 		return $$`
-			<div class="initp__r${rowData.a ? ` initp__r--active` : ""}">
+			<div class="initp__r${rowData.isActive ? ` initp__r--active` : ""}">
 				<div class="initp__r_name">
-					${$namePart}
-					${$conds}
+					${$dispName}
+					${$wrpConds}
 				</div>
 				<div class="initp__r_hp">
 					<div class="initp__r_hp_pill" style="background: ${hpColor};">${hpText}</div>
 				</div>
-				${(rowData.k || []).map(statVal => `<div class="initp__r_stat ve-flex-vh-center">
-					${statVal.u ? "?" : statVal.v === true ? `<span class="text-success glyphicon glyphicon-ok"/>` : statVal.v === false ? `<span class="text-danger glyphicon glyphicon-remove"/>` : statVal.v}
-				</div>`).join("")}
-				<div class="initp__r_score${this._isCompact ? " initp__r_score--compact" : ""}">${rowData.i}</div>
+				${ptStatColData}
+				<div class="initp__r_score${this._isCompact ? " initp__r_score--compact" : ""}">${rowData.initiative}</div>
 			</div>
 		`;
 	}

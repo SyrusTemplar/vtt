@@ -93,13 +93,20 @@ class SublistManager {
 
 		if (this._$wrpContainer.hasClass(`sublist--resizable`)) this._pBindSublistResizeHandlers();
 
-		this._$wrpSummaryControls = this._saveManager.$getRenderedSummary({
+		const {$wrp: $wrpSummaryControls, cbOnListUpdated} = this._saveManager.$getRenderedSummary({
 			cbOnNew: (evt) => this.pHandleClick_new(evt),
+			cbOnDuplicate: (evt) => this.pHandleClick_duplicate(evt),
 			cbOnSave: (evt) => this.pHandleClick_save(evt),
 			cbOnLoad: (evt) => this.pHandleClick_load(evt),
 			cbOnReset: (evt, exportedSublist) => this.pDoLoadExportedSublist(exportedSublist),
 			cbOnUpload: (evt) => this.pHandleClick_upload({isAdditive: evt.shiftKey}),
 		});
+
+		this._$wrpSummaryControls = $wrpSummaryControls;
+
+		const hkOnListUpdated = () => cbOnListUpdated({cntVisibleItems: this._listSub.visibleItems.length});
+		this._listSub.on("updated", hkOnListUpdated);
+		hkOnListUpdated();
 
 		this._$wrpContainer.after(this._$wrpSummaryControls);
 
@@ -389,6 +396,10 @@ class SublistManager {
 			prevExportableSublist: exportableSublistMemory,
 			evt,
 		}));
+	}
+
+	async pHandleClick_duplicate (evt) {
+		await this._saveManager.pDoDuplicate(await this.pGetExportableSublist({isForceIncludePlugins: true}));
 	}
 
 	async pHandleClick_load (evt) {
@@ -720,25 +731,37 @@ class SublistManager {
 	doSublistDeselectAll () { this._listSub.deselectAll(); }
 }
 
-class ListPageSettingsManager extends BaseComponent {
-	static _SETTINGS = [];
-	static _STORAGE_KEY = "listPageSettings";
+class ListPageStateManager extends BaseComponent {
+	static _STORAGE_KEY;
 
 	async pInit () {
-		const saved = await this._pLoadSettings();
+		const saved = await this._pGetPersistedState();
 		if (!saved) return;
 		this.setStateFrom(saved);
 	}
 
-	async _pLoadSettings () { return StorageUtil.pGetForPage(this.constructor._STORAGE_KEY); }
+	async _pGetPersistedState () {
+		return StorageUtil.pGetForPage(this.constructor._STORAGE_KEY);
+	}
 
-	async _pSaveSettings () {
+	async _pPersistState () {
 		await StorageUtil.pSetForPage(this.constructor._STORAGE_KEY, this.getSaveableState());
 	}
+
+	addHookBase (prop, hk) { return this._addHookBase(prop, hk); }
+	removeHookBase (prop, hk) { return this._removeHookBase(prop, hk); }
+}
+
+class ListPageSettingsManager extends ListPageStateManager {
+	static _STORAGE_KEY = "listPageSettings";
+
+	static _SETTINGS = [];
 
 	_getSettings () { return {}; }
 
 	bindBtnOpen ({btn}) {
+		if (!btn) return;
+
 		btn
 			.addEventListener(
 				"click",
@@ -746,7 +769,7 @@ class ListPageSettingsManager extends BaseComponent {
 					const $btnReset = $(`<button class="btn btn-default btn-xs" title="Reset"><span class="glyphicon glyphicon-refresh"></span></button>`)
 						.click(() => {
 							this._proxyAssignSimple("state", this._getDefaultState(), true);
-							this._pSaveSettings()
+							this._pPersistState()
 								.then(() => Hist.hashChange());
 						});
 
@@ -755,7 +778,7 @@ class ListPageSettingsManager extends BaseComponent {
 						isHeaderBorder: true,
 						title: "Settings",
 						cbClose: () => {
-							this._pSaveSettings()
+							this._pPersistState()
 								.then(() => Hist.hashChange());
 						},
 						$titleSplit: $btnReset,
@@ -768,6 +791,13 @@ class ListPageSettingsManager extends BaseComponent {
 									return $$`<label class="split-v-center stripe-even py-1">
 										<span>${setting.name}</span>
 										${ComponentUiUtil.$getCbBool(this, prop)}
+									</label>`;
+								}
+
+								case "enum": {
+									return $$`<label class="split-v-center stripe-even py-1">
+										<span>${setting.name}</span>
+										${ComponentUiUtil.$getSelEnum(this, prop, {values: setting.enumVals})}
 									</label>`;
 								}
 
@@ -785,6 +815,13 @@ class ListPageSettingsManager extends BaseComponent {
 	getValues () {
 		return MiscUtil.copyFast(this.__state);
 	}
+
+	async pSet (key, val) {
+		this._state[key] = val;
+		await this._pPersistState();
+	}
+
+	get (key) { return this._state[key]; }
 
 	_getDefaultState () {
 		return SettingsUtil.getDefaultSettings(this._getSettings());
@@ -808,13 +845,14 @@ class ListPage {
 	 * @param opts.listClass List class.
 	 * @param opts.listOptions Other list options.
 	 * @param opts.dataProps JSON data propert(y/ies).
+	 *
 	 * @param [opts.bookViewOptions] Book view options.
-	 * @param [opts.bookViewOptions.$btnOpen]
-	 * @param [opts.bookViewOptions.$eleNoneVisible]
+	 * @param [opts.bookViewOptions.ClsBookView]
 	 * @param [opts.bookViewOptions.pageTitle]
-	 * @param [opts.bookViewOptions.popTblGetNumShown]
-	 * @param [opts.bookViewOptions.fnSort]
-	 * @param [opts.bookViewOptions.fnGetMd]
+	 * @param [opts.bookViewOptions.namePlural]
+	 * @param [opts.bookViewOptions.propMarkdown]
+	 * @param [opts.bookViewOptions.fnPartition]
+	 *
 	 * @param [opts.tableViewOptions] Table view options.
 	 * @param [opts.hasAudio] True if the entities have pronunciation audio.
 	 * @param [opts.isPreviewable] True if the entities can be previewed in-line as part of the list.
@@ -854,11 +892,13 @@ class ListPage {
 		this._dataList = [];
 		this._ixData = 0;
 		this._bookView = null;
-		this._$pgContent = null;
 		this._bookViewToShow = null;
 		this._sublistManager = null;
 		this._btnsTabs = {};
 		this._lastRender = {};
+
+		this._$pgContent = null;
+		this._$wrpTabs = null;
 
 		this._contextMenuList = null;
 
@@ -876,7 +916,7 @@ class ListPage {
 	async pOnLoad () {
 		Hist.setListPage(this);
 
-		this._$pgContent = $(`#pagecontent`);
+		this._pOnLoad_findPageElements();
 
 		await Promise.all([
 			PrereleaseUtil.pInit(),
@@ -884,10 +924,7 @@ class ListPage {
 		]);
 		await ExcludeUtil.pInitialise();
 
-		if (this._compSettings) {
-			await this._compSettings.pInit();
-			this._compSettings.bindBtnOpen({btn: document.getElementById("btn-list-settings")});
-		}
+		await this._pOnLoad_pInitSettingsManager();
 
 		let data;
 		// For pages which can load data without filter state, load the data early
@@ -934,7 +971,7 @@ class ListPage {
 		this._pOnLoad_tableView();
 
 		// bind hash-change functions for hist.js to use
-		window.loadHash = this.doLoadHash.bind(this);
+		window.loadHash = this.pDoLoadHash.bind(this);
 		window.loadSubHash = this.pDoLoadSubHash.bind(this);
 		if (this._isBindHashHandlerUnknown) window.pHandleUnknownHash = this.pHandleUnknownHash.bind(this);
 
@@ -950,6 +987,18 @@ class ListPage {
 		await this._pOnLoad_pPostLoad();
 
 		window.dispatchEvent(new Event("toolsLoaded"));
+	}
+
+	_pOnLoad_findPageElements () {
+		this._$pgContent = $(`#pagecontent`);
+		this._$wrpTabs = $(`#stat-tabs`);
+	}
+
+	async _pOnLoad_pInitSettingsManager () {
+		if (!this._compSettings) return;
+
+		await this._compSettings.pInit();
+		this._compSettings.bindBtnOpen({btn: document.getElementById("btn-list-settings")});
 	}
 
 	async _pOnLoad_pInitPrimaryLists () {
@@ -1014,94 +1063,12 @@ class ListPage {
 	_pOnLoad_bookView () {
 		if (!this._bookViewOptions) return;
 
-		this._bookView = new BookModeView({
-			hashKey: "bookview",
-			$openBtn: this._bookViewOptions.$btnOpen,
-			$eleNoneVisible: this._bookViewOptions.$eleNoneVisible,
-			pageTitle: this._bookViewOptions.pageTitle || "Book View",
-			popTblGetNumShown: this._bookView_popTblGetNumShown.bind(this),
-			hasPrintColumns: true,
+		this._bookView = new (this._bookViewOptions.ClsBookView || ListPageBookView)({
+			...this._bookViewOptions,
+			sublistManager: this._sublistManager,
+			fnGetEntLastLoaded: () => this._dataList[Hist.lastLoadedId],
+			$btnOpen: $(`#btn-book`),
 		});
-	}
-
-	_bookView_popTblGetNumShown ({$wrpContent, $dispName, $wrpControls, fnPartition}) {
-		if (this._bookViewOptions.fnGetMd) this._bookView_$getControlsMarkdown().appendTo($wrpControls);
-
-		this._bookViewToShow = this._sublistManager.getSublistedEntities();
-
-		const fnRender = Renderer.hover.getFnRenderCompact(UrlUtil.getCurrentPage(), {isStatic: true});
-
-		const stack = [];
-		const renderEnt = (p) => {
-			stack.push(`<div class="bkmv__wrp-item"><table class="w-100 stats stats--book stats--bkmv"><tbody>`);
-			stack.push(fnRender(p));
-			stack.push(`</tbody></table></div>`);
-		};
-
-		const renderPartition = (dataArr) => {
-			dataArr.forEach(it => renderEnt(it));
-		};
-
-		const partitions = [];
-		if (fnPartition) {
-			this._bookViewToShow.forEach(it => {
-				const partition = fnPartition(it);
-				(partitions[partition] = partitions[partition] || []).push(it);
-			});
-		} else partitions[0] = this._bookViewToShow;
-		partitions.filter(Boolean).forEach(arr => renderPartition(arr));
-
-		if (!this._bookViewToShow.length && Hist.lastLoadedId != null) {
-			renderEnt(this._dataList[Hist.lastLoadedId]);
-		}
-
-		$wrpContent.append(stack.join(""));
-		return this._bookViewToShow.length;
-	}
-
-	_bookView_getAsMarkdown () {
-		const fnSort = this._bookViewOptions.fnSort || ((a, b) => SortUtil.ascSortLower(a.name, b.name));
-
-		const toRender = this._bookViewToShow?.length ? this._bookViewToShow : [this._dataList[Hist.lastLoadedId]];
-		const parts = [...toRender]
-			.sort(fnSort)
-			.map(this._bookViewOptions.fnGetMd);
-
-		const out = [];
-		let charLimit = RendererMarkdown.CHARS_PER_PAGE;
-		for (let i = 0; i < parts.length; ++i) {
-			const part = parts[i];
-			out.push(part);
-
-			if (i < parts.length - 1) {
-				if ((charLimit -= part.length) < 0) {
-					if (RendererMarkdown.getSetting("isAddPageBreaks")) out.push("", "\\pagebreak", "");
-					charLimit = RendererMarkdown.CHARS_PER_PAGE;
-				}
-			}
-		}
-
-		return out.join("\n\n");
-	}
-
-	_bookView_$getControlsMarkdown () {
-		const $btnDownloadMarkdown = $(`<button class="btn btn-default btn-sm">Download as Markdown</button>`)
-			.click(() => DataUtil.userDownloadText(`${UrlUtil.getCurrentPage().replace(".html", "")}.md`, this._bookView_getAsMarkdown()));
-
-		const $btnCopyMarkdown = $(`<button class="btn btn-default btn-sm px-2" title="Copy Markdown to Clipboard"><span class="glyphicon glyphicon-copy"/></button>`)
-			.click(async () => {
-				await MiscUtil.pCopyTextToClipboard(this._bookView_getAsMarkdown());
-				JqueryUtil.showCopiedEffect($btnCopyMarkdown);
-			});
-
-		const $btnDownloadMarkdownSettings = $(`<button class="btn btn-default btn-sm px-2" title="Markdown Settings"><span class="glyphicon glyphicon-cog"/></button>`)
-			.click(async () => RendererMarkdown.pShowSettingsModal());
-
-		return $$`<div class="ve-flex-v-center btn-group ml-3">
-			${$btnDownloadMarkdown}
-			${$btnCopyMarkdown}
-			${$btnDownloadMarkdownSettings}
-		</div>`;
 	}
 
 	_pOnLoad_tableView () {
@@ -1534,12 +1501,14 @@ class ListPage {
 		this._contextMenuList = ContextUtil.getMenu([
 			new ContextUtil.Action(
 				"Popout",
-				(evt, userData) => {
+				async (evt, userData) => {
 					const {ele, selection} = userData;
-					this._handleGenericContextMenuClick_pDoMassPopout(evt, ele, selection);
+					await this._handleGenericContextMenuClick_pDoMassPopout(evt, ele, selection);
 				},
 			),
 			this._getContextActionAdd(),
+			null,
+			this._getContextActionBlocklist(),
 		]);
 	}
 
@@ -1568,6 +1537,16 @@ class ListPage {
 					this._updateSelected();
 				},
 			);
+	}
+
+	_getContextActionBlocklist () {
+		return new ContextUtil.Action(
+			"Blocklist",
+			async (evt, userData) => {
+				const {ele, selection} = userData;
+				await this._handleGenericContextMenuClick_pDoMassBlocklist(evt, ele, selection);
+			},
+		);
 	}
 
 	_getOrTabRightButton (ident, icon, {title} = {}) {
@@ -1680,6 +1659,16 @@ class ListPage {
 			});
 		}
 
+		contextOptions.push(
+			null,
+			new ContextUtil.Action(
+				"Blocklist",
+				async () => {
+					await this._pDoMassBlocklist([this._dataList[Hist.lastLoadedId]]);
+				},
+			),
+		);
+
 		const menu = ContextUtil.getMenu(contextOptions);
 		$btnOptions
 			.off("click")
@@ -1691,21 +1680,305 @@ class ListPage {
 		return _UtilListPage.pDoMassPopout(evt, ele, entities);
 	}
 
+	async _handleGenericContextMenuClick_pDoMassBlocklist (evt, ele, selection) {
+		await this._pDoMassBlocklist(selection.map(listItem => this._dataList[listItem.ix]));
+	}
+
+	async _pDoMassBlocklist (ents) {
+		await ExcludeUtil.pExtendList(
+			ents.map(ent => {
+				return {
+					category: ent.__prop,
+					displayName: ent._displayName || ent.name,
+					hash: UrlUtil.autoEncodeHash(ent),
+					source: ent.source,
+				};
+			}),
+		);
+
+		JqueryUtil.doToast(`Added ${ents.length} entr${ents.length === 1 ? "y" : "ies"} to the blocklist! Reload the page to view any changes.`);
+	}
+
 	doDeselectAll () { this.primaryLists.forEach(list => list.deselectAll()); }
 
-	doLoadHash (id) {
+	async pDoLoadHash (id) {
 		this._lastRender.entity = this._dataList[id];
-		this._doLoadHash(id);
+		await this._pDoLoadHash(id);
 	}
 
 	getListItem () { throw new Error(`Unimplemented!`); }
-	handleFilterChange () { throw new Error(`Unimplemented!`); }
-	_doLoadHash (id) { throw new Error(`Unimplemented!`); }
 	pHandleUnknownHash () { throw new Error(`Unimplemented!`); }
 
 	async pDoLoadSubHash (sub) {
 		if (this._filterBox) sub = this._filterBox.setFromSubHashes(sub);
 		if (this._sublistManager) sub = await this._sublistManager.pSetFromSubHashes(sub);
+		if (this._bookView) sub = await this._bookView.pHandleSub(sub);
 		return sub;
+	}
+
+	/* -------------------------------------------- */
+
+	handleFilterChange () {
+		const f = this._filterBox.getValues();
+		this._list.filter(item => this._pageFilter.toDisplay(f, this._dataList[item.ix]));
+		FilterBox.selectFirstVisible(this._dataList);
+	}
+
+	/* -------------------------------------------- */
+
+	_tabTitleStats = "Traits";
+
+	async _pDoLoadHash (id) {
+		this._$pgContent.empty();
+
+		this._renderer.setFirstSection(true);
+		const ent = this._dataList[id];
+
+		const tabMetaStats = new Renderer.utils.TabButton({
+			label: this._tabTitleStats,
+			fnChange: this._renderStats_onTabChangeStats.bind(this),
+			fnPopulate: this._renderStats_doBuildStatsTab.bind(this, {ent}),
+			isVisible: true,
+		});
+
+		const tabMetasAdditional = this._renderStats_getTabMetasAdditional({ent});
+
+		Renderer.utils.bindTabButtons({
+			tabButtons: [tabMetaStats, ...tabMetasAdditional].filter(it => it.isVisible),
+			tabLabelReference: [tabMetaStats, ...tabMetasAdditional].map(it => it.label),
+			$wrpTabs: this._$wrpTabs,
+			$pgContent: this._$pgContent,
+		});
+
+		this._updateSelected();
+
+		await this._renderStats_pBuildFluffTabs({
+			ent,
+			tabMetaStats,
+			tabMetasAdditional,
+		});
+	}
+
+	_renderStats_getTabMetasAdditional ({ent}) { return []; }
+
+	_renderStats_onTabChangeStats () { /* Implement as required. */ }
+	_renderStats_onTabChangeFluff () { /* Implement as required. */ }
+
+	async _renderStats_pBuildFluffTabs (
+		{
+			ent,
+			tabMetaStats,
+			tabMetasAdditional,
+		},
+	) {
+		const propFluff = `${ent.__prop}Fluff`;
+
+		const [hasFluffText, hasFluffImages] = await Promise.all([
+			Renderer.utils.pHasFluffText(ent, propFluff),
+			Renderer.utils.pHasFluffImages(ent, propFluff),
+		]);
+
+		if (!hasFluffText && !hasFluffImages) return;
+
+		const tabMetas = [
+			tabMetaStats,
+			new Renderer.utils.TabButton({
+				label: "Info",
+				fnChange: this._renderStats_onTabChangeFluff.bind(this),
+				fnPopulate: this._renderStats_doBuildFluffTab.bind(this, {ent, isImageTab: false}),
+				isVisible: hasFluffText,
+			}),
+			new Renderer.utils.TabButton({
+				label: "Images",
+				fnChange: this._renderStats_onTabChangeFluff.bind(this),
+				fnPopulate: this._renderStats_doBuildFluffTab.bind(this, {ent, isImageTab: true}),
+				isVisible: hasFluffImages,
+			}),
+			...tabMetasAdditional,
+		];
+
+		Renderer.utils.bindTabButtons({
+			tabButtons: tabMetas.filter(it => it.isVisible),
+			tabLabelReference: tabMetas.map(it => it.label),
+			$wrpTabs: this._$wrpTabs,
+			$pgContent: this._$pgContent,
+		});
+	}
+
+	_renderStats_doBuildFluffTab ({ent, isImageTab = false}) {
+		this._$pgContent.empty();
+
+		return Renderer.utils.pBuildFluffTab({
+			isImageTab,
+			$content: this._$pgContent,
+			pFnGetFluff: this._pFnGetFluff,
+			entity: ent,
+			$headerControls: this._renderStats_doBuildFluffTab_$getHeaderControls({ent, isImageTab}),
+		});
+	}
+
+	_renderStats_doBuildFluffTab_$getHeaderControls ({ent, isImageTab = false}) {
+		if (isImageTab) return null;
+
+		const actions = [
+			new ContextUtil.Action(
+				"Copy as JSON",
+				async () => {
+					const fluffEntries = (await this._pFnGetFluff(ent))?.entries || [];
+					MiscUtil.pCopyTextToClipboard(JSON.stringify(fluffEntries, null, "\t"));
+					JqueryUtil.showCopiedEffect($btnOptions);
+				},
+			),
+			new ContextUtil.Action(
+				"Copy as Markdown",
+				async () => {
+					const fluffEntries = (await this._pFnGetFluff(ent))?.entries || [];
+					const rendererMd = RendererMarkdown.get().setFirstSection(true);
+					MiscUtil.pCopyTextToClipboard(fluffEntries.map(f => rendererMd.render(f)).join("\n"));
+					JqueryUtil.showCopiedEffect($btnOptions);
+				},
+			),
+		];
+		const menu = ContextUtil.getMenu(actions);
+
+		const $btnOptions = $(`<button class="btn btn-default btn-xs btn-stats-name" title="Other Options"><span class="glyphicon glyphicon-option-vertical"/></button>`)
+			.click(evt => ContextUtil.pOpenMenu(evt, menu));
+
+		return $$`<div class="ve-flex-v-center btn-group ml-2">${$btnOptions}</div>`;
+	}
+
+	/** @abstract */
+	_renderStats_doBuildStatsTab ({ent}) { throw new Error("Unimplemented!"); }
+}
+
+class ListPageBookView extends BookModeViewBase {
+	_hashKey = "bookview";
+	_hasPrintColumns = true;
+
+	constructor (
+		{
+			sublistManager,
+			fnGetEntLastLoaded,
+			pageTitle,
+			namePlural,
+			propMarkdown,
+			fnPartition = null,
+			...rest
+		},
+	) {
+		super({...rest});
+		this._sublistManager = sublistManager;
+		this._fnGetEntLastLoaded = fnGetEntLastLoaded;
+		this._pageTitle = pageTitle;
+		this._namePlural = namePlural;
+		this._propMarkdown = propMarkdown;
+		this._fnPartition = fnPartition;
+
+		this._bookViewToShow = null;
+	}
+
+	_$getEleNoneVisible () {
+		return $$`<div class="w-100 ve-flex-col ve-flex-h-center no-shrink no-print mb-3 mt-auto">
+			<div class="mb-2 ve-flex-vh-center min-h-0">
+				<span class="initial-message">If you wish to view multiple ${this._namePlural}, please first make a list</span>
+			</div>
+			<div class="ve-flex-vh-center">${this._$getBtnNoneVisibleClose()}</div>
+		</div>`;
+	}
+
+	_$getWrpControls ({$wrpContent}) {
+		const out = super._$getWrpControls({$wrpContent});
+		const {$wrpPrint} = out;
+		if (this._propMarkdown) this._$getControlsMarkdown().appendTo($wrpPrint);
+		return out;
+	}
+
+	async _pGetRenderContentMeta ({$wrpContent, $wrpContentOuter}) {
+		$wrpContent.addClass("p-2");
+
+		this._bookViewToShow = this._sublistManager.getSublistedEntities()
+			.sort(this._getSorted.bind(this));
+
+		const partitions = [];
+		if (this._fnPartition) {
+			this._bookViewToShow.forEach(it => {
+				const partition = this._fnPartition(it);
+				(partitions[partition] = partitions[partition] || []).push(it);
+			});
+		} else partitions[0] = this._bookViewToShow;
+
+		const stack = partitions
+			.filter(Boolean)
+			.flatMap(arr => arr.map(ent => this._getRenderedEnt(ent)));
+
+		if (!this._bookViewToShow.length && Hist.lastLoadedId != null) {
+			stack.push(this._getRenderedEnt(this._fnGetEntLastLoaded()));
+		}
+
+		$wrpContent.append(stack.join(""));
+
+		return {
+			cntSelectedEnts: this._bookViewToShow.length,
+			isAnyEntityRendered: !!stack.length,
+		};
+	}
+
+	_getRenderedEnt (ent) {
+		return `<div class="bkmv__wrp-item ve-inline-block print__ve-block print__my-2">
+			<table class="w-100 stats stats--book stats--bkmv"><tbody>
+			${Renderer.hover.getFnRenderCompact(UrlUtil.getCurrentPage(), {isStatic: true})(ent)}
+			</tbody></table>
+		</div>`;
+	}
+
+	_getVisibleAsMarkdown () {
+		const toRender = this._bookViewToShow?.length ? this._bookViewToShow : [this._fnGetEntLastLoaded()];
+		const parts = [...toRender]
+			.sort(this._getSorted.bind(this))
+			.map(this._getEntMd.bind(this));
+
+		const out = [];
+		let charLimit = RendererMarkdown.CHARS_PER_PAGE;
+		for (let i = 0; i < parts.length; ++i) {
+			const part = parts[i];
+			out.push(part);
+
+			if (i < parts.length - 1) {
+				if ((charLimit -= part.length) < 0) {
+					if (RendererMarkdown.getSetting("isAddPageBreaks")) out.push("", "\\pagebreak", "");
+					charLimit = RendererMarkdown.CHARS_PER_PAGE;
+				}
+			}
+		}
+
+		return out.join("\n\n");
+	}
+
+	_$getControlsMarkdown () {
+		const $btnDownloadMarkdown = $(`<button class="btn btn-default btn-sm">Download as Markdown</button>`)
+			.click(() => DataUtil.userDownloadText(`${UrlUtil.getCurrentPage().replace(".html", "")}.md`, this._getVisibleAsMarkdown()));
+
+		const $btnCopyMarkdown = $(`<button class="btn btn-default btn-sm px-2" title="Copy Markdown to Clipboard"><span class="glyphicon glyphicon-copy"/></button>`)
+			.click(async () => {
+				await MiscUtil.pCopyTextToClipboard(this._getVisibleAsMarkdown());
+				JqueryUtil.showCopiedEffect($btnCopyMarkdown);
+			});
+
+		const $btnDownloadMarkdownSettings = $(`<button class="btn btn-default btn-sm px-2" title="Markdown Settings"><span class="glyphicon glyphicon-cog"/></button>`)
+			.click(async () => RendererMarkdown.pShowSettingsModal());
+
+		return $$`<div class="ve-flex-v-center btn-group ml-3">
+			${$btnDownloadMarkdown}
+			${$btnCopyMarkdown}
+			${$btnDownloadMarkdownSettings}
+		</div>`;
+	}
+
+	_getSorted (a, b) {
+		return SortUtil.ascSortLower(a.name, b.name);
+	}
+
+	_getEntMd (ent) {
+		return RendererMarkdown.get().render({type: "statblockInline", dataType: this._propMarkdown, data: ent}).trim();
 	}
 }

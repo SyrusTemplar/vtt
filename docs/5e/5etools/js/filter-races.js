@@ -113,6 +113,7 @@ class PageFilterRaces extends PageFilter {
 			header: "Miscellaneous",
 			items: ["Base Race", "Key Race", "Lineage", "Modified Copy", "Reprinted", "SRD", "Basic Rules", "Has Images", "Has Info"],
 			isMiscFilter: true,
+			// N.b. "Reprinted" is not red by default, as we assume tastes vary w.r.t. ability score style
 		});
 	}
 
@@ -140,8 +141,8 @@ class PageFilterRaces extends PageFilter {
 		if (r._isCopy) r._fMisc.push("Modified Copy");
 		if (r.srd) r._fMisc.push("SRD");
 		if (r.basicRules) r._fMisc.push("Basic Rules");
-		if (r.hasFluff) r._fMisc.push("Has Info");
-		if (r.hasFluffImages) r._fMisc.push("Has Images");
+		if (r.hasFluff || r.fluff?.entries) r._fMisc.push("Has Info");
+		if (r.hasFluffImages || r.fluff?.images) r._fMisc.push("Has Images");
 		if (r.lineage) r._fMisc.push("Lineage");
 		if (this._isReprinted({reprintedAs: r.reprintedAs, tag: "race", prop: "race", page: UrlUtil.PG_RACES})) r._fMisc.push("Reprinted");
 
@@ -229,6 +230,8 @@ class PageFilterRaces extends PageFilter {
 	}
 }
 
+globalThis.PageFilterRaces = PageFilterRaces;
+
 class ModalFilterRaces extends ModalFilter {
 	/**
 	 * @param opts
@@ -311,3 +314,5 @@ class ModalFilterRaces extends ModalFilter {
 		return listItem;
 	}
 }
+
+globalThis.ModalFilterRaces = ModalFilterRaces;

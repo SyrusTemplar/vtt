@@ -85,6 +85,7 @@ class NavBar {
 		this._addElement_li(NavBar._CAT_REFERENCES, "actions.html", "Actions");
 		this._addElement_li(NavBar._CAT_REFERENCES, "bestiary.html", "Bestiary");
 		this._addElement_li(NavBar._CAT_REFERENCES, "conditionsdiseases.html", "Conditions & Diseases");
+		this._addElement_li(NavBar._CAT_REFERENCES, "decks.html", "Decks");
 		this._addElement_li(NavBar._CAT_REFERENCES, "deities.html", "Deities");
 		this._addElement_li(NavBar._CAT_REFERENCES, "items.html", "Items");
 		this._addElement_li(NavBar._CAT_REFERENCES, "languages.html", "Languages");
@@ -461,7 +462,7 @@ class NavBar {
 		parentNode.children[category] = node;
 	}
 
-	static _addElement_getDatePrefix ({date, isAddDateSpacer}) { return `${(date != null || isAddDateSpacer) ? `<div class="ve-muted ve-small mr-2 page__nav-date inline-block text-right inline-block">${date || ""}</div>` : ""}`; }
+	static _addElement_getDatePrefix ({date, isAddDateSpacer}) { return `${(date != null || isAddDateSpacer) ? `<div class="ve-small mr-2 page__nav-date inline-block text-right inline-block">${date || ""}</div>` : ""}`; }
 	static _addElement_getSourcePrefix ({source}) { return `${source != null ? `<div class="nav2-list__disp-source ${Parser.sourceJsonToColor(source)}" ${Parser.sourceJsonToStyle(source)}></div>` : ""}`; }
 
 	static _addElement_divider (parentCategory) {

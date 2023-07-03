@@ -84,6 +84,7 @@ class _TestTokenImages {
 			"charcreationoptions",
 			"recipes",
 			"feats",
+			"decks",
 		]);
 
 		fs.readdirSync("./img")
@@ -96,6 +97,7 @@ class _TestTokenImages {
 				}
 			});
 
+		let isError = false;
 		const results = [];
 		this.expected.forEach((img) => {
 			if (!this.existing.has(img)) results.push(`[ MISSING] ${img}`);
@@ -109,6 +111,7 @@ class _TestTokenImages {
 					return;
 				}
 				results.push(`[   EXTRA] ${img}`);
+				isError = true;
 			}
 		});
 
@@ -122,7 +125,7 @@ class _TestTokenImages {
 
 		if (!this.expected.size && !Object.keys(this.expectedFromHashToken).length) console.log("Tokens are as expected.");
 
-		return !!this.expected.size;
+		return isError;
 	}
 }
 
@@ -173,7 +176,7 @@ class _TestAdventureBookImages {
 function main () {
 	if (!fs.existsSync("./img")) return true;
 
-	_TestTokenImages.run(); // don't fail on missing tokens
+	if (_TestTokenImages.run()) return false;
 	if (_TestAdventureBookImages.run()) return false;
 
 	return true;

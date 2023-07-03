@@ -20,6 +20,12 @@
 					},
 					"width": 5564,
 					"height": 3600,
+					"grid": {
+						"type": "none",
+						"size": 200,
+						"distance": 100,
+						"units": "miles"
+					},
 					"imageType": "map"
 				}
 			],
@@ -76,6 +82,15 @@
 							"entries": [
 								"The various dwarven communities of the North are the heirs and survivors of Delzoun, the great Northkingdom of long ago. Despite continually warring over the centuries with the orcs and goblinoids of the region, and having to fight off assaults from below by duergar and drow, the shield dwarves have stood fast, determined to hold their halls against all threats\u2014and, when necessary, reclaim them.",
 								"Holds that survive from the days of Delzoun include Mithral Hall, Citadel Adbar, and Citadel Felbarr. The fabled city of Gauntlgrym, built by the Delzoun dwarves and recently taken back from the drow, stands as a beacon of resurgent dwarven strength in the North. Stoneshaft Hold and Ironmaster are lonely settlements continually girding themselves for threats real and imagined. Sundabar and Mirabar are also generally considered dwarfholds, despite their substantial human populations.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-02.webp"
+									},
+									"width": 892,
+									"height": 1000
+								},
 								"Until recently, many of the dwarfholds were members of the Silver Marches (also known as Luruar), an alliance of cities that provided mutual protection across the North. Disagreements and failed obligations during a war with the orc kingdom of Many-Arrows destroyed the remaining trust between members of the Marches, and that pact is no more. The dwarfholds still ally with one another, and individually with nearby human realms, but no longer pledge to stand unified with all their neighbors."
 							],
 							"id": "004"
@@ -121,6 +136,15 @@
 					"entries": [
 						"Toril is a vast and wondrous world, filled with an immense diversity of peoples and a rich, full history. For most folk of the Sword Coast, however, knowledge doesn't extend much beyond the confines of the North, and anything \"known\" outside of Faerûn proper is based more in rumor than in fact.",
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag01-03.webp"
+							},
+							"width": 724,
+							"height": 1000
+						},
+						{
 							"type": "entries",
 							"name": "Faerûn",
 							"page": 9,
@@ -134,6 +158,9 @@
 									},
 									"width": 1227,
 									"height": 1000,
+									"grid": {
+										"type": "none"
+									},
 									"imageType": "map"
 								},
 								{
@@ -426,6 +453,15 @@
 											"page": 14,
 											"entries": [
 												"Trapped in another world, the people of Unther had succumbed to domination by others. Then among them arose one who called himself Gilgeam, and he reminded them of their former greatness. Under the leadership of this reincarnated god, the people of Unther rose up as an army to face their masters. On the eve of a great battle, the people of Unther were miraculously returned to their home, and Gilgeam wasted no time in leading them against the dragonborn occupying their ancestral lands. The Untherites have retaken much of the land they formerly held, while seeking to wipe out the \"godless lizards\" they blame for their time of oppression in Abeir.",
+												{
+													"type": "image",
+													"href": {
+														"type": "internal",
+														"path": "book/SCAG/scag01-04.webp"
+													},
+													"width": 1000,
+													"height": 552
+												},
 												"Gilgeam wants nothing short of a complete return to Unther's former glory. This achievement will require utterly destroying Tymanther, of course, and eventual war with Mulhorand to reclaim lands lost centuries ago, but as every Untherite knows, the great God-King is patient, for he is eternal."
 											],
 											"id": "025"
@@ -1899,7 +1935,17 @@
 							"name": "Amaunator",
 							"page": 24,
 							"entries": [
-								"the keeper of the eternal sun, the light of law, the yellow god",
+								"{@i The keeper of the eternal sun, the light of law, the yellow god}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-05.webp"
+									},
+									"maxHeight": 320,
+									"width": 866,
+									"height": 1000
+								},
 								"The rule of law and the glory of the sun are both in Amaunator's dominion. His priests help establish bureaucracies and lawful order in communities. They often witness contracts and signed agreements, stamping such documents with the sun-symbol of Amaunator to signify their validity.",
 								"His priests teach that Amaunator has died and been reborn time and again. Like the sun, he might pass into the realm of darkness, but inevitably his bright gaze will fall on the world once again. Amaunator is seen as a stern and unforgiving deity, not unlike Silvanus in comportment, but his concern isn't for the balance of life\u2014he cares that things proceed according to the celestial order, that promises are kept, and that the rule of law persists.",
 								"Farmers and travelers beseech him when they pray for rain or sun, as do any others looking for a favorable change in the weather. But the most common form of propitiation to Amaunator is the practice of swearing oaths, signing contracts, and declaring laws under the light of the sun. So ingrained in the common perception is the connection between a solemn oath and the sun that those engaged in closing deals or issuing edicts often pause and wait for a passing cloud to clear the sun before completing the transaction or pronouncement."
@@ -1911,7 +1957,17 @@
 							"name": "Asmodeus",
 							"page": 24,
 							"entries": [
-								"the lord of the ninth, the cloven, old hoof and horn",
+								"{@i The lord of the ninth, the cloven, old hoof and horn}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-06.webp"
+									},
+									"maxHeight": 320,
+									"width": 670,
+									"height": 1000
+								},
 								"Open worship of Asmodeus began roughly a century ago when small cults with charismatic leaders sprang up in the aftermath of the Spellplague. That catastrophe left many asking why the gods were angry or had abandoned them. To those questioners, the faithful of Asmodeus provided answers and a god who would forgive all their faults. Still, for the next few decades, the {@cult Cult of Asmodeus} struggled for acceptance.",
 								"In the beliefs of the people of the North\u2014which coincide with many tales told by dwarves, elves, and others\u2014Asmodeus is Lord of the Ninth, the leader of all devils of the Nine Hells. People know devils to be iron-minded and silver-tongued purveyors of temptation, whose price for their boons can be as dear as one's soul. It's said that when a soul waits on the Fugue Plane for a deity to take it to its appropriate afterlife, devils approach the soul and offer it a chance at power and immortal pleasures. All a soul needs to do is take one step out of the dust and the milling crowd and put a foot on the first rung of the infernal ladder that represents the hierarchy of the Nine Hells.",
 								"The faithful of Asmodeus acknowledge that devils offer their worshipers a path that's not for everyone\u2014just as eternally basking in the light of Lathander or endlessly swinging a hammer in the mines of Moradin might not be for everyone. Those who serve Asmodeus in life hope to be summoned out of the moaning masses of the Fugue Plane after death. They yearn for the chance to master their own fates, with all of eternity to achieve their goals.",
@@ -1925,7 +1981,17 @@
 							"name": "Auril",
 							"page": 25,
 							"entries": [
-								"the frostmaiden, lady frostkiss, icedawn",
+								"{@i The frostmaiden, lady frostkiss, icedawn}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-07.webp"
+									},
+									"maxHeight": 320,
+									"width": 737,
+									"height": 1000
+								},
 								"Auril, the merciless goddess of cold and winter, is worshiped mostly in regions that are affected by deep winters. Folk propitiate Auril with offerings and prayers for mercy. Her priests warn others to prepare for winter, and to stock extra provisions in order to have some to spare as offerings to the goddess.",
 								"Few favor Auril except for those who make their livelihood from winter or those who truly love the season. Her rare priests tend to be folk who would, but for their status, likely be outcasts from their communities. They practice celibacy and remain aloof from others when not serving in their official capacity.",
 								"Luskan has a temple dedicated to Auril, the whitespired Winter Palace. The structure is a roofless array of pillars and arches carved of white stone. The rituals of Auril's worship often seem cruel to outsiders. In Luskan, visitors gather at the temple to watch the frequent \"wet parades,\" a ritual in which supplicants don garments packed with ice. They then journey between six white pillars known as the Kisses of Auril, which are dispersed throughout the city. The worshipers move from pillar to pillar, chanting prayers to the goddess. Upon reaching a pillar, a supplicant must climb it and then \"kiss the lady,\" touching lips to a rusty iron plate at the top. In winter, these events resemble frantic footraces, with the added risk of frostbite and injuries caused by falling from the slippery pillars. The parade runners are cheered on by patrons who come out of nearby taverns to place bets on the stamina of the participants. Those who finish the race are thought to have helped make the winter easier, and they rarely have to pay for food or ale all winter long."
@@ -1937,7 +2003,17 @@
 							"name": "Azuth",
 							"page": 25,
 							"entries": [
-								"the high one, the lord of spellcraft, the first magister",
+								"{@i The high one, the lord of spellcraft, the first magister}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-08.webp"
+									},
+									"maxHeight": 320,
+									"width": 779,
+									"height": 1000
+								},
 								"Few pay homage to Azuth aside from wizards. For them, the High One is the ultimate embodiment of all that they hold dear.",
 								"Mystra serves as goddess of magic; Oghma is god of knowledge; and Deneir is god of writing and language. Azuth takes aspects of these general fields and applies them to the specific practices of wizards. For instance, while Mystra is the deity who represents the soul, art, and wonder of magic, Azuth is god of a wizard's long hours of study, exacting standards of movement and speech, and cramped, ink-stained fingers. Wizards invoke Azuth when they scribe scrolls, inscribe magic circles, attempt to memorize spells, and even when they cast spells. Often this acknowledgment comes in the form of silently forming Azuth's holy symbol, pointing the index finger of the left hand to the sky. For many wizards, the gesture is so commonplace in their lives that it becomes an unconscious habit.",
 								"Temples dedicated to Azuth are scarce, and clerics of the deity are extremely rare. Even in magic-saturated Halruaa, only a handful of holy places are dedicated to Azuth. Sometimes a statue or a shrine dedicated to him stands in a corner of a temple to Mystra or another deity. More often, a wizard has a personal shrine at home. Azuth is represented at such sites as a hooded and bearded figure with left hand held high, finger pointed up. Sometimes he is represented by merely the hand. In either case, the finger often serves as a candleholder or as the point of origin for a light spell."
@@ -1949,7 +2025,17 @@
 							"name": "Bane",
 							"page": 26,
 							"entries": [
-								"the black hand, the lord of darkness",
+								"{@i The black hand, the lord of darkness}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-09.webp"
+									},
+									"maxHeight": 320,
+									"width": 689,
+									"height": 1000
+								},
 								"Bane has a simple ethos: the strong have not just the right but the duty to rule over the weak. A tyrant who is able to seize power must do so, for not only does the tyrant benefit, but so do those under the tyrant's rule. When a ruler succumbs to decadence, corruption, or decrepitude, a stronger and more suitable ruler will rise.",
 								"Bane is vilified in many legends. Throughout history, those who favor him have committed dark deeds in his name, but most people don't worship Bane out of malice. Bane represents ambition and control, and those who have the former but lack the latter pray to him to give them strength. It is said that Bane favors those who exhibit drive and courage, and that he aids those who seek to become conquerors, carving kingdoms from the wilderness, and bringing order to the lawless.",
 								"At many times and in many places in Faerûn, the faithful of Bane have been seen as saviors for their efforts in slaughtering raiders, throwing down corrupt rulers, or saving armies on the brink of defeat. But in just as many other places, the worship of Bane has created or supported cruel dictatorships, aided mercantile monopolies, or brought about the practice of slavery where before it didn't exist."
@@ -1961,7 +2047,17 @@
 							"name": "Beshaba",
 							"page": 26,
 							"entries": [
-								"the maid of misfortune, lady doom, black bess",
+								"{@i The maid of misfortune, lady doom, black bess}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-10.webp"
+									},
+									"maxHeight": 320,
+									"width": 1000,
+									"height": 887
+								},
 								"Beshaba is the counterpoint to Tymora and is just as frequently acknowledged in daily life as is her more benevolent \"sister.\" She is seen as a cruel and capricious goddess who must be propitiated to avoid attracting her attention and interest in a negative way.",
 								"Beshaba's name is invoked when someone is beset by bad luck\u2014which could be as minor as stubbing a toe or breaking a wagon wheel, or as catastrophic as slipping and accidentally falling off a cliff. It is also invoked to ward off her attentions when someone is doing something in which good luck wouldn't play a part but bad luck might. For example, someone rolling dice would invoke Tymora because they want random chance to fall in their favor, but someone about to cross a rickety bridge would ask Beshaba to keep the bridge intact.",
 								"Folk make the symbol of Beshaba by folding in their thumbs and extending their fingers on one or both hands (mimicking the horns of her holy symbol) to ward off misfortune. The same gesture raised to the head signifies a salute; when pointed at someone, the \"horns\" indicate ill favor directed toward that individual.",
@@ -1978,7 +2074,17 @@
 							"name": "Bhaal",
 							"page": 27,
 							"entries": [
-								"the lord of murder",
+								"{@i The lord of murder}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-11.webp"
+									},
+									"maxHeight": 320,
+									"width": 1000,
+									"height": 872
+								},
 								"The folk of Faerûn don't normally pray to or acknowledge Bhaal. He is seen as a deeply evil and destructive deity who hungers for death\u2014meaning the death of any sentient beings through unlawful means.",
 								"Some people pray to Bhaal when they want to commit murder. A person might have good reason to resort to murder, such as when one is unable to redress some injustice through lawful means. But it's far more common for prayers to Bhaal to be uttered by those who seek to kill someone out of jealousy, greed, or wrath. It's rare for anyone but assassins or compulsive killers to take Bhaal as a patron, and clerics who revere Bhaal often qualify on both counts.",
 								"Murder cults of Bhaal have arisen in the past, each led by a charismatic, self-styled priest of Bhaal, but organized worship of the Lord of Murder is extremely uncommon. Temples and shrines are similarly rare. Those who erect a shrine to Bhaal usually do so to thank him for a successful murder. Such shrines typically feature a skull or a severed head surrounded by drops of blood (often both from the murdered victim)."
@@ -1990,7 +2096,17 @@
 							"name": "Chauntea",
 							"page": 27,
 							"entries": [
-								"the great mother, the grain goddess",
+								"{@i The great mother, the grain goddess}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/chauntea.webp"
+									},
+									"maxHeight": 320,
+									"width": 783,
+									"height": 1000
+								},
 								"Chauntea is goddess of agriculture: sowing and reaping, seeding and harvest, breeding and butchery, shearing and weaving. In this aspect she is a rural deity rarely prayed to behind the walls of a city except by kitchen gardeners. But Chauntea is also the Great Mother, a goddess of crib, hearth, and home. And as such she is welcomed into all homes at mealtimes and at the birth of children, and folk give her thanks whenever they experience the pleasure of settling by a fire and feeling safe and loved.",
 								"Chauntea's faith is one of nurturing and growth. Agricultural aphorisms and farming parables dot her teachings. Growing and reaping, the eternal cycle, is a common theme in the faith. Destruction for its own sake, or leveling without rebuilding, is anathema to her.",
 								"Temples of Chauntea maintain a great body of lore about farming and cultivation. Her priests work closely with communities in rural areas, and they are willing to roll up their sleeves and dig their hands into the dirt."
@@ -1998,9 +2114,8 @@
 							"id": "069"
 						},
 						{
-							"type": "entries",
+							"type": "inset",
 							"name": "The Earthmother",
-							"page": 27,
 							"entries": [
 								"The druids of the Moonshae Isles worship the Earthmother, she who is the generative power of the land itself. To some mainlanders, the Earthmother is an aspect or manifestation of Chauntea, but to the Ffolk, she is simply the Earthmother, and always will be. The moonwells of the isles are her sacred sites and her windows onto the world. See \"Druids\" in chapter 4 for more information."
 							],
@@ -2011,7 +2126,17 @@
 							"name": "Cyric",
 							"page": 27,
 							"entries": [
-								"the prince of lies, the dark sun",
+								"{@i The prince of lies, the dark sun}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-12.webp"
+									},
+									"maxHeight": 320,
+									"width": 1000,
+									"height": 814
+								},
 								"The worship of Cyric derives directly from the story of his ascension to godhood. Cyric was a mortal during the Time of Troubles and the key to how that chaotic period resolved, but he was also a selfish traitor and a murderer. When he became a god, Cyric continued to work various plots of deceit and murder\u2014the most famous of which is that, according to legend, Cyric murdered Mystra and thus caused the Spellplague over a century ago.",
 								"Those who don't worship Cyric see him as a god of madness, strife, and deceit, although his priests consider such claims to be heresy. Their Prince of Lies isn't a twisted madman, but a god of dark majesty who proves that, ultimately, all bonds between folk corrupt and wither away.",
 								"Cyric's church works openly in Amn, where the citizens espouse the principles of ambition, self-reliance, and \"buyer beware.\" Those who take Cyric as their patron tend to be sadists, con artists, power-mad connivers, and worse. Other folk pray to Cyric when they want to do wrong but don't want others to find out about it.",
@@ -2024,7 +2149,17 @@
 							"name": "Deneir",
 							"page": 28,
 							"entries": [
-								"the lord of all glyphs and images, the first scribe, the scribe of oghma",
+								"{@i The lord of all glyphs and images, the first scribe, the scribe of oghma}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/denier.webp"
+									},
+									"maxHeight": 320,
+									"width": 649,
+									"height": 1000
+								},
 								"Deneir is the god of literature and literacy, the patron of the artist and the scribe. His is the power to accurately render and describe, to write and to read, and to pass on information. In legend, Deneir is often portrayed as being a scribe in service to Oghma, and he is sometimes thought of as Oghma's right hand.",
 								"It's common practice for someone who writes a letter or records information to say a prayer to Deneir to avoid mistakes. Similarly, artists acknowledge Deneir before beginning and upon completing paintings, particularly illuminations on manuscripts, tapestries that relate stories, and any such attempt to use art to capture the truth.",
 								"Followers of Deneir believe that information not recorded and saved for later use is information lost. They consider literacy an important gift of the gods, one that should be spread and taught. His followers are scribes and scholars devoted, like their patron, to preserving written works, and also to experiencing them, for they say that Deneir himself is hidden within the lines, shapes, and passages of all written works. Priests of Deneir take an oath of charity as well, compelling them to accept the requests of others to write letters and transcribe information.",
@@ -2037,7 +2172,17 @@
 							"name": "Eldath",
 							"page": 28,
 							"entries": [
-								"the quiet one, the guardian of groves, the mother of the waters",
+								"{@i The quiet one, the guardian of groves, the mother of the waters}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/eldath.webp"
+									},
+									"maxHeight": 320,
+									"width": 1047,
+									"height": 1000
+								},
 								"Eldath is the goddess of waterfalls, springs, pools, stillness, peace, and quiet glades. She is thought to be present at many such places, particularly those that serve as druid groves. Eldath is a goddess of comfort, healing, and calm. Her blessed waters heal the sick, cure madness, and comfort the dying.",
 								"Most rural places have a pond or a glade that locals ascribe to Eldath. Tradition dictates that it be a place of quiet reflection where others are left to their thoughts. A body of water such as a pond or a spring typically serves as a repository of offerings. If the holy site is a glade, a stream one crosses along the way might serve as the repository, or a prominent bush or tree in the glade might be the place where people tie offerings. Typical offerings are broken weapons or items that are remembrances of arguments, which the faithful discard while making a wish for peace in the future. Many of those who favor Eldath are pacifists or people who are troubled by violence they have witnessed or experienced.",
 								"Eldath's priests don't organize into large sects. Indeed, many are itinerant, wandering between various holy sites and shrines, seeing that the locations are cared for and that they remain places of sweet serenity. The faithful of Eldath are usually close to nature, and allied to druids, who count Eldath among the First Circle. It is taboo to strike a priest of Eldath, and killing one is said to bring great misfortune. Despite the measure of protection that this belief affords them, most priests of Eldath avoid conflicts rather than attempting to quell them. Those who serve Eldath are happy to preside over peaceful negotiations and to certify treaties, but they can't force others to engage in harmony."
@@ -2049,7 +2194,17 @@
 							"name": "Gond",
 							"page": 28,
 							"entries": [
-								"the wonderbringer, the inspiration divine, the holy maker of all things",
+								"{@i The wonderbringer, the inspiration divine, the holy maker of all things}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-13.webp"
+									},
+									"maxHeight": 320,
+									"width": 931,
+									"height": 1000
+								},
 								"Gond is the god of artifice, craft, and construction. He is revered by blacksmiths, woodworkers, engineers, and inventors. Anyone who is crafting something might say a prayer to Gond to guide the work, but folk know that Gond smiles most brightly upon new inventions that others find useful.",
 								"Priests of Gond wander the North dressed in saffron vestments, adorned with sashes that contain within their folds gears, locks, hooks, and bits of steel, tin, and wood that might prove useful in a pinch. They also wear belts of large, linked metal medallions and enormous sun hats. A traveling priest of Gond offers services to distant villages as a tinker, a carpenter, and a civil engineer rolled into one, ready to help build a better paddock gate, dig a new well, or mend pots or furniture that might otherwise go to waste. All priests of Gond keep journals in which they record ideas, inventions, and innovations discovered in their travels, and take great delight in meeting fellow priests and sharing their finds. In large cities, the Gondar construct temples that serve as great workshops and inventors' labs. Wandering priests turn their journals over to the resident scribes at such temples, who then record the priests' observations for posterity and the benefit of all.",
 								"Most who favor Gond practice time-honored crafting professions: they are smiths and engineers, architects and weavers, leatherworkers and jewelers. Even so, this faith has a well-earned reputation as a haven for crackpot inventors and visionaries.",
@@ -2062,7 +2217,7 @@
 							"name": "Gwaeron Windstrom",
 							"page": 29,
 							"entries": [
-								"the mouth of mielikki, the master tracker, the tracker never led astray",
+								"{@i The mouth of mielikki, the master tracker, the tracker never led astray}",
 								"Few aside from rangers of the North pray to Gwaeron Windstrom. Said to have been a mortal man elevated to godhood by Mielikki, Gwaeron serves rangers as their intercessor with Mielikki. He is seen as a master ranger, the perfect tracker, a peerless animal handler, and a dedicated foe of rapacious creatures such as trolls and orcs. He is said to look like an old man with a long white beard who is still hale and mighty, and he is believed to take rest and sleep in a stand of trees near Triboar.",
 								"Rangers pray to Gwaeron because he represents much of the work they do, and because he can speak to Mielikki on their behalf. In the North, most rangers view Mielikki as too mysterious, holy, and wild to be addressed directly with their requests, but they consider Gwaeron Windstrom to be one of them and thus understanding of their needs.",
 								"Gwaeron has no temples, but shrines dedicated to him can be found in many places that serve wilderness wanderers as trail markers. Each one is denoted by a carving of Gwaeron's symbol, a paw print with a star on the palm, on a prominent tree or stone."
@@ -2074,7 +2229,17 @@
 							"name": "Helm",
 							"page": 29,
 							"entries": [
-								"the watcher, he of the unsleeping eyes, the vigilant one",
+								"{@i The watcher, he of the unsleeping eyes, the vigilant one}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-14.webp"
+									},
+									"maxHeight": 320,
+									"width": 547,
+									"height": 1000
+								},
 								"The god of vigilance and protection, Helm is seen as the epitome of the guardian, the watcher, and the guard. He is venerated by those who need to remain watchful for enemies or danger. Helm is a favorite deity of people who make a living by protecting someone or something, such as bodyguards, members of the city watch, and the guards of a treasury vault.",
 								"Helm embodies the spirit of watchfulness without regard to good or evil. In legends, he is honorable and keeps his word to a fault, such as when he guarded the celestial stairways during the Time of Troubles, preventing the gods from ascending them and continuing the chaos of that period, until the Tablets of Fate were found.",
 								"Although his faith has known dark days, worship of Helm never truly faded away. Most of his followers believe that the Watcher can never be vanquished utterly, and recent events have borne out that assertion.",
@@ -2087,7 +2252,17 @@
 							"name": "Hoar",
 							"page": 29,
 							"entries": [
-								"the doombringer, poet of justice",
+								"{@i The doombringer, poet of justice}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-15.webp"
+									},
+									"maxHeight": 320,
+									"width": 992,
+									"height": 1000
+								},
 								"Hoar, known in the lands along the Inner Sea as Assuran, is a god of revenge and retribution. He isn't typically worshiped habitually, but his name is invoked by those who seek vengeance. When a guilty party falls prey to fate\u2014such as when a murderer escapes prosecution, but is then accidentally slain himself\u2014the hand of Hoar is given credit. When one hears three rolls of thunder in succession, it is thought to be a sign from Hoar that some act of vengeance has been performed. Many human societies have the custom of ringing a bell or a gong three times when judgment of a crime is rendered or an execution takes place.",
 								"Folk speak Hoar's name when they want revenge, particularly when they are incapable of avenging themselves. This invocation might be in response to a petty slight or a true injustice, and the acknowledgment of Hoar might be a short prayer said aloud or might be written down somewhere. It's generally believed that the more permanent the form of the prayer, the more likely it is to be fulfilled. For this reason, some etch their prayers in lead and bury it or hide their prayers inside diaries. Aside from bounty hunters and those on crusades of vengeance, few truly revere Hoar, and he is served by fewer still who would call themselves priests. Temples or shrines of Hoar are almost nonexistent except for ancient sites in Chessenta and Unther.",
 								"Hoar became a member of the Faerûnian pantheon when his worship extended beyond the lands that originally revered him. Most consider Tyr to be the arbiter of laws, and Hoar to be the god who metes out punishment that comes as a result of breaking those codes. A judge might favor the worship of Tyr, while a jailor or a headsman is more likely to pray to Hoar."
@@ -2099,7 +2274,17 @@
 							"name": "Ilmater",
 							"page": 30,
 							"entries": [
-								"the crying god, the rack-broken lord, he who endures",
+								"{@i The crying god, the rack-broken lord, he who endures}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-16.webp"
+									},
+									"maxHeight": 320,
+									"width": 1000,
+									"height": 977
+								},
 								"Ilmater is the god of suffering, martyrdom, and perseverance, renowned for his compassion and endurance. It is he who offers succor and calming words to those who are in pain, victimized, or in great need. He is the willing sufferer, the one who takes the place of another to heft the other's burden, to take the other's pain. He is the god of the oppressed and the unjustly treated.",
 								"It is said that if he had his way, the Crying God would take all the suffering in the world onto himself, so as to spare others. Since he can't, he blesses those who endure on others' behalf, and he alleviates suffering when he can. Martyrs who die that others may live are always blessed by Ilmater with a final rest and reward in the god's afterlife, should they so choose.",
 								"Ilmater's priests take in the ill, the starving, and the injured, and his temples give most of what they receive to help offset the suffering of the world. His followers provide succor when they can, but also use force to put an end to torture and suffering inflicted on others. Ilmater's priests travel to places where the worst possible conditions exist, ministering to the needs of the oppressed, the deceased, and the poor. They put others ahead of themselves, are sharing of all they have, and emphasize the spiritual nature of life over the welfare of the material body.",
@@ -2113,7 +2298,17 @@
 							"name": "Jergal",
 							"page": 30,
 							"entries": [
-								"the final scribe, the pitiless one, the bleak seneschal",
+								"{@i The final scribe, the pitiless one, the bleak seneschal}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-17.webp"
+									},
+									"maxHeight": 320,
+									"width": 629,
+									"height": 1000
+								},
 								"Legend has it that Jergal is an ancient deity. The story goes that in the time of Netheril he was worshiped as the god of death, murder, and strife. Yet with the passing of time, he became bored with his position. Then one day three mortals, each a powerful adventurer, met Jergal in the lands of the dead, determined to destroy him and take his power. Instead, Jergal calmly abdicated his throne of bones and allowed each of the three mortals to take part of his divinity. Thus it was that Bane assumed the portfolio of strife, Myrkul the rulership of the dead, and Bhaal the portfolio of murder. Jergal lost his former stature and became a scribe of the dead.",
 								"Jergal is now seen as an uncaring custodian of the dead. He is thought to record the passing of the living and to aid Kelemvor in seeing that souls are properly bound to their appropriate afterlife. He is rarely acknowledged directly, except for being mentioned at funerals and among those who practice the custom of writing the name of the deceased on a sheet of parchment and placing it in the corpse's mouth. This rite is common in places where an individual's grave or tomb isn't marked with the person's name.",
 								"Few people favor Jergal as a deity, and most who do are concerned with the dispensation of the dead in some way. Priests of Jergal serve communities as undertakers and caretakers of gravesites. Jergal has no temples dedicated to him aside from abandoned places devoted to his old, darker incarnation, but his priests are welcome in the temples of Kelemvor, Deneir, and Myrkul. His faithful send their annual recordings of mortality to holy sites where records of that sort are kept.",
@@ -2148,7 +2343,17 @@
 							"name": "Kelemvor",
 							"page": 31,
 							"entries": [
-								"the lord of the dead, the judge of the damned",
+								"{@i The lord of the dead, the judge of the damned}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/kelemvor.webp"
+									},
+									"maxHeight": 320,
+									"width": 990,
+									"height": 1000
+								},
 								"Kelemvor is seen as a just, fair, and comforting god of death. Death comes to all, and when it occurs Kelemvor is there to take each soul by the hand and lead it to the proper afterlife. Kelemvor's priests teach that those who revere the gods according to the rites of their religion have done their proper service and will be offered the afterlife they seek.",
 								"The faithful of Kelemvor provide people with peaceful transitions into the care of the Lord of the Dead. They help the dying put their affairs in order, and they officiate at funeral rites for those who can't afford the lavish ceremonies of their faith. The tenets of Kelemvor's faithful compel them to forestall or prevent untimely deaths whenever possible. Different sects and worshipers define \"untimely\" in different ways. One group might concentrate on stopping the spread of disease, another on the prevention of murder, and yet another on eliminating the scourge of the undead. In fact, all the faithful of Kelemvor despise the undead and work to some degree to eliminate them, for undead of any sort are seen as an abomination of the natural order. This belief obviously puts Kelemvor's faithful at odds with necromancers, priests of Myrkul, and others who promote the creation of the undead, and it also causes conflict from unexpected sources. For instance, priests of Kelemvor routinely destroy any writings about the creation of the undead that they find\u2014an act that offends those who value knowledge for its own sake, such as the faithful of Oghma and Deneir. And there also exist undead that aren't evil, such as the baelnorn, which the elves consider holy. Kelemvor's devotees seek the end of such beings regardless of that fact."
 							],
@@ -2159,7 +2364,17 @@
 							"name": "Lathander",
 							"page": 32,
 							"entries": [
-								"the morninglord, inspiration's dawn, the rose-and-gold god",
+								"{@i The morninglord, inspiration's dawn, the rose-and-gold god}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-18.webp"
+									},
+									"maxHeight": 320,
+									"width": 561,
+									"height": 1000
+								},
 								"Lathander is the god of the spring, birth, and renewal, a deity of conception, vitality, youth, renewal, and self-perfection. He is god not of the sun but of the dawn, which represents the start of a new day filled with potential.",
 								"Lathander is a god of beginnings. People commonly offer a prayer to him before undertaking any journey or endeavor. Lathander's name is invoked to seal alliances and christen new ventures or companies. As a result, the god is very popular among the merchant classes, and the church has benefited accordingly.",
 								"The rising sun is his symbol, and his colors are the rose, gold, and violet of the dawn. Lathander's temples and shrines host a wide range of functions both municipal and personal. At such places folk get married in dawn ceremonies, announce the start of civic projects, and even give birth when possible, to provide the baby good fortune.",
@@ -2172,7 +2387,17 @@
 							"name": "Leira",
 							"page": 32,
 							"entries": [
-								"the lady of the mists, mistshadow, the lady of deception",
+								"{@i The lady of the mists, mistshadow, the lady of deception}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-19.webp"
+									},
+									"maxHeight": 320,
+									"width": 800,
+									"height": 1000
+								},
 								"Leira has worn many masks, and more than once has been thought to be dead or to be another deity altogether. Perhaps such a reputation is only natural for the goddess of illusion and deception. Her faithful agree that whatever the \"truth\" might be, their Lady takes great delight in the confusion sown by her various incarnations. Even the faithful of Cyric once taught that their god killed Leira, but now they espouse the strange idea that somehow she is his daughter.",
 								"Leira isn't viewed as malicious or as a trickster but is seen as enigmatic, quiet, and retiring. She is credited with inventing Ruathlek, the language of illusionists and the spoken tongue of Nimbral.",
 								"The faithful of Leira seem to be scarce, although it is difficult to know this for certain, because those who favor her rarely make their inclinations known. Leira is the patron of illusionists and liars. She receives little regular worship except from illusionists, who pray to the Mistshadow for potency in their magic, and con artists, for whom she is a kind of champion. Most people pray to her when they hope to keep something secret, or placate her with a prayer before making an important decision when they fear being deceived. Some folk perform a swirling motion with a finger behind their backs when telling a lie as a way of beseeching her for aid.",
@@ -2185,7 +2410,17 @@
 							"name": "Lliira",
 							"page": 33,
 							"entries": [
-								"our lady of joy, joybringer, the mistress of revels",
+								"{@i Our lady of joy, joybringer, the mistress of revels}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-20.webp"
+									},
+									"maxHeight": 320,
+									"width": 571,
+									"height": 1000
+								},
 								"Lliira is a beloved goddess, a deity of contentment, release, joy, happiness, dance, and freedom. As the patron of festivals, she is honored at any celebration, and dance is the primary way to worship her. The Mistress of Revels is said to abhor violence, and any fighting or drawing of weapons (except in ceremony) at a celebration will cause her to withhold her favor. Her priests and priestesses, known as joybringers, take it as their mission to make other people happy, even if just for a moment.",
 								"Her faithful always wear at least one clothing item of a bright, cheerful color, and her priests' vestments have more in common with festival attire than with somber ecclesial garments. Rubies and sapphires are sacred to Our Lady of Joy, and her priests bless anyone they see wearing such adornments.",
 								"Lliira's followers aren't frivolous, however. To them, divine joy is a very real gift to the world of mortals, and one much needed. To that end, they fight those who would bring misery to others. They are fierce against their foes, and joyous revelers when their work is done."
@@ -2197,7 +2432,17 @@
 							"name": "Loviatar",
 							"page": 33,
 							"entries": [
-								"the maiden of pain, the scourge mistress, the willing whip",
+								"{@i The maiden of pain, the scourge mistress, the willing whip}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-21.webp"
+									},
+									"maxHeight": 320,
+									"width": 694,
+									"height": 1000
+								},
 								"Pain isn't a means to an end for Loviatar's faithful, but an end unto itself. To them, nothing is as transcendent as suffering, and all pain is holy, from the crudest barbarism, to the most sublime torture, to the emotional suffering of the heartbroken or the betrayed.",
 								"The pain that one feels is proof of the Lady's attention, and so her faithful are notorious self-flagellants. Pain is also a path to power, in terms of both one's ability to inflict it and one's ability to endure it. A cold, cruel demeanor is considered ideal because it best emulates the Scourge Mistress, and for the same reason her faithful appreciate beauty, cultural refinement, and a certain adeptness at manipulation.",
 								"Though temples to Loviatar are rare, her faithful are more numerous than might be expected. Loviatar is the chosen deity of those who inflict pain as a matter of course, including torturers and others who need to break the will of their victims. She is favored by sadists and masochists, and some of her followers form cultish cells of secret adherents. Each of these groups is led by someone who takes pleasure in administering pain and dominating others, supported and backed up by a number of submissive sycophants.",
@@ -2210,7 +2455,17 @@
 							"name": "Malar",
 							"page": 33,
 							"entries": [
-								"the beastlord, the black-blooded one",
+								"{@i The beastlord, the black-blooded one}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-22.webp"
+									},
+									"maxHeight": 320,
+									"width": 709,
+									"height": 1000
+								},
 								"Malar epitomizes the dark side of nature, the world that is red in tooth and claw. His faithful believe the hunt is the center point between life and death\u2014the facing off of hunter and prey, forcing the issue of who lives and who dies. People believe that Malar can't be propitiated and knows no mercy, so he receives prayers only from those engaging in a hunt. Such supplicants pray to Malar for two reasons: to beg the aid of his peerless skill as a hunter, or to adopt his fearsome mantle and thus ward off other predators. Malar is the god of those who delight in the hunt, don't shy from bloodshed, and savor the fear of their prey.",
 								"Many lycanthropes consider Malar to be their divine father, as do some other intelligent predators. He has many devotees who are druids and rangers of particularly savage inclination, and many barbarians take Malar as a patron for his ferocity and cruelty. His priests use claw bracers, impressive gauntlets bedecked with stylized claws that jut out from the ends of the fists, as ceremonial weapons."
 							],
@@ -2221,7 +2476,17 @@
 							"name": "Mask",
 							"page": 33,
 							"entries": [
-								"the lord of shadows, the master of all thieves",
+								"{@i The lord of shadows, the master of all thieves}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-23.webp"
+									},
+									"maxHeight": 320,
+									"width": 965,
+									"height": 1000
+								},
 								"Mask is a trickster god, the patron of ne'er-do-wells, spies, and thieves. All that occurs within shadow is in the purview of Mask. People whisper a prayer to Mask whenever stealth is required or intrigue is afoot. Courtiers and diplomats invoke the god's name in hopes of a smooth negotiation.",
 								"Those who favor Mask usually pursue thievery and other forms of acquisition of what belongs to others, such as pickpocketing, burglary, mugging, and con games. Ordinary folk pray to him to avert his eyes from their valuables, but the cautious sometimes employ \"Mask's purse,\" a small, cheap cloth pouch worn in plain sight (thus easily cut or lifted) containing a small offering of coin. By convention, a pickpocket pilfers Mask's purse when encountering another person wearing one, and considers the gain a gift from the god, while the one who lost the purse is grateful to the Lord of Shadows for accepting a respectful sacrifice of a small portion of his goods. Of course, nothing prevents another pickpocket from targeting someone who has lost Mask's purse, but anyone with the ill luck to attract multiple pickpockets in a single outing has probably earned Mask's ire anyway.",
 								"Priests of Mask are usually thieves by profession, and often serve as higher-ups in the local underworld or criminal syndicate. They go by the title of demarche or demarchess, and wear veil-masks when acting in their priestly capacity."
@@ -2233,7 +2498,17 @@
 							"name": "Mielikki",
 							"page": 34,
 							"entries": [
-								"our lady of the forest, the forest queen",
+								"{@i Our lady of the forest, the forest queen}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-24.webp"
+									},
+									"maxHeight": 320,
+									"width": 747,
+									"height": 1000
+								},
 								"People rarely speak of Mielikki except in quiet forest spaces. Woodlands that evoke wonder are where she reigns supreme, but she is said to keep watch over good folk in any forest, not matter how dark or cruel. When children are lost in the woods, people beseech Mielikki to protect them until they are found.",
 								"Mielikki is the goddess of the forest and the creatures that live within it. She is seen as a remote and spiritual deity\u2014less human-like than many other gods. She's not unmindful of people, but her attention and favor are difficult to attract. She is the patron of rangers in the same way that Milil is the patron of bards, but even rangers rarely pray to her directly. They instead pray to Gwaeron Windstrom, who they believe will carry their words to the goddess by tracking her to whichever forest she hides in.",
 								"Mielikki's symbol is a unicorn, which prompts some to think of her as such and conflate her with Lurue, Queen of the Unicorns and the actual goddess of their kind. But most tales depict Mielikki as a beautiful woman whom Lurue allows upon her back as a rider, and the two are thought to be boon companions. Mielikki's relationships with other deities of the natural world are more complex. Silvanus is sometimes thought of as her father and Eldath is considered her sister, but Mielikki walks her own path through the wilds.",
@@ -2246,7 +2521,7 @@
 							"name": "Milil",
 							"page": 34,
 							"entries": [
-								"the lord of song, the one true hand of all-wise oghma",
+								"{@i The lord of song, the one true hand of all-wise oghma}",
 								"Milil is the god of poetry, eloquence, and song. He is a god of creativity and inspiration, of the entire song more than just the lyrics or the music. He represents the finished thought, the result of the process that takes an idea from conception to realization. Milil is most venerated by bards, troubadours, and other entertainers, but anyone preparing to entertain or speak before a crowd might offer Milil a brief prayer for a successful performance. Those who seek inspiration in a creative endeavor also pray to Milil.",
 								"His icons depict him as a handsome male, sometimes a human, sometimes an elf, and even a half-elf in places (such as Aglarond) that have a large half-elf population. He is variously depicted as young or old, but his identity is always apparent because of his five-stringed harp made of silvery leaves, which he carries constantly. He is the ideal to which all performers aspire: poised and confident, winningly charismatic, and a source of inspiration for those who listen to him. He is said to have total recall of anything he hears or that is spoken while music plays, as well as utmost skill at improvisation.",
 								"Holy sites dedicated to Milil are often found in performance venues and schools of music. Whether the site is a vast concert hall or a small choral chamber, it must have excellent acoustic qualities. Milil's priests are patrons of the arts in addition to being performers themselves, and they frequently act as tutors in the arts of performance at his shrines and temples.",
@@ -2259,7 +2534,17 @@
 							"name": "Myrkul",
 							"page": 35,
 							"entries": [
-								"the lord of bones, old lord skull, the reaper",
+								"{@i The lord of bones, old lord skull, the reaper}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-25.webp"
+									},
+									"maxHeight": 320,
+									"width": 836,
+									"height": 1000
+								},
 								"Myrkul is an ancient god, one of three former mortals who were raised to deityhood when Jergal grew weary of his divine duties and distributed his influence between them. Myrkul became the god of death and the dead, and ruled over the City of the Dead for centuries until he, in turn, was slain. In time Myrkul returned, for can death itself truly ever die? Myrkul's faithful see him as the Reaper, who lays claim to souls and brings them to Kelemvor to be judged.",
 								"Myrkul is a deity of death, decay, old age, exhaustion, dusk, and autumn. He's the god of the ending of things and hopelessness, as much as Lathander is the god of beginnings and hope. Folk don't pray to Myrkul so much as dread him and blame him for aching bones and fading vision. Myrkul is thought to be passionless and uncaring even of his most devout worshipers. Those who take Myrkul as a patron tend to be morose, taciturn, and obsessed with the dead and the undead. Like many followers of Kelemvor and Jergal, priests of Myrkul serve as undertakers and typically keep their patron's identity secret.",
 								"Shrines to Myrkul or engravings of his holy symbol appear in many places where humans bury their dead, but full-fledged temples are rare. The few that exist are hallowed places where the dead from hundreds of miles around are brought for internment, even if they were not of Myrkul's faith. There is little space set aside for the living in such a location, usually a single modest shrine, but its catacombs and ossuaries are vast. In the deepest chamber of each temple rests a throne, and upon that throne sits the doomwarden\u2014the preserved corpse of the most revered saint in the history of the temple (often its founder). Initiates to the faith are brought to kneel before a temple's doomwarden, where they must spend a night and a day fasting and meditating in complete darkness."
@@ -2271,7 +2556,17 @@
 							"name": "Mystra",
 							"page": 35,
 							"entries": [
-								"the lady of mysteries, our lady of spells, the mother of all magic",
+								"{@i The lady of mysteries, our lady of spells, the mother of all magic}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-26.webp"
+									},
+									"maxHeight": 320,
+									"width": 1000,
+									"height": 533
+								},
 								"Mystra is the goddess of magic, and with that the goddess of possibilities. She is venerated by mages and by those who use magic or magical objects in their daily lives. She also receives the prayers of those who find magic wondrous or encounter magic they fear. Mystra is the goddess of the essential force that makes all spellcasting possible. She provides and tends the Weave, the conduit through which mortal spellcasters and magical crafters can safely access the raw force of magic.",
 								"The faith of Mystra is pervasive in Faerûn, which is to be expected for a land as touched by magic as it is. Her worshipers include those who use magic or work closely with it, such as alchemists and sages. The blue-clad priests of Mystran temples count wizards and sorcerers among their numbers, as well as the occasional bard. The goal of Mystra's faithful is simple: that magic be preserved and promulgated throughout the Realms. It isn't unusual for her followers to keep an eye out for those who demonstrate high potential for using magic and help arrange for such persons to find tutelage with a suitable mentor."
 							],
@@ -2282,7 +2577,17 @@
 							"name": "Oghma",
 							"page": 35,
 							"entries": [
-								"the binder, the lord of knowledge",
+								"{@i The binder, the lord of knowledge}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-27.webp"
+									},
+									"maxHeight": 320,
+									"width": 975,
+									"height": 1000
+								},
 								"Oghma is the god of inspiration, invention, and knowledge. Above all else, Oghma represents knowledge in its most supreme, raw form\u2014the idea. An aphorism cited by his faithful about this concept serves them as a prayer when it is repeated aloud: \"An idea has no heft but it can move mountains. An idea has no authority but it can dominate people. An idea has no strength but it can push aside empires. Knowledge is the greatest tool of the mortal mind, outweighing anything made by mortal hands. Before anything else can exist, the idea must exist.\"",
 								"Oghma's faithful spread knowledge and literacy as widely as possible, believing that minds ought never to be shackled by ignorance and thus not be able to bequeath the benefit they might otherwise provide their fellows. Not surprisingly, those who follow Oghma oppose those who foster deceit, trickery, and ignorance.",
 								"Folk of many professions favor the Binder: wizards, cartographers, artists, bards, clerks, inventors, sages, scribes, and all manner of others who uncover, preserve, and create knowledge and learning. The worship of Oghma was, at one point, one of the few organized faiths in Faerûn that had an established orthodoxy and a complete network of temples that adhered to that orthodoxy. Schisms during the Time of Troubles shattered that network, and now the structures that house the faith are individual temples or small networks of allied temples, much in the manner of other faiths."
@@ -2294,7 +2599,17 @@
 							"name": "The Red Knight",
 							"page": 36,
 							"entries": [
-								"the lady of strategy, the crimson general, the grandmaster of the lanceboard",
+								"{@i The lady of strategy, the crimson general, the grandmaster of the lanceboard}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-28.webp"
+									},
+									"maxHeight": 320,
+									"width": 666,
+									"height": 1000
+								},
 								"The Red Knight is the goddess of planning and strategy. Those who favor her call themselves the Red Fellowship. They believe wars are won by the best planning, strategy, and tactics. The worship of the Red Knight is filled with doctrine about strategy, such as: \"Every war is a series of battles. Losing one doesn't mean losing the war.\" \"In war, plan for peace. In peace, plan for war.\" \"Seek allies among your enemy's enemies.\"",
 								"Worship of the Red Knight arose among a hero-venerating monastic order of Tempus in Tethyr shortly after the Time of Troubles. The Red Knight has since grown in popularity because of what her followers call the Great Stratagem: for decades, her priests have been traveling to places of warfare to educate generals and kings in the arts of strategy and battlefield tactics. Many of the leaders they approached turned them away at first, but it soon became apparent that those who accepted the counsel of the Crimson General's followers gained a distinct benefit. Grateful victors built temples to the Lady of Strategy, and gradually her faith spread.",
 								"Today, followers of the Red Knight can be found in nearly any land that has seen warfare in the past century. Worshipers of the Red Knight are rare in the general population, but those who revere her can frequently be found among high-ranking commanders of armies, instructors in colleges of war, quartermasters, and the authors of tomes of strategy. Each temple to the Red Knight includes an altar dedicated to Tempus, and so such a place is likely to be frequented by mercenaries and soldiers. A temple is surrounded by a vast pavilion and courtyard, which can be rented by companies of soldiers and mercenaries for practice and training. Her priests believe that drilling one's troops in a temple courtyard is a form of propitiation that the Red Knight looks upon with special favor."
@@ -2306,7 +2621,17 @@
 							"name": "Savras",
 							"page": 36,
 							"entries": [
-								"the all-seeing, the third eye, divination's lord",
+								"{@i The all-seeing, the third eye, divination's lord}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-29.webp"
+									},
+									"maxHeight": 320,
+									"width": 758,
+									"height": 1000
+								},
 								"Savras is a god of divination and fortunetelling. Few people worship him, but many pray to him when performing small rituals of foresight. For example, young men and women sometimes attempt to divine the names of their future spouses by saying a rhyming chant that calls upon Savras while gazing in a mirror.",
 								"Savras has no currently active temples in Faerûn, and his shrines are few and far between, tucked away in the corners of libraries and scriptoria. Despite this lack of prominence, certain folk pay regular homage to Savras, including investigators, diviners, judges, and others who have a need to uncover the truth. Such individuals can sometimes be identified by the elaborate staffs they carry in homage to Savras. According to legend, Savras was trapped in Azuth's staff for ages. Azuth eventually freed Savras so long as Savras swore fealty, and today the staff is a potent symbol for those who revere Savras. Devout worshipers take great pains to decorate and embellish their staffs, each hoping that Savras might find it a welcoming place to stop for a time."
 							],
@@ -2317,7 +2642,17 @@
 							"name": "Selûne",
 							"page": 36,
 							"entries": [
-								"our lady of silver, the moonmaiden, the night white lady",
+								"{@i Our lady of silver, the moonmaiden, the night white lady}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-30.webp"
+									},
+									"maxHeight": 320,
+									"width": 650,
+									"height": 1000
+								},
 								"Selûne is thought to be among the most ancient of Faerûn's deities. Most humans in Faerûn consider the moon in the sky to literally be the goddess gazing down on the world, and the trailing motes of light behind it her tears. She is also a goddess of stars and navigation as well as motherhood and reproductive cycles. She is seen as a calm power, frequently venerated by female humans as well as by a mix of other folk: navigators and sailors, those who work honestly at night, those seeking protection in the dark, the lost, and the questing.",
 								"There are many legends about Selûne, chief among them being the tale of the battle at the beginning of time between Selûne and her sister, Shar. The Tears of Selûne, the cluster of starry lights that follow the moon around the sky, are thought to be brought about by the goddess's joy, sorrow, or both.",
 								"Milk, a symbol of motherhood, is used in many rites performed by the worshipers of Selûne, as are trances and meditation. Those who favor her typically set a bowl of milk outside on each night of the full moon."
@@ -2329,7 +2664,7 @@
 							"name": "Shar",
 							"page": 36,
 							"entries": [
-								"the mistress of the night, the dark lady, our lady of loss",
+								"{@i The mistress of the night, the dark lady, our lady of loss}",
 								"The dark twin of Selûne, Shar is the goddess of darkness, both in its physical form and as it exists in the minds and souls of mortals. People worship Shar as the goddess of night, secrets, loss, and forgetfulness. She represents pains hidden but not forgotten, and vengeances carefully nurtured away from the light. She is said to have the power to make folk forget their pain or become inured to a loss, and many people in distress pray to Shar for such a blessing.",
 								"Shar is revered by those who must venture into dark places and so pray to her for protection, such as miners, as well as by those who have fallen into melancholy and despair, who wish to forget something, or who have lost something and wish to recover it. Priests drawn to serve Shar often nurture their own deep wounds or dark secrets, which in their minds makes them best suited to console those who suffer from a similar ill. Throughout the world's history, many followers of Shar have done dark deeds in her name\u2014most notably the shadovar of Netheril, an entire society dedicated to Shar. The tragedies and losses brought about by the fanaticism of her followers have caused many places to outlaw her worship and thus driven most of her priests into secrecy, but such prohibitions only heighten the priests' umbrage at authorities and make the faithful a focal point for rebellion and revenge against whoever rules."
 							],
@@ -2340,7 +2675,17 @@
 							"name": "Silvanus",
 							"page": 37,
 							"entries": [
-								"oak father, the old oak, old father tree",
+								"{@i Oak father, the old oak, old father tree}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-31.webp"
+									},
+									"maxHeight": 320,
+									"width": 786,
+									"height": 1000
+								},
 								"Silvanus represents the entirety of nature, deserts as well as forests, sharks as much as deer. But folk in the North, who contend with the dangers of forests, mountains, and plains, see Silvanus more as a god of those places. Silvanus is thought of as a grim and severe father figure who metes out flood and drought, fire and ice, and life and death in the wilderness. In legends he often commands other nature deities, dealing out rewards and punishments to them as is fitting.",
 								"Nature and its impartial fairness is central to the dogma of Silvanus's faith. His priests seek to know the total situation, to view the macrocosm; their viewpoint isn't confined to one person's or one nation's idea of what is best. The loss of a farming community to goblin raids is a tragedy for some, but the event provides an opportunity for the wilderness to grow up and make the land fertile again, which in turn provides new challenges for those who would return to tame it.",
 								"The creed of Silvanus dictates that nature's glory must be preserved not merely because nature is beautiful, but because wild nature is the true state of the world. Its expanses refresh and revitalize the mortal soul, and give breath to all the world. Many of his faithful oppose the expansion of settlements into wild places, and consider excessive consumption of natural resources to be not only wasteful but blasphemous.",
@@ -2353,7 +2698,17 @@
 							"name": "Sune",
 							"page": 37,
 							"entries": [
-								"lady firehair, the lady of love, the princess of passion",
+								"{@i Lady firehair, the lady of love, the princess of passion}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-32.webp"
+									},
+									"maxHeight": 320,
+									"width": 421,
+									"height": 1000
+								},
 								"Sune Firehair is a deity of passion and the delights of the senses. She is the goddess of beauty in all its forms\u2014not just pleasing sights, but also enchanting sounds, luxurious tastes and scents, and the exquisite pleasures of the flesh, from a lover's caress to the brush of silk on the skin. Her worshipers seek out these pleasures in life, not out of mere decadence, but because the experience of pleasure is the touch of Sune herself.",
 								"The followers of Sune have a reputation as hedonists, and so they are, to a degree. More than that, her priests foster beauty in the world. They do so by creating art, by acting as patrons for promising talents, and by investing in merchants who bring luxuries to far-off places that have never seen satin or tasted a luscious wine.",
 								"Her priests consider loveliness to be one of their greatest callings, and all are trained in comportment, fashion, and cosmetics. Indeed, so talented are Sune's priests in the creation of beautiful appearances that many take pride in their ability to present themselves as stunningly attractive examples of either gender.",
@@ -2367,7 +2722,17 @@
 							"name": "Talona",
 							"page": 38,
 							"entries": [
-								"lady of poison, mistress of disease, the plague-crone",
+								"{@i Lady of poison, mistress of disease, the plague-crone}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-33.webp"
+									},
+									"maxHeight": 320,
+									"width": 618,
+									"height": 1000
+								},
 								"One of the most often beseeched of Faerûn's deities, Talona is the goddess of disease and poison, blamed for everything from common illnesses to crop failure to brackish wells to plague. Depicted in temple iconography as a withered crone with a cup or a vase that holds all the varieties of disease and poison, Talona is a fearsome goddess, and many are the prayers that beg her for protection from illness and poison. Various rituals to placate her involve the use of three drops of blood or three tears\u2014to be dropped into a well that has gone bad, dripped into the handkerchief of someone beset by coughing, dropped into a fire made by burning a withered crop, dripped into the mouth of a plague sufferer, and so on. It's common practice to mark a container of poison with her holy symbol, three droplets in a triangle, and during epidemics folk paint the same image on the homes of the infected.",
 								"Though she is often the recipient of prayers, Talona has almost no temples and few cults dedicated to her. A cult or a shrine to her might arise in an area after it suffers from pestilence, when some of those who survived decide to revere her or even become priests."
 							],
@@ -2378,7 +2743,17 @@
 							"name": "Talos",
 							"page": 38,
 							"entries": [
-								"stormlord, the destroyer",
+								"{@i Stormlord, the destroyer}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-34.webp"
+									},
+									"maxHeight": 320,
+									"width": 673,
+									"height": 1000
+								},
 								"Talos is the dark side of nature, the uncaring and destructive force that might strike at any time. He is the god of storms, forest fires, earthquakes, tornadoes, and general destruction. He counts the ravager, the raider, the looter, and the brigand among his followers. Those who favor him see life as a succession of random effects in a sea of chaos, so the devout should grab what they can, when they can\u2014for who can say when Talos will strike and send them into the afterlife?",
 								"Talos is portrayed as a broad-shouldered, bearded young man with a single good eye, the other covered by a dark patch. He is said to carry a collection of three staffs, made from the first tree cut down in the world, the first silver smelted, and the first iron forged. He uses these staffs to raise destructive winds, cause terrible storms, and split the land in acts of rage. The three lightning bolts of his holy symbol represent these staffs, and when he vents his wrath on the world, he is thought to hurl them down from the sky as lightning strikes.",
 								"Although Talos is a popular deity, his name is invoked more often out of fear than out of reverence. He does have priests, mostly traveling doomsayers, who warn of disasters to come and accept charity in exchange for blessings of protection. Many of his faithful wear a black eyepatch, even if both eyes are intact."
@@ -2390,7 +2765,17 @@
 							"name": "Tempus",
 							"page": 38,
 							"entries": [
-								"the foehammer, the lord of battles",
+								"{@i The foehammer, the lord of battles}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-35.webp"
+									},
+									"maxHeight": 320,
+									"width": 576,
+									"height": 1000
+								},
 								"Tempus is a war god concerned with brave conduct during war, using force of arms over talk for settling disputes, and encouraging bloodshed. The god of war is random in his favors, meaning that his chaotic nature favors all sides equally. Lord Tempus might be an army's ally one day, and its enemy the next. He might seem to manifest before a battle, appearing to one side or the other. If he is seen riding a white mare (Veiros), then the army will succeed. If he rides a black stallion (Deiros), then defeat is certain. Most often he appears to be riding with one foot in each mount's stirrup, signifying the unpredictable nature of battle. In such visions, Tempus is always a powerfully built warrior dressed for battle in the style of those who envision him.",
 								"Tempus's favor might be randomly distributed, but over the centuries his priests have made an effort to spread and enforce a common code of warfare\u2014to make war a thing of rules, respect for reputations, and professional behavior. This code, called Tempus's Honor, has the purpose of making conflicts brief, decisive, and as safe as possible for those not directly involved. The rules in the code include the following: arm anyone who has need of a weapon; disparage no foe; acquit oneself with bravery; train all for battle; and don't engage in feuds. Those who poison wells, taint fields, kill noncombatants, or engage in torture in the name of war are all considered sinners.",
 								"Worshipers of Tempus are legion, and his name is often on the lips of soldiers. His priests are tacticians, often skilled in the art of war. Many of his ordained don't serve in temples, but as battlefield chaplains with armies and mercenary companies, encouraging their fellow soldiers with both word and blade. Priests of Tempus teach that war conducted properly is fair in that it oppresses all sides equally, and that in any given battle, a mortal might be slain or might become a great leader among his or her companions. Mortals shouldn't fear war but should see it as a natural force, the storm that civilization brings about by its very existence."
@@ -2402,7 +2787,17 @@
 							"name": "Torm",
 							"page": 39,
 							"entries": [
-								"the loyal fury, the true, the hand of righteousness",
+								"{@i The loyal fury, the true, the hand of righteousness}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-36.webp"
+									},
+									"maxHeight": 320,
+									"width": 1000,
+									"height": 978
+								},
 								"Torm is the god of duty and loyalty, revered by those who face danger to bring about a greater good. Those who favor Torm believe that one's salvation can be found through service, that every failure to perform one's duty diminishes Torm, and that every success adds to his luster. Those who take Torm to heart must strive to fulfill his commandment to go out into the world and be an active force for good, to right wrongs, and to help the hopeless. They must strive to maintain peace and order while opposing unjust laws. Followers of Torm stand ever alert against corruption and are expected to strike quickly and hard against any evidence of rot in the hearts of mortals. As the sword arm of justice, Torm's faithful are expected to bring quick deaths to betrayers. Considering these tenets, it should be no surprise that most human paladins have Torm as their patron.",
 								"Most temples dedicated to Torm are fortresses built on heights. These structures offer austere quarters for residents and visiting knights, drilling grounds, and stables. White granite, lion statues, and armored figures predominate in the architecture, with the coats of arms of fallen heroes decorating the walls of the great halls.",
 								"Torm is seen as the good right hand of Tyr, and as such his symbol is a white gauntlet made for the right hand. It represents Tyr's sword hand, but it is also a symbol of forbearance. Torm is frequently depicted with his right gauntlet extended palm forward, which worshipers call the Hand Resolute. It signifies the principle that the just and true must pause before acting to judge whether their intentions uphold Torm's ideals. Temples, civic structures, and the homes of the faithful are often decorated with images of the Hand Resolute as a constant reminder of this principle.",
@@ -2415,7 +2810,7 @@
 							"name": "Tymora",
 							"page": 39,
 							"entries": [
-								"lady luck, our smiling lady",
+								"{@i Lady luck, our smiling lady}",
 								"Tymora is the bright-faced goddess of fortune, the one to whom gamblers and game-players pray in Faerûn. Our Smiling Lady is said to love none so much as those who gamble with the utmost skill and daring. Yet she is thought to watch over all who take risks to better their fortunes.",
 								"The battle cry of the followers of Tymora is \"Fortune favors the bold.\" Someone might say words to Tymora before any endeavor in which a little good luck would help, but not when an incidence of bad luck might occur. (On such occasions folk pray to Beshaba to spare them from bad luck; praying to both is thought to anger both goddesses.) One common method of divining the future is to toss a coin to a stranger (typically a beggar) and ask if it's heads. If it is, the coin is left with the stranger as payment for Tymora's favor. If it's not, the stranger can choose to keep it (and the bad luck) or return it.",
 								"Those who favor Tymora\u2014as distinct from folk who invoke her name by mumbling over the dice\u2014tend to be daring sorts. Adventurers and gamblers make up much of their ranks. They all have the belief that what is good about their lives is the result of having both good luck and the bravery to seek it out. Tymora has worshipers among all sorts of folk: the dashing young noble, the risk-taking merchant, the daydreaming field hand, and the scheming ne'er-do-well.",
@@ -2439,7 +2834,17 @@
 							"name": "Tyr",
 							"page": 40,
 							"entries": [
-								"grimjaws, the maimed god, the evenhanded",
+								"{@i Grimjaws, the maimed god, the evenhanded}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-37.webp"
+									},
+									"maxHeight": 320,
+									"width": 711,
+									"height": 1000
+								},
 								"Tyr Grimjaws, Tyr the Evenhanded, Wounded Tyr, the Maimed God, the Blind, Blind Tyr, the Lord of Justice\u2014all of these names speak to the nature of the Faerûnian god of justice. Tyr appears as a noble warrior missing his right hand, which he lost to Kezef the Chaos Hound in an act of bravery and sacrifice, and with his eyes wrapped in cloth to signify his blindness, caused by a wound dealt to him by Ao when he questioned the justice of the Overgod's actions.",
 								"Tyr's followers devote themselves to the cause of justice, to the righting of wrongs and the deliverance of vengeance. This devotion isn't necessarily concerned with equality or fairness, but rather the discovery of truth and the punishment of the guilty. Those who favor Tyr tend to be stiff-necked about matters of theology and laws, seeing things in terms of black and white. Tyr's credo of lawfulness and honesty is a demanding one, and his priests remind the faithful not to hold in contempt others who can't live by it\u2014it wouldn't be an honorable calling if everyone could muster the strength of will to follow it.",
 								"Many orders of knighthood are devoted to Tyr, including the Knights of Holy Judgment and the Knights of the Merciful Sword. Such knights-as well as judges and priests, clerics, and paladins who worship Tyr\u2014sometimes wear thin strips of diaphanous cloth over their eyes to remind others of the blindness of justice."
@@ -2451,7 +2856,17 @@
 							"name": "Umberlee",
 							"page": 40,
 							"entries": [
-								"the bitch queen, the queen of the depths, the wavemother",
+								"{@i The bitch queen, the queen of the depths, the wavemother}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-38.webp"
+									},
+									"maxHeight": 320,
+									"width": 1000,
+									"height": 941
+								},
 								"No community that lives by the sea can ignore the influence of Umberlee, the furious goddess whose tempestuous nature reflects and is reflected by the waters of the deep. Any such community makes sure to host festivals to propitiate the Wavemother and seek her favor. Although mercurial in temperament, she can be generous to those who do her honor, as is any great queen.",
 								"The Bitch Queen is worshiped out of fear instead of adoration, and ship crews offer her gems, tossed over the side, to calm storm-tossed waters. As her most common moniker suggests, she is viewed as capricious and cruel with no firm ethical outlook; the sea is a savage place, and those who travel it had best be willing to pay the price of challenging her domain.",
 								"There is little in the way of an organized clergy of Umberlee. Her priests roam coastal cities, warning of doom and demanding free passage on ships in return for ensuring the goddess's pleasure. Often they wear the colors of waves and storms, and they decorate themselves with items that remind others of the sea's dangerous nature\u2014a necklace of shark teeth, seaweed wrapped about a human bone, and so on. The preserved hand of a drowned person is thought to be a particularly holy object, and some of her few clerics use such severed hands as holy symbols. Umberlee does have a large number of shrines in the coastal cities, and sailors often leave flowers or small candies at them in hopes that she will spare them on their next voyage. Both Waterdeep and Baldur's Gate have true temples dedicated to Umberlee, staffed largely by the widows of sailors lost at sea."
@@ -2463,7 +2878,17 @@
 							"name": "Waukeen",
 							"page": 41,
 							"entries": [
-								"our lady of gold, the coinmaiden, the merchant's friend",
+								"{@i Our lady of gold, the coinmaiden, the merchant's friend}",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag01-39.webp"
+									},
+									"maxHeight": 320,
+									"width": 829,
+									"height": 1000
+								},
 								"Waukeen is the goddess of wealth and trade, on both sides of the law. Her most ardent worshipers include shopkeepers, members of trading costers, wealthy merchants, caravan guides, itinerant peddlers, moneychangers, and smugglers. She is interested in anything that increases trade and the flow of money, whether new trade routes, new inventions, or the whim of changing fashion. Those who take Waukeen as a patron can be reliably thought of as greedy, but the Coinmaiden is said to frown upon misers and smile upon the industrious and the profligate, and thus priests who bear her holy symbol find themselves welcome in many towns and cities.",
 								"Temples of Waukeen resemble guildhalls and often serve as meeting places for trade consortiums. Those who follow Waukeen's ethos seek to create more opportunity for all and see competition for wealth as one of society's main means of progress. Thus, the faithful of Our Lady of Gold often find themselves at odds with trade guilds and others who would form monopolies. It's common practice among those who seek Waukeen's favor to set aside a tithe of ten percent of their profits, but rather than being given to a temple, the money is meant to be spent to help a struggling business, to finance a new endeavor, or, if all else fails, on frivolous fun."
 							],
@@ -2544,6 +2969,12 @@
 									},
 									"width": 1391,
 									"height": 800,
+									"grid": {
+										"type": "none",
+										"size": 200,
+										"distance": 100,
+										"units": "miles"
+									},
 									"imageType": "map"
 								},
 								{
@@ -2555,6 +2986,9 @@
 									"width": 1439,
 									"height": 1000,
 									"imageType": "map",
+									"grid": {
+										"type": "none"
+									},
 									"mapRegions": [
 										{
 											"area": "095",
@@ -2757,6 +3191,15 @@
 								"Several businesses designed to attract travelers stand in Longsaddle, if for no other reason than travel along the well-named Long Road can be tiresome. The first is the Gilded Horseshoe, an old inn to the west of the road that serves fine food and drink, offers comfortable beds, and is close enough to the Ivy Mansion that no one would dare disturb it or its guests. The owners have access to some of the choicest cuts of meat in Longsaddle, and as a result, their roasts and stews are exquisite.",
 								"Across the road, the Ostever family serves as the local slaughterer and butcher for folk wishing to take meat, rather than live animals, away from Longsaddle. Rumor holds that the sausages have much improved down the years but buyers are advised to \"mind the tusks\" by locals, a reference to an old joke that none remember. Folk willing to wait can have the able hands of the Ostevers perform a slaughter, hanging, dressing, and packing for them, though this process is likely to take days longer than most travelers can spare.",
 								"There is entertainment to be had at the Gambling Golem, where cheaters in the card or dice games are tossed out into the street, and a local marbles game known as scattershields is popular. Dry goods, candles, lanterns, saddles, rope, and wagon wheels are available from a number of other shops.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag02-04.webp"
+									},
+									"width": 703,
+									"height": 1000
+								},
 								"It can't be stressed enough that while the Harpells have little interest in the daily running of Longsaddle, it is undeniably their town. They rarely suffer insults, and never tolerate violence against themselves, their family, or the locals. A conflict involving the Harpells is likely to end swiftly and bloodily, and (unless the offender is convincingly apologetic, unconscious, dead, or forgiven of the wrongdoing) will often draw additional Harpells to support their kin. Harpell supports Harpell in all public matters, and no one bothers to record the numbers and names of those that forgot that fact.",
 								"Aside from the Harpells, the dominant families of Longsaddle are ranchers: the Cadrasz, Emmert, Kromlor, Mammlar, Sharnshield, Suldivver, and Zelorrgosz families have ranched in or near Longsaddle for generations, and influence most of the daily life there. They set the market days, help resolve disputes among families, and broker purchases when a farmer or businessperson dies without an heir. They settle smaller matters and keep the peace as best they can, knowing full well that if the Harpells need to get involved in a dispute, there is always the possibility of an offender's being blasted into nothingness.",
 								"These families are also the ones most likely to hire outsiders to deal with matters on the ranches, whether an orc raid or the appearance of lycanthropes in the area (though it's rumored that the latter creatures may be the descendants of one of the Harpells). The major ranching interests often hire adventurers not only to further their own aims or provide for defense, but to secretly hinder or harm one another and gain an advantage in their ongoing competition. Adventurers that go too far on such a mission can be explained away as foolish outlanders, and if they offend a Harpell and get blasted in the middle of the Low Road, there will be no one left to ask about the matter. My best advice is to be mindful of the scent of magic in the air and act accordingly."
@@ -2777,6 +3220,12 @@
 									},
 									"width": 1660,
 									"height": 800,
+									"grid": {
+										"type": "none",
+										"size": 200,
+										"distance": 100,
+										"units": "miles"
+									},
 									"imageType": "map"
 								},
 								"Long ago, the great dwarven kingdom of Gharraghaur stood to the west of Delzoun, delving mines near the River Mirar and finding great, near-endless veins of gems. Like many of the dwarven realms, Gharraghaur fell to marauding orcs, which destroyed the kingdom and its capital city but couldn't take advantage of the wealth therein. For millennia the lower city lay empty, until some eight hundred years ago, when Prince Ereskas of Amn settled the same spot, creating the city of Mirabar (coincidentally echoing the dwarven \"-bar\" naming convention used for citadels throughout the North). It was only when dwarves returned to work the mines below that Mirabar began to see its fortunes increase.",
@@ -2812,6 +3261,12 @@
 									},
 									"width": 1321,
 									"height": 800,
+									"grid": {
+										"type": "none",
+										"size": 200,
+										"distance": 100,
+										"units": "miles"
+									},
 									"imageType": "map"
 								},
 								{
@@ -2822,6 +3277,9 @@
 									},
 									"width": 1227,
 									"height": 1000,
+									"grid": {
+										"type": "none"
+									},
 									"imageType": "map"
 								},
 								"Nearly half a century ago, Mount Hotenow (the nearby volcano that perpetually heats the river flowing through the city) violently erupted, destroying much of Neverwinter, killing thousands, and leaving in its wake a great, gaping chasm that split the city. Neverwinter was in ruins, and external influences\u2014from Netheril to Thay to Lord Dagult Neverember of Waterdeep to the agents of the Hells themselves\u2014sought to exert control over the city. Many folk fought to stem all these dangers, and eventually, a measure of peace fell over Neverwinter.",
@@ -2852,6 +3310,12 @@
 									},
 									"width": 1204,
 									"height": 800,
+									"grid": {
+										"type": "none",
+										"size": 200,
+										"distance": 100,
+										"units": "miles"
+									},
 									"imageType": "map"
 								},
 								"The Gem of the North is a stunning place of sweeping curves, soaring towers, and structures built into the living trees. To many elves, the city is a reminder of the ancient elven cities of old; some call it the Myth Drannor of the North, even nowadays after the restoration and subsequent fall of that fabled city. Even where stone is employed in construction, ivy and other living plants grow through, over, or around most structural elements, giving most of the city a green cast.",
@@ -2883,10 +3347,22 @@
 									},
 									"width": 815,
 									"height": 1000,
+									"grid": {
+										"type": "none"
+									},
 									"imageType": "map"
 								},
 								"Though it has stood for hundreds of years, Waterdeep is only now returning to its status of a century and a half ago. The recent disruptions began when the gods walked the Realms and slew each other before the eyes of mortals, until they walked back to their divine domains through the very streets of Waterdeep itself. Decades later, more deities began dying off, magic failed, and all manner of catastrophes started altering the very nature of the city. Lord Neverember wasted the city's navy and then, instead of rebuilding it, hired sailors out of Mintarn (and profited from the endeavor).",
 								"Now, the City of Splendors is on the mend. The harbor has been cleared of the broken ships that made up the former district of Mistshore, and Waterdeep again has its own navy. The city's Guard (its army), Watch (police force), Navy, and it famous Griffon Cavalry are all being reformed, but all of that might be a matter of years in the settling. A plague chased most residents out of the Warrens and Downshadow, and living or digging below the city's surface has been deemed illegal except by those authorized by the lords to do so. Somehow, even the air seems fresher. In the words of one wise moon elf matron (whose status as my aunt has positively no bearing on her wisdom), \"Waterdeep is back to where it was when I was a lass.\"",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag02-08.webp"
+									},
+									"width": 814,
+									"height": 1000
+								},
 								"Perhaps most surprising of the newest developments is the return of Laeral Silverhand to Waterdeep. Long thought dead, she reemerged only recently, and swiftly rallied the masked lords to support her supplanting of Dagult Neverember as Open Lord of Waterdeep. Very few remember Lady Laeral from her previous time in the city, but those elves who have been living in there for the last century claim she is more reserved than she once was. The new Open Lord doesn't speak of her family\u2014any mention of her children, her late husband (the fabled Blackstaff, Khelben Arunsun), or any of her famed sisters is cause for her to cut short whatever conversation may be in progress at the time. Her relationship with the current Blackstaff, Vajra Safahr, is cordial, but the two are seldom seen in one-on-one conversation, and most think that Lady Laeral has little to learn from a mage who isn't nearly her equal.",
 								"As always, the Open Lord is selected and supported by several masked lords, who bear masks, robes, and amulets to disguise themselves when publicly sitting in judgment or council, and who make policies for Waterdeep. Every Waterdhavian has suspicions as to whether this or that influential citizen is or isn't a lord of the city, and some are willing to make their beliefs public, but few who are confronted in such a way have ever claimed to be a lord, and none of those have also produced proof of that assertion.",
 								"Not hidden at all are the other lords of the city\u2014the nobles of Waterdeep, whose high-nosed behavior and heavy-handed spending establish fashion in the city, which in turn creates trends all across the North for clothing, weaponry, favored trinkets, music, and any other preference that can be changed at a whim by those with enough coin to afford the expense. More than seventy-five noble families call Waterdeep home, representing between them all manner of business interests, rivalries, and internal strife.",
@@ -2998,6 +3474,12 @@
 									},
 									"width": 1145,
 									"height": 800,
+									"grid": {
+										"type": "none",
+										"size": 200,
+										"distance": 100,
+										"units": "miles"
+									},
 									"imageType": "map"
 								},
 								"Each summer, except in years when Shieldmeet occurs, a vast Hiring Fair is held in Yartar, during which all sorts of undesirable folk gather north of the town looking for work as guards, miners, farmhands, guides, or other unskilled laborers. For the most part, those who attend this fair are brutes, bandits, freeholders whose lands can no longer sustain them, or Uthgardt who wish to be among \"civilized\" folk for a short time\u2014but occasionally, a strong hand or a skilled warrior can be culled from the bunch. While this event is going on, Yartar is overrun with visitors it would rather not welcome, who steal goods, sell wares in the street (sometimes those they have just stolen), meet unscrupulous contacts to hand off coin, information, or purloined items, and engage in the occasional spell duel. It's quite common for a new adventuring company to come into being at one of these fairs, when those who stand out from the crowd because they have legitimate skills to sell gravitate toward one another and decide to form a group.",
@@ -3095,6 +3577,15 @@
 							"by": "Drorn Waranvil, to the envoy of the Marchion of Mirabar"
 						},
 						"The history of the dwarves in the North is a long and violent one, dating back more than six millennia. Before there was a Standing Stone in the Dalelands, or a Waterdeep, or a Myth Drannor, there was the brief (in dwarven terms) glory of Besilmer, and the realms of Haunghdannar and Gharraghaur. Ruins now, to be sure, but these kingdoms lasted longer than almost any living realm of humans, even if their works have been forgotten by humans and dwarves alike.",
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag02-11.webp"
+							},
+							"width": 827,
+							"height": 1000
+						},
 						"The greatest and most recent of these dwarven realms was Delzoun, also called the Northkingdom. It stretched from the western edge of what was then the Narrow Sea (later, the Great Desert of Anauroch) west almost to present-day Silverymoon, and from the Ice Mountains to the Nether Mountains. Citadels Adbar and Felbarr were fortresses of Delzoun, and Mirabar, Mithral Hall, and Sundabar all owe their existence to that ancient kingdom or its descendants. Fabled Gauntlgrym, said to be touched by the presence of Moradin himself, was built by Delzoun's dwarves\u2014first as a mine, and then as a city. It was the dwarves of Delzoun who built Ironmaster, too, and all the great mines and renowned forges of the North reside in the halls of the dwarves.",
 						"Now, when shield dwarves invoke the name of Delzoun, they are calling upon the glory of all their past accomplishments: every feat of architectural mastery, every fine blade or crushing warhammer forged, every kingdom and battle\u2014won or lost\u2014in defense of their people and the folk around them. The name is as much a battle cry and a badge of honor as it is a call into history, for although every dwarven settlement now has its own masters, kings, and queens, they all respect the memory of the great hammer of Delzoun and the glorious kingdom it represented.",
 						"The details in this section are drawn from the extensive teachings of Drorn Waranvil, a longbeard (dwarf elder) who is a retired veteran of the Iron Guard of Citadel Adbar and the Citadel Guards of Felbarr. Drorn fought in the orc wars of both this and the last century, and helped free Citadel Felbarr (twice) and Gauntlgrym before he put down his warhammer a few years ago and began to chronicle his experiences for the benefit of younger dwarves seeking to know more about their heritage and about the world of today from the proper perspective.",
@@ -3251,6 +3742,15 @@
 								"The ancestral home of Clan Battlehammer, Mithral Hall was a place of great potential wealth when it was founded in the days of Old Delzoun. Dwarves of Clan Battlehammer left Citadel Adbar, heading west in the hope of finding mithral deposits hidden in the southern spurs of the Spine of the World. These they found, and so began the delving of Mithral Hall, with Clan Ironshield founding Settlestone nearby as a means of buffering the market for the products of the hall's ore.",
 								"Mithral Hall enjoyed centuries of profit before its delving permitted the shadow dragon, Shimmergloom, to break through into the world. A settlement of thousands was reduced to fewer than three hundred\u2014all of them too young, too old, too weak, or too ill to fight\u2014who fled to Settlestone. There, they waited for months for word from King Garumn that their lands were again safe. When messengers to the city didn't return, it was clear that Mithral Hall had been lost, and its dwarves headed north, first to Ironmaster, where they were treated with such distrust that they couldn't remain, and then to Icewind Dale.",
 								"When Garumn's grandson, Bruenor, was old enough, and sure of his path, he gathered allies to retake his former homeland, and went on a great many adventures with the group later known as the Companions of the Hall. At the end, Bruenor slew the dragon Shimmergloom and reclaimed Mithral Hall for Clan Battlehammer after almost two centuries.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag02-13.webp"
+									},
+									"width": 723,
+									"height": 1020
+								},
 								"After Bruenor regained the throne, his personal friends attracted some powerful enemies to Mithral Hall, including the drow of Menzoberranzan. This is one reason, his supporters claim, that the king abdicated in favor of his ancestor Gandalug Battlehammer: to protect the people from his personal enemies. Some of Bruenor's detractors claim it was wanderlust that made him leave, but none will bother (or dare) to ask him. In any case, when Gandalug died, Bruenor did his duty and resumed the throne.",
 								"Before Bruenor died, he was instrumental in gaining dwarven support for the Treaty of Garumn's Gorge, which brought peace between the dwarves and the orc Kingdom of Many-Arrows. When the orcs, in time, broke their treaty and made war on the North, he returned from the dead almost as though he had been summoned to rally the dwarves to defend themselves and punish their enemies. Some say he delayed receiving the rewards of Moradin's own Dwarfhome to return and aid his fellows and kinsfolk. Such sacrifice, such loyalty, makes a dwarf king worthy of the crown.",
 								"Bruenor Battlehammer, the Eighth and Tenth and Thirteen King of Mithral Hall, no longer leads Mithral Hall or the Battlehammer dwarves that live there. Since his return to life, he has refocused his attention on Gauntlgrym, and doesn't claim the kingship of his former home. Instead, the crown has been offered to General Dagnabbet Waybeard, granddaughter of Bruenor's ally, the great general Dagna.",
@@ -3346,6 +3846,15 @@
 							"name": "The Moonshaes",
 							"page": 67,
 							"entries": [
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag02-14.webp"
+									},
+									"width": 1000,
+									"height": 703
+								},
 								"Cloaked in mists, the rocky cliffs of the Moonshae Isles rise high above the surf of the Sea of Swords, their tops clothed in ancient forests. The Moonshaes lie due west from Mintarn\u2014and Baldur's Gate, and Candlekeep, and even Amn, for that matter: this great stretch of islands is nearly half as long as the Sword Coast, enclosing the Sea of Moonshae.",
 								{
 									"type": "image",
@@ -3355,6 +3864,12 @@
 									},
 									"width": 563,
 									"height": 800,
+									"grid": {
+										"type": "none",
+										"size": 200,
+										"distance": 100,
+										"units": "miles"
+									},
 									"imageType": "map"
 								},
 								"On the southern isles live the Ffolk, humans ruled by their High King, Derid Kendrick, from the fortress of Caer Callidyr on Alaron. The Ffolk worship a goddess they call the Earthmother; her druids gather in sacred groves on the islands. Some of these groves hold moonwells, magical pools that the druids say the goddess uses as her windows onto the world.",
@@ -3551,6 +4066,12 @@
 											},
 											"width": 1041,
 											"height": 800,
+											"grid": {
+												"type": "none",
+												"size": 200,
+												"distance": 100,
+												"units": "miles"
+											},
 											"imageType": "map"
 										},
 										"No one's ever bothered to count or name all the tribes of these islands, and I doubt anyone's going to start now. For one thing, it's a fool's errand: tribes split up or are destroyed at such a rapid pace that by the time you finished counting, you'd have to start over anyway. For another, it's dirty, dangerous work, and dealing with pirates is a task best left to swift ships, well-armed navies, and the kinds of fools that would want to count them in the first place.",
@@ -3565,6 +4086,15 @@
 									"page": 71,
 									"entries": [
 										"Ever seen an island simply disappear? That is, supposedly, what happened to Nimbral at about the time Lantan drowned, or so they say. Four ship captains of my acquaintance claim to have seen it one moment, and then not seen it the next, and sailed straight through its former location as though it was never there.",
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/SCAG/scag02-17.webp"
+											},
+											"width": 433,
+											"height": 1000
+										},
 										"Some claim that powerful magic moved or hid the island in a vast illusion. That I find believable, because the Lords of Nimbral have long been known for illusion and trickery. If any isle were to vanish into thin air, it would be theirs. Likewise, Nimbral's return is certainly within their capabilities, and perhaps this event is the climax of a trick so long and complex that even a gnome can envy its scope.",
 										"Nimbral today is much as it has always been: far-flung and secretive. Where the island went, what it did while gone, and why it came back all seem to be facts the Lords of Nimbral prefer to keep to themselves.",
 										"Nimbral is still ruled by its mysterious lords, a closely related family of archmages, master illusionists all. They in turn appoint the heralds, who proclaim the laws, and the Knights of Nimbral, fabled hippogriff riders clad in armor clear as glass but strong as steel. Don't let the fact that they are called knights fool you. The Knights of Nimbral have always acted as pirates when out on patrol over the seas, preying on ships that strayed close to their island.",
@@ -3615,6 +4145,15 @@
 									"page": 73,
 									"entries": [
 										"I felt it before I saw it. With the barest glimmer of golden light through the basket weave all that I could see, Evermeet took my breath way. Coiled in the basket like a snake, with cramps in every limb, I was desperate not to give myself away, yet I could feel the magic of Evermeet seep through my body, soothing aching limbs and easing guilty conscience. When I could breathe again, I gasped. And that was how the elf discovered me.",
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/SCAG/scag02-18.webp"
+											},
+											"width": 1000,
+											"height": 617
+										},
 										"The blind elf, whose beloved treasures I'd displaced to take my journey, pulled me from his basket, and when he did so, his eyes were clear as diamonds and just as hard. I thought for sure that I was dead, and on seeing my surroundings, I can say with all my heart that I didn't care. Had the elf killed me on the spot, my soul would have gone to Garl and demanded a ship so that I could sail right back to Evermeet. My dumb wonderment caused the elf to turn and look, and he too was enraptured.",
 										"As to what we beheld, well, imagine a place of staggering natural beauty and impossible elven artifice, an alien realm as distant and beautiful as the stars, but as much a part of you as your own dreams\u2014part heaven, part home.",
 										"I'd like to say we shared a moment there, the elf and I. Perhaps in recognition of that, he didn't kill me.",
@@ -3678,6 +4217,15 @@
 								"The great keep never fails to take my breath away: it stands on a volcanic crag a hundred or so feet from the coastline, a flat-topped spur of rough stone out in the midst of the surging sea. Imagine, if you can, the top of this crag hemmed in entirely by a tall wall. This wall is interrupted by several towers all the way around, and it encloses a large space from which even more of these same towers rise. Those who have seen this vista from above have said that it looks like nothing so much as a cake decorated with too many candles. The mist of sea-spray fills the air nearest the western walls, and in winter, this moisture can cause treacherous build-ups of ice. Sometimes entire towers along the western edge of the keep have to be abandoned for the season, they become so overtaken by frost.",
 								"From the center rises the largest and thickest tower of Candlekeep. If the other towers are well-wrought branches and blossoms, then this surely is the bole of the tree: strong, massive, and rising well above the perimeter structures. About the central keep a garden spirals in rising steps, and those lucky enough to enter the library proper do so by passing around and up through this green space to the keep's main door. However, most folk who visit Candlekeep see this structure only from the courtyard east of it, where the facilities for arriving scholars lie.",
 								"The only gate into Candlekeep stands at the end of the Way of the Lion, which is the only road that provides access to and from the outside world. The route extends from Beregost, leagues away, and winds a lonely path out on the peninsula where Candlekeep stands.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag02-19.webp"
+									},
+									"width": 389,
+									"height": 1000
+								},
 								{
 									"type": "entries",
 									"name": "The Great Library",
@@ -3802,6 +4350,12 @@
 									},
 									"width": 1042,
 									"height": 800,
+									"grid": {
+										"type": "none",
+										"size": 200,
+										"distance": 100,
+										"units": "miles"
+									},
 									"imageType": "map"
 								},
 								"Zhentil Keep was burning. The Citadel of the Ravens lay in ruins. The leadership of the Zhentarim died, were captured by the Shadovar of returned Netheril, or were in flight. The vaunted Black Network was shredded. Cells of Zhentarim agents were cut loose, and without connections or direction, they dissolved or were crushed by rivals. The Zhentarim was no more.",
@@ -3861,6 +4415,15 @@
 							"entries": [
 								"Ah Elturgard! If any place in the world exemplifies humanity's potential for greatness, it is this nascent nation. Who could forget the shining sight of a host of its Companions, paladins all, riding out on the field, banners taught and snapping, breastplates and shields agleam with the symbol of Elturgard, and each bearing a holy symbol of his or her god\u2014armor for the soul. We have no shortage of the good and the just among my people, but the sheer zeal and genuine bravado the Companions have in pursuit of righteousness seems to me something uniquely human. And it's not just those few touched by the gods who seek these high ideals; Elturgard's armed forces swell with men and women who aspire to join the Companions. They are the Hellriders, so named because long ago warriors of Elturel literally rode through a gate into the Nine Hells to pursue and destroy devils that had been plaguing their people. With these bright examples to look up to, is it any wonder that the common people of Elturgard also tend to be devout in their pursuit of justice and worship of the gods?",
 								"Oh how bright Elturgard's light burns! If only it could last. Humans are, after all, short-lived creatures, and fickle in their faith and attentions. Elturgard is the product of just a generation or two of humans, and it seems implausible that it will last many more. Sadly, I think I shall witness Elturgard diminish. But it was a miracle that brought about the nation of Elturgard, and perhaps that divine provenance will preserve it.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag02-21.webp"
+									},
+									"width": 894,
+									"height": 1000
+								},
 								"It began, as all the great stories do, in darkness. Half a century ago, the city of Elturel was a petty power. It had claimed its neighbors' territory under various excuses, putting them under \"Elturel's Guard.\" Then, the city's leader, its High Rider, was revealed to be a vampire. The extent of the vampire's network of charmed servants, undead allies, and willing sycophants took the Hellriders by surprise. An undead plague swamped Elturel, and although its Hellriders made some gains by day, in darkness the vampire and its minions inflicted cruel losses. Each night the good people of Elturel prayed to the gods that dawn might come more swiftly.",
 								"Then, on a particularly disastrous night when all seemed lost, dawn did come. A warm golden light suffused the city and surrounding lands, cast down from a golden orb that hung unwavering in the sky, so bright that it seemed a new day had dawned. Caught outside when this miracle appeared, the High Rider and his {@creature vampire spawn} burned away to dust, and the other undead quailed in its illumination. In short order, Elturel was free.",
 								"When the true dawn came, the new sun remained. And it stayed in the sky through the next night, and the night after, and each night from then until now. While some called it Amaunator's Gift, none could say what god granted them this boon. Most saw it as a companion to the sun and to themselves, and so it is known as the Companion. This holy wonder brought pilgrims of all kinds to Elturel. The devout, the curious, the afflicted\u2014all came to bathe in its warmth and see its blessed light by night. Paladins had always been small in number among the Hellriders, but the Companion drew many to Elturgard, and the best among them was named High Observer to rule in the High Rider's place.",
@@ -3970,6 +4533,12 @@
 									},
 									"width": 1047,
 									"height": 800,
+									"grid": {
+										"type": "none",
+										"size": 200,
+										"distance": 100,
+										"units": "miles"
+									},
 									"imageType": "map"
 								},
 								{
@@ -4051,6 +4620,12 @@
 									},
 									"width": 1010,
 									"height": 800,
+									"grid": {
+										"type": "none",
+										"size": 200,
+										"distance": 100,
+										"units": "miles"
+									},
 									"imageType": "map"
 								},
 								"Hartsvale is far in the windswept north, a fertile mountain valley where the Ice Spire Mountains abut the High Ice. The Clear Whirl River, easily the cleanest and coldest I have ever bathed in, flows south into the valley out of the lands of the Endless Blizzard, feeding the rich soil tucked between the northern and southern arms of the Ice Spires. The river splits as it runs through the hilly lands, eventually draining into a series of lakes along the southern edge of the vale. Two small woods also grow in the vale, one along its northern edge, between the vale proper and the northern Ice Spires, and another fed by the lakes on its southern edge.",
@@ -4124,6 +4699,15 @@
 							"name": "High Forest",
 							"page": 86,
 							"entries": [
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag02-24.webp"
+									},
+									"width": 1000,
+									"height": 761
+								},
 								"Anyone with even a hint of elven blood can't help but feel it stir upon setting foot in the High Forest. The sheer age and the power of the trees, the depth of their roots, and the wind whispering through their leaves\u2014all these things call to us.",
 								"A vast green cloak in the midst of the North, the High Forest is a reminder of ages past, when thick woods blanketed much of Faerûn, and sylvan creatures of all types lived among the trees. Even today the High Forest has barely known the tread and touch of humans, and old growth dominates its flora.",
 								"Elven communities in the forest are typically small and often nomadic. In part, this is a reflection of the desire to keep the woods untouched, but there are ruins here, such as those of Ascalhorn\u2014now called Hellgate Dell\u2014that remind us of the fallen cities and empires of the past.",
@@ -4152,6 +4736,12 @@
 									},
 									"width": 852,
 									"height": 800,
+									"grid": {
+										"type": "none",
+										"size": 200,
+										"distance": 100,
+										"units": "miles"
+									},
 									"imageType": "map"
 								},
 								"As the name suggests, the High Moor is a raised area extending for many miles of heath, lichen-covered outcroppings, and hidden gullies. Herd animals wander the land, from sheep to rock ponies to the occasional rothé. These beasts graze without great risk, because wolves and other predators that would thin the herds are themselves the prey of the trolls and goblinoids that otherwise rule the moor. These two-legged threats sometimes seed the High Moor with traps, but are normally occupied with fighting and killing their prey and each other. There is something of a cycle to the hunts of the High Moor: wolves are killed off by the hobgoblins one year, leading to more sheep grazing, which brings the trolls out (the local trolls enjoy mutton, it seems), which brings intrepid adventurers to deal with the growing menace, enabling just enough of the wolves to survive that they aren't wiped out completely.",
@@ -4233,6 +4823,15 @@
 									"id": "10a"
 								},
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag02-26.webp"
+									},
+									"width": 1000,
+									"height": 676
+								},
+								{
 									"type": "entries",
 									"name": "Marsh of Chelimber",
 									"page": 89,
@@ -4271,6 +4870,12 @@
 									},
 									"width": 1355,
 									"height": 800,
+									"grid": {
+										"type": "none",
+										"size": 200,
+										"distance": 100,
+										"units": "miles"
+									},
 									"imageType": "map"
 								},
 								"That, of course, is just the way its residents like it. They enjoy their solitude, which is broken only rarely. The hills of Trielta do occasionally offer up some impressive bounty, in the form of heretofore-undiscovered gold and silver. While such finds are usually small lodes that are played out almost before others become aware of them, Trielta has played host to full-on gold rushes from time to time. Someone stumbles on a particularly large vein of ore, and prospectors and fortune-seekers come pouring in by the dozens. Trieltan folk tend to see these occasional influxes of gold-hungry seekers the way other settlements look upon periodic plagues of locusts: aggravating, inevitable, and thoroughly disruptive, but also part of the natural order, and so nothing to get bothered about.",
@@ -4481,6 +5086,12 @@
 									},
 									"width": 1186,
 									"height": 800,
+									"grid": {
+										"type": "none",
+										"size": 200,
+										"distance": 100,
+										"units": "miles"
+									},
 									"imageType": "map"
 								},
 								{
@@ -4491,6 +5102,9 @@
 									},
 									"width": 1227,
 									"height": 1000,
+									"grid": {
+										"type": "none"
+									},
 									"imageType": "map",
 									"mapRegions": [
 										{
@@ -4720,6 +5334,15 @@
 									"page": 98,
 									"entries": [
 										"In the last decade or so, two great changes have come over Luskan. The first was the plague that crippled the gangs that had controlled the city, allowing the High Captains to reclaim the power they had long held in Luskan. The other, far more sudden, was the return of the Arcane Brotherhood and its five-spired tower. A few years ago, the ruined Hosttower of the Arcane began regenerating its damaged stone, climbing into the sky once more. Shortly thereafter, mages of the Arcane Brotherhood emerged, almost immediately began cleansing the Luskar ruins of undead, and fought off a dragon menacing the city. Cheered by the citizens, they swore to keep themselves out of the politics of the High Captains and the city at large, but the notion that powerful wizards closely aligned with one another can truly remain neutral is laughable to anyone familiar with such things.",
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/SCAG/scag02-30.webp"
+											},
+											"width": 646,
+											"height": 1000
+										},
 										"Now, the Arcane Brotherhood again walks the streets of Luskan, marked by the distinctive colors and patterns of their cloaks. From a distance, these cloaks all bear the same cut and silhouette, but each wizard of the Hosttower chooses a color or a design, and a moniker to match it. The leadership of the Arcane Brotherhood is the archmage and the four overwizards of the other spires of the Hosttower:",
 										{
 											"type": "list",
@@ -4793,6 +5416,15 @@
 								"Do you know what it is to be a slave? To feel the crack of a whip, the venom of a drow priestess's snake-headed lash, the weight of a burden you can't possibly lift after so much toil? No, you don't. So close your mouth and open your eyes and ears, and dip your quill."
 							],
 							"by": "Oshgir the half-orc, to Kimitar Thaeless, glyphscribe of Deneir"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag02-31.webp"
+							},
+							"width": 389,
+							"height": 1000
 						},
 						"Known by many as the Realms Below, the vast, milesdeep network of caverns, caves, and underground waterways called the Underdark is home to many strange creatures and even stranger societies. No one is quite sure the extent of this massive ecosystem, except to say that it reaches at least the breadth of the continent, and that most creatures are fully capable of surviving their entire lives within it, provided they can find enough food and safety to do so. Breathable air is plentiful, and clean water can be found. Beyond that, most surface folk only have the tales of adventurers, the survivors of attacks, and the occasional escaped captive to describe the horrors lurking below the surface.",
 						"What follows are portions of the tale told by Oshgir, a half-orc warrior who was captured by a duergar raiding party, sold to a Zhentarim agent, captured by drow, and then escaped his captivity by killing an overseer and fleeing to Blingdenstone. This account was recorded by a traveling scribe of Deneir named Kimitar Thaeless and submitted to the library at Candlekeep. Most don't believe that a half-orc was quite so eloquent in his telling, and thus contend that the scribe embellished the tale somewhat.",
@@ -4922,6 +5554,15 @@
 							"name": "Gold Dwarves",
 							"page": 103,
 							"entries": [
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag03-02.webp"
+									},
+									"width": 1000,
+									"height": 941
+								},
 								"Gold dwarves are common in the lands to the south and east. They are formidable warriors, proud of their long traditions, with strong ties to clan. They are gruff and haughty and have a love of fine craftsmanship and an eagerness to trade.",
 								"Significant settlements of gold dwarves exist in the Great Rift, the area surrounding the Dragon Coast, as well as in the Old Empires of eastern Faerûn. Smaller communities are found in the Smoking Mountains, in the Giant's Run Mountains, and the Western Heartlands.",
 								"Because they have not endured the same cycle of invasion and displacement, gold dwarves tend to be more optimistic than their shield dwarf cousins, but they're still standoffish and prideful as only a dwarf can be. They believe their race's stable history is the result of their attentiveness to tradition, and have little doubt that the future of the gold dwarves will be just as peaceful, if they remain true to their customs and principles.",
@@ -4950,11 +5591,30 @@
 							"id": "136"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/dwarvish-language.webp"
+							},
+							"title": "Dethek, the letters and numerals of Dwarvish",
+							"width": 850,
+							"height": 249
+						},
+						{
 							"type": "entries",
 							"name": "Dwarven Deities",
 							"page": 104,
 							"entries": [
 								"The gods of the dwarves are a pantheon, or clan, collectively known as the Morndinsamman.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag03-03.webp"
+									},
+									"width": 1000,
+									"height": 858
+								},
 								{
 									"type": "entries",
 									"name": "Forge Father and Revered Mother",
@@ -5043,6 +5703,15 @@
 							"name": "Sun Elves",
 							"page": 106,
 							"entries": [
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag03-04.webp"
+									},
+									"width": 593,
+									"height": 1000
+								},
 								"Sun elves, also known as gold elves, or Ar'Tel'Quessir, have a reputation for being arrogant and self-important. Many of them believe they are Corellon's chosen people and that other races\u2014even other elves\u2014are subordinate to them in skill, significance, and sophistication. They claim the title of \"high elves\" with pride, and indeed their race is responsible for great, and sometimes terrible, achievements.",
 								"Recalling and emphasizing the glorious aspects of their history, sun elves subscribe to the principle of \"elven excellence\"\u2014no matter how interesting, exceptional, heroic, or noteworthy other races' accomplishments might be, there is an inherent superiority to all things elven. This attitude colors sun elves' relations with other elves, whom they see as diluted or diminished representatives of elven culture. Some sun elves reject this way of thinking, but it is common enough that when most folk of Faerûn see a sun elf, they see arrogance personified. Their haughty attitude can overshadow the fact that most sun elves are also tirelessly compassionate and thoughtful champions of good.",
 								"Sun elves have the racial traits of high elves in the Player's Handbook. Sun elves have bronze skin. Their eyes are black, metallic gold, or metallic silver, and their hair is black, metallic copper, or golden blond.",
@@ -5131,11 +5800,30 @@
 							"id": "142"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/elvish-language.webp"
+							},
+							"title": "Espruar, the letters and numerals of Elvish",
+							"width": 850,
+							"height": 252
+						},
+						{
 							"type": "entries",
 							"name": "Elven Deities",
 							"page": 107,
 							"entries": [
 								"The gods of the Tel'Quessir, collectively known as the Seldarine, have embodied the ideals of the elf people since time immemorial. They are believed to dwell in the realm of Arvandor on the plane of Arborea.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag03-05.webp"
+									},
+									"width": 1000,
+									"height": 394
+								},
 								{
 									"type": "entries",
 									"name": "God of the Elves",
@@ -5228,6 +5916,15 @@
 					"name": "Halflings",
 					"page": 108,
 					"entries": [
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag03-06.webp"
+							},
+							"width": 1000,
+							"height": 833
+						},
 						"Folk think of elves as aloof and graceful, dwarves as fierce and hardy, and of gnomes\u2014if they think of them at all\u2014as clever and shy. Halflings, in contrast, have the reputation of being deft and plucky.",
 						"Halflings, or hin as they call themselves, exhibit a natural adroitness that often surprises larger folk. This nimbleness regularly comes in handy when their courage outruns their common sense, and tales about halflings abound with lucky breaks and narrow escapes.",
 						"Beyond these typical elements of the halfling character, halflings can be divided into two major subraces. Many aspects of the two groups' cultures make them distinct, but even without such trappings they are distinct due to a divergence in what seems to be a primal drive: to go or to stay. Lightfoot halflings are travelers as a rule, with tongues and hearts as nimble as their feet. Whereas if strongheart halflings are on the move, it always seems driven by a desire to return to home or find and settle in a new one. As the saying goes, \"Lightfoot, light hearted. Strongheart, strong footing.\"",
@@ -5326,6 +6023,15 @@
 					"name": "Humans",
 					"page": 110,
 					"entries": [
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag03-07.webp"
+							},
+							"width": 578,
+							"height": 1000
+						},
 						"Humans dwell in every corner of Toril and encompass a full range of cultures and ethnicities. Along the Sword Coast and across the North, humans are the most pervasive of the races and in many places the most dominant. Their cultural and societal makeup runs the gamut, from the cosmopolitan folk who reside in great cities such as Baldur's Gate and Waterdeep to the barbarians who rage throughout the Savage Frontier.",
 						"Humans are famous for their adaptability. No other race lives in so many diverse lands or environments, from lush jungles to burning deserts, from the eternal cold of the Great Glacier to the fertile shores along rivers and seas. Humans find ways to survive and to thrive almost anywhere. In locations where elves and dwarves have withdrawn, humans often move in and build anew alongside or on top of an earlier community.",
 						"It follows, then, that the most common feature of humans is their lack of commonality. This diversity has enabled human civilizations to grow faster than those of other races, making humans one of the dominant races in much of the world today. It has also led to conflicts between communities of humans because of their cultural and political differences. If not for their penchant for infighting, humans would be even more populous and predominant than they already are.",
@@ -5617,6 +6323,16 @@
 									"id": "170"
 								},
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/common-language.webp"
+									},
+									"title": "Thorass, the letters and numerals of Common",
+									"width": 850,
+									"height": 250
+								},
+								{
 									"type": "entries",
 									"name": "Humans' Deities",
 									"page": 112,
@@ -5645,6 +6361,15 @@
 							"entries": [
 								"As with all stories of the ancient past, tales of the origins of the dragonborn are hazy and sometimes contradictory. Each reveals something about the dragonborn in its telling, however.",
 								"One story relates that the dragonborn were shaped by the ancient dragon-god Io at the same time that Io created the dragons. In the beginning of days, Io fused brilliant astral spirits with the unchecked fury of the elements. The greater spirits became dragons\u2014creatures so powerful, proud, and willful that they were lords of the newborn world. The lesser spirits became the dragonborn. Although smaller in stature, they were no less draconic in nature. This tale stresses the close kinship between dragons and dragonborn, while reinforcing the natural order of things\u2014dragons rule and dragonborn serve, at least according to the dragonborn's former masters.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag03-08.webp"
+									},
+									"width": 647,
+									"height": 1000
+								},
 								"Another legend asserts that Io created the dragons at the birth of the world, but dragonborn did not yet exist. Then, during the Dawn War, Io was killed by the primordial known as Erek-Hus, the King of Terror. With a rough-hewn axe of adamantine, the behemoth split Io from head to tail, cleaving the dragon-god into two equal halves, which rose up as new gods\u2014Bahamut and Tiamat. Droplets of Io's blood, spattered across the world, became the first dragonborn. For some who believe it, this origin story supports the view that dragonborn are clearly inferior to the dragons that were made by Io's loving hand, while others emphasize that the dragonborn arose from Io's own blood\u2014just as two draconic deities arose from the god's severed body. So are the dragonborn not, therefore, like the gods themselves?",
 								"A third origin story posits that dragonborn were the firstborn of the world, created by Io before the existence of other humanoid races, which were pale imitations of dragonborn perfection. Io shaped the dragonborn and fired them with his breath, then spilled his own blood to give them life. The first dragonborn served Io as companions and allies, filling his astral court and singing his praises. The dragons he made only later, at the start of the Dawn War, to serve as engines of destruction. This view of dragonborn history is shared by those who believe that dragonborn are superior to other races and thus should be the masters of dragons and not the other way around.",
 								"Despite their differing conclusions, a common theme binds all these legends together: the dragonborn owe their existence to Io, the great dragon-god who created all of dragonkind. The dragonborn, all legends agree, are not the creations of Bahamut or Tiamat\u2014and so they have no predetermined side in the conflict between those gods. Every individual dragonborn, regardless of one's particular draconic ancestry, makes a personal choice in matters of ethics and morality."
@@ -5691,6 +6416,15 @@
 					"name": "Gnomes",
 					"page": 114,
 					"entries": [
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag03-09.webp"
+							},
+							"width": 1000,
+							"height": 978
+						},
 						"Small of stature and dwelling in the corners of Faerûn away from prying eyes, gnomes are one of the least populous and influential races in the world, called the \"Forgotten Folk\" by some. This appellation doesn't bother the gnomes; they generally prefer their anonymity and the protection it affords them.",
 						"According to legend, the first gnomes in Faerûn sprang from mystic gems buried deep in the earth\u2014an event that accounts for both the gnomes' love of gems and the cozy embrace of their underground warrens. It is said that mystic diamonds became the rock gnomes, emeralds birthed the forest gnomes, and rubies turned into the deep gnomes. Since the time of their creation, gnomes have settled in hidden places away from other races, concerned that their way of life couldn't survive wider exposure.",
 						"Gnomes gladly socialize and work with humans, elves, and dwarves, but they always keep in mind that, as a small and relatively insignificant race, their interests can become secondary even among their allies. Indeed, members of other races sometimes thoughtlessly treat gnomes as second-class citizens, perhaps thinking highly of their gnome friends but rarely giving credit to gnomes as a people. Gnomes are regularly underestimated, and they use that lack of esteem as both a defense and an offense, when need be.",
@@ -5824,6 +6558,15 @@
 							"name": "Young Race, Old Roots",
 							"page": 116,
 							"entries": [
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag03-10.webp"
+									},
+									"width": 576,
+									"height": 1000
+								},
 								"In the distant past, half-elves were scarce because humans and elves came into contact only infrequently. The ancient elven kingdoms of Cormanthyr and Myth Drannor had significant populations of half-elves. It is only in the past thousand years or so, as the races have intermingled more and more, that the number of halfelves has increased so that they are now found throughout Faerûn.",
 								"Not surprisingly, half-elves enjoy the company of others of their kind, such that where half-elves congregate, they are likely to be joined by others. Most of the half-elves in the North and along the Sword Coast are of moon elf heritage mixed with Illuskan or Tethyrian blood. In other parts of Faerûn, half-elves have significant communities in the Yuirwood and throughout Aglarond. Aquatic half-elves are found along the coasts, including near Aglarond, the Dragon Coast, Impiltur, Sembia, and the Vilhon Reach. Drow half-elves are most numerous in the nation of Dambrath, which was conquered by the dark elves years ago, and in the Underdark, where House Ousstyl of Menzoberranzan is particularly infamous for having mated with humans."
 							],
@@ -5885,6 +6628,15 @@
 							"name": "Blood Will Tell",
 							"page": 117,
 							"entries": [
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag03-11.webp"
+									},
+									"width": 748,
+									"height": 1000
+								},
 								"Half-orcs ultimately owe their plight to the deity Gruumsh, the creator of the orcs. Legend has it that when Gruumsh discovered all the territories of the world had been claimed by other races, he swore the orcs would avenge themselves by taking what they wanted by force. The great orc hordes continue to do just that today, appearing periodically from out of the wilderness to raid and scavenge.",
 								"As a result, the word \"orc\" has no pleasant connotation in the minds of other Faerûnians. At the same time, the word \"half\" is a mark of derision among orcs. Some half-orcs raised among orcs react to this stigma by being more brutal than others of their tribe, which can put them in roles of leadership, but outsider half-orcs aren't welcomed into orc society because they aren't of pure orc blood. And they aren't accepted into other societies because of their orc heritage.",
 								"Half-orcs are seen as off-putting and intimidating by other people, which is both a blessing and a curse, because while they are often left alone by those who fear them, they also become targets of discrimination, or outright attacks, from those who feel threatened by them. This prejudice against the race makes half-orcs slow to trust even those who show them courtesy\u2014because they all have stories of when they were tricked by such behavior. Their orc blood\u2014the Mark of Gruumsh\u2014makes them quick to anger and inclined to lash out at those who treat them unfairly.",
@@ -5964,6 +6716,15 @@
 							"name": "The Mark of Asmodeus",
 							"page": 118,
 							"entries": [
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/SCAG/scag03-12.webp"
+									},
+									"width": 795,
+									"height": 1000
+								},
 								"During the Spellplague, Asmodeus consumed the divine spark of Azuth and thereby achieved godhood. Subsequently, Asmodeus and a coven of warlocks, the Toril Thirteen, performed a rite wherein the archdevil claimed all tieflings in the world as his own, cursing them to bear \"the blood of Asmodeus.\" This act marked all tieflings as \"descendants\" of the Lord of the Nine Hells, regardless of their true heritage, and changed them into creatures that resembled their supposed progenitor. The other folk of Faerûn, unnerved by the appearance of these devil-beings, became suspicious of all tieflings and occasionally hostile to them.",
 								"In spite of what some people believe, however, Asmodeus exerts no power over his \"children,\" and tieflings today are as free-willed\u2014and willful\u2014as they ever have been. Some do choose to serve the Lord of the Nine Hells and his schemes, while others align themselves with different fiendish factions, or none at all, doing their best to stay out of infernal politics.",
 								"Since the ritual that spread the curse of Asmodeus a century ago, tieflings have been born on Faerûn that belong to other infernal bloodlines, but those that bear the mark of the archdevil (and their descendants) remain the most numerous examples of their kind by far.",
@@ -6062,6 +6823,15 @@
 							],
 							"by": "R.A. Salvatore, Siege of Darkness"
 						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-02.webp"
+							},
+							"width": 903,
+							"height": 1000
+						},
 						"Many of the lands of the Sword Coast and the North are savage, where day-to-day survival is a struggle. Such lands breed hardy tribes and fierce warriors, such as the Reghed and Uthgardt barbarians of the North and the seafaring Northlanders of the Moonshae Isles and the northernmost reaches of the Sword Coast.",
 						"Barbarians of these lands are most often humans or half-orcs, occasionally half-elves born of contact between savage human tribes and the elves of the North or Western Heartlands, or tieflings from tribes known to consort with fiends. Dwarf barbarians are famed and feared warriors among the fiercely proud clans that have reclaimed territories like Mithril Hall and Gautlgrym. Barbarians of most other races hail from warmer southern lands, rather than the Savage North, although southern foundlings are sometimes adopted in the North and raised by tribes there."
 					],
@@ -6148,6 +6918,15 @@
 					"name": "Bards",
 					"page": 122,
 					"entries": [
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-03.webp"
+							},
+							"width": 445,
+							"height": 991
+						},
 						"Bards hold a special place of responsibility and respect in the Forgotten Realms. They are bearers of news, gossip, and messages in their travels from place to place, in addition to being living storehouses of history and folklore. Bards know a great deal, and they tend to be willing to share what they know, or at least barter for it.",
 						"The arrival of a renowned bard is a special occasion, akin to the visit of a dignitary. A bard can reasonably expect at least a hot supper and a clean place to sleep from a local landlord or inn in exchange for a few songs or stories. A noble might host a bard in fine style\u2014while also being careful to guard any secrets the noble's household doesn't want retold or sung across Faerûn.",
 						"Not all wandering performers are true bards, nor are all bards inclined to sing for their supper, although most will, given the need. Bards literally have magic to them, and the powers they command through their performance and lore earns them additional respect.",
@@ -6217,6 +6996,15 @@
 					"name": "Musical Instruments",
 					"page": 124,
 					"entries": [
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-04.webp"
+							},
+							"width": 1000,
+							"height": 850
+						},
 						"In addition to the common musical instruments listed in chapter 5, \"Equipment,\" of the Player's Handbook, bards in the Realms play the following instruments:",
 						{
 							"type": "list",
@@ -6292,6 +7080,15 @@
 					"name": "Clerics",
 					"page": 125,
 					"entries": [
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-05.webp"
+							},
+							"width": 769,
+							"height": 1000
+						},
 						"The gods are most active through their chosen clerics, who carry out the gods' work on the Material Plane. A typical cleric in Faerûn serves a single divine patron, but some individuals feel called to serve a group, such as the elemental gods Akadi, Grumbar, Kossuth, and Istishia, while others serve deities that are intertwined gods, such as the elves' Angharradh.",
 						"Some clerics in Faerûn belong to an established religious hierarchy, but many do not. The gods choose whomever they will, and sometimes a devoted worshiper is blessed with all the abilities of a cleric, despite not being a priest of any kind. That cleric might be a contemplative hermit, a wandering prophet, or simply a devout peasant. Religious orders often try to recruit such clerics and bring them into the fold, but not all of those clerics wish to be bound to a hierarchy.",
 						"Conversely, not everyone who pursues a religious vocation is a true cleric. Some acolytes discover a different path for their lives than the path of the cleric. They serve their faiths in other roles, such as priests, scholars, or artisans, while some go on to vocations that have nothing to do with religion. A few souls who are denied the path of the cleric become embittered and seek favor with sinister or forbidden gods or forge pacts with other powerful entities. Religious scholars in the Realms debate whether divine rejection led such a person to embrace a dark path or whether the person was rejected because the gods foresaw the potential for darkness in the person's future. The gods remain silent on the matter.",
@@ -6330,6 +7127,15 @@
 					"name": "Druid Circles",
 					"page": 126,
 					"entries": [
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-06.webp"
+							},
+							"width": 680,
+							"height": 1000
+						},
 						"Druidic ways are ancient and largely practiced in secret, away from the eyes of the uninitiated. In many lands, the Old Ways of the First Circle have given way to new churches and temples, but druids and their followers still gather to honor the cycles of nature and to ensure the natural balance isn't threatened. People who dwell in or near wild lands do well to learn if a druid circle operates nearby, seeking the circle's blessing before hunting or farming on the lands they protect.",
 						"The druid habit of gathering in clearings, wooded groves, or around sacred pools gave rise to the tradition of circles. In a circle, all are equal, and while respect is given to age and accomplishment, the circle reaches decisions as a whole. Those who disagree are free to argue their point, or even to leave the circle, if they wish, but the circle acts as one for the good of all. Druid circles often include non-druid allies, such as rangers, wood elves, and the fey creatures of the land where the circle meets, all given equal voice.",
 						"Numerous circles are found across Faerûn, usually made up of no more than a dozen or so druids, plus their allies. They include the High Dance, guarding the Dancing Place in the high valleys of the Thunder Peaks, alongside their fey allies. The Watchers of Sevreld meet in Old Mushroom Grove in the High Forest, northeast of Secomber, and the Starwater Circle gathers around their namesake pool in the northern forest of Mir.",
@@ -6399,6 +7205,15 @@
 							],
 							"by": "Troy Denning, Death of the Dragon"
 						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-07.webp"
+							},
+							"width": 736,
+							"height": 1000
+						},
 						"Whether doughty warriors, idealistic young soldiers, or hard-bitten mercenaries, fighters are found everywhere in the Forgotten Realms. Even the most peaceful lands have militia for protection against their enemies, and many great rulers in the Realms' past were fighters of some sort. There are always opportunities for those who know how to handle themselves in a fight.",
 						"Able-bodied folk in many parts of the Sword Coast and the North learn at least the rudiments of combat as part of a local militia, serving in times of need, while a few go on to become professional soldiers, guards, or the like. Officers tend to come from the nobility, although there are opportunities for capable leaders to demonstrate their skills and rise through the ranks.",
 						"Fighters who don't make a career of soldiering find other ways to demonstrate their prowess. Mercenaries find employment with those who need skilled warriors but who lack the time or means to train them. Such employers include adventuring companies, which are almost always in need of a reliable fighter.",
@@ -6433,6 +7248,15 @@
 								"The fat man straightened his black-and-gold vest, lowered his round head, and charged. Danica waited until he was right in front of her, and to the onlookers it appeared as if the woman would be buried beneath mounds of flesh. at the last moment, she dipped her head under the fat man's lunging arm, caught his hand, and casually stepped behind him as he lumbered past. A subtle twist of her wrist stopped him dead in his tracks, and before he even realized what was happening, Danica kicked the back of both his knees, dropping him to a kneel."
 							],
 							"by": "R.A. Salvatore, Canticle"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-08.webp"
+							},
+							"width": 665,
+							"height": 1000
 						},
 						"Some of the earliest monastic orders in Faerûn arose in the southern lands of Amn and Calimshan, their practices migrating north and east at the same time similar practices filtered westward from distant Kara-Tur.",
 						"The oldest orders have branched or fractured into smaller offshoots over time, such that there are now dozens of them. Most are no more than a few dozen members living in an isolated community in the wilderness. Some monastic communities have members numbering in the hundreds, with a presence closer to civilization, and often with correspondingly greater influence, for those orders concern themselves with worldly affairs.",
@@ -6631,6 +7455,15 @@
 								}
 							]
 						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-09.webp"
+							},
+							"width": 773,
+							"height": 1000
+						},
 						"Every paladin grades and emphasizes these virtues based on his or her own personal ethos and religious background. A paladin of Sune would emphasize aspects of courtly love and courtesy, whereas a paladin of Tyr would be more concerned with justice and fair treatment of foes.",
 						"Most paladins in the Forgotten Realms, like clerics, are devoted to a particular deity. The most common paladin deities are those that embody action, decision, watchfulness, and wisdom. Torm and Tyr are both popular deities for paladins, as is Ilmater, who stresses self-sacrifice and the alleviation of suffering. Although less common, there are paladins of the following deities: Helm, Hoar, Lathander, Sune, Corellon Larethian, the Red Knight, Clangeddin Silverbeard, Arvoreen, and Mystra.",
 						"Their devotion to a higher ideal makes paladins popular folk heroes in the Realms. Many tales are woven about noble knights and oath-sworn champions, although pragmatists note that the tales often end with a tremendous sacrifice on the part of said champions.",
@@ -6702,6 +7535,15 @@
 							],
 							"by": "R.A. Salvatore, Sojourn"
 						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-10.webp"
+							},
+							"width": 914,
+							"height": 999
+						},
 						"Long have rangers walked the wilds of the Sword Coast and the Savage Frontier. Like druids, their practices date back to the earliest days of humanity. And long before humans set foot in the North, elf rangers strode through its forests and climbed its mountains. The traditions and outlook of these people are now shared by members of many races. In particular, lightfoot halflings frequently hear the call of the wild and become rangers, often acting as guides and protectors of roving halfling bands, and shield dwarves forced to wander far from old clanholds sometimes follow the ranger's path.",
 						"Not every prospector wandering far hills or trapper hunting through uninhabited lands becomes a ranger. True rangers go out into nature and find it holy, and like paladins, they are touched by something divine. Their gods and creeds might differ, but rangers share similar values about the sanctity of nature. While by no means always aligned with one another, rangers are bound into a loose community of sorts\u2014one that often connects with circles of druids.",
 						"In the North and throughout much of the Heartlands, rangers use special marks to indicate campsites, dangerous areas, evil creatures, foul magic, goblinoid activity, hidden caches of supplies, safe passage, shelter, and graves or tombs. Many of these symbols were derived from elven lore or borrowed from groups like the Harpers. While by no means a secret language, these trail marks are often obtuse to non-rangers, and even druids might not understand them.",
@@ -6750,6 +7592,15 @@
 					"name": "Rogues",
 					"page": 134,
 					"entries": [
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-11.webp"
+							},
+							"width": 675,
+							"height": 996
+						},
 						"There are those whose abilities lie not with sword or the Art, but with quiet motion, dexterous action, and stealth. Such talents often lead to illegal endeavors, which plague most major cities, but can be placed to good use in dealing with dangerous monsters and lost treasure.",
 						"Most large cities in the Realms have a number of thieves' dens that compete with one another. A few places, such as Baldur's Gate, have an organized group of rogues that controls all such activity. Most thieves' dens are secret gathering spots, often beneath the city, and move after they're discovered.",
 						"The city of Waterdeep had once been home to the most powerful guild of thieves in the North: the Shadow Thieves. The Lords of Waterdeep smashed that guild, forcing its leaders to flee the city (the group still operates out of Amn). There are still thieves and even assassins in Waterdeep, but they are broken into innumerable small groups or operate alone.",
@@ -6861,6 +7712,15 @@
 							"id": "1d0"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-13.webp"
+							},
+							"width": 833,
+							"height": 1000
+						},
+						{
 							"type": "entries",
 							"name": "The Fiend",
 							"page": 138,
@@ -6908,6 +7768,15 @@
 							],
 							"by": "Keith Francis Strohm, Bladesinger"
 						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-14.webp"
+							},
+							"width": 405,
+							"height": 1000
+						},
 						"Scholars and practitioners of what they call \"the Art\" (see chapter 1 for details), wizards are the most disciplined spellcasters in the Forgotten Realms. They need to be, as their powers come from years of careful study and practice. Some wizards apprentice and study with an experienced master, while others attend formal academies or universities of wizardry, such as those in Evermeet or Halruaa, or in the great cities of the North like Waterdeep or Silverymoon.",
 						"With the intensity of their study and practice, wizards tend to become increasingly solitary as they advance in their Art, having fewer peers with whom they can share their insights, if they choose to share them with anyone at all. Thus great wizards often take up residence in isolated towers or strongholds, exhibiting ever more eccentric behavior as time goes on. Some say this is a mark of madness brought on by delving too deeply into arcane lore, but they never say it too loudly anywhere a wizard might overhear.",
 						"The greatest wizards of the Realms find means of extending their lives far beyond the span of any race except the elves. Archwizards may be centuries old, having seen civilizations rise and fall across Faerûn. Other wizards seeking this longevity turn to lichdom, dwelling in isolated tombs and strongholds as they withdraw from the world in body as well as mind."
@@ -6929,6 +7798,15 @@
 								"In Thay, the Red Wizards have ultimate power, although they give governance of day-to-day affairs to those without skill in the Art. Every Red Wizard devotes study to one of the eight schools of magic and serves that school's zulkir, the leader and ultimate master of that style of magic. The zulkirs and their underlings constantly vie with one another for power and influence, and this competition frequently sends Red Wizards far from Thay to seek new spells, recover lost artifacts, and create wealth that can flow back to Thay. The power the Red Wizards hold in Thay gives them a measure of diplomatic legitimacy in the lands of the Sword Coast and the North, but their presence is rarely welcome and is universally viewed with suspicion."
 							],
 							"id": "1d6"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/SCAG/scag04-15.webp"
+							},
+							"width": 801,
+							"height": 1000
 						},
 						{
 							"type": "entries",

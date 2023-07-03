@@ -60,8 +60,7 @@ class OptionalFeaturesPage extends ListPage {
 			dataProps: ["optionalfeature"],
 
 			bookViewOptions: {
-				$btnOpen: $(`#btn-book`),
-				$eleNoneVisible: $(`<span class="initial-message">If you wish to view multiple optional features, please first make a list</span>`),
+				namePlural: "optional features",
 				pageTitle: "Optional Features Book View",
 			},
 
@@ -115,23 +114,14 @@ class OptionalFeaturesPage extends ListPage {
 		return listItem;
 	}
 
-	handleFilterChange () {
-		const f = this._filterBox.getValues();
-		this._list.filter(item => this._pageFilter.toDisplay(f, this._dataList[item.ix]));
-		FilterBox.selectFirstVisible(this._dataList);
-	}
+	_renderStats_doBuildStatsTab ({ent}) {
+		this._$wrpTabs.find(`.opt-feature-type`).remove();
+		const $wrpOptFeatType = $(`<div class="opt-feature-type"/>`).prependTo(this._$wrpTabs);
 
-	_doLoadHash (id) {
-		const it = this._dataList[id];
-
-		const $wrpTab = $(`#stat-tabs`);
-		$wrpTab.find(`.opt-feature-type`).remove();
-		const $wrpOptFeatType = $(`<div class="opt-feature-type"/>`).prependTo($wrpTab);
-
-		const commonPrefix = it.featureType.length > 1 ? MiscUtil.findCommonPrefix(it.featureType.map(fs => Parser.optFeatureTypeToFull(fs)), {isRespectWordBoundaries: true}) : "";
+		const commonPrefix = ent.featureType.length > 1 ? MiscUtil.findCommonPrefix(ent.featureType.map(fs => Parser.optFeatureTypeToFull(fs)), {isRespectWordBoundaries: true}) : "";
 		if (commonPrefix) $wrpOptFeatType.append(`${commonPrefix.trim()} `);
 
-		it.featureType.forEach((ft, i) => {
+		ent.featureType.forEach((ft, i) => {
 			if (i > 0) $wrpOptFeatType.append("/");
 			$(`<span class="roller">${Parser.optFeatureTypeToFull(ft).substring(commonPrefix.length)}</span>`)
 				.click(() => {
@@ -141,14 +131,7 @@ class OptionalFeaturesPage extends ListPage {
 				.appendTo($wrpOptFeatType);
 		});
 
-		this._$pgContent.empty().append(RenderOptionalFeatures.$getRenderedOptionalFeature(it));
-
-		this._updateSelected();
-	}
-
-	async pDoLoadSubHash (sub) {
-		sub = await super.pDoLoadSubHash(sub);
-		await this._bookView.pHandleSub(sub);
+		this._$pgContent.empty().append(RenderOptionalFeatures.$getRenderedOptionalFeature(ent));
 	}
 }
 

@@ -358,6 +358,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greatsword|phb",
+				"longbow|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -467,6 +471,9 @@
 						"Each creature within 30 feet of the changeling must succeed on a {@dc 13} Wisdom saving throw or be {@condition frightened} for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -598,6 +605,7 @@
 		{
 			"name": "Corrin Delmaco",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 271,
 			"_copy": {
@@ -822,6 +830,11 @@
 						"{@atk rw} {@hit 4} to hit, range 30/120 ft., one target. {@h}5 ({@damage 1d6 + 2}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"hand crossbow|phb",
+				"morningstar|phb",
+				"spear|phb"
 			],
 			"senseTags": [
 				"D"
@@ -1341,6 +1354,7 @@
 		{
 			"name": "Garra",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 272,
 			"_copy": {
@@ -2125,6 +2139,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"C",
 				"TP"
@@ -2237,6 +2254,10 @@
 						"The soldier adds 3 to its AC against one melee attack that would hit it. To do so, the soldier must see the attacker and be wielding a melee weapon."
 					]
 				}
+			],
+			"attachedItems": [
+				"longbow|phb",
+				"longsword|phb"
 			],
 			"traitTags": [
 				"Pack Tactics",
@@ -2763,7 +2784,7 @@
 					"name": "Spell Mimicry {@recharge 5}",
 					"entries": [
 						"The living spell creates a 40-foot-diameter sphere of fog within 60 feet of it (the fog spreads around corners). When a creature enters the fog for the first time on a turn or starts its turn there, it must make a {@dc 16} Constitution saving throw, taking 22 ({@damage 5d8}) poison damage on a failed save, or half as much damage on a successful one.",
-						"The fog moves 10 feet away from the living spell at the start of each of its turns, rolling along the ground and through openings. The fog lasts for 10 minutes or until the living spell's concentration ends (as if concentrating on a spell)."
+						"The fog moves 10 feet away from the living spell at the start of each of its turns, rolling along the ground and through openings. The fog lasts for 10 minutes or until the living spell's {@status concentration} ends (as if {@status concentration||concentrating} on a spell)."
 					]
 				}
 			],
@@ -2967,6 +2988,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"C",
 				"X"
@@ -3134,6 +3158,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greatsword|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -3296,6 +3323,9 @@
 						"The radiant idol chooses a point on the ground it can see within 60 feet of it. A 30-foot-radius, 40-foot-high cylinder of bright light appears there until the start of the radiant idol's next turn. Each creature in the cylinder when it appears or that ends its turn there must make a {@dc 17} Constitution saving throw, taking 36 ({@damage 8d8}) radiant damage on a failed save, or half as much damage on a successful one."
 					]
 				}
+			],
+			"attachedItems": [
+				"flail|phb"
 			],
 			"traitTags": [
 				"Magic Resistance"
@@ -3634,6 +3664,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -3787,7 +3820,7 @@
 				{
 					"name": "Master of Magic",
 					"entries": [
-						"Sul Khatesh has advantage on Constitution saving throws to maintain concentration."
+						"Sul Khatesh has advantage on Constitution saving throws to maintain {@status concentration}."
 					]
 				}
 			],
@@ -3834,7 +3867,7 @@
 				{
 					"name": "Consume Magic (Costs 2 Actions)",
 					"entries": [
-						"Sul Khatesh targets a creature within 120 feet of her who is concentrating on a spell. The target must succeed on a {@dc 26} Constitution saving throw or its concentration is broken on the spell, and Sul Khatesh gains 5 temporary hit points per level of that spell."
+						"Sul Khatesh targets a creature within 120 feet of her who is {@status concentration||concentrating} on a spell. The target must succeed on a {@dc 26} Constitution saving throw or its {@status concentration} is broken on the spell, and Sul Khatesh gains 5 temporary hit points per level of that spell."
 					]
 				},
 				{
@@ -3991,6 +4024,9 @@
 						"{@atk rs} {@hit 4} to hit, range 90 ft., one creature. {@h}18 ({@dice 4d8}) damage of a type chosen by the assassin: acid, cold, fire, lightning, poison, or thunder."
 					]
 				}
+			],
+			"attachedItems": [
+				"shortsword|phb"
 			],
 			"senseTags": [
 				"D"
@@ -4750,6 +4786,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"spear|phb"
+			],
 			"traitTags": [
 				"Illumination",
 				"Turn Resistance"
@@ -5176,7 +5215,8 @@
 				"restrained"
 			],
 			"hasToken": true,
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Warforged Soldier",
@@ -5264,6 +5304,9 @@
 						"When an attacker the warforged can see makes an attack roll against a creature within 5 feet of the warforged, the warforged can impose disadvantage on the attack roll."
 					]
 				}
+			],
+			"attachedItems": [
+				"javelin|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -5528,6 +5571,10 @@
 						"{@atk mw,rw} {@hit 7} to hit, reach 5 ft. or range 30/120 ft., one target. {@h}7 ({@damage 1d6 + 4}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"javelin|phb",
+				"longsword|phb"
 			],
 			"traitTags": [
 				"Magic Weapons"

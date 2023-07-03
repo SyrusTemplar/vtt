@@ -110,6 +110,7 @@
 		{
 			"name": "Azbara Jos",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 88,
 			"otherSources": [
@@ -243,6 +244,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"C",
 				"DR",
@@ -274,6 +278,7 @@
 		{
 			"name": "Blagothkus",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 89,
 			"otherSources": [
@@ -410,6 +415,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"morningstar|phb"
+			],
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -443,6 +451,7 @@
 		{
 			"name": "Captain Othelstan",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 89,
 			"otherSources": [
@@ -536,6 +545,10 @@
 						"{@atk mw,rw} {@hit 7} to hit, reach 5 ft. or ranged 20/60 ft., one target. {@h}7 ({@damage 1d6 + 4}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"flail|phb",
+				"spear|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -651,6 +664,9 @@
 						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) slashing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"scimitar|phb"
 			],
 			"traitTags": [
 				"Pack Tactics"
@@ -784,6 +800,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"scimitar|phb"
+			],
 			"traitTags": [
 				"Pack Tactics"
 			],
@@ -805,6 +824,7 @@
 		{
 			"name": "Dralmorrer Borngray",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 90,
 			"otherSources": [
@@ -819,7 +839,10 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"high elf"
+					{
+						"tag": "elf",
+						"prefix": "High"
+					}
 				]
 			},
 			"alignment": [
@@ -946,6 +969,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb",
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -1018,6 +1045,7 @@
 		{
 			"name": "Frulam Mondath",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 90,
 			"otherSources": [
@@ -1131,6 +1159,9 @@
 						"{@atk mw} {@hit 5} to hit, reach 10 ft., one target. {@h}7 ({@damage 1d10 + 2}) bludgeoning damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"halberd|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -1279,6 +1310,7 @@
 		{
 			"name": "Jamna Gleamsilver",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 91,
 			"otherSources": [
@@ -1399,6 +1431,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -1429,6 +1464,7 @@
 		{
 			"name": "Langdedrosa Cyanwrath",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 91,
 			"otherSources": [
@@ -1533,6 +1569,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greatsword|phb",
+				"spear|phb"
+			],
 			"senseTags": [
 				"B",
 				"D"
@@ -1562,6 +1602,7 @@
 		{
 			"name": "Leosin Erlanthar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 87,
 			"otherSources": [
@@ -1585,11 +1626,13 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Linan Swift",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 8,
 			"otherSources": [
@@ -1620,6 +1663,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"spear|phb"
+			],
 			"damageTags": [
 				"P"
 			],
@@ -1633,6 +1679,7 @@
 		{
 			"name": "Ontharr Frume",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 28,
 			"otherSources": [
@@ -1662,11 +1709,13 @@
 					"human"
 				]
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Pharblex Spattergoo",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 91,
 			"otherSources": [
@@ -1814,6 +1863,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"spear|phb"
+			],
 			"traitTags": [
 				"Amphibious"
 			],
@@ -1847,6 +1899,7 @@
 		{
 			"name": "Raggnar Redtooth",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 74,
 			"otherSources": [
@@ -1875,6 +1928,7 @@
 		{
 			"name": "Rath Modar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 92,
 			"otherSources": [
@@ -2027,6 +2081,9 @@
 						"When a creature Rath can see makes an attack roll against him, he can interpose an illusory duplicate between the attacker and him. The attack automatically misses Rath, then the illusion dissipates."
 					]
 				}
+			],
+			"attachedItems": [
+				"quarterstaff|phb"
 			],
 			"languageTags": [
 				"C",
@@ -2200,7 +2257,7 @@
 				{
 					"name": "Darkness (Costs 2 Actions)",
 					"entries": [
-						"A 15-foot radius of magical darkness extends from a point Rezmir can see within 60 feet of her and spreads around corners. The darkness lasts as long as Rezmir maintains concentration, up to 1 minute. A creature with darkvision can't see through this darkness, and no natural light can illuminate it. If any of the area overlaps with a area of light created by a spell of 2nd level or lower, the spell creating the light is dispelled."
+						"A 15-foot radius of magical darkness extends from a point Rezmir can see within 60 feet of her and spreads around corners. The darkness lasts as long as Rezmir maintains {@status concentration}, up to 1 minute. A creature with darkvision can't see through this darkness, and no natural light can illuminate it. If any of the area overlaps with a area of light created by a spell of 2nd level or lower, the spell creating the light is dispelled."
 					]
 				},
 				{
@@ -2215,6 +2272,9 @@
 						"Rezmir takes the Hide action."
 					]
 				}
+			],
+			"attachedItems": [
+				"greatsword|phb"
 			],
 			"traitTags": [
 				"Amphibious",
@@ -2249,6 +2309,7 @@
 		{
 			"name": "Sandesyl Morgia",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 81,
 			"otherSources": [
@@ -2269,11 +2330,13 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Talis the White",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 93,
 			"otherSources": [
@@ -2422,6 +2485,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"spear|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -2462,6 +2528,7 @@
 		{
 			"name": "Trepsin",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "HotDQ",
 			"page": 63,
 			"otherSources": [

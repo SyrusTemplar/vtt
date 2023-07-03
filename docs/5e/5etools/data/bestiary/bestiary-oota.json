@@ -19,6 +19,7 @@
 		{
 			"name": "Aljanor Keenblade",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 149,
 			"_copy": {
@@ -48,6 +49,7 @@
 		{
 			"name": "Amarith Coppervein",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 142,
 			"_copy": {
@@ -232,6 +234,7 @@
 		{
 			"name": "Blurg",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 29,
 			"_copy": {
@@ -331,6 +334,7 @@
 		{
 			"name": "Buppido",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 6,
 			"_copy": {
@@ -382,6 +386,10 @@
 			"senses": [
 				"darkvision 30 ft.",
 				"tremorsense 60 ft."
+			],
+			"traitTags": [
+				"Keen Senses",
+				"Tunneler"
 			],
 			"senseTags": [
 				"D",
@@ -574,6 +582,7 @@
 		{
 			"name": "Deepking Horgar Steelshadow V",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 82,
 			"size": [
@@ -657,7 +666,7 @@
 				{
 					"name": "Invisibility (Recharges after a Short or Long Rest)",
 					"entries": [
-						"Horgar magically turns {@condition invisible} until he attacks, casts a spell, or uses his Enlarge, or until his concentration is broken, up to 1 hour (as if concentrating on a spell). Any equipment Horgar wears or carries is {@condition invisible} with him."
+						"Horgar magically turns {@condition invisible} until he attacks, casts a spell, or uses his Enlarge, or until his {@status concentration} is broken, up to 1 hour (as if {@status concentration||concentrating} on a spell). Any equipment Horgar wears or carries is {@condition invisible} with him."
 					]
 				},
 				{
@@ -692,6 +701,10 @@
 						"Horgar adds 2 to its AC against one melee attack that would hit him. To do so, Horgar must see the attacker and be wielding a melee weapon."
 					]
 				}
+			],
+			"attachedItems": [
+				"+2 warhammer|dmg",
+				"heavy crossbow|phb"
 			],
 			"traitTags": [
 				"Sunlight Sensitivity"
@@ -808,6 +821,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"hooked shortspear|oota",
+				"light repeating crossbow|oota"
+			],
 			"traitTags": [
 				"Magic Resistance",
 				"Sunlight Sensitivity"
@@ -901,6 +918,7 @@
 		{
 			"name": "Droki",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 231,
 			"size": [
@@ -1024,6 +1042,9 @@
 						"Droki adds 3 to his AC against one melee attack that would hit him. To do so, Droki must see the attacker and be wielding a melee weapon."
 					]
 				}
+			],
+			"attachedItems": [
+				"shortsword|phb"
 			],
 			"traitTags": [
 				"Magic Resistance",
@@ -1261,6 +1282,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"senseTags": [
 				"B"
 			],
@@ -1435,9 +1459,13 @@
 				{
 					"name": "Invisibility (Recharges after a Short or Long Rest)",
 					"entries": [
-						"The duergar magically turns {@condition invisible} until it attacks, casts a spell, or uses its Enlarge, or until its concentration is broken, up to 1 hour (as if concentrating on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
+						"The duergar magically turns {@condition invisible} until it attacks, casts a spell, or uses its Enlarge, or until its {@status concentration} is broken, up to 1 hour (as if {@status concentration||concentrating} on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
 					]
 				}
+			],
+			"attachedItems": [
+				"javelin|phb",
+				"war pick|phb"
 			],
 			"traitTags": [
 				"Sunlight Sensitivity"
@@ -1606,9 +1634,13 @@
 				{
 					"name": "Invisibility (Recharges after a Short or Long Rest)",
 					"entries": [
-						"The duergar magically turns {@condition invisible} until it attacks, casts a spell, or uses its Enlarge, or until its concentration is broken, up to 1 hour (as if concentrating on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
+						"The duergar magically turns {@condition invisible} until it attacks, casts a spell, or uses its Enlarge, or until its {@status concentration} is broken, up to 1 hour (as if {@status concentration||concentrating} on a spell). Any equipment the duergar wears or carries is {@condition invisible} with it."
 					]
 				}
+			],
+			"attachedItems": [
+				"javelin|phb",
+				"war pick|phb"
 			],
 			"traitTags": [
 				"Sunlight Sensitivity"
@@ -1702,6 +1734,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"war pick|phb"
+			],
 			"senseTags": [
 				"B"
 			],
@@ -1716,6 +1751,7 @@
 		{
 			"name": "Eldeth Feldrun",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 6,
 			"_copy": {
@@ -1835,6 +1871,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"heavy crossbow|phb",
+				"war pick|phb"
+			],
 			"traitTags": [
 				"Keen Senses"
 			],
@@ -1925,6 +1965,7 @@
 		{
 			"name": "Gash",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 181,
 			"_copy": {
@@ -1961,6 +2002,7 @@
 		{
 			"name": "Ghazrim DuLoc",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 141,
 			"_copy": {
@@ -2091,6 +2133,7 @@
 		{
 			"name": "Glabbagool",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 35,
 			"_copy": {
@@ -2116,6 +2159,7 @@
 		{
 			"name": "Grazilaxx",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 29,
 			"_copy": {
@@ -2136,6 +2180,7 @@
 		{
 			"name": "Grisha",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 232,
 			"size": [
@@ -2249,6 +2294,9 @@
 						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d8 + 3}) bludgeoning damage"
 					]
 				}
+			],
+			"attachedItems": [
+				"+1 flail|dmg"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -2419,6 +2467,7 @@
 		{
 			"name": "Ilvara Mizzrym",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 9,
 			"_copy": {
@@ -2744,6 +2793,7 @@
 		{
 			"name": "Jimjar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 6,
 			"_copy": {
@@ -2820,6 +2870,7 @@
 		{
 			"name": "Khalessa Draga",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 149,
 			"_copy": {
@@ -2879,6 +2930,7 @@
 		{
 			"name": "Kinyel Druu'giir",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 134,
 			"_copy": {
@@ -2911,6 +2963,7 @@
 		{
 			"name": "Kurr",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 179,
 			"_copy": {
@@ -2990,6 +3043,9 @@
 						"{@atk mw} {@hit 4} to hit, reach 10 ft., one target. {@h}7 ({@damage 1d10 + 2}) slashing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"halberd|phb"
 			],
 			"senseTags": [
 				"D"
@@ -3089,6 +3145,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"hand crossbow|phb",
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Sneak Attack"
 			],
@@ -3112,6 +3172,7 @@
 		{
 			"name": "Lorthuun",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 141,
 			"_copy": {
@@ -3219,6 +3280,7 @@
 		{
 			"name": "Narrak",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 232,
 			"size": [
@@ -3338,6 +3400,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Magic Resistance",
 				"Sunlight Sensitivity"
@@ -3373,6 +3438,7 @@
 		{
 			"name": "Ougalop",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 142,
 			"_copy": {
@@ -3393,6 +3459,7 @@
 		{
 			"name": "Peebles",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 134,
 			"_copy": {
@@ -3420,6 +3487,7 @@
 		{
 			"name": "Prince Derendil",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 6,
 			"_copy": {
@@ -3444,6 +3512,7 @@
 		{
 			"name": "Princess Ebonmire",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 111,
 			"_copy": {
@@ -3642,6 +3711,7 @@
 		{
 			"name": "Ront",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 7,
 			"_copy": {
@@ -3662,6 +3732,7 @@
 		{
 			"name": "Rumpadump",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 72,
 			"_copy": {
@@ -3682,6 +3753,7 @@
 		{
 			"name": "Rystia Zav",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 135,
 			"_copy": {
@@ -3712,6 +3784,7 @@
 		{
 			"name": "Sarith Kzekarit",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 7,
 			"_copy": {
@@ -3732,6 +3805,7 @@
 		{
 			"name": "Shedrak of the Eyes",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 176,
 			"_copy": {
@@ -3770,6 +3844,7 @@
 		{
 			"name": "Shuushar the Awakened",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 7,
 			"_copy": {
@@ -3790,6 +3865,7 @@
 		{
 			"name": "Skriss",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 29,
 			"_copy": {
@@ -3810,6 +3886,7 @@
 		{
 			"name": "Sladis Vadir",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 135,
 			"_copy": {
@@ -3845,6 +3922,7 @@
 		{
 			"name": "Sloopidoop",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 29,
 			"_copy": {
@@ -3865,6 +3943,7 @@
 		{
 			"name": "Sovereign Basidia",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 88,
 			"_copy": {
@@ -3938,6 +4017,7 @@
 		{
 			"name": "Spiderbait",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 31,
 			"_copy": {
@@ -3966,6 +4046,7 @@
 		{
 			"name": "Stool",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 7,
 			"_copy": {
@@ -4003,6 +4084,7 @@
 		{
 			"name": "The Pudding King",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 233,
 			"size": [
@@ -4181,6 +4263,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"war pick|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -4220,6 +4305,7 @@
 		{
 			"name": "Themberchaud",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 53,
 			"_copy": {
@@ -4241,6 +4327,7 @@
 		{
 			"name": "Topsy",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 8,
 			"_copy": {
@@ -4370,6 +4457,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greatclub|phb"
+			],
 			"traitTags": [
 				"Sunlight Sensitivity"
 			],
@@ -4400,6 +4490,7 @@
 		{
 			"name": "Turvy",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 8,
 			"_copy": {
@@ -4624,6 +4715,7 @@
 		{
 			"name": "Veldyskar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 151,
 			"_copy": {
@@ -4737,6 +4829,11 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"heavy crossbow|phb",
+				"longsword|phb",
+				"shortsword|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -4813,6 +4910,7 @@
 		{
 			"name": "Vizeran DeVir",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 155,
 			"_copy": {
@@ -4850,6 +4948,7 @@
 		{
 			"name": "Xazax the Eyemonger",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 142,
 			"_copy": {
@@ -4870,6 +4969,7 @@
 		{
 			"name": "Y",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 29,
 			"_copy": {
@@ -4999,8 +5099,7 @@
 				"AOE",
 				"MW"
 			],
-			"hasToken": true,
-			"hasFluffImages": true
+			"hasToken": true
 		},
 		{
 			"name": "Young Basilisk",
@@ -5100,6 +5199,7 @@
 		{
 			"name": "Yuk Yuk",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 31,
 			"_copy": {
@@ -5198,6 +5298,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"heavy crossbow|phb",
+				"mace|phb"
+			],
 			"traitTags": [
 				"Pack Tactics"
 			],
@@ -5221,6 +5325,7 @@
 		{
 			"name": "Zilchyn Q'Leptin",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "OotA",
 			"page": 137,
 			"_copy": {

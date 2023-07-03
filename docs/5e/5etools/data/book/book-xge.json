@@ -8,6 +8,16 @@
 				"Beneath the bustling City of Waterdeep, a beholder crime lord keeps tabs on everyone and everything\u2014or so the beholder thinks. Known as Xanathar, this bizarre being believes it can gather information on everything in the Dungeons & Dragons multiverse. The beholder desires to know it all! But no matter what the beholder learns and what treasures it acquires, its most prized possession in all the multiverse remains its goldfish, Sylgar.",
 				"The first major rules expansion to the fifth edition of D&D, {@i Xanathar's Guide to Everything} provides a wealth of new options for the game. Xanathar might not be able to realize its dream to know everything, but this book does delve into every major part of the game: adventurers, their adventures, and the magic they wield.",
 				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/XGE/intro01.webp"
+					},
+					"maxWidth": 200,
+					"width": 750,
+					"height": 1000
+				},
+				{
 					"type": "section",
 					"name": "Using this Book",
 					"page": 4,
@@ -16,6 +26,15 @@
 						"Chapter 1 offers character options that expand on those offered in the player's handbook. Chapter 2 is a toolkit for the DM that provides new resources for running the game and designing adventures, all of it building on the Monster Manual and the Dungeon Master's Guide. Chapter 3 presents new spells for player characters and spellcasting monsters to unleash.",
 						"Appendix A provides guidance on running a shared campaign, similar to the activities staged by the D&D Adventurers League, and appendix B contains a host of tables that allow you to quickly generate names for the characters in your D&D stories.",
 						"As you peruse the many options herein, you'll come across observations from Xanathar itself. Like the beholder's roving mind, your reading will take you to places in the game familiar and new. May you enjoy the journey!",
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/XGE/intro02.webp"
+							},
+							"width": 666,
+							"height": 1000
+						},
 						{
 							"type": "inset",
 							"name": "Unearthed Arcana",
@@ -143,6 +162,15 @@
 										"Temporary hit points aren't cumulative. If you have temporary hit points and receive more of them, you don't add them together, unless a game feature says you can. Instead, you decide which temporary hit points to keep."
 									],
 									"id": "00f"
+								},
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/XGE/intro03.webp"
+									},
+									"width": 378,
+									"height": 1000
 								}
 							],
 							"id": "005"
@@ -383,6 +411,15 @@
 							"entries": [
 								"Even though these pages are full of tables and die rolls, they don't make up a rules system-in fact, the opposite is true. You can use as much or as little of this material as you desire, and you can make decisions in any order you want.",
 								"For instance, you might not want these tables to help you decide who your parents and siblings are, because that's among the information you've already come up with. But you can still use other parts, such as the section on life events, to provide added depth and detail.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/XGE/c1039.webp"
+									},
+									"width": 797,
+									"height": 1000
+								},
 								{
 									"type": "entries",
 									"name": "How and When to Use the Tables",
@@ -815,6 +852,15 @@
 										"Use the Family table to determine who raised you. If you know who your parents are but you get a result that does not mention one or both of them, use the Absent Parent table to determine what happened.",
 										"Next, refer to the Family Lifestyle table to determine the general circumstances of your upbringing. (Chapter 5 of the player's handbook has more information about lifestyles.) The result on that table includes a number that is applied to your roll on the Childhood Home table, which tells you where you spent your early years. Wrap up this section by using the Childhood Memories table, which tells you how you were treated by other youngsters as you were growing up.",
 										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/XGE/c1040.webp"
+											},
+											"width": 563,
+											"height": 1000
+										},
+										{
 											"type": "entries",
 											"name": "Supplemental Tables",
 											"page": 63,
@@ -1060,6 +1106,15 @@
 							"page": 64,
 							"entries": [
 								"Your character's life takes a particular course depending on the choices you make for the character's background and class.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/XGE/c1041.webp"
+									},
+									"width": 783,
+									"height": 1000
+								},
 								{
 									"type": "entries",
 									"name": "Background",
@@ -1577,6 +1632,15 @@
 										"If you haven't chosen your class yet, do so now, keeping in mind your background and all the other details you have established so far. Once you've made your selection, roll a {@dice d6} and find the number you rolled on the appropriate table in this section, which describes how you came to be a member of that class.",
 										"The class sections earlier in this chapter have further story suggestions, which you can use in concert with the material here.",
 										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/XGE/c1042.webp"
+											},
+											"width": 624,
+											"height": 1000
+										},
+										{
 											"type": "tableGroup",
 											"name": "I became...",
 											"tables": [
@@ -2051,6 +2115,15 @@
 							"entries": [
 								"No matter how long you've been alive, you have experienced at least one signature event that has markedly influenced your character. Life events include wondrous happenings and tragedies, conflicts and successes, and encounters with the unusual. They can help to explain why your character became an adventurer, and some might still affect your life even after they are long over.",
 								"The older a character is, the greater the chance for multiple life events, as shown on the Life Events by Age table. If you have already chosen your character's starting age, see the entry in the Life Events column that corresponds to how old you are. Otherwise, you can roll dice to determine your current age and number of life events randomly.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/XGE/c1043.webp"
+									},
+									"width": 1000,
+									"height": 958
+								},
 								"After you know the number of life events your character has experienced, roll once on the Life Events table for each of them. Many of the results on that table direct you to one of the secondary tables that follow. Once you have determined all of your character's life events, you can arrange them in any chronological order you see fit.",
 								{
 									"type": "table",
@@ -2661,6 +2734,15 @@
 							"entries": [
 								"The supplemental tables below give you a way to randomly determine characteristics and other facts about individuals who are part of your character's life. Use these tables when directed to do so by another table, or when you simply want to come up with a piece of information quickly. The tables are in alphabetical order.",
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/XGE/c1044.webp"
+									},
+									"width": 683,
+									"height": 1000
+								},
+								{
 									"type": "table",
 									"caption": "Alignment",
 									"colLabels": [
@@ -3144,6 +3226,15 @@
 						}
 					],
 					"id": "02c"
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/XGE/c1045.webp"
+					},
+					"width": 610,
+					"height": 1000
 				}
 			],
 			"id": "010"
@@ -3309,6 +3400,15 @@
 							"page": 78,
 							"entries": [
 								"The following sections go into detail about the tools presented in the player's handbook, offering advice on how to use them in a campaign.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/XGE/c2001.webp"
+									},
+									"width": 697,
+									"height": 1000
+								},
 								{
 									"type": "entries",
 									"name": "Components",
@@ -4220,6 +4320,15 @@
 							"id": "054"
 						},
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/XGE/c2005.webp"
+							},
+							"width": 1000,
+							"height": 689
+						},
+						{
 							"type": "entries",
 							"name": "Step 5: Add Flavor",
 							"page": 90,
@@ -4585,6 +4694,15 @@
 									"id": "05f"
 								},
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/XGE/c2021.webp"
+									},
+									"width": 1000,
+									"height": 618
+								},
+								{
 									"type": "entries",
 									"name": "Running a Simple Trap",
 									"page": 113,
@@ -4631,6 +4749,15 @@
 								}
 							],
 							"id": "066"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/XGE/c2022.webp"
+							},
+							"width": 764,
+							"height": 1000
 						},
 						{
 							"type": "entries",
@@ -4960,6 +5087,15 @@
 										}
 									],
 									"id": "073"
+								},
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/XGE/c2024.webp"
+									},
+									"width": 579,
+									"height": 1000
 								},
 								{
 									"type": "entries",
@@ -5567,6 +5703,15 @@
 									"id": "096"
 								},
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/XGE/c2025.webp"
+									},
+									"width": 1000,
+									"height": 643
+								},
+								{
 									"type": "entries",
 									"name": "Carousing",
 									"page": 126,
@@ -5843,6 +5988,15 @@
 												"If all the above requirements are met, the result of the process is an item of the desired sort. A character can sell an item crafted in this way at its listed price."
 											],
 											"id": "09f"
+										},
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/XGE/c2026.webp"
+											},
+											"width": 721,
+											"height": 1000
 										},
 										{
 											"type": "entries",
@@ -6569,6 +6723,15 @@
 														]
 													]
 												},
+												{
+													"type": "image",
+													"href": {
+														"type": "internal",
+														"path": "book/XGE/c2027.webp"
+													},
+													"width": 695,
+													"height": 1000
+												},
 												"Each piece of lore is the equivalent of one true statement about a person, place, or thing. Examples include knowledge of a creature's resistances, the password needed to enter a sealed dungeon level, the spells commonly prepared by an order of wizards, and so on.",
 												"As DM, you are the final arbiter concerning exactly what a character learns. For a monster or an NPC, you can reveal elements of statistics or personality. For a location, you can reveal secrets about it, such as a hidden entrance, the answer to a riddle, or the nature of a creature that guards the place."
 											],
@@ -6908,6 +7071,15 @@
 										}
 									],
 									"id": "0be"
+								},
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/XGE/c2028.webp"
+									},
+									"width": 794,
+									"height": 1000
 								},
 								{
 									"type": "entries",
@@ -7408,7 +7580,16 @@
 			"entries": [
 				"Many of the character classes in the player's handbook harness magic in the form of spells. This chapter provides new spells for those classes, as well as for spellcasting monsters. The Dungeon Master decides which of these spells are available in a campaign and how they can be learned. For example, a DM might decide that some of the spells are freely available, that others are unobtainable, and that a handful can be found only after a special quest, perhaps discovered in a long-lost tome of magic. Wizard spells, in particular, can be introduced to a campaign in spellbooks found as treasure.",
 				"When a DM adds spells to a campaign, clerics, druids, and paladins require special consideration. When characters of those classes prepare their spells, they have access to the entire spell list for their class. Given that fact, the DM should be cautious about making all of these new spells available to a player who is overwhelmed when presented with many options. For such a player, consider adding only story-appropriate spells to the spell list of that player's character.",
-				"See the full list of spells from {@i Xanathar's Guide to Everything} on the {@filter Spells|spells|source=XGE} page."
+				"See the full list of spells from {@i Xanathar's Guide to Everything} on the {@filter Spells|spells|source=XGE} page.",
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/XGE/c3001.webp"
+					},
+					"width": 957,
+					"height": 1000
+				}
 			],
 			"id": "0d7"
 		},
@@ -7548,8 +7729,17 @@
 			"entries": [
 				"Some players and DMs have a knack for coming up with  character names on the fly, while others find that task  more of a challenge. The tables in this appendix are  designed to make life easier for both kinds of people,  whether you're naming a player character, a nonplayer  character, a monster, or even a place.",
 				"Each table contains names that are associated with  a nonhuman character race in the player's handbook or a real-world ethnic or language group, with a focus  on groups from antiquity and the Middle Ages. You can select from the possibilities here, or use dice to determine a name.",
-				"Even though names are associated with races in this  appendix, a character might not have a name from their  own race. For instance, a half-orc might have grown up  among dwarves and have a dwarven name. Or, as DM,  you might decide that dragonborn in your campaign  have a culture reminiscent of ancient Rome and therefore use Roman names, rather than the dragonborn  names suggested here.",
-				"See the {@5etools names|names.html} page for the full collection of name tables."
+				"Even though names are associated with races in this  appendix, a character might not have a name from their  own race. For instance, a half-orc might have grown up  among dwarves and have a dwarven name. Or, as DM,  you might decide that dragonborn in your campaign  have a culture reminiscent of ancient Rome and therefore use Roman names, rather than the dragonborn names suggested here.",
+				"See the {@5etools names|names.html} page for the full collection of name tables.",
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/XGE/ab001.webp"
+					},
+					"width": 1000,
+					"height": 403
+				}
 			],
 			"id": "0e3"
 		}

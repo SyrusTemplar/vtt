@@ -74,6 +74,38 @@ MultiFilterClasses._DEFAULT_META = {
 };
 
 class PageFilterSpells extends PageFilter {
+	// toss these into the "Tags" section to save screen space
+	static _META_ADD_CONC = "Concentration";
+	static _META_ADD_V = "Verbal";
+	static _META_ADD_S = "Somatic";
+	static _META_ADD_M = "Material";
+	static _META_ADD_R = "Royalty";
+	static _META_ADD_M_COST = "Material with Cost";
+	static _META_ADD_M_CONSUMED = "Material is Consumed";
+	static _META_ADD_M_CONSUMED_OPTIONAL = "Material is Optionally Consumed";
+
+	static F_RNG_POINT = "Point";
+	static F_RNG_SELF_AREA = "Self (Area)";
+	static F_RNG_SELF = "Self";
+	static F_RNG_TOUCH = "Touch";
+	static F_RNG_SPECIAL = "Special";
+
+	static _META_FILTER_BASE_ITEMS = [
+		this._META_ADD_CONC,
+		this._META_ADD_V,
+		this._META_ADD_S,
+		this._META_ADD_M,
+		this._META_ADD_R,
+		this._META_ADD_M_COST,
+		this._META_ADD_M_CONSUMED,
+		this._META_ADD_M_CONSUMED_OPTIONAL,
+		...Object.keys(Parser.SP_MISC_TAG_TO_FULL),
+	];
+
+	static INCHES_PER_FOOT = 12;
+	static FEET_PER_YARD = 3;
+	static FEET_PER_MILE = 5280;
+
 	// region static
 	static sortSpells (a, b, o) {
 		switch (o.sortBy) {
@@ -132,8 +164,8 @@ class PageFilterSpells extends PageFilter {
 		if ((!s.miscTags || (s.miscTags && !s.miscTags.includes("SCL"))) && s.entriesHigherLevel) out.push("SCL");
 		if (s.srd) out.push("SRD");
 		if (s.basicRules) out.push("Basic Rules");
-		if (s.hasFluff) out.push("Has Info");
-		if (s.hasFluffImages) out.push("Has Images");
+		if (s.hasFluff || s.fluff?.entries) out.push("Has Info");
+		if (s.hasFluffImages || s.fluff?.images) out.push("Has Images");
 		return out;
 	}
 
@@ -217,6 +249,7 @@ class PageFilterSpells extends PageFilter {
 		const dist = range.distance;
 		switch (dist.type) {
 			case Parser.UNT_FEET: state.multiplier = PageFilterSpells.INCHES_PER_FOOT; state.distance = dist.amount; break;
+			case Parser.UNT_YARDS: state.multiplier = PageFilterSpells.INCHES_PER_FOOT * PageFilterSpells.FEET_PER_YARD; state.distance = dist.amount; break;
 			case Parser.UNT_MILES: state.multiplier = PageFilterSpells.INCHES_PER_FOOT * PageFilterSpells.FEET_PER_MILE; state.distance = dist.amount; break;
 			case Parser.RNG_SELF: state.distance = 0; break;
 			case Parser.RNG_TOUCH: state.distance = 1; break;
@@ -463,7 +496,8 @@ class PageFilterSpells extends PageFilter {
 			...s._fClasses,
 			...s._fVariantClasses
 				.map(it => (it.userData.definedInSource && !SourceUtil.isNonstandardSource(it.userData.definedInSource)) ? new FilterItem({item: it.userData.equivalentClassName}) : null)
-				.filter(Boolean),
+				.filter(Boolean)
+				.filter(it => !s._fClasses.some(itCls => itCls.item === it.item)),
 		];
 		s._fRaces = Renderer.spell.getCombinedGeneric(s, {propSpell: "races", prop: "race"}).map(PageFilterSpells.getRaceFilterItem);
 		s._fBackgrounds = Renderer.spell.getCombinedGeneric(s, {propSpell: "backgrounds", prop: "background"}).map(it => it.name);
@@ -579,26 +613,6 @@ class PageFilterSpells extends PageFilter {
 		);
 	}
 }
-// toss these into the "Tags" section to save screen space
-PageFilterSpells._META_ADD_CONC = "Concentration";
-PageFilterSpells._META_ADD_V = "Verbal";
-PageFilterSpells._META_ADD_S = "Somatic";
-PageFilterSpells._META_ADD_M = "Material";
-PageFilterSpells._META_ADD_R = "Royalty";
-PageFilterSpells._META_ADD_M_COST = "Material with Cost";
-PageFilterSpells._META_ADD_M_CONSUMED = "Material is Consumed";
-PageFilterSpells._META_ADD_M_CONSUMED_OPTIONAL = "Material is Optionally Consumed";
-
-PageFilterSpells.F_RNG_POINT = "Point";
-PageFilterSpells.F_RNG_SELF_AREA = "Self (Area)";
-PageFilterSpells.F_RNG_SELF = "Self";
-PageFilterSpells.F_RNG_TOUCH = "Touch";
-PageFilterSpells.F_RNG_SPECIAL = "Special";
-
-PageFilterSpells._META_FILTER_BASE_ITEMS = [PageFilterSpells._META_ADD_CONC, PageFilterSpells._META_ADD_V, PageFilterSpells._META_ADD_S, PageFilterSpells._META_ADD_M, PageFilterSpells._META_ADD_R, PageFilterSpells._META_ADD_M_COST, PageFilterSpells._META_ADD_M_CONSUMED, PageFilterSpells._META_ADD_M_CONSUMED_OPTIONAL, ...Object.keys(Parser.SP_MISC_TAG_TO_FULL)];
-
-PageFilterSpells.INCHES_PER_FOOT = 12;
-PageFilterSpells.FEET_PER_MILE = 5280;
 
 globalThis.PageFilterSpells = PageFilterSpells;
 
@@ -706,17 +720,12 @@ class ModalFilterSpells extends ModalFilter {
 globalThis.ModalFilterSpells = ModalFilterSpells;
 
 class ListSyntaxSpells extends ListUiUtil.ListSyntax {
-	static _INDEXABLE_PROPS = [
+	static _INDEXABLE_PROPS_ENTRIES = [
 		"entries",
 		"entriesHigherLevel",
 	];
-
-	_getSearchCacheStats (entity) {
-		if (this.constructor._INDEXABLE_PROPS.every(it => !entity[it])) return "";
-		const ptrOut = {_: ""};
-		this.constructor._INDEXABLE_PROPS.forEach(it => this._getSearchCache_handleEntryProp(entity, it, ptrOut));
-		return ptrOut._;
-	}
 }
+
+globalThis.ListSyntaxSpells = ListSyntaxSpells;
 
 globalThis.PageFilterSpells = PageFilterSpells;

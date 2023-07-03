@@ -3550,6 +3550,33 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Dungeon Master's Screen: Spelljammer",
+			"id": "ScreenSpelljammer",
+			"source": "ScreenSpelljammer",
+			"group": "screen",
+			"coverUrl": "img/covers/ScreenSpelljammer.png",
+			"published": "2022-08-16",
+			"contents": [
+				{
+					"name": "Screen"
+				}
+			]
+		},
+		{
+			"name": "Thieves' Gallery",
+			"id": "HAT-TG",
+			"source": "HAT-TG",
+			"group": "supplement-alt",
+			"coverUrl": "img/covers/TG.png",
+			"published": "2023-03-06",
+			"author": "Wizards RPG Team",
+			"contents": [
+				{
+					"name": "Thieves' Gallery"
+				}
+			]
 		}
 	]
 }

@@ -4,6 +4,7 @@
 
 !manifest.webmanifest
 !sw.js
+!sw-injector.js
 
 !*.html
 !*.png
@@ -14,10 +15,12 @@
 !css
 !data
 !fonts
+!homebrew
 !icon
 !image
 !img
 !js
 !lib
 !pdf
+!prerelease
 !search

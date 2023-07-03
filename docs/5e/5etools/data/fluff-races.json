@@ -406,6 +406,44 @@
 			}
 		},
 		{
+			"name": "Aetherborn",
+			"source": "PSK",
+			"entries": [
+				"When the events of a lifetime are compressed down to almost nothing, each fleeting moment must be savored\u2014drained of every drop of enjoyment it can offer. This is the philosophy that informs the lives and minds of the aetherborn. Given just a few short years\u2014or sometimes only a few months\u2014to live, each aetherborn views time as exceedingly precious. Each moment spent in a way that does not bring delight is a wasted moment. And though aetherborn differ in their drives and pleasures, nearly all of them share this desire to squeeze the most out of the brief time they are given.",
+				"Aetherborn come into being spontaneously as part of the aether refinement process. Their bodies and minds are apparently formed out of some interaction between the volatile elements of aether that are removed during refinement and the psychic impressions created by the people involved in the process. But each aetherborn is a unique individual, not a mere copy of some other person's mind and shape. This race is little understood, and few aetherborn are willing to waste any of their short lives allowing vedalken scholars to study their biological and psychological characteristics.",
+				{
+					"type": "entries",
+					"name": "Aetherborn and Gender",
+					"entries": [
+						"Aetherborn are a strange living by-product of the process of aether refinement, cast in humanoid form but lacking any of the biological qualities of other races. They don't eat or sleep, and they don't reproduce\u2014nor do they have any physical sexual characteristics. Language that categorizes people into male or female categories thus breaks down when it comes to aetherborn. Most aetherborn prefer that others use the pronoun \"they\" to refer to them, since it doesn't attribute a gender that they don't possess. Only a relative few prefer \"he\" or \"she,\" having chosen to adopt a gender."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Aetherborn Politics",
+					"entries": [
+						"The relationship between aetherborn and the Consulate is complicated. On the one hand, aetherborn understand that their race wouldn't exist without the Consulate's aether refining operations, so they feel at least some motivation to ensure that those operations continue to run smoothly. On the other hand, few aetherborn have any patience for the tedious and cumbersome politics and regulations of the Consulate, which gives them at least a little sympathy with renegade philosophy. Typically, aetherborn are drawn to one side or the other more by the lure of excitement and entertainment than by any serious political beliefs."
+					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSK/Aetherborn.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSK/Aetherborn2.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Astral Elf",
 			"source": "AAG",
 			"entries": [
@@ -578,6 +616,24 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSA/Aven2.webp"
+					}
+				}
+			]
+		},
+		{
+			"name": "Aven",
+			"source": "PSD",
+			"entries": [
+				"Following the devastation of the distant continent of Otaria in Karona's War some two and a half centuries ago, people of many races left that land to find refuge elsewhere. Among them were the birdlike people called aven, who were largely unknown outside of Otaria prior to their exodus. Rather than dispersing around the world and assimilating into local cultures, they wandered in great flocks, forming separate communities in a few hospitable locations. The largest such flock settled in Benalia, where its people submitted themselves to Benalish law in exchange for hospitality. The aven have no representation on the Council of Seven, but many hope to see that change.",
+				"Aven have humanlike bodies, arms, and legs, with wings and heads resembling those of eagles. Their lean forms are covered with feathers, and their arms and legs all end in sharp talons.",
+				"Aven form their own airborne companies, or wings, within the Benalish army. They serve as soldiers, battle priests, and occasionally heroes, but do not become knights except under truly exceptional circumstances. Worship of Serra is all but universal among the aven because of syncretistic fusion with their traditional religious beliefs, and many aven are Serran acolytes."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSD/Aven.webp"
 					}
 				}
 			]
@@ -1338,6 +1394,14 @@
 			]
 		},
 		{
+			"name": "Dragonborn (Base)",
+			"source": "PHB",
+			"_copy": {
+				"name": "Dragonborn",
+				"source": "PHB"
+			}
+		},
+		{
 			"name": "Dragonborn (Chromatic)",
 			"source": "FTD",
 			"entries": [
@@ -1647,6 +1711,39 @@
 					}
 				}
 			}
+		},
+		{
+			"name": "Dwarf (Kaladesh)",
+			"source": "PSK",
+			"entries": [
+				"To the artisans of Kaladesh, a device's beauty is almost as important as its function. Different artists, though, have different definitions of beauty, and to most dwarves, the highest mark of beauty is quality. Nothing is more exquisite than a machine that endures\u2014one that functions perfectly, with a minimum of maintenance, despite the passage of years.",
+				"Dwarves don't understand laziness or shortcuts. Just as a machine must function smoothly at all times, so too an artisan should work steadily and with care. Dwarves take pride in their work ethic, and abhor any attitude or behavior that would undermine the quality of their work. They are more thorough than speedy, and although a dwarf's work might take longer to complete, its quality makes the time worthwhile. If a job must be done, a dwarf will see that it is done correctly. And when a dwarf repairs a machine, it will work as well as it did when it was first built, if not better\u2014and it will last.",
+				"Among the folk of other races, dwarves have a reputation for being utterly fearless. This is largely because their work often finds them scaling tall buildings or hanging from the undersides of airships. Far from being reckless, though, dwarves enter any potentially dangerous situation with firm safeguards in place, thoroughly prepared to avoid any accident. With an unshakable trust in the quality of harnesses, scaffolding, and handiwork, a dwarf has no need to fear falling.",
+				{
+					"type": "entries",
+					"name": "Dwarf Politics",
+					"entries": [
+						"Dwarves gravitate to where the work is. Accordingly, many dwarves appreciate the Consulate as an inexhaustible source of work opportunities. For its part, the Consulate values dwarves for their painstaking, perfectionist approach to building and maintenance. As a result, dwarves are employed at every level of the Consulate government, including having representatives among the Enlightened Keepers, the consuls themselves. Dwarf edificers keep the machinery of the cities running smoothly, while dwarf enforcers protect property and help keep the peace. However, it is the potential for making great things, more so than any philosophical leaning, that ties most dwarves to the Consulate.",
+						"Dwarves are not typically drawn to politics, but some do take issue with what they see as slapdash construction carried out in the Consulate's foundries. Mass production on the scale of the Consulate's efforts is an affront to the ideals of true artisanship, they argue, and those who are most offended by this insult sometimes align themselves with renegade groups."
+					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSK/Dwarf.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSK/Dwarf2.webp"
+					}
+				}
+			]
 		},
 		{
 			"name": "Dwarf (Mountain)",
@@ -2182,6 +2279,81 @@
 			}
 		},
 		{
+			"name": "Elf (Kaladesh)",
+			"source": "PSK",
+			"entries": [
+				"The movement of aether through the world is visible and obvious where it courses in glowing rivers across the sky, sweeps across sculpted plains, or pours through great urban pipelines. But the elves of Kaladesh are uniquely in tune with the flow of aether throughout the plane, both seen and unseen, and with the subtle ways it suffuses and influences all life. They call this flow the Great Conduit, and they believe that the only way to truly grasp it is to be a part of it, simultaneously shaping it and being shaped in return.",
+				"Thanks to this sensitivity, elves feel a deep connection to other living things. They engage deeply with the world around them, delighting in natural systems and social interactions alike. They revel in exploring the interconnectedness of nature and society, seeing the flow of aether from nature to invention, from person to person, from body to mind and heart.",
+				"Elves live in harmony with both nature and technology. They believe that nature inspires technology: each piece of artifice is an expression of natural laws and principles, and captures one element of aether's flow in a sort of microcosmic system. Technology, in turn, can nurture the natural world, helping life grow and flourish in places and ways that would otherwise be impossible."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSK/Elf.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSK/Elf2.webp"
+					}
+				}
+			]
+		},
+		{
+			"name": "Elf (Kaladesh; Bishatar and Tirahar)",
+			"source": "PSK",
+			"_copy": {
+				"name": "Elf (Kaladesh)",
+				"source": "PSK",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "section",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Elves who dwell in the forest and countryside are known as the Bishtahar. Most live in isolated communities away from other races, though they still trade with them. In fact, much of Kaladesh's food supply is grown by elves. Bishtahar cultivators grow food, decorative flowers, wood for building, and elaborate living sculptures in their meandering gardens and fields. They use the plane's ubiquitous technology to foster the growth of plants and animals, utilizing automatons as gardeners and herders, and employing elaborate, nearly invisible systems controlling heat, water, and nutrients.",
+										"A garden tended by elves seems to grow naturally in an aesthetically pleasing fashion. In fact, many of the forests and plains of Kaladesh are planted and tended by elves as well. What might appear at first to be wild countryside is more likely a carefully planned landscape designed to meet the needs of the people and animals that live there.",
+										"Elves who forsake technology entirely are called the Tirahar. Some elves with Tirahar sympathies live within cities or farms, but most simply withdraw to the wilder areas of Kaladesh. No more than one in a hundred elves is counted among the Tirahar, and many members of other races are unaware that these reclusive elves even exist."
+									]
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		{
+			"name": "Elf (Kaladesh; Vahadar)",
+			"source": "PSK",
+			"_copy": {
+				"name": "Elf (Kaladesh)",
+				"source": "PSK",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "section",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"The Vahadar are elves who dwell in the cities of Kaladesh. They are comfortable with technology, and work as planners, architects, aether-seers, or inventors. Some of them use the techniques of Bishtahar cultivators to grow food on rooftops, towers, and greenways. The Vahadar are generally integrated into the rest of society on Kaladesh, living in cities dominated by the other races (though, as in Ghirapur, many of them live in specific garden-like neighborhoods) and engaging in trade."
+									]
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		{
 			"name": "Elf (Pallid)",
 			"source": "EGW",
 			"_copy": {
@@ -2305,6 +2477,22 @@
 						}
 					]
 				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Elf.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Elf2.webp"
+					}
+				}
 			]
 		},
 		{
@@ -2329,7 +2517,23 @@
 						}
 					}
 				}
-			}
+			},
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Elf.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Elf2.webp"
+					}
+				}
+			]
 		},
 		{
 			"name": "Elf (Zendikar; Mul Daya Nation)",
@@ -2354,7 +2558,23 @@
 						}
 					}
 				}
-			}
+			},
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Elf.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Elf2.webp"
+					}
+				}
+			]
 		},
 		{
 			"name": "Elf (Zendikar; Tajuru Nation)",
@@ -2378,7 +2598,23 @@
 						}
 					}
 				}
-			}
+			},
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Elf.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Elf2.webp"
+					}
+				}
+			]
 		},
 		{
 			"name": "Fairy",
@@ -3288,6 +3524,13 @@
 											"entries": [
 												"In the Forgotten Realms, deep gnomes live within a perilous, subterranean world known as the Underdark. This maze of caverns and tunnels is home to some of the most feared creatures in Faerûn. Because of this, the svirfneblin that dwell here are much more distrusting and wary than their kin on other worlds. Rarely do they allow strangers within their midst, and those that they must deal with are kept at arms length. If one is lucky enough to be trusted by the deep gnomes, they are a friend for life. For the svirfneblin of the Underdark, genuine trust is a commodity far more valuable than gold."
 											]
+										},
+										{
+											"type": "inset",
+											"name": "Deep Gnome Feat",
+											"entries": [
+												"If your DM allows the use of feats, your deep gnome character has the option of taking the following feat: {@feat Svirfneblin Magic|MTF}."
+											]
 										}
 									]
 								}
@@ -3454,6 +3697,23 @@
 			]
 		},
 		{
+			"name": "Goblin (Ixalan)",
+			"source": "PSX",
+			"entries": [
+				"Goblins are native to Ixalan, and their eager curiosity drew them to the ships of the Brazen Coalition when the pirates first made landfall on the Sun Empire's shores. Though they still thrive in remote jungle colonies, goblins are most commonly seen swinging on the ropes of sleek pirate ships.",
+				"Goblins stand about three feet tall, though they rarely stand upright. They prefer a crouched posture that lets them scramble quickly on all fours, aided by their long prehensile tails. Their hearing and eyesight make them excellent lookouts, and their agility serves them well as crew members on pirate ships. They climb, swing, and jump easily among a ship's ropes, and can get into tight spaces that humans can't. For better or worse, many goblins are also incorrigible pranksters, and they often have a hard time determining when a prank is inappropriate, is poorly timed, or has gone too far."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Goblin.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Goblin (Zendikar)",
 			"source": "PSZ",
 			"entries": [
@@ -3471,6 +3731,22 @@
 							]
 						}
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Goblin.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Goblin2.webp"
+					}
 				}
 			]
 		},
@@ -3496,7 +3772,23 @@
 						}
 					}
 				}
-			}
+			},
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Goblin.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Goblin2.webp"
+					}
+				}
+			]
 		},
 		{
 			"name": "Goblin (Zendikar; Lavastep Tribe)",
@@ -3520,7 +3812,23 @@
 						}
 					}
 				}
-			}
+			},
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Goblin.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Goblin2.webp"
+					}
+				}
+			]
 		},
 		{
 			"name": "Goblin (Zendikar; Tuktuk Tribe)",
@@ -3544,7 +3852,23 @@
 						}
 					}
 				}
-			}
+			},
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Goblin.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Goblin2.webp"
+					}
+				}
+			]
 		},
 		{
 			"name": "Goliath",
@@ -3729,6 +4053,14 @@
 			]
 		},
 		{
+			"name": "Half-Elf (Base)",
+			"source": "PHB",
+			"_copy": {
+				"name": "Half-Elf",
+				"source": "PHB"
+			}
+		},
+		{
 			"name": "Half-Orc",
 			"source": "PHB",
 			"uncommon": true,
@@ -3800,6 +4132,14 @@
 					}
 				}
 			]
+		},
+		{
+			"name": "Half-Orc (Base)",
+			"source": "PHB",
+			"_copy": {
+				"name": "Half-Orc",
+				"source": "PHB"
+			}
 		},
 		{
 			"name": "Halfling",
@@ -4555,6 +4895,193 @@
 			]
 		},
 		{
+			"name": "Human (Base)",
+			"source": "PHB",
+			"_copy": {
+				"name": "Human",
+				"source": "PHB"
+			}
+		},
+		{
+			"name": "Human (Innistrad)",
+			"source": "PSI",
+			"entries": [
+				"Innistrad's population is mostly human, and player characters in an Innistrad campaign should be human in most circumstances. However, the humans of Kessig are different in many respects from those of Gavony, and Nephalia's urban culture is very distinct from the shadow-draped land of Stensia. Diversity among player characters comes not from race, but from each character's home province."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSI/Innistrad.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSI/Innistrad2.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSI/Innistrad3.webp"
+					}
+				}
+			]
+		},
+		{
+			"name": "Human (Innistrad; Gavony)",
+			"source": "PSI",
+			"_copy": {
+				"name": "Human (Innistrad)",
+				"source": "PSI",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "section",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Whether safe behind the walls of the High City of Thraben or out in the moors with little more than shuttered windows, barred doors, and grim determination to stand against the horrors of the night, the humans of Gavony are the most well-rounded people of Innistrad."
+									]
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		{
+			"name": "Human (Innistrad; Kessig)",
+			"source": "PSI",
+			"_copy": {
+				"name": "Human (Innistrad)",
+				"source": "PSI",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "section",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"For the Kessiger, life is work. Kessigers are farmers, millers, weavers, and stonemasons, living close to the land and working hard for every meal. This makes them self-reliant, pragmatic, and plainspoken."
+									]
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		{
+			"name": "Human (Innistrad; Nephalia)",
+			"source": "PSI",
+			"_copy": {
+				"name": "Human (Innistrad)",
+				"source": "PSI",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "section",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Beneath an ever-present shroud of fog billowing in from the sea, the people of Nephalia maintain a semblance of normalcy, buying and selling goods from across Innistrad in their bustling markets, setting out to sea in tiny fishing boats, or tilling the soggy earth in waterlogged fields."
+									]
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		{
+			"name": "Human (Innistrad; Stensia)",
+			"source": "PSI",
+			"_copy": {
+				"name": "Human (Innistrad)",
+				"source": "PSI",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "section",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Countless generations of hardship and proximity to the vampire strongholds\u2014leading to lost children and neighbors\u2014have taught Stensians to guard their hearts. They are proud and fervent in their beliefs but seem brusque or even cold to the people of other provinces."
+									]
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		{
+			"name": "Human (Ixalan)",
+			"source": "PSX",
+			"entries": [
+				"Humans are found throughout the plane of Ixalan, both in the lands of Torrezon (now controlled by the Legion of Dusk) and in the Sun Empire. The vampires of the Legion of Dusk were once human, and the peasant and servant populations they rule still are. As the Legion of Dusk conquered Torrezon, its forces drove many human populations before them, including those who first formed the Free Cities and later fled across the ocean to form the core of the Brazen Coalition."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Human.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Human2.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Human3.webp"
+					}
+				}
+			]
+		},
+		{
+			"name": "Human (Keldon)",
+			"source": "PSD",
+			"entries": [
+				"Hailing from the merciless and barren land of Keld on the far northern continent of Icehaven, the brutal Keldons are hulking, gray-skinned humans. Though they are often perceived as a horde of brutish, unthinking barbarians and a threat to civilization in all its forms, the Keldons have a deep and rich culture that goes back many centuries. Having endured devastation on a massive scale and lived through their own prophesied apocalyptic judgment, today's Keldons fight to be worthy of their glorious ancestors, their unforgiving home, and their strongest champions."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSD/Keldon.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSD/Keldon2.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Human (Zendikar)",
 			"source": "PSZ",
 			"entries": [
@@ -4584,6 +5111,36 @@
 							]
 						}
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Human.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Human2.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Human3.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Human4.webp"
+					}
 				}
 			]
 		},
@@ -4954,6 +5511,22 @@
 							]
 						}
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Kor.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Kor2.webp"
+					}
 				}
 			]
 		},
@@ -5415,6 +5988,70 @@
 			]
 		},
 		{
+			"name": "Merfolk (Ixalan)",
+			"source": "PSX",
+			"entries": [
+				"The River Heralds are merfolk\u2014a race of amphibious humanoids at home throughout the oceans, rivers, and rain forests of Ixalan. They stand between seven and eight feet tall, with skin that ranges from deep burgundy through many shades of violet and blue, to green, bright orange, and yellow. They are humanlike in shape, but have long fins extending from their shoulders, forearms, middle backs, and calves. Frills of fins also protrude from the backs of their heads. All merfolk can breathe air or filter oxygen from the water, and they can walk on land or swim with equal ease."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Merfolk.webp"
+					}
+				}
+			]
+		},
+		{
+			"name": "Merfolk (Ixalan; Blue)",
+			"source": "PSX",
+			"_copy": {
+				"name": "Merfolk (Ixalan)",
+				"source": "PSX",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "section",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Blue merfolk often have burgundy or magenta on their faces and chests, with lighter shades of blue and purple elsewhere. Their eyes are red, orange, or blue, and their long, thin, and elegant fins resemble scarves or veils of fine fabric. They swim easily, even upstream, and clamber over rocks and through rapids with ease. They prefer to dwell in shallow waters, but spend a fair amount of time on land as well."
+									]
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		{
+			"name": "Merfolk (Ixalan; Green)",
+			"source": "PSX",
+			"_copy": {
+				"name": "Merfolk (Ixalan)",
+				"source": "PSX",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "section",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Green merfolk generally have yellow chests and pale green faces, shading to dark blues and purples on their backs and limbs. The patterns on their skin suggest the colors of the tree frogs common in the rain forest, as do their eyes of orange, lime green, or sky blue. Their fins are relatively short and thick. They climb trees with ease, move through undergrowth unhindered, and often wield magic to shape vines and branches to their will."
+									]
+								}
+							]
+						}
+					}
+				}
+			}
+		},
+		{
 			"name": "Merfolk (Zendikar)",
 			"source": "PSZ",
 			"entries": [
@@ -5432,6 +6069,22 @@
 							]
 						}
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Merfolk.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Merfolk2.webp"
+					}
 				}
 			]
 		},
@@ -5457,7 +6110,23 @@
 						}
 					}
 				}
-			}
+			},
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Merfolk.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Merfolk2.webp"
+					}
+				}
+			]
 		},
 		{
 			"name": "Merfolk (Zendikar; Emeria Creed)",
@@ -5481,7 +6150,23 @@
 						}
 					}
 				}
-			}
+			},
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Merfolk.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Merfolk2.webp"
+					}
+				}
+			]
 		},
 		{
 			"name": "Merfolk (Zendikar; Ula Creed)",
@@ -5505,7 +6190,23 @@
 						}
 					}
 				}
-			}
+			},
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Merfolk.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Merfolk2.webp"
+					}
+				}
+			]
 		},
 		{
 			"name": "Minotaur",
@@ -5847,6 +6548,23 @@
 					"href": {
 						"type": "internal",
 						"path": "races/VGM/Orc.png"
+					}
+				}
+			]
+		},
+		{
+			"name": "Orc (Ixalan)",
+			"source": "PSX",
+			"entries": [
+				"Orcs originally came from the same mountainous region where the kingdom of Torrezon was born, and they have been enemies of the Legion of Dusk since it was originally formed. The entire race has been declared anathema by the Church of Torrezon, and after centuries of fighting the Legion, the orcs have dwindled to only a few hundred in number. Some still live on remote islands near Torrezon, but many have joined the Brazen Coalition to serve on pirate ships\u2014taking on any role that calls for an abundance of sheer muscle.",
+				"Orcs are tall, standing head and shoulders above most humans, and are generally twice as broad. They often accentuate their bulging muscles by wearing tight-fitting bands and accessories around the thickest parts of their arms and necks. Their skin color ranges from light brown through gray to almost jet-black."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Orc.webp"
 					}
 				}
 			]
@@ -6654,6 +7372,23 @@
 			]
 		},
 		{
+			"name": "Siren",
+			"source": "PSX",
+			"entries": [
+				"Sirens are at home along the waters of the Stormwreck Sea. They settle on rocky coasts and remote islands, and even on floating piles of kelp. Sirens are mercurial creatures who can turn in an instant from lonely to repulsed, from desirous to hateful, from welcoming to irritated, from loving to murderous\u2014and then back again. They are fascinated with ships, and enjoy toying with them. One siren might call out to a passing crew for company, only to capriciously draw the ship into an entangling mass of kelp. Another might lure a vessel onto jagged rocks so as to study the wreckage and learn more about the strange contraption. But as the number of Brazen Coalition ships passing through siren-controlled waters has increased over the years, a growing number of sirens have decided to satisfy their curiosity by taking positions on ship crews\u2014including, in at least one case, the position of captain.",
+				"Sirens are humanoid creatures with birdlike features. Their long, slender arms extend into powerful wings that easily carry their light frames into the air. Their fingers bear sharp claws but are nimble enough to wield weapons and perform fine manipulation. Crests of feathery plumage start"
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Siren.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Tabaxi",
 			"source": "MPMM",
 			"entries": [
@@ -7027,6 +7762,14 @@
 						}
 					}
 				}
+			}
+		},
+		{
+			"name": "Tiefling (Base)",
+			"source": "PHB",
+			"_copy": {
+				"name": "Tiefling",
+				"source": "PHB"
 			}
 		},
 		{
@@ -7593,6 +8336,32 @@
 			]
 		},
 		{
+			"name": "Vampire (Ixalan)",
+			"source": "PSX",
+			"entries": [
+				"The Legion of Dusk is dominated by an aristocratic class made up of vampires. They are faster and stronger than most humans, and gifted with supernatural abilities that made them the most formidable force in their homeland. Now, as they push into the depths of Ixalan in search of the Immortal Sun, they bring this strength to bear against all who would resist their advance.",
+				"For many vampires, the Rite of Redemption that transforms a human into a vampire is an act of personal sacrifice, paving the way for a promised glorious age. These vampires embody Torrezon's noble tradition in Ixalan. They are often guided by their dual loyalties to church and crown, believing that the monarch acts with righteous purpose. As such, these vampires carry themselves with a self-assurance that is both imposing and imperial. Other societies seem inferior and unclean compared to their own, leading them to feel that they have a right to claim new lands despite the presence of people already inhabiting those lands.",
+				"Other vampires view vampirism merely as a means to attain a powerful advantage over others. These vampires are fierce, ruthless, and often cruel, relishing conflict\u2014be it political or armed\u2014as a means of demonstrating their superiority. Many are politically ambitious, invoking Torrezon's hierarchy when it serves their interests, but ignoring all the rules of church, state, and morality when those rules become a burden. When these vampires come to Ixalan, they are conquerors, motivated by the prospect of personal glory and the accumulation of riches. Those who achieve wealth and power display it ostentatiously.",
+				"The core of every vampire's nature is the Feast of Blood. Though it is forbidden to feed on human citizens of Torrezon, including the human sailors and servants who accompany the vampire conquistadors to Ixalan, vampires are encouraged to feed on outsiders and heretics. The Feast of Blood sends new life essence flowing through the vampire who partakes of it, manifesting as even greater strength and speed."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Vampire.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Vampire2.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Vampire (Zendikar)",
 			"source": "PSZ",
 			"entries": [
@@ -7610,6 +8379,22 @@
 							]
 						}
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Vampire.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Vampire2.webp"
+					}
 				}
 			]
 		},
@@ -7681,6 +8466,38 @@
 					"href": {
 						"type": "internal",
 						"path": "races/GGR/Vedalken.png"
+					}
+				}
+			]
+		},
+		{
+			"name": "Vedalken",
+			"source": "PSK",
+			"entries": [
+				"Vedalken have an unusual view of progress. They believe that nothing is perfect, nor can it ever be perfect\u2014and they rejoice in this. Every imperfection is a chance for improvement, and progress is an endless march toward a state of perfection that can never actually be reached. Thus, pointing out imperfection is hardly an insult\u2014which leads vedalken to note flaws and problems with an enthusiasm that members of other races sometimes find exasperating.",
+				"This enthusiasm extends to every aspect of vedalken work, both practical and theoretical. They are curious and excitable, and often become deeply engrossed in their labors. It's not uncommon for a vedalken to spend hours on end caught up in the details of an abstract question or a minute engineering problem. Vedalken can be utterly oblivious to their surroundings while meditating on thorny issues, and they are prone to launching into lengthy explanations of their current research, since most find that talking about a problem often leads to a solution.",
+				"As a rule, vedalken are gregarious in conversation. However, they are quite circumspect concerning their personal lives, and they engage more with ideas than with people. They form close friendships based around mutual interests or compelling disagreements, and their interactions focus on their thoughts about those issues rather than their feelings about them. Emotional dynamics don't particularly interest vedalken, either as a conversational topic or a field of study. When they talk about their feelings, it is primarily to provide information that might be helpful to others. For example, a vedalken might tell her colleagues, \"I'm feeling irritated right now, so I might not be reacting appropriately. Perhaps we should continue this later.\" But any questions about the cause of the irritation are likely to be brushed off as being irrelevant to the situation.",
+				{
+					"type": "entries",
+					"name": "Vedalken Politics",
+					"entries": [
+						"Most vedalken care far more about invention and inquiry than about politics. They would rather unlock the hidden potential of aether-based devices than dwell on the question of how aether should be distributed to the Consulate's citizens. For that reason, though vedalken are found both among the officials of the Consulate and among the renegades, their dedication to either cause often lacks the partisan fervor found in the members of other races"
+					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSK/Vedalken.webp"
+					}
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSK/Vedalken2.webp"
 					}
 				}
 			]

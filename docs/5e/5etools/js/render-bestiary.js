@@ -26,6 +26,8 @@ class RenderBestiary {
 		const fnGetSpellTraits = Renderer.monster.getSpellcastingRenderedTraits.bind(Renderer.monster, renderer);
 		const allTraits = Renderer.monster.getOrderedTraits(mon, {fnGetSpellTraits});
 		const allActions = Renderer.monster.getOrderedActions(mon, {fnGetSpellTraits});
+		const allBonusActions = Renderer.monster.getOrderedBonusActions(mon, {fnGetSpellTraits});
+		const allReactions = Renderer.monster.getOrderedReactions(mon, {fnGetSpellTraits});
 		const legGroup = DataUtil.monster.getMetaGroup(mon);
 
 		const renderedVariants = Renderer.monster.getRenderedVariants(mon, {renderer});
@@ -34,6 +36,11 @@ class RenderBestiary {
 
 		const hasToken = mon.tokenUrl || mon.hasToken;
 		const extraThClasses = hasToken ? ["mon__name--token"] : null;
+
+		const ptsResource = mon.resource?.length
+			? mon.resource
+				.map(res => `<tr><td colspan="6"><div ${hasToken ? `class="mon__wrp-avoid-token"` : ""}><strong>${res.name}</strong> ${Renderer.monster.getRenderedResource(res)}</div></td></tr>`)
+			: [];
 
 		return $$`
 		${Renderer.utils.getBorderTr()}
@@ -46,15 +53,11 @@ class RenderBestiary {
 
 		<tr><td colspan="6"><div ${hasToken ? `class="mon__wrp-avoid-token"` : ""}><strong>Armor Class</strong> ${Parser.acToFull(mon.ac)}</div></td></tr>
 		<tr><td colspan="6"><div ${hasToken ? `class="mon__wrp-avoid-token"` : ""}><strong>Hit Points</strong> ${Renderer.monster.getRenderedHp(mon.hp)}</div></td></tr>
+		${ptsResource.join("")}
 		<tr><td colspan="6"><strong>Speed</strong> ${Parser.getSpeedString(mon)}</td></tr>
 		<tr><td class="divider" colspan="6"><div></div></td></tr>
 
-		<tr class="mon__ability-names">
-			<th>STR</th><th>DEX</th><th>CON</th><th>INT</th><th>WIS</th><th>CHA</th>
-		</tr>
-		<tr class="mon__ability-scores">
-			${Parser.ABIL_ABVS.map(ab => `<td>${Renderer.utils.getAbilityRoller(mon, ab)}</td>`).join("")}
-		</tr>
+		${Renderer.monster.getRenderedAbilityScores(mon)}
 		<tr><td class="divider" colspan="6"><div></div></td></tr>
 
 		${mon.save ? `<tr><td colspan="6"><strong>Saving Throws</strong> ${Renderer.monster.getSavesPart(mon)}</td></tr>` : ""}
@@ -77,13 +80,13 @@ class RenderBestiary {
 		<tr>${options.selSummonSpellLevel ? $$`<td colspan="6"><strong>Spell Level</strong> ${options.selSummonSpellLevel}</td>` : ""}</tr>
 		<tr>${options.selSummonClassLevel ? $$`<td colspan="6"><strong>Class Level</strong> ${options.selSummonClassLevel}</td>` : ""}</tr>
 
-		${allTraits ? `<tr><td class="divider" colspan="6"><div></div></td></tr>${RenderBestiary._getRenderedSection({prop: "trait", entries: allTraits})}` : ""}
-		${allActions ? `${this._getRenderedSectionHeader({mon, title: "Actions", prop: "action"})}
+		${allTraits?.length ? `<tr><td class="divider" colspan="6"><div></div></td></tr>${RenderBestiary._getRenderedSection({prop: "trait", entries: allTraits})}` : ""}
+		${allActions?.length ? `${this._getRenderedSectionHeader({mon, title: "Actions", prop: "action"})}
 		${RenderBestiary._getRenderedSection({mon, prop: "action", entries: allActions})}` : ""}
-		${mon.bonus ? `${this._getRenderedSectionHeader({mon, title: "Bonus Actions", prop: "bonus"})}
-		${RenderBestiary._getRenderedSection({mon, prop: "bonus", entries: mon.bonus})}` : ""}
-		${mon.reaction ? `${this._getRenderedSectionHeader({mon, title: "Reactions", prop: "reaction"})}
-		${RenderBestiary._getRenderedSection({mon, prop: "reaction", entries: mon.reaction})}` : ""}
+		${allBonusActions?.length ? `${this._getRenderedSectionHeader({mon, title: "Bonus Actions", prop: "bonus"})}
+		${RenderBestiary._getRenderedSection({mon, prop: "bonus", entries: allBonusActions})}` : ""}
+		${allReactions?.length ? `${this._getRenderedSectionHeader({mon, title: "Reactions", prop: "reaction"})}
+		${RenderBestiary._getRenderedSection({mon, prop: "reaction", entries: allReactions})}` : ""}
 		${mon.legendary ? `${this._getRenderedSectionHeader({mon, title: "Legendary Actions", prop: "legendary"})}
 		${RenderBestiary._getRenderedSection({mon, prop: "legendary", entries: mon.legendary, fnGetHeader: Renderer.monster.getLegendaryActionIntro.bind(Renderer.monster)})}` : ""}
 		${mon.mythic ? `${this._getRenderedSectionHeader({mon, title: "Mythic Actions", prop: "mythic"})}
@@ -103,8 +106,8 @@ class RenderBestiary {
 	}
 
 	static _getRenderedSectionHeader ({mon, title, prop}) {
-		const noteKey = `${prop}Note`;
-		return `<tr><td colspan="6" class="mon__stat-header-underline"><h3 class="mon__sect-header-inner">${title}${mon[noteKey] ? ` (<span class="small">${mon[noteKey]}</span>)` : ""}</h3></td></tr>`;
+		const propNote = `${prop}Note`;
+		return `<tr><td colspan="6" class="mon__stat-header-underline"><h3 class="mon__sect-header-inner">${title}${mon[propNote] ? ` (<span class="small">${mon[propNote]}</span>)` : ""}</h3></td></tr>`;
 	}
 
 	static _getRenderedSection ({mon = null, prop, entries, depth = 1, fnGetHeader = null}) {

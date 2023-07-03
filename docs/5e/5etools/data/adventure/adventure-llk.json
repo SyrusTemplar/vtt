@@ -581,6 +581,12 @@
 							},
 							"width": 4926,
 							"height": 6426,
+							"title": "Monastery of the Distressed Body",
+							"imageType": "map",
+							"grid": {
+								"type": "none",
+								"distance": 50
+							},
 							"mapRegions": [
 								{
 									"area": "06d",
@@ -1237,7 +1243,6 @@
 									]
 								}
 							],
-							"imageType": "map",
 							"hrefThumbnail": {
 								"type": "internal",
 								"path": "adventure/LLK/thumbnail/006-318365_extra_life_monastery.webp"
@@ -1250,10 +1255,14 @@
 								"type": "internal",
 								"path": "adventure/LLK/007-playerversionllok2.jpg"
 							},
-							"title": "(Player Version)",
+							"title": "Player Version",
 							"width": 5000,
 							"height": 6471,
 							"imageType": "mapPlayer",
+							"grid": {
+								"type": "none",
+								"distance": 50
+							},
 							"mapParent": {
 								"id": "0d7",
 								"autoScale": true
@@ -2112,8 +2121,14 @@
 								"type": "internal",
 								"path": "adventure/LLK/011-318365_extra_life_ooze.png"
 							},
+							"title": "Daoine Gloine",
 							"width": 4926,
 							"height": 6426,
+							"imageType": "map",
+							"grid": {
+								"type": "none",
+								"distance": 50
+							},
 							"mapRegions": [
 								{
 									"area": "097",
@@ -2758,7 +2773,6 @@
 									]
 								}
 							],
-							"imageType": "map",
 							"hrefThumbnail": {
 								"type": "internal",
 								"path": "adventure/LLK/thumbnail/011-318365_extra_life_ooze.webp"
@@ -2771,10 +2785,14 @@
 								"type": "internal",
 								"path": "adventure/LLK/012-playerversionllok1.jpg"
 							},
-							"title": "(Player Version)",
+							"title": "Player Version",
 							"width": 5000,
 							"height": 6471,
 							"imageType": "mapPlayer",
+							"grid": {
+								"type": "none",
+								"distance": 50
+							},
 							"mapParent": {
 								"id": "0d8",
 								"autoScale": true
@@ -3464,7 +3482,10 @@
 									"8\u201310",
 									"The characters come across a group of roving outlaws (five to ten {@creature Thug||Thugs} led by a {@creature Bandit Captain}), who are heading to the monastery to join its ranks. They possess rumors and fragments of a map, and are keen to steal the characters' resources\u2014especially if {@creature Gearbox|LLK} the modron is present."
 								]
-							]
+							],
+							"data": {
+								"tableInclude": true
+							}
 						}
 					]
 				},
@@ -3515,7 +3536,10 @@
 									"8\u201310",
 									"A monastery work party\u2014six humanoid prisoners ({@creature Commoner||Commoners}) watched by five {@creature Cultist||Cultists} and a {@creature Cult Fanatic}\u2014is seen collecting ore to fuel the monastery's engines. If the prisoners are rescued, they can supply some knowledge of the monastery before fleeing the mountains."
 								]
-							]
+							],
+							"data": {
+								"tableInclude": true
+							}
 						}
 					]
 				},
@@ -3562,7 +3586,10 @@
 									"8\u201310",
 									"An isolated village clings to the mountainside, populated by {@creature Kenku} descended from Daoine Gloine refugees who fled the city when it was flooded with ooze. The kenku still remember ancient legends their forebears told about a cult of the medusa, as well as Kwalish's arrival and the \"plague of ooze.\" However, their ability to speak only in mimicry might make it challenging for the characters to communicate with them. In the course of the conversation, the kenku might mimic the sounds of destruction and screaming heard as the city was overwhelmed, relay the mad ranting of the medusa, and so forth. They might even repeat the words of Kwalish himself as he talks of his extradimensional experiments with glass baubles, and his efforts to hide his lab inside of one."
 								]
-							]
+							],
+							"data": {
+								"tableInclude": true
+							}
 						}
 					]
 				}

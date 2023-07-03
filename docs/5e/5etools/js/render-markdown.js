@@ -143,7 +143,9 @@ class RendererMarkdown {
 
 		if (entry.caption) textStack[0] += `##### ${entry.caption}\n`;
 
-		const hasLabels = entry.colLabels && entry.colLabels.length;
+		const headerRowMetas = Renderer.table.getHeaderRowMetas(entry);
+
+		const hasLabels = headerRowMetas != null;
 		// If there's no data, render a stub table.
 		if (!hasLabels && (!entry.rows || !entry.rows.length)) {
 			textStack[0] += `|   |\n`;
@@ -153,15 +155,23 @@ class RendererMarkdown {
 		}
 
 		// Labels are required for Markdown tables
-		let labels = [...(entry.colLabels || [])];
+		let labelRows = MiscUtil.copyFast(headerRowMetas || []);
 		if (!hasLabels) {
 			const numCells = Math.max(...entry.rows.map(r => r.length));
-			labels = [...new Array(numCells)].map(() => "");
+			labelRows = [
+				[...new Array(numCells)].map(() => ""),
+			];
 		}
 
 		// Pad labels to style width
-		if (entry.colStyles && labels.length < entry.colStyles.length) {
-			labels = labels.concat([...new Array(entry.colStyles.length - labels.length)].map(() => ""));
+		if (entry.colStyles) {
+			labelRows
+				.filter(labelRow => labelRow.length < entry.colStyles.length)
+				.forEach(labelRow => {
+					labelRow.push(
+						...[...new Array(entry.colStyles.length - labelRow.length)].map(() => ""),
+					);
+				});
 		}
 
 		// region Prepare styles
@@ -169,15 +179,24 @@ class RendererMarkdown {
 		if (entry.colStyles) {
 			styles = [...entry.colStyles];
 			// Pad styles to label width
-			if (labels.length > styles.length) {
-				styles = styles.concat([...new Array(labels.length - styles.length)].map(() => ""));
-			}
+			labelRows
+				.forEach(labelRow => {
+					if (labelRow.length > styles.length) {
+						styles = styles.concat([...new Array(labelRow.length - styles.length)].map(() => ""));
+					}
+				});
 		}
 		// endregion
 
-		const mdHeaders = labels.map(label => ` ${Renderer.stripTags(label)} `);
+		const mdHeaderRows = labelRows.map(labelRow => labelRow.map(label => ` ${Renderer.stripTags(label)} `));
 
-		const widths = mdHeaders.map(str => str.length);
+		// Get per-cell max width
+		const widths = [
+			...new Array(
+				Math.max(...mdHeaderRows.map(mdHeaderRow => mdHeaderRow.length)),
+			),
+		]
+			.map((_, i) => Math.max(...mdHeaderRows.map(mdHeaderRow => (mdHeaderRow[i] || "").length)));
 
 		// region Build 2d array of table cells
 		const mdTable = [];
@@ -226,7 +245,11 @@ class RendererMarkdown {
 		}
 		// endregion
 
-		const mdHeadersPadded = mdHeaders.map((header, ixCell) => RendererMarkdown._md_getPaddedTableText({text: header, width: widths[ixCell], ixCell, styles}));
+		const mdHeaderRowsPadded = mdHeaderRows
+			.map(mdHeaderRow => {
+				return mdHeaderRow
+					.map((header, ixCell) => RendererMarkdown._md_getPaddedTableText({text: header, width: widths[ixCell], ixCell, styles}));
+			});
 
 		// region Build style headers
 		const mdStyles = [];
@@ -242,7 +265,9 @@ class RendererMarkdown {
 		// endregion
 
 		// region Assemble the table
-		textStack[0] += `|${mdHeadersPadded.join("|")}|\n`;
+		for (const mdHeaderRowPadded of mdHeaderRowsPadded) {
+			textStack[0] += `|${mdHeaderRowPadded.join("|")}|\n`;
+		}
 		if (mdStyles.length) textStack[0] += `|${mdStyles.join("|")}|\n`;
 		for (const mdRow of mdTable) {
 			textStack[0] += "|";
@@ -356,9 +381,14 @@ class RendererMarkdown {
 			this._recursiveRender(entry.entries[i], textStack, meta, {prefix: RendererMarkdown._getNextPrefix(options, "*"), suffix: "*"});
 			if (i !== entry.entries.length - 1) textStack[0] += `\n\n`;
 		}
-		if (entry.by) {
+		const byArr = this._renderQuote_getBy(entry);
+		if (byArr) {
 			const tempStack = [""];
-			this._recursiveRender(entry.by, tempStack, meta);
+			for (let i = 0, len = byArr.length; i < len; ++i) {
+				const by = byArr[i];
+				this._recursiveRender(by, tempStack, meta);
+				if (i < len - 1) tempStack[0] += "\n";
+			}
 			textStack[0] += `\u2014 ${tempStack.join("")}${entry.from ? `, *${entry.from}*` : ""}`;
 		}
 	}
@@ -501,7 +531,7 @@ class RendererMarkdown {
 	_renderImage (entry, textStack, meta, options) {
 		this._renderPrefix(entry, textStack, meta, options);
 		const href = this._renderImage_getUrl(entry);
-		textStack[0] += `[${href}]${entry.title ? `(${entry.title})` : ""}`;
+		textStack[0] += `![${entry.title || ""}](${href})`;
 		this._renderSuffix(entry, textStack, meta, options);
 	}
 
@@ -810,6 +840,11 @@ RendererMarkdown.monster = class {
 		RendererMarkdown.get().isSkipStylingItemLinks = true;
 		const acPart = Parser.acToFull(mon.ac, RendererMarkdown.get());
 		RendererMarkdown.get().isSkipStylingItemLinks = false;
+		const resourcePart = mon.resource?.length
+			? mon.resource
+				.map(res => `\n>- **${res.name}** ${Renderer.monster.getRenderedResource(res, true)}`)
+				.join("")
+			: "";
 		const savePart = mon.save ? `\n>- **Saving Throws** ${Object.keys(mon.save).sort(SortUtil.ascSortAtts).map(it => RendererMarkdown.monster.getSave(it, mon.save[it])).join(", ")}` : "";
 		const skillPart = mon.skill ? `\n>- **Skills** ${RendererMarkdown.monster.getSkillsString(mon)}` : "";
 		const damVulnPart = mon.vulnerable ? `\n>- **Damage Vulnerabilities** ${Parser.getFullImmRes(mon.vulnerable)}` : "";
@@ -820,26 +855,40 @@ RendererMarkdown.monster = class {
 		const fnGetSpellTraits = RendererMarkdown.monster.getSpellcastingRenderedTraits.bind(RendererMarkdown.monster, meta);
 		const traitArray = Renderer.monster.getOrderedTraits(mon, {fnGetSpellTraits});
 		const actionArray = Renderer.monster.getOrderedActions(mon, {fnGetSpellTraits});
+		const bonusActionArray = Renderer.monster.getOrderedBonusActions(mon, {fnGetSpellTraits});
+		const reactionArray = Renderer.monster.getOrderedReactions(mon, {fnGetSpellTraits});
 
-		const traitsPart = traitArray?.length ? `\n${RendererMarkdown.monster._getRenderedSection(traitArray, 1, meta)}` : "";
+		const traitsPart = traitArray?.length
+			? `\n${RendererMarkdown.monster._getRenderedSection({prop: "trait", entries: traitArray, depth: 1, meta})}`
+			: "";
 
-		const actionsPart = actionArray?.length ? `\n>### Actions\n${RendererMarkdown.monster._getRenderedSection(actionArray, 1, meta)}` : "";
-		const bonusActionsPart = mon.bonus ? `\n>### Bonus Actions\n${RendererMarkdown.monster._getRenderedSection(mon.bonus, 1, meta)}` : "";
-		const reactionsPart = mon.reaction ? `\n>### Reactions\n${RendererMarkdown.monster._getRenderedSection(mon.reaction, 1, meta)}` : "";
-		const legendaryActionsPart = mon.legendary ? `\n>### Legendary Actions\n>${Renderer.monster.getLegendaryActionIntro(mon, {renderer: RendererMarkdown.get()})}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(mon.legendary, 1, meta)}` : "";
-		const mythicActionsPart = mon.mythic ? `\n>### Mythic Actions\n>${Renderer.monster.getSectionIntro(mon, {renderer: RendererMarkdown.get(), prop: "mythic"})}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(mon.mythic, 1, meta)}` : "";
+		const actionsPart = actionArray?.length
+			? `${RendererMarkdown.monster._getRenderedSectionHeader({mon, title: "Actions", prop: "action"})}${RendererMarkdown.monster._getRenderedSection({mon, prop: "action", entries: actionArray, depth: 1, meta})}`
+			: "";
+		const bonusActionsPart = bonusActionArray?.length
+			? `${RendererMarkdown.monster._getRenderedSectionHeader({mon, title: "Bonus Actions", prop: "bonus"})}${RendererMarkdown.monster._getRenderedSection({mon, prop: "bonus", entries: bonusActionArray, depth: 1, meta})}`
+			: "";
+		const reactionsPart = reactionArray?.length
+			? `${RendererMarkdown.monster._getRenderedSectionHeader({mon, title: "Reactions", prop: "reaction"})}${RendererMarkdown.monster._getRenderedSection({mon, prop: "reaction", entries: reactionArray, depth: 1, meta})}`
+			: "";
+		const legendaryActionsPart = mon.legendary
+			? `${RendererMarkdown.monster._getRenderedSectionHeader({mon, title: "Legendary Actions", prop: "legendary"})}>${Renderer.monster.getLegendaryActionIntro(mon, {renderer: RendererMarkdown.get()})}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(mon.legendary, 1, meta)}`
+			: "";
+		const mythicActionsPart = mon.mythic
+			? `${RendererMarkdown.monster._getRenderedSectionHeader({mon, title: "Mythic Actions", prop: "mythic"})}>${Renderer.monster.getSectionIntro(mon, {renderer: RendererMarkdown.get(), prop: "mythic"})}\n>\n${RendererMarkdown.monster._getRenderedLegendarySection(mon.mythic, 1, meta)}`
+			: "";
 
-		const legendaryGroupLairPart = legendaryGroup?.lairActions ? `\n>### Lair Actions\n${RendererMarkdown.monster._getRenderedSection(legendaryGroup.lairActions, -1, meta)}` : "";
-		const legendaryGroupRegionalPart = legendaryGroup?.regionalEffects ? `\n>### Regional Effects\n${RendererMarkdown.monster._getRenderedSection(legendaryGroup.regionalEffects, -1, meta)}` : "";
+		const legendaryGroupLairPart = legendaryGroup?.lairActions ? `\n>### Lair Actions\n${RendererMarkdown.monster._getRenderedSection({prop: "lairaction", entries: legendaryGroup.lairActions, depth: -1, meta})}` : "";
+		const legendaryGroupRegionalPart = legendaryGroup?.regionalEffects ? `\n>### Regional Effects\n${RendererMarkdown.monster._getRenderedSection({prop: "regionaleffect", entries: legendaryGroup.regionalEffects, depth: -1, meta})}` : "";
 
-		const footerPart = mon.footer ? `\n${RendererMarkdown.monster._getRenderedSection(mon.footer, 0, meta)}` : "";
+		const footerPart = mon.footer ? `\n${RendererMarkdown.monster._getRenderedSectionEntries(mon.footer, 0, meta)}` : "";
 
 		const unbreakablePart = `___
 >## ${mon._displayName || mon.name}
 >*${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${Renderer.utils.getRenderedSize(mon.size)} ${monTypes.asText}${mon.alignment ? `, ${mon.alignmentPrefix ? RendererMarkdown.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment)}` : ""}*
 >___
 >- **Armor Class** ${acPart}
->- **Hit Points** ${Renderer.monster.getRenderedHp(mon.hp, true)}
+>- **Hit Points** ${Renderer.monster.getRenderedHp(mon.hp, true)}${resourcePart}
 >- **Speed** ${Parser.getSpeedString(mon)}
 >___
 >|${Parser.ABIL_ABVS.map(it => `${it.toUpperCase()}|`).join("")}
@@ -903,7 +952,22 @@ ${mon.pbNote || Parser.crToNumber(mon.cr) < VeCt.CR_CUSTOM ? `>- **Proficiency B
 		} else return skills;
 	}
 
-	static _getRenderedSection (sectionEntries, sectionLevel, meta) {
+	static _getRenderedSectionHeader ({mon, title, prop}) {
+		const propNote = `${prop}Note`;
+		const ptTitle = `\n>### ${title}`;
+		if (!mon[propNote]) return `${ptTitle}\n`;
+		return `${ptTitle} (${mon[propNote]})\n`;
+	}
+
+	static _getRenderedSection ({mon = null, prop, entries, depth = 1, meta}) {
+		const ptHeader = mon
+			? Renderer.monster.getSectionIntro(mon, {renderer: RendererMarkdown.get(), prop})
+			: "";
+
+		return `${ptHeader ? `>${ptHeader}\n>\n` : ""}${this._getRenderedSectionEntries(entries, depth, meta)}`;
+	}
+
+	static _getRenderedSectionEntries (sectionEntries, sectionLevel, meta) {
 		const renderer = RendererMarkdown.get();
 		const renderStack = [""];
 		sectionEntries.forEach(e => {

@@ -40,3 +40,5 @@ class PageFilterVariantRules extends PageFilter {
 		);
 	}
 }
+
+globalThis.PageFilterVariantRules = PageFilterVariantRules;

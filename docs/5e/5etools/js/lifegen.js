@@ -46,10 +46,10 @@ function rollSuppStatus () {
  * @param opts.parentRaces List of parent races for this person.
  * @param opts.isAdventurer Is the person is an adventurer (and therefore has a class as opposed to an occupation).
  */
-function getPersonDetails (opts) {
+async function getPersonDetails (opts) {
 	opts = opts || {};
 
-	function addName (race, gender) {
+	async function pAddName (race, gender) {
 		const raceSlug = Parser.stringToSlug(race);
 		if (nameTables[raceSlug]) {
 			const availNameTables = nameTables[raceSlug];
@@ -69,11 +69,17 @@ function getPersonDetails (opts) {
 				? maleFirstTables.concat(femaleFirstTables)
 				: gender === "Male" ? maleFirstTables : femaleFirstTables;
 			const nameTableMeta = rollOnArray(chooseFrom);
-			const resultFirst = GenUtil.getFromTable(nameTableMeta.table, RNG(nameTableMeta.diceType));
-			const resultLast = (() => {
+			const resultFirst = GenUtil.getFromTable(
+				nameTableMeta.table,
+				await Renderer.dice.parseRandomise2(nameTableMeta.diceExpression),
+			);
+			const resultLast = await (async () => {
 				if (surnameTables.length) {
 					const nameTableMeta = rollOnArray(chooseFrom);
-					return GenUtil.getFromTable(nameTableMeta.table, RNG(nameTableMeta.diceType));
+					return GenUtil.getFromTable(
+						nameTableMeta.table,
+						await Renderer.dice.parseRandomise2(nameTableMeta.diceExpression),
+					);
 				} else return null;
 			})();
 
@@ -118,9 +124,9 @@ function getPersonDetails (opts) {
 		const gender = opts.gender ? opts.gender : rollUnofficialGender().result;
 		out.unshift(`<i><b>Gender:</b> ${gender}</i>`);
 
-		addName(race, gender);
+		await pAddName(race, gender);
 	} else if (opts.race) {
-		addName(opts.race, opts.gender || "Other");
+		await pAddName(opts.race, opts.gender || "Other");
 	}
 	return out;
 }
@@ -309,11 +315,11 @@ const LIFE_EVENTS_AGE = [
 	{min: 100, "age": () => RNG(690) + 60, result: "61 years or older", "events": () => RNG(12)}, // max age = 750; max elven age
 ];
 
-function _lifeEvtResult (title, rollResult) {
+async function _pLifeEvtResult (title, rollResult) {
 	const out = {
 		result: `${title}: ${rollResult.result}`,
 	};
-	if (rollResult.nextRoll) out.nextRoll = rollResult.nextRoll;
+	if (rollResult.pNextRoll) out.nextRoll = await rollResult.pNextRoll;
 	return out;
 }
 
@@ -333,19 +339,19 @@ function _lifeEvtPerson (title, personDetails) {
 }
 
 const LIFE_EVENTS = [
-	{min: 1, max: 10, result: "You suffered a tragedy. Roll on the Tragedies table.", nextRoll: () => _lifeEvtResult("Tragedy", rollEvtTragedy())},
-	{min: 11, max: 20, result: "You gained a bit of good fortune. Roll on the Boons table.", nextRoll: () => _lifeEvtResult("Boon", rollEvtBoon())},
-	{min: 21, max: 30, result: "You fell in love or got married. If you get this result more than once, you can choose to have a child instead. Work with your DM to determine the identity of your love interest.", nextRoll: () => _lifeEvtPerson(marriageIndex++ === 0 ? "Spouse" : "Spouse/Child", getPersonDetails())},
-	{min: 31, max: 40, result: () => `You made an enemy of an adventurer. Roll a {@dice d6} ${fmtChoice(RNG(6))}. An odd number indicates you are to blame for the rift, and an even number indicates you are blameless. Use the supplemental tables and work with your DM to determine this hostile character's identity and the danger this enemy poses to you.`, display: "You made an enemy of an adventurer. Roll a {@dice d6}. An odd number indicates you are to blame for the rift, and an even number indicates you are blameless. Use the supplemental tables and work with your DM to determine this hostile character's identity and the danger this enemy poses to you.", nextRoll: () => _lifeEvtPerson("Enemy", getPersonDetails({isAdventurer: true}))},
-	{min: 41, max: 50, result: "You made a friend of an adventurer. Use the supplemental tables and work with your DM to add more detail to this friendly character and establish how your friendship began.", nextRoll: () => _lifeEvtPerson("Friend", getPersonDetails({isAdventurer: true}))},
+	{min: 1, max: 10, result: "You suffered a tragedy. Roll on the Tragedies table.", pNextRoll: () => _pLifeEvtResult("Tragedy", rollEvtTragedy())},
+	{min: 11, max: 20, result: "You gained a bit of good fortune. Roll on the Boons table.", pNextRoll: () => _pLifeEvtResult("Boon", rollEvtBoon())},
+	{min: 21, max: 30, result: "You fell in love or got married. If you get this result more than once, you can choose to have a child instead. Work with your DM to determine the identity of your love interest.", pNextRoll: async () => _lifeEvtPerson(marriageIndex++ === 0 ? "Spouse" : "Spouse/Child", await getPersonDetails())},
+	{min: 31, max: 40, result: () => `You made an enemy of an adventurer. Roll a {@dice d6} ${fmtChoice(RNG(6))}. An odd number indicates you are to blame for the rift, and an even number indicates you are blameless. Use the supplemental tables and work with your DM to determine this hostile character's identity and the danger this enemy poses to you.`, display: "You made an enemy of an adventurer. Roll a {@dice d6}. An odd number indicates you are to blame for the rift, and an even number indicates you are blameless. Use the supplemental tables and work with your DM to determine this hostile character's identity and the danger this enemy poses to you.", pNextRoll: async () => _lifeEvtPerson("Enemy", await getPersonDetails({isAdventurer: true}))},
+	{min: 41, max: 50, result: "You made a friend of an adventurer. Use the supplemental tables and work with your DM to add more detail to this friendly character and establish how your friendship began.", pNextRoll: async () => _lifeEvtPerson("Friend", await getPersonDetails({isAdventurer: true}))},
 	{min: 51, max: 70, result: () => `You spent time working in a job related to your background. Start the game with an extra {@dice 2d6} ${fmtChoice(RNG(6) + RNG(6))} gp.`, display: "You spent time working in a job related to your background. Start the game with an extra {@dice 2d6} gp."},
-	{min: 71, max: 75, result: "You met someone important. Use the supplemental tables to determine this character's identity and how this individual feels about you. Work out additional details with your DM as needed to fit this character into your backstory.", nextRoll: () => _lifeEvtPerson("Meeting", getPersonDetails())},
-	{min: 76, max: 80, result: "You went on an adventure. Roll on the Adventures table to see what happened to you. Work with your DM to determine the nature of the adventure and the creatures you encountered.", nextRoll: () => _lifeEvtResult("Adventure", rollEvtAdventure())},
-	{min: 81, max: 85, result: "You had a supernatural experience. Roll on the Supernatural Events table to find out what it was.", nextRoll: () => _lifeEvtResult("Supernatural Experience", rollEvtSupernatural())},
-	{min: 86, max: 90, result: "You fought in a battle. Roll on the War table to learn what happened to you. Work with your DM to come up with the reason for the battle and the factions involved. It might have been a small conflict between your community and a band of orcs, or it could have been a major battle in a larger war.", nextRoll: () => _lifeEvtResult("War", rollEvtWar())},
-	{min: 91, max: 95, result: "You committed a crime or were wrongly accused of doing so. Roll on the Crime table to determine the nature of the offense and on the Punishment table to see what became of you.", nextRoll: () => _lifeEvtResultArr("Crime and Punishment", ["Crime", "Punishment"], rollEvtCrime(), rollEvtPunishment())},
-	{min: 96, max: 99, result: "You encountered something magical. Roll on the Arcane Matters table.", nextRoll: () => _lifeEvtResult("Arcane Matter", rollEvtArcaneMatter())},
-	{min: 100, result: "Something truly strange happened to you. Roll on the Weird Stuff table.", nextRoll: () => _lifeEvtResult("Weird Stuff", rollEvtWeird())},
+	{min: 71, max: 75, result: "You met someone important. Use the supplemental tables to determine this character's identity and how this individual feels about you. Work out additional details with your DM as needed to fit this character into your backstory.", pNextRoll: async () => _lifeEvtPerson("Meeting", await getPersonDetails())},
+	{min: 76, max: 80, result: "You went on an adventure. Roll on the Adventures table to see what happened to you. Work with your DM to determine the nature of the adventure and the creatures you encountered.", pNextRoll: () => _pLifeEvtResult("Adventure", rollEvtAdventure())},
+	{min: 81, max: 85, result: "You had a supernatural experience. Roll on the Supernatural Events table to find out what it was.", pNextRoll: () => _pLifeEvtResult("Supernatural Experience", rollEvtSupernatural())},
+	{min: 86, max: 90, result: "You fought in a battle. Roll on the War table to learn what happened to you. Work with your DM to come up with the reason for the battle and the factions involved. It might have been a small conflict between your community and a band of orcs, or it could have been a major battle in a larger war.", pNextRoll: () => _pLifeEvtResult("War", rollEvtWar())},
+	{min: 91, max: 95, result: "You committed a crime or were wrongly accused of doing so. Roll on the Crime table to determine the nature of the offense and on the Punishment table to see what became of you.", pNextRoll: () => _lifeEvtResultArr("Crime and Punishment", ["Crime", "Punishment"], rollEvtCrime(), rollEvtPunishment())},
+	{min: 96, max: 99, result: "You encountered something magical. Roll on the Arcane Matters table.", pNextRoll: () => _pLifeEvtResult("Arcane Matter", rollEvtArcaneMatter())},
+	{min: 100, result: "Something truly strange happened to you. Roll on the Weird Stuff table.", pNextRoll: () => _pLifeEvtResult("Weird Stuff", rollEvtWeird())},
 ];
 
 const LIFE_EVENTS_ADVENTURES = [
@@ -425,7 +431,7 @@ const LIFE_EVENTS_SUPERNATURAL = [
 ];
 
 const LIFE_EVENTS_TRAGEDIES = [
-	{min: 1, max: 2, result: () => `A family member or a close friend died. Roll on the {@table Supplemental Tables; Cause of Death|XGE|Cause of Death} supplemental table to find out how.`, display: "A family member or a close friend died. Roll on the Cause of Death supplemental table to find out how.", nextRoll: () => _lifeEvtResult("Cause of Death", rollSuppDeath())},
+	{min: 1, max: 2, result: () => `A family member or a close friend died. Roll on the {@table Supplemental Tables; Cause of Death|XGE|Cause of Death} supplemental table to find out how.`, display: "A family member or a close friend died. Roll on the Cause of Death supplemental table to find out how.", pNextRoll: () => _pLifeEvtResult("Cause of Death", rollSuppDeath())},
 	{min: 3, result: "A friendship ended bitterly, and the other person is now hostile to you. The cause might have been a misunderstanding or something you or the former friend did."},
 	{min: 4, result: "You lost all your possessions in a disaster, and you had to rebuild your life."},
 	{min: 5, result: () => `You were imprisoned for a crime you didn't commit and spent {@dice 1d6} ${fmtChoice(RNG(6))} years at hard labor, in jail, or shackled to an oar in a slave galley.`, display: "You were imprisoned for a crime you didn't commit and spent {@dice 1d6} years at hard labor, in jail, or shackled to an oar in a slave galley."},
@@ -435,7 +441,7 @@ const LIFE_EVENTS_TRAGEDIES = [
 	{min: 9, result: "You did something that brought terrible shame to you in the eyes of your family. You might have been involved in a scandal, dabbled in dark magic, or offended someone important. The attitude of your family members toward you becomes indifferent at best, though they might eventually forgive you."},
 	{min: 10, result: "For a reason you were never told, you were exiled from your community. You then either wandered in the wilderness for a time or promptly found a new place to live."},
 	{min: 11, result: () => `A romantic relationship ended. Roll a {@dice d6} ${fmtChoice(RNG(6))}. An odd number means it ended with bad feelings, while an even number means it ended amicably.`, display: "A romantic relationship ended. Roll a {@dice d6}. An odd number means it ended with bad feelings, while an even number means it ended amicably."},
-	{min: 12, result: () => `A current or prospective romantic partner of yours died. Roll on the {@table Supplemental Tables; Cause of Death|XGE|Cause of Death} supplemental table to find out how. If the result is murder, roll a {@dice d12}. On a 1, you were responsible, whether directly or indirectly.`, display: "A current or prospective romantic partner of yours died. Roll on the {@table Supplemental Tables; Cause of Death|XGE|Cause of Death} supplemental table to find out how. If the result is murder, roll a {@dice d12}. On a 1, you were responsible, whether directly or indirectly.", nextRoll: () => _lifeEvtResult("Cause of Death", (() => { const r = RNG(12); const p = GenUtil.getFromTable(SUPP_DEATH, r); return {result: `${p.result}${r === 2 && RNG(12) === 1 ? ` ${fmtChoice("you were responsible")}` : ""}`}; })())},
+	{min: 12, result: () => `A current or prospective romantic partner of yours died. Roll on the {@table Supplemental Tables; Cause of Death|XGE|Cause of Death} supplemental table to find out how. If the result is murder, roll a {@dice d12}. On a 1, you were responsible, whether directly or indirectly.`, display: "A current or prospective romantic partner of yours died. Roll on the {@table Supplemental Tables; Cause of Death|XGE|Cause of Death} supplemental table to find out how. If the result is murder, roll a {@dice d12}. On a 1, you were responsible, whether directly or indirectly.", pNextRoll: () => _pLifeEvtResult("Cause of Death", (() => { const r = RNG(12); const p = GenUtil.getFromTable(SUPP_DEATH, r); return {result: `${p.result}${r === 2 && RNG(12) === 1 ? ` ${fmtChoice("you were responsible")}` : ""}`}; })())},
 ];
 
 const LIFE_EVENTS_WAR = [
@@ -454,7 +460,7 @@ const LIFE_EVENTS_WEIRD_STUFF = [
 	{min: 3, result: () => `You were enslaved by a hag, a satyr, or some other being and lived in that creature's thrall for {@dice 1d6} ${fmtChoice(RNG(6))} years.`, display: "You were enslaved by a hag, a satyr, or some other being and lived in that creature’s thrall for {@dice 1d6} years."},
 	{min: 4, result: () => `A dragon held you as a prisoner for {@dice 1d4} ${fmtChoice(RNG(4))} months until adventurers killed it.`, display: "A dragon held you as a prisoner for {@dice 1d4} months until adventurers killed it."},
 	{min: 5, result: "You were taken captive by a race of evil humanoids such as drow, kuo-toa, or quaggoths. You lived as a slave in the Underdark until you escaped."},
-	{min: 6, result: "You served a powerful adventurer as a hireling. You have only recently left that service. Use the supplemental tables and work with your DM to determine the basic details about your former employer.", nextRoll: () => _lifeEvtPerson("Employer", getPersonDetails({isAdventurer: true}))},
+	{min: 6, result: "You served a powerful adventurer as a hireling. You have only recently left that service. Use the supplemental tables and work with your DM to determine the basic details about your former employer.", pNextRoll: async () => _lifeEvtPerson("Employer", await getPersonDetails({isAdventurer: true}))},
 	{min: 7, result: () => `You went insane for {@dice 1d6} ${fmtChoice(RNG(6))} years and recently regained your sanity. A tic or some other bit of odd behavior might linger.`, display: "You went insane for {@dice 1d6} years and recently regained your sanity. A tic or some other bit of odd behavior might linger."},
 	{min: 8, result: "A lover of yours was secretly a silver dragon."},
 	{min: 9, result: "You were captured by a cult and nearly sacrificed on an altar to the foul being the cultists served. You escaped, but you fear they will find you."},
@@ -649,7 +655,7 @@ let race;
 let parentRaces;
 let ptrParentLastName = {}; // store the last name so we can use it for both parents, maybe
 // PARENTS
-function sectParents () {
+async function pSectParents () {
 	knowParents = RNG(100) > 5;
 	const selRace = $selRace.val();
 	race = (() => {
@@ -701,13 +707,13 @@ function sectParents () {
 
 	if (knowParents) {
 		parentRaces.shuffle();
-		const mum = getPersonDetails({
+		const mum = await getPersonDetails({
 			isParent: true,
 			race: parentRaces[0],
 			gender: "Female",
 		});
 		if (RNG(2) === 1) delete ptrParentLastName._; // 50% chance not to share a last name
-		const dad = getPersonDetails({
+		const dad = await getPersonDetails({
 			isParent: true,
 			race: parentRaces.length > 1 ? parentRaces[1] : parentRaces[0],
 			gender: "Male",
@@ -730,7 +736,7 @@ function sectBirthplace () {
 }
 
 // SIBLINGS
-function sectSiblings () {
+async function pSectSiblings () {
 	const $siblings = $(`#siblings`);
 	function getBirthOrder () {
 		const rollBirthOrder = RNG(6) + RNG(6);
@@ -769,7 +775,7 @@ function sectSiblings () {
 		for (let i = 0; i < sibCount; ++i) {
 			const siblingType = rollOnArray(["brother", "sister"]);
 			$siblings.append(`<h5>${getBirthOrder()} sibling ${fmtChoice(siblingType, true)}</h5>`);
-			$siblings.append(joinParaList(getPersonDetails({
+			$siblings.append(joinParaList(await getPersonDetails({
 				gender: siblingType === "brother" ? "Male" : "Female",
 				parentRaces: parentRaces,
 				isSibling: true,
@@ -792,8 +798,8 @@ function sectFamily () {
 	$family.empty();
 	$family.append(`<b>Family:</b> ${GenUtil.getFromTable(FAMILY, RNG(100)).result}<br>`);
 	let famIndex = 1;
-	const $btnSuppFam = $(`<button class="btn btn-xs btn-default btn-supp-fam no-print"></button>`).on("click", () => {
-		const supDetails = getPersonDetails();
+	const $btnSuppFam = $(`<button class="btn btn-xs btn-default btn-supp-fam no-print"></button>`).on("click", async () => {
+		const supDetails = await getPersonDetails();
 		const $wrpRes = $(`<div class="life__output-wrp-border p-3 my-2"/>`);
 		$wrpRes.append(`<h5 class="mt-0">Family Member Roll ${famIndex++}</h5>`);
 		$wrpRes.append(joinParaList(supDetails));
@@ -881,12 +887,12 @@ function sectLifeEvents () {
 	}
 }
 
-function roll () {
+async function pRoll () {
 	$(`.life__output`).removeClass("ve-hidden");
 
-	sectParents();
+	await pSectParents();
 	sectBirthplace();
-	sectSiblings();
+	await pSectSiblings();
 	sectFamily();
 	sectPersonalDecisions();
 	sectClassTraining();

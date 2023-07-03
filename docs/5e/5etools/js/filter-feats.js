@@ -76,8 +76,8 @@ class PageFilterFeats extends PageFilter {
 		}
 		feat._fMisc = feat.srd ? ["SRD"] : [];
 		if (feat.basicRules) feat._fMisc.push("Basic Rules");
-		if (feat.hasFluff) feat._fMisc.push("Has Info");
-		if (feat.hasFluffImages) feat._fMisc.push("Has Images");
+		if (feat.hasFluff || feat.fluff?.entries) feat._fMisc.push("Has Info");
+		if (feat.hasFluffImages || feat.fluff?.images) feat._fMisc.push("Has Images");
 		if (feat.repeatable != null) feat._fMisc.push(feat.repeatable ? "Repeatable" : "Not Repeatable");
 
 		feat._slAbility = ability.asText || VeCt.STR_NONE;
@@ -132,6 +132,8 @@ class PageFilterFeats extends PageFilter {
 		);
 	}
 }
+
+globalThis.PageFilterFeats = PageFilterFeats;
 
 class ModalFilterFeats extends ModalFilter {
 	/**
@@ -211,3 +213,5 @@ class ModalFilterFeats extends ModalFilter {
 		return listItem;
 	}
 }
+
+globalThis.ModalFilterFeats = ModalFilterFeats;

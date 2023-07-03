@@ -1,5 +1,6 @@
 "use strict";
 
+/** @abstract */
 class ListPageMultiSource extends ListPage {
 	constructor ({propLoader, ...rest}) {
 		super({
@@ -25,6 +26,12 @@ class ListPageMultiSource extends ListPage {
 			this._lastFilterValues = filterValues;
 			this._pForceLoadDefaultSources();
 		}
+	}
+
+	handleFilterChange () {
+		const f = this._pageFilter.filterBox.getValues();
+		this._list.filter(li => this._pageFilter.toDisplay(f, this._dataList[li.ix]));
+		this._onFilterChangeMulti(this._dataList, f);
 	}
 
 	async _pForceLoadDefaultSources () {

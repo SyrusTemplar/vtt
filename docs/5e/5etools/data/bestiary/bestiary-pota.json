@@ -21,6 +21,7 @@
 		{
 			"name": "Aerisi Kalinoth",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 192,
 			"size": [
@@ -173,6 +174,9 @@
 				"name": "Aerisi Kalinoth",
 				"source": "PotA"
 			},
+			"attachedItems": [
+				"windvane|pota"
+			],
 			"traitTags": [
 				"Fey Ancestry",
 				"Legendary Resistances"
@@ -228,6 +232,7 @@
 		{
 			"name": "Bastian Thermandar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 201,
 			"size": [
@@ -236,7 +241,10 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"fire genasi"
+					{
+						"tag": "genasi",
+						"prefix": "Fire"
+					}
 				]
 			},
 			"alignment": [
@@ -358,6 +366,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -453,6 +464,9 @@
 						"When the guard is subjected to an effect that would move it, knock it {@condition prone}, or both, it can use its reaction to be neither moved nor knocked {@condition prone}."
 					]
 				}
+			],
+			"attachedItems": [
+				"morningstar|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -582,6 +596,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"glaive|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -614,6 +631,7 @@
 		{
 			"name": "Braelen Hatherhand",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 156,
 			"_copy": {
@@ -637,6 +655,7 @@
 		{
 			"name": "Bronzefume",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 92,
 			"_copy": {
@@ -729,6 +748,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"spear|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -750,6 +772,7 @@
 		{
 			"name": "Cavil Zaltobar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 182,
 			"_copy": {
@@ -871,6 +894,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"quarterstaff|phb"
+			],
 			"languageTags": [
 				"AQ",
 				"C"
@@ -955,6 +981,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"javelin|phb"
+			],
 			"languageTags": [
 				"C"
 			],
@@ -974,6 +1003,7 @@
 		{
 			"name": "Darathra Shendrel",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 37,
 			"_copy": {
@@ -1085,6 +1115,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"lance|phb",
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Sneak Attack"
 			],
@@ -1108,6 +1142,7 @@
 		{
 			"name": "Deseyna Majarra",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 126,
 			"_copy": {
@@ -1135,6 +1170,7 @@
 		{
 			"name": "Drannin Splithelm",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 210,
 			"size": [
@@ -1143,7 +1179,10 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"shield dwarf"
+					{
+						"tag": "dwarf",
+						"prefix": "Shield"
+					}
 				]
 			},
 			"alignment": [
@@ -1240,6 +1279,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greataxe|phb"
+			],
 			"traitTags": [
 				"Brute"
 			],
@@ -1265,6 +1307,7 @@
 		{
 			"name": "Elizar Dryflagon",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 202,
 			"size": [
@@ -1376,6 +1419,9 @@
 						"{@atk mw,rw} {@hit 6} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}5 ({@damage 1d4 + 3}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"+1 dagger|dmg"
 			],
 			"languageTags": [
 				"C",
@@ -1522,6 +1568,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"heavy crossbow|phb",
+				"longsword|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1641,6 +1691,9 @@
 						"{@atk mw,rw} {@hit 4} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"languageTags": [
 				"C",
@@ -1776,6 +1829,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"traitTags": [
 				"Shapechanger"
 			],
@@ -1906,6 +1962,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"longsword|phb",
+				"spear|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -1935,6 +1995,7 @@
 		{
 			"name": "Fennor",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 170,
 			"_copy": {
@@ -1977,6 +2038,9 @@
 						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}10 ({@damage 2d6 + 3}) slashing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"greatsword|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -2098,6 +2162,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"C",
 				"IG"
@@ -2124,6 +2191,7 @@
 		{
 			"name": "Gar Shatterkeel",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 208,
 			"size": [
@@ -2280,6 +2348,9 @@
 				"name": "Gar Shatterkeel",
 				"source": "PotA"
 			},
+			"attachedItems": [
+				"drown|pota"
+			],
 			"traitTags": [
 				"Amphibious",
 				"Legendary Resistances"
@@ -2327,6 +2398,7 @@
 		{
 			"name": "Ghald",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 210,
 			"size": [
@@ -2435,6 +2507,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"shortsword|phb"
+			],
 			"traitTags": [
 				"Sneak Attack"
 			],
@@ -2465,6 +2540,7 @@
 		{
 			"name": "Grumink the Renegade",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 210,
 			"_copy": {
@@ -2501,6 +2577,7 @@
 		{
 			"name": "Hellenrae",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 198,
 			"size": [
@@ -2694,6 +2771,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"traitTags": [
 				"Hold Breath"
 			],
@@ -2828,6 +2908,10 @@
 						"{@atk mw,rw} {@hit 5} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}5 ({@damage 1d4 + 3}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb",
+				"scimitar|phb"
 			],
 			"traitTags": [
 				"Hold Breath"
@@ -3216,6 +3300,7 @@
 		{
 			"name": "Lyzandra \"Lyzzie\" Calderos",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 110,
 			"_copy": {
@@ -3301,6 +3386,7 @@
 		{
 			"name": "Maegla Tarnlar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 25,
 			"_copy": {
@@ -3313,11 +3399,13 @@
 					"human"
 				]
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Marlos Urnrayle",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 199,
 			"size": [
@@ -3419,6 +3507,9 @@
 				"name": "Marlos Urnrayle",
 				"source": "PotA"
 			},
+			"attachedItems": [
+				"ironfang|pota"
+			],
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -3455,6 +3546,7 @@
 		{
 			"name": "Miraj Vizann",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 198,
 			"size": [
@@ -3463,7 +3555,10 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"earth genasi"
+					{
+						"tag": "genasi",
+						"prefix": "Earth"
+					}
 				]
 			},
 			"alignment": [
@@ -4238,6 +4333,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"C"
 			],
@@ -4268,6 +4366,7 @@
 		{
 			"name": "Oreioth",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 212,
 			"size": [
@@ -4382,6 +4481,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"AB",
 				"C"
@@ -4408,6 +4510,7 @@
 		{
 			"name": "Padraich",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 170,
 			"_copy": {
@@ -4435,6 +4538,9 @@
 						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}10 ({@damage 2d6 + 3}) bludgeoning damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"maul|phb"
 			],
 			"damageTags": [
 				"B"
@@ -4519,6 +4625,9 @@
 						"{@atk mw,rw} {@hit 6} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}6 ({@damage 1d6 + 3}) piercing damage, or 7 ({@damage 1d8 + 3}) piercing damage if used with two hands to make a melee attack, plus 3 ({@damage 1d6}) fire damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"spear|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -4650,6 +4759,7 @@
 		{
 			"name": "Rhundorth",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 140,
 			"_copy": {
@@ -4675,6 +4785,9 @@
 						"{@atk mw} {@hit 6} to hit, reach 5 ft., one target. {@h}9 ({@damage 1d8 + 4}) bludgeoning damage, or 10 ({@damage 1d10 + 4}) bludgeoning damage if used with two hands."
 					]
 				}
+			],
+			"attachedItems": [
+				"warhammer|phb"
 			],
 			"damageTags": [
 				"B"
@@ -4789,6 +4902,7 @@
 		{
 			"name": "Shoalar Quanderil",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 208,
 			"size": [
@@ -4797,7 +4911,10 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"water genasi"
+					{
+						"tag": "genasi",
+						"prefix": "Water"
+					}
 				]
 			},
 			"alignment": [
@@ -4912,6 +5029,9 @@
 						"{@atk mw,rw} {@hit 3} to hit, reach 5 ft. or ranged 20/60 ft., one target. {@h}3 ({@damage 1d4 + 1}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"traitTags": [
 				"Amphibious"
@@ -5039,6 +5159,9 @@
 						"{@atk mw,rw} {@hit 4} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}3 ({@damage 1d4 + 1}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"languageTags": [
 				"AU",
@@ -5229,6 +5352,7 @@
 		{
 			"name": "Thurl Merosska",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 192,
 			"size": [
@@ -5346,6 +5470,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"greatsword|phb",
+				"lance|phb"
+			],
 			"actionTags": [
 				"Multiattack",
 				"Parry"
@@ -5374,6 +5502,7 @@
 		{
 			"name": "Tornscale",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 90,
 			"_copy": {
@@ -5397,6 +5526,7 @@
 		{
 			"name": "Vanifer",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 203,
 			"size": [
@@ -5543,6 +5673,9 @@
 				"name": "Vanifer",
 				"source": "PotA"
 			},
+			"attachedItems": [
+				"tinderstrike|pota"
+			],
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -5587,6 +5720,7 @@
 		{
 			"name": "Wiggan Nettlebee",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 212,
 			"size": [
@@ -5724,6 +5858,7 @@
 		{
 			"name": "Windharrow",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 192,
 			"size": [
@@ -5847,6 +5982,9 @@
 						"{@atk mw} {@hit 5} to hit, reach 5 ft., one creature. {@h}7 ({@damage 1d8 + 3}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"rapier|phb"
 			],
 			"traitTags": [
 				"Fey Ancestry"
@@ -6161,6 +6299,7 @@
 		{
 			"name": "Zegdar",
 			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PotA",
 			"page": 120,
 			"_copy": {

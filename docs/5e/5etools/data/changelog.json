@@ -2329,5 +2329,137 @@
 		"ver": "1.174.2",
 		"date": "2023-01-04",
 		"txt": "- Added an \"Add Predefined Action\" button to the Creature Homebrew Builder, similar in function to the existing \"Add Predefined Trait\" button (thanks @ FishCrystals for the prototype and data entry) \n- (Prerelease/Brew) Fixed Prerelease/Homebrew races failing to load in Statgen\n- (Brew) Fixed crash when opening the \"Manage [Editable Homebrew] Contents\" dialog\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.174.3",
+		"date": "2023-01-11",
+		"txt": "- Added Spelljammer DM Screen\n- Added \"Copy as JSON\"/\"Copy as Markdown\" menu to list page \"Info\" tabs (this functionality was previously available only in the Bestiary)\n- Fixed various spell-related crashes\n- Fixed crash when loading range filter values from URL\n- (Brew) Added Markdown rendering support for creature statblock section intros/notes\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.174.4",
+		"date": "2023-01-26",
+		"txt": "- Overhauled Name/Encounter page table rendering to better match table rendering elsewhere on the site, and to enable footnotes\n- Added VGM Yuan-ti Gods to Deities page\n- Added various Plane Shift Kaladesh and Ixalan creature versions\n- Fixed Markdown renderer rendering images as links, rather than images (thanks @ jbutz)\n- (Foundry) Fixed Rivet failing to send data\n- (Brew) Added support for evaluating `\"save\"`/`\"skill\"` when scaling creatures by level\n- (Brew) Added detection for inlined fluff when tagging entities for \"Has Info\" and \"Has Images\" filters\n- (Brew) Fixed `\"reprintedAs\"` not being filtered out by default by `\"_copy\"`, and not being stripped when copying existing entities in the Homebrew Builder\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.175.0",
+		"date": "2023-02-03",
+		"title": "Big Deck Lover",
+		"txt": "- Added Decks page <https://5e.tools/decks.html>\n- Added more Plane Shift art; tokens\n- (Brew) Improved Creature Converter handling of line-broken parentheses\n- (Brew) Improved Creature Converter handling of CR appearing in name/first line\n- (Brew) Added print styling to the Render Demo page, allowing it to be printed in a useful format\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.175.1",
+		"date": "2023-02-04",
+		"txt": "- Added \"Flip\" button to drawn card on the Decks page\n- Added \"draw with replacement\" to Decks page, which can be skipped by SHIFT-clicking the card draw button\n- Added \"Return Card to Deck\" button to cards on the Decks page\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.175.2",
+		"date": "2023-02-05",
+		"txt": "- Added Dungeon Master's Screen: Dungeon Kit decks to Decks page (thanks @ Lyra)\n- Fixed card backs being mirrored in Decks page\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.176.0",
+		"date": "2023-02-12",
+		"title": "Bits and Pieces",
+		"txt": "- Added page numbers to all remaining adventures/books (CRCotN, DoSI, JttRC, LoX; AAG, BAM), and to all entities from the same sources\n- Added \"Add to Blocklist\" context menu option to entries in list pages\n- Added \"Obscures Vision\", \"Difficult Terrain\", \"Additional Attack Damage\", and \"Affects Objects\" filters to the Spells page Miscellaneous filter\n- Added the CoS Tarokka deck to the Decks page (thanks @ Lyra)\n- (Mobile) Drawn cards on the Decks page can now be angled by tilting your device\n- Fixed Recipes page \"Serves\" dropdown having no effect\n- Fixed CR Scaler crashing when attempting to scale spellcasters\n- Fixed broken subclass source links on the Spells page\n- (Brew) Added rudimentary support for `\"resource\"` array on creatures, which allows HP-like resources to be listed\n- (Brew) Improved text converter handling of comma-separated text split across multiple lines\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.176.1",
+		"date": "2023-02-13",
+		"txt": "- (Brew) Improved Class Creature Scaler handling of proficiency bonus (\"PB\") terms\n  - Added PB substitution to passive Perception\n  - Terms are now simplified after substituting PB (e.g. \"+3 +3\" -> \"+6\")\n  - Fixed \"+PB\" not being substituted in dice/damage/etc. tags\n  - @dc tags may now have PB substituted\n  - HP now scales without the need to specify a class name (i.e. \"your level\" works as well as \"your Ranger level\")\n- (Brew) Improved Creature Text Converter handling of certain cases\n  - Added support for \"Saves\" as an alternative to \"Saving Throws\"\n  - Improve handling of alternate CR/XP formats\n  - Improved handling of \"PB\" in skills/saves/AC/DCs\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.177.0",
+		"date": "2023-02-21",
+		"title": "Topical",
+		"txt": "- Added Keys from the Golden Vault\n- (Brew) Fixed class creature scaler failing to scale non-PB-dependent passive perceptions\n- (Brew) Fixed class creature scaler erroneously evaluating some dice\n- (Brew) Fixed adding brew to non-editable sources in the Text Converter\n- (Brew) Fixed Race Text Converter parsing of creature type\n- (Brew) Fixed Text Converter mis-tagging \"vision and light\" headers\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.177.1",
+		"date": "2023-03-02",
+		"txt": "- Added initial Keys from the Golden Vault tokens _[more/better to come Soon:tm:]_\n- Added Dynamic Map Viewer support to Keys from the Golden Vault maps\n- Added Keys from the Golden Vault adventure NPCs/other creatures\n- Fixed Items page failing to search-index all text when using `stats:...` or `text:...`\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.177.2",
+		"date": "2023-03-12",
+		"txt": "- Added Thieves' Gallery content\n- Added more Keys from the Golden Vault tokens\n- Added \"Legendary Groups\" to Omnisearch\n- Added \"Duplicate\" button to pinned lists\n- Added Dynamic Map Viewer support/grid values to a handful of maps that were lacking it (thanks @ Lyra)\n- Fixed crash when up-arrowing in some lists\n- (Brew) Added support for `@legroup` tag; `\"statblock\"` entry support for legendary groups\n- (Brew) Added support for array of `\"choose\"` creature `\"type\"`s\n- (Brew) Added support for scaling `PB` values in `\"special\"` creature HP\n- (Brew) Extended Text Converter condition tagging to also tag the \"concentration\" `@status`\n- (Brew) Fixed some Text Converter tagging requiring exact casing\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.177.3",
+		"date": "2023-03-21",
+		"txt": "- Added Weapon Damage Dice filter to Items page (thanks @ bruno-71 for the initial prototype)\n- Added \"Tunneler\" to Bestiary page Traits filter\n- Fixed Items page \"Cost\" filter failing to filter when max was set to \"100+gp\"\n- (Brew) Added support for `\"special\"` values in creature ability scores\n- (Brew) Various improvements to the Text Converter\n  - Improved linebreak handling\n  - Added support for One-UA-style \"special\" ability scores to Creature Text Converter\n  - Added support for choice of size; creature type to Creature Text Converter\n  - Improved Creature Text Converter handling of \"special\" ACs\n  - Improved Spell Text Converter parsing of One-UA-style spells\n  - Fixed various Creature Text Converter inconsistencies around core details header parsing\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.178.0",
+		"date": "2023-03-30",
+		"title": "Official 'Crafting Rules",
+		"txt": "- Added Monstrous Compendium 3: Minecraft Creatures content\n- Added regex syntax to list page search bars (e.g. `text:/.*/`)\n- Added deck/card support to Blocklist\n- Tweaked toast system to avoid overlapping notifications\n- Fixed Bestiary \"Ability Score\" filters having no effect\n- Fixed list search failing to index fluff text\n- (Brew) Added filename (where available) to \"failed to load reference(s)\" popups\n- (Brew) Fixed Items page crash when loading items with non-standard damage roll formats\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.179.0",
+		"date": "2023-04-17",
+		"title": "I Merely Borrow",
+		"txt": "- Added Honor Among Thieves Legendary Magic Items\n- Added item count to pinned lists\n- Added CTRL+click to hover window \"x\" button, which closes all hover windows\n- Added \"Clear\" button to \"homebrew\" section of Source filters\n- Fixed rare bug where hover windows could resize themselves\n- (Brew) When using the \"Add Predefined Action\" Button in the Creature Homebrew Builder, finesse weapons will now auto-calculate their to-hit and damage based on either the creature's STR or DEX (whichever is highest)\n- (Brew) Added `\"pbNote\"` input to Creature Homebrew Builder\n- (Brew) Added support for `\"start\"` on `\"list\"` entries\n- (Brew) Added source color picker to \"Add/Edit Homebrew Source\" screen\n- (Brew) Fixed Creature Text Converter handling of swarm creature types/sizes\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.179.1",
+		"date": "2023-04-20",
+		"txt": "- Added \"As Names\"/\"As Abbreviations\"/\"As Names Plus Abbreviation\" customization option to Source filters\n- Searching for a source abbreviation (e.g. \"DMG\") in filters now shows sources matching that abbreviation \n- Fixed labelled slider filters failing to display matching labels in \"dropdown\" mode\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.179.2",
+		"date": "2023-05-02",
+		"txt": "- Added \"Export\"/\"Import\" options to Point Buy Statgen \"Custom Rules\" section\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.180.0",
+		"date": "2023-05-04",
+		"title": "Displaced",
+		"txt": "- Added \"Misplaced Monster Volume 1\" content\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.181.0",
+		"date": "2023-05-07",
+		"title": "Brewtal",
+		"txt": "- Fixed Items page resetting all other Miscellaneous filters when the \"Mundane\" or \"Magic\" side-labels are clicked\n- (Brew) Added `@sup`, `@sub`, and `@kbd` tags, which produce the matching HTML elements\n- (Brew) Added `\"credit\"` field to `\"image\"` entries, allowing art credits to be specified\n- (Brew) Added support for `\"colLabelGroups\"` on tables, allowing multiple rows of table headers to be specified\n- (Brew) Added support for array `\"by\"` in `\"quote\"` entries\n- (Brew) Switched to rendering `\"hpNote\"` in vehicle components as an entry supporting @tags (rather than as a plain string)\n- (Brew) Tweaked rendering of `\"list\"` names to avoid breaking names away from list bodies in columnar layouts\n- (Brew) Fixed \"Add/Edit Homebrew Source\" always setting a brew's color to #000000 when not specified\n- (Brew) Fixed Creature Text Converter silently removing \"(X with mage armor)\" (and similar) AC terms\n- ((Brew) Added HTML sanitization to homebrew repository, lessening the risk of scripting antics from \"official\" sources)\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.181.1",
+		"date": "2023-05-11",
+		"txt": "- Added Misplaced Monster Volume 1 tokens\n- Fixed CR Scaler crash when scaling bonus-less damage to lower CR\n- (Brew) Added support for custom fonts\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.181.2",
+		"date": "2023-05-25",
+		"txt": "- Added more options to the Classes page \"Filter...\" dropdown\n  - \"View Official\" renamed to \"View Default\"\n  - Added \"View Official\" which shows official sources only (no homebrew)\n  - Added \"View Homebrew\" which shows homebrew\n- Added resource consumption display to Optional Features\n- Fixed pinned lists being displayed when printing\n- (Brew) Added support for `\"bonus\"` spellcasting `\"displayAs\"`\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.181.3",
+		"date": "2023-05-28",
+		"txt": "- Fixed Spells Page failing to filter combined class/class variant spells in some cases\n- (Brew) Added support for `\"reaction\"` spellcasting `\"displayAs\"`\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.181.4",
+		"date": "2023-06-14",
+		"txt": "- Added \"Equipment\" filter to Bestiary page\n- Overhauled Monster Manual fluff, reformatting and adding various missing chunks of text (notably quotes) (thanks @ Spappz)\n- Added \"Spell Level\" column to Classes page class table when in Spell Points mode\n- Fixed Classes page failing to correctly apply \"reprinted\" color styling in some cases\n- Added \"reprinted\" coloring support to Classes page outline view\n- Fixed DM Screen Initiative Tracker \"Spell DC\" additional column failing to auto-populate\n- (Brew) Added support for `\"_copy\"` on `\"baseitem\"`s\n- (Brew) Added support for `\"_copy\"` within `\"statblockInline\"`-type entries\n- (Brew) Fixed rare case where Creature Builder could output invalid creature types\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.181.5",
+		"date": "2023-06-15",
+		"txt": "- Fixed DM Screen Clock/Calendar failing to load \n- (Brew) Fixed self-source-referencing `\"_copy\"`s within `\"statblockInline\"`-type entries failing to load\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.181.6",
+		"date": "2023-06-16",
+		"txt": "- (Brew) Fixed loading performance regression\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.181.7",
+		"date": "2023-06-18",
+		"txt": "- Fixed DM Screen Initiative Tracker crash when loading encounters with custom stat columns\n- Fixed DM Screen crashes when attempting to load Player Initiative Tracker panels\n- (Brew) Fixed Creature Homebrew Builder crashing when attempting to finalize statblocks\n- (Brew) Fixed Classes page coloring of reprinted homebrew subclass selectors"
+	},
+	{
+		"ver": "1.181.8",
+		"date": "2023-07-02",
+		"txt": "- Added more images to various books (PHB, MM, VGM, MTF, SCAG, XGE)\n- Added Printer View button to Backgrounds page; Feats page\n- Improved CR Scaler handling of heavy armor with shields at high CRs\n- Fixed rare Bestiary crash when loading a specific subset of sources \n- (Fixed typos/added tags)"
 	}
 ]

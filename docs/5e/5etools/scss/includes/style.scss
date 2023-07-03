@@ -70,6 +70,7 @@
 	&nav-date {
 		margin-left: -16px;
 		width: 27px;
+		color: $rgb-font--muted;
 	}
 
 	&wrp-download {
@@ -124,6 +125,12 @@
 		left: calc(50% - 30px);
 		width: 90px;
 		text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 3px 3px 5px black;
+	}
+}
+
+.active > .nav__link > .page__ {
+	&nav-date {
+		color: white;
 	}
 }
 
@@ -1079,17 +1086,6 @@ div#lootoutput {
 		}
 	}
 
-	&ability-names th {
-		text-align: center;
-		font-weight: bold;
-		color: inherit;
-	}
-
-	&ability-scores {
-		text-align: center;
-		width: 16%;
-	}
-
 	&wrp-size-type-align--token,
 	&wrp-avoid-token {
 		max-width: calc(100% - 11rem);
@@ -1321,114 +1317,7 @@ img.token:hover {
 	font-size: 0.9em;
 }
 
-/* DM Screen */
-.dm-screen-panel {
-	background-color: #f0f0f0;
-
-	&.faux-hover {
-		background: #e0e0e0;
-
-		.panel-content-wrapper-inner::after {
-			background: #e0e0e080;
-		}
-	}
-}
-
-.panel-history-control-remove-wrapper,
-.panel-control-bar {
-	background: #80808080;
-}
-
-.panel-control-icon {
-	color: rgba(255, 255, 255, 0.7);
-}
-
-.panel-add {
-	color: $rgb-border-grey;
-}
-
-.btn-panel-add {
-	border: 1px solid $rgb-border-grey;
-
-	&:hover,
-	&.faux-hover {
-		background: #e0e0e0;
-	}
-}
-
-.night-mode .btn-panel-add {
-	border-color: $rgb-border-grey--night;
-}
-
-.panel-content-wrapper-inner {
-	background: white;
-}
-
-.panel-addmenu-tab-head[active="true"] {
-	background-color: #e6e6e6;
-	border-color: #adadad;
-}
-
-.btn-spotlight {
-	background-color: #e8f5ff;
-	border-color: #c4cace;
-}
-
-.btn-spotlight:focus {
-	color: $rgb-off-black;
-	background-color: #d2dee6;
-	border-color: #85898c;
-}
-
-.btn-spotlight:hover {
-	color: $rgb-off-black;
-	background-color: #d2dee6;
-	border-color: #85898c;
-}
-
-.panel-addmenu-tab-head.btn-spotlight[active="true"] {
-	background-color: #d2dee6;
-	border-color: #85898c;
-}
-
-.underline-tabs {
-	border-top: 1px solid $rgb-border-grey;
-}
-
-.night-mode .underline-tabs {
-	border-color: $rgb-border-grey--night;
-}
-
-.panel-content-wrapper-inner td div.border {
-	background-color: $rgb-name-red;
-}
-
-.panel-history-control-remove {
-	color: rgba(255, 255, 255, 0.7);
-}
-
-.panel-history-control-middle {
-	background: $rgb-border-grey--trans;
-	border: 1px solid $rgb-border-grey;
-}
-
-.night-mode .panel-history-control-middle {
-	background: #777a;
-	border-color: #aaa;
-}
-
-.dm-init-row.dm-init-row-active input {
-	background: #cfe5ff78;
-}
-
-.dm-init-row.dm-init-row-active .init-wrp-creature {
-	background: #cfe5ff78;
-}
-
-.dm__panel-bg {
-	background: white;
-}
-
+// region Initiative tracker
 .init__ {
 	&wrp_conds {
 		display: flex;
@@ -1451,10 +1340,9 @@ img.token:hover {
 		height: 100%;
 	}
 }
+// endregion
 
-/* *** */
-
-/* Player initiative tracker */
+// region Player initiative tracker
 .initp__ {
 	&content {
 		overflow-y: auto;
@@ -1567,8 +1455,7 @@ img.token:hover {
 		border-color: $rgb-border-grey--night;
 	}
 }
-
-/* *** */
+// endregion
 
 /**** Search and filter bar ****/
 .lst__ {
@@ -1821,30 +1708,21 @@ tr.regionaleffect {
 
 // Book mode adjustments
 .stats--book-large {
-	border-radius: 0;
-	line-height: 1.7;
-	font-size: 1em;
 
-	.rd__h--0 {
-		font-size: 2.5em;
-	}
-
-	.rd__h--1 {
-		font-size: 1.9em;
-	}
-
-	.rd__h--2 {
-		font-size: 1.6em;
-	}
+	--sz-font-h0: 2.5em;
+	--sz-font-h1: 1.9em;
+	--sz-font-h2: 1.6em;
 
 	// FIXME this doesn't affect e.g. lists
 	//  Also, affects e.g. nested tables (bad!)
-	.rd__b--3,
-	table,
-	p {
-		margin: 0 0 15px;
-		text-indent: 0;
-	}
+	--h-mb-p: 15px;
+	--h-mb-quote-line: 10px;
+	--h-mb-li: 5px;
+	--w-text-indent-inline-p: 0;
+
+	border-radius: 0;
+	line-height: 1.7;
+	font-size: 1em;
 
 	.rd__spc-inline-post {
 		width: 100%;
@@ -1855,26 +1733,8 @@ tr.regionaleffect {
 		}
 	}
 
-	.rd__list {
-		margin-bottom: 15px;
-
-		+ .rd__list {
-			margin-top: -10px;
-		}
-
-		> .rd__list {
-			margin-bottom: 0;
-		}
-	}
-
 	.rd__list-hang-notitle {
 		> .rd__li {
-			margin-bottom: 5px;
-
-			> * {
-				margin: 0 0 5px;
-			}
-
 			> .rd__p-list-item {
 				text-indent: -1.1em;
 			}
@@ -1884,14 +1744,6 @@ tr.regionaleffect {
 	.rd__p-cont-indent {
 		text-indent: 0;
 		margin-top: 5px;
-	}
-
-	.rd__quote-line {
-		margin-bottom: 10px;
-
-		&--last {
-			margin-bottom: 5px;
-		}
 	}
 }
 
@@ -2081,8 +1933,6 @@ header p.lead {
 	width: 100vw;
 	height: 100vh;
 	background: white;
-	display: flex;
-	flex-direction: column;
 
 	&__ {
 		&spacer-name {
@@ -2146,12 +1996,6 @@ header p.lead {
 		&wrp-item {
 			border-color: $rgb-border-grey--night;
 		}
-	}
-}
-
-.stats--bkmv {
-	p {
-		margin-bottom: 4px;
 	}
 }
 
@@ -2386,7 +2230,7 @@ th.border {
 }
 
 .homebrew-section {
-	background-color: rgba(255, 0, 0, 0.05);
+	background-color: $rgb-bg-homebrew;
 
 	.homebrew-float {
 		float: right;
@@ -2395,6 +2239,7 @@ th.border {
 		margin-left: 5px;
 		padding-right: 2px;
 		padding-left: 2px;
+		text-indent: 0;
 	}
 
 	.homebrew-old-content {
@@ -2410,7 +2255,7 @@ th.border {
 }
 
 .homebrew-inline {
-	background-color: rgba(255, 0, 0, 0.05);
+	background-color: $rgb-bg-homebrew;
 	text-decoration: underline dotted;
 }
 
@@ -2453,60 +2298,53 @@ th.border {
 .toast {
 	@include shadow-1();
 
-	position: fixed;
 	z-index: $z-temp-effect;
-	top: -50px;
+	right: 0;
+	bottom: 200px;
+	left: 0;
+	padding: 5px 15px;
 	min-height: 40px;
 	max-width: 850px;
 	display: flex;
 	width: 90vw;
-	right: 0;
-	left: 0;
-	margin: 0 auto;
 	justify-content: space-between;
 	align-items: center;
-	padding: 5px 15px;
 	border: 1px solid transparent;
 	border-radius: 4px;
 	opacity: 1;
-	transition: top $time-5-frames;
+	transition: bottom $time-5-frames;
 
-	&--animate:nth-of-type(1) {
-		top: 5px;
-		transition: top $time-5-frames;
-	}
-
-	&--animate:nth-of-type(2) {
-		top: 50px;
-		transition: top $time-5-frames;
-	}
-
-	&--animate:nth-of-type(3) {
-		top: 95px;
-		transition: top $time-5-frames;
-	}
-
-	&--animate:nth-of-type(4) {
-		top: 140px;
-		transition: top $time-5-frames;
+	&--animate {
+		bottom: 0;
+		margin-bottom: ($spacer * 0.5);
+		transition: bottom $time-5-frames;
 	}
 
 	&--deleted {
 		z-index: $z-temp-effect - 1;
 	}
 
+	&__container {
+		position: fixed;
+		z-index: $z-temp-effect;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 200px;
+	}
+
 	&__wrp-control {
+		margin: -5px -15px -5px 0;
 		flex: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		align-self: stretch;
-		margin: -5px -15px -5px 0;
 	}
 
 	&__btn-close {
-		height: 100%;
 		margin: 0;
+		height: 100%;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 		border-top: 0;
@@ -3263,23 +3101,6 @@ th.border {
 		color: $rgb-name-red--night;
 	}
 
-	.source {
-		$rgb-source-PHB: $rgb-subclass--night;
-		$rgb-source-SADS: #4f63f5;
-
-		&PHB {
-			color: $rgb-source-PHB !important;
-			border-color: $rgb-source-PHB !important;
-			text-decoration-color: $rgb-source-PHB !important;
-		}
-
-		&SADS {
-			color: $rgb-source-SADS !important;
-			border-color: $rgb-source-SADS !important;
-			text-decoration-color: $rgb-source-SADS !important;
-		}
-	}
-
 	.bkmv {
 		background: #272727;
 	}
@@ -3359,43 +3180,6 @@ th.border {
 		border: 1px solid rgba(255, 255, 255, 0.15);
 	}
 
-	/* DM Screen */
-	.dm-screen-panel {
-		background-color: #303030;
-
-		&.faux-hover {
-			background: #404040;
-
-			.panel-content-wrapper-inner::after {
-				background: #40404080;
-			}
-		}
-	}
-
-	.panel-control-icon {
-		color: rgba(255, 255, 255, 0.7);
-	}
-
-	.panel-add {
-		color: $rgb-border-grey;
-	}
-
-	.btn-panel-add {
-		&:hover,
-		&.faux-hover {
-			background: #404040;
-		}
-	}
-
-	.panel-content-wrapper-inner {
-		background: $rgb-bg--night;
-	}
-
-	.panel-addmenu-tab-head[active="true"] {
-		background-color: $rgb-btn-default-active--night !important;
-	}
-
-	.panel-content-wrapper-inner td div.border,
 	.hwin td div.border {
 		background-color: $rgb-name-red--night;
 	}
@@ -3404,20 +3188,7 @@ th.border {
 		color: $rgb-name-red--night;
 	}
 
-	.ui-modal__row-sep {
-		background: #999;
-	}
-
 	.panel-content-textarea {
-		background: $rgb-bg--night;
-	}
-
-	.dm-init-row.dm-init-row-active input,
-	.dm-init-row.dm-init-row-active .init-wrp-creature {
-		background: #8dc1ff20;
-	}
-
-	.dm__panel-bg {
 		background: $rgb-bg--night;
 	}
 
@@ -3426,7 +3197,7 @@ th.border {
 	}
 
 	.homebrew-section {
-		background-color: rgba(255, 0, 0, 0.1);
+		background-color: $rgb-bg-homebrew--night;
 
 		.homebrew-old-content {
 			color: #f99;
@@ -3434,7 +3205,7 @@ th.border {
 	}
 
 	.homebrew-inline {
-		background-color: rgba(255, 0, 0, 0.1);
+		background-color: $rgb-bg-homebrew--night;
 	}
 
 	.highlight {
@@ -3640,7 +3411,7 @@ th.border {
  * Print styles
  ***************************************/
 
-@media print {
+@include is-print {
 	@page {
 		margin: 10mm 15mm;
 	}
@@ -3672,7 +3443,6 @@ th.border {
 		text-decoration: none !important;
 	}
 
-	.no-print,
 	.btn-reroll,
 	.rollbox-min,
 	.rollbox,
@@ -3779,6 +3549,16 @@ th.border {
 		box-shadow: none !important;
 		border-color: black !important;
 	}
+
+	.rd__h-toggle {
+		display: none !important;
+	}
+
+	.rd__b-special,
+	.rd__li {
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
 	// endregion
 
 	// region books/adventures
@@ -3799,24 +3579,20 @@ th.border {
 		bottom: unset;
 		left: unset;
 		width: calc(100vw - 20px);
-		display: block;
 
 		&__ {
-			&scroller {
-				overflow: visible !important;
-				height: initial;
-			}
-
-			&wrp-controls,
-			&spacer-name,
-			&footer {
-				display: none !important;
-			}
-
 			&no-breaks {
 				break-before: unset !important;
 				break-after: unset !important;
 				break-inside: unset !important;
+			}
+
+			&wrp--columns-1 {
+				column-count: 1;
+			}
+
+			&wrp--columns-2 {
+				column-count: 2;
 			}
 		}
 
@@ -3835,9 +3611,17 @@ th.border {
 		break-before: auto !important;
 		break-after: auto !important;
 		break-inside: avoid !important;
+
+		tr {
+			break-inside: auto !important;
+		}
 	}
 
 	.toast {
+		display: none !important;
+	}
+
+	.cancer__anchor {
 		display: none !important;
 	}
 }

@@ -63,6 +63,14 @@
 	$rgb-source-SAiS: #056b97;
 	$rgb-source-DoSI: #478bb8;
 	$rgb-source-DSotDQ: #851e20;
+	$rgb-source-PSA: #d76404;
+	$rgb-source-PSD: #5db7da;
+	$rgb-source-PSI: #5d4696;
+	$rgb-source-PSK: #a27135;
+	$rgb-source-PSX: #bb2722;
+	$rgb-source-PSZ: #6f8a2d;
+	$rgb-source-KftGV: #876e38;
+	$rgb-source-hat: #a24545;
 
 	// region Categories
 
@@ -489,6 +497,54 @@
 		text-decoration-color: $rgb-source-DSotDQ !important;
 	}
 
+	&PSA {
+		color: $rgb-source-PSA !important;
+		border-color: $rgb-source-PSA !important;
+		text-decoration-color: $rgb-source-PSA !important;
+	}
+
+	&PSD {
+		color: $rgb-source-PSD !important;
+		border-color: $rgb-source-PSD !important;
+		text-decoration-color: $rgb-source-PSD !important;
+	}
+
+	&PSI {
+		color: $rgb-source-PSI !important;
+		border-color: $rgb-source-PSI !important;
+		text-decoration-color: $rgb-source-PSI !important;
+	}
+
+	&PSK {
+		color: $rgb-source-PSK !important;
+		border-color: $rgb-source-PSK !important;
+		text-decoration-color: $rgb-source-PSK !important;
+	}
+
+	&PSX {
+		color: $rgb-source-PSX !important;
+		border-color: $rgb-source-PSX !important;
+		text-decoration-color: $rgb-source-PSX !important;
+	}
+
+	&PSZ {
+		color: $rgb-source-PSZ !important;
+		border-color: $rgb-source-PSZ !important;
+		text-decoration-color: $rgb-source-PSZ !important;
+	}
+
+	&KftGV {
+		color: $rgb-source-KftGV !important;
+		border-color: $rgb-source-KftGV !important;
+		text-decoration-color: $rgb-source-KftGV !important;
+	}
+
+	&HAT-TG,
+	&HAT-LMI {
+		color: $rgb-source-hat !important;
+		border-color: $rgb-source-hat !important;
+		text-decoration-color: $rgb-source-hat !important;
+	}
 	// endregion
 }
 

@@ -120,11 +120,28 @@
 				border-color: darken($rgb-class-brew, $pct-darken-border--active);
 			}
 		}
+
+		&--active-rebrewed {
+			color: white;
+			background: $rgb-class-variant-brew;
+			border-color: darken($rgb-class-variant-brew, $pct-darken-border);
+
+			&:active,
+			&:focus,
+			&:hover,
+			&:active:focus,
+			&:active:hover {
+				color: white;
+				background: darken($rgb-class-variant-brew, $pct-darken-active);
+				border-color: darken($rgb-class-variant-brew, $pct-darken-border--active);
+			}
+		}
 	}
 	// endregion
 
 	// region Header coloring
 	// `feature-<variant>-<ua|brew>-<subclass>-<reprint>`
+	// See: `_getColorStyleClasses`
 	&feature-variant-subclass {
 		.rd__h--0,
 		.rd__h--1,
@@ -357,6 +374,22 @@
 				color: white;
 				background: darken($rgb-class-brew--night, $pct-darken-active);
 				border-color: darken($rgb-class-brew--night, $pct-darken-border--active);
+			}
+		}
+
+		&--active-rebrewed {
+			color: white;
+			background: $rgb-class-variant-brew--night;
+			border-color: darken($rgb-class-variant-brew--night, $pct-darken-border);
+
+			&:active,
+			&:focus,
+			&:hover,
+			&:active:focus,
+			&:active:hover {
+				color: white;
+				background: darken($rgb-class-variant-brew--night, $pct-darken-active);
+				border-color: darken($rgb-class-variant-brew--night, $pct-darken-border--active);
 			}
 		}
 	}
@@ -890,8 +923,16 @@
 			color: $rgb-subclass-ua--night;
 		}
 
+		&--feature-ua-subclass-reprint {
+			color: $rgb-subclass-ua--stale;
+		}
+
 		&--feature-brew-subclass {
 			color: $rgb-class-brew--night;
+		}
+
+		&--feature-brew-subclass-reprint {
+			color: $rgb-class-variant-brew;
 		}
 
 		&--feature-variant {

@@ -6,6 +6,20 @@ Renderer
 
 $rgb-inset-border: #656565;
 
+:root {
+	--sz-font-h0: 1.8em;
+	--sz-font-h1: 1.5em;
+	--sz-font-h2: 1.35em;
+
+	--h-mb-p: 5px;
+	--h-mb-quote-line: 5px;
+	--h-mb-quote-line-last: 5px;
+	--h-mb-li: 3px;
+	--w-text-indent-inline-p: 0.7em;
+	--w-pl-list: 24px;
+	--w-pl-list-no-bullets: 10px;
+}
+
 @mixin rd__h--large() {
 	color: $rgb-name-red;
 	font-family: "Times New Roman", serif;
@@ -30,7 +44,7 @@ $rgb-inset-border: #656565;
 	&__ {
 		&b {
 			p {
-				margin-bottom: 5px;
+				margin-bottom: var(--h-mb-p);
 			}
 		}
 
@@ -39,7 +53,7 @@ $rgb-inset-border: #656565;
 		&b--2,
 		&b--3,
 		&b--4 {
-			margin-bottom: 5px;
+			margin-bottom: var(--h-mb-p);
 
 			&:last-child {
 				margin-bottom: 0;
@@ -60,22 +74,27 @@ $rgb-inset-border: #656565;
 		}
 
 		&list {
-			margin-top: 5px;
-			margin-bottom: 10px;
-			padding-left: 24px;
+			margin-top: 0;
+			margin-bottom: var(--h-mb-p);
+			padding-left: var(--w-pl-list);
 
-			// FIXME(future) alternately, `&:has(+ .rd__list) { margin-bottom: 0; }` when browser support exists for :has
-			+ .rd__list {
-				margin-top: -5px;
+			> .rd__list:last-child {
+				margin-bottom: 0;
 			}
 
-			> .rd__list {
-				margin-bottom: 0;
+			> .rd__list-name {
+				margin-left: calc(-1 * var(--w-pl-list));
 			}
 		}
 
+		&list-name {
+			margin: 0 0 var(--h-mb-li);
+			font-weight: bold;
+			list-style-type: none;
+		}
+
 		&li {
-			margin-bottom: 5px;
+			margin-bottom: var(--h-mb-p);
 		}
 
 		&compact-stats {
@@ -127,8 +146,10 @@ $rgb-inset-border: #656565;
 
 		&quote {
 			&-line {
+				margin-bottom: var(--h-mb-quote-line);
+
 				&--last {
-					margin-bottom: 5px;
+					margin-bottom: var(--h-mb-quote-line-last);
 				}
 			}
 
@@ -175,6 +196,10 @@ $rgb-inset-border: #656565;
 			line-height: 1.7;
 		}
 
+		&image-credit {
+			font-size: 80%;
+		}
+
 		// Thicker scrollbars for viewer
 		&scroller-viewer {
 			scrollbar-width: auto;
@@ -199,7 +224,7 @@ $rgb-inset-border: #656565;
 			list-style: none;
 
 			> .rd__li {
-				margin-bottom: 3px;
+				margin-bottom: var(--h-mb-li);
 				text-indent: -1.1em;
 				margin-left: 1.1em;
 
@@ -209,7 +234,7 @@ $rgb-inset-border: #656565;
 				}
 
 				> * {
-					margin: 0 0 3px;
+					margin: 0 0 var(--h-mb-li);
 				}
 
 				// fixme?
@@ -221,6 +246,10 @@ $rgb-inset-border: #656565;
 
 		&list-hang {
 			list-style: none;
+
+			> .rd__list-name {
+				margin-left: calc(-1 * var(--w-pl-list));
+			}
 
 			// Firefox workaround; list bullets are pseudo-elements "::marker"
 			> li > *:not(::marker) {
@@ -237,18 +266,21 @@ $rgb-inset-border: #656565;
 			list-style: lower-roman;
 		}
 
+		&list-upper-roman {
+			list-style: upper-roman;
+		}
+
 		&list-no-bullets {
 			list-style: none;
-			padding: 0 10px;
+			padding: 0 0 0 var(--w-pl-list-no-bullets);
+
+			> .rd__list-name {
+				margin-left: calc(-1 * var(--w-pl-list-no-bullets));
+			}
 		}
 
 		&list-italic {
 			font-style: italic;
-		}
-
-		&list-name {
-			margin: 0;
-			font-weight: bold;
 		}
 
 		// section headers
@@ -261,7 +293,7 @@ $rgb-inset-border: #656565;
 		&h--0 {
 			@include rd__h--large();
 
-			font-size: 1.8em;
+			font-size: var(--sz-font-h0);
 		}
 
 		// underline headers
@@ -269,7 +301,7 @@ $rgb-inset-border: #656565;
 		&h--1 {
 			@include rd__h--large();
 
-			font-size: 1.5em;
+			font-size: var(--sz-font-h1);
 			border-bottom: 1px solid $rgb-name-red;
 			margin: 0 0 0.2em;
 		}
@@ -279,7 +311,7 @@ $rgb-inset-border: #656565;
 		&h--2 {
 			@include rd__h--large();
 
-			font-size: 1.35em;
+			font-size: var(--sz-font-h2);
 		}
 
 		// inset headers
@@ -340,7 +372,7 @@ $rgb-inset-border: #656565;
 
 		&b--3 > p,
 		&b--4 > p {
-			text-indent: 0.7em;
+			text-indent: var(--w-text-indent-inline-p);
 			margin-bottom: 0;
 
 			&:first-of-type {
@@ -349,7 +381,7 @@ $rgb-inset-border: #656565;
 		}
 
 		&b-inset > p {
-			text-indent: 0.7em;
+			text-indent: var(--w-text-indent-inline-p);
 			margin-bottom: 0;
 
 			&:first-of-type {
@@ -397,6 +429,10 @@ $rgb-inset-border: #656565;
 			}
 		}
 
+		&li > .rd__b-data {
+			margin: 0;
+		}
+
 		&data-embed {
 			&-header {
 				cursor: pointer;
@@ -437,6 +473,7 @@ $rgb-inset-border: #656565;
 
 		&table {
 			width: 100%;
+			margin-bottom: var(--h-mb-p);
 
 			> caption {
 				text-align: left;

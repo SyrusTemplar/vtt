@@ -216,6 +216,7 @@ PropOrder._MONSTER = [
 
 	"altArt",
 
+	new PropOrder._ArrayKey("attachedItems", {fnSort: SortUtil.ascSortLower}),
 	new PropOrder._ArrayKey("traitTags", {fnSort: SortUtil.ascSortLower}),
 	new PropOrder._ArrayKey("senseTags", {fnSort: SortUtil.ascSortLower}),
 	new PropOrder._ArrayKey("actionTags", {fnSort: SortUtil.ascSortLower}),
@@ -1014,6 +1015,7 @@ PropOrder._ITEM = [
 	"spellScrollLevel",
 	"lootTables",
 
+	"seeAlsoDeck",
 	"seeAlsoVehicle",
 
 	"miscTags",
@@ -1377,6 +1379,57 @@ PropOrder._SENSE = [
 
 	"entries",
 ];
+PropOrder._DECK = [
+	"name",
+
+	"source",
+	"page",
+	"srd",
+	"basicRules",
+
+	new PropOrder._ObjectKey("_copy", {
+		order: [
+			"name",
+			"source",
+			new PropOrder._ObjectKey("_mod", {
+				fnGetOrder: () => PropOrder._DECK__COPY_MOD,
+			}),
+			"_preserve",
+		],
+	}),
+
+	"cards",
+	"back",
+
+	"entries",
+
+	"hasCardArt",
+];
+
+PropOrder._DECK__COPY_MOD = [
+	"*",
+	"_",
+	...PropOrder._DECK,
+];
+PropOrder._CARD = [
+	"name",
+	"alias",
+
+	"source",
+	"set",
+	"page",
+	"srd",
+	"basicRules",
+
+	"suit",
+	"value",
+	"valueName",
+
+	"face",
+	"back",
+
+	"entries",
+];
 
 PropOrder._PROP_TO_LIST = {
 	"monster": PropOrder._MONSTER,
@@ -1432,6 +1485,8 @@ PropOrder._PROP_TO_LIST = {
 	"charoptionFluff": PropOrder._GENERIC_FLUFF,
 	"skill": PropOrder._SKILL,
 	"sense": PropOrder._SENSE,
+	"deck": PropOrder._DECK,
+	"card": PropOrder._CARD,
 };
 
 globalThis.PropOrder = PropOrder;

@@ -101,7 +101,16 @@
 								"{@b 2. Apply circumstantial bonuses and penalties.} A class feature, a spell, a particular circumstance, or some other effect might give a bonus or penalty to the check.",
 								"{@b 3. Compare the total to a target number.} If the total equals or exceeds the target number, the ability check, attack roll, or saving throw is a success. Otherwise, it's a failure. The DM is usually the one who determines target numbers and tells players whether their ability checks, attack rolls, and saving throws succeed or fail.",
 								"The target number for an ability check or a saving throw is called a {@b Difficulty Class} (DC). The target number for an attack roll is called an {@b Armor Class} (AC).",
-								"This simple rule governs the resolution of most tasks in D&D play. Chapter 7 provides more detailed rules for using the d20 in the game."
+								"This simple rule governs the resolution of most tasks in D&D play. Chapter 7 provides more detailed rules for using the d20 in the game.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/PHB/dice_1.webp"
+									},
+									"width": 268,
+									"height": 282
+								}
 							],
 							"id": "007"
 						},
@@ -169,7 +178,16 @@
 								"Few D&D adventures end without something magical happening. Whether helpful or harmful, magic appears frequently in the life of an adventurer, and it is the focus of chapters 10 and 11.",
 								"In the worlds of Dungeons & Dragons, practitioners of magic are rare, set apart from the masses of people by their extraordinary talent. Common folk might see evidence of magic on a regular basis, but it's usually minor\u2014a fantastic monster, a visibly answered prayer, a wizard walking through the streets with an animated shield guardian as a bodyguard.",
 								"For adventurers, though, magic is key to their survival. Without the healing magic of clerics and paladins, adventurers would quickly succumb to their wounds. Without the uplifting magical support of bards and clerics, warriors might be overwhelmed by powerful foes. Without the sheer magical power and versatility of wizards and druids, every threat would be magnified tenfold.",
-								"Magic is also a favored tool of villains. Many adventures are driven by the machinations of spellcasters who are hellbent on using magic for some ill end. A cult leader seeks to awaken a god who slumbers beneath the sea, a hag kidnaps youths to magically drain them of their vigor, a mad wizard labors to invest an army of automatons with a facsimile of life, a dragon begins a mystical ritual to rise up as a god of destruction\u2014these are just a few of the magical threats that adventurers might face. With magic of their own, in the form of spells and magic items, the adventurers might prevail!"
+								"Magic is also a favored tool of villains. Many adventures are driven by the machinations of spellcasters who are hellbent on using magic for some ill end. A cult leader seeks to awaken a god who slumbers beneath the sea, a hag kidnaps youths to magically drain them of their vigor, a mad wizard labors to invest an army of automatons with a facsimile of life, a dragon begins a mystical ritual to rise up as a god of destruction\u2014these are just a few of the magical threats that adventurers might face. With magic of their own, in the form of spells and magic items, the adventurers might prevail!",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/PHB/dice_2.webp"
+									},
+									"width": 389,
+									"height": 202
+								}
 							],
 							"id": "00d"
 						}
@@ -189,6 +207,15 @@
 			"entries": [
 				"Your first step in playing an adventurer in the Dungeons & Dragons game is to imagine and create a character of your own. Your character is a combination of various statistics, roleplaying hooks, and your imagination. You choose a race (such as human or halfling) and a class (such as fighter or wizard). You also invent the personality, appearance, and backstory of your character. Once completed, your character serves as your representative in the game, your avatar in the Dungeons & Dragons world.",
 				"Before you dive into step 1 below, think about the kind of adventurer you want to play. You might be a courageous fighter, a skulking rogue, a fervent cleric, or a flamboyant wizard. Or you might be more interested in an unconventional character, such as a brave rogue who likes hand-to-hand combat, or a sharpshooter who picks off enemies from afar. Do you like fantasy fiction featuring dwarves or elves? Try building a character of one of those races. Do you want your character to be the toughest adventurer at the table? Consider a class like barbarian or paladin. If you don't know where else to begin, take a look at the illustrations in this book to see what catches your interest.",
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/ch1.webp"
+					},
+					"width": 1182,
+					"height": 1700
+				},
 				"Once you have a character in mind, roll on these steps in order, making decisions that reflect the character you want. Your conception of your character might evolve with each choice you make. What's important is that you come to the table with a character you're excited to play.",
 				"Throughout this chapter, we use the term {@b character sheet} to mean whatever you use to track your character, whether it's a formal character sheet (like the one at the end of this book), some form of digital record, or a piece of notebook paper. An official D&D character sheet is a fine place to start until you know what information you need and how you use it during the game.",
 				{
@@ -235,6 +262,16 @@
 						"Every adventurer is a member of a class. Class broadly describes a character's vocation, what special talents he or she possesses, and the tactics he or she is most likely to employ when exploring a dungeon, fighting monsters, or engaging in a tense negotiation. The character classes are described in chapter 3.",
 						"Your character receives a number of benefits from your choice of class. Many of these benefits are {@b class features}-capabilities (including spellcasting) that set your character apart from members of other classes. You also gain a number of {@b proficiencies:} armor, weapons, skills, saving throws, and sometimes tools. Your proficiencies define many of the things your character can do particularly well, from using certain weapons to telling a convincing lie.",
 						"On your character sheet, record all the features that your class gives you at 1st level.",
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/PHB/01-001-bruenor.webp"
+							},
+							"title": "Bruenor",
+							"width": 680,
+							"height": 850
+						},
 						{
 							"type": "entries",
 							"name": "Level",
@@ -704,7 +741,16 @@
 					"name": "6. Come Together",
 					"page": 15,
 					"entries": [
-						"Most D&D characters don't work alone. Each character plays a role within a {@b party,} a group of adventurers working together for a common purpose. Teamwork and cooperation greatly improve your party's chances to survive the many perils in the worlds of Dungeons & Dragons. Talk to your fellow players and your DM to decide whether your characters know one another, how they met, and what sorts of quests the group might undertake."
+						"Most D&D characters don't work alone. Each character plays a role within a {@b party,} a group of adventurers working together for a common purpose. Teamwork and cooperation greatly improve your party's chances to survive the many perils in the worlds of Dungeons & Dragons. Talk to your fellow players and your DM to decide whether your characters know one another, how they met, and what sorts of quests the group might undertake.",
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/PHB/c0-03.webp"
+							},
+							"width": 889,
+							"height": 1000
+						}
 					],
 					"id": "028"
 				},
@@ -866,6 +912,15 @@
 				"A visit to one of the great cities in the worlds of Dungeons & Dragons\u2014Waterdeep, the Free City of Greyhawk, or even uncanny Sigil, the City of Doors overwhelms the senses. Voices chatter in countless different languages. The smells of cooking in dozens of different cuisines mingle with the odors of crowded streets and poor sanitation. Buildings in myriad architectural styles display the diverse origins of their inhabitants.",
 				"And the people themselves\u2014people of varying size, shape, and color, dressed in a dazzling spectrum of styles and hues\u2014represent many different races, from diminutive halflings and stout dwarves to majestically beautiful elves, mingling among a variety of human ethnicities.",
 				"Scattered among the members of these more common races are the true exotics: a hulking dragonborn here, pushing his way through the crowd, and a sly tiefling there, lurking in the shadows with mischief in her eyes. A group of gnomes laughs as one of them activates a clever wooden toy that moves of its own accord. Half-elves and half-orcs live and work alongside humans, without fully belonging to the races of either of their parents. And there, well out of the sunlight, is a lone drow\u2014a fugitive from the subterranean expanse of the Underdark, trying to make his way in a world that fears his kind. The Player's Handbook has more information about these unusual races.",
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/ch2.webp"
+					},
+					"width": 1275,
+					"height": 1700
+				},
 				{
 					"type": "entries",
 					"name": "Uncommon Races",
@@ -1059,6 +1114,15 @@
 				"Adventurers sometimes advance in more than one class. A rogue might switch direction in life and dabble in the cleric class while continuing to advance as a rogue. Elves are known to combine martial mastery with magical training and advance as fighters and wizards simultaneously. Optional rules for combining classes in this way, called multiclassing, can be found in the Chapter 6.",
 				"Twelve classes\u2014listed in the Classes table\u2014are found in almost every D&D world and define most typical adventurers.",
 				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/ch3.webp"
+					},
+					"width": 1356,
+					"height": 1700
+				},
+				{
 					"type": "table",
 					"basicRules": true,
 					"colLabels": [
@@ -1185,6 +1249,15 @@
 			"page": 121,
 			"entries": [
 				"Characters are defined by much more than their race and class. They're individuals with their own stories, interests, connections, and capabilities beyond those that class and race define. This chapter expounds on the details that distinguish characters from one another, including the basics of name and physical description, the rules of backgrounds and languages, and the finer points of personality and alignment.",
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/ch4.webp"
+					},
+					"width": 1277,
+					"height": 1700
+				},
 				{
 					"type": "section",
 					"name": "Character Details",
@@ -1408,6 +1481,16 @@
 							"entries": [
 								"Your race indicates the languages your character can speak by default, and your background might give you access to one or more additional languages of your choice. Note these languages on your character sheet.",
 								"With your DM's permission, you can instead choose a language from the Exotic Languages table or a secret language, such as thieves' cant or the tongue of druids.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/PHB/c4dwarvishalphabet.webp"
+									},
+									"title": "Dwarvish Alphabet",
+									"width": 1000,
+									"height": 336
+								},
 								"Some of these languages are actually families of languages with many dialects. For example, the Primordial language includes the {@language Primordial||Auran}, {@language Primordial||Aquan}, {@language Primordial||Ignan}, and {@language Primordial||Terran} dialects, one for each of the four elemental planes. Creatures that speak different dialects of the same language can communicate with one another.",
 								{
 									"type": "table",
@@ -1468,6 +1551,16 @@
 									]
 								},
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/PHB/c4elvishalphabet.webp"
+									},
+									"title": "Elvish Alphabet",
+									"width": 1000,
+									"height": 336
+								},
+								{
 									"type": "table",
 									"caption": "Exotic Languages",
 									"basicRules": true,
@@ -1524,6 +1617,16 @@
 											"Elvish"
 										]
 									]
+								},
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/PHB/c4draconicalphabet.webp"
+									},
+									"title": "Draconic Alphabet",
+									"width": 1000,
+									"height": 336
 								}
 							],
 							"id": "04c"
@@ -1631,6 +1734,15 @@
 						"Choosing a background provides you with important story cues about your character's identity. The most important question to ask about your background is what changed? Why did you stop doing whatever your background describes and start adventuring? Where did you get the money to purchase your starting gear, or, if you come from a wealthy background, why don't you have more money? How did you learn the skills of your class? What sets you apart from ordinary people who share your background?",
 						"The {@5etools sample backgrounds|backgrounds.html} in this chapter provide both concrete benefits (features, proficiencies, and languages) and roleplaying suggestions.",
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/PHB/c4-1.webp"
+							},
+							"width": 790,
+							"height": 1000
+						},
+						{
 							"type": "entries",
 							"name": "Proficiencies",
 							"page": 125,
@@ -1701,6 +1813,15 @@
 			"entries": [
 				"The marketplace of a large city teems with buyers and sellers of many sorts: dwarf smiths and elf woodcarvers, halfling farmers and gnome jewelers, not to mention humans of every shape, size, and color drawn from a spectrum of nations and cultures. In the largest cities, almost anything imaginable is offered for sale, from exotic spices and luxurious clothing to wicker baskets and practical swords.",
 				"For an adventurer, the availability of armor, weapons, backpacks, rope, and similar goods is of paramount importance, since proper equipment can mean the difference between life and death in a dungeon or the untamed wilds. This chapter details the mundane and exotic merchandise that adventurers commonly find useful in the face of the threats that the worlds of D&D present.",
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/ch5.webp"
+					},
+					"width": 1356,
+					"height": 1700
+				},
 				{
 					"type": "section",
 					"data": {
@@ -1797,6 +1918,15 @@
 								"One silver piece is worth ten copper pieces, which are common among laborers and beggars. A single copper piece buys a candle, a torch, or a piece of chalk.",
 								"In addition, unusual coins made of other precious metals sometimes appear in treasure hoards. The electrum piece (ep) and the platinum piece (pp) originate from fallen empires and lost kingdoms, and they sometimes arouse suspicion and skepticism when used in transactions. An electrum piece is worth five silver pieces, and a platinum piece is worth ten gold pieces.",
 								"A standard coin weighs about a third of an ounce, so fifty coins weigh a pound.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/PHB/c51.webp"
+									},
+									"width": 539,
+									"height": 470
+								},
 								{
 									"type": "table",
 									"caption": "Standard Exchange Rates",
@@ -2158,6 +2288,15 @@
 												"Your class gives you proficiency with certain types of armor. If you wear armor that you lack proficiency with, you have disadvantage on any ability check, saving throw, or attack roll that involves Strength or Dexterity, and you can't cast spells."
 											],
 											"id": "06a"
+										},
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/PHB/c52.webp"
+											},
+											"width": 550,
+											"height": 1000
 										},
 										{
 											"type": "entries",
@@ -2912,7 +3051,16 @@
 							"page": 146,
 							"entries": [
 								"Your race, class, and feats can grant you proficiency with certain weapons or categories of weapons. The two categories are simple and martial. Most people can use simple weapons with proficiency. These weapons include clubs, maces, and other weapons often found in the hands of commoners. Martial weapons, including swords, axes, and polearms, require more specialized training to use effectively. Most warriors use martial weapons because these weapons put their fighting style and training to best use.",
-								"Proficiency with a weapon allows you to add your proficiency bonus to the attack roll for any attack you make with that weapon. If you make an attack roll using a weapon with which you lack proficiency, you do not add your proficiency bonus to the attack roll."
+								"Proficiency with a weapon allows you to add your proficiency bonus to the attack roll for any attack you make with that weapon. If you make an attack roll using a weapon with which you lack proficiency, you do not add your proficiency bonus to the attack roll.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/PHB/c56.webp"
+									},
+									"width": 811,
+									"height": 1000
+								}
 							],
 							"data": {
 								"quickrefIndex": true
@@ -3027,6 +3175,29 @@
 												"This weapon can be used with one or two hands. A damage value in parentheses appears with the property-the damage when the weapon is used with two hands to make a melee attack."
 											],
 											"id": "094"
+										},
+										{
+											"type": "gallery",
+											"images": [
+												{
+													"type": "image",
+													"href": {
+														"type": "internal",
+														"path": "book/PHB/c53.webp"
+													},
+													"width": 357,
+													"height": 1000
+												},
+												{
+													"type": "image",
+													"href": {
+														"type": "internal",
+														"path": "book/PHB/c54.webp"
+													},
+													"width": 342,
+													"height": 1000
+												}
+											]
 										}
 									],
 									"id": "089"
@@ -3080,6 +3251,15 @@
 												"A Large or smaller creature hit by a net is {@condition restrained} until it is freed. A net has no effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success. Dealing 5 slashing damage to the net (AC 10) also frees the creature without harming it, ending the effect and destroying the net. When you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless of the number of attacks you can normally make."
 											],
 											"id": "099"
+										},
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/PHB/c55.webp"
+											},
+											"width": 1000,
+											"height": 755
 										}
 									],
 									"id": "097"
@@ -3890,6 +4070,15 @@
 											"id": "0ae"
 										},
 										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/PHB/c57.webp"
+											},
+											"width": 1000,
+											"height": 400
+										},
+										{
 											"type": "entries",
 											"name": "Holy Symbol",
 											"page": 151,
@@ -4114,6 +4303,15 @@
 												"A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage."
 											],
 											"id": "0c7"
+										},
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/PHB/c58.webp"
+											},
+											"width": 1000,
+											"height": 400
 										}
 									],
 									"id": "09c"
@@ -4365,6 +4563,15 @@
 												"This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks."
 											],
 											"id": "0db"
+										},
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/PHB/c59.webp"
+											},
+											"width": 1000,
+											"height": 400
 										}
 									],
 									"id": "0d2"
@@ -4771,6 +4978,15 @@
 										"Keelboats and rowboats are used on lakes and rivers. If going downstream, add the speed of the current (typically 3 miles per hour) to the speed of the vehicle. These vehicles can't be rowed against any significant current, but they can be pulled upstream by draft animals on the shores. A rowboat weighs 100 pounds, in case adventurers carry it over land."
 									],
 									"id": "0e1"
+								},
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/PHB/c510.webp"
+									},
+									"width": 550,
+									"height": 1000
 								}
 							],
 							"id": "0dd"
@@ -5004,6 +5220,15 @@
 					"id": "0dc"
 				},
 				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/c511.webp"
+					},
+					"width": 673,
+					"height": 1000
+				},
+				{
 					"type": "section",
 					"data": {
 						"quickref": 2
@@ -5104,6 +5329,15 @@
 								"Lifestyle expenses provide you with a simple way to account for the cost of living in a fantasy world. They cover your accommodations, food and drink, and all your other necessities. Furthermore, expenses cover the cost of maintaining your equipment so you can be ready when adventure next calls.",
 								"At the start of each week or month (your choice), choose a lifestyle from the Expenses table and pay the price to sustain that lifestyle. The prices listed are per day, so if you wish to calculate the cost of your chosen lifestyle over a thirty-day period, multiply the listed price by 30. Your lifestyle might change from one period to the next, based on the funds you have at your disposal, or you might maintain the same lifestyle throughout your character's career.",
 								"Your lifestyle choice can have consequences. Maintaining a wealthy lifestyle might help you make contacts with the rich and powerful, though you run the risk of attracting thieves. Likewise, living frugally might help you avoid criminals, but you are unlikely to make powerful connections.",
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/PHB/c512.webp"
+									},
+									"width": 1000,
+									"height": 804
+								},
 								{
 									"type": "table",
 									"caption": "Lifestyle Expenses",
@@ -5424,6 +5658,15 @@
 								"Other hirelings provide more expert or dangerous services. Mercenary soldiers paid to help the adventurers take on a hobgoblin army are hirelings, as are sages hired to research ancient or esoteric lore. If a high-level adventurer establishes a stronghold of some kind, he or she might hire a whole staff of servants and agents to run the place, from a castellan or steward to menial laborers to keep the stables clean. These hirelings often enjoy a long-term contract that includes a place to live within the stronghold as part of the offered compensation.",
 								"Skilled hirelings include anyone hired to perform a service that involves a proficiency (including weapon, tool, or skill): a mercenary, artisan, scribe, and so on. The pay shown is a minimum; some expert hirelings require more pay. Untrained hirelings are hired for menial work that requires no particular skill and can include laborers, porters, maids, and similar workers.",
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/PHB/c513.webp"
+									},
+									"width": 1000,
+									"height": 1000
+								},
+								{
 									"type": "table",
 									"caption": "Services",
 									"basicRules": true,
@@ -5518,6 +5761,15 @@
 						"When you make your character, you can roll once on the {@item Trinket|phb|Trinkets} table to gain a trinket, a simple item lightly touched by mystery. The DM might also use this table. It can help stock a room in a dungeon or fill a creature's pockets."
 					],
 					"id": "0f1"
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/c514.webp"
+					},
+					"width": 1000,
+					"height": 400
 				}
 			],
 			"id": "05d"
@@ -5529,6 +5781,15 @@
 			"entries": [
 				"The combination of ability scores, race, class, and background defines your character's capabilities in the game, and the personal details you create set your character apart from every other character. Even within your class and race, you have options to fine-tune what your character can do. But a few players\u2014with the DM's permission\u2014want to go a step further.",
 				"Chapter 6 of the Player's Handbook defines two optional sets of rules for customizing your character: multiclassing and feats. Multiclassing lets you combine classes together, and feats are special options you can choose instead of increasing your ability scores as you gain levels. Your DM decides whether these options are available in a campaign.",
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/ch6.webp"
+					},
+					"width": 1356,
+					"height": 1700
+				},
 				{
 					"type": "section",
 					"data": {
@@ -6121,6 +6382,15 @@
 				"The three main rolls of the game\u2014the ability check, the saving throw, and the attack roll\u2014rely on the six ability scores. The book's introduction describes the basic rule behind these rolls: roll a d20, add an ability modifier derived from one of the six ability scores, and compare the total to a target number.",
 				"This chapter focuses on how to use ability checks and saving throws, covering the fundamental activities that creatures attempt in the game. Rules for attack rolls appear in chapter 9.",
 				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/ch7.webp"
+					},
+					"width": 1314,
+					"height": 1700
+				},
+				{
 					"type": "section",
 					"data": {
 						"quickref": 3
@@ -6395,7 +6665,16 @@
 									"entries": [
 										"When a number of individuals are trying to accomplish something as a group, the DM might ask for a group ability check. In such a situation, the characters who are skilled at a particular task help cover those who aren't.",
 										"To make a group ability check, everyone in the group makes the ability check. If at least half the group succeeds, the whole group succeeds. Otherwise, the group fails.",
-										"Group checks don't come up very often, and they're most useful when all the characters succeed or fail as a group. For example, when adventurers are navigating a swamp, the DM might call for a group Wisdom ({@skill Survival}) check to see if the characters can avoid the quicksand, sinkholes, and other natural hazards of the environment. If at least half the group succeeds, the successful characters are able to guide their companions out of danger. Otherwise, the group stumbles into one of these hazards."
+										"Group checks don't come up very often, and they're most useful when all the characters succeed or fail as a group. For example, when adventurers are navigating a swamp, the DM might call for a group Wisdom ({@skill Survival}) check to see if the characters can avoid the quicksand, sinkholes, and other natural hazards of the environment. If at least half the group succeeds, the successful characters are able to guide their companions out of danger. Otherwise, the group stumbles into one of these hazards.",
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/PHB/c71.webp"
+											},
+											"width": 1000,
+											"height": 948
+										}
 									],
 									"data": {
 										"quickrefIndex": true
@@ -6939,6 +7218,15 @@
 											"id": "140"
 										},
 										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/PHB/c72.webp"
+											},
+											"width": 448,
+											"height": 1000
+										},
+										{
 											"type": "entries",
 											"name": "Other Charisma Checks",
 											"page": 179,
@@ -7010,6 +7298,15 @@
 				},
 				"Typically, the DM uses a map as an outline of the adventure, tracking the characters' progress as they explore dungeon corridors or wilderness regions.",
 				"The DM's notes, including a key to the map, describe what the adventurers find as they enter each new area. Sometimes, the passage of time and the adventurers' actions determine what happens, so the DM might use a time line or a flowchart to track their progress instead of a map.",
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/ch8.webp"
+					},
+					"width": 1314,
+					"height": 1700
+				},
 				{
 					"type": "section",
 					"name": "Time",
@@ -7380,6 +7677,15 @@
 												"A creature with truesight can, out to a specific range, see in normal and magical darkness, see {@condition invisible} creatures and objects, automatically detect visual illusions and succeed on saving throws against them, and perceives the original form of a shapechanger or a creature that is transformed by magic. Furthermore, the creature can see into the Ethereal Plane."
 											],
 											"id": "164"
+										},
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/PHB/c81.webp"
+											},
+											"width": 668,
+											"height": 1000
 										}
 									],
 									"id": "161"
@@ -7657,6 +7963,15 @@
 				"This chapter provides the rules you need for your characters and monsters to engage in combat, whether it is a brief skirmish or an extended conflict in a dungeon or on a field of battle. Throughout this chapter, the rules address you, the player or Dungeon Master.",
 				"The Dungeon Master controls all the monsters and nonplayer characters involved in combat, and each other player controls an adventurer. \"You\" can also mean the character or monster that you control.",
 				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/ch9.webp"
+					},
+					"width": 1326,
+					"height": 1700
+				},
+				{
 					"type": "inset",
 					"name": "Combat Step by Step",
 					"page": 189,
@@ -7870,7 +8185,7 @@
 									"page": 190,
 									"entries": [
 										"If you have more than one speed, such as your walking speed and a flying speed, you can switch back and forth between your speeds during your move. Whenever you switch, subtract the distance you've already moved from the new speed. The result determines how much farther you can move. If the result is 0 or less, you can't use the new speed during the current move.",
-										"For example, if you have a speed of 30 and a flying speed of 60 because a wizard cast the fly spell on you, you could fly 20 feet, then walk 10 feet, and then leap into the air to fly 30 feet more."
+										"For example, if you have a speed of 30 and a flying speed of 60 because a wizard cast the {@spell fly} spell on you, you could fly 20 feet, then walk 10 feet, and then leap into the air to fly 30 feet more."
 									],
 									"id": "187"
 								}
@@ -7928,6 +8243,15 @@
 								"quickrefIndex": true
 							},
 							"id": "18b"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/PHB/c91.webp"
+							},
+							"width": 413,
+							"height": 1000
 						},
 						{
 							"type": "entries",
@@ -8121,6 +8445,15 @@
 						},
 						"If there's ever any question whether something you're doing counts as an attack, the rule is simple: if you're making an attack roll, you're making an attack.",
 						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/PHB/c92.webp"
+							},
+							"width": 422,
+							"height": 1000
+						},
+						{
 							"type": "entries",
 							"name": "Attack Rolls",
 							"page": 194,
@@ -8179,6 +8512,15 @@
 								"If you are hidden\u2014both unseen and unheard\u2014when you make an attack, you give away your location when the attack hits or misses."
 							],
 							"id": "19c"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/PHB/c93.webp"
+							},
+							"width": 456,
+							"height": 1000
 						},
 						{
 							"type": "entries",
@@ -8582,6 +8924,15 @@
 									"id": "1c4"
 								},
 								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/PHB/c94.webp"
+									},
+									"width": 1000,
+									"height": 881
+								},
+								{
 									"type": "entries",
 									"name": "Monsters and Death",
 									"page": 198,
@@ -8689,6 +9040,15 @@
 			"entries": [
 				"Magic permeates the worlds of D&D and most often appears in the form of a spell.",
 				"This chapter provides the rules for casting spells. Different character classes have distinctive ways of learning and preparing their spells, and monsters use spells in unique ways. Regardless of its source, a spell follows the rules here.",
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/ch10.webp"
+					},
+					"width": 1359,
+					"height": 1700
+				},
 				{
 					"type": "section",
 					"name": "What is a Spell?",
@@ -8813,6 +9173,15 @@
 										"Certain spells (including spells cast as rituals) require more time to cast: minutes or even hours. When you cast a spell with a casting time longer than a single action or reaction, you must spend your action each turn casting the spell, and you must maintain your concentration while you do so (see \"Concentration\" below). If your concentration is broken, the spell fails, but you don't expend a spell slot. If you want to try casting the spell again, you must start over."
 									],
 									"id": "1d9"
+								},
+								{
+									"type": "image",
+									"href": {
+										"type": "internal",
+										"path": "book/PHB/c101.webp"
+									},
+									"width": 395,
+									"height": 1000
 								}
 							],
 							"id": "1d6"
@@ -9013,7 +9382,10 @@
 										"path": "rules/Point-of-Origin.png"
 									},
 									"width": 1000,
-									"height": 528
+									"height": 528,
+									"data": {
+										"quickrefKeep": true
+									}
 								},
 								{
 									"type": "entries",
@@ -9114,6 +9486,15 @@
 								"When characters use divination spells such as {@i detect magic} or {@i identify}, they glimpse the Weave. A spell such as {@i dispel magic} smooths the Weave. Spells such as {@i antimagic field} rearrange the Weave so that magic flows around, rather than through the area affected by the spell. And in places where the Weave is damaged or torn, magic works in unpredictable ways\u2014or not at all."
 							],
 							"id": "1f5"
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "book/PHB/c103.webp"
+							},
+							"width": 1000,
+							"height": 731
 						}
 					],
 					"id": "1d4"
@@ -9127,6 +9508,15 @@
 			"page": 207,
 			"entries": [
 				"This chapter describes the most common spells in the worlds of Dungeons & Dragons. The chapter begins with the spell lists of the spellcasting classes. The remainder contains spell descriptions, presented in alphabetical order by the name of the spell.",
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/ch11.webp"
+					},
+					"width": 1200,
+					"height": 1700
+				},
 				{
 					"type": "entries",
 					"name": "Bard Spells",
@@ -11026,6 +11416,15 @@
 				"Religion is an important part of life in the worlds of the D&D multiverse. When gods walk the world, clerics channel divine power, evil cults perform dark sacrifices in subterranean lairs, and shining paladins stand like beacons against the darkness, it's hard to be ambivalent about the deities and deny their existence.",
 				"Many people in the worlds of D&D worship different gods at different times and circumstances. People in the Forgotten Realms, for example, might pray to Sune for luck in love, make an offering to Waukeen before heading to the market, and pray to appease Talos when a severe storm blows in\u2014all in the same day. Many people have a favorite among the gods, one whose ideals and teachings they make their own. And a few people dedicate themselves entirely to a single god, usually serving as a priest or champion of that god's ideals. Your DM determines which gods, if any, are worshiped in his or her campaign. From among the gods available, you can choose a single deity for your character to serve, worship, or pay lip service to. Or you can pick a few that your character prays to most often. Or just make a mental note of the gods who are revered in your DM's campaign so you can invoke their names when appropriate. If you're playing a cleric or a character with the Acolyte background, decide which god your deity serves or served, and consider the deity's suggested domains when selecting your character's domain.",
 				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PHB/appdeitysymbols.webp"
+					},
+					"width": 1000,
+					"height": 165
+				},
+				{
 					"type": "inset",
 					"name": "The Life and Death Domains",
 					"page": 293,
@@ -12649,7 +13048,7 @@
 							"page": 301,
 							"entries": [
 								"The Ethereal Plane and the Astral Plane are called the Transitive Planes. They are mostly featureless realms that serve primarily as ways to travel from one plane to another. Spells such as etherealness and astral projection allow characters to enter these planes and traverse them to reach the planes beyond.",
-								"The Ethereal Plane is a misty, fog-bound dimension that is sometimes described as a great ocean. Its shores, called the Border Ethereal, overlap the Material Plane and the Inner Planes, so that every location on those planes has a corresponding location on the Ethereal Plane. Certain creatures can see into the Border Ethereal, and the see invisibility and true seeing spell grant that ability. Some magical effects also extend from the Material Plane into the Border Ethereal, particularly effects that use force energy such as forcecage and wall of force. The depths of the plane, the Deep Ethereal, are a region of swirling mists and colorful fogs.",
+								"The Ethereal Plane is a misty, fog-bound dimension that is sometimes described as a great ocean. Its shores, called the Border Ethereal, overlap the Material Plane and the Inner Planes, so that every location on those planes has a corresponding location on the Ethereal Plane. Certain creatures can see into the Border Ethereal, and the {@spell see invisibility} and {@spell true seeing} spell grant that ability. Some magical effects also extend from the Material Plane into the Border Ethereal, particularly effects that use force energy such as forcecage and wall of force. The depths of the plane, the Deep Ethereal, are a region of swirling mists and colorful fogs.",
 								"The {@b Astral Plane} is the realm of thought and dream, where visitors travel as disembodied souls to reach the planes of the divine and demonic. It is a great, silvery sea, the same above and below, with swirling wisps of white and gray streaking among motes of light resembling distant stars. Erratic whirlpools of color flicker in midair like spinning coins. Occasional bits of solid matter can be found here, but most of the Astral Plane is an endless, open domain."
 							],
 							"id": "20d"

@@ -19,7 +19,9 @@ class NamesPage extends TableListPage {
 		return UrlUtil.encodeForHash([ent.name, ent.source]);
 	}
 
-	_getDisplayName (ent) { return `${ent.name} \u2013 ${ent.option}`; }
+	_getDisplayName (ent) {
+		return Renderer.table.getConvertedNameTableName(ent, ent);
+	}
 }
 
 const namesPage = new NamesPage();

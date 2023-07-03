@@ -2,7 +2,9 @@
 
 class AcConvert {
 	static tryPostProcessAc (mon, cbMan, cbErr) {
-		let nuAc = [];
+		if (this._tryPostProcessAc_special(mon, cbMan, cbErr)) return;
+
+		const nuAc = [];
 
 		const parts = mon.ac.trim().split(StrUtil.COMMAS_NOT_IN_PARENTHESES_REGEX).map(it => it.trim()).filter(Boolean);
 		parts.forEach(pt => {
@@ -22,23 +24,35 @@ class AcConvert {
 			// Plain number
 			if (!fromRaw) return nuAc.push(acNum);
 
-			let nxtAc = null; // A distinct AC value included in this text from e.g. mage armor
+			const nuAcTail = [];
 			const cur = {ac: acNum};
 			const froms = [];
 
-			// Handle "in ... form" parts
+			// region Handle "in ... form" parts
 			let fromClean = fromRaw
 				// FIXME(Future) Find an example of a creature with this AC form to check accuracy of this parse
 				.replace(/ \(in .*? form\)$/i, (...m) => {
+					if (cur.condition) throw new Error(`Multiple AC conditions! "${cur.condition}" and "${m[0]}"`);
 					cur.condition = m[0].trim().toLowerCase();
 					return "";
 				})
 				.trim()
 				.replace(/ in .*? form$/i, (...m) => {
+					if (cur.condition) throw new Error(`Multiple AC conditions! "${cur.condition}" and "${m[0]}"`);
 					cur.condition = m[0].trim().toLowerCase();
 					return "";
 				})
 				.trim();
+			// endregion
+
+			// region Handle "while ..." parts
+			fromClean = fromClean
+				.replace(/^while .*$/, (...m) => {
+					if (cur.condition) throw new Error(`Multiple AC conditions! "${cur.condition}" and "${m[0]}"`);
+					cur.condition = m[0].trim().toLowerCase();
+					return "";
+				});
+			// endregion
 
 			fromClean
 				.toLowerCase()
@@ -71,11 +85,11 @@ class AcConvert {
 											return `{@item ${name}${source ? `|${source}` : "|"}|${mWithBarding.groups.name}}`;
 										});
 
-									nxtAc = {
+									nuAcTail.push({
 										ac: Number(mWithBarding.groups.ac),
 										condition: `with ${simpleFromBarding}`,
 										braces: true,
-									};
+									});
 
 									return;
 								}
@@ -90,11 +104,11 @@ class AcConvert {
 								else if (numMatch[2] === "barkskin") spell = `{@spell barkskin}`;
 								else throw new Error(`Unhandled spell! ${numMatch[2]}`);
 
-								nxtAc = {
+								nuAcTail.push({
 									ac: Number(numMatch[1]),
 									condition: `with ${spell}`,
 									braces: true,
-								};
+								});
 
 								return;
 							}
@@ -123,9 +137,23 @@ class AcConvert {
 			} else {
 				nuAc.push(cur.ac);
 			}
+
+			if (nuAcTail.length) nuAc.push(...nuAcTail);
 		});
 
 		mon.ac = nuAc;
+	}
+
+	static _tryPostProcessAc_special (mon, cbMan, cbErr) {
+		mon.ac = mon.ac.trim();
+
+		const mPlusSpecial = /^(\d+) (plus|\+) (?:PB|the level of the spell|your [^ ]+ modifier)(?: \([^)]+\))?$/i.exec(mon.ac);
+		if (mPlusSpecial) {
+			mon.ac = [{special: mon.ac}];
+			return true;
+		}
+
+		return false;
 	}
 
 	static _getSimpleFrom (fromLow) {
@@ -162,8 +190,13 @@ class AcConvert {
 			case "blood aegis":
 			case "psychic defense":
 			case "glory": // BAM :: Reigar
+			case "mountain tattoo": // KftGV :: Prisoner 13
+			case "disarming charm": // TG :: Forge Fitzwilliam
 				return fromLow;
 				// endregion
+
+			case "graz'zt's gift": // KftGV :: Sythian Skalderang
+				return fromLow.uppercaseFirst();
 
 			// region au naturel
 			case "natural armor":
@@ -333,7 +366,7 @@ class TagDc {
 		m[prop] = m[prop]
 			.map(it => {
 				const str = JSON.stringify(it, null, "\t");
-				const out = str.replace(/DC (\d+)/g, "{@dc $1}");
+				const out = str.replace(/DC (\d+)(\s+plus PB|\s*\+\s*PB)?/g, "{@dc $1$2}");
 				return JSON.parse(out);
 			});
 	}
@@ -408,8 +441,8 @@ class TraitActionTag {
 	static _isActions (prop) { return prop === "action"; }
 
 	static tryRun (m, cbMan) {
-		m.traitTags = new Set();
-		m.actionTags = new Set();
+		m.traitTags = new Set(m.traitTags || []);
+		m.actionTags = new Set(m.actionTags || []);
 
 		this._doTag({m, cbMan, prop: "trait", outProp: "traitTags"});
 		this._doTag({m, cbMan, prop: "action", outProp: "actionTags"});
@@ -509,6 +542,8 @@ TraitActionTag.tags = { // true = map directly; string = map to this string
 		"tree stride": "Tree Stride",
 
 		"unusual nature": "Unusual Nature",
+
+		"tunneler": "Tunneler",
 	},
 	action: {
 		"multiattack": "Multiattack",
@@ -1417,3 +1452,80 @@ class DragonAgeTag {
 }
 
 globalThis.DragonAgeTag = DragonAgeTag;
+
+class AttachedItemTag {
+	static _WEAPON_DETAIL_CACHE = {};
+
+	static init ({items}) {
+		for (const item of items) {
+			if (item.type === "GV") continue;
+			if (!["M", "R"].includes(item.type)) continue;
+
+			const lowName = item.name.toLowerCase();
+			// If there's e.g. a " +1" suffix on the end, make a copy with it as a prefix instead
+			const prefixBonusKey = lowName.replace(/^(.*?)( \+\d+)$/, (...m) => `${m[2].trim()} ${m[1].trim()}`);
+			// And vice-versa
+			const suffixBonusKey = lowName.replace(/^(\+\d+) (.*?)$/, (...m) => `${m[2].trim()} ${m[1].trim()}`);
+			const suffixBonusKeyComma = lowName.replace(/^(\+\d+) (.*?)$/, (...m) => `${m[2].trim()}, ${m[1].trim()}`);
+
+			const itemKeys = [
+				lowName,
+				prefixBonusKey === lowName ? null : prefixBonusKey,
+				suffixBonusKey === lowName ? null : suffixBonusKey,
+				suffixBonusKeyComma === lowName ? null : suffixBonusKeyComma,
+			].filter(Boolean);
+
+			const cpy = MiscUtil.copy(item);
+
+			itemKeys.forEach(k => {
+				if (!this._WEAPON_DETAIL_CACHE[k]) {
+					this._WEAPON_DETAIL_CACHE[k] = cpy;
+					return;
+				}
+
+				// If there is already something in the cache, prefer DMG + PHB entries, then official sources
+				const existing = this._WEAPON_DETAIL_CACHE[k];
+				if (
+					!(existing.source === Parser.SRC_DMG || existing.source === Parser.SRC_PHB)
+					&& SourceUtil.isNonstandardSource(existing.source)
+				) {
+					this._WEAPON_DETAIL_CACHE[k] = cpy;
+				}
+			});
+		}
+	}
+
+	static _isLikelyWeapon (act) {
+		if (!act.entries?.length || typeof act.entries[0] !== "string") return false;
+		const mAtk = /^{@atk ([^}]+)}/.exec(act.entries[0].trim());
+		if (!mAtk) return;
+		return mAtk[1].split(",").some(it => it.includes("w"));
+	}
+
+	static tryRun (mon, {cbNotFound = null, isAddOnly = false} = {}) {
+		if (!this._WEAPON_DETAIL_CACHE) throw new Error(`Attached item cache was not initialized!`);
+
+		if (!mon.action?.length) return;
+
+		const itemSet = new Set();
+
+		mon.action
+			.forEach(act => {
+				const weapon = this._WEAPON_DETAIL_CACHE[Renderer.monsterAction.getWeaponLookupName(act)];
+				if (weapon) return itemSet.add(DataUtil.proxy.getUid("item", weapon));
+
+				if (!cbNotFound) return;
+
+				if (!this._isLikelyWeapon(act)) return;
+
+				cbNotFound(act.name);
+			});
+
+		if (isAddOnly && mon.attachedItems) mon.attachedItems.forEach(it => itemSet.add(it));
+
+		if (!itemSet.size) delete mon.attachedItems;
+		else mon.attachedItems = [...itemSet].sort(SortUtil.ascSortLower);
+	}
+}
+
+globalThis.AttachedItemTag = AttachedItemTag;

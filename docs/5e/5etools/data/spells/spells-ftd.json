@@ -48,6 +48,9 @@
 			"damageInflict": [
 				"fire"
 			],
+			"miscTags": [
+				"OBJ"
+			],
 			"hasFluffImages": true
 		},
 		{
@@ -264,6 +267,10 @@
 						]
 					]
 				}
+			],
+			"savingThrow": [
+				"dexterity",
+				"wisdom"
 			],
 			"miscTags": [
 				"RO",

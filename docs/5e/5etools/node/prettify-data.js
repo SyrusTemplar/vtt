@@ -80,9 +80,12 @@ function getFnListSort (prop) {
 		case "recipeFluff":
 		case "sense":
 		case "skill":
+		case "deck":
 			return SortUtil.ascSortGenericEntity.bind(SortUtil);
 		case "deity":
 			return SortUtil.ascSortDeity.bind(SortUtil);
+		case "card":
+			return SortUtil.ascSortCard.bind(SortUtil);
 		case "class":
 			return (a, b) => SortUtil.ascSortDateString(Parser.sourceJsonToDate(b.source), Parser.sourceJsonToDate(a.source)) || SortUtil.ascSortLower(a.name, b.name) || SortUtil.ascSortLower(a.source, b.source);
 		case "subclass":

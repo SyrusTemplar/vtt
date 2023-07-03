@@ -150,22 +150,23 @@ class ItemsSublistManager extends SublistManager {
 
 class ItemsPage extends ListPage {
 	constructor () {
+		const pFnGetFluff = Renderer.item.pGetFluff.bind(Renderer.item);
+
 		super({
 			dataSource: DataUtil.item.loadJSON.bind(DataUtil.item),
 			prereleaseDataSource: DataUtil.item.loadPrerelease.bind(DataUtil.item),
 			brewDataSource: DataUtil.item.loadBrew.bind(DataUtil.item),
 
-			pFnGetFluff: Renderer.item.pGetFluff.bind(Renderer.item),
+			pFnGetFluff,
 
 			pageFilter: new PageFilterItems(),
 
 			dataProps: ["item"],
 
 			bookViewOptions: {
-				$btnOpen: $(`#btn-book`),
-				$eleNoneVisible: $(`<span class="initial-message">If you wish to view multiple items, please first make a list</span>`),
+				namePlural: "items",
 				pageTitle: "Items Book View",
-				fnGetMd: it => RendererMarkdown.get().render({entries: [{type: "statblockInline", dataType: "item", data: it}]}),
+				propMarkdown: "item",
 			},
 
 			tableViewOptions: {
@@ -185,6 +186,8 @@ class ItemsPage extends ListPage {
 
 			isMarkdownPopout: true,
 			propEntryData: "item",
+
+			listSyntax: new ListSyntaxItems({fnGetDataList: () => this._dataList, pFnGetFluff}),
 		});
 
 		this._mundaneList = null;
@@ -307,62 +310,16 @@ class ItemsPage extends ListPage {
 
 	handleFilterChange () {
 		const f = this._pageFilter.filterBox.getValues();
-		const listFilter = li => {
-			const it = this._dataList[li.ix];
-			return this._pageFilter.toDisplay(f, it);
-		};
+		const listFilter = li => this._pageFilter.toDisplay(f, this._dataList[li.ix]);
 		this._mundaneList.filter(listFilter);
 		this._magicList.filter(listFilter);
 		FilterBox.selectFirstVisible(this._dataList);
 	}
 
-	_doLoadHash (id) {
-		Renderer.get().setFirstSection(true);
-		this._$pgContent.empty();
-		const item = this._dataList[id];
+	_tabTitleStats = "Item";
 
-		const buildStatsTab = () => {
-			this._$pgContent.append(RenderItems.$getRenderedItem(item));
-		};
-
-		const buildFluffTab = (isImageTab) => {
-			return Renderer.utils.pBuildFluffTab({
-				isImageTab,
-				$content: this._$pgContent,
-				entity: item,
-				pFnGetFluff: this._pFnGetFluff,
-			});
-		};
-
-		const tabMetas = [
-			new Renderer.utils.TabButton({
-				label: "Item",
-				fnPopulate: buildStatsTab,
-				isVisible: true,
-			}),
-			new Renderer.utils.TabButton({
-				label: "Info",
-				fnPopulate: buildFluffTab,
-				isVisible: Renderer.utils.hasFluffText(item, "itemFluff"),
-			}),
-			new Renderer.utils.TabButton({
-				label: "Images",
-				fnPopulate: buildFluffTab.bind(null, true),
-				isVisible: Renderer.utils.hasFluffImages(item, "itemFluff"),
-			}),
-		];
-
-		Renderer.utils.bindTabButtons({
-			tabButtons: tabMetas.filter(it => it.isVisible),
-			tabLabelReference: tabMetas.map(it => it.label),
-		});
-
-		this._updateSelected();
-	}
-
-	async pDoLoadSubHash (sub) {
-		sub = await super.pDoLoadSubHash(sub);
-		await this._bookView.pHandleSub(sub);
+	_renderStats_doBuildStatsTab ({ent}) {
+		this._$pgContent.empty().append(RenderItems.$getRenderedItem(ent));
 	}
 
 	async _pOnLoad_pInitPrimaryLists () {
@@ -410,12 +367,22 @@ class ItemsPage extends ListPage {
 		$(`.side-label--mundane`).click(() => {
 			const filterValues = this._pageFilter.filterBox.getValues();
 			const curValue = MiscUtil.get(filterValues, "Miscellaneous", "Mundane");
-			this._pageFilter.filterBox.setFromValues({Miscellaneous: {Mundane: curValue === 1 ? 0 : 1}});
+			this._pageFilter.filterBox.setFromValues({
+				Miscellaneous: {
+					...(filterValues?.Miscellaneous || {}),
+					Mundane: curValue === 1 ? 0 : 1,
+				},
+			});
 		});
 		$(`.side-label--magic`).click(() => {
 			const filterValues = this._pageFilter.filterBox.getValues();
 			const curValue = MiscUtil.get(filterValues, "Miscellaneous", "Magic");
-			this._pageFilter.filterBox.setFromValues({Miscellaneous: {Magic: curValue === 1 ? 0 : 1}});
+			this._pageFilter.filterBox.setFromValues({
+				Miscellaneous: {
+					...(filterValues?.Miscellaneous || {}),
+					Magic: curValue === 1 ? 0 : 1,
+				},
+			});
 		});
 		const $outVisibleResults = $(`.lst__wrp-search-visible`);
 		const $wrpListMundane = $(`.itm__wrp-list--mundane`);

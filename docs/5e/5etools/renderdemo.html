@@ -15,6 +15,7 @@
 
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/renderdemo.css">
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -54,26 +55,6 @@
 	<script type="text/javascript" src="js/styleswitch.js"></script>
 	<script type="text/javascript" src="js/navigation.js"></script>
 	<script type="text/javascript" src="js/browsercheck.js"></script>
-	<style>
-		#jsoninput {
-			width: 100%;
-			height: 100%;
-		}
-		#wrp-output {
-			overflow-y: scroll;
-			margin-bottom: 28px;
-			height: calc(100% - 35px);
-		}
-		#demoSelectRenderer {
-			width: 200px;
-		}
-
-		@media (max-width: 991px) {
-			#wrp-jsoninput {
-				height: 480px;
-			}
-		}
-	</style>
 </head>
 
 <body>
@@ -92,7 +73,7 @@
 	</nav>
 
 	<div class="view-col-wrapper">
-		<div class="view-col" id="wrp-jsoninput">
+		<div class="view-col no-print" id="wrp-jsoninput">
 			<pre id="jsoninput" class="inputArea ace_editor"></pre>
 			<div class="ve-flex-h-right">
 				<select class="form-control input-sm mr-2" id="demoSelectRenderer">

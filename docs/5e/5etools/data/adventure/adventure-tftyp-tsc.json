@@ -832,13 +832,12 @@
 					"page": 11,
 					"entries": [
 						{
-							"type": "insetReadaloud",
+							"type": "quote",
 							"entries": [
 								"See the old Dragon from his throne",
-								"Sink with enormous ruin down!",
-								"\u2014Hymn"
+								"Sink with enormous ruin down!"
 							],
-							"id": "037"
+							"by": "Hymn"
 						},
 						"Once the characters are ready to leave Oakhurst, the adventure truly begins. The overgrown Old Road winds through rocky downs, near stands of old-growth oak, and past abandoned farms. It is 7 miles from Oakhurst to the Sunless Citadel.",
 						{
@@ -935,6 +934,13 @@
 									"width": 2008,
 									"height": 4160,
 									"imageType": "map",
+									"grid": {
+										"type": "square",
+										"size": 73,
+										"offsetX": -37,
+										"offsetY": 34,
+										"scale": 2
+									},
 									"id": "146",
 									"mapRegions": [
 										{
@@ -2948,6 +2954,13 @@
 									},
 									"title": "Player Version",
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "square",
+										"size": 73,
+										"offsetX": -37,
+										"offsetY": 34,
+										"scale": 2
+									},
 									"mapParent": {
 										"id": "146",
 										"autoScale": true
@@ -4651,6 +4664,13 @@
 									"width": 3300,
 									"height": 4350,
 									"imageType": "map",
+									"grid": {
+										"type": "square",
+										"size": 95,
+										"offsetX": 23,
+										"offsetY": 55,
+										"scale": 2
+									},
 									"id": "147",
 									"mapRegions": [
 										{
@@ -8691,6 +8711,13 @@
 									},
 									"title": "Player Version",
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "square",
+										"size": 95,
+										"offsetX": 25,
+										"offsetY": 53,
+										"scale": 2
+									},
 									"mapParent": {
 										"id": "147",
 										"autoScale": true

@@ -2888,6 +2888,12 @@
 												"path": "adventure/DSotDQ/037-map-3.01-vogler.webp"
 											},
 											"imageType": "map",
+											"grid": {
+												"type": "none",
+												"size": 50,
+												"scale": 1.06,
+												"distance": 30
+											},
 											"title": "Map 3.1: Vogler",
 											"width": 1700,
 											"height": 1225,
@@ -3406,6 +3412,12 @@
 												"path": "adventure/DSotDQ/038-map-3.01-vogler-player.webp"
 											},
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "none",
+												"size": 50,
+												"scale": 1.06,
+												"distance": 30
+											},
 											"title": "Player Version",
 											"width": 1700,
 											"height": 1225,
@@ -4323,7 +4335,13 @@
 														"path": "adventure/DSotDQ/045-map-3.02-battle-of-high-hill.webp"
 													},
 													"imageType": "map",
-													"title": "Map 3.2: battle of high hill",
+													"grid": {
+														"type": "square",
+														"size": 77,
+														"offsetX": -21,
+														"offsetY": -11
+													},
+													"title": "Map 3.2: Battle of High Hill",
 													"width": 1700,
 													"height": 2286,
 													"id": "020",
@@ -4362,6 +4380,12 @@
 														"path": "adventure/DSotDQ/046-map-3.02-battle-of-high-hill-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 77,
+														"offsetX": -21,
+														"offsetY": -11
+													},
 													"title": "Player Version",
 													"width": 1700,
 													"height": 2286,
@@ -5162,7 +5186,13 @@
 														"path": "adventure/DSotDQ/049-map-3.03-escape-from-vogler.webp"
 													},
 													"imageType": "map",
-													"title": "Map 3.3: escape from vogler",
+													"grid": {
+														"type": "square",
+														"size": 77,
+														"offsetX": 7,
+														"offsetY": 5
+													},
+													"title": "Map 3.3: Escape From Vogler",
 													"width": 1700,
 													"height": 2286,
 													"id": "021",
@@ -5201,6 +5231,12 @@
 														"path": "adventure/DSotDQ/050-map-3.03-escape-from-vogler-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 77,
+														"offsetX": 7,
+														"offsetY": 5
+													},
 													"title": "Player Version",
 													"width": 1700,
 													"height": 2286,
@@ -5521,7 +5557,13 @@
 												"path": "adventure/DSotDQ/054-map-4.01-kalaman.webp"
 											},
 											"imageType": "map",
-											"title": "Map 4.1: kalaman",
+											"grid": {
+												"type": "none",
+												"size": 85,
+												"scale": 2,
+												"distance": 100
+											},
+											"title": "Map 4.1: Kalaman",
 											"width": 1700,
 											"height": 1209,
 											"id": "022",
@@ -6004,6 +6046,12 @@
 												"path": "adventure/DSotDQ/055-map-4.01-kalaman-player.webp"
 											},
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "none",
+												"size": 85,
+												"scale": 2,
+												"distance": 100
+											},
 											"title": "Player Version",
 											"width": 1700,
 											"height": 1209,
@@ -7214,7 +7262,14 @@
 												"path": "adventure/DSotDQ/059-map-4.02-wheelhouse-outpost.webp"
 											},
 											"imageType": "map",
-											"title": "Map 4.2: wheelhouse outpost",
+											"grid": {
+												"type": "square",
+												"size": 68,
+												"offsetX": 5,
+												"offsetY": -6,
+												"scale": 2
+											},
+											"title": "Map 4.2: Wheelhouse Outpost",
 											"width": 1700,
 											"height": 1214,
 											"id": "023",
@@ -7687,6 +7742,13 @@
 												"path": "adventure/DSotDQ/060-map-4.02-wheelhouse-outpost-player.webp"
 											},
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 68,
+												"offsetX": 5,
+												"offsetY": -6,
+												"scale": 2
+											},
 											"title": "Player Version",
 											"width": 1700,
 											"height": 1214,
@@ -8051,7 +8113,13 @@
 														"path": "adventure/DSotDQ/061-map-4.03-retreat-from-steel-springs.webp"
 													},
 													"imageType": "map",
-													"title": "Map 4.3: retreat from steel springs",
+													"grid": {
+														"type": "square",
+														"size": 77,
+														"offsetX": -25,
+														"offsetY": -11
+													},
+													"title": "Map 4.3: Retreat From Steel Springs",
 													"width": 1700,
 													"height": 2286,
 													"id": "024",
@@ -8090,6 +8158,12 @@
 														"path": "adventure/DSotDQ/062-map-4.03-retreat-from-steel-springs-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 77,
+														"offsetX": -25,
+														"offsetY": -11
+													},
 													"title": "Player Version",
 													"width": 1700,
 													"height": 2286,
@@ -8634,7 +8708,14 @@
 												"path": "adventure/DSotDQ/066-map-4.04-raided-catacombs.webp"
 											},
 											"imageType": "map",
-											"title": "Map 4.4: raided catacombs",
+											"grid": {
+												"type": "square",
+												"size": 71,
+												"offsetX": -6,
+												"offsetY": 12,
+												"scale": 2
+											},
+											"title": "Map 4.4: Raided Catacombs",
 											"width": 1700,
 											"height": 1214,
 											"id": "025",
@@ -10072,6 +10153,13 @@
 												"path": "adventure/DSotDQ/067-map-4.04-raided-catacombs-player.webp"
 											},
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 71,
+												"offsetX": -6,
+												"offsetY": 12,
+												"scale": 2
+											},
 											"title": "Player Version",
 											"width": 1700,
 											"height": 1214,
@@ -10563,7 +10651,7 @@
 					"page": 107,
 					"id": "23a",
 					"entries": [
-						"The rest of this chapter takes place in the Northern Wastes, a region where the Cataclysm's destruction is still evident centuries later. This section contains general information about the region and the challenges the characters face as they traverse it. {@adventure Map 5.1|DSotDQ|5|Map 5.1: kalaman and northern wastes} depicts this region, sites that might be discovered by explorers, and various named environmental features. A version of this map appropriate to share with players appears in {@adventure appendix E|DSotDQ|12|Map: Kalaman Northern Wastes (Player Version) View Unlabeled Version}.",
+						"The rest of this chapter takes place in the Northern Wastes, a region where the Cataclysm's destruction is still evident centuries later. This section contains general information about the region and the challenges the characters face as they traverse it. {@adventure Map 5.1|DSotDQ|5|Map 5.1: kalaman and northern wastes} depicts this region, sites that might be discovered by explorers, and various named environmental features. A version of this map appropriate to share with players appears in {@adventure appendix E|DSotDQ|12|Appendix E: Maps}.",
 						{
 							"type": "entries",
 							"name": "Movement in the Wastes",
@@ -10947,7 +11035,15 @@
 										"path": "adventure/DSotDQ/071-map-5.01-kalaman-and-northern-wastes.webp"
 									},
 									"imageType": "map",
-									"title": "Map 5.1: kalaman and northern wastes",
+									"grid": {
+										"type": "hexColsOdd",
+										"size": 70,
+										"offsetX": -33,
+										"offsetY": 1,
+										"distance": 6,
+										"units": "miles"
+									},
+									"title": "Map 5.1: Kalaman and Northern Wastes",
 									"width": 1700,
 									"height": 2429,
 									"id": "027",
@@ -11245,6 +11341,14 @@
 										"path": "adventure/DSotDQ/072-map-5.01-kalaman-and-northern-wastes-player.webp"
 									},
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "hexColsOdd",
+										"size": 70,
+										"offsetX": -33,
+										"offsetY": 1,
+										"distance": 6,
+										"units": "miles"
+									},
 									"title": "Player Version",
 									"width": 1700,
 									"height": 2429,
@@ -11492,7 +11596,7 @@
 												"{@area Wakenreth|2a7|x} (location E)"
 											]
 										},
-										"Mark these sites' hexes on the players' map of the region in {@adventure appendix E|DSotDQ|12|Map: Kalaman Northern Wastes (Player Version) View Unlabeled Version} after {@creature Dalamar|DSotDQ} notes their locations.",
+										"Mark these sites' hexes on the players' map of the region in {@adventure appendix E|DSotDQ|12|Appendix E: Maps} after {@creature Dalamar|DSotDQ} notes their locations.",
 										"If the characters agree to work with {@creature Dalamar|DSotDQ}, he's pleased. They can explore the locations in any order they wish. {@creature Dalamar|DSotDQ} plans to convince Zhelsuel to let him meet the characters at Wakenreth. Once they've relayed their findings to him, he hopes he'll be able to determine the location of the City of Lost Names (see the end of the \"{@area E: Wakenreth|2a7|x}\" section for details). With this, {@creature Dalamar|DSotDQ} sends the characters on their way, wishing them fruitful investigations."
 									]
 								}
@@ -11668,7 +11772,14 @@
 														"path": "adventure/DSotDQ/075-map-5.02-blue-phoenix-shrine.webp"
 													},
 													"imageType": "map",
-													"title": "Map 5.2: blue phoenix shrine",
+													"grid": {
+														"type": "square",
+														"size": 94,
+														"offsetX": 4,
+														"offsetY": -35,
+														"scale": 2
+													},
+													"title": "Map 5.2: Blue Phoenix Shrine",
 													"width": 850,
 													"height": 1154,
 													"id": "028",
@@ -11973,6 +12084,13 @@
 														"path": "adventure/DSotDQ/076-map-5.02-blue-phoenix-shrine-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 94,
+														"offsetX": 4,
+														"offsetY": -35,
+														"scale": 2
+													},
 													"title": "Player Version",
 													"width": 850,
 													"height": 1154,
@@ -12154,7 +12272,7 @@
 									"id": "282",
 									"entries": [
 										"{@creature Dalamar|DSotDQ} needs to know only that the Blue Phoenix Shrine is a holy place sacred to the god Habbakuk.",
-										"As the group leaves the shrine, if the characters haven't already rescued the sea elves at Camp Carrionclay, a {@creature sea elf scout|DSotDQ} approaches {@creature Ishvern|DSotDQ} to tell him they've found where their captured companions were taken. The sea elves have been imprisoned at a Dragon Army camp in the middle of a murky lake (see the \"{@area I: Camp Carrionclay|2f1|x}\" section). These sea elf scouts provide directions to area I on {@adventure map 5.1|DSotDQ|5|Map 5.1: kalaman and northern wastes}. Mark this hex on the players' map of the region in {@adventure appendix E|DSotDQ|12|Map: Kalaman Northern Wastes (Player Version) View Unlabeled Version}.",
+										"As the group leaves the shrine, if the characters haven't already rescued the sea elves at Camp Carrionclay, a {@creature sea elf scout|DSotDQ} approaches {@creature Ishvern|DSotDQ} to tell him they've found where their captured companions were taken. The sea elves have been imprisoned at a Dragon Army camp in the middle of a murky lake (see the \"{@area I: Camp Carrionclay|2f1|x}\" section). These sea elf scouts provide directions to area I on {@adventure map 5.1|DSotDQ|5|Map 5.1: kalaman and northern wastes}. Mark this hex on the players' map of the region in {@adventure appendix E|DSotDQ|12|Appendix E: Maps}.",
 										"{@creature Ishvern|DSotDQ} asks the characters to find and free these captives. In return, he offers them what remaining treasure he has: a few blue pearls worth 750 gp."
 									]
 								}
@@ -12286,7 +12404,14 @@
 														"path": "adventure/DSotDQ/077-map-5.03-sunward-fortress.webp"
 													},
 													"imageType": "map",
-													"title": "Map 5.3: sunward fortress",
+													"grid": {
+														"type": "square",
+														"size": 72,
+														"offsetX": 28,
+														"offsetY": -30,
+														"scale": 2
+													},
+													"title": "Map 5.3: Sunward Fortress",
 													"width": 1700,
 													"height": 1214,
 													"id": "029",
@@ -12982,6 +13107,13 @@
 														"path": "adventure/DSotDQ/078-map-5.03-sunward-fortress-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 72,
+														"offsetX": 28,
+														"offsetY": -30,
+														"scale": 2
+													},
 													"title": "Player Version",
 													"width": 1700,
 													"height": 1214,
@@ -13289,7 +13421,14 @@
 														"path": "adventure/DSotDQ/080-map-5.04-wakenreth.webp"
 													},
 													"imageType": "map",
-													"title": "Map 5.4: wakenreth",
+													"grid": {
+														"type": "square",
+														"size": 66,
+														"offsetX": 24,
+														"offsetY": 14,
+														"scale": 2
+													},
+													"title": "Map 5.4: Wakenreth",
 													"width": 850,
 													"height": 2307,
 													"id": "02a",
@@ -13716,6 +13855,13 @@
 														"path": "adventure/DSotDQ/081-map-5.04-wakenreth-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 66,
+														"offsetX": 24,
+														"offsetY": 14,
+														"scale": 2
+													},
 													"title": "Player Version",
 													"width": 850,
 													"height": 2307,
@@ -14194,7 +14340,14 @@
 														"path": "adventure/DSotDQ/083-map-5.05-bluemaw-cave.webp"
 													},
 													"imageType": "map",
-													"title": "Map 5.5: bluemaw cave",
+													"grid": {
+														"type": "square",
+														"size": 75,
+														"offsetX": -49,
+														"offsetY": -7,
+														"scale": 2
+													},
+													"title": "Map 5.5: Bluemaw Cave",
 													"width": 850,
 													"height": 1154,
 													"id": "02b",
@@ -14872,6 +15025,13 @@
 														"path": "adventure/DSotDQ/084-map-5.05-bluemaw-cave-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 75,
+														"offsetX": -49,
+														"offsetY": -7,
+														"scale": 2
+													},
 													"title": "Player Version",
 													"width": 850,
 													"height": 1154,
@@ -15106,7 +15266,12 @@
 														"path": "adventure/DSotDQ/086-map-5.06-hearts-hollow.webp"
 													},
 													"imageType": "map",
-													"title": "Map 5.6: hearts hollow",
+													"grid": {
+														"type": "none",
+														"size": 95,
+														"distance": 30
+													},
+													"title": "Map 5.6: Hearts Hollow",
 													"width": 1700,
 													"height": 2334,
 													"id": "02c",
@@ -15145,6 +15310,11 @@
 														"path": "adventure/DSotDQ/087-map-5.06-hearts-hollow-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "none",
+														"size": 95,
+														"distance": 30
+													},
 													"title": "Player Version",
 													"width": 1700,
 													"height": 2334,
@@ -15381,7 +15551,14 @@
 														"path": "adventure/DSotDQ/088-map-5.07-camp-carrionclay.webp"
 													},
 													"imageType": "map",
-													"title": "Map 5.7: camp carrionclay",
+													"grid": {
+														"type": "square",
+														"size": 60,
+														"offsetX": 10,
+														"offsetY": 3,
+														"scale": 2.5
+													},
+													"title": "Map 5.7: Camp Carrionclay",
 													"width": 850,
 													"height": 1154,
 													"id": "02d",
@@ -15677,6 +15854,13 @@
 														"path": "adventure/DSotDQ/089-map-5.07-camp-carrionclay-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 60,
+														"offsetX": 10,
+														"offsetY": 3,
+														"scale": 2.5
+													},
 													"title": "Player Version",
 													"width": 850,
 													"height": 1154,
@@ -16069,7 +16253,13 @@
 														"path": "adventure/DSotDQ/090-map-5.08-attack-on-winds-end.webp"
 													},
 													"imageType": "map",
-													"title": "Map 5.8: attack on winds end",
+													"grid": {
+														"type": "square",
+														"size": 77,
+														"offsetX": 5,
+														"offsetY": -11
+													},
+													"title": "Map 5.8: Attack On Winds End",
 													"width": 1700,
 													"height": 2286,
 													"id": "02f",
@@ -16108,6 +16298,12 @@
 														"path": "adventure/DSotDQ/091-map-5.08-attack-on-winds-end-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 77,
+														"offsetX": 5,
+														"offsetY": -11
+													},
 													"title": "Player Version",
 													"width": 1700,
 													"height": 2286,
@@ -16344,7 +16540,14 @@
 												"path": "adventure/DSotDQ/094-map-6.01-path-of-memories.webp"
 											},
 											"imageType": "map",
-											"title": "Map 6.1: path of memories",
+											"grid": {
+												"type": "square",
+												"size": 79,
+												"offsetX": -37,
+												"offsetY": -7,
+												"scale": 2
+											},
+											"title": "Map 6.1: Path Of Memories",
 											"width": 1700,
 											"height": 1214,
 											"id": "030",
@@ -17780,6 +17983,13 @@
 												"path": "adventure/DSotDQ/095-map-6.01-path-of-memories-player.webp"
 											},
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 79,
+												"offsetX": -37,
+												"offsetY": -7,
+												"scale": 2
+											},
 											"title": "Player Version",
 											"width": 1700,
 											"height": 1214,
@@ -17984,7 +18194,7 @@
 											]
 										},
 										"The robed figure is {@creature Demelin|DSotDQ}, high wizard of Onyari (detailed in the \"{@creature Demelin|DSotDQ}\" section). Members of the Mages of High Sorcery recognize her robes as those of the Order of Red Robes. {@creature Demelin|DSotDQ} has been using the {@spell scrying} spell to monitor the characters and has judged they might be useful in ridding the ruins of the Dragon Army invaders.",
-										"The gem {@creature Demelin|DSotDQ} breaks is an {@item elemental gem}. An instant later, an {@creature air elemental} with an outline resembling a dragon appears and attacks the characters. {@creature Demelin|DSotDQ} stands back and watches, taking the {@action dodge||Dodge} action until the elemental is defeated. Afterward, she holds up a hand and says the following:",
+										"The gem {@creature Demelin|DSotDQ} breaks is an {@item elemental gem}. An instant later, an {@creature air elemental} with an outline resembling a dragon appears and attacks the characters. {@creature Demelin|DSotDQ} stands back and watches, taking the {@action Dodge} action until the elemental is defeated. Afterward, she holds up a hand and says the following:",
 										{
 											"type": "insetReadaloud",
 											"id": "340",
@@ -18357,7 +18567,12 @@
 										"path": "adventure/DSotDQ/098-map-6.02-city-of-last-names.webp"
 									},
 									"imageType": "map",
-									"title": "Map 6.2: city of lost names",
+									"grid": {
+										"type": "none",
+										"size": 80,
+										"distance": 400
+									},
+									"title": "Map 6.2: City Of Lost Names",
 									"width": 1700,
 									"height": 2421,
 									"id": "031",
@@ -18396,6 +18611,11 @@
 										"path": "adventure/DSotDQ/099-map-6.02-city-of-last-names-player.webp"
 									},
 									"imageType": "mapPlayer",
+									"grid": {
+										"type": "none",
+										"size": 80,
+										"distance": 400
+									},
 									"title": "Player Version",
 									"width": 1700,
 									"height": 2421,
@@ -18725,7 +18945,14 @@
 												"path": "adventure/DSotDQ/100-map-6.03-occupied-mansion.webp"
 											},
 											"imageType": "map",
-											"title": "Map 6.3: occupied mansion",
+											"grid": {
+												"type": "square",
+												"size": 74,
+												"offsetX": -3,
+												"offsetY": 2,
+												"scale": 2
+											},
+											"title": "Map 6.3: Occupied Mansion",
 											"width": 1700,
 											"height": 1214,
 											"id": "032",
@@ -19099,6 +19326,13 @@
 												"path": "adventure/DSotDQ/101-map-6.03-occupied-mansion-player.webp"
 											},
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 74,
+												"offsetX": -3,
+												"offsetY": 2,
+												"scale": 2
+											},
 											"title": "Player Version",
 											"width": 1700,
 											"height": 1214,
@@ -19470,7 +19704,14 @@
 												"path": "adventure/DSotDQ/103-map-6.04-temple-of-paladine.webp"
 											},
 											"imageType": "map",
-											"title": "Map 6.4: temple of paladine",
+											"grid": {
+												"type": "square",
+												"size": 75,
+												"offsetX": -27,
+												"offsetY": -21,
+												"scale": 2
+											},
+											"title": "Map 6.4: Temple Of Paladine",
 											"width": 1700,
 											"height": 1214,
 											"id": "033",
@@ -20343,6 +20584,13 @@
 												"path": "adventure/DSotDQ/104-map-6.04-temple-of-paladine-player.webp"
 											},
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 75,
+												"offsetX": -27,
+												"offsetY": -21,
+												"scale": 2
+											},
 											"title": "Player Version",
 											"width": 1700,
 											"height": 1214,
@@ -20666,7 +20914,14 @@
 												"path": "adventure/DSotDQ/107-map-6.05-threshold-of-the-heavens.webp"
 											},
 											"imageType": "map",
-											"title": "Map 6.5: threshold of the heavens",
+											"grid": {
+												"type": "square",
+												"size": 79,
+												"offsetX": 2,
+												"offsetY": 18,
+												"scale": 2
+											},
+											"title": "Map 6.5: Threshold of the Heavens",
 											"width": 1700,
 											"height": 2307,
 											"id": "034",
@@ -21067,6 +21322,13 @@
 												"path": "adventure/DSotDQ/108-map-6.05-threshold-of-the-heavens-player.webp"
 											},
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 79,
+												"offsetX": 2,
+												"offsetY": 18,
+												"scale": 2
+											},
 											"title": "Player Version",
 											"width": 1700,
 											"height": 2307,
@@ -22331,7 +22593,13 @@
 														"path": "adventure/DSotDQ/114-map-7.01-assault-on-hawkers-grove.webp"
 													},
 													"imageType": "map",
-													"title": "Map 7.1: assault on hawkers grove",
+													"grid": {
+														"type": "square",
+														"size": 77,
+														"offsetX": 5,
+														"offsetY": -4
+													},
+													"title": "Map 7.1: Assault on Hawkers Grove",
 													"width": 1700,
 													"height": 2286,
 													"id": "035",
@@ -22370,6 +22638,12 @@
 														"path": "adventure/DSotDQ/115-map-7.01-assault-on-hawkers-grove-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 77,
+														"offsetX": 5,
+														"offsetY": -4
+													},
 													"title": "Player Version",
 													"width": 1700,
 													"height": 2286,
@@ -22622,7 +22896,14 @@
 												"path": "adventure/DSotDQ/117-map-7.02-flying-citadel-sublevels.webp"
 											},
 											"imageType": "map",
-											"title": "Map 7.2: flying citadel sublevels",
+											"grid": {
+												"type": "square",
+												"size": 78,
+												"offsetX": 26,
+												"offsetY": 9,
+												"scale": 2
+											},
+											"title": "Map 7.2: Flying Citadel Sublevels",
 											"width": 1700,
 											"height": 2307,
 											"id": "055",
@@ -24366,6 +24647,13 @@
 												"path": "adventure/DSotDQ/118-map-7.02-flying-citadel-sublevels-player.webp"
 											},
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 78,
+												"offsetX": 26,
+												"offsetY": 9,
+												"scale": 2
+											},
 											"title": "Player Version",
 											"width": 1700,
 											"height": 2307,
@@ -25074,7 +25362,14 @@
 												"path": "adventure/DSotDQ/122-map-7.03-bastion-of-takhisis.webp"
 											},
 											"imageType": "map",
-											"title": "Map 7.3: bastion of takhisis",
+											"grid": {
+												"type": "square",
+												"size": 62,
+												"offsetX": -12,
+												"offsetY": -7,
+												"scale": 2.5
+											},
+											"title": "Map 7.3: Bastion of Takhisis",
 											"width": 1700,
 											"height": 1214,
 											"id": "056",
@@ -25426,6 +25721,13 @@
 												"path": "adventure/DSotDQ/123-map-7.03-bastion-of-takhisis-player.webp"
 											},
 											"imageType": "mapPlayer",
+											"grid": {
+												"type": "square",
+												"size": 62,
+												"offsetX": -12,
+												"offsetY": -7,
+												"scale": 2.5
+											},
 											"title": "Player Version",
 											"width": 1700,
 											"height": 1214,
@@ -25722,7 +26024,15 @@
 														"path": "adventure/DSotDQ/126-map-7.04-flying-citadel-surface.webp"
 													},
 													"imageType": "map",
-													"title": "Map 7.4: flying citadel surface",
+													"grid": {
+														"type": "square",
+														"size": 73,
+														"offsetX": -29,
+														"offsetY": -38,
+														"scale": 2,
+														"distance": 50
+													},
+													"title": "Map 7.4: Flying Citadel Surface",
 													"width": 850,
 													"height": 1154,
 													"id": "057",
@@ -25761,6 +26071,14 @@
 														"path": "adventure/DSotDQ/127-map-7.04-flying-citadel-surface-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 73,
+														"offsetX": -29,
+														"offsetY": -38,
+														"scale": 2,
+														"distance": 50
+													},
 													"title": "Player Version",
 													"width": 850,
 													"height": 1154,
@@ -25986,7 +26304,13 @@
 														"path": "adventure/DSotDQ/130-map-7.05-clash-of-fallen-flames.webp"
 													},
 													"imageType": "map",
-													"title": "Map 7.5: clash of fallen flames",
+													"grid": {
+														"type": "square",
+														"size": 79,
+														"offsetX": -23,
+														"offsetY": -24
+													},
+													"title": "Map 7.5: Clash Of Fallen Flames",
 													"width": 1700,
 													"height": 2303,
 													"id": "058",
@@ -26025,6 +26349,12 @@
 														"path": "adventure/DSotDQ/131-map-7.05-clash-of-fallen-flames-player.webp"
 													},
 													"imageType": "mapPlayer",
+													"grid": {
+														"type": "square",
+														"size": 79,
+														"offsetX": -23,
+														"offsetY": -24
+													},
 													"title": "Player Version",
 													"width": 1700,
 													"height": 2303,
@@ -26656,23 +26986,43 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "adventure/DSotDQ/178-map-12.01-kalaman-northern-wastes-player.webp"
+								"path": "adventure/DSotDQ/179-map-12.01-kalaman-northern-wastes.webp"
 							},
 							"imageType": "map",
-							"title": "Unlabeled Version",
+							"grid": {
+								"type": "hexColsOdd",
+								"size": 70,
+								"offsetX": -33,
+								"offsetY": 1,
+								"distance": 6,
+								"units": "miles"
+							},
+							"title": "Map: Kalaman Northern Wastes",
 							"width": 1700,
-							"height": 2429
+							"height": 2429,
+							"id": "059"
 						},
 						{
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "adventure/DSotDQ/179-map-12.01-kalaman-northern-wastes.webp"
+								"path": "adventure/DSotDQ/178-map-12.01-kalaman-northern-wastes-player.webp"
 							},
 							"imageType": "mapPlayer",
-							"title": "Map: Kalaman Northern Wastes (Player Version)",
+							"grid": {
+								"type": "hexColsOdd",
+								"size": 70,
+								"offsetX": -33,
+								"offsetY": 1,
+								"distance": 6,
+								"units": "miles"
+							},
+							"title": "Player Version",
 							"width": 1700,
-							"height": 2429
+							"height": 2429,
+							"mapParent": {
+								"id": "059"
+							}
 						}
 					]
 				},
@@ -26686,9 +27036,17 @@
 								"path": "adventure/DSotDQ/180-map-12.02-ansalon-continent.webp"
 							},
 							"imageType": "map",
-							"title": "Map: The Continent of Ansalon",
+							"grid": {
+								"type": "none",
+								"size": 52,
+								"scale": 3,
+								"distance": 25,
+								"units": "miles"
+							},
+							"title": "Map: The Continent of Ansalon on the World of Krynn",
 							"width": 1700,
-							"height": 1199
+							"height": 1199,
+							"id": "05a"
 						},
 						{
 							"type": "image",
@@ -26696,10 +27054,20 @@
 								"type": "internal",
 								"path": "adventure/DSotDQ/181-map-12.02-ansalon-continent-player.webp"
 							},
-							"imageType": "map",
-							"title": "Unlabeled Version",
+							"imageType": "mapPlayer",
+							"grid": {
+								"type": "none",
+								"size": 52,
+								"scale": 3,
+								"distance": 25,
+								"units": "miles"
+							},
+							"title": "Player Version",
 							"width": 1700,
-							"height": 1199
+							"height": 1199,
+							"mapParent": {
+								"id": "05a"
+							}
 						}
 					]
 				}

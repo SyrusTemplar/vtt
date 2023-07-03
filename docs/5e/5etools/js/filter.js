@@ -92,6 +92,8 @@ class PageFilter {
 	// endregion
 }
 
+globalThis.PageFilter = PageFilter;
+
 class ModalFilter {
 	static _$getFilterColumnHeaders (btnMeta) {
 		return btnMeta.map((it, i) => $(`<button class="col-${it.width} ${i === 0 ? "pl-0" : i === btnMeta.length ? "pr-0" : ""} ${it.disabled ? "" : "sort"} btn btn-default btn-xs" ${it.disabled ? "" : `data-sort="${it.sort}"`} ${it.title ? `title="${it.title}"` : ""} ${it.disabled ? "disabled" : ""}>${it.text}</button>`));
@@ -183,8 +185,9 @@ class ModalFilter {
 			$wrpList,
 			fnSort: this._fnSort,
 		});
+		const listSelectClickHandler = new ListSelectClickHandler({list: this._list});
 
-		if (!opts.isBuildUi && !this._isRadio) ListUiUtil.bindSelectAllCheckbox($cbSelAll, this._list);
+		if (!opts.isBuildUi && !this._isRadio) listSelectClickHandler.bindSelectAllCheckbox($cbSelAll);
 		ListUiUtil.bindPreviewAllButton($btnTogglePreviewAll, this._list);
 		SortUtil.initBtnSortHandlers($wrpFormHeaders, this._list);
 		this._list.on("updated", () => $dispNumVisible.html(`${this._list.visibleItems.length}/${this._list.items.length}`));
@@ -205,8 +208,8 @@ class ModalFilter {
 			const filterListItem = this._getListItem(this._pageFilter, it, i);
 			this._list.addItem(filterListItem);
 			if (!opts.isBuildUi) {
-				if (this._isRadio) filterListItem.ele.addEventListener("click", evt => ListUiUtil.handleSelectClickRadio(this._list, filterListItem, evt));
-				else filterListItem.ele.addEventListener("click", evt => ListUiUtil.handleSelectClick(this._list, filterListItem, evt));
+				if (this._isRadio) filterListItem.ele.addEventListener("click", evt => listSelectClickHandler.handleSelectClickRadio(filterListItem, evt));
+				else filterListItem.ele.addEventListener("click", evt => listSelectClickHandler.handleSelectClick(filterListItem, evt));
 			}
 		});
 
@@ -701,7 +704,7 @@ class FilterBox extends ProxyBase {
 					${$wrpBtnCombineFilters}
 				</div>
 				<div class="ve-flex-v-center mobile__m-1">
-					<div class="btn-group mr-2">
+					<div class="btn-group mr-2 ve-flex-h-center">
 						${$btnShowAllFilters}
 						${$btnHideAllFilters}
 					</div>
@@ -1714,6 +1717,12 @@ class Filter extends FilterBase {
 		return this._displayFn ? this._displayFn(item.item, item) : item.item;
 	}
 
+	_getDisplayTextMini (item) {
+		return this._displayFnMini
+			? this._displayFnMini(item.item, item)
+			: this._getDisplayText(item);
+	}
+
 	_getPill (item) {
 		const displayText = this._getDisplayText(item);
 
@@ -1725,12 +1734,7 @@ class Filter extends FilterBase {
 			contextmenu: evt => this._getPill_handleContextmenu({evt, item}),
 		});
 
-		const hook = () => {
-			const val = FilterBox._PILL_STATES[this._state[item.item]];
-			btnPill.attr("state", val);
-		};
-		this._addHook("state", item.item, hook);
-		hook();
+		this._getPill_bindHookState({btnPill, item});
 
 		item.searchText = displayText.toLowerCase();
 
@@ -1755,6 +1759,13 @@ class Filter extends FilterBase {
 		if (--this._state[item.item] < 0) this._state[item.item] = 2;
 	}
 
+	_getPill_bindHookState ({btnPill, item}) {
+		this._addHook("state", item.item, () => {
+			const val = FilterBox._PILL_STATES[this._state[item.item]];
+			btnPill.attr("state", val);
+		})();
+	}
+
 	setTempFnSel (tempFnSel) {
 		this._selFnCache = this._selFnCache || this._selFn;
 		if (tempFnSel) this._selFn = tempFnSel;
@@ -1772,7 +1783,7 @@ class Filter extends FilterBase {
 	}
 
 	_getBtnMini (item) {
-		const toDisplay = this._displayFnMini ? this._displayFnMini(item.item, item) : this._displayFn ? this._displayFn(item.item, item) : item.item;
+		const toDisplay = this._getDisplayTextMini(item);
 
 		const btnMini = e_({
 			tag: "div",
@@ -2391,8 +2402,8 @@ class Filter extends FilterBase {
 	getDefaultMeta () {
 		// Key order is important, as @filter tags depend on it
 		return {
-			...Filter._DEFAULT_META,
 			...super.getDefaultMeta(),
+			...Filter._DEFAULT_META,
 		};
 	}
 
@@ -2850,6 +2861,15 @@ class SourceFilter extends Filter {
 		this._addHook("tmpState", "ixAdded", hkIsBrewActive);
 		hkIsBrewActive();
 
+		const actionSelectDisplayMode = new ContextUtil.ActionSelect({
+			values: Object.keys(SourceFilter._PILL_DISPLAY_MODE_LABELS).map(Number),
+			fnGetDisplayValue: val => SourceFilter._PILL_DISPLAY_MODE_LABELS[val] || SourceFilter._PILL_DISPLAY_MODE_LABELS[0],
+			fnOnChange: val => this._meta.pillDisplayMode = val,
+		});
+		this._addHook("meta", "pillDisplayMode", () => {
+			actionSelectDisplayMode.setValue(this._meta.pillDisplayMode);
+		})();
+
 		const menu = ContextUtil.getMenu([
 			new ContextUtil.Action(
 				"Select All Standard Sources",
@@ -2884,6 +2904,8 @@ class SourceFilter extends Filter {
 				"Invert Selection",
 				() => this._doInvertPins(),
 			),
+			null,
+			actionSelectDisplayMode,
 		]);
 		const btnBurger = e_({
 			tag: "button",
@@ -2976,14 +2998,23 @@ class SourceFilter extends Filter {
 	}
 
 	static getCompleteFilterSources (ent) {
-		return ent.otherSources
-			? [ent.source].concat(ent.otherSources.map(src => new SourceFilterItem({item: src.source, isIgnoreRed: true, isOtherSource: true})))
-			: ent.source;
+		if (!ent.otherSources) return ent.source;
+
+		const otherSourcesFilt = ent.otherSources.filter(src => !ExcludeUtil.isExcluded("*", "*", src.source, {isNoCount: true}));
+		if (!otherSourcesFilt.length) return ent.source;
+
+		return [ent.source].concat(otherSourcesFilt.map(src => new SourceFilterItem({item: src.source, isIgnoreRed: true, isOtherSource: true})));
 	}
 
 	_doRenderPills_doRenderWrpGroup_getHrDivider (group) {
-		if (group !== 1) return super._doRenderPills_doRenderWrpGroup_getHrDivider(group);
+		switch (group) {
+			case 1: return this._doRenderPills_doRenderWrpGroup_getHrDivider_groupOne(group);
+			case 2: return this._doRenderPills_doRenderWrpGroup_getHrDivider_groupTwo(group);
+			default: return super._doRenderPills_doRenderWrpGroup_getHrDivider(group);
+		}
+	}
 
+	_doRenderPills_doRenderWrpGroup_getHrDivider_groupOne (group) {
 		let dates = [];
 		const comp = BaseComponent.fromObject({
 			min: 0,
@@ -3123,10 +3154,91 @@ class SourceFilter extends Filter {
 		});
 	}
 
+	_doRenderPills_doRenderWrpGroup_getHrDivider_groupTwo (group) {
+		const btnClear = e_({
+			tag: "button",
+			clazz: `btn btn-xxs btn-default px-1`,
+			html: "Clear",
+			click: () => {
+				const nxtState = {};
+				Object.keys(this._state)
+					.filter(k => BrewUtil2.hasSourceJson(k))
+					.forEach(k => nxtState[k] = 0);
+				this._proxyAssign("state", "_state", "__state", nxtState);
+			},
+		});
+
+		return e_({
+			tag: "div",
+			clazz: `ve-flex-col w-100`,
+			children: [
+				super._doRenderPills_doRenderWrpGroup_getHrDivider(),
+				e_({
+					tag: "div",
+					clazz: `mb-1 ve-flex-h-right`,
+					children: [
+						e_({
+							tag: "div",
+							clazz: `ve-flex-v-center btn-group`,
+							children: [
+								btnClear,
+							],
+						}),
+					],
+				}),
+			],
+		});
+	}
+
 	_toDisplay_getMappedEntryVal (entryVal) {
 		entryVal = super._toDisplay_getMappedEntryVal(entryVal);
 		if (!this._meta.isIncludeOtherSources) entryVal = entryVal.filter(it => !it.isOtherSource);
 		return entryVal;
+	}
+
+	_getPill (item) {
+		const displayText = this._getDisplayText(item);
+		const displayTextMini = this._getDisplayTextMini(item);
+
+		const dispName = e_({
+			tag: "span",
+			html: displayText,
+		});
+
+		const spc = e_({
+			tag: "span",
+			clazz: "px-2 fltr-src__spc-pill",
+			text: "|",
+		});
+
+		const dispAbbreviation = e_({
+			tag: "span",
+			html: displayTextMini,
+		});
+
+		const btnPill = e_({
+			tag: "div",
+			clazz: "fltr__pill",
+			children: [
+				dispAbbreviation,
+				spc,
+				dispName,
+			],
+			click: evt => this._getPill_handleClick({evt, item}),
+			contextmenu: evt => this._getPill_handleContextmenu({evt, item}),
+		});
+
+		this._getPill_bindHookState({btnPill, item});
+
+		this._addHook("meta", "pillDisplayMode", () => {
+			dispAbbreviation.toggleVe(this._meta.pillDisplayMode !== 0);
+			spc.toggleVe(this._meta.pillDisplayMode === 2);
+			dispName.toggleVe(this._meta.pillDisplayMode !== 1);
+		})();
+
+		item.searchText = `${Parser.sourceJsonToAbv(item.item || item).toLowerCase()} -- ${displayText.toLowerCase()}`;
+
+		return btnPill;
 	}
 
 	getSources () {
@@ -3150,13 +3262,19 @@ class SourceFilter extends Filter {
 	getDefaultMeta () {
 		// Key order is important, as @filter tags depend on it
 		return {
-			...SourceFilter._DEFAULT_META,
 			...super.getDefaultMeta(),
+			...SourceFilter._DEFAULT_META,
 		};
 	}
 }
 SourceFilter._DEFAULT_META = {
 	isIncludeOtherSources: false,
+	pillDisplayMode: 0,
+};
+SourceFilter._PILL_DISPLAY_MODE_LABELS = {
+	"0": "As Names",
+	"1": "As Abbreviations",
+	"2": "As Names Plus Abbreviations",
 };
 SourceFilter._SRD_SOURCES = null;
 SourceFilter._BASIC_RULES_SOURCES = null;
@@ -3809,6 +3927,8 @@ class AbilityScoreFilter extends FilterBase {
 	}
 }
 
+globalThis.AbilityScoreFilter = AbilityScoreFilter;
+
 AbilityScoreFilter.FilterItem = class {
 	static getUid_ ({ability = null, isAnyIncrease = false, isAnyDecrease = false, modifier = null}) {
 		return `${Parser.attAbvToFull(ability)} ${modifier != null ? UiUtil.intToBonus(modifier) : (isAnyIncrease ? `+any` : isAnyDecrease ? `-any` : "?")}`;
@@ -4040,7 +4160,7 @@ class RangeFilter extends FilterBase {
 
 					switch (prop) {
 						case "min":
-							if (num < nxtState.state.min) nxtState[this.header].state.min = num;
+							if (num < nxtState[this.header].state.min) nxtState[this.header].state.min = num;
 							nxtState[this.header].state.curMin = Math.max(nxtState[this.header].state.min, num);
 							break;
 						case "max":
@@ -4345,7 +4465,7 @@ class RangeFilter extends FilterBase {
 		let tmp = "";
 		for (let i = 0, len = this._state.max - this._state.min + 1; i < len; ++i) {
 			const val = i + this._state.min;
-			const label = this._labels ? `${this._labels[i]}`.qq() : val;
+			const label = `${this._getDisplayText(val)}`.qq();
 			tmp += `<option value="${val}" ${curVal === val ? "selected" : ""}>${label}</option>`;
 		}
 		sel.innerHTML = tmp;
@@ -4393,7 +4513,7 @@ class RangeFilter extends FilterBase {
 
 			// Special case for "isAllowGreater" filters, which assumes the labels are numerical values
 			if (this._isAllowGreater) {
-				if (filterState.max === this._state.max && entryVal > this._state.max) return true;
+				if (filterState.max === this._state.max && entryVal > this._labels[filterState.max]) return true;
 
 				const sliceMin = Math.min(...slice);
 				const sliceMax = Math.max(...slice);
@@ -4480,8 +4600,8 @@ class RangeFilter extends FilterBase {
 	getDefaultMeta () {
 		// Key order is important, as @filter tags depend on it
 		const out = {
-			...RangeFilter._DEFAULT_META,
 			...super.getDefaultMeta(),
+			...RangeFilter._DEFAULT_META,
 		};
 		if (Renderer.hover.isSmallScreen()) out.isUseDropdowns = true;
 		return out;
@@ -4785,8 +4905,8 @@ class OptionsFilter extends FilterBase {
 	getDefaultMeta () {
 		// Key order is important, as @filter tags depend on it
 		return {
-			...OptionsFilter._DEFAULT_META,
 			...super.getDefaultMeta(),
+			...OptionsFilter._DEFAULT_META,
 		};
 	}
 
@@ -5121,4 +5241,5 @@ globalThis.FilterBase = FilterBase;
 globalThis.Filter = Filter;
 globalThis.SourceFilter = SourceFilter;
 globalThis.RangeFilter = RangeFilter;
+globalThis.OptionsFilter = OptionsFilter;
 globalThis.MultiFilter = MultiFilter;

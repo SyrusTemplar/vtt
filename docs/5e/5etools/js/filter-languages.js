@@ -14,8 +14,8 @@ class PageFilterLanguages extends PageFilter {
 		if (it.fonts || it._fonts) it._fMisc.push("Has Fonts");
 		if (it.srd) it._fMisc.push("SRD");
 		if (it.basicRules) it._fMisc.push("Basic Rules");
-		if (it.hasFluff) it._fMisc.push("Has Info");
-		if (it.hasFluffImages) it._fMisc.push("Has Images");
+		if (it.hasFluff || it.fluff?.entries) it._fMisc.push("Has Info");
+		if (it.hasFluffImages || it.fluff?.images) it._fMisc.push("Has Images");
 	}
 
 	addToFilters (it, isExcluded) {
@@ -44,3 +44,5 @@ class PageFilterLanguages extends PageFilter {
 		);
 	}
 }
+
+globalThis.PageFilterLanguages = PageFilterLanguages;

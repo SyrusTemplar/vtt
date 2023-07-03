@@ -96,18 +96,8 @@ class DeitiesPage extends ListPage {
 		return listItem;
 	}
 
-	handleFilterChange () {
-		const f = this._filterBox.getValues();
-		this._list.filter(item => this._pageFilter.toDisplay(f, this._dataList[item.ix]));
-		FilterBox.selectFirstVisible(this._dataList);
-	}
-
-	_doLoadHash (id) {
-		const deity = this._dataList[id];
-
-		this._$pgContent.empty().append(RenderDeities.$getRenderedDeity(deity));
-
-		this._updateSelected();
+	_renderStats_doBuildStatsTab ({ent}) {
+		this._$pgContent.empty().append(RenderDeities.$getRenderedDeity(ent));
 	}
 }
 

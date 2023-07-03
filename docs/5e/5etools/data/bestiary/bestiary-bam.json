@@ -488,7 +488,7 @@
 				{
 					"name": "Phase (3/Day)",
 					"entries": [
-						"The dragon becomes partially incorporeal for as long as it maintains concentration on the effect (as if concentrating on a spell). While partially incorporeal, the dragon has resistance to bludgeoning, piercing, and slashing damage."
+						"The dragon becomes partially incorporeal for as long as it maintains {@status concentration} on the effect (as if {@status concentration||concentrating} on a spell). While partially incorporeal, the dragon has resistance to bludgeoning, piercing, and slashing damage."
 					]
 				}
 			],
@@ -514,6 +514,7 @@
 			"dragonAge": "adult",
 			"traitTags": [
 				"Legendary Resistances",
+				"Tunneler",
 				"Unusual Nature"
 			],
 			"senseTags": [
@@ -818,7 +819,7 @@
 				{
 					"name": "Phase (3/Day)",
 					"entries": [
-						"The dragon becomes partially incorporeal for as long as it maintains concentration on the effect (as if concentrating on a spell). While partially incorporeal, the dragon has resistance to bludgeoning, piercing, and slashing damage."
+						"The dragon becomes partially incorporeal for as long as it maintains {@status concentration} on the effect (as if {@status concentration||concentrating} on a spell). While partially incorporeal, the dragon has resistance to bludgeoning, piercing, and slashing damage."
 					]
 				}
 			],
@@ -849,6 +850,7 @@
 			"dragonAge": "ancient",
 			"traitTags": [
 				"Legendary Resistances",
+				"Tunneler",
 				"Unusual Nature"
 			],
 			"senseTags": [
@@ -1182,6 +1184,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"scimitar|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry",
 				"Unusual Nature"
@@ -1325,6 +1330,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"longbow|phb",
+				"longsword|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry",
 				"Unusual Nature"
@@ -1446,6 +1455,9 @@
 						"{@atk rs} {@hit 6} to hit, range 120 ft., one target. {@h}22 ({@damage 4d10}) radiant damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"longsword|phb"
 			],
 			"traitTags": [
 				"Fey Ancestry",
@@ -1597,6 +1609,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"morningstar|phb"
+			],
 			"traitTags": [
 				"Fey Ancestry",
 				"Unusual Nature"
@@ -1717,6 +1732,10 @@
 						"{@atk rw} {@hit 4} to hit, range 150/600 ft., one target. {@h}6 ({@damage 1d8 + 2}) piercing damage plus 10 ({@damage 3d6}) radiant damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"longbow|phb",
+				"longsword|phb"
 			],
 			"traitTags": [
 				"Fey Ancestry",
@@ -2096,6 +2115,9 @@
 						"When the braxat would be hit by an attack roll or a {@spell magic missile} spell that originates from a source the braxat can see, the braxat can create an {@condition invisible} barrier of magical force around itself that lasts until the start of its next turn. This barrier gives the braxat a +5 bonus to AC, including against the triggering attack, and prevents {@spell magic missile} spells from damaging it."
 					]
 				}
+			],
+			"attachedItems": [
+				"greatclub|phb"
 			],
 			"senseTags": [
 				"D"
@@ -3145,6 +3167,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"longsword|phb",
+				"musket|dmg"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -3262,6 +3288,10 @@
 						"The giff lights a grapefruit-sized bomb and throws it at a point up to 60 feet away, where it explodes. Each creature within a 10-foot-radius sphere centered on that point must make a {@dc 15} Dexterity saving throw, taking 18 ({@damage 4d8}) thunder damage on a failed save, or half as much damage on a successful one. After the giff throws the bomb, roll a {@dice d6}; on a roll of 4 or lower, the giff has no more bombs to throw."
 					]
 				}
+			],
+			"attachedItems": [
+				"greatsword|phb",
+				"musket|dmg"
 			],
 			"traitTags": [
 				"Siege Monster"
@@ -3393,6 +3423,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"morningstar|phb"
+			],
 			"traitTags": [
 				"Legendary Resistances"
 			],
@@ -3519,6 +3552,9 @@
 						"The githyanki teleports, along with any equipment it is wearing or carrying, up to 30 feet to an unoccupied space it can see."
 					]
 				}
+			],
+			"attachedItems": [
+				"greatsword|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -3983,6 +4019,10 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"musket|dmg",
+				"shortsword|phb"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -4070,6 +4110,9 @@
 						"When it would take damage from a fall, the hadozee extends its skin membranes to reduce the fall's damage to 0, provided it isn't wearing heavy armor."
 					]
 				}
+			],
+			"attachedItems": [
+				"dagger|phb"
 			],
 			"languageTags": [
 				"C"
@@ -4175,6 +4218,10 @@
 						"The hadozee halves the damage that it takes from an attack that hits it, provided it can see the attacker."
 					]
 				}
+			],
+			"attachedItems": [
+				"light crossbow|phb",
+				"shortsword|phb"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -4474,12 +4521,13 @@
 				{
 					"name": "Phase (2/Day)",
 					"entries": [
-						"The dragon becomes partially incorporeal for as long as it maintains concentration on the effect (as if concentrating on a spell). While partially incorporeal, the dragon has resistance to bludgeoning, piercing, and slashing damage."
+						"The dragon becomes partially incorporeal for as long as it maintains {@status concentration} on the effect (as if {@status concentration||concentrating} on a spell). While partially incorporeal, the dragon has resistance to bludgeoning, piercing, and slashing damage."
 					]
 				}
 			],
 			"dragonAge": "wyrmling",
 			"traitTags": [
+				"Tunneler",
 				"Unusual Nature"
 			],
 			"senseTags": [
@@ -5671,6 +5719,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"javelin|phb"
+			],
 			"traitTags": [
 				"Amorphous",
 				"Hold Breath"
@@ -5785,6 +5836,10 @@
 						"{@atk rw} {@hit 4} to hit, range 30/90 ft., one target. {@h}7 ({@damage 1d10 + 2}) piercing damage."
 					]
 				}
+			],
+			"attachedItems": [
+				"pistol|dmg",
+				"spear|phb"
 			],
 			"traitTags": [
 				"Amorphous",
@@ -6190,6 +6245,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"dagger|phb"
+			],
 			"languageTags": [
 				"DS",
 				"TP"
@@ -6339,6 +6397,9 @@
 						"Using its talarith, the reigar summons a duplicate of itself. The duplicate obeys the reigar's commands and uses the reigar's statistics, except it is an unaligned Construct that doesn't have a talarith of its own. The duplicate takes its turn immediately after the reigar. It vanishes after 1 hour or when it is reduced to 0 hit points."
 					]
 				}
+			],
+			"attachedItems": [
+				"trident|phb"
 			],
 			"traitTags": [
 				"Hold Breath"
@@ -6604,7 +6665,7 @@
 				{
 					"name": "Phantasmal Form (3/Day)",
 					"entries": [
-						"The clown veils itself and everything it is wearing and carrying in an illusion that makes it look like some other creature of its size or smaller (such as a child) or an object small enough to fit in the clown's space (such as a floating balloon). Maintaining this effect requires the clown's concentration (as if concentrating on a spell), and the illusion fails to hold up to physical inspection. As an action, a creature that can see the clown's illusory form can make a {@dc 15} Wisdom (Insight) check, piercing the illusion and discerning the clown's true form on a success."
+						"The clown veils itself and everything it is wearing and carrying in an illusion that makes it look like some other creature of its size or smaller (such as a child) or an object small enough to fit in the clown's space (such as a floating balloon). Maintaining this effect requires the clown's {@status concentration} (as if {@status concentration||concentrating} on a spell), and the illusion fails to hold up to physical inspection. As an action, a creature that can see the clown's illusory form can make a {@dc 15} Wisdom (Insight) check, piercing the illusion and discerning the clown's true form on a success."
 					]
 				}
 			],
@@ -7218,6 +7279,9 @@
 						"The ssurran throws a tangerine-sized bomb at a point up to 60 feet away, where it explodes, releasing a 10-foot-radius sphere of poisonous gas that disperses quickly. Each creature in the sphere must make a {@dc 11} Constitution saving throw, taking 10 ({@damage 3d6}) poison damage on a failed save, or half as much damage on a successful one. After the ssurran throws a bomb, roll a {@dice d6}; on a roll of 4 or lower, the ssurran has no more bombs to throw."
 					]
 				}
+			],
+			"attachedItems": [
+				"javelin|phb"
 			],
 			"traitTags": [
 				"Hold Breath"
@@ -7846,6 +7910,9 @@
 					]
 				}
 			],
+			"attachedItems": [
+				"light crossbow|phb"
+			],
 			"traitTags": [
 				"Spider Climb",
 				"Unusual Nature"
@@ -7969,7 +8036,7 @@
 				{
 					"name": "Ship Invisibility (Recharges after a Short or Long Rest)",
 					"entries": [
-						"A ship upon which the captain stands, along with all creatures and objects aboard it, becomes {@condition invisible} to creatures not aboard the ship. The captain must concentrate on this magical effect to maintain it (as if concentrating on a spell), and it lasts for up to 1 hour. The effect ends if the captain leaves the ship."
+						"A ship upon which the captain stands, along with all creatures and objects aboard it, becomes {@condition invisible} to creatures not aboard the ship. The captain must concentrate on this magical effect to maintain it (as if {@status concentration||concentrating} on a spell), and it lasts for up to 1 hour. The effect ends if the captain leaves the ship."
 					]
 				}
 			],
@@ -7980,6 +8047,9 @@
 						"The captain halves the damage that it takes from an attack that hits it. The captain must be able to see the attacker."
 					]
 				}
+			],
+			"attachedItems": [
+				"heavy crossbow|phb"
 			],
 			"traitTags": [
 				"Spider Climb",
@@ -8356,12 +8426,13 @@
 				{
 					"name": "Phase (2/Day)",
 					"entries": [
-						"The dragon becomes partially incorporeal for as long as it maintains concentration on the effect (as if concentrating on a spell). While partially incorporeal, the dragon has resistance to bludgeoning, piercing, and slashing damage."
+						"The dragon becomes partially incorporeal for as long as it maintains {@status concentration} on the effect (as if {@status concentration||concentrating} on a spell). While partially incorporeal, the dragon has resistance to bludgeoning, piercing, and slashing damage."
 					]
 				}
 			],
 			"dragonAge": "young",
 			"traitTags": [
+				"Tunneler",
 				"Unusual Nature"
 			],
 			"senseTags": [

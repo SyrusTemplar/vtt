@@ -535,65 +535,6 @@
 			]
 		},
 		{
-			"name": "Dzaan",
-			"source": "IDRotF",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"entries": [
-								"Dzaan was a Red Wizard of Thay who studied the arcane tradition of illusion. The leaders of the Arcane Brotherhood welcomed him with open arms, eager to count a Red Wizard among their ranks. Dzaan might have become a force to reckon with in the brotherhood had his quest for power not led him to Icewind Dale, where he was killed by the people of Easthaven after making a few too many enemies.",
-								{
-									"type": "entries",
-									"name": "Dzaan's Demise",
-									"entries": [
-										"Dzaan's trouble started after he broke away from his fellow wizards and hired adventurers to scour Icewind Dale for Netherese ruins. One group of them uncovered a buried tower in the tundra (see \"{@area Lost Spire of Netheril|3a8|x}\"), and Dzaan went out of his way to eliminate anyone who knew of it, including the adventurers who found it and several Ten-Towners with whom they had spoken. After turning the tower into his secret base, Dzaan visited Easthaven to gather supplies. Although he took the precaution of adopting a magical disguise, members of the local militia recognized Dzaan by the way he walked and spoke. They captured him, gagged him, confiscated his spellbook, and condemned him to death.",
-										"The characters have no opportunity to speak with Dzaan. They first encounter him in Easthaven, tied to a stake and engulfed in flames (see \"{@area Toil and Trouble|16c|x}\"). The Ten-Towners enjoy the execution while it lasts. After warming themselves by the fire, they leave Dzaan's ashes to be scattered by the wind."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Dzaan's Simulacrum",
-									"entries": [
-										"Unbeknownst to his executioners, Dzaan had used a {@item spell scroll} of {@spell simulacrum} to create a copy of himself. This simulacrum dwells in the sunken Netherese spire, waiting for its creator to return.",
-										"The simulacrum, which looks and acts like Dzaan, has half of Dzaan's hit points and can't regain expended spell slots. It has wasted its 3rd-level spell slots trying to reach Dzaan with {@spell sending} spells, to no avail, and has expended other spell slots to help it survive the perils of the spire. It uses its remaining spell slots sparingly.",
-										"The sunken Netherese tower contains a special room that can transform the simulacrum into a real person\u2014or any magical illusion into the real thing, for that matter. If this change occurs, the simulacrum effectively becomes a {@creature Dzaan|IDRotF|clone of Dzaan}, authentic in every way. Dzaan's stat block and abilities change as follows:",
-										{
-											"type": "list",
-											"items": [
-												"He has spell slots appropriate for a 9th-level wizard (four 1st-level spell slots, three 2nd- through 4th-level spell slots, and one 5th-level spell slot), but he lacks a spellbook and therefore can't change his list of prepared spells.",
-												"If he finishes a long rest, he has the following additional spell slots, which allow him to cast the indicated spells: 3rd level (3 slots): {@spell fireball}, {@spell sending}, {@spell slow} 4th level (3 slots): {@spell arcane eye}, {@spell confusion} 5th level (1 slot): {@spell animate objects}",
-												"His hit point maximum becomes 49 ({@dice 9d8 + 9}), and his challenge rating becomes 2 (450 XP). His challenge rating becomes 4 (1,100 XP) if he finishes a long rest and regains his expended spells."
-											]
-										}
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Companion",
-									"entries": [
-										"Because they're so despised throughout Faerûn, Red Wizards often adopt disguises and rarely travel abroad without an escort. They generally favor undead servants and bodyguards, since they find that undead tend to be more obedient than the living. Dzaan's bodyguard is a Thayan {@creature wight} named Krintaas. When Dzaan returned to Easthaven, he ordered his companion to stay with the simulacrum and watch over it and the buried Netherese spire."
-									]
-								}
-							]
-						}
-					]
-				}
-			],
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/IDRotF/Dzaan.png"
-					},
-					"title": "Dzaan and his wight bodyguard, Krintaas"
-				}
-			]
-		},
-		{
 			"name": "Dzaan's Simulacrum",
 			"source": "IDRotF",
 			"entries": [
