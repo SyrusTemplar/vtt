@@ -283,30 +283,11 @@
 		}
 	}
 
-	&__row {
-		width: 100%;
-		margin-bottom: 5px;
-	}
-
-	&__row--vert {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		align-items: center;
-	}
-
 	&__row__divider {
 		background: $rgb-border-grey--trans;
 
-		height: 1px;
-		width: calc(100% - 16px);
-		margin: 2px 8px 7px;
-
 		&--heavy {
 			background: #aaa;
-
-			width: calc(100% + 6px);
-			margin: 2px -3px 7px;
 		}
 	}
 
@@ -488,10 +469,21 @@ input[type=checkbox].sidemenu__row__label__cb {
 
 	&disp-srd {
 		font-size: 8.5px;
-		vertical-align: super;
+		align-self: start;
 		top: 2px;
 		margin-right: 1px;
-		margin-left: -2px;
+		margin-left: 2px;
+	}
+
+	&disp-source-marker {
+		margin-left: 2px;
+	}
+
+	&wrp-page {
+		margin-left: 4px;
+		font-family: "Convergence", Arial, sans-serif;
+		font-weight: 100;
+		font-size: 94%;
 	}
 
 	// region Clear button
@@ -565,7 +557,10 @@ input[type=checkbox].sidemenu__row__label__cb {
 	bottom: 0;
 	color: rgba(255, 255, 255, 0.7);
 	width: 24px;
-	height: 24px;
+	// TODO(iOS)
+	// Support iOS Webclip corner
+	//   See: https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/issues/122
+	height: calc(24px + calc(env(safe-area-inset-bottom, 0) / 2));
 	cursor: pointer;
 	user-select: none;
 	border: 0;
@@ -964,11 +959,6 @@ input[type=checkbox].sidemenu__row__label__cb {
 	}
 }
 
-.monster .rnd-name .source {
-	position: relative;
-	margin-right: 0.2em;
-}
-
 .stats {
 	font-family: "Convergence", Arial, sans-serif;
 	width: 100%;
@@ -981,10 +971,6 @@ input[type=checkbox].sidemenu__row__label__cb {
 	}
 }
 
-.stats.monster {
-	background-size: 100% auto;
-	background: url("../img/bestiary/stat-block-top-texture.png") no-repeat, repeat top center, $rgb-bg-orange;
-}
 
 td,
 th {
@@ -1366,14 +1352,9 @@ img.token:hover {
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
+		padding: 0 3px;
 		font-variant: small-caps;
 		border-bottom: 1px solid $rgb-border-grey;
-	}
-
-	&h_name,
-	&r_name {
-		min-width: 115px;
-		width: 100%;
 	}
 
 	&h_name--compact {
@@ -1383,12 +1364,6 @@ img.token:hover {
 	&r_name {
 		display: flex;
 		justify-content: space-between;
-	}
-
-	&h_hp,
-	&r_hp {
-		min-width: 100px;
-		width: 100%;
 	}
 
 	&h_hp--compact {
@@ -1430,7 +1405,7 @@ img.token:hover {
 		display: flex;
 		justify-content: space-between;
 		padding: 2px 3px;
-		border-bottom: 1px solid #e0e0e0;
+		border-bottom: 1px solid $rgb-border-grey--trans;
 
 		&:last-of-type {
 			border-bottom: 0;
@@ -1453,6 +1428,18 @@ img.token:hover {
 .night-mode .initp__ {
 	&header {
 		border-color: $rgb-border-grey--night;
+	}
+
+	&r {
+		border-color: $rgb-border-grey--trans-night;
+
+		&:hover {
+			background: #ffffff18;
+		}
+
+		&--active:hover {
+			background: #93bae838;
+		}
 	}
 }
 // endregion
@@ -1554,17 +1541,6 @@ img.token:hover {
 
 *:first-child > input.lst__search--no-border-h {
 	border-top-left-radius: 4px;
-}
-
-/* Psionics */
-
-.psi-order-and-talent {
-	font-style: italic;
-}
-
-.psi-focus-title {
-	font-style: italic;
-	font-weight: bold;
 }
 
 .stats-sub-header {
@@ -1716,6 +1692,7 @@ tr.regionaleffect {
 	// FIXME this doesn't affect e.g. lists
 	//  Also, affects e.g. nested tables (bad!)
 	--h-mb-p: 15px;
+	--h-mb-p-inline: var(--h-mb-p);
 	--h-mb-quote-line: 10px;
 	--h-mb-li: 5px;
 	--w-text-indent-inline-p: 0;
@@ -1726,7 +1703,7 @@ tr.regionaleffect {
 
 	.rd__spc-inline-post {
 		width: 100%;
-		height: 15px;
+		height: var(--h-mb-p);
 
 		&:last-child {
 			height: 0;
@@ -1799,7 +1776,7 @@ tr.regionaleffect {
 	line-height: 2.3em;
 
 	&--large {
-		font-size: 5vmin;
+		font-size: 4vmin;
 		color: initial;
 	}
 }
@@ -1940,7 +1917,6 @@ header p.lead {
 			font-variant: small-caps;
 			text-transform: uppercase;
 			font-weight: bold;
-			padding: 0 0 0 5px;
 			height: 20px;
 			background: silver;
 			font-size: 12px;
@@ -2103,14 +2079,6 @@ th.border {
 		left: 7px;
 	}
 
-	&btn-find {
-		border-bottom-left-radius: 0;
-	}
-
-	&btn-goto {
-		border-bottom-right-radius: 0;
-	}
-
 	&head-chapter--active,
 	&head-section--active {
 		background: $rgb-bg--alt;
@@ -2227,72 +2195,6 @@ th.border {
 
 .life__output-wrp-border {
 	border: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-.homebrew-section {
-	background-color: $rgb-bg-homebrew;
-
-	.homebrew-float {
-		float: right;
-		border: 1px dotted;
-		margin-bottom: 5px;
-		margin-left: 5px;
-		padding-right: 2px;
-		padding-left: 2px;
-		text-indent: 0;
-	}
-
-	.homebrew-old-content {
-		color: #a00;
-		margin-left: 5px;
-	}
-
-	.homebrew-notice {
-		&::before {
-			content: "Homebrew";
-		}
-	}
-}
-
-.homebrew-inline {
-	background-color: $rgb-bg-homebrew;
-	text-decoration: underline dotted;
-}
-
-.stats tr.homebrew-hover {
-	> td {
-		padding: 5px 0.3em;
-
-		> div > *:last-child {
-			margin-bottom: 0;
-		}
-	}
-}
-
-.don {
-	&__bar {
-		width: calc(100% - 40px);
-		height: 20px;
-		margin: 20px 20px 5px;
-		box-shadow: 0 0 3px 0 black;
-		border-radius: 4px;
-		border: 1px solid $rgb-border-grey;
-		background: #f0f0f0;
-	}
-
-	&__bar--home {
-		width: calc(100% - 10px);
-		height: 20px;
-		margin: 5px;
-	}
-
-	&__bar_inner {
-		height: 18px;
-		background: gold;
-		width: 0;
-		text-align: right;
-		color: $rgb-off-black;
-	}
 }
 
 .toast {
@@ -2587,6 +2489,10 @@ th.border {
 
 	.bb-1p {
 		border-bottom-color: $rgb-border-grey--night !important;
+
+		&-trans {
+			border-bottom-color: $rgb-border-grey--trans-night !important;
+		}
 	}
 
 	.bl-1p {
@@ -2824,10 +2730,6 @@ th.border {
 		.alert-link {
 			color: $rgb-alert-success-border-green--night;
 		}
-	}
-
-	.don__bar {
-		background: $rgb-bg--night;
 	}
 
 	.input-group-addon,
@@ -3075,7 +2977,7 @@ th.border {
 
 	.stripe-odd-table > tbody > tr:nth-child(odd),
 	.stripe-even-table > tbody > tr:nth-child(even) {
-		background-color: #4e4e4e80; // pre-blend (50% opacity): 38 38 38
+		background-color: $rgb-stripe-grey--night;
 	}
 
 	#please-select-message.showing > td {
@@ -3194,18 +3096,6 @@ th.border {
 
 	.content-tab-bar {
 		background: $rgb-bg--night;
-	}
-
-	.homebrew-section {
-		background-color: $rgb-bg-homebrew--night;
-
-		.homebrew-old-content {
-			color: #f99;
-		}
-	}
-
-	.homebrew-inline {
-		background-color: $rgb-bg-homebrew--night;
 	}
 
 	.highlight {
@@ -3457,10 +3347,7 @@ th.border {
 	// endregion
 
 	// region stats
-	.stats,
-	.stats.monster {
-		background: transparent !important;
-	}
+	.stats
 
 	.stats-source,
 	.stats-source-abbreviation,

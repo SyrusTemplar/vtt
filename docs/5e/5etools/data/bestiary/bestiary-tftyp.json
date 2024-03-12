@@ -140,6 +140,9 @@
 			"conditionInflict": [
 				"prone"
 			],
+			"savingThrowForced": [
+				"strength"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -301,7 +304,13 @@
 				"CD"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
+			],
+			"savingThrowForcedSpell": [
+				"constitution",
+				"dexterity",
+				"strength"
 			],
 			"hasToken": true
 		},
@@ -461,6 +470,9 @@
 				"AOE",
 				"MW"
 			],
+			"savingThrowForced": [
+				"constitution"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -590,12 +602,17 @@
 				"P"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RCH"
 			],
 			"conditionInflict": [
 				"frightened",
 				"paralyzed"
+			],
+			"savingThrowForced": [
+				"constitution",
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -822,6 +839,7 @@
 				"S"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RW",
 				"THW"
@@ -1052,6 +1070,7 @@
 				"P"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RNG",
 				"RW"
@@ -1150,6 +1169,7 @@
 				"S"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RNG",
 				"RW"
@@ -1341,7 +1361,15 @@
 				"CC"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
+			],
+			"savingThrowForced": [
+				"wisdom"
+			],
+			"savingThrowForcedSpell": [
+				"dexterity",
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -1893,6 +1921,9 @@
 			"conditionInflict": [
 				"stunned"
 			],
+			"savingThrowForced": [
+				"constitution"
+			],
 			"hasToken": true
 		},
 		{
@@ -2012,6 +2043,7 @@
 				"S"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RCH"
 			],
@@ -2101,6 +2133,9 @@
 				"prone",
 				"restrained"
 			],
+			"savingThrowForced": [
+				"strength"
+			],
 			"hasToken": true
 		},
 		{
@@ -2138,6 +2173,9 @@
 				"C",
 				"GO",
 				"X"
+			],
+			"miscTags": [
+				"MLW"
 			],
 			"hasToken": true
 		},
@@ -2442,9 +2480,14 @@
 				"CC"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RNG",
 				"RW"
+			],
+			"savingThrowForcedSpell": [
+				"charisma",
+				"constitution"
 			],
 			"hasToken": true,
 			"hasFluff": true
@@ -2519,6 +2562,9 @@
 			],
 			"miscTags": [
 				"MW"
+			],
+			"savingThrowForced": [
+				"constitution"
 			],
 			"hasToken": true,
 			"hasFluff": true
@@ -2995,6 +3041,13 @@
 				"invisible",
 				"unconscious"
 			],
+			"savingThrowForced": [
+				"constitution"
+			],
+			"savingThrowForcedSpell": [
+				"constitution",
+				"dexterity"
+			],
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -3230,6 +3283,9 @@
 				"grappled",
 				"incapacitated"
 			],
+			"savingThrowForced": [
+				"wisdom"
+			],
 			"hasToken": true
 		},
 		{
@@ -3368,6 +3424,9 @@
 				"C",
 				"DR",
 				"X"
+			],
+			"miscTags": [
+				"MLW"
 			],
 			"hasToken": true
 		},
@@ -3630,6 +3689,9 @@
 				"grappled",
 				"prone",
 				"restrained"
+			],
+			"savingThrowForced": [
+				"dexterity"
 			],
 			"hasToken": true,
 			"hasFluff": true
@@ -3933,6 +3995,10 @@
 			"conditionInflict": [
 				"blinded",
 				"prone"
+			],
+			"savingThrowForced": [
+				"constitution",
+				"strength"
 			],
 			"hasToken": true,
 			"hasFluff": true
@@ -4259,6 +4325,14 @@
 				"frightened",
 				"poisoned",
 				"restrained"
+			],
+			"savingThrowForced": [
+				"wisdom"
+			],
+			"savingThrowForcedSpell": [
+				"constitution",
+				"dexterity",
+				"wisdom"
 			],
 			"hasToken": true
 		},
@@ -5100,7 +5174,11 @@
 				"CW"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
+			],
+			"savingThrowForcedSpell": [
+				"dexterity"
 			],
 			"hasToken": true
 		},
@@ -5200,6 +5278,7 @@
 				"S"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
 			],
 			"hasToken": true,
@@ -5325,6 +5404,7 @@
 				"I"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
 			],
 			"conditionInflict": [
@@ -5333,6 +5413,12 @@
 			"conditionInflictSpell": [
 				"charmed",
 				"invisible"
+			],
+			"savingThrowForced": [
+				"intelligence"
+			],
+			"savingThrowForcedSpell": [
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true
@@ -5519,9 +5605,18 @@
 				"CW"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RW",
 				"THW"
+			],
+			"savingThrowForced": [
+				"constitution"
+			],
+			"savingThrowForcedSpell": [
+				"constitution",
+				"dexterity",
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true
@@ -5697,6 +5792,7 @@
 				"CW"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RW",
 				"THW"
@@ -5707,6 +5803,10 @@
 			"conditionInflictSpell": [
 				"blinded",
 				"paralyzed"
+			],
+			"savingThrowForcedSpell": [
+				"constitution",
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true
@@ -5742,6 +5842,9 @@
 				"F"
 			],
 			"miscTags": [],
+			"savingThrowForced": [
+				"constitution"
+			],
 			"hasToken": true,
 			"hasFluffImages": true
 		},
@@ -5990,6 +6093,15 @@
 			"conditionInflictSpell": [
 				"restrained"
 			],
+			"savingThrowForced": [
+				"constitution",
+				"wisdom"
+			],
+			"savingThrowForcedSpell": [
+				"constitution",
+				"dexterity",
+				"wisdom"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -6123,6 +6235,9 @@
 				"MW",
 				"RCH"
 			],
+			"savingThrowForced": [
+				"dexterity"
+			],
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -6245,9 +6360,13 @@
 				"CW"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RW",
 				"THW"
+			],
+			"savingThrowForcedSpell": [
+				"dexterity"
 			],
 			"hasToken": true,
 			"hasFluffImages": true
@@ -6356,6 +6475,7 @@
 				"S"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RW",
 				"THW"
@@ -6693,6 +6813,9 @@
 			],
 			"conditionInflictSpell": [
 				"paralyzed"
+			],
+			"savingThrowForcedSpell": [
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true
@@ -7166,7 +7289,11 @@
 				"CS"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
+			],
+			"savingThrowForcedSpell": [
+				"dexterity"
 			],
 			"hasToken": true,
 			"hasFluff": true,

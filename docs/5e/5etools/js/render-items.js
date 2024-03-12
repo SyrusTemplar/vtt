@@ -38,7 +38,7 @@ class RenderItems {
 
 			${renderedText ? `<tr><td class="divider" colspan="6"><div/></td></tr>
 			<tr class="text"><td colspan="6">${renderedText}</td></tr>` : ""}
-			${Renderer.utils.getPageTr(item)}
+			${Renderer.utils.getPageTr(item, {tag: "item", fnUnpackUid: (uid) => DataUtil.proxy.unpackUid("item", uid, "item")})}
 			${Renderer.utils.getBorderTr()}
 		`;
 	}

@@ -1,19 +1,28 @@
 "use strict";
 
 class ActionsSublistManager extends SublistManager {
-	constructor () {
-		super({
-			sublistClass: "subactions",
-		});
+	static get _ROW_TEMPLATE () {
+		return [
+			new SublistCellTemplate({
+				name: "Name",
+				css: "bold col-8 pl-0",
+				colStyle: "",
+			}),
+			new SublistCellTemplate({
+				name: "Time",
+				css: "ve-text-center col-4 pr-0",
+				colStyle: "text-center",
+			}),
+		];
 	}
 
 	pGetSublistItem (it, hash) {
 		const time = it.time ? it.time.map(tm => PageFilterActions.getTimeText(tm)).join("/") : "\u2014";
+		const cellsText = [it.name, time];
 
 		const $ele = $(`<div class="lst__row lst__row--sublist ve-flex-col">
 			<a href="#${hash}" class="lst--border lst__row-inner">
-				<span class="bold col-8 pl-0">${it.name}</span>
-				<span class="text-center col-4 pr-0">${time}</span>
+				${this.constructor._getRowCellsHtml({values: cellsText})}
 			</a>
 		</div>`)
 			.contextmenu(evt => this._handleSublistItemContextMenu(evt, listItem))
@@ -29,6 +38,7 @@ class ActionsSublistManager extends SublistManager {
 			},
 			{
 				entity: it,
+				mdRow: [...cellsText],
 			},
 		);
 		return listItem;
@@ -43,9 +53,9 @@ class ActionsPage extends ListPage {
 
 			pageFilter,
 
-			listClass: "actions",
-
 			dataProps: ["action"],
+
+			isMarkdownPopout: true,
 
 			isPreviewable: true,
 		});
@@ -64,8 +74,8 @@ class ActionsPage extends ListPage {
 		eleLi.innerHTML = `<a href="#${hash}" class="lst--border lst__row-inner">
 			<span class="col-0-3 px-0 ve-flex-vh-center lst__btn-toggle-expand ve-self-flex-stretch">[+]</span>
 			<span class="col-5-7 px-1 bold">${it.name}</span>
-			<span class="col-4 text-center">${time}</span>
-			<span class="col-2 text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${Parser.sourceJsonToStyle(it.source)}>${source}</span>
+			<span class="col-4 ve-text-center">${time}</span>
+			<span class="col-2 ve-text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${Parser.sourceJsonToStyle(it.source)}>${source}</span>
 		</a>
 		<div class="ve-flex ve-hidden relative lst__wrp-preview">
 			<div class="vr-0 absolute lst__vr-preview"></div>

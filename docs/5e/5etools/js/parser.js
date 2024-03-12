@@ -35,44 +35,78 @@ Parser.numberToText = function (number) {
 	if (number == null) throw new TypeError(`undefined or null object passed to parser`);
 	if (Math.abs(number) >= 100) return `${number}`;
 
-	function getAsText (num) {
-		const abs = Math.abs(num);
-		switch (abs) {
-			case 0: return "zero";
-			case 1: return "one";
-			case 2: return "two";
-			case 3: return "three";
-			case 4: return "four";
-			case 5: return "five";
-			case 6: return "six";
-			case 7: return "seven";
-			case 8: return "eight";
-			case 9: return "nine";
-			case 10: return "ten";
-			case 11: return "eleven";
-			case 12: return "twelve";
-			case 13: return "thirteen";
-			case 14: return "fourteen";
-			case 15: return "fifteen";
-			case 16: return "sixteen";
-			case 17: return "seventeen";
-			case 18: return "eighteen";
-			case 19: return "nineteen";
-			case 20: return "twenty";
-			case 30: return "thirty";
-			case 40: return "forty";
-			case 50: return "fiddy"; // :^)
-			case 60: return "sixty";
-			case 70: return "seventy";
-			case 80: return "eighty";
-			case 90: return "ninety";
-			default: {
-				const str = String(abs);
-				return `${getAsText(Number(`${str[0]}0`))}-${getAsText(Number(str[1]))}`;
-			}
+	return `${number < 0 ? "negative " : ""}${Parser.numberToText._getPositiveNumberAsText(Math.abs(number))}`;
+};
+
+Parser.numberToText._getPositiveNumberAsText = num => {
+	const [preDotRaw, postDotRaw] = `${num}`.split(".");
+
+	if (!postDotRaw) return Parser.numberToText._getPositiveIntegerAsText(num);
+
+	let preDot = preDotRaw === "0" ? "" : `${Parser.numberToText._getPositiveIntegerAsText(Math.trunc(num))} and `;
+
+	// See also: `Parser.numberToVulgar`
+	switch (postDotRaw) {
+		case "125": return `${preDot}one-eighth`;
+		case "2": return `${preDot}one-fifth`;
+		case "25": return `${preDot}one-quarter`;
+		case "375": return `${preDot}three-eighths`;
+		case "4": return `${preDot}two-fifths`;
+		case "5": return `${preDot}one-half`;
+		case "6": return `${preDot}three-fifths`;
+		case "625": return `${preDot}five-eighths`;
+		case "75": return `${preDot}three-quarters`;
+		case "8": return `${preDot}four-fifths`;
+		case "875": return `${preDot}seven-eighths`;
+
+		default: {
+			// Handle recursive
+			const asNum = Number(`0.${postDotRaw}`);
+
+			if (asNum.toFixed(2) === (1 / 3).toFixed(2)) return `${preDot}one-third`;
+			if (asNum.toFixed(2) === (2 / 3).toFixed(2)) return `${preDot}two-thirds`;
+
+			if (asNum.toFixed(2) === (1 / 6).toFixed(2)) return `${preDot}one-sixth`;
+			if (asNum.toFixed(2) === (5 / 6).toFixed(2)) return `${preDot}five-sixths`;
 		}
 	}
-	return `${number < 0 ? "negative " : ""}${getAsText(number)}`;
+};
+
+Parser.numberToText._getPositiveIntegerAsText = num => {
+	switch (num) {
+		case 0: return "zero";
+		case 1: return "one";
+		case 2: return "two";
+		case 3: return "three";
+		case 4: return "four";
+		case 5: return "five";
+		case 6: return "six";
+		case 7: return "seven";
+		case 8: return "eight";
+		case 9: return "nine";
+		case 10: return "ten";
+		case 11: return "eleven";
+		case 12: return "twelve";
+		case 13: return "thirteen";
+		case 14: return "fourteen";
+		case 15: return "fifteen";
+		case 16: return "sixteen";
+		case 17: return "seventeen";
+		case 18: return "eighteen";
+		case 19: return "nineteen";
+		case 20: return "twenty";
+		case 30: return "thirty";
+		case 40: return "forty";
+		case 50: return "fifty";
+		case 60: return "sixty";
+		case 70: return "seventy";
+		case 80: return "eighty";
+		case 90: return "ninety";
+		default: {
+			const str = String(num);
+			return `${Parser.numberToText._getPositiveIntegerAsText(Number(`${str[0]}0`))}-${Parser.numberToText._getPositiveIntegerAsText(Number(str[1]))}`;
+		}
+	}
 };
 
 Parser.textToNumber = function (str) {
@@ -102,7 +136,7 @@ Parser.textToNumber = function (str) {
 		case "twenty": return 20;
 		case "thirty": return 30;
 		case "forty": return 40;
-		case "fifty": case "fiddy": return 50;
+		case "fifty": return 50;
 		case "sixty": return 60;
 		case "seventy": return 70;
 		case "eighty": return 80;
@@ -119,6 +153,7 @@ Parser.numberToVulgar = function (number, {isFallbackOnFractional = true} = {}) 
 	let preDot = spl[0] === "0" ? "" : spl[0];
 	if (isNeg) preDot = `-${preDot}`;
 
+	// See also: `Parser.numberToText._getPositiveNumberAsText`
 	switch (spl[1]) {
 		case "125": return `${preDot}⅛`;
 		case "2": return `${preDot}⅕`;
@@ -298,7 +333,9 @@ Parser.crToXp = function (cr, {isDouble = false} = {}) {
 
 	const toConvert = cr ? (cr.cr || cr) : null;
 	if (toConvert === "Unknown" || toConvert == null || !Parser.XP_CHART_ALT[toConvert]) return "Unknown";
-	if (toConvert === "0") return "0 or 10";
+	// CR 0 creatures can be 0 or 10 XP, but 10 XP is used in almost every case.
+	//   Exceptions, such as MM's Frog and Sea Horse, have their XP set to 0 on the creature
+	if (toConvert === "0") return "10";
 	const xp = Parser.XP_CHART_ALT[toConvert];
 	return Parser._addCommas(`${isDouble ? 2 * xp : xp}`);
 };
@@ -328,19 +365,22 @@ Parser.isValidCr = function (cr) {
 	return Parser.CRS.includes(cr);
 };
 
-Parser.crToNumber = function (cr) {
-	if (cr === "Unknown" || cr === "\u2014" || cr == null) return VeCt.CR_UNKNOWN;
-	if (cr.cr) return Parser.crToNumber(cr.cr);
+Parser.crToNumber = function (cr, opts = {}) {
+	const {isDefaultNull = false} = opts;
+
+	if (cr === "Unknown" || cr === "\u2014" || cr == null) return isDefaultNull ? null : VeCt.CR_UNKNOWN;
+	if (cr.cr) return Parser.crToNumber(cr.cr, opts);
 
 	const parts = cr.trim().split("/");
+	if (!parts.length || parts.length >= 3) return isDefaultNull ? null : VeCt.CR_CUSTOM;
+	if (isNaN(parts[0])) return isDefaultNull ? null : VeCt.CR_CUSTOM;
 
-	if (parts.length === 1) {
-		if (isNaN(parts[0])) return VeCt.CR_CUSTOM;
-		return Number(parts[0]);
-	} else if (parts.length === 2) {
-		if (isNaN(parts[0]) || isNaN(Number(parts[1]))) return VeCt.CR_CUSTOM;
+	if (parts.length === 2) {
+		if (isNaN(Number(parts[1]))) return isDefaultNull ? null : VeCt.CR_CUSTOM;
 		return Number(parts[0]) / Number(parts[1]);
-	} else return 0;
+	}
+
+	return Number(parts[0]);
 };
 
 Parser.numberToCr = function (number, safe) {
@@ -624,6 +664,14 @@ Parser.sourceJsonToStylePart = function (source) {
 	return "";
 };
 
+Parser.sourceJsonToMarkerHtml = function (source, {isList = true, additionalStyles = ""} = {}) {
+	source = Parser._getSourceStringFromSource(source);
+	// TODO(Future) consider enabling this
+	// if (SourceUtil.isPartneredSourceWotc(source)) return `<span class="help-subtle ve-source-marker ${isList ? `ve-source-marker--list` : ""} ve-source-marker--partnered ${additionalStyles}" title="D&amp;D Partnered Source">${isList ? "" : "["}✦${isList ? "" : "]"}</span>`;
+	if (SourceUtil.isLegacySourceWotc(source)) return `<span class="help-subtle ve-source-marker ${isList ? `ve-source-marker--list` : ""} ve-source-marker--legacy ${additionalStyles}" title="Legacy Source">${isList ? "" : "["}ʟ${isList ? "" : "]"}</span>`;
+	return "";
+};
+
 Parser.stringToSlug = function (str) {
 	return str.trim().toLowerCase().toAscii().replace(/[^\w ]+/g, "").replace(/ +/g, "-");
 };
@@ -810,6 +858,11 @@ Parser.ITEM_RECHARGE_TO_FULL = {
 	dawn: "Dawn",
 	dusk: "Dusk",
 	midnight: "Midnight",
+	week: "Week",
+	month: "Month",
+	year: "Year",
+	decade: "Decade",
+	century: "Century",
 	special: "Special",
 };
 Parser.itemRechargeToFull = function (recharge) {
@@ -818,6 +871,7 @@ Parser.itemRechargeToFull = function (recharge) {
 
 Parser.ITEM_MISC_TAG_TO_FULL = {
 	"CF/W": "Creates Food/Water",
+	"TT": "Trinket Table",
 };
 Parser.itemMiscTagToFull = function (type) {
 	return Parser._parse_aToB(Parser.ITEM_MISC_TAG_TO_FULL, type);
@@ -916,7 +970,8 @@ Parser.spSchoolAbvToShort = function (school) {
 	if (Parser.SP_SCHOOL_ABV_TO_SHORT[school]) return out;
 	if (PrereleaseUtil.getMetaLookup("spellSchools")?.[school]) return PrereleaseUtil.getMetaLookup("spellSchools")?.[school].short;
 	if (BrewUtil2.getMetaLookup("spellSchools")?.[school]) return BrewUtil2.getMetaLookup("spellSchools")?.[school].short;
-	return out;
+	if (out.length <= 4) return out;
+	return `${out.slice(0, 3)}.`;
 };
 
 Parser.spSchoolAbvToStyle = function (school) { // For prerelease/homebrew
@@ -959,8 +1014,8 @@ Parser.getArticle = function (str) {
 	return /^[aeiou]/i.test(str) ? "an" : "a";
 };
 
-Parser.spLevelToFullLevelText = function (level, dash) {
-	return `${Parser.spLevelToFull(level)}${(level === 0 ? "s" : `${dash ? "-" : " "}level`)}`;
+Parser.spLevelToFullLevelText = function (level, {isDash = false, isPluralCantrips = true} = {}) {
+	return `${Parser.spLevelToFull(level)}${(level === 0 ? (isPluralCantrips ? "s" : "") : `${isDash ? "-" : " "}level`)}`;
 };
 
 Parser.spLevelToSpellPoints = function (lvl) {
@@ -1005,6 +1060,21 @@ Parser.spTimeListToFull = function (times, isStripTags) {
 
 Parser.getTimeToFull = function (time) {
 	return `${time.number ? `${time.number} ` : ""}${time.unit === "bonus" ? "bonus action" : time.unit}${time.number > 1 ? "s" : ""}`;
+};
+
+Parser.getMinutesToFull = function (mins) {
+	const days = Math.floor(mins / (24 * 60));
+	mins = mins % (24 * 60);
+
+	const hours = Math.floor(mins / 60);
+	mins = mins % 60;
+
+	return [
+		days ? `${days} day${days > 1 ? "s" : ""}` : null,
+		hours ? `${hours} hour${hours > 1 ? "s" : ""}` : null,
+		mins ? `${mins} minute${mins > 1 ? "s" : ""}` : null,
+	].filter(Boolean)
+		.join(" ");
 };
 
 Parser.RNG_SPECIAL = "special";
@@ -1275,6 +1345,7 @@ Parser.DURATION_AMOUNT_TYPES = [
 	"hour",
 	"day",
 	"week",
+	"month",
 	"year",
 ];
 
@@ -1381,6 +1452,7 @@ Parser.SP_MISC_TAG_TO_FULL = {
 	DFT: "Difficult Terrain",
 	AAD: "Additional Attack Damage",
 	OBJ: "Affects Objects",
+	ADV: "Grants Advantage",
 };
 Parser.spMiscTagToFull = function (type) {
 	return Parser._parse_aToB(Parser.SP_MISC_TAG_TO_FULL, type);
@@ -1519,7 +1591,9 @@ Parser.getFullImmRes = function (toParse) {
 
 			const prop = it.immune ? "immune" : it.resist ? "resist" : it.vulnerable ? "vulnerable" : null;
 			if (prop) {
-				const toJoin = it[prop].map(nxt => toString(nxt, depth + 1));
+				const toJoin = it[prop].length === Parser.DMG_TYPES.length && CollectionUtil.deepEquals(Parser.DMG_TYPES, it[prop])
+					? ["all damage"]
+					: it[prop].map(nxt => toString(nxt, depth + 1));
 				stack.push(depth ? toJoin.join(maxDepth ? "; " : ", ") : toJoin.joinConjunct(", ", " and "));
 			}
 
@@ -1548,16 +1622,25 @@ Parser.getFullImmRes = function (toParse) {
 	return out;
 };
 
-Parser.getFullCondImm = function (condImm, isPlainText) {
+Parser.getFullCondImm = function (condImm, {isPlainText = false, isEntry = false} = {}) {
+	if (isPlainText && isEntry) throw new Error(`Options "isPlainText" and "isEntry" are mutually exclusive!`);
+
 	if (!condImm?.length) return "";
-	function render (condition) {
-		return isPlainText ? condition : Renderer.get().render(`{@condition ${condition}}`);
-	}
-	return condImm.map(it => {
-		if (it.special) return it.special;
-		if (it.conditionImmune) return `${it.preNote ? `${it.preNote} ` : ""}${it.conditionImmune.map(render).join(", ")}${it.note ? ` ${it.note}` : ""}`;
-		return render(it);
-	}).sort(SortUtil.ascSortLower).join(", ");
+
+	const render = condition => {
+		if (isPlainText) return condition;
+		const ent = `{@condition ${condition}}`;
+		if (isEntry) return ent;
+		return Renderer.get().render(ent);
+	};
+
+	return condImm
+		.map(it => {
+			if (it.special) return it.special;
+			if (it.conditionImmune) return `${it.preNote ? `${it.preNote} ` : ""}${it.conditionImmune.map(render).join(", ")}${it.note ? ` ${it.note}` : ""}`;
+			return render(it);
+		})
+		.sort(SortUtil.ascSortLower).join(", ");
 };
 
 Parser.MON_SENSE_TAG_TO_FULL = {
@@ -1596,6 +1679,7 @@ Parser.MON_MISC_TAG_TO_FULL = {
 	"HPR": "Has HP Reduction",
 	"MW": "Has Weapon Attacks, Melee",
 	"RW": "Has Weapon Attacks, Ranged",
+	"MLW": "Has Melee Weapons",
 	"RNG": "Has Ranged Weapons",
 	"RCH": "Has Reach Attacks",
 	"THW": "Has Thrown Weapons",
@@ -2108,7 +2192,7 @@ Parser.spVariantClassesToCurrentAndLegacy = function (fromVariantClassList) {
 	const current = [];
 	const legacy = [];
 	fromVariantClassList.forEach(cls => {
-		if (cls.definedInSource === Parser.SRC_UACFV) legacy.push(cls);
+		if (SourceUtil.isPrereleaseSource(cls.definedInSource)) legacy.push(cls);
 		else current.push(cls);
 	});
 	return [current, legacy];
@@ -2123,10 +2207,10 @@ Parser.trapHazTypeToFull = function (type) {
 };
 
 Parser.TRAP_HAZARD_TYPE_TO_FULL = {
-	MECH: "Mechanical trap",
-	MAG: "Magical trap",
-	SMPL: "Simple trap",
-	CMPX: "Complex trap",
+	MECH: "Mechanical Trap",
+	MAG: "Magical Trap",
+	SMPL: "Simple Trap",
+	CMPX: "Complex Trap",
 	HAZ: "Hazard",
 	WTH: "Weather",
 	ENV: "Environmental Hazard",
@@ -2140,10 +2224,10 @@ Parser.tierToFullLevel = function (tier) {
 };
 
 Parser.TIER_TO_FULL_LEVEL = {};
-Parser.TIER_TO_FULL_LEVEL[1] = "level 1\u20134";
-Parser.TIER_TO_FULL_LEVEL[2] = "level 5\u201310";
-Parser.TIER_TO_FULL_LEVEL[3] = "level 11\u201316";
-Parser.TIER_TO_FULL_LEVEL[4] = "level 17\u201320";
+Parser.TIER_TO_FULL_LEVEL[1] = "1st\u20134th Level";
+Parser.TIER_TO_FULL_LEVEL[2] = "5th\u201310th Level";
+Parser.TIER_TO_FULL_LEVEL[3] = "11th\u201316th Level";
+Parser.TIER_TO_FULL_LEVEL[4] = "17th\u201320th Level";
 
 Parser.trapInitToFull = function (init) {
 	return Parser._parse_aToB(Parser.TRAP_INIT_TO_FULL, init);
@@ -2424,6 +2508,7 @@ Parser.CONDITION_TO_COLOR = {
 
 Parser.RULE_TYPE_TO_FULL = {
 	"O": "Optional",
+	"P": "Prerelease",
 	"V": "Variant",
 	"VO": "Variant Optional",
 	"VV": "Variant Variant",
@@ -2552,11 +2637,23 @@ Parser.SRC_LoX = "LoX";
 Parser.SRC_DoSI = "DoSI";
 Parser.SRC_DSotDQ = "DSotDQ";
 Parser.SRC_KftGV = "KftGV";
+Parser.SRC_BGG = "BGG";
+Parser.SRC_TDCSR = "TDCSR";
+Parser.SRC_PaBTSO = "PaBTSO";
+Parser.SRC_PAitM = "PAitM";
+Parser.SRC_SatO = "SatO";
+Parser.SRC_ToFW = "ToFW";
+Parser.SRC_MPP = "MPP";
+Parser.SRC_BMT = "BMT";
+Parser.SRC_GHLoE = "GHLoE";
+Parser.SRC_DoDk = "DoDk";
 Parser.SRC_SCREEN = "Screen";
 Parser.SRC_SCREEN_WILDERNESS_KIT = "ScreenWildernessKit";
 Parser.SRC_SCREEN_DUNGEON_KIT = "ScreenDungeonKit";
 Parser.SRC_SCREEN_SPELLJAMMER = "ScreenSpelljammer";
-Parser.SRC_HEROES_FEAST = "HF";
+Parser.SRC_HF = "HF";
+Parser.SRC_HFFotM = "HFFotM";
+Parser.SRC_HFStCM = "HFStCM";
 Parser.SRC_CM = "CM";
 Parser.SRC_NRH = "NRH";
 Parser.SRC_NRH_TCMC = "NRH-TCMC";
@@ -2571,6 +2668,10 @@ Parser.SRC_VD = "VD";
 Parser.SRC_SjA = "SjA";
 Parser.SRC_HAT_TG = "HAT-TG";
 Parser.SRC_HAT_LMI = "HAT-LMI";
+Parser.SRC_GotSF = "GotSF";
+Parser.SRC_LK = "LK";
+Parser.SRC_CoA = "CoA";
+Parser.SRC_PiP = "PiP";
 
 Parser.SRC_AL_PREFIX = "AL";
 
@@ -2591,85 +2692,15 @@ Parser.SRC_UA_PREFIX = "UA";
 Parser.SRC_UA_ONE_PREFIX = "XUA";
 Parser.SRC_MCVX_PREFIX = "MCV";
 Parser.SRC_MisMVX_PREFIX = "MisMV";
+Parser.SRC_AA_PREFIX = "AA";
 
-Parser.SRC_UAA = `${Parser.SRC_UA_PREFIX}Artificer`;
-Parser.SRC_UAEAG = `${Parser.SRC_UA_PREFIX}EladrinAndGith`;
-Parser.SRC_UAEBB = `${Parser.SRC_UA_PREFIX}Eberron`;
-Parser.SRC_UAFFR = `${Parser.SRC_UA_PREFIX}FeatsForRaces`;
-Parser.SRC_UAFFS = `${Parser.SRC_UA_PREFIX}FeatsForSkills`;
-Parser.SRC_UAFO = `${Parser.SRC_UA_PREFIX}FiendishOptions`;
-Parser.SRC_UAFT = `${Parser.SRC_UA_PREFIX}Feats`;
-Parser.SRC_UAGH = `${Parser.SRC_UA_PREFIX}GothicHeroes`;
-Parser.SRC_UAMDM = `${Parser.SRC_UA_PREFIX}ModernMagic`;
-Parser.SRC_UASSP = `${Parser.SRC_UA_PREFIX}StarterSpells`;
 Parser.SRC_UATMC = `${Parser.SRC_UA_PREFIX}TheMysticClass`;
-Parser.SRC_UATOBM = `${Parser.SRC_UA_PREFIX}ThatOldBlackMagic`;
-Parser.SRC_UATRR = `${Parser.SRC_UA_PREFIX}TheRangerRevised`;
-Parser.SRC_UAWA = `${Parser.SRC_UA_PREFIX}WaterborneAdventures`;
-Parser.SRC_UAVR = `${Parser.SRC_UA_PREFIX}VariantRules`;
-Parser.SRC_UALDR = `${Parser.SRC_UA_PREFIX}LightDarkUnderdark`;
-Parser.SRC_UARAR = `${Parser.SRC_UA_PREFIX}RangerAndRogue`;
-Parser.SRC_UAATOSC = `${Parser.SRC_UA_PREFIX}ATrioOfSubclasses`;
-Parser.SRC_UABPP = `${Parser.SRC_UA_PREFIX}BarbarianPrimalPaths`;
-Parser.SRC_UARSC = `${Parser.SRC_UA_PREFIX}RevisedSubclasses`;
-Parser.SRC_UAKOO = `${Parser.SRC_UA_PREFIX}KitsOfOld`;
-Parser.SRC_UABBC = `${Parser.SRC_UA_PREFIX}BardBardColleges`;
-Parser.SRC_UACDD = `${Parser.SRC_UA_PREFIX}ClericDivineDomains`;
-Parser.SRC_UAD = `${Parser.SRC_UA_PREFIX}Druid`;
-Parser.SRC_UARCO = `${Parser.SRC_UA_PREFIX}RevisedClassOptions`;
-Parser.SRC_UAF = `${Parser.SRC_UA_PREFIX}Fighter`;
-Parser.SRC_UAM = `${Parser.SRC_UA_PREFIX}Monk`;
-Parser.SRC_UAP = `${Parser.SRC_UA_PREFIX}Paladin`;
-Parser.SRC_UAMC = `${Parser.SRC_UA_PREFIX}ModifyingClasses`;
-Parser.SRC_UAS = `${Parser.SRC_UA_PREFIX}Sorcerer`;
-Parser.SRC_UAWAW = `${Parser.SRC_UA_PREFIX}WarlockAndWizard`;
-Parser.SRC_UATF = `${Parser.SRC_UA_PREFIX}TheFaithful`;
-Parser.SRC_UAWR = `${Parser.SRC_UA_PREFIX}WizardRevisited`;
-Parser.SRC_UAESR = `${Parser.SRC_UA_PREFIX}ElfSubraces`;
-Parser.SRC_UAMAC = `${Parser.SRC_UA_PREFIX}MassCombat`;
-Parser.SRC_UA3PE = `${Parser.SRC_UA_PREFIX}ThreePillarExperience`;
-Parser.SRC_UAGHI = `${Parser.SRC_UA_PREFIX}GreyhawkInitiative`;
-Parser.SRC_UATSC = `${Parser.SRC_UA_PREFIX}ThreeSubclasses`;
-Parser.SRC_UAOD = `${Parser.SRC_UA_PREFIX}OrderDomain`;
-Parser.SRC_UACAM = `${Parser.SRC_UA_PREFIX}CentaursMinotaurs`;
-Parser.SRC_UAGSS = `${Parser.SRC_UA_PREFIX}GiantSoulSorcerer`;
-Parser.SRC_UARoE = `${Parser.SRC_UA_PREFIX}RacesOfEberron`;
-Parser.SRC_UARoR = `${Parser.SRC_UA_PREFIX}RacesOfRavnica`;
-Parser.SRC_UAWGE = `${Parser.SRC_UA_PREFIX}WGE`;
-Parser.SRC_UAOSS = `${Parser.SRC_UA_PREFIX}OfShipsAndSea`;
-Parser.SRC_UASIK = `${Parser.SRC_UA_PREFIX}Sidekicks`;
-Parser.SRC_UAAR = `${Parser.SRC_UA_PREFIX}ArtificerRevisited`;
-Parser.SRC_UABAM = `${Parser.SRC_UA_PREFIX}BarbarianAndMonk`;
-Parser.SRC_UASAW = `${Parser.SRC_UA_PREFIX}SorcererAndWarlock`;
-Parser.SRC_UABAP = `${Parser.SRC_UA_PREFIX}BardAndPaladin`;
-Parser.SRC_UACDW = `${Parser.SRC_UA_PREFIX}ClericDruidWizard`;
-Parser.SRC_UAFRR = `${Parser.SRC_UA_PREFIX}FighterRangerRogue`;
-Parser.SRC_UACFV = `${Parser.SRC_UA_PREFIX}ClassFeatureVariants`;
-Parser.SRC_UAFRW = `${Parser.SRC_UA_PREFIX}FighterRogueWizard`;
-Parser.SRC_UAPCRM = `${Parser.SRC_UA_PREFIX}PrestigeClassesRunMagic`;
-Parser.SRC_UAR = `${Parser.SRC_UA_PREFIX}Ranger`;
-Parser.SRC_UA2020SC1 = `${Parser.SRC_UA_PREFIX}2020SubclassesPt1`;
-Parser.SRC_UA2020SC2 = `${Parser.SRC_UA_PREFIX}2020SubclassesPt2`;
-Parser.SRC_UA2020SC3 = `${Parser.SRC_UA_PREFIX}2020SubclassesPt3`;
-Parser.SRC_UA2020SC4 = `${Parser.SRC_UA_PREFIX}2020SubclassesPt4`;
-Parser.SRC_UA2020SC5 = `${Parser.SRC_UA_PREFIX}2020SubclassesPt5`;
-Parser.SRC_UA2020SMT = `${Parser.SRC_UA_PREFIX}2020SpellsAndMagicTattoos`;
-Parser.SRC_UA2020POR = `${Parser.SRC_UA_PREFIX}2020PsionicOptionsRevisited`;
-Parser.SRC_UA2020SCR = `${Parser.SRC_UA_PREFIX}2020SubclassesRevisited`;
-Parser.SRC_UA2020F = `${Parser.SRC_UA_PREFIX}2020Feats`;
-Parser.SRC_UA2021GL = `${Parser.SRC_UA_PREFIX}2021GothicLineages`;
-Parser.SRC_UA2021FF = `${Parser.SRC_UA_PREFIX}2021FolkOfTheFeywild`;
-Parser.SRC_UA2021DO = `${Parser.SRC_UA_PREFIX}2021DraconicOptions`;
-Parser.SRC_UA2021MoS = `${Parser.SRC_UA_PREFIX}2021MagesOfStrixhaven`;
-Parser.SRC_UA2021TotM = `${Parser.SRC_UA_PREFIX}2021TravelersOfTheMultiverse`;
-Parser.SRC_UA2022HoK = `${Parser.SRC_UA_PREFIX}2022HeroesOfKrynn`;
-Parser.SRC_UA2022HoKR = `${Parser.SRC_UA_PREFIX}2022HeroesOfKrynnRevisited`;
-Parser.SRC_UA2022GO = `${Parser.SRC_UA_PREFIX}2022GiantOptions`;
-Parser.SRC_UA2022WotM = `${Parser.SRC_UA_PREFIX}2022WondersOfTheMultiverse`;
 Parser.SRC_MCV1SC = `${Parser.SRC_MCVX_PREFIX}1SC`;
 Parser.SRC_MCV2DC = `${Parser.SRC_MCVX_PREFIX}2DC`;
 Parser.SRC_MCV3MC = `${Parser.SRC_MCVX_PREFIX}3MC`;
+Parser.SRC_MCV4EC = `${Parser.SRC_MCVX_PREFIX}4EC`;
 Parser.SRC_MisMV1 = `${Parser.SRC_MisMVX_PREFIX}1`;
+Parser.SRC_AATM = `${Parser.SRC_AA_PREFIX}TM`;
 
 Parser.AL_PREFIX = "Adventurers League: ";
 Parser.AL_PREFIX_SHORT = "AL: ";
@@ -2682,6 +2713,7 @@ Parser.AitFR_NAME = "Adventures in the Forgotten Realms";
 Parser.NRH_NAME = "NERDS Restoring Harmony";
 Parser.MCVX_PREFIX = "Monstrous Compendium Volume ";
 Parser.MisMVX_PREFIX = "Misplaced Monsters: Volume ";
+Parser.AA_PREFIX = "Adventure Atlas: ";
 
 Parser.SOURCE_JSON_TO_FULL = {};
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_CoS] = "Curse of Strahd";
@@ -2777,11 +2809,23 @@ Parser.SOURCE_JSON_TO_FULL[Parser.SRC_LoX] = "Light of Xaryxis";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_DoSI] = "Dragons of Stormwreck Isle";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_DSotDQ] = "Dragonlance: Shadow of the Dragon Queen";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_KftGV] = "Keys from the Golden Vault";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_BGG] = "Bigby Presents: Glory of the Giants";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_TDCSR] = "Tal'Dorei Campaign Setting Reborn";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_PaBTSO] = "Phandelver and Below: The Shattered Obelisk";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_PAitM] = "Planescape: Adventures in the Multiverse";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SatO] = "Sigil and the Outlands";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_ToFW] = "Turn of Fortune's Wheel";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_MPP] = "Morte's Planar Parade";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_BMT] = "The Book of Many Things";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_GHLoE] = "Grim Hollow: Lairs of Etharis";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_DoDk] = "Dungeons of Drakkenheim";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN] = "Dungeon Master's Screen";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN_WILDERNESS_KIT] = "Dungeon Master's Screen: Wilderness Kit";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN_DUNGEON_KIT] = "Dungeon Master's Screen: Dungeon Kit";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN_SPELLJAMMER] = "Dungeon Master's Screen: Spelljammer";
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_HEROES_FEAST] = "Heroes' Feast";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_HF] = "Heroes' Feast";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_HFFotM] = "Heroes' Feast: Flavors of the Multiverse";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_HFStCM] = "Heroes' Feast: Saving the Childrens Menu";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_CM] = "Candlekeep Mysteries";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_NRH] = Parser.NRH_NAME;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_NRH_TCMC] = `${Parser.NRH_NAME}: The Candy Mountain Caper`;
@@ -2796,6 +2840,10 @@ Parser.SOURCE_JSON_TO_FULL[Parser.SRC_VD] = "Vecna Dossier";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SjA] = "Spelljammer Academy";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_HAT_TG] = "Honor Among Thieves: Thieves' Gallery";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_HAT_LMI] = "Honor Among Thieves: Legendary Magic Items";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_GotSF] = "Giants of the Star Forge";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_LK] = "Lightning Keep";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_CoA] = "Chains of Asmodeus";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_PiP] = "Peril in Pinebrook";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_ALCoS] = `${Parser.AL_PREFIX}Curse of Strahd`;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_ALEE] = `${Parser.AL_PREFIX}Elemental Evil`;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_ALRoD] = `${Parser.AL_PREFIX}Rage of Demons`;
@@ -2806,84 +2854,13 @@ Parser.SOURCE_JSON_TO_FULL[Parser.SRC_PSZ] = `${Parser.PS_PREFIX}Zendikar`;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_PSX] = `${Parser.PS_PREFIX}Ixalan`;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_PSD] = `${Parser.PS_PREFIX}Dominaria`;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_XMtS] = `X Marks the Spot`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAA] = `${Parser.UA_PREFIX}Artificer`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAEAG] = `${Parser.UA_PREFIX}Eladrin and Gith`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAEBB] = `${Parser.UA_PREFIX}Eberron`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAFFR] = `${Parser.UA_PREFIX}Feats for Races`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAFFS] = `${Parser.UA_PREFIX}Feats for Skills`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAFO] = `${Parser.UA_PREFIX}Fiendish Options`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAFT] = `${Parser.UA_PREFIX}Feats`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAGH] = `${Parser.UA_PREFIX}Gothic Heroes`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAMDM] = `${Parser.UA_PREFIX}Modern Magic`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UASSP] = `${Parser.UA_PREFIX}Starter Spells`;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UATMC] = `${Parser.UA_PREFIX}The Mystic Class`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UATOBM] = `${Parser.UA_PREFIX}That Old Black Magic`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UATRR] = `${Parser.UA_PREFIX}The Ranger, Revised`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAWA] = `${Parser.UA_PREFIX}Waterborne Adventures`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAVR] = `${Parser.UA_PREFIX}Variant Rules`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UALDR] = `${Parser.UA_PREFIX}Light, Dark, Underdark!`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UARAR] = `${Parser.UA_PREFIX}Ranger and Rogue`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAATOSC] = `${Parser.UA_PREFIX}A Trio of Subclasses`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UABPP] = `${Parser.UA_PREFIX}Barbarian Primal Paths`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UARSC] = `${Parser.UA_PREFIX}Revised Subclasses`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAKOO] = `${Parser.UA_PREFIX}Kits of Old`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UABBC] = `${Parser.UA_PREFIX}Bard: Bard Colleges`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UACDD] = `${Parser.UA_PREFIX}Cleric: Divine Domains`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAD] = `${Parser.UA_PREFIX}Druid`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UARCO] = `${Parser.UA_PREFIX}Revised Class Options`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAF] = `${Parser.UA_PREFIX}Fighter`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAM] = `${Parser.UA_PREFIX}Monk`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAP] = `${Parser.UA_PREFIX}Paladin`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAMC] = `${Parser.UA_PREFIX}Modifying Classes`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAS] = `${Parser.UA_PREFIX}Sorcerer`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAWAW] = `${Parser.UA_PREFIX}Warlock and Wizard`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UATF] = `${Parser.UA_PREFIX}The Faithful`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAWR] = `${Parser.UA_PREFIX}Wizard Revisited`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAESR] = `${Parser.UA_PREFIX}Elf Subraces`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAMAC] = `${Parser.UA_PREFIX}Mass Combat`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA3PE] = `${Parser.UA_PREFIX}Three-Pillar Experience`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAGHI] = `${Parser.UA_PREFIX}Greyhawk Initiative`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UATSC] = `${Parser.UA_PREFIX}Three Subclasses`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAOD] = `${Parser.UA_PREFIX}Order Domain`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UACAM] = `${Parser.UA_PREFIX}Centaurs and Minotaurs`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAGSS] = `${Parser.UA_PREFIX}Giant Soul Sorcerer`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UARoE] = `${Parser.UA_PREFIX}Races of Eberron`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UARoR] = `${Parser.UA_PREFIX}Races of Ravnica`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAWGE] = "Wayfinder's Guide to Eberron";
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAOSS] = `${Parser.UA_PREFIX}Of Ships and the Sea`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UASIK] = `${Parser.UA_PREFIX}Sidekicks`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAAR] = `${Parser.UA_PREFIX}Artificer Revisited`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UABAM] = `${Parser.UA_PREFIX}Barbarian and Monk`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UASAW] = `${Parser.UA_PREFIX}Sorcerer and Warlock`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UABAP] = `${Parser.UA_PREFIX}Bard and Paladin`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UACDW] = `${Parser.UA_PREFIX}Cleric, Druid, and Wizard`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAFRR] = `${Parser.UA_PREFIX}Fighter, Ranger, and Rogue`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UACFV] = `${Parser.UA_PREFIX}Class Feature Variants`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAFRW] = `${Parser.UA_PREFIX}Fighter, Rogue, and Wizard`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAPCRM] = `${Parser.UA_PREFIX}Prestige Classes and Rune Magic`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UAR] = `${Parser.UA_PREFIX}Ranger`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2020SC1] = `${Parser.UA_PREFIX}2020 Subclasses, Part 1`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2020SC2] = `${Parser.UA_PREFIX}2020 Subclasses, Part 2`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2020SC3] = `${Parser.UA_PREFIX}2020 Subclasses, Part 3`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2020SC4] = `${Parser.UA_PREFIX}2020 Subclasses, Part 4`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2020SC5] = `${Parser.UA_PREFIX}2020 Subclasses, Part 5`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2020SMT] = `${Parser.UA_PREFIX}2020 Spells and Magic Tattoos`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2020POR] = `${Parser.UA_PREFIX}2020 Psionic Options Revisited`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2020SCR] = `${Parser.UA_PREFIX}2020 Subclasses Revisited`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2020F] = `${Parser.UA_PREFIX}2020 Feats`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2021GL] = `${Parser.UA_PREFIX}2021 Gothic Lineages`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2021FF] = `${Parser.UA_PREFIX}2021 Folk of the Feywild`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2021DO] = `${Parser.UA_PREFIX}2021 Draconic Options`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2021MoS] = `${Parser.UA_PREFIX}2021 Mages of Strixhaven`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2021TotM] = `${Parser.UA_PREFIX}2021 Travelers of the Multiverse`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2022HoK] = `${Parser.UA_PREFIX}2022 Heroes of Krynn`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2022HoKR] = `${Parser.UA_PREFIX}2022 Heroes of Krynn Revisited`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2022GO] = `${Parser.UA_PREFIX}2022 Giant Options`;
-Parser.SOURCE_JSON_TO_FULL[Parser.SRC_UA2022WotM] = `${Parser.UA_PREFIX}2022 Wonders of the Multiverse`;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_MCV1SC] = `${Parser.MCVX_PREFIX}1: Spelljammer Creatures`;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_MCV2DC] = `${Parser.MCVX_PREFIX}2: Dragonlance Creatures`;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_MCV3MC] = `${Parser.MCVX_PREFIX}3: Minecraft Creatures`;
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_MCV4EC] = `${Parser.MCVX_PREFIX}4: Eldraine Creatures`;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_MisMV1] = `${Parser.MisMVX_PREFIX}1`;
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_AATM] = `${Parser.AA_PREFIX}The Mortuary`;
 
 Parser.SOURCE_JSON_TO_ABV = {};
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_CoS] = "CoS";
@@ -2979,11 +2956,23 @@ Parser.SOURCE_JSON_TO_ABV[Parser.SRC_LoX] = "LoX";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_DoSI] = "DoSI";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_DSotDQ] = "DSotDQ";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_KftGV] = "KftGV";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_BGG] = "BGG";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_TDCSR] = "TDCSR";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_PaBTSO] = "PaBTSO";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_PAitM] = "PAitM";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SatO] = "SatO";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_ToFW] = "ToFW";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_MPP] = "MPP";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_BMT] = "BMT";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_GHLoE] = "GHLoE";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_DoDk] = "DoDk";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN] = "Screen";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN_WILDERNESS_KIT] = "ScWild";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN_DUNGEON_KIT] = "ScDun";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN_SPELLJAMMER] = "ScSJ";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_HEROES_FEAST] = "HF";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_HF] = "HF";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_HFFotM] = "HFFotM";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_HFStCM] = "HFStCM";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_CM] = "CM";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_NRH] = "NRH";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_NRH_TCMC] = "NRH-TCMC";
@@ -2998,6 +2987,10 @@ Parser.SOURCE_JSON_TO_ABV[Parser.SRC_VD] = "VD";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SjA] = "SjA";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_HAT_TG] = "HAT-TG";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_HAT_LMI] = "HAT-LMI";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_GotSF] = "GotSF";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_LK] = "LK";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_CoA] = "CoA";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_PiP] = "PiP";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_ALCoS] = "ALCoS";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_ALEE] = "ALEE";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_ALRoD] = "ALRoD";
@@ -3008,84 +3001,13 @@ Parser.SOURCE_JSON_TO_ABV[Parser.SRC_PSZ] = "PSZ";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_PSX] = "PSX";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_PSD] = "PSD";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_XMtS] = "XMtS";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAA] = "UAA";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAEAG] = "UAEaG";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAEBB] = "UAEB";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAFFR] = "UAFFR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAFFS] = "UAFFS";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAFO] = "UAFO";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAFT] = "UAFT";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAGH] = "UAGH";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAMDM] = "UAMM";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UASSP] = "UASS";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UATMC] = "UAMy";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UATOBM] = "UAOBM";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UATRR] = "UATRR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAWA] = "UAWA";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAVR] = "UAVR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UALDR] = "UALDU";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UARAR] = "UARAR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAATOSC] = "UAATOSC";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UABPP] = "UABPP";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UARSC] = "UARSC";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAKOO] = "UAKoO";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UABBC] = "UABBC";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UACDD] = "UACDD";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAD] = "UAD";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UARCO] = "UARCO";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAF] = "UAF";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAM] = "UAMk";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAP] = "UAP";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAMC] = "UAMC";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAS] = "UAS";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAWAW] = "UAWAW";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UATF] = "UATF";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAWR] = "UAWR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAESR] = "UAESR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAMAC] = "UAMAC";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA3PE] = "UA3PE";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAGHI] = "UAGHI";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UATSC] = "UATSC";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAOD] = "UAOD";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UACAM] = "UACAM";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAGSS] = "UAGSS";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UARoE] = "UARoE";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UARoR] = "UARoR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAWGE] = "WGE";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAOSS] = "UAOSS";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UASIK] = "UASIK";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAAR] = "UAAR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UABAM] = "UABAM";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UASAW] = "UASAW";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UABAP] = "UABAP";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UACDW] = "UACDW";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAFRR] = "UAFRR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UACFV] = "UACFV";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAFRW] = "UAFRW";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAPCRM] = "UAPCRM";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UAR] = "UAR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2020SC1] = "UA20S1";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2020SC2] = "UA20S2";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2020SC3] = "UA20S3";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2020SC4] = "UA20S4";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2020SC5] = "UA20S5";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2020SMT] = "UA20SMT";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2020POR] = "UA20POR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2020SCR] = "UA20SCR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2020F] = "UA20F";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2021GL] = "UA21GL";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2021FF] = "UA21FF";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2021DO] = "UA21DO";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2021MoS] = "UA21MoS";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2021TotM] = "UA21TotM";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2022HoK] = "UA22HoK";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2022HoKR] = "UA22HoKR";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2022GO] = "UA22GO";
-Parser.SOURCE_JSON_TO_ABV[Parser.SRC_UA2022WotM] = "UA22WotM";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_MCV1SC] = "MCV1SC";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_MCV2DC] = "MCV2DC";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_MCV3MC] = "MCV3MC";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_MCV4EC] = "MCV4EC";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_MisMV1] = "MisMV1";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_AATM] = "AATM";
 
 Parser.SOURCE_JSON_TO_DATE = {};
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_CoS] = "2016-03-15";
@@ -3180,11 +3102,23 @@ Parser.SOURCE_JSON_TO_DATE[Parser.SRC_LoX] = "2022-08-16";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_DoSI] = "2022-07-31";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_DSotDQ] = "2022-11-22";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_KftGV] = "2023-02-21";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_BGG] = "2023-08-15";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_TDCSR] = "2022-01-18";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_PaBTSO] = "2023-09-19";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_PAitM] = "2023-10-17";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SatO] = "2023-10-17";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_ToFW] = "2023-10-17";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_MPP] = "2023-10-17";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_BMT] = "2023-11-14";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_GHLoE] = "2023-11-30";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_DoDk] = "2023-12-21";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN] = "2015-01-20";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN_WILDERNESS_KIT] = "2020-11-17";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN_DUNGEON_KIT] = "2020-09-21";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN_SPELLJAMMER] = "2022-08-16";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_HEROES_FEAST] = "2020-10-27";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_HF] = "2020-10-27";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_HFFotM] = "2023-11-07";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_HFStCM] = "2023-11-21";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_CM] = "2021-03-16";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_NRH] = "2021-09-01";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_NRH_TCMC] = "2021-09-01";
@@ -3199,6 +3133,10 @@ Parser.SOURCE_JSON_TO_DATE[Parser.SRC_VD] = "2022-06-09";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SjA] = "2022-07-11"; // pt1; pt2 2022-07-18; pt3 2022-07-25; pt4 2022-08-01
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_HAT_TG] = "2023-03-06";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_HAT_LMI] = "2023-03-31";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_GotSF] = "2023-08-01";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_LK] = "2023-09-26";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_CoA] = "2023-10-30";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_PiP] = "2023-11-20";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_ALCoS] = "2016-03-15";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_ALEE] = "2015-04-07";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_ALRoD] = "2015-09-15";
@@ -3209,84 +3147,13 @@ Parser.SOURCE_JSON_TO_DATE[Parser.SRC_PSZ] = "2016-04-27";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_PSX] = "2018-01-09";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_PSD] = "2018-07-31";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_XMtS] = "2017-12-11";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAEBB] = "2015-02-02";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAA] = "2017-01-09";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAEAG] = "2017-09-11";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAFFR] = "2017-04-24";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAFFS] = "2017-04-17";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAFO] = "2017-10-09";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAFT] = "2016-06-06";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAGH] = "2016-04-04";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAMDM] = "2015-08-03";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UASSP] = "2017-04-03";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UATMC] = "2017-03-13";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UATOBM] = "2015-12-07";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UATRR] = "2016-09-12";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAWA] = "2015-05-04";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAVR] = "2015-06-08";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UALDR] = "2015-11-02";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UARAR] = "2017-01-16";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAATOSC] = "2017-03-27";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UABPP] = "2016-11-07";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UARSC] = "2017-05-01";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAKOO] = "2016-01-04";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UABBC] = "2016-11-14";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UACDD] = "2016-11-12";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAD] = "2016-11-28";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UARCO] = "2017-06-05";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAF] = "2016-12-5";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAM] = "2016-12-12";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAP] = "2016-12-19";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAMC] = "2015-04-06";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAS] = "2017-02-06";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAWAW] = "2017-02-13";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UATF] = "2016-08-01";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAWR] = "2017-03-20";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAESR] = "2017-11-13";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAMAC] = "2017-02-21";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA3PE] = "2017-08-07";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAGHI] = "2017-07-10";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UATSC] = "2018-01-08";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAOD] = "2018-04-09";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UACAM] = "2018-05-14";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAGSS] = "2018-06-11";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UARoE] = "2018-07-23";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UARoR] = "2018-08-13";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAWGE] = "2018-07-23";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAOSS] = "2018-11-12";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UASIK] = "2018-12-17";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAAR] = "2019-02-28";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UABAM] = "2019-08-15";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UASAW] = "2019-09-05";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UABAP] = "2019-09-18";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UACDW] = "2019-10-03";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAFRR] = "2019-10-17";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UACFV] = "2019-11-04";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAFRW] = "2019-11-25";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAPCRM] = "2015-10-05";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UAR] = "2015-09-09";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2020SC1] = "2020-01-14";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2020SC2] = "2020-02-04";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2020SC3] = "2020-02-24";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2020SC4] = "2020-08-05";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2020SC5] = "2020-10-26";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2020SMT] = "2020-03-26";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2020POR] = "2020-04-14";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2020SCR] = "2020-05-12";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2020F] = "2020-07-13";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2021GL] = "2020-01-26";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2021FF] = "2020-03-12";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2021DO] = "2021-04-14";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2021MoS] = "2021-06-08";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2021TotM] = "2021-10-08";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2022HoK] = "2022-03-08";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2022HoKR] = "2022-04-25";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2022GO] = "2022-05-26";
-Parser.SOURCE_JSON_TO_DATE[Parser.SRC_UA2022WotM] = "2022-07-18";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_MCV1SC] = "2022-04-21";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_MCV2DC] = "2022-12-05";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_MCV3MC] = "2023-03-28";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_MCV4EC] = "2023-09-21";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_MisMV1] = "2023-05-03";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_AATM] = "2023-10-17";
 
 Parser.SOURCES_ADVENTURES = new Set([
 	Parser.SRC_LMoP,
@@ -3361,6 +3228,14 @@ Parser.SOURCES_ADVENTURES = new Set([
 	Parser.SRC_DoSI,
 	Parser.SRC_DSotDQ,
 	Parser.SRC_KftGV,
+	Parser.SRC_GotSF,
+	Parser.SRC_PaBTSO,
+	Parser.SRC_LK,
+	Parser.SRC_CoA,
+	Parser.SRC_PiP,
+	Parser.SRC_HFStCM,
+	Parser.SRC_GHLoE,
+	Parser.SRC_DoDk,
 
 	Parser.SRC_AWM,
 ]);
@@ -3399,8 +3274,29 @@ Parser.SOURCES_NON_STANDARD_WOTC = new Set([
 	Parser.SRC_SjA,
 	Parser.SRC_HAT_TG,
 	Parser.SRC_HAT_LMI,
+	Parser.SRC_GotSF,
 	Parser.SRC_MCV3MC,
+	Parser.SRC_MCV4EC,
 	Parser.SRC_MisMV1,
+	Parser.SRC_LK,
+	Parser.SRC_AATM,
+	Parser.SRC_CoA,
+	Parser.SRC_PiP,
+	Parser.SRC_HFStCM,
+]);
+Parser.SOURCES_PARTNERED_WOTC = new Set([
+	Parser.SRC_RMBRE,
+	Parser.SRC_RMR,
+	Parser.SRC_EGW,
+	Parser.SRC_EGW_ToR,
+	Parser.SRC_EGW_DD,
+	Parser.SRC_EGW_FS,
+	Parser.SRC_EGW_US,
+	Parser.SRC_CRCotN,
+	Parser.SRC_TDCSR,
+	Parser.SRC_HftT,
+	Parser.SRC_GHLoE,
+	Parser.SRC_DoDk,
 ]);
 // region Source categories
 
@@ -3424,6 +3320,11 @@ Parser.SOURCES_VANILLA = new Set([
 	Parser.SRC_SCREEN_WILDERNESS_KIT,
 	Parser.SRC_SCREEN_DUNGEON_KIT,
 	Parser.SRC_VD,
+	Parser.SRC_GotSF,
+	Parser.SRC_BGG,
+	Parser.SRC_MaBJoV,
+	Parser.SRC_CoA,
+	Parser.SRC_BMT,
 ]);
 
 // Any opinionated set of sources that are """hilarious, dude"""
@@ -3439,6 +3340,8 @@ Parser.SOURCES_COMEDY = new Set([
 	Parser.SRC_HAT_LMI,
 	Parser.SRC_MCV3MC,
 	Parser.SRC_MisMV1,
+	Parser.SRC_LK,
+	Parser.SRC_PiP,
 ]);
 
 // Any opinionated set of sources that are "other settings"
@@ -3447,7 +3350,6 @@ Parser.SOURCES_NON_FR = new Set([
 	Parser.SRC_KKW,
 	Parser.SRC_ERLW,
 	Parser.SRC_EFR,
-	Parser.SRC_UAWGE,
 	Parser.SRC_EGW,
 	Parser.SRC_EGW_ToR,
 	Parser.SRC_EGW_DD,
@@ -3468,6 +3370,15 @@ Parser.SOURCES_NON_FR = new Set([
 	Parser.SRC_BAM,
 	Parser.SRC_LoX,
 	Parser.SRC_DSotDQ,
+	Parser.SRC_TDCSR,
+	Parser.SRC_PAitM,
+	Parser.SRC_SatO,
+	Parser.SRC_ToFW,
+	Parser.SRC_MPP,
+	Parser.SRC_MCV4EC,
+	Parser.SRC_LK,
+	Parser.SRC_GHLoE,
+	Parser.SRC_DoDk,
 ]);
 
 // endregion
@@ -3501,6 +3412,13 @@ Parser.SOURCES_AVAILABLE_DOCS_BOOK = {};
 	Parser.SRC_SCREEN_WILDERNESS_KIT,
 	Parser.SRC_SCREEN_DUNGEON_KIT,
 	Parser.SRC_SCREEN_SPELLJAMMER,
+	Parser.SRC_BGG,
+	Parser.SRC_TDCSR,
+	Parser.SRC_SatO,
+	Parser.SRC_MPP,
+	Parser.SRC_HF,
+	Parser.SRC_HFFotM,
+	Parser.SRC_BMT,
 ].forEach(src => {
 	Parser.SOURCES_AVAILABLE_DOCS_BOOK[src] = src;
 	Parser.SOURCES_AVAILABLE_DOCS_BOOK[src.toLowerCase()] = src;
@@ -3585,6 +3503,15 @@ Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE = {};
 	Parser.SRC_DoSI,
 	Parser.SRC_DSotDQ,
 	Parser.SRC_KftGV,
+	Parser.SRC_GotSF,
+	Parser.SRC_PaBTSO,
+	Parser.SRC_ToFW,
+	Parser.SRC_LK,
+	Parser.SRC_CoA,
+	Parser.SRC_PiP,
+	Parser.SRC_HFStCM,
+	Parser.SRC_GHLoE,
+	Parser.SRC_DoDk,
 ].forEach(src => {
 	Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE[src] = src;
 	Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE[src.toLowerCase()] = src;
@@ -3643,7 +3570,7 @@ Parser.getPropDisplayName = function (prop, {suffix = ""} = {}) {
 	const mFoundry = /^foundry(?<prop>[A-Z].*)$/.exec(prop);
 	if (mFoundry) return Parser.getPropDisplayName(mFoundry.groups.prop.lowercaseFirst(), {suffix: " Foundry Data"});
 
-	return `${prop.split(/([A-Z][a-z]+)/g).join(" ").uppercaseFirst()}${suffix}`;
+	return `${prop.split(/([A-Z][a-z]+)/g).filter(Boolean).join(" ").uppercaseFirst()}${suffix}`;
 };
 
 Parser.ITEM_TYPE_JSON_TO_ABV = {
@@ -3656,6 +3583,7 @@ Parser.ITEM_TYPE_JSON_TO_ABV = {
 	"G": "adventuring gear",
 	"GS": "gaming set",
 	"HA": "heavy armor",
+	"IDG": "illegal drug",
 	"INS": "instrument",
 	"LA": "light armor",
 	"M": "melee weapon",
@@ -3721,7 +3649,8 @@ Parser.metric = {
 	POUNDS_TO_KILOGRAMS: 0.5, // 2 lb = 1 kg
 
 	getMetricNumber ({originalValue, originalUnit, toFixed = null}) {
-		if (isNaN(originalValue)) return originalValue;
+		if (originalValue == null || isNaN(originalValue)) return originalValue;
+
 		originalValue = Number(originalValue);
 		if (!originalValue) return originalValue;
 
@@ -3733,7 +3662,7 @@ Parser.metric = {
 			case "lb.": case "lb": case "lbs": out = originalValue * Parser.metric.POUNDS_TO_KILOGRAMS; break;
 			default: return originalValue;
 		}
-		if (toFixed != null) return Number(out.toFixed(toFixed));
+		if (toFixed != null) return NumberUtil.toFixedNumber(out, toFixed);
 		return out;
 	},
 

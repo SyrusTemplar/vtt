@@ -38,7 +38,7 @@ class Omnisearch {
 			Renderer.hover.cleanTempWindows();
 			switch (evt.key) {
 				case "Enter":
-					if (evt.ctrlKey || evt.metaKey) {
+					if (EventUtil.isCtrlMetaKey(evt)) {
 						window.location = `${Renderer.get().baseUrl}${UrlUtil.PG_SEARCH}?${this._iptSearch.val()}`;
 						break;
 					}
@@ -98,7 +98,7 @@ class Omnisearch {
 		const btnClearSearch = e_({
 			tag: "span",
 			clazz: "absolute glyphicon glyphicon-remove omni__btn-clear",
-			click: evt => {
+			mousedown: evt => {
 				evt.stopPropagation();
 				evt.preventDefault();
 				this._iptSearch.val("").focus();
@@ -278,7 +278,7 @@ class Omnisearch {
 		}
 
 		if (!this._state.isShowBrew) {
-			results = results.filter(r => !r.doc.s || SourceUtil.isSiteSource(r.doc.s));
+			results = results.filter(r => !r.doc.s || !BrewUtil2.hasSourceJson(r.doc.s));
 		}
 
 		if (!this._state.isShowUa) {
@@ -433,17 +433,20 @@ class Omnisearch {
 				? `<a href="${adventureBookSourceHref}">${ptPageInner}</a>`
 				: ptPageInner;
 
-			const ptSourceInner = source ? `<span class="${Parser.sourceJsonToColor(source)}" ${Parser.sourceJsonToStyle(source)} title="${Parser.sourceJsonToFull(source)}">${Parser.sourceJsonToAbv(source)}</span>` : `<span></span>`;
+			const ptSourceInner = source
+				? `<span class="${Parser.sourceJsonToColor(source)}" ${Parser.sourceJsonToStyle(source)} title="${Parser.sourceJsonToFull(source)}">${Parser.sourceJsonToAbv(source)}</span>`
+				: `<span></span>`;
 			const ptSource = ptPage || !adventureBookSourceHref
 				? ptSourceInner
 				: `<a href="${adventureBookSourceHref}">${ptSourceInner}</a>`;
 
 			$$`<div class="omni__row-result split-v-center stripe-odd">
 				${$link}
-				<div class="inline-block">
+				<div class="ve-flex-v-center">
 					${ptSource}
 					${isSrd ? `<span class="ve-muted omni__disp-srd help-subtle relative" title="Available in the Systems Reference Document">[SRD]</span>` : ""}
-					${ptPage}
+					${Parser.sourceJsonToMarkerHtml(source, {isList: false, additionalStyles: "omni__disp-source-marker"})}
+					${ptPage ? `<span class="omni__wrp-page small-caps">${ptPage}</span>` : ""}
 				</div>
 			</div>`.appendTo(this._dispSearchOutput);
 		}

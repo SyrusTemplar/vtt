@@ -202,10 +202,18 @@
 				"I"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
 			],
 			"conditionInflictSpell": [
 				"incapacitated"
+			],
+			"savingThrowForcedSpell": [
+				"charisma",
+				"constitution",
+				"dexterity",
+				"intelligence",
+				"wisdom"
 			],
 			"hasToken": true
 		},
@@ -337,6 +345,7 @@
 				"B"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
 			],
 			"hasToken": true

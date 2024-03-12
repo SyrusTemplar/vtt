@@ -130,13 +130,8 @@ class PageFilterSpells extends PageFilter {
 		return SortUtil.ascSortLower(a, b);
 	}
 
-	static getFilterAbilitySave (ability) {
-		return `${ability.uppercaseFirst().substring(0, 3)}. Save`;
-	}
-
-	static getFilterAbilityCheck (ability) {
-		return `${ability.uppercaseFirst().substring(0, 3)}. Check`;
-	}
+	static getFilterAbilitySave (ability) { return `${ability.uppercaseFirst()} Save`; }
+	static getFilterAbilityCheck (ability) { return `${ability.uppercaseFirst()} Check`; }
 
 	static getMetaFilterObj (s) {
 		const out = [];
@@ -164,6 +159,7 @@ class PageFilterSpells extends PageFilter {
 		if ((!s.miscTags || (s.miscTags && !s.miscTags.includes("SCL"))) && s.entriesHigherLevel) out.push("SCL");
 		if (s.srd) out.push("SRD");
 		if (s.basicRules) out.push("Basic Rules");
+		if (SourceUtil.isLegacySourceWotc(s.source)) s._fMisc.push("Legacy");
 		if (s.hasFluff || s.fluff?.entries) out.push("Has Info");
 		if (s.hasFluffImages || s.fluff?.images) out.push("Has Images");
 		return out;
@@ -195,8 +191,9 @@ class PageFilterSpells extends PageFilter {
 						return "24+ Hours";
 					}
 
-					case "week":
 					case "day":
+					case "week":
+					case "month":
 					case "year": return "24+ Hours";
 					default: return "Special";
 				}
@@ -280,10 +277,6 @@ class PageFilterSpells extends PageFilter {
 		return true;
 	}
 
-	static getFltrSpellLevelStr (level) {
-		return level === 0 ? Parser.spLevelToFull(level) : `${Parser.spLevelToFull(level)} level`;
-	}
-
 	static getRangeType (range) {
 		switch (range.type) {
 			case Parser.RNG_SPECIAL: return PageFilterSpells.F_RNG_SPECIAL;
@@ -349,7 +342,7 @@ class PageFilterSpells extends PageFilter {
 			items: [
 				0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
 			],
-			displayFn: PageFilterSpells.getFltrSpellLevelStr,
+			displayFn: (lvl) => Parser.spLevelToFullLevelText(lvl, {isPluralCantrips: false}),
 		});
 		this._variantClassFilter = new VariantClassFilter();
 		this._classAndSubclassFilter = new MultiFilterClasses({
@@ -367,7 +360,7 @@ class PageFilterSpells extends PageFilter {
 		this._optionalfeaturesFilter = new SearchableFilter({header: "Other Option/Feature"});
 		this._metaFilter = new Filter({
 			header: "Components & Miscellaneous",
-			items: [...PageFilterSpells._META_FILTER_BASE_ITEMS, "Ritual", "SRD", "Basic Rules", "Has Images", "Has Token"],
+			items: [...PageFilterSpells._META_FILTER_BASE_ITEMS, "Ritual", "SRD", "Basic Rules", "Legacy", "Has Images", "Has Token"],
 			itemSortFn: PageFilterSpells.sortMetaFilter,
 			isMiscFilter: true,
 			displayFn: it => Parser.spMiscTagToFull(it),
@@ -382,7 +375,8 @@ class PageFilterSpells extends PageFilter {
 		this._subSchoolFilter = new Filter({
 			header: "Subschool",
 			items: [],
-			displayFn: Parser.spSchoolAbvToFull,
+			displayFn: it => Parser.spSchoolAbvToFull(it).toTitleCase(),
+			itemSortFn: (a, b) => SortUtil.ascSortLower(Parser.spSchoolAbvToFull(a.item), Parser.spSchoolAbvToFull(b.item)),
 		});
 		this._damageFilter = new Filter({
 			header: "Damage Type",
@@ -679,12 +673,12 @@ class ModalFilterSpells extends ModalFilter {
 			</div>
 
 			<div class="col-3 ${spell._versionBase_isVersion ? "italic" : ""} ${this._getNameStyle()}">${spell._versionBase_isVersion ? `<span class="px-3"></span>` : ""}${spell.name}</div>
-			<div class="col-1-5 text-center">${levelText}</div>
-			<div class="col-2 text-center">${time}</div>
-			<div class="col-1 sp__school-${spell.school} text-center" title="${Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools)}" ${Parser.spSchoolAbvToStyle(spell.school)}>${school}</div>
-			<div class="col-0-5 text-center" title="Concentration">${concentration}</div>
+			<div class="col-1-5 ve-text-center">${levelText}</div>
+			<div class="col-2 ve-text-center">${time}</div>
+			<div class="col-1 sp__school-${spell.school} ve-text-center" title="${Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools)}" ${Parser.spSchoolAbvToStyle(spell.school)}>${school}</div>
+			<div class="col-0-5 ve-text-center" title="Concentration">${concentration}</div>
 			<div class="col-2 text-right">${range}</div>
-			<div class="col-1 pr-0 text-center ${Parser.sourceJsonToColor(spell.source)}" title="${Parser.sourceJsonToFull(spell.source)}" ${Parser.sourceJsonToStyle(spell.source)}>${source}</div>
+			<div class="col-1 pr-0 ve-flex-h-center ${Parser.sourceJsonToColor(spell.source)}" title="${Parser.sourceJsonToFull(spell.source)}" ${Parser.sourceJsonToStyle(spell.source)}>${source}${Parser.sourceJsonToMarkerHtml(spell.source)}</div>
 		</div>`;
 
 		const btnShowHidePreview = eleRow.firstElementChild.children[1].firstElementChild;
@@ -724,6 +718,13 @@ class ListSyntaxSpells extends ListUiUtil.ListSyntax {
 		"entries",
 		"entriesHigherLevel",
 	];
+
+	_getSearchCacheStats (entity) {
+		const ptrOut = {_: super._getSearchCacheStats(entity)};
+		if (typeof entity.components?.m === "string") ptrOut._ += `${entity.components.m} -- `;
+		if (typeof entity.components?.m?.text === "string") ptrOut._ += `${entity.components.m.text} -- `;
+		return ptrOut._;
+	}
 }
 
 globalThis.ListSyntaxSpells = ListSyntaxSpells;

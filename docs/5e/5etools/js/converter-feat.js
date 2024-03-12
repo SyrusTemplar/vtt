@@ -1,6 +1,10 @@
 "use strict";
 
-class FeatParser extends BaseParser {
+class _ParseStateTextFeat extends BaseParseStateText {
+
+}
+
+class FeatParser extends BaseParserFeature {
 	/**
 	 * Parses feats from raw text pastes
 	 * @param inText Input text.
@@ -16,161 +20,110 @@ class FeatParser extends BaseParser {
 	static doParseText (inText, options) {
 		options = this._getValidOptions(options);
 
-		if (!inText || !inText.trim()) return options.cbWarning("No input!");
-		const toConvert = this._getCleanInput(inText, options)
-			.split("\n")
-			.filter(it => it && it.trim());
-		const feat = {};
-		feat.source = options.source;
-		// for the user to fill out
-		feat.page = options.page;
+		const {toConvert, entity: feat} = this._doParse_getInitialState(inText, options);
+		if (!toConvert) return;
 
-		let prevLine = null;
-		let curLine = null;
-		let i;
-		for (i = 0; i < toConvert.length; i++) {
-			prevLine = curLine;
-			curLine = toConvert[i].trim();
+		const state = new _ParseStateTextFeat({toConvert, options, entity: feat});
 
-			if (curLine === "") continue;
+		state.doPreLoop();
+		for (; state.ixToConvert < toConvert.length; ++state.ixToConvert) {
+			state.initCurLine();
+			if (state.isSkippableCurLine()) continue;
 
-			// name
-			if (i === 0) {
-				feat.name = this._getAsTitle("name", curLine, options.titleCaseFields, options.isTitleCase);
-				continue;
+			switch (state.stage) {
+				case "name": this._doParseText_stepName(state); state.stage = "entries"; break;
+				case "entries": this._doParseText_stepEntries(state, options); break;
+				default: throw new Error(`Unknown stage "${state.stage}"`);
 			}
-
-			// prerequisites
-			if (i === 1 && curLine.toLowerCase().includes("prerequisite")) {
-				this._setCleanPrerequisites(feat, curLine, options);
-				continue;
-			}
-
-			const ptrI = {_: i};
-			feat.entries = EntryConvert.coalesceLines(
-				ptrI,
-				toConvert,
-			);
-			i = ptrI._;
 		}
+		state.doPostLoop();
 
 		if (!feat.entries.length) delete feat.entries;
-		else this._setAbility(feat, options);
+		else {
+			this._mutMergeHangingListItems(feat, options);
+			this._setAbility(feat, options);
+		}
 
-		const statsOut = this._getFinalState(feat, options);
+		const statsOut = this._getFinalState(state, options);
 
 		options.cbOutput(statsOut, options.isAppend);
 	}
 
-	static _getFinalState (feat, options) {
-		this._doFeatPostProcess(feat, options);
-		return PropOrder.getOrdered(feat, feat.__prop || "feat");
+	static _doParseText_stepName (state) {
+		state.entity.name = this._getAsTitle("name", state.curLine, state.options.titleCaseFields, state.options.isTitleCase);
+	}
+
+	static _doParseText_stepEntries (state, options) {
+		// prerequisites
+		if (/^prerequisite:/i.test(state.curLine)) {
+			state.entity.entries = [
+				{
+					name: "Prerequisite:",
+					entries: [
+						state.curLine
+							.replace(/^prerequisite:/i, "")
+							.trim(),
+					],
+				},
+			];
+			state.ixToConvert++;
+			state.initCurLine();
+		}
+
+		const ptrI = {_: state.ixToConvert};
+		const entries = EntryConvert.coalesceLines(
+			ptrI,
+			state.toConvert,
+		);
+		state.ixToConvert = ptrI._;
+
+		state.entity.entries = [
+			...(state.entity.entries || []),
+			...entries,
+		];
+	}
+
+	static _getFinalState (state, options) {
+		this._doFeatPostProcess(state, options);
+		return PropOrder.getOrdered(state.entity, state.entity.__prop || "feat");
 	}
 
 	// SHARED UTILITY FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////////
-	static _doFeatPostProcess (feat, options) {
-		TagCondition.tryTagConditions(feat);
-		ArtifactPropertiesTag.tryRun(feat);
-		if (feat.entries) {
-			feat.entries = feat.entries.map(it => DiceConvert.getTaggedEntry(it));
-			EntryConvert.tryRun(feat, "entries");
-			feat.entries = SkillTag.tryRun(feat.entries);
-			feat.entries = ActionTag.tryRun(feat.entries);
-			feat.entries = SenseTag.tryRun(feat.entries);
+	static _doFeatPostProcess (state, options) {
+		TagCondition.tryTagConditions(state.entity);
+		if (state.entity.entries) {
+			state.entity.entries = state.entity.entries.map(it => DiceConvert.getTaggedEntry(it));
+			EntryConvert.tryRun(state, "entries");
+			this._doPostProcess_setPrerequisites(state, options);
+			state.entity.entries = SkillTag.tryRun(state.entity.entries);
+			state.entity.entries = ActionTag.tryRun(state.entity.entries);
+			state.entity.entries = SenseTag.tryRun(state.entity.entries);
 		}
 	}
 
 	// SHARED PARSING FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////////
-	static _setCleanPrerequisites (feat, curLine, options) {
-		const pres = [];
-		curLine = curLine.trim().replace(/^prerequisite:/i, "").trim();
-		const tokens = ConvertUtil.getTokens(curLine);
+	static _mutMergeHangingListItems (feat, options) {
+		const ixStart = feat.entries.findIndex(ent => typeof ent === "string" && /(?:following|these) benefits:$/.test(ent));
+		if (!~ixStart) return;
 
-		let tkStack = [];
+		let list;
+		for (let i = ixStart + 1; i < feat.entries.length; ++i) {
+			const ent = feat.entries[i];
+			if (ent.type !== "entries" || !ent.name || !ent.entries?.length) break;
 
-		const handleStack = () => {
-			if (!tkStack.length) return;
+			if (!list) list = {type: "list", style: "list-hang-notitle", items: []};
 
-			const joinedStack = tkStack.join(" ").trim();
-
-			const parts = joinedStack.split(StrUtil.COMMA_SPACE_NOT_IN_PARENTHESES_REGEX);
-
-			const pre = {};
-
-			parts.forEach(pt => {
-				pt = pt.trim();
-
-				if (/^spellcasting$/i.test(pt)) return pre.spellcasting2020 = true;
-
-				if (/^pact magic feature$/i.test(pt)) return pre.spellcasting2020 = true;
-
-				if (/proficiency with a martial weapon/i.test(pt)) {
-					pre.proficiency = pre.proficiency || [{}];
-					pre.proficiency[0].weapon = "martial";
-					return;
-				}
-
-				const mLevel = /^(?<level>\d+).. level$/i.exec(pt);
-				if (mLevel) return pre.level = Number(mLevel.groups.level);
-
-				const mFeat = /^(?<name>.*?) feat$/i.exec(pt);
-				if (mFeat) {
-					return (pre.feat = pre.feat || []).push(mFeat.groups.name.toLowerCase().trim());
-				}
-
-				const mBackground = /^(?<name>.*?) background$/i.exec(pt);
-				if (mBackground) {
-					const name = mBackground.groups.name.trim();
-					return (pre.background = pre.background || []).push({
-						name,
-						displayEntry: `{@background ${name}}`,
-					});
-				}
-
-				const mAlignment = /^(?<align>.*?) alignment/i.exec(pt);
-				if (mAlignment) {
-					const {alignment} = AlignmentUtil.tryGetConvertedAlignment(mAlignment.groups.align);
-					if (alignment) {
-						pre.alignment = alignment;
-						return;
-					}
-				}
-
-				const mCampaign = /^(?<name>.*)? Campaign$/i.exec(pt);
-				if (mCampaign) {
-					return (pre.campaign = pre.campaign || []).push(mCampaign.groups.name);
-				}
-
-				const mClass = /^(?<name>artificer|bard|cleric|druid|paladin|ranger|sorcerer|warlock|wizard|barbarian|fighter|monk|rogue)(?: class)?$/i.exec(pt);
-				if (mClass) {
-					return pre.level = {
-						level: 1,
-						class: {
-							name: mClass.groups.name,
-							visible: true,
-						},
-					};
-				}
-
-				pre.other = pt;
-				options.cbWarning(`(${feat.name}) Prerequisite "${pt}" requires manual conversion`);
+			list.items.push({
+				...ent,
+				type: "item",
 			});
-
-			if (Object.keys(pre).length) pres.push(pre);
-
-			tkStack = [];
-		};
-
-		for (const tk of tokens) {
-			if (tk === "or") {
-				handleStack();
-				continue;
-			}
-			tkStack.push(tk);
+			feat.entries.splice(i, 1);
+			--i;
 		}
-		handleStack();
 
-		if (pres.length) feat.prerequisite = pres;
+		if (!list?.items?.length) return;
+
+		feat.entries.splice(ixStart + 1, 0, list);
 	}
 
 	static _setAbility (feat, options) {
@@ -184,9 +137,12 @@ class FeatParser extends BaseParser {
 				object: (obj) => {
 					if (obj.type !== "list") return;
 
-					if (typeof obj.items[0] === "string" && /^increase your/i.test(obj.items[0])) {
+					const str = typeof obj.items[0] === "string" ? obj.items[0] : obj.items[0].entries?.[0];
+					if (typeof str !== "string") return;
+
+					if (/^increase your/i.test(str)) {
 						const abils = [];
-						obj.items[0].replace(/(Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma)/g, (...m) => {
+						str.replace(/(Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma)/g, (...m) => {
 							abils.push(m[1].toLowerCase().slice(0, 3));
 						});
 
@@ -204,7 +160,7 @@ class FeatParser extends BaseParser {
 						}
 
 						obj.items.shift();
-					} else if (typeof obj.items[0] === "string" && /^increase (?:one|an) ability score of your choice by 1/i.test(obj.items[0])) {
+					} else if (/^increase (?:one|an) ability score of your choice by 1/i.test(str)) {
 						feat.ability = [
 							{
 								choose: {

@@ -217,8 +217,9 @@ class List {
 	}
 
 	update ({isForce = false} = {}) {
-		if (!this._isInit || !this._isDirty || isForce) return;
-		return this._doSearch();
+		if (!this._isInit || !this._isDirty || isForce) return false;
+		this._doSearch();
+		return true;
 	}
 
 	_doSearch () {
@@ -449,7 +450,18 @@ class List {
 		if (this._isFuzzy) this._initFuzzySearch();
 	}
 
-	on (eventName, handler) { (this._eventHandlers[eventName] = this._eventHandlers[eventName] || []).push(handler); }
+	on (eventName, handler) {
+		(this._eventHandlers[eventName] = this._eventHandlers[eventName] || []).push(handler);
+	}
+
+	off (eventName, handler) {
+		if (!this._eventHandlers[eventName]) return false;
+		const ix = this._eventHandlers[eventName].indexOf(handler);
+		if (!~ix) return false;
+		this._eventHandlers[eventName].splice(ix, 1);
+		return true;
+	}
+
 	_trigger (eventName) { (this._eventHandlers[eventName] || []).forEach(fn => fn()); }
 
 	// region hacks

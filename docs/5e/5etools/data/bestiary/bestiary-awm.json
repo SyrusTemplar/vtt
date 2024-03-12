@@ -263,6 +263,9 @@
 			"miscTags": [
 				"MW"
 			],
+			"savingThrowForced": [
+				"wisdom"
+			],
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -361,6 +364,9 @@
 			"conditionInflict": [
 				"invisible"
 			],
+			"savingThrowForcedSpell": [
+				"wisdom"
+			],
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -435,6 +441,7 @@
 				"S"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RNG",
 				"RW"
@@ -576,10 +583,6 @@
 				"desert",
 				"underdark"
 			],
-			"soundClip": {
-				"type": "external",
-				"url": "https://5e.tools/audio/bestiary/purple-worm.mp3"
-			},
 			"traitTags": [
 				"Tunneler"
 			],
@@ -740,6 +743,7 @@
 				"B"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RW"
 			],
@@ -871,6 +875,9 @@
 			],
 			"conditionInflict": [
 				"grappled"
+			],
+			"savingThrowForcedSpell": [
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true

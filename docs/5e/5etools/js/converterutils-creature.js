@@ -17,7 +17,7 @@ class AcConvert {
 				return;
 			}
 
-			const [_, acRaw, fromRaw] = mAc;
+			const [, acRaw, fromRaw] = mAc;
 
 			const acNum = Number(acRaw);
 
@@ -28,16 +28,62 @@ class AcConvert {
 			const cur = {ac: acNum};
 			const froms = [];
 
+			let fromClean = fromRaw;
+
+			// region Handle alternates of the form:
+			//   - `natural armor; 22 in shield form`
+			//   - `natural armor; 16 while flying`
+			//   - `natural armor; 18 with hardened by flame`
+			//   - `shield; ac 12 without shield`
+			fromClean = fromClean
+				.replace(/^(?<from>.+); (?:(?:ac )?(?<nxtVal>\d+) (?<nxtCond>in .*? form|while .*?|includes .*?|without .*?|with .*?))$/i, (...m) => {
+					nuAcTail.push({
+						ac: Number(m.last().nxtVal),
+						condition: m.last().nxtCond,
+						braces: true,
+					});
+					return m.last().from;
+				});
+			// endregion
+
+			// region Handle alternates of the form:
+			//   - `medium armor; includes shield`
+			fromClean = fromClean
+				.replace(/^(?<from>.+); (?:(?<nxtCond>includes .*?))$/i, (...m) => {
+					cur.condition = `(${m.last().nxtCond})`;
+					cur.braces = true;
+					return m.last().from;
+				});
+			// endregion
+
 			// region Handle "in ... form" parts
-			let fromClean = fromRaw
+			fromClean = fromClean
 				// FIXME(Future) Find an example of a creature with this AC form to check accuracy of this parse
-				.replace(/ \(in .*? form\)$/i, (...m) => {
+				.replace(/(?<nxtVal>\d+)? \((?<nxtCond>in .*? form)\)$/i, (...m) => {
+					if (m.last().nxtVal) {
+						nuAcTail.push({
+							ac: Number(m.last().nxtVal),
+							condition: m.last().nxtCond,
+							braces: true,
+						});
+						return "";
+					}
+
 					if (cur.condition) throw new Error(`Multiple AC conditions! "${cur.condition}" and "${m[0]}"`);
 					cur.condition = m[0].trim().toLowerCase();
 					return "";
 				})
 				.trim()
-				.replace(/ in .*? form$/i, (...m) => {
+				.replace(/(?<nxtVal>\d+)? (?<nxtCond>in .*? form)$/i, (...m) => {
+					if (m.last().nxtVal) {
+						nuAcTail.push({
+							ac: Number(m.last().nxtVal),
+							condition: m.last().nxtCond,
+							braces: true,
+						});
+						return "";
+					}
+
 					if (cur.condition) throw new Error(`Multiple AC conditions! "${cur.condition}" and "${m[0]}"`);
 					cur.condition = m[0].trim().toLowerCase();
 					return "";
@@ -55,6 +101,7 @@ class AcConvert {
 			// endregion
 
 			fromClean
+				.trim()
 				.toLowerCase()
 				.replace(/^\(|\)$/g, "")
 				.split(",")
@@ -192,11 +239,31 @@ class AcConvert {
 			case "glory": // BAM :: Reigar
 			case "mountain tattoo": // KftGV :: Prisoner 13
 			case "disarming charm": // TG :: Forge Fitzwilliam
+			case "graz'zt's gift": // KftGV :: Sythian Skalderang
+			case "damaged plate": // BGG :: Firegaunt
+			case "intellect fortress": // N.b. *not* the spell of the same name, as this usually appears as a creature feature
+			case "veiled presence": // BMT :: Enchanting Infiltrator
+			case "coat of lies": // Grim Hollow: Lairs of Etharis
+			case "rotting buff coat":
+			case "battered splint mail":
+			case "natural & tailored leather":
+			case "canny defense": // Dungeons of Drakkenheim
 				return fromLow;
 				// endregion
 
-			case "graz'zt's gift": // KftGV :: Sythian Skalderang
-				return fromLow.uppercaseFirst();
+			// region homebrew
+			// "Flee, Mortals!" retainers
+			case "light armor":
+			case "medium armor":
+			case "heavy armor":
+				return fromLow;
+			// "Flee, Mortals!"
+			case "issenblau plating":
+			case "psionic power armor":
+			case "precog reflexes":
+			case "pathfinder's boots":
+				return fromLow;
+				// endregion
 
 			// region au naturel
 			case "natural armor":
@@ -209,7 +276,6 @@ class AcConvert {
 			case "foresight bonus": return `{@spell foresight} bonus`;
 			case "natural barkskin": return `natural {@spell barkskin}`;
 			case "mage armor": return "{@spell mage armor}";
-			case "intellect fortress": return "{@spell intellect fortress|tce}";
 			// endregion
 
 			// region armor (mostly handled by the item lookup; these are mis-named exceptions (usually for homebrew))
@@ -243,6 +309,7 @@ class AcConvert {
 			case "robe of the archmagi": return "{@item robe of the archmagi}";
 			case "robe of the archmage": return "{@item robe of the archmagi}";
 			case "staff of power": return "{@item staff of power}";
+			case "wrought-iron tower": return "{@item wrought-iron tower|CoA}";
 			// endregion
 
 			default: {
@@ -290,6 +357,171 @@ AcConvert._ITEM_LOOKUP = null;
 
 globalThis.AcConvert = AcConvert;
 
+/** @abstract */
+class _CreatureImmunityResistanceVulnerabilityConverterBase {
+	static _modProp;
+
+	static _getCleanIpt ({ipt}) {
+		return ipt
+			.replace(/^none\b/i, "") // Thanks.
+			.trim()
+		;
+	}
+
+	static _getSplitInput ({ipt}) {
+		return ipt
+			.toLowerCase()
+			.split(";")
+			.map(it => it.trim())
+			.filter(Boolean);
+	}
+
+	/**
+	 * @abstract
+	 * @return {?object}
+	 */
+	static _getSpecialFromPart ({pt}) { throw new Error("Unimplemented!"); }
+
+	static _getIxPreNote ({pt}) { return -1; }
+
+	static _getUid (name) { return name; }
+
+	static getParsed (ipt, opts) {
+		ipt = this._getCleanIpt({ipt});
+		if (!ipt) return null;
+
+		let noteAll = null;
+		if (ipt.startsWith("(") && ipt.endsWith(")")) {
+			ipt = ipt
+				.replace(/^\(([^)]+)\)$/, "$1")
+				// Reflected in `TagImmResVulnConditional`
+				.replace(/ (in .* form)$/i, (...m) => {
+					noteAll = m[1];
+					return "";
+				});
+		}
+
+		const spl = this._getSplitInput({ipt});
+
+		const out = [];
+
+		spl
+			.forEach(section => {
+				let note = noteAll;
+				let preNote;
+				const newGroup = [];
+
+				section
+					.split(/,/g)
+					.forEach(pt => {
+						pt = pt.trim().replace(/^and /i, "").trim();
+
+						const special = this._getSpecialFromPart({pt});
+						if (special) return out.push(special);
+
+						pt = pt.replace(/\(from [^)]+\)$/i, (...m) => {
+							if (note) throw new Error(`Already has note!`);
+							note = m[0];
+							return "";
+						}).trim();
+
+						pt = pt.replace(/(?:damage )?(?:from|during) [^)]+$/i, (...m) => {
+							if (note) throw new Error(`Already has note!`);
+							note = m[0];
+							return "";
+						}).trim();
+
+						pt = pt.replace(/\bthat is nonmagical$/i, (...m) => {
+							if (note) throw new Error(`Already has note!`);
+							note = m[0];
+							return "";
+						}).trim();
+
+						const ixPreNote = this._getIxPreNote({pt});
+						if (ixPreNote > 0) {
+							preNote = pt.slice(0, ixPreNote).trim();
+							pt = pt.slice(ixPreNote).trim();
+						}
+
+						if (pt) newGroup.push(pt);
+					});
+
+				const newGroupOut = newGroup
+					.map(it => this._getUid(it));
+
+				if (note || preNote) {
+					if (!newGroupOut.length) {
+						out.push({special: [preNote, note].filter(Boolean).join(" ")});
+						return;
+					}
+
+					const toAdd = {[this._modProp]: newGroupOut};
+					if (preNote) toAdd.preNote = preNote;
+					if (note) toAdd.note = note;
+					out.push(toAdd);
+					return;
+				}
+
+				// If there is no group metadata, flatten into the main array
+				out.push(...newGroupOut);
+			});
+
+		return out;
+	}
+}
+
+class _CreatureDamageImmunityResistanceVulnerabilityConverter extends _CreatureImmunityResistanceVulnerabilityConverterBase {
+	static _getCleanIpt ({ipt}) {
+		return super._getCleanIpt({ipt})
+			// Handle parens used instead of commas (e.g. "Hobgoblin Smokebinder" from Flee, Mortals!)
+			.replace(/(?:^|,? )\(([^)]+ in [^)]+ form)\)/gi, ", $1")
+			// handle the case where a comma is mistakenly used instead of a semicolon
+			.replace(/, (bludgeoning, piercing, and slashing from)/gi, "; $1")
+		;
+	}
+
+	static _getSpecialFromPart ({pt}) {
+		// region `"damage from spells"`
+		const mDamageFromThing = /^damage from .*$/i.exec(pt);
+		if (mDamageFromThing) return {special: pt};
+		// endregion
+	}
+
+	static _getIxPreNote ({pt}) {
+		return Math.min(...Parser.DMG_TYPES.map(it => pt.toLowerCase().indexOf(it)).filter(ix => ~ix));
+	}
+}
+
+class CreatureDamageVulnerabilityConverter extends _CreatureDamageImmunityResistanceVulnerabilityConverter {
+	static _modProp = "vulnerable";
+}
+
+globalThis.CreatureDamageVulnerabilityConverter = CreatureDamageVulnerabilityConverter;
+
+class CreatureDamageResistanceConverter extends _CreatureDamageImmunityResistanceVulnerabilityConverter {
+	static _modProp = "resist";
+}
+
+globalThis.CreatureDamageResistanceConverter = CreatureDamageResistanceConverter;
+
+class CreatureDamageImmunityConverter extends _CreatureDamageImmunityResistanceVulnerabilityConverter {
+	static _modProp = "immune";
+}
+
+globalThis.CreatureDamageImmunityConverter = CreatureDamageImmunityConverter;
+
+class CreatureConditionImmunityConverter extends _CreatureImmunityResistanceVulnerabilityConverterBase {
+	static _modProp = "conditionImmune";
+
+	static _getSpecialFromPart ({pt}) { return null; }
+
+	static _getUid (name) {
+		return TagCondition.getConditionUid(name);
+	}
+}
+
+globalThis.CreatureConditionImmunityConverter = CreatureConditionImmunityConverter;
+
 class TagAttack {
 	static tryTagAttacks (m, cbMan) {
 		TagAttack._PROPS.forEach(prop => this._handleProp({m, prop, cbMan}));
@@ -329,6 +561,9 @@ TagAttack.MAP = {
 	"ranged spell attack:": "{@atk rs}",
 	"melee or ranged spell attack:": "{@atk ms,rs}",
 	"melee or ranged attack:": "{@atk m,r}",
+	"melee power attack:": "{@atk mp}",
+	"ranged power attack:": "{@atk rp}",
+	"melee or ranged power attack:": "{@atk mp,rp}",
 };
 
 globalThis.TagAttack = TagAttack;
@@ -794,41 +1029,104 @@ SpellcastingTypeTag.CLASSES = {
 
 globalThis.SpellcastingTypeTag = SpellcastingTypeTag;
 
-class DamageTypeTag {
-	static _init () {
-		if (DamageTypeTag._isInit) return;
+/** @abstract */
+class _PrimaryLegendarySpellsTaggerBase {
+	static _IS_INIT = false;
+	static _WALKER = null;
 
-		DamageTypeTag._isInit = true;
-		DamageTypeTag._WALKER = MiscUtil.getWalker({isNoModification: true, keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST});
-		Object.entries(Parser.DMGTYPE_JSON_TO_FULL).forEach(([k, v]) => DamageTypeTag._TYPE_LOOKUP[v] = k);
+	static _PROP_PRIMARY;
+	static _PROP_SPELLS;
+	static _PROP_LEGENDARY;
+
+	static _BLOCKLIST_NAMES = null;
+
+	static _init () {
+		if (this._IS_INIT) return true;
+		this._IS_INIT = true;
+		this._WALKER = MiscUtil.getWalker({isNoModification: true, keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST});
+		return false;
 	}
 
-	static _PROPS_PRIMARY = ["action", "reaction", "bonus", "trait", "legendary", "mythic", "variant"];
-	static tryRun (m) {
+	/**
+	 * @abstract
+	 * @return void
+	 */
+	static _handleString ({m = null, str, outSet}) {
+		throw new Error("Unimplemented!");
+	}
+
+	static _handleEntries ({m = null, entries, outSet}) {
+		this._WALKER.walk(
+			entries,
+			{
+				string: (str) => this._handleString({m, str, outSet}),
+			},
+		);
+	}
+
+	static _handleProp ({m, prop, outSet}) {
+		if (!m[prop]) return;
+
+		m[prop].forEach(it => {
+			if (
+				it.name
+				&& this._BLOCKLIST_NAMES
+				&& this._BLOCKLIST_NAMES.has(it.name.toLowerCase().trim().replace(/\([^)]+\)/g, ""))
+			) return;
+
+			if (!it.entries) return;
+
+			this._handleEntries({m, entries: it.entries, outSet});
+		});
+	}
+
+	static _setPropOut (
+		{
+			outSet,
+			m,
+			propOut,
+			isAppendOnly,
+		},
+	) {
+		if (!isAppendOnly) delete m[propOut];
+		if (!outSet.size) return;
+		m[propOut] = [...outSet].sort(SortUtil.ascSortLower);
+	}
+
+	static tryRun (m, {isAppendOnly = false} = {}) {
 		this._init();
 
-		const typeSet = new Set();
-		this._PROPS_PRIMARY.forEach(prop => DamageTypeTag._handleProp({m, prop, typeSet}));
-		if (typeSet.size) m.damageTags = [...typeSet].sort(SortUtil.ascSortLower);
+		const outSet = new Set();
+		Renderer.monster.CHILD_PROPS
+			.filter(prop => prop !== "spellcasting")
+			.forEach(prop => this._handleProp({m, prop, outSet}));
+
+		this._setPropOut({outSet, m, propOut: this._PROP_PRIMARY, isAppendOnly});
 	}
 
-	static tryRunSpells (m, {cbMan} = {}) {
+	/**
+	 * @abstract
+	 * @return void
+	 */
+	static _handleSpell ({spell, outSet}) {
+		throw new Error("Unimplemented!");
+	}
+
+	static tryRunSpells (m, {cbMan, isAppendOnly = false} = {}) {
 		if (!m.spellcasting) return;
 
 		this._init();
 
-		const typeSet = new Set();
+		const outSet = new Set();
 
 		const spells = TaggerUtils.getSpellsFromString(JSON.stringify(m.spellcasting), {cbMan});
-		spells.forEach(spell => {
-			if (!spell.damageInflict) return;
-			spell.damageInflict.forEach(it => typeSet.add(DamageTypeTag._TYPE_LOOKUP[it]));
-		});
 
-		if (typeSet.size) m.damageTagsSpell = [...typeSet].sort(SortUtil.ascSortLower);
+		spells.forEach(spell => this._handleSpell({spell, outSet}));
+
+		this._setPropOut({outSet, m, propOut: this._PROP_SPELLS, isAppendOnly});
 	}
 
-	static tryRunRegionalsLairs (m, {cbMan} = {}) {
+	static tryRunRegionalsLairs (m, {cbMan, isAppendOnly = false} = {}) {
 		if (!m.legendaryGroup) return;
 
 		this._init();
@@ -836,66 +1134,15 @@ class DamageTypeTag {
 		const meta = TaggerUtils.findLegendaryGroup({name: m.legendaryGroup.name, source: m.legendaryGroup.source});
 		if (!meta) return;
 
-		const typeSet = new Set();
-		this._handleEntries({entries: meta, typeSet});
+		const outSet = new Set();
+		this._handleEntries({entries: meta, outSet});
 
-		// region Also add damage types from spells contained in the legendary group
+		// region Also add from spells contained in the legendary group
 		const spells = TaggerUtils.getSpellsFromString(JSON.stringify(meta), {cbMan});
-		spells.forEach(spell => {
-			if (!spell.damageInflict) return;
-			spell.damageInflict.forEach(it => typeSet.add(DamageTypeTag._TYPE_LOOKUP[it]));
-		});
+		spells.forEach(spell => this._handleSpell({spell, outSet}));
 		// endregion
 
-		if (typeSet.size) m.damageTagsLegendary = [...typeSet].sort(SortUtil.ascSortLower);
-	}
-
-	static _handleProp ({m, prop, typeSet}) {
-		if (!m[prop]) return;
-
-		m[prop].forEach(it => {
-			if (
-				it.name
-				&& DamageTypeTag._BLOCKLIST_NAMES.has(it.name.toLowerCase().trim().replace(/\([^)]+\)/g, ""))
-			) return;
-
-			if (!it.entries) return;
-
-			this._handleEntries({m, entries: it.entries, typeSet});
-		});
-	}
-
-	static _handleEntries ({m = null, entries, typeSet}) {
-		DamageTypeTag._WALKER.walk(
-			entries,
-			{
-				string: (str) => {
-					str.replace(RollerUtil.REGEX_DAMAGE_DICE, (m0, average, prefix, diceExp, suffix) => {
-						suffix.replace(ConverterConst.RE_DAMAGE_TYPE, (m0, type) => typeSet.add(DamageTypeTag._TYPE_LOOKUP[type]));
-					});
-
-					str.replace(DamageTypeTag._STATIC_DAMAGE_REGEX, (m0, type) => {
-						typeSet.add(DamageTypeTag._TYPE_LOOKUP[type]);
-					});
-
-					str.replace(DamageTypeTag._TARGET_TASKES_DAMAGE_REGEX, (m0, type) => {
-						typeSet.add(DamageTypeTag._TYPE_LOOKUP[type]);
-					});
-
-					if (DamageTypeTag._isSummon(m)) {
-						str.split(/[.?!]/g)
-							.forEach(sentence => {
-								let isSentenceMatch = DamageTypeTag._SUMMON_DAMAGE_REGEX.test(sentence);
-								if (!isSentenceMatch) return;
-
-								sentence.replace(ConverterConst.RE_DAMAGE_TYPE, (m0, type) => {
-									typeSet.add(DamageTypeTag._TYPE_LOOKUP[type]);
-								});
-							});
-					}
-				},
-			},
-		);
+		this._setPropOut({outSet, m, propOut: this._PROP_LEGENDARY, isAppendOnly});
 	}
 
 	/** Attempt to detect an e.g. TCE summon creature. */
@@ -906,7 +1153,7 @@ class DamageTypeTag {
 
 		const reProbableSummon = /level of the spell|spell level|\+\s*PB(?:\W|$)|your (?:[^?!.]+)?level/g;
 
-		DamageTypeTag._WALKER.walk(
+		this._WALKER.walk(
 			m.ac,
 			{
 				string: (str) => {
@@ -917,7 +1164,7 @@ class DamageTypeTag {
 		);
 		if (isSummon) return true;
 
-		DamageTypeTag._WALKER.walk(
+		this._WALKER.walk(
 			m.hp,
 			{
 				string: (str) => {
@@ -929,21 +1176,88 @@ class DamageTypeTag {
 		if (isSummon) return true;
 	}
 }
-DamageTypeTag._isInit = false;
-DamageTypeTag._WALKER = null;
+
+class DamageTypeTag extends _PrimaryLegendarySpellsTaggerBase {
+	static _PROP_PRIMARY = "damageTags";
+	static _PROP_LEGENDARY = "damageTagsLegendary";
+	static _PROP_SPELLS = "damageTagsSpell";
+
+	// Avoid parsing these, as they commonly have e.g. "self-damage" sections
+	//   Note that these names should exclude parenthetical parts (as these are removed before lookup)
+	static _BLOCKLIST_NAMES = new Set([
+		"vampire weaknesses",
+	]);
+
+	static _init () {
+		if (super._init()) return;
+		Object.entries(Parser.DMGTYPE_JSON_TO_FULL).forEach(([k, v]) => this._TYPE_LOOKUP[v] = k);
+	}
+
+	static _handleString ({m = null, str, outSet}) {
+		str.replace(RollerUtil.REGEX_DAMAGE_DICE, (m0, average, prefix, diceExp, suffix) => {
+			suffix.replace(ConverterConst.RE_DAMAGE_TYPE, (m0, type) => outSet.add(this._TYPE_LOOKUP[type]));
+		});
+
+		str.replace(this._STATIC_DAMAGE_REGEX, (m0, type) => {
+			outSet.add(this._TYPE_LOOKUP[type]);
+		});
+
+		str.replace(this._TARGET_TASKES_DAMAGE_REGEX, (m0, type) => {
+			outSet.add(this._TYPE_LOOKUP[type]);
+		});
+
+		if (this._isSummon(m)) {
+			str.split(/[.?!]/g)
+				.forEach(sentence => {
+					let isSentenceMatch = this._SUMMON_DAMAGE_REGEX.test(sentence);
+					if (!isSentenceMatch) return;
+
+					sentence.replace(ConverterConst.RE_DAMAGE_TYPE, (m0, type) => {
+						outSet.add(this._TYPE_LOOKUP[type]);
+					});
+				});
+		}
+	}
+
+	static _handleSpell ({spell, outSet}) {
+		if (!spell.damageInflict) return;
+		spell.damageInflict.forEach(it => outSet.add(DamageTypeTag._TYPE_LOOKUP[it]));
+	}
+}
 DamageTypeTag._STATIC_DAMAGE_REGEX = new RegExp(`\\d+ ${ConverterConst.STR_RE_DAMAGE_TYPE} damage`, "gi");
 DamageTypeTag._TARGET_TASKES_DAMAGE_REGEX = new RegExp(`(?:a|the) target takes (?:{@dice |{@damage )[^}]+} ?${ConverterConst.STR_RE_DAMAGE_TYPE} damage`, "gi");
 DamageTypeTag._SUMMON_DAMAGE_REGEX = /(?:{@dice |{@damage )[^}]+}(?:\s*\+\s*the spell's level)? ([a-z]+( \([-a-zA-Z0-9 ]+\))?( or [a-z]+( \([-a-zA-Z0-9 ]+\))?)? damage)/gi;
 DamageTypeTag._TYPE_LOOKUP = {};
-// Avoid parsing these, as they commonly have e.g. "self-damage" sections
-//   Note that these names should exclude parenthetical parts (as these are removed before lookup)
-DamageTypeTag._BLOCKLIST_NAMES = new Set([
-	"vampire weaknesses",
-]);
 
 globalThis.DamageTypeTag = DamageTypeTag;
 
 class MiscTag {
+	static _MELEE_WEAPON_MATCHERS = null;
+	static _RANGED_WEAPON_MATCHERS = null;
+	static _THROWN_WEAPON_MATCHERS = null;
+
+	static _IS_INIT = false;
+
+	static init ({items}) {
+		if (this._IS_INIT) return;
+		this._IS_INIT = true;
+
+		const weaponsBase = items
+			.filter(it => it._category === "Basic" && (it.type === "M" || it.type === "W"));
+
+		this._MELEE_WEAPON_MATCHERS = weaponsBase
+			.filter(it => it.type === "M")
+			.map(it => new RegExp(`(^|\\W)(${it.name.escapeRegexp()})(\\W|$)`, "gi"));
+
+		this._RANGED_WEAPON_MATCHERS = weaponsBase
+			.filter(it => it.type === "R")
+			.map(it => new RegExp(`(^|\\W)(${it.name.escapeRegexp()})(\\W|$)`, "gi"));
+
+		this._THROWN_WEAPON_MATCHERS = weaponsBase
+			.filter(it => it.property?.includes("T"))
+			.map(it => new RegExp(`(^|\\W)(${it.name.escapeRegexp()})(\\W|$)`, "gi"));
+	}
+
 	/** @return empty string for easy use in `.replace` */
 	static _addTag ({tagSet, allowlistTags, tag}) {
 		if (allowlistTags != null && !allowlistTags.has(tag)) return "";
@@ -984,19 +1298,31 @@ class MiscTag {
 			}
 
 			if (it.name) {
-				// thrown weapon (PHB only)
-				if (hasRangedAttack) MiscTag._THROWN_WEAPON_MATCHERS.forEach(r => it.name.replace(r, () => this._addTag({tagSet, allowlistTags, tag: "THW"})));
+				// Melee weapons
+				// Ranged weapon
+				[
+					{res: this._MELEE_WEAPON_MATCHERS, tag: "MLW"},
+					{res: this._RANGED_WEAPON_MATCHERS, tag: "RNG"},
+				]
+					.forEach(({res, tag}) => {
+						res
+							.forEach(re => {
+								it.name
+									.replace(re, () => {
+										const mAtk = /{@atk ([^}]+)}/.exec(strEntries || "");
+										if (mAtk) {
+											const spl = mAtk[1].split(",");
+											// Avoid adding the "ranged attack" tag for spell attacks
+											if (spl.includes("rs")) return "";
+										}
+										this._addTag({tagSet, allowlistTags, tag});
+										return "";
+									});
+							});
+					});
 
-				// other ranged weapon (PHB only)
-				MiscTag._RANGED_WEAPON_MATCHERS.forEach(r => it.name.replace(r, () => {
-					const mAtk = /{@atk ([^}]+)}/.exec(strEntries || "");
-					if (mAtk) {
-						const spl = mAtk[1].split(",");
-						// Avoid adding the "ranged attack" tag for spell attacks
-						if (spl.includes("rs")) return;
-					}
-					this._addTag({tagSet, allowlistTags, tag: "RNG"});
-				}));
+				// Thrown weapon
+				if (hasRangedAttack) this._THROWN_WEAPON_MATCHERS.forEach(r => it.name.replace(r, () => this._addTag({tagSet, allowlistTags, tag: "THW"})));
 			}
 		});
 	}
@@ -1010,30 +1336,9 @@ class MiscTag {
 		MiscTag._handleProp({m, prop: "legendary", tagSet, allowlistTags});
 		MiscTag._handleProp({m, prop: "mythic", tagSet, allowlistTags});
 		if (tagSet.size) m.miscTags = [...tagSet];
-		else delete m.miscTags;
+		else if (!isAdditiveOnly) delete m.miscTags;
 	}
 }
-MiscTag._THROWN_WEAPONS = [
-	"dagger",
-	"handaxe",
-	"javelin",
-	"light hammer",
-	"spear",
-	"trident",
-	"dart",
-	"net",
-];
-MiscTag._THROWN_WEAPON_MATCHERS = MiscTag._THROWN_WEAPONS.map(it => new RegExp(`(^|[^\\w])(${it})([^\\w]|$)`, "gi"));
-MiscTag._RANGED_WEAPONS = [
-	"light crossbow",
-	"shortbow",
-	"sling",
-	"blowgun",
-	"hand crossbow",
-	"heavy crossbow",
-	"longbow",
-];
-MiscTag._RANGED_WEAPON_MATCHERS = MiscTag._RANGED_WEAPONS.map(it => new RegExp(`(^|[^\\w])(${it})([^\\w]|$)`, "gi"));
 
 globalThis.MiscTag = MiscTag;
 
@@ -1063,6 +1368,7 @@ class SpellcastingTraitConvert {
 				{re: /\/rest/i, prop: "rest"},
 				{re: /\/day/i, prop: "daily"},
 				{re: /\/week/i, prop: "weekly"},
+				{re: /\/month/i, prop: "monthly"},
 				{re: /\/yeark/i, prop: "yearly"},
 			];
 
@@ -1070,14 +1376,14 @@ class SpellcastingTraitConvert {
 
 			if (perDuration) {
 				hasAnyHeader = true;
-				let property = thisLine.substr(0, 1) + (thisLine.includes(" each:") ? "e" : "");
+				let property = thisLine.substring(0, 1) + (/ each(?::| - )/.test(thisLine) ? "e" : "");
 				const value = this._getParsedSpells({thisLine, isMarkdown});
 				if (!spellcastingEntry[perDuration.prop]) spellcastingEntry[perDuration.prop] = {};
 				spellcastingEntry[perDuration.prop][property] = value;
-			} else if (thisLine.startsWith("Constant: ")) {
+			} else if (/^Constant(?::| -) /.test(thisLine)) {
 				hasAnyHeader = true;
 				spellcastingEntry.constant = this._getParsedSpells({thisLine, isMarkdown});
-			} else if (thisLine.startsWith("At will: ")) {
+			} else if (/^At[- ][Ww]ill(?::| -) /.test(thisLine)) {
 				hasAnyHeader = true;
 				spellcastingEntry.will = this._getParsedSpells({thisLine, isMarkdown});
 			} else if (thisLine.includes("Cantrip")) {
@@ -1085,15 +1391,15 @@ class SpellcastingTraitConvert {
 				const value = this._getParsedSpells({thisLine, isMarkdown});
 				if (!spellcastingEntry.spells) spellcastingEntry.spells = {"0": {"spells": []}};
 				spellcastingEntry.spells["0"].spells = value;
-			} else if (thisLine.includes(" level") && thisLine.includes(": ")) {
+			} else if (/ [Ll]evel/.test(thisLine) && /(?::| -) /.test(thisLine)) {
 				hasAnyHeader = true;
-				let property = thisLine.substr(0, 1);
+				let property = thisLine.substring(0, 1);
 				const allSpells = this._getParsedSpells({thisLine, isMarkdown});
 				spellcastingEntry.spells = spellcastingEntry.spells || {};
 
 				const out = {};
 				if (thisLine.includes(" slot")) {
-					const mWarlock = /^(\d)..(?: level)?-(\d).. level \((\d) (\d)..[- ]level slots?\)/.exec(thisLine);
+					const mWarlock = /^(\d)..(?: [Ll]evel)?-(\d).. [Ll]evel \((\d) (\d)..[- ][Ll]evel slots?\)/.exec(thisLine);
 					if (mWarlock) {
 						out.lower = parseInt(mWarlock[1]);
 						out.slots = parseInt(mWarlock[3]);
@@ -1128,7 +1434,8 @@ class SpellcastingTraitConvert {
 	}
 
 	static _getParsedSpells ({thisLine, isMarkdown}) {
-		let spellPart = thisLine.substring(thisLine.indexOf(": ") + 2).trim();
+		const mLabelSep = /(?::| -) /.exec(thisLine);
+		let spellPart = thisLine.substring((mLabelSep?.index || 0) + (mLabelSep?.[0]?.length || 0)).trim();
 		if (isMarkdown) {
 			const cleanPart = (part) => {
 				part = part.trim();
@@ -1152,18 +1459,39 @@ class SpellcastingTraitConvert {
 		return spellPart.split(StrUtil.COMMAS_NOT_IN_PARENTHESES_REGEX).map(it => this._parseSpell(it));
 	}
 
-	static _parseSpell (name) {
-		name = name.trim();
-		let asterisk = name.indexOf("*");
-		let brackets = name.indexOf(" (");
-		if (asterisk !== -1) {
-			const trueName = name.substr(0, asterisk);
-			return `{@spell ${trueName}${this._parseSpell_getSourcePart(trueName)}}*`;
-		} else if (brackets !== -1) {
-			const trueName = name.substr(0, brackets);
-			return `{@spell ${trueName}${this._parseSpell_getSourcePart(trueName)}}${name.substring(brackets)}`;
+	static _parseSpell (str) {
+		str = str.trim();
+
+		const ptsSuffix = [];
+
+		// region Homebrew (e.g. "Flee, Mortals!", page 3)
+		const mBrewSuffixCastingTime = / +(?<time>[ABR+])\s*$/.exec(str);
+		if (mBrewSuffixCastingTime) {
+			str = str.slice(0, -mBrewSuffixCastingTime[0].length);
+			const action = mBrewSuffixCastingTime.groups.time;
+			// TODO(Future) pass in source?
+			ptsSuffix.unshift(`{@sup {@cite Casting Times|FleeMortals|${action}}}`);
 		}
-		return `{@spell ${name}${this._parseSpell_getSourcePart(name)}}`;
+		// endregion
+
+		const ixAsterisk = str.indexOf("*");
+		if (~ixAsterisk) {
+			ptsSuffix.unshift("*");
+			str = str.substring(0, ixAsterisk);
+		}
+
+		const ixParenOpen = str.indexOf(" (");
+		if (~ixParenOpen) {
+			ptsSuffix.unshift(str.substring(ixParenOpen).trim());
+			str = str.substring(0, ixParenOpen);
+		}
+
+		return [
+			`{@spell ${str}${this._parseSpell_getSourcePart(str)}}`,
+			ptsSuffix.join(" "),
+		]
+			.filter(Boolean)
+			.join(" ");
 	}
 
 	static _parseSpell_getSourcePart (spellName) {
@@ -1410,6 +1738,7 @@ class TagImmResVulnConditional {
 		this._handleProp(mon, "resist");
 		this._handleProp(mon, "immune");
 		this._handleProp(mon, "vulnerable");
+		this._handleProp(mon, "conditionImmune");
 	}
 
 	static _handleProp (mon, prop) {
@@ -1429,6 +1758,7 @@ class TagImmResVulnConditional {
 				|| note.startsWith("except ")
 				|| note.startsWith("with ")
 				|| note.startsWith("that is ")
+				|| /in .* form$/i.test(note)
 			) {
 				obj.cond = true;
 			}
@@ -1454,9 +1784,11 @@ class DragonAgeTag {
 globalThis.DragonAgeTag = DragonAgeTag;
 
 class AttachedItemTag {
-	static _WEAPON_DETAIL_CACHE = {};
+	static _WEAPON_DETAIL_CACHE;
 
 	static init ({items}) {
+		this._WEAPON_DETAIL_CACHE ||= {};
+
 		for (const item of items) {
 			if (item.type === "GV") continue;
 			if (!["M", "R"].includes(item.type)) continue;
@@ -1502,6 +1834,10 @@ class AttachedItemTag {
 		return mAtk[1].split(",").some(it => it.includes("w"));
 	}
 
+	// FIXME tags too aggressively; should limit by e.g.:
+	//   - for creatures with a known "book" source, never use items from a known "adventure" source
+	//   - for creatures with a known "adventure" source, never use items from a *different* "adventure" source
+	//   - for a creature from a known source, never tag items from a more recent known source
 	static tryRun (mon, {cbNotFound = null, isAddOnly = false} = {}) {
 		if (!this._WEAPON_DETAIL_CACHE) throw new Error(`Attached item cache was not initialized!`);
 
@@ -1529,3 +1865,23 @@ class AttachedItemTag {
 }
 
 globalThis.AttachedItemTag = AttachedItemTag;
+
+class CreatureSavingThrowTagger extends _PrimaryLegendarySpellsTaggerBase {
+	static _PROP_PRIMARY = "savingThrowForced";
+	static _PROP_SPELLS = "savingThrowForcedSpell";
+	static _PROP_LEGENDARY = "savingThrowForcedLegendary";
+
+	static _handleString ({m = null, str, outSet}) {
+		str.replace(/{@dc (?<save>[^|}]+)(?:\|[^}]+)?}\s+(?<abil>Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma) saving throw/i, (...m) => {
+			outSet.add(m.last().abil.toLowerCase());
+			return "";
+		});
+	}
+
+	static _handleSpell ({spell, outSet}) {
+		if (!spell.savingThrow) return;
+		spell.savingThrow.forEach(it => outSet.add(it));
+	}
+}
+
+globalThis.CreatureSavingThrowTagger = CreatureSavingThrowTagger;

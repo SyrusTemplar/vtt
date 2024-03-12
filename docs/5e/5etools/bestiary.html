@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/bestiary.css">
+	<link rel="stylesheet" href="css/encounterbuilder-bundle.css">
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -55,34 +56,19 @@
 	<script type="text/javascript" src="js/styleswitch.js"></script>
 	<script type="text/javascript" src="js/navigation.js"></script>
 	<script type="text/javascript" src="js/browsercheck.js"></script>
-
-	<style>
-		img.token {
-			font-size: 1.6em;
-			right: 0.4em;
-		}
-
-		#wrp-profbonusdice {
-			display: inline-block;
-		}
-
-		#listofsaves {
-			height: initial;
-		}
-	</style>
 </head>
 
 <body>
+
 <div class="cancer__wrp-sidebar-rhs cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__sidebar-rhs-inner cancer__sidebar-rhs-inner--top"><!--5ETOOLS_AD_RIGHT_1--></div><div class="cancer__sidebar-rhs-inner cancer__sidebar-rhs-inner--bottom"><!--5ETOOLS_AD_RIGHT_2--></div></div>
 
 <div class="viewport-wrapper">
 	<div class="cancer__wrp-leaderboard cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__wrp-leaderboard-inner"><!--5ETOOLS_AD_LEADERBOARD--></div></div>
 
 	<header class="hidden-xs hidden-sm page__header">
-		<div class="container">
-
-			<h1 class="page__title">Bestiary</h1>
-			<p class="page__subtitle" id="page__subtitle">Search by name on the left, click monster name to display on the right.</p>
+		<div class="container ve-flex-v-baseline">
+			<h1 class="page__title no-wrap my-0">Bestiary</h1>
+			<p class="page__subtitle no-wrap my-0" id="page__subtitle">Search by name on the left, click a name to display on the right.</p>
 		</div>
 	</header>
 	<nav class="container page__nav" id="navigation">
@@ -108,50 +94,50 @@
 					<button class="sort btn btn-default btn-xs ve-grow" data-sort="source">Source</button>
 				</div>
 
-				<div class="list list--stats monsters">
-					<!-- populate with JS -->
-				</div>
+				<div id="list" class="list list--stats"></div>
 			</div>
 
-			<div id="contentwrapper" class="view-col">
-				<div class="ecgen__visible mb-3" id="wrp-encounterbuild-random-and-adjust"></div>
+			<div class="cancer__wrp-mobile-1 cancer__anchor"><div class="cancer__disp-cancer"></div><!--5ETOOLS_AD_MOB_PLAYER_1--></div>
 
-				<div class="ecgen__visible mb-4" id="ecgen__wrp-save-controls"></div>
+			<div id="contentwrapper" class="view-col">
+				<div class="best-ecgen__visible mb-3" id="wrp-encounterbuild-random-and-adjust"></div>
+
+				<div class="best-ecgen__visible mb-4" id="best-ecgen__wrp-save-controls"></div>
 
 				<div id="sublistcontainer" class="sublist sublist--resizable no-print">
 					<div id="sublistsort" class="btn-group sublist__wrp-cols">
 						<button class="col-5 sort btn btn-default btn-xs" data-sort="name">Name</button>
-						<button class="col-3-8 sort btn btn-default btn-xs ecgen__hidden" data-sort="type">Type</button>
-						<button class="col-3-8 sort btn btn-default btn-xs ecgen__visible" disabled>&nbsp;</button>
+						<button class="col-3-8 sort btn btn-default btn-xs best-ecgen__hidden" data-sort="type">Type</button>
+						<button class="col-3-8 sort btn btn-default btn-xs best-ecgen__visible" disabled>&nbsp;</button>
 						<button class="col-1-2 sort btn btn-default btn-xs" data-sort="cr">CR</button>
 						<button class="col-2 sort btn btn-default btn-xs" data-sort="count">Number</button>
 					</div>
-					<div class="list submonsters">
-						<!-- populate with JS -->
-					</div>
-					<div class="row ecgen__hidden ve-small">
+
+					<div id="sublist" class="list"></div>
+
+					<div class="row best-ecgen__hidden ve-small">
 						<span class="col-6 text-right pr-2">Total:</span>
 						<span class="col-6 no-wrap pl-0" id="totalcr"></span>
 					</div>
 				</div>
 
-				<div id="stat-tabs" class="wrp-stat-tab ecgen__hidden">
+				<div class="wrp-stat-tab" id="stat-tabs">
 					<div id="tabs-right"></div>
 				</div>
 
-				<div id="float-token" class="ecgen__hidden relative"></div>
+				<div id="float-token" class="relative"></div>
 
-				<div id="wrp-pagecontent" class="wrp-stats-table ecgen__hidden">
-					<table id="pagecontent" class="w-100 stats monster">
+				<div id="wrp-pagecontent" class="wrp-stats-table">
+					<table id="pagecontent" class="w-100 stats">
 						<tr><th class="border" colspan="6"></th></tr>
-						<tr><td colspan="6" class="initial-message">Loading...</td></tr>
+						<tr><td colspan="6" class="initial-message">Select an entry from the list to view it here</td></tr>
 						<tr><th class="border" colspan="6"></th></tr>
 					</table>
 				</div>
 
-				<div class="text-center mt-2 no-print ecgen__hidden">
+				<div class="ve-text-center mt-2 no-print best-ecgen__hidden">
 					<button class="btn btn-success btn-xs" id="btn-encounterbuild">Encounter Builder</button>
-					<div id="wrp-profbonusdice">
+					<div id="wrp-profbonusdice" class="ve-inline-block">
 						<button class="btn btn-default btn-xs" id="profbonusdice"
 								title="See the Dungeon Master&apos;s Guide, p263.">Use Proficiency Dice
 						</button>
@@ -161,18 +147,20 @@
 					<button class="btn btn-xs btn-info" id="manage-brew">Manage Homebrew</button>
 				</div>
 
-				<div class="ecgen__visible--flex-col ecgen__wrp pb-1 px-2" id="wrp-encounterbuild-group-and-difficulty"></div>
+				<div class="best-ecgen__visible--flex-col best-ecgen__wrp pb-1 px-2" id="wrp-encounterbuild-group-and-difficulty"></div>
 			</div>
 		</div>
 	</div>
-</div>    <!--5ETOOLS_SCRIPT_ANCHOR-->
+</div>
+
+<!--5ETOOLS_SCRIPT_ANCHOR-->
 <!--5ETOOLS_AD_ADHESION-->
+
 <script type="text/javascript" src="lib/jquery.js"></script>
 <script type="text/javascript" src="js/parser.js"></script>
 <script type="text/javascript" src="js/utils.js"></script>
 <script type="text/javascript" src="js/utils-ui.js"></script>
 <script type="text/javascript" src="js/utils-list.js"></script>
-<script type="text/javascript" src="js/utils-list-bestiary.js"></script>
 <script type="text/javascript" src="js/utils-tableview.js"></script>
 <script type="text/javascript" src="lib/localforage.js"></script>
 <script type="text/javascript" src="js/omnidexer.js"></script>
@@ -190,9 +178,9 @@
 <script type="text/javascript" src="js/multisource.js"></script>
 <script type="text/javascript" src="js/filter-common.js"></script>
 <script type="text/javascript" src="js/filter-bestiary.js"></script>
-<script type="text/javascript" src="js/bestiary-encounterbuilder.js"></script>
-<script type="text/javascript" src="js/bestiary.js"></script>
+<script type="module" src="js/bestiary.js"></script>
 <script type="text/javascript" src="js/list2.js"></script>
 <script type="text/javascript" src="lib/elasticlunr.js"></script>
+
 </body>
 </html>

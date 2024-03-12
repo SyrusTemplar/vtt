@@ -126,10 +126,15 @@
 				"I"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
 			],
 			"conditionInflictSpell": [
 				"invisible"
+			],
+			"savingThrowForcedSpell": [
+				"charisma",
+				"dexterity"
 			],
 			"hasToken": true,
 			"hasFluff": true
@@ -287,12 +292,17 @@
 				"CW"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RW",
 				"THW"
 			],
 			"conditionInflictSpell": [
 				"restrained"
+			],
+			"savingThrowForcedSpell": [
+				"constitution",
+				"dexterity"
 			],
 			"hasToken": true,
 			"hasFluff": true

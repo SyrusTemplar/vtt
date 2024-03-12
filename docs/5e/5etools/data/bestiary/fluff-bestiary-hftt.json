@@ -21,8 +21,25 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/HftT/Demogorgon.jpg"
+						"path": "bestiary/HftT/Demogorgon.webp"
 					}
+				}
+			]
+		},
+		{
+			"name": "Evil Mage",
+			"source": "HftT",
+			"entries": [
+				{
+					"type": "entries",
+					"entries": [
+						{
+							"type": "entries",
+							"entries": [
+								"Evil mages hunger for arcane power and dwell in isolated places, where they can perform terrible magical experiments without interference."
+							]
+						}
+					]
 				}
 			]
 		},
@@ -47,7 +64,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/HftT/Thessalhydra.jpg"
+						"path": "bestiary/HftT/Thessalhydra.webp"
 					}
 				}
 			]

@@ -10,10 +10,11 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/000-00-02.png"
+						"path": "book/EGW/000-00-02.webp"
 					},
 					"width": 850,
-					"height": 240
+					"height": 240,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "section",
@@ -39,10 +40,11 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/001-00-03.png"
+								"path": "book/EGW/001-00-03.webp"
 							},
 							"width": 850,
-							"height": 216
+							"height": 216,
+							"credit": "Deven Rue"
 						}
 					]
 				}
@@ -179,7 +181,8 @@
 								"distance": 200,
 								"units": "miles"
 							},
-							"imageType": "map"
+							"imageType": "map",
+							"credit": "Deven Rue"
 						}
 					]
 				},
@@ -525,11 +528,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/003-00-04.jpg"
+						"path": "book/EGW/003-00-04.webp"
 					},
 					"title": "A monk of the Cobalt Soul sheds light on Wildemount's past for a band of young adventurers.",
 					"width": 1445,
-					"height": 1920
+					"height": 1920,
+					"credit": "Robson Michel"
 				},
 				{
 					"type": "quote",
@@ -591,11 +595,12 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/EGW/004-01-01.png"
+										"path": "book/EGW/004-01-01.webp"
 									},
 									"title": "The Calamity",
 									"width": 1496,
-									"height": 1000
+									"height": 1000,
+									"credit": "Kent Davis"
 								}
 							]
 						},
@@ -664,11 +669,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/005-01-02.png"
+												"path": "book/EGW/005-01-02.webp"
 											},
 											"title": "A Floating City from a Bygone Age",
 											"width": 1496,
-											"height": 1000
+											"height": 1000,
+											"credit": "Robin Olausson"
 										}
 									]
 								},
@@ -750,11 +756,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/006-01-03.png"
+												"path": "book/EGW/006-01-03.webp"
 											},
 											"title": "Uk'otoa assaults unwelcome ships on the Lucidian Ocean",
 											"width": 1496,
-											"height": 1000
+											"height": 1000,
+											"credit": "Zoltan Boros"
 										}
 									]
 								},
@@ -812,11 +819,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/007-01-04.png"
+												"path": "book/EGW/007-01-04.webp"
 											},
 											"title": "In the ruins of Ghor Dranas, drow face the sun for the first time",
 											"width": 1496,
-											"height": 1000
+											"height": 1000,
+											"credit": "Livia Prima"
 										}
 									]
 								}
@@ -1222,11 +1230,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/029-02-01.jpg"
+						"path": "book/EGW/029-02-01.webp"
 					},
 					"title": "Inspired by the light of the Luxon, the Bright Queen and her court chart the destiny of a continent",
 					"width": 1446,
-					"height": 1920
+					"height": 1920,
+					"credit": "Even Amundsen"
 				},
 				{
 					"type": "quote",
@@ -1252,11 +1261,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/030-02-02.png"
+								"path": "book/EGW/030-02-02.webp"
 							},
 							"title": "Dwendalian Empire Crest",
 							"width": 825,
-							"height": 1000
+							"height": 1000,
+							"credit": "CoupleOfKooks"
 						},
 						{
 							"type": "entries",
@@ -1451,11 +1461,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/031-02-03.png"
+								"path": "book/EGW/031-02-03.webp"
 							},
 							"title": "Kryn Dynasty Crest",
 							"width": 769,
-							"height": 1000
+							"height": 1000,
+							"credit": "CoupleOfKooks"
 						},
 						"It is believed that the Luxon cherishes unity in community, but also values free choice and the power of the individual mind. For each soul to carve a unique path is the best way for a soul to learn about the world. Casting off the teachings of Fate and Destiny taught by some of the current pantheon, the followers of the Luxon are taught that the real power of the universe comes from the power of choice. Many possible futures all await your path, and the universe trembles with anticipatory power as you approach every decision. This power is called dunamis, the energy of potentiality, and the coalescing architecture of the multiple futures leading into each moment is released when an outcome is brought to reality. It is the energy that suffuses every Luxon beacon to prepare the lives to come, and it is the basis of the Kryn's unique divine crafts and arcane abilities.",
 						"The Kryn Dynasty has uncovered four beacons and is certain that more remain to be discovered. It is believed that once all the beacons are brought together, the Luxon will be summoned from their slumber to ask their children the great question and impart the truth. It is said that at this time, the Luxon will take those who entered the consecution and abandon this lesser world to start a new world elsewhere.",
@@ -1597,11 +1608,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/032-02-08.png"
+								"path": "book/EGW/032-02-08.webp"
 							},
 							"title": "Cerberus Assembly",
 							"width": 613,
-							"height": 811
+							"height": 811,
+							"credit": "Claudio Pozas"
 						},
 						{
 							"type": "entries",
@@ -1732,11 +1744,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/033-02-04.png"
+								"path": "book/EGW/033-02-04.webp"
 							},
 							"title": "Clovis Concord Crest",
 							"width": 814,
-							"height": 1000
+							"height": 1000,
+							"credit": "CoupleOfKooks"
 						},
 						"Despite the concord's cordial relationship with the Dwendalian Empire, their proximity to the imperial power is a lingering source of unease. Currently, the concord maintains a standing military of 7,800 Shore Warden soldiers across the coast, a nautical fleet of 370 ships, and 5,200 Zhelezo divided between the cities. Some of the Shore Wardens are posted inland, scattered around and within the Cyrios Mountains, where they maintain forts along the border with Western Wynandir and the Dwendalian Empire.",
 						{
@@ -1854,11 +1867,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/034-02-09.png"
+								"path": "book/EGW/034-02-09.webp"
 							},
 							"title": "The Myriad",
 							"width": 1000,
-							"height": 987
+							"height": 987,
+							"credit": "Claudio Pozas"
 						},
 						"The empire scored a major victory fifteen years ago when they discovered and raided the central Myriad stronghold in Yrrosa, forcing the surviving leadership to scatter across the continent. The Myriad has emphasized the narrative of its own fall in order to keep a low profile, though in fact it has retained most of its power. Its influence has stretched to the distant corners of Wildemount as it bide its time and waits to reinstate its control within the empire. Shifting tactics, the Myriad has now begun seeding major factions with double agents, who turn the most foolish or corrupt of their colleagues into the Myriad's unwitting pawns.",
 						{
@@ -1941,11 +1955,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/035-02-05.png"
+												"path": "book/EGW/035-02-05.webp"
 											},
 											"title": "A Dwendalian farmer, a trader of the Kryn Dynasty, and a fisherman of the Clovis Concord",
 											"width": 1588,
-											"height": 1000
+											"height": 1000,
+											"credit": "Jessica Mahon"
 										}
 									]
 								}
@@ -1966,11 +1981,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/036-02-10.png"
+								"path": "book/EGW/036-02-10.webp"
 							},
 							"title": "Children of Malice",
 							"width": 647,
-							"height": 1000
+							"height": 1000,
+							"credit": "Claudio Pozas"
 						},
 						{
 							"type": "entries",
@@ -2040,11 +2056,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/037-02-06.png"
+												"path": "book/EGW/037-02-06.webp"
 											},
 											"title": "Aristocrats and nobles from the Dwendalian Empire, the Kryn Dynasty, and the Clovis Concord",
 											"width": 1309,
-											"height": 1000
+											"height": 1000,
+											"credit": "Anna Zee"
 										}
 									]
 								}
@@ -2066,11 +2083,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/038-02-11.png"
+								"path": "book/EGW/038-02-11.webp"
 							},
 							"title": "Diarchy of Uthodurn",
 							"width": 832,
-							"height": 305
+							"height": 305,
+							"credit": "Claudio Pozas"
 						},
 						{
 							"type": "entries",
@@ -2132,11 +2150,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/039-02-07.png"
+												"path": "book/EGW/039-02-07.webp"
 											},
 											"title": "A Dwendalian Crownsguard, Righteous Brand soldier, a Clovis Concord Zhelezo, and a Shore Warden soldier",
 											"width": 1555,
-											"height": 1000
+											"height": 1000,
+											"credit": "Anna Veltkamp"
 										}
 									]
 								}
@@ -2240,11 +2259,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/040-02-12.png"
+								"path": "book/EGW/040-02-12.webp"
 							},
 							"title": "Library of the Cobalt Soul",
 							"width": 968,
-							"height": 968
+							"height": 968,
+							"credit": "Claudio Pozas"
 						},
 						"The monks of the Cobalt Soul are the enlightened knowledge-seekers of their order. They research places where ancient knowledge could be hidden and lead large-scale expeditions to these places.",
 						"Expositors are the covert agents of the Cobalt Soul. These enlightened infiltrators extract information that others would keep secret and use their newfound knowledge to better the world. As masters of acquisitions, expositors answer only their High Curator.",
@@ -2327,11 +2347,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/041-02-13.png"
+								"path": "book/EGW/041-02-13.webp"
 							},
 							"title": "Scars of Scale and Tooth",
 							"width": 860,
-							"height": 1000
+							"height": 1000,
+							"credit": "Claudio Pozas"
 						},
 						{
 							"type": "entries",
@@ -2408,11 +2429,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/042-02-14.png"
+								"path": "book/EGW/042-02-14.webp"
 							},
 							"title": "The Claret Orders",
 							"width": 334,
-							"height": 1000
+							"height": 1000,
+							"credit": "Claudio Pozas"
 						},
 						"The orders have spread to the outskirts of Western Wynandir and beyond. They maintain small keeps to train new generations of protectors who are willing to take the Hunter's Bane and embrace their inner darkness to combat the outer darkness in the world.",
 						{
@@ -2488,11 +2510,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/043-02-15.png"
+								"path": "book/EGW/043-02-15.webp"
 							},
 							"title": "The Golden Grin",
 							"width": 993,
-							"height": 993
+							"height": 993,
+							"credit": "Claudio Pozas"
 						},
 						{
 							"type": "entries",
@@ -2640,11 +2663,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/044-03-01.jpg"
+						"path": "book/EGW/044-03-01.webp"
 					},
 					"title": "The beauty and danger of Wildemount are all but lost on a party of adventurers traversing the Brokenveil Bluffs",
 					"width": 1445,
-					"height": 1920
+					"height": 1920,
+					"credit": "Julian Kok"
 				},
 				{
 					"type": "quote",
@@ -2713,7 +2737,8 @@
 								"distance": 200,
 								"units": "miles"
 							},
-							"imageType": "map"
+							"imageType": "map",
+							"credit": "Deven Rue"
 						},
 						{
 							"type": "section",
@@ -3069,11 +3094,12 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "book/EGW/046-03-02.png"
+														"path": "book/EGW/046-03-02.webp"
 													},
 													"title": "Arrival at Darktow",
 													"width": 1496,
-													"height": 1000
+													"height": 1000,
+													"credit": "Zoltan Boros"
 												}
 											]
 										},
@@ -3138,11 +3164,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/047-03-03.png"
+												"path": "book/EGW/047-03-03.webp"
 											},
 											"title": "The Gloomy Depths of Diver's Grave",
 											"width": 1496,
-											"height": 1000
+											"height": 1000,
+											"credit": "Jenn Ravenna"
 										}
 									]
 								},
@@ -3643,11 +3670,12 @@
 															"type": "image",
 															"href": {
 																"type": "internal",
-																"path": "book/EGW/048-03-04.png"
+																"path": "book/EGW/048-03-04.webp"
 															},
 															"title": "Streets of Nicodranas",
 															"width": 1496,
-															"height": 1000
+															"height": 1000,
+															"credit": "Axel Defois"
 														}
 													]
 												}
@@ -4124,7 +4152,8 @@
 																"distance": 250,
 																"units": "miles"
 															},
-															"imageType": "map"
+															"imageType": "map",
+															"credit": "Deven Rue"
 														}
 													]
 												}
@@ -4306,11 +4335,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/050-03-05.png"
+												"path": "book/EGW/050-03-05.webp"
 											},
 											"title": "Lost paths of the Quoraska Jungle",
 											"width": 1496,
-											"height": 1000
+											"height": 1000,
+											"credit": "Julian Kok"
 										}
 									]
 								},
@@ -4568,7 +4598,8 @@
 								"distance": 200,
 								"units": "miles"
 							},
-							"imageType": "map"
+							"imageType": "map",
+							"credit": "Deven Rue"
 						},
 						{
 							"type": "section",
@@ -4977,11 +5008,12 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "book/EGW/052-03-06.png"
+														"path": "book/EGW/052-03-06.webp"
 													},
 													"title": "The training grounds at Bladegarden",
 													"width": 1496,
-													"height": 1000
+													"height": 1000,
+													"credit": "Jonah Baumann"
 												}
 											]
 										},
@@ -5310,11 +5342,12 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "book/EGW/053-03-07.png"
+														"path": "book/EGW/053-03-07.webp"
 													},
 													"title": "Felderwin and the Tillage",
 													"width": 1496,
-													"height": 1000
+													"height": 1000,
+													"credit": "Alayna Danner"
 												}
 											]
 										},
@@ -5579,11 +5612,12 @@
 															"type": "image",
 															"href": {
 																"type": "internal",
-																"path": "book/EGW/054-03-08.png"
+																"path": "book/EGW/054-03-08.webp"
 															},
 															"title": "Fireworks over Hupperdook",
 															"width": 420,
-															"height": 1155
+															"height": 1155,
+															"credit": "Robin Olausson"
 														}
 													]
 												}
@@ -6385,11 +6419,12 @@
 															"type": "image",
 															"href": {
 																"type": "internal",
-																"path": "book/EGW/055-03-09.png"
+																"path": "book/EGW/055-03-09.webp"
 															},
 															"title": "Pentamarket of Zadash",
 															"width": 1496,
-															"height": 1000
+															"height": 1000,
+															"credit": "Linda Lithén"
 														}
 													]
 												}
@@ -6450,7 +6485,8 @@
 								"distance": 200,
 								"units": "miles"
 							},
-							"imageType": "map"
+							"imageType": "map",
+							"credit": "Deven Rue"
 						},
 						{
 							"type": "section",
@@ -6672,11 +6708,12 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "book/EGW/057-03-10.png"
+														"path": "book/EGW/057-03-10.webp"
 													},
 													"title": "Bysaes Tyl",
 													"width": 1496,
-													"height": 1000
+													"height": 1000,
+													"credit": "Irina Nordsol"
 												}
 											]
 										},
@@ -7316,11 +7353,12 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "book/EGW/058-03-11.png"
+														"path": "book/EGW/058-03-11.webp"
 													},
 													"title": "Hills of Pride's Call",
 													"width": 1496,
-													"height": 1000
+													"height": 1000,
+													"credit": "Linda Lithén"
 												},
 												{
 													"type": "inset",
@@ -7435,7 +7473,8 @@
 																"distance": 666,
 																"units": "miles"
 															},
-															"imageType": "map"
+															"imageType": "map",
+															"credit": "Deven Rue"
 														}
 													]
 												}
@@ -7836,11 +7875,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/060-03-12.png"
+												"path": "book/EGW/060-03-12.webp"
 											},
 											"title": "Vergesson Sanatorium",
 											"width": 1496,
-											"height": 1000
+											"height": 1000,
+											"credit": "Jedd Chevrier"
 										},
 										{
 											"type": "entries",
@@ -8021,7 +8061,8 @@
 								"distance": 200,
 								"units": "miles"
 							},
-							"imageType": "map"
+							"imageType": "map",
+							"credit": "Deven Rue"
 						},
 						{
 							"type": "section",
@@ -8175,11 +8216,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/062-03-13.png"
+												"path": "book/EGW/062-03-13.webp"
 											},
 											"title": "Crystalsands Tundra",
 											"width": 1496,
-											"height": 1000
+											"height": 1000,
+											"credit": "Jenn Ravenna"
 										},
 										{
 											"type": "entries",
@@ -8464,11 +8506,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/063-03-14.png"
+												"path": "book/EGW/063-03-14.webp"
 											},
 											"title": "Savalirwood",
 											"width": 1496,
-											"height": 1000
+											"height": 1000,
+											"credit": "Jonah Baumann"
 										},
 										{
 											"type": "entries",
@@ -8619,11 +8662,12 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "book/EGW/064-03-15.png"
+														"path": "book/EGW/064-03-15.webp"
 													},
 													"title": "Streets of Shadycreek Run",
 													"width": 1496,
-													"height": 1000
+													"height": 1000,
+													"credit": "Nick Robles"
 												}
 											]
 										},
@@ -8753,11 +8797,12 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "book/EGW/065-03-16.png"
+														"path": "book/EGW/065-03-16.webp"
 													},
 													"title": "The fiery volcano Kravaraad looms over the snow-covered Flotket Alps, home of the Diarchy of Uthodurn",
 													"width": 1496,
-													"height": 1000
+													"height": 1000,
+													"credit": "Jenn Ravenna"
 												}
 											]
 										},
@@ -8884,7 +8929,8 @@
 								"distance": 200,
 								"units": "miles"
 							},
-							"imageType": "map"
+							"imageType": "map",
+							"credit": "Deven Rue"
 						},
 						{
 							"type": "section",
@@ -9169,11 +9215,12 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/EGW/067-03-17.png"
+										"path": "book/EGW/067-03-17.webp"
 									},
 									"title": "Aeor Crash Site",
 									"width": 1496,
-									"height": 1000
+									"height": 1000,
+									"credit": "Zuzanna Wuzyk"
 								},
 								{
 									"type": "entries",
@@ -9532,11 +9579,12 @@
 															"type": "image",
 															"href": {
 																"type": "internal",
-																"path": "book/EGW/068-03-18.png"
+																"path": "book/EGW/068-03-18.webp"
 															},
 															"title": "White dragons scour the islands of Eiselcross for food and treasure",
 															"width": 1700,
-															"height": 857
+															"height": 857,
+															"credit": "Lars Grant-West"
 														}
 													]
 												}
@@ -9873,11 +9921,12 @@
 															"type": "image",
 															"href": {
 																"type": "internal",
-																"path": "book/EGW/069-03-19.png"
+																"path": "book/EGW/069-03-19.webp"
 															},
 															"title": "Tomb of the Worm",
 															"width": 1496,
-															"height": 1000
+															"height": 1000,
+															"credit": "Mark Behm"
 														}
 													]
 												}
@@ -10007,11 +10056,12 @@
 															"type": "image",
 															"href": {
 																"type": "internal",
-																"path": "book/EGW/070-03-20.png"
+																"path": "book/EGW/070-03-20.webp"
 															},
 															"title": "Vurmas",
 															"width": 1496,
-															"height": 1000
+															"height": 1000,
+															"credit": "Brian Valeza"
 														}
 													]
 												}
@@ -10105,7 +10155,8 @@
 								"distance": 200,
 								"units": "miles"
 							},
-							"imageType": "map"
+							"imageType": "map",
+							"credit": "Deven Rue"
 						},
 						{
 							"type": "section",
@@ -10172,11 +10223,12 @@
 															"type": "image",
 															"href": {
 																"type": "internal",
-																"path": "book/EGW/072-03-21.png"
+																"path": "book/EGW/072-03-21.webp"
 															},
 															"title": "Asarius, the City of Beasts",
 															"width": 1496,
-															"height": 1000
+															"height": 1000,
+															"credit": "Caio E Santos"
 														}
 													]
 												}
@@ -10270,11 +10322,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/073-03-22.png"
+												"path": "book/EGW/073-03-22.webp"
 											},
 											"title": "Barbed Fields",
 											"width": 1496,
-											"height": 1000
+											"height": 1000,
+											"credit": "David Rene Christensen"
 										},
 										{
 											"type": "entries",
@@ -11092,7 +11145,8 @@
 																"distance": 1000,
 																"units": "miles"
 															},
-															"imageType": "map"
+															"imageType": "map",
+															"credit": "Deven Rue"
 														}
 													]
 												}
@@ -11455,11 +11509,12 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "book/EGW/075-03-23.png"
+														"path": "book/EGW/075-03-23.webp"
 													},
 													"title": "Urzin moving through the marsh",
 													"width": 1496,
-													"height": 1000
+													"height": 1000,
+													"credit": "Kent Davis"
 												}
 											]
 										},
@@ -11494,11 +11549,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/076-03-24.png"
+												"path": "book/EGW/076-03-24.webp"
 											},
 											"title": "Vermaloc Wildwood",
 											"width": 1496,
-											"height": 1000
+											"height": 1000,
+											"credit": "Anna Zee"
 										},
 										{
 											"type": "entries",
@@ -11698,7 +11754,8 @@
 								"distance": 200,
 								"units": "miles"
 							},
-							"imageType": "map"
+							"imageType": "map",
+							"credit": "Deven Rue"
 						},
 						{
 							"type": "entries",
@@ -11924,11 +11981,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/078-03-25.png"
+												"path": "book/EGW/078-03-25.webp"
 											},
 											"title": "Cauldron Sea",
 											"width": 1496,
-											"height": 1000
+											"height": 1000,
+											"credit": "Nick Robles"
 										}
 									]
 								},
@@ -12109,11 +12167,12 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "book/EGW/079-03-26.png"
+														"path": "book/EGW/079-03-26.webp"
 													},
 													"title": "Ghor Veles",
 													"width": 420,
-													"height": 1155
+													"height": 1155,
+													"credit": "Caio E Santos"
 												}
 											]
 										}
@@ -12423,10 +12482,11 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "book/EGW/080-03-27.png"
+														"path": "book/EGW/080-03-27.webp"
 													},
 													"width": 824,
-													"height": 1000
+													"height": 1000,
+													"credit": "Eric Belisle"
 												}
 											]
 										}
@@ -12463,11 +12523,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/EGW/081-03-28.png"
+												"path": "book/EGW/081-03-28.webp"
 											},
 											"title": "Adventurers contend with electric winds in an ember thicket",
 											"width": 1496,
-											"height": 1000
+											"height": 1000,
+											"credit": "Goñi Montes"
 										}
 									]
 								}
@@ -12539,11 +12600,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/082-04-01.jpg"
+						"path": "book/EGW/082-04-01.webp"
 					},
 					"title": "Wizards who master the art of dunamancy have infinite worlds and possibilities at their fingertips",
 					"width": 1447,
-					"height": 1920
+					"height": 1920,
+					"credit": "Irina Nordsol"
 				},
 				{
 					"type": "quote",
@@ -13139,11 +13201,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/091-04-10.png"
+								"path": "book/EGW/091-04-10.webp"
 							},
 							"title": "Goliaths",
 							"width": 600,
-							"height": 1000
+							"height": 1000,
+							"credit": "Chippy"
 						}
 					]
 				},
@@ -13258,11 +13321,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/093-04-12.png"
+								"path": "book/EGW/093-04-12.webp"
 							},
 							"title": "Tabaxi",
 							"width": 642,
-							"height": 1000
+							"height": 1000,
+							"credit": "Shawn Wood"
 						}
 					]
 				},
@@ -13284,11 +13348,12 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/EGW/094-04-13.png"
+										"path": "book/EGW/094-04-13.webp"
 									},
 									"title": "Tiefling",
 									"width": 644,
-									"height": 1000
+									"height": 1000,
+									"credit": "Nikki Dawes"
 								},
 								"Most imperial tieflings live in the cities of the empire or in small communes in the countryside. Many are encouraged by their parents to join the Crownsguard or the Righteous Brand to valiantly serve the empire, and a direct connection can be drawn between the tieflings' ancient persecution and their focus on military service. Centuries ago, countless tieflings joined the armies of the Julous Dominion in hopes of winning glory and proving themselves the equals of their oppressors. Over time, many found acceptance in the eyes of the Julous people and its government, eventually becoming hardline loyalists of the Julous Dominion. Their spirits were thus crushed when the dominion fell to the mighty armies of the invading Dwendalian Empire.",
 								"Three generations have passed since the fall of the dominion, and many adult tieflings still remember the war stories their grandparents told them as children. The empire's propagandists have been quick to capitalize on this, stoking a hunger for glory that sees the lives of eager tieflings fuel the imperial war machine."
@@ -13335,11 +13400,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/EGW/096-04-15.png"
+								"path": "book/EGW/096-04-15.webp"
 							},
 							"title": "Hollow One",
 							"width": 653,
-							"height": 1000
+							"height": 1000,
+							"credit": "CoupleOfKooks"
 						},
 						"The magic that sustains Hollow Ones is a mystery. Most Hollow Ones are reborn after dying in Blightshore, suggesting that the spell-scarred nature of the land brought them back for an unknown purpose. Yet some beings find that, days after they died, they awaken, clutching to life, with only a terrible emptiness inside to remind them of their death.",
 						"In Blightshore, Hollow Ones are seen as a people like any other. They seem strange, but the adventurous and hardy folk of Blightshore are used to making allies with strange creatures. Elsewhere, Hollow Ones are indistinguishable from living creatures, save for the faint stench of necromancy that lingers about them.",
@@ -13350,7 +13416,14 @@
 							"page": 182,
 							"id": "669",
 							"entries": [
-								"The Dungeon Master has the option to allow a character created in a Wildemount campaign to be a {@charoption Hollow One|egw}. Alternatively, a character who perishes in the course of a campaign might return as a Hollow One, created by the mysterious forces that scar the land."
+								"The Dungeon Master has the option to allow a character created in a Wildemount campaign to be a {@charoption Hollow One|egw}. Alternatively, a character who perishes in the course of a campaign might return as a Hollow One, created by the mysterious forces that scar the land.",
+								{
+									"type": "statblock",
+									"tag": "charoption",
+									"source": "EGW",
+									"name": "Hollow One",
+									"page": 182
+								}
 							]
 						}
 					]
@@ -13404,11 +13477,12 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/EGW/097-04-16.png"
+										"path": "book/EGW/097-04-16.webp"
 									},
 									"title": "Echo Knight",
 									"width": 1000,
-									"height": 869
+									"height": 869,
+									"credit": "Goñi Montes"
 								}
 							]
 						},
@@ -13421,24 +13495,31 @@
 								"The brightest minds of Wildemount often find themselves gravitating to the ancient and dangerous study of magic. Some train for decades within the halls and towers of academies, while others learn their craft in the shadows, keeping their discoveries to themselves.",
 								"At 2nd level, a wizard gains the Arcane Tradition class feature described in the {@book Player's Handbook|PHB}. {@class wizard|phb|Chronurgy Magic|Chronurgy|egw} and {@class wizard|phb|Graviturgy Magic|Graviturgy|EGW} are two new traditions available to wizards.",
 								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "book/EGW/098-04-17.png"
-									},
-									"title": "Chronurgy Wizard",
-									"width": 753,
-									"height": 1000
-								},
-								{
-									"type": "image",
-									"href": {
-										"type": "internal",
-										"path": "book/EGW/099-04-18.png"
-									},
-									"title": "Graviturgy Wizard",
-									"width": 811,
-									"height": 1000
+									"type": "gallery",
+									"images": [
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/EGW/098-04-17.webp"
+											},
+											"title": "Chronurgy Wizard",
+											"width": 753,
+											"height": 1000,
+											"credit": "Anna Veltkamp"
+										},
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/EGW/099-04-18.webp"
+											},
+											"title": "Graviturgy Wizard",
+											"width": 811,
+											"height": 1000,
+											"credit": "Jessica Mahon"
+										}
+									]
 								}
 							]
 						},
@@ -13963,10 +14044,11 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "book/EGW/102-04-21.png"
+														"path": "book/EGW/102-04-21.webp"
 													},
 													"width": 914,
-													"height": 1000
+													"height": 1000,
+													"credit": "Dan Bittencourt"
 												},
 												{
 													"type": "entries",
@@ -15398,11 +15480,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/105-05-01.jpg"
+						"path": "book/EGW/105-05-01.webp"
 					},
 					"title": "Adventurers confront the mad inventor Stahlmast and his deadly mechanical masterpiece, the Stahlmaster!",
 					"width": 1449,
-					"height": 1920
+					"height": 1920,
+					"credit": "Wesley Burt"
 				},
 				{
 					"type": "quote",
@@ -15459,11 +15542,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/125-06-01.jpg"
+						"path": "book/EGW/125-06-01.webp"
 					},
 					"title": "An undead knight bequeathes its Acheron blade to a worthy tiefling adventurer, but every great treasure has its price",
 					"width": 1446,
-					"height": 1920
+					"height": 1920,
+					"credit": "Clint Cearley"
 				},
 				{
 					"type": "quote",
@@ -15676,11 +15760,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/141-07-01.jpg"
+						"path": "book/EGW/141-07-01.webp"
 					},
 					"title": "Adventurers confront a fiendish udaak that haunts the edges of civilization in Eastern Wynandir",
 					"width": 1445,
-					"height": 1920
+					"height": 1920,
+					"credit": "Kent Davis"
 				},
 				{
 					"type": "quote",
@@ -15740,29 +15825,29 @@
 							"type": "list",
 							"columns": 4,
 							"items": [
-								"{@creature Aeorian Absorber|egw}",
-								"{@creature Aeorian Nullifier|egw}",
-								"{@creature Aeorian Reverser|egw}",
-								"{@creature Blood Hunter|egw}",
-								"{@creature Bristled Moorbounder|egw}",
-								"{@creature Core Spawn Crawler|egw}",
-								"{@creature Core Spawn Emissary|egw}",
-								"{@creature Core Spawn Seer|egw}",
-								"{@creature Core Spawn Worm|egw}",
-								"{@creature Frost Giant Zombie|egw}",
-								"{@creature Frost Worm|egw}",
-								"{@creature Gearkeeper Construct|egw}",
-								"{@creature Gloomstalker|egw}",
-								"{@creature Horizonback Tortoise|egw}",
-								"{@creature Husk Zombie|egw}",
-								"{@creature Merrow Shallowpriest|egw}",
-								"{@creature Moorbounder|egw}",
-								"{@creature Nergaliid|egw}",
-								"{@creature Sahuagin Warlock of Uk'otoa|egw}",
-								"{@creature Sea Fury|egw}",
-								"{@creature Shadowghast|egw}",
-								"{@creature Swavain Basilisk|egw}",
-								"{@creature Udaak|egw}"
+								"{@creature Aeorian Absorber|EGW}",
+								"{@creature Aeorian Nullifier|EGW}",
+								"{@creature Aeorian Reverser|EGW}",
+								"{@creature Blood Hunter|EGW}",
+								"{@creature Bristled Moorbounder|EGW}",
+								"{@creature Core Spawn Crawler|EGW}",
+								"{@creature Core Spawn Emissary|EGW}",
+								"{@creature Core Spawn Seer|EGW}",
+								"{@creature Core Spawn Worm|EGW}",
+								"{@creature Frost Giant Zombie|EGW}",
+								"{@creature Frost Worm|EGW}",
+								"{@creature Gearkeeper Construct|EGW}",
+								"{@creature Gloomstalker|EGW}",
+								"{@creature Horizonback Tortoise|EGW}",
+								"{@creature Husk Zombie|EGW}",
+								"{@creature Merrow Shallowpriest|EGW}",
+								"{@creature Moorbounder|EGW}",
+								"{@creature Nergaliid|EGW}",
+								"{@creature Sahuagin Warlock of Uk'otoa|EGW}",
+								"{@creature Sea Fury|EGW}",
+								"{@creature Shadowghast|EGW}",
+								"{@creature Swavain Basilisk|EGW}",
+								"{@creature Udaak|EGW}"
 							]
 						}
 					],
@@ -15893,231 +15978,254 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/900.jpg"
+						"path": "book/EGW/900.webp"
 					},
 					"title": "The Continent of Wildemount",
 					"width": 9300,
-					"height": 6600
+					"height": 6600,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/901.png"
+						"path": "book/EGW/901.webp"
 					},
 					"title": "3.1: Menagerie Coast",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/902.jpg"
+						"path": "book/EGW/902.webp"
 					},
 					"title": "3.2: Port Damali",
 					"width": 2550,
-					"height": 3300
+					"height": 3300,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/903.png"
+						"path": "book/EGW/903.webp"
 					},
 					"title": "3.3: Marrow Valley",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/904.png"
+						"path": "book/EGW/904.webp"
 					},
 					"title": "3.4: Zemni Fields",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/905.jpg"
+						"path": "book/EGW/905.webp"
 					},
 					"title": "3.5: Rexxentrum",
 					"width": 2550,
-					"height": 3300
+					"height": 3300,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/906.png"
+						"path": "book/EGW/906.webp"
 					},
 					"title": "3.6: Greying Wildlands",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/907.png"
+						"path": "book/EGW/907.webp"
 					},
 					"title": "3.7: Eiselcross",
 					"width": 2550,
-					"height": 1560
+					"height": 1560,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/908.jpg"
+						"path": "book/EGW/908.webp"
 					},
 					"title": "3.8: Wastes of Xhorhas",
 					"width": 2550,
-					"height": 2956
+					"height": 2956,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/909.jpg"
+						"path": "book/EGW/909.webp"
 					},
 					"title": "3.9: Rosohna",
 					"width": 2550,
-					"height": 3300
+					"height": 3300,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/910.png"
+						"path": "book/EGW/910.webp"
 					},
 					"title": "3.10: Blightshore",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/911.png"
+						"path": "book/EGW/911.webp"
 					},
 					"title": "5.1: Palma Flora",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/912.png"
+						"path": "book/EGW/912.webp"
 					},
 					"title": "5.2: Wavechaser",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/913.png"
+						"path": "book/EGW/913.webp"
 					},
 					"title": "5.3: Ruined Palma Flora",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/914.png"
+						"path": "book/EGW/914.webp"
 					},
 					"title": "5.4: Lower Hupperdook",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/915.png"
+						"path": "book/EGW/915.webp"
 					},
 					"title": "5.5: Ironlot Streets",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/916.png"
+						"path": "book/EGW/916.webp"
 					},
 					"title": "5.6: Nima Cinnarid's House",
 					"width": 1200,
-					"height": 1500
+					"height": 1500,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/917.png"
+						"path": "book/EGW/917.webp"
 					},
 					"title": "5.7: Silver Falls Cavern",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/918.png"
+						"path": "book/EGW/918.webp"
 					},
 					"title": "5.8: Stahlmast's Lair",
 					"width": 2550,
-					"height": 1638
+					"height": 1638,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/919.png"
+						"path": "book/EGW/919.webp"
 					},
 					"title": "5.9: Croaker Cave",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/920.png"
+						"path": "book/EGW/920.webp"
 					},
 					"title": "5.10: Salsvault",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/921.png"
+						"path": "book/EGW/921.webp"
 					},
 					"title": "5.11: Brokenveil Marsh",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/EGW/922.png"
+						"path": "book/EGW/922.webp"
 					},
 					"title": "5.12: Fort Venture",
 					"width": 2550,
-					"height": 1650
+					"height": 1650,
+					"credit": "Deven Rue"
 				}
 			]
 		}

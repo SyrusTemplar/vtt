@@ -283,7 +283,6 @@
 				"Lay on Hands|Paladin||1",
 				"Divine Smite|Paladin||2",
 				"Fighting Style|Paladin||2",
-				"Martial Versatility|Paladin||2|UAClassFeatureVariants",
 				"Spellcasting|Paladin||2",
 				"Divine Health|Paladin||3",
 				{
@@ -292,7 +291,6 @@
 					"gainSubclassFeatureHasContent": true
 				},
 				"Ability Score Improvement|Paladin||4",
-				"Proficiency Versatility|Paladin||4|UAClassFeatureVariants",
 				"Martial Versatility|Paladin||4|TCE",
 				"Extra Attack|Paladin||5",
 				"Aura of Protection|Paladin||6",
@@ -301,21 +299,17 @@
 					"gainSubclassFeature": true
 				},
 				"Ability Score Improvement|Paladin||8",
-				"Proficiency Versatility|Paladin||8|UAClassFeatureVariants",
 				"Aura of Courage|Paladin||10",
 				"Improved Divine Smite|Paladin||11",
 				"Ability Score Improvement|Paladin||12",
-				"Proficiency Versatility|Paladin||12|UAClassFeatureVariants",
 				"Cleansing Touch|Paladin||14",
 				{
 					"classFeature": "Sacred Oath feature|Paladin||15",
 					"gainSubclassFeature": true
 				},
 				"Ability Score Improvement|Paladin||16",
-				"Proficiency Versatility|Paladin||16|UAClassFeatureVariants",
 				"Aura improvements|Paladin||18",
 				"Ability Score Improvement|Paladin||19",
-				"Proficiency Versatility|Paladin||19|UAClassFeatureVariants",
 				{
 					"classFeature": "Sacred Oath feature|Paladin||20",
 					"gainSubclassFeature": true
@@ -894,169 +888,6 @@
 			]
 		},
 		{
-			"name": "Oath of Conquest (UA)",
-			"shortName": "Conquest (UA)",
-			"source": "UAPaladin",
-			"className": "Paladin",
-			"classSource": "PHB",
-			"page": 1,
-			"isReprinted": true,
-			"additionalSpells": [
-				{
-					"prepared": {
-						"3": [
-							"armor of Agathys",
-							"command"
-						],
-						"5": [
-							"hold person",
-							"spiritual weapon"
-						],
-						"9": [
-							"bestow curse",
-							"fear"
-						],
-						"13": [
-							"blight",
-							"dominate beast"
-						],
-						"17": [
-							"dominate person",
-							"insect plague"
-						]
-					}
-				}
-			],
-			"subclassFeatures": [
-				"Oath of Conquest|Paladin||Conquest (UA)|UAPaladin|3",
-				"Aura of Conquest|Paladin||Conquest (UA)|UAPaladin|7",
-				"Implacable Spirit|Paladin||Conquest (UA)|UAPaladin|15",
-				"Invincible Conqueror|Paladin||Conquest (UA)|UAPaladin|20"
-			]
-		},
-		{
-			"name": "Oath of Treachery (UA)",
-			"shortName": "Treachery (UA)",
-			"source": "UAPaladin",
-			"className": "Paladin",
-			"classSource": "PHB",
-			"page": 2,
-			"additionalSpells": [
-				{
-					"prepared": {
-						"3": [
-							"charm person",
-							"expeditious retreat"
-						],
-						"5": [
-							"invisibility",
-							"mirror image"
-						],
-						"9": [
-							"gaseous form",
-							"haste"
-						],
-						"13": [
-							"confusion",
-							"greater invisibility"
-						],
-						"17": [
-							"dominate person",
-							"passwall"
-						]
-					}
-				}
-			],
-			"subclassFeatures": [
-				"Oath of Treachery|Paladin||Treachery (UA)|UAPaladin|3",
-				"Aura of Treachery|Paladin||Treachery (UA)|UAPaladin|7",
-				"Blackguard's Escape|Paladin||Treachery (UA)|UAPaladin|15",
-				"Icon of Deceit|Paladin||Treachery (UA)|UAPaladin|20"
-			]
-		},
-		{
-			"name": "Oath of Redemption (UA)",
-			"shortName": "Redemption (UA)",
-			"source": "UAATrioOfSubclasses",
-			"className": "Paladin",
-			"classSource": "PHB",
-			"page": 1,
-			"isReprinted": true,
-			"additionalSpells": [
-				{
-					"prepared": {
-						"3": [
-							"shield",
-							"sleep"
-						],
-						"5": [
-							"hold person",
-							"ray of enfeeblement"
-						],
-						"9": [
-							"counterspell",
-							"hypnotic pattern"
-						],
-						"13": [
-							"Otiluke's resilient sphere",
-							"stoneskin"
-						],
-						"17": [
-							"hold monster",
-							"wall of force"
-						]
-					}
-				}
-			],
-			"subclassFeatures": [
-				"Oath of Redemption|Paladin||Redemption (UA)|UAATrioOfSubclasses|3",
-				"Aura of the Guardian|Paladin||Redemption (UA)|UAATrioOfSubclasses|7",
-				"Protective Spirit|Paladin||Redemption (UA)|UAATrioOfSubclasses|15",
-				"Emissary of Redemption|Paladin||Redemption (UA)|UAATrioOfSubclasses|20"
-			]
-		},
-		{
-			"name": "Oath of Conquest v2 (UA)",
-			"shortName": "Conquest v2 (UA)",
-			"source": "UARevisedClassOptions",
-			"className": "Paladin",
-			"classSource": "PHB",
-			"page": 3,
-			"isReprinted": true,
-			"additionalSpells": [
-				{
-					"prepared": {
-						"3": [
-							"armor of Agathys",
-							"command"
-						],
-						"5": [
-							"hold person",
-							"spiritual weapon"
-						],
-						"9": [
-							"bestow curse",
-							"fear"
-						],
-						"13": [
-							"dominate beast",
-							"stoneskin"
-						],
-						"17": [
-							"cloudkill",
-							"dominate person"
-						]
-					}
-				}
-			],
-			"subclassFeatures": [
-				"Oath of Conquest v2|Paladin||Conquest v2 (UA)|UARevisedClassOptions|3",
-				"Aura of Conquest|Paladin||Conquest v2 (UA)|UARevisedClassOptions|7",
-				"Scornful Rebuke|Paladin||Conquest v2 (UA)|UARevisedClassOptions|15",
-				"Invincible Conqueror|Paladin||Conquest v2 (UA)|UARevisedClassOptions|20"
-			]
-		},
-		{
 			"name": "Oath of Conquest",
 			"shortName": "Conquest",
 			"source": "XGE",
@@ -1134,88 +965,6 @@
 				"Aura of the Guardian|Paladin||Redemption|XGE|7",
 				"Protective Spirit|Paladin||Redemption|XGE|15",
 				"Emissary of Redemption|Paladin||Redemption|XGE|20"
-			]
-		},
-		{
-			"name": "Oath of Heroism (UA)",
-			"shortName": "Heroism (UA)",
-			"source": "UABardAndPaladin",
-			"className": "Paladin",
-			"classSource": "PHB",
-			"page": 2,
-			"isReprinted": true,
-			"additionalSpells": [
-				{
-					"prepared": {
-						"3": [
-							"expeditious retreat",
-							"guiding bolt"
-						],
-						"5": [
-							"enhance ability",
-							"enthrall"
-						],
-						"9": [
-							"haste",
-							"protection from energy"
-						],
-						"13": [
-							"compulsion",
-							"freedom of movement"
-						],
-						"17": [
-							"commune",
-							"conjure volley"
-						]
-					}
-				}
-			],
-			"subclassFeatures": [
-				"Oath of Heroism|Paladin||Heroism (UA)|UABardAndPaladin|3",
-				"Mighty Deed|Paladin||Heroism (UA)|UABardAndPaladin|7",
-				"Glorious Defense|Paladin||Heroism (UA)|UABardAndPaladin|15",
-				"Living Myth|Paladin||Heroism (UA)|UABardAndPaladin|20"
-			]
-		},
-		{
-			"name": "Oath of the Watchers (UA)",
-			"shortName": "Watchers (UA)",
-			"source": "UA2020SubclassesPt1",
-			"className": "Paladin",
-			"classSource": "PHB",
-			"page": 3,
-			"isReprinted": true,
-			"additionalSpells": [
-				{
-					"prepared": {
-						"3": [
-							"alarm",
-							"chromatic orb"
-						],
-						"5": [
-							"augury",
-							"moonbeam"
-						],
-						"9": [
-							"counterspell",
-							"nondetection"
-						],
-						"13": [
-							"aura of purity",
-							"banishment"
-						],
-						"17": [
-							"hold monster",
-							"hallow"
-						]
-					}
-				}
-			],
-			"subclassFeatures": [
-				"Oath of the Watchers|Paladin||Watchers (UA)|UA2020SubclassesPt1|3",
-				"Aura of the Sentinel|Paladin||Watchers (UA)|UA2020SubclassesPt1|7",
-				"Vigilant Rebuke|Paladin||Watchers (UA)|UA2020SubclassesPt1|15",
-				"Mortal Bulwark|Paladin||Watchers (UA)|UA2020SubclassesPt1|20"
 			]
 		},
 		{
@@ -1303,6 +1052,47 @@
 				"Vigilant Rebuke|Paladin||Watchers|TCE|15",
 				"Mortal Bulwark|Paladin||Watchers|TCE|20"
 			]
+		},
+		{
+			"name": "Oath of the Open Sea",
+			"shortName": "Open Sea",
+			"source": "TDCSR",
+			"className": "Paladin",
+			"classSource": "PHB",
+			"page": 174,
+			"additionalSpells": [
+				{
+					"prepared": {
+						"3": [
+							"create or destroy water",
+							"expeditious retreat"
+						],
+						"5": [
+							"augury",
+							"misty step"
+						],
+						"9": [
+							"call lightning",
+							"freedom of the waves|TDCSR"
+						],
+						"13": [
+							"control water",
+							"freedom of movement"
+						],
+						"17": [
+							"commune with nature",
+							"freedom of the winds|TDCSR"
+						]
+					}
+				}
+			],
+			"subclassFeatures": [
+				"Oath of the Open Sea|Paladin|PHB|Open Sea|TDCSR|3",
+				"Aura of Liberation|Paladin|PHB|Open Sea|TDCSR|7",
+				"Stormy Waters|Paladin|PHB|Open Sea|TDCSR|15",
+				"Aura of Liberation (18th Level)|Paladin|PHB|Open Sea|TDCSR|18",
+				"Mythic Swashbuckler|Paladin|PHB|Open Sea|TDCSR|20"
+			]
 		}
 	],
 	"classFeature": [
@@ -1362,10 +1152,6 @@
 					"entries": [
 						{
 							"type": "refOptionalfeature",
-							"optionalfeature": "Close Quarters Shooter|UALightDarkUnderdark"
-						},
-						{
-							"type": "refOptionalfeature",
 							"optionalfeature": "Defense"
 						},
 						{
@@ -1378,35 +1164,7 @@
 						},
 						{
 							"type": "refOptionalfeature",
-							"optionalfeature": "Mariner|UAWaterborneAdventures"
-						},
-						{
-							"type": "refOptionalfeature",
 							"optionalfeature": "Protection"
-						},
-						{
-							"type": "refOptionalfeature",
-							"optionalfeature": "Tunnel Fighter|UALightDarkUnderdark"
-						},
-						{
-							"type": "refOptionalfeature",
-							"optionalfeature": "Blind Fighting|UAClassFeatureVariants"
-						},
-						{
-							"type": "refOptionalfeature",
-							"optionalfeature": "Interception|UAClassFeatureVariants"
-						},
-						{
-							"type": "refOptionalfeature",
-							"optionalfeature": "Thrown Weapon Fighting|UAClassFeatureVariants"
-						},
-						{
-							"type": "refOptionalfeature",
-							"optionalfeature": "Unarmed Fighting|UAClassFeatureVariants"
-						},
-						{
-							"type": "refOptionalfeature",
-							"optionalfeature": "Blessed Warrior|UAClassFeatureVariants"
 						},
 						{
 							"type": "refOptionalfeature",
@@ -1422,19 +1180,6 @@
 						}
 					]
 				}
-			]
-		},
-		{
-			"name": "Martial Versatility",
-			"source": "UAClassFeatureVariants",
-			"page": 12,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"level": 2,
-			"isClassFeatureVariant": true,
-			"entries": [
-				"{@i 2nd-level feature (enhances Fighting Style)}",
-				"Whenever you gain a level in this class, you can replace a fighting style you know with another style available to your class. This change represents a shift of focus in your martial training and practice, causing you to lose the benefits of one style and gain the benefits of another style."
 			]
 		},
 		{
@@ -1518,22 +1263,6 @@
 			]
 		},
 		{
-			"name": "Channel Divinity: Harness Divine Power",
-			"source": "UAClassFeatureVariants",
-			"page": 6,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"level": 3,
-			"isClassFeatureVariant": true,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"{@i 3rd-level paladin feature (enhances Channel Divinity)}",
-				"You can expend a use of your Channel Divinity to fuel your spells. As a bonus action, you touch your holy symbol, utter a prayer, and regain one expended 1st-level spell slot."
-			]
-		},
-		{
 			"name": "Divine Health",
 			"source": "PHB",
 			"page": 82,
@@ -1567,10 +1296,6 @@
 				{
 					"type": "refClassFeature",
 					"classFeature": "Channel Divinity|Paladin||3"
-				},
-				{
-					"type": "refClassFeature",
-					"classFeature": "Channel Divinity: Harness Divine Power|Paladin||3|UAClassFeatureVariants"
 				},
 				{
 					"type": "refClassFeature",
@@ -1611,20 +1336,6 @@
 			"entries": [
 				"{@i 4th-level paladin {@variantrule optional class features|tce|optional feature}}",
 				"Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can replace a {@filter fighting style|optionalfeatures|feature type=FS:P} you know with another fighting style available to paladins. This replacement represents a shift of focus in your martial practice."
-			]
-		},
-		{
-			"name": "Proficiency Versatility",
-			"source": "UAClassFeatureVariants",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"level": 4,
-			"isClassFeatureVariant": true,
-			"entries": [
-				"{@i 4th-level feature (enhances Ability Score Improvement)}",
-				"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
-				"This change represents one of your skills atrophying as you focus on a different skill."
 			]
 		},
 		{
@@ -1678,20 +1389,6 @@
 			]
 		},
 		{
-			"name": "Proficiency Versatility",
-			"source": "UAClassFeatureVariants",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"level": 8,
-			"isClassFeatureVariant": true,
-			"entries": [
-				"{@i 8th-level feature (enhances Ability Score Improvement)}",
-				"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
-				"This change represents one of your skills atrophying as you focus on a different skill."
-			]
-		},
-		{
 			"name": "Aura of Courage",
 			"source": "PHB",
 			"page": 82,
@@ -1727,20 +1424,6 @@
 			"entries": [
 				"When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 				"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
-			]
-		},
-		{
-			"name": "Proficiency Versatility",
-			"source": "UAClassFeatureVariants",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"level": 12,
-			"isClassFeatureVariant": true,
-			"entries": [
-				"{@i 12th-level feature (enhances Ability Score Improvement)}",
-				"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
-				"This change represents one of your skills atrophying as you focus on a different skill."
 			]
 		},
 		{
@@ -1782,20 +1465,6 @@
 			]
 		},
 		{
-			"name": "Proficiency Versatility",
-			"source": "UAClassFeatureVariants",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"level": 16,
-			"isClassFeatureVariant": true,
-			"entries": [
-				"{@i 16th-level feature (enhances Ability Score Improvement)}",
-				"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
-				"This change represents one of your skills atrophying as you focus on a different skill."
-			]
-		},
-		{
 			"name": "Aura improvements",
 			"source": "PHB",
 			"page": 82,
@@ -1818,20 +1487,6 @@
 			"entries": [
 				"When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
 				"If your DM allows the use of feats, you may instead take a {@5etools feat|feats.html}."
-			]
-		},
-		{
-			"name": "Proficiency Versatility",
-			"source": "UAClassFeatureVariants",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"level": 19,
-			"isClassFeatureVariant": true,
-			"entries": [
-				"{@i 19th-level feature (enhances Ability Score Improvement)}",
-				"When you gain the Ability Score Improvement feature from your class, you can also replace one of your skill proficiencies with a skill proficiency offered by your class at 1st level (the proficiency you replace needn't be from the class).",
-				"This change represents one of your skills atrophying as you focus on a different skill."
 			]
 		},
 		{
@@ -1866,16 +1521,34 @@
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Oathbreaker Channel Divinity: Control Undead|Paladin||Oathbreaker|DMG|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Oathbreaker Channel Divinity: Dreadful Aspect|Paladin||Oathbreaker|DMG|3"
+					"subclassFeature": "Channel Divinity|Paladin||Oathbreaker|DMG|3"
 				}
 			]
 		},
 		{
-			"name": "Oathbreaker Channel Divinity: Control Undead",
+			"name": "Channel Divinity",
+			"source": "DMG",
+			"page": 97,
+			"className": "Paladin",
+			"classSource": "PHB",
+			"subclassShortName": "Oathbreaker",
+			"subclassSource": "DMG",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"An Oathbreaker paladin of 3rd level or higher gains the following two Channel Divinity options.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Control Undead|Paladin||Oathbreaker|DMG|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Dreadful Aspect|Paladin||Oathbreaker|DMG|3"
+				}
+			]
+		},
+		{
+			"name": "Control Undead",
 			"source": "DMG",
 			"page": 97,
 			"className": "Paladin",
@@ -1889,7 +1562,7 @@
 			]
 		},
 		{
-			"name": "Oathbreaker Channel Divinity: Dreadful Aspect",
+			"name": "Dreadful Aspect",
 			"source": "DMG",
 			"page": 97,
 			"className": "Paladin",
@@ -2016,16 +1689,12 @@
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Nature's Wrath|Paladin||Ancients||3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Turn the Faithless|Paladin||Ancients||3"
+					"subclassFeature": "Channel Divinity|Paladin||Ancients||3"
 				}
 			]
 		},
 		{
-			"name": "Channel Divinity: Nature's Wrath",
+			"name": "Channel Divinity",
 			"source": "PHB",
 			"page": 86,
 			"className": "Paladin",
@@ -2038,11 +1707,19 @@
 				"name": "Channel Divinity"
 			},
 			"entries": [
-				"You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 feet of you that you can see. The creature must succeed on a Strength or Dexterity saving throw (its choice) or be {@condition restrained}. While {@condition restrained} by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish."
+				"When you take this oath at 3rd level, you gain the following two Channel Divinity options.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Nature's Wrath|Paladin||Ancients||3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Turn the Faithless|Paladin||Ancients||3"
+				}
 			]
 		},
 		{
-			"name": "Channel Divinity: Turn the Faithless",
+			"name": "Nature's Wrath",
 			"source": "PHB",
 			"page": 86,
 			"className": "Paladin",
@@ -2051,13 +1728,8 @@
 			"subclassSource": "PHB",
 			"level": 3,
 			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
 			"entries": [
-				"You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 feet of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.",
-				"A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the {@action Dash} action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the {@action Dodge} action.",
-				"If the creature's true form is concealed by an illusion, shapeshifting, or other effect, that form is revealed while it is turned."
+				"You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 feet of you that you can see. The creature must succeed on a Strength or Dexterity saving throw (its choice) or be {@condition restrained}. While {@condition restrained} by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish."
 			]
 		},
 		{
@@ -2171,6 +1843,22 @@
 			]
 		},
 		{
+			"name": "Turn the Faithless",
+			"source": "PHB",
+			"page": 86,
+			"className": "Paladin",
+			"classSource": "PHB",
+			"subclassShortName": "Ancients",
+			"subclassSource": "PHB",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 feet of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.",
+				"A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the {@action Dash} action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the {@action Dodge} action.",
+				"If the creature's true form is concealed by an illusion, shapeshifting, or other effect, that form is revealed while it is turned."
+			]
+		},
+		{
 			"name": "Aura of Warding",
 			"source": "PHB",
 			"page": 86,
@@ -2246,16 +1934,12 @@
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Sacred Weapon|Paladin||Devotion||3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Turn the Unholy|Paladin||Devotion||3"
+					"subclassFeature": "Channel Divinity|Paladin||Devotion||3"
 				}
 			]
 		},
 		{
-			"name": "Channel Divinity: Sacred Weapon",
+			"name": "Channel Divinity",
 			"source": "PHB",
 			"page": 85,
 			"srd": true,
@@ -2269,27 +1953,15 @@
 				"name": "Channel Divinity"
 			},
 			"entries": [
-				"As an action, you can imbue one weapon that you are holding with positive energy, using your Channel Divinity. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (with a minimum bonus of +1). The weapon also emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration.",
-				"You can end this effect on your turn as part of any other action. If you are no longer holding or carrying this weapon, or if you fall {@condition unconscious}, this effect ends."
-			]
-		},
-		{
-			"name": "Channel Divinity: Turn the Unholy",
-			"source": "PHB",
-			"page": 85,
-			"srd": true,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Devotion",
-			"subclassSource": "PHB",
-			"level": 3,
-			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"As an action, you present your holy symbol and speak a prayer censuring fiends and undead, using your Channel Divinity. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage.",
-				"A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the {@action Dash} action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the {@action Dodge} action."
+				"When you take this oath at 3rd level, you gain the following two Channel Divinity options.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Sacred Weapon|Paladin||Devotion||3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Turn the Unholy|Paladin||Devotion||3"
+				}
 			]
 		},
 		{
@@ -2339,6 +2011,22 @@
 						]
 					]
 				}
+			]
+		},
+		{
+			"name": "Sacred Weapon",
+			"source": "PHB",
+			"page": 85,
+			"srd": true,
+			"className": "Paladin",
+			"classSource": "PHB",
+			"subclassShortName": "Devotion",
+			"subclassSource": "PHB",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"As an action, you can imbue one weapon that you are holding with positive energy, using your Channel Divinity. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (with a minimum bonus of +1). The weapon also emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration.",
+				"You can end this effect on your turn as part of any other action. If you are no longer holding or carrying this weapon, or if you fall {@condition unconscious}, this effect ends."
 			]
 		},
 		{
@@ -2417,6 +2105,22 @@
 			]
 		},
 		{
+			"name": "Turn the Unholy",
+			"source": "PHB",
+			"page": 85,
+			"srd": true,
+			"className": "Paladin",
+			"classSource": "PHB",
+			"subclassShortName": "Devotion",
+			"subclassSource": "PHB",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"As an action, you present your holy symbol and speak a prayer censuring fiends and undead, using your Channel Divinity. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage.",
+				"A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the {@action Dash} action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the {@action Dodge} action."
+			]
+		},
+		{
 			"name": "Aura of Devotion",
 			"source": "PHB",
 			"page": 85,
@@ -2486,16 +2190,12 @@
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Abjure Enemy|Paladin||Vengeance||3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Vow of Enmity|Paladin||Vengeance||3"
+					"subclassFeature": "Channel Divinity|Paladin||Vengeance||3"
 				}
 			]
 		},
 		{
-			"name": "Channel Divinity: Abjure Enemy",
+			"name": "Abjure Enemy",
 			"source": "PHB",
 			"page": 87,
 			"className": "Paladin",
@@ -2504,9 +2204,6 @@
 			"subclassSource": "PHB",
 			"level": 3,
 			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
 			"entries": [
 				"As an action, you present your holy symbol and speak a prayer of denunciation, using your Channel Divinity. Choose one creature within 60 feet of you that you can see. That creature must make a Wisdom saving throw, unless it is immune to being {@condition frightened}. Fiends and undead have disadvantage on this saving throw.",
 				"On a failed save, the creature is {@condition frightened} for 1 minute or until it takes any damage. While {@condition frightened}, the creature's speed is 0, and it can't benefit from any bonus to its speed.",
@@ -2514,7 +2211,7 @@
 			]
 		},
 		{
-			"name": "Channel Divinity: Vow of Enmity",
+			"name": "Channel Divinity",
 			"source": "PHB",
 			"page": 87,
 			"className": "Paladin",
@@ -2527,7 +2224,15 @@
 				"name": "Channel Divinity"
 			},
 			"entries": [
-				"As a bonus action, you can utter a vow of enmity against a creature you can see within 10 feet of you, using your Channel Divinity. You gain advantage on attack rolls against the creature for 1 minute or until it drops to 0 hit points or falls {@condition unconscious}."
+				"When you take this oath at 3rd level, you gain the following two Channel Divinity options.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Abjure Enemy|Paladin||Vengeance||3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Vow of Enmity|Paladin||Vengeance||3"
+				}
 			]
 		},
 		{
@@ -2641,6 +2346,20 @@
 			]
 		},
 		{
+			"name": "Vow of Enmity",
+			"source": "PHB",
+			"page": 87,
+			"className": "Paladin",
+			"classSource": "PHB",
+			"subclassShortName": "Vengeance",
+			"subclassSource": "PHB",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"As a bonus action, you can utter a vow of enmity against a creature you can see within 10 feet of you, using your Channel Divinity. You gain advantage on attack rolls against the creature for 1 minute or until it drops to 0 hit points or falls {@condition unconscious}."
+			]
+		},
+		{
 			"name": "Relentless Avenger",
 			"source": "PHB",
 			"page": 87,
@@ -2711,16 +2430,12 @@
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Champion Challenge|Paladin||Crown|SCAG|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Turn the Tide|Paladin||Crown|SCAG|3"
+					"subclassFeature": "Channel Divinity|Paladin||Crown|SCAG|3"
 				}
 			]
 		},
 		{
-			"name": "Channel Divinity: Champion Challenge",
+			"name": "Champion Challenge",
 			"source": "SCAG",
 			"page": 132,
 			"className": "Paladin",
@@ -2729,15 +2444,12 @@
 			"subclassSource": "SCAG",
 			"level": 3,
 			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
 			"entries": [
 				"As a bonus action, you issue a challenge that compels other creatures to do battle with you. Each creature of your choice that you can see within 30 feet of you must make a Wisdom saving throw. On a failed save, a creature can't willingly move more than 30 feet away from you. This effect ends on the creature if you are {@condition incapacitated} or die or if the creature is more than 30 feet away from you."
 			]
 		},
 		{
-			"name": "Channel Divinity: Turn the Tide",
+			"name": "Channel Divinity",
 			"source": "SCAG",
 			"page": 132,
 			"className": "Paladin",
@@ -2750,7 +2462,15 @@
 				"name": "Channel Divinity"
 			},
 			"entries": [
-				"As a bonus action, you can bolster injured creatures with your Channel Divinity. Each creature of your choice that can hear you within 30 feet of you regains hit points equal to {@dice 1d6} + your Charisma modifier (minimum of 1) if it has no more than half of its hit points."
+				"When you take this oath at 3rd level, you gain the following two Channel Divinity options.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Champion Challenge|Paladin||Crown|SCAG|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Turn the Tide|Paladin||Crown|SCAG|3"
+				}
 			]
 		},
 		{
@@ -2864,6 +2584,20 @@
 			]
 		},
 		{
+			"name": "Turn the Tide",
+			"source": "SCAG",
+			"page": 132,
+			"className": "Paladin",
+			"classSource": "PHB",
+			"subclassShortName": "Crown",
+			"subclassSource": "SCAG",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"As a bonus action, you can bolster injured creatures with your Channel Divinity. Each creature of your choice that can hear you within 30 feet of you regains hit points equal to {@dice 1d6} + your Charisma modifier (minimum of 1) if it has no more than half of its hit points."
+			]
+		},
+		{
 			"name": "Divine Allegiance",
 			"source": "SCAG",
 			"page": 132,
@@ -2969,11 +2703,11 @@
 				"You gain the following two Channel Divinity options. See the Sacred Oath class feature for how Channel Divinity works.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Peerless Athlete|Paladin||Glory|TCE|3"
+					"subclassFeature": "Peerless Athlete|Paladin||Glory|TCE|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Inspiring Smite|Paladin||Glory|TCE|3"
+					"subclassFeature": "Inspiring Smite|Paladin||Glory|TCE|3"
 				}
 			]
 		},
@@ -3081,7 +2815,7 @@
 			]
 		},
 		{
-			"name": "Channel Divinity: Inspiring Smite",
+			"name": "Inspiring Smite",
 			"source": "TCE",
 			"page": 53,
 			"otherSources": [
@@ -3101,7 +2835,7 @@
 			]
 		},
 		{
-			"name": "Channel Divinity: Peerless Athlete",
+			"name": "Peerless Athlete",
 			"source": "TCE",
 			"page": 53,
 			"otherSources": [
@@ -3203,9 +2937,6 @@
 			"subclassShortName": "Watchers",
 			"subclassSource": "TCE",
 			"level": 3,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
 			"entries": [
 				"The Oath of the Watchers binds paladins to protect mortal realms from the predations of extraplanar creatures, many of which can lay waste to mortal soldiers. Thus, the Watchers hone their minds, spirits, and bodies to be the ultimate weapons against such threats.",
 				"Paladins who follow the Watchers' oath are ever vigilant in spotting the influence of extraplanar forces, often establishing a network of spies and informants to gather information on suspected cults. To a Watcher, keeping a healthy suspicion and awareness about one's surroundings is as natural as wearing armor in battle.",
@@ -3396,83 +3127,89 @@
 			]
 		},
 		{
-			"name": "Oath of the Watchers",
-			"source": "UA2020SubclassesPt1",
-			"page": 3,
+			"name": "Oath of the Open Sea",
+			"source": "TDCSR",
+			"page": 174,
 			"className": "Paladin",
 			"classSource": "PHB",
-			"subclassShortName": "Watchers (UA)",
-			"subclassSource": "UA2020SubclassesPt1",
+			"subclassShortName": "Open Sea",
+			"subclassSource": "TDCSR",
 			"level": 3,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
+			"header": 1,
 			"entries": [
-				"Paladins who vow the Oath of the Watchers seek to protect the mortal realm from the predations of extraplanar creatures, many of which can lay waste to mortal soldiers. Thus, the Watchers hone their minds, spirits, and bodies to be the ultimate weapons against such threats.",
-				"Paladins who follow the Watchers' oath are ever vigilant in spotting the influence of extraplanar forces, often establishing a network of spies and informants to gather information on suspected cults. To a Watcher, keeping a healthy suspicion and awareness about one's surroundings is as natural as wearing armor in battle.",
+				"The Oath of the Open Sea calls to seafaring warriors, swashbuckling sailors, and traveling guardians who seek the thrill of a limitless horizon. Driven to search for adventure and mystery across and beneath every endless oceanic expanse, paladins who swear this oath stand against those who would deny liberty to likeminded travelers, rooting out tyranny and corruption wherever it is found.",
+				"Such guardians believe in the natural beauty of the sea, often making offerings and prayers to entities or deities such as the {@deity The Wildmother|Exandria|TDCSR|Wildmother} or the {@deity The Stormlord|Exandria|TDCSR|Stormlord} who influence safe passage. At the same time, they answer the call to hunt the monstrous creatures that too often bloody the waters with wanton violence and ill intent, and which terrorize the folk of the sea and shore.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Tenets of the Watchers|Paladin||Watchers (UA)|UA2020SubclassesPt1|3"
+					"subclassFeature": "Tenets of the Open Sea|Paladin|PHB|Open Sea|TDCSR|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Oath Spells|Paladin||Watchers (UA)|UA2020SubclassesPt1|3"
+					"subclassFeature": "Oath Spells|Paladin|PHB|Open Sea|TDCSR|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity|Paladin||Watchers (UA)|UA2020SubclassesPt1|3"
+					"subclassFeature": "Channel Divinity|Paladin|PHB|Open Sea|TDCSR|3"
 				}
 			]
 		},
 		{
 			"name": "Channel Divinity",
-			"source": "UA2020SubclassesPt1",
-			"page": 3,
+			"source": "TDCSR",
+			"page": 175,
 			"className": "Paladin",
 			"classSource": "PHB",
-			"subclassShortName": "Watchers (UA)",
-			"subclassSource": "UA2020SubclassesPt1",
+			"subclassShortName": "Open Sea",
+			"subclassSource": "TDCSR",
 			"level": 3,
-			"header": 1,
+			"header": 2,
 			"consumes": {
 				"name": "Channel Divinity"
 			},
 			"entries": [
-				"{@i 3rd-level Oath of the Watchers feature}",
-				"You gain the following Channel Divinity options. See the Sacred Oath class feature for how Channel Divinity works.",
+				"When you take this oath at 3rd level, you gain the following two Channel Divinity options.",
 				{
 					"type": "entries",
-					"name": "Watcher's Will",
+					"name": "Marine Layer",
+					"page": 175,
 					"entries": [
-						"You can use your Channel Divinity to invest your presence with the warding power of your faith. As an action, you can choose a number of creatures you can see within 30 feet of you, up to a number equal to your Charisma modifier (minimum of one creature). For 1 minute, all the chosen creatures have advantage on Intelligence, Wisdom, and Charisma saving throws."
+						"As an action, you channel the sea to create a thick cloud of fog that surrounds you for 20 feet in all directions. The fog moves with you, remaining centered on you and making its area heavily obscured. You and each creature within 5 feet of you instead treat the area as lightly obscured. This fog lasts for 10 minutes, spreads around corners, and cannot be dispersed unless you choose to end this effect (no action required)."
 					]
 				},
 				{
 					"type": "entries",
-					"name": "Abjure the Extraplanar",
+					"name": "Fury of the Tides",
+					"page": 175,
 					"entries": [
-						"You can use your Channel Divinity to castigate unworldly beings. As an action, you present your holy symbol and each elemental, fey, fiend, or aberration within 30 feet of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.",
-						"A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. For its action, it can use only the {@action Dash} action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the {@action Dodge} action."
+						"As a bonus action, you channel the powerful might of the waves to bolster your attacks for 1 minute. Once per turn for the duration, when you hit a creature with a weapon attack, you can choose to push the target 10 feet away from you. If pushed into an obstacle or another creature, the target takes bludgeoning damage equal to your Charisma modifier."
+					]
+				},
+				{
+					"type": "inset",
+					"name": "Rules Tip: Visibility",
+					"page": 175,
+					"entries": [
+						"Fog and other effects can obscure vision for you, your enemies, and your allies. When you heavily obscure an area using your Marine Layer Channel Divinity option, all creatures within the area have their vision completely blocked, and creatures outside the area can't see in. Creatures that can't see automatically fail {@quickref ability checks|PHB|2|0} that require sight. Also, attack rolls against creatures that can't see have {@quickref Advantage and Disadvantage|PHB|2|0|advantage}, and their own attack rolls have {@quickref Advantage and Disadvantage|PHB|2|0|disadvantage}.",
+						"Creatures in a lightly obscured area have {@quickref Advantage and Disadvantage|PHB|2|0|disadvantage} only on Wisdom ({@skill Perception}) checks that rely on sight. The rules for when your vision is obscured are described completely in the fifth edition core rules."
 					]
 				}
 			]
 		},
 		{
 			"name": "Oath Spells",
-			"source": "UA2020SubclassesPt1",
-			"page": 3,
+			"source": "TDCSR",
+			"page": 175,
 			"className": "Paladin",
 			"classSource": "PHB",
-			"subclassShortName": "Watchers (UA)",
-			"subclassSource": "UA2020SubclassesPt1",
+			"subclassShortName": "Open Sea",
+			"subclassSource": "TDCSR",
 			"level": 3,
-			"header": 1,
+			"header": 2,
 			"entries": [
-				"{@i 3rd-level Oath of the Watchers feature}",
-				"You gain oath spells at the paladin levels listed in the Oath of the Watchers table. See the Sacred Oath class feature for how oath spells work.",
+				"You gain oath spells at the paladin levels listed in the Oath of the Open Sea Spells table. Spells marked with an asterisk are new spells described on the {@filter spells page|spells|source=TDCSR}.",
 				{
 					"type": "table",
-					"caption": "Oath of the Watchers Spells",
+					"caption": "Oath of the Open Sea Spells",
 					"colLabels": [
 						"Paladin Level",
 						"Spells"
@@ -3484,1217 +3221,138 @@
 					"rows": [
 						[
 							"3rd",
-							"{@spell alarm}, {@spell chromatic orb}"
+							"{@spell create or destroy water}, {@spell expeditious retreat}"
 						],
 						[
 							"5th",
-							"{@spell augury}, {@spell moonbeam}"
+							"{@spell augury}, {@spell misty step}"
 						],
 						[
 							"9th",
-							"{@spell counterspell}, {@spell nondetection}"
+							"{@spell call lightning}, {@spell freedom of the waves|TDCSR}*"
 						],
 						[
 							"13th",
-							"{@spell aura of purity}, {@spell banishment}"
+							"{@spell control water}, {@spell freedom of movement}"
 						],
 						[
 							"17th",
-							"{@spell hold monster}, {@spell hallow}"
+							"{@spell commune with nature}, {@spell freedom of the winds|TDCSR}*"
 						]
 					]
 				}
 			]
 		},
 		{
-			"name": "Tenets of the Watchers",
-			"source": "UA2020SubclassesPt1",
-			"page": 3,
+			"name": "Tenets of the Open Sea",
+			"source": "TDCSR",
+			"page": 174,
 			"className": "Paladin",
 			"classSource": "PHB",
-			"subclassShortName": "Watchers (UA)",
-			"subclassSource": "UA2020SubclassesPt1",
+			"subclassShortName": "Open Sea",
+			"subclassSource": "TDCSR",
 			"level": 3,
-			"header": 1,
+			"header": 2,
 			"entries": [
-				"A paladin who assumes the Oath of the Watchers swears to safeguard the mortal realm from otherworldly threats.",
+				"Freedom can be a selfless virtue or a selfish want. For paladins who swear the Oath of the Open Sea, freedom is the highest calling, and a gift to be granted to all.",
 				{
 					"type": "entries",
-					"name": "Vigilance",
+					"name": "No Greater Life than a Life Lived Free",
+					"page": 175,
 					"entries": [
-						"The threats you face are cunning, powerful, and subversive. Be ever alert for their corruption."
+						"One should be free to chart their own path without oppression. Those who would exert their power to dominate others shall be smote."
 					]
 				},
 				{
 					"type": "entries",
-					"name": "Loyalty",
+					"name": "Trust the Skies",
+					"page": 175,
 					"entries": [
-						"Never accept gifts or favors from fiends or those who truck with them. Stay true to your order, your comrades, and your duty."
+						"The guidance of a strong breeze. The rumbling warnings of a coming storm. Nature is a source of portent and council that should be heeded."
 					]
 				},
 				{
 					"type": "entries",
-					"name": "Discipline",
+					"name": "Adapt Like the Water",
+					"page": 175,
 					"entries": [
-						"You are the shield against the endless terrors that lie beyond the stars. Your blade must be forever sharp and your mind keen to survive what lies beyond."
+						"The waters of the ocean can shift around any obstacle\u2014or become the most impassable obstacle of all. They carve away the land to reveal the secrets of the past, or swallow the truth and hide it forever. To embrace this fluidity is to be ready for any challenge."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Explore the Uncharted",
+					"page": 175,
+					"entries": [
+						"The world is filled with mystery. Through the pursuit of enigmatic ends, one can uncover those who hide their foul deeds, and find the path to becoming something great."
 					]
 				}
 			]
 		},
 		{
-			"name": "Aura of the Sentinel",
-			"source": "UA2020SubclassesPt1",
-			"page": 3,
+			"name": "Aura of Liberation",
+			"source": "TDCSR",
+			"page": 175,
 			"className": "Paladin",
 			"classSource": "PHB",
-			"subclassShortName": "Watchers (UA)",
-			"subclassSource": "UA2020SubclassesPt1",
+			"subclassShortName": "Open Sea",
+			"subclassSource": "TDCSR",
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"{@i 7th- and 18th-level Oath of the Watchers feature}",
-				"You emit an aura of alertness while you aren't {@condition incapacitated}. When you and any creature of your choice within 10 feet of you rolls initiative, you each gain a bonus to initiative equal to your Charisma modifier (minimum of +1). At 18th level, the range of this aura increases to 30 feet."
+				"Starting at 7th level, you fill nearby creatures with the energy of movement. While you're not {@condition incapacitated}, you and creatures of your choice within 10 feet of you cannot be {@condition grappled} or {@condition restrained}, and {@quickref Underwater Combat|PHB|3|0|ignore penalties on movement and attacks while underwater}. Creatures that are already {@condition grappled} or {@condition restrained} when they enter the aura can spend 5 feet of movement to automatically escape unless they are bound by magic restraints."
 			]
 		},
 		{
-			"name": "Vigilant Rebuke",
-			"source": "UA2020SubclassesPt1",
-			"page": 3,
+			"name": "Stormy Waters",
+			"source": "TDCSR",
+			"page": 175,
 			"className": "Paladin",
 			"classSource": "PHB",
-			"subclassShortName": "Watchers (UA)",
-			"subclassSource": "UA2020SubclassesPt1",
+			"subclassShortName": "Open Sea",
+			"subclassSource": "TDCSR",
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"{@i 15th-level Oath of the Watchers feature}",
-				"You've learned how to magically chastise anyone who dares cast unwanted spells at you and your wards. Whenever you or a creature you can see within 30 feet of you succeeds on a saving throw against a spell, you can use your reaction to deal {@damage 2d8} + your Charisma modifier force damage to the spellcaster."
+				"At 15th level, you can call on the force of crashing waters as a reaction whenever a creature moves into or out of your reach. The creature takes {@damage 1d12} bludgeoning damage and must succeed on a Strength {@quickref saving throws|PHB|2|1|saving throw} against your spell save DC or be knocked {@condition prone}."
 			]
 		},
 		{
-			"name": "Mortal Bulwark",
-			"source": "UA2020SubclassesPt1",
-			"page": 3,
+			"name": "Aura of Liberation (18th Level)",
+			"source": "TDCSR",
+			"page": 175,
 			"className": "Paladin",
 			"classSource": "PHB",
-			"subclassShortName": "Watchers (UA)",
-			"subclassSource": "UA2020SubclassesPt1",
+			"subclassShortName": "Open Sea",
+			"subclassSource": "TDCSR",
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"When you reach 18th level in this class, the aura affects creatures within 30 feet of you."
+			]
+		},
+		{
+			"name": "Mythic Swashbuckler",
+			"source": "TDCSR",
+			"page": 175,
+			"className": "Paladin",
+			"classSource": "PHB",
+			"subclassShortName": "Open Sea",
+			"subclassSource": "TDCSR",
 			"level": 20,
 			"header": 2,
 			"entries": [
-				"{@i 20th-level Oath of the Watchers feature}",
-				"You manifest a spark of your deity's power in defense of your sacred oath. As a bonus action, you gain the following benefits for 1 minute:",
+				"At 20th level, you learn to channel the spirits of historic sea captains to briefly become a paragon of heroic adventure. As an action, you embrace these spirits of the sea to gain the following benefits for 1 minute:",
 				{
 					"type": "list",
 					"items": [
-						"You gain {@sense truesight} in a 120-foot radius.",
-						"You have advantage on attack rolls against elementals, fey, fiends, and aberrations.",
-						"When you hit a creature with an attack and deal damage to it, you can also force it to make a Charisma saving throw. On a failed save, the creature is magically banished to its native plane of existence if it's currently not there. On a successful save, the creature can't be banished by this feature for 24 hours."
+						"You have {@quickref Advantage and Disadvantage|PHB|2|0|advantage} on Strength ({@skill Athletics}) checks and you gain a climbing speed equal to your walking speed. If you already have a climbing speed, it is doubled.",
+						"If you are within 5 feet of a creature and no other creatures are within 5 feet of you, you have {@quickref Advantage and Disadvantage|PHB|2|0|advantage} on attack rolls against that creature.",
+						"You can take the {@action Dash} or {@action Disengage} action as a bonus action.",
+						"You have {@quickref Advantage and Disadvantage|PHB|2|0|advantage} on Dexterity checks and Dexterity {@quickref saving throws|PHB|2|1} against effects you can see."
 					]
 				},
-				"Once you use this bonus action, you can't use it again until you finish a long rest."
-			]
-		},
-		{
-			"name": "Oath of Redemption",
-			"source": "UAATrioOfSubclasses",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Redemption (UA)",
-			"subclassSource": "UAATrioOfSubclasses",
-			"level": 3,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"The Oath of Redemption sets a paladin on a difficult path, one that requires a holy warrior to use violence only as a last resort. Paladins who dedicate themselves to this oath believe that any person can be redeemed and that the path of benevolence and justice is one that anyone can walk. These paladins face evil creatures in the hope of turning them to the light, and the paladins slay them only when such a deed will clearly save other lives. Paladins who follow this path are known as redeemers.",
-				"While redeemers are idealists, they are no fools. Redeemers know that undead, demons, devils, and other supernatural threats can be inherently evil. Against such foes, the paladins bring the full wrath of their weapons and spells to bear. Yet the redeemers still pray that, one day, even creatures of wickedness will invite their own redemption.",
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Tenets of Redemption|Paladin||Redemption (UA)|UAATrioOfSubclasses|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Oath Spells|Paladin||Redemption (UA)|UAATrioOfSubclasses|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Armor of Peace|Paladin||Redemption (UA)|UAATrioOfSubclasses|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Warrior of Reconciliation|Paladin||Redemption (UA)|UAATrioOfSubclasses|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Emissary of Peace|Paladin||Redemption (UA)|UAATrioOfSubclasses|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Rebuke the Violent|Paladin||Redemption (UA)|UAATrioOfSubclasses|3"
-				}
-			]
-		},
-		{
-			"name": "Armor of Peace",
-			"source": "UAATrioOfSubclasses",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Redemption (UA)",
-			"subclassSource": "UAATrioOfSubclasses",
-			"level": 3,
-			"header": 1,
-			"entries": [
-				"Starting at 3rd level, your commitment to peace allows you to walk into the most dangerous situations unarmored. While you aren't wearing armor or wielding a shield, your base AC is 16 + your Dexterity modifier."
-			]
-		},
-		{
-			"name": "Channel Divinity: Emissary of Peace",
-			"source": "UAATrioOfSubclasses",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Redemption (UA)",
-			"subclassSource": "UAATrioOfSubclasses",
-			"level": 3,
-			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"You can use your Channel Divinity to augment your presence with divine power. As a bonus action, you grant yourself a +5 bonus to the next Charisma ({@skill Persuasion}) check you make within the next minute."
-			]
-		},
-		{
-			"name": "Channel Divinity: Rebuke the Violent",
-			"source": "UAATrioOfSubclasses",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Redemption (UA)",
-			"subclassSource": "UAATrioOfSubclasses",
-			"level": 3,
-			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"You can use your Channel Divinity to rebuke those who use violence. As a reaction when an enemy within 10 feet of you deals damage with a melee attack against one creature other than you, you force that attacker to make a Wisdom saving throw. On a failed save, the attacker takes radiant damage equal to the damage it just dealt. On a successful save, it takes half as much damage."
-			]
-		},
-		{
-			"name": "Oath Spells",
-			"source": "UAATrioOfSubclasses",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Redemption (UA)",
-			"subclassSource": "UAATrioOfSubclasses",
-			"level": 3,
-			"header": 1,
-			"entries": [
-				"You gain oath spells at the paladin levels listed.",
-				{
-					"type": "table",
-					"caption": "Oath of Redemption Spells",
-					"colLabels": [
-						"Paladin Level",
-						"Spells"
-					],
-					"colStyles": [
-						"col-2 text-center",
-						"col-10"
-					],
-					"rows": [
-						[
-							"3rd",
-							"{@spell shield}, {@spell sleep}"
-						],
-						[
-							"5th",
-							"{@spell hold person}, {@spell ray of enfeeblement}"
-						],
-						[
-							"9th",
-							"{@spell counterspell}, {@spell hypnotic pattern}"
-						],
-						[
-							"13th",
-							"{@spell Otiluke's resilient sphere}, {@spell stoneskin}"
-						],
-						[
-							"17th",
-							"{@spell hold monster}, {@spell wall of force}"
-						]
-					]
-				}
-			]
-		},
-		{
-			"name": "Tenets of Redemption",
-			"source": "UAATrioOfSubclasses",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Redemption (UA)",
-			"subclassSource": "UAATrioOfSubclasses",
-			"level": 3,
-			"header": 1,
-			"entries": [
-				"The tenets of the Oath of Redemption hold a paladin to a high standard of peace and justice.",
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Peace",
-							"entries": [
-								"Violence is a weapon of last resort. Diplomacy and understanding are the paths to long-lasting peace."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Innocence",
-							"entries": [
-								"All people begin life in an innocent state, and it is their environment or the influence of dark forces that drives them to evil. By setting the proper example, and working to heal the wounds of a deeply flawed world, you can set anyone on a righteous path."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Patience",
-							"entries": [
-								"Change takes time. Those who have walked the path of the wicked must be given reminders to keep them honest and true. Once you have planted the seed of righteousness in a creature, you must work day after day to allow it to survive and then flourish."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Wisdom",
-							"entries": [
-								"Your heart and mind must stay clear, for eventually you will be forced to admit defeat. While every creature can be redeemed, some are so far along the path of evil that you have no choice but to end their lives for the greater good. Any such action must be carefully weighed and the consequences fully understood, but once you have made the decision, follow through with it knowing your path is just."
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Warrior of Reconciliation",
-			"source": "UAATrioOfSubclasses",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Redemption (UA)",
-			"subclassSource": "UAATrioOfSubclasses",
-			"level": 3,
-			"header": 1,
-			"entries": [
-				"At 3rd level, you foreswear the weapons of war in favor of simple tools. While wielding a simple weapon that deals bludgeoning damage, you gain a special benefit if you reduce a creature to 0 hit points with that weapon and decide to spare the creature's life. Instead of falling {@condition unconscious}, the creature is {@condition charmed} by you for 1 minute. During that time, the {@condition charmed} creature is peaceful and docile, refusing to move or to take actions or reactions, unless you command it to. You can't order the creature to attack, force someone to make a saving throw, or cause damage to itself or others. This {@condition charmed} effect ends early if you are {@condition incapacitated} or if you or your companions attack the creature, deal damage to it, or force it to make a saving throw. When the effect ends, the creature falls {@condition unconscious} if it still has 0 hit points."
-			]
-		},
-		{
-			"name": "Aura of the Guardian",
-			"source": "UAATrioOfSubclasses",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Redemption (UA)",
-			"subclassSource": "UAATrioOfSubclasses",
-			"level": 7,
-			"header": 2,
-			"entries": [
-				"Starting at 7th level, you can shield your allies from harm at the cost of your own health. As a reaction when an ally within 10 feet of you takes damage, you instead magically take that damage. This feature doesn't transfer any other effects that might accompany the damage."
-			]
-		},
-		{
-			"name": "Protective Spirit",
-			"source": "UAATrioOfSubclasses",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Redemption (UA)",
-			"subclassSource": "UAATrioOfSubclasses",
-			"level": 15,
-			"header": 2,
-			"entries": [
-				"Starting at 15th level, a holy presence mends your wounds in combat. You regain hit points equal to {@dice 1d6} + half your paladin level if you end your turn in combat with fewer than half of your hit points remaining and you aren't {@condition incapacitated}."
-			]
-		},
-		{
-			"name": "Emissary of Redemption",
-			"source": "UAATrioOfSubclasses",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Redemption (UA)",
-			"subclassSource": "UAATrioOfSubclasses",
-			"level": 20,
-			"header": 2,
-			"entries": [
-				"At 20th level, you become an avatar of peace, which gives you two benefits:",
-				{
-					"type": "list",
-					"items": [
-						"You have resistance to all damage dealt by other creatures (their attacks, spells, and other effects).",
-						"Whenever a creature damages you, it takes damage equal to half the amount it dealt to you."
-					]
-				},
-				"If you attack a creature, deal damage to it, or force it to make a saving throw, neither benefit works against that creature until you finish a long rest."
-			]
-		},
-		{
-			"name": "Oath of Heroism",
-			"source": "UABardAndPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Heroism (UA)",
-			"subclassSource": "UABardAndPaladin",
-			"level": 3,
-			"entries": [
-				"The Oath of Heroism is an affirmation of a destined path, one laid out for you by divine hands. For whatever reason, a god or a group of gods has included you in their machinations. You are not a reluctant hero, but one who fully embraces the idea that great deeds are yours to achieve. You train diligently, sculpting your body and refining your skills so you're ready when destiny calls.",
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Tenets of Heroism|Paladin||Heroism (UA)|UABardAndPaladin|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Oath Spells|Paladin||Heroism (UA)|UABardAndPaladin|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity|Paladin||Heroism (UA)|UABardAndPaladin|3"
-				}
-			]
-		},
-		{
-			"name": "Channel Divinity",
-			"source": "UABardAndPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Heroism (UA)",
-			"subclassSource": "UABardAndPaladin",
-			"level": 3,
-			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"{@i 3rd-level Oath of Heroism feature}",
-				"You gain the following two Channel Divinity options.",
-				{
-					"type": "entries",
-					"name": "Peerless Athlete",
-					"entries": [
-						"You can use your Channel Divinity to augment your athleticism with divine favor. As a bonus action, you gain advantage on all Strength ({@skill Athletics}) and Dexterity ({@skill Acrobatics}) checks for the next 10 minutes. "
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Legendary Strike",
-					"entries": [
-						"You can use your Channel Divinity as a bonus action to guide your attacks: for 1 minute, your weapon attacks score a critical hit on a roll of 19 or 20 on the {@dice d20}. "
-					]
-				}
-			]
-		},
-		{
-			"name": "Oath Spells",
-			"source": "UABardAndPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Heroism (UA)",
-			"subclassSource": "UABardAndPaladin",
-			"level": 3,
-			"header": 1,
-			"entries": [
-				"{@i 3rd-level Oath of Heroism feature}",
-				"You gain oath spells at the paladin levels listed in the Oath of Heroism Spells table.",
-				{
-					"type": "table",
-					"caption": "Oath of Heroism Spells",
-					"colLabels": [
-						"Paladin Level",
-						"Spells"
-					],
-					"colStyles": [
-						"col-2 text-center",
-						"col-10"
-					],
-					"rows": [
-						[
-							"3rd",
-							"{@spell expeditious retreat}, {@spell guiding bolt}"
-						],
-						[
-							"5th",
-							"{@spell enhance ability}, {@spell enthrall}"
-						],
-						[
-							"9th",
-							"{@spell haste}, {@spell protection from energy}"
-						],
-						[
-							"13th",
-							"{@spell compulsion}, {@spell freedom of movement}"
-						],
-						[
-							"17th",
-							"{@spell commune}, {@spell conjure volley}"
-						]
-					]
-				}
-			]
-		},
-		{
-			"name": "Tenets of Heroism",
-			"source": "UABardAndPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Heroism (UA)",
-			"subclassSource": "UABardAndPaladin",
-			"level": 3,
-			"header": 1,
-			"entries": [
-				"The tenets of the Oath of Heroism reflect a paladin's commitment to fulfilling their calling as a hero worthy of legend.",
-				{
-					"type": "entries",
-					"name": "Actions over Words",
-					"entries": [
-						"Strive to be known by deeds not words."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Challenges Are but Tests",
-					"entries": [
-						"Every hardship serves to challenge your abilities and harden your resolve."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Embrace Destiny",
-					"entries": [
-						"You didn't choose this path, but it's yours to walk. And it will carry you into legend."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Hone the Body",
-					"entries": [
-						"Like raw stone, your body must be worked so its potential can be realized."
-					]
-				}
-			]
-		},
-		{
-			"name": "Mighty Deed",
-			"source": "UABardAndPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Heroism (UA)",
-			"subclassSource": "UABardAndPaladin",
-			"level": 7,
-			"header": 2,
-			"entries": [
-				"{@i 7th-level Oath of Heroism feature}",
-				"Your actions on the battlefield can supernaturally bolster your allies and demoralize your enemies. Whenever you score a critical hit or reduce a creature to 0 hit points, you can choose one or more creatures that you can see within 30 feet of you, up to a number equal to your Charisma modifier (minimum of one creature). All the chosen creatures are affected by one of the following effects of your choice:",
-				{
-					"type": "list",
-					"items": [
-						"The creature gains temporary hit points equal to {@dice 1d6} + your Charisma modifier (minimum of 1 temporary hit point).",
-						"The creature must succeed on a Wisdom saving throw against your spell save DC or be {@condition frightened} of you until the start of your next turn."
-					]
-				},
-				"Once you use this feature, you can't use it again until the start of your next turn."
-			]
-		},
-		{
-			"name": "Glorious Defense",
-			"source": "UABardAndPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Heroism (UA)",
-			"subclassSource": "UABardAndPaladin",
-			"level": 15,
-			"header": 2,
-			"entries": [
-				"{@i 15th-level Oath of Heroism feature}",
-				"Your blessed glory on the battlefield can misdirect an attack. When a creature you can see hits you with an attack roll, you can use your reaction to gain a bonus to AC against that attack, potentially causing it to miss you. The bonus equals your Charisma modifier (minimum of +1). If the attack misses, you can make one weapon attack against the attacker as part of this reaction."
-			]
-		},
-		{
-			"name": "Living Myth",
-			"source": "UABardAndPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Heroism (UA)",
-			"subclassSource": "UABardAndPaladin",
-			"level": 20,
-			"header": 2,
-			"entries": [
-				"{@i 20th-level Oath of Heroism feature}",
-				"You can now empower yourself with the legends\u2014whether true or exaggerated\u2014told of your great deeds. As a bonus action, you gain the following benefits for 10 minutes:",
-				{
-					"type": "list",
-					"items": [
-						"You are blessed with otherworldly comeliness, gaining advantage on all Charisma checks.",
-						"Once on each of your turns when you make a weapon attack and miss, you can cause that attack to hit instead.",
-						"If you fail a saving throw, you can use your reaction to succeed instead."
-					]
-				},
-				"Once you use this feature, you can't use it again until you finish a long rest."
-			]
-		},
-		{
-			"name": "Oath of Conquest",
-			"source": "UAPaladin",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 3,
-			"entries": [
-				"The Oath of Conquest calls to paladins who seek glory in battle and the subjugation of their enemies. It isn't enough for these paladins to establish order. They must crush the forces of chaos. Sometimes called knight tyrants or iron mongers, those who swear this oath gather into grim orders that serve gods or philosophies of war and well-ordered might. Some of these paladins go so far as to consort with the powers of the Nine Hells. The archdevil Bel, warlord of Avernus, counts many of these paladins called hell knights as his most ardent supporters. Hell knights cover their armor with trophies taken from fallen enemies, a grim warning to any who dare oppose them and the decrees of their lords.",
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Tenets of Conquest|Paladin||Conquest (UA)|UAPaladin|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Oath Spells|Paladin||Conquest (UA)|UAPaladin|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Conquering Strike|Paladin||Conquest (UA)|UAPaladin|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Guided Strike|Paladin||Conquest (UA)|UAPaladin|3"
-				}
-			]
-		},
-		{
-			"name": "Channel Divinity: Conquering Strike",
-			"source": "UAPaladin",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 3,
-			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"You can use your Channel Divinity to break a foe's will. When you hit a creature with a melee weapon attack as part of the {@action Attack} action, you can also use your Channel Divinity to force the target to make a Wisdom saving throw. On a failed save, the target becomes {@condition frightened} of you for 1 minute. The {@condition frightened} creature can repeat this saving throw at the end of each of its turns, ending the effect on itself on a success."
-			]
-		},
-		{
-			"name": "Channel Divinity: Guided Strike",
-			"source": "UAPaladin",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 3,
-			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"You can use your Channel Divinity to strike with supernatural accuracy. When you make an attack roll, you can use your Channel Divinity to gain a +10 bonus to the roll. You make this choice after you see the roll, but before the DM says whether the attack hits or misses."
-			]
-		},
-		{
-			"name": "Oath Spells",
-			"source": "UAPaladin",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 3,
-			"header": 1,
-			"entries": [
-				"You gain oath spells at the paladin levels listed.",
-				{
-					"type": "table",
-					"caption": "Oath of Conquest Spells",
-					"colLabels": [
-						"Paladin Level",
-						"Spells"
-					],
-					"colStyles": [
-						"col-2 text-center",
-						"col-10"
-					],
-					"rows": [
-						[
-							"3rd",
-							"{@spell armor of Agathys}, {@spell command}"
-						],
-						[
-							"5th",
-							"{@spell hold person}, {@spell spiritual weapon}"
-						],
-						[
-							"9th",
-							"{@spell bestow curse}, {@spell fear}"
-						],
-						[
-							"13th",
-							"{@spell blight}, {@spell dominate beast}"
-						],
-						[
-							"17th",
-							"{@spell dominate person}, {@spell insect plague}"
-						]
-					]
-				}
-			]
-		},
-		{
-			"name": "Tenets of Conquest",
-			"source": "UAPaladin",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 3,
-			"header": 1,
-			"entries": [
-				"A paladin who takes this oath has the tenets of conquest seared on the upper arm. A hell knight's oath appears in {@language Infernal} runes, a brutal reminder of vows to the Lords of Hell.",
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Douse the Flame of Hope",
-							"entries": [
-								"It is not enough to merely defeat an enemy in battle. Your victory must be so overwhelming that your enemies will to fight is shattered forever. A blade can end a life. Fear can end an empire."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Rule with an Iron Fist",
-							"entries": [
-								"Once you have conquered, tolerate no dissent. Your word is law. Those who obey it shall be favored. Those who defy it shall be punished as an example to all who might follow."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Strength Above All",
-							"entries": [
-								"You shall rule until a stronger one arises. Then you must grow mightier and meet the challenge, or fall to your own ruin."
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Aura of Conquest",
-			"source": "UAPaladin",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 7,
-			"header": 2,
-			"entries": [
-				"Starting at 7th level, you emanate a menacing aura while you're not {@condition incapacitated}. The aura includes your space, extends 10 feet from you in every direction, and is blocked by total cover. Any enemy in the aura has disadvantage on saving throws against being {@condition frightened}.",
-				"At 18th level, the range of this aura increases to 30 feet."
-			]
-		},
-		{
-			"name": "Implacable Spirit",
-			"source": "UAPaladin",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 15,
-			"header": 2,
-			"entries": [
-				"Once you reach 15th level, you can no longer be {@condition charmed}."
-			]
-		},
-		{
-			"name": "Invincible Conqueror",
-			"source": "UAPaladin",
-			"page": 1,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 20,
-			"header": 2,
-			"entries": [
-				"At 20th level, you gain the ability to harness extraordinary martial prowess. As an action, you can magically become an avatar of conquest, gaining the following benefits for 1 minute:",
-				{
-					"type": "list",
-					"items": [
-						"You have resistance to all damage.",
-						"When you take the {@action Attack} action on your turn, you can make one additional attack as part of that action.",
-						"Your melee weapon attacks score a critical hit on a roll of 19 or 20."
-					]
-				},
-				"Once you use this feature, you can't use it again until you finish a long rest."
-			]
-		},
-		{
-			"name": "Oath of Treachery",
-			"source": "UAPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Treachery (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 3,
-			"entries": [
-				"The Oath of Treachery is the path followed by paladins who have forsworn other oaths or who care only for their own power and survival. Commonly known as blackguards, these profane warriors are faithful only to themselves. Anyone desperate enough to follow one of these paladins does so because, while deceitful, these paladins command great power. Those who follow them without falling prey to their treachery hope to indulge in wanton violence and accumulate great treasure. Many of these paladins pay homage to demon lords, especially Grazz't and Orcus. Even the Lords of Hell are loath to ally with these champions of chaos, but sometimes Baalzebul and Glasya find a kindred spirit in a blackguard's penchant for double dealing and treachery.",
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Tenets of Treachery|Paladin||Treachery (UA)|UAPaladin|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Oath Spells|Paladin||Treachery (UA)|UAPaladin|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Conjure Duplicate|Paladin||Treachery (UA)|UAPaladin|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Poison Strike|Paladin||Treachery (UA)|UAPaladin|3"
-				}
-			]
-		},
-		{
-			"name": "Channel Divinity: Conjure Duplicate",
-			"source": "UAPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Treachery (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 3,
-			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"As an action, you create a visual illusion of yourself that lasts for 1 minute, or until you lose your {@status concentration} (as if you were {@status concentration||concentrating} on a spell). The illusion appears in an unoccupied space of your choice that you can see within 30 feet of you. The illusion looks exactly like you; it is silent; it is your size, is insubstantial, doesn't occupy its space; and it is unaffected by attacks and damage. As a bonus action on your turn, you can move the illusion up to 30 feet to a space you can see, but the illusion must remain within 120 feet of you.",
-				"For the duration, you can cast spells as though you were in the illusion's space, but you must use your own senses. Additionally, when both you and your illusion are within 5 feet of a creature that can see the illusion, you have advantage on attack rolls against that creature, given how uncanny the illusion is."
-			]
-		},
-		{
-			"name": "Channel Divinity: Poison Strike",
-			"source": "UAPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Treachery (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 3,
-			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"You can use your Channel Divinity to make a weapon deadlier. As a bonus action, you touch one weapon or piece of ammunition and conjure a special poison on it. The poison lasts for 1 minute. The next time you hit a target with an attack using that weapon or ammunition, the target takes poison damage immediately after the attack. The poison damage equals {@dice 2d10} + your paladin level, or 20 + your paladin level if you had advantage on the attack roll."
-			]
-		},
-		{
-			"name": "Oath Spells",
-			"source": "UAPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Treachery (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 3,
-			"header": 1,
-			"entries": [
-				"You gain oath spells at the paladin levels listed.",
-				{
-					"type": "table",
-					"caption": "Oath of Treachery Spells",
-					"colLabels": [
-						"Paladin Level",
-						"Spells"
-					],
-					"colStyles": [
-						"col-2 text-center",
-						"col-10"
-					],
-					"rows": [
-						[
-							"3rd",
-							"{@spell charm person}, {@spell expeditious retreat}"
-						],
-						[
-							"5th",
-							"{@spell invisibility}, {@spell mirror image}"
-						],
-						[
-							"9th",
-							"{@spell gaseous form}, {@spell haste}"
-						],
-						[
-							"13th",
-							"{@spell confusion}, {@spell greater invisibility}"
-						],
-						[
-							"17th",
-							"{@spell dominate person}, {@spell passwall}"
-						]
-					]
-				}
-			]
-		},
-		{
-			"name": "Tenets of Treachery",
-			"source": "UAPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Treachery (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 3,
-			"header": 1,
-			"entries": [
-				"A paladin who embraces the Oath of Treachery owes allegiance to no one. There are no tenets of this oath, for it lacks any substance. Those who are unfortunate enough to have close contact with blackguards have observed that a blackguard's overwhelming concern is power and safety, especially if both can be obtained at the expense of others."
-			]
-		},
-		{
-			"name": "Aura of Treachery",
-			"source": "UAPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Treachery (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 7,
-			"header": 2,
-			"entries": [
-				"Starting at 7th level, you emanate an aura of discord, which gives you the following benefits.",
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Cull the Herd",
-							"entries": [
-								"You have advantage on melee attack rolls against any creature that has one or more of its allies within 5 feet of it."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Treacherous Strike",
-							"entries": [
-								"If a creature within 5 feet of you misses you with a melee attack, you can use your reaction to force the attacker to reroll that attack against a creature of your choice that is also within 5 feet of the attacker. The ability fails and is wasted if the attacker is immune to being {@condition charmed}.",
-								"You can use this ability three times. You regain expended uses of it when you finish a short or long rest."
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Blackguard's Escape",
-			"source": "UAPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Treachery (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 15,
-			"header": 2,
-			"entries": [
-				"At 15th level, you have the ability to slip away from your foes. Immediately after you are hit by an attack, you can use your reaction to turn {@condition invisible} and teleport up to 60 feet to a spot you can see. You remain {@condition invisible} until the end of your next turn or until you attack, deal damage, or force a creature to make a saving throw. Once you use this feature, you must finish a short or long rest before you can use it again."
-			]
-		},
-		{
-			"name": "Icon of Deceit",
-			"source": "UAPaladin",
-			"page": 2,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Treachery (UA)",
-			"subclassSource": "UAPaladin",
-			"level": 20,
-			"header": 2,
-			"entries": [
-				"At 20th level, you gain the ability to emanate feelings of treachery. As an action, you can magically become an avatar of deceit, gaining the following benefits for 1 minute:",
-				{
-					"type": "list",
-					"items": [
-						"You are {@condition invisible}.",
-						"If a creature damages you on its turn, it must succeed on a Wisdom saving throw (DC equal to your spell save DC) or you control its next action, provided that you aren't {@condition incapacitated} when it takes the action. A creature automatically succeeds on the save if the creature is immune to being {@condition charmed}.",
-						"If you have advantage on an attack roll, you gain a bonus to its damage roll equal to your paladin level."
-					]
-				},
-				"Once you use this feature, you can't use it again until you finish a long rest."
-			]
-		},
-		{
-			"name": "Oath of Conquest v2",
-			"source": "UARevisedClassOptions",
-			"page": 3,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest v2 (UA)",
-			"subclassSource": "UARevisedClassOptions",
-			"level": 3,
-			"entries": [
-				"The Oath of Conquest calls to paladins who seek glory in battle and the subjugation of their enemies. It isn't enough for these paladins to establish order. They must crush the forces of chaos. Sometimes called knight tyrants or iron mongers, those who swear this oath gather into grim orders that serve gods or philosophies of war and well-ordered might.",
-				"Some of these paladins go so far as to consort with the powers of the Nine Hells, valuing the rule of law over the balm of mercy. The archdevil Bel, warlord of Avernus, counts many of these paladins\u2014called hell knights\u2014as his most ardent supporters. Hell knights cover their armor with trophies taken from fallen enemies, a grim warning to any who dare oppose them and the decrees of their lords. These knights are often most fiercely resisted by other paladins of this oath, who believe that the hell knights have wandered too far into darkness.",
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Tenets of Conquest|Paladin||Conquest v2 (UA)|UARevisedClassOptions|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Oath Spells|Paladin||Conquest v2 (UA)|UARevisedClassOptions|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Conquering Presence|Paladin||Conquest v2 (UA)|UARevisedClassOptions|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Guided Strike|Paladin||Conquest v2 (UA)|UARevisedClassOptions|3"
-				}
-			]
-		},
-		{
-			"name": "Channel Divinity: Conquering Presence",
-			"source": "UARevisedClassOptions",
-			"page": 3,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest v2 (UA)",
-			"subclassSource": "UARevisedClassOptions",
-			"level": 3,
-			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"You can use your Channel Divinity to exude a terrifying presence. As an action, you force each creature of your choice that you can see within 30 feet of you to make a Wisdom saving throw. On a failed save, a creature becomes {@condition frightened} of you for 1 minute. The {@condition frightened} creature can repeat this saving throw at the end of each of its turns, ending the effect on itself on a success."
-			]
-		},
-		{
-			"name": "Channel Divinity: Guided Strike",
-			"source": "UARevisedClassOptions",
-			"page": 3,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest v2 (UA)",
-			"subclassSource": "UARevisedClassOptions",
-			"level": 3,
-			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"You can use your Channel Divinity to strike with supernatural accuracy. When you make an attack roll, you can use your Channel Divinity to gain a +10 bonus to the roll. You make this choice after you see the roll, but before the DM says whether the attack hits or misses."
-			]
-		},
-		{
-			"name": "Oath Spells",
-			"source": "UARevisedClassOptions",
-			"page": 3,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest v2 (UA)",
-			"subclassSource": "UARevisedClassOptions",
-			"level": 3,
-			"header": 1,
-			"entries": [
-				"You gain oath spells at the paladin levels listed.",
-				{
-					"type": "table",
-					"caption": "Oath of Conquest Spells",
-					"colLabels": [
-						"Paladin Level",
-						"Spells"
-					],
-					"colStyles": [
-						"col-2 text-center",
-						"col-10"
-					],
-					"rows": [
-						[
-							"3rd",
-							"{@spell armor of Agathys}, {@spell command}"
-						],
-						[
-							"5th",
-							"{@spell hold person}, {@spell spiritual weapon}"
-						],
-						[
-							"9th",
-							"{@spell bestow curse}, {@spell fear}"
-						],
-						[
-							"13th",
-							"{@spell dominate beast}, {@spell stoneskin}"
-						],
-						[
-							"17th",
-							"{@spell cloudkill}, {@spell dominate person}"
-						]
-					]
-				}
-			]
-		},
-		{
-			"name": "Tenets of Conquest",
-			"source": "UARevisedClassOptions",
-			"page": 3,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest v2 (UA)",
-			"subclassSource": "UARevisedClassOptions",
-			"level": 3,
-			"header": 1,
-			"entries": [
-				"A paladin who takes this oath has the tenets of conquest seared on the upper arm. A hell knight's oath appears in {@language Infernal} runes, a brutal reminder of vows to the Lords of Hell.",
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Douse the Flame of Hope",
-							"entries": [
-								"It is not enough to merely defeat an enemy in battle. Your victory must be so overwhelming that your enemies' will to fight is shattered forever. A blade can end a life. Fear can end an empire."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Rule with an Iron Fist",
-							"entries": [
-								"Once you have conquered, tolerate no dissent. Your word is law. Those who obey it shall be favored. Those who defy it shall be punished as an example to all who might follow."
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Strength Above All",
-							"entries": [
-								"You shall rule until a stronger one arises. Then you must grow mightier and meet the challenge, or fall to your own ruin."
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Aura of Conquest",
-			"source": "UARevisedClassOptions",
-			"page": 3,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest v2 (UA)",
-			"subclassSource": "UARevisedClassOptions",
-			"level": 7,
-			"header": 2,
-			"entries": [
-				"Starting at 7th level, you constantly emanate a menacing aura while you're not {@condition incapacitated}. The aura includes your space, extends 10 feet from you in every direction, and is blocked by total cover.",
-				"If a creature is {@condition frightened} of you, its speed is reduced to 0 while in the aura, and that creature takes psychic damage equal to half your paladin level if it starts its turn there. At 18th level, the range of this aura increases to 30 feet."
-			]
-		},
-		{
-			"name": "Scornful Rebuke",
-			"source": "UARevisedClassOptions",
-			"page": 3,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest v2 (UA)",
-			"subclassSource": "UARevisedClassOptions",
-			"level": 15,
-			"header": 2,
-			"entries": [
-				"Starting at 15th level, those who dare to strike you are psychically punished for their audacity. Whenever a creature hits you with an attack, that creature takes psychic damage equal to your Charisma modifier (minimum of 0) if you're not {@condition incapacitated}."
-			]
-		},
-		{
-			"name": "Invincible Conqueror",
-			"source": "UARevisedClassOptions",
-			"page": 3,
-			"className": "Paladin",
-			"classSource": "PHB",
-			"subclassShortName": "Conquest v2 (UA)",
-			"subclassSource": "UARevisedClassOptions",
-			"level": 20,
-			"header": 2,
-			"entries": [
-				"At 20th level, you gain the ability to harness extraordinary martial prowess. As an action, you can magically become an avatar of conquest, gaining the following benefits for 1 minute:",
-				{
-					"type": "list",
-					"items": [
-						"You have resistance to all damage.",
-						"When you take the {@action Attack} action on your turn, you can make one additional attack as part of that action.",
-						"Your melee weapon attacks score a critical hit on a roll of 19 or 20 on the {@dice d20}."
-					]
-				},
-				"Once you use this feature, you can't use it again until you finish a long rest."
+				"Once you use this feature, you can't use it again until you finish a {@quickref resting|PHB|2|0|long rest}."
 			]
 		},
 		{
@@ -4719,16 +3377,12 @@
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Conquering Presence|Paladin||Conquest|XGE|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Guided Strike|Paladin||Conquest|XGE|3"
+					"subclassFeature": "Channel Divinity|Paladin||Conquest|XGE|3"
 				}
 			]
 		},
 		{
-			"name": "Channel Divinity: Conquering Presence",
+			"name": "Channel Divinity",
 			"source": "XGE",
 			"page": 37,
 			"className": "Paladin",
@@ -4741,11 +3395,19 @@
 				"name": "Channel Divinity"
 			},
 			"entries": [
-				"You can use your Channel Divinity to exude a terrifying presence. As an action, you force each creature of your choice that you can see within 30 feet of you to make a Wisdom saving throw. On a failed save, a creature becomes {@condition frightened} of you for 1 minute. The {@condition frightened} creature can repeat this saving throw at the end of each of its turns, ending the effect on itself on a success."
+				"When you take this oath at 3rd level, you gain the following two Channel Divinity options.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Conquering Presence|Paladin||Conquest|XGE|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Guided Strike|Paladin||Conquest|XGE|3"
+				}
 			]
 		},
 		{
-			"name": "Channel Divinity: Guided Strike",
+			"name": "Conquering Presence",
 			"source": "XGE",
 			"page": 37,
 			"className": "Paladin",
@@ -4754,9 +3416,20 @@
 			"subclassSource": "XGE",
 			"level": 3,
 			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
+			"entries": [
+				"You can use your Channel Divinity to exude a terrifying presence. As an action, you force each creature of your choice that you can see within 30 feet of you to make a Wisdom saving throw. On a failed save, a creature becomes {@condition frightened} of you for 1 minute. The {@condition frightened} creature can repeat this saving throw at the end of each of its turns, ending the effect on itself on a success."
+			]
+		},
+		{
+			"name": "Guided Strike",
+			"source": "XGE",
+			"page": 37,
+			"className": "Paladin",
+			"classSource": "PHB",
+			"subclassShortName": "Conquest",
+			"subclassSource": "XGE",
+			"level": 3,
+			"header": 1,
 			"entries": [
 				"You can use your Channel Divinity to strike with supernatural accuracy. When you make an attack roll, you can use your Channel Divinity to gain a +10 bonus to the roll. You make this choice after you see the roll, but before the DM says whether the attack hits or misses."
 			]
@@ -4924,16 +3597,12 @@
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Emissary of Peace|Paladin||Redemption|XGE|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Channel Divinity: Rebuke the Violent|Paladin||Redemption|XGE|3"
+					"subclassFeature": "Channel Divinity|Paladin||Redemption|XGE|3"
 				}
 			]
 		},
 		{
-			"name": "Channel Divinity: Emissary of Peace",
+			"name": "Channel Divinity",
 			"source": "XGE",
 			"page": 38,
 			"className": "Paladin",
@@ -4946,11 +3615,19 @@
 				"name": "Channel Divinity"
 			},
 			"entries": [
-				"You can use your Channel Divinity to augment your presence with divine power. As a bonus action, you grant yourself a +5 bonus to Charisma ({@skill Persuasion}) checks for the next 10 minutes."
+				"When you take this oath at 3rd level, you gain the following two Channel Divinity options.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Emissary of Peace|Paladin||Redemption|XGE|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Rebuke the Violent|Paladin||Redemption|XGE|3"
+				}
 			]
 		},
 		{
-			"name": "Channel Divinity: Rebuke the Violent",
+			"name": "Emissary of Peace",
 			"source": "XGE",
 			"page": 38,
 			"className": "Paladin",
@@ -4959,11 +3636,8 @@
 			"subclassSource": "XGE",
 			"level": 3,
 			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
 			"entries": [
-				"You can use your Channel Divinity to rebuke those who use violence. Immediately after an attacker within 30 feet of you deals damage with an attack against a creature other than you, you can use your reaction to force the attacker to make a Wisdom saving throw. On a failed save, the attacker takes radiant damage equal to the damage it just dealt. On a successful save, it takes half as much damage."
+				"You can use your Channel Divinity to augment your presence with divine power. As a bonus action, you grant yourself a +5 bonus to Charisma ({@skill Persuasion}) checks for the next 10 minutes."
 			]
 		},
 		{
@@ -5012,6 +3686,20 @@
 						]
 					]
 				}
+			]
+		},
+		{
+			"name": "Rebuke the Violent",
+			"source": "XGE",
+			"page": 38,
+			"className": "Paladin",
+			"classSource": "PHB",
+			"subclassShortName": "Redemption",
+			"subclassSource": "XGE",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"You can use your Channel Divinity to rebuke those who use violence. Immediately after an attacker within 30 feet of you deals damage with an attack against a creature other than you, you can use your reaction to force the attacker to make a Wisdom saving throw. On a failed save, the attacker takes radiant damage equal to the damage it just dealt. On a successful save, it takes half as much damage."
 			]
 		},
 		{

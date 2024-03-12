@@ -202,10 +202,11 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "adventure/LLK/001-cartophile.png"
+								"path": "adventure/LLK/001-cartophile.webp"
 							},
 							"width": 1000,
-							"height": 1679
+							"height": 1679,
+							"credit": "Maxx Marshall"
 						},
 						"The gnome's collection contains notes and an initial map from the early stages of Kwalish's expedition into the Barrier Peaks. In exchange for allowing the characters to use that lore, he asks only that any further journals, notes, maps, and other documents from Kwalish's earlier expedition be returned to him.",
 						"The Cartophile has no interest in adventuring, talking of how he once stood too close to a {@item Bag of Holding} accidentally placed within a {@item Portable Hole} and never fully recovered from it. However, in the interest of ensuring a successful mission, he offers the characters the services of a number of hirelings in his employ\u2014and insists that at least one of those hirelings accompany the party, to serve as custodian of his maps and materials.",
@@ -236,10 +237,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/LLK/002-ctinmiir_wmask.png"
+												"path": "adventure/LLK/002-ctinmiir_wmask.webp"
 											},
 											"width": 1000,
-											"height": 1236
+											"height": 1236,
+											"credit": "Maxx Marshall"
 										},
 										"Ctenmiir's coffin has a speed of 30 feet and a climbing speed of 10 feet, and protects the vampire from sunlight even as it prevents him from escaping his servitude. Though Ctenmiir is able to speak from within the coffin and help guide the expedition, the coffin obeys only the commands of the party members. Cold, calculating, and manipulative, the vampire aids the party as long as he believes he can earn his release from the coffin along the way\u2014by any means possible.",
 										{
@@ -284,10 +286,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/LLK/003-n-pc_garret.png"
+												"path": "adventure/LLK/003-n-pc_garret.webp"
 											},
 											"width": 1000,
-											"height": 1639
+											"height": 1639,
+											"credit": "Stan!"
 										},
 										{
 											"type": "entries",
@@ -330,10 +333,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/LLK/004-npc_gearbox.png"
+												"path": "adventure/LLK/004-npc_gearbox.webp"
 											},
 											"width": 1000,
-											"height": 1000
+											"height": 1000,
+											"credit": "Stan!"
 										},
 										{
 											"type": "entries",
@@ -376,10 +380,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/LLK/005-mary.png"
+												"path": "adventure/LLK/005-mary.webp"
 											},
-											"width": 1000,
-											"height": 1618
+											"width": 998,
+											"height": 1616,
+											"credit": "Maxx Marshall"
 										},
 										"She also claims past tutelage by Thingizzard, a witch dwelling in the fens near White Plume Mountain. In addition to her work for the Cartophile, Mary is eager to accompany the expedition so that she might search the Barrier Peaks for rare ingredients for her potions.",
 										"Mary strikes an eerie, witch-like figure, surrounded always by swirling magical-mechanical trinkets of her own devising. She is often seen shuffling a {@item Deck of Several Things|LLK}, and will try to quietly tempt party members to draw a card. (See {@adventure appendix D|LLK|7} for more information on the deck, and its distinct connections to the adventure.) Mary is always accompanied by her familiar, a glowing-eyed cat. See {@adventure appendix C|LLK|6} for Mary's stat block.",
@@ -582,6 +587,7 @@
 							"width": 4926,
 							"height": 6426,
 							"title": "Monastery of the Distressed Body",
+							"credit": "Claudio Pozas",
 							"imageType": "map",
 							"grid": {
 								"type": "none",
@@ -1247,7 +1253,7 @@
 								"type": "internal",
 								"path": "adventure/LLK/thumbnail/006-318365_extra_life_monastery.webp"
 							},
-							"id": "0d7"
+							"id": "0d9"
 						},
 						{
 							"type": "image",
@@ -1258,13 +1264,14 @@
 							"title": "Player Version",
 							"width": 5000,
 							"height": 6471,
+							"credit": "Claudio Pozas",
 							"imageType": "mapPlayer",
 							"grid": {
 								"type": "none",
 								"distance": 50
 							},
 							"mapParent": {
-								"id": "0d7",
+								"id": "0d9",
 								"autoScale": true
 							}
 						},
@@ -1297,10 +1304,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LLK/008-147478_cn_wmask.png"
+										"path": "adventure/LLK/008-147478_cn_wmask.webp"
 									},
 									"width": 1000,
-									"height": 719
+									"height": 719,
+									"credit": "David Rapoza"
 								},
 								{
 									"type": "insetReadaloud",
@@ -1565,10 +1573,11 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "adventure/LLK/009-extraalife_bonedevil.png"
+														"path": "adventure/LLK/009-extraalife_bonedevil.webp"
 													},
 													"width": 3324,
-													"height": 2980
+													"height": 2980,
+													"credit": "Shawn Wood"
 												},
 												"The bone devil is an arrogant bully, and assumes that the characters have come to join its cult. However, it also comes across as whiny and petulant, reliant on the protection of its bodyguards rather than making any physical threats. If asked about Kwalish, the Grand Master gladly recounts how it took over the floating island and drove Kwalish to a second location\u2014some lost city farther into the Barrier Peaks.",
 												"The devil has seen Kwalish's notes (found in the treasury, area M10), which confirm that the inventor was intent on seeking the legendary city of Daoine Gloine. It offers to let the characters see them as well\u2014in exchange for the \"modest fee\" of all the characters' magic items, and one year of service from either the strongest or most intelligent character. (The devil is always in need of fresh servants to shovel fuel in the engine room, and fresh minds to replace the brains in the control room.) If the characters reject this offer, the Grand Master demands a year of service simply for the honor of the characters having visited the monastery, after which they are free to leave.",
@@ -1983,10 +1992,11 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "adventure/LLK/010-art_floatingdiscs.png"
+														"path": "adventure/LLK/010-art_floatingdiscs.webp"
 													},
 													"width": 1200,
-													"height": 280
+													"height": 280,
+													"credit": "Emi Tanji"
 												}
 											]
 										}
@@ -2085,7 +2095,7 @@
 						"To reduce the travel time to the lost city to nothing, you might have Kwalish's notes provide instructions for reopening the planar archway in area M3. Instead of leading to the Nine Hells, the inventor's instructions open a gate directly to area O1 of Daoine Gloine.",
 						{
 							"type": "inset",
-							"name": "First Things Last ",
+							"name": "First Things Last",
 							"page": 19,
 							"id": "081",
 							"entries": [
@@ -2122,6 +2132,7 @@
 								"path": "adventure/LLK/011-318365_extra_life_ooze.png"
 							},
 							"title": "Daoine Gloine",
+							"credit": "Claudio Pozas",
 							"width": 4926,
 							"height": 6426,
 							"imageType": "map",
@@ -2777,7 +2788,7 @@
 								"type": "internal",
 								"path": "adventure/LLK/thumbnail/011-318365_extra_life_ooze.webp"
 							},
-							"id": "0d8"
+							"id": "0da"
 						},
 						{
 							"type": "image",
@@ -2786,6 +2797,7 @@
 								"path": "adventure/LLK/012-playerversionllok1.jpg"
 							},
 							"title": "Player Version",
+							"credit": "Claudio Pozas",
 							"width": 5000,
 							"height": 6471,
 							"imageType": "mapPlayer",
@@ -2794,7 +2806,7 @@
 								"distance": 50
 							},
 							"mapParent": {
-								"id": "0d8",
+								"id": "0db",
 								"autoScale": true
 							}
 						},
@@ -2911,10 +2923,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/LLK/013-extraalife_medusa.png"
+												"path": "adventure/LLK/013-extraalife_medusa.webp"
 											},
 											"width": 1000,
-											"height": 797
+											"height": 797,
+											"credit": "Shawn Wood"
 										},
 										"The tallest tower in the city, this former temple once housed the cult of the medusa.",
 										{
@@ -3040,10 +3053,11 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "adventure/LLK/014-apparatus1.png"
+														"path": "adventure/LLK/014-apparatus1.webp"
 													},
 													"width": 806,
-													"height": 551
+													"height": 551,
+													"credit": "Aaron Hübrich"
 												}
 											]
 										},
@@ -3407,14 +3421,35 @@
 								{
 									"type": "inset",
 									"id": "0b6",
+									"name": "KWALISH LIVES?",
 									"entries": [
-										"KWALISH LIVES?",
 										"Since his expedition vanished ages ago, it's prudent to think about how it's possible for Kwalish to be found alive and well in his lab. If the gnome is found trapped inside the powered armor in stasis or scattered throughout his laboratory, the answer is easy. You might also consider that Kwalish's research into the planar craft's magical technology, astral cords, and similar topics might have allowed him to prolong his life indefinitely by magical means. Alternatively, given the inventor's ability to craft lifelike constructs, this version of Kwalish might not be the original gnome at all."
 									]
 								}
 							]
 						}
 					]
+				},
+				{
+					"type": "section",
+					"name": "Acknowledgments and Final Thanks",
+					"page": 29,
+					"entries": [
+						"To E. Gary Gygax, as author of the original Expedition to the Barrier Peaks (may chocolate and peanut butter forever collide into one another). To Kennedy O'Day, for playing one of her first games of D&D next to Bart at the 2017 Extra Life livestream in the Wizards of the Coast offices (it was awesome!).",
+						"We would also like to extend special acknowledgment of a designer for certain spells and magic items appearing within this adventure. To Laurence Withey\u2014we hope this presentation of your material does justice to Galder, and we humbly thank you for allowing us to include it.",
+						"Final thanks to everyone who purchased this adventure\u2014your donation is going to a truly great cause. On behalf of the entire Dungeons & Dragons team, we sincerely thank you for your contribution to Extra Life and the Children's Miracle Network Hospitals.",
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "adventure/LLK/015-ack.webp"
+							},
+							"width": 1500,
+							"height": 1715,
+							"credit": "Quinn Carroll, Shawn Wood, Shauna Narciso"
+						}
+					],
+					"id": "0d8"
 				}
 			]
 		},
@@ -3437,10 +3472,11 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "adventure/LLK/016-144578_wmask.png"
+								"path": "adventure/LLK/016-144578_wmask.webp"
 							},
 							"width": 1000,
-							"height": 2418
+							"height": 2418,
+							"credit": "Mark Winters"
 						},
 						{
 							"type": "table",
@@ -3835,7 +3871,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "adventure/LLK/022-dndxl-froghemoth.png"
+								"path": "adventure/LLK/022-dndxl-froghemoth.webp"
 							},
 							"width": 1000,
 							"height": 835
@@ -3855,10 +3891,11 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "adventure/LLK/031-gearbox.png"
+								"path": "adventure/LLK/031-gearbox.webp"
 							},
 							"width": 1000,
-							"height": 1072
+							"height": 1072,
+							"credit": "Matt Warren"
 						},
 						"{@creature Mind Flayer Arcanist}",
 						"{@creature Ooze-Folk|LLK}",
@@ -3869,7 +3906,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "adventure/LLK/035-dndxl-skeleton.png"
+								"path": "adventure/LLK/035-dndxl-skeleton.webp"
 							},
 							"width": 1296,
 							"height": 866
@@ -3882,7 +3919,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "adventure/LLK/040-dndxl-stirge.png"
+								"path": "adventure/LLK/040-dndxl-stirge.webp"
 							},
 							"width": 1000,
 							"height": 834
@@ -3899,7 +3936,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "adventure/LLK/046-dndxl-wretched.png"
+								"path": "adventure/LLK/046-dndxl-wretched.webp"
 							},
 							"width": 1000,
 							"height": 425
@@ -4370,6 +4407,1021 @@
 							"100",
 							"The Soul Catcher, they call it. Its victims stagger out of the Barrier Peaks with nary a scratch on their bodies, but their hearts aren't right anymore. The lucky ones are caught by the healers and confined to places where they can't hurt anyone. The ones who aren't so lucky... Well, you tell me. What would you call an adventurer who can't feel the slightest tinge of remorse or guilt or fear?"
 						]
+					]
+				}
+			]
+		},
+		{
+			"type": "section",
+			"name": "Daoine Gloine Map",
+			"id": "0d7",
+			"entries": [
+				{
+					"type": "gallery",
+					"images": [
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "adventure/LLK/daoine-colors-final.webp"
+							},
+							"imageType": "map",
+							"id": "0db",
+							"title": "Daoine Gloine",
+							"credit": "Jason Bradley Thompson",
+							"width": 5000,
+							"height": 3832,
+							"mapRegions": [
+								{
+									"area": "085",
+									"points": [
+										[
+											3,
+											1415
+										],
+										[
+											126,
+											1495
+										],
+										[
+											123,
+											1582
+										],
+										[
+											95,
+											1677
+										],
+										[
+											120,
+											1763
+										],
+										[
+											157,
+											1825
+										],
+										[
+											209,
+											1948
+										],
+										[
+											234,
+											2018
+										],
+										[
+											145,
+											2172
+										],
+										[
+											132,
+											2295
+										],
+										[
+											157,
+											2375
+										],
+										[
+											154,
+											2449
+										],
+										[
+											151,
+											2572
+										],
+										[
+											172,
+											2594
+										],
+										[
+											240,
+											2631
+										],
+										[
+											385,
+											2634
+										],
+										[
+											455,
+											2625
+										],
+										[
+											489,
+											2652
+										],
+										[
+											477,
+											2738
+										],
+										[
+											474,
+											2843
+										],
+										[
+											474,
+											2917
+										],
+										[
+											523,
+											2994
+										],
+										[
+											542,
+											3083
+										],
+										[
+											572,
+											3178
+										],
+										[
+											625,
+											3231
+										],
+										[
+											692,
+											3258
+										],
+										[
+											794,
+											3225
+										],
+										[
+											837,
+											3197
+										],
+										[
+											905,
+											3243
+										],
+										[
+											938,
+											3311
+										],
+										[
+											969,
+											3375
+										],
+										[
+											1040,
+											3363
+										],
+										[
+											1111,
+											3412
+										],
+										[
+											1145,
+											3502
+										],
+										[
+											1160,
+											3548
+										],
+										[
+											1191,
+											3622
+										],
+										[
+											1280,
+											3625
+										],
+										[
+											1348,
+											3683
+										],
+										[
+											1397,
+											3825
+										],
+										[
+											3,
+											3825
+										]
+									]
+								},
+								{
+									"area": "088",
+									"points": [
+										[
+											1015,
+											2711
+										],
+										[
+											1222,
+											2634
+										],
+										[
+											1394,
+											2634
+										],
+										[
+											1600,
+											2806
+										],
+										[
+											1643,
+											2929
+										],
+										[
+											1834,
+											2791
+										],
+										[
+											1883,
+											2591
+										],
+										[
+											2157,
+											2748
+										],
+										[
+											2412,
+											2809
+										],
+										[
+											2662,
+											3117
+										],
+										[
+											2892,
+											3271
+										],
+										[
+											3086,
+											3363
+										],
+										[
+											3031,
+											3572
+										],
+										[
+											2708,
+											3542
+										],
+										[
+											2502,
+											3572
+										],
+										[
+											2240,
+											3480
+										],
+										[
+											2166,
+											3455
+										],
+										[
+											2049,
+											3489
+										],
+										[
+											1911,
+											3403
+										],
+										[
+											1788,
+											3200
+										],
+										[
+											1735,
+											3154
+										],
+										[
+											1569,
+											3129
+										],
+										[
+											1449,
+											3240
+										],
+										[
+											1320,
+											3292
+										],
+										[
+											1209,
+											3234
+										],
+										[
+											1166,
+											3095
+										],
+										[
+											1015,
+											3126
+										],
+										[
+											929,
+											3074
+										],
+										[
+											902,
+											2898
+										],
+										[
+											988,
+											2757
+										]
+									]
+								},
+								{
+									"area": "08c",
+									"points": [
+										[
+											646,
+											2938
+										],
+										[
+											600,
+											2695
+										],
+										[
+											612,
+											2511
+										],
+										[
+											643,
+											2348
+										],
+										[
+											726,
+											2206
+										],
+										[
+											800,
+											2126
+										],
+										[
+											849,
+											2132
+										],
+										[
+											920,
+											2262
+										],
+										[
+											1052,
+											2372
+										],
+										[
+											1212,
+											2348
+										],
+										[
+											1277,
+											2329
+										],
+										[
+											1443,
+											2345
+										],
+										[
+											1523,
+											2520
+										],
+										[
+											1428,
+											2554
+										],
+										[
+											1246,
+											2588
+										],
+										[
+											1022,
+											2618
+										],
+										[
+											898,
+											2742
+										],
+										[
+											806,
+											2797
+										],
+										[
+											742,
+											2892
+										]
+									]
+								},
+								{
+									"area": "08f",
+									"points": [
+										[
+											2895,
+											1858
+										],
+										[
+											2911,
+											1692
+										],
+										[
+											2951,
+											1628
+										],
+										[
+											2988,
+											1394
+										],
+										[
+											3015,
+											1440
+										],
+										[
+											3065,
+											1369
+										],
+										[
+											3126,
+											1354
+										],
+										[
+											3203,
+											1363
+										],
+										[
+											3246,
+											1431
+										],
+										[
+											3252,
+											1458
+										],
+										[
+											3268,
+											1409
+										],
+										[
+											3289,
+											1486
+										],
+										[
+											3317,
+											1582
+										],
+										[
+											3323,
+											1502
+										],
+										[
+											3372,
+											1471
+										],
+										[
+											3431,
+											1489
+										],
+										[
+											3468,
+											1535
+										],
+										[
+											3486,
+											1554
+										],
+										[
+											3502,
+											1517
+										],
+										[
+											3538,
+											1477
+										],
+										[
+											3588,
+											1468
+										],
+										[
+											3603,
+											1514
+										],
+										[
+											3634,
+											1498
+										],
+										[
+											3649,
+											1452
+										],
+										[
+											3649,
+											1388
+										],
+										[
+											3671,
+											1468
+										],
+										[
+											3711,
+											1418
+										],
+										[
+											3751,
+											1458
+										],
+										[
+											3760,
+											1532
+										],
+										[
+											3788,
+											1658
+										],
+										[
+											3828,
+											1717
+										],
+										[
+											3828,
+											1775
+										],
+										[
+											3862,
+											1843
+										],
+										[
+											3858,
+											1942
+										],
+										[
+											3788,
+											1905
+										],
+										[
+											3745,
+											1905
+										],
+										[
+											3745,
+											1957
+										],
+										[
+											3671,
+											1960
+										],
+										[
+											3658,
+											1914
+										],
+										[
+											3557,
+											1926
+										],
+										[
+											3548,
+											1954
+										],
+										[
+											3502,
+											1929
+										],
+										[
+											3440,
+											1945
+										],
+										[
+											3415,
+											1966
+										],
+										[
+											3388,
+											1948
+										],
+										[
+											3295,
+											1948
+										],
+										[
+											3178,
+											1972
+										],
+										[
+											3083,
+											1975
+										],
+										[
+											3025,
+											1942
+										],
+										[
+											3028,
+											1898
+										],
+										[
+											2948,
+											1902
+										],
+										[
+											2902,
+											1886
+										]
+									]
+								},
+								{
+									"area": "097",
+									"points": [
+										[
+											3825,
+											2298
+										],
+										[
+											3871,
+											2209
+										],
+										[
+											3892,
+											2095
+										],
+										[
+											3902,
+											2037
+										],
+										[
+											3991,
+											2000
+										],
+										[
+											4025,
+											1926
+										],
+										[
+											4151,
+											1902
+										],
+										[
+											4329,
+											1938
+										],
+										[
+											4342,
+											2022
+										],
+										[
+											4412,
+											2040
+										],
+										[
+											4455,
+											2231
+										],
+										[
+											4465,
+											2354
+										],
+										[
+											4458,
+											2415
+										],
+										[
+											4397,
+											2462
+										],
+										[
+											4311,
+											2406
+										],
+										[
+											4240,
+											2415
+										],
+										[
+											4145,
+											2425
+										],
+										[
+											3978,
+											2369
+										],
+										[
+											3889,
+											2338
+										]
+									]
+								},
+								{
+									"area": "09d",
+									"points": [
+										[
+											3662,
+											2262
+										],
+										[
+											3554,
+											1985
+										],
+										[
+											3452,
+											1960
+										],
+										[
+											3271,
+											2043
+										],
+										[
+											2911,
+											2058
+										],
+										[
+											2680,
+											2003
+										],
+										[
+											2631,
+											1766
+										],
+										[
+											2443,
+											1797
+										],
+										[
+											2329,
+											1686
+										],
+										[
+											2062,
+											1603
+										],
+										[
+											1969,
+											1523
+										],
+										[
+											1705,
+											1425
+										],
+										[
+											1311,
+											1366
+										],
+										[
+											926,
+											1449
+										],
+										[
+											714,
+											1634
+										],
+										[
+											662,
+											1812
+										],
+										[
+											932,
+											2055
+										],
+										[
+											1062,
+											2043
+										],
+										[
+											1212,
+											2034
+										],
+										[
+											1449,
+											2062
+										],
+										[
+											1563,
+											2172
+										],
+										[
+											1794,
+											2182
+										],
+										[
+											2012,
+											2271
+										],
+										[
+											2286,
+											2434
+										],
+										[
+											2483,
+											2508
+										],
+										[
+											2745,
+											2745
+										],
+										[
+											2938,
+											3003
+										],
+										[
+											2868,
+											3123
+										],
+										[
+											3018,
+											3252
+										],
+										[
+											3246,
+											3305
+										],
+										[
+											3366,
+											3231
+										],
+										[
+											3625,
+											3212
+										],
+										[
+											3785,
+											3332
+										],
+										[
+											4108,
+											3323
+										],
+										[
+											4375,
+											3249
+										],
+										[
+											4622,
+											3243
+										],
+										[
+											4742,
+											3086
+										],
+										[
+											4778,
+											2889
+										],
+										[
+											4754,
+											2680
+										],
+										[
+											4474,
+											2532
+										],
+										[
+											4225,
+											2520
+										],
+										[
+											3754,
+											2400
+										]
+									]
+								},
+								{
+									"area": "0a0",
+									"points": [
+										[
+											898,
+											2172
+										],
+										[
+											920,
+											2092
+										],
+										[
+											1009,
+											2068
+										],
+										[
+											1043,
+											2098
+										],
+										[
+											1095,
+											2065
+										],
+										[
+											1209,
+											2052
+										],
+										[
+											1308,
+											2058
+										],
+										[
+											1406,
+											2123
+										],
+										[
+											1437,
+											2222
+										],
+										[
+											1428,
+											2292
+										],
+										[
+											1308,
+											2314
+										],
+										[
+											1154,
+											2320
+										],
+										[
+											1062,
+											2305
+										],
+										[
+											942,
+											2255
+										]
+									]
+								},
+								{
+									"area": "08f",
+									"points": [
+										[
+											1925,
+											64
+										],
+										[
+											2880,
+											64
+										],
+										[
+											2880,
+											979
+										],
+										[
+											1925,
+											979
+										]
+									]
+								},
+								{
+									"area": "097",
+									"points": [
+										[
+											2933,
+											64
+										],
+										[
+											3893,
+											64
+										],
+										[
+											3893,
+											976
+										],
+										[
+											2933,
+											976
+										]
+									]
+								},
+								{
+									"area": "0a0",
+									"points": [
+										[
+											3957,
+											66
+										],
+										[
+											4915,
+											66
+										],
+										[
+											4915,
+											974
+										],
+										[
+											3957,
+											974
+										]
+									]
+								}
+							],
+							"hrefThumbnail": {
+								"type": "internal",
+								"path": "adventure/LLK/thumbnail/daoine-colors-final.webp"
+							},
+							"grid": {
+								"type": "none"
+							}
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "adventure/LLK/daoinegloineplayershandout.webp"
+							},
+							"imageType": "mapPlayer",
+							"mapParent": {
+								"id": "0db",
+								"autoScale": true
+							},
+							"title": "Player Version",
+							"credit": "Jason Bradley Thompson",
+							"width": 3300,
+							"height": 2529,
+							"grid": {
+								"type": "none"
+							}
+						}
 					]
 				}
 			]

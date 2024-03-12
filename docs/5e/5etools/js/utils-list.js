@@ -558,7 +558,7 @@ class SaveManager extends BaseComponent {
 
 		const $wrpRows = $(`<div class="ve-flex-col"></div>`);
 
-		const $dispNoSaves = $(`<div class="ve-flex-col"><i class="ve-muted text-center">No saves found.</i></div>`);
+		const $dispNoSaves = $(`<div class="ve-flex-col"><i class="ve-muted ve-text-center">No saves found.</i></div>`);
 
 		const $btnExpandCollapseAll = $(`<button class="btn btn-default btn-xs px-1 ve-flex-vh-center h-100 no-shrink"></button>`)
 			.click(() => {
@@ -833,11 +833,7 @@ SaveManager._RenderableCollectionSaves_Load = class extends RenderableCollection
 	}
 
 	getNewRender (save, i) {
-		const comp = BaseComponent.fromObject(save.entity, "*");
-		comp._addHookAll("state", () => {
-			this._getCollectionItem(save.id).entity = comp.toObject("*");
-			this._comp._triggerCollectionUpdate("saves");
-		});
+		const comp = this._utils.getNewRenderComp(save, i);
 
 		const $wrpPreviewInner = $(`<div class="ve-flex-col py-3 ml-4 lst__wrp-preview-inner w-100"></div>`);
 
@@ -1029,23 +1025,21 @@ SaveManager._RenderableCollectionSaves_Summary = class extends RenderableCollect
 	}
 };
 
-class SublistPlugin extends BaseComponent {
-	async pLoadData ({exportedSublist, isMemoryOnly = false}) { throw new Error(`Unimplemented!`); }
-	async pMutSaveableData ({exportedSublist, isMemoryOnly = false}) { throw new Error(`Unimplemented!`); }
-
+class SublistPlugin {
 	initLate () { /* Implement as required */ }
-	async pHandleRemoveAll () { /* Implement as required */ }
-	async pDoInitNewState ({prevExportableSublist, evt}) { /* Implement as required */ }
-	getDownloadName () { /* Implement as required */ }
-	getDownloadFileType () { /* Implement as required */ }
+
+	async pLoadData ({exportedSublist, isMemoryOnly = false}) { throw new Error(`Unimplemented!`); }
 	async pMutLegacyData ({exportedSublist, isMemoryOnly = false}) { /* Implement as required */ }
 
-	doPulseSublistUpdate () { this._state.pulse_sublist = !this._state.pulse_sublist; }
-	addHookPulseSublist (hk) { this._addHookBase("pulse_sublist", hk); }
+	async pMutSaveableData ({exportedSublist, isMemoryOnly = false}) { throw new Error(`Unimplemented!`); }
 
-	_getDefaultState () {
-		return {
-			pulse_sublist: false,
-		};
-	}
+	async pHandleRemoveAll () { /* Implement as required */ }
+
+	async pDoInitNewState ({prevExportableSublist, evt}) { /* Implement as required */ }
+
+	getDownloadName () { /* Implement as required */ }
+	getDownloadFileType () { /* Implement as required */ }
+	getUploadFileTypes ({downloadFileTypeBase}) { /* Implement as required */ }
+
+	onSublistUpdate () { /* Implement as required */ }
 }

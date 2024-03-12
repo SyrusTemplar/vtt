@@ -1,7 +1,9 @@
-v1.181.8
+v1.197.4
 
-- Added more images to various books (PHB, MM, VGM, MTF, SCAG, XGE)
-- Added Printer View button to Backgrounds page; Feats page
-- Improved CR Scaler handling of heavy armor with shields at high CRs
-- Fixed rare Bestiary crash when loading a specific subset of sources 
+- Added "One D&D" filter to Prerelease Content Manager "Get Prerelease Content" view
+- Switched "Added [date]" column to "Published [date]" in Prerelease Content Manager "Get Prerelease Content" view
+- Added tokens for Chains of Asmodeus NPCs/other creatures
+- (Brew) Added "Preview" button to text converter output
+- (Brew) Added support for "month" spell durations
+- (Brew) Fixed homebrew content which depends on prerelease content failing to load that prerelease content
 - (Fixed typos/added tags)

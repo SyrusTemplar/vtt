@@ -48,7 +48,7 @@ body {
 	overflow-x: hidden;
 
 	// :^)
-	// TODO deploy sensibly if this "concept" works
+	// TODO(iOS) deploy sensibly if this "concept" works
 	padding: var(--safe-area-inset-top) var(--safe-area-inset-right) var(--safe-area-inset-bottom) var(--safe-area-inset-left);
 
 	&.is-fullscreen .page__header {
@@ -91,8 +91,11 @@ hr {
 /* *** */
 
 /* custom scrollbars */
-* {
-	scrollbar-width: thin;
+// Firefox only--use thinner scrollbars where possible (Chrome uses `-webkit` custom styling instead)
+@-moz-document url-prefix() {
+	* {
+		scrollbar-width: thin;
+	}
 }
 
 ::-webkit-scrollbar {

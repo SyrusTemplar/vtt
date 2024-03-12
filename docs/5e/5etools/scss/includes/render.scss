@@ -12,6 +12,7 @@ $rgb-inset-border: #656565;
 	--sz-font-h2: 1.35em;
 
 	--h-mb-p: 5px;
+	--h-mb-p-inline: 0;
 	--h-mb-quote-line: 5px;
 	--h-mb-quote-line-last: 5px;
 	--h-mb-li: 3px;
@@ -142,6 +143,11 @@ $rgb-inset-border: #656565;
 		&wrp-gallery-image {
 			padding: 0 10px 10px;
 			max-width: 33%;
+		}
+
+		&gallery-name {
+			font-style: italic;
+			text-decoration: underline;
 		}
 
 		&quote {
@@ -283,6 +289,14 @@ $rgb-inset-border: #656565;
 			font-style: italic;
 		}
 
+		&quote {
+			&-pull {
+				padding: 10px 15px;
+				text-align: center;
+				font-size: 125%;
+			}
+		}
+
 		// section headers
 		&h {
 			margin: 0;
@@ -373,7 +387,7 @@ $rgb-inset-border: #656565;
 		&b--3 > p,
 		&b--4 > p {
 			text-indent: var(--w-text-indent-inline-p);
-			margin-bottom: 0;
+			margin-bottom: var(--h-mb-p-inline);
 
 			&:first-of-type {
 				display: inline;
@@ -421,6 +435,7 @@ $rgb-inset-border: #656565;
 			border-right-width: 1px;
 			margin: 5px;
 			width: calc(100% - 12px);
+			table-layout: fixed;
 
 			&--inset {
 				box-shadow: 0 0 4px 0 rgb(152, 142, 124);
@@ -506,8 +521,8 @@ $rgb-inset-border: #656565;
 			}
 
 			&-img-speaker {
-				margin-top: -20px;
-				margin-bottom: -20px;
+				margin-top: -5px;
+				margin-bottom: -5px;
 
 				&--left {
 					float: left;
@@ -613,6 +628,39 @@ $rgb-inset-border: #656565;
 			&stroke-bg {
 				stroke: $rgb-bg;
 			}
+		}
+	}
+
+	&-homebrew__ {
+		&b {
+			background-color: $rgb-bg-homebrew;
+			clear: both;
+		}
+
+		&wrp-notice {
+			float: right;
+			border: 1px dotted;
+			margin-bottom: 5px;
+			margin-left: 5px;
+			padding-right: 2px;
+			padding-left: 2px;
+			text-indent: 0;
+		}
+
+		&disp-notice {
+			&::before {
+				content: "Homebrew";
+			}
+		}
+
+		&disp-old-content {
+			color: #a00;
+			margin-left: 5px;
+		}
+
+		&disp-inline {
+			background-color: $rgb-bg-homebrew;
+			text-decoration: underline dotted;
 		}
 	}
 }

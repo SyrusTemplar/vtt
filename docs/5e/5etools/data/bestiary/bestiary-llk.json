@@ -139,6 +139,13 @@
 				"prone",
 				"unconscious"
 			],
+			"savingThrowForced": [
+				"intelligence"
+			],
+			"savingThrowForcedSpell": [
+				"charisma",
+				"wisdom"
+			],
 			"hasToken": true
 		},
 		{
@@ -491,6 +498,7 @@
 				"CB"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
 			],
 			"conditionInflict": [
@@ -500,6 +508,9 @@
 				"charmed",
 				"incapacitated",
 				"prone"
+			],
+			"savingThrowForcedSpell": [
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluffImages": true
@@ -556,6 +567,9 @@
 			"spellcastingTags": [
 				"O"
 			],
+			"savingThrowForcedSpell": [
+				"dexterity"
+			],
 			"hasToken": true,
 			"hasFluffImages": true
 		},
@@ -599,6 +613,9 @@
 			"conditionInflict": [
 				"petrified",
 				"restrained"
+			],
+			"savingThrowForced": [
+				"constitution"
 			],
 			"hasToken": true,
 			"hasFluffImages": true
@@ -744,6 +761,7 @@
 				"CL"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
 			],
 			"conditionInflict": [
@@ -753,6 +771,13 @@
 			"conditionInflictSpell": [
 				"charmed",
 				"incapacitated"
+			],
+			"savingThrowForced": [
+				"wisdom"
+			],
+			"savingThrowForcedSpell": [
+				"intelligence",
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluffImages": true
@@ -911,6 +936,7 @@
 				"S"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
 			],
 			"hasToken": true

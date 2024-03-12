@@ -15,6 +15,7 @@
 
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/crcalculator.css">
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -54,78 +55,15 @@
 	<script type="text/javascript" src="js/styleswitch.js"></script>
 	<script type="text/javascript" src="js/navigation.js"></script>
 	<script type="text/javascript" src="js/browsercheck.js"></script>
-
-	<style>
-		.crc__reset {
-			min-width: 10rem;
-			display: block;
-		}
-
-		.crc__row {
-			display: flex;
-			align-items: center;
-			height: 30px;
-			justify-content: space-between;
-		}
-
-		.crc__row label {
-			margin-bottom: 0;
-		}
-
-		.crc__row input[type=checkbox] {
-			margin: 0;
-		}
-
-		.crc__hdr_mon_features {
-			font-weight: bold;
-		}
-
-		.crc__mon_feature {
-			width: 100%;
-			font-weight: initial;
-			cursor: pointer;
-			font-size: 0.8em;
-			display: flex;
-			align-items: center;
-			margin-bottom: 0;
-			padding: 4px 0;
-		}
-
-		.crc__mon_feature_wrp_cb {
-			display: flex;
-			white-space: nowrap;
-			justify-content: space-around;
-			align-items: center;
-		}
-
-		.crc__mon_feature input[type=number] {
-			width: 3em;
-			vertical-align: middle;
-			text-align: right;
-		}
-
-		.crc__mon_feature input[type=checkbox] {
-			margin: 0;
-		}
-
-		.crc__mon_feature:nth-child(even) {
-			background: lightgrey;
-		}
-
-		.night-mode .crc__mon_feature:nth-child(even) {
-			background: rgba(0, 0, 0, 0.31);
-		}
-	</style>
 </head>
 
 <body>
 <div class="cancer__wrp-leaderboard cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__wrp-leaderboard-inner"><!--5ETOOLS_AD_LEADERBOARD--></div></div>
 
 <header class="hidden-xs hidden-sm page__header">
-	<div class="container">
-
-		<h1 class="page__title">CR Calculator</h1>
-		<p class="page__subtitle" id="page__subtitle">Easily build custom creatures.</p>
+	<div class="container ve-flex-v-baseline">
+		<h1 class="page__title no-wrap my-0">CR Calculator</h1>
+		<p class="page__subtitle no-wrap my-0" id="page__subtitle">Easily build custom creatures.</p>
 	</div>
 </header>
 <nav class="container page__nav" id="navigation">
@@ -169,7 +107,7 @@
 					</span>
 				</div>
 			</div>
-			<div class="col-sm-6 text-center">
+			<div class="col-sm-6 ve-text-center">
 				<h4>Monster Statistics by Challenge Rating</h4>
 				<table id="msbcr">
 					<tr>

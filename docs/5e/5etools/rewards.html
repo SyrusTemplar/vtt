@@ -63,10 +63,9 @@
 	<div class="cancer__wrp-leaderboard cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__wrp-leaderboard-inner"><!--5ETOOLS_AD_LEADERBOARD--></div></div>
 
 	<header class="hidden-xs hidden-sm page__header">
-		<div class="container">
-
-			<h1 class="page__title">Supernatural Gifts &amp; Rewards</h1>
-			<p class="page__subtitle" id="page__subtitle">Search by name on the left, click reward name to display on the right.</p>
+		<div class="container ve-flex-v-baseline">
+			<h1 class="page__title no-wrap my-0">Supernatural Gifts &amp; Rewards</h1>
+			<p class="page__subtitle no-wrap my-0" id="page__subtitle">Search by name on the left, click reward name to display on the right.</p>
 		</div>
 	</header>
 
@@ -85,8 +84,9 @@
 					<button class="btn btn-default" id="reset">Reset</button>
 				</div>
 				<div id="filtertools" class="input-group input-group--bottom ve-flex no-shrink">
+					<button class="col-0-3 btn btn-default btn-xs p-0 lst__btn-collapse-all-previews" name="list-toggle-all-previews">[+]</button>
 					<button class="col-2 sort btn btn-default btn-xs" data-sort="type">Type</button>
-					<button class="col-8 sort btn btn-default btn-xs" data-sort="name">Name</button>
+					<button class="col-7-7 sort btn btn-default btn-xs" data-sort="name">Name</button>
 					<button class="sort btn btn-default btn-xs ve-grow" data-sort="source">Source</button>
 				</div>
 
@@ -104,7 +104,7 @@
 					</div>
 				</div>
 
-				<div class="wrp-stat-tab">
+				<div class="wrp-stat-tab" id="stat-tabs">
 					<div id="tabs-right"></div>
 				</div>
 
@@ -116,7 +116,7 @@
 					</table>
 				</div>
 
-				<div class="text-center mt-2 no-print">
+				<div class="ve-text-center mt-2 no-print">
 					<button class="btn btn-xs btn-info" id="manage-brew">Manage Homebrew</button>
 				</div>
 			</div>

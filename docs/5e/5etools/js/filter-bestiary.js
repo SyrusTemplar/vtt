@@ -69,6 +69,7 @@ class PageFilterBestiary extends PageFilter {
 
 	static _getDamageTagDisplayText (tag) { return Parser.dmgTypeToFull(tag).toTitleCase(); }
 	static _getConditionDisplayText (uid) { return uid.split("|")[0].toTitleCase(); }
+	static _getAbilitySaveDisplayText (abl) { return `${abl.uppercaseFirst()} Save`; }
 	// endregion
 
 	constructor () {
@@ -174,6 +175,28 @@ class PageFilterBestiary extends PageFilter {
 			items: [...Parser.CONDITIONS],
 		});
 		this._conditionsInflictedFilter = new MultiFilter({header: "Conditions Inflicted", filters: [this._conditionsInflictedFilterBase, this._conditionsInflictedFilterLegendary, this._conditionsInflictedFilterSpells]});
+		this._savingThrowForcedFilterBase = new Filter({
+			header: "Saving Throws Required by Traits/Actions",
+			displayFn: this.constructor._getAbilitySaveDisplayText,
+			displayFnMini: abl => `Requires ${this.constructor._getAbilitySaveDisplayText(abl)} (Trait/Action)`,
+			items: Parser.ABIL_ABVS.map(abl => Parser.attAbvToFull(abl).toLowerCase()),
+			itemSortFn: null,
+		});
+		this._savingThrowForcedFilterLegendary = new Filter({
+			header: "Saving Throws Required by Lair Actions/Regional Effects",
+			displayFn: this.constructor._getAbilitySaveDisplayText,
+			displayFnMini: abl => `Requires ${this.constructor._getAbilitySaveDisplayText(abl)} (Lair/Regional)`,
+			items: Parser.ABIL_ABVS.map(abl => Parser.attAbvToFull(abl).toLowerCase()),
+			itemSortFn: null,
+		});
+		this._savingThrowForcedFilterSpells = new Filter({
+			header: "Saving Throws Required by Spells",
+			displayFn: this.constructor._getAbilitySaveDisplayText,
+			displayFnMini: abl => `Requires ${this.constructor._getAbilitySaveDisplayText(abl)} (Spell)`,
+			items: Parser.ABIL_ABVS.map(abl => Parser.attAbvToFull(abl).toLowerCase()),
+			itemSortFn: null,
+		});
+		this._savingThrowForcedFilter = new MultiFilter({header: "Saving Throw Required", filters: [this._savingThrowForcedFilterBase, this._savingThrowForcedFilterLegendary, this._savingThrowForcedFilterSpells]});
 		this._senseFilter = new Filter({
 			header: "Senses",
 			displayFn: (it) => Parser.monSenseTagToFull(it).toTitleCase(),
@@ -216,7 +239,7 @@ class PageFilterBestiary extends PageFilter {
 		});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Familiar", ...Object.keys(Parser.MON_MISC_TAG_TO_FULL), "Bonus Actions", "Lair Actions", "Legendary", "Mythic", "Adventure NPC", "Spellcaster", ...Object.values(Parser.ATB_ABV_TO_FULL).map(it => `${PageFilterBestiary.MISC_FILTER_SPELLCASTER}${it}`), "Regional Effects", "Reactions", "Reprinted", "Swarm", "Has Variants", "Modified Copy", "Has Alternate Token", "Has Info", "Has Images", "Has Token", "Has Recharge", "SRD", "Basic Rules", "AC from Item(s)", "AC from Natural Armor", "AC from Unarmored Defense", "Summoned by Spell", "Summoned by Class"],
+			items: ["Familiar", ...Object.keys(Parser.MON_MISC_TAG_TO_FULL), "Bonus Actions", "Lair Actions", "Legendary", "Mythic", "Adventure NPC", "Spellcaster", ...Object.values(Parser.ATB_ABV_TO_FULL).map(it => `${PageFilterBestiary.MISC_FILTER_SPELLCASTER}${it}`), "Regional Effects", "Reactions", "Reprinted", "Swarm", "Has Variants", "Modified Copy", "Has Alternate Token", "Has Info", "Has Images", "Has Token", "Has Recharge", "SRD", "Basic Rules", "Legacy", "AC from Item(s)", "AC from Natural Armor", "AC from Unarmored Defense", "Summoned by Spell", "Summoned by Class"],
 			displayFn: (it) => Parser.monMiscTagToFull(it).uppercaseFirst(),
 			deselFn: (it) => ["Adventure NPC", "Reprinted"].includes(it),
 			itemSortFn: PageFilterBestiary.ascSortMiscFilter,
@@ -324,6 +347,7 @@ class PageFilterBestiary extends PageFilter {
 		if (mon.altArt) mon._fMisc.push("Has Alternate Token");
 		if (mon.srd) mon._fMisc.push("SRD");
 		if (mon.basicRules) mon._fMisc.push("Basic Rules");
+		if (SourceUtil.isLegacySourceWotc(mon.source)) mon._fMisc.push("Legacy");
 		if (mon.tokenUrl || mon.hasToken) mon._fMisc.push("Has Token");
 		if (mon.mythic) mon._fMisc.push("Mythic");
 		if (mon.hasFluff || mon.fluff?.entries) mon._fMisc.push("Has Info");
@@ -472,6 +496,9 @@ class PageFilterBestiary extends PageFilter {
 		this._conditionsInflictedFilterBase.addItem(mon.conditionInflict);
 		this._conditionsInflictedFilterLegendary.addItem(mon.conditionInflictLegendary);
 		this._conditionsInflictedFilterSpells.addItem(mon.conditionInflictSpell);
+		this._savingThrowForcedFilterBase.addItem(mon.savingThrowForced);
+		this._savingThrowForcedFilterLegendary.addItem(mon.savingThrowForcedLegendary);
+		this._savingThrowForcedFilterSpells.addItem(mon.savingThrowForcedSpell);
 		this._dragonAgeFilter.addItem(mon.dragonAge);
 		this._dragonCastingColor.addItem(mon.dragonCastingColor);
 	}
@@ -508,6 +535,7 @@ class PageFilterBestiary extends PageFilter {
 			this._languageFilter,
 			this._damageTypeFilter,
 			this._conditionsInflictedFilter,
+			this._savingThrowForcedFilter,
 			this._dragonAgeFilter,
 			this._dragonCastingColor,
 			this._acFilter,
@@ -557,6 +585,11 @@ class PageFilterBestiary extends PageFilter {
 				m.conditionInflict,
 				m.conditionInflictLegendary,
 				m.conditionInflictSpell,
+			],
+			[
+				m.savingThrowForced,
+				m.savingThrowForcedLegendary,
+				m.savingThrowForcedSpell,
 			],
 			m.dragonAge,
 			m.dragonCastingColor,
@@ -634,8 +667,8 @@ class ModalFilterBestiary extends ModalFilter {
 
 			<div class="col-4 ${mon._versionBase_isVersion ? "italic" : ""} ${this._getNameStyle()}">${mon._versionBase_isVersion ? `<span class="px-3"></span>` : ""}${mon.name}</div>
 			<div class="col-4">${type}</div>
-			<div class="col-2 text-center">${cr}</div>
-			<div class="col-1 text-center ${Parser.sourceJsonToColor(mon.source)} pr-0" title="${Parser.sourceJsonToFull(mon.source)}" ${Parser.sourceJsonToStyle(mon.source)}>${source}</div>
+			<div class="col-2 ve-text-center">${cr}</div>
+			<div class="col-1 ve-flex-h-center ${Parser.sourceJsonToColor(mon.source)} pr-0" title="${Parser.sourceJsonToFull(mon.source)}" ${Parser.sourceJsonToStyle(mon.source)}>${source}${Parser.sourceJsonToMarkerHtml(mon.source)}</div>
 		</div>`;
 
 		const btnShowHidePreview = eleRow.firstElementChild.children[1].firstElementChild;

@@ -242,7 +242,7 @@ class LootGenUi extends BaseComponent {
 									"Item",
 								],
 								colStyles: [
-									"col-2 text-center",
+									"col-2 ve-text-center",
 									"col-10",
 								],
 								rows: items.map((it, i) => ([i + 1, `{@item ${it.name}|${it.source}}`])),
@@ -2094,7 +2094,7 @@ class LootGenMagicItemSpellScroll extends LootGenMagicItem {
 					${$btnRerollSpell}
 					${$dispSpell}
 					<span class="ve-muted mx-2 no-wrap">-or-</span>
-					<div class="no-wrap">${Renderer.get().render(`{@filter see all ${Parser.spLevelToFullLevelText(this._state.spellLevel, true)} spells|spells|level=${this._state.spellLevel}}`)}</div>
+					<div class="no-wrap">${Renderer.get().render(`{@filter see all ${Parser.spLevelToFullLevelText(this._state.spellLevel, {isDash: true})} spells|spells|level=${this._state.spellLevel}}`)}</div>
 					<span>)</span>
 				</div>
 				${$dispRoll}

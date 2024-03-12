@@ -10,20 +10,67 @@ class SpellsSublistManager extends SublistManager {
 		});
 	}
 
+	static get _ROW_TEMPLATE () {
+		return [
+			new SublistCellTemplate({
+				name: "Name",
+				css: "bold col-3-2 pl-0",
+				colStyle: "",
+			}),
+			new SublistCellTemplate({
+				name: "Level",
+				css: "capitalize col-1-5 ve-text-center",
+				colStyle: "text-center",
+			}),
+			new SublistCellTemplate({
+				name: "Time",
+				css: "col-1-8 ve-text-center",
+				colStyle: "text-center",
+			}),
+			new SublistCellTemplate({
+				name: "School",
+				css: "capitalize col-1-6 ve-text-center",
+				colStyle: "text-center",
+			}),
+			new SublistCellTemplate({
+				name: "C.",
+				css: "concentration--sublist col-0-7 ve-text-center",
+				colStyle: "text-center",
+			}),
+			new SublistCellTemplate({
+				name: "Range",
+				css: "range col-3-2 pr-0 text-right",
+				colStyle: "text-right",
+			}),
+		];
+	}
+
 	pGetSublistItem (spell, hash) {
 		const school = Parser.spSchoolAndSubschoolsAbvsShort(spell.school, spell.subschools);
 		const time = PageFilterSpells.getTblTimeStr(spell.time[0]);
 		const concentration = spell._isConc ? "×" : "";
 		const range = Parser.spRangeToFull(spell.range);
 
+		const cellsText = [
+			spell.name,
+			PageFilterSpells.getTblLevelStr(spell),
+			time,
+			new SublistCell({
+				text: school,
+				title: Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools),
+				css: `sp__school-${spell.school}`,
+				style: Parser.spSchoolAbvToStyle(spell.school),
+			}),
+			new SublistCell({
+				text: concentration,
+				title: concentration ? "Concentration" : "",
+			}),
+			range,
+		];
+
 		const $ele = $(`<div class="lst__row lst__row--sublist ve-flex-col">
 			<a href="#${UrlUtil.autoEncodeHash(spell)}" title="${spell.name}" class="lst--border lst__row-inner">
-				<span class="bold col-3-2 pl-0">${spell.name}</span>
-				<span class="capitalize col-1-5 text-center">${PageFilterSpells.getTblLevelStr(spell)}</span>
-				<span class="col-1-8 text-center">${time}</span>
-				<span class="capitalize col-1-6 sp__school-${spell.school} text-center" title="${Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools)}" ${Parser.spSchoolAbvToStyle(spell.school)}>${school}</span>
-				<span class="concentration--sublist col-0-7 text-center" title="Concentration">${concentration}</span>
-				<span class="range col-3-2 pr-0 text-right">${range}</span>
+				${this.constructor._getRowCellsHtml({values: cellsText})}
 			</a>
 		</div>`)
 			.contextmenu(evt => this._handleSublistItemContextMenu(evt, listItem))
@@ -45,6 +92,7 @@ class SpellsSublistManager extends SublistManager {
 			},
 			{
 				entity: spell,
+				mdRow: [...cellsText],
 			},
 		);
 		return listItem;
@@ -71,26 +119,17 @@ class SpellPageBookView extends ListPageBookView {
 		});
 
 		this._bookViewLastOrder = null;
+		this._$wrpContent = null;
 	}
 
 	_getSorted (a, b) {
 		return this._bookViewLastOrder === "0" ? SortUtil.ascSort(a.level, b.level) : SortUtil.ascSortLower(a.name, b.name);
 	}
 
-	async _pGetRenderContentMeta ({$wrpContent, $wrpControls}) {
-		$wrpContent.addClass("p-2");
+	async _$pGetWrpControls ({$wrpContent}) {
+		const out = await super._$pGetWrpControls({$wrpContent});
 
-		this._bookViewToShow = this._sublistManager.getSublistedEntities()
-			.sort((a, b) => SortUtil.ascSortLower(a.name, b.name));
-
-		let isAnyEntityRendered = false;
-
-		const renderSpell = (stack, sp) => {
-			isAnyEntityRendered = true;
-			stack.push(`<div class="bkmv__wrp-item ve-inline-block print__ve-block print__my-2"><table class="w-100 stats stats--book stats--bkmv"><tbody>`);
-			stack.push(Renderer.spell.getCompactRenderedString(sp));
-			stack.push(`</tbody></table></div>`);
-		};
+		const {$wrpPrint} = out;
 
 		this._bookViewLastOrder = StorageUtil.syncGetForPage(SpellPageBookView._BOOK_VIEW_MODE_K);
 		if (this._bookViewLastOrder != null) this._bookViewLastOrder = `${this._bookViewLastOrder}`;
@@ -103,52 +142,72 @@ class SpellPageBookView extends ListPageBookView {
 				if (!this._bookViewToShow.length && Hist.lastLoadedId != null) return;
 
 				const val = $selSortMode.val();
-				if (val === "0") renderByLevel();
-				else renderByAlpha();
+				if (val === "0") this._renderByLevel();
+				else this._renderByAlpha();
 
 				StorageUtil.syncSetForPage(SpellPageBookView._BOOK_VIEW_MODE_K, val);
 			});
 		if (this._bookViewLastOrder != null) $selSortMode.val(this._bookViewLastOrder);
+		$$`<div class="ve-flex-vh-center ml-3"><div class="mr-2 no-wrap">Sort order:</div>${$selSortMode}</div>`.appendTo($wrpPrint);
 
-		$$`<div class="ve-flex-vh-center ml-3"><div class="mr-2 no-wrap">Sort order:</div>${$selSortMode}</div>`.appendTo($wrpControls);
+		return out;
+	}
 
-		// region Markdown
-		this._$getControlsMarkdown().appendTo($wrpControls);
-		// endregion
+	_renderSpell ({stack, sp}) {
+		stack.push(`<div class="bkmv__wrp-item ve-inline-block print__ve-block print__my-2"><table class="w-100 stats stats--book stats--bkmv"><tbody>`);
+		stack.push(Renderer.spell.getCompactRenderedString(sp));
+		stack.push(`</tbody></table></div>`);
+	}
 
-		const renderByLevel = () => {
-			const stack = [];
-			for (let i = 0; i < 10; ++i) {
-				const atLvl = this._bookViewToShow.filter(sp => sp.level === i);
-				if (atLvl.length) {
-					stack.push(`<div class="bkmv__no-breaks">`);
-					stack.push(`<div class="bkmv__spacer-name ve-flex-v-center no-shrink no-print">${Parser.spLevelToFullLevelText(i)}</div>`);
-					atLvl.forEach(sp => renderSpell(stack, sp));
-					stack.push(`</div>`);
-				}
+	_renderByLevel () {
+		let isAnyEntityRendered = false;
+		const stack = [];
+		for (let i = 0; i < 10; ++i) {
+			const atLvl = this._bookViewToShow.filter(sp => sp.level === i);
+			if (atLvl.length) {
+				stack.push(`<div class="bkmv__no-breaks">`);
+				stack.push(`<div class="bkmv__spacer-name ve-flex-v-center no-shrink no-print pl-2">${Parser.spLevelToFullLevelText(i)}</div>`);
+				atLvl.forEach(sp => this._renderSpell({stack, sp}));
+				isAnyEntityRendered = true;
+				stack.push(`</div>`);
 			}
-			$wrpContent.empty().append(stack.join(""));
-			this._bookViewLastOrder = "0";
-		};
+		}
+		this._$wrpContent.empty().append(stack.join(""));
+		this._bookViewLastOrder = "0";
+		return {isAnyEntityRendered};
+	}
 
-		const renderByAlpha = () => {
-			const stack = [];
-			this._bookViewToShow.forEach(sp => renderSpell(stack, sp));
-			$wrpContent.empty().append(stack.join(""));
-			this._bookViewLastOrder = "1";
-		};
+	_renderByAlpha () {
+		const stack = [];
+		this._bookViewToShow.forEach(sp => this._renderSpell({stack, sp}));
+		this._$wrpContent.empty().append(stack.join(""));
+		this._bookViewLastOrder = "1";
+		return {isAnyEntityRendered: !!this._bookViewToShow.length};
+	}
 
-		const renderNoneSelected = () => {
-			const stack = [];
-			stack.push(`<div class="w-100 h-100 no-breaks">`);
-			renderSpell(stack, this._fnGetEntLastLoaded());
-			stack.push(`</div>`);
-			$wrpContent.empty().append(stack.join(""));
-		};
+	_renderNoneSelected () {
+		const stack = [];
+		stack.push(`<div class="w-100 h-100 no-breaks">`);
+		this._renderSpell({stack, sp: this._fnGetEntLastLoaded()});
+		stack.push(`</div>`);
+		this._$wrpContent.empty().append(stack.join(""));
+		return {isAnyEntityRendered: false};
+	}
 
-		if (!this._bookViewToShow.length && Hist.lastLoadedId != null) renderNoneSelected();
-		else if (this._bookViewLastOrder === "1") renderByAlpha();
-		else renderByLevel();
+	_renderSpells () {
+		if (!this._bookViewToShow.length && Hist.lastLoadedId != null) return this._renderNoneSelected();
+		else if (this._bookViewLastOrder === "1") return this._renderByAlpha();
+		else return this._renderByLevel();
+	}
+
+	async _pGetRenderContentMeta ({$wrpContent, $wrpControls}) {
+		this._$wrpContent = $wrpContent;
+		$wrpContent.addClass("p-2");
+
+		this._bookViewToShow = this._sublistManager.getSublistedEntities()
+			.sort((a, b) => SortUtil.ascSortLower(a.name, b.name));
+
+		const {isAnyEntityRendered} = this._renderSpells();
 
 		return {
 			cntSelectedEnts: this._bookViewToShow.length,
@@ -230,7 +289,7 @@ class SpellsPage extends ListPageMultiSource {
 	get _bindOtherButtonsOptions () {
 		return {
 			upload: {
-				pFnPreLoad: (...args) => this.pPreloadSublistSources(...args),
+				pFnPreLoad: (...args) => this._pPreloadSublistSources(...args),
 			},
 			sendToBrew: {
 				mode: "spellBuilder",
@@ -273,20 +332,20 @@ class SpellsPage extends ListPageMultiSource {
 					clazz: "lst--border lst__row-inner",
 					children: [
 						e_({tag: "span", clazz: `bold col-2-9 pl-0`, text: spell.name}),
-						e_({tag: "span", clazz: `col-1-5 text-center`, text: PageFilterSpells.getTblLevelStr(spell)}),
-						e_({tag: "span", clazz: `col-1-7 text-center`, text: time}),
+						e_({tag: "span", clazz: `col-1-5 ve-text-center`, text: PageFilterSpells.getTblLevelStr(spell)}),
+						e_({tag: "span", clazz: `col-1-7 ve-text-center`, text: time}),
 						e_({
 							tag: "span",
-							clazz: `col-1-2 sp__school-${spell.school} text-center`,
+							clazz: `col-1-2 sp__school-${spell.school} ve-text-center`,
 							title: Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools),
 							style: Parser.spSchoolAbvToStylePart(spell.school),
 							text: school,
 						}),
-						e_({tag: "span", clazz: `col-0-6 text-center`, title: "Concentration", text: concentration}),
+						e_({tag: "span", clazz: `col-0-6 ve-text-center`, title: "Concentration", text: concentration}),
 						e_({tag: "span", clazz: `col-2-4 text-right`, text: range}),
 						e_({
 							tag: "span",
-							clazz: `col-1-7 text-center ${Parser.sourceJsonToColor(spell.source)} pr-0`,
+							clazz: `col-1-7 ve-text-center ${Parser.sourceJsonToColor(spell.source)} pr-0`,
 							style: Parser.sourceJsonToStylePart(spell.source),
 							title: `${Parser.sourceJsonToFull(spell.source)}${Renderer.utils.getSourceSubText(spell)}`,
 							text: source,
@@ -306,7 +365,6 @@ class SpellsPage extends ListPageMultiSource {
 				level: spell.level,
 				time,
 				school: Parser.spSchoolAbvToFull(spell.school),
-				classes: Parser.spClassesToFull(spell, {isTextOnly: true, subclassLookup: this._subclassLookup}),
 				concentration,
 				normalisedTime: spell._normalisedTime,
 				normalisedRange: spell._normalisedRange,
@@ -335,7 +393,7 @@ class SpellsPage extends ListPageMultiSource {
 		Renderer.spell.populateBrewLookup(await BrewUtil2.pGetBrewProcessed());
 	}
 
-	async pPreloadSublistSources (json) {
+	async _pPreloadSublistSources (json) {
 		const loaded = Object.keys(this._loadedSources)
 			.filter(it => this._loadedSources[it].loaded);
 		const lowerSources = json.sources.map(it => it.toLowerCase());

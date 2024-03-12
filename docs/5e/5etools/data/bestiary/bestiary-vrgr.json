@@ -124,6 +124,9 @@
 				"restrained",
 				"stunned"
 			],
+			"savingThrowForced": [
+				"constitution"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -228,6 +231,9 @@
 			"conditionInflict": [
 				"blinded",
 				"grappled"
+			],
+			"savingThrowForced": [
+				"strength"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -392,6 +398,13 @@
 				"prone",
 				"unconscious"
 			],
+			"savingThrowForced": [
+				"intelligence"
+			],
+			"savingThrowForcedSpell": [
+				"charisma",
+				"wisdom"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -476,6 +489,9 @@
 			],
 			"conditionInflict": [
 				"poisoned"
+			],
+			"savingThrowForced": [
+				"constitution"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -565,6 +581,9 @@
 			],
 			"conditionInflict": [
 				"unconscious"
+			],
+			"savingThrowForced": [
+				"charisma"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -656,6 +675,10 @@
 			"conditionInflict": [
 				"petrified",
 				"restrained"
+			],
+			"savingThrowForced": [
+				"constitution",
+				"intelligence"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -818,10 +841,15 @@
 				"Y"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
 			],
 			"conditionInflict": [
 				"frightened"
+			],
+			"savingThrowForced": [
+				"constitution",
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -1067,6 +1095,9 @@
 				"O",
 				"Y"
 			],
+			"savingThrowForced": [
+				"wisdom"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -1218,6 +1249,10 @@
 				"MW",
 				"RCH"
 			],
+			"savingThrowForced": [
+				"dexterity",
+				"wisdom"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -1299,6 +1334,9 @@
 			"miscTags": [
 				"AOE",
 				"MW"
+			],
+			"savingThrowForced": [
+				"constitution"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -1426,6 +1464,7 @@
 				"P"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
 			],
 			"conditionInflict": [
@@ -1435,6 +1474,14 @@
 			"conditionInflictSpell": [
 				"charmed",
 				"incapacitated"
+			],
+			"savingThrowForced": [
+				"intelligence",
+				"wisdom"
+			],
+			"savingThrowForcedSpell": [
+				"charisma",
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -1568,10 +1615,14 @@
 				"P"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
 			],
 			"conditionInflictSpell": [
 				"invisible"
+			],
+			"savingThrowForcedSpell": [
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -1703,6 +1754,7 @@
 			],
 			"miscTags": [
 				"AOE",
+				"MLW",
 				"MW"
 			],
 			"conditionInflict": [
@@ -1710,6 +1762,13 @@
 			],
 			"conditionInflictSpell": [
 				"restrained"
+			],
+			"savingThrowForced": [
+				"constitution"
+			],
+			"savingThrowForcedSpell": [
+				"constitution",
+				"dexterity"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -1823,7 +1882,7 @@
 				{
 					"name": "Magic Resistance Aura",
 					"entries": [
-						"While holding Nepenthe, Isolde creates an aura in a 10-foot radius around her. While this aura is active, Isolde and all creatures friendly to her in the aura have advantage on saving throws against spells and other magical effects."
+						"While holding {@item Nepenthe|VRGR}, Isolde creates an aura in a 10-foot radius around her. While this aura is active, Isolde and all creatures friendly to her in the aura have advantage on saving throws against spells and other magical effects."
 					]
 				}
 			],
@@ -1889,6 +1948,13 @@
 			],
 			"conditionInflictSpell": [
 				"prone"
+			],
+			"savingThrowForced": [
+				"wisdom"
+			],
+			"savingThrowForcedSpell": [
+				"charisma",
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -2006,6 +2072,9 @@
 			],
 			"miscTags": [
 				"MW"
+			],
+			"savingThrowForced": [
+				"constitution"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -2166,6 +2235,9 @@
 			],
 			"conditionInflict": [
 				"stunned"
+			],
+			"savingThrowForced": [
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true
@@ -2329,10 +2401,15 @@
 				"S"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
 			],
 			"conditionInflict": [
 				"prone"
+			],
+			"savingThrowForced": [
+				"constitution",
+				"strength"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -2342,6 +2419,11 @@
 			"name": "Necrichor",
 			"source": "VRGR",
 			"page": 238,
+			"otherSources": [
+				{
+					"source": "AATM"
+				}
+			],
 			"size": [
 				"M"
 			],
@@ -2474,6 +2556,9 @@
 			],
 			"conditionInflict": [
 				"paralyzed"
+			],
+			"savingThrowForced": [
+				"constitution"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -2610,6 +2695,9 @@
 				"AOE",
 				"HPR",
 				"MW"
+			],
+			"savingThrowForced": [
+				"constitution"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -3168,6 +3256,10 @@
 				"incapacitated",
 				"prone"
 			],
+			"savingThrowForced": [
+				"dexterity",
+				"strength"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -3606,6 +3698,9 @@
 			"conditionInflict": [
 				"blinded"
 			],
+			"savingThrowForced": [
+				"constitution"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -3813,6 +3908,9 @@
 			"conditionInflict": [
 				"restrained"
 			],
+			"savingThrowForced": [
+				"strength"
+			],
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -3984,7 +4082,7 @@
 										"type": "entries",
 										"name": "Aberrant Armor",
 										"entries": [
-											"The horror's body is armored in {@condition petrified} wood, alien crystal, rusted mechanisms, sculpted stone, or an exoskeleton."
+											"The horror's body is armored in petrified wood, alien crystal, rusted mechanisms, sculpted stone, or an exoskeleton."
 										]
 									}
 								],
@@ -4164,6 +4262,10 @@
 				"prone",
 				"restrained"
 			],
+			"savingThrowForced": [
+				"constitution",
+				"strength"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -4309,6 +4411,10 @@
 				"grappled",
 				"incapacitated"
 			],
+			"savingThrowForced": [
+				"intelligence",
+				"wisdom"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -4432,9 +4538,13 @@
 				"P"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RNG",
 				"RW"
+			],
+			"savingThrowForced": [
+				"constitution"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -4558,6 +4668,10 @@
 			"conditionInflict": [
 				"poisoned"
 			],
+			"savingThrowForced": [
+				"constitution",
+				"strength"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -4670,6 +4784,9 @@
 			],
 			"conditionInflict": [
 				"poisoned"
+			],
+			"savingThrowForced": [
+				"constitution"
 			],
 			"hasToken": true,
 			"hasFluff": true

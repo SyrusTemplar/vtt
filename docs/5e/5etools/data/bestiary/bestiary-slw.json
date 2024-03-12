@@ -113,6 +113,7 @@
 				"P"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RNG",
 				"RW",
@@ -189,6 +190,9 @@
 			"conditionInflict": [
 				"paralyzed",
 				"poisoned"
+			],
+			"savingThrowForced": [
+				"constitution"
 			],
 			"hasToken": true
 		},
@@ -320,7 +324,11 @@
 				"CC"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
+			],
+			"savingThrowForcedSpell": [
+				"dexterity"
 			],
 			"hasToken": true
 		},
@@ -452,7 +460,11 @@
 				"CW"
 			],
 			"miscTags": [
+				"MLW",
 				"MW"
+			],
+			"savingThrowForcedSpell": [
+				"dexterity"
 			],
 			"hasToken": true
 		},
@@ -669,6 +681,9 @@
 				"AOE",
 				"MW"
 			],
+			"savingThrowForced": [
+				"dexterity"
+			],
 			"hasToken": true
 		},
 		{
@@ -800,6 +815,7 @@
 				"S"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RNG",
 				"RW"

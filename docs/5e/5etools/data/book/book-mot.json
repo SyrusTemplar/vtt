@@ -10,24 +10,27 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/MOT/196-07-01.png"
+						"path": "book/MOT/196-07-01.webp"
 					},
 					"title": "Cover: The invulnerable hero, Haktos the Unscarred, leaps into battle with a Nyxborn hydra, taking part in the most recent telling of a myth repeated through the ages.",
 					"width": 1110,
-					"height": 721
+					"height": 721,
+					"credit": "Jason Rainville"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/MOT/197-07-02.png"
+						"path": "book/MOT/197-07-02.webp"
 					},
 					"title": "Alternate Cover: While the gods look on, the immortal struggle between Haktos and the hydra plays out in the stars of Nyx.",
 					"width": 1110,
-					"height": 721
+					"height": 721,
+					"credit": "Kevin Tong"
 				},
 				{
 					"type": "insetReadaloud",
+					"style": "small-caps",
 					"id": "001",
 					"entries": [
 						"I am Medomai, ageless and deathless, seer of endings:",
@@ -43,10 +46,11 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/MOT/000-00-04.jpg"
+						"path": "book/MOT/000-00-04.webp"
 					},
 					"width": 1500,
-					"height": 1992
+					"height": 1992,
+					"credit": "Seb McKinnon"
 				},
 				{
 					"type": "quote",
@@ -70,11 +74,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/MOT/001-00-02.a.png"
+						"path": "book/MOT/001-00-02.a.webp"
 					},
 					"title": "The General, and The Protector ",
 					"width": 1200,
-					"height": 509
+					"height": 509,
+					"credit": "Chuck Lukacs"
 				},
 				{
 					"type": "section",
@@ -99,11 +104,12 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/002-00-02.b.png"
+										"path": "book/MOT/002-00-02.b.webp"
 									},
-									"title": "The Vanquisher, and the Hunter ",
+									"title": "The Vanquisher, and The Hunter",
 									"width": 1200,
-									"height": 509
+									"height": 509,
+									"credit": "Chuck Lukacs"
 								}
 							]
 						},
@@ -133,11 +139,12 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/003-00-03.a.png"
+										"path": "book/MOT/003-00-03.a.webp"
 									},
-									"title": "The Provider, and The Warrior ",
+									"title": "The Provider, and The Warrior",
 									"width": 1200,
-									"height": 508
+									"height": 508,
+									"credit": "Chuck Lukacs"
 								}
 							]
 						}
@@ -175,11 +182,12 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/004-00-03.b.png"
+										"path": "book/MOT/004-00-03.b.webp"
 									},
-									"title": "The Slayer, and the Philosopher ",
+									"title": "The Slayer, and The Philosopher",
 									"width": 1200,
-									"height": 508
+									"height": 508,
+									"credit": "Chuck Lukacs"
 								}
 							]
 						},
@@ -316,11 +324,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/MOT/005-01-01.jpg"
+						"path": "book/MOT/005-01-01.webp"
 					},
 					"title": "Drawn together by fate, three heroes\u2014centaur, leonin, and human\u2014pit themselves against sirens in the Dakra Isles ",
 					"width": 1500,
-					"height": 1992
+					"height": 1992,
+					"credit": "Chase Stone"
 				},
 				{
 					"type": "section",
@@ -502,21 +511,23 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/019-01-15.png"
+								"path": "book/MOT/019-01-15.webp"
 							},
 							"title": "An unrivaled orator, the centaur Perisophia guides Meletis as a member of the polis's ruling council, the Twelve ",
 							"width": 1500,
-							"height": 882
+							"height": 882,
+							"credit": "Cory Trego-Erdner"
 						},
 						"At 3rd level, a bard chooses a Bard College and a paladin chooses a Sacred Oath. This section offers the {@class bard|phb|College of Eloquence|Eloquence|TCE} for bards and the {@class paladin|phb|Oath of Glory|Glory|TCE} for paladins, expanding their options for that choice.",
 						{
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/020-01-16.png"
+								"path": "book/MOT/020-01-16.webp"
 							},
 							"width": 1000,
-							"height": 880
+							"height": 880,
+							"credit": "Ryan Pancoast"
 						}
 					]
 				},
@@ -565,11 +576,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/MOT/022-02-01.jpg"
+						"path": "book/MOT/022-02-01.webp"
 					},
 					"title": "Responding to a single sailor's slight, vengeful Keranos, god of storms, sends lightning to strike a Meletian galley on the Siren Sea ",
 					"width": 1500,
-					"height": 1995
+					"height": 1995,
+					"credit": "Titus Lunter"
 				},
 				"A pantheon of fifteen gods guides religious life on Theros. From the sun and agriculture to death and passage into the Underworld, the gods oversee the forces of nature and the most important aspects of mortal life. These gods are quite real to the people of Theros, who see them moving across the sky at night and sometimes encounter them face to face. Thus, most people perform rituals and devotions that honor various gods, hoping to win their favor and stave off their wrath. They tell and retell the stories of the gods' deeds\u2014even as they watch those stories continue to play out in the vastness of the night sky.",
 				"Not every mortal serves or acknowledges the gods, though. Some philosophers in the schools of Meletis teach that the gods of the pantheon are subordinate to a higher reality, perhaps Nyx itself. And other people, particularly leonin, believe that the gods are undeserving of mortal reverence.",
@@ -805,10 +817,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/023-02-02.png"
+										"path": "book/MOT/023-02-02.webp"
 									},
 									"width": 850,
-									"height": 357
+									"height": 357,
+									"credit": "Jung Park"
 								}
 							]
 						}
@@ -866,11 +879,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/MOT/054-03-01.jpg"
+						"path": "book/MOT/054-03-01.webp"
 					},
 					"title": "Soaring above the polis of Meletis in their flying chariot, heroes of the Reverent Army send off the unrivaled Meletian fleet ",
 					"width": 1500,
-					"height": 1993
+					"height": 1993,
+					"credit": "Svetlin Velinov"
 				},
 				"The world of Theros, as its inhabitants understand, includes three realms: the mortal world, the divine realm of Nyx, and the Underworld. They are three distinct planes of existence, tucked into their own pocket of the multiverse and shielded from the rest of the cosmos by the power of the gods. This chapter discusses each of these realms in turn, with a focus on the mortal realm where the schemes of the gods intersect with mortal lives.",
 				{
@@ -906,7 +920,8 @@
 										"distance": 10,
 										"units": "miles"
 									},
-									"id": "018"
+									"id": "018",
+									"credit": "Jonas De Ro"
 								},
 								{
 									"type": "image",
@@ -926,7 +941,8 @@
 									},
 									"mapParent": {
 										"id": "018"
-									}
+									},
+									"credit": "Jonas De Ro"
 								}
 							]
 						},
@@ -1200,11 +1216,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/056-03-02.png"
+												"path": "book/MOT/056-03-02.webp"
 											},
 											"title": "The Kolophon stands watch over the polis of Akros ",
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Adam Paquette"
 										}
 									]
 								}
@@ -1251,10 +1268,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/057-03-03.png"
+										"path": "book/MOT/057-03-03.webp"
 									},
 									"width": 606,
-									"height": 1000
+									"height": 1000,
+									"credit": "Steven Belledin"
 								},
 								{
 									"type": "entries",
@@ -1339,11 +1357,12 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/058-03-04.png"
+								"path": "book/MOT/058-03-04.webp"
 							},
 							"title": "The sea wall and statues of the polis's founders guard Meletis Bay ",
 							"width": 1500,
-							"height": 848
+							"height": 848,
+							"credit": "Adam Paquette"
 						},
 						{
 							"type": "entries",
@@ -1437,10 +1456,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/059-03-05.png"
+												"path": "book/MOT/059-03-05.webp"
 											},
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Claudio Pozas"
 										}
 									]
 								}
@@ -1581,11 +1601,12 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/060-03-06.png"
+										"path": "book/MOT/060-03-06.webp"
 									},
 									"title": "People from across Theros visit Meletis, leaving their marks on the polis's architecture and philosophies ",
 									"width": 1500,
-									"height": 966
+									"height": 966,
+									"credit": "Svetlin Velinov"
 								}
 							]
 						}
@@ -1762,11 +1783,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/061-03-07.png"
+												"path": "book/MOT/061-03-07.webp"
 											},
 											"title": "Nature and civilization meld harmoniously in the polis of Setessa ",
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Adam Paquette"
 										}
 									]
 								}
@@ -1900,11 +1922,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/062-03-08.png"
+												"path": "book/MOT/062-03-08.webp"
 											},
 											"title": "Speaker Brimaz looks beyond Oreskos and wonders if there is a future for his people in the outside world ",
 											"width": 1500,
-											"height": 1001
+											"height": 1001,
+											"credit": "Peter Mohrbacher"
 										}
 									]
 								}
@@ -2002,11 +2025,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/063-03-09.png"
+												"path": "book/MOT/063-03-09.webp"
 											},
 											"title": "For centuries, the minotaur polis of Skophos was unknown to outsiders. It remains unexplored ",
 											"width": 1500,
-											"height": 868
+											"height": 868,
+											"credit": "Jonas De Ro"
 										}
 									]
 								}
@@ -2187,10 +2211,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/064-03-10.png"
+												"path": "book/MOT/064-03-10.webp"
 											},
 											"width": 1500,
-											"height": 1000
+											"height": 1000,
+											"credit": "Volkan Baga"
 										}
 									]
 								}
@@ -2306,10 +2331,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/065-03-11.png"
+												"path": "book/MOT/065-03-11.webp"
 											},
 											"width": 1500,
-											"height": 865
+											"height": 865,
+											"credit": "Chris Rahn"
 										}
 									]
 								}
@@ -2484,11 +2510,12 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/066-03-12.png"
+										"path": "book/MOT/066-03-12.webp"
 									},
 									"title": "The miracles and conflicts of the gods play out endlessly in the stars of Nyx ",
 									"width": 1500,
-									"height": 1003
+									"height": 1003,
+									"credit": "Tyler Jacobson"
 								}
 							]
 						}
@@ -2561,11 +2588,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/067-03-13.png"
+												"path": "book/MOT/067-03-13.webp"
 											},
 											"title": "Shore of the Tartyx River ",
 											"width": 1500,
-											"height": 1102
+											"height": 1102,
+											"credit": "Adam Paquette"
 										}
 									]
 								},
@@ -2615,11 +2643,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/068-03-14.png"
+												"path": "book/MOT/068-03-14.webp"
 											},
-											"title": "The Underworld ward of Nerono ",
+											"title": "The Underworld ward of Nerono",
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Sam Burley"
 										}
 									]
 								},
@@ -2658,11 +2687,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/MOT/069-04-01.jpg"
+						"path": "book/MOT/069-04-01.webp"
 					},
 					"title": "As with this clash between the gods Karametra and Pharika, the quarrels of deities and demigods often spill from Nyx into the realm of mortals ",
 					"width": 1500,
-					"height": 1993
+					"height": 1993,
+					"credit": "Magali Villeneuve"
 				},
 				"As exemplified by the labors of Anthousa, the exploits of Haktos the Unscarred, the wondrous inventions of Dalakos, and Elspeth's escape from the Underworld, the heroes of Theros chart their own fates\u2014and so will the player characters in your campaign.",
 				"What adventures might Heliod's champions undertake? What villains and monsters are associated with Phenax? How might adventurers get entangled in divine schemes? This chapter explores these questions, providing abundant advice, tools, and maps for players to create their own exciting stories. The options presented here expand on the material in {@book chapter 3|DMG|2} of the {@book Dungeon Master's Guide|DMG} to help you craft adventures for your own Theros campaign. Each god of Theros's pantheon has a section here, describing how the deity interacts with the mortal world. Beyond the gods, tools for running nautical odysseys and descents into the Underworld appear in this chapter, along with an adventure that explores the machinations of immortals and the dead.",
@@ -2740,7 +2770,7 @@
 											"items": [
 												"The character's piety score might decrease by 1 each day, or each play session, for as long as the character continues to refuse the quest.",
 												"The god might intervene to steer the champion toward the quest: Thassa could cause a storm to blow the character's ship off course, for example, bringing the champion to where the god wants them to be.",
-												"In extreme instances, the god might place a magical command on the character, similar to a {@i g}{@i eas} spell."
+												"In extreme instances, the god might place a magical command on the character, similar to a {@spell geas} spell."
 											]
 										}
 									]
@@ -2806,10 +2836,11 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/070-04-02.png"
+								"path": "book/MOT/070-04-02.webp"
 							},
 							"width": 959,
-							"height": 1000
+							"height": 1000,
+							"credit": "Jamie Jones"
 						},
 						"At other times, the gods take the initiative to reach out to mortal heroes, sending them on quests or meddling in their adventures. Dreams, omens, and emissaries are the most common means by which gods might make their wishes known.",
 						"Two crucial principles should guide your use of divine involvement in your campaign:",
@@ -3658,10 +3689,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/071-04-03.png"
+												"path": "book/MOT/071-04-03.webp"
 											},
 											"width": 1500,
-											"height": 1097
+											"height": 1097,
+											"credit": "Willian Murai"
 										}
 									]
 								}
@@ -3795,10 +3827,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/072-04-04.png"
+												"path": "book/MOT/072-04-04.webp"
 											},
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Willian Murai"
 										}
 									]
 								}
@@ -3897,7 +3930,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/073-02-03-athreos.png"
+								"path": "book/MOT/073-02-03-athreos.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -4113,11 +4146,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/074-04-05.png"
+												"path": "book/MOT/074-04-05.webp"
 											},
 											"title": "The shores of the Rivers that Ring the World are watched by Athreos and his servants ",
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Raymond Swanland"
 										}
 									]
 								}
@@ -4229,7 +4263,8 @@
 														"type": "square",
 														"size": 75
 													},
-													"id": "019"
+													"id": "019",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -4247,7 +4282,8 @@
 													},
 													"mapParent": {
 														"id": "019"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -4314,7 +4350,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/076-02-03-ephara.png"
+								"path": "book/MOT/076-02-03-ephara.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -4437,11 +4473,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/077-04-06.png"
+												"path": "book/MOT/077-04-06.webp"
 											},
 											"title": "Ephara's urn is a fountain of blessings ",
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Noah Bradley"
 										},
 										{
 											"type": "table",
@@ -4556,10 +4593,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/078-04-07.png"
+										"path": "book/MOT/078-04-07.webp"
 									},
 									"width": 795,
-									"height": 1000
+									"height": 1000,
+									"credit": "James Ryman"
 								},
 								"Many settlements in Theros have a centrally located agora, or public forum, where artists perform, politicians give speeches, philosophers debate, vendors hawk their wares, and people congregate. Many agoras are surrounded by stoas, covered walkways that lead to other areas of the settlement. People in the agora might retreat beneath the awnings for privacy and shade, while others stand on the roofs of the porticos to shout messages to the assembled crowds.",
 								"In addition to activities involving art, commerce, politics, and religion, people come to the agora for socializing and learning the latest news and gossip. The crowds attract less savory folk, like spies and thieves. Priests of Ephara often bless agoras because they are so central to civilized life in Theros, but all the gods are usually honored in these forums with statues or other works of art.",
@@ -4662,7 +4700,8 @@
 														"offsetX": -1,
 														"offsetY": -1
 													},
-													"id": "01a"
+													"id": "01a",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -4682,7 +4721,8 @@
 													},
 													"mapParent": {
 														"id": "01a"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -4749,7 +4789,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/080-02-03-erebos.png"
+								"path": "book/MOT/080-02-03-erebos.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -4927,11 +4967,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/081-04-08.png"
+												"path": "book/MOT/081-04-08.webp"
 											},
 											"title": "Erebos's minions hunt the Returned and warn those who consider the same folly ",
 											"width": 1500,
-											"height": 1116
+											"height": 1116,
+											"credit": "Cyril Van Der Haegen"
 										}
 									]
 								}
@@ -4996,10 +5037,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/082-04-09.png"
+										"path": "book/MOT/082-04-09.webp"
 									},
 									"width": 1000,
-									"height": 1064
+									"height": 1064,
+									"credit": "Nils Hamm"
 								},
 								"Any place where the remains of the dead are interred is considered a place of worship for Erebos. A graveyard can consist of mass graves, individual burial plots, family tombs containing interment niches or urns, or a combination of all such sites honoring the dead. These places often include a shrine to the god of death, which is home to the graveyard's priests.",
 								"During the day, the priests lead funeral rites, care for the graveyard, and offer counsel to those praying for acceptance of their fates. Larger graveyard complexes might also have a vault for storing gold or other valuables, and the priests could act as financial advisors and executors of estates, since wealth and death go hand in hand in Theros.",
@@ -5093,7 +5135,8 @@
 														"type": "square",
 														"size": 75
 													},
-													"id": "01b"
+													"id": "01b",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -5111,7 +5154,8 @@
 													},
 													"mapParent": {
 														"id": "01b"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -5178,7 +5222,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/084-02-03-heliod.png"
+								"path": "book/MOT/084-02-03-heliod.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -5346,11 +5390,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/085-04-10.png"
+												"path": "book/MOT/085-04-10.webp"
 											},
 											"title": "Heliod's spear doles out his blessings as well as his wrath ",
 											"width": 1500,
-											"height": 1208
+											"height": 1208,
+											"credit": "Terese Nielsen"
 										}
 									]
 								}
@@ -5416,10 +5461,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/086-04-11.png"
+										"path": "book/MOT/086-04-11.webp"
 									},
 									"width": 1000,
-									"height": 724
+									"height": 724,
+									"credit": "Zack Stella"
 								},
 								"These multistory towers of worship rise atop mountains, hills, and the highest ground in a settlement, bringing congregants as close as possible to the sun. Huge windows, light-reflecting stone, and art depicting legendary heroes make every sun temple a bright, inspiring space.",
 								"The rites conducted in sun temples include marriages, ceremonies to honor heroes, dawn worship services, breakfast banquets, and occasionally funerals, which typically involve a pyre for the deceased. These events are held on the temple's roof, where worshipers are closest to the sun and can feel its warmth.",
@@ -5519,7 +5565,8 @@
 														"type": "square",
 														"size": 70
 													},
-													"id": "01c"
+													"id": "01c",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -5537,7 +5584,8 @@
 													},
 													"mapParent": {
 														"id": "01c"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -5604,7 +5652,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/088-02-03-iroas.png"
+								"path": "book/MOT/088-02-03-iroas.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -5660,10 +5708,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/089-04-12.png"
+										"path": "book/MOT/089-04-12.webp"
 									},
 									"width": 737,
-									"height": 1000
+									"height": 1000,
+									"credit": "Jason Chan"
 								},
 								{
 									"type": "entries",
@@ -5852,10 +5901,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/090-04-13.png"
+										"path": "book/MOT/090-04-13.webp"
 									},
 									"width": 1000,
-									"height": 851
+									"height": 851,
+									"credit": "Yeong-Hao Han"
 								},
 								"Across Theros, contest grounds host athletic competitions and often serve as places to worship the god Iroas. The grandest hippodrome in Akros holds thousands of spectators, but more modest stadiums can be found throughout the land, serving as proving grounds for athletes and entertainment for the rich and poor. Foot and chariot races, hurling competitions, and combat sports (wrestling, boxing, and pankration) are all common events in arenas, especially during the Iroan Games, an annual series of athletic competitions held in Akros.",
 								{
@@ -5940,7 +5990,8 @@
 														"size": 75,
 														"distance": 10
 													},
-													"id": "01d"
+													"id": "01d",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -5959,7 +6010,8 @@
 													},
 													"mapParent": {
 														"id": "01d"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -6034,7 +6086,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/092-02-03-karametra.png"
+								"path": "book/MOT/092-02-03-karametra.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -6214,11 +6266,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/093-04-14.png"
+												"path": "book/MOT/093-04-14.webp"
 											},
 											"title": "Karametra's acolytes gather the bounty of the wilds for the god's feasts in Setessa ",
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Chase Stone"
 										}
 									]
 								}
@@ -6283,10 +6336,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/094-04-15.png"
+										"path": "book/MOT/094-04-15.webp"
 									},
 									"width": 1000,
-									"height": 727
+									"height": 727,
+									"credit": "Noah Bradley"
 								},
 								"Sites that are sacred to Karametra, from her grand temple in the heart of Setessa to outposts in the wilderness, combine careful construction with natural growth. The god favors towers and hanging gardens that lift the verdant natural world up toward Nyx in her honor. In the Nessian Wood, Setessans build watchtowers that serve the dual purpose of military defense and worship.",
 								{
@@ -6381,7 +6435,8 @@
 														"type": "square",
 														"size": 75
 													},
-													"id": "01e"
+													"id": "01e",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -6399,7 +6454,8 @@
 													},
 													"mapParent": {
 														"id": "01e"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -6474,7 +6530,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/096-02-03-keranos.png"
+								"path": "book/MOT/096-02-03-keranos.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -6650,11 +6706,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/097-04-16.png"
+												"path": "book/MOT/097-04-16.webp"
 											},
 											"title": "The mountain temples of Keranos are constantly wrapped in storm clouds ",
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Yeong-Hao Han"
 										}
 									]
 								}
@@ -6815,7 +6872,8 @@
 														"type": "square",
 														"size": 75
 													},
-													"id": "01f"
+													"id": "01f",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -6833,7 +6891,8 @@
 													},
 													"mapParent": {
 														"id": "01f"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -6900,7 +6959,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/099-02-03-klothys.png"
+								"path": "book/MOT/099-02-03-klothys.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -7107,10 +7166,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/100-04-17.png"
+												"path": "book/MOT/100-04-17.webp"
 											},
 											"width": 420,
-											"height": 1000
+											"height": 1000,
+											"credit": "Adam Paquette"
 										},
 										{
 											"type": "table",
@@ -7204,10 +7264,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/101-04-18.png"
+										"path": "book/MOT/101-04-18.webp"
 									},
 									"width": 746,
-									"height": 800
+									"height": 800,
+									"credit": "Sam Burley"
 								},
 								{
 									"type": "entries",
@@ -7305,7 +7366,8 @@
 													"grid": {
 														"type": "square"
 													},
-													"id": "020"
+													"id": "020",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -7322,7 +7384,8 @@
 													},
 													"mapParent": {
 														"id": "020"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -7389,7 +7452,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/103-02-03-kruphix.png"
+								"path": "book/MOT/103-02-03-kruphix.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -7462,10 +7525,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/104-04-19.png"
+												"path": "book/MOT/104-04-19.webp"
 											},
 											"width": 1500,
-											"height": 869
+											"height": 869,
+											"credit": "Adam Paquette"
 										}
 									]
 								}
@@ -7641,10 +7705,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/105-04-20.png"
+										"path": "book/MOT/105-04-20.webp"
 									},
 									"width": 800,
-									"height": 720
+									"height": 720,
+									"credit": "Raymond Swanland"
 								},
 								"A temple of mystery is an enigmatic location full of puzzles and traps, found in remote regions of Theros. It is believed that surviving and solving the mysteries of such a shrine earns Kruphix's respect. Some scholars claim the temples aren't stationary and that finding a shrine's location is the first puzzle that explorers must solve.",
 								"The priests who care for temples of mystery tend to be as mystifying as the puzzles within the places. Each temple typically has one caretaker\u2014a powerful oracle willing to answer questions for adventurers who can overcome the temple's challenges. The priests are particularly impressed with guests who can solve puzzles that the oracles themselves have yet to complete.",
@@ -7744,7 +7809,8 @@
 														"type": "square",
 														"size": 75
 													},
-													"id": "021"
+													"id": "021",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -7762,7 +7828,8 @@
 													},
 													"mapParent": {
 														"id": "021"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -7829,7 +7896,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/107-02-03-mogis.png"
+								"path": "book/MOT/107-02-03-mogis.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -8013,11 +8080,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/108-04-21.png"
+												"path": "book/MOT/108-04-21.webp"
 											},
 											"title": "Temples to Mogis can be found scattered across the badlands of Phoberos ",
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Sam Burley"
 										}
 									]
 								}
@@ -8090,10 +8158,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/109-04-22.png"
+												"path": "book/MOT/109-04-22.webp"
 											},
 											"width": 1000,
-											"height": 1223
+											"height": 1223,
+											"credit": "Daarken"
 										},
 										{
 											"type": "table",
@@ -8178,7 +8247,8 @@
 														"size": 75,
 														"distance": 10
 													},
-													"id": "022"
+													"id": "022",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -8197,7 +8267,8 @@
 													},
 													"mapParent": {
 														"id": "022"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -8272,7 +8343,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/111-02-03-nylea.png"
+								"path": "book/MOT/111-02-03-nylea.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -8345,11 +8416,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/112-04-23.png"
+												"path": "book/MOT/112-04-23.webp"
 											},
 											"title": "Nylea's sacred lynx guards those who honor the Nessian Wood and hunts those who don't ",
 											"width": 1500,
-											"height": 978
+											"height": 978,
+											"credit": "Mathias Kollros"
 										}
 									]
 								}
@@ -8533,10 +8605,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/113-04-24.png"
+										"path": "book/MOT/113-04-24.webp"
 									},
 									"width": 1000,
-									"height": 1074
+									"height": 1074,
+									"credit": "Ralph Horsley"
 								},
 								"The druids that occupy a shrine sometimes leave for days at a time to go on a mission, but they never leave the place without guardians. Beasts, plants, and nymphs are always on the lookout for intruders.",
 								{
@@ -8629,7 +8702,8 @@
 														"type": "square",
 														"size": 75
 													},
-													"id": "023"
+													"id": "023",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -8647,7 +8721,8 @@
 													},
 													"mapParent": {
 														"id": "023"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -8714,7 +8789,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/115-02-03-pharika.png"
+								"path": "book/MOT/115-02-03-pharika.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -8894,11 +8969,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/116-04-25.png"
+												"path": "book/MOT/116-04-25.webp"
 											},
 											"title": "Pharika's clerics believe that they are better healers because they are so well acquainted with death ",
 											"width": 1500,
-											"height": 957
+											"height": 957,
+											"credit": "Chase Stone"
 										}
 									]
 								}
@@ -8972,10 +9048,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/117-04-26.png"
+												"path": "book/MOT/117-04-26.webp"
 											},
 											"width": 1000,
-											"height": 1138
+											"height": 1138,
+											"credit": "Peter Mohrbacher"
 										},
 										{
 											"type": "table",
@@ -9058,7 +9135,8 @@
 														"type": "square",
 														"size": 75
 													},
-													"id": "024"
+													"id": "024",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -9076,7 +9154,8 @@
 													},
 													"mapParent": {
 														"id": "024"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -9143,7 +9222,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/119-02-03-phenax.png"
+								"path": "book/MOT/119-02-03-phenax.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -9320,11 +9399,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/120-04-27.png"
+												"path": "book/MOT/120-04-27.webp"
 											},
 											"title": "Followers of Phenax have little respect for the rest of the pantheon ",
 											"width": 1500,
-											"height": 1102
+											"height": 1102,
+											"credit": "Evyn Fong"
 										}
 									]
 								}
@@ -9390,10 +9470,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/121-04-28.png"
+										"path": "book/MOT/121-04-28.webp"
 									},
 									"width": 1000,
-									"height": 1026
+									"height": 1026,
+									"credit": "Daarken"
 								},
 								"Music, dance, poetry, drama, comedy, and satire are all performed and celebrated in the amphitheaters of Theros. These public spaces are also the scene of secret hand offs, private meetings, and espionage. The amphitheater's costumes, makeup, props, and hidden halls and entrances make it a good place for those who operate in the shadows to do so without arousing suspicion. Many performers moonlight as assassins, spies, and thieves, given their talents and resources, and as such many amphitheaters contain hidden shrines to Phenax.",
 								{
@@ -9484,7 +9565,8 @@
 														"type": "square",
 														"size": 75
 													},
-													"id": "025"
+													"id": "025",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -9502,7 +9584,8 @@
 													},
 													"mapParent": {
 														"id": "025"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -9577,7 +9660,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/123-02-03-purphoros.png"
+								"path": "book/MOT/123-02-03-purphoros.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -9761,11 +9844,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/124-04-29.png"
+												"path": "book/MOT/124-04-29.webp"
 											},
 											"title": "The oracles of Purphoros read the god's will in earth, fire, and volcanic fumes ",
 											"width": 1500,
-											"height": 1043
+											"height": 1043,
+											"credit": "Ryan Barger"
 										}
 									]
 								}
@@ -9830,10 +9914,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/125-04-30.png"
+										"path": "book/MOT/125-04-30.webp"
 									},
 									"width": 1000,
-									"height": 1285
+									"height": 1285,
+									"credit": "Cory Trego-Erdner"
 								},
 								"Just like the treasures forged inside them, volcanic temples are works of art. The priests who maintain the structures carve intricate designs with metal filigree in the stone walls and craft ornamental decorations that make each temple look more like an art museum than a cave inside a mountain. The priests know that one day the volcano will erupt, destroying their work but providing an opportunity to start afresh with newly inspired ideas when the cataclysm subsides.",
 								{
@@ -9923,7 +10008,8 @@
 														"type": "square",
 														"size": 75
 													},
-													"id": "026"
+													"id": "026",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -9941,7 +10027,8 @@
 													},
 													"mapParent": {
 														"id": "026"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -10008,7 +10095,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/127-02-03-Thassa.png"
+								"path": "book/MOT/127-02-03-Thassa.webp"
 							},
 							"width": 850,
 							"height": 600
@@ -10188,11 +10275,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/128-04-31.png"
+												"path": "book/MOT/128-04-31.webp"
 											},
 											"title": "The floor of the Siren Sea is littered with vessels that navigated the waves unwelcomed ",
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Chris Rahn"
 										}
 									]
 								}
@@ -10258,10 +10346,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/129-04-32.png"
+										"path": "book/MOT/129-04-32.webp"
 									},
 									"width": 1000,
-									"height": 1011
+									"height": 1011,
+									"credit": "Steven Belledin"
 								},
 								"Most coastal temples include chambers that are underwater at high tide. Worshipers sit in these places at low tide and meditate on what the future might hold while the water rises around them. They leave offerings to Thassa in these places, which are carried out to sea as the water recedes.",
 								"A coastal temple is where people come to contemplate the sea, the passage of time, and the natural world while enjoying the sound of the waves, the sight of the sea's sculptures, and the refreshing feeling of cool water.",
@@ -10361,7 +10450,8 @@
 														"type": "square",
 														"size": 75
 													},
-													"id": "027"
+													"id": "027",
+													"credit": "Dyson Logos"
 												},
 												{
 													"type": "image",
@@ -10379,7 +10469,8 @@
 													},
 													"mapParent": {
 														"id": "027"
-													}
+													},
+													"credit": "Dyson Logos"
 												}
 											]
 										}
@@ -10459,7 +10550,7 @@
 							"page": 176,
 							"id": "2f9",
 							"entries": [
-								"Just as on land, everything in the waters of Theros exists on a mythic scale. While map 3.1 in {@book chapter 3|MOT|3|Map 3.1: world of theros View Player Version} suggests that travel across the Siren Sea should take only a few days, its hazards and countless uncharted islands can make what should be a journey of a month a year-long odyssey. Even a routine journey can become an epic adventure if the characters anger a god, such as Thassa, who can make sure the waves are never in their favor.",
+								"Just as on land, everything in the waters of Theros exists on a mythic scale. While map 3.1 in {@book chapter 3|MOT|3|Map 3.1: world of theros} suggests that travel across the Siren Sea should take only a few days, its hazards and countless uncharted islands can make what should be a journey of a month a year-long odyssey. Even a routine journey can become an epic adventure if the characters anger a god, such as Thassa, who can make sure the waves are never in their favor.",
 								{
 									"type": "entries",
 									"name": "Embarking on Adventure",
@@ -10553,11 +10644,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/131-04-33.png"
+												"path": "book/MOT/131-04-33.webp"
 											},
 											"title": "The kraken Arixmethes carries the ruins of a lost city affixed to the length of its spine ",
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Dimitar Marinski"
 										}
 									]
 								}
@@ -10636,11 +10728,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/132-04-34.png"
+												"path": "book/MOT/132-04-34.webp"
 											},
 											"title": "Upon one of the Dakra Isles, trespassers learn the truth behind the storied Curse of the Swine ",
 											"width": 1500,
-											"height": 951
+											"height": 951,
+											"credit": "James Ryman"
 										}
 									]
 								},
@@ -10836,11 +10929,12 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/133-04-35.png"
+										"path": "book/MOT/133-04-35.webp"
 									},
 									"title": "As the people of Olantin discovered, ages of prosperity and culture mean nothing in the face of a wrathful sea ",
 									"width": 1000,
-									"height": 1018
+									"height": 1018,
+									"credit": "Slawomir Maniak"
 								}
 							]
 						}
@@ -10897,11 +10991,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/134-04-36.png"
+												"path": "book/MOT/134-04-36.webp"
 											},
 											"title": "Funerary masks help the newly dead resist the erosion of memory and identity in the Underworld ",
 											"width": 1500,
-											"height": 1000
+											"height": 1000,
+											"credit": "John Stanko"
 										}
 									]
 								},
@@ -11037,11 +11132,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/135-04-37.png"
+												"path": "book/MOT/135-04-37.webp"
 											},
 											"title": "Those who follow the Path of Phenax might return to the mortal world, but they never regain the lives they lost ",
 											"width": 1000,
-											"height": 906
+											"height": 906,
+											"credit": "Zack Stella"
 										}
 									]
 								}
@@ -11182,11 +11278,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/MOT/141-05-01.jpg"
+						"path": "book/MOT/141-05-01.webp"
 					},
 					"title": "Within his workshop, the triton genius Dalakos equips a satyr and leonin with the tools they need to become legends ",
 					"width": 1500,
-					"height": 1995
+					"height": 1995,
+					"credit": "Chris Rallis"
 				},
 				"On Theros, magic items carry reputations as rich and storied as those who wield them. They might take form in the god-realm of Nyx, spring from Purphoros's forge in Mount Velus, or come from legendary mortal smiths. Some crafters create great works to put an end to a specific peril, while others create to honor the gods. The most renowned works are the weapons of the gods themselves, treasures synonymous with divine power that forge legends with their every use.",
 				{
@@ -11383,11 +11480,12 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "book/MOT/149-06-01.jpg"
+						"path": "book/MOT/149-06-01.webp"
 					},
 					"title": "{@creature Arasta|MOT} of the Endless Web exacts her undying revenge upon two more champions of the gods ",
 					"width": 1500,
-					"height": 1993
+					"height": 1993,
+					"credit": "Brian Valeza"
 				},
 				"This chapter provides stat blocks for a variety of creatures unique to Theros, including mythic monsters\u2014legendary beings intended to serve as peerless threats. It also includes lore relevant to monsters from the {@book Monster Manual|MM} that appear on Theros.",
 				{
@@ -11526,11 +11624,12 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/150-06-02.png"
+										"path": "book/MOT/150-06-02.webp"
 									},
 									"title": "Cyclopes would rather steal the bounty of smaller beings than toil themselves ",
 									"width": 1500,
-									"height": 1046
+									"height": 1046,
+									"credit": "Steve Prescott"
 								}
 							]
 						},
@@ -11588,11 +11687,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/151-06-03.png"
+												"path": "book/MOT/151-06-03.webp"
 											},
 											"title": "Unleashed from the darkest ocean depths, each nadir kraken is a unique aquatic nightmare ",
 											"width": 1500,
-											"height": 1002
+											"height": 1002,
+											"credit": "Jack Wang"
 										}
 									]
 								}
@@ -11655,11 +11755,12 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/152-06-04.png"
+										"path": "book/MOT/152-06-04.webp"
 									},
 									"title": "From the foulest reaches of the Underworld, night hags invade the dreams of mortals ",
 									"width": 1500,
-									"height": 1002
+									"height": 1002,
+									"credit": "David Palumbo"
 								}
 							]
 						},
@@ -11700,11 +11801,12 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/153-06-05.png"
+												"path": "book/MOT/153-06-05.webp"
 											},
 											"title": "Although they possess great wisdom, sphinxes won't share their secrets with just anyone ",
 											"width": 1500,
-											"height": 1119
+											"height": 1119,
+											"credit": "Jesper Ejsing"
 										}
 									]
 								}
@@ -11795,10 +11897,11 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "book/MOT/190-06-32.png"
+								"path": "book/MOT/190-06-32.webp"
 							},
 							"width": 1500,
-							"height": 1102
+							"height": 1102,
+							"credit": "Sam Rowan"
 						},
 						{
 							"type": "entries",
@@ -11869,10 +11972,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/191-06-33.png"
+												"path": "book/MOT/191-06-33.webp"
 											},
 											"width": 1500,
-											"height": 1000
+											"height": 1000,
+											"credit": "Raoul Vitale"
 										}
 									]
 								},
@@ -11906,10 +12010,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/192-06-34.png"
+										"path": "book/MOT/192-06-34.webp"
 									},
 									"width": 1500,
-									"height": 960
+									"height": 960,
+									"credit": "Igor Kieryluk"
 								},
 								"Theros's reclusive medusas often delight in collecting and expanding their galleries of {@condition petrified} victims. Unlike other medusas, {@creature Hythonia|MOT} isn't merely a collector; she's an artist.",
 								"When {@creature Hythonia|MOT} came to the island of Skathos, the inhabitants worshiped her as an avatar of the god Pharika. The cultists eagerly offered themselves up to the {@creature medusa|MOT}'s petrifying gaze in hopes of gaining Pharika's favor. Seeing herself surrounded by willing devotees, {@creature Hythonia|MOT} formulated a cruel plan. After encouraging them to engage in wild rituals, {@creature Hythonia|MOT} began turning her followers to stone, weaving their forms to create a grisly throne made of their {@condition petrified} bodies.",
@@ -11959,7 +12064,7 @@
 											"type": "list",
 											"items": [
 												"A large population of snakes dwells in the region.",
-												"Trees within 1 mile of the lair are {@condition petrified} wood. Plants that stay within 500 feet of the lair for 1 day turn to stone.",
+												"Trees within 1 mile of the lair are petrified wood. Plants that stay within 500 feet of the lair for 1 day turn to stone.",
 												"Small bodies of water within 1 mile of the lair become poisonous. A creature that drinks the water must succeed on a DC 19 Constitution saving throw or become {@condition poisoned} for 8 hours. An affected creature can repeat the saving throw at the end of each hour."
 											]
 										},
@@ -11967,10 +12072,11 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "book/MOT/193-06-35.png"
+												"path": "book/MOT/193-06-35.webp"
 											},
 											"width": 1500,
-											"height": 1077
+											"height": 1077,
+											"credit": "Chris Rahn"
 										}
 									]
 								},
@@ -12004,10 +12110,11 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/MOT/194-06-36.png"
+										"path": "book/MOT/194-06-36.webp"
 									},
 									"width": 1500,
-									"height": 1121
+									"height": 1121,
+									"credit": "Matt Stewart"
 								},
 								"Most krakens roam the seas, shattering hulls and scattering fleets, but the kraken {@creature Tromokratis|MOT} notoriously vents its wrath on coastal settlements. Whether it acts at the command of the god Thassa or to sate its own hunger, {@creature Tromokratis|MOT} numbers among the most feared threats in the sea, having no fixed lair and wandering where it will. In recent memory, the massive menace rose from the waves to topple the Pyrgnos, Meletis's great repository of scholarly knowledge. Since that day, the polis keeps a watch specifically for {@creature Tromokratis|MOT}.",
 								{

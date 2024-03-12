@@ -106,6 +106,9 @@
 				"grappled",
 				"restrained"
 			],
+			"savingThrowForced": [
+				"constitution"
+			],
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -403,6 +406,12 @@
 			"conditionInflictLegendary": [
 				"poisoned"
 			],
+			"savingThrowForced": [
+				"constitution"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution"
+			],
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -485,6 +494,9 @@
 			"miscTags": [
 				"AOE",
 				"MW"
+			],
+			"savingThrowForced": [
+				"dexterity"
 			],
 			"hasToken": true,
 			"hasFluff": true

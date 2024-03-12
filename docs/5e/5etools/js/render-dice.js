@@ -196,11 +196,14 @@ Renderer.dice = {
 
 	// region Event handling
 	async pRollerClickUseData (evt, ele) {
+		evt.stopPropagation();
+		evt.preventDefault();
+
 		const $ele = $(ele);
 		const rollData = $ele.data("packed-dice");
 		let name = $ele.data("roll-name");
 		let shiftKey = evt.shiftKey;
-		let ctrlKey = evt.ctrlKey || evt.metaKey;
+		let ctrlKey = EventUtil.isCtrlMetaKey(evt);
 
 		const options = rollData.toRoll.split(";").map(it => it.trim()).filter(Boolean);
 
@@ -218,7 +221,7 @@ Renderer.dice = {
 					`Roll ${it}`,
 					evt => {
 						shiftKey = shiftKey || evt.shiftKey;
-						ctrlKey = ctrlKey || (evt.ctrlKey || evt.metaKey);
+						ctrlKey = ctrlKey || (EventUtil.isCtrlMetaKey(evt));
 						cpyRollData.toRoll = it;
 						return cpyRollData;
 					},
@@ -280,7 +283,7 @@ Renderer.dice = {
 							title,
 							evt => {
 								shiftKey = shiftKey || evt.shiftKey;
-								ctrlKey = ctrlKey || (evt.ctrlKey || evt.metaKey);
+								ctrlKey = ctrlKey || (EventUtil.isCtrlMetaKey(evt));
 
 								const fromScaling = rollDataCpy.prompt.options[it];
 								if (!fromScaling) {
@@ -531,7 +534,7 @@ Renderer.dice = {
 			} else out.rollCount = 2; // otherwise, just roll twice
 		}
 
-		if (evt.ctrlKey || evt.metaKey) {
+		if (EventUtil.isCtrlMetaKey(evt)) {
 			if (entry.subType === "damage") { // If CTRL is held, half the damage
 				entry.toRoll = `floor((${entry.toRoll}) / 2)`;
 			} else if (entry.subType === "d20") { // If CTRL is held, roll disadvantage (assuming SHIFT is not held)
@@ -711,7 +714,7 @@ Renderer.dice = {
 			const isColorSuccess = tree.isColorSuccessFail || !tree.chanceSuccessText;
 			const isColorFail = tree.isColorSuccessFail || !tree.chanceFailureText;
 			const totalPart = tree.successThresh != null
-				? `<span class="roll ${isThreshSuccess && isColorSuccess ? "roll-max" : !isThreshSuccess && isColorFail ? "roll-min" : ""}">${isThreshSuccess ? (tree.chanceSuccessText || "Success!") : (tree.chanceFailureText || "Failure")}</span>`
+				? `<span class="roll ${isThreshSuccess && isColorSuccess ? "roll-max" : !isThreshSuccess && isColorFail ? "roll-min" : ""}">${isThreshSuccess ? Renderer.get().render(tree.chanceSuccessText || "Success!") : Renderer.get().render(tree.chanceFailureText || "Failure")}</span>`
 				: `<span class="roll ${allMax ? "roll-max" : allMin ? "roll-min" : ""}">${result}</span>`;
 
 			const title = `${rolledBy.name ? `${rolledBy.name} \u2014 ` : ""}${lbl ? `${lbl}: ` : ""}${tree}`;
@@ -1061,6 +1064,7 @@ Renderer.dice.lang = {
 
 		str = str
 			.trim()
+			.replace(/\bPBd(?=\d)/g, "(PB)d") // Convert case-sensitive leading PB
 			.toLowerCase()
 			// region Convert some natural language
 			.replace(/\s*?\bplus\b\s*?/g, " + ")

@@ -1,4 +1,9 @@
 {
+	"_meta": {
+		"internalCopies": [
+			"monsterFluff"
+		]
+	},
 	"monsterFluff": [
 		{
 			"name": "Adult Amethyst Dragon",
@@ -57,7 +62,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Adult Amethyst Dragon.webp"
-					}
+					},
+					"credit": "Shawn Wood"
 				}
 			]
 		},
@@ -119,7 +125,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Adult Crystal Dragon.webp"
-					}
+					},
+					"credit": "Brynn Metheney"
 				}
 			]
 		},
@@ -155,7 +162,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Adult Deep Dragon.webp"
-					}
+					},
+					"credit": "Brynn Metheney"
 				}
 			]
 		},
@@ -219,7 +227,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Adult Emerald Dragon.webp"
-					}
+					},
+					"credit": "Julian Kok"
 				}
 			]
 		},
@@ -256,7 +265,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Adult Moonstone Dragon.webp"
-					}
+					},
+					"credit": "Irina Nordsol"
 				}
 			]
 		},
@@ -582,7 +592,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Adult Sapphire Dragon.webp"
-					}
+					},
+					"credit": "Chris Rallis"
 				}
 			]
 		},
@@ -644,7 +655,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Adult Topaz Dragon.webp"
-					}
+					},
+					"credit": "Alex Stone"
 				}
 			]
 		},
@@ -901,29 +913,18 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Amethyst Dragon Wyrmling.webp"
-					}
+					},
+					"credit": "Shawn Wood"
 				}
 			]
 		},
 		{
 			"name": "Amethyst Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"More so even than their chromatic and metallic kin, gem dragons are fascinated with cultivating their dragonsight and fusing the awareness of their echoes across the Material Plane. Some of them believe that, by doing so, they are taking steps toward reuniting the shattered consciousness of Sardior the Ruby Dragon, and they pursue this awakening as an act of near-religious devotion. Others seek to exploit their knowledge of the many worlds of the Material Plane as a source of power\u2014and indeed, a gem dragon who becomes a greatwyrm has access to almost unimaginable power.",
-						"Gem greatwyrms' ascension transforms their bodies to appear as crystal, their scales sparkling like diamonds. Their breath weapons become powerful waves of crushing force that can stop almost any creature in its tracks. But the greatwyrms' most powerful ability is telekinesis on an unparalleled scale\u2014a gem greatwyrm can telekinetically seize an entire crowd, then carry those helpless folk off to the dragon's lair.",
-						{
-							"type": "inset",
-							"name": "Sardior's Greatwyrms",
-							"entries": [
-								"Five gem greatwyrms call themselves the thanes of Sardior and believe themselves responsible for preserving the memory of their long-lost progenitor. These greatwyrms are named Aleithilithos (an amethyst greatwyrm), Hrodel (a crystal greatwyrm), Smargad (an emerald greatwyrm), Charsima (a sapphire greatwyrm), and Tithonnas (a topaz greatwyrm). Each thane is actively seeking out their echoes across the worlds of the Material Plane, hoping to merge with these other dragons, with the goal of eventually uniting themselves to re-form the great Ruby Dragon."
-							]
-						}
-					]
-				}
-			]
+			"_copy": {
+				"name": "Gem Greatwyrm",
+				"source": "FTD"
+			}
 		},
 		{
 			"name": "Ancient Amethyst Dragon",
@@ -982,7 +983,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Ancient Amethyst Dragon.webp"
-					}
+					},
+					"credit": "Shawn Wood"
 				}
 			]
 		},
@@ -1044,7 +1046,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Ancient Crystal Dragon.webp"
-					}
+					},
+					"credit": "Brynn Metheney"
 				}
 			]
 		},
@@ -1080,7 +1083,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Ancient Deep Dragon.webp"
-					}
+					},
+					"credit": "Brynn Metheney"
 				}
 			]
 		},
@@ -1379,7 +1383,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Ancient Dragon Turtle.webp"
-					}
+					},
+					"credit": "David Auden Nash"
 				}
 			]
 		},
@@ -1443,7 +1448,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Ancient Emerald Dragon.webp"
-					}
+					},
+					"credit": "Julian Kok"
 				}
 			]
 		},
@@ -1480,7 +1486,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Ancient Moonstone Dragon.webp"
-					}
+					},
+					"credit": "Irina Nordsol"
 				}
 			]
 		},
@@ -1542,7 +1549,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Ancient Sapphire Dragon.webp"
-					}
+					},
+					"credit": "Chris Rallis"
 				}
 			]
 		},
@@ -1566,7 +1574,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Ancient Sea Serpent.webp"
-					}
+					},
+					"credit": "Mark Behm"
 				}
 			]
 		},
@@ -1628,7 +1637,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Ancient Topaz Dragon.webp"
-					}
+					},
+					"credit": "Alex Stone"
 				}
 			]
 		},
@@ -1650,7 +1660,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Animated Breath.webp"
-					}
+					},
+					"credit": "Alex Stone"
 				}
 			]
 		},
@@ -1673,7 +1684,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Aspect of Bahamut.webp"
-					}
+					},
+					"credit": "Conceptopolis"
 				}
 			]
 		},
@@ -1696,106 +1708,59 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Aspect of Tiamat.webp"
-					}
+					},
+					"credit": "Tyler Jacobson"
 				}
 			]
 		},
 		{
 			"name": "Black Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"The most ancient chromatic dragons, who have survived over twelve hundred years of mortal life and acquired vast hoards worth millions of gold pieces, can achieve a form of apotheosis, reaching a level of power approaching that of Tiamat's mighty aspect. The competitive avarice of dragonkind and the interference of adventurers prevent most dragons from attaining this level of power. But a chromatic dragon who can outwit all rivals and overcome all potential thieves can rise to become one of the mightiest of dragons.",
-						"Often a chromatic greatwyrm's ascension involves fusing the power of a single dragon's echoes across different worlds of the Material Plane. The black greatwyrm Chronepsis, for example, is said to have stalked multiple worlds and devoured many of his echoes before withdrawing to a planar lair in the Outlands. The red greatwyrm Ashardalon worked with a balor to ritually drain the power of his echoes, then infused their power into himself by implanting the balor where his heart had been.",
-						"In both size and power, chromatic greatwyrms exceed even ancient dragons. The energy of their breath weapons courses over their bodies and glows under their scales, and elemental forces rage around them when they exert their wrath. They no longer need to eat or drink, as their vast hoards magically sustain them. And their power can raze a city to the ground, destroying buildings and defenders alike."
-					]
-				}
-			]
+			"_copy": {
+				"name": "Chromatic Greatwyrm",
+				"source": "FTD"
+			}
 		},
 		{
 			"name": "Blue Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"The most ancient chromatic dragons, who have survived over twelve hundred years of mortal life and acquired vast hoards worth millions of gold pieces, can achieve a form of apotheosis, reaching a level of power approaching that of Tiamat's mighty aspect. The competitive avarice of dragonkind and the interference of adventurers prevent most dragons from attaining this level of power. But a chromatic dragon who can outwit all rivals and overcome all potential thieves can rise to become one of the mightiest of dragons.",
-						"Often a chromatic greatwyrm's ascension involves fusing the power of a single dragon's echoes across different worlds of the Material Plane. The black greatwyrm Chronepsis, for example, is said to have stalked multiple worlds and devoured many of his echoes before withdrawing to a planar lair in the Outlands. The red greatwyrm Ashardalon worked with a balor to ritually drain the power of his echoes, then infused their power into himself by implanting the balor where his heart had been.",
-						"In both size and power, chromatic greatwyrms exceed even ancient dragons. The energy of their breath weapons courses over their bodies and glows under their scales, and elemental forces rage around them when they exert their wrath. They no longer need to eat or drink, as their vast hoards magically sustain them. And their power can raze a city to the ground, destroying buildings and defenders alike."
-					]
-				}
-			]
+			"_copy": {
+				"name": "Chromatic Greatwyrm",
+				"source": "FTD"
+			}
 		},
 		{
 			"name": "Brass Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Some of the oldest and wisest metallic dragons undergo a miraculous metamorphosis to become greatwyrms. This transformation is often wrought by Bahamut, who takes pride in elevating his worthiest children to a status approaching his own greatness.",
-						"A metallic greatwyrm's transformation often involves fusing the consciousness, the magic, and sometimes even the physical forms of multiple echoes of the same dragon across the worlds of the Material Plane. Several of the dragons identified as dragon gods\u2014including Aasterinian (described in the \"Brass Dragons \"section of chapter 5), Lendys, and Tamara\u2014are metallic greatwyrms who have combined the essences of multiple forms to achieve this godlike status.",
-						"Metallic greatwyrms are among the largest creatures in the multiverse, overshadowing most other dragons. Mighty elemental forces swirl around them in response to their wishes, and their breath weapons can sap the strength from armies\u2014or lay waste to whole regions.",
-						{
-							"type": "inset",
-							"name": "Justice and Mercy",
-							"entries": [
-								"Lendys and Tamara are both silver greatwyrms, but they could not be more different from each other.",
-								"Lendys is renowned as an impartial judge who is equally ready to serve as jury and executioner when dragons commit grave injustices against dragonkind. He is lawful neutral, and he is said to be incapable of mercy or forgiveness.",
-								"Tamara, by contrast, embodies the ideal of mercy. She heals the sick, tends the injured, and delivers a peaceful departure to dragons nearing the end of their natural lives. She has a particular loathing for dracoliches and other draconic Undead."
-							]
-						}
-					]
-				}
-			]
+			"_copy": {
+				"name": "Metallic Greatwyrm",
+				"source": "FTD"
+			}
 		},
 		{
 			"name": "Bronze Greatwyrm",
 			"source": "FTD",
+			"_copy": {
+				"name": "Metallic Greatwyrm",
+				"source": "FTD"
+			}
+		},
+		{
+			"name": "Chromatic Greatwyrm",
+			"source": "FTD",
 			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Some of the oldest and wisest metallic dragons undergo a miraculous metamorphosis to become greatwyrms. This transformation is often wrought by Bahamut, who takes pride in elevating his worthiest children to a status approaching his own greatness.",
-						"A metallic greatwyrm's transformation often involves fusing the consciousness, the magic, and sometimes even the physical forms of multiple echoes of the same dragon across the worlds of the Material Plane. Several of the dragons identified as dragon gods\u2014including Aasterinian (described in the \"Brass Dragons \"section of chapter 5), Lendys, and Tamara\u2014are metallic greatwyrms who have combined the essences of multiple forms to achieve this godlike status.",
-						"Metallic greatwyrms are among the largest creatures in the multiverse, overshadowing most other dragons. Mighty elemental forces swirl around them in response to their wishes, and their breath weapons can sap the strength from armies\u2014or lay waste to whole regions.",
-						{
-							"type": "inset",
-							"name": "Justice and Mercy",
-							"entries": [
-								"Lendys and Tamara are both silver greatwyrms, but they could not be more different from each other.",
-								"Lendys is renowned as an impartial judge who is equally ready to serve as jury and executioner when dragons commit grave injustices against dragonkind. He is lawful neutral, and he is said to be incapable of mercy or forgiveness.",
-								"Tamara, by contrast, embodies the ideal of mercy. She heals the sick, tends the injured, and delivers a peaceful departure to dragons nearing the end of their natural lives. She has a particular loathing for dracoliches and other draconic Undead."
-							]
-						}
-					]
-				}
+				"The most ancient chromatic dragons, who have survived over twelve hundred years of mortal life and acquired vast hoards worth millions of gold pieces, can achieve a form of apotheosis, reaching a level of power approaching that of Tiamat's mighty aspect. The competitive avarice of dragonkind and the interference of adventurers prevent most dragons from attaining this level of power. But a chromatic dragon who can outwit all rivals and overcome all potential thieves can rise to become one of the mightiest of dragons.",
+				"Often a chromatic greatwyrm's ascension involves fusing the power of a single dragon's echoes across different worlds of the Material Plane. The black greatwyrm Chronepsis, for example, is said to have stalked multiple worlds and devoured many of his echoes before withdrawing to a planar lair in the Outlands. The red greatwyrm Ashardalon worked with a balor to ritually drain the power of his echoes, then infused their power into himself by implanting the balor where his heart had been.",
+				"In both size and power, chromatic greatwyrms exceed even ancient dragons. The energy of their breath weapons courses over their bodies and glows under their scales, and elemental forces rage around them when they exert their wrath. They no longer need to eat or drink, as their vast hoards magically sustain them. And their power can raze a city to the ground, destroying buildings and defenders alike."
 			]
 		},
 		{
 			"name": "Copper Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Some of the oldest and wisest metallic dragons undergo a miraculous metamorphosis to become greatwyrms. This transformation is often wrought by Bahamut, who takes pride in elevating his worthiest children to a status approaching his own greatness.",
-						"A metallic greatwyrm's transformation often involves fusing the consciousness, the magic, and sometimes even the physical forms of multiple echoes of the same dragon across the worlds of the Material Plane. Several of the dragons identified as dragon gods\u2014including Aasterinian (described in the \"Brass Dragons \"section of chapter 5), Lendys, and Tamara\u2014are metallic greatwyrms who have combined the essences of multiple forms to achieve this godlike status.",
-						"Metallic greatwyrms are among the largest creatures in the multiverse, overshadowing most other dragons. Mighty elemental forces swirl around them in response to their wishes, and their breath weapons can sap the strength from armies\u2014or lay waste to whole regions.",
-						{
-							"type": "inset",
-							"name": "Justice and Mercy",
-							"entries": [
-								"Lendys and Tamara are both silver greatwyrms, but they could not be more different from each other.",
-								"Lendys is renowned as an impartial judge who is equally ready to serve as jury and executioner when dragons commit grave injustices against dragonkind. He is lawful neutral, and he is said to be incapable of mercy or forgiveness.",
-								"Tamara, by contrast, embodies the ideal of mercy. She heals the sick, tends the injured, and delivers a peaceful departure to dragons nearing the end of their natural lives. She has a particular loathing for dracoliches and other draconic Undead."
-							]
-						}
-					]
-				}
-			]
+			"_copy": {
+				"name": "Metallic Greatwyrm",
+				"source": "FTD"
+			}
 		},
 		{
 			"name": "Crystal Dragon Wyrmling",
@@ -2051,29 +2016,18 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Crystal Dragon Wyrmling.webp"
-					}
+					},
+					"credit": "Brynn Metheney"
 				}
 			]
 		},
 		{
 			"name": "Crystal Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"More so even than their chromatic and metallic kin, gem dragons are fascinated with cultivating their dragonsight and fusing the awareness of their echoes across the Material Plane. Some of them believe that, by doing so, they are taking steps toward reuniting the shattered consciousness of Sardior the Ruby Dragon, and they pursue this awakening as an act of near-religious devotion. Others seek to exploit their knowledge of the many worlds of the Material Plane as a source of power\u2014and indeed, a gem dragon who becomes a greatwyrm has access to almost unimaginable power.",
-						"Gem greatwyrms' ascension transforms their bodies to appear as crystal, their scales sparkling like diamonds. Their breath weapons become powerful waves of crushing force that can stop almost any creature in its tracks. But the greatwyrms' most powerful ability is telekinesis on an unparalleled scale\u2014a gem greatwyrm can telekinetically seize an entire crowd, then carry those helpless folk off to the dragon's lair.",
-						{
-							"type": "inset",
-							"name": "Sardior's Greatwyrms",
-							"entries": [
-								"Five gem greatwyrms call themselves the thanes of Sardior and believe themselves responsible for preserving the memory of their long-lost progenitor. These greatwyrms are named Aleithilithos (an amethyst greatwyrm), Hrodel (a crystal greatwyrm), Smargad (an emerald greatwyrm), Charsima (a sapphire greatwyrm), and Tithonnas (a topaz greatwyrm). Each thane is actively seeking out their echoes across the worlds of the Material Plane, hoping to merge with these other dragons, with the goal of eventually uniting themselves to re-form the great Ruby Dragon."
-							]
-						}
-					]
-				}
-			]
+			"_copy": {
+				"name": "Gem Greatwyrm",
+				"source": "FTD"
+			}
 		},
 		{
 			"name": "Deep Dragon Wyrmling",
@@ -2308,7 +2262,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Deep Dragon Wyrmling.webp"
-					}
+					},
+					"credit": "Brynn Metheney"
 				}
 			]
 		},
@@ -2331,7 +2286,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Dracohydra.webp"
-					}
+					},
+					"credit": "Lars Grant-West"
 				}
 			]
 		},
@@ -2366,7 +2322,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Draconian Dreadnought.webp"
-					}
+					},
+					"credit": "David Sladek"
 				}
 			]
 		},
@@ -2401,7 +2358,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Draconian Foot Soldier.webp"
-					}
+					},
+					"credit": "David Auden Nash"
 				}
 			]
 		},
@@ -2436,7 +2394,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Draconian Infiltrator.webp"
-					}
+					},
+					"credit": "Mark Behm"
 				}
 			]
 		},
@@ -2472,7 +2431,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Draconian Mage.webp"
-					}
+					},
+					"credit": "Clint Cearley"
 				}
 			]
 		},
@@ -2508,7 +2468,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Draconian Mastermind.webp"
-					}
+					},
+					"credit": "Svetlin Velinov"
 				}
 			]
 		},
@@ -2531,7 +2492,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Draconic Shard.webp"
-					}
+					},
+					"credit": "Brynn Metheney"
 				}
 			]
 		},
@@ -2565,7 +2527,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Dragon Blessed.webp"
-					}
+					},
+					"credit": "Zuzanna Wuzyk"
 				}
 			]
 		},
@@ -2599,7 +2562,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Dragon Chosen.webp"
-					}
+					},
+					"credit": "Zuzanna Wuzyk"
 				}
 			]
 		},
@@ -2633,7 +2597,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Dragon Speaker.webp"
-					}
+					},
+					"credit": "Zuzanna Wuzyk"
 				}
 			]
 		},
@@ -2882,7 +2847,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Dragonblood Ooze.webp"
-					}
+					},
+					"credit": "Irina Nordsol"
 				}
 			]
 		},
@@ -2904,7 +2870,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Dragonbone Golem.webp"
-					}
+					},
+					"credit": "David Sladek"
 				}
 			]
 		},
@@ -2937,7 +2904,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Dragonborn of Bahamut.webp"
-					}
+					},
+					"credit": "Nikki Dawes"
 				}
 			]
 		},
@@ -2971,7 +2939,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Dragonborn of Sardior.webp"
-					}
+					},
+					"credit": "Mark Behm"
 				}
 			]
 		},
@@ -3004,7 +2973,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Dragonborn of Tiamat.webp"
-					}
+					},
+					"credit": "Sam Keiser"
 				}
 			]
 		},
@@ -3039,7 +3009,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Dragonflesh Abomination.webp"
-					}
+					},
+					"credit": "Andrew Mar"
 				}
 			]
 		},
@@ -3074,7 +3045,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Dragonflesh Grafter.webp"
-					}
+					},
+					"credit": "Andrew Mar"
 				}
 			]
 		},
@@ -3104,7 +3076,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Dragonnel.webp"
-					}
+					},
+					"credit": "Nikki Dawes"
 				}
 			]
 		},
@@ -3137,7 +3110,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Egg Hunter Adult.webp"
-					}
+					},
+					"credit": "Irina Nordsol"
 				}
 			]
 		},
@@ -3170,7 +3144,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Egg Hunter Hatchling.webp"
-					}
+					},
+					"credit": "Irina Nordsol"
 				}
 			]
 		},
@@ -3192,7 +3167,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Elder Brain Dragon.webp"
-					}
+					},
+					"credit": "Julian Kok"
 				}
 			]
 		},
@@ -3450,29 +3426,18 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Emerald Dragon Wyrmling.webp"
-					}
+					},
+					"credit": "Julian Kok"
 				}
 			]
 		},
 		{
 			"name": "Emerald Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"More so even than their chromatic and metallic kin, gem dragons are fascinated with cultivating their dragonsight and fusing the awareness of their echoes across the Material Plane. Some of them believe that, by doing so, they are taking steps toward reuniting the shattered consciousness of Sardior the Ruby Dragon, and they pursue this awakening as an act of near-religious devotion. Others seek to exploit their knowledge of the many worlds of the Material Plane as a source of power\u2014and indeed, a gem dragon who becomes a greatwyrm has access to almost unimaginable power.",
-						"Gem greatwyrms' ascension transforms their bodies to appear as crystal, their scales sparkling like diamonds. Their breath weapons become powerful waves of crushing force that can stop almost any creature in its tracks. But the greatwyrms' most powerful ability is telekinesis on an unparalleled scale\u2014a gem greatwyrm can telekinetically seize an entire crowd, then carry those helpless folk off to the dragon's lair.",
-						{
-							"type": "inset",
-							"name": "Sardior's Greatwyrms",
-							"entries": [
-								"Five gem greatwyrms call themselves the thanes of Sardior and believe themselves responsible for preserving the memory of their long-lost progenitor. These greatwyrms are named Aleithilithos (an amethyst greatwyrm), Hrodel (a crystal greatwyrm), Smargad (an emerald greatwyrm), Charsima (a sapphire greatwyrm), and Tithonnas (a topaz greatwyrm). Each thane is actively seeking out their echoes across the worlds of the Material Plane, hoping to merge with these other dragons, with the goal of eventually uniting themselves to re-form the great Ruby Dragon."
-							]
-						}
-					]
-				}
-			]
+			"_copy": {
+				"name": "Gem Greatwyrm",
+				"source": "FTD"
+			}
 		},
 		{
 			"name": "Eyedrake",
@@ -3493,7 +3458,31 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Eyedrake.webp"
-					}
+					},
+					"credit": "Dawn Carlos"
+				}
+			]
+		},
+		{
+			"name": "Gem Greatwyrm",
+			"source": "FTD",
+			"entries": [
+				"More so even than their chromatic and metallic kin, gem dragons are fascinated with cultivating their dragonsight and fusing the awareness of their echoes across the Material Plane. Some of them believe that, by doing so, they are taking steps toward reuniting the shattered consciousness of Sardior the Ruby Dragon, and they pursue this awakening as an act of near-religious devotion. Others seek to exploit their knowledge of the many worlds of the Material Plane as a source of power\u2014and indeed, a gem dragon who becomes a greatwyrm has access to almost unimaginable power.",
+				"Gem greatwyrms' ascension transforms their bodies to appear as crystal, their scales sparkling like diamonds. Their breath weapons become powerful waves of crushing force that can stop almost any creature in its tracks. But the greatwyrms' most powerful ability is telekinesis on an unparalleled scale\u2014a gem greatwyrm can telekinetically seize an entire crowd, then carry those helpless folk off to the dragon's lair.",
+				{
+					"type": "inset",
+					"name": "Sardior's Greatwyrms",
+					"source": "FTD",
+					"entries": [
+						"Five gem greatwyrms call themselves the thanes of Sardior and believe themselves responsible for preserving the memory of their long-lost progenitor. These greatwyrms are named Aleithilithos (an amethyst greatwyrm), Hrodel (a crystal greatwyrm), Smargad (an emerald greatwyrm), Charsima (a sapphire greatwyrm), and Tithonnas (a topaz greatwyrm). Each thane is actively seeking out their echoes across the worlds of the Material Plane, hoping to merge with these other dragons, with the goal of eventually uniting themselves to re-form the great Ruby Dragon."
+					]
+				},
+				{
+					"type": "quote",
+					"entries": [
+						"The thing I miss most about Sardior is the thing no gem greatwyrm will ever reproduce: the witty anecdotes. Which were, I grant you, mostly about me."
+					],
+					"by": "Fizban"
 				}
 			]
 		},
@@ -3515,7 +3504,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Gem Stalker.webp"
-					}
+					},
+					"credit": "Svetlin Velinov"
 				}
 			]
 		},
@@ -3537,46 +3527,26 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Ghost Dragon.webp"
-					}
+					},
+					"credit": "Andrew Mar"
 				}
 			]
 		},
 		{
 			"name": "Gold Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Some of the oldest and wisest metallic dragons undergo a miraculous metamorphosis to become greatwyrms. This transformation is often wrought by Bahamut, who takes pride in elevating his worthiest children to a status approaching his own greatness.",
-						"A metallic greatwyrm's transformation often involves fusing the consciousness, the magic, and sometimes even the physical forms of multiple echoes of the same dragon across the worlds of the Material Plane. Several of the dragons identified as dragon gods\u2014including Aasterinian (described in the \"Brass Dragons \"section of chapter 5), Lendys, and Tamara\u2014are metallic greatwyrms who have combined the essences of multiple forms to achieve this godlike status.",
-						"Metallic greatwyrms are among the largest creatures in the multiverse, overshadowing most other dragons. Mighty elemental forces swirl around them in response to their wishes, and their breath weapons can sap the strength from armies\u2014or lay waste to whole regions.",
-						{
-							"type": "inset",
-							"name": "Justice and Mercy",
-							"entries": [
-								"Lendys and Tamara are both silver greatwyrms, but they could not be more different from each other.",
-								"Lendys is renowned as an impartial judge who is equally ready to serve as jury and executioner when dragons commit grave injustices against dragonkind. He is lawful neutral, and he is said to be incapable of mercy or forgiveness.",
-								"Tamara, by contrast, embodies the ideal of mercy. She heals the sick, tends the injured, and delivers a peaceful departure to dragons nearing the end of their natural lives. She has a particular loathing for dracoliches and other draconic Undead."
-							]
-						}
-					]
-				}
-			]
+			"_copy": {
+				"name": "Metallic Greatwyrm",
+				"source": "FTD"
+			}
 		},
 		{
 			"name": "Green Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"The most ancient chromatic dragons, who have survived over twelve hundred years of mortal life and acquired vast hoards worth millions of gold pieces, can achieve a form of apotheosis, reaching a level of power approaching that of Tiamat's mighty aspect. The competitive avarice of dragonkind and the interference of adventurers prevent most dragons from attaining this level of power. But a chromatic dragon who can outwit all rivals and overcome all potential thieves can rise to become one of the mightiest of dragons.",
-						"Often a chromatic greatwyrm's ascension involves fusing the power of a single dragon's echoes across different worlds of the Material Plane. The black greatwyrm Chronepsis, for example, is said to have stalked multiple worlds and devoured many of his echoes before withdrawing to a planar lair in the Outlands. The red greatwyrm Ashardalon worked with a balor to ritually drain the power of his echoes, then infused their power into himself by implanting the balor where his heart had been.",
-						"In both size and power, chromatic greatwyrms exceed even ancient dragons. The energy of their breath weapons courses over their bodies and glows under their scales, and elemental forces rage around them when they exert their wrath. They no longer need to eat or drink, as their vast hoards magically sustain them. And their power can raze a city to the ground, destroying buildings and defenders alike."
-					]
-				}
-			]
+			"_copy": {
+				"name": "Chromatic Greatwyrm",
+				"source": "FTD"
+			}
 		},
 		{
 			"name": "Hoard Mimic",
@@ -3596,7 +3566,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Hoard Mimic.webp"
-					}
+					},
+					"credit": "Sam Keiser"
 				}
 			]
 		},
@@ -3618,7 +3589,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Hoard Scarab.webp"
-					}
+					},
+					"credit": "Clint Cearley"
 				}
 			]
 		},
@@ -3642,7 +3614,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Hollow Dragon.webp"
-					}
+					},
+					"credit": "Svetlin Velinov"
 				}
 			]
 		},
@@ -3664,7 +3637,34 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Liondrake.webp"
-					}
+					},
+					"credit": "Brynn Metheney"
+				}
+			]
+		},
+		{
+			"name": "Metallic Greatwyrm",
+			"source": "FTD",
+			"entries": [
+				"Some of the oldest and wisest metallic dragons undergo a miraculous metamorphosis to become greatwyrms. This transformation is often wrought by Bahamut, who takes pride in elevating his worthiest children to a status approaching his own greatness.",
+				"A metallic greatwyrm's transformation often involves fusing the consciousness, the magic, and sometimes even the physical forms of multiple echoes of the same dragon across the worlds of the Material Plane. Several of the dragons identified as dragon gods\u2014including Aasterinian (described in the \"Brass Dragons\" section of chapter 5), Lendys, and Tamara\u2014are metallic greatwyrms who have combined the essences of multiple forms to achieve this godlike status.",
+				"Metallic greatwyrms are among the largest creatures in the multiverse, overshadowing most other dragons. Mighty elemental forces swirl around them in response to their wishes, and their breath weapons can sap the strength from armies\u2014or lay waste to whole regions.",
+				{
+					"type": "inset",
+					"name": "Justice and Mercy",
+					"source": "FTD",
+					"entries": [
+						"Lendys and Tamara are both silver greatwyrms, but they could not be more different from each other.",
+						"Lendys is renowned as an impartial judge who is equally ready to serve as jury and executioner when dragons commit grave injustices against dragonkind. He is lawful neutral, and he is said to be incapable of mercy or forgiveness.",
+						"Tamara, by contrast, embodies the ideal of mercy. She heals the sick, tends the injured, and delivers a peaceful departure to dragons nearing the end of their natural lives. She has a particular loathing for dracoliches and other draconic Undead."
+					]
+				},
+				{
+					"type": "quote",
+					"entries": [
+						"Call me biased, but the \"great\" part of \"metallic greatwyrm\" feels a little redundant. It goes without saying."
+					],
+					"by": "Fizban"
 				}
 			]
 		},
@@ -3697,7 +3697,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Metallic Peacekeeper.webp"
-					}
+					},
+					"credit": "Nikki Dawes"
 				}
 			]
 		},
@@ -3730,7 +3731,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Metallic Warbler.webp"
-					}
+					},
+					"credit": "Nikki Dawes"
 				}
 			]
 		},
@@ -3968,30 +3970,26 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Moonstone Dragon Wyrmling.webp"
-					}
+					},
+					"credit": "Irina Nordsol"
 				}
 			]
 		},
 		{
 			"name": "Red Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"The most ancient chromatic dragons, who have survived over twelve hundred years of mortal life and acquired vast hoards worth millions of gold pieces, can achieve a form of apotheosis, reaching a level of power approaching that of Tiamat's mighty aspect. The competitive avarice of dragonkind and the interference of adventurers prevent most dragons from attaining this level of power. But a chromatic dragon who can outwit all rivals and overcome all potential thieves can rise to become one of the mightiest of dragons.",
-						"Often a chromatic greatwyrm's ascension involves fusing the power of a single dragon's echoes across different worlds of the Material Plane. The black greatwyrm Chronepsis, for example, is said to have stalked multiple worlds and devoured many of his echoes before withdrawing to a planar lair in the Outlands. The red greatwyrm Ashardalon worked with a balor to ritually drain the power of his echoes, then infused their power into himself by implanting the balor where his heart had been.",
-						"In both size and power, chromatic greatwyrms exceed even ancient dragons. The energy of their breath weapons courses over their bodies and glows under their scales, and elemental forces rage around them when they exert their wrath. They no longer need to eat or drink, as their vast hoards magically sustain them. And their power can raze a city to the ground, destroying buildings and defenders alike."
-					]
-				}
-			],
+			"_copy": {
+				"name": "Chromatic Greatwyrm",
+				"source": "FTD"
+			},
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Red Greatwyrm.webp"
-					}
+					},
+					"credit": "Svetlin Velinov"
 				}
 			]
 		},
@@ -4249,68 +4247,44 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Sapphire Dragon Wyrmling.webp"
-					}
+					},
+					"credit": "Chris Rallis"
 				}
 			]
 		},
 		{
 			"name": "Sapphire Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"More so even than their chromatic and metallic kin, gem dragons are fascinated with cultivating their dragonsight and fusing the awareness of their echoes across the Material Plane. Some of them believe that, by doing so, they are taking steps toward reuniting the shattered consciousness of Sardior the Ruby Dragon, and they pursue this awakening as an act of near-religious devotion. Others seek to exploit their knowledge of the many worlds of the Material Plane as a source of power\u2014and indeed, a gem dragon who becomes a greatwyrm has access to almost unimaginable power.",
-						"Gem greatwyrms' ascension transforms their bodies to appear as crystal, their scales sparkling like diamonds. Their breath weapons become powerful waves of crushing force that can stop almost any creature in its tracks. But the greatwyrms' most powerful ability is telekinesis on an unparalleled scale\u2014a gem greatwyrm can telekinetically seize an entire crowd, then carry those helpless folk off to the dragon's lair.",
-						{
-							"type": "inset",
-							"name": "Sardior's Greatwyrms",
-							"entries": [
-								"Five gem greatwyrms call themselves the thanes of Sardior and believe themselves responsible for preserving the memory of their long-lost progenitor. These greatwyrms are named Aleithilithos (an amethyst greatwyrm), Hrodel (a crystal greatwyrm), Smargad (an emerald greatwyrm), Charsima (a sapphire greatwyrm), and Tithonnas (a topaz greatwyrm). Each thane is actively seeking out their echoes across the worlds of the Material Plane, hoping to merge with these other dragons, with the goal of eventually uniting themselves to re-form the great Ruby Dragon."
-							]
-						}
-					]
-				}
-			],
+			"_copy": {
+				"name": "Gem Greatwyrm",
+				"source": "FTD"
+			},
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Sapphire Greatwyrm.webp"
-					}
+					},
+					"credit": "Sam Keiser"
 				}
 			]
 		},
 		{
 			"name": "Silver Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Some of the oldest and wisest metallic dragons undergo a miraculous metamorphosis to become greatwyrms. This transformation is often wrought by Bahamut, who takes pride in elevating his worthiest children to a status approaching his own greatness.",
-						"A metallic greatwyrm's transformation often involves fusing the consciousness, the magic, and sometimes even the physical forms of multiple echoes of the same dragon across the worlds of the Material Plane. Several of the dragons identified as dragon gods\u2014including Aasterinian (described in the \"Brass Dragons \"section of chapter 5), Lendys, and Tamara\u2014are metallic greatwyrms who have combined the essences of multiple forms to achieve this godlike status.",
-						"Metallic greatwyrms are among the largest creatures in the multiverse, overshadowing most other dragons. Mighty elemental forces swirl around them in response to their wishes, and their breath weapons can sap the strength from armies\u2014or lay waste to whole regions.",
-						{
-							"type": "inset",
-							"name": "Justice and Mercy",
-							"entries": [
-								"Lendys and Tamara are both silver greatwyrms, but they could not be more different from each other.",
-								"Lendys is renowned as an impartial judge who is equally ready to serve as jury and executioner when dragons commit grave injustices against dragonkind. He is lawful neutral, and he is said to be incapable of mercy or forgiveness.",
-								"Tamara, by contrast, embodies the ideal of mercy. She heals the sick, tends the injured, and delivers a peaceful departure to dragons nearing the end of their natural lives. She has a particular loathing for dracoliches and other draconic Undead."
-							]
-						}
-					]
-				}
-			],
+			"_copy": {
+				"name": "Metallic Greatwyrm",
+				"source": "FTD"
+			},
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Silver Greatwyrm.webp"
-					}
+					},
+					"credit": "Crystal Sully"
 				}
 			]
 		},
@@ -4332,7 +4306,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Swarm of Hoard Scarabs.webp"
-					}
+					},
+					"credit": "Clint Cearley"
 				}
 			]
 		},
@@ -4590,43 +4565,26 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Topaz Dragon Wyrmling.webp"
-					}
+					},
+					"credit": "Alex Stone"
 				}
 			]
 		},
 		{
 			"name": "Topaz Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"More so even than their chromatic and metallic kin, gem dragons are fascinated with cultivating their dragonsight and fusing the awareness of their echoes across the Material Plane. Some of them believe that, by doing so, they are taking steps toward reuniting the shattered consciousness of Sardior the Ruby Dragon, and they pursue this awakening as an act of near-religious devotion. Others seek to exploit their knowledge of the many worlds of the Material Plane as a source of power\u2014and indeed, a gem dragon who becomes a greatwyrm has access to almost unimaginable power.",
-						"Gem greatwyrms' ascension transforms their bodies to appear as crystal, their scales sparkling like diamonds. Their breath weapons become powerful waves of crushing force that can stop almost any creature in its tracks. But the greatwyrms' most powerful ability is telekinesis on an unparalleled scale\u2014a gem greatwyrm can telekinetically seize an entire crowd, then carry those helpless folk off to the dragon's lair.",
-						{
-							"type": "inset",
-							"name": "Sardior's Greatwyrms",
-							"entries": [
-								"Five gem greatwyrms call themselves the thanes of Sardior and believe themselves responsible for preserving the memory of their long-lost progenitor. These greatwyrms are named Aleithilithos (an amethyst greatwyrm), Hrodel (a crystal greatwyrm), Smargad (an emerald greatwyrm), Charsima (a sapphire greatwyrm), and Tithonnas (a topaz greatwyrm). Each thane is actively seeking out their echoes across the worlds of the Material Plane, hoping to merge with these other dragons, with the goal of eventually uniting themselves to re-form the great Ruby Dragon."
-							]
-						}
-					]
-				}
-			]
+			"_copy": {
+				"name": "Gem Greatwyrm",
+				"source": "FTD"
+			}
 		},
 		{
 			"name": "White Greatwyrm",
 			"source": "FTD",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"The most ancient chromatic dragons, who have survived over twelve hundred years of mortal life and acquired vast hoards worth millions of gold pieces, can achieve a form of apotheosis, reaching a level of power approaching that of Tiamat's mighty aspect. The competitive avarice of dragonkind and the interference of adventurers prevent most dragons from attaining this level of power. But a chromatic dragon who can outwit all rivals and overcome all potential thieves can rise to become one of the mightiest of dragons.",
-						"Often a chromatic greatwyrm's ascension involves fusing the power of a single dragon's echoes across different worlds of the Material Plane. The black greatwyrm Chronepsis, for example, is said to have stalked multiple worlds and devoured many of his echoes before withdrawing to a planar lair in the Outlands. The red greatwyrm Ashardalon worked with a balor to ritually drain the power of his echoes, then infused their power into himself by implanting the balor where his heart had been.",
-						"In both size and power, chromatic greatwyrms exceed even ancient dragons. The energy of their breath weapons courses over their bodies and glows under their scales, and elemental forces rage around them when they exert their wrath. They no longer need to eat or drink, as their vast hoards magically sustain them. And their power can raze a city to the ground, destroying buildings and defenders alike."
-					]
-				}
-			]
+			"_copy": {
+				"name": "Chromatic Greatwyrm",
+				"source": "FTD"
+			}
 		},
 		{
 			"name": "Young Amethyst Dragon",
@@ -4881,7 +4839,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Young Amethyst Dragon.webp"
-					}
+					},
+					"credit": "Shawn Wood"
 				}
 			]
 		},
@@ -5139,7 +5098,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Young Crystal Dragon.webp"
-					}
+					},
+					"credit": "Brynn Metheney"
 				}
 			]
 		},
@@ -5402,7 +5362,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Young Deep Dragon.webp"
-					}
+					},
+					"credit": "Brynn Metheney"
 				}
 			]
 		},
@@ -5913,7 +5874,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Young Emerald Dragon.webp"
-					}
+					},
+					"credit": "Julian Kok"
 				}
 			]
 		},
@@ -6151,7 +6113,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Young Moonstone Dragon.webp"
-					}
+					},
+					"credit": "Irina Nordsol"
 				}
 			]
 		},
@@ -6409,7 +6372,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Young Sapphire Dragon.webp"
-					}
+					},
+					"credit": "Chris Rallis"
 				}
 			]
 		},
@@ -6433,7 +6397,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Young Sea Serpent.webp"
-					}
+					},
+					"credit": "Mark Behm"
 				}
 			]
 		},
@@ -6691,7 +6656,8 @@
 					"href": {
 						"type": "internal",
 						"path": "bestiary/FTD/Young Topaz Dragon.webp"
-					}
+					},
+					"credit": "Alex Stone"
 				}
 			]
 		}

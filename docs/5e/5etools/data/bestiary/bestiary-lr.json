@@ -221,12 +221,18 @@
 			],
 			"miscTags": [
 				"AOE",
+				"MLW",
 				"MW"
 			],
 			"conditionInflictSpell": [
 				"charmed",
 				"paralyzed",
 				"restrained"
+			],
+			"savingThrowForcedSpell": [
+				"constitution",
+				"strength",
+				"wisdom"
 			],
 			"hasToken": true
 		},
@@ -578,7 +584,21 @@
 				"prone",
 				"restrained"
 			],
-			"hasToken": true
+			"savingThrowForced": [
+				"constitution"
+			],
+			"savingThrowForcedLegendary": [
+				"strength"
+			],
+			"savingThrowForcedSpell": [
+				"charisma",
+				"constitution",
+				"dexterity",
+				"strength",
+				"wisdom"
+			],
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Shoalar Quanderil",
@@ -745,9 +765,15 @@
 				"I"
 			],
 			"miscTags": [
+				"MLW",
 				"MW",
 				"RW",
 				"THW"
+			],
+			"savingThrowForcedSpell": [
+				"dexterity",
+				"strength",
+				"wisdom"
 			],
 			"hasToken": true
 		},
@@ -984,7 +1010,12 @@
 				"prone",
 				"restrained"
 			],
-			"hasToken": true
+			"savingThrowForced": [
+				"constitution",
+				"dexterity"
+			],
+			"hasToken": true,
+			"hasFluffImages": true
 		}
 	]
 }

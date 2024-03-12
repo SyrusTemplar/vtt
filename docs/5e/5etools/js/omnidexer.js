@@ -84,6 +84,11 @@ class Omnidexer {
 			const name = Omnidexer.getProperty(it, arbiter.primary || "name");
 			await this._pAddToIndex_pHandleItem(state, it, ix + ixOffset, name);
 
+			if (typeof it.srd === "string") {
+				ixOffset++;
+				await this._pAddToIndex_pHandleItem(state, it, ix + ixOffset, it.srd);
+			}
+
 			if (it.alias?.length) {
 				for (const a of it.alias) {
 					ixOffset++;

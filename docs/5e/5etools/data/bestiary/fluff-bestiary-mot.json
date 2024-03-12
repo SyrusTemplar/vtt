@@ -1,4 +1,9 @@
 {
+	"_meta": {
+		"internalCopies": [
+			"monsterFluff"
+		]
+	},
 	"monsterFluff": [
 		{
 			"name": "Abhorrent Overlord",
@@ -16,70 +21,35 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Abhorrent Overlord.jpg"
-					}
+						"path": "bestiary/MOT/Abhorrent Overlord.webp"
+					},
+					"credit": "Slawomir Maniak"
 				}
 			]
 		},
 		{
 			"name": "Akroan Hoplite",
 			"source": "MOT",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Akroan hoplites, also called stratians, number among the fiercest soldiers on Theros. They train relentlessly and possess unflinching resolve. In the annals of Akros, tales abound of squads of stratians that defended a key location against a much larger force or crept behind enemy lines and wreaked havoc in the opposing army.",
-						"Hoplites are highly trained warriors, versed not only in strategy and tactics but in the glorification of the warrior's spirit, the basis of an ethos that forges an unbreakable bond between members of a military unit. In combat, hoplites typically work in groups and use coordinated tactics to win victories.",
-						"The three Hoplite Unit Names tables present the sorts of titles used by hoplite contingents hailing from Theros's great poleis. Consider using these names for military forces characters encounter during their adventures or that they were once a part of.",
-						{
-							"type": "table",
-							"caption": "Akroan Hoplite Unit Names",
-							"colLabels": [
-								"D8",
-								"Name"
-							],
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"rows": [
-								[
-									"1",
-									"Spears of Iroas"
-								],
-								[
-									"2",
-									"Iron Fangs"
-								],
-								[
-									"3",
-									"Arrows of Anax"
-								],
-								[
-									"4",
-									"The Unbroken"
-								],
-								[
-									"5",
-									"Anvil of Purphoros"
-								],
-								[
-									"6",
-									"Skewering Squad"
-								],
-								[
-									"7",
-									"Shield of Akros"
-								],
-								[
-									"8",
-									"Cymede's Heart"
-								]
+			"_copy": {
+				"name": "Hoplite",
+				"source": "MOT",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "entries",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Akroan hoplites, also called stratians, number among the fiercest soldiers on Theros. They train relentlessly and possess unflinching resolve. In the annals of Akros, tales abound of squads of stratians that defended a key location against a much larger force or crept behind enemy lines and wreaked havoc in the opposing army."
+									]
+								}
 							]
 						}
-					]
+					}
 				}
-			]
+			}
 		},
 		{
 			"name": "Alseid",
@@ -116,8 +86,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Alseid.jpg"
-					}
+						"path": "bestiary/MOT/Alseid.webp"
+					},
+					"credit": "Magali Villeneuve"
 				}
 			]
 		},
@@ -140,8 +111,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Anvilwrought Raptor.jpg"
-					}
+						"path": "bestiary/MOT/Anvilwrought Raptor.webp"
+					},
+					"credit": "James Zapata"
 				}
 			]
 		},
@@ -162,8 +134,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Aphemia.jpg"
-					}
+						"path": "bestiary/MOT/Aphemia.webp"
+					},
+					"credit": "Lucas Graciano"
 				}
 			]
 		},
@@ -185,8 +158,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Arasta.jpg"
-					}
+						"path": "bestiary/MOT/Arasta.webp"
+					},
+					"credit": "Sam Rowan"
 				}
 			]
 		},
@@ -208,8 +182,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Archon of Falling Stars.jpg"
-					}
+						"path": "bestiary/MOT/Archon of Falling Stars.webp"
+					},
+					"credit": "Victor Adame Minguez"
 				}
 			]
 		},
@@ -231,8 +206,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Ashen Rider.jpg"
-					}
+						"path": "bestiary/MOT/Ashen Rider.webp"
+					},
+					"credit": "Chris Rahn"
 				}
 			]
 		},
@@ -253,8 +229,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Blood-Toll Harpy.jpg"
-					}
+						"path": "bestiary/MOT/Blood-Toll Harpy.webp"
+					},
+					"credit": "Daniel Ljunggren"
 				}
 			]
 		},
@@ -290,8 +267,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Bronze Sable.jpg"
-					}
+						"path": "bestiary/MOT/Bronze Sable.webp"
+					},
+					"credit": "Jasper Sandner"
 				}
 			]
 		},
@@ -326,8 +304,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Colossus of Akros.jpg"
-					}
+						"path": "bestiary/MOT/Colossus of Akros.webp"
+					},
+					"credit": "Zack Stella"
 				}
 			]
 		},
@@ -349,8 +328,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Doomwake Giant.jpg"
-					}
+						"path": "bestiary/MOT/Doomwake Giant.webp"
+					},
+					"credit": "Kev Walker"
 				}
 			]
 		},
@@ -370,8 +350,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Eater of Hope.jpg"
-					}
+						"path": "bestiary/MOT/Eater of Hope.webp"
+					},
+					"credit": "Peter Mohrbacher"
 				}
 			]
 		},
@@ -391,8 +372,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Fleecemane Lion.jpg"
-					}
+						"path": "bestiary/MOT/Fleecemane Lion.webp"
+					},
+					"credit": "Slawomir Maniak"
 				}
 			]
 		},
@@ -426,8 +408,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Ghostblade Eidolon.jpg"
-					}
+						"path": "bestiary/MOT/Ghostblade Eidolon.webp"
+					},
+					"credit": "Ryan Yee"
 				}
 			]
 		},
@@ -450,8 +433,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Gold-Forged Sentinel.jpg"
-					}
+						"path": "bestiary/MOT/Gold-Forged Sentinel.webp"
+					},
+					"credit": "James Zapata"
 				}
 			]
 		},
@@ -471,8 +455,165 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Hippocamp.jpg"
-					}
+						"path": "bestiary/MOT/Hippocamp.webp"
+					},
+					"credit": "Christopher Burdett"
+				}
+			]
+		},
+		{
+			"name": "Hoplite",
+			"source": "MOT",
+			"entries": [
+				"Hoplites are highly trained warriors, versed not only in strategy and tactics but in the glorification of the warrior's spirit, the basis of an ethos that forges an unbreakable bond between members of a military unit. In combat, hoplites typically work in groups and use coordinated tactics to win victories.",
+				"The three Hoplite Unit Names tables present the sorts of titles used by hoplite contingents hailing from Theros's great poleis. Consider using these names for military forces characters encounter during their adventures or that they were once a part of.",
+				{
+					"type": "table",
+					"caption": "Akroan Hoplite Unit Names",
+					"colLabels": [
+						"D8",
+						"Name"
+					],
+					"colStyles": [
+						"col-2 text-center",
+						"col-10"
+					],
+					"rows": [
+						[
+							"1",
+							"Spears of Iroas"
+						],
+						[
+							"2",
+							"Iron Fangs"
+						],
+						[
+							"3",
+							"Arrows of Anax"
+						],
+						[
+							"4",
+							"The Unbroken"
+						],
+						[
+							"5",
+							"Anvil of Purphoros"
+						],
+						[
+							"6",
+							"Skewering Squad"
+						],
+						[
+							"7",
+							"Shield of Akros"
+						],
+						[
+							"8",
+							"Cymede's Heart"
+						]
+					]
+				},
+				{
+					"type": "table",
+					"caption": "Meletian Hoplite Unit Names",
+					"colLabels": [
+						"D8",
+						"Name"
+					],
+					"colStyles": [
+						"col-2 text-center",
+						"col-10"
+					],
+					"rows": [
+						[
+							"1",
+							"Kraken's Claw"
+						],
+						[
+							"2",
+							"Hands of Justice"
+						],
+						[
+							"3",
+							"Thassa's Spear"
+						],
+						[
+							"4",
+							"Ephara's Shield"
+						],
+						[
+							"5",
+							"Kindred of the Deep"
+						],
+						[
+							"6",
+							"Riders of Heliod"
+						],
+						[
+							"7",
+							"Keepers of Pyrgnos"
+						],
+						[
+							"8",
+							"The Skysworn"
+						]
+					]
+				},
+				{
+					"type": "table",
+					"caption": "Setessan Hoplite Unit Names",
+					"colLabels": [
+						"d8",
+						"Name"
+					],
+					"colStyles": [
+						"col-2 text-center",
+						"col-10"
+					],
+					"rows": [
+						[
+							"1",
+							"Nylea's Arrows"
+						],
+						[
+							"2",
+							"The Watchers"
+						],
+						[
+							"3",
+							"Fangs of Ophis"
+						],
+						[
+							"4",
+							"The Swiftswords"
+						],
+						[
+							"5",
+							"Karametra's Wolves"
+						],
+						[
+							"6",
+							"Defenders of the Grove"
+						],
+						[
+							"7",
+							"Bronze Blades"
+						],
+						[
+							"8",
+							"The Jackals"
+						]
+					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/MOT/Hoplite.webp"
+					},
+					"credit": "Raymond Swanland"
 				}
 			]
 		},
@@ -492,8 +633,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Hundred-Handed One.jpg"
-					}
+						"path": "bestiary/MOT/Hundred-Handed One.webp"
+					},
+					"credit": "Brad Rigney"
 				}
 			]
 		},
@@ -515,8 +657,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Hythonia.jpg"
-					}
+						"path": "bestiary/MOT/Hythonia.webp"
+					},
+					"credit": "Chris Rahn"
 				}
 			]
 		},
@@ -537,8 +680,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Ironscale Hydra.jpg"
-					}
+						"path": "bestiary/MOT/Ironscale Hydra.webp"
+					},
+					"credit": "Brian Valeza"
 				}
 			]
 		},
@@ -577,8 +721,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Lampad.jpg"
-					}
+						"path": "bestiary/MOT/Lampad.webp"
+					},
+					"credit": "Jason Felix"
 				}
 			]
 		},
@@ -600,8 +745,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Leonin Iconoclast.jpg"
-					}
+						"path": "bestiary/MOT/Leonin Iconoclast.webp"
+					},
+					"credit": "James Ryman"
 				}
 			]
 		},
@@ -620,62 +766,26 @@
 		{
 			"name": "Meletian Hoplite",
 			"source": "MOT",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Meletian hoplites use a combination of cunning, faith, and magic to defend their coastal home. Most of these skilled soldiers serve in the Reverent Army, the defenders of Meletis, which uses an array of proven strategies and flexible troop formations to gain the advantage over foes. Bolstered by trained griffon and pegasus steeds, they strike foes where they least expect.",
-						"Hoplites are highly trained warriors, versed not only in strategy and tactics but in the glorification of the warrior's spirit, the basis of an ethos that forges an unbreakable bond between members of a military unit. In combat, hoplites typically work in groups and use coordinated tactics to win victories.",
-						"The three Hoplite Unit Names tables present the sorts of titles used by hoplite contingents hailing from Theros's great poleis. Consider using these names for military forces characters encounter during their adventures or that they were once a part of.",
-						{
-							"type": "table",
-							"caption": "Meletian Hoplite Unit Names",
-							"colLabels": [
-								"D8",
-								"Name"
-							],
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"rows": [
-								[
-									"1",
-									"Kraken's Claw"
-								],
-								[
-									"2",
-									"Hands of Justice"
-								],
-								[
-									"3",
-									"Thassa's Spear"
-								],
-								[
-									"4",
-									"Ephara's Shield"
-								],
-								[
-									"5",
-									"Kindred of the Deep"
-								],
-								[
-									"6",
-									"Riders of Heliod"
-								],
-								[
-									"7",
-									"Keepers of Pyrgnos"
-								],
-								[
-									"8",
-									"The Skysworn"
-								]
+			"_copy": {
+				"name": "Hoplite",
+				"source": "MOT",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "entries",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Meletian hoplites use a combination of cunning, faith, and magic to defend their coastal home. Most of these skilled soldiers serve in the Reverent Army, the defenders of Meletis, which uses an array of proven strategies and flexible troop formations to gain the advantage over foes. Bolstered by trained griffon and pegasus steeds, they strike foes where they least expect."
+									]
+								}
 							]
 						}
-					]
+					}
 				}
-			]
+			}
 		},
 		{
 			"name": "Naiad",
@@ -731,8 +841,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Naiad.jpg"
-					}
+						"path": "bestiary/MOT/Naiad.webp"
+					},
+					"credit": "Kieran Yanner"
 				}
 			]
 		},
@@ -752,8 +863,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Nightmare Shepherd.jpg"
-					}
+						"path": "bestiary/MOT/Nightmare Shepherd.webp"
+					},
+					"credit": "Tyler Jacobson"
 				}
 			]
 		},
@@ -773,8 +885,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Nyx-Fleece Ram.jpg"
-					}
+						"path": "bestiary/MOT/Nyx-Fleece Ram.webp"
+					},
+					"credit": "Terese Nielsen"
 				}
 			]
 		},
@@ -794,8 +907,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Oracle.jpg"
-					}
+						"path": "bestiary/MOT/Oracle.webp"
+					},
+					"credit": "Cynthia Sheppard"
 				}
 			]
 		},
@@ -853,8 +967,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Oread.jpg"
-					}
+						"path": "bestiary/MOT/Oread.webp"
+					},
+					"credit": "Yigit Koroglu"
 				}
 			]
 		},
@@ -874,8 +989,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Phylaskia.jpg"
-					}
+						"path": "bestiary/MOT/Phylaskia.webp"
+					},
+					"credit": "Vincent Proce"
 				}
 			]
 		},
@@ -893,60 +1009,118 @@
 			]
 		},
 		{
-			"name": "Returned Drifter",
+			"name": "Returned",
 			"source": "MOT",
 			"entries": [
+				"Returned have escaped the Underworld and dwell among the living once more, but their second lives are rarely what they expected\u2014not that they remember what it was they expected. As a result of having followed the Path of Phenax (see chapter 4), the Returned lose their identities, which manifest as separate beings known as eidolons. The experience of escaping the Underworld also causes them to lose their faces, which become expressionless surfaces with empty eye sockets and gaping mouths. These blank surfaces they cover with distinctive golden masks.",
+				"Returned reenter the world blank and undead. No longer possessing the ability to form long-term memories, they generally can't build meaningful relationships or establish new lives. Instead, most experience fleeting emotions and follow hollow routines, their existences reduced to shadow plays without weight or substance."
+			],
+			"images": [
 				{
-					"type": "entries",
-					"entries": [
-						"Many Returned are pitiable souls who managed to escape from the Underworld only to find themselves stripped of the passions that motivated their flight. Lacking purpose and shunned by the living, these Returned typically seek places where they'll be left in peace, such as lonely tombs or the necropoleis of Asphodel and Odunos. There they go through half-hearted parodies of life, impeded by distraction and ennui. Despite this, even the most languorous Returned defend themselves if threatened and might be pressed into the service of their more willful brethren.",
-						"Returned have escaped the Underworld and dwell among the living once more, but their second lives are rarely what they expected\u2014not that they remember what it was they expected. As a result of having followed the Path of Phenax (see chapter 4), the Returned lose their identities, which manifest as separate beings known as eidolons. The experience of escaping the Underworld also causes them to lose their faces, which become expressionless surfaces with empty eye sockets and gaping mouths. These blank surfaces they cover with distinctive golden masks.",
-						"Returned reenter the world blank and undead. No longer possessing the ability to form long-term memories, they generally can't build meaningful relationships or establish new lives. Instead, most experience fleeting emotions and follow hollow routines, their existences reduced to shadow plays without weight or substance."
-					]
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "bestiary/MOT/Returned.webp"
+					},
+					"credit": "Emrah Elmasli"
 				}
 			]
+		},
+		{
+			"name": "Returned Drifter",
+			"source": "MOT",
+			"_copy": {
+				"name": "Returned",
+				"source": "MOT",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "entries",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Many Returned are pitiable souls who managed to escape from the Underworld only to find themselves stripped of the passions that motivated their flight. Lacking purpose and shunned by the living, these Returned typically seek places where they'll be left in peace, such as lonely tombs or the necropoleis of Asphodel and Odunos. There they go through half-hearted parodies of life, impeded by distraction and ennui. Despite this, even the most languorous Returned defend themselves if threatened and might be pressed into the service of their more willful brethren."
+									]
+								}
+							]
+						}
+					}
+				}
+			}
 		},
 		{
 			"name": "Returned Kakomantis",
 			"source": "MOT",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Although the dead typically recall little of their lives, some have an obsession with magic that survives both death and rebirth as a Returned. These Returned, called kakomanteis, use their magical prowess to control the energy that suffuses the Underworld.",
-						"Returned have escaped the Underworld and dwell among the living once more, but their second lives are rarely what they expected\u2014not that they remember what it was they expected. As a result of having followed the Path of Phenax (see chapter 4), the Returned lose their identities, which manifest as separate beings known as eidolons. The experience of escaping the Underworld also causes them to lose their faces, which become expressionless surfaces with empty eye sockets and gaping mouths. These blank surfaces they cover with distinctive golden masks.",
-						"Returned reenter the world blank and undead. No longer possessing the ability to form long-term memories, they generally can't build meaningful relationships or establish new lives. Instead, most experience fleeting emotions and follow hollow routines, their existences reduced to shadow plays without weight or substance."
-					]
+			"_copy": {
+				"name": "Returned",
+				"source": "MOT",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "entries",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Although the dead typically recall little of their lives, some have an obsession with magic that survives both death and rebirth as a Returned. These Returned, called kakomanteis, use their magical prowess to control the energy that suffuses the Underworld."
+									]
+								}
+							]
+						}
+					}
 				}
-			]
+			}
 		},
 		{
 			"name": "Returned Palamnite",
 			"source": "MOT",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Even death and the loss of their identities can't erase the rage that inspires Returned palamnites. These Returned led violent lives, existences filled with such pain and hatred that violence now suffuses their deathless bodies. Such makes them exceptionally dangerous to the living, as these aimless killers know only suffering and seek to spread it whenever the opportunity arises. While palamnites might wander the world as dangerous, lone murderers, many gravitate to Odunos, where they serve the vicious will of Tymaret the Murder King (see chapter 3).",
-						"Returned have escaped the Underworld and dwell among the living once more, but their second lives are rarely what they expected\u2014not that they remember what it was they expected. As a result of having followed the Path of Phenax (see chapter 4), the Returned lose their identities, which manifest as separate beings known as eidolons. The experience of escaping the Underworld also causes them to lose their faces, which become expressionless surfaces with empty eye sockets and gaping mouths. These blank surfaces they cover with distinctive golden masks.",
-						"Returned reenter the world blank and undead. No longer possessing the ability to form long-term memories, they generally can't build meaningful relationships or establish new lives. Instead, most experience fleeting emotions and follow hollow routines, their existences reduced to shadow plays without weight or substance."
-					]
+			"_copy": {
+				"name": "Returned",
+				"source": "MOT",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "entries",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Even death and the loss of their identities can't erase the rage that inspires Returned palamnites. These Returned led violent lives, existences filled with such pain and hatred that violence now suffuses their deathless bodies. Such makes them exceptionally dangerous to the living, as these aimless killers know only suffering and seek to spread it whenever the opportunity arises. While palamnites might wander the world as dangerous, lone murderers, many gravitate to Odunos, where they serve the vicious will of Tymaret the Murder King (see chapter 3)."
+									]
+								}
+							]
+						}
+					}
 				}
-			]
+			}
 		},
 		{
 			"name": "Returned Sentry",
 			"source": "MOT",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Most new or purposeless Returned are easily manipulated into serving their more forceful brethren. Having purpose forced upon them, these Returned perform simple, artless tasks with middling efficiency. Their one virtue is their tirelessness, which makes them exceptional guards. In the necropoleis, this sees many Returned employed as sentries, though they might also be messengers or laborers. If threatened, groups of these Returned work well together, sharing the unified goals of overcoming their foes and getting back to the task at hand.",
-						"Returned have escaped the Underworld and dwell among the living once more, but their second lives are rarely what they expected\u2014not that they remember what it was they expected. As a result of having followed the Path of Phenax (see chapter 4), the Returned lose their identities, which manifest as separate beings known as eidolons. The experience of escaping the Underworld also causes them to lose their faces, which become expressionless surfaces with empty eye sockets and gaping mouths. These blank surfaces they cover with distinctive golden masks.",
-						"Returned reenter the world blank and undead. No longer possessing the ability to form long-term memories, they generally can't build meaningful relationships or establish new lives. Instead, most experience fleeting emotions and follow hollow routines, their existences reduced to shadow plays without weight or substance."
-					]
+			"_copy": {
+				"name": "Returned",
+				"source": "MOT",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "entries",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Most new or purposeless Returned are easily manipulated into serving their more forceful brethren. Having purpose forced upon them, these Returned perform simple, artless tasks with middling efficiency. Their one virtue is their tirelessness, which makes them exceptional guards. In the necropoleis, this sees many Returned employed as sentries, though they might also be messengers or laborers. If threatened, groups of these Returned work well together, sharing the unified goals of overcoming their foes and getting back to the task at hand."
+									]
+								}
+							]
+						}
+					}
 				}
-			]
+			}
 		},
 		{
 			"name": "Satyr Reveler",
@@ -965,8 +1139,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Satyr Reveler.jpg"
-					}
+						"path": "bestiary/MOT/Satyr Reveler.webp"
+					},
+					"credit": "Steve Argyle"
 				}
 			]
 		},
@@ -987,70 +1162,35 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Satyr Thornbearer.jpg"
-					}
+						"path": "bestiary/MOT/Satyr Thornbearer.webp"
+					},
+					"credit": "Dan Scott"
 				}
 			]
 		},
 		{
 			"name": "Setessan Hoplite",
 			"source": "MOT",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Most Setessan hoplites begin their training as hunters, making them skilled in traversing the woods and adept at both guerrilla tactics and archery. Their strategies often emulate the favored servants of Nylea\u2014especially wild beasts like wolves and lynxes. Typically a few soldiers harry an enemy while the rest capitalize on their foe's distraction.",
-						"Hoplites are highly trained warriors, versed not only in strategy and tactics but in the glorification of the warrior's spirit, the basis of an ethos that forges an unbreakable bond between members of a military unit. In combat, hoplites typically work in groups and use coordinated tactics to win victories.",
-						"The three Hoplite Unit Names tables present the sorts of titles used by hoplite contingents hailing from Theros's great poleis. Consider using these names for military forces characters encounter during their adventures or that they were once a part of.",
-						{
-							"type": "table",
-							"caption": "Setessan Hoplite Unit Names",
-							"colLabels": [
-								"d8",
-								"Name"
-							],
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"rows": [
-								[
-									"1",
-									"Nylea's Arrows"
-								],
-								[
-									"2",
-									"The Watchers"
-								],
-								[
-									"3",
-									"Fangs of Ophis"
-								],
-								[
-									"4",
-									"The Swiftswords"
-								],
-								[
-									"5",
-									"Karametra's Wolves"
-								],
-								[
-									"6",
-									"Defenders of the Grove"
-								],
-								[
-									"7",
-									"Bronze Blades"
-								],
-								[
-									"8",
-									"The Jackals"
-								]
+			"_copy": {
+				"name": "Hoplite",
+				"source": "MOT",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "entries",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Most Setessan hoplites begin their training as hunters, making them skilled in traversing the woods and adept at both guerrilla tactics and archery. Their strategies often emulate the favored servants of Nylea\u2014especially wild beasts like wolves and lynxes. Typically a few soldiers harry an enemy while the rest capitalize on their foe's distraction."
+									]
+								}
 							]
 						}
-					]
+					}
 				}
-			]
+			}
 		},
 		{
 			"name": "Theran Chimera",
@@ -1298,8 +1438,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Theran Chimera.jpg"
-					}
+						"path": "bestiary/MOT/Theran Chimera.webp"
+					},
+					"credit": "Lars Grant-West"
 				}
 			]
 		},
@@ -1321,8 +1462,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Triton Master of Waves.jpg"
-					}
+						"path": "bestiary/MOT/Triton Master of Waves.webp"
+					},
+					"credit": "Karl Kopinski"
 				}
 			]
 		},
@@ -1343,8 +1485,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Triton Shorestalker.jpg"
-					}
+						"path": "bestiary/MOT/Triton Shorestalker.webp"
+					},
+					"credit": "Svetlin Velinov"
 				}
 			]
 		},
@@ -1364,8 +1507,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Tromokratis.jpg"
-					}
+						"path": "bestiary/MOT/Tromokratis.webp"
+					},
+					"credit": "Matt Stewart"
 				}
 			]
 		},
@@ -1386,8 +1530,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Two-Headed Cerberus.jpg"
-					}
+						"path": "bestiary/MOT/Two-Headed Cerberus.webp"
+					},
+					"credit": "Karl Kopinski"
 				}
 			]
 		},
@@ -1407,8 +1552,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Typhon.jpg"
-					}
+						"path": "bestiary/MOT/Typhon.webp"
+					},
+					"credit": "Yongjae Choi"
 				}
 			]
 		},
@@ -1429,8 +1575,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Underworld Cerberus.jpg"
-					}
+						"path": "bestiary/MOT/Underworld Cerberus.webp"
+					},
+					"credit": "Svetlin Velinov"
 				}
 			]
 		},
@@ -1474,8 +1621,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/MOT/Woe Strider.jpg"
-					}
+						"path": "bestiary/MOT/Woe Strider.webp"
+					},
+					"credit": "John Thacker"
 				}
 			]
 		}

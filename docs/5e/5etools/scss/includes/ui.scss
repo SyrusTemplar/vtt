@@ -193,6 +193,11 @@ Shared UI components
 			height: initial;
 		}
 
+		&--no-min-height {
+			min-width: 0;
+			width: initial;
+		}
+
 		&--uncap-height {
 			max-height: calc(100% - 120px);
 			height: initial;

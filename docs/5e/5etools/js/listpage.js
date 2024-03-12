@@ -29,17 +29,93 @@ class _UtilListPage {
 	}
 }
 
+class SublistCellTemplate {
+	constructor (
+		{
+			name,
+			css,
+			colStyle,
+		},
+	) {
+		this._name = name;
+		this._css = css;
+		this._colStyle = colStyle;
+	}
+
+	get name () { return this._name; }
+	get colStyle () { return this._colStyle; }
+
+	getCss (text) {
+		return [
+			this._css,
+			text === VeCt.STR_NONE
+				? "list-entry-none"
+				: "",
+		]
+			.filter(Boolean)
+			.join(" ");
+	}
+}
+
+class SublistCell {
+	constructor (
+		{
+			text,
+			title,
+			css,
+			style,
+		},
+	) {
+		this._text = text;
+		this._title = title;
+		this._css = css;
+		this._style = style;
+	}
+
+	static renderHtml ({templates, cell, ix}) {
+		const text = cell instanceof SublistCell ? cell._text : cell;
+		const title = cell instanceof SublistCell ? cell._title : null;
+		const cssCell = cell instanceof SublistCell ? cell._css : null;
+		const style = cell instanceof SublistCell ? cell._style : null;
+
+		const css = [
+			templates[ix].getCss(text),
+			cssCell,
+		]
+			.filter(Boolean)
+			.join(" ");
+
+		const attrs = [
+			`class="${css}"`,
+			title ? `title="${title.qq()}"` : "",
+			style ? `style="${style}"` : "",
+		]
+			.filter(Boolean)
+			.join(" ");
+
+		return `<span ${attrs}>${text}</span>`;
+	}
+
+	static renderMarkdown ({listItem, cell}) {
+		cell = (typeof cell === "function") ? cell({listItem}) : cell;
+		return (cell instanceof SublistCell) ? cell._text : cell;
+	}
+}
+
 class SublistManager {
 	static _SUB_HASH_PREFIX = "sublistselected";
 
 	/**
-	 * @param opts.sublistClass Sublist class.
+	 * @param [opts]
+	 * @param [opts.sublistClass] Sublist class.
 	 * @param [opts.sublistListOptions] Other sublist options.
 	 * @param [opts.isSublistItemsCountable] If the sublist items should be countable, i.e. have a quantity.
 	 * @param [opts.shiftCountAddSubtract] If the sublist items should be countable, i.e. have a quantity.
 	 */
 	constructor (opts) {
-		this._sublistClass = opts.sublistClass;
+		opts = opts || {};
+
+		this._sublistClass = opts.sublistClass; // TODO(PageGen) remove once all pages transitioned
 		this._sublistListOptions = opts.sublistListOptions || {};
 		this._isSublistItemsCountable = !!opts.isSublistItemsCountable;
 		this._shiftCountAddSubtract = opts.shiftCountAddSubtract ?? 20;
@@ -84,7 +160,7 @@ class SublistManager {
 
 		this._listSub = new List({
 			...this._sublistListOptions,
-			$wrpList: $(`.${this._sublistClass}`),
+			$wrpList: this._sublistClass ? $(`.${this._sublistClass}`) : $(`#sublist`),
 			isUseJquery: true,
 		});
 
@@ -114,7 +190,7 @@ class SublistManager {
 
 		this._listSub
 			.on("updated", () => {
-				this._plugins.forEach(plugin => plugin.doPulseSublistUpdate());
+				this._plugins.forEach(plugin => plugin.onSublistUpdate());
 			});
 	}
 
@@ -165,7 +241,7 @@ class SublistManager {
 		return this._isSublistItemsCountable
 			? new ContextUtil.Action(
 				"Remove",
-				async (evt, userData) => {
+				async (evt, {userData}) => {
 					const {selection} = userData;
 					await Promise.all(selection.map(item => this.pDoSublistRemove({entity: item.data.entity, doFinalize: false})));
 					await this._pFinaliseSublist();
@@ -173,7 +249,7 @@ class SublistManager {
 			)
 			: new ContextUtil.Action(
 				"Unpin",
-				async (evt, userData) => {
+				async (evt, {userData}) => {
 					const {selection} = userData;
 					for (const item of selection) {
 						await this.pDoSublistRemove({entity: item.data.entity, doFinalize: false});
@@ -187,7 +263,7 @@ class SublistManager {
 		const subActions = [
 			new ContextUtil.Action(
 				"Popout",
-				(evt, userData) => {
+				(evt, {userData}) => {
 					const {ele, selection} = userData;
 					const entities = selection.map(listItem => ({entity: listItem.data.entity, hash: listItem.values.hash}));
 					return _UtilListPage.pDoMassPopout(evt, ele, entities);
@@ -221,6 +297,11 @@ class SublistManager {
 				"Download JSON Data",
 				() => this._pHandleJsonDownload(),
 			),
+			null,
+			new ContextUtil.Action(
+				"Copy as Markdown Table",
+				() => this._pHandleCopyAsMarkdownTable(),
+			),
 		].filter(it => it !== undefined);
 		this._contextMenuListSub = ContextUtil.getMenu(subActions);
 	}
@@ -237,7 +318,7 @@ class SublistManager {
 		}
 
 		const ele = listItem.ele instanceof $ ? listItem.ele[0] : listItem.ele;
-		ContextUtil.pOpenMenu(evt, menu, {ele: ele, selection});
+		ContextUtil.pOpenMenu(evt, menu, {userData: {ele: ele, selection}});
 	}
 
 	pGetSublistItem () { throw new Error(`Unimplemented!`); }
@@ -384,6 +465,22 @@ class SublistManager {
 		DataUtil.userDownload(`${this._getDownloadName()}-data`, entities);
 	}
 
+	async _pHandleCopyAsMarkdownTable () {
+		await MiscUtil.pCopyTextToClipboard(
+			RendererMarkdown.get()
+				.render({
+					type: "table",
+					colStyles: this.constructor._getRowEntryColStyles(),
+					colLabels: this.constructor._getRowEntryColLabels(),
+					rows: this._listSub.items
+						.map(listItem => {
+							return listItem.data.mdRow
+								.map(cell => SublistCell.renderMarkdown({listItem, cell}));
+						}),
+				}),
+		);
+	}
+
 	async pHandleClick_new (evt) {
 		const exportableSublist = await this.pGetExportableSublist({isForceIncludePlugins: true});
 		const exportableSublistMemory = await this.pGetExportableSublist({isForceIncludePlugins: true, isMemoryOnly: true});
@@ -439,7 +536,7 @@ class SublistManager {
 	}
 
 	async pHandleClick_upload ({isAdditive = false} = {}) {
-		const {jsons, errors} = await DataUtil.pUserUpload({expectedFileTypes: [this._getDownloadFileType()]});
+		const {jsons, errors} = await DataUtil.pUserUpload({expectedFileTypes: this._getUploadFileTypes()});
 
 		DataUtil.doHandleFileLoadErrorsGeneric(errors);
 
@@ -456,10 +553,22 @@ class SublistManager {
 		return `${UrlUtil.getCurrentPage().replace(".html", "")}-sublist`;
 	}
 
+	_getDownloadFileTypeBase () {
+		return `${UrlUtil.getCurrentPage().replace(".html", "")}-sublist`;
+	}
+
 	_getDownloadFileType () {
 		const fromPlugin = this._plugins.first(plugin => plugin.getDownloadFileType());
 		if (fromPlugin) return fromPlugin;
-		return `${UrlUtil.getCurrentPage().replace(".html", "")}-sublist`;
+		return this._getDownloadFileTypeBase();
+	}
+
+	_getUploadFileTypes () {
+		const fromPlugin = this._plugins.first(plugin => plugin.getUploadFileTypes({
+			downloadFileTypeBase: this._getDownloadFileTypeBase(),
+		}));
+		if (fromPlugin) return fromPlugin;
+		return [this._getDownloadFileType()];
 	}
 
 	async pSetFromSubHashes (subHashes, pFnPreLoad) {
@@ -578,7 +687,11 @@ class SublistManager {
 	}
 
 	async _pFinaliseSublist ({isNoSave = false} = {}) {
-		this._listSub.update();
+		const isUpdateFired = this._listSub.update();
+
+		// Manually trigger plugin updates if the list failed to do so
+		if (!isUpdateFired) this._plugins.forEach(plugin => plugin.onSublistUpdate());
+
 		this._updateSublistVisibility();
 		this._onSublistChange();
 		if (!isNoSave) await this._pSaveSublist();
@@ -664,15 +777,24 @@ class SublistManager {
 
 		const page = UrlUtil.getCurrentPage();
 
-		for (const it of list.items) {
-			let toSend = await DataLoader.pCacheAndGetHash(page, it.h);
-
-			toSend = await Renderer.hover.pApplyCustomHashId(UrlUtil.getCurrentPage(), toSend, it.customHashId);
-
-			await ExtensionUtil._doSend("entity", {page, entity: toSend});
+		for (const serialItem of list.items) {
+			const {entity} = await this.constructor.pDeserializeExportedSublistItem(serialItem);
+			await ExtensionUtil._doSend("entity", {page, entity});
 		}
 
 		JqueryUtil.doToast(`Attempted to send ${len} item${len === 1 ? "" : "s"} to Foundry.`);
+	}
+
+	static async pDeserializeExportedSublistItem (serialItem) {
+		const page = UrlUtil.getCurrentPage();
+		const entityBase = await DataLoader.pCacheAndGetHash(page, serialItem.h);
+		return {
+			entity: await Renderer.hover.pApplyCustomHashId(page, entityBase, serialItem.customHashId),
+			entityBase: serialItem.customHashId != null ? entityBase : null,
+			count: serialItem.c,
+			isLocked: !!serialItem.l,
+			customHashId: serialItem.customHashId,
+		};
 	}
 
 	_rollSubListed ({evt}) {
@@ -729,6 +851,29 @@ class SublistManager {
 	}
 
 	doSublistDeselectAll () { this._listSub.deselectAll(); }
+
+	/* -------------------------------------------- */
+
+	static get _ROW_TEMPLATE () { throw new Error("Unimplemented"); }
+
+	static _doValidateRowTemplateValues ({values, templates}) {
+		if (values.length !== templates.length) throw new Error(`Length of row template and row values did not match! This is a bug!`);
+	}
+
+	/**
+	 * @param values
+	 * @param {Array<SublistCellTemplate>} templates
+	 */
+	static _getRowCellsHtml ({values, templates = null}) {
+		templates = templates || this._ROW_TEMPLATE;
+		this._doValidateRowTemplateValues({values, templates});
+		return values
+			.map((val, i) => SublistCell.renderHtml({templates, cell: val, ix: i}))
+			.join("");
+	}
+
+	static _getRowEntryColLabels () { return this._ROW_TEMPLATE.map(it => it.name); }
+	static _getRowEntryColStyles () { return this._ROW_TEMPLATE.map(it => it.colStyle); }
 }
 
 class ListPageStateManager extends BaseComponent {
@@ -842,7 +987,7 @@ class ListPage {
 	 * `pageFilter` must be specified.)
 	 * @param [opts.pageFilter] PageFilter implementation for this page. (Either `filters` and `filterSource` or
 	 * `pageFilter` must be specified.)
-	 * @param opts.listClass List class.
+	 * @param [opts.listClass] List class.
 	 * @param opts.listOptions Other list options.
 	 * @param opts.dataProps JSON data propert(y/ies).
 	 *
@@ -872,7 +1017,7 @@ class ListPage {
 		this._filters = opts.filters;
 		this._filterSource = opts.filterSource;
 		this._pageFilter = opts.pageFilter;
-		this._listClass = opts.listClass;
+		this._listClass = opts.listClass; // TODO(PageGen) remove once all pages transitioned
 		this._listOptions = opts.listOptions || {};
 		this._dataProps = opts.dataProps;
 		this._bookViewOptions = opts.bookViewOptions;
@@ -886,6 +1031,7 @@ class ListPage {
 		this._listSyntax = opts.listSyntax || new ListUiUtil.ListSyntax({fnGetDataList: () => this._dataList, pFnGetFluff: opts.pFnGetFluff});
 		this._compSettings = opts.compSettings ? opts.compSettings : null;
 
+		this._lockHashchange = new VeLock({name: "hashchange"});
 		this._renderer = Renderer.get();
 		this._list = null;
 		this._filterBox = null;
@@ -1006,7 +1152,7 @@ class ListPage {
 		const $btnReset = $("#reset");
 		this._list = this._initList({
 			$iptSearch,
-			$wrpList: $(`.list.${this._listClass}`),
+			$wrpList: this._listClass ? $(`.list.${this._listClass}`) : $(`#list`),
 			$btnReset,
 			$btnClear: $(`#lst__search-glass`),
 			dispPageTagline: document.getElementById(`page__subtitle`),
@@ -1251,8 +1397,8 @@ class ListPage {
 			.on("click", async evt => {
 				let url = window.location.href;
 
-				if (evt.ctrlKey || evt.metaKey) {
-					await MiscUtil.pCopyTextToClipboard(this._filterBox.getFilterTag());
+				if (EventUtil.isCtrlMetaKey(evt)) {
+					await MiscUtil.pCopyTextToClipboard(this._filterBox.getFilterTag({isAddSearchTerm: true}));
 					JqueryUtil.showCopiedEffect($btn);
 					return;
 				}
@@ -1279,7 +1425,7 @@ class ListPage {
 				(evt) => {
 					if (Hist.lastLoadedId === null) return;
 
-					if (this._isMarkdownPopout && (evt.ctrlKey || evt.metaKey)) return this._bindPopoutButton_doShowMarkdown(evt);
+					if (this._isMarkdownPopout && (EventUtil.isCtrlMetaKey(evt))) return this._bindPopoutButton_doShowMarkdown(evt);
 					return this._bindPopoutButton_doShowStatblock(evt);
 				},
 			);
@@ -1455,16 +1601,20 @@ class ListPage {
 			return;
 		}
 
-		let tgtItemOtherList = null;
-		for (let i = it.x + dir; i >= 0 && i < lists.length; i += dir) {
-			if (!lists[i]?.visibleItems?.length) continue;
+		let ixListOther = it.x + dir;
 
-			tgtItemOtherList = dir === 1 ? lists[i].visibleItems[0] : lists[i].visibleItems.last();
-		}
+		if (ixListOther === -1) ixListOther = lists.length - 1;
+		else if (ixListOther === lists.length) ixListOther = 0;
 
-		if (tgtItemOtherList) {
+		for (; ixListOther >= 0 && ixListOther < lists.length; ixListOther += dir) {
+			if (!lists[ixListOther]?.visibleItems?.length) continue;
+
+			const tgtItemOtherList = dir === 1 ? lists[ixListOther].visibleItems[0] : lists[ixListOther].visibleItems.last();
+			if (!tgtItemOtherList) continue;
+
 			window.location.hash = tgtItemOtherList.values.hash;
 			this._initList_scrollToItem();
+			return;
 		}
 	}
 
@@ -1492,7 +1642,7 @@ class ListPage {
 			selection = [listItem];
 		}
 
-		ContextUtil.pOpenMenu(evt, this._contextMenuList, {ele: listItem.ele, selection});
+		ContextUtil.pOpenMenu(evt, this._contextMenuList, {userData: {ele: listItem.ele, selection}});
 	}
 
 	_initContextMenu () {
@@ -1501,7 +1651,7 @@ class ListPage {
 		this._contextMenuList = ContextUtil.getMenu([
 			new ContextUtil.Action(
 				"Popout",
-				async (evt, userData) => {
+				async (evt, {userData}) => {
 					const {ele, selection} = userData;
 					await this._handleGenericContextMenuClick_pDoMassPopout(evt, ele, selection);
 				},
@@ -1542,7 +1692,7 @@ class ListPage {
 	_getContextActionBlocklist () {
 		return new ContextUtil.Action(
 			"Blocklist",
-			async (evt, userData) => {
+			async (evt, {userData}) => {
 				const {ele, selection} = userData;
 				await this._handleGenericContextMenuClick_pDoMassBlocklist(evt, ele, selection);
 			},
@@ -1701,19 +1851,26 @@ class ListPage {
 
 	doDeselectAll () { this.primaryLists.forEach(list => list.deselectAll()); }
 
-	async pDoLoadHash (id) {
-		this._lastRender.entity = this._dataList[id];
-		await this._pDoLoadHash(id);
+	async pDoLoadHash (id, {lockToken} = {}) {
+		try {
+			lockToken = await this._lockHashchange.pLock({token: lockToken});
+			this._lastRender.entity = this._dataList[id];
+			return (await this._pDoLoadHash({id, lockToken}));
+		} finally {
+			this._lockHashchange.unlock();
+		}
 	}
 
 	getListItem () { throw new Error(`Unimplemented!`); }
 	pHandleUnknownHash () { throw new Error(`Unimplemented!`); }
 
-	async pDoLoadSubHash (sub) {
-		if (this._filterBox) sub = this._filterBox.setFromSubHashes(sub);
-		if (this._sublistManager) sub = await this._sublistManager.pSetFromSubHashes(sub);
-		if (this._bookView) sub = await this._bookView.pHandleSub(sub);
-		return sub;
+	async pDoLoadSubHash (sub, {lockToken} = {}) {
+		try {
+			lockToken = await this._lockHashchange.pLock({token: lockToken});
+			return (await this._pDoLoadSubHash({sub, lockToken}));
+		} finally {
+			this._lockHashchange.unlock();
+		}
 	}
 
 	/* -------------------------------------------- */
@@ -1728,7 +1885,7 @@ class ListPage {
 
 	_tabTitleStats = "Traits";
 
-	async _pDoLoadHash (id) {
+	async _pDoLoadHash ({id, lockToken}) {
 		this._$pgContent.empty();
 
 		this._renderer.setFirstSection(true);
@@ -1757,6 +1914,15 @@ class ListPage {
 			tabMetaStats,
 			tabMetasAdditional,
 		});
+	}
+
+	async _pPreloadSublistSources (json) { /* Implement as required */ }
+
+	async _pDoLoadSubHash ({sub, lockToken}) {
+		if (this._filterBox) sub = this._filterBox.setFromSubHashes(sub);
+		if (this._sublistManager) sub = await this._sublistManager.pSetFromSubHashes(sub, this._pPreloadSublistSources.bind(this));
+		if (this._bookView) sub = await this._bookView.pHandleSub(sub);
+		return sub;
 	}
 
 	_renderStats_getTabMetasAdditional ({ent}) { return []; }
@@ -1886,8 +2052,8 @@ class ListPageBookView extends BookModeViewBase {
 		</div>`;
 	}
 
-	_$getWrpControls ({$wrpContent}) {
-		const out = super._$getWrpControls({$wrpContent});
+	async _$pGetWrpControls ({$wrpContent}) {
+		const out = await super._$pGetWrpControls({$wrpContent});
 		const {$wrpPrint} = out;
 		if (this._propMarkdown) this._$getControlsMarkdown().appendTo($wrpPrint);
 		return out;

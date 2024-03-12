@@ -30,6 +30,33 @@
 			}
 		},
 		{
+			"name": "Eldritch Adept",
+			"source": "TCE",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/TCE/Eldritch Adept.webp"
+					},
+					"credit": "Brian Valeza"
+				}
+			]
+		},
+		{
+			"name": "Fury of the Frost Giant",
+			"source": "BGG",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/BGG/Fury of the Frost Giant.webp"
+					}
+				}
+			]
+		},
+		{
 			"name": "Initiate of High Sorcery",
 			"source": "DSotDQ",
 			"images": [
@@ -39,7 +66,8 @@
 						"type": "internal",
 						"path": "feats/DSotDQ/Mage of High Sorcery.webp"
 					},
-					"title": "Mages of High Sorcery of the Orders of the Black, Red, and White Robes"
+					"title": "Mages of High Sorcery of the Orders of the Black, Red, and White Robes",
+					"credit": "Linda Lithén"
 				}
 			]
 		},
@@ -57,6 +85,21 @@
 			]
 		},
 		{
+			"name": "Planar Wanderer",
+			"source": "SatO",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/SatO/Planar Wanderer.webp"
+					},
+					"title": "A planar cartographer on a Lower Plane asks a pit fiend for directions",
+					"credit": "Michele Giorgi"
+				}
+			]
+		},
+		{
 			"name": "Ritual Caster",
 			"source": "PHB",
 			"images": [
@@ -66,6 +109,36 @@
 						"type": "internal",
 						"path": "feats/PHB/Ritual Caster.webp"
 					}
+				}
+			]
+		},
+		{
+			"name": "Servo Crafting",
+			"source": "PSK",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/PSK/Servo Crafting.webp"
+					},
+					"title": "Servo",
+					"credit": "Igor Kieryluk"
+				}
+			]
+		},
+		{
+			"name": "Telepathic",
+			"source": "TCE",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/TCE/Telepathic.webp"
+					},
+					"title": "Astride a unicorn, a telepathic bard inspires her wizard companion.",
+					"credit": "Zoltan Boros"
 				}
 			]
 		}

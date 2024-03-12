@@ -227,7 +227,7 @@ class RendererCard {
 		}
 		const byArr = this._renderQuote_getBy(entry);
 		if (byArr) {
-			const tempStack = [];
+			const tempStack = [""];
 			for (let i = 0, len = byArr.length; i < len; ++i) {
 				const by = byArr[i];
 				tempStack[0] += `text | ${!i ? `\u2014 ` : ""}`;

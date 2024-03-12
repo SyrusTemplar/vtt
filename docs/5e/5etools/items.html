@@ -11,10 +11,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 
-	<title>Items 5e</title>
+	<title>Items - 5etools</title>
 
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/items.css">
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -54,135 +55,21 @@
 	<script type="text/javascript" src="js/styleswitch.js"></script>
 	<script type="text/javascript" src="js/navigation.js"></script>
 	<script type="text/javascript" src="js/browsercheck.js"></script>
-	<style>
-		.list {
-			height: initial;
-			max-height: 100%;
-			min-height: 100px;
-		}
-
-		.list.subitems {
-			min-height: initial;
-		}
-
-		span.side-label {
-			position: absolute;
-			transform: rotate(-90deg);
-			transform-origin: 0 0;
-			font-size: 18px;
-			left: -22px;
-			bottom: 0;
-		}
-
-		h3.ele-mundane,
-		h3.ele-magic {
-			margin: 0;
-			position: relative;
-		}
-
-		h3.ele-mundane span.side-label {
-		}
-		h3.ele-magic span.side-label {
-		}
-
-		@media (max-width: 991px) {
-			.list {
-				max-height: 20em;
-			}
-		}
-
-		@media (max-device-height: 700px) {
-			.list {
-				max-height: 20em;
-			}
-
-			.viewport-wrapper {
-				bottom: auto;
-			}
-
-			.view-col-wrapper {
-				flex-direction: column;
-				max-height: none;
-				height: auto;
-			}
-
-			.list {
-				max-height: 20em;
-			}
-		}
-
-		.itm__list-divider {
-			width: 100%;
-			height: 1px;
-			background: #ccc;
-		}
-
-		.night-mode .itm__list-divider {
-			background: #555;
-		}
-
-		.itm__wrp-lists {
-			flex: 7;
-		}
-
-		.itm__wrp-stats {
-			flex: 5;
-		}
-
-		.itm__wrp-list {
-			height: 100%;
-		}
-
-		.itm__wrp-list--empty {
-			height: initial;
-			flex-shrink: 0;
-		}
-
-		.style-switch__wide .itm__wrp-list {
-			min-width: calc(50% - 10px);
-			max-width: calc(50% - 10px);
-		}
-
-		.style-switch__wide .itm__wrp-list--mundane {
-			margin-right: 20px;
-		}
-
-		.style-switch__wide #listcontainer.itm__wrp-lists {
-			flex: initial;
-			width: 100%;
-			flex-flow: row;
-		}
-
-		.style-switch__wide .itm__wrp-stats {
-			width: 480px;
-			flex: initial;
-			flex-shrink: 0;
-		}
-
-		.style-switch__wide .side-label {
-			display: none !important;
-		}
-
-		.style-switch__wide .itm__list-divider {
-			display: block !important;
-		}
-	</style>
 </head>
 
 <body>
+
 <div class="cancer__wrp-sidebar-rhs cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__sidebar-rhs-inner cancer__sidebar-rhs-inner--top"><!--5ETOOLS_AD_RIGHT_1--></div><div class="cancer__sidebar-rhs-inner cancer__sidebar-rhs-inner--bottom"><!--5ETOOLS_AD_RIGHT_2--></div></div>
 
 <div class="viewport-wrapper">
 	<div class="cancer__wrp-leaderboard cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__wrp-leaderboard-inner"><!--5ETOOLS_AD_LEADERBOARD--></div></div>
 
 	<header class="hidden-xs hidden-sm page__header">
-		<div class="container">
-
-			<h1 class="page__title">Items</h1>
-			<p class="page__subtitle" id="page__subtitle">Search by name on the left, click item name to display on the right.</p>
+		<div class="container ve-flex-v-baseline">
+			<h1 class="page__title no-wrap my-0">Items</h1>
+			<p class="page__subtitle no-wrap my-0" id="page__subtitle">Search by name on the left, click a name to display on the right.</p>
 		</div>
 	</header>
-
 	<nav class="container page__nav" id="navigation">
 		<ul class="nav nav-pills page__nav-inner" id="navbar"></ul>
 	</nav>
@@ -229,6 +116,8 @@
 				</div>
 			</div>
 
+			<div class="cancer__wrp-mobile-1 cancer__anchor"><div class="cancer__disp-cancer"></div><!--5ETOOLS_AD_MOB_PLAYER_1--></div>
+
 			<div id="contentwrapper" class="view-col itm__wrp-stats">
 				<div id="sublistcontainer" class="sublist sublist--resizable no-print">
 					<div id="sublistsort" class="btn-group sublist__wrp-cols">
@@ -237,30 +126,30 @@
 						<button class="col-2 sort btn btn-default btn-xs" data-sort="cost">Cost</button>
 						<button class="col-2 sort btn btn-default btn-xs" data-sort="count">Number</button>
 					</div>
-					<div class="list subitems">
-						<!-- populate with JS -->
-					</div>
+
+					<div id="sublist" class="list"></div>
+
 					<div class="row ve-small ve-flex-v-center">
 						<span class="col-6 text-right pr-2">Total:</span>
-						<span class="col-2 text-center no-wrap" id="totalweight"></span>
-						<span class="col-2 text-center no-wrap clickable" id="totalvalue"></span>
-						<span class="col-2 text-center no-wrap pr-0" id="totalitems"></span>
+						<span class="col-2 ve-text-center no-wrap" id="totalweight"></span>
+						<span class="col-2 ve-text-center no-wrap clickable" id="totalvalue"></span>
+						<span class="col-2 ve-text-center no-wrap pr-0" id="totalitems"></span>
 					</div>
 				</div>
 
-				<div id="stat-tabs" class="wrp-stat-tab">
+				<div class="wrp-stat-tab" id="stat-tabs">
 					<div id="tabs-right"></div>
 				</div>
 
-				<div class="wrp-stats-table">
+				<div id="wrp-pagecontent" class="wrp-stats-table">
 					<table id="pagecontent" class="w-100 stats">
 						<tr><th class="border" colspan="6"></th></tr>
-						<tr><td colspan="6" class="initial-message">Select an item from the list to view it here</td></tr>
+						<tr><td colspan="6" class="initial-message">Select an entry from the list to view it here</td></tr>
 						<tr><th class="border" colspan="6"></th></tr>
 					</table>
 				</div>
 
-				<div class="text-center mt-2 no-print">
+				<div class="ve-text-center mt-2 no-print">
 					<button class="btn btn-default btn-xs" id="btn-book">Printer View</button>
 					<button class="btn btn-default btn-xs" id="btn-show-table" title="View and Download Items in Tabular Format">Table View</button>
 					<button class="btn btn-xs btn-info" id="manage-brew">Manage Homebrew</button>
@@ -268,8 +157,11 @@
 			</div>
 		</div>
 	</div>
-</div>    <!--5ETOOLS_SCRIPT_ANCHOR-->
+</div>
+
+<!--5ETOOLS_SCRIPT_ANCHOR-->
 <!--5ETOOLS_AD_ADHESION-->
+
 <script type="text/javascript" src="lib/jquery.js"></script>
 <script type="text/javascript" src="js/parser.js"></script>
 <script type="text/javascript" src="js/utils.js"></script>
@@ -289,10 +181,11 @@
 <script type="text/javascript" src="js/scalecreature.js"></script>
 <script type="text/javascript" src="js/hist.js"></script>
 <script type="text/javascript" src="js/listpage.js"></script>
+<script type="text/javascript" src="js/filter-common.js"></script>
 <script type="text/javascript" src="js/filter-items.js"></script>
 <script type="text/javascript" src="js/items.js"></script>
 <script type="text/javascript" src="js/list2.js"></script>
 <script type="text/javascript" src="lib/elasticlunr.js"></script>
-</body>
 
+</body>
 </html>

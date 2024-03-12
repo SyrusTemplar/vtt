@@ -210,9 +210,9 @@ function getSimilar (url) {
 	return JSON.stringify(similarUrls, null, 2);
 }
 
-function getEncoded (str, tag) {
+function getEncoded (str, tag, {prop = null} = {}) {
 	const [name, source] = str.split("|");
-	return `${Renderer.tag.getPage(tag)}#${UrlUtil.encodeForHash([name, Parser.getTagSource(tag, source)])}`.toLowerCase().trim();
+	return `${Renderer.tag.getPage(tag) || prop}#${UrlUtil.encodeForHash([name, Parser.getTagSource(tag, source)])}`.toLowerCase().trim();
 }
 
 function getEncodedDeity (str, tag) {
@@ -223,9 +223,10 @@ function getEncodedDeity (str, tag) {
 class LinkCheck extends DataTesterBase {
 	static registerParsedPrimitiveHandlers (parsedJsonChecker) {
 		parsedJsonChecker.addPrimitiveHandler("string", this._checkString.bind(this));
+		parsedJsonChecker.addPrimitiveHandler("object", this._checkObject.bind(this));
 	}
 
-	static _checkString (str, {filePath}) {
+	static _checkString (str, {filePath, isStatblock = false}) {
 		let match;
 		while ((match = LinkCheck.RE.exec(str))) {
 			const tag = match[1];
@@ -261,9 +262,19 @@ class LinkCheck extends DataTesterBase {
 			const url = `${Renderer.tag.getPage(tag)}#${UrlUtil.encodeForHash(toEncode)}`.toLowerCase().trim()
 				.replace(/%5c/gi, ""); // replace slashes
 			if (!ALL_URLS.has(url)) {
-				this._addMessage(`Missing link: ${match[0]} in file ${filePath} (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`);
+				this._addMessage(`Missing link: ${isStatblock ? `(as "statblock" entry) ` : ""}${match[0]} in file ${filePath} (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`);
 			}
 		}
+	}
+
+	static _checkObject (obj, {filePath}) {
+		if (obj.type !== "statblock") return obj;
+
+		// TODO(Future) expand/tweak support as required
+		const asStr = `{@${obj.tag} ${obj.name}|${obj.source || ""}}`;
+		this._checkString(asStr, {filePath, isStatblock: true});
+
+		return obj;
 	}
 }
 LinkCheck._RE_TAG_BLOCKLIST = new Set(["quickref"]);
@@ -517,7 +528,7 @@ class StripTagTest extends DataTesterBase {
 	}
 
 	static _checkString (str, {filePath}) {
-		if (filePath === "./data/bestiary/traits.json") return;
+		if (filePath === "./data/bestiary/template.json") return;
 
 		try {
 			Renderer.stripTags(str);
@@ -539,10 +550,11 @@ class TableDiceTest extends DataTesterBase {
 	static _checkTable (obj, {filePath}) {
 		if (obj.type !== "table") return;
 
-		const autoRollMode = Renderer.table.getAutoConvertedRollMode(obj);
+		const headerRowMetas = Renderer.table.getHeaderRowMetas(obj);
+		const autoRollMode = Renderer.table.getAutoConvertedRollMode(obj, {headerRowMetas});
 		if (!autoRollMode) return;
 
-		const toRenderLabel = autoRollMode ? RollerUtil.getFullRollCol(obj.colLabels[0]) : null;
+		const toRenderLabel = autoRollMode ? RollerUtil.getFullRollCol(headerRowMetas.last()[0]) : null;
 		const isInfiniteResults = autoRollMode === RollerUtil.ROLL_COL_VARIABLE;
 
 		const possibleResults = new Set();
@@ -658,9 +670,10 @@ class AreaCheck extends DataTesterBase {
 				string: this._checkString.bind(this),
 			},
 		});
-		if (AreaCheck.errorSet.size) {
-			this._addMessage(`Errors in ${file}! See below:\n`);
 
+		if (AreaCheck.errorSet.size || AreaCheck.headerMap.__BAD?.length) this._addMessage(`Errors in ${file}! See below:\n`);
+
+		if (AreaCheck.errorSet.size) {
 			const toPrint = [...AreaCheck.errorSet].sort(SortUtil.ascSortLower);
 			toPrint.forEach(tp => this._addMessage(`${tp}\n`));
 		}
@@ -671,7 +684,7 @@ class AreaCheck extends DataTesterBase {
 	}
 }
 AreaCheck.errorSet = new Set();
-AreaCheck.fileMatcher = /\/(adventure-).*\.json/;
+AreaCheck.fileMatcher = /\/(adventure-|book-).*\.json/;
 
 class LootDataCheck extends GenericDataCheck {
 	static pRun () {
@@ -865,6 +878,11 @@ class BestiaryDataCheck extends GenericDataCheck {
 	static _handleCreature (file, mon) {
 		this._testReprintedAs(file, mon, "creature");
 
+		if (mon.legendaryGroup) {
+			const url = getEncoded(`${mon.legendaryGroup.name}|${mon.legendaryGroup.source}`, "legendaryGroup", {prop: "legendaryGroup"});
+			if (!ALL_URLS.has(url)) this._addMessage(`Missing link: ${mon.legendaryGroup.name}|${mon.legendaryGroup.source} in file ${file} "legendaryGroup" (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`);
+		}
+
 		if (mon.summonedBySpell) {
 			const url = getEncoded(mon.summonedBySpell, "spell");
 			if (!ALL_URLS.has(url)) this._addMessage(`Missing link: ${mon.summonedBySpell} in file ${file} "summonedBySpell" (evaluates to "${url}")\nSimilar URLs were:\n${getSimilar(url)}\n`);
@@ -953,7 +971,7 @@ class DuplicateEntityCheck extends DataTesterBase {
 
 					if (!ent._versions) return;
 
-					isSkipVersionCheck || DataUtil.proxy.getVersions(prop, ent)
+					isSkipVersionCheck || DataUtil.proxy.getVersions(prop, ent, {isExternalApplicationIdentityOnly: true})
 						.forEach((entVer, j) => {
 							this._doAddPosition({prop, ent: entVer, ixArray: i, ixVersion: j, positions});
 						});
@@ -1160,7 +1178,7 @@ class HasFluffCheck extends GenericDataCheck {
 			.segregate(it => it.propFluff);
 
 		for (const {prop, propFluff, dataFluff, dataFluffUnmerged, data, page} of metasWithFluff) {
-			const fluffLookup = dataFluff[propFluff]
+			const fluffLookup = (dataFluff[propFluff] || [])
 				.mergeMap(flf => ({
 					[UrlUtil.URL_TO_HASH_BUILDER[page](flf)]: {
 						hasFluff: !!flf.entries,
@@ -1169,7 +1187,7 @@ class HasFluffCheck extends GenericDataCheck {
 				}));
 
 			// Tag parent fluff, so we can ignore e.g. "unused" fluff which is only used by `_copy`s
-			dataFluffUnmerged[propFluff].forEach(flfUm => {
+			(dataFluffUnmerged[propFluff] || []).forEach(flfUm => {
 				if (!flfUm._copy) return;
 				const hashParent = UrlUtil.URL_TO_HASH_BUILDER[page](flfUm._copy);
 				// Track fluff vs. images, as e.g. the child overwriting the images means we don't use the parent images
@@ -1250,6 +1268,7 @@ class AdventureBookTagCheck extends DataTesterBase {
 		const len = tagSplit.length;
 		for (let i = 0; i < len; ++i) {
 			const s = tagSplit[i];
+
 			if (!s) continue;
 			if (s.startsWith("{@")) {
 				const [tag, text] = Renderer.splitFirstSpace(s.slice(1, -1));
@@ -1258,7 +1277,7 @@ class AdventureBookTagCheck extends DataTesterBase {
 				const [, id] = text.toLowerCase().split("|");
 				if (!id) throw new Error(`${tag} tag had ${s} no source!`); // Should never occur
 
-				if (this._ADV_BOOK_LOOKUP[tag.slice(1)][id]) return;
+				if (this._ADV_BOOK_LOOKUP[tag.slice(1)][id]) continue;
 
 				this._addMessage(`Missing link: ${s} in file ${filePath} had unknown "${tag}" ID "${id}"\n`);
 			}

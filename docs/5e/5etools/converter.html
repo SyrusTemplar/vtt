@@ -15,6 +15,7 @@
 
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/converter.css">
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -54,61 +55,6 @@
 	<script type="text/javascript" src="js/styleswitch.js"></script>
 	<script type="text/javascript" src="js/navigation.js"></script>
 	<script type="text/javascript" src="js/browsercheck.js"></script>
-
-	<style>
-		.inputArea,
-		.outputArea {
-			width: 100%;
-			height: 100%;
-		}
-
-		.select-inline {
-			display: inline-block;
-			width: initial;
-		}
-
-		#lastWarnings {
-			color: #df00ff;
-		}
-
-		#lastError {
-			color: red;
-		}
-
-		#lastWarnings,
-		#lastError {
-			margin-top: 5px;
-			margin-bottom: 10px;
-			display: none;
-			flex-shrink: 0;
-			padding: 9px;
-			font-size: 13px;
-			line-height: 1.4;
-			background-color: #f5f5f5;
-			border: 1px solid #ccc;
-			border-radius: 4px;
-		}
-
-		.night-mode #lastError {
-			border-color: #555;
-		}
-
-		.conv__head {
-			margin-top: 0;
-			margin-bottom: 2px;
-		}
-
-		.conv__out_control__wrp {
-			padding: 0 3rem 0 0;
-			flex-shrink: 0;
-		}
-
-		@media (max-width: 991px) {
-			.view-col-wrapper {
-				height: 40vh;
-			}
-		}
-	</style>
 </head>
 
 <body>
@@ -124,10 +70,9 @@
 	<div class="cancer__wrp-leaderboard cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__wrp-leaderboard-inner"><!--5ETOOLS_AD_LEADERBOARD--></div></div>
 
 	<header class="hidden-xs hidden-sm page__header">
-		<div class="container">
-
-			<h1 class="page__title">Text Converter</h1>
-			<p class="page__subtitle" id="page__subtitle">Input text on left, hit parse, copy JSON from right.</p>
+		<div class="container ve-flex-v-baseline">
+			<h1 class="page__title no-wrap my-0">Text Converter</h1>
+			<p class="page__subtitle no-wrap my-0" id="page__subtitle">Input text on left, hit parse, copy JSON from right.</p>
 		</div>
 	</header>
 	<nav class="container page__nav" id="navigation">
@@ -154,6 +99,7 @@
 			<div class="split-v-center conv__out_control__wrp">
 				<button id="editable" class="btn btn-sm btn-default">Enable Editing</button>
 				<div class="ve-flex-v-center">
+					<button id="preview" class="btn btn-sm btn-default mr-2">Preview</button>
 					<button id="save_local" class="btn btn-sm btn-default hidden mr-2">Save to Homebrew</button>
 
 					<div class="btn-group ve-flex-vh-center">
@@ -194,13 +140,16 @@
 <script type="text/javascript" src="js/converterutils-spell.js"></script>
 <script type="text/javascript" src="js/converterutils-item.js"></script>
 <script type="text/javascript" src="js/converterutils-race.js"></script>
+<script type="text/javascript" src="js/converterutils-background.js"></script>
 <script type="text/javascript" src="js/converter.js"></script>
+<script type="text/javascript" src="js/converter-feature.js"></script>
 <script type="text/javascript" src="js/converter-creature.js"></script>
 <script type="text/javascript" src="js/converter-spell.js"></script>
 <script type="text/javascript" src="js/converter-item.js"></script>
 <script type="text/javascript" src="js/converter-table.js"></script>
 <script type="text/javascript" src="js/converter-feat.js"></script>
 <script type="text/javascript" src="js/converter-race.js"></script>
+<script type="text/javascript" src="js/converter-background.js"></script>
 <script type="text/javascript" src="js/list2.js"></script>
 <script type="text/javascript" src="lib/jquery.js"></script>
 <script type="text/javascript" src="lib/elasticlunr.js"></script>

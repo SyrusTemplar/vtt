@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/fontawesome.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/index.css">
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -55,240 +56,12 @@
 	<script type="text/javascript" src="js/styleswitch.js"></script>
 	<script type="text/javascript" src="js/navigation.js"></script>
 	<script type="text/javascript" src="js/browsercheck.js"></script>
-
-	<style>
-		table.home-table {
-			padding: 0 10px 10px;
-		}
-
-		table.home-table td {
-			vertical-align: top;
-			padding: 0 5px;
-			width: 50%;
-		}
-
-		#don-wrapper {
-			position: relative;
-			margin-bottom: 7px;
-			padding: 5px 15px;
-		}
-
-		.home__btn-page {
-			border-width: 2px;
-			width: 134px;
-			height: 110px;
-			text-align: center;
-			flex-shrink: 0;
-			padding: 6px;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			border-radius: 0;
-		}
-
-		@media only screen and (max-width: 1200px) {
-			.home__btn-page {
-				width: 113px;
-			}
-		}
-
-		.home__btn-page,
-		.home__btn-page:hover,
-		.home__btn-page:active,
-		.home__btn-page:focus {
-			color: #444;
-		}
-
-		.night-mode .home__btn-page,
-		.night-mode .home__btn-page:hover,
-		.night-mode .home__btn-page:active,
-		.night-mode .home__btn-page:focus {
-			color: inherit;
-		}
-
-		.home__icn-page {
-			font-size: 50px;
-			height: 50px;
-			width: 65px;
-			overflow: hidden;
-			text-align: center;
-		}
-
-		.home__lbl-page {
-			height: 34px;
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin-bottom: 0;
-			font-size: 17px;
-			color: #333;
-		}
-
-		.home__h-player {
-			text-decoration: underline;
-			text-decoration-color: dodgerblue;
-		}
-
-		.home__h-rule {
-			text-decoration: underline;
-			text-decoration-color: #33a5a5;
-		}
-
-		.home__h-dm {
-			text-decoration: underline;
-			text-decoration-color: darkviolet;
-		}
-
-		.home__btn-player,
-		.home__btn-player:hover,
-		.home__btn-player:active,
-		.home__btn-player:focus,
-		.night-mode .home__btn-player,
-		.night-mode .home__btn-player:hover,
-		.night-mode .home__btn-player:active,
-		.night-mode .home__btn-player:focus {
-			border-color: dodgerblue;
-			color: dodgerblue;
-		}
-
-		.home__btn-rule,
-		.home__btn-rule:hover,
-		.home__btn-rule:active,
-		.home__btn-rule:focus,
-		.night-mode .home__btn-rule,
-		.night-mode .home__btn-rule:hover,
-		.night-mode .home__btn-rule:active,
-		.night-mode .home__btn-rule:focus{
-			border-color: #33a5a5;
-			color: #33a5a5;
-		}
-
-		.home__btn-dm,
-		.home__btn-dm:hover,
-		.home__btn-dm:active,
-		.home__btn-dm:focus,
-		.night-mode .home__btn-dm,
-		.night-mode .home__btn-dm:hover,
-		.night-mode .home__btn-dm:active,
-		.night-mode .home__btn-dm:focus {
-			border-color: darkviolet;
-			color: darkviolet;
-		}
-
-		.home__stripe {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			padding-top: 55px;
-		}
-
-		.home__stripe-header {
-			font-size: 32px;
-			font-weight: bold;
-			position: absolute;
-			top: -50px;
-			left: 0;
-			right: 0;
-		}
-
-		.home__split {
-			display: flex;
-			justify-content: space-between;
-		}
-
-		.home__split-spaced {
-			margin-right: 80px;
-		}
-
-		.home__split-spaced--gutter {
-			margin-right: 10px;
-		}
-
-		.home__wrp-buttons {
-			justify-content: center;
-		}
-
-		.home__mobile-visible {
-			display: none;
-		}
-
-		.home__narrow-visible {
-			display: none;
-		}
-
-		@media (max-width: 991px) {
-			.home__split {
-				flex-direction: column;
-			}
-
-			.home__split > * {
-				margin-bottom: 45px;
-			}
-
-			.home__split-spaced {
-				margin-right: 0;
-				margin-bottom: 15px;
-			}
-
-			.home__split-spaced--no-header {
-				margin-bottom: 0;
-			}
-
-			.home__stripe-header {
-				right: 0;
-				left: 0;
-				top: -40px;
-			}
-
-			.home__mobile-visible {
-				display: block;
-			}
-
-			.home__icn-page {
-				font-size: 50px;
-				height: 50px;
-			}
-
-			.home__btn-page {
-				height: 114px;
-				margin: 5px !important;
-			}
-
-			.home__mobile-hidden {
-				display: none !important;
-			}
-		}
-
-		@media (max-width: 507px) {
-			.home__narrow-visible {
-				display: block !important;
-			}
-
-			.home__narrow-hidden {
-				display: none !important;
-			}
-
-			.home__split-spaced--no-header {
-				margin-bottom: 15px;
-			}
-		}
-
-		[id="div-gpt-ad-5etools35927"]::after,
-		[id="div-gpt-ad-5etools35930"]::after {
-			content: '';
-			margin: 20px auto 0;
-			width: 100%;
-			display: block;
-		}
-	</style>
 </head>
 <body>
 <header class="hidden-xs hidden-sm page__header">
-	<div class="container">
-
-		<h1 class="page__title page__title--home">5e<span>tools</span></h1>
-		<p class="page__subtitle" id="page__subtitle">A suite of tools for 5th Edition  Dungeons &amp; Dragons players and Dungeon Masters.</p>
+	<div class="container ve-flex-v-baseline">
+		<h1 class="page__title no-wrap my-0 page__title no-wrap my-0--home">5e<span>tools</span></h1>
+		<p class="page__subtitle no-wrap my-0" id="page__subtitle">A suite of tools for 5th Edition  Dungeons &amp; Dragons players and Dungeon Masters.</p>
 	</div>
 </header>
 
@@ -312,57 +85,57 @@
 		<div class="ve-flex ve-flex-wrap relative home__split-spaced home__split-spaced--gutter home__split-spaced--no-header home__wrp-buttons">
 			<a class="home__btn-page btn btn-default mr-3 home__btn-player" href="races.html">
 				<div class="fal fa-users home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Races</h4>
+				<h4 class="ve-text-center home__lbl-page">Races</h4>
 			</a>
 			<a class="home__btn-page btn btn-default mr-3 home__btn-player" href="classes.html" title="Quickly browse the official classes, and their associated subclasses.
 Unearthed Arcana content can be accessed by cycling the &quot;All Sources&quot; button.">
 				<div class="fal fa-hat-wizard home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Classes</h4>
+				<h4 class="ve-text-center home__lbl-page">Classes</h4>
 			</a>
 			<a class="home__btn-page btn btn-default mr-3 home__btn-player" href="feats.html">
 				<div class="fal fa-award home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Feats</h4>
+				<h4 class="ve-text-center home__lbl-page">Feats</h4>
 			</a>
 			<a class="home__btn-page btn btn-default home__btn-player" href="optionalfeatures.html" title="A searchable, filterable list of feature choices, including Eldritch Invocations for the Warlock Class, and Maneuvers for the Fighter's Battlemaster subclass.">
 				<div class="fal fa-drafting-compass home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Options<br>&amp; Features</h4>
+				<h4 class="ve-text-center home__lbl-page">Options<br>&amp; Features</h4>
 			</a>
 
 			<!-- mobile only -->
 			<a class="home__btn-page btn btn-default home__narrow-visible home__btn-player" href="backgrounds.html">
 				<div class="fal fa-portrait home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Backgrounds</h4>
+				<h4 class="ve-text-center home__lbl-page">Backgrounds</h4>
 			</a>
 			<a class="home__btn-page btn btn-default home__narrow-visible home__btn-player" href="items.html">
 				<div class="fal fa-helmet-battle home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Items</h4>
+				<h4 class="ve-text-center home__lbl-page">Items</h4>
 			</a>
 			<a class="home__btn-page btn btn-default home__narrow-visible home__btn-player" href="spells.html">
 				<div class="fal fa-book-spells home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Spells</h4>
+				<h4 class="ve-text-center home__lbl-page">Spells</h4>
 			</a>
 			<a class="home__btn-page btn btn-default home__narrow-visible home__btn-player" href="statgen.html">
 				<div class="fal fa-tally home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Stat<br>Generator</h4>
+				<h4 class="ve-text-center home__lbl-page">Stat<br>Generator</h4>
 			</a>
 		</div>
 
 		<div class="ve-flex ve-flex-wrap home__wrp-buttons home__narrow-hidden">
 			<a class="home__btn-page btn btn-default mr-3 home__btn-player" href="backgrounds.html">
 				<div class="fal fa-portrait home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Backgrounds</h4>
+				<h4 class="ve-text-center home__lbl-page">Backgrounds</h4>
 			</a>
 			<a class="home__btn-page btn btn-default mr-3 home__btn-player" href="items.html">
 				<div class="fal fa-helmet-battle home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Items</h4>
+				<h4 class="ve-text-center home__lbl-page">Items</h4>
 			</a>
 			<a class="home__btn-page btn btn-default mr-3 home__btn-player" href="spells.html">
 				<div class="fal fa-book-spells home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Spells</h4>
+				<h4 class="ve-text-center home__lbl-page">Spells</h4>
 			</a>
 			<a class="home__btn-page btn btn-default home__btn-player" href="statgen.html">
 				<div class="fal fa-tally home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Stat<br>Generator</h4>
+				<h4 class="ve-text-center home__lbl-page">Stat<br>Generator</h4>
 			</a>
 		</div>
 	</div>
@@ -376,19 +149,19 @@ Unearthed Arcana content can be accessed by cycling the &quot;All Sources&quot; 
 			<div class="home__stripe-header home__h-rule"><div class="w-100 text-left mobile__text-center">Rules</div></div>
 			<a class="home__btn-page btn btn-default mr-3 home__btn-rule" href="adventures.html" title="All the official adventures published by Wizards of the Coast.">
 				<div class="fal fa-dungeon home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Adventures</h4>
+				<h4 class="ve-text-center home__lbl-page">Adventures</h4>
 			</a>
 			<a class="home__btn-page btn btn-default mr-3 home__btn-rule" href="books.html" title="All the official sources published by Wizards of the Coast.">
 				<div class="fal fa-books home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Books</h4>
+				<h4 class="ve-text-center home__lbl-page">Books</h4>
 			</a>
 			<a class="home__btn-page btn btn-default mr-3 home__btn-rule" href="quickreference.html" title="A searchable selection of commonly used rules and tables.">
 				<div class="fal fa-info-square home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Quick<br>Reference</h4>
+				<h4 class="ve-text-center home__lbl-page">Quick<br>Reference</h4>
 			</a>
 			<a class="home__btn-page btn btn-default home__btn-rule" href="conditionsdiseases.html" title="A searchable, filterable list of the conditions found in the Player's Handbook, and various diseases found in the Dungeon Master's Guide and beyond.">
 				<div class="fal fa-skull-crossbones home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Conditions</h4>
+				<h4 class="ve-text-center home__lbl-page">Conditions</h4>
 			</a>
 		</div>
 
@@ -398,19 +171,19 @@ Unearthed Arcana content can be accessed by cycling the &quot;All Sources&quot; 
 			<div class="home__stripe-header home__h-dm"><div class="w-100 text-left mobile__text-center">Dungeon Masters</div></div>
 			<a class="home__btn-page btn btn-default mr-3 home__btn-dm" href="bestiary.html" title="A searchable, filterable list of the more than 1,000 stat blocks in D&amp;D 5e. An encounter builder is included, and creature Challenge Rating can be scaled according to the &quot;Creating Quick Monster Stats&quot; table in the Dungeon Master's Guide.">
 				<div class="fal fa-dragon home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Bestiary</h4>
+				<h4 class="ve-text-center home__lbl-page">Bestiary</h4>
 			</a>
 			<a class="home__btn-page btn btn-default mr-3 home__btn-dm" href="dmscreen.html" title="A fully-customizable Dungeon Master's screen, featuring an initiative tracker; a unit converter, embedded images, videos, and sites; and the majority of 5etools' content.">
 				<div class="fal fa-map home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">DM Screen</h4>
+				<h4 class="ve-text-center home__lbl-page">DM Screen</h4>
 			</a>
 			<a class="home__btn-page btn btn-default mr-3 home__btn-dm" href="lootgen.html" title="A random loot generator for both individual and hoards of treasure.">
 				<div class="fal fa-treasure-chest home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">Loot<br>Generator</h4>
+				<h4 class="ve-text-center home__lbl-page">Loot<br>Generator</h4>
 			</a>
 			<a class="home__btn-page btn btn-default home__btn-dm" href="crcalculator.html" title="A verbose, in-depth Challenge Rating calculator, for determining the CR of homebrew creatures.">
 				<div class="fal fa-abacus home__icn-page"></div>
-				<h4 class="text-center home__lbl-page">CR<br>Calculator</h4>
+				<h4 class="ve-text-center home__lbl-page">CR<br>Calculator</h4>
 			</a>
 		</div>
 	</div>
@@ -421,21 +194,6 @@ Unearthed Arcana content can be accessed by cycling the &quot;All Sources&quot; 
 </div>
 
 <main class="container">
-<!--	<div id="don-wrapper" class="alert alert-info" style="display: none">-->
-<!--		<div class="split" style="align-items: center">-->
-<!--			<div class="text-center" style="max-width: 260px; padding-right: 10px;">For those with an abundance of gold, we accept <a href="donate.html">donations</a>.</div>-->
-<!--			<div style="width: 100%">-->
-<!--				<div class="don__bar don__bar&#45;&#45;home">-->
-<!--					<div class="don__bar_inner"></div>-->
-<!--				</div>-->
-<!--				<div class="split">-->
-<!--					<span>€0.00</span>-->
-<!--					<span id="don-total">Loading...</span>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--	</div>-->
-
 	<div class="cancer__wrp-leaderboard cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__wrp-leaderboard-inner"><!--5ETOOLS_AD_LEADERBOARD--></div></div>
 
 	<div class="w-100">
@@ -446,7 +204,7 @@ Unearthed Arcana content can be accessed by cycling the &quot;All Sources&quot; 
 
 		<h3>Use <a href="https://foundryvtt.com/" rel="noopener">Foundry</a>?</h3>
 		<p>No? <span class="help" title="Please note that Foundry Gaming, LLC. and The Norr Group Ltd. are in no way affiliated, and that Foundry Gaming, LLC. does not condone the use of their software in violation of your local laws.">Well, you should!</span> Foundry is a modernized, better-than replacement for Roll20, which prioritizes modding support. It is the 5etools platform of choice for VTT integrations.</p>
-		<p>To install the <a href="plutonium.html">Plutonium</a> module, and start using all of 5etools' content in your game, paste the manifest URL<sup class="ve-small">[<a title="Plutonium manifest URL for most recent supported Foundry version" href="https://raw.githubusercontent.com/TheGiddyLimit/plutonium-next/master/module.json" target="_blank" rel="noopener noreferrer">current</a>/<a title="Plutonium manifest URL for Foundry v10" href="https://raw.githubusercontent.com/TheGiddyLimit/plutonium-next/master/module-foundry10.json" target="_blank" rel="noopener noreferrer">v10</a>/<a title="Plutonium manifest URL for Foundry v9" href="https://raw.githubusercontent.com/TheGiddyLimit/plutonium-next/master/module-foundry9.json" target="_blank" rel="noopener noreferrer">v9</a>]</sup> into your Foundry server's module installer. See the <a href="plutonium.html">Plutonium Features</a> page for an overview of the functionality the module provides.</p>
+		<p>To install the <a href="plutonium.html">Plutonium</a> module, and start using all of 5etools' content in your game, paste the manifest URL<sup class="ve-small">[<a title="Plutonium manifest URL for most recent supported Foundry version" href="https://raw.githubusercontent.com/TheGiddyLimit/plutonium-next/master/module.json" target="_blank" rel="noopener noreferrer">current</a>/<a title="Plutonium manifest URL for Foundry v11" href="https://raw.githubusercontent.com/TheGiddyLimit/plutonium-next/master/module-foundry11.json" target="_blank" rel="noopener noreferrer">v11</a>/<a title="Plutonium manifest URL for Foundry v10" href="https://raw.githubusercontent.com/TheGiddyLimit/plutonium-next/master/module-foundry10.json" target="_blank" rel="noopener noreferrer">v10</a>]</sup> into your Foundry server's module installer. See the <a href="plutonium.html">Plutonium Features</a> page for an overview of the functionality the module provides.</p>
 		<p>You can also install the <a href="plutonium.html#rivet-browser-extension">Rivet</a> browser extension (<a rel="noopener noreferrer" href="https://chrome.google.com/webstore/detail/rivet/igmilfmbmkmpkjjgoabaagaoohhhbjde">Chrome</a>/<a rel="noopener noreferrer" href="https://addons.mozilla.org/en-GB/firefox/addon/rivet/">Firefox</a>) to import content from the site with a single click.</p>
 
 		<h3>Use Roll20?</h3>
@@ -460,7 +218,7 @@ Unearthed Arcana content can be accessed by cycling the &quot;All Sources&quot; 
 		<h3>FAQ</h3>
 		<p><b>Is there a wiki?</b> <a href="https://wiki.tercept.net/" rel="noopener noreferrer">Here.</a> Contributions are welcome.</p>
 		<p><b>Is it free?</b> Yes! You can even <a href="https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/releases/latest" rel="noopener noreferrer">download the source code</a>. See the <code>README</code> or the <a href="https://wiki.tercept.net/en/5eTools/InstallGuide" rel="noopener noreferrer">wiki</a> for help.</p>
-		<p><b>Can I contribute?</b> A copy of the source is available on <a href="https://github.com/5etools-mirror-1/5etools-mirror-1.github.io" rel="noopener noreferrer">GitHub</a>. Note that this is a secondary mirror, and so is not guaranteed to be up-to-date.</p>
+		<p><b>Can I contribute?</b> The source is available on <a href="https://github.com/5etools-mirror-1/5etools-mirror-1.github.io" rel="noopener noreferrer">GitHub</a>. See the <a href="https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/blob/master/CONTRIBUTING.md" rel="noopener noreferrer">Contributing</a> guidance.</p>
 		<p><b>Browser and device support?</b> The latest desktop versions of Chrome and Firefox.</p>
 		<p><b>Where's my stuff?</b> There's no account system. Everything is stored in cookies. If you wipe those, or close your incognito window, it's gone forever. You can download your data for safekeeping via the Settings menu.</p>
 		<p><b>Anything else I should know?</b> Hold <kbd>SHIFT</kbd> when hovering to lock a window in place. Everything has tooltips. You will forever be a DM.</p>
@@ -473,7 +231,7 @@ Unearthed Arcana content can be accessed by cycling the &quot;All Sources&quot; 
 	</div>
 </main>
 <footer class="container">
-	<p class="text-center">
+	<p class="ve-text-center">
 		Version
 		<a id="version_number" href="#">?</a>
 		| <span style="text-decoration: red line-through">&nbsp;&copy;&nbsp;</span><span id="current_year">2019</span> 5etools
@@ -500,49 +258,8 @@ Unearthed Arcana content can be accessed by cycling the &quot;All Sources&quot; 
 <script type="text/javascript" src="js/render-dice.js"></script>
 <script type="text/javascript" src="js/scalecreature.js"></script>
 <script type="text/javascript" src="js/hist.js"></script>
+<script type="module" src="js/index.js"></script>
 <script type="text/javascript" src="lib/jquery.js"></script>
 <script type="text/javascript" src="lib/elasticlunr.js"></script>
-<script>
-	(async () => {
-		await Promise.all([
-			PrereleaseUtil.pInit(),
-			BrewUtil2.pInit(),
-		]);
-		ExcludeUtil.pInitialise().then(null);
-
-		const $demoRoller = $(`#demo_roller`);
-		$demoRoller.html(Renderer.get().render(`{@dice ${$demoRoller.html()}}`));
-
-		$(`#current_year`).text((new Date).getFullYear());
-
-		$(`#version_number`).text(VERSION_NUMBER).attr("href", `https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/releases/latest`);
-
-		const $lnkB20 = $(`#betteR20_link`);
-		$lnkB20.attr("href", `${$lnkB20.attr("href")}?v=${VERSION_NUMBER}_${Date.now()}`);
-
-		window.__cmp2 = () => {
-			alert("This only works on a live version of the site!");
-		};
-
-		// TAG Disabled until further notice
-		/*
-		(async () => {
-			if (!await _Donate.pNotDonating()) {
-				const $wrpDon = $(`#don-wrapper`).show();
-				$(`<div><span class="glyphicon glyphicon-remove"></span></div>`).css({
-					position: "absolute",
-					top: 0,
-					right: 2,
-					cursor: "pointer"
-				}).click(() => {
-					StorageUtil.pSet("notDonating", true);
-					$wrpDon.remove();
-				}).appendTo($wrpDon);
-				_Donate.init();
-			}
-		})();
-		*/
-	})();
-</script>
 </body>
 </html>

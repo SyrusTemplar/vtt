@@ -1669,7 +1669,7 @@
 		"ver": "1.129.0",
 		"date": "2021-05-16",
 		"title": "Horrifying",
-		"txt": "- Added Van Richten's Guide to Ravenloft https://5e.tools/book.html#vrgr\n- Added page numbers to Heroes Feast content\n- Fixed Spells page Subclass filter items\n- Fixed Source filters failing to be applied on Bestiary/Spells pages when refreshing without changing the defaults\n- (Homebrew) Added support for `\"includes\"` meta-prop. This allows the contents of another file to be \"included\" as part of a file when it is loaded; this is mainly relevant for Plutonium which \"instances\" lists.\n- (Homebrew) Fixed Renderer Demo layout on mobile\n- (Fixed typos/added tags)"
+		"txt": "- Added Van Richten's Guide to Ravenloft https://5e.tools/book.html#vrgr\n- Added page numbers to Heroes' Feast content\n- Fixed Spells page Subclass filter items\n- Fixed Source filters failing to be applied on Bestiary/Spells pages when refreshing without changing the defaults\n- (Homebrew) Added support for `\"includes\"` meta-prop. This allows the contents of another file to be \"included\" as part of a file when it is loaded; this is mainly relevant for Plutonium which \"instances\" lists.\n- (Homebrew) Fixed Renderer Demo layout on mobile\n- (Fixed typos/added tags)"
 	},
 	{
 		"ver": "1.130.0",
@@ -2461,5 +2461,172 @@
 		"ver": "1.181.8",
 		"date": "2023-07-02",
 		"txt": "- Added more images to various books (PHB, MM, VGM, MTF, SCAG, XGE)\n- Added Printer View button to Backgrounds page; Feats page\n- Improved CR Scaler handling of heavy armor with shields at high CRs\n- Fixed rare Bestiary crash when loading a specific subset of sources \n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.182.0",
+		"date": "2023-07-23",
+		"title": "Slow Track",
+		"txt": "- DM Screen Initiative Tracker\n  - _[Rewrote from the ground up to enable more and better features. The Initiative Tracker has a lot of moving parts, so this means a high likelihood of lots of bugs. Please report via the usual channels, and make use of the DM Screen's \"Save to File\" feature when doing so.]_\n  - Added \"Initiative Tracker Creature Viewer\" companion panel type, which, when linked to an Initiative Tracker, displays the statblock of the active creature (where available)\n  - Added \"default party\" editor; this allows for the creation of a set of player combatants which are always added to the tracker each time it is reset/when an encounter is loaded\n  - Custom conditions can now be saved\n  - Added \"Reroll initiative each round\" option\n  - Added \"Image\" column type; this displays a creature's token (where available) in the tracker, the creature's fluff image (where available) when hovered, and the former can be clicked to send the latter to connected Player Views\n  - Added \"Checkbox; clears at start of round\" and \"Checkbox; ticks at start of round\" additional column types\n  - Revised \"Legendary Actions\" column type to a \"x/y\" format which resets to max at the start of each round\n  - Added \"Initiative\" (bonus) column type, which can be used to customize initiative values for the default party, and is used as the initiative modifier for each combatant when using the \"Reroll initiative each round\" option\n  - Added \"Customize\" flow to \"Add Monster\" dialogue, which allows a custom name to be entered, and CR/etc. scaling to be applied\n  - When adding multiple creatures via the \"Add Monster\" button, the \"Roll groups of creatures together\" setting is now respected\n  - SHIFT-clicking a creature \"Delete\" button now also deletes all similar creatures\n  - The active row is now scrolled into view when advancing turn\n  - SHIFT-clicking the \"Player View\" button now opens the \"Standard\" Player View dialogue, and SHIFT-clicking the \"Configure\" button now opens the \"Settings\" dialogue\n  - Added various SHIFT/CTRL-click combinations to \"Add Condition\" dialogue buttons, to quickly add conditions with unlimited/1-turn/10-turn durations\n  - Sort ordering is now indicated by toggle status of sort buttons\n  - Round number is now persistent between loads\n  - Tweaked and improved Player View styling\n\n- Improved DM Screen handling of errors when initially loading; a dialogue is now presented with an option to download the current save, and/or purge the current save and continue loading (the old default behaviour)  \n- Maps page now remembers chapter/book selection between reloads\n- Maps page \"intermediate\" checkboxes now downgrade to \"unchecked\" when clicked, rather than upgrading to \"checked.\" This allows partially-selected chapters/books to be de-selected without first loading all images for that chapter/book.\n- Added Dynamic Map Viewer support for LLK Daoine Gloine maps\n- Fixed Omnisearch clear \"x\" button inconsistency\n- (Brew) Added support for `\"anyExotic\"` language proficiencies\n- (Brew) Updated JSON character constraints in \"Add/Edit Homebrew Source\" dialogue to better reflect schema requirements\n- (Brew) Removed broken rendering of image title/credits when using comic styles. This information has been relegated to the image tooltip.\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.182.1",
+		"date": "2023-07-25",
+		"txt": "- Fixed DM Screen Initiative Tracker \"Add Monster\" rows crashing on non-customize click\n- Fixed scalable dice rollers failing to open level-picker dropdown menu\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.182.2",
+		"date": "2023-07-26",
+		"txt": "- Fixed Bestiary d20-based dice rollers failing to roll on click\n- Fixed DM Screen Initiative Tracker always rolling initiative for new creatures when the \"Roll initiative\" option is disabled \n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.183.0",
+		"date": "2023-08-04",
+		"title": "Little Giants",
+		"txt": "- Added Giants of the Star Forge content (which includes some initial Bigby Presents: Glory of the Giants content)\n- Added \"Saving Throw Required\" filter set to the Bestiary\n- Added \"Trinket Table\" Miscellaneous filter to Items page\n- Added spell component text to Spells page `stats:...` index, allowing it to be searched using `stats:...` or `text:...`\n- Improved CR selection modals in Creature Homebrew Builder and DM Screen Initiative Tracker \"Customize Creature\" flow; CR selection is now the familiar slider (instead of a dropdown)\n- Fixed DM Screen Initiative Tracker failing to import \"advanced\" columns from Bestiary encounters\n- Fixed DM Screen Initiative Tracker failing to append rows to an existing encounter when using the \"Add to existing tracker state\" option\n- (Brew) Added support for custom creature types in the Creature Homebrew Builder\n- (Brew) Added page increment/decrement buttons in the Text Converter\n- (Brew) Added support for `\"@dcYourSpellSave\"` tags\n- (Brew) Added support for custom display text in `\"@hitYourSpellAttack\"` tags\n- (Brew) Improved Text Converter handling of split lines beginning in a dice expression\n- (Brew) Improved Spell Text Converter handling of spell `\"groups\"`; `\"Cantrip Upgrade\"` headers\n- (Brew) Improved Creature Text Converter handling of various homebrew formatting oddities\n- (Brew) Added `PAGE=...` help text to Text Converter \"Page\" input\n- (Brew) Fixed crash when `\"_copy\"`-ing a race with string entries\n- (Brew) Fixed local homebrew cache race condition, which could result in missing source metadata/strange filter behaviour if the page loaded too fast\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.183.1",
+		"date": "2023-08-07",
+		"txt": "- Fixed DM Screen Initiative Tracker Player View failing to display conditions\n- Fixed DM Screen Initiative Tracker crash when attempting to duplicate monster row\n- (Brew) Improved Creature Text Converter:\n  - Added non-numerical passive perception parsing\n  - Added support for homebrew spell cast time superscript\n  - Added support for non-standard XP for a given CR\n  - Added basic \"hanging list\" detection and automatic merging\n  - Added support for automatically classifying some homebrew \"features\" by inlined action type\n  - Fixed \"PB\" not being accepted as part of a `@dice` tag in some cases\n  - Fixed Various cases of lines not being rejoined when parsing from manually-wrapped data\n  - Fixed rare case where the second line of a trait/action/etc. could be swallowed by the converter without producing any output\n- (Brew) Fixed Creature Homebrew Builder crash when attempting to modify any value\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.183.2",
+		"date": "2023-08-13",
+		"txt": "- Added \"Select All Non-UA Sources\" option to Source Filter \"Other Options\" dropdown\n- Fixed DM Screen Initiative Tracker failing to delete rows on non-SHIFT click\n- Fixed DM Screen Initiative Tracker crash when re-rolling duplicated creatures\n- (Brew) Further improved Creature Text Converter, with better handling for line splits, unusual AC formats, \"plus PB\" to-hits, repeated-punctuation trait headers, hanging lists, spell name notes, spell-like psionic power actions, custom conditions, dice/damage expressions containing \"PB\", unusual damage immunity/vulnerability/resistance formats, and unusual condition immunity formats\n- (Brew) Fixed dependencies failing to load when loading brews en-masse\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.184.0",
+		"date": "2023-08-16",
+		"title": "First I Bang This Drum",
+		"titleAlt": "Then I fee-fi-fo-fum",
+		"txt": "- Added Bigby Presents: Glory of the Giants content\n- (Brew) Various minor bugfixes and improvements to the Creature, Item, and Feat Text Converters\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.185.0",
+		"date": "2023-08-20",
+		"title": "Cold Off the Press",
+		"txt": "- Added Tal'Dorei Campaign Setting Reborn content (credit to @ Lyra for the conversion)\n- Moved Glory of the Giants encounter tables to Encounters page\n- Added list preview functionality to Rewards page\n- Fixed Encounters page only rolling the first dice in rolled results\n- Fixed filters setting positive/negative default state for new values if use has existing state\n- (Brew) Added `\"rewardFluff\"` support\n- (Brew) Added \"Illegal Drug\" (`\"IDG\"`) item type\n- (Brew) Fixed Homebrew Builder \"warn on un-saved modifications\" logic; warnings should now be issued more consistently and in more relevant situations \n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.185.1",
+		"date": "2023-08-23",
+		"txt": "- Overhauled Plane Shift content; expanding text, adding creatures, and refining character options (thanks @ Lyra)\n- Split some sources into \"Partnered\" filter section; these will be considered \"official\" sources for the purposes of selecting filters/searching/etc., but are now visually separated\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.186.0",
+		"date": "2023-09-06",
+		"title": "Gone Gamin'",
+		"txt": "- Added \"Has Melee Weapons\" Miscellaneous filter to Bestiary\n- Added \"Grants Advantage\" Components & Miscellaneous filter to Bestiary\n- Added menu to toggle subclasses in Classes page Subclass Comparison view without returning to the main view\n- Converted Wild Beyond the Witchlight roleplaying cards to deck on the Decks page (thanks @ Lyra)\n- The Recipes page now lazy-loads images when loading the \"Recipe\" tab, hopefully reducing layout churn\n- Added CTRL+click to mass-toggle rendered text sections\n- Added SRD spell/etc. names as aliases in Omnisearch\n- Fixed DM Screen Initiative Tracker double-adding the default party on additive encounter load, resulting in an un-editable default party being present in the tracker\n- Fixed Spells page Book View failing to show \"Sort order\" dropdown\n- Fixed Recipes page failing to display the scaled versions of some recipes\n- Fixed RPG Cards JSON Builder rendering of quotes\n- Fixed rare Bestiary/Spells page crash when attempting to load saved sublist files\n- (Brew) Added well-structured support for `\"time\"` (e.g. prep time, cooking time) values in recipes\n- (Brew) Added \"render as text\" (`x`) modifier for applied properties (`{=...}`) (thanks @ Lyra)\n- (Brew) Fixed recipe fluff images failing to display if fluff was not inlined\n- (Brew) Added command-line arguments to `lint:data` package command (`prettify-data.js` script); `npm run lint:data -- [--file <file>] [--dir <dir>]` to use\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.187.0",
+		"date": "2023-09-19",
+		"title": "Phandeeper",
+		"txt": "- Added Phandelver and Below: The Shattered Obelisk content\n- (Brew) Expanded prettifier coverage to handle more/all homebrew properties (thanks @ Lyra)\n- (Brew) Added support for customizing `\"_preserve\"` on `\"_version\"`s\n- (Brew) Added support for nested object `\"requires\"`/`\"excludes\"` on `\"magicvariant\"`s\n- (Brew) Improved Item Text Converter handling of class attunement\n- (Brew) Fixed failure to use `\"displayName\"` in initially-collapsed inline statblock headers\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.187.1",
+		"date": "2023-09-20",
+		"txt": "- Added Phandelver and Below adventure NPCs/other creatures\n- Split out ToA \"Trickster Gods of Omu\" cards into Decks page (thanks @ Lyra)\n- Added \"Reprinted\" filter to Items page\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.188.0",
+		"date": "2023-09-23",
+		"title": "Goosed",
+		"txt": "- Added Monstrous Compendium Vol. 4: Eldraine Creatures content\n- Added Dynamic Map Viewer support for Phandelver and Below and Tal'Dorei Campaign Setting Reborn\n- Added revised Bigby Presents: Glory of the Giants art\n- Added artist credits to images in several adventures/books/statblocks/etc. (thanks @ Lyra)\n- Fixed Dynamic Map Viewer failing to popout as new window on SHIFT-click\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.188.1",
+		"date": "2023-09-27",
+		"txt": "- Added Lightning Keep content\n- Added Eldraine Creatures tokens (plus a handful of others)\n- Added Markdown popout support to the Tables, Other Character Creation Options, Cults & Supernatural Boons, and Conditions & Diseases pages\n- Fixed DM Screen Initiative Tracker randomly re-ordering initiative-sorted player rows when updating player name\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.189.0",
+		"date": "2023-10-18",
+		"title": "Plane Silly",
+		"txt": "- Added Planescape: Adventures in the Multiverse content\n- Added Adventure Atlas: The Mortuary content\n- Added \"Copy as Markdown Table\" option to pinned lists\n- Added art credit to (almost) all adventure/book images, where available (thanks @ Lyra)\n- Split out various adventure card appendices as decks (thanks @ Lyra)\n- Added page numbers to KftGV & TDCSR (thanks @ Lyra)\n- Improved the layout/formatting of various text/images across many adventures/books (thanks @ Lyra)\n- Added artificer \"eldritch cannon\" options to Objects page\n- Converted most non-map, non-token images to `.webp`\n- (Brew) Added rudimentary Race Text Converter _[conversion was previously available from Markdown only]_\n- (Brew) Added rudimentary Background Text Converter\n- (Brew) Added \"Generate Additional [Sources]\" button to Spell Homebrew Builder, which attempts to auto-generate class/subclass sources for the spell similar to those auto-generated by spells on the site (e.g. Eldritch Knight/Arcane Trickster)\n- (Brew) Fixed editable brew being clobbered by \"Mass...\" updating brews in the Homebrew Manager\n- (Brew) Fixed Creature Homebrew Builder spell producing junk SRD rename tags\n- (Brew) Fixed rendering of creature senses when multiple senses with the same name are available\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.189.1",
+		"date": "2023-10-22",
+		"txt": "- Added Sigil and the Outlands encounter tables to the Encounter Generator\n- Added SHIFT+click to collapse/expand all headers in the Encounter Generator and Names pages\n- Added Turn of Fortune's Wheel NPCs/other creatures\n- (Brew) Added \"citation\" entity type/`@cite` tags\n- (Brew) Improved Background Text Converter handling of prerequisites\n- (Brew) Tweaked Homebrew Spell Builder \"Generate Additional [Sources]\" output to (hopefully) produce more accurate results\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.190.0",
+		"date": "2023-10-29",
+		"title": "Unremarkable",
+		"txt": "- Added Markdown popout support to most list pages (thanks @ darthbeep for the initial prototype)\n- Added \"Voyage to Stormwreck Isle\" introductory section to Dragons of Stormwreck Isle\n- (Brew) Fixed specific variants for homebrew `magicvariant`s applied to non-homebrew `baseitem`s failing to be added to the Items page list\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.191.0",
+		"date": "2023-11-07",
+		"title": "Handmade Hell",
+		"txt": "- Added Chains of Asmodeus content\n- Added Dynamic Map Viewer support to Planescape content; Adventure Atlas content\n- Added missing Planescape tokens; Adventure Atlas tokens\n- Added \"Has Info\"/\"Has Images\" filters to Recipes page\n- Fixed races failing to display their text in popout windows/etc.\n- Fixed Classes page \"View Most Recent\" subclass filter filtering to partnered content instead of all content\n- (Brew) Improved Item Text Converter handling of base item types/requirements; `magicvariant` name prefix/suffixes; charges/recharge types; split lines\n- (Brew) Added `\"tokenCredit\"` field to entities with tokens (rendered as a tooltip on the token)\n- (Brew) Spellcasting entries with all their spell types `\"hidden\"` will no longer be rendered\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.191.1",
+		"date": "2023-11-07",
+		"txt": "- Fixed creature spellcasting entries failing to _ever_ render"
+	},
+	{
+		"ver": "1.191.2",
+		"date": "2023-11-09",
+		"txt": "- (Brew) Added `\"alias\"` support for Recipes\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.192.0",
+		"date": "2023-11-12",
+		"title": "A Delicacy",
+		"txt": "- Added Heroes' Feast Flavors of the Multiverse content to Recipes page (big thanks @ Lyra)\n- Added Heroes' Feast and Heroes' Feast Flavors of the Multiverse books to Books page (thanks @ Lyra)\n- Added initial round of Chains of Asmodeus tokens\n- Added Dynamic Map Viewer support to Chains of Asmodeus\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.193.0",
+		"date": "2023-11-15",
+		"title": "The Cards of the Heart",
+		"txt": "- Added The Book of Many Things content\n- Added \"XP to Next Level\" display the Bestiary Encounter Builder\n- Tweaked Bestiary Encounter Builder random generation to prefer a soft max of 5 different creature types\n- (Brew) Improved Item Text Converter handling of various `\"magicvariant\"` requirements\n- (Brew) Added fluff support to traps/hazards\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.194.0",
+		"date": "2023-11-23",
+		"title": "Child's Play",
+		"txt": "- Added Heroes' Feast: Saving the Childrens Menu content\n- Added Peril in Pinebrook content\n- Added remaining Chains of Asmodeus tokens; Book of Many Things tokens\n- Added Dynamic Map Viewer support for Book of Many Things maps\n- Split Items page \"Grants Language\" filter from \"Grants Proficiency\"\n- Fixed Omnisearch failing to correctly categorize prerelease sources for \"Include Homebrew\"/\"Include UA/etc.\" options\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.195.0",
+		"date": "2023-12-03",
+		"title": "Unhurriedly Aborted",
+		"txt": "- Migrated all remaining Unearthed Arcana content _[except the Mystic]_ to the prerelease content repository (this is accessed via \"Utilities\" -> \"Prerelease Content Manager\")\n- Added \"Export List as URL\" to prerelease/homebrew managers, allowing the currently-loaded prerelease + homebrew set to be baked into a link\n- Added page numbers to Glory of the Giants book/content\n- Improved minimized Dice Roller display on iOS (thanks @ nimids)\n- (Brew) When editing an existing homebrew entity via the \"Edit in Homebrew Builder\" option on a list page, the Homebrew Builder will now attempt to load and edit the original entity, rather than creating a copy\n- (Brew) Improved Text Converter handling of spell level/classes\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.196.0",
+		"date": "2023-12-06",
+		"title": "Surprisingly Pleasant",
+		"txt": "- Added Grim Hollow: Lairs of Etharis content _[As \"D&D Beyond Partnered,\" this has been added to the main site. Note that this, and other partnered content, may be migrated out the the Homebrew repository in the future.]_\n- Adjusted filtering to better support \"D&D Beyond Partnered\" sources\n  - The default filter set no longer includes \"D&D Beyond Partnered\" sources\n  - Added \"Select All Partnered Sources\" option to Source Filter menu\n  - Reworked modifier key bindings for \"Core/Supplements\", \"Adventures\", and \"Homebrew\" buttons. SHIFT now adds to the current selection, and CTRL includes UA/extras\n  - Added \"Partnered\" button (with SHIFT to add to the current selection)\n- (Brew) Added \"Generic\" (Markdown) mode to Text Converter, allowing basic Markdown conversion to be accessed independent of specific entity types (thanks @ Lyra)\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.197.0",
+		"date": "2023-12-22",
+		"title": "Not Fired",
+		"txt": "- Added Dungeons of Drakkenheim content _[As \"D&D Beyond Partnered,\" this has been added to the main site. Note that this, and other partnered content, may be migrated out the the Homebrew repository in the future.]_\n- Added Grim Hollow: Lairs of Etharis tokens (thanks @ Lyra for ~half of these)\n- Added Chains of Asmodeus NPCs/other creatures\n- Added changelog link to \"<site> has been updated\" notification\n- Added \"to top\" button to adventures/books on mobile\n- Reworked and expanded Classes page subclass quick-filter dropdown to better match available content categories\n- Fixed adventure/book page displaying a permanent blank \"loading\" screen when not provided an adventure/book ID to load\n- (Brew) Reworked image size tagging script to be usable on other files/directories, and to allow from-URL images to be sized (usage e.g. `node node/tag-image-dimensions --allow-external --dir <my-directory>`) (thanks @ Lyra for the prototype)\n- (Brew) Improved Creature Text Converter handling of non-standard spellcasting labels\n- (Brew) Improved Item Text Converter handling of: various magic variant requirements; recharge types; condition immunities; `namePrefix`/`nameSuffix` auto-shortening\n- (Brew) Improved Spell Text Converter handling of non-standard range values\n- (Brew) Improved Background Text Converter handling of skill, language, and tool proficiency choices\n- (Brew) Improved Spells page and filter display of spell `\"subschools\"`\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.197.1",
+		"date": "2023-12-30",
+		"txt": "- Added Dynamic Map Viewer support to Grim Hollow: Lairs of Etharis maps\n- Fixed filters failing to include loaded homebrew by default\n- Fixed the Objects page failing to render an object's senses (if it has any)\n- (Brew) Fixed `@chance` tag success/failure text failing to render `@tag`s \n- (Brew) The image size tagging script may now use a local copy of the homebrew repo as a proxy for URLs against that repo (thanks @ Lyra)\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.197.2",
+		"date": "2024-01-03",
+		"txt": "- Added Dungeons of Drakkenheim tokens\n- Fixed crash when attempting to load some books (FTD, SatO, VRGR)\n- Fixed crash when clicking an already-open area in the Dynamic Map Viewer\n- Fixed Search page crash when attempting to load images for pages\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.197.3",
+		"date": "2024-01-06",
+		"txt": "- Added Dynamic Map Viewer support to Dungeons of Drakkenheim\n- Added \"Legacy\" Miscellaneous filter to various list pages\n- Added \"Legacy\" marker to Omnisearch results\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.197.4",
+		"date": "2024-01-10",
+		"txt": "- Added \"One D&D\" filter to Prerelease Content Manager \"Get Prerelease Content\" view\n- Switched \"Added [date]\" column to \"Published [date]\" in Prerelease Content Manager \"Get Prerelease Content\" view\n- Added tokens for Chains of Asmodeus NPCs/other creatures\n- (Brew) Added \"Preview\" button to text converter output\n- (Brew) Added support for \"month\" spell durations\n- (Brew) Fixed homebrew content which depends on prerelease content failing to load that prerelease content\n- (Fixed typos/added tags)"
 	}
 ]

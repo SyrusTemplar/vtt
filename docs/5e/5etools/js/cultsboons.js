@@ -1,18 +1,32 @@
 "use strict";
 
 class CultsBoonsSublistManager extends SublistManager {
-	constructor () {
-		super({
-			sublistClass: "subcultsboons",
-		});
+	static get _ROW_TEMPLATE () {
+		return [
+			new SublistCellTemplate({
+				name: "Type",
+				css: "col-2 ve-text-center pl-0",
+				colStyle: "text-center",
+			}),
+			new SublistCellTemplate({
+				name: "Subtype",
+				css: "col-2 ve-text-center",
+				colStyle: "text-center",
+			}),
+			new SublistCellTemplate({
+				name: "Name",
+				css: "bold col-8 pr-0",
+				colStyle: "",
+			}),
+		];
 	}
 
 	pGetSublistItem (it, hash) {
+		const cellsText = [it._lType, it._lSubType, it.name];
+
 		const $ele = $(`<div class="lst__row lst__row--sublist ve-flex-col">
 			<a href="#${hash}" class="lst--border lst__row-inner">
-				<span class="col-2 text-center pl-0">${it._lType}</span>
-				<span class="col-2 text-center">${it._lSubType}</span>
-				<span class="bold col-8 pr-0">${it.name}</span>
+				${this.constructor._getRowCellsHtml({values: cellsText})}
 			</a>
 		</div>`)
 			.contextmenu(evt => this._handleSublistItemContextMenu(evt, listItem))
@@ -29,6 +43,7 @@ class CultsBoonsSublistManager extends SublistManager {
 			},
 			{
 				entity: it,
+				mdRow: [...cellsText],
 			},
 		);
 		return listItem;
@@ -43,9 +58,9 @@ class CultsBoonsPage extends ListPage {
 
 			pageFilter,
 
-			listClass: "cultsboons",
-
 			dataProps: ["cult", "boon"],
+
+			isMarkdownPopout: true,
 		});
 	}
 
@@ -62,10 +77,10 @@ class CultsBoonsPage extends ListPage {
 		const hash = UrlUtil.autoEncodeHash(it);
 
 		eleLi.innerHTML = `<a href="#${hash}" class="lst--border lst__row-inner">
-			<span class="col-2 text-center pl-0">${it._lType}</span>
-			<span class="col-2 text-center">${it._lSubType}</span>
+			<span class="col-2 ve-text-center pl-0">${it._lType}</span>
+			<span class="col-2 ve-text-center">${it._lSubType}</span>
 			<span class="bold col-6">${it.name}</span>
-			<span class="col-2 text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${Parser.sourceJsonToStyle(it.source)}>${source}</span>
+			<span class="col-2 ve-text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${Parser.sourceJsonToStyle(it.source)}>${source}</span>
 		</a>`;
 
 		const listItem = new ListItem(

@@ -214,8 +214,8 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 	_addData (data) {
 		let isAddedAnyClass = false;
 		let isAddedAnySubclass = false;
-		if (data.class && data.class.length) (isAddedAnyClass = true) && this._addData_addClassData(data);
-		if (data.subclass && data.subclass.length) (isAddedAnySubclass = true) && this._addData_addSubclassData(data);
+		if (data.class && data.class.length) { isAddedAnyClass = true; this._addData_addClassData(data); }
+		if (data.subclass && data.subclass.length) { isAddedAnySubclass = true; this._addData_addSubclassData(data); }
 
 		const walker = MiscUtil.getWalker({
 			keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST,
@@ -540,7 +540,7 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 
 		const $lnk = $(`<a href="#${hash}" class="lst--border lst__row-inner">
 			<span class="bold col-8 pl-0">${cls.name}</span>
-			<span class="col-4 text-center ${Parser.sourceJsonToColor(cls.source)} pr-0" title="${Parser.sourceJsonToFull(cls.source)}" ${Parser.sourceJsonToStyle(cls.source)}>${source}</span>
+			<span class="col-4 ve-text-center ${Parser.sourceJsonToColor(cls.source)} pr-0" title="${Parser.sourceJsonToFull(cls.source)}" ${Parser.sourceJsonToStyle(cls.source)}>${source}</span>
 		</a>`);
 
 		const $ele = $$`<li class="lst__row ve-flex-col ${isExcluded ? "row--blocklisted" : ""}">${$lnk}</li>`;
@@ -1381,7 +1381,7 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 				const allStateKeys = cls.subclasses.map(sc => UrlUtil.getStateKeySubclass(sc));
 				if (evt.shiftKey) {
 					this._doSelectAllSubclasses({allowlistMods: new Set(["fresh", "brew", "spicy"])});
-				} else if (evt.ctrlKey || evt.metaKey) {
+				} else if (EventUtil.isCtrlMetaKey(evt)) {
 					const nxtState = {};
 					allStateKeys.forEach(k => nxtState[k] = false);
 					this._listSubclass.visibleItems
@@ -1402,9 +1402,9 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 
 		const filterSets = [
 			{name: "View Default", subHashes: [], isClearSources: false},
-			{name: "View Official", subHashes: [], isClearSources: false, sourceCategories: ["official"]},
-			{name: "View Homebrew", subHashes: [], isClearSources: false, sourceCategories: ["homebrew"]},
-			{name: "View Most Recent", subHashes: [], isClearSources: false, sources: {[Parser.SRC_UACFV]: 2}},
+			{name: "View Standard Plus Partnered", subHashes: [], isClearSources: false, sourceCategories: [SourceUtil.FILTER_GROUP_STANDARD, SourceUtil.FILTER_GROUP_PARTNERED]},
+			{name: "View Standard Plus Homebrew", subHashes: [], isClearSources: false, sourceCategories: [SourceUtil.FILTER_GROUP_STANDARD, SourceUtil.FILTER_GROUP_HOMEBREW]},
+			{name: "View Most Recent", subHashes: [], isClearSources: true},
 			{name: "View All", subHashes: ["flstmiscellaneous:reprinted=0"], isClearSources: true},
 		];
 		const setFilterSet = ix => {
@@ -1416,15 +1416,20 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 				const classifiedSources = this._pageFilter.sourceFilter.getSources();
 
 				const toInclude = filterSet.sourceCategories || [];
-				const toExclude = ["official", "unofficial", "homebrew"].filter(it => !toInclude.includes(it));
+				const toExclude = [
+					SourceUtil.FILTER_GROUP_STANDARD,
+					SourceUtil.FILTER_GROUP_PARTNERED,
+					SourceUtil.FILTER_GROUP_NON_STANDARD,
+					SourceUtil.FILTER_GROUP_HOMEBREW,
+				].filter(it => !toInclude.includes(it));
 
 				const sourcePart = [
 					...toInclude
-						.map(prop => classifiedSources[prop])
+						.map(prop => classifiedSources[prop] || [])
 						.flat()
 						.map(src => `${src.toUrlified()}=1`),
 					...toExclude
-						.map(prop => classifiedSources[prop])
+						.map(prop => classifiedSources[prop] || [])
 						.flat()
 						.map(src => `${src.toUrlified()}=0`),
 				]
@@ -1434,7 +1439,7 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 				const sourcePartSpecified = Object.entries(filterSet.sources).map(([src, val]) => `${src.toUrlified()}=${val}`);
 
 				const classifiedSources = this._pageFilter.sourceFilter.getSources();
-				const sourcePartRest = [...classifiedSources.official, ...classifiedSources.homebrew]
+				const sourcePartRest = classifiedSources.all
 					.filter(src => filterSet.sources[src] == null)
 					.map(src => `${src.toUrlified()}=0`);
 
@@ -1810,7 +1815,7 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 		};
 	}
 
-	_render_renderAltViews () { // "Hitler was right"
+	_render_renderAltViews () { // Donuts *are* delicious!
 		const cls = this.activeClass;
 
 		// region subclass comparison
@@ -2081,21 +2086,52 @@ ClassesPage.SubclassComparisonBookView = class extends BookModeViewBase {
 		this._classPage = classPage;
 		this._pageFilter = pageFilter;
 		this._listSubclass = listSubclass;
+		this._parent = classPage.getPod();
+
+		this._fnsCleanup = [];
 	}
 
-	_$getEleNoneVisible () {
+	_$getWindowHeaderLhs () {
+		const $out = super._$getWindowHeaderLhs();
+
+		const $btnSelectSubclasses = $(`<button class="btn btn-xs btn-default bl-0 bt-0 btl-0 btr-0 bbr-0 bbl-0 h-20p" title="Select Subclasses"><span class="glyphicon glyphicon-th-list"></span></button>`)
+			.click(async () => {
+				const {$modal, doClose} = UiUtil.getShowModal({
+					isEmpty: true,
+					isMinHeight0: true,
+					isMinWidth0: true,
+					isUncappedHeight: true,
+					cbClose: () => {
+						fnCleanup();
+					},
+				});
+
+				const {$stg, fnCleanup} = this._getSelectSubclassesMeta({
+					cbOnSave: () => {
+						doClose();
+					},
+					isCloseButton: false,
+				});
+				$modal
+					.addClass("bkmv")
+					.append($stg);
+			})
+			.appendTo($out);
+
+		return $out;
+	}
+
+	_getSelectSubclassesMeta ({cbOnSave = null, isCloseButton = true} = {}) {
 		const $wrpRows = $(`<div class="ve-flex-col min-h-0"></div>`);
 
 		const $btnAdjustFilters = $(`<span class="clickable help no-select" title="Click Here!">adjust your filters</span>`)
 			.click(() => this._classPage.filterBox.show());
 		const $dispNoneAvailable = $$`<div class="ve-small ve-muted italic">No subclasses are available. Please ${$btnAdjustFilters} first.</div>`;
 
-		const $stgCompViewNoneVisible = $$`<div class="h-100 w-100 ve-flex-vh-center no-shrink no-print">
-			<div class="ve-flex-col">
-				<div class="mb-2 initial-message">Please select some subclasses:</div>
-				${$wrpRows}
-				${$dispNoneAvailable}
-			</div>
+		const $stg = $$`<div class="ve-flex-col">
+			<div class="mb-2 initial-message">Please select some subclasses:</div>
+			${$wrpRows}
+			${$dispNoneAvailable}
 		</div>`;
 
 		const onListUpdate = () => {
@@ -2113,6 +2149,9 @@ ClassesPage.SubclassComparisonBookView = class extends BookModeViewBase {
 			$wrpRows.empty();
 			const rowMetas = subclassStateItems.map(li => {
 				const $cb = $(`<input type="checkbox">`);
+
+				$cb.prop("checked", this._parent.get(li.values.stateKey));
+
 				$$`<label class="split-v-center py-1">
 					<div>${li.name}</div>
 					${$cb}
@@ -2120,18 +2159,19 @@ ClassesPage.SubclassComparisonBookView = class extends BookModeViewBase {
 				return {$cb, stateKey: li.values.stateKey};
 			});
 
+			const subclassStateItemsVisiblePrev = subclassStateItems.filter(li => this._parent.get(li.values.stateKey));
 			const $btnSave = $(`<button class="btn btn-default mr-2">Save</button>`)
 				.click(async () => {
 					const nxtState = {isViewActiveScComp: false};
-					const rowMetasFilt = rowMetas.filter(it => it.$cb.prop("checked"));
-					if (!rowMetasFilt.length) return JqueryUtil.doToast({type: "warning", content: `Please select some subclasses first!`});
 
-					// (We don't `false` out the other subclasses, because if we're seeing this UI there are none
-					//   currently selected)
-					rowMetasFilt.forEach(meta => {
-						nxtState[meta.stateKey] = true;
-						meta.$cb.prop("checked", false);
-					});
+					const rowMetasFilt = rowMetas.filter(it => it.$cb.prop("checked"));
+					if (!rowMetasFilt.length && !subclassStateItemsVisiblePrev.length) return JqueryUtil.doToast({type: "warning", content: `Please select some subclasses first!`});
+
+					rowMetas
+						.forEach(meta => {
+							nxtState[meta.stateKey] = meta.$cb.prop("checked");
+							meta.$cb.prop("checked", false);
+						});
 
 					this._classPage._proxyAssignSimple("state", nxtState);
 
@@ -2142,20 +2182,33 @@ ClassesPage.SubclassComparisonBookView = class extends BookModeViewBase {
 					} finally {
 						this._classPage._unlock("sc-comparison");
 					}
+
+					if (cbOnSave) cbOnSave();
 				});
 
-			const $btnClose = $(`<button class="btn btn-default">Close</button>`)
-				.click(() => {
-					this.setStateClosed();
-				});
+			const $btnClose = isCloseButton
+				? $(`<button class="btn btn-default">Close</button>`)
+					.click(() => {
+						this.setStateClosed();
+					})
+				: null;
 
-			$$`<div class="ve-flex-h-right mt-2">${$btnSave}${$btnClose}</div>`
+			$$`<div class="ve-flex-h-right mt-3">${$btnSave}${$btnClose}</div>`
 				.appendTo($wrpRows);
 		};
-		this._listSubclass.on("updated", () => onListUpdate());
+		this._listSubclass.on("updated", onListUpdate);
 		onListUpdate();
 
-		return $stgCompViewNoneVisible;
+		return {$stg, fnCleanup: () => this._listSubclass.off("updated", onListUpdate)};
+	}
+
+	_$getEleNoneVisible () {
+		const {$stg, fnCleanup} = this._getSelectSubclassesMeta();
+		this._fnsCleanup.push(fnCleanup);
+
+		return $$`<div class="h-100 w-100 ve-flex-vh-center no-shrink no-print">
+			${$stg}
+		</div>`;
 	}
 
 	async _pGetRenderContentMeta ({$wrpContent}) {
@@ -2276,6 +2329,13 @@ ClassesPage.SubclassComparisonBookView = class extends BookModeViewBase {
 			cntSelectedEnts,
 			isAnyEntityRendered,
 		};
+	}
+
+	teardown () {
+		super.teardown();
+		this._fnsCleanup
+			.splice(0, this._fnsCleanup.length)
+			.forEach(fn => fn());
 	}
 };
 

@@ -98,7 +98,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/EEPC/Aarakocra.png"
+						"path": "races/EEPC/Aarakocra.webp"
 					}
 				}
 			]
@@ -115,8 +115,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Aarakocra.png"
-					}
+						"path": "races/MPMM/Aarakocra.webp"
+					},
+					"credit": "Claudio Pozas"
 				}
 			]
 		},
@@ -170,8 +171,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Aasimar.png"
-					}
+						"path": "races/MPMM/Aasimar.webp"
+					},
+					"credit": "Mike Bierek"
 				}
 			]
 		},
@@ -328,8 +330,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Aasimar.png"
-					}
+						"path": "races/VGM/Aasimar.webp"
+					},
+					"credit": "Shawn Wood"
 				}
 			]
 		},
@@ -409,20 +412,31 @@
 			"name": "Aetherborn",
 			"source": "PSK",
 			"entries": [
+				{
+					"type": "quote",
+					"entries": [
+						"A day not spent indulging the senses is a day wasted"
+					]
+				},
 				"When the events of a lifetime are compressed down to almost nothing, each fleeting moment must be savored\u2014drained of every drop of enjoyment it can offer. This is the philosophy that informs the lives and minds of the aetherborn. Given just a few short years\u2014or sometimes only a few months\u2014to live, each aetherborn views time as exceedingly precious. Each moment spent in a way that does not bring delight is a wasted moment. And though aetherborn differ in their drives and pleasures, nearly all of them share this desire to squeeze the most out of the brief time they are given.",
 				"Aetherborn come into being spontaneously as part of the aether refinement process. Their bodies and minds are apparently formed out of some interaction between the volatile elements of aether that are removed during refinement and the psychic impressions created by the people involved in the process. But each aetherborn is a unique individual, not a mere copy of some other person's mind and shape. This race is little understood, and few aetherborn are willing to waste any of their short lives allowing vedalken scholars to study their biological and psychological characteristics.",
 				{
 					"type": "entries",
-					"name": "Aetherborn and Gender",
 					"entries": [
-						"Aetherborn are a strange living by-product of the process of aether refinement, cast in humanoid form but lacking any of the biological qualities of other races. They don't eat or sleep, and they don't reproduce\u2014nor do they have any physical sexual characteristics. Language that categorizes people into male or female categories thus breaks down when it comes to aetherborn. Most aetherborn prefer that others use the pronoun \"they\" to refer to them, since it doesn't attribute a gender that they don't possess. Only a relative few prefer \"he\" or \"she,\" having chosen to adopt a gender."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Aetherborn Politics",
-					"entries": [
-						"The relationship between aetherborn and the Consulate is complicated. On the one hand, aetherborn understand that their race wouldn't exist without the Consulate's aether refining operations, so they feel at least some motivation to ensure that those operations continue to run smoothly. On the other hand, few aetherborn have any patience for the tedious and cumbersome politics and regulations of the Consulate, which gives them at least a little sympathy with renegade philosophy. Typically, aetherborn are drawn to one side or the other more by the lure of excitement and entertainment than by any serious political beliefs."
+						{
+							"type": "entries",
+							"name": "Aetherborn and Gender",
+							"entries": [
+								"Aetherborn are a strange living by-product of the process of aether refinement, cast in humanoid form but lacking any of the biological qualities of other races. They don't eat or sleep, and they don't reproduce\u2014nor do they have any physical sexual characteristics. Language that categorizes people into male or female categories thus breaks down when it comes to aetherborn. Most aetherborn prefer that others use the pronoun \"they\" to refer to them, since it doesn't attribute a gender that they don't possess. Only a relative few prefer \"he\" or \"she,\" having chosen to adopt a gender."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Aetherborn Politics",
+							"entries": [
+								"The relationship between aetherborn and the Consulate is complicated. On the one hand, aetherborn understand that their race wouldn't exist without the Consulate's aether refining operations, so they feel at least some motivation to ensure that those operations continue to run smoothly. On the other hand, few aetherborn have any patience for the tedious and cumbersome politics and regulations of the Consulate, which gives them at least a little sympathy with renegade philosophy. Typically, aetherborn are drawn to one side or the other more by the lure of excitement and entertainment than by any serious political beliefs."
+							]
+						}
 					]
 				}
 			],
@@ -432,14 +446,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSK/Aetherborn.webp"
-					}
+					},
+					"title": "On Kaladesh, an aether-powered {@item arrow of slaying (*)|DMG|arrow of slaying} can be launched without a bow.",
+					"credit": "Tidy Conclusion by Bastien L. Deharme"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSK/Aetherborn2.webp"
-					}
+					},
+					"title": "Essence Extraction",
+					"credit": "Min Yum"
 				}
 			]
 		},
@@ -456,17 +474,9 @@
 					"href": {
 						"type": "internal",
 						"path": "races/AAG/Astral Elf.webp"
-					}
+					},
+					"credit": "Nikki Dawes"
 				}
-			]
-		},
-		{
-			"name": "Astral Elf",
-			"source": "UA2021TravelersOfTheMultiverse",
-			"entries": [
-				"Long ago, groups of elves ventured from the Feywild to the Astral Plane to be closer to their gods. Life in the Silver Void has imbued their souls with a spark of divine light. That light manifests as a starry gleam in an astral elf's eyes.",
-				"Because nothing ages in the Astral Plane, astral elves from that plane are thousands of years old, and their longevity gives them an unusual perspective on time. Some are prone to melancholy, while others display an absence of feeling. Many look for creative ways to occupy themselves. Whether they choose to live in quiet contemplation or strike out to explore the reaches of the multiverse, they tend to see things through the lens of time as having little or no meaning to them.",
-				"Astral elves who don't dwell on the Astral Plane can live to be over 750 years old."
 			]
 		},
 		{
@@ -522,63 +532,8 @@
 					"href": {
 						"type": "internal",
 						"path": "races/AAG/Autognome.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Autognome",
-			"source": "UA2021TravelersOfTheMultiverse",
-			"entries": [
-				"Autognomes are mechanical beings built by rock gnomes in their image, usually with a particular purpose in mind. For example, a gnome might build an autognome to be a steadfast colleague or a loyal companion. Sometimes, because of a malfunction or a unique circumstance, an autognome becomes separated from its creator and strikes out on its own.",
-				"An autognome bears a resemblance to its creator, and most autognomes are programmed to speak and understand Gnomish. The internal components used in an autognome's manufacture can vary wildly; one autognome might have an actual beating heart in its chest cavity, while another might be powered by stardust or intricate clockwork gears.",
-				"Roll on the Autognome History table or choose an entry to determine what event set your autognome on the path to adventure. If nothing on the table appeals to you, work with your DM to create an origin story for your autognome.",
-				"Like gnomes, autognomes can live for centuries, up to 500 years.",
-				{
-					"type": "table",
-					"caption": "Autognome History",
-					"colLabels": [
-						"d8",
-						"Story"
-					],
-					"colStyles": [
-						"col-2 text-center",
-						"col-10"
-					],
-					"rows": [
-						[
-							"1",
-							"Your creator gave you autonomy and urged you to follow your dreams."
-						],
-						[
-							"2",
-							"Your creator died, leaving you to fend for yourself."
-						],
-						[
-							"3",
-							"A temporary malfunction caused you to harm your creator, and you fled rather than face reprisal."
-						],
-						[
-							"4",
-							"A glitch caused you to forget your original programming. You don't remember who made you or where you came from."
-						],
-						[
-							"5",
-							"You were stolen from your creator and long to return to them."
-						],
-						[
-							"6",
-							"You didn't like how you were being treated by your creator, so you ran away from home."
-						],
-						[
-							"7",
-							"Your creator built you to complete a special mission."
-						],
-						[
-							"8",
-							"You felt trapped in the role for which you were built and abandoned your creator, determined to find a greater purpose."
-						]
-					]
+					},
+					"credit": "Nikki Dawes"
 				}
 			]
 		},
@@ -595,9 +550,9 @@
 							"type": "entries",
 							"name": "Combat Classes",
 							"entries": [
-								"Spellcasters are common among ibis-headed aven drawn to follow the teachings of Kefnet. Their physical resemblance to the god of knowledge is reflected in the metal discipline, focus, and confidence for which aven spellcasters are known. They wield magic of air, wind, and sometimes water to buffet their foes, enhance their own flight, and counter enemy attacks. Hawk-headed aven who follow the path of the mage are more likely to learn sand-based magic that can cloud the air, blast their foes, or bury enemies in living dunes.",
-								"Hawk-headed aven are often drawn to master tech-niques of long-range combat, whether the javelin that is the preferred weapon of many, the bow, or other thrown weapons. Whatever weapon they use, aven hover and swoop in the air above the fray, seeking the opportune moment to strike in exactly the right place. In line with the teachings of the god of solidarity, they often fly in tight formations with other aven in their crops, supporting and protecting each other. Aven take great pride in the precision of their attacks, relying on their keen vision and superior vantage points. They view the sharp tip of a {@item javelin|phb} or {@item arrow|phb} as a symbol of their love for precision, and some initiates maintain carefully tended collections of spearheads or arrowheads.",
-								"A relatively small number of aven of both varieties end up focusing on hand-to-hand combat. Even there, they use their ability to fly to great advantage, often swooping down on their foes from a great height. The speed and power of a blow from a diving aven can be utterly devastating, but such a strike poses a tremendous risk to the aven as well as the target. An aven who fails to pull up from the dive in time can suffer even worse injuries than the target of the attack. Aven often minimize this risk by hurling {@item javelin|phb|javelins} while they dive, then pulling up early after a successful throw."
+								"Spellcasters are common among {@race Aven (Ibis-Headed)|PSA|ibis-headed aven} drawn to follow the teachings of Kefnet. Their physical resemblance to the god of knowledge is reflected in the metal discipline, focus, and confidence for which aven spellcasters are known. They wield magic of air, wind, and sometimes water to buffet their foes, enhance their own flight, and counter enemy attacks. Hawk-headed aven who follow the path of the mage are more likely to learn sand-based magic that can cloud the air, blast their foes, or bury enemies in living dunes.",
+								"{@race Aven (Hawk-Headed)|PSA|Hawk-headed aven} are often drawn to master techniques of long-range combat, whether the {@item javelin|PHB} that is the preferred weapon of many, the bow, or other thrown weapons. Whatever weapon they use, aven hover and swoop in the air above the fray, seeking the opportune moment to strike in exactly the right place. In line with the teachings of the god of solidarity, they often fly in tight formations with other aven in their crops, supporting and protecting each other. Aven take great pride in the precision of their attacks, relying on their keen vision and superior vantage points. They view the sharp tip of a {@item javelin|PHB} or {@item arrow|PHB} as a symbol of their love for precision, and some initiates maintain carefully tended collections of spearheads or arrowheads.",
+								"A relatively small number of aven of both varieties end up focusing on hand-to-hand combat. Even there, they use their ability to fly to great advantage, often swooping down on their foes from a great height. The speed and power of a blow from a diving aven can be utterly devastating, but such a strike poses a tremendous risk to the aven as well as the target. An aven who fails to pull up from the dive in time can suffer even worse injuries than the target of the attack. Aven often minimize this risk by hurling {@item javelin|PHB|javelins} while they dive, then pulling up early after a successful throw."
 							]
 						}
 					]
@@ -609,14 +564,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSA/Aven.webp"
-					}
+					},
+					"title": "Tah-Crop Elite",
+					"credit": "Raoul Vitale"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSA/Aven2.webp"
-					}
+					},
+					"title": "Companion of the Trials",
+					"credit": "Aaron Miller"
 				}
 			]
 		},
@@ -634,7 +593,9 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSD/Aven.webp"
-					}
+					},
+					"title": "Aven Sentry",
+					"credit": "Dan Scott"
 				}
 			]
 		},
@@ -655,6 +616,9 @@
 									"entries": [
 										"Following the example of Oketra, hawk-headed aven often focus on the techniques of long-range combat. Most prefer {@item javelin|phb|javelins}, but some are skilled with bows, {@item spear|phb|spears}, and {@item handaxe|phb|throwing axes}."
 									]
+								},
+								{
+									"type": "hr"
 								}
 							]
 						}
@@ -679,6 +643,9 @@
 									"entries": [
 										"A majority of ibis-headed aven, drawn to the teachings of Kefnet, specialize in spellcasting. They take great pride in all the qualities they share with the god of knowledge\u2014not just their avian heads, but their quick wit, self-confidence, cunning, and spellcasting prowess."
 									]
+								},
+								{
+									"type": "hr"
 								}
 							]
 						}
@@ -691,12 +658,28 @@
 								"href": {
 									"type": "internal",
 									"path": "races/PSA/Aven (Ibis-Headed).webp"
-								}
+								},
+								"title": "Zenith Seeker",
+								"credit": "Jason Kang"
 							}
 						]
 					}
 				}
 			}
+		},
+		{
+			"name": "Bugbear",
+			"source": "ERLW",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/ERLW/Goblinoids.webp"
+					},
+					"credit": "Cory Trego-Erdner"
+				}
+			]
 		},
 		{
 			"name": "Bugbear",
@@ -710,8 +693,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Bugbear.png"
-					}
+						"path": "races/MPMM/Bugbear.webp"
+					},
+					"credit": "Filip Burburan"
 				}
 			]
 		},
@@ -724,7 +708,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Bugbear.png"
+						"path": "races/VGM/Bugbear.webp"
 					}
 				}
 			]
@@ -796,7 +780,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/GGR/Centaur.png"
+						"path": "races/GGR/Centaur.webp"
 					}
 				}
 			]
@@ -901,17 +885,19 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MOT/Lagonna Band Centaur.png"
+						"path": "races/MOT/Lagonna Band Centaur.webp"
 					},
-					"title": "Lagonna Band Centaur"
+					"title": "Lagonna Band Centaur",
+					"credit": "Min Yum"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MOT/Pheres Band Centaur.png"
+						"path": "races/MOT/Pheres Band Centaur.webp"
 					},
-					"title": "Pheres Band Centaur"
+					"title": "Pheres Band Centaur",
+					"credit": "Slawomir Maniak"
 				}
 			]
 		},
@@ -926,48 +912,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Centaur.png"
-					}
-				}
-			]
-		},
-		{
-			"name": "Centaur",
-			"source": "UACentaursMinotaurs",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"entries": [
-								"Roamers at heart, centaurs love open spaces and the freedom to travel. As much as they can, centaurs run. They race the wind, hooves thundering and tails streaming behind them.",
-								{
-									"type": "entries",
-									"name": "Nature's Cavalry",
-									"entries": [
-										"Centaurs have humanoid upper bodies, displaying all the human variety of skin tones and features. In size, they are comparable to a human rider mounted on a horse, and they fill similar roles\u2014as cavalry, messengers, outriders, and scouts.",
-										"Centaurs' ears are slightly pointed, but their faces are more wide and square than those of elves. Below the waist, they have the bodies of horses, with coats tending toward brown shades (chestnut or bay) and darker tails."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Nature and Community",
-									"entries": [
-										"Centaurs have a strong sense of the interconnectedness of the natural world, and they celebrate family and community as microcosms of that greater connection. The birth of a foal is always cause for festivities. At the same time, centaurs revere the traditions of the past, preserving old ways and keeping alive the legends of ancestral heroes. They feel a close kinship with wild animals, perhaps because of their own hybrid nature, and delight in the feeling of running alongside herds and packs of beasts."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Centaur Names",
-									"entries": [
-										"Centaurs' given names are passed down through family lines. The name given to a new foal is typically the name of the most recently deceased family member of the same gender, keeping alive the memory\u2014and, the centaurs believe, some shard of the spirit\u2014of the departed.",
-										"Centaurs rarely use family names, but wear symbols that represent their family membership. These symbols might include graphical representations of plants or animals, printed mottos, braids and beads worn in the hair and tail, or even specific patterns of woven fabric."
-									]
-								}
-							]
-						}
-					]
+						"path": "races/MPMM/Centaur.webp"
+					},
+					"credit": "Eric Belisle, Jedd Chevrier"
 				}
 			]
 		},
@@ -1026,14 +973,16 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/ERLW/Changeling.png"
-					}
+						"path": "races/ERLW/Changeling.webp"
+					},
+					"title": "Changeling adopting a person's appearance",
+					"credit": "Olga Drebas"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/ERLW/Changeling 001.png"
+						"path": "races/ERLW/Changeling 001.webp"
 					}
 				}
 			]
@@ -1052,8 +1001,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Changeling.png"
-					}
+						"path": "races/MPMM/Changeling.webp"
+					},
+					"credit": "Sarah Stone"
 				}
 			]
 		},
@@ -1069,127 +1019,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Deep Gnome.png"
-					}
-				}
-			]
-		},
-		{
-			"name": "Dhampir",
-			"source": "UA2021GothicLineages",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Poised between the worlds of the living and the dead, dhampirs retain their grip on life yet are endlessly tested by vicious hungers. Their ties to the undead grant dhampirs a taste of a vampire's deathless prowess in the form of increased speed, {@sense darkvision}, and a life-draining bite. With unique insights into the nature of the undead, many dhampirs turn to the lives of adventurers and monster hunters. Their reasons are often deeply personal. Some seek danger, imagining monsters as personifications of their own hungers. Others pursue revenge against whatever turned them into a dhampir. And still others embrace the solitude of the hunt, striving to distance themselves from those who'd tempt their hunger.",
-						{
-							"type": "entries",
-							"name": "Dhampir Hungers",
-							"entries": [
-								"Every dhampir knows a thirst slaked only by the living. This desire is a whisper in the mind, a tinge to the sight, a reflex constantly needing to be suppressed. Those who overindulge their thirst risk losing control and forever viewing others as prey. Those who resist might find exceptional ways of controlling their urges or suppress it through constant, molar-grinding restraint. In any case, temptation haunts dhampirs, and circumstances conspire to give them endless reasons to indulge.",
-								"While many dhampirs thirst for blood, your character might otherwise gain sustenance from the living. Roll on or choose an option from the Dhampir Hungers table to determine what tempts your character to feed.",
-								{
-									"type": "table",
-									"caption": "Dhampir Hungers",
-									"colLabels": [
-										"d8",
-										"Hunger"
-									],
-									"colStyles": [
-										"col-2 text-center",
-										"col-10"
-									],
-									"rows": [
-										[
-											"1",
-											"Blood"
-										],
-										[
-											"2",
-											"Flesh or raw meat"
-										],
-										[
-											"3",
-											"Cerebral spinal fluid"
-										],
-										[
-											"4",
-											"Esoteric humors"
-										],
-										[
-											"5",
-											"Psychic energy"
-										],
-										[
-											"6",
-											"A color from one's appearance"
-										],
-										[
-											"7",
-											"Dreams"
-										],
-										[
-											"8",
-											"Life energy"
-										]
-									]
-								}
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Dhampir Origins",
-							"entries": [
-								"Dhampirs often arise from encounters with vampires, but all manner of macabre bargains, necromantic influences, and encounters with mysterious immortals might have transformed your character. The Dhampir Origins table provides suggestions for how your character gained their lineage.",
-								{
-									"type": "table",
-									"caption": "Dhampir Origins",
-									"colLabels": [
-										"d8",
-										"Origin"
-									],
-									"colStyles": [
-										"col-2 text-center",
-										"col-10"
-									],
-									"rows": [
-										[
-											"1",
-											"You are the reincarnation of an ancestor who was a vampiric tyrant."
-										],
-										[
-											"2",
-											"Your pact with a predatory deity, fiend, fey, or spirit causes you to share their hunger."
-										],
-										[
-											"3",
-											"You survived being attacked by a vampire but were forever changed."
-										],
-										[
-											"4",
-											"A parasite inhabits your body. You indulge your hunger to sate it."
-										],
-										[
-											"5",
-											"You loved an immortal and were willing to be transformed into a vampire to join them, but tragedy interrupted the transformation."
-										],
-										[
-											"6",
-											"You are a diminished manifestation of an otherworldly being. Slaking your hunger hastens your renewal."
-										],
-										[
-											"7",
-											"You don't know your origins, but you were raised by vampires or other monsters."
-										],
-										[
-											"8",
-											"A radical experiment changed your body, making you reliant on others for vital fluids."
-										]
-									]
-								}
-							]
-						}
-					]
+						"path": "races/MPMM/Deep Gnome.webp"
+					},
+					"credit": "Tom Babbey, Olly Lawson"
 				}
 			]
 		},
@@ -1304,8 +1136,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VRGR/Dhampir.png"
-					}
+						"path": "races/VRGR/Dhampir.webp"
+					},
+					"credit": "Katerina Ladon"
 				}
 			]
 		},
@@ -1388,7 +1221,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/PHB/Dragonborn.png"
+						"path": "races/PHB/Dragonborn.webp"
 					}
 				}
 			]
@@ -1414,15 +1247,9 @@
 						"type": "internal",
 						"path": "races/FTD/Chromatic Dragonborn.webp"
 					},
-					"title": "A red dragonborn sell-sword waits for a client"
+					"title": "A red dragonborn sell-sword waits for a client",
+					"credit": "Randy Vargas"
 				}
-			]
-		},
-		{
-			"name": "Dragonborn (Chromatic)",
-			"source": "UA2021DraconicOptions",
-			"entries": [
-				"Dragonborn with chromatic ancestry claim the raw elemental power of the chromatic dragons. The vibrant colors of the chromatics\u2014black, blue, green, red, and white\u2014gleam in their scaled skin and in the deadly energy of their breath weapons. Theirs is the raw elemental fury of the volcano, of biting arctic winds, of raging lightning storms; theirs also is the subtle whisper of swamp and forest, corrosive and toxic."
 			]
 		},
 		{
@@ -1443,8 +1270,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/EGW/Dragonborn (Draconblood).png"
-					}
+						"path": "races/EGW/Dragonborn (Draconblood).webp"
+					},
+					"credit": "Axel Defois"
 				}
 			]
 		},
@@ -1461,15 +1289,9 @@
 						"type": "internal",
 						"path": "races/FTD/Gem Dragonborn.webp"
 					},
-					"title": "Sapphire, amethyst, and emerald dragonborn share stories around the fire"
+					"title": "Sapphire, amethyst, and emerald dragonborn share stories around the fire",
+					"credit": "Zoltan Boros"
 				}
-			]
-		},
-		{
-			"name": "Dragonborn (Gem)",
-			"source": "UA2021DraconicOptions",
-			"entries": [
-				"Dragonborn with gem ancestry partake of the heritage of all gem dragons, who claim to be heirs of the ruby dragon, Sardior\u2014the firstborn of all creation, made by Bahamut and Tiamat in the first days of the First World. The colors and mysterious powers of the gem dragons\u2014amethyst, crystal, emerald, sapphire, and topaz\u2014gleam in their scaled skin and course through their veins. Theirs are the wonders of the mind, the force of will, the brilliant light of insight, the resounding echo of discovery, and the desiccation of despair."
 			]
 		},
 		{
@@ -1485,15 +1307,9 @@
 						"type": "internal",
 						"path": "races/FTD/Metallic Dragonborn.webp"
 					},
-					"title": "A copper dragonborn readies her acidic breath as foes approach"
+					"title": "A copper dragonborn readies her acidic breath as foes approach",
+					"credit": "Andrey Kuzinskiy"
 				}
-			]
-		},
-		{
-			"name": "Dragonborn (Metallic)",
-			"source": "UA2021DraconicOptions",
-			"entries": [
-				"Dragonborn with metallic ancestry lay claim to the unflinching tenacity of the metallic dragons\u2014brass, bronze, copper, gold, and silver\u2014whose hues glint in their scales. Theirs is the fire of hearth and forge, the cold of high mountain air, the spark of inspiration, and the scouring touch of acid that cleanses and purifies."
 			]
 		},
 		{
@@ -1514,8 +1330,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/EGW/Dragonborn (Ravenite).png"
-					}
+						"path": "races/EGW/Dragonborn (Ravenite).webp"
+					},
+					"credit": "Axel Defois"
 				}
 			]
 		},
@@ -1531,8 +1348,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Duergar.png"
-					}
+						"path": "races/MPMM/Duergar.webp"
+					},
+					"credit": "Christopher Bradley, Zuzanna Wuzyk"
 				}
 			]
 		},
@@ -1655,7 +1473,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/PHB/Dwarf.png"
+						"path": "races/PHB/Dwarf.webp"
 					}
 				}
 			]
@@ -1716,15 +1534,26 @@
 			"name": "Dwarf (Kaladesh)",
 			"source": "PSK",
 			"entries": [
+				{
+					"type": "quote",
+					"entries": [
+						"It's dwarf built. There is no finer mark of quality."
+					]
+				},
 				"To the artisans of Kaladesh, a device's beauty is almost as important as its function. Different artists, though, have different definitions of beauty, and to most dwarves, the highest mark of beauty is quality. Nothing is more exquisite than a machine that endures\u2014one that functions perfectly, with a minimum of maintenance, despite the passage of years.",
 				"Dwarves don't understand laziness or shortcuts. Just as a machine must function smoothly at all times, so too an artisan should work steadily and with care. Dwarves take pride in their work ethic, and abhor any attitude or behavior that would undermine the quality of their work. They are more thorough than speedy, and although a dwarf's work might take longer to complete, its quality makes the time worthwhile. If a job must be done, a dwarf will see that it is done correctly. And when a dwarf repairs a machine, it will work as well as it did when it was first built, if not better\u2014and it will last.",
 				"Among the folk of other races, dwarves have a reputation for being utterly fearless. This is largely because their work often finds them scaling tall buildings or hanging from the undersides of airships. Far from being reckless, though, dwarves enter any potentially dangerous situation with firm safeguards in place, thoroughly prepared to avoid any accident. With an unshakable trust in the quality of harnesses, scaffolding, and handiwork, a dwarf has no need to fear falling.",
 				{
 					"type": "entries",
-					"name": "Dwarf Politics",
 					"entries": [
-						"Dwarves gravitate to where the work is. Accordingly, many dwarves appreciate the Consulate as an inexhaustible source of work opportunities. For its part, the Consulate values dwarves for their painstaking, perfectionist approach to building and maintenance. As a result, dwarves are employed at every level of the Consulate government, including having representatives among the Enlightened Keepers, the consuls themselves. Dwarf edificers keep the machinery of the cities running smoothly, while dwarf enforcers protect property and help keep the peace. However, it is the potential for making great things, more so than any philosophical leaning, that ties most dwarves to the Consulate.",
-						"Dwarves are not typically drawn to politics, but some do take issue with what they see as slapdash construction carried out in the Consulate's foundries. Mass production on the scale of the Consulate's efforts is an affront to the ideals of true artisanship, they argue, and those who are most offended by this insult sometimes align themselves with renegade groups."
+						{
+							"type": "entries",
+							"name": "Dwarf Politics",
+							"entries": [
+								"Dwarves gravitate to where the work is. Accordingly, many dwarves appreciate the Consulate as an inexhaustible source of work opportunities. For its part, the Consulate values dwarves for their painstaking, perfectionist approach to building and maintenance. As a result, dwarves are employed at every level of the Consulate government, including having representatives among the Enlightened Keepers, the consuls themselves. Dwarf edificers keep the machinery of the cities running smoothly, while dwarf enforcers protect property and help keep the peace. However, it is the potential for making great things, more so than any philosophical leaning, that ties most dwarves to the Consulate.",
+								"Dwarves are not typically drawn to politics, but some do take issue with what they see as slapdash construction carried out in the Consulate's foundries. Mass production on the scale of the Consulate's efforts is an affront to the ideals of true artisanship, they argue, and those who are most offended by this insult sometimes align themselves with renegade groups."
+							]
+						}
 					]
 				}
 			],
@@ -1734,14 +1563,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSK/Dwarf.webp"
-					}
+					},
+					"title": "Inspired Charge",
+					"credit": "Deruchenko Alexander"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSK/Dwarf2.webp"
-					}
+					},
+					"title": "Acrobatic Maneuver",
+					"credit": "Winona Nelson"
 				}
 			]
 		},
@@ -1811,8 +1644,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Eladrin.png"
-					}
+						"path": "races/MPMM/Eladrin.webp"
+					},
+					"credit": "Eric Belisle"
 				}
 			]
 		},
@@ -1930,7 +1764,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/PHB/Elf.png"
+						"path": "races/PHB/Elf.webp"
 					}
 				}
 			]
@@ -2282,6 +2116,12 @@
 			"name": "Elf (Kaladesh)",
 			"source": "PSK",
 			"entries": [
+				{
+					"type": "quote",
+					"entries": [
+						"Everything is connected, and aether flows through it all."
+					]
+				},
 				"The movement of aether through the world is visible and obvious where it courses in glowing rivers across the sky, sweeps across sculpted plains, or pours through great urban pipelines. But the elves of Kaladesh are uniquely in tune with the flow of aether throughout the plane, both seen and unseen, and with the subtle ways it suffuses and influences all life. They call this flow the Great Conduit, and they believe that the only way to truly grasp it is to be a part of it, simultaneously shaping it and being shaped in return.",
 				"Thanks to this sensitivity, elves feel a deep connection to other living things. They engage deeply with the world around them, delighting in natural systems and social interactions alike. They revel in exploring the interconnectedness of nature and society, seeing the flow of aether from nature to invention, from person to person, from body to mind and heart.",
 				"Elves live in harmony with both nature and technology. They believe that nature inspires technology: each piece of artifice is an expression of natural laws and principles, and captures one element of aether's flow in a sort of microcosmic system. Technology, in turn, can nurture the natural world, helping life grow and flourish in places and ways that would otherwise be impossible."
@@ -2292,14 +2132,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSK/Elf.webp"
-					}
+					},
+					"title": "Wild Wanderer",
+					"credit": "Sidharth Chaturvedi"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSK/Elf2.webp"
-					}
+					},
+					"title": "Cultivator's Caravan",
+					"credit": "Mark Zug"
 				}
 			]
 		},
@@ -2311,12 +2155,13 @@
 				"source": "PSK",
 				"_mod": {
 					"entries": {
-						"mode": "prependArr",
+						"mode": "appendArr",
 						"items": {
-							"type": "section",
+							"type": "entries",
 							"entries": [
 								{
 									"type": "entries",
+									"name": "Bishtahar and Tirahar",
 									"entries": [
 										"Elves who dwell in the forest and countryside are known as the Bishtahar. Most live in isolated communities away from other races, though they still trade with them. In fact, much of Kaladesh's food supply is grown by elves. Bishtahar cultivators grow food, decorative flowers, wood for building, and elaborate living sculptures in their meandering gardens and fields. They use the plane's ubiquitous technology to foster the growth of plants and animals, utilizing automatons as gardeners and herders, and employing elaborate, nearly invisible systems controlling heat, water, and nutrients.",
 										"A garden tended by elves seems to grow naturally in an aesthetically pleasing fashion. In fact, many of the forests and plains of Kaladesh are planted and tended by elves as well. What might appear at first to be wild countryside is more likely a carefully planned landscape designed to meet the needs of the people and animals that live there.",
@@ -2337,12 +2182,13 @@
 				"source": "PSK",
 				"_mod": {
 					"entries": {
-						"mode": "prependArr",
+						"mode": "appendArr",
 						"items": {
-							"type": "section",
+							"type": "entries",
 							"entries": [
 								{
 									"type": "entries",
+									"name": "Vahadar",
 									"entries": [
 										"The Vahadar are elves who dwell in the cities of Kaladesh. They are comfortable with technology, and work as planners, architects, aether-seers, or inventors. Some of them use the techniques of Bishtahar cultivators to grow food on rooftops, towers, and greenways. The Vahadar are generally integrated into the rest of society on Kaladesh, living in cities dominated by the other races (though, as in Ghirapur, many of them live in specific garden-like neighborhoods) and engaging in trade."
 									]
@@ -2371,8 +2217,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/EGW/Elf (Pallid).png"
-					}
+						"path": "races/EGW/Elf (Pallid).webp"
+					},
+					"credit": "Axel Defois"
 				}
 			]
 		},
@@ -2484,14 +2331,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSZ/Elf.webp"
-					}
+					},
+					"title": "Turntimber Ranger",
+					"credit": "Wayne Reynolds"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSZ/Elf2.webp"
-					}
+					},
+					"title": "Lifespring Druid",
+					"credit": "Willian Murai"
 				}
 			]
 		},
@@ -2517,23 +2368,7 @@
 						}
 					}
 				}
-			},
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Elf.webp"
-					}
-				},
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Elf2.webp"
-					}
-				}
-			]
+			}
 		},
 		{
 			"name": "Elf (Zendikar; Mul Daya Nation)",
@@ -2558,23 +2393,7 @@
 						}
 					}
 				}
-			},
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Elf.webp"
-					}
-				},
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Elf2.webp"
-					}
-				}
-			]
+			}
 		},
 		{
 			"name": "Elf (Zendikar; Tajuru Nation)",
@@ -2598,21 +2417,31 @@
 						}
 					}
 				}
-			},
-			"images": [
+			}
+		},
+		{
+			"name": "Elves of Many Realms",
+			"source": "MPMM",
+			"entries": [
 				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Elf.webp"
-					}
-				},
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Elf2.webp"
-					}
+					"type": "entries",
+					"entries": [
+						{
+							"type": "entries",
+							"entries": [
+								{
+									"type": "inset",
+									"page": 30,
+									"name": "Elves of Many Realms",
+									"entries": [
+										"Created by the god {@deity Corellon Larethian|Elven|MTF|Corellon}, the first elves were Fey beings who cavorted on various planes of existence, changing their physical forms at will. Outside the glory of Arvandor, their favourite place was the feywild\u2014a realm of unbridled passion. It was to that place of splendors that elves fled after they were exiled from {@deity Corellon Larethian|Elven|MTF|Corellon's} presence for plotting with their god's rival, {@deity Lolth|Drow|MTF}. And it was there that they transformed from Fey creatures into Humanoids and lost their ability to shape-shift at will. Afterward, they often wept as they realized what they had lost, their sorrow made even deeper by the Feywild's influence. But in the Feywild, they also discovered the potential joys of being people of fixed forms, and they rediscovered hope once they renounced {@deity Lolth|Drow|MTF|Lolth's} treachery.",
+										"Most elves eventually spread from the Feywild to other worlds, as wanderlust and curiosity drove them to the far reaches of the multiverse. In those other worlds, elves developed the physical forms now associated with them. Because of their original mutable nature, each group of elves mystically took on characteristics of the environment with which they bonded, whether forests ({@race Elf (Wood)|PHB|wood elves}), fey crossings in the Material Plane ({@race Elf (High)|PHB|high elves}), the Underdark ({@race Elf (Drow)|PHB|drow}), the Shadowfell ({@race shadar-kai|MPMM}), the Feywild ({@race eladrin|MPMM}), or oceans ({@race sea elf|MPMM|sea elves}).",
+										"In some places, {@deity Corellon Larethian|Elven|MTF|Corellon} has passed from elves' memory, but the god's blood flows within them still, even if they know nothing of its source. That blood is what causes them to evolve after spending centuries connected to a particular environment, so it is only a matter of time before other kinds of elves emerge."
+									]
+								}
+							]
+						}
+					]
 				}
 			]
 		},
@@ -2674,62 +2503,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Fairy.png"
-					}
-				}
-			]
-		},
-		{
-			"name": "Fairy",
-			"source": "UA2021FolkOfTheFeywild",
-			"entries": [
-				"The Feywild is home to many fantastic peoples, including fairies. Fairies are a wee folk, but not nearly as much so as their pixie and sprite friends.",
-				"Infused with the magic of the Feywild, fairies share a few commonalities with one another but can differ widely in appearance, behavior, and attitude. Many fairies have a special physical characteristic that sets them apart from other creatures of their kind. For your fairy, roll on the Fey Characteristic table or choose an option from it. The Feywild is a wild place, so come up with your own characteristic if none of these fit your character.",
-				{
-					"type": "table",
-					"caption": "Fey Characteristics",
-					"colLabels": [
-						"d8",
-						"Characteristic"
-					],
-					"colStyles": [
-						"col-2 text-center",
-						"col-10"
-					],
-					"rows": [
-						[
-							"1",
-							"You have small wings like those of an insect."
-						],
-						[
-							"2",
-							"You have shimmering, multicolored skin."
-						],
-						[
-							"3",
-							"You have exceptionally large ears."
-						],
-						[
-							"4",
-							"A constant, glittering mist surrounds you."
-						],
-						[
-							"5",
-							"You have a small spectral horn on your forehead, like a little unicorn horn."
-						],
-						[
-							"6",
-							"Your hands never look dirty."
-						],
-						[
-							"7",
-							"You smell like fresh brownies."
-						],
-						[
-							"8",
-							"A noticeable, harmless chill surrounds you."
-						]
-					]
+						"path": "races/MPMM/Fairy.webp"
+					},
+					"credit": "Nikki Dawes"
 				}
 			]
 		},
@@ -2791,8 +2567,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/WBtW/Fairy.png"
-					}
+						"path": "races/WBtW/Fairy.webp"
+					},
+					"credit": "Nikki Dawes"
 				}
 			]
 		},
@@ -2809,8 +2586,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Firbolg.png"
-					}
+						"path": "races/MPMM/Firbolg.webp"
+					},
+					"credit": "Shawn Wood"
 				}
 			]
 		},
@@ -2939,8 +2717,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Firbolg.png"
-					}
+						"path": "races/VGM/Firbolg.webp"
+					},
+					"credit": "Shawn Wood"
 				}
 			]
 		},
@@ -3004,8 +2783,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/EEPC/Genasi.png"
-					}
+						"path": "races/EEPC/Genasi.webp"
+					},
+					"credit": "Claudio Pozas"
 				}
 			]
 		},
@@ -3021,8 +2801,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Genasi.png"
-					}
+						"path": "races/MPMM/Genasi.webp"
+					},
+					"credit": "Claudio Pozas"
 				}
 			]
 		},
@@ -3173,17 +2954,9 @@
 					"href": {
 						"type": "internal",
 						"path": "races/AAG/Giff.webp"
-					}
+					},
+					"credit": "Scott Murphy"
 				}
-			]
-		},
-		{
-			"name": "Giff",
-			"source": "UA2021TravelersOfTheMultiverse",
-			"entries": [
-				"Giff are tall, broad-shouldered folk with hippo-like features. Some have smooth skin, while others have short bristles on their faces and the tops of their heads. As beings of impressive size and unforgettable appearance, giff are noticed wherever they go.",
-				"Storytelling is a rich tradition among giff, and it's not uncommon to see a giff recounting their past exploits to an enraptured crowd. Having a friendly giff nearby when a tavern brawl erupts can also be useful, for a giff can usually more than hold their own when pleasant revelry devolves into fisticuffs.",
-				"The giff are split into two camps concerning how their name is pronounced. Half of them say it with a hard g, half with a soft g. Disagreements over the correct pronunciation often blossom into hard feelings, loud arguments, and headbutting contests, but rarely escalate beyond that."
 			]
 		},
 		{
@@ -3228,7 +3001,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "races/MTF/Githyanki.png"
+								"path": "races/MTF/Githyanki.webp"
 							}
 						}
 					}
@@ -3272,8 +3045,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Githyanki.png"
-					}
+						"path": "races/MPMM/Githyanki.webp"
+					},
+					"credit": "Zoltan Boros"
 				}
 			]
 		},
@@ -3289,54 +3063,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Githzerai.png"
-					}
-				}
-			]
-		},
-		{
-			"name": "Glitchling",
-			"source": "UA2022WondersOfTheMultiverse",
-			"entries": [
-				"Created by forces of planar law, glitchlings are winged, human-like creatures made from a merger of magic and machine. These explorers seek to learn all they can about the multiverse and its creatures. Some glitchlings then carry what they learn back to lawful planes, like Mechanus, to inform the orderly working of the multiverse. Others become enamored with travel and the peoples they encounter, and they seek to make a life of their own among the planes.",
-				"Glitchlings begin their existences with rudimentary personalities. As they absorb information and experiences, their personalities grow, but many retain quirks associated with their lawful origins. You can roll or choose a quirk from the Orderly Quirk table or create your own.",
-				{
-					"type": "table",
-					"caption": "Orderly Quirk",
-					"colLabels": [
-						"d6",
-						"Quirk"
-					],
-					"colStyles": [
-						"col-1 text-center",
-						"col-11"
-					],
-					"rows": [
-						[
-							"1",
-							"I collect things, whether a specific kind of object or things made of a particular material."
-						],
-						[
-							"2",
-							"We think of ourselves as being a part of the collective, lawful forces of the multiverse and don't refer to ourselves as a singular being."
-						],
-						[
-							"3",
-							"I seek out new experiences so I can better understand the freedom of my existence."
-						],
-						[
-							"4",
-							"I preface things I say with a short description, such as: \"observation,\" \"interjection,\" or \"query.\""
-						],
-						[
-							"5",
-							"I plan elaborate responses to every contingency, ready to execute at an instant's notice."
-						],
-						[
-							"6",
-							"I investigate people's intentions behind their actions, trying to solve the equation that guides them."
-						]
-					]
+						"path": "races/MPMM/Githzerai.webp"
+					},
+					"credit": "Scott Murphy"
 				}
 			]
 		},
@@ -3434,7 +3163,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/PHB/Gnome.png"
+						"path": "races/PHB/Gnome.webp"
 					}
 				}
 			]
@@ -3591,6 +3320,14 @@
 		},
 		{
 			"name": "Goblin",
+			"source": "ERLW",
+			"_copy": {
+				"name": "Bugbear",
+				"source": "ERLW"
+			}
+		},
+		{
+			"name": "Goblin",
 			"source": "GGR",
 			"entries": [
 				{
@@ -3652,8 +3389,50 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Goblin.png"
-					}
+						"path": "races/MPMM/Goblin.webp"
+					},
+					"credit": "Mike Jordana"
+				}
+			]
+		},
+		{
+			"name": "Goblin",
+			"source": "PSZ",
+			"entries": [
+				{
+					"type": "entries",
+					"entries": [
+						"Goblins are an inquisitive and adaptable race hampered by their small size, their natural cowardice, and a severe shortage of common sense. They eagerly explore areas that others hesitate to enter, and obsessively fiddle with magic that more sensible folk would take careful precautions with. They prize ancient artifacts not for their inherent value, but primarily as a mark of status\u2014for a precious trophy proves that its owner survived a delve into a deep and dangerous ruin.",
+						"Goblins are associated with red mana. Their shamans are fond of spells that create or control fire and lightning to smite their foes, and they are quick to follow their impulses and passions into action without much forethought. Life to a goblin is an adventure full of new things to explore and experience.",
+						{
+							"type": "entries",
+							"name": "Long Arms and Stony Skin",
+							"entries": [
+								"A typical goblin stands between three-and-a-half and five feet tall, with a slender, elongated build. Goblins' arms are unusually long and spindly, making them adept at climbing cliffs and trees. Their skin has a stony texture, ranging in color from red-brown to moss green or gray. Their ears are large and swept back, their eyes are intensely red, and many sport heavy bone protrusions on their spines or elbows. Males have similar growths jutting from their chins, while females have heavier growths on their foreheads.",
+								"This distinctive appearance is a direct result of the goblins' unusual diet. Before the Eldrazi's rise, goblins supplemented their normal diet with a kind of rock they pounded into bits and called \"grit.\" The presence of the Eldrazi in Zendikar has poisoned this rock, so the goblins have taken to eating powdered hedrons instead. Eating this magic-infused stone has given the goblins resistance to the maddening psychic emanations of the Eldrazi. As an added benefit, it toughens their skin, protecting them from the elements and from physical dangers."
+							]
+						}
+					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Goblin.webp"
+					},
+					"title": "Zada, Hedron Grinder",
+					"credit": "Chris Rallis"
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Goblin2.webp"
+					},
+					"title": "Slab Hammer",
+					"credit": "Joeseph Meehan"
 				}
 			]
 		},
@@ -3666,7 +3445,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Goblin.png"
+						"path": "races/VGM/Goblin.webp"
 					}
 				}
 			]
@@ -3709,44 +3488,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSX/Goblin.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Goblin (Zendikar)",
-			"source": "PSZ",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Goblins are an inquisitive and adaptable race hampered by their small size, their natural cowardice, and a severe shortage of common sense. They eagerly explore areas that others hesitate to enter, and obsessively fiddle with magic that more sensible folk would take careful precautions with. They prize ancient artifacts not for their inherent value, but primarily as a mark of status\u2014for a precious trophy proves that its owner survived a delve into a deep and dangerous ruin.",
-						"Goblins are associated with red mana. Their shamans are fond of spells that create or control fire and lightning to smite their foes, and they are quick to follow their impulses and passions into action without much forethought. Life to a goblin is an adventure full of new things to explore and experience.",
-						{
-							"type": "entries",
-							"name": "Long Arms and Stony Skin",
-							"entries": [
-								"A typical goblin stands between three-and-a-half and five feet tall, with a slender, elongated build. Goblins' arms are unusually long and spindly, making them adept at climbing cliffs and trees. Their skin has a stony texture, ranging in color from red-brown to moss green or gray. Their ears are large and swept back, their eyes are intensely red, and many sport heavy bone protrusions on their spines or elbows. Males have similar growths jutting from their chins, while females have heavier growths on their foreheads.",
-								"This distinctive appearance is a direct result of the goblins' unusual diet. Before the Eldrazi's rise, goblins supplemented their normal diet with a kind of rock they pounded into bits and called \"grit.\" The presence of the Eldrazi in Zendikar has poisoned this rock, so the goblins have taken to eating powdered hedrons instead. Eating this magic-infused stone has given the goblins resistance to the maddening psychic emanations of the Eldrazi. As an added benefit, it toughens their skin, protecting them from the elements and from physical dangers."
-							]
-						}
-					]
-				}
-			],
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Goblin.webp"
-					}
+					},
+					"title": "Firecannon Blast",
+					"credit": "Svetlin Velinov"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/PSZ/Goblin2.webp"
-					}
+						"path": "races/PSX/Goblin2.webp"
+					},
+					"title": "Goblin Trailblazer",
+					"credit": "Josh Hass"
 				}
 			]
 		},
@@ -3754,7 +3507,7 @@
 			"name": "Goblin (Zendikar; Grotag Tribe)",
 			"source": "PSZ",
 			"_copy": {
-				"name": "Goblin (Zendikar)",
+				"name": "Goblin",
 				"source": "PSZ",
 				"_mod": {
 					"entries": {
@@ -3772,29 +3525,13 @@
 						}
 					}
 				}
-			},
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Goblin.webp"
-					}
-				},
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Goblin2.webp"
-					}
-				}
-			]
+			}
 		},
 		{
 			"name": "Goblin (Zendikar; Lavastep Tribe)",
 			"source": "PSZ",
 			"_copy": {
-				"name": "Goblin (Zendikar)",
+				"name": "Goblin",
 				"source": "PSZ",
 				"_mod": {
 					"entries": {
@@ -3812,29 +3549,13 @@
 						}
 					}
 				}
-			},
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Goblin.webp"
-					}
-				},
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Goblin2.webp"
-					}
-				}
-			]
+			}
 		},
 		{
 			"name": "Goblin (Zendikar; Tuktuk Tribe)",
 			"source": "PSZ",
 			"_copy": {
-				"name": "Goblin (Zendikar)",
+				"name": "Goblin",
 				"source": "PSZ",
 				"_mod": {
 					"entries": {
@@ -3852,23 +3573,7 @@
 						}
 					}
 				}
-			},
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Goblin.webp"
-					}
-				},
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Goblin2.webp"
-					}
-				}
-			]
+			}
 		},
 		{
 			"name": "Goliath",
@@ -3881,8 +3586,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Goliath.png"
-					}
+						"path": "races/MPMM/Goliath.webp"
+					},
+					"credit": "Eric Belisle, Jon Hodgson"
 				}
 			]
 		},
@@ -3965,7 +3671,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Goliath.png"
+						"path": "races/VGM/Goliath.webp"
 					}
 				}
 			]
@@ -3984,16 +3690,9 @@
 					"href": {
 						"type": "internal",
 						"path": "races/AAG/Hadozee.webp"
-					}
+					},
+					"credit": "Zuzanna Wuzyk"
 				}
-			]
-		},
-		{
-			"name": "Hadozee",
-			"source": "UA2021TravelersOfTheMultiverse",
-			"entries": [
-				"Hadozees are people with simian features that long ago adapted to live among the tall trees of their home world. They are natural climbers, with feet as dexterous as their hands, even to the extent of having opposable thumbs. Membranes of skin hang loosely from their arms and legs. When stretched taut, these membranes enable a hadozee to glide.",
-				"The first hadozees were hunted by large natural predators. To survive in this hostile environment, they developed an instinctual sense of community. Today, that same instinct compels many hadozees to cultivate friendships, knowing there is safety in numbers."
 			]
 		},
 		{
@@ -4047,7 +3746,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/PHB/Half-Elf.png"
+						"path": "races/PHB/Half-Elf.webp"
 					}
 				}
 			]
@@ -4128,7 +3827,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/PHB/Half-Orc.png"
+						"path": "races/PHB/Half-Orc.webp"
 					}
 				}
 			]
@@ -4258,7 +3957,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/PHB/Halfling.png"
+						"path": "races/PHB/Halfling.webp"
 					}
 				}
 			]
@@ -4336,8 +4035,9 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "races/EGW/Halfling (Lotusden).png"
-							}
+								"path": "races/EGW/Halfling (Lotusden).webp"
+							},
+							"credit": "Axel Defois"
 						}
 					}
 				}
@@ -4379,8 +4079,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Harengon.png"
-					}
+						"path": "races/MPMM/Harengon.webp"
+					},
+					"credit": "Beth Trott, Shawn Wood"
 				}
 			]
 		},
@@ -4396,88 +4097,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/WBtW/Harengon.png"
-					}
-				}
-			]
-		},
-		{
-			"name": "Hexblood",
-			"source": "UA2021GothicLineages",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Where wishing fails, ancient magic can offer a heart's desire\u2014at least, for a time. Hexbloods are individuals infused with eldritch magic, fey energy, or mysterious witchcraft. Some who enter into bargains with hags gain their deepest wishes but eventually find themselves transformed. These changes evidence a hag's influence: ears that split in forked points, skin in wild shades, lengthy hair that regrows if cut, and an irremovable living crown. Along with these marks, hexbloods manifest hag-like traits, such as long life, {@sense darkvision}, and a variety of magical methods to beguile the senses and avoid the same.",
-						"While many hexbloods gain their lineage after making a deal with a hag, others reveal their nature as they age\u2014particularly if a hag influenced them early in life or even before their birth. Many hexbloods turn to lives of adventure, seeking to discover the mysteries of their magic, to forge a connection with their fey natures, or to avoid a hag that obsesses over them.",
-						{
-							"type": "entries",
-							"name": "Heir of Hags",
-							"entries": [
-								"One way hags create more of their kind is through the creation of hexbloods. Every hexblood exhibits features suggestive of the hag whose magic inspires their powers. This includes an unusual crown, often called a \"eldercross\" or \"witch's turn.\" This living, garland-like part of a hexblood's body extends from their temples and wraps behind the head, serving as a visible mark of the bargain between hag and hexblood, a debt owed, or a change to come."
-							]
-						},
-						{
-							"type": "inset",
-							"name": "Becoming a Hag",
-							"entries": [
-								"Hags can undertake a ritual to irreversibly transform a hexblood they created into a new hag, either one of their own kind or that embodies the hexblood's nature. This requires that both the hag and hexblood be in the same place and consent to the lengthy ritual\u2014circumstances most hexbloods shun but might come to accept over the course of centuries. Once a hexblood undergoes this irreversible ritual, they emerge as a hag NPC no longer under the control of the hexblood's player, unless the DM rules otherwise."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Hexblood Origins",
-							"entries": [
-								"A bargain with a hag or other eerie forces transformed your character into a magical being. Roll on or choose an option from the Hexblood Origins table to determine how your character gained their lineage.",
-								{
-									"type": "table",
-									"caption": "Hexblood Origins",
-									"colLabels": [
-										"d8",
-										"Origin"
-									],
-									"colStyles": [
-										"col-2 text-center",
-										"col-10"
-									],
-									"rows": [
-										[
-											"1",
-											"Seeking a child, your parent made a bargain with a hag. You are the result of that arrangement."
-										],
-										[
-											"2",
-											"Fey kidnappers swapped you and your parents' child."
-										],
-										[
-											"3",
-											"A coven of hags lost one of their members. You were created to replace the lost hag."
-										],
-										[
-											"4",
-											"You were cursed as a child. A deal with the spirits of the forest transformed you into a hexblood, now free of the curse."
-										],
-										[
-											"5",
-											"You began life as a fey creature, but an accident or crime changed you and forced you from your home."
-										],
-										[
-											"6",
-											"A slighted druid transformed you and bound you to live only so long as a sacred tree bears fruit."
-										],
-										[
-											"7",
-											"You made a deal with a hag, but they twisted your words and transformed you."
-										],
-										[
-											"8",
-											"You are a child of the wilds. Animals and mysterious whispers were the only family you ever knew."
-										]
-									]
-								}
-							]
-						}
-					]
+						"path": "races/WBtW/Harengon.webp"
+					},
+					"credit": "Shawn Wood"
 				}
 			]
 		},
@@ -4545,10 +4167,19 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VRGR/Hexblood.png"
-					}
+						"path": "races/VRGR/Hexblood.webp"
+					},
+					"credit": "Kai Carpenter"
 				}
 			]
+		},
+		{
+			"name": "Hobgoblin",
+			"source": "ERLW",
+			"_copy": {
+				"name": "Bugbear",
+				"source": "ERLW"
+			}
 		},
 		{
 			"name": "Hobgoblin",
@@ -4563,18 +4194,10 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Hobgoblin.png"
-					}
+						"path": "races/MPMM/Hobgoblin.webp"
+					},
+					"credit": "Eric Belisle, Julian Kok"
 				}
-			]
-		},
-		{
-			"name": "Hobgoblin",
-			"source": "UA2021FolkOfTheFeywild",
-			"entries": [
-				"Hobgoblins trace their origins to the Feywild, where they first appeared with their goblin and bugbear kin. That history has left its mark, for though hobgoblins are found throughout the Material Plane, they continue to channel an aspect of the Feywild's rule of reciprocity, which creates a mystical bond between the giver and the receiver of a gift.",
-				"On some worlds, such bonds lead hobgoblins to form communities with deep ties to each other. In the Forgotten Realms, vast hobgoblin legions have emerged, with ranks upon ranks of devoted soldiers noteworthy for how effective they are at fighting as a unit.",
-				"Hobgoblins are generally taller than their goblin cousins but not quite as big as bugbears. They have curved, pointed ears and noses that turn red or blue during displays of emotion."
 			]
 		},
 		{
@@ -4586,7 +4209,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Hobgoblin.png"
+						"path": "races/VGM/Hobgoblin.webp"
 					}
 				}
 			]
@@ -4679,7 +4302,7 @@
 														{
 															"type": "item",
 															"name": "Calishite Names:",
-															"entry": "(Male) Aseir, Bardeid, Haseid, Khemed, Mehmen, Sudeiman, Zasheir; (female) Atala, Ceidil, Hama, ]asmal, Meilil, Seipora, Yasheira, Zasheida; (surnames) Basha, Dumein, ]assan, Khalid, Mostana, Pashar, Rein"
+															"entry": "(Male) Aseir, Bardeid, Haseid, Khemed, Mehmen, Sudeiman, Zasheir; (female) Atala, Ceidil, Hama, Jasmal, Meilil, Seipora, Yasheira, Zasheida; (surnames) Basha, Dumein, Jassan, Khalid, Mostana, Pashar, Rein"
 														}
 													]
 												}
@@ -4769,7 +4392,7 @@
 														{
 															"type": "item",
 															"name": "Rashemi Names:",
-															"entry": "(Male) Borivik, Faurgar, ]andar, Kanithar, Madislak, Ralmevik, Shaumar, Vladislak; (female) Fyevarra, Hulmarra, Immith, Imzel, Navarra, Shevarra, Tammith, Yuldra; (surnames) Chergoba, Dyernina, Iltazyara, Murnyethara, Stayanoga, Ulmokina"
+															"entry": "(Male) Borivik, Faurgar, Jandar, Kanithar, Madislak, Ralmevik, Shaumar, Vladislak; (female) Fyevarra, Hulmarra, Immith, Imzel, Navarra, Shevarra, Tammith, Yuldra; (surnames) Chergoba, Dyernina, Iltazyara, Murnyethara, Stayanoga, Ulmokina"
 														}
 													]
 												}
@@ -4812,7 +4435,7 @@
 														{
 															"type": "item",
 															"name": "Turami Names:",
-															"entry": "(Male) Anton, Diero, Marcon, Pieron, Rimardo, Romero, Salazar, Umbero; (female) Balama, Dona, Faila, ]alana, Luisa, Marta, Quara, Selise, Vonda; (surnames) Agosto, Astorio, Calabra, Domine, Falone, Marivaldi, Pisacar, Ramondo"
+															"entry": "(Male) Anton, Diero, Marcon, Pieron, Rimardo, Romero, Salazar, Umbero; (female) Balama, Dona, Faila, Jalana, Luisa, Marta, Quara, Selise, Vonda; (surnames) Agosto, Astorio, Calabra, Domine, Falone, Marivaldi, Pisacar, Ramondo"
 														}
 													]
 												}
@@ -4830,7 +4453,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/PHB/Human.png"
+						"path": "races/PHB/Human.webp"
 					}
 				}
 			]
@@ -4842,18 +4465,18 @@
 				{
 					"type": "entries",
 					"entries": [
-						"Of the five humanoid races of Amonkhet, humans are the most diverse and adaptable. Different humans train in a wide variety of fighting styles, including those particularly favored by other races. A human mage might use any of the five colors of mana, while mages of other races focus on one of only two colors. Human {@background vizier|psa|viziers} serve all five gods, and different human {@background initiate|psa|initiates} excel in different trials. Humans defy trends and categorization, and opponents who face a human in one-on-one combat can't know what kind of fight to expect\u2014from the foresight and cunning often associated with Kefnet, to a ruthlessness that emulates Bontu. At the beginning of such a fight, this uncertainty can give an edge to the human combatant.",
+						"Of the five humanoid races of Amonkhet, humans are the most diverse and adaptable. Different humans train in a wide variety of fighting styles, including those particularly favored by other races. A human mage might use any of the five colors of mana, while mages of other races focus on one of only two colors. Human {@background vizier|PSA|viziers} serve all five gods, and different human {@background initiate|PSA|initiates} excel in different trials. Humans defy trends and categorization, and opponents who face a human in one-on-one combat can't know what kind of fight to expect\u2014from the foresight and cunning often associated with Kefnet, to a ruthlessness that emulates Bontu. At the beginning of such a fight, this uncertainty can give an edge to the human combatant.",
 						"Once the fight has begun, of course, victory relies on different factors. But here, the human drive toward perfection once more tilts the scales in their favor. Humans are willing to go to any length, exhausting all available options, to reach the pinnacle of achievement and win the favor of the God-Pharaoh.",
 						{
 							"type": "entries",
-							"name": "Two Roads to Perfection ",
+							"name": "Two Roads to Perfection",
 							"entries": [
 								"As diverse as they are in most respects, the humans of Amonkhet share a drive toward perfection. However, they approach this challenge differently. Some humans specialize in a relatively narrow set of skills, while others seek to master a wide range.",
 								{
 									"type": "entries",
 									"name": "Perfection through Specialization",
 									"entries": [
-										"Humans who choose a path of specialization often piously identify with one of the five gods (often as a {@background vizier|psa}), and thus focus on one aspect of perfection. For them, the best way to earn a place in the afterlife is to hone a single facet of their character to the utmost quality, and as {@background initiate|psa|initiates}, they hope to put that quality to use in all five trials. A mage {@background initiate|psa} who identifies with Hazoret might cultivate zeal above all other virtues, master spells of fiery magic to channel that powerful emotion, and rely on raw energy and enthusiasm to get through the four trials leading up to Hazoret's final test. An {@background initiate|psa} dedicated to Oketra, on the other hand, relies on cooperation, solidarity, and teamwork to get through the trials\u2014even Bontu's Trial of Ambition, which attempts to break down such bonds. To Oketra's disciple, ambition means a drive to help an entire crop of initiates achieve glory together, rather than exalting oneself over others. Humans with this viewpoint see their chosen virtue coloring all others, and believe that the five gods offer their people a choice of which virtue to emulate and emphasize."
+										"Humans who choose a path of specialization often piously identify with one of the five gods (often as a {@background vizier|PSA}), and thus focus on one aspect of perfection. For them, the best way to earn a place in the afterlife is to hone a single facet of their character to the utmost quality, and as {@background initiate|PSA|initiates}, they hope to put that quality to use in all five trials. A mage {@background initiate|PSA} who identifies with Hazoret might cultivate zeal above all other virtues, master spells of fiery magic to channel that powerful emotion, and rely on raw energy and enthusiasm to get through the four trials leading up to Hazoret's final test. An {@background initiate|PSA} dedicated to Oketra, on the other hand, relies on cooperation, solidarity, and teamwork to get through the trials\u2014even Bontu's Trial of Ambition, which attempts to break down such bonds. To Oketra's disciple, ambition means a drive to help an entire crop of initiates achieve glory together, rather than exalting oneself over others. Humans with this viewpoint see their chosen virtue coloring all others, and believe that the five gods offer their people a choice of which virtue to emulate and emphasize."
 									]
 								},
 								{
@@ -4871,9 +4494,10 @@
 							"name": "Combat Classes",
 							"entries": [
 								"Most human initiates focus their studies on a single specialization\u2014hand-to-hand combat, long-range combat, or magical combat. Humans who choose hand-to-hand combat might focus with single-minded devotion on the use of the sickle-bladed khopesh (treat as a {@item longsword|phb}). Other hand-to-hand specialists take a broader perspective and study the use of all weapons equally.",
-								"Some humans, however, apply the idea of perfection through balance to these combat specializations as well, fusing multiple styles together into a unique blend. For example, a human initiate might use spells to shape sand into a sword or to wreathe arrows with life-draining magic. Other initiates strike with an axe in one hand while throwing smaller axes with the other, employing techniques of both hand-to-hand and long-range combat. Some humans use slings to launch fireballs, create illusory nets to restrain their opponents, or craft their blades from solid toxins."
+								"Some humans, however, apply the idea of perfection through balance to these combat specializations as well, fusing multiple styles together into a unique blend. For example, a human {@background initiate|PSA} might use spells to shape sand into a sword or to wreathe arrows with life-draining magic. Other {@background initiate|PSA|initiates} strike with an axe in one hand while throwing smaller axes with the other, employing techniques of both hand-to-hand and long-range combat. Some humans use slings to launch fireballs, create illusory nets to restrain their opponents, or craft their blades from solid toxins."
 							]
-						}
+						},
+						"The humans of Amonkhet use the {@race Human (Variant)|PHB|variant human} traits presented in the {@book Player's Handbook|PHB}. This allows them greater specialization from the very beginning of their careers, and emphasizes the diversity of the human race."
 					]
 				}
 			],
@@ -4883,14 +4507,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSA/Human (Amonkhet).webp"
-					}
+					},
+					"title": "Soul-Scar Mage",
+					"credit": "Steve Argyle"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSA/Human (Amonkhet)2.webp"
-					}
+					},
+					"title": "Victory",
+					"credit": "Grzegorz Rutkowski"
 				}
 			]
 		},
@@ -4914,21 +4542,27 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSI/Innistrad.webp"
-					}
+					},
+					"title": "Diregraf Escort",
+					"credit": "Ryan Pancoast"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSI/Innistrad2.webp"
-					}
+					},
+					"title": "Silverblade Paladin",
+					"credit": "Jason Chan"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSI/Innistrad3.webp"
-					}
+					},
+					"title": "Lunar Mystic",
+					"credit": "Wesley Burt"
 				}
 			]
 		},
@@ -5040,21 +4674,52 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSX/Human.webp"
-					}
+					},
+					"title": "Ixalli's Keeper",
+					"credit": "Lake Hurwitz"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSX/Human2.webp"
-					}
+					},
+					"title": "Navigator's Ruin",
+					"credit": "Zoltan Boros"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSX/Human3.webp"
-					}
+					},
+					"title": "Seeker's Squire",
+					"credit": "Anthony Palumbo"
+				}
+			]
+		},
+		{
+			"name": "Human (Kaladesh)",
+			"source": "PSK",
+			"entries": [
+				{
+					"type": "quote",
+					"entries": [
+						"Curiosity is an itch that must be scratched."
+					]
+				},
+				"The humans of Kaladesh are a race full of passionate aspiration. At their best, humans attempt grand and expansive endeavors, driven to strive after the loftiest and most impossible goals. At their worst, humans are superficial, impractical dreamers who are blind to the consequences of their misguided actions. However, there can be no denying that the best and the worst of humankind\u2014along with the vast swath of humanity in between\u2014have been instrumental in shaping the history of Kaladesh, and continue to shape the destiny of the plane. Their curiosity, their ambition, their apparently boundless energy, and the scope of their vision are powerful forces that drive invention forward.",
+				"Human characters thrive on variety and crave new experiences. It's not uncommon for humans to explore several different fields and disciplines in their lifetimes, sometimes abandoning years of accomplishments in one pursuit for the sake of pursuing something new and exciting. This tendency often produces characters who have just enough knowledge of many different fields to be dangerous in all of them. But at the same time, many humans excel at creating synthesis and finding connections between apparently disparate disciplines, bringing a cross-pollination to the process of invention that drives innovation across every field."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSK/Human.webp"
+					},
+					"title": "Artificer's Epiphany",
+					"credit": "Kieran Yanner"
 				}
 			]
 		},
@@ -5062,7 +4727,9 @@
 			"name": "Human (Keldon)",
 			"source": "PSD",
 			"entries": [
-				"Hailing from the merciless and barren land of Keld on the far northern continent of Icehaven, the brutal Keldons are hulking, gray-skinned humans. Though they are often perceived as a horde of brutish, unthinking barbarians and a threat to civilization in all its forms, the Keldons have a deep and rich culture that goes back many centuries. Having endured devastation on a massive scale and lived through their own prophesied apocalyptic judgment, today's Keldons fight to be worthy of their glorious ancestors, their unforgiving home, and their strongest champions."
+				"The people of Keld are human, but they are like no other humans anywhere. Nearly all adults stand over six feet tall, and heights above seven feet are not uncommon. They are massively muscled and have gray skin, ranging from an ashy gray-white to a deeper bluegray. The typical {@race Human (Keldon)|PSD}'s hairline points sharply down in the middle of the forehead and at either temple, but recedes elsewhere\u2014sometimes dramatically. {@race Human (Keldon)|PSD|Keldons} are remarkably resistant to the cold of their homeland, baring skin even in near-freezing temperatures without discomfort.",
+				"Keldons value self-reliance, strength, and courage above all else. Anything that is the product of their own labor is a fine thing. Anything else is treated with a healthy dose of skepticism. At best, they are a proud, pragmatic, passionate people, and their loyalty is fierce once earned. At worst, they can be reckless, hot-tempered, and violent\u2014and no small number of Keldons still consider these qualities virtues rather than vices.",
+				"Because of their many exploits as both conquerors and mercenaries, Keldons appear in the legends and histories of other peoples across the world. Sometimes these tales are exaggerated\u2014but many that sound exaggerated are not."
 			],
 			"images": [
 				{
@@ -5070,14 +4737,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSD/Keldon.webp"
-					}
+					},
+					"title": "Garna, the Bloodflame",
+					"credit": "Winona Nelson"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSD/Keldon2.webp"
-					}
+					},
+					"title": "Grand Warlord Radha",
+					"credit": "Anna Steinbauer"
 				}
 			]
 		},
@@ -5119,28 +4790,36 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSZ/Human.webp"
-					}
+					},
+					"title": "Dragonmaster Outcast",
+					"credit": "Raymond Swanland"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSZ/Human2.webp"
-					}
+					},
+					"title": "Kazandu Blademaster",
+					"credit": "Michael Komarck"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSZ/Human3.webp"
-					}
+					},
+					"title": "Serene Steward",
+					"credit": "Magali Villeneuve"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSZ/Human4.webp"
-					}
+					},
+					"title": "Sea Gate Oracle",
+					"credit": "Daniel Ljunggren"
 				}
 			]
 		},
@@ -5253,14 +4932,15 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/ERLW/Kalashtar.png"
-					}
+						"path": "races/ERLW/Kalashtar.webp"
+					},
+					"credit": "Eric Belisle"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/ERLW/Kalashtar 001.png"
+						"path": "races/ERLW/Kalashtar 001.webp"
 					}
 				}
 			]
@@ -5279,25 +4959,9 @@
 					"href": {
 						"type": "internal",
 						"path": "races/DSotDQ/Kender.webp"
-					}
+					},
+					"credit": "Linda Lithén"
 				}
-			]
-		},
-		{
-			"name": "Kender",
-			"source": "UA2022HeroesOfKrynn",
-			"entries": [
-				"Native to the world of Krynn, Kender are diminutive Humanoids that look like humans with pointed ears and diverse appearances. Kender have a supernatural curiosity that drives them on to adventures big and small. This curiosity is said to be connected to the whimsical magic of the Feywild, that some believe kender have a high affinity for. Due to their curiosity, many kender have found themselves falling through gates and portals to other planes and worlds.",
-				"Unknown to most mortals, a magical phenomenon surrounds a kender. Spurred by their curiosity and love for trinkets, curios, and keepsakes, a kender's pouches or pockets will be magically filled with these objects. No one knows where these objects come from, not even the kender. This has led many kender to be mislabeled as thieves when they fish these items out of their pockets."
-			]
-		},
-		{
-			"name": "Kender",
-			"source": "UA2022HeroesOfKrynnRevisited",
-			"entries": [
-				"During the mythical origins of Krynn, Reorx, god of craft, indulged in an age of unfettered creation. Many peoples sprang from his divine forge, but not all among them remained as the god created them. Altered by unbridled magic, a group of gnomes were transformed and gifted almost supernatural curiosity and fearlessness. These were the first kender.",
-				"Originating on the world of Krynn, kender are diminutive Humanoids that look like humans with pointed ears and diverse appearances. Kender have a supernatural curiosity that drives them to adventure. Due to this inquisitiveness, many kender find themselves falling through portals to other planes and worlds.",
-				"Kender sometimes amass impressive collections of curiosities. Some might collect mundane knickknacks or relics from magical sites, while others might become professional thieves."
 			]
 		},
 		{
@@ -5312,8 +4976,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Kenku.png"
-					}
+						"path": "races/MPMM/Kenku.webp"
+					},
+					"credit": "Scott Murphy"
 				}
 			]
 		},
@@ -5401,7 +5066,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Kenku.png"
+						"path": "races/VGM/Kenku.webp"
 					}
 				}
 			]
@@ -5414,14 +5079,14 @@
 					"type": "entries",
 					"entries": [
 						"The khenra of Amonkhet are tall and lean, with graceful bodies and heads that strongly resemble {@creature jackal||jackals}. Their snouts are long and sharp, and their angular ears rise straight above their heads. Their bodies are covered in dark, sleek hair that ranges from the brown of the desert sands to ebony black. Despite their sharp teeth, they consider biting to be an uncouth and unworthy combat tactic.",
-						"Nearly every khenra is born a fraternal or identical twin, and a pair of khenra twins forms an extremely close emotional bond unknown to most other residents of Amonkhet. The death of one twin in training or the trials causes a tremendous shock to the survivor, who typically grows more aggressive and foolhardy in battle. The rare khenra who are born without twins are believed to have killed their siblings in the womb, and are thus viewed as natural-born initiates, sure to achieve a glorified death in the Trial of Zeal.",
+						"Nearly every khenra is born a fraternal or identical twin, and a pair of khenra twins forms an extremely close emotional bond unknown to most other residents of Amonkhet. The death of one twin in training or the trials causes a tremendous shock to the survivor, who typically grows more aggressive and foolhardy in battle. The rare khenra who are born without twins are believed to have killed their siblings in the womb, and are thus viewed as natural-born {@background initiate|PSA|initiates}, sure to achieve a glorified death in the Trial of Zeal.",
 						{
 							"type": "entries",
 							"name": "Strength and Zeal",
 							"entries": [
 								"Many khenra believe that they are created in the image of Hazoret, and though they venerate all five gods in the manner of all citizens of Naktamun, they have a special affinity for the teachings and philosophy of the god of zeal. These khenra share a deep love of combat, especially hand-to-hand fighting, and they devote themselves to their training with particular intensity.",
-								"The familial bond experienced in the Family Temple of Hazoret's monument is a part of every khenra's experience as one of a pair of twins. As such, these khenra sometimes think of themselves as Hazoret's children even before they finish the fourth trial. For her part, Hazoret seems to favor khenra among her {@background vizier|psa|viziers}, and some say that she shows particular favor to khenra {@background initiate|psa|initiates} who survive to reach the Trial of Zeal.",
-								"Other khenra choose to distance themselves from Hazoret and the reckless battle frenzy she encourages. They devote themselves instead to honing their physical strength, resilience, and adaptability, inspired and guided by the teachings of Rhonas. These khenra have a great fondness for wrestling (or tussling, as they often call it), and they keep careful track of the matches they win and lose against other {@background initiate|psa|initiates}. They often seek out matches against {@race minotaur (amonkhet)|psa|minotaurs}, enjoying the challenge of pitting their sinewy strength against the brute muscle of larger and heavier opponents."
+								"The familial bond experienced in the Family Temple of Hazoret's monument is a part of every khenra's experience as one of a pair of twins. As such, these khenra sometimes think of themselves as Hazoret's children even before they finish the fourth trial. For her part, Hazoret seems to favor khenra among her {@background vizier|PSA|viziers}, and some say that she shows particular favor to khenra {@background initiate|PSA|initiates} who survive to reach the Trial of Zeal.",
+								"Other khenra choose to distance themselves from Hazoret and the reckless battle frenzy she encourages. They devote themselves instead to honing their physical strength, resilience, and adaptability, inspired and guided by the teachings of Rhonas. These khenra have a great fondness for wrestling (or tussling, as they often call it), and they keep careful track of the matches they win and lose against other {@background initiate|PSA|initiates}. They often seek out matches against {@race minotaur (amonkhet)|PSA|minotaurs}, enjoying the challenge of pitting their sinewy strength against the brute muscle of larger and heavier opponents."
 							]
 						},
 						{
@@ -5430,7 +5095,7 @@
 							"entries": [
 								"Khenra, especially those devoted to Hazoret, are particularly drawn to hand-to-hand combat styles. But the other styles each have their own appeal, and khenra initiates might find themselves specializing in any of the three.",
 								"Khenra who focus on hand-to-hand combat often wield the khopesh\u2014a large sickle-bladed sword\u2014as their weapon of choice (treat as a {@item longsword|phb}). Khenra wield these blades with devastating accuracy and power, landing one crushing blow after another in a hail of furious attacks. They favor lightweight armor that doesn't impede their movement, often comparing fighting in organized ranks to wearing a leash that limits their ability to charge, lunge, and roll away from danger. Their natural aggression makes them ideal shock troops, scouts, and skirmishers. And that aggression is even more pronounced in khenra who have already lost their twin, and who sometimes lose any sense of self-preservation as a result.",
-								"Khenra who focus on long-range combat prefer hurled weapons\u2014spears and javelins\u2014over bows and slings, and they are known and feared for their deadly accuracy. They carry small cases of {@item javelin|phb|javelins} into combat, and feel ashamed if they reach the end of a battle with any weapons left unthrown. A khenra might ride on a {@item chariot|phb} as a {@item spear|phb} thrower, sometimes augmenting attacks with minor spells of fire magic.",
+								"Khenra who focus on long-range combat prefer hurled weapons\u2014spears and javelins\u2014over bows and slings, and they are known and feared for their deadly accuracy. They carry small cases of {@item javelin|PHB|javelins} into combat, and feel ashamed if they reach the end of a battle with any weapons left unthrown. A khenra might ride on a {@item chariot|PHB} as a {@item spear|PHB} thrower, sometimes augmenting attacks with minor spells of fire magic.",
 								"Many khenra mages specialize in fire spells, creating blades or hails of flame to sear and scorch their foes. Their strategy emphasizes overwhelming initial assaults, in magical emulation of Hazoret's battle frenzy. Others prefer magic that augments their natural speed and strength, bolsters their endurance, or drains strength from their enemies. They work to hone their spells alongside their bodies, incorporating elements of hand-to-hand combat into their spellcasting."
 							]
 						}
@@ -5443,14 +5108,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSA/Khenra.webp"
-					}
+					},
+					"title": "Trueheart Twins",
+					"credit": "Matt Stewart"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSA/Khenra2.webp"
-					}
+					},
+					"title": "Nimble-Blade Khenra",
+					"credit": "Tomasz Jedruszek"
 				}
 			]
 		},
@@ -5466,17 +5135,10 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Kobold.png"
-					}
+						"path": "races/MPMM/Kobold.webp"
+					},
+					"credit": "Christopher Burdett"
 				}
-			]
-		},
-		{
-			"name": "Kobold",
-			"source": "UA2021DraconicOptions",
-			"entries": [
-				"Some of the smallest draconic creatures to walk the planes, kobolds display their draconic ancestry in the glint of their scales and in their roars. Legends tell of the first kobolds emerging from the Underdark near the lairs of the earliest dragons. In some lands, kobolds serve chromatic or metallic dragons\u2014even worshiping them as divine beings. In other places, kobolds know too well how dangerous those dragons can be and help others defend against draconic destruction.",
-				"Whatever their relationship to dragons, kobold scales tend to be rust colored, although the occasional kobold sports scale color more akin to that of a chromatic or a metallic dragon. The roar of a kobold can express a range of emotion: anger, resolve, elation, fear, and more. Regardless of the emotion the kobold expresses, the roar resonates with draconic power."
 			]
 		},
 		{
@@ -5488,7 +5150,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Kobold.png"
+						"path": "races/VGM/Kobold.webp"
 					}
 				}
 			]
@@ -5519,14 +5181,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSZ/Kor.webp"
-					}
+					},
+					"title": "Kor Sanctifiers",
+					"credit": "Dan Scott"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSZ/Kor2.webp"
-					}
+					},
+					"title": "Kor Entanglers",
+					"credit": "Jason Rainville"
 				}
 			]
 		},
@@ -5636,16 +5302,18 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MOT/Leonin.png"
-					}
+						"path": "races/MOT/Leonin.webp"
+					},
+					"credit": "Wisnu Tan"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MOT/Leonin Matron.png"
+						"path": "races/MOT/Leonin Matron.webp"
 					},
-					"title": "Leonin matrons lead the prides of Oreskos, protecting the plains from interlopers"
+					"title": "Leonin matrons lead the prides of Oreskos, protecting the plains from interlopers",
+					"credit": "Steve Prescott"
 				}
 			]
 		},
@@ -5661,8 +5329,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Lizardfolk.png"
-					}
+						"path": "races/MPMM/Lizardfolk.webp"
+					},
+					"credit": "April Prime"
 				}
 			]
 		},
@@ -5807,7 +5476,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Lizardfolk.png"
+						"path": "races/VGM/Lizardfolk.webp"
 					}
 				}
 			]
@@ -5833,7 +5502,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/LR/Locathah.png"
+						"path": "races/LR/Locathah.webp"
 					}
 				}
 			]
@@ -5912,78 +5581,49 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/GGR/Loxodon.png"
+						"path": "races/GGR/Loxodon.webp"
 					}
 				}
 			]
 		},
 		{
-			"name": "Loxodon",
-			"source": "UARacesOfRavnica",
+			"name": "Merfolk",
+			"source": "PSZ",
 			"entries": [
 				{
 					"type": "entries",
 					"entries": [
+						"Curious, thoughtful, and analytical, the merfolk of Zendikar are natural scholars and explorers. In the past, merfolk society was organized around their belief in three deities. But in the wake of the reappearance of the Eldrazi, the merfolk have realized that their faith was a web of lies, built on a corrupted memory of the Eldrazi titans handed down from generation to generation. In peaceful times, the merfolk might have fought over the ultimate meaning of this revelation. But faced with the danger presented by the Eldrazi broods, the merfolk have largely set aside their differences and joined together in a united force. Old grudges still linger, but the well-being of the merfolk race\u2014and the world\u2014far outweigh any ancient conflicts between creeds.",
+						"Merfolk are associated with blue mana, though the traditional merfolk creeds express this connection in different ways.",
 						{
 							"type": "entries",
+							"name": "Born of the Sea",
 							"entries": [
-								"Humanoid elephants, loxodons are often oases of calm in the busy streets of Ravnica. They hum or chant in their sonorous tones and move slowly or sit in perfect stillness. Provoked to action, loxodons are holy terrors\u2014bellowing with rage, trumpeting and flapping their ears. Their still wisdom and their furious strength\u2014as well as their fierce loyalty and unwavering conviction\u2014are tremendous assets to their guilds.",
-								{
-									"type": "entries",
-									"name": "Lumbering Giants",
-									"entries": [
-										"Loxodons tower above most other humanoids, standing over seven feet tall. They have the heads\u2014trunks, tusks, ears, and faces\u2014of elephants, and hulking humanoid bodies covered by thick, leathery skin. Their hands have four thick digits, and their feet are the flat, ovalshaped feet of elephants.",
-										"Like that of an elephant, a loxodon's trunk is a useful appendage that supplements the hands. In addition to providing a keen sense of smell, the trunk can be used to lift and carry even heavy objects, and the two finger-like protrusions at the tip are capable of delicate manipulation. The trunk can be used to carry both food and liquid to the mouth and can even act as a snorkel."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Gifted Stoneworkers",
-									"entries": [
-										"Loxodons are tireless, patient artisans, with an unrivaled intuition about their craft. While they make nurturing spiritual leaders, their gift at stonework is so natural that they are often at a loss when it comes to imparting their knowledge to others. Among the Selesnya, it primarily falls to them to build the guild's magnificent cathedral-like arboretum structures."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Relentlessly Loyal",
-									"entries": [
-										"Loxodons believe in the value of community and life, and thus are most often found in the Selesnya Conclave. Some who stress the benefits of order have been known to join the Orzhov Syndicate or the Azorius Senate.",
-										"Loxodons believe that the members of a group have a responsibility to look out for each other. Once they have joined a guild or bonded with other individuals in any capacity, they devote themselves to maintaining that bond. They coordinate their efforts and are often willing to sacrifice themselves for the sake of the group. They expect the same loyalty and commitment from the other members of their communities and can be severe in their disappointment when their trust is betrayed.",
-										"The primary difference among loxodons who join different guilds is their sense of the size of the communities they belong to. For loxodons in the Selesnya Conclave, the community is the world and all living beings in it, all valuable, all meant to live in harmony, and all interdependent. For Azorius loxodons, community primarily means the society of sentient races, who need law and order in order to function together. For those in the Orzhov Syndicate, community means the syndicate, with its interests taking priority over those of any other group."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Loxodon Names",
-									"entries": [
-										"A loxodon's name includes overtones of sound, produced in a loxodon's resonant nasal chambers, that indicate status, family connection, and community role. Since most members of other races can't hear or distinguish these tones, let alone produce them, loxodons often translate them into titles, such as Hierarch, Revered, Grandmother, Healer, or Saint.",
-										{
-											"type": "list",
-											"style": "list-hang-notitle",
-											"items": [
-												{
-													"type": "item",
-													"name": "Male Names:",
-													"entry": "Bayul, Berov, Brooj, Chedumov, Dobrun, Droozh, Golomov, Heruj, Ilromov, Kel, Nikoom, Ondros, Radomov, Svetel, Tamuj, Throom, Vasool"
-												}
-											]
-										},
-										{
-											"type": "list",
-											"style": "list-hang-notitle",
-											"items": [
-												{
-													"type": "item",
-													"name": "Female Names:",
-													"entry": "Ajj, Boja, Dancu, Dooja, Elyuja, Fanoor, Irij, Jasoo, Katrun, Lyooda, Mayja, Radu, Shuja, Soofya, Totoor, Verij, Vesmova, Yoolna, Zarij, Zoorja"
-												}
-											]
-										}
-									]
-								}
+								"Merfolk are an amphibious race, born and at home in the water but comfortable on dry land. Humanoid in form, they have skin of ivory, silver, russet, blue, or deep purple. Long fins extend from the backs of their forearms and calves, and their fingers and toes are webbed. The hairlike growths on their heads are either thick and bristly like the needles of a sea urchin, or long and wavy, resembling fine seaweed. In either case, these growths typically range in color from red to warm brown to black. Male merfolk have similar growths extending down from their cheekbones.",
+								"Merfolk wear little clothing unless they are armored for battle. Even then, they drape themselves with nets and a minimum of cloth, wearing armor crafted of large, bleached seashells and augmented with leather."
 							]
 						}
 					]
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Merfolk.webp"
+					},
+					"title": "Enclave Elite",
+					"credit": "Igor Kieryluk"
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSZ/Merfolk2.webp"
+					},
+					"title": "Coralhelm Commander",
+					"credit": "Jaime Jones"
 				}
 			]
 		},
@@ -5999,7 +5639,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSX/Merfolk.webp"
-					}
+					},
+					"title": "Vineshaper Mystic",
+					"credit": "Kieran Yanner"
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Merfolk2.webp"
+					},
+					"title": "Coralhelm Commander",
+					"credit": "Jaime Jones"
 				}
 			]
 		},
@@ -6052,47 +5703,10 @@
 			}
 		},
 		{
-			"name": "Merfolk (Zendikar)",
-			"source": "PSZ",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Curious, thoughtful, and analytical, the merfolk of Zendikar are natural scholars and explorers. In the past, merfolk society was organized around their belief in three deities. But in the wake of the reappearance of the Eldrazi, the merfolk have realized that their faith was a web of lies, built on a corrupted memory of the Eldrazi titans handed down from generation to generation. In peaceful times, the merfolk might have fought over the ultimate meaning of this revelation. But faced with the danger presented by the Eldrazi broods, the merfolk have largely set aside their differences and joined together in a united force. Old grudges still linger, but the well-being of the merfolk race\u2014and the world\u2014far outweigh any ancient conflicts between creeds.",
-						"Merfolk are associated with blue mana, though the traditional merfolk creeds express this connection in different ways.",
-						{
-							"type": "entries",
-							"name": "Born of the Sea",
-							"entries": [
-								"Merfolk are an amphibious race, born and at home in the water but comfortable on dry land. Humanoid in form, they have skin of ivory, silver, russet, blue, or deep purple. Long fins extend from the backs of their forearms and calves, and their fingers and toes are webbed. The hairlike growths on their heads are either thick and bristly like the needles of a sea urchin, or long and wavy, resembling fine seaweed. In either case, these growths typically range in color from red to warm brown to black. Male merfolk have similar growths extending down from their cheekbones.",
-								"Merfolk wear little clothing unless they are armored for battle. Even then, they drape themselves with nets and a minimum of cloth, wearing armor crafted of large, bleached seashells and augmented with leather."
-							]
-						}
-					]
-				}
-			],
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Merfolk.webp"
-					}
-				},
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Merfolk2.webp"
-					}
-				}
-			]
-		},
-		{
 			"name": "Merfolk (Zendikar; Cosi Creed)",
 			"source": "PSZ",
 			"_copy": {
-				"name": "Merfolk (Zendikar)",
+				"name": "Merfolk",
 				"source": "PSZ",
 				"_mod": {
 					"entries": {
@@ -6110,29 +5724,13 @@
 						}
 					}
 				}
-			},
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Merfolk.webp"
-					}
-				},
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Merfolk2.webp"
-					}
-				}
-			]
+			}
 		},
 		{
 			"name": "Merfolk (Zendikar; Emeria Creed)",
 			"source": "PSZ",
 			"_copy": {
-				"name": "Merfolk (Zendikar)",
+				"name": "Merfolk",
 				"source": "PSZ",
 				"_mod": {
 					"entries": {
@@ -6150,29 +5748,13 @@
 						}
 					}
 				}
-			},
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Merfolk.webp"
-					}
-				},
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Merfolk2.webp"
-					}
-				}
-			]
+			}
 		},
 		{
 			"name": "Merfolk (Zendikar; Ula Creed)",
 			"source": "PSZ",
 			"_copy": {
-				"name": "Merfolk (Zendikar)",
+				"name": "Merfolk",
 				"source": "PSZ",
 				"_mod": {
 					"entries": {
@@ -6190,23 +5772,7 @@
 						}
 					}
 				}
-			},
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Merfolk.webp"
-					}
-				},
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSZ/Merfolk2.webp"
-					}
-				}
-			]
+			}
 		},
 		{
 			"name": "Minotaur",
@@ -6282,7 +5848,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/GGR/Minotaur.png"
+						"path": "races/GGR/Minotaur.webp"
 					}
 				}
 			]
@@ -6405,15 +5971,17 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MOT/Minotaur.png"
-					}
+						"path": "races/MOT/Minotaur.webp"
+					},
+					"credit": "Jason Rainville"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MOT/Minotaur 2.png"
-					}
+						"path": "races/MOT/Minotaur 2.webp"
+					},
+					"credit": "Steve Prescott"
 				}
 			]
 		},
@@ -6430,8 +5998,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Minotaur.png"
-					}
+						"path": "races/MPMM/Minotaur.webp"
+					},
+					"credit": "Jedd Chevrier, Brynn Metheney"
 				}
 			]
 		},
@@ -6444,7 +6013,7 @@
 					"entries": [
 						"Minotaurs are powerfully built, barrel-chested humanoids with heads resembling rams. Their horns curl tight-ly against the sides of their heads to encircle their ears, and manes of shaggy fur\u2014shorter in females\u2014fall over their broad shoulders. As their appearance suggests, they combine physical strength with stubbornness, bravado, and reckless bravery. They revel in combat, especially when the odds against them seem overwhelming.",
 						"Minotaurs are rowdy, boisterous, and direct to the point of rudeness. They have no qualms about declaring what they want and defying others to keep it from them. In combat, they bellow loud challenges in defiance of their foes, and roar with laughter as they triumph.",
-						"Minotaurs believe they hold a unique place among the races of Amonkhet. The {@race khenra|psa} can look to Hazoret, the {@race naga|psa} to Rhonas, and the {@race aven|psa} to Kefnet to see themselves represented among the gods. Humans have no single god to look to, which explains why they demonstrate such variety. But only one god bears a pair of curving horns: the God-Pharaoh himself, who holds a special place for many of the minotaurs of Amonkhet.",
+						"Minotaurs believe they hold a unique place among the races of Amonkhet. The {@race khenra|PSA} can look to Hazoret, the {@race naga|PSA} to Rhonas, and the {@race aven|PSA} to Kefnet to see themselves represented among the gods. Humans have no single god to look to, which explains why they demonstrate such variety. But only one god bears a pair of curving horns: the God-Pharaoh himself, who holds a special place for many of the minotaurs of Amonkhet.",
 						{
 							"type": "entries",
 							"name": "Ruthless and Reckless",
@@ -6456,7 +6025,7 @@
 							"type": "entries",
 							"name": "Combat Classes",
 							"entries": [
-								"Their size and strength makes minotaurs ideally suited for hand-to-hand combat. They are most effective on the offensive, delivering an endless barrage of attacks that keep their foes off balance, shatter shields and weapons, and inevitably break their opponents. These minotaurs favor large, heavy weapons such as axes, {@item maul|phb|mauls}, and two-handed khopeshes (treat as a {@item greatsword|phb}), but they are also fond of unarmed combat. Many love to throw their weapons aside in favor of pummeling opponents into submission with their horns and bare hands, believing that such a victory is more glorious\u2014and more humiliating to the loser.",
+								"Their size and strength makes minotaurs ideally suited for hand-to-hand combat. They are most effective on the offensive, delivering an endless barrage of attacks that keep their foes off balance, shatter shields and weapons, and inevitably break their opponents. These minotaurs favor large, heavy weapons such as axes, {@item maul|PHB|mauls}, and two-handed khopeshes (treat as a {@item greatsword|phb}), but they are also fond of unarmed combat. Many love to throw their weapons aside in favor of pummeling opponents into submission with their horns and bare hands, believing that such a victory is more glorious\u2014and more humiliating to the loser.",
 								"But though minotaurs are known for their physical size and strength, this hardly precludes the presence of keen minds and powerful spellcasters among them. Though they are fewer in number than hand-to-hand specialists, minotaur mages draw on their natural ferocity to instill terror in the hearts of their opponents with a terrible roaring bellow. They manifest their fury as blasts of flame, or imbue their own horns and fists with searing heat to make their physical attacks more deadly.",
 								"The relatively few minotaurs who specialize in long-range combat enjoy one aspect of that style in particular\u2014the opportunity to draw first blood, marking the moment when a battle has truly begun. Minotaurs use {@item longbow|phb|heavy bows} and {@item javelin|phb|javelins}, and take special delight in firing into the middle of enemy formations to sow as much chaos and confusion as possible."
 							]
@@ -6470,14 +6039,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSA/Minotaur (Amonkhet).webp"
-					}
+					},
+					"title": "Neheb, the Worthy",
+					"credit": "Chris Rahn"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSA/Minotaur (Amonkhet)2.webp"
-					}
+					},
+					"title": "Minotaur Sureshot",
+					"credit": "Joseph Meehan"
 				}
 			]
 		},
@@ -6496,8 +6069,8 @@
 							"name": "Combat Classes",
 							"entries": [
 								"To the benefit of those naga who struggle with the ideal of the Sweetest Harmony, the training of acolytes encourages specialization. Thus, naga who follow in the path of the snake-headed god Rhonas can cultivate their physical strength as they specialize in hand-to-hand combat styles, while other naga favor the teachings of Kefnet and other combat styles.",
-								"Naga who specialize in hand-to-hand combat rely on axes, {@item dagger|phb|daggers}, and {@item shortsword|phb|shortswords}\u2014but also on their own fangs and the constricting strength of their serpentine bodies. They make extensive use of poison, coating their weapons with multiple layers of deadly substances\u2014including, but by no means limited to, their own venom. Quick, well-timed, and well-placed blows, followed by an equally nimble retreat, allow many naga to triumph over opponents who might seem stronger. With acknowledgment of the Sweetest Harmony, these naga cultivate an understanding of strategy and tactics that enhances their physical training.",
-								"Speed and accuracy are equally important to naga who specialize in long-range combat. Some prefer to analyze a battle from a distance and pick off the strongest opponents with their ranged weapons, including poisoned {@item spear|phb|spears} and {@item arrow|phb|arrows}. Others ride in {@item chariot|phb|chariots} driven by trusted drivers (usually other naga) and throw their {@item spear|phb|spears} from the midst of battle. In any case, they excel at finding and exploiting strategic advantages.",
+								"Naga who specialize in hand-to-hand combat rely on axes, {@item dagger|PHB|daggers}, and {@item shortsword|PHB|shortswords}\u2014but also on their own fangs and the constricting strength of their serpentine bodies. They make extensive use of poison, coating their weapons with multiple layers of deadly substances\u2014including, but by no means limited to, their own venom. Quick, well-timed, and well-placed blows, followed by an equally nimble retreat, allow many naga to triumph over opponents who might seem stronger. With acknowledgment of the Sweetest Harmony, these naga cultivate an understanding of strategy and tactics that enhances their physical training.",
+								"Speed and accuracy are equally important to naga who specialize in long-range combat. Some prefer to analyze a battle from a distance and pick off the strongest opponents with their ranged weapons, including poisoned {@item spear|PHB|spears} and {@item arrow|PHB|arrows}. Others ride in {@item chariot|PHB|chariots} driven by trusted drivers (usually other naga) and throw their {@item spear|PHB|spears} from the midst of battle. In any case, they excel at finding and exploiting strategic advantages.",
 								"Some naga mages, drawn to the example of Kefnet, make extensive use of illusion magic to trick and mislead their opponents. Others apply Rhonas's teachings to their studies, wielding poisonous magic that weakens opponents or kills them outright with clouds or darts of deadly toxins. Still others, in service to the ideal of balance, use the magical power of their minds to enhance their physical strength and speed."
 							]
 						}
@@ -6510,14 +6083,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSA/Naga.webp"
-					}
+					},
+					"title": "Naga Oracle",
+					"credit": "Deruchenko Alexander"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSA/Naga2.webp"
-					}
+					},
+					"title": "Tah-Crop Skirmisher",
+					"credit": "Victor Adame Minguez"
 				}
 			]
 		},
@@ -6533,8 +6110,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Orc.png"
-					}
+						"path": "races/MPMM/Orc.webp"
+					},
+					"credit": "Mike Jordana"
 				}
 			]
 		},
@@ -6547,7 +6125,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Orc.png"
+						"path": "races/VGM/Orc.webp"
 					}
 				}
 			]
@@ -6565,17 +6143,10 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSX/Orc.webp"
-					}
+					},
+					"title": "Dire Fleet Ravager",
+					"credit": "Bram Sels"
 				}
-			]
-		},
-		{
-			"name": "Owlfolk",
-			"source": "UA2021FolkOfTheFeywild",
-			"entries": [
-				"Distant kin of giant owls, owlfolk come in many shapes and sizes, from petite and fluffy to widewinged and majestic. Owlfolk have arms and legs like other Humanoids, as well as wings that extend from their back and shoulders.",
-				"Because of their ancestral tie to the Feywild, owlfolk can innately see the magic of their surroundings. Like owls, owlfolk are graced with feathers that make no sound when they move or fly, making it easy for them to sneak up on you in the library.",
-				"Your owlfolk character might be nocturnal. Or perhaps your character is simply prone to rise later, embodying the common nickname of night owl."
 			]
 		},
 		{
@@ -6593,7 +6164,8 @@
 						"type": "internal",
 						"path": "races/SCC/Owlin.webp"
 					},
-					"title": "Owlin unleash magic in the sky above Strixhaven"
+					"title": "Owlin unleash magic in the sky above Strixhaven",
+					"credit": "Johan Grenier"
 				}
 			]
 		},
@@ -6611,143 +6183,8 @@
 					"href": {
 						"type": "internal",
 						"path": "races/AAG/Plasmoid.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Plasmoid",
-			"source": "UA2021TravelersOfTheMultiverse",
-			"entries": [
-				"Plasmoids are amorphous beings with no typical shape. In the presence of other folk, they often adopt a similar form, but there's little chance of mistaking a plasmoid for anything else. They consume food by osmosis, the way an amoeba does, and excrete waste through tiny pores. They breathe by absorbing oxygen through another set of pores, and their limbs are strong and flexible enough to grasp and manipulate weapons and tools. Although most plasmoids are translucent gray, they can alter their color and translucence by absorbing dyes through their pores.",
-				"Plasmoids don't have internal organs of the usual sort. Their bodies are composed of cells, fibers, plasma-like ooze, and clusters of nerves called ganglia. These nerves enable a plasmoid to detect light, heat, texture, sound, pain, and vibrations. Plasmoids can stiffen the outer layers of their bodies to maintain a humanlike shape, so they can wear clothing and accessories. They speak by forcing air out of tubular cavities that constrict to produce sound.",
-				"When plasmoids sleep, they lose their rigidity and spread out and are sometimes mistaken for a rock or some other feature of the environment."
-			]
-		},
-		{
-			"name": "Rabbitfolk",
-			"source": "UA2021FolkOfTheFeywild",
-			"entries": [
-				"Bounding across the wilds, rabbitfolk from the Feywild embody a spirit of freedom and travel.",
-				"Rabbitfolk are bipedal, with the characteristic long feet of the animal they resemble and fur in a variety of colors. They share the keen senses and powerful legs of leporine creatures and are full of energy, like a wound-up spring. Rabbitfolk are blessed with a little fey luck, and they often find themselves a few fortunate feet away from dangers during adventures."
-			]
-		},
-		{
-			"name": "Reborn",
-			"source": "UA2021GothicLineages",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Death isn't always the end. The reborn exemplify this, being individuals who have died yet, somehow, still live. Some reborn exhibit the scars of fatal fates, their ashen flesh, missing limbs, or bloodless veins making it clear that they've been touched by death. Other reborn are marvels of magic or science, being stitched together from disparate beings or bearing mysterious minds in manufactured bodies. Whatever their origins, reborn know a new life and seek experiences and answers all their own.",
-						{
-							"type": "entries",
-							"name": "Faded Memories",
-							"entries": [
-								"Reborn suffer from some manner of discontinuity, an interruption of their lives or physical state that their minds are ill equipped to deal with. Their memories of events before this interruption are often vague or absent. Occasionally, the most unexpected experiences might cause sensations or visions of the past to come rushing back.",
-								"Rather than sleeping, reborn regularly sit and dwell on the past, hoping for some revelation of what came before. Most of the time, these are dark, silent stretches. Occasionally, though, in a moment of peace, stress, or excitement, a reborn gains a glimpse of what came before. When you desire to have such a dreamlike vision, roll on the Lost Memories table to inspire its details.",
-								{
-									"type": "table",
-									"caption": "Lost Memories",
-									"colLabels": [
-										"d8",
-										"Memory"
-									],
-									"colStyles": [
-										"col-2 text-center",
-										"col-10"
-									],
-									"rows": [
-										[
-											"1",
-											"You recall a physically painful moment. What mark or scar on your body does it relate to?"
-										],
-										[
-											"2",
-											"A memory causes you to shed a tear. Is it a bitter or cheerful memory? Does recalling it make you feel the same way?"
-										],
-										[
-											"3",
-											"You recall a childhood memory. What about that event or who you were still influences you?"
-										],
-										[
-											"4",
-											"A memory brings with it the voice of someone once close to you. How do they advise you?"
-										],
-										[
-											"5",
-											"You recall enjoying something that you can't stand doing now. What is it? Why don't you like it now?"
-										],
-										[
-											"6",
-											"A memory carries a vivid smell or sensation. What are you going to do to recreate that experience?"
-										],
-										[
-											"7",
-											"You faintly remember a place that couldn't possibly exist. What is this vision? How does it make you feel?"
-										],
-										[
-											"8",
-											"You experience a memory you're certain isn't your own. How does it seem unnatural? Could it be a glimpse of a past nightmare or something worse?"
-										]
-									]
-								}
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Reborn Origins",
-							"entries": [
-								"Reborn might originate from circumstances similar to those of various undead or constructs. Roll on or choose an option from the Reborn Origins table to determine how your character gained their lineage.",
-								{
-									"type": "table",
-									"caption": "Reborn Origins",
-									"colLabels": [
-										"d8",
-										"Origins"
-									],
-									"colStyles": [
-										"col-2 text-center",
-										"col-10"
-									],
-									"rows": [
-										[
-											"1",
-											"You were magically resurrected but something went wrong."
-										],
-										[
-											"2",
-											"Stitches bind your body's mismatched pieces, and your memories come from multiple different lives."
-										],
-										[
-											"3",
-											"After clawing free from your grave, you realized you have no memories except for a single name."
-										],
-										[
-											"4",
-											"You were a necromancer's undead servant for years. One day, your consciousness returned."
-										],
-										[
-											"5",
-											"You awoke in an abandoned laboratory alongside complex designs for clockwork organs."
-										],
-										[
-											"6",
-											"You were released after being petrified for generations. Your memories have faded, though, and your body is not what it once was."
-										],
-										[
-											"7",
-											"Your body hosts a possessing spirit that shares its memories and replaces your missing appendages with phantasmal limbs."
-										],
-										[
-											"8",
-											"In public, you pass as an unremarkable individual, but you can feel the itchy straw stuffing inside you."
-										]
-									]
-								}
-							]
-						}
-					]
+					},
+					"credit": "Claudio Pozas"
 				}
 			]
 		},
@@ -6861,8 +6298,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VRGR/Reborn.png"
-					}
+						"path": "races/VRGR/Reborn.webp"
+					},
+					"credit": "Nikki Dawes"
 				}
 			]
 		},
@@ -6993,15 +6431,17 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MOT/Satyr.png"
-					}
+						"path": "races/MOT/Satyr.webp"
+					},
+					"credit": "Steve Prescott"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MOT/Satyr 2.png"
-					}
+						"path": "races/MOT/Satyr 2.webp"
+					},
+					"credit": "Johannes Voss"
 				}
 			]
 		},
@@ -7016,44 +6456,65 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Satyr.png"
-					}
+						"path": "races/MPMM/Satyr.webp"
+					},
+					"credit": "Nikki Dawes, Thom Tenery"
 				}
 			]
 		},
 		{
 			"name": "Sea Elf",
 			"source": "MPMM",
-			"entries": [
-				"Sea elves fell in love with the wild beauty of the ocean in the earliest days of the multiverse. While other elves traveled from realm to realm, sea elves navigated the currents and explored the waters of many worlds. Today these elves can be found wherever oceans exist, as well as in the Elemental Plane of Water.",
-				"Like other elves, sea elves can live to be over 750 years old."
-			],
+			"_copy": {
+				"name": "Elves of Many Realms",
+				"source": "MPMM",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": [
+							"Sea elves fell in love with the wild beauty of the ocean in the earliest days of the multiverse. While other elves traveled from realm to realm, sea elves navigated the currents and explored the waters of many worlds. Today these elves can be found wherever oceans exist, as well as in the Elemental Plane of Water.",
+							"Like other elves, sea elves can live to be over 750 years old."
+						]
+					}
+				}
+			},
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Sea Elf.png"
-					}
+						"path": "races/MPMM/Sea Elf.webp"
+					},
+					"credit": "Nikki Dawes"
 				}
 			]
 		},
 		{
 			"name": "Shadar-Kai",
 			"source": "MPMM",
-			"entries": [
-				"Shadar-kai are the elves of the Shadowfell, originally drawn to that dread realm by the Raven Queen. Over the centuries, some of them have continued to serve her, while others have ventured into the Material Plane to forge their own destinies.",
-				"Once shadar-kai were Fey like the rest of their elven kin; now they exist in a state between life and death, thanks to being transformed by the Shadowfell's grim energy.",
-				"Shadar-kai have ashen skin tones, and while they're in the Shadowfell, they also become wizened, reflecting the somber nature of that gloomy plane.",
-				"Like other elves, shadar-kai can live to be over 750 years old."
-			],
+			"_copy": {
+				"name": "Elves of Many Realms",
+				"source": "MPMM",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": [
+							"Shadar-kai are the elves of the Shadowfell, originally drawn to that dread realm by the Raven Queen. Over the centuries, some of them have continued to serve her, while others have ventured into the Material Plane to forge their own destinies.",
+							"Once shadar-kai were Fey like the rest of their elven kin; now they exist in a state between life and death, thanks to being transformed by the Shadowfell's grim energy.",
+							"Shadar-kai have ashen skin tones, and while they're in the Shadowfell, they also become wizened, reflecting the somber nature of that gloomy plane.",
+							"Like other elves, shadar-kai can live to be over 750 years old."
+						]
+					}
+				}
+			},
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Shadar-kai.png"
-					}
+						"path": "races/MPMM/Shadar-kai.webp"
+					},
+					"credit": "Eric Belisle, Mark Molnar"
 				}
 			]
 		},
@@ -7122,7 +6583,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/ERLW/Shifter 001.png"
+						"path": "races/ERLW/Shifter 001.webp"
 					}
 				}
 			]
@@ -7186,8 +6647,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Shifter.png"
-					}
+						"path": "races/MPMM/Shifter.webp"
+					},
+					"credit": "Eric Belisle"
 				}
 			]
 		},
@@ -7290,8 +6752,9 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "races/ERLW/Shifter (Wildhunt).png"
-							}
+								"path": "races/ERLW/Shifter (Wildhunt).webp"
+							},
+							"credit": "Eric Belisle"
 						}
 					}
 				}
@@ -7333,41 +6796,8 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/GGR/Simic Hybrid.png"
+						"path": "races/GGR/Simic Hybrid.webp"
 					}
-				}
-			]
-		},
-		{
-			"name": "Simic Hybrid",
-			"source": "UARacesOfRavnica",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"entries": [
-								"The Simic Combine uses magic to fuse different life forms together. In recent years, they have extended this research to humanoid subjects, magically transferring the traits of various animals into humans, elves, and vedalken. The goal of the so-called Guardian Project is to build a Simic army of superior soldiers, perfectly adapted to a variety of combat situations. These hyper-evolved specimens are called Simic hybrids, though they sometimes call themselves guardians.",
-								{
-									"type": "entries",
-									"name": "Extensive Adaptation",
-									"entries": [
-										"Simic hybrids share many of the characteristics of their original race, including their basic physical form. Human hybrids are the most versatile, filling a variety of roles. Agile elf hybrids retain the ability to see in darkness, making them ideal as spies, scouts, and infiltrators. And vedalken hybrids possess the same calculating intellect as other vedalken, making them superior tacticians, strategists, and spellcasters.",
-										"Hybrids' biological enhancements can change their appearance drastically. All hybrids possess some physical characteristics of animals, mostly aquatic and reptilian creatures. These include crab claws, squid tentacles, wings that look like mays or fins, translucent or camouflaged skin, or sharklike maws filled with sharp teeth.",
-										"Hybrids are the product of Simic magic. It's not impossible for a hybrid to leave the Simic Combine and join another guild, but the Simic would consider the hybrid a deserter and the new guild might never fully welcome a hybrid who could easily be a Simic spy."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Hybrid Names",
-									"entries": [
-										"A hybrid usually bears the name given by their human, elf, or vedalken parents. But some hybrids assume a new name after their transformation, a name chosen by themselves or by those who transformed them."
-									]
-								}
-							]
-						}
-					]
 				}
 			]
 		},
@@ -7376,7 +6806,7 @@
 			"source": "PSX",
 			"entries": [
 				"Sirens are at home along the waters of the Stormwreck Sea. They settle on rocky coasts and remote islands, and even on floating piles of kelp. Sirens are mercurial creatures who can turn in an instant from lonely to repulsed, from desirous to hateful, from welcoming to irritated, from loving to murderous\u2014and then back again. They are fascinated with ships, and enjoy toying with them. One siren might call out to a passing crew for company, only to capriciously draw the ship into an entangling mass of kelp. Another might lure a vessel onto jagged rocks so as to study the wreckage and learn more about the strange contraption. But as the number of Brazen Coalition ships passing through siren-controlled waters has increased over the years, a growing number of sirens have decided to satisfy their curiosity by taking positions on ship crews\u2014including, in at least one case, the position of captain.",
-				"Sirens are humanoid creatures with birdlike features. Their long, slender arms extend into powerful wings that easily carry their light frames into the air. Their fingers bear sharp claws but are nimble enough to wield weapons and perform fine manipulation. Crests of feathery plumage start"
+				"Sirens are humanoid creatures with birdlike features. Their long, slender arms extend into powerful wings that easily carry their light frames into the air. Their fingers bear sharp claws but are nimble enough to wield weapons and perform fine manipulation. Crests of feathery plumage start between their eyes and cover the backs of their heads."
 			],
 			"images": [
 				{
@@ -7384,7 +6814,9 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSX/Siren.webp"
-					}
+					},
+					"title": "Dreamcaller Siren",
+					"credit": "Eric Deschamps"
 				}
 			]
 		},
@@ -7400,8 +6832,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Tabaxi.png"
-					}
+						"path": "races/MPMM/Tabaxi.webp"
+					},
+					"credit": "Shawn Wood"
 				}
 			]
 		},
@@ -7607,7 +7040,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Tabaxi.png"
+						"path": "races/VGM/Tabaxi.webp"
 					}
 				}
 			]
@@ -7626,17 +7059,9 @@
 					"href": {
 						"type": "internal",
 						"path": "races/AAG/Thri-kreen.webp"
-					}
+					},
+					"credit": "Irina Nordsol"
 				}
-			]
-		},
-		{
-			"name": "Thri-kreen",
-			"source": "UA2021TravelersOfTheMultiverse",
-			"entries": [
-				"Thri-kreen have insectile features and two pairs of arms. Their bodies are encased in protective chitin. They can alter the coloration of this carapace to blend in with their natural surroundings.",
-				"Although thri-kreen don't sleep, they do require periods of inactivity to revitalize themselves. During these periods, they are fully conscious and aware of what's happening around them.",
-				"Thri-kreen speak by clacking their mandibles and waving their antennae, indicating to other thri-kreen what they are thinking and feeling. Other creatures find this method of communication difficult to interpret and impossible to duplicate. To interact with other folk, thri-kreen rely on a form of telepathy."
 			]
 		},
 		{
@@ -7711,7 +7136,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/PHB/Tiefling.png"
+						"path": "races/PHB/Tiefling.webp"
 					}
 				}
 			]
@@ -7929,7 +7354,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "races/SCAG/Feral Tiefling.png"
+								"path": "races/SCAG/Feral Tiefling.webp"
 							}
 						}
 					}
@@ -8004,8 +7429,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Tortle.png"
-					}
+						"path": "races/MPMM/Tortle.webp"
+					},
+					"credit": "Mark Behm, Franz Vohwinkel"
 				}
 			]
 		},
@@ -8087,7 +7513,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/TTP/Tortle.png"
+						"path": "races/TTP/Tortle.webp"
 					}
 				}
 			]
@@ -8169,15 +7595,17 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MOT/Triton.png"
-					}
+						"path": "races/MOT/Triton.webp"
+					},
+					"credit": "Ryan Pancoast"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MOT/Triton 2.png"
-					}
+						"path": "races/MOT/Triton 2.webp"
+					},
+					"credit": "Jack Wang"
 				}
 			]
 		},
@@ -8193,8 +7621,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Triton.png"
-					}
+						"path": "races/MPMM/Triton.webp"
+					},
+					"credit": "Eric Belisle"
 				}
 			]
 		},
@@ -8330,39 +7759,13 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Triton.png"
+						"path": "races/VGM/Triton.webp"
 					}
 				}
 			]
 		},
 		{
-			"name": "Vampire (Ixalan)",
-			"source": "PSX",
-			"entries": [
-				"The Legion of Dusk is dominated by an aristocratic class made up of vampires. They are faster and stronger than most humans, and gifted with supernatural abilities that made them the most formidable force in their homeland. Now, as they push into the depths of Ixalan in search of the Immortal Sun, they bring this strength to bear against all who would resist their advance.",
-				"For many vampires, the Rite of Redemption that transforms a human into a vampire is an act of personal sacrifice, paving the way for a promised glorious age. These vampires embody Torrezon's noble tradition in Ixalan. They are often guided by their dual loyalties to church and crown, believing that the monarch acts with righteous purpose. As such, these vampires carry themselves with a self-assurance that is both imposing and imperial. Other societies seem inferior and unclean compared to their own, leading them to feel that they have a right to claim new lands despite the presence of people already inhabiting those lands.",
-				"Other vampires view vampirism merely as a means to attain a powerful advantage over others. These vampires are fierce, ruthless, and often cruel, relishing conflict\u2014be it political or armed\u2014as a means of demonstrating their superiority. Many are politically ambitious, invoking Torrezon's hierarchy when it serves their interests, but ignoring all the rules of church, state, and morality when those rules become a burden. When these vampires come to Ixalan, they are conquerors, motivated by the prospect of personal glory and the accumulation of riches. Those who achieve wealth and power display it ostentatiously.",
-				"The core of every vampire's nature is the Feast of Blood. Though it is forbidden to feed on human citizens of Torrezon, including the human sailors and servants who accompany the vampire conquistadors to Ixalan, vampires are encouraged to feed on outsiders and heretics. The Feast of Blood sends new life essence flowing through the vampire who partakes of it, manifesting as even greater strength and speed."
-			],
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSX/Vampire.webp"
-					}
-				},
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "races/PSX/Vampire2.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Vampire (Zendikar)",
+			"name": "Vampire",
 			"source": "PSZ",
 			"entries": [
 				{
@@ -8387,16 +7790,67 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSZ/Vampire.webp"
-					}
+					},
+					"title": "Kalitas, Bloodchief of Ghet",
+					"credit": "Todd Lockwood"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSZ/Vampire2.webp"
-					}
+					},
+					"title": "Vampire Nighthawk",
+					"credit": "Jason Chan"
 				}
 			]
+		},
+		{
+			"name": "Vampire (Ixalan)",
+			"source": "PSX",
+			"entries": [
+				"The Legion of Dusk is dominated by an aristocratic class made up of vampires. They are faster and stronger than most humans, and gifted with supernatural abilities that made them the most formidable force in their homeland. Now, as they push into the depths of Ixalan in search of the Immortal Sun, they bring this strength to bear against all who would resist their advance.",
+				"For many vampires, the Rite of Redemption that transforms a human into a vampire is an act of personal sacrifice, paving the way for a promised glorious age. These vampires embody Torrezon's noble tradition in Ixalan. They are often guided by their dual loyalties to church and crown, believing that the monarch acts with righteous purpose. As such, these vampires carry themselves with a self-assurance that is both imposing and imperial. Other societies seem inferior and unclean compared to their own, leading them to feel that they have a right to claim new lands despite the presence of people already inhabiting those lands.",
+				"Other vampires view vampirism merely as a means to attain a powerful advantage over others. These vampires are fierce, ruthless, and often cruel, relishing conflict\u2014be it political or armed\u2014as a means of demonstrating their superiority. Many are politically ambitious, invoking Torrezon's hierarchy when it serves their interests, but ignoring all the rules of church, state, and morality when those rules become a burden. When these vampires come to Ixalan, they are conquerors, motivated by the prospect of personal glory and the accumulation of riches. Those who achieve wealth and power display it ostentatiously.",
+				"The core of every vampire's nature is the Feast of Blood. Though it is forbidden to feed on human citizens of Torrezon, including the human sailors and servants who accompany the vampire conquistadors to Ixalan, vampires are encouraged to feed on outsiders and heretics. The Feast of Blood sends new life essence flowing through the vampire who partakes of it, manifesting as even greater strength and speed."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Vampire.webp"
+					},
+					"title": "Vicious Conquistador",
+					"credit": "Kieran Yanner"
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Vampire2.webp"
+					},
+					"title": "Glorifier of Dusk",
+					"credit": "Viktor Titov"
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/PSX/Vampire3.webp"
+					},
+					"title": "Arterial Flow",
+					"credit": "Josh Hass"
+				}
+			]
+		},
+		{
+			"name": "Vampire (Zendikar)",
+			"source": "PSZ",
+			"_copy": {
+				"name": "Vampire",
+				"source": "PSZ"
+			}
 		},
 		{
 			"name": "Vedalken",
@@ -8465,7 +7919,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/GGR/Vedalken.png"
+						"path": "races/GGR/Vedalken.webp"
 					}
 				}
 			]
@@ -8474,14 +7928,25 @@
 			"name": "Vedalken",
 			"source": "PSK",
 			"entries": [
+				{
+					"type": "quote",
+					"entries": [
+						"Of course it's flawed. Everything is. And it's a good thing, too! Can you imagine how dreadful it would be if everything was already perfect?"
+					]
+				},
 				"Vedalken have an unusual view of progress. They believe that nothing is perfect, nor can it ever be perfect\u2014and they rejoice in this. Every imperfection is a chance for improvement, and progress is an endless march toward a state of perfection that can never actually be reached. Thus, pointing out imperfection is hardly an insult\u2014which leads vedalken to note flaws and problems with an enthusiasm that members of other races sometimes find exasperating.",
 				"This enthusiasm extends to every aspect of vedalken work, both practical and theoretical. They are curious and excitable, and often become deeply engrossed in their labors. It's not uncommon for a vedalken to spend hours on end caught up in the details of an abstract question or a minute engineering problem. Vedalken can be utterly oblivious to their surroundings while meditating on thorny issues, and they are prone to launching into lengthy explanations of their current research, since most find that talking about a problem often leads to a solution.",
 				"As a rule, vedalken are gregarious in conversation. However, they are quite circumspect concerning their personal lives, and they engage more with ideas than with people. They form close friendships based around mutual interests or compelling disagreements, and their interactions focus on their thoughts about those issues rather than their feelings about them. Emotional dynamics don't particularly interest vedalken, either as a conversational topic or a field of study. When they talk about their feelings, it is primarily to provide information that might be helpful to others. For example, a vedalken might tell her colleagues, \"I'm feeling irritated right now, so I might not be reacting appropriately. Perhaps we should continue this later.\" But any questions about the cause of the irritation are likely to be brushed off as being irrelevant to the situation.",
 				{
 					"type": "entries",
-					"name": "Vedalken Politics",
 					"entries": [
-						"Most vedalken care far more about invention and inquiry than about politics. They would rather unlock the hidden potential of aether-based devices than dwell on the question of how aether should be distributed to the Consulate's citizens. For that reason, though vedalken are found both among the officials of the Consulate and among the renegades, their dedication to either cause often lacks the partisan fervor found in the members of other races"
+						{
+							"type": "entries",
+							"name": "Vedalken Politics",
+							"entries": [
+								"Most vedalken care far more about invention and inquiry than about politics. They would rather unlock the hidden potential of aether-based devices than dwell on the question of how aether should be distributed to the Consulate's citizens. For that reason, though vedalken are found both among the officials of the Consulate and among the renegades, their dedication to either cause often lacks the partisan fervor found in the members of other races"
+							]
+						}
 					]
 				}
 			],
@@ -8491,76 +7956,18 @@
 					"href": {
 						"type": "internal",
 						"path": "races/PSK/Vedalken.webp"
-					}
+					},
+					"title": "A flash of genius\u2014resulting in a {@item wand of binding}, a {@item crystal ball}, or a {@item sphere of annihilation}?",
+					"credit": "Glimmer of Genius by Tommy Arnold"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
 						"path": "races/PSK/Vedalken2.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Vedalken",
-			"source": "UARacesOfRavnica",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"entries": [
-								"Nothing is perfect\u2014vedalken believe this and rejoice in it. Every imperfection is a chance for improvement, whether it's in law or in science, and progress is an endless march toward a state of perfection that might never be reached. This leads vedalken to pursue their work with delighted enthusiasm, never deterred by setbacks and excited by every opportunity for improvement.",
-								{
-									"type": "entries",
-									"name": "Cool Rationality",
-									"entries": [
-										"Vedalken are tall and slender, standing almost a head taller than humans on average but weighing about the same. Their hairless skin covers a range of shades of blue, from pale sky blue through bright azure to deep indigo, almost purple. Their eyes are darker shades of blue or violet. They lack external ears, and their noses are broad and flat.",
-										"As a rule, vedalken are gregarious in conversation. However, they are private concerning their personal lives, and they tend to engage more with ideas than with people. They form close friendships based on mutual interests or compelling disagreements, and their interactions focus on their thoughts about those issues rather than their feelings about them. To members of other races, vedalken often appear cold, even emotionless. That assessment isn't fair\u2014they feel emotion every bit as vividly as other races, but they are skilled at not displaying it. Cool rationality guides their actions, they make and follow careful plans, and they are patient enough to do nothing at all when the ideal outcome relies on inaction."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Reasoning toward Perfection",
-									"entries": [
-										"Their curious intellects and rational minds incline vedalken strongly toward membership in the Azorius Senate, the Simic Combine, and (less often) the Izzet League. Whatever their guild affiliation, they put their intelligence to use in crafting and improving things: laws, procedures, and magical sciences.",
-										"Vedalken believe that the path toward the impossible goal of perfection is built with bricks of education, careful deliberation, and controlled experimentation. (Their desire for close control to prevent disastrous mistakes makes them generally less inclined toward the Izzet League, where explosive mistakes are celebrated.) Some vedalken direct their energy toward perfecting themselves, including by means of Simic bioengineering or through extensive study, while others focus on perfecting society through the careful crafting and application of laws."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Vedalken Names",
-									"entries": [
-										"Vedalken are given names at birth, but usually choose new names for themselves as part of their transition into adulthood. They rarely use family names.",
-										{
-											"type": "list",
-											"style": "list-hang-notitle",
-											"items": [
-												{
-													"type": "item",
-													"name": "Male Names:",
-													"entry": "Aglar, Bellin, Dallid, Firellan, Kavin, Koplony, Lomar, Mathvan, Modar, Nebun, Nhillosh, Nitt, Otrovac, Ovlan, Pelener, Rill, Trivaz, Uldin, Yolov, Zataz"
-												}
-											]
-										},
-										{
-											"type": "list",
-											"style": "list-hang-notitle",
-											"items": [
-												{
-													"type": "item",
-													"name": "Female Names:",
-													"entry": "Azi, Barvisa, Brazia, Direll, Fainn, Griya, Hallia, Katrille, Kovel, Lilla, Mirela, Morai, Nedress, Ossya, Pierenn, Roya, Sestri, Triel, Uzana, Yaraghiya, Zlovol"
-												}
-											]
-										}
-									]
-								}
-							]
-						}
-					]
+					},
+					"title": "Curio Vendor",
+					"credit": "Igor Kieryluk"
 				}
 			]
 		},
@@ -8658,59 +8065,10 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/AI/Verdan.png"
+						"path": "races/AI/Verdan.webp"
 					},
-					"title": "Varieties of Adult Verdan"
-				}
-			]
-		},
-		{
-			"name": "Viashino",
-			"source": "UARacesOfRavnica",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"entries": [
-								"Many reptiles derive their body warmth and energy from the sun, but the humanoid viashino are fueled by an inner fire of zeal. Open with their emotions, viashino can be hot-tempered, but they are also quick to their hissing laughter. And they easily form close bonds of friendship. They are fierce warriors and passionate advocates for their guilds and causes.",
-								{
-									"type": "entries",
-									"name": "Scaled Skin and Tail Blades",
-									"entries": [
-										"Viashino resemble humanoid lizards covered in green, scaled skin and spiky protrusions. Their heads jut forward from their slender necks and bear huge mouths full of sharp teeth. Long, whiplike tails extend from their spines, lashing behind them\u2014faster and faster as they grow more agitated. Their tails are tipped with bony blades they can use as weapons."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Fervent and Fiery",
-									"entries": [
-										"Viashino are fiercely emotional and often violent, and their wizards and sorcerers favor fire spells that reflect their inner fire. They are most common among the Gruul Clans, especially the Slizt clan. Occasionally they put their zealous fire to use in the service of higher ideals, joining the Boros Legion. Other viashino instead pursue careers in the Izzet League, where they find a special role wielding Izzet-designed flamespewing scorchbringers.",
-										"Like fire itself, viashino are quick to leap from one situation to another, and they are frequently destructive in the process. They enjoy brawling and often cause more injury than intended, thanks to their teeth and bladed tails. They're also easily distracted, jumping from one idea to another in an instant. Likewise, they're easily bored, and if nothing captures their attention, they'll do something interesting."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Viashino Names",
-									"entries": [
-										"Viashino accept, collect, and discard names freely, choosing names that fit their current sense of self or whim. Sometimes they'll string two or more names together, because they like the sound or because all the names feel meaningful and relevant at the time. As a result, members of other races often have a hard time keeping track of a viashino's name.",
-										{
-											"type": "list",
-											"style": "list-hang-notitle",
-											"items": [
-												{
-													"type": "item",
-													"name": "Viashino Names:",
-													"entry": "Aun, Bay, Bassisk, Cresh, Din, Essek, Fiksh, Gyan, Hsiska, Illati, Izka, Kyri, Liszik, Maush, Nyoser, Ossanash, Shekess, Skellek, Szil, Tenk, Tzia, Villi, Wyoryn, Yom, Ztash"
-												}
-											]
-										}
-									]
-								}
-							]
-						}
-					]
+					"title": "Varieties of Adult Verdan",
+					"credit": "Kris Straub"
 				}
 			]
 		},
@@ -8824,14 +8182,15 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/ERLW/Warforged.png"
-					}
+						"path": "races/ERLW/Warforged.webp"
+					},
+					"credit": "Craig J Spearing"
 				},
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/ERLW/Warforged 001.png"
+						"path": "races/ERLW/Warforged 001.webp"
 					}
 				}
 			]
@@ -8848,8 +8207,9 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/MPMM/Yuan-ti.png"
-					}
+						"path": "races/MPMM/Yuan-ti.webp"
+					},
+					"credit": "Simon Dominic"
 				}
 			]
 		},
@@ -8862,7 +8222,7 @@
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "races/VGM/Yuan-ti Pureblood.png"
+						"path": "races/VGM/Yuan-ti Pureblood.webp"
 					}
 				}
 			]
