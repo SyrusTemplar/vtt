@@ -403,7 +403,7 @@ class InitiativeTrackerStatColumn_Image extends _InitiativeTrackerStatColumnBase
 	_getInitialCellObj ({mon, fluff}) {
 		if (!mon) {
 			return {
-				tokenUrl: UrlUtil.link(`${Renderer.get().baseMediaUrls["img"] || Renderer.get().baseUrl}img/blank-friendly.png`),
+				tokenUrl: UrlUtil.link(Renderer.get().getMediaUrl("img", "blank-friendly.webp")),
 				imageHref: null,
 			};
 		}

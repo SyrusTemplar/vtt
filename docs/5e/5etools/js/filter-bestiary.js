@@ -274,19 +274,11 @@ class PageFilterBestiary extends PageFilter {
 	static mutateForFilters (mon) {
 		Renderer.monster.initParsed(mon);
 
-		if (typeof mon.speed === "number" && mon.speed > 0) {
-			mon._fSpeedType = ["walk"];
-			mon._fSpeed = mon.speed;
-		} else {
-			mon._fSpeedType = Object.keys(mon.speed).filter(k => mon.speed[k]);
-			if (mon._fSpeedType.length) mon._fSpeed = mon._fSpeedType.map(k => mon.speed[k].number || mon.speed[k]).filter(it => !isNaN(it)).sort((a, b) => SortUtil.ascSort(b, a))[0];
-			else mon._fSpeed = 0;
-			if (mon.speed.canHover) mon._fSpeedType.push("hover");
-		}
+		this._mutateForFilters_speed(mon);
 
-		mon._fAc = mon.ac.map(it => it.special ? null : (it.ac || it)).filter(it => it !== null);
+		mon._fAc = (mon.ac || []).map(it => it.special ? null : (it.ac || it)).filter(it => it !== null);
 		if (!mon._fAc.length) mon._fAc = null;
-		mon._fHp = mon.hp.average;
+		mon._fHp = mon.hp?.average ?? null;
 		if (mon.alignment) {
 			const tempAlign = typeof mon.alignment[0] === "object"
 				? Array.prototype.concat.apply([], mon.alignment.map(a => a.alignment))
@@ -348,10 +340,10 @@ class PageFilterBestiary extends PageFilter {
 		if (mon.srd) mon._fMisc.push("SRD");
 		if (mon.basicRules) mon._fMisc.push("Basic Rules");
 		if (SourceUtil.isLegacySourceWotc(mon.source)) mon._fMisc.push("Legacy");
-		if (mon.tokenUrl || mon.hasToken) mon._fMisc.push("Has Token");
+		if (Renderer.monster.hasToken(mon)) mon._fMisc.push("Has Token");
 		if (mon.mythic) mon._fMisc.push("Mythic");
-		if (mon.hasFluff || mon.fluff?.entries) mon._fMisc.push("Has Info");
-		if (mon.hasFluffImages || mon.fluff?.images) mon._fMisc.push("Has Images");
+		if (this._hasFluff(mon)) mon._fMisc.push("Has Info");
+		if (this._hasFluffImages(mon)) mon._fMisc.push("Has Images");
 		if (this._isReprinted({reprintedAs: mon.reprintedAs, tag: "creature", prop: "monster", page: UrlUtil.PG_BESTIARY})) mon._fMisc.push("Reprinted");
 		if (this._hasRecharge(mon)) mon._fMisc.push("Has Recharge");
 		if (mon._versionBase_isVersion) mon._fMisc.push("Is Variant");
@@ -368,6 +360,25 @@ class PageFilterBestiary extends PageFilter {
 		else mon._fLanguageTags = ["None"];
 
 		mon._fEquipment = this._getEquipmentList(mon);
+	}
+
+	static _mutateForFilters_speed (mon) {
+		if (mon.speed == null) {
+			mon._fSpeedType = [];
+			mon._fSpeed = null;
+			return;
+		}
+
+		if (typeof mon.speed === "number" && mon.speed > 0) {
+			mon._fSpeedType = ["walk"];
+			mon._fSpeed = mon.speed;
+			return;
+		}
+
+		mon._fSpeedType = Object.keys(mon.speed).filter(k => mon.speed[k]);
+		if (mon._fSpeedType.length) mon._fSpeed = mon._fSpeedType.map(k => mon.speed[k].number || mon.speed[k]).filter(it => !isNaN(it)).sort((a, b) => SortUtil.ascSort(b, a))[0];
+		else mon._fSpeed = 0;
+		if (mon.speed.canHover) mon._fSpeedType.push("hover");
 	}
 
 	/* -------------------------------------------- */
@@ -473,8 +484,8 @@ class PageFilterBestiary extends PageFilter {
 		this._wisdomFilter.addItem(mon._fWis);
 		this._charismaFilter.addItem(mon._fCha);
 		this._speedFilter.addItem(mon._fSpeed);
-		mon.ac.forEach(it => this._acFilter.addItem(it.ac || it));
-		if (mon.hp.average) this._averageHpFilter.addItem(mon.hp.average);
+		(mon.ac || []).forEach(it => this._acFilter.addItem(it.ac || it));
+		if (mon.hp?.average) this._averageHpFilter.addItem(mon.hp.average);
 		this._tagFilter.addItem(mon._pTypes.tags);
 		this._sidekickTypeFilter.addItem(mon._pTypes.typeSidekick);
 		this._sidekickTagFilter.addItem(mon._pTypes.tagsSidekick);
@@ -659,16 +670,16 @@ class ModalFilterBestiary extends ModalFilter {
 		const cr = mon._pCr;
 
 		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst--border veapp__list-row no-select lst__wrp-cells">
-			<div class="col-0-5 pl-0 ve-flex-vh-center">${this._isRadio ? `<input type="radio" name="radio" class="no-events">` : `<input type="checkbox" class="no-events">`}</div>
+			<div class="ve-col-0-5 pl-0 ve-flex-vh-center">${this._isRadio ? `<input type="radio" name="radio" class="no-events">` : `<input type="checkbox" class="no-events">`}</div>
 
-			<div class="col-0-5 px-1 ve-flex-vh-center">
+			<div class="ve-col-0-5 px-1 ve-flex-vh-center">
 				<div class="ui-list__btn-inline px-2" title="Toggle Preview (SHIFT to Toggle Info Preview)">[+]</div>
 			</div>
 
-			<div class="col-4 ${mon._versionBase_isVersion ? "italic" : ""} ${this._getNameStyle()}">${mon._versionBase_isVersion ? `<span class="px-3"></span>` : ""}${mon.name}</div>
-			<div class="col-4">${type}</div>
-			<div class="col-2 ve-text-center">${cr}</div>
-			<div class="col-1 ve-flex-h-center ${Parser.sourceJsonToColor(mon.source)} pr-0" title="${Parser.sourceJsonToFull(mon.source)}" ${Parser.sourceJsonToStyle(mon.source)}>${source}${Parser.sourceJsonToMarkerHtml(mon.source)}</div>
+			<div class="ve-col-4 ${mon._versionBase_isVersion ? "italic" : ""} ${this._getNameStyle()}">${mon._versionBase_isVersion ? `<span class="px-3"></span>` : ""}${mon.name}</div>
+			<div class="ve-col-4">${type}</div>
+			<div class="ve-col-2 ve-text-center">${cr}</div>
+			<div class="ve-col-1 ve-flex-h-center ${Parser.sourceJsonToColor(mon.source)} pr-0" title="${Parser.sourceJsonToFull(mon.source)}" ${Parser.sourceJsonToStyle(mon.source)}>${source}${Parser.sourceJsonToMarkerHtml(mon.source)}</div>
 		</div>`;
 
 		const btnShowHidePreview = eleRow.firstElementChild.children[1].firstElementChild;

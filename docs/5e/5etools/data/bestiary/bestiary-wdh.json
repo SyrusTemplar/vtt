@@ -221,6 +221,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Ammalia is a 9th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 14}, {@hit 6} to hit with spell attacks). She has the following wizard spells prepared:"
 					],
@@ -529,6 +530,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Barnibus is a 7th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 13}, {@hit 5} to hit with spell attacks) He has the following wizard spells prepared:"
 					],
@@ -931,6 +933,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Davil is a 12th-level spellcaster. His spellcasting ability is Charisma (spell save {@dc 14}, {@hit 6} to hit with spell attacks) He has the following bard spells prepared:"
 					],
@@ -1255,6 +1258,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The drow's spellcasting ability is Charisma (spell save {@dc 12}) It can innately cast the following spells, requiring no material components:"
 					],
@@ -1287,7 +1291,7 @@
 				{
 					"name": "Sunlight Sensitivity",
 					"entries": [
-						"While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+						"While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
 					]
 				}
 			],
@@ -1475,32 +1479,6 @@
 					"human"
 				]
 			},
-			"alignment": [
-				"N"
-			],
-			"ac": [
-				10
-			],
-			"hp": {
-				"special": "1"
-			},
-			"speed": {
-				"walk": 30
-			},
-			"str": 10,
-			"dex": 10,
-			"con": 10,
-			"int": 10,
-			"wis": 10,
-			"cha": 10,
-			"passive": 10,
-			"languages": [
-				"Common"
-			],
-			"cr": "Unknown",
-			"languageTags": [
-				"C"
-			],
 			"hasToken": true,
 			"hasFluffImages": true
 		},
@@ -1545,6 +1523,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Embric's spellcasting ability is Constitution ({@hit 4} to hit with spell attacks). He can innately cast the following spells, requiring no material components:"
 					],
@@ -1644,6 +1623,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The gnome is a 1st-level spellcaster. Its spellcasting ability is Intelligence. It has the following wizard spells prepared:"
 					],
@@ -1773,6 +1753,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Fala is a 4th-level spellcaster. Their spellcasting ability is Wisdom. They have the following druid spells prepared:"
 					],
@@ -2203,6 +2184,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Grum'shar is a 1st-level spellcaster. His spellcasting ability is Intelligence. He has the following wizard spells prepared:"
 					],
@@ -2370,6 +2352,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Hlam is a 5th-level spellcaster. His spellcasting ability is Wisdom (spell save {@dc 18}, {@hit 10} to hit with spell attacks) He has the following cleric spells prepared:"
 					],
@@ -2719,6 +2702,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Istrid is a 9th-level spellcaster. Her spellcasting ability is Wisdom (spell save {@dc 14}, {@hit 6} to hit with spell attacks) She has the following cleric spells prepared:"
 					],
@@ -3033,6 +3017,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Jandar's spellcasting ability is Charisma. He can innately cast the following spells, requiring no material components:"
 					],
@@ -3043,6 +3028,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Jandar is a 4th-level spellcaster. His spellcasting ability is Wisdom. Jandar has the following cleric spells prepared:"
 					],
@@ -3204,6 +3190,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Jarlaxle's innate spellcasting ability is Charisma (spell save {@dc 17}, {@hit 9} to hit with spell attacks) He can innately cast the following spells, requiring no material components:"
 					],
@@ -3266,7 +3253,7 @@
 				{
 					"name": "Sunlight Sensitivity",
 					"entries": [
-						"When not wearing his knave's eye patch, Jarlaxle has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+						"When not wearing his knave's eye patch, Jarlaxle has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
 					]
 				}
 			],
@@ -3362,26 +3349,6 @@
 					"human"
 				]
 			},
-			"alignment": [
-				"N"
-			],
-			"ac": [
-				10
-			],
-			"hp": {
-				"special": "1"
-			},
-			"speed": {
-				"walk": 30
-			},
-			"str": 10,
-			"dex": 10,
-			"con": 10,
-			"int": 10,
-			"wis": 10,
-			"cha": 10,
-			"passive": 10,
-			"cr": "Unknown",
 			"hasToken": true,
 			"hasFluffImages": true
 		},
@@ -3447,6 +3414,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Kaevja is a 9th-level spellcaster. Her spellcasting ability is Intelligence. Kaevja has the following wizard spells prepared:"
 					],
@@ -3504,7 +3472,7 @@
 				{
 					"name": "Special Equipment",
 					"entries": [
-						"Kaevja carries a yellow elemental gem. As an action she can break the gem releasing an earth elemental under her command."
+						"Kaevja carries a yellow {@item elemental gem}. As an action she can break the gem releasing an earth elemental under her command."
 					]
 				}
 			],
@@ -3610,6 +3578,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Kalain is a 4th-level spellcaster. Her spellcasting ability is Charisma. She has the following bard spells prepared:"
 					],
@@ -3934,6 +3903,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Laeral is a 19th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 21}, {@hit 13} to hit with spell attacks). Laeral has the following wizard spells prepared:"
 					],
@@ -4201,6 +4171,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Laiba's spellcasting ability is Charisma. She can innately cast the following spells, requiring no material components:"
 					],
@@ -4211,6 +4182,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Laiba is a 4th-level spellcaster. Her spellcasting ability is Wisdom. Laiba has the following cleric spells prepared:"
 					],
@@ -4363,6 +4335,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The mage is a 9th-level spellcaster. Its spellcasting ability is Intelligence. The mage has the following wizard spells prepared:"
 					],
@@ -4629,6 +4602,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The mage is a 9th-level spellcaster. Its spellcasting ability is Intelligence. The mage has the following wizard spells prepared:"
 					],
@@ -4807,6 +4781,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Manshoon is an 18th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 21}, {@hit 15} to hit with spell attacks). He has the following wizard spells prepared:"
 					],
@@ -5026,6 +5001,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Manshoon is an 18th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 21}, {@hit 15} to hit with spell attacks). He has the following wizard spells prepared:"
 					],
@@ -5318,6 +5294,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Melannor is a 4th-level spellcaster. His spellcasting ability is Wisdom. He has the following druid spells prepared:"
 					],
@@ -5700,26 +5677,6 @@
 					"human"
 				]
 			},
-			"alignment": [
-				"N"
-			],
-			"ac": [
-				10
-			],
-			"hp": {
-				"special": "1"
-			},
-			"speed": {
-				"walk": 30
-			},
-			"str": 10,
-			"dex": 10,
-			"con": 10,
-			"int": 10,
-			"wis": 10,
-			"cha": 10,
-			"passive": 10,
-			"cr": "Unknown",
 			"hasToken": true,
 			"hasFluffImages": true
 		},
@@ -6391,6 +6348,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The Dwarf is a 1st-level spellcaster. Its spellcasting ability is Intelligence. It has the following wizard spells prepared:"
 					],
@@ -6521,6 +6479,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Remallia is a 13th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 16}, {@hit 8} to hit with spell attacks). She has the following wizard spells prepared:"
 					],
@@ -6838,6 +6797,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Rishaal is a 9th-level spellcaster. His spellcasting ability is Intelligence. Rishaal has the following wizard spells prepared:"
 					],
@@ -7058,10 +7018,12 @@
 			"_copy": {
 				"name": "Spy",
 				"source": "MM",
-				"_trait": {
-					"name": "Stout Halfling",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Stout Halfling",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -7156,7 +7118,7 @@
 				{
 					"name": "Keen Smell",
 					"entries": [
-						"The Shard Shunner has advantage on Wisdom (Perception) checks that rely on smell."
+						"The Shard Shunner has advantage on Wisdom ({@skill Perception}) checks that rely on smell."
 					]
 				},
 				{
@@ -7296,6 +7258,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Skeemo is a 9th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 14}, {@hit 6} to hit with spell attacks) He has the following wizard spells prepared:"
 					],
@@ -7464,6 +7427,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Soluun's spellcasting ability is Charisma. It can innately cast the following spells, requiring no material components:"
 					],
@@ -7496,7 +7460,7 @@
 				{
 					"name": "Sunlight Sensitivity",
 					"entries": [
-						"While in sunlight, Soluun has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+						"While in sunlight, Soluun has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
 					]
 				},
 				{
@@ -7508,7 +7472,7 @@
 				{
 					"name": "Boots of Elvenkind",
 					"entries": [
-						"Whilst wearing these boots Soluun's steps make no sound and he has advantage on any Dexterity (Stealth) checks that rely on moving silently."
+						"Whilst wearing these boots Soluun's steps make no sound and he has advantage on any Dexterity ({@skill Stealth}) checks that rely on moving silently."
 					]
 				}
 			],
@@ -7584,26 +7548,9 @@
 					"tiefling"
 				]
 			},
-			"alignment": [
-				"N"
+			"senses": [
+				"darkvision 60 ft."
 			],
-			"ac": [
-				10
-			],
-			"hp": {
-				"special": "1"
-			},
-			"speed": {
-				"walk": 30
-			},
-			"str": 10,
-			"dex": 10,
-			"con": 10,
-			"int": 10,
-			"wis": 10,
-			"cha": 10,
-			"passive": 10,
-			"cr": "Unknown",
 			"hasToken": true,
 			"hasFluffImages": true
 		},
@@ -8085,32 +8032,6 @@
 					"human"
 				]
 			},
-			"alignment": [
-				"N"
-			],
-			"ac": [
-				10
-			],
-			"hp": {
-				"special": "1"
-			},
-			"speed": {
-				"walk": 30
-			},
-			"str": 10,
-			"dex": 10,
-			"con": 10,
-			"int": 10,
-			"wis": 10,
-			"cha": 10,
-			"passive": 10,
-			"languages": [
-				"Common"
-			],
-			"cr": "Unknown",
-			"languageTags": [
-				"C"
-			],
 			"hasToken": true
 		},
 		{
@@ -8356,6 +8277,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Tissina's spellcasting ability is Charisma. She can innately cast the following spells, requiring no material components:"
 					],
@@ -8366,6 +8288,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Tissina is a 4th-level spellcaster. Her spellcasting ability is Wisdom. Tissina has the following cleric spells prepared:"
 					],
@@ -8658,6 +8581,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Vajra is an 18th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 18}, {@hit 12} to hit with spell attacks). She has the following wizard spells prepared:"
 					],
@@ -8868,6 +8792,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Valetta is a 5th-level spellcaster. Her spellcasting ability is Wisdom. Valetta has the following cleric spells prepared:"
 					],
@@ -9032,6 +8957,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Victoro is a 15th-level spellcaster. His spellcasting ability is Wisdom (spell save {@dc 15}, {@hit 7} to hit with spell attacks). Victoro has the following cleric spells prepared:"
 					],
@@ -9956,6 +9882,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Ziraj is a 10th-level spellcaster. His spellcasting ability is Charisma. He has the following paladin spells prepared:"
 					],

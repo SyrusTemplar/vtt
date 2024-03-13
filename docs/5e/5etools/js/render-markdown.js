@@ -866,7 +866,7 @@ RendererMarkdown.utils = class {
 		static getRenderedAbilityScores (ent, {prefix = ""} = "") {
 			return `${prefix}|${Parser.ABIL_ABVS.map(it => `${it.toUpperCase()}|`).join("")}
 ${prefix}|:---:|:---:|:---:|:---:|:---:|:---:|
-${prefix}|${Parser.ABIL_ABVS.map(ab => `${ent[ab]} (${Parser.getAbilityModifier(ent[ab])})|`).join("")}`;
+${prefix}|${Parser.ABIL_ABVS.map(ab => ent[ab] == null ? `\u2014|` : `${ent[ab]} (${Parser.getAbilityModifier(ent[ab])})|`).join("")}`;
 		}
 	};
 
@@ -899,7 +899,7 @@ RendererMarkdown.monster = class {
 
 		const monTypes = Parser.monTypeToFullObj(mon.type);
 		RendererMarkdown.get().isSkipStylingItemLinks = true;
-		const acPart = Parser.acToFull(mon.ac, RendererMarkdown.get());
+		const acPart = mon.ac == null ? "\u2014" : Parser.acToFull(mon.ac, RendererMarkdown.get());
 		RendererMarkdown.get().isSkipStylingItemLinks = false;
 		const resourcePart = mon.resource?.length
 			? mon.resource
@@ -909,9 +909,9 @@ RendererMarkdown.monster = class {
 		const abilityScorePart = RendererMarkdown.utils.compact.getRenderedAbilityScores(mon, {prefix: ">"});
 		const savePart = mon.save ? `\n>- **Saving Throws** ${Object.keys(mon.save).sort(SortUtil.ascSortAtts).map(it => RendererMarkdown.monster.getSave(it, mon.save[it])).join(", ")}` : "";
 		const skillPart = mon.skill ? `\n>- **Skills** ${RendererMarkdown.monster.getSkillsString(mon)}` : "";
-		const damVulnPart = mon.vulnerable ? `\n>- **Damage Vulnerabilities** ${Parser.getFullImmRes(mon.vulnerable)}` : "";
-		const damResPart = mon.resist ? `\n>- **Damage Resistances** ${Parser.getFullImmRes(mon.resist)}` : "";
-		const damImmPart = mon.immune ? `\n>- **Damage Immunities** ${Parser.getFullImmRes(mon.immune)}` : "";
+		const damVulnPart = mon.vulnerable ? `\n>- **Damage Vulnerabilities** ${Parser.getFullImmRes(mon.vulnerable, {isPlainText: true})}` : "";
+		const damResPart = mon.resist ? `\n>- **Damage Resistances** ${Parser.getFullImmRes(mon.resist, {isPlainText: true})}` : "";
+		const damImmPart = mon.immune ? `\n>- **Damage Immunities** ${Parser.getFullImmRes(mon.immune, {isPlainText: true})}` : "";
 		const condImmPart = mon.conditionImmune ? `\n>- **Condition Immunities** ${Parser.getFullCondImm(mon.conditionImmune, {isPlainText: true})}` : "";
 		const sensePart = !opts.isHideSenses ? `\n>- **Senses** ${mon.senses ? `${Renderer.utils.getRenderedSenses(mon.senses, true)}, ` : ""}passive Perception ${mon.passive || "\u2014"}` : "";
 		const languagePart = !opts.isHideLanguages ? `\n>- **Languages** ${Renderer.monster.getRenderedLanguages(mon.languages)}` : "";
@@ -947,7 +947,7 @@ RendererMarkdown.monster = class {
 >*${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${Renderer.utils.getRenderedSize(mon.size)} ${monTypes.asText}${mon.alignment ? `, ${mon.alignmentPrefix ? RendererMarkdown.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment)}` : ""}*
 >___
 >- **Armor Class** ${acPart}
->- **Hit Points** ${Renderer.monster.getRenderedHp(mon.hp, true)}${resourcePart}
+>- **Hit Points** ${mon.hp == null ? "\u2014" : Renderer.monster.getRenderedHp(mon.hp, true)}${resourcePart}
 >- **Speed** ${Parser.getSpeedString(mon)}
 >___
 ${abilityScorePart}

@@ -100,6 +100,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The archon's innate spellcasting ability is Charisma (spell save {@dc 17}). The archon can innately cast the following spells, requiring only verbal components:"
 					],
@@ -296,10 +297,12 @@
 			"_copy": {
 				"name": "Tarrasque",
 				"source": "MM",
-				"_trait": {
-					"name": "Eldrazi",
-					"source": "PSZ"
-				},
+				"_templates": [
+					{
+						"name": "Eldrazi",
+						"source": "PSZ"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -360,6 +363,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The felidar's innate spellcasting ability is Charisma (spell save {@dc 14}). The felidar can innately cast the following spells, requiring no components:"
 					],
@@ -694,10 +698,12 @@
 			"_copy": {
 				"name": "Kraken",
 				"source": "MM",
-				"_trait": {
-					"name": "Eldrazi",
-					"source": "PSZ"
-				},
+				"_templates": [
+					{
+						"name": "Eldrazi",
+						"source": "PSZ"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -767,6 +773,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The kraken's innate spellcasting ability is Charisma (spell save {@dc 17}). The kraken can innately cast the following spells, requiring no components:"
 					],
@@ -1137,10 +1144,12 @@
 			"_copy": {
 				"name": "Empyrean",
 				"source": "MM",
-				"_trait": {
-					"name": "Eldrazi",
-					"source": "PSZ"
-				},
+				"_templates": [
+					{
+						"name": "Eldrazi",
+						"source": "PSZ"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",

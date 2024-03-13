@@ -66,6 +66,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The abjurer is a 13th-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 16}, {@hit 8} to hit with spell attacks). The abjurer has the following wizard spells prepared:"
 					],
@@ -282,6 +283,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The alhoon's innate spellcasting ability is Intelligence (spell save {@dc 16}). It can innately cast the following spells, requiring no components:"
 					],
@@ -299,6 +301,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The alhoon is a 12th-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 16}, {@hit 8} to hit with spell attacks). The alhoon has the following wizard spells prepared:"
 					],
@@ -529,6 +532,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The hag's innate spellcasting ability is Charisma (spell save {@dc 13}). She can innately cast the following spells:"
 					],
@@ -1195,6 +1199,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The apprentice is a 1st-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 12}, {@hit 4} to hit with spell attacks). It has the following wizard spells prepared:"
 					],
@@ -1331,6 +1336,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The archdruid is an 18th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 17}, {@hit 9} to hit with spell attacks). It has the following druid spells prepared:"
 					],
@@ -1759,6 +1765,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The babau's innate spellcasting ability is Wisdom (spell save {@dc 11}). The babau can innately cast the following spells, requiring no material components:"
 					],
@@ -2042,6 +2049,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The bard is a 4th-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 12}, {@hit 4} to hit with spell attacks). It has the following bard spells prepared:"
 					],
@@ -2235,6 +2243,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The barghest's innate spellcasting ability is Charisma (spell save {@dc 12}). It can innately cast the following spells, requiring no material components:"
 					],
@@ -2408,6 +2417,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The hag's innate spellcasting ability is Charisma (spell save {@dc 14}, {@hit 6} to hit with spell attacks). She can innately cast the following spells, requiring no material components:"
 					],
@@ -3210,6 +3220,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The blackguard is a 10th-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 13}, {@hit 5} to hit with spell attacks). It has the following paladin spells prepared:"
 					],
@@ -3635,8 +3646,8 @@
 					"name": "Boggle Oil",
 					"entries": [
 						"The boggle excretes nonflammable oil from its pores. The boggle chooses whether the oil is slippery or sticky and can change the oil on its skin from one consistency to another as a bonus action.",
-						"Slippery Oil: While coated in slippery oil, the boggle gains advantage on Dexterity (Acrobatics) checks made to escape bonds, squeeze through narrow spaces, and end grapples.",
-						"Sticky Oil: While coated in sticky oil, the boggle gains advantage on Strength (Athletics) checks made to grapple and any ability check made to maintain a hold on another creature, a surface, or an object. The boggle can also climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+						"Slippery Oil: While coated in slippery oil, the boggle gains advantage on Dexterity ({@skill Acrobatics}) checks made to escape bonds, squeeze through narrow spaces, and end grapples.",
+						"Sticky Oil: While coated in sticky oil, the boggle gains advantage on Strength ({@skill Athletics}) checks made to grapple and any ability check made to maintain a hold on another creature, a surface, or an object. The boggle can also climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
 					]
 				},
 				{
@@ -3710,10 +3721,12 @@
 			"_copy": {
 				"name": "Mage",
 				"source": "MM",
-				"_trait": {
-					"name": "Goblin",
-					"source": "DMG"
-				},
+				"_templates": [
+					{
+						"name": "Goblin",
+						"source": "DMG"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -3745,6 +3758,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The goblin can cast a randomly determined {@filter 1st-level wizard spell|spells|level=1|class=wizard} once per day. Intelligence is its spellcasting ability (spell save {@dc 10}, {@hit 2} to hit with spell attacks)."
 					],
@@ -3765,10 +3779,12 @@
 			"_copy": {
 				"name": "Warlock of the Archfey",
 				"source": "VGM",
-				"_trait": {
-					"name": "Goblin",
-					"source": "DMG"
-				},
+				"_templates": [
+					{
+						"name": "Goblin",
+						"source": "DMG"
+					}
+				],
 				"_mod": {
 					"*": [
 						{
@@ -3795,10 +3811,12 @@
 			"_copy": {
 				"name": "Warlock of the Fiend",
 				"source": "VGM",
-				"_trait": {
-					"name": "Goblin",
-					"source": "DMG"
-				},
+				"_templates": [
+					{
+						"name": "Goblin",
+						"source": "DMG"
+					}
+				],
 				"_mod": {
 					"*": [
 						{
@@ -3825,10 +3843,12 @@
 			"_copy": {
 				"name": "Warlock of the Great Old One",
 				"source": "VGM",
-				"_trait": {
-					"name": "Goblin",
-					"source": "DMG"
-				},
+				"_templates": [
+					{
+						"name": "Goblin",
+						"source": "DMG"
+					}
+				],
 				"_mod": {
 					"*": [
 						{
@@ -4512,6 +4532,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The choldrith is a 4th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 12}, {@hit 4} to hit with spell attacks). The choldrith has the following cleric spells prepared:"
 					],
@@ -4704,6 +4725,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The giant's innate spellcasting ability is Charisma (spell save {@dc 15}). It can innately cast the following spells, requiring no material components:"
 					],
@@ -4728,6 +4750,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The giant is a 5th-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 15}, {@hit 7} to hit with spell attacks). The giant has the following bard spells prepared:"
 					],
@@ -4906,6 +4929,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The conjurer is a 9th-level spellcaster. Its spellcasting ability is intelligence (spell save {@dc 14}, {@hit 6} to hit with spell attacks). The conjurer has the following wizard spells prepared:"
 					],
@@ -5596,6 +5620,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The deep rothé's spellcasting ability is Charisma. It can innately cast {@spell dancing lights} at will, requiring no components."
 					],
@@ -6158,6 +6183,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The diviner is a 15th-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 15}, {@hit 7} to hit with spell attacks). The diviner has the following wizard spells prepared:"
 					],
@@ -6453,6 +6479,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The draegloth's innate spellcasting ability is Charisma (spell save {@dc 11}). The draegloth can innately cast the following spells, requiring no material components:"
 					],
@@ -6595,6 +6622,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The elder brain's innate spellcasting ability is Intelligence (spell save {@dc 18}). It can innately cast the following spells, requiring no components:"
 					],
@@ -6659,7 +6687,7 @@
 				{
 					"name": "Sense Thoughts",
 					"entries": [
-						"The elder brain targets a creature with which it has a psychic link. The elder brain gains insight into the target's reasoning, its emotional state, and thoughts that loom large in its mind (including things the target worries about, loves, or hates). The elder brain can also make a Charisma (Deception) check with advantage to deceive the target's mind into thinking it believes one idea or feels a particular emotion. The target contests this attempt with a Wisdom (Insight) check. If the elder brain succeeds, the mind believes the deception for 1 hour or until evidence of the lie is presented to the target."
+						"The elder brain targets a creature with which it has a psychic link. The elder brain gains insight into the target's reasoning, its emotional state, and thoughts that loom large in its mind (including things the target worries about, loves, or hates). The elder brain can also make a Charisma ({@skill Deception}) check with advantage to deceive the target's mind into thinking it believes one idea or feels a particular emotion. The target contests this attempt with a Wisdom ({@skill Insight}) check. If the elder brain succeeds, the mind believes the deception for 1 hour or until evidence of the lie is presented to the target."
 					]
 				}
 			],
@@ -6813,6 +6841,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The enchanter is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 14}, {@hit 6} to hit with spell attacks). The enchanter has the following wizard spells prepared:"
 					],
@@ -6993,6 +7022,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The evoker is a 12th-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 15}, {@hit 7} to hit with spell attacks). The evoker has the following wizard spells prepared:"
 					],
@@ -7298,6 +7328,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The firenewt's innate spellcasting ability is Charisma. It can innately cast {@spell mage armor} (self only) at will, requiring no material components."
 					],
@@ -7311,6 +7342,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The firenewt is a 3rd-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 12}, {@hit 4} to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:"
 					],
@@ -8349,7 +8381,7 @@
 				{
 					"name": "Mimicry",
 					"entries": [
-						"The gazer can mimic simple sounds of speech it has heard, in any language. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom (Insight) check."
+						"The gazer can mimic simple sounds of speech it has heard, in any language. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom ({@skill Insight}) check."
 					]
 				}
 			],
@@ -8606,7 +8638,7 @@
 				{
 					"name": "Keen Smell",
 					"entries": [
-						"The girallon has advantage on Wisdom (Perception) checks that rely on smell."
+						"The girallon has advantage on Wisdom ({@skill Perception}) checks that rely on smell."
 					]
 				}
 			],
@@ -9794,6 +9826,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The grung is a 9th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 12}, {@hit 4} to hit with spell attacks). It knows the following ranger spells:"
 					],
@@ -10190,6 +10223,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The hobgoblin is a 7th-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 13}, {@hit 5} to hit with spell attacks). It has the following wizard spells prepared:"
 					],
@@ -10358,6 +10392,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The hobgoblin is a 2nd-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 12}, {@hit 4} to hit with spell attacks). It has the following wizard spells prepared:"
 					],
@@ -10543,6 +10578,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The illithilich's innate spellcasting ability is Intelligence (spell save {@dc 20}). It can innately cast the following spells, requiring no components."
 					],
@@ -10560,6 +10596,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The illithilich is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 20}, {@hit 12} to hit with spell attacks). The lich has the following wizard spells prepared:"
 					],
@@ -10863,6 +10900,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The illusionist is a 7th-level spellcaster. its spellcasting ability is Intelligence (spell save {@dc 13}, {@hit 5} to hit with spell attacks). The illusionist has the following wizard spells prepared:"
 					],
@@ -11035,6 +11073,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The ki-rin's innate spellcasting ability is Charisma (spell save {@dc 17}). The ki-rin can innately cast the following spells, requiring no material components:"
 					],
@@ -11052,6 +11091,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The ki-rin is a 18th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 17}, {@hit 9} to hit with spell attacks). It has the following cleric spells prepared:"
 					],
@@ -11644,6 +11684,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The kobold is a 3rd-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 12}, {@hit 4} to hit with spell attacks). It has the following sorcerer spells prepared:"
 					],
@@ -11834,6 +11875,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The korred's innate spellcasting ability is Wisdom (save {@dc 13}). It can innately cast the following spells, requiring no components:"
 					],
@@ -11862,7 +11904,7 @@
 				{
 					"name": "Stone Camouflage",
 					"entries": [
-						"The korred has advantage on Dexterity (Stealth) checks made to hide in rocky terrain."
+						"The korred has advantage on Dexterity ({@skill Stealth}) checks made to hide in rocky terrain."
 					]
 				},
 				{
@@ -12022,6 +12064,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The priest's spellcasting ability is Wisdom (spell save {@dc 13}, {@hit 5} to hit with spell attacks). It can innately cast the following spells, requiring no material components:"
 					],
@@ -12182,7 +12225,7 @@
 				{
 					"name": "Mimicry",
 					"entries": [
-						"The leucrotta can mimic animal sounds and humanoid voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 14} Wisdom (Insight) check."
+						"The leucrotta can mimic animal sounds and humanoid voices. A creature that hears the sounds can tell they are imitations with a successful {@dc 14} Wisdom ({@skill Insight}) check."
 					]
 				},
 				{
@@ -12833,6 +12876,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The mind flayer is a 10th-level spellcaster. Its innate spellcasting ability is Intelligence (spell save {@dc 15}; {@hit 7} to hit with spell attacks). It can innately cast the following spells, requiring no components:"
 					],
@@ -13236,6 +13280,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The morkoth is an 11th-level spellcaster. Its spellcasting ability is Intelligence (save {@dc 17}, {@hit 9} to hit with spell attacks). The morkoth has the following wizard spells prepared:"
 					],
@@ -13583,6 +13628,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The necromancer is a 12th-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 15}, {@hit 7} to hit with spell attacks). The necromancer has the following wizard spells prepared:"
 					],
@@ -13979,6 +14025,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The neogi is a 7th-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 14}, {@hit 6} to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:"
 					],
@@ -14169,6 +14216,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The neothelid's innate spellcasting ability is Wisdom (spell save {@dc 16}). It can innately cast the following spells, requiring no components:"
 					],
@@ -14326,6 +14374,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The nilbog's innate spellcasting ability is Charisma (spell save {@dc 12}). It can innately cast the following spells, requiring no material components:"
 					],
@@ -14621,6 +14670,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The orc is a 5th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 12}, {@hit 4} to hit with spell attacks). The orc has the following cleric spells prepared:"
 					],
@@ -14778,6 +14828,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The orc is a 4th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 12}, {@hit 4} to hit with spell attacks). It requires no verbal components to cast its spells. The orc has the following cleric spells prepared:"
 					],
@@ -16283,7 +16334,7 @@
 				{
 					"name": "False Appearance",
 					"entries": [
-						"While the slithering tracker remains motionless, it is indistinguishable from a puddle, unless an observer succeeds on a {@dc 18} Intelligence (Investigation) check."
+						"While the slithering tracker remains motionless, it is indistinguishable from a puddle, unless an observer succeeds on a {@dc 18} Intelligence ({@skill Investigation}) check."
 					]
 				},
 				{
@@ -16307,7 +16358,7 @@
 				{
 					"name": "Watery Stealth",
 					"entries": [
-						"While underwater, the slithering tracker has advantage on Dexterity (Stealth) checks made to hide, and it can take the Hide action as a bonus action."
+						"While underwater, the slithering tracker has advantage on Dexterity ({@skill Stealth}) checks made to hide, and it can take the Hide action as a bonus action."
 					]
 				}
 			],
@@ -17022,6 +17073,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The swarm's innate spellcasting ability is Intelligence (spell save {@dc 13}). As long as it has more than half of its hit points, it can innately cast the following spells, requiring no components:"
 					],
@@ -17757,6 +17809,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The transmuter is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 14}, {@hit 6} to hit with spell attacks). The transmuter has the following wizard spells prepared:"
 					],
@@ -17929,7 +17982,7 @@
 				{
 					"name": "False Appearance",
 					"entries": [
-						"While the trapper is attached to a ceiling, floor, or wall and remains motionless, it is almost indistinguishable from an ordinary section of ceiling, floor, or wall. A creature that can see it and succeeds on a {@dc 20} Intelligence (Investigation) or Intelligence (Nature) check can discern its presence."
+						"While the trapper is attached to a ceiling, floor, or wall and remains motionless, it is almost indistinguishable from an ordinary section of ceiling, floor, or wall. A creature that can see it and succeeds on a {@dc 20} Intelligence ({@skill Investigation}) or Intelligence ({@skill Nature}) check can discern its presence."
 					]
 				},
 				{
@@ -18043,6 +18096,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The ulitharid's innate spellcasting ability is Intelligence (spell save {@dc 17}). It can innately cast the following spells, requiring no components:"
 					],
@@ -18709,6 +18763,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The priest is a 9th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 15}, {@hit 7} to hit with spell attacks). It has the following cleric spells prepared:"
 					],
@@ -18896,6 +18951,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The warlock's innate spellcasting ability is Charisma. It can innately cast the following spells (spell save {@dc 15}), requiring no material components:"
 					],
@@ -18914,6 +18970,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The warlock is an 11th-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 14}, {@hit 6} to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:"
 					],
@@ -19091,6 +19148,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The warlock's innate spellcasting ability is Charisma. It can innately cast the following spells (spell save {@dc 15}), requiring no material components:"
 					],
@@ -19112,6 +19170,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The warlock is a 17th-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 15}, {@hit 7} to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:"
 					],
@@ -19286,6 +19345,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The warlock's innate spellcasting ability is Charisma. It can innately cast the following spells (spell save {@dc 15}), requiring no material components:"
 					],
@@ -19306,6 +19366,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The warlock is a 14th-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 15}, {@hit 7} to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:"
 					],
@@ -19873,7 +19934,7 @@
 				{
 					"name": "Overbearing Pack",
 					"entries": [
-						"The xvart has advantage on Strength (Athletics) checks to shove a creature if at least one of the xvart's allies is within 5 feet of the target and the ally isn't {@condition incapacitated}."
+						"The xvart has advantage on Strength ({@skill Athletics}) checks to shove a creature if at least one of the xvart's allies is within 5 feet of the target and the ally isn't {@condition incapacitated}."
 					]
 				},
 				{
@@ -19988,7 +20049,7 @@
 				{
 					"name": "Overbearing Pack",
 					"entries": [
-						"The xvart has advantage on Strength (Athletics) checks to shove a creature if at least one of the xvart's allies is within 5 feet of the target and the ally isn't {@condition incapacitated}."
+						"The xvart has advantage on Strength ({@skill Athletics}) checks to shove a creature if at least one of the xvart's allies is within 5 feet of the target and the ally isn't {@condition incapacitated}."
 					]
 				},
 				{
@@ -20102,6 +20163,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The xvart's innate spellcasting ability is Charisma. it can innately cast the following spells, requiring no material components:"
 					],
@@ -20113,6 +20175,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The xvart is a 3rd-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 11}, {@hit 3} to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:"
 					],
@@ -20150,7 +20213,7 @@
 				{
 					"name": "Overbearing Pack",
 					"entries": [
-						"The xvart has advantage on Strength (Athletics) checks to shove a creature if at least one of the xvart's allies is within 5 feet of the target and the ally isn't {@condition incapacitated}."
+						"The xvart has advantage on Strength ({@skill Athletics}) checks to shove a creature if at least one of the xvart's allies is within 5 feet of the target and the ally isn't {@condition incapacitated}."
 					]
 				},
 				{
@@ -20423,6 +20486,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Anathema Form Only)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The anathema's innate spellcasting ability is Charisma (spell save {@dc 17}). It can innately cast the following spells, requiring no material components:"
 					],
@@ -20513,7 +20577,7 @@
 					"type": "variant",
 					"name": "Chameleon Skin",
 					"entries": [
-						"The yuan-ti has advantage on Dexterity (Stealth) checks made to hide."
+						"The yuan-ti has advantage on Dexterity ({@skill Stealth}) checks made to hide."
 					],
 					"_version": {
 						"name": "Yuan-ti Anathema (Chameleon Skin)",
@@ -20706,7 +20770,7 @@
 					"type": "variant",
 					"name": "Chameleon Skin",
 					"entries": [
-						"The yuan-ti has advantage on Dexterity (Stealth) checks made to hide."
+						"The yuan-ti has advantage on Dexterity ({@skill Stealth}) checks made to hide."
 					],
 					"_version": {
 						"name": "Yuan-ti Broodguard (Chameleon Skin)",
@@ -20821,6 +20885,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Yuan-ti Form Only)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The yuan-ti's innate spellcasting ability is Charisma (spell save {@dc 13}). The yuan-ti can innately cast the following spells, requiring no material components:"
 					],
@@ -21009,6 +21074,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Yuan-ti Form Only)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The yuan-ti's innate spellcasting ability is Charisma (spell save {@dc 13}). The yuan-ti can innately cast the following spells, requiring no material components:"
 					],
@@ -21204,6 +21270,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Yuan-ti Form Only)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The yuan-ti's innate spellcasting ability is Charisma (spell save {@dc 13}). The yuan-ti can innately cast the following spells, requiring no material components:"
 					],
@@ -21219,6 +21286,7 @@
 				},
 				{
 					"name": "Spellcasting (Yuan-ti Form Only)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The yuan-ti is a 6th-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 13}, {@hit 5} to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:"
 					],
@@ -21301,7 +21369,7 @@
 					"type": "variant",
 					"name": "Chameleon Skin",
 					"entries": [
-						"The yuan-ti has advantage on Dexterity (Stealth) checks made to hide."
+						"The yuan-ti has advantage on Dexterity ({@skill Stealth}) checks made to hide."
 					],
 					"_version": {
 						"name": "Yuan-ti Mind Whisperer (Chameleon Skin)",
@@ -21448,6 +21516,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Yuan-ti Form Only)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The yuan-ti's innate spellcasting ability is Charisma (spell save {@dc 13}). The yuan-ti can innately cast the following spells, requiring no material components:"
 					],
@@ -21463,6 +21532,7 @@
 				},
 				{
 					"name": "Spellcasting (Yuan-ti Form Only)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The yuan-ti is a 6th-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 13}, {@hit 5} to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:"
 					],
@@ -21545,7 +21615,7 @@
 					"type": "variant",
 					"name": "Chameleon Skin",
 					"entries": [
-						"The yuan-ti has advantage on Dexterity (Stealth) checks made to hide."
+						"The yuan-ti has advantage on Dexterity ({@skill Stealth}) checks made to hide."
 					],
 					"_version": {
 						"name": "Yuan-ti Nightmare Speaker (Chameleon Skin)",
@@ -21708,6 +21778,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Yuan-ti Form Only)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The yuan-ti's innate spellcasting ability is Charisma (spell save {@dc 13}). The yuan-ti can innately cast the following spells, requiring no material components:"
 					],
@@ -21723,6 +21794,7 @@
 				},
 				{
 					"name": "Spellcasting (Yuan-ti Form Only)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The yuan-ti is a 6th-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 13}, {@hit 5} to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:"
 					],
@@ -21799,7 +21871,7 @@
 					"type": "variant",
 					"name": "Chameleon Skin",
 					"entries": [
-						"The yuan-ti has advantage on Dexterity (Stealth) checks made to hide."
+						"The yuan-ti has advantage on Dexterity ({@skill Stealth}) checks made to hide."
 					],
 					"_version": {
 						"name": "Yuan-ti Pit Master (Chameleon Skin)",

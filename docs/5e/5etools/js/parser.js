@@ -1062,7 +1062,7 @@ Parser.getTimeToFull = function (time) {
 	return `${time.number ? `${time.number} ` : ""}${time.unit === "bonus" ? "bonus action" : time.unit}${time.number > 1 ? "s" : ""}`;
 };
 
-Parser.getMinutesToFull = function (mins) {
+Parser.getMinutesToFull = function (mins, {isShort = false} = {}) {
 	const days = Math.floor(mins / (24 * 60));
 	mins = mins % (24 * 60);
 
@@ -1070,9 +1070,9 @@ Parser.getMinutesToFull = function (mins) {
 	mins = mins % 60;
 
 	return [
-		days ? `${days} day${days > 1 ? "s" : ""}` : null,
-		hours ? `${hours} hour${hours > 1 ? "s" : ""}` : null,
-		mins ? `${mins} minute${mins > 1 ? "s" : ""}` : null,
+		days ? `${days} ${isShort ? `d` : `day${days > 1 ? "s" : ""}`}` : null,
+		hours ? `${hours} ${isShort ? `h` : `hour${hours > 1 ? "s" : ""}`}` : null,
+		mins ? `${mins} ${isShort ? `m` : `minute${mins > 1 ? "s" : ""}`}` : null,
 	].filter(Boolean)
 		.join(" ");
 };
@@ -1480,6 +1480,7 @@ Parser.monTypeToFullObj = function (type) {
 		tagsSidekick: [],
 		asTextSidekick: null,
 	};
+	if (type == null) return out;
 
 	// handles e.g. "fey"
 	if (typeof type === "string") {
@@ -1573,37 +1574,37 @@ Parser.monCrToFull = function (cr, {xp = null, isMythic = false} = {}) {
 	}
 };
 
-Parser.getFullImmRes = function (toParse) {
+Parser.getFullImmRes = function (toParse, {isPlainText = false} = {}) {
 	if (!toParse?.length) return "";
 
 	let maxDepth = 0;
 
-	function toString (it, depth = 0) {
+	const renderString = str => isPlainText ? Renderer.stripTags(`${str}`) : Renderer.get().render(`${str}`);
+
+	const render = (val, depth = 0) => {
 		maxDepth = Math.max(maxDepth, depth);
-		if (typeof it === "string") {
-			return it;
-		} else if (it.special) {
-			return it.special;
-		} else {
-			const stack = [];
+		if (typeof val === "string") return renderString(val);
 
-			if (it.preNote) stack.push(it.preNote);
+		if (val.special) return renderString(val.special);
 
-			const prop = it.immune ? "immune" : it.resist ? "resist" : it.vulnerable ? "vulnerable" : null;
-			if (prop) {
-				const toJoin = it[prop].length === Parser.DMG_TYPES.length && CollectionUtil.deepEquals(Parser.DMG_TYPES, it[prop])
-					? ["all damage"]
-					: it[prop].map(nxt => toString(nxt, depth + 1));
-				stack.push(depth ? toJoin.join(maxDepth ? "; " : ", ") : toJoin.joinConjunct(", ", " and "));
-			}
+		const stack = [];
 
-			if (it.note) stack.push(it.note);
+		if (val.preNote) stack.push(renderString(val.preNote));
 
-			return stack.join(" ");
+		const prop = val.immune ? "immune" : val.resist ? "resist" : val.vulnerable ? "vulnerable" : null;
+		if (prop) {
+			const toJoin = val[prop].length === Parser.DMG_TYPES.length && CollectionUtil.deepEquals(Parser.DMG_TYPES, val[prop])
+				? ["all damage"]
+				: val[prop].map(nxt => render(nxt, depth + 1));
+			stack.push(renderString(depth ? toJoin.join(maxDepth ? "; " : ", ") : toJoin.joinConjunct(", ", " and ")));
 		}
-	}
 
-	const arr = toParse.map(it => toString(it));
+		if (val.note) stack.push(renderString(val.note));
+
+		return stack.join(" ");
+	};
+
+	const arr = toParse.map(it => render(it));
 
 	if (arr.length <= 1) return arr.join("");
 
@@ -1815,75 +1816,69 @@ Parser.charCreationOptionTypeToFull = function (type) {
 	return type;
 };
 
+Parser._ALIGNMENT_ABV_TO_FULL = {
+	"L": "lawful",
+	"N": "neutral",
+	"NX": "neutral (law/chaos axis)",
+	"NY": "neutral (good/evil axis)",
+	"C": "chaotic",
+	"G": "good",
+	"E": "evil",
+	// "special" values
+	"U": "unaligned",
+	"A": "any alignment",
+};
+
 Parser.alignmentAbvToFull = function (alignment) {
 	if (!alignment) return null; // used in sidekicks
+
 	if (typeof alignment === "object") {
-		if (alignment.special != null) {
-			// use in MTF Sacred Statue
-			return alignment.special;
-		} else {
-			// e.g. `{alignment: ["N", "G"], chance: 50}` or `{alignment: ["N", "G"]}`
-			return `${alignment.alignment.map(a => Parser.alignmentAbvToFull(a)).join(" ")}${alignment.chance ? ` (${alignment.chance}%)` : ""}${alignment.note ? ` (${alignment.note})` : ""}`;
-		}
-	} else {
-		alignment = alignment.toUpperCase();
-		switch (alignment) {
-			case "L":
-				return "lawful";
-			case "N":
-				return "neutral";
-			case "NX":
-				return "neutral (law/chaos axis)";
-			case "NY":
-				return "neutral (good/evil axis)";
-			case "C":
-				return "chaotic";
-			case "G":
-				return "good";
-			case "E":
-				return "evil";
-			// "special" values
-			case "U":
-				return "unaligned";
-			case "A":
-				return "any alignment";
-		}
-		return alignment;
+		// use in MTF Sacred Statue
+		if (alignment.special != null) return alignment.special;
+
+		// e.g. `{alignment: ["N", "G"], chance: 50}` or `{alignment: ["N", "G"]}`
+		return `${Parser.alignmentListToFull(alignment.alignment)}${alignment.chance ? ` (${alignment.chance}%)` : ""}${alignment.note ? ` (${alignment.note})` : ""}`;
 	}
+
+	alignment = alignment.toUpperCase();
+	return Parser._ALIGNMENT_ABV_TO_FULL[alignment] ?? alignment;
 };
 
 Parser.alignmentListToFull = function (alignList) {
 	if (!alignList) return "";
+
 	if (alignList.some(it => typeof it !== "string")) {
 		if (alignList.some(it => typeof it === "string")) throw new Error(`Mixed alignment types: ${JSON.stringify(alignList)}`);
+
 		// filter out any nonexistent alignments, as we don't care about "alignment does not exist" if there are other alignments
-		alignList = alignList.filter(it => it.alignment === undefined || it.alignment != null);
-		return alignList.map(it => it.special != null || it.chance != null || it.note != null ? Parser.alignmentAbvToFull(it) : Parser.alignmentListToFull(it.alignment)).join(" or ");
-	} else {
-		// assume all single-length arrays can be simply parsed
-		if (alignList.length === 1) return Parser.alignmentAbvToFull(alignList[0]);
-		// a pair of abv's, e.g. "L" "G"
-		if (alignList.length === 2) {
-			return alignList.map(a => Parser.alignmentAbvToFull(a)).join(" ");
-		}
-		if (alignList.length === 3) {
-			if (alignList.includes("NX") && alignList.includes("NY") && alignList.includes("N")) return "any neutral alignment";
-		}
-		// longer arrays should have a custom mapping
-		if (alignList.length === 5) {
-			if (!alignList.includes("G")) return "any non-good alignment";
-			if (!alignList.includes("E")) return "any non-evil alignment";
-			if (!alignList.includes("L")) return "any non-lawful alignment";
-			if (!alignList.includes("C")) return "any non-chaotic alignment";
-		}
-		if (alignList.length === 4) {
-			if (!alignList.includes("L") && !alignList.includes("NX")) return "any chaotic alignment";
-			if (!alignList.includes("G") && !alignList.includes("NY")) return "any evil alignment";
-			if (!alignList.includes("C") && !alignList.includes("NX")) return "any lawful alignment";
-			if (!alignList.includes("E") && !alignList.includes("NY")) return "any good alignment";
-		}
-		throw new Error(`Unmapped alignment: ${JSON.stringify(alignList)}`);
+		return alignList
+			.filter(it => it.alignment === undefined || it.alignment != null)
+			.map(it => it.special != null || it.chance != null || it.note != null ? Parser.alignmentAbvToFull(it) : Parser.alignmentListToFull(it.alignment)).join(" or ");
 	}
+
+	// assume all single-length arrays can be simply parsed
+	if (alignList.length === 1) return Parser.alignmentAbvToFull(alignList[0]);
+	// a pair of abv's, e.g. "L" "G"
+	if (alignList.length === 2) {
+		return alignList.map(a => Parser.alignmentAbvToFull(a)).join(" ");
+	}
+	if (alignList.length === 3) {
+		if (alignList.includes("NX") && alignList.includes("NY") && alignList.includes("N")) return "any neutral alignment";
+	}
+	// longer arrays should have a custom mapping
+	if (alignList.length === 5) {
+		if (!alignList.includes("G")) return "any non-good alignment";
+		if (!alignList.includes("E")) return "any non-evil alignment";
+		if (!alignList.includes("L")) return "any non-lawful alignment";
+		if (!alignList.includes("C")) return "any non-chaotic alignment";
+	}
+	if (alignList.length === 4) {
+		if (!alignList.includes("L") && !alignList.includes("NX")) return "any chaotic alignment";
+		if (!alignList.includes("G") && !alignList.includes("NY")) return "any evil alignment";
+		if (!alignList.includes("C") && !alignList.includes("NX")) return "any lawful alignment";
+		if (!alignList.includes("E") && !alignList.includes("NY")) return "any good alignment";
+	}
+	throw new Error(`Unmapped alignment: ${JSON.stringify(alignList)}`);
 };
 
 Parser.weightToFull = function (lbs, isSmallUnit) {
@@ -1896,7 +1891,7 @@ Parser.weightToFull = function (lbs, isSmallUnit) {
 };
 
 Parser.RARITIES = ["common", "uncommon", "rare", "very rare", "legendary", "artifact"];
-Parser.ITEM_RARITIES = ["none", ...Parser.RARITIES, "unknown", "unknown (magic)", "other"];
+Parser.ITEM_RARITIES = ["none", ...Parser.RARITIES, "varies", "unknown", "unknown (magic)", "other"];
 
 Parser.CAT_ID_CREATURE = 1;
 Parser.CAT_ID_SPELL = 2;
@@ -2645,8 +2640,12 @@ Parser.SRC_SatO = "SatO";
 Parser.SRC_ToFW = "ToFW";
 Parser.SRC_MPP = "MPP";
 Parser.SRC_BMT = "BMT";
+Parser.SRC_DMTCRG = "DMTCRG";
 Parser.SRC_GHLoE = "GHLoE";
 Parser.SRC_DoDk = "DoDk";
+Parser.SRC_HWCS = "HWCS";
+Parser.SRC_HWAitW = "HWAitW";
+Parser.SRC_TD = "TD";
 Parser.SRC_SCREEN = "Screen";
 Parser.SRC_SCREEN_WILDERNESS_KIT = "ScreenWildernessKit";
 Parser.SRC_SCREEN_DUNGEON_KIT = "ScreenDungeonKit";
@@ -2817,8 +2816,12 @@ Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SatO] = "Sigil and the Outlands";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_ToFW] = "Turn of Fortune's Wheel";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_MPP] = "Morte's Planar Parade";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_BMT] = "The Book of Many Things";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_DMTCRG] = "The Deck of Many Things: Card Reference Guide";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_GHLoE] = "Grim Hollow: Lairs of Etharis";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_DoDk] = "Dungeons of Drakkenheim";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_HWCS] = "Humblewood Campaign Setting";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_HWAitW] = "Humblewood: Adventure in the Wood";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_TD] = "Tarot Deck";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN] = "Dungeon Master's Screen";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN_WILDERNESS_KIT] = "Dungeon Master's Screen: Wilderness Kit";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN_DUNGEON_KIT] = "Dungeon Master's Screen: Dungeon Kit";
@@ -2964,8 +2967,12 @@ Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SatO] = "SatO";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_ToFW] = "ToFW";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_MPP] = "MPP";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_BMT] = "BMT";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_DMTCRG] = "DMTCRG";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_GHLoE] = "GHLoE";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_DoDk] = "DoDk";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_HWCS] = "HWCS";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_HWAitW] = "HWAitW";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_TD] = "TD";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN] = "Screen";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN_WILDERNESS_KIT] = "ScWild";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN_DUNGEON_KIT] = "ScDun";
@@ -3110,8 +3117,12 @@ Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SatO] = "2023-10-17";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_ToFW] = "2023-10-17";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_MPP] = "2023-10-17";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_BMT] = "2023-11-14";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_DMTCRG] = "2023-11-14";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_GHLoE] = "2023-11-30";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_DoDk] = "2023-12-21";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_HWCS] = "2019-06-17";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_HWAitW] = "2019-06-17";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_TD] = "2022-05-24";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN] = "2015-01-20";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN_WILDERNESS_KIT] = "2020-11-17";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN_DUNGEON_KIT] = "2020-09-21";
@@ -3236,6 +3247,7 @@ Parser.SOURCES_ADVENTURES = new Set([
 	Parser.SRC_HFStCM,
 	Parser.SRC_GHLoE,
 	Parser.SRC_DoDk,
+	Parser.SRC_HWAitW,
 
 	Parser.SRC_AWM,
 ]);
@@ -3297,6 +3309,9 @@ Parser.SOURCES_PARTNERED_WOTC = new Set([
 	Parser.SRC_HftT,
 	Parser.SRC_GHLoE,
 	Parser.SRC_DoDk,
+	Parser.SRC_HWCS,
+	Parser.SRC_HWAitW,
+	Parser.SRC_TD,
 ]);
 // region Source categories
 
@@ -3325,6 +3340,7 @@ Parser.SOURCES_VANILLA = new Set([
 	Parser.SRC_MaBJoV,
 	Parser.SRC_CoA,
 	Parser.SRC_BMT,
+	Parser.SRC_DMTCRG,
 ]);
 
 // Any opinionated set of sources that are """hilarious, dude"""
@@ -3379,6 +3395,8 @@ Parser.SOURCES_NON_FR = new Set([
 	Parser.SRC_LK,
 	Parser.SRC_GHLoE,
 	Parser.SRC_DoDk,
+	Parser.SRC_HWCS,
+	Parser.SRC_HWAitW,
 ]);
 
 // endregion
@@ -3419,6 +3437,9 @@ Parser.SOURCES_AVAILABLE_DOCS_BOOK = {};
 	Parser.SRC_HF,
 	Parser.SRC_HFFotM,
 	Parser.SRC_BMT,
+	Parser.SRC_DMTCRG,
+	Parser.SRC_HWCS,
+	Parser.SRC_TD,
 ].forEach(src => {
 	Parser.SOURCES_AVAILABLE_DOCS_BOOK[src] = src;
 	Parser.SOURCES_AVAILABLE_DOCS_BOOK[src.toLowerCase()] = src;
@@ -3512,6 +3533,7 @@ Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE = {};
 	Parser.SRC_HFStCM,
 	Parser.SRC_GHLoE,
 	Parser.SRC_DoDk,
+	Parser.SRC_HWAitW,
 ].forEach(src => {
 	Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE[src] = src;
 	Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE[src.toLowerCase()] = src;
@@ -3603,6 +3625,9 @@ Parser.ITEM_TYPE_JSON_TO_ABV = {
 	"TAH": "tack and harness",
 	"TG": "trade good",
 	"$": "treasure",
+	"$A": "treasure (art object)",
+	"$C": "treasure (coinage)",
+	"$G": "treasure (gemstone)",
 	"VEH": "vehicle (land)",
 	"SHP": "vehicle (water)",
 	"AIR": "vehicle (air)",

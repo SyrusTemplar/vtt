@@ -29847,7 +29847,7 @@
 						{
 							"type": "entries",
 							"name": "F21. Temple of the Elder Elemental Eye",
-							"page": 112,
+							"page": 122,
 							"id": "4b3",
 							"entries": [
 								{
@@ -29865,7 +29865,7 @@
 										{
 											"type": "entries",
 											"name": "Altar",
-											"page": 112,
+											"page": 122,
 											"id": "4b6",
 											"entries": [
 												"Any non-evil creature that touches the altar or makes a melee weapon attack against it must succeed on a DC 15 Constitution saving throw or take 22 ({@dice 4d10}) psychic damage. The altar has AC 15, 150 hit points, and immunity to acid, cold, fire, lightning, poison, psychic, and thunder damage, as well as bludgeoning, piercing, and slashing damage from nonmagical weapons. As long as the altar remains intact, servants of Elemental Evil (including members of the hour elemental cults) can't be {@condition frightened} while in this room."
@@ -29874,7 +29874,7 @@
 										{
 											"type": "entries",
 											"name": "Flaming Water",
-											"page": 112,
+											"page": 122,
 											"id": "4b7",
 											"entries": [
 												"The flames burning on the pools are fed by oil seeps beneath the water. The water is tainted and undrinkable."
@@ -29885,7 +29885,7 @@
 								{
 									"type": "entries",
 									"name": "Cult Forces",
-									"page": 112,
+									"page": 122,
 									"id": "4b8",
 									"entries": [
 										"One of the four elemental prophets is here when the adventurers first arrive. Accompanying the prophet is a handful of subordinates. Choose from the following options, discounting any prophet who has been defeated:",
@@ -29903,7 +29903,7 @@
 										{
 											"type": "entries",
 											"name": "Sacrifice",
-											"page": 112,
+											"page": 122,
 											"id": "4b9",
 											"entries": [
 												"If the characters accept the prophet's offer, he or she demands a test of good faith. The prophet and entourage move to a tactically safe position. Then, to prove their sincerity, the new converts must offer the sacrifice. The villains have a {@creature commoner} named Darreth, abducted from Womford weeks ago, as a sacrifice. Darreth is already bound, gagged, and lying at the foot of the altar.",
@@ -29916,7 +29916,7 @@
 								{
 									"type": "entries",
 									"name": "Treasure",
-									"page": 112,
+									"page": 122,
 									"id": "4ba",
 									"entries": [
 										"Each elemental prophet carries an elemental weapon (see {@area chapter 7|74f|x})."
@@ -52757,6 +52757,195 @@
 					]
 				}
 			]
+		},
+		{
+			"type": "section",
+			"name": "Credits",
+			"entries": [
+				{
+					"type": "entries",
+					"entries": [
+						{
+							"type": "list",
+							"style": "list-hang-notitle",
+							"columns": 2,
+							"items": [
+								{
+									"type": "entries",
+									"name": "Sasquatch Game Studio",
+									"entries": [
+										{
+											"type": "list",
+											"style": "list-hang-notitle",
+											"items": [
+												{
+													"type": "item",
+													"name": "Lead Designer",
+													"entries": [
+														"Richard Baker"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Designers",
+													"entries": [
+														"Ed Greenwood, David Noonan, Thomas M. Reid, Stephen Schubert, Steven Townshend, Jeff Ludwig, Robert J. Schwalb"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Editors",
+													"entries": [
+														"Michele Carter, Stacy Janssen"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Interior Illustrators",
+													"entries": [
+														"John-Paul Balmet, Mark Behm, Eric Belisle, Filip Burburan, Christopher Burdett, Anna Christenson, Conceptopolis, Wayne England, Jason Engle, Jon Hodgson, Justin Mayhew, Jim Nelson, Klaus Pillon, Claudio Pozas, Ned Rogers, Lee Smith, Raymond Swanland, Matias Tapia, Richard Whitters, Kieran Yanner"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Cartographers",
+													"entries": [
+														"Sean MacDonald, Mike Schley"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Typesetter",
+													"entries": [
+														"Nissa McCormack"
+													]
+												}
+											]
+										}
+									],
+									"id": "166"
+								},
+								{
+									"type": "entries",
+									"name": "Wizards of the Coast",
+									"entries": [
+										{
+											"type": "list",
+											"style": "list-hang-notitle",
+											"items": [
+												{
+													"type": "item",
+													"name": "D&D Lead Designers",
+													"entries": [
+														"Mike Mearls, Jeremy Crawford"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Story Lead",
+													"entries": [
+														"Christopher Perkins"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Managing Editor",
+													"entries": [
+														"Jeremy Crawford"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Producer",
+													"entries": [
+														"Greg Bilsland"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Additional Design",
+													"entries": [
+														"Rodney Thompson, Peter Lee, Chris Sims, Matt Sernett"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Art Directors",
+													"entries": [
+														"Kate Irwin, Shauna Narciso"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Cover Illustrator",
+													"entries": [
+														"Raymond Swanland"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Graphic Designers",
+													"entries": [
+														"Emi Tanji, Bree Heiss"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Proofreading",
+													"entries": [
+														"Jennifer Clarke Wilkes"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Project Management",
+													"entries": [
+														"Neil Shinkle, John Hay"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Production Services",
+													"entries": [
+														"Cynda Callaway, Jefferson Dunlap, David Gershman"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Brand and Marketing",
+													"entries": [
+														"Nathan Stewart, Liz Schuh, Chris Lindsay, Shelly Mazzanoble, Hilary Ross, John Feil, Laura Tommervik, Kim Lundstrom, Trevor Kidd"
+													]
+												},
+												{
+													"type": "item",
+													"name": "Playtesters",
+													"entries": [
+														"Teos Abadia, Robert Alaniz, Rory Alexander, Jay Anderson, Paul Baalham, Stacy Bermes, Joseph Bloch, carlo bosticco, Ken Breese, Tim Eagon, Pierce Gaithe, Richard Green, T. E. Hendrix, Sterling Hershey, Paul Hughes Matthew Jording, Yan Lacharité, Shane Leahy, Ryan Leary, Jonathan Longstaff, Jon Machnicz, Farrell Madden, Matt Maranda, Paul Melamed, Shawn Merwin, Lou Michelli, Rob Mickunas, Mike Mihalas, John Proudfoot, Rob Quillen II, Karl Resch, Sam Sherry, Sam E Simpson Jr, Pieter Sleijpen"
+													]
+												}
+											]
+										}
+									],
+									"id": "167"
+								}
+							]
+						}
+					],
+					"id": "138"
+				},
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "adventure/PotA/credits.webp"
+					},
+					"title": "On the Cover: Aerisi Kalinoth, the air prophet, unleashes the Cult of the Howling Hatred on the Dessarin Valley. A defiant Harper wizard named Zelraun Roaringhorn stands against her in this tempestuous scene illustrated by Raymond Swanland.",
+					"width": 1500,
+					"height": 972
+				}
+			],
+			"id": "137"
 		}
 	]
 }

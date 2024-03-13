@@ -82,6 +82,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The zealot casts one of the following spells, requiring no components and using Charisma as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -215,6 +216,7 @@
 		{
 			"name": "Ash Zombie",
 			"source": "PaBTSO",
+			"page": 52,
 			"_copy": {
 				"name": "Zombie",
 				"source": "MM",
@@ -273,6 +275,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 194,
 			"_copy": {
 				"name": "Mind Flayer Clairvoyant",
 				"source": "PaBTSO",
@@ -286,7 +289,7 @@
 					"trait": {
 						"mode": "appendArr",
 						"items": {
-							"name": "",
+							"name": "Severed Head",
 							"entries": [
 								"Chishinix is always accompanied by a {@creature Chishinix' Head|PaBTSO|severed head}."
 							]
@@ -302,6 +305,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 194,
 			"_copy": {
 				"name": "Encephalon Gemmule",
 				"source": "PaBTSO",
@@ -1293,6 +1297,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The goblin casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save {@dc 13}):"
 					],
@@ -1406,6 +1411,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 121,
 			"_copy": {
 				"name": "Hydra",
 				"source": "MM",
@@ -1482,6 +1488,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The grell psychic casts one of the following spells, requiring no spell components and using Charisma as the spellcasting ability (spell save {@dc 12}):"
 					],
@@ -1561,13 +1568,16 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 10,
 			"_copy": {
 				"name": "Commoner",
 				"source": "MM",
-				"_trait": {
-					"name": "Mountain Dwarf",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Mountain Dwarf",
+						"source": "PHB"
+					}
+				]
 			},
 			"hasToken": true,
 			"hasFluffImages": true
@@ -1577,13 +1587,16 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 8,
 			"_copy": {
 				"name": "Acolyte",
 				"source": "MM",
-				"_trait": {
-					"name": "Mountain Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Mountain Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -1605,6 +1618,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 194,
 			"_copy": {
 				"name": "Mind Flayer Clairvoyant",
 				"source": "PaBTSO",
@@ -1630,6 +1644,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 93,
 			"_copy": {
 				"name": "Psionic Ashenwight",
 				"source": "PaBTSO",
@@ -1653,6 +1668,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 110,
 			"_copy": {
 				"name": "Medusa",
 				"source": "MM",
@@ -1785,6 +1801,8 @@
 		},
 		{
 			"name": "Iarno \"Glasstaff\" Albrek",
+			"isNpc": true,
+			"isNamedCreature": true,
 			"source": "PaBTSO",
 			"page": 43,
 			"size": [
@@ -1841,6 +1859,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Glasstaff casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 13}):"
 					],
@@ -1863,7 +1882,7 @@
 				{
 					"name": "Special Equipment",
 					"entries": [
-						"Glasstaff wields a staff of defense (see appendix B). With the staff in hand, he can use an action to cast the {@spell mage armor} spell and use his reaction to cast the {@spell shield} spell."
+						"Glasstaff wields a {@item staff of defense|PaBTSO} (see appendix B). With the staff in hand, he can use an action to cast the {@spell mage armor} spell and use his reaction to cast the {@spell shield} spell."
 					]
 				}
 			],
@@ -1975,6 +1994,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The elder brain casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save {@dc 17}):"
 					],
@@ -2229,6 +2249,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 121,
 			"_copy": {
 				"name": "Water Weird",
 				"source": "MM",
@@ -2323,6 +2344,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Lowarnizel casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save {@dc 16}):"
 					],
@@ -2422,6 +2444,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 115,
 			"_copy": {
 				"name": "Humanoid Mutate",
 				"source": "PaBTSO",
@@ -2509,6 +2532,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The mind flayer casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save {@dc 17}):"
 					],
@@ -2701,6 +2725,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The mind flayer casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save {@dc 16}):"
 					],
@@ -2802,6 +2827,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 70,
 			"_copy": {
 				"name": "Wraith",
 				"source": "MM",
@@ -2910,6 +2936,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Nezznar casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 13} unless otherwise noted):"
 					],
@@ -3009,13 +3036,16 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 73,
 			"_copy": {
 				"name": "Commoner",
 				"source": "MM",
-				"_trait": {
-					"name": "Mountain Dwarf",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Mountain Dwarf",
+						"source": "PHB"
+					}
+				]
 			},
 			"hasToken": true,
 			"hasFluffImages": true
@@ -3025,6 +3055,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 114,
 			"_copy": {
 				"name": "Drow Elite Warrior",
 				"source": "MM",
@@ -3201,6 +3232,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 115,
 			"_copy": {
 				"name": "Humanoid Mutate",
 				"source": "PaBTSO",
@@ -3303,6 +3335,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Oshundo casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 16}):"
 					],
@@ -3595,6 +3628,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The ashenwight casts one of the following spells, requiring no spellcasting components and using Intelligence as the spellcasting ability (spell save {@dc 14}):"
 					],
@@ -3674,6 +3708,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The shambling mound casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save {@dc 8}):"
 					],
@@ -3759,6 +3794,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Qunbraxel casts one of the following spells, requiring no spell components and using Charisma as the spellcasting ability (spell save {@dc 16}):"
 					],
@@ -4030,6 +4066,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The refraction casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save {@dc 19}):"
 					],
@@ -4170,6 +4207,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 122,
 			"_copy": {
 				"name": "Deep Gnome (Svirfneblin)",
 				"source": "MM",
@@ -4331,6 +4369,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 174,
 			"_copy": {
 				"name": "Aberrant Zealot",
 				"source": "PaBTSO",
@@ -4455,6 +4494,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 174,
 			"_copy": {
 				"name": "Githyanki Knight",
 				"source": "MM",
@@ -4475,6 +4515,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 194,
 			"_copy": {
 				"name": "Mind Flayer Clairvoyant",
 				"source": "PaBTSO",
@@ -4509,6 +4550,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 114,
 			"_copy": {
 				"name": "Drow Elite Warrior",
 				"source": "MM",
@@ -4532,6 +4574,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "PaBTSO",
+			"page": 43,
 			"_copy": {
 				"name": "Quasit",
 				"source": "MM",

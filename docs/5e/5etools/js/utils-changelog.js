@@ -1,7 +1,7 @@
 "use strict";
 
 class UtilsChangelog {
-	static _RELEASE_URL = "https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/releases";
+	static _RELEASE_URL = "https://github.com/5etools-mirror-2/5etools-mirror-2.github.io/releases";
 
 	static renderChangelog (changelog, $wrp) {
 		let lastMajorVersion = 0;

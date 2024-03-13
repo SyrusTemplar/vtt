@@ -119,6 +119,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Auril's innate spellcasting ability is Charisma (spell save {@dc 21}, {@hit 13} to hit with spell attacks). She can innately cast the following spells, requiring no material components:"
 					],
@@ -704,6 +705,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Avarice is a 10th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 14}; {@hit 6} to hit with spell attacks). She has the following wizard spells prepared:"
 					],
@@ -940,10 +942,12 @@
 			"_copy": {
 				"name": "Scout",
 				"source": "MM",
-				"_trait": {
-					"name": "Mountain Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Mountain Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -1755,6 +1759,103 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Dzaan",
+			"isNpc": true,
+			"isNamedCreature": true,
+			"source": "IDRotF",
+			"page": 271,
+			"_copy": {
+				"name": "Dzaan's Simulacrum",
+				"source": "IDRotF",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the simulacrum",
+						"with": "Dzaan",
+						"flags": "i"
+					}
+				}
+			},
+			"hp": {
+				"average": 49,
+				"formula": "9d8 + 9"
+			},
+			"cr": "4",
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"type": "spellcasting",
+					"headerEntries": [
+						"Dzaan is a 9th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 13}, {@hit 5} to hit with spell attacks). He has the following wizard spells prepared:"
+					],
+					"will": [
+						{
+							"entry": "{@spell Shocking Grasp}",
+							"hidden": true
+						},
+						{
+							"entry": "{@spell Acid Splash}",
+							"hidden": true
+						}
+					],
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell acid splash} *",
+								"{@spell light}",
+								"{@spell minor illusion}",
+								"{@spell shocking grasp} *"
+							]
+						},
+						"1": {
+							"slots": 4,
+							"spells": [
+								"{@spell detect magic}",
+								"{@spell disguise self}",
+								"{@spell magic missile} *"
+							]
+						},
+						"2": {
+							"slots": 3,
+							"spells": [
+								"{@spell invisibility}",
+								"{@spell levitate}",
+								"{@spell phantasmal force}"
+							]
+						},
+						"3": {
+							"slots": 3,
+							"spells": [
+								"{@spell fireball}",
+								"{@spell sending}",
+								"{@spell slow}"
+							]
+						},
+						"4": {
+							"slots": 3,
+							"spells": [
+								"{@spell arcane eye}",
+								"{@spell confusion}"
+							]
+						},
+						"5": {
+							"slots": 1,
+							"spells": [
+								"{@spell animate objects}"
+							]
+						}
+					},
+					"footerEntries": [
+						"*See \"Actions\" below."
+					],
+					"ability": "int"
+				}
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Dzaan's Simulacrum",
 			"isNpc": true,
 			"isNamedCreature": true,
@@ -1804,6 +1905,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The simulacrum is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 13}, {@hit 5} to hit with spell attacks). It has the following wizard spells prepared:"
 					],
@@ -1970,7 +2072,7 @@
 				{
 					"name": "Keen Hearing",
 					"entries": [
-						"The fox has advantage on Wisdom (Perception) checks that rely on hearing."
+						"The fox has advantage on Wisdom ({@skill Perception}) checks that rely on hearing."
 					]
 				}
 			],
@@ -2075,6 +2177,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Humanoid Form Only)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The druid is a 9th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 14}; {@hit 6} to hit with spell attacks). It has the following druid spells prepared:"
 					],
@@ -2573,7 +2676,7 @@
 				{
 					"name": "Keen Smell",
 					"entries": [
-						"The vampire has advantage on Wisdom (Perception) checks that rely on smell."
+						"The vampire has advantage on Wisdom ({@skill Perception}) checks that rely on smell."
 					]
 				},
 				{
@@ -2743,6 +2846,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The ceremorph's innate spellcasting ability is Intelligence (spell save {@dc 15}). It can innately cast the following spells, requiring no components:"
 					],
@@ -2883,6 +2987,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The squidling's innate spellcasting ability is Intelligence (spell save {@dc 7}). It can innately cast {@spell levitate} at will, requiring no components."
 					],
@@ -3161,7 +3266,7 @@
 				{
 					"name": "Keen Smell",
 					"entries": [
-						"The werebear has advantage on Wisdom (Perception) checks that rely on smell."
+						"The werebear has advantage on Wisdom ({@skill Perception}) checks that rely on smell."
 					]
 				},
 				{
@@ -3298,6 +3403,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Grandolpha's innate spellcasting ability is Wisdom (spell save {@dc 13}). She can innately cast the following spells, requiring no material components:"
 					],
@@ -3329,7 +3435,7 @@
 				{
 					"name": "Sunlight Sensitivity",
 					"entries": [
-						"While in sunlight, Grandolpha has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+						"While in sunlight, Grandolpha has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
 					]
 				}
 			],
@@ -3801,7 +3907,7 @@
 				{
 					"name": "Keen Smell",
 					"entries": [
-						"The ice troll has advantage on Wisdom (Perception) checks that rely on smell."
+						"The ice troll has advantage on Wisdom ({@skill Perception}) checks that rely on smell."
 					]
 				},
 				{
@@ -3925,7 +4031,7 @@
 				{
 					"name": "Sunlight Sensitivity",
 					"entries": [
-						"While in sunlight, the kobold has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+						"While in sunlight, the kobold has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
 					]
 				}
 			],
@@ -4139,7 +4245,7 @@
 				{
 					"name": "Keen Hearing and Smell",
 					"entries": [
-						"Isarr has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+						"Isarr has advantage on Wisdom ({@skill Perception}) checks that rely on hearing or smell."
 					]
 				}
 			],
@@ -4316,10 +4422,12 @@
 			"_copy": {
 				"name": "Cult Fanatic",
 				"source": "MM",
-				"_trait": {
-					"name": "Tiefling",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Tiefling",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -5188,6 +5296,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The ghost is a 6th-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 14}). The ghost has the following wizard spells prepared:"
 					],
@@ -5356,6 +5465,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Prisoner 237 is a 5th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 13}; {@hit 5} to hit with spell attacks). He has the following wizard spells prepared:"
 					],
@@ -5625,7 +5735,7 @@
 				{
 					"name": "Keen Smell",
 					"entries": [
-						"The seal has advantage on Wisdom (Perception) checks that rely on smell."
+						"The seal has advantage on Wisdom ({@skill Perception}) checks that rely on smell."
 					]
 				}
 			],
@@ -5703,6 +5813,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Sephek can innately cast {@spell misty step} up to three times per day, requiring no components. His innate spellcasting ability is Charisma."
 					],
@@ -5968,6 +6079,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Spellix's spellcasting ability is Charisma (spell save {@dc 13}, {@hit 5} to hit with spell attacks). He can innately cast the following spells, requiring no material components:"
 					],
@@ -6102,7 +6214,7 @@
 				{
 					"name": "Keen Hearing",
 					"entries": [
-						"The whale has advantage on Wisdom (Perception) checks that rely on hearing."
+						"The whale has advantage on Wisdom ({@skill Perception}) checks that rely on hearing."
 					]
 				}
 			],
@@ -6561,6 +6673,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Vellynne is an 8th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 14}, {@hit 6} to hit with spell attacks). She has the following wizard spells prepared:"
 					],
@@ -6614,7 +6727,7 @@
 				{
 					"name": "Special Equipment",
 					"entries": [
-						"Vellynne wears bracers of defense and carries a wand of magic missiles (see \"Actions\" below)."
+						"Vellynne wears {@item bracers of defense} and carries a {@item wand of magic missiles} (see \"Actions\" below)."
 					]
 				}
 			],
@@ -6721,6 +6834,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The verbeeg's innate spellcasting ability is Wisdom. It can innately cast the following spells, requiring no components:"
 					],
@@ -7018,6 +7132,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Xardorok's innate spellcasting ability is Charisma (spell save {@dc 15}, {@hit 7} to hit with spell attacks). He can innately cast the following spells, requiring no material components:"
 					],
@@ -7044,7 +7159,7 @@
 				{
 					"name": "Sunlight Sensitivity",
 					"entries": [
-						"While in sunlight, Xardorok has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+						"While in sunlight, Xardorok has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
 					]
 				}
 			],
@@ -7180,13 +7295,13 @@
 				{
 					"name": "Keen Smell",
 					"entries": [
-						"The yeti has advantage on Wisdom (Perception) checks that rely on smell."
+						"The yeti has advantage on Wisdom ({@skill Perception}) checks that rely on smell."
 					]
 				},
 				{
 					"name": "Snow Camouflage",
 					"entries": [
-						"The yeti has advantage on Dexterity (Stealth) checks made to hide in snowy terrain."
+						"The yeti has advantage on Dexterity ({@skill Stealth}) checks made to hide in snowy terrain."
 					]
 				}
 			],

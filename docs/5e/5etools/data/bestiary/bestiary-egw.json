@@ -208,6 +208,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The nullifier's innate spellcasting ability is Charisma (spell save {@dc 16}). It can innately cast the following spells, requiring no material components:"
 					],
@@ -600,6 +601,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (1/Day)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The blood hunter can innately cast {@spell hex}. Its innate spellcasting ability is Intelligence."
 					],
@@ -755,6 +757,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Bol'bara's innate spellcasting ability is Charisma (spell save {@dc 12}, {@hit 4} to hit with spell attacks). She can innately cast the following spells, requiring no material components:"
 					],
@@ -1982,7 +1985,7 @@
 				{
 					"name": "Sunlight Sensitivity",
 					"entries": [
-						"While in sunlight, the gloomstalker has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+						"While in sunlight, the gloomstalker has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
 					]
 				}
 			],
@@ -2097,7 +2100,7 @@
 				{
 					"name": "Keen Hearing and Smell",
 					"entries": [
-						"The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+						"The wolf has advantage on Wisdom ({@skill Perception}) checks that rely on hearing or smell."
 					]
 				},
 				{
@@ -2275,10 +2278,12 @@
 			"_copy": {
 				"name": "Cult Fanatic",
 				"source": "MM",
-				"_trait": {
-					"name": "Mountain Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Mountain Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -2450,10 +2455,12 @@
 			"_copy": {
 				"name": "Ancient Silver Dragon",
 				"source": "MM",
-				"_trait": {
-					"name": "Legendary Shadow Dragon",
-					"source": "MM"
-				}
+				"_templates": [
+					{
+						"name": "Legendary Shadow Dragon",
+						"source": "MM"
+					}
+				]
 			},
 			"traitTags": [
 				"Legendary Resistances",
@@ -2526,7 +2533,7 @@
 				{
 					"name": "Sunlight Sensitivity",
 					"entries": [
-						"While in sunlight, the kobold has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+						"While in sunlight, the kobold has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
 					]
 				}
 			],
@@ -2621,6 +2628,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The merrow is a 6th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 13}, {@hit 5} to hit with spell attacks). The merrow has the following druid spells prepared:"
 					],
@@ -2825,6 +2833,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Mossback Steward's innate spellcasting ability is Wisdom (spell save {@dc 15}). It can innately cast the following spells, requiring no material components."
 					],
@@ -3045,10 +3054,12 @@
 			"_copy": {
 				"name": "Ancient Black Dragon",
 				"source": "MM",
-				"_trait": {
-					"name": "Dracolich",
-					"source": "MM"
-				},
+				"_templates": [
+					{
+						"name": "Dracolich",
+						"source": "MM"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -3090,6 +3101,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Pellinost is a 5th-level spellcaster. His spellcasting ability is Wisdom (spell save {@dc 13}, {@hit 5} to hit with spell attacks). Pellinost has the following cleric spells prepared:"
 					],
@@ -3147,10 +3159,12 @@
 			"_copy": {
 				"name": "Cultist",
 				"source": "MM",
-				"_trait": {
-					"name": "Wood Elf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Wood Elf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -3220,6 +3234,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The warlock's innate spellcasting ability is Charisma (spell save {@dc 13}, {@hit 5} to hit with spell attacks). It can innately cast the following spells, requiring no material components:"
 					],
@@ -3457,6 +3472,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The sea fury's innate spellcasting ability is Charisma (spell save {@dc 16}, {@hit 8} to hit with spell attacks). It can innately cast the following spells, requiring no material components:"
 					],
@@ -3783,7 +3799,7 @@
 				{
 					"name": "Special Equipment",
 					"entries": [
-						"Sken wears a ring of obscuring. With it, she can cast the {@spell fog cloud} spell centered on herself three times per day. The cloud lasts for 1 minute (no {@status concentration} required)."
+						"Sken wears a {@item ring of obscuring|EGW}. With it, she can cast the {@spell fog cloud} spell centered on herself three times per day. The cloud lasts for 1 minute (no {@status concentration} required)."
 					]
 				}
 			],
@@ -3840,6 +3856,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Lizardfolk Form Only)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Skr'a S'orsk is a 5th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 12}, {@hit 4} to hit with spell attacks). Skr'a S'orsk has the following druid spells prepared:"
 					],
@@ -4023,10 +4040,12 @@
 			"_copy": {
 				"name": "Bandit Captain",
 				"source": "MM",
-				"_trait": {
-					"name": "Tabaxi",
-					"source": "VGM"
-				},
+				"_templates": [
+					{
+						"name": "Tabaxi",
+						"source": "VGM"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -4333,7 +4352,7 @@
 				{
 					"name": "Keen Hearing and Sight",
 					"entries": [
-						"Yinra has advantage on Wisdom (Perception) checks that rely on hearing or sight."
+						"Yinra has advantage on Wisdom ({@skill Perception}) checks that rely on hearing or sight."
 					]
 				}
 			],

@@ -1,10 +1,3 @@
-FROM alpine
-
-RUN apk update && apk add lighttpd rsync
-
-COPY docker/lighttpd.conf docker/mime-types.conf /etc/lighttpd/
-
-CMD [ "lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf" ]
-EXPOSE 80
+FROM ghcr.io/5etools-mirror-2/5etools-img:latest
 
 COPY . /var/www/localhost/htdocs/

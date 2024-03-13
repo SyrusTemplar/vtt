@@ -18,7 +18,7 @@ class Omnidexer {
 		 *   id: 123, // index ID
 		 *   [t: "spell"], // tag
 		 *   [uu: "fireball|phb"], // UID
-		 *   [m: "img/spell/Fireball.png"], // Image
+		 *   [m: "img/spell/Fireball.webp"], // Image
 		 * }
 		 */
 		this._index = [];
@@ -159,7 +159,7 @@ class Omnidexer {
 				if (!indexDoc.m) {
 					const fluff = await Renderer.hover.pGetHoverableFluff(arbiter.fluffBaseListProp || arbiter.listProp, src, hash, {isSilent: true});
 					if (fluff?.images?.length) {
-						indexDoc.m = Renderer.utils.getMediaUrl(fluff.images[0], "href", "img");
+						indexDoc.m = Renderer.utils.getEntryMediaUrl(fluff.images[0], "href", "img");
 					}
 				}
 
@@ -246,7 +246,7 @@ class IndexableDirectoryBestiary extends IndexableDirectory {
 			baseUrl: "bestiary.html",
 			isHover: true,
 			fnGetToken: (ent) => {
-				if (!ent.tokenUrl && !ent.hasToken) return null;
+				if (!Renderer.monster.hasToken(ent)) return null;
 				return Renderer.monster.getTokenUrl(ent);
 			},
 		});
@@ -977,7 +977,7 @@ class IndexableFileObjects extends IndexableFile {
 			baseUrl: "objects.html",
 			isHover: true,
 			fnGetToken: (ent) => {
-				if (!ent.tokenUrl && !ent.hasToken) return null;
+				if (!Renderer.object.hasToken(ent)) return null;
 				return Renderer.object.getTokenUrl(ent);
 			},
 		});
@@ -1080,7 +1080,7 @@ class IndexableFileVehicles extends IndexableFile {
 			baseUrl: "vehicles.html",
 			isHover: true,
 			fnGetToken: (ent) => {
-				if (!ent.tokenUrl && !ent.hasToken) return null;
+				if (!Renderer.vehicle.hasToken(ent)) return null;
 				return Renderer.vehicle.getTokenUrl(ent);
 			},
 		});
@@ -1298,7 +1298,7 @@ class IndexableSpecial {
 class IndexableSpecialPages extends IndexableSpecial {
 	pGetIndex () {
 		return Object.entries(UrlUtil.PG_TO_NAME)
-			.filter(([page]) => ![UrlUtil.PG_CLASS_SUBCLASS_FEATURES].includes(page))
+			.filter(([page]) => !UrlUtil.FAUX_PAGES[page])
 			.map(([page, name]) => ({
 				n: name,
 				c: Parser.CAT_ID_PAGE,

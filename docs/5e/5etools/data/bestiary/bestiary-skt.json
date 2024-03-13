@@ -270,10 +270,12 @@
 			"_copy": {
 				"name": "Veteran",
 				"source": "MM",
-				"_trait": {
-					"name": "Shield Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Shield Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -678,6 +680,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Claugiyliamatar casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 19}):"
 					],
@@ -944,6 +947,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Sansuri's innate spellcasting ability is Charisma. She can innately cast the following spells, requiring no material components:"
 					],
@@ -968,6 +972,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Sansuri casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 15}; {@hit 7} to hit with spell attacks):"
 					],
@@ -1469,6 +1474,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The giant's innate spellcasting ability is Wisdom. It can innately cast the following spells, requiring no material components:"
 					],
@@ -1853,10 +1859,12 @@
 			"_copy": {
 				"name": "Priest",
 				"source": "MM",
-				"_trait": {
-					"name": "Rock Gnome",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Rock Gnome",
+						"source": "PHB"
+					}
+				]
 			},
 			"alignment": [
 				"C",
@@ -1865,6 +1873,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Elister is a 5th-level spellcaster. His spellcasting ability is Wisdom (spell save {@dc 13}, {@hit 5} to hit with spell attacks). Elister has the following cleric spells prepared:"
 					],
@@ -1926,10 +1935,12 @@
 			"_copy": {
 				"name": "Guard",
 				"source": "MM",
-				"_trait": {
-					"name": "Shield Dwarf",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Shield Dwarf",
+						"source": "PHB"
+					}
+				]
 			},
 			"alignment": [
 				"L",
@@ -2357,7 +2368,7 @@
 				{
 					"name": "Shell Camouflage",
 					"entries": [
-						"While the crab remains motionless with its eyestalks and pincers tucked close to its body, it resembles a natural formation or a pile of detritus. A creature within 30 feet of it can discern its true nature with a successful {@dc 15} Intelligence (Nature) check."
+						"While the crab remains motionless with its eyestalks and pincers tucked close to its body, it resembles a natural formation or a pile of detritus. A creature within 30 feet of it can discern its true nature with a successful {@dc 15} Intelligence ({@skill Nature}) check."
 					]
 				}
 			],
@@ -2644,6 +2655,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Iymrith casts one of the following spells, requiring no spell components and using Charisma as the spellcasting ability (spell save {@dc 20}):"
 					],
@@ -2863,6 +2875,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Storvald casts one of the following spells, requiring no material components and using Wisdom as the spellcasting ability:"
 					],
@@ -2946,10 +2959,12 @@
 			"_copy": {
 				"name": "Veteran",
 				"source": "MM",
-				"_trait": {
-					"name": "Shield Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Shield Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -3181,6 +3196,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The giant's innate spellcasting ability is Charisma (spell save {@dc 17}). It can innately cast the following spells, requiring no material components:"
 					],
@@ -3341,6 +3357,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Klauth casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 22}):"
 					],
@@ -3540,10 +3557,12 @@
 			"_copy": {
 				"name": "Knight",
 				"source": "MM",
-				"_trait": {
-					"name": "Shield Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Shield Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"trait": {
 						"mode": "prependArr",
@@ -3762,6 +3781,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Maegera casts {@spell fireball} (spell save {@dc 19}), requiring no material components and using Charisma as the spellcasting ability."
 					],
@@ -4122,10 +4142,12 @@
 			"_copy": {
 				"name": "Commoner",
 				"source": "MM",
-				"_trait": {
-					"name": "Shield Dwarf",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Shield Dwarf",
+						"source": "PHB"
+					}
+				]
 			},
 			"alignment": [
 				"L",
@@ -4150,10 +4172,12 @@
 			"_copy": {
 				"name": "Knight",
 				"source": "MM",
-				"_trait": {
-					"name": "Shield Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Shield Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -4344,6 +4368,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Naxene casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 13}; {@hit 5} to hit with spell attacks):"
 					],
@@ -4451,6 +4476,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The giant casts one of the following spells, requiring no material spell components and using Charisma as the spellcasting ability (spell save {@dc 17}):"
 					],
@@ -4736,6 +4762,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The giant casts one of the following spells, requiring no material spell components and using Charisma as the spellcasting ability (spell save {@dc 17}):"
 					],
@@ -4870,6 +4897,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Othovir casts one of the following spells, using Charisma as the spellcasting ability (spell save {@dc 13}; {@hit 5} to hit with spell attacks):"
 					],
@@ -5014,6 +5042,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Pow is a 9th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 14}, {@hit 6} to hit with spell attacks). Pow has the following wizard spells prepared:"
 					],
@@ -5235,10 +5264,12 @@
 			"_copy": {
 				"name": "Assassin",
 				"source": "MM",
-				"_trait": {
-					"name": "Half-Orc",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Half-Orc",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -5359,6 +5390,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The giant casts one of the following spells, requiring no material spell components and using Charisma as the spellcasting ability (spell save {@dc 17}):"
 					],
@@ -5611,10 +5643,12 @@
 			"_copy": {
 				"name": "Guard",
 				"source": "MM",
-				"_trait": {
-					"name": "Shield Dwarf",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Shield Dwarf",
+						"source": "PHB"
+					}
+				]
 			},
 			"alignment": [
 				"L",
@@ -5655,10 +5689,12 @@
 			"_copy": {
 				"name": "Noble",
 				"source": "MM",
-				"_trait": {
-					"name": "Shield Dwarf",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Shield Dwarf",
+						"source": "PHB"
+					}
+				]
 			},
 			"alignment": [
 				"L",
@@ -5986,6 +6022,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Slarkrethel casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save {@dc 22}):"
 					],
@@ -6350,6 +6387,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The giant's innate spellcasting ability is Wisdom. It can innately cast the following spells, requiring no material components:"
 					],
@@ -6370,7 +6408,7 @@
 				{
 					"name": "Stone Camouflage",
 					"entries": [
-						"The giant has advantage on Dexterity (Stealth) checks made to hide in rocky terrain."
+						"The giant has advantage on Dexterity ({@skill Stealth}) checks made to hide in rocky terrain."
 					]
 				},
 				{
@@ -6472,10 +6510,12 @@
 			"_copy": {
 				"name": "Bandit Captain",
 				"source": "MM",
-				"_trait": {
-					"name": "Shield Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Shield Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -6786,6 +6826,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Turlang casts one of the following spells, requiring no material spell components and using Wisdom as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -7051,6 +7092,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting (Requires a Sacred Bundle)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The shaman casts one of the following spells, using Wisdom as the spellcasting ability (spell save {@dc 12}; {@hit 4} to hit with spell attacks):"
 					],
@@ -7353,6 +7395,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The giant casts one of the following spells, requiring no material spell components and using Charisma as the spellcasting ability (spell save {@dc 17}):"
 					],
@@ -7394,10 +7437,12 @@
 			"_copy": {
 				"name": "Commoner",
 				"source": "MM",
-				"_trait": {
-					"name": "Rock Gnome",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Rock Gnome",
+						"source": "PHB"
+					}
+				]
 			},
 			"alignment": [
 				"C",
@@ -7420,10 +7465,12 @@
 			"_copy": {
 				"name": "Scout",
 				"source": "MM",
-				"_trait": {
-					"name": "Wood Elf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Wood Elf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -7547,6 +7594,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The yakfolk is a 7th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 14}, {@hit 6} to hit with spell attacks). The priest has the following cleric spells prepared:"
 					],
@@ -7933,6 +7981,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Zephyros's innate spellcasting ability is Charisma. He can innately cast the following spells, requiring no material components:"
 					],
@@ -7957,6 +8006,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Zephyros casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 17}, {@hit 11} to hit with spell attacks):"
 					],

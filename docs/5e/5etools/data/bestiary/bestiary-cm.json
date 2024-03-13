@@ -75,7 +75,7 @@
 				{
 					"name": "False Object",
 					"entries": [
-						"If the broom is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the broom move or act, that creature must succeed on a {@dc 15} Wisdom (Perception) check to discern that the broom is animate."
+						"If the broom is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the broom move or act, that creature must succeed on a {@dc 15} Wisdom ({@skill Perception}) check to discern that the broom is animate."
 					]
 				},
 				{
@@ -169,7 +169,7 @@
 				{
 					"name": "False Object",
 					"entries": [
-						"If the library is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the library move or act, that creature must succeed on a {@dc 15} Wisdom (Perception) check to discern that the library is animate."
+						"If the library is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the library move or act, that creature must succeed on a {@dc 15} Wisdom ({@skill Perception}) check to discern that the library is animate."
 					]
 				}
 			],
@@ -263,6 +263,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Quill casts one of the following spells using Charisma as the spellcasting ability (save {@dc 17}):"
 					],
@@ -721,6 +722,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The ghost casts one of the following spells, using Charisma as the spellcasting ability and requiring no material components:"
 					],
@@ -1210,6 +1212,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The fungal servant is a 10th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 17}, {@hit 9} to hit with spell attacks). The fungal servant has the following cleric spells prepared:"
 					],
@@ -1968,6 +1971,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"K'Tulah is a 4th-level spellcaster. K'Tulah's spellcasting ability is Wisdom (spell save {@dc 12}, {@hit 4} to hit with spell attacks). K'Tulah has the following druid spells prepared:"
 					],
@@ -2226,6 +2230,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The lich casts one of the following spells using Wisdom as the spellcasting ability (save {@dc 19}):"
 					],
@@ -2424,7 +2429,7 @@
 					"name": "Berserk",
 					"entries": [
 						"Whenever the golem starts its turn with 40 hit points or fewer, roll a {@dice d6}. On a 6, the golem goes berserk. On each of its turns while berserk, the golem attacks the nearest creature it can see. If no creature is near enough to move to and attack, the golem attacks an object, with preference for an object smaller than itself. Once the golem goes berserk, it continues to do so until it is destroyed or regains all its hit points.",
-						"The golem's creator, if within 60 feet of the berserk golem, can try to calm it by speaking firmly and persuasively. The golem must be able to hear its creator, who must take an action to make a {@dc 15} Charisma (Persuasion) check. If the check succeeds, the golem ceases being berserk. If it takes damage while still at 40 hit points or fewer, the golem might go berserk again."
+						"The golem's creator, if within 60 feet of the berserk golem, can try to calm it by speaking firmly and persuasively. The golem must be able to hear its creator, who must take an action to make a {@dc 15} Charisma ({@skill Persuasion}) check. If the check succeeds, the golem ceases being berserk. If it takes damage while still at 40 hit points or fewer, the golem might go berserk again."
 					]
 				},
 				{
@@ -2536,6 +2541,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The sage casts one of the following spells, using Intelligence as the spellcasting ability (save {@dc 14}, {@hit 6} to hit with spell attacks):"
 					],
@@ -2722,6 +2728,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Miirym casts one of the following spells, using Charisma as the spellcasting ability (save {@dc 21}) and requiring no material components:"
 					],
@@ -3060,6 +3067,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Nintra casts one of the following spells, using Charisma as the spellcasting ability (save {@dc 20}) and requiring no material components:"
 					],
@@ -3351,6 +3359,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Ram Sugar is a 4th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 11}, {@hit 3} to hit with spell attacks). Ram Sugar has the following cleric spells prepared:"
 					],
@@ -3498,6 +3507,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The sage casts one of the following spells, using Intelligence as the spellcasting ability (save {@dc 14}, {@hit 6} to hit with spell attacks):"
 					],
@@ -4260,7 +4270,7 @@
 				{
 					"name": "False Objects",
 					"entries": [
-						"If the swarm is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the swarm move or act, that creature must succeed on a {@dc 15} Wisdom (Perception) check to discern that the swarm is animate."
+						"If the swarm is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the swarm move or act, that creature must succeed on a {@dc 15} Wisdom ({@skill Perception}) check to discern that the swarm is animate."
 					]
 				},
 				{
@@ -4370,6 +4380,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Valin Sarnaster is a 10th-level spellcaster. Her spellcasting ability is Wisdom (spell save {@dc 17}, {@hit 9} to hit with spell attacks). Valin has the following cleric spells prepared:"
 					],
@@ -4693,10 +4704,12 @@
 			"_copy": {
 				"name": "Archmage",
 				"source": "MM",
-				"_trait": {
-					"name": "Water Genasi",
-					"source": "EEPC"
-				},
+				"_templates": [
+					{
+						"name": "Water Genasi",
+						"source": "EEPC"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -4869,7 +4882,7 @@
 				{
 					"name": "Detect",
 					"entries": [
-						"Zikzokrishka makes a Wisdom (Perception) check."
+						"Zikzokrishka makes a Wisdom ({@skill Perception}) check."
 					]
 				},
 				{

@@ -1359,7 +1359,11 @@ class SpellcastingTraitConvert {
 
 	static _parseSpellcasting ({ent, isMarkdown, displayAs, actions, reactions}) {
 		let hasAnyHeader = false;
-		const spellcastingEntry = {"name": ent.name, "headerEntries": [this._parseToHit(ent.entries[0])]};
+		const spellcastingEntry = {
+			"name": ent.name,
+			"type": "spellcasting",
+			"headerEntries": [this._parseToHit(ent.entries[0])],
+		};
 		ent.entries.forEach((thisLine, i) => {
 			thisLine = thisLine.replace(/,\s*\*/g, ",*"); // put asterisks on the correct side of commas
 			if (i === 0) return;
@@ -1391,7 +1395,7 @@ class SpellcastingTraitConvert {
 				const value = this._getParsedSpells({thisLine, isMarkdown});
 				if (!spellcastingEntry.spells) spellcastingEntry.spells = {"0": {"spells": []}};
 				spellcastingEntry.spells["0"].spells = value;
-			} else if (/ [Ll]evel/.test(thisLine) && /(?::| -) /.test(thisLine)) {
+			} else if (/[- ][Ll]evel/.test(thisLine) && /(?::| -) /.test(thisLine)) {
 				hasAnyHeader = true;
 				let property = thisLine.substring(0, 1);
 				const allSpells = this._getParsedSpells({thisLine, isMarkdown});
@@ -1399,7 +1403,7 @@ class SpellcastingTraitConvert {
 
 				const out = {};
 				if (thisLine.includes(" slot")) {
-					const mWarlock = /^(\d)..(?: [Ll]evel)?-(\d).. [Ll]evel \((\d) (\d)..[- ][Ll]evel slots?\)/.exec(thisLine);
+					const mWarlock = /^(\d)..(?:[- ][Ll]evel)?-(\d)..[- ][Ll]evel \((\d) (\d)..[- ][Ll]evel slots?\)/.exec(thisLine);
 					if (mWarlock) {
 						out.lower = parseInt(mWarlock[1]);
 						out.slots = parseInt(mWarlock[3]);
@@ -1697,7 +1701,24 @@ globalThis.SpeedConvert = SpeedConvert;
 
 class DetectNamedCreature {
 	static tryRun (mon) {
+		if (this._tryRun_nickname(mon)) return;
+		this._tryRun_heuristic(mon);
+	}
+
+	static _tryRun_nickname (mon) {
+		if (
+			/^[^"]+ "[^"]+" [^"]+/.test(mon.name)
+			|| /^[^']+ '[^']+' [^']+/.test(mon.name)
+		) {
+			mon.isNamedCreature = true;
+			return true;
+		}
+		return false;
+	}
+
+	static _tryRun_heuristic (mon) {
 		const totals = {yes: 0, no: 0};
+
 		this._doCheckProp(mon, totals, "trait");
 		this._doCheckProp(mon, totals, "spellcasting");
 		this._doCheckProp(mon, totals, "action");
@@ -1707,6 +1728,8 @@ class DetectNamedCreature {
 		this._doCheckProp(mon, totals, "mythic");
 
 		if (totals.yes && totals.yes > totals.no) mon.isNamedCreature = true;
+
+		return true;
 	}
 
 	static _doCheckProp (mon, totals, prop) {
@@ -1885,3 +1908,16 @@ class CreatureSavingThrowTagger extends _PrimaryLegendarySpellsTaggerBase {
 }
 
 globalThis.CreatureSavingThrowTagger = CreatureSavingThrowTagger;
+
+class CreatureSpecialEquipmentTagger {
+	static tryRun (mon) {
+		if (!mon.trait) return;
+		mon.trait = mon.trait
+			.map(ent => {
+				if (!/\bEquipment\b/.test(ent.name || "")) return ent;
+				return ItemTag.tryRun(ent);
+			});
+	}
+}
+
+globalThis.CreatureSpecialEquipmentTagger = CreatureSpecialEquipmentTagger;

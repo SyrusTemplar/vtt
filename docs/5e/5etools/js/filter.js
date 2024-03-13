@@ -96,6 +96,9 @@ class PageFilter {
 	static getListAliases (ent) {
 		return (ent.alias || []).map(it => `"${it}"`).join(",");
 	}
+
+	static _hasFluff (ent) { return ent.hasFluff || ent.fluff?.entries; }
+	static _hasFluffImages (ent) { return ent.hasFluffImages || ent.fluff?.images; }
 	// endregion
 }
 
@@ -103,7 +106,7 @@ globalThis.PageFilter = PageFilter;
 
 class ModalFilter {
 	static _$getFilterColumnHeaders (btnMeta) {
-		return btnMeta.map((it, i) => $(`<button class="col-${it.width} ${i === 0 ? "pl-0" : i === btnMeta.length ? "pr-0" : ""} ${it.disabled ? "" : "sort"} btn btn-default btn-xs" ${it.disabled ? "" : `data-sort="${it.sort}"`} ${it.title ? `title="${it.title}"` : ""} ${it.disabled ? "disabled" : ""}>${it.text}</button>`));
+		return btnMeta.map((it, i) => $(`<button class="ve-col-${it.width} ${i === 0 ? "pl-0" : i === btnMeta.length ? "pr-0" : ""} ${it.disabled ? "" : "sort"} btn btn-default btn-xs" ${it.disabled ? "" : `data-sort="${it.sort}"`} ${it.title ? `title="${it.title}"` : ""} ${it.disabled ? "disabled" : ""}>${it.text}</button>`));
 	}
 
 	/**
@@ -133,7 +136,7 @@ class ModalFilter {
 	_$getWrpList () { return $(`<div class="list ui-list__wrp overflow-x-hidden overflow-y-auto h-100 min-h-0"></div>`); }
 
 	_$getColumnHeaderPreviewAll (opts) {
-		return $(`<button class="btn btn-default btn-xs ${opts.isBuildUi ? "col-1" : "col-0-5"}">${ListUiUtil.HTML_GLYPHICON_EXPAND}</button>`);
+		return $(`<button class="btn btn-default btn-xs ${opts.isBuildUi ? "ve-col-1" : "ve-col-0-5"}">${ListUiUtil.HTML_GLYPHICON_EXPAND}</button>`);
 	}
 
 	/**
@@ -169,11 +172,11 @@ class ModalFilter {
 
 		const $wrpFormHeaders = $(`<div class="input-group input-group--bottom ve-flex no-shrink"></div>`);
 		const $cbSelAll = opts.isBuildUi || this._isRadio ? null : $(`<input type="checkbox">`);
-		const $btnSendAllToRight = opts.isBuildUi ? $(`<button class="btn btn-xxs btn-default col-1" title="Add All"><span class="glyphicon glyphicon-arrow-right"></span></button>`) : null;
+		const $btnSendAllToRight = opts.isBuildUi ? $(`<button class="btn btn-xxs btn-default ve-col-1" title="Add All"><span class="glyphicon glyphicon-arrow-right"></span></button>`) : null;
 
 		if (!opts.isBuildUi) {
-			if (this._isRadio) $wrpFormHeaders.append(`<label class="btn btn-default btn-xs col-0-5 ve-flex-vh-center" disabled></label>`);
-			else $$`<label class="btn btn-default btn-xs col-0-5 ve-flex-vh-center">${$cbSelAll}</label>`.appendTo($wrpFormHeaders);
+			if (this._isRadio) $wrpFormHeaders.append(`<label class="btn btn-default btn-xs ve-col-0-5 ve-flex-vh-center" disabled></label>`);
+			else $$`<label class="btn btn-default btn-xs ve-col-0-5 ve-flex-vh-center">${$cbSelAll}</label>`.appendTo($wrpFormHeaders);
 		}
 
 		const $btnTogglePreviewAll = this._$getColumnHeaderPreviewAll(opts)
@@ -1469,6 +1472,7 @@ class Filter extends FilterBase {
 	 *        Defaults to ascending alphabetical sort.
 	 * @param [opts.itemSortFnMini] Function which should be used to sort the `items` array when rendering mini-pills.
 	 * @param [opts.groupFn] Function which takes an item and assigns it to a group.
+	 * @param [opts.groupNameFn] Function which takes a group and returns a group name;
 	 * @param [opts.minimalUi] True if the filter should render with a reduced UI, false otherwise.
 	 * @param [opts.umbrellaItems] Items which should, when set active, show everything in the filter. E.g. "All".
 	 * @param [opts.umbrellaExcludes] Items which should ignore the state of any `umbrellaItems`
@@ -1489,6 +1493,7 @@ class Filter extends FilterBase {
 		this._itemSortFn = opts.itemSortFn === undefined ? SortUtil.ascSort : opts.itemSortFn;
 		this._itemSortFnMini = opts.itemSortFnMini;
 		this._groupFn = opts.groupFn;
+		this._groupNameFn = opts.groupNameFn;
 		this._minimalUi = opts.minimalUi;
 		this._umbrellaItems = Filter._getAsFilterItems(opts.umbrellaItems);
 		this._umbrellaExcludes = Filter._getAsFilterItems(opts.umbrellaExcludes);
@@ -2137,14 +2142,14 @@ class Filter extends FilterBase {
 	_doRenderPills_doRenderWrpGroup (group) {
 		const existingMeta = this._pillGroupsMeta[group];
 		if (existingMeta && !existingMeta.isAttached) {
-			existingMeta.hrDivider.appendTo(this.__wrpPills);
+			existingMeta.wrpDivider.appendTo(this.__wrpPills);
 			existingMeta.wrpPills.appendTo(this.__wrpPills);
 			existingMeta.isAttached = true;
 		}
 		if (existingMeta) return;
 
 		this._pillGroupsMeta[group] = {
-			hrDivider: this._doRenderPills_doRenderWrpGroup_getHrDivider(group).appendTo(this.__wrpPills),
+			wrpDivider: this._doRenderPills_doRenderWrpGroup_getDivider(group).appendTo(this.__wrpPills),
 			wrpPills: this._doRenderPills_doRenderWrpGroup_getWrpPillsSub(group).appendTo(this.__wrpPills),
 			isAttached: true,
 		};
@@ -2152,14 +2157,14 @@ class Filter extends FilterBase {
 		Object.entries(this._pillGroupsMeta)
 			.sort((a, b) => SortUtil.ascSortLower(a[0], b[0]))
 			.forEach(([groupKey, groupMeta], i) => {
-				groupMeta.hrDivider.appendTo(this.__wrpPills);
-				groupMeta.hrDivider.toggleVe(!this._isGroupDividerHidden(groupKey, i));
+				groupMeta.wrpDivider.appendTo(this.__wrpPills);
+				groupMeta.wrpDivider.toggleVe(!this._isGroupDividerHidden(groupKey, i));
 				groupMeta.wrpPills.appendTo(this.__wrpPills);
 			});
 
 		if (this._nests) {
 			this._pillGroupsMeta[group].toggleDividerFromNestVisibility = () => {
-				this._pillGroupsMeta[group].hrDivider.toggleVe(!this._isGroupDividerHidden(group));
+				this._pillGroupsMeta[group].wrpDivider.toggleVe(!this._isGroupDividerHidden(group));
 			};
 
 			// bind group dividers to show/hide depending on nest visibility state
@@ -2184,7 +2189,36 @@ class Filter extends FilterBase {
 		return groupItems.length === hiddenGroupItems.length;
 	}
 
-	_doRenderPills_doRenderWrpGroup_getHrDivider () { return e_({tag: "hr", clazz: `fltr__dropdown-divider--sub hr-2 mx-3`}); }
+	_doRenderPills_doRenderWrpGroup_getDivider (group) {
+		const eleHr = this._doRenderPills_doRenderWrpGroup_getDividerHr(group);
+		const elesHeader = this._doRenderPills_doRenderWrpGroup_getDividerHeaders(group);
+
+		return e_({
+			tag: "div",
+			clazz: "ve-flex-col w-100",
+			children: [
+				eleHr,
+				...elesHeader,
+			]
+				.filter(Boolean),
+		});
+	}
+
+	_doRenderPills_doRenderWrpGroup_getDividerHr (group) { return e_({tag: "hr", clazz: `fltr__dropdown-divider--sub hr-2 mx-3`}); }
+
+	_doRenderPills_doRenderWrpGroup_getDividerHeaders (group) {
+		const groupName = this._groupNameFn?.(group);
+		if (!groupName) return [];
+
+		return [
+			e_({
+				tag: "div",
+				clazz: `fltr__divider-header ve-muted italic ve-small`,
+				text: groupName,
+			}),
+		];
+	}
+
 	_doRenderPills_doRenderWrpGroup_getWrpPillsSub () { return e_({tag: "div", clazz: `fltr__wrp-pills--sub fltr__container-pills`}); }
 
 	_doRenderMiniPills () {
@@ -2461,7 +2495,7 @@ class Filter extends FilterBase {
 
 		Object.values(this._pillGroupsMeta || {})
 			.forEach(it => {
-				it.hrDivider.detach();
+				it.wrpDivider.detach();
 				it.wrpPills.detach();
 				it.isAttached = false;
 			});
@@ -2816,6 +2850,7 @@ class SourceFilter extends Filter {
 		opts.itemSortFnMini = opts.itemSortFnMini === undefined ? SourceFilter._SORT_ITEMS_MINI.bind(SourceFilter) : opts.itemSortFnMini;
 		opts.itemSortFn = opts.itemSortFn === undefined ? (a, b) => SortUtil.ascSortLower(Parser.sourceJsonToFull(a.item), Parser.sourceJsonToFull(b.item)) : opts.itemSortFn;
 		opts.groupFn = opts.groupFn === undefined ? SourceUtil.getFilterGroup : opts.groupFn;
+		opts.groupNameFn = opts.groupNameFn === undefined ? SourceUtil.getFilterGroupName : opts.groupNameFn;
 		opts.selFn = opts.selFn === undefined ? PageFilter.defaultSourceSelFn : opts.selFn;
 
 		super(opts);
@@ -3071,15 +3106,15 @@ class SourceFilter extends Filter {
 		return [ent.source].concat(otherSourcesFilt.map(src => new SourceFilterItem({item: src.source, isIgnoreRed: true, isOtherSource: true})));
 	}
 
-	_doRenderPills_doRenderWrpGroup_getHrDivider (group) {
+	_doRenderPills_doRenderWrpGroup_getDividerHeaders (group) {
 		switch (group) {
-			case SourceUtil.FILTER_GROUP_NON_STANDARD: return this._doRenderPills_doRenderWrpGroup_getHrDivider_groupNonStandard(group);
-			case SourceUtil.FILTER_GROUP_HOMEBREW: return this._doRenderPills_doRenderWrpGroup_getHrDivider_groupBrew(group);
-			default: return super._doRenderPills_doRenderWrpGroup_getHrDivider(group);
+			case SourceUtil.FILTER_GROUP_NON_STANDARD: return this._doRenderPills_doRenderWrpGroup_getDividerHeaders_groupNonStandard(group);
+			case SourceUtil.FILTER_GROUP_HOMEBREW: return this._doRenderPills_doRenderWrpGroup_getDividerHeaders_groupBrew(group);
+			default: return super._doRenderPills_doRenderWrpGroup_getDividerHeaders(group);
 		}
 	}
 
-	_doRenderPills_doRenderWrpGroup_getHrDivider_groupNonStandard (group) {
+	_doRenderPills_doRenderWrpGroup_getDividerHeaders_groupNonStandard (group) {
 		let dates = [];
 		const comp = BaseComponent.fromObject({
 			min: 0,
@@ -3201,25 +3236,31 @@ class SourceFilter extends Filter {
 			],
 		});
 
-		return e_({
-			tag: "div",
-			clazz: `ve-flex-col w-100`,
-			children: [
-				super._doRenderPills_doRenderWrpGroup_getHrDivider(),
-				e_({
-					tag: "div",
-					clazz: `mb-1 ve-flex-h-right`,
-					children: [
-						grpBtnsActive,
-						grpBtnsInactive,
-					],
-				}),
-				wrpWrpSlider,
-			],
-		});
+		const elesDividerHeaders = super._doRenderPills_doRenderWrpGroup_getDividerHeaders(group);
+		if (!elesDividerHeaders.length) elesDividerHeaders.push(e_({clazz: "div"}));
+		if (elesDividerHeaders.length > 1) throw new Error("Unimplemented!");
+
+		return [
+			e_({
+				tag: "div",
+				clazz: `split-v-center w-100`,
+				children: [
+					...elesDividerHeaders,
+					e_({
+						tag: "div",
+						clazz: `mb-1 ve-flex-h-right`,
+						children: [
+							grpBtnsActive,
+							grpBtnsInactive,
+						],
+					}),
+				],
+			}),
+			wrpWrpSlider,
+		];
 	}
 
-	_doRenderPills_doRenderWrpGroup_getHrDivider_groupBrew (group) {
+	_doRenderPills_doRenderWrpGroup_getDividerHeaders_groupBrew (group) {
 		const btnClear = e_({
 			tag: "button",
 			clazz: `btn btn-xxs btn-default px-1`,
@@ -3233,26 +3274,32 @@ class SourceFilter extends Filter {
 			},
 		});
 
-		return e_({
-			tag: "div",
-			clazz: `ve-flex-col w-100`,
-			children: [
-				super._doRenderPills_doRenderWrpGroup_getHrDivider(),
-				e_({
-					tag: "div",
-					clazz: `mb-1 ve-flex-h-right`,
-					children: [
-						e_({
-							tag: "div",
-							clazz: `ve-flex-v-center btn-group`,
-							children: [
-								btnClear,
-							],
-						}),
-					],
-				}),
-			],
-		});
+		const elesDividerHeaders = super._doRenderPills_doRenderWrpGroup_getDividerHeaders(group);
+		if (!elesDividerHeaders.length) elesDividerHeaders.push(e_({clazz: "div"}));
+		if (elesDividerHeaders.length > 1) throw new Error("Unimplemented!");
+
+		return [
+			e_({
+				tag: "div",
+				clazz: `split-v-center w-100`,
+				children: [
+					...elesDividerHeaders,
+					e_({
+						tag: "div",
+						clazz: `mb-1 ve-flex-h-right`,
+						children: [
+							e_({
+								tag: "div",
+								clazz: `ve-flex-v-center btn-group`,
+								children: [
+									btnClear,
+								],
+							}),
+						],
+					}),
+				],
+			}),
+		];
 	}
 
 	_toDisplay_getMappedEntryVal (entryVal) {

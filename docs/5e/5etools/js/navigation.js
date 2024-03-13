@@ -169,8 +169,8 @@ class NavBar {
 		this._addElement_button(
 			NavBar._CAT_CACHE,
 			{
-				html: "Preload Adventure Text <small>(25MB+)</small>",
-				click: (evt) => NavBar.InteractionManager._pOnClick_button_preloadOffline(evt, /data\/adventure/),
+				html: "Preload Adventure Text <small>(50MB+)</small>",
+				click: (evt) => NavBar.InteractionManager._pOnClick_button_preloadOffline(evt, {route: /data\/adventure/}),
 				title: "Preload adventure text for offline use.",
 			},
 		);
@@ -178,7 +178,7 @@ class NavBar {
 			NavBar._CAT_CACHE,
 			{
 				html: "Preload Book Images <small>(1GB+)</small>",
-				click: (evt) => NavBar.InteractionManager._pOnClick_button_preloadOffline(evt, /img\/book/),
+				click: (evt) => NavBar.InteractionManager._pOnClick_button_preloadOffline(evt, {route: /img\/book/, isRequireImages: true}),
 				title: "Preload book images offline use. Note that book text is preloaded automatically.",
 			},
 		);
@@ -186,7 +186,7 @@ class NavBar {
 			NavBar._CAT_CACHE,
 			{
 				html: "Preload Adventure Text and Images <small>(2GB+)</small>",
-				click: (evt) => NavBar.InteractionManager._pOnClick_button_preloadOffline(evt, /(?:data|img)\/adventure/),
+				click: (evt) => NavBar.InteractionManager._pOnClick_button_preloadOffline(evt, {route: /(?:data|img)\/adventure/, isRequireImages: true}),
 				title: "Preload adventure text and images for offline use.",
 			},
 		);
@@ -194,7 +194,7 @@ class NavBar {
 			NavBar._CAT_CACHE,
 			{
 				html: "Preload All Images <small>(4GB+)</small>",
-				click: (evt) => NavBar.InteractionManager._pOnClick_button_preloadOffline(evt, /img/),
+				click: (evt) => NavBar.InteractionManager._pOnClick_button_preloadOffline(evt, {route: /img/, isRequireImages: true}),
 				title: "Preload all images for offline use.",
 			},
 		);
@@ -202,7 +202,7 @@ class NavBar {
 			NavBar._CAT_CACHE,
 			{
 				html: "Preload All <small>(5GB+)</small>",
-				click: (evt) => NavBar.InteractionManager._pOnClick_button_preloadOffline(evt, /./),
+				click: (evt) => NavBar.InteractionManager._pOnClick_button_preloadOffline(evt, {route: /./, isRequireImages: true}),
 				title: "Preload everything for offline use.",
 			},
 		);
@@ -506,7 +506,7 @@ class NavBar {
 		}
 
 		const a = document.createElement("a");
-		a.className = "dropdown-toggle";
+		a.className = "ve-dropdown-toggle";
 		a.href = "#";
 		a.setAttribute("role", "button");
 		a.onclick = function (event) { NavBar._handleDropdownClick(this, event, isSide); };
@@ -517,7 +517,7 @@ class NavBar {
 		a.innerHTML = `${category} <span class="caret ${isSide ? "caret--right" : ""}"></span>`;
 
 		const ul = document.createElement("ul");
-		ul.className = `dropdown-menu ${isSide ? "dropdown-menu--side" : "dropdown-menu--top"}`;
+		ul.className = `ve-dropdown-menu ${isSide ? "ve-dropdown-menu--side" : "ve-dropdown-menu--top"}`;
 		ul.onclick = function (event) { event.stopPropagation(); };
 
 		li.appendChild(a);
@@ -644,7 +644,7 @@ class NavBar {
 	 * @private
 	 */
 	static _openDropdown_mutAlignment ({liNavbar}) {
-		const uls = [...liNavbar.querySelectorAll("ul.dropdown-menu")];
+		const uls = [...liNavbar.querySelectorAll("ul.ve-dropdown-menu")];
 		const widthRequired = window.innerWidth < 1200
 			? Math.max(...uls.map(ul => ul.getBoundingClientRect().width))
 			: uls.map(ul => ul.getBoundingClientRect().width).reduce((a, b) => a + b, 0);
@@ -811,11 +811,19 @@ NavBar.InteractionManager = class {
 		}
 	}
 
-	static async _pOnClick_button_preloadOffline (evt, route) {
+	static async _pOnClick_button_preloadOffline (evt, {route, isRequireImages = false}) {
 		evt.preventDefault();
 
 		if (globalThis.swCacheRoutes === undefined) {
 			JqueryUtil.doToast(`The loader was not yet available! Reload the page and try again. If this problem persists, your browser may not support preloading.`);
+			return;
+		}
+
+		if (isRequireImages && globalThis.DEPLOYED_IMG_ROOT) {
+			JqueryUtil.doToast({
+				type: "danger",
+				content: `The "${evt.currentTarget.innerText.split("(")[0].trim()}" option is not currently supported on this site version. Try again some other time!`,
+			});
 			return;
 		}
 

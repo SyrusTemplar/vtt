@@ -248,7 +248,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/The Sword Coast.jpg"
+										"path": "adventure/LMoP/The Sword Coast.webp"
 									},
 									"title": "The Sword Coast",
 									"width": 4950,
@@ -266,7 +266,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/The Sword Coast (Player).jpg"
+										"path": "adventure/LMoP/The Sword Coast (Player).webp"
 									},
 									"title": "Player Version",
 									"width": 2648,
@@ -392,7 +392,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/Cragmaw Hideout.jpg"
+										"path": "adventure/LMoP/Cragmaw Hideout.webp"
 									},
 									"title": "Cragmaw Hideout",
 									"width": 4937,
@@ -860,7 +860,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/Cragmaw Hideout (Player).jpg"
+										"path": "adventure/LMoP/Cragmaw Hideout (Player).webp"
 									},
 									"title": "Player Version",
 									"width": 4500,
@@ -1536,7 +1536,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/Phandalin.jpg"
+										"path": "adventure/LMoP/Phandalin.webp"
 									},
 									"title": "Phandalin",
 									"width": 4950,
@@ -1853,7 +1853,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/Phandalin (Player).jpg"
+										"path": "adventure/LMoP/Phandalin (Player).webp"
 									},
 									"title": "Player Version",
 									"width": 4000,
@@ -2301,7 +2301,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/Redbrand Hideout.jpg"
+										"path": "adventure/LMoP/Redbrand Hideout.webp"
 									},
 									"title": "Redbrand Hideout",
 									"width": 4950,
@@ -2677,7 +2677,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/Redbrand Hideout (Player).jpg"
+										"path": "adventure/LMoP/Redbrand Hideout (Player).webp"
 									},
 									"title": "Player Version",
 									"width": 4500,
@@ -3374,7 +3374,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/LMoP/The Sword Coast.jpg"
+												"path": "adventure/LMoP/The Sword Coast.webp"
 											},
 											"title": "The Sword Coast",
 											"width": 4950,
@@ -3392,7 +3392,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/LMoP/The Sword Coast (Player).jpg"
+												"path": "adventure/LMoP/The Sword Coast (Player).webp"
 											},
 											"title": "Player Version",
 											"width": 2648,
@@ -3726,7 +3726,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/Ruins of Thundertree.jpg"
+										"path": "adventure/LMoP/Ruins of Thundertree.webp"
 									},
 									"title": "Ruins of Thundertree",
 									"width": 4950,
@@ -4120,7 +4120,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/Ruins of Thundertree (Player).jpg"
+										"path": "adventure/LMoP/Ruins of Thundertree (Player).webp"
 									},
 									"title": "Player Version",
 									"width": 4500,
@@ -4695,7 +4695,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/Cragmaw Castle.jpg"
+										"path": "adventure/LMoP/Cragmaw Castle.webp"
 									},
 									"title": "Cragmaw Castle",
 									"width": 4950,
@@ -5286,7 +5286,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/Cragmaw Castle (Player).jpg"
+										"path": "adventure/LMoP/Cragmaw Castle (Player).webp"
 									},
 									"title": "Player Version",
 									"width": 4500,
@@ -5966,7 +5966,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/Wave Echo Cave.jpg"
+										"path": "adventure/LMoP/Wave Echo Cave.webp"
 									},
 									"title": "Wave Echo Cave",
 									"width": 4950,
@@ -7011,7 +7011,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LMoP/Wave Echo Cave (Player).jpg"
+										"path": "adventure/LMoP/Wave Echo Cave (Player).webp"
 									},
 									"title": "Player Version",
 									"width": 4500,
@@ -7806,6 +7806,21 @@
 					]
 				}
 			]
+		},
+		{
+			"type": "section",
+			"name": "Credits",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Adventure Playtesters",
+					"entries": [
+						"Aaron Wampler, Alexander Mihalas, Ali Ryder, André Bégin, Andrew Balenko, Angi Lindsay, Bill Benham, Brandyn Whitaker, Chris Conner, Éric Leroux, James deMoss, James Row, Jay H Anderson, Joe Mauer, Josh Dillard, Kevin Grigsby, Krupal Desai, Kyle Turner, Manon Crevier, Manon Leroux, Mark Leftwich, Mark Meredith, Mélanie Côté, Michael Wibberley, Mike Hensley, Mike Mihalas, Nicholas Mihalas, Pam Lindsay, Patrick Simpson-Munday, Ricky Jacobsen, Rob Baldus, Ross Bagby, Sam Simpson, Scott Horn, Scott Rogers, Shawn Merwin, Travis Woodall, Will Straley, William Babbit, Yan Lacharité, Zoë Mihalas"
+					],
+					"id": "1a4"
+				}
+			],
+			"id": "1a3"
 		}
 	]
 }

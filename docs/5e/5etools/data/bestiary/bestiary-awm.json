@@ -301,6 +301,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"will": [
 						"{@spell dancing lights}",
 						"{@spell minor illusion}",
@@ -330,7 +331,7 @@
 				{
 					"name": "Illusory Appearance",
 					"entries": [
-						"The hag covers herself with a magical illusion that allows her to look like another creature of her general size and shape. The illusion ends when the hag chooses, or if she dies. A {@dc 20} Intelligence (Investigation) check will expose the hag's disguise."
+						"The hag covers herself with a magical illusion that allows her to look like another creature of her general size and shape. The illusion ends when the hag chooses, or if she dies. A {@dc 20} Intelligence ({@skill Investigation}) check will expose the hag's disguise."
 					]
 				},
 				{
@@ -791,6 +792,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The couatl's spellcasting ability is Charisma (spell save {@dc 14}). It can innately cast the following spells, requiring only verbal components:"
 					],

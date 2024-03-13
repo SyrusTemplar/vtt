@@ -167,6 +167,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Diderius is a 10th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 17}, {@hit 9} to hit with spell attacks). He has the following wizard spells prepared:"
 					],
@@ -609,10 +610,12 @@
 			"_copy": {
 				"name": "Gladiator",
 				"source": "MM",
-				"_trait": {
-					"name": "Large or Smaller Half-Blue Dragon",
-					"source": "MM"
-				},
+				"_templates": [
+					{
+						"name": "Large or Smaller Half-Blue Dragon",
+						"source": "MM"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -661,10 +664,12 @@
 			"_copy": {
 				"name": "Assassin",
 				"source": "MM",
-				"_trait": {
-					"name": "Large or Smaller Half-Green Dragon",
-					"source": "MM"
-				},
+				"_templates": [
+					{
+						"name": "Large or Smaller Half-Green Dragon",
+						"source": "MM"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -707,10 +712,12 @@
 			"_copy": {
 				"name": "Gladiator",
 				"source": "MM",
-				"_trait": {
-					"name": "Large or Smaller Half-Red Dragon",
-					"source": "MM"
-				},
+				"_templates": [
+					{
+						"name": "Large or Smaller Half-Red Dragon",
+						"source": "MM"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -921,10 +928,12 @@
 			"_copy": {
 				"name": "Mage",
 				"source": "MM",
-				"_trait": {
-					"name": "Tiefling",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Tiefling",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"trait": {
 						"mode": "prependArr",
@@ -1669,6 +1678,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Tiamat can innately cast the following spell, her spellcasting ability is Charisma (spell save {@dc 26}):"
 					],
@@ -1856,10 +1866,12 @@
 			"_copy": {
 				"name": "Dragonsoul",
 				"source": "RoT",
-				"_trait": {
-					"name": "Mountain Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Mountain Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",

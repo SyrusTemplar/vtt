@@ -26,27 +26,40 @@ const FILE_PREFIX_BLOCKLIST = [
 	"gendata-",
 ];
 
+const DIR_PREFIX_BLOCKLIST = [
+	".git",
+	".idea",
+];
+
 /**
  * Recursively list all files in a directory.
  *
  * @param [opts] Options object.
  * @param [opts.blocklistFilePrefixes] Blocklisted filename prefixes (case sensitive).
+ * @param [opts.blocklistDirPrefixes] Blocklisted directory prefixes (case sensitive).
  * @param [opts.allowlistFileExts] Allowlisted filename extensions (case sensitive).
  * @param [opts.dir] Directory to list.
  * @param [opts.allowlistDirs] Directory allowlist.
  */
 function listFiles (opts) {
 	opts = opts || {};
-	opts.dir = opts.dir || "./data";
-	opts.blocklistFilePrefixes = opts.blocklistFilePrefixes || FILE_PREFIX_BLOCKLIST;
-	opts.allowlistFileExts = opts.allowlistFileExts || FILE_EXTENSION_ALLOWLIST;
+	opts.dir = opts.dir ?? "./data";
+	opts.blocklistFilePrefixes = opts.blocklistFilePrefixes === undefined ? FILE_PREFIX_BLOCKLIST : opts.blocklistFilePrefixes;
+	opts.blocklistDirPrefixes = opts.blocklistDirPrefixes === undefined ? DIR_PREFIX_BLOCKLIST : opts.blocklistDirPrefixes;
+	opts.allowlistFileExts = opts.allowlistFileExts === undefined ? FILE_EXTENSION_ALLOWLIST : opts.allowlistFileExts;
 	opts.allowlistDirs = opts.allowlistDirs || null;
 
 	const dirContent = fs.readdirSync(opts.dir, "utf8")
 		.filter(file => {
 			const path = `${opts.dir}/${file}`;
-			if (isDirectory(path)) return opts.allowlistDirs ? opts.allowlistDirs.includes(path) : true;
-			return !opts.blocklistFilePrefixes.some(it => file.startsWith(it)) && opts.allowlistFileExts.some(it => file.endsWith(it));
+
+			if (isDirectory(path)) {
+				if (opts.blocklistDirPrefixes != null && opts.blocklistDirPrefixes.some(it => file.startsWith(it))) return false;
+				return opts.allowlistDirs ? opts.allowlistDirs.includes(path) : true;
+			}
+
+			return (opts.blocklistFilePrefixes == null || !opts.blocklistFilePrefixes.some(it => file.startsWith(it)))
+				&& (opts.allowlistFileExts == null || opts.allowlistFileExts.some(it => file.endsWith(it)));
 		})
 		.map(file => `${opts.dir}/${file}`);
 

@@ -59,6 +59,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The archon casts one of the following spells, using Charisma as the spellcasting ability:"
 					],
@@ -208,7 +209,7 @@
 				{
 					"name": "False Appearance",
 					"entries": [
-						"If the wurm is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the wurm move or act, that creature must succeed on a {@dc 18} Intelligence (Investigation) check to discern that the wurm is animate."
+						"If the wurm is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the wurm move or act, that creature must succeed on a {@dc 18} Intelligence ({@skill Investigation}) check to discern that the wurm is animate."
 					]
 				},
 				{
@@ -448,6 +449,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The witch casts one of the following spells, using Charisma as the spellcasting ability (spell save {@dc 16}):"
 					],
@@ -580,6 +582,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The faerie casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 13}):"
 					],
@@ -696,6 +699,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The faerie casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability:"
 					],
@@ -817,6 +821,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The faerie casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 12}):"
 					],
@@ -1173,6 +1178,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The high fae casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 18}):"
 					],
@@ -1481,6 +1487,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The high fae casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 19}):"
 					],
@@ -1640,6 +1647,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The high fae casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 19}):"
 					],
@@ -2065,6 +2073,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The ogre casts one of the following spells, requiring no material components and using Wisdom as the spellcasting ability (spell save {@dc 11}):"
 					],
@@ -2926,6 +2935,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The treefolk casts one of the following spells, requiring no material components and using Wisdom as the spellcasting ability (spell save {@dc 17}):"
 					],
@@ -2950,7 +2960,7 @@
 				{
 					"name": "Plant Camouflage",
 					"entries": [
-						"The treefolk has advantage on Dexterity (Stealth) checks it makes in forest terrain."
+						"The treefolk has advantage on Dexterity ({@skill Stealth}) checks it makes in forest terrain."
 					]
 				},
 				{
@@ -3084,6 +3094,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The witchkite casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 17}):"
 					],

@@ -72,6 +72,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The archaic casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 22}):"
 					],
@@ -378,6 +379,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Beledros casts one of the following spells, requiring no material components and using Wisdom as the spellcasting ability:"
 					],
@@ -645,6 +647,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The archivist casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability:"
 					],
@@ -782,7 +785,7 @@
 					"name": "Pact of Pain",
 					"entries": [
 						"Using a 10-minute ritual, the daemogoth can forge a magical bond with a willing creature it touches throughout the ritual. The creature becomes bound by the pact until it dies, the daemogoth dies, or the pact is broken by any effect that can remove a curse.",
-						"The daemogoth chooses one spell from the necromancy or enchantment school that is 3rd level or lower. The bound creature can cast that spell using this pact, requiring no material components and using Intelligence as the spellcasting ability. When it casts the spell, the creature takes 7 ({@damage 2d6}) psychic damage, which can't break the creature's {@status concentration} on a spell. Once the bound creature casts the spell in this way, it can't do so again until it finishes a long rest."
+						"The daemogoth chooses one spell from the {@filter necromancy or enchantment school that is 3rd level or lower|spells|level=0;1;2;3|school=N;E}. The bound creature can cast that spell using this pact, requiring no material components and using Intelligence as the spellcasting ability. When it casts the spell, the creature takes 7 ({@damage 2d6}) psychic damage, which can't break the creature's {@status concentration} on a spell. Once the bound creature casts the spell in this way, it can't do so again until it finishes a long rest."
 					]
 				}
 			],
@@ -1026,6 +1029,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The student casts one of the following spells, using Intelligence as the spellcasting ability (spell save {@dc 11}):"
 					],
@@ -1234,6 +1238,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Galazeth casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 23}):"
 					],
@@ -1394,7 +1399,7 @@
 				{
 					"name": "False Appearance",
 					"entries": [
-						"If the groff is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the groff move or act, that creature must succeed on a {@dc 18} Intelligence (Investigation) check to discern that the groff isn't an ordinary moss-covered bog patch."
+						"If the groff is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the groff move or act, that creature must succeed on a {@dc 18} Intelligence ({@skill Investigation}) check to discern that the groff isn't an ordinary moss-covered bog patch."
 					]
 				},
 				{
@@ -1610,6 +1615,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The apprentice casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 12}):"
 					],
@@ -1724,6 +1730,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The pledgemage casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 13}):"
 					],
@@ -1865,6 +1872,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The professor casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability:"
 					],
@@ -1896,7 +1904,7 @@
 				{
 					"name": "Multiattack",
 					"entries": [
-						"The professor makes two Spectral Scroll attacks. It can also use Weight of History, if available."
+						"The professor makes two Spectral Scroll attacks. It can also use Weight of {@skill History}, if available."
 					]
 				},
 				{
@@ -1994,6 +2002,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The professor casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -2313,7 +2322,7 @@
 				{
 					"name": "Oriq Mask",
 					"entries": [
-						"Murgaxor wears an Oriq mask. While wearing the mask, Murgaxor can't be targeted by any divination magic or perceived through magical scrying sensors, and he adds double his proficiency bonus to Charisma (Deception) checks (included above)."
+						"Murgaxor wears an Oriq mask. While wearing the mask, Murgaxor can't be targeted by any divination magic or perceived through magical scrying sensors, and he adds double his proficiency bonus to Charisma ({@skill Deception}) checks (included above)."
 					]
 				},
 				{
@@ -2439,6 +2448,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The Oracle casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 18}):"
 					],
@@ -2622,7 +2632,7 @@
 				{
 					"name": "Oriq Mask",
 					"entries": [
-						"The blood mage wears an Oriq mask. While wearing the mask, the blood mage can't be targeted by any divination magic or perceived through magical scrying sensors, and it adds double its proficiency bonus to Charisma (Deception) checks (included above)."
+						"The blood mage wears an Oriq mask. While wearing the mask, the blood mage can't be targeted by any divination magic or perceived through magical scrying sensors, and it adds double its proficiency bonus to Charisma ({@skill Deception}) checks (included above)."
 					]
 				},
 				{
@@ -2741,6 +2751,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The recruiter casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 14}):"
 					],
@@ -2770,7 +2781,7 @@
 				{
 					"name": "Oriq Mask",
 					"entries": [
-						"The recruiter wears an Oriq mask. While wearing the mask, the recruiter can't be targeted by any divination magic or perceived through magical scrying sensors, and it adds double its proficiency bonus to Charisma (Deception) checks (included above)."
+						"The recruiter wears an Oriq mask. While wearing the mask, the recruiter can't be targeted by any divination magic or perceived through magical scrying sensors, and it adds double its proficiency bonus to Charisma ({@skill Deception}) checks (included above)."
 					]
 				}
 			],
@@ -2940,6 +2951,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The apprentice casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 12}):"
 					],
@@ -3048,6 +3060,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The pledgemage casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 13}):"
 					],
@@ -3191,6 +3204,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The professor casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -3320,6 +3334,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The professor casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -3452,6 +3467,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The apprentice casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 12}):"
 					],
@@ -3553,6 +3569,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The pledgemage casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 13}):"
 					],
@@ -3678,6 +3695,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The professor casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -3823,6 +3841,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The professor casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -4204,6 +4223,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Shadrix casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 23}):"
 					],
@@ -4369,6 +4389,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The apprentice casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 12}):"
 					],
@@ -4474,6 +4495,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The pledgemage casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 13}):"
 					],
@@ -4600,6 +4622,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The professor casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -4727,6 +4750,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The professor casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -5104,6 +5128,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Tanazir casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save {@dc 24}):"
 					],
@@ -5291,6 +5316,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Velomachus casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability:"
 					],
@@ -5458,6 +5484,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The apprentice casts one of the following spells, requiring no material components and using Wisdom as the spellcasting ability:"
 					],
@@ -5592,6 +5619,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The apprentice casts one of the following spells, requiring no material components and using Wisdom as the spellcasting ability:"
 					],
@@ -5736,6 +5764,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The professor casts one of the following spells, requiring no material components and using Wisdom as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -5877,6 +5906,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The professor casts one of the following spells, requiring no material components and using Wisdom as the spellcasting ability:"
 					],
@@ -6013,7 +6043,7 @@
 				{
 					"name": "Oriq Mask",
 					"entries": [
-						"Y'demi wears an Oriq mask. While wearing the mask, Y'demi can't be targeted by any divination magic or perceived through magical scrying sensors, and she adds double her proficiency bonus to Charisma (Deception) checks (included above)."
+						"Y'demi wears an Oriq mask. While wearing the mask, Y'demi can't be targeted by any divination magic or perceived through magical scrying sensors, and she adds double her proficiency bonus to Charisma ({@skill Deception}) checks (included above)."
 					]
 				},
 				{
@@ -6047,7 +6077,7 @@
 				{
 					"name": "Sanguine Tentacles (1/Day)",
 					"entries": [
-						"The blood in the copper basin disappears as tentacles of congealed blood fill a 10-foot cube centered at a point on the ground that Y'demi can see within 15 feet of her. The effect lasts for 1 minute, during which time that area is {@quickref difficult terrain||3}. Any creature entering that area for the first time on a turn or starting its turn there must succeed on a {@dc 13} Dexterity saving throw or be {@condition restrained} by the tentacles. A creature that starts its turn {@condition restrained} by the tentacles takes 10 ({@damage 3d6}) bludgeoning damage. A creature {@condition restrained} by the tentacles can use its action to make either a {@dc 13} Strength (Athletics) check or a {@dc 13} Dexterity (Acrobatics) check, ending the {@condition restrained} condition on itself on a success."
+						"The blood in the copper basin disappears as tentacles of congealed blood fill a 10-foot cube centered at a point on the ground that Y'demi can see within 15 feet of her. The effect lasts for 1 minute, during which time that area is {@quickref difficult terrain||3}. Any creature entering that area for the first time on a turn or starting its turn there must succeed on a {@dc 13} Dexterity saving throw or be {@condition restrained} by the tentacles. A creature that starts its turn {@condition restrained} by the tentacles takes 10 ({@damage 3d6}) bludgeoning damage. A creature {@condition restrained} by the tentacles can use its action to make either a {@dc 13} Strength ({@skill Athletics}) check or a {@dc 13} Dexterity ({@skill Acrobatics}) check, ending the {@condition restrained} condition on itself on a success."
 					]
 				}
 			],

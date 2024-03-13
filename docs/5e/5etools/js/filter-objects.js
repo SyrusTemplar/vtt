@@ -10,9 +10,9 @@ class PageFilterObjects extends PageFilter {
 	static mutateForFilters (obj) {
 		obj._fMisc = obj.srd ? ["SRD"] : [];
 		if (SourceUtil.isLegacySourceWotc(obj.source)) obj._fMisc.push("Legacy");
-		if (obj.tokenUrl || obj.hasToken) obj._fMisc.push("Has Token");
-		if (obj.hasFluff || obj.fluff?.entries) obj._fMisc.push("Has Info");
-		if (obj.hasFluffImages || obj.fluff?.images) obj._fMisc.push("Has Images");
+		if (Renderer.object.hasToken(obj)) obj._fMisc.push("Has Token");
+		if (this._hasFluff(obj)) obj._fMisc.push("Has Info");
+		if (this._hasFluffImages(obj)) obj._fMisc.push("Has Images");
 	}
 
 	addToFilters (obj, isExcluded) {

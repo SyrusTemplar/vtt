@@ -829,6 +829,14 @@ class _DataTypeLoaderFeatFluff extends _DataTypeLoaderSingleSource {
 	_filename = "fluff-feats.json";
 }
 
+class _DataTypeLoaderOptionalfeatureFluff extends _DataTypeLoaderSingleSource {
+	static PROPS = ["optionalfeatureFluff"];
+	static PAGE = UrlUtil.PG_OPT_FEATURES;
+	static IS_FLUFF = true;
+
+	_filename = "fluff-optionalfeatures.json";
+}
+
 class _DataTypeLoaderItemFluff extends _DataTypeLoaderSingleSource {
 	static PROPS = ["itemFluff"];
 	static PAGE = UrlUtil.PG_ITEMS;
@@ -1701,6 +1709,7 @@ class DataLoader {
 		// region Fluff
 		_DataTypeLoaderBackgroundFluff.register({fnRegister});
 		_DataTypeLoaderFeatFluff.register({fnRegister});
+		_DataTypeLoaderOptionalfeatureFluff.register({fnRegister});
 		_DataTypeLoaderItemFluff.register({fnRegister});
 		_DataTypeLoaderRaceFluff.register({fnRegister});
 		_DataTypeLoaderLanguageFluff.register({fnRegister});
@@ -1998,7 +2007,7 @@ class DataLoader {
 
 		static _isPossibleSource ({parent, sourceClean}) { return parent._isPrereleaseSource({sourceClean}) && !Parser.SOURCE_JSON_TO_FULL[Parser.sourceJsonToJson(sourceClean)]; }
 		static _getBrewUtil () { return typeof PrereleaseUtil !== "undefined" ? PrereleaseUtil : null; }
-		static _pGetSourceIndex () { return DataUtil.prerelease.pLoadSourceIndex(); }
+		static async _pGetSourceIndex () { return DataUtil.prerelease.pLoadSourceIndex(await PrereleaseUtil.pGetCustomUrl()); }
 	};
 
 	static _BrewPreloader = class extends this._PrereleaseBrewPreloader {
@@ -2009,7 +2018,7 @@ class DataLoader {
 
 		static _isPossibleSource ({parent, sourceClean}) { return !parent._isSiteSource({sourceClean}) && !parent._isPrereleaseSource({sourceClean}); }
 		static _getBrewUtil () { return typeof BrewUtil2 !== "undefined" ? BrewUtil2 : null; }
-		static _pGetSourceIndex () { return DataUtil.brew.pLoadSourceIndex(); }
+		static async _pGetSourceIndex () { return DataUtil.brew.pLoadSourceIndex(await BrewUtil2.pGetCustomUrl()); }
 	};
 
 	static async _pCacheAndGet_getCacheMeta ({pageClean, sourceClean, dataLoader}) {

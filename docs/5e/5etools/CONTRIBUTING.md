@@ -55,7 +55,6 @@ Within this ordering, the following prioritisation should be made:
 - text that directly refers to or describes a language, in order of first appearance in the product (i.e. if a language is mentioned on page 2 and 10 of a book, the entry on page 2 should be taken as the primary source)
 - text that is given for player use (e.g. the "Druidic" feature of the Druid class) (the text of which may have to be adapted to fit a reference format; i.e. changing "You can understand..." to "A speaker or X language can understand...).
 
-
 ### Target JavaScript Version
 
 Any language feature which is available in both main-line Chrome and main-line Firefox, and has been available for at least six months, may be used.
@@ -154,3 +153,8 @@ Both versions handle caching for the same files, which is an index of your local
 Note that building the service worker is optional.
 
 Note that while using the service worker, some files are served cache-first (see the comments in the service worker files for more information). Care should be taken to either disable or work around the service worker when developing locally, as local changes may not otherwise be visible when refreshing a page.
+
+
+### Images
+
+Images are generally stored as `.webp` at 85% quality. Token images, and a handful of other small images (for example, UI elements), are stored as lossless `.webp`.

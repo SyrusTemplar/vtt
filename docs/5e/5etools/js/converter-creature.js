@@ -152,7 +152,7 @@ class CreatureParser extends BaseParser {
 			// name of monster
 			if (meta.ixToConvert === 0) {
 				// region
-				const mCr = /^(?<name>.*)\s+(?<cr>CR \d+(?:\/\d+)? .*$)/.exec(meta.curLine);
+				const mCr = /^(?<name>.*)\s+(?<cr>CR (?:\d+(?:\/\d+)?|[⅛¼½]) .*$)/.exec(meta.curLine);
 				if (mCr) {
 					meta.curLine = mCr.groups.name;
 					meta.toConvert.splice(meta.ixToConvert + 1, 0, mCr.groups.cr);
@@ -1363,10 +1363,14 @@ class CreatureParser extends BaseParser {
 	static _doStatblockPostProcess (stats, isMarkdown, options) {
 		this._doFilterAddSpellcasting(stats, "trait", isMarkdown, options);
 		this._doFilterAddSpellcasting(stats, "action", isMarkdown, options);
-		if (stats.trait) stats.trait.forEach(it => RechargeConvert.tryConvertRecharge(it, () => {}, () => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Manual recharge tagging required for trait "${it.name}"`)));
-		if (stats.action) stats.action.forEach(it => RechargeConvert.tryConvertRecharge(it, () => {}, () => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Manual recharge tagging required for action "${it.name}"`)));
-		if (stats.bonus) stats.bonus.forEach(it => RechargeConvert.tryConvertRecharge(it, () => {}, () => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Manual recharge tagging required for bonus action "${it.name}"`)));
-		CreatureParser._PROPS_ENTRIES.filter(prop => stats[prop]).forEach(prop => SpellTag.tryRun(stats[prop]));
+		CreatureParser._PROPS_ENTRIES
+			.filter(prop => stats[prop])
+			.forEach(prop => {
+				stats[prop].forEach(it => RechargeConvert.tryConvertRecharge(it, () => {}, () => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Manual recharge tagging required for ${prop} "${it.name}"`)));
+			});
+		CreatureParser._PROPS_ENTRIES
+			.filter(prop => stats[prop])
+			.forEach(prop => SpellTag.tryRun(stats[prop]));
 		AcConvert.tryPostProcessAc(
 			stats,
 			(ac) => options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}AC "${ac}" requires manual conversion`),
@@ -1390,6 +1394,7 @@ class CreatureParser extends BaseParser {
 				isTagInflicted: true,
 			},
 		);
+		CreatureSpecialEquipmentTagger.tryRun(stats);
 		TraitActionTag.tryRun(stats);
 		LanguageTag.tryRun(stats);
 		SenseFilterTag.tryRun(stats);
@@ -1400,6 +1405,7 @@ class CreatureParser extends BaseParser {
 		CreatureSavingThrowTagger.tryRun(stats);
 		CreatureSavingThrowTagger.tryRunSpells(stats);
 		CreatureSavingThrowTagger.tryRunRegionalsLairs(stats);
+		SkillTag.tryRunProps(stats, {props: Renderer.monster.CHILD_PROPS_EXTENDED});
 		MiscTag.tryRun(stats);
 		DetectNamedCreature.tryRun(stats);
 		TagImmResVulnConditional.tryRun(stats);
@@ -1635,7 +1641,7 @@ class CreatureParser extends BaseParser {
 		spl.forEach(it => {
 			const m = /^(?<abil>\w+)\s*(?<sign>[-+])\s*(?<save>\d+)(?<plusPb>(?:\s+plus\s+|\s*\+\s*)PB)?$/i.exec(it);
 			if (m) {
-				out[m.groups.abil] = `${m.groups.sign}${m.groups.save}${m.groups.plusPb ? m.groups.plusPb.replace(/\bpb\b/gi, "PB") : ""}`;
+				out[m.groups.abil.slice(0, 3)] = `${m.groups.sign}${m.groups.save}${m.groups.plusPb ? m.groups.plusPb.replace(/\bpb\b/gi, "PB") : ""}`;
 				return;
 			}
 
@@ -1772,6 +1778,10 @@ class CreatureParser extends BaseParser {
 
 		if (!line) return;
 
+		if (/^[⅛¼½]$/.test(line)) {
+			line = Parser.numberToCr(Parser.vulgarToNumber(line));
+		}
+
 		if (!/^(\d+\/\d+|\d+)$/.test(line)) {
 			cbWarning(`${stats.name ? `(${stats.name}) ` : ""}CR requires manual conversion "${line}"`);
 			return;
@@ -1827,13 +1837,7 @@ class CreatureParser extends BaseParser {
 	}
 	// endregion
 }
-CreatureParser._PROPS_ENTRIES = [
-	"trait",
-	"action",
-	"bonus",
-	"reaction",
-	"legendary",
-	"mythic",
-];
+
+CreatureParser._PROPS_ENTRIES = Renderer.monster.CHILD_PROPS_EXTENDED.filter(it => it !== "spellcasting");
 
 globalThis.CreatureParser = CreatureParser;

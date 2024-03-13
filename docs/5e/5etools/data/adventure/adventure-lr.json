@@ -182,7 +182,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LR/002-rkwsk-lr-004.jpg"
+										"path": "adventure/LR/002-rkwsk-lr-004.webp"
 									},
 									"title": "Map 1: Umberlee's Maw",
 									"width": 1301,
@@ -3481,7 +3481,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/LR/003-hbo0x-lr-004-player.jpg"
+										"path": "adventure/LR/003-hbo0x-lr-004-player.webp"
 									},
 									"title": "Player Version",
 									"width": 1301,
@@ -4365,6 +4365,67 @@
 			"id": "076",
 			"entries": [
 				"See the {@race Locathah|LR} entry for information on locathah characters."
+			]
+		},
+		{
+			"type": "section",
+			"name": "Credits",
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Designer",
+							"entries": [
+								"Chris Lindsay"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Developer",
+							"entries": [
+								"Shawn Merwin"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Editor",
+							"entries": [
+								"Hannah Rose"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Cartographer",
+							"entries": [
+								"Dyson Logos"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Graphic Designer",
+							"entries": [
+								"Rich Lescouflair"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Cover illustrator",
+							"entries": [
+								"Shawn Wood"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Interior Illustrators",
+							"entries": [
+								"Joachim Barrum, Eric Belisle, Filip Burburan, Aaron Hubrich, Raymond Swanland, Shawn Wood"
+							]
+						}
+					]
+				}
 			]
 		}
 	]

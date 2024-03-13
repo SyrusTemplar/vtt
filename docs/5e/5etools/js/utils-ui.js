@@ -4,6 +4,7 @@ class Prx {
 	static addHook (prop, hook) {
 		this.px._hooks[prop] = this.px._hooks[prop] || [];
 		this.px._hooks[prop].push(hook);
+		return hook;
 	}
 
 	static addHookAll (hook) {
@@ -966,8 +967,8 @@ class ListUiUtil {
 				ag: "div",
 				clazz: "ve-hidden ve-flex",
 				children: [
-					e_({tag: "div", clazz: "col-0-5"}),
-					e_({tag: "div", clazz: "col-11-5 ui-list__wrp-preview py-2 pr-2"}),
+					e_({tag: "div", clazz: "ve-col-0-5"}),
+					e_({tag: "div", clazz: "ve-col-11-5 ui-list__wrp-preview py-2 pr-2"}),
 				],
 			}).appendTo(item.ele);
 		} else elePreviewWrp = item.ele.lastElementChild;
@@ -2384,6 +2385,191 @@ class InputUiUtil {
 			});
 	}
 
+	/* -------------------------------------------- */
+
+	static GenericButtonInfo = class {
+		constructor (
+			{
+				text,
+				clazzIcon,
+				isPrimary,
+				isSmall,
+				isRemember,
+				value,
+			},
+		) {
+			this._text = text;
+			this._clazzIcon = clazzIcon;
+			this._isPrimary = isPrimary;
+			this._isSmall = isSmall;
+			this._isRemember = isRemember;
+			this._value = value;
+		}
+
+		get isPrimary () { return !!this._isPrimary; }
+
+		$getBtn ({doClose, fnRemember, isGlobal, storageKey}) {
+			if (this._isRemember && !storageKey && !fnRemember) throw new Error(`No "storageKey" or "fnRemember" provided for button with saveable value!`);
+
+			return $(`<button class="btn ${this._isPrimary ? "btn-primary" : "btn-default"} ${this._isSmall ? "btn-sm" : ""} ve-flex-v-center mr-3">
+				<span class="${this._clazzIcon} mr-2"></span><span>${this._text}</span>
+			</button>`)
+				.on("click", evt => {
+					evt.stopPropagation();
+					doClose(true, this._value);
+
+					if (!this._isRemember) return;
+
+					if (fnRemember) {
+						fnRemember(this._value);
+					} else {
+						isGlobal
+							? StorageUtil.pSet(storageKey, true)
+							: StorageUtil.pSetForPage(storageKey, true);
+					}
+				});
+		}
+	};
+
+	static async pGetUserGenericButton (
+		{
+			title,
+			buttons,
+			textSkip,
+			htmlDescription,
+			$eleDescription,
+			storageKey,
+			isGlobal,
+			fnRemember,
+			isSkippable,
+			isIgnoreRemembered,
+		},
+	) {
+		if (storageKey && !isIgnoreRemembered) {
+			const prev = await (isGlobal ? StorageUtil.pGet(storageKey) : StorageUtil.pGetForPage(storageKey));
+			if (prev != null) return prev;
+		}
+
+		const {$modalInner, doClose, pGetResolved, doAutoResize: doAutoResizeModal} = await InputUiUtil._pGetShowModal({
+			title: title || "Choose",
+			isMinHeight0: true,
+		});
+
+		const $btns = buttons.map(btnInfo => btnInfo.$getBtn({doClose, fnRemember, isGlobal, storageKey}));
+
+		const $btnSkip = !isSkippable ? null : $(`<button class="btn btn-default btn-sm ml-3"><span class="glyphicon glyphicon-forward"></span><span>${textSkip || "Skip"}</span></button>`)
+			.click(evt => {
+				evt.stopPropagation();
+				doClose(VeCt.SYM_UI_SKIP);
+			});
+
+		if ($eleDescription?.length) $$`<div class="ve-flex w-100 mb-1">${$eleDescription}</div>`.appendTo($modalInner);
+		else if (htmlDescription && htmlDescription.trim()) $$`<div class="ve-flex w-100 mb-1">${htmlDescription}</div>`.appendTo($modalInner);
+		$$`<div class="ve-flex-v-center ve-flex-h-right py-1 px-1">${$btns}${$btnSkip}</div>`.appendTo($modalInner);
+
+		if (doAutoResizeModal) doAutoResizeModal();
+
+		const ixPrimary = buttons.findIndex(btn => btn.isPrimary);
+		if (~ixPrimary) {
+			$btns[ixPrimary].focus();
+			$btns[ixPrimary].select();
+		}
+
+		// region Output
+		const [isDataEntered, out] = await pGetResolved();
+
+		if (typeof isDataEntered === "symbol") return isDataEntered;
+
+		if (!isDataEntered) return null;
+		if (out == null) throw new Error(`Callback must receive a value!`); // sense check
+		return out;
+		// endregion
+	}
+
+	/**
+	 * @param [title] Prompt title.
+	 * @param [textYesRemember] Text for "yes, and remember" button.
+	 * @param [textYes] Text for "yes" button.
+	 * @param [textNo] Text for "no" button.
+	 * @param [textSkip] Text for "skip" button.
+	 * @param [htmlDescription] Description HTML for the modal.
+	 * @param [$eleDescription] Description element for the modal.
+	 * @param [storageKey] Storage key to use when "remember" options are passed.
+	 * @param [isGlobal] If the stored setting is global when "remember" options are passed.
+	 * @param [fnRemember] Custom function to run when saving the "yes and remember" option.
+	 * @param [isSkippable] If the prompt is skippable.
+	 * @param [isAlert] If this prompt is just a notification/alert.
+	 * @param [isIgnoreRemembered] If the remembered value should be ignored, in favour of re-prompting the user.
+	 * @return {Promise} A promise which resolves to true/false if the user chose, or null otherwise.
+	 */
+	static async pGetUserBoolean (
+		{
+			title,
+			textYesRemember,
+			textYes,
+			textNo,
+			textSkip,
+			htmlDescription,
+			$eleDescription,
+			storageKey,
+			isGlobal,
+			fnRemember,
+			isSkippable,
+			isAlert,
+			isIgnoreRemembered,
+		},
+	) {
+		const buttons = [];
+
+		if (textYesRemember) {
+			buttons.push(
+				new this.GenericButtonInfo({
+					text: textYesRemember,
+					clazzIcon: "glyphicon glyphicon-ok",
+					isRemember: true,
+					isPrimary: true,
+					value: true,
+				}),
+			);
+		}
+
+		buttons.push(
+			new this.GenericButtonInfo({
+				text: textYes || "OK",
+				clazzIcon: "glyphicon glyphicon-ok",
+				isPrimary: true,
+				value: true,
+			}),
+		);
+
+		// TODO(Future) migrate usages to `pGetUserGenericButton` (or helper method)
+		if (!isAlert) {
+			buttons.push(
+				new this.GenericButtonInfo({
+					text: textNo || "Cancel",
+					clazzIcon: "glyphicon glyphicon-remove",
+					isSmall: true,
+					value: false,
+				}),
+			);
+		}
+
+		return this.pGetUserGenericButton({
+			title,
+			buttons,
+			textSkip,
+			htmlDescription,
+			$eleDescription,
+			storageKey,
+			isGlobal,
+			fnRemember,
+			isSkippable,
+			isIgnoreRemembered,
+		});
+	}
+
+	/* -------------------------------------------- */
+
 	/**
 	 * @param opts Options.
 	 * @param opts.min Minimum value.
@@ -2458,85 +2644,6 @@ class InputUiUtil {
 				: StorageUtil.pSetForPage(opts.storageKey_default, out).then(null);
 		}
 
-		return out;
-		// endregion
-	}
-
-	/**
-	 * @param [opts] Options.
-	 * @param [opts.title] Prompt title.
-	 * @param [opts.textYesRemember] Text for "yes, and remember" button.
-	 * @param [opts.textYes] Text for "yes" button.
-	 * @param [opts.textNo] Text for "no" button.
-	 * @param [opts.textSkip] Text for "skip" button.
-	 * @param [opts.htmlDescription] Description HTML for the modal.
-	 * @param [opts.$eleDescription] Description element for the modal.
-	 * @param [opts.storageKey] Storage key to use when "remember" options are passed.
-	 * @param [opts.isGlobal] If the stored setting is global when "remember" options are passed.
-	 * @param [opts.fnRemember] Custom function to run when saving the "yes and remember" option.
-	 * @param [opts.isSkippable] If the prompt is skippable.
-	 * @param [opts.isAlert] If this prompt is just a notification/alert.
-	 * @return {Promise} A promise which resolves to true/false if the user chose, or null otherwise.
-	 */
-	static async pGetUserBoolean (opts) {
-		opts = opts || {};
-
-		if (opts.storageKey) {
-			const prev = await (opts.isGlobal ? StorageUtil.pGet(opts.storageKey) : StorageUtil.pGetForPage(opts.storageKey));
-			if (prev != null) return prev;
-		}
-
-		const $btnTrueRemember = opts.textYesRemember ? $(`<button class="btn btn-primary ve-flex-v-center mr-2"><span class="glyphicon glyphicon-ok mr-2"></span><span>${opts.textYesRemember}</span></button>`)
-			.click(() => {
-				doClose(true, true);
-				if (opts.fnRemember) {
-					opts.fnRemember(true);
-				} else {
-					opts.isGlobal
-						? StorageUtil.pSet(opts.storageKey, true)
-						: StorageUtil.pSetForPage(opts.storageKey, true);
-				}
-			}) : null;
-
-		const $btnTrue = $(`<button class="btn btn-primary ve-flex-v-center mr-3"><span class="glyphicon glyphicon-ok mr-2"></span><span>${opts.textYes || "OK"}</span></button>`)
-			.click(evt => {
-				evt.stopPropagation();
-				doClose(true, true);
-			});
-
-		const $btnFalse = opts.isAlert ? null : $(`<button class="btn btn-default btn-sm ve-flex-v-center"><span class="glyphicon glyphicon-remove mr-2"></span><span>${opts.textNo || "Cancel"}</span></button>`)
-			.click(evt => {
-				evt.stopPropagation();
-				doClose(true, false);
-			});
-
-		const $btnSkip = !opts.isSkippable ? null : $(`<button class="btn btn-default btn-sm ml-3"><span class="glyphicon glyphicon-forward"></span><span>${opts.textSkip || "Skip"}</span></button>`)
-			.click(evt => {
-				evt.stopPropagation();
-				doClose(VeCt.SYM_UI_SKIP);
-			});
-
-		const {$modalInner, doClose, pGetResolved, doAutoResize: doAutoResizeModal} = await InputUiUtil._pGetShowModal({
-			title: opts.title || "Choose",
-			isMinHeight0: true,
-		});
-
-		if (opts.$eleDescription?.length) $$`<div class="ve-flex w-100 mb-1">${opts.$eleDescription}</div>`.appendTo($modalInner);
-		else if (opts.htmlDescription && opts.htmlDescription.trim()) $$`<div class="ve-flex w-100 mb-1">${opts.htmlDescription}</div>`.appendTo($modalInner);
-		$$`<div class="ve-flex-v-center ve-flex-h-right py-1 px-1">${$btnTrueRemember}${$btnTrue}${$btnFalse}${$btnSkip}</div>`.appendTo($modalInner);
-
-		if (doAutoResizeModal) doAutoResizeModal();
-
-		$btnTrue.focus();
-		$btnTrue.select();
-
-		// region Output
-		const [isDataEntered, out] = await pGetResolved();
-
-		if (typeof isDataEntered === "symbol") return isDataEntered;
-
-		if (!isDataEntered) return null;
-		if (out == null) throw new Error(`Callback must receive a value!`); // sanity check
 		return out;
 		// endregion
 	}
@@ -2799,7 +2906,7 @@ class InputUiUtil {
 				if (opts.autocomplete) {
 					// prevent double-binding the return key if we have autocomplete enabled
 					await MiscUtil.pDelay(17); // arbitrary delay to allow dropdown to render (~1000/60, i.e. 1 60 FPS frame)
-					if ($modalInner.find(`.typeahead.dropdown-menu`).is(":visible")) return;
+					if ($modalInner.find(`.typeahead.ve-dropdown-menu`).is(":visible")) return;
 				}
 
 				evt.stopPropagation();
@@ -3448,31 +3555,31 @@ class SourceUiUtil {
 
 		const $stageInitial = $$`<div class="h-100 w-100 ve-flex-vh-center"><div class="ve-flex-col">
 			<h3 class="ve-text-center">${isEditMode ? "Edit Homebrew Source" : "Add a Homebrew Source"}</h3>
-			<div class="ui-source__row mb-2"><div class="col-12 ve-flex-v-center">
+			<div class="ui-source__row mb-2"><div class="ve-col-12 ve-flex-v-center">
 				<span class="mr-2 ui-source__name help" title="The name or title for the homebrew you wish to create. This could be the name of a book or PDF; for example, 'Monster Manual'">Title</span>
 				${$iptName}
 			</div></div>
-			<div class="ui-source__row mb-2"><div class="col-12 ve-flex-v-center">
+			<div class="ui-source__row mb-2"><div class="ve-col-12 ve-flex-v-center">
 				<span class="mr-2 ui-source__name help" title="An abbreviated form of the title. This will be shown in lists on the site, and in the top-right corner of stat blocks or data entries; for example, 'MM'">Abbreviation</span>
 				${$iptAbv}
 			</div></div>
-			<div class="ui-source__row mb-2"><div class="col-12 ve-flex-v-center">
+			<div class="ui-source__row mb-2"><div class="ve-col-12 ve-flex-v-center">
 				<span class="mr-2 ui-source__name help" title="This will be used to identify your homebrew universally, so should be unique to you and you alone">JSON Identifier</span>
 				${$iptJson}
 			</div></div>
-			<div class="ui-source__row mb-2"><div class="col-12 ve-flex-v-center">
+			<div class="ui-source__row mb-2"><div class="ve-col-12 ve-flex-v-center">
 				<span class="mr-2 ui-source__name help" title="A color which should be used when displaying the source abbreviation">Color</span>
 				${$iptColor}
 			</div></div>
-			<div class="ui-source__row mb-2"><div class="col-12 ve-flex-v-center">
+			<div class="ui-source__row mb-2"><div class="ve-col-12 ve-flex-v-center">
 				<span class="mr-2 ui-source__name help" title="A link to the original homebrew, e.g. a GM Binder page">Source URL</span>
 				${$iptUrl}
 			</div></div>
-			<div class="ui-source__row mb-2"><div class="col-12 ve-flex-v-center">
+			<div class="ui-source__row mb-2"><div class="ve-col-12 ve-flex-v-center">
 				<span class="mr-2 ui-source__name help" title="A comma-separated list of authors, e.g. 'John Doe, Joe Bloggs'">Author(s)</span>
 				${$iptAuthors}
 			</div></div>
-			<div class="ui-source__row mb-2"><div class="col-12 ve-flex-v-center">
+			<div class="ui-source__row mb-2"><div class="ve-col-12 ve-flex-v-center">
 				<span class="mr-2 ui-source__name help" title="A comma-separated list of people who converted the homebrew to 5etools' format, e.g. 'John Doe, Joe Bloggs'">Converted By</span>
 				${$iptConverters}
 			</div></div>
@@ -3514,8 +3621,8 @@ class SourceUiUtil {
 
 		const $stageExisting = $$`<div class="h-100 w-100 ve-flex-vh-center ve-hidden"><div>
 			<h3 class="ve-text-center">Select a Homebrew Source</h3>
-			<div class="mb-2"><div class="col-12 ve-flex-vh-center">${$selExisting}</div></div>
-			<div class="col-12 ve-flex-vh-center">${$btnBackExisting}${$btnConfirmExisting}</div>
+			<div class="mb-2"><div class="ve-col-12 ve-flex-vh-center">${$selExisting}</div></div>
+			<div class="ve-col-12 ve-flex-vh-center">${$btnBackExisting}${$btnConfirmExisting}</div>
 		</div></div>`.appendTo(options.$parent);
 	}
 }
@@ -5423,8 +5530,8 @@ class ComponentUiUtil {
 				});
 
 				const $ele = $$`<label class="ve-flex-v-center py-1 stripe-even">
-					<div class="col-1 ve-flex-vh-center">${$cb}</div>
-					<div class="col-11 ve-flex-v-center">${displayValue}</div>
+					<div class="ve-col-1 ve-flex-vh-center">${$cb}</div>
+					<div class="ve-col-11 ve-flex-v-center">${displayValue}</div>
 				</label>`;
 				$eles.push($ele);
 

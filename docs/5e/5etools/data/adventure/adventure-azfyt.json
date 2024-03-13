@@ -388,7 +388,7 @@
 										{
 											"type": "entries",
 											"name": "Zeppelids",
-											"page": 6,
+											"page": 7,
 											"entries": [
 												"These are immense floating creatures that remain buoyant through many air sacs on their balloon-like bodies. The result of the Simic Combine's biomancy, they are easily tamed and are often used by Ravnicans for air transportation. An enclosed compartment is often harnessed to their frames to carry travelers.",
 												"Once the characters arrive at the platform, read the following:",
@@ -583,7 +583,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "book/GGR/095-415.png"
+										"path": "book/GGR/095-415.webp"
 									},
 									"width": 2513,
 									"height": 3338,
@@ -750,6 +750,95 @@
 						"{@5etools Rakdos Goblin Bard|pdf/adventure/AZfyT/Rakdos Goblin Bard 2.pdf}",
 						"{@5etools Selesnya Loxodon Paladin|pdf/adventure/AZfyT/Selesnya Loxodon Paladin 2.pdf}",
 						"{@5etools Simic Hybrid Monk|pdf/adventure/AZfyT/Simic Hybrid Monk 2.pdf}"
+					]
+				}
+			]
+		},
+		{
+			"type": "section",
+			"name": "Credits",
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Adventure Writer",
+							"entries": [
+								"Chris Tulach"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Editor",
+							"entries": [
+								"Bill Benham"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Art Direction",
+							"entries": [
+								"Emi Tanji"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Graphic Designer",
+							"entries": [
+								"Trish Yochum"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Additional Art Direction",
+							"entries": [
+								"Jeremy Jarvis, Dawn Murin, Shauna Narciso, Cynthia Sheppard"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Cartography",
+							"entries": [
+								"Dyson Logos"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Interior Illustrators",
+							"entries": [
+								"Clint Cearley, Milivoj Ćeran, Jedd Chevrier, Chippy, Bastien L. Deharme, Mathias Kollros, Adam Paquette, Grzegorz Rutkowski, Bram Sels, Dan Scott, Magali Villeneuve"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Ravnica World Design",
+							"entries": [
+								"Doug Beyer, Sam Burley, Jeremy Cranford, Kelly Digges, Brady Dommermuth, Jenna Helland, Cory H. Herndon, Jeremy Jarvis, Kimberly Kreines, Chris L'etoile, Adam Lee, Ari Levitch, Alison Lührs, Shawn Main, Dawn Murin, Richard Whitters, Mark Winters, James Wyatt"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Producer",
+							"entries": [
+								"Bill Benham, Dan Tovar"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Imaging Technician",
+							"entries": [
+								"Kevin Yee"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Other D&D Team Members",
+							"entries": [
+								"Bart Carroll, Jeremy Crawford, David Gershman, Pelham Greene, Kate Irwin, Adam Lee, Ari Levitch, Christopher Lindsay, Mike Mearls, Shelly Mazzanoble, Shauna Narciso, Christopher Perkins, Ben Petrisor, Hilary Ross, Liz Schuh, Nathan Stewart, Greg Tito, Anna Vo, Kate Welch, Richard Whitters, Shawn Wood"
+							]
+						}
 					]
 				}
 			]

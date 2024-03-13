@@ -2748,14 +2748,14 @@
 				{
 					"type": "entries",
 					"name": "Mushroom Tea",
-					"page": 154,
+					"page": 184,
 					"entries": [
 						"When the hearth fire dims in the Underdark, the drow are known to reach for their kettles\u2014not to make any herbal tea, but instead an after-dinner broth of simmering mushrooms. If they can find them, the drow prefer matsutake, though shiitake or maitake will do in a pinch. They place the sliced mushrooms into a clear broth seasoned with dried kelp, sometimes with a splash of fish stock or soy sauce and alcohol, and heat it in a teakettle. From this, they pour small cups of the fragrant tea to imbibe slowly until the mushrooms cook to perfection, at which point they are eaten with a fine skewer.",
 						{
 							"type": "statblock",
 							"tag": "recipe",
 							"name": "Mushroom Tea",
-							"page": 154
+							"page": 184
 						}
 					],
 					"id": "087"
@@ -3045,6 +3045,172 @@
 				}
 			],
 			"id": "093"
+		},
+		{
+			"type": "section",
+			"name": "Credits",
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Publisher",
+							"entries": [
+								"Aaron Wehner"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Editor",
+							"entries": [
+								"Emma Rudolph"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Production Editor",
+							"entries": [
+								"Kimmy Tejasindhu"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Art Director and Designer",
+							"entries": [
+								"Kelly Booth"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Photo Director",
+							"entries": [
+								"Emma Campion"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Production Designer",
+							"entries": [
+								"Mari Gill"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Production Manager",
+							"entries": [
+								"Dan Myers"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Color Manager",
+							"entries": [
+								"Jane Chinn"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Photo Assistants",
+							"entries": [
+								"Dane Christensen, Tyler Demogenes"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Food Stylist",
+							"entries": [
+								"Valerie Aikman-Smith"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Food Stylist Assistant",
+							"entries": [
+								"Morgan Baker"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Prop Stylist",
+							"entries": [
+								"Glenn Jenkins"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Prop Stylist Assistant",
+							"entries": [
+								"Zachary Wine"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Photo Retoucher",
+							"entries": [
+								"Tamara White"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Recipe Developer",
+							"entries": [
+								"Adam Ried"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Approvals Coordinator",
+							"entries": [
+								"Shaida Boroumand"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Copyeditors",
+							"entries": [
+								"Andrea Chesman, Patrick Barb"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Proofreader",
+							"entries": [
+								"Linda Bouchard"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Indexer",
+							"entries": [
+								"Ken DellaPenta"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Publicist",
+							"entries": [
+								"Daniel Wikey"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Marketer",
+							"entries": [
+								"Lauren Kretzschmar"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Wizards of the Coast Team",
+							"entries": [
+								"David Gershman, Shauna Narciso, Adam Lee, Hilary Ross, Liz Schuh"
+							]
+						}
+					]
+				}
+			]
 		}
 	]
 }

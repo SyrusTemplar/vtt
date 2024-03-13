@@ -55,10 +55,12 @@
 			"_copy": {
 				"name": "Veteran",
 				"source": "MM",
-				"_trait": {
-					"name": "Mountain Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Mountain Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -123,10 +125,12 @@
 			"_copy": {
 				"name": "Priest",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -843,7 +847,7 @@
 				{
 					"name": "Sunlight Sensitivity",
 					"entries": [
-						"While in sunlight, the derro has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+						"While in sunlight, the derro has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
 					]
 				}
 			],
@@ -914,6 +918,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The derro savant is a 5th-level spellcaster. Its spellcasting ability is Charisma (spell save {@dc 12}, {@hit 4} to hit with spell attacks). The derro knows the following sorcerer spells:"
 					],
@@ -1020,6 +1025,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Droki's innate spellcasting ability is Charisma (spell save {@dc 13}). He can innately cast the following spells, requiring no material components:"
 					],
@@ -1144,10 +1150,12 @@
 			"_copy": {
 				"name": "Acolyte",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				]
 			},
 			"traitTags": [
 				"Fey Ancestry",
@@ -1166,10 +1174,12 @@
 			"_copy": {
 				"name": "Bandit",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				]
 			},
 			"traitTags": [
 				"Fey Ancestry",
@@ -1187,10 +1197,12 @@
 			"_copy": {
 				"name": "Commoner",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				]
 			},
 			"traitTags": [
 				"Fey Ancestry",
@@ -1208,10 +1220,12 @@
 			"_copy": {
 				"name": "Cultist",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				]
 			},
 			"traitTags": [
 				"Fey Ancestry",
@@ -1229,10 +1243,12 @@
 			"_copy": {
 				"name": "Guard",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				]
 			},
 			"traitTags": [
 				"Fey Ancestry",
@@ -1250,10 +1266,12 @@
 			"_copy": {
 				"name": "Noble",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				]
 			},
 			"traitTags": [
 				"Fey Ancestry",
@@ -1271,10 +1289,12 @@
 			"_copy": {
 				"name": "Scout",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				]
 			},
 			"traitTags": [
 				"Fey Ancestry",
@@ -1359,10 +1379,12 @@
 			"_copy": {
 				"name": "Spy",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				]
 			},
 			"traitTags": [
 				"Fey Ancestry",
@@ -1463,6 +1485,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The darkhaft's innate spellcasting ability is Intelligence (spell save {@dc 10}) it can innately cast the following spells, requiring no components:"
 					],
@@ -1609,6 +1632,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The Keeper of the Flame's innate spellcasting ability is Wisdom (spell save {@dc 12}.) It can innately cast the following spells, requiring no components:"
 					],
@@ -1625,6 +1649,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The Keeper of the Flame is a 3rd-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 12}, {@hit 4} to hit with spell attacks). The Keeper of the Flame has the following cleric spells prepared:"
 					],
@@ -1821,10 +1846,12 @@
 			"_copy": {
 				"name": "Scout",
 				"source": "MM",
-				"_trait": {
-					"name": "Mountain Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Mountain Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -2336,6 +2363,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Grisha is a 6th-level-spellcaster. His spellcasting ability is Wisdom (spell save {@dc 12}, {@hit 4} to hit with spell attacks). He has the following cleric spells prepared:"
 					],
@@ -2793,6 +2821,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The ixitxachitl is a 5th-level spellcaster that uses Wisdom as its spellcasting ability (spell save {@dc 11}, {@hit 3} to hit with spell attacks). The ixitxachitl has the following cleric spells prepared:"
 					],
@@ -2905,10 +2934,12 @@
 			"_copy": {
 				"name": "Spy",
 				"source": "MM",
-				"_trait": {
-					"name": "Deep Gnome",
-					"source": "DMG"
-				},
+				"_templates": [
+					{
+						"name": "Deep Gnome",
+						"source": "DMG"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -2982,10 +3013,12 @@
 			"_copy": {
 				"name": "Spy",
 				"source": "MM",
-				"_trait": {
-					"name": "High Elf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "High Elf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -3014,6 +3047,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Khalessa can innately cast the following spell, requiring no material components:"
 					],
@@ -3042,10 +3076,12 @@
 			"_copy": {
 				"name": "Assassin",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -3366,10 +3402,12 @@
 			"_copy": {
 				"name": "Veteran",
 				"source": "MM",
-				"_trait": {
-					"name": "Deep Gnome",
-					"source": "DMG"
-				},
+				"_templates": [
+					{
+						"name": "Deep Gnome",
+						"source": "DMG"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -3441,6 +3479,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Narrak is a 5th-level spellcaster. His spellcasting ability is Charisma (Save {@dc 13}, {@hit 5} to hit with spell attacks) Narrak has two 2nd-level spell slots, which he regains after finishing a short or long rest, and knows the following warlock spells:"
 					],
@@ -3578,10 +3617,12 @@
 			"_copy": {
 				"name": "Spy",
 				"source": "MM",
-				"_trait": {
-					"name": "Deep Gnome",
-					"source": "DMG"
-				},
+				"_templates": [
+					{
+						"name": "Deep Gnome",
+						"source": "DMG"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -3716,6 +3757,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Quenthel's spellcasting ability is Charisma (spell save {@dc 19}). She can innately cast the following spells, requiring no material components:"
 					],
@@ -3733,6 +3775,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Quenthel is a 20th-level spellcaster. Her spellcasting ability is Wisdom (save {@dc 20}, {@hit 12} to hit with spell attacks). The drow has the following cleric spells prepared:"
 					],
@@ -4043,10 +4086,12 @@
 			"_copy": {
 				"name": "Druid",
 				"source": "MM",
-				"_trait": {
-					"name": "High Elf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "High Elf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -4255,10 +4300,12 @@
 			"_copy": {
 				"name": "Wererat",
 				"source": "MM",
-				"_trait": {
-					"name": "Deep Gnome",
-					"source": "DMG"
-				}
+				"_templates": [
+					{
+						"name": "Deep Gnome",
+						"source": "DMG"
+					}
+				]
 			},
 			"spellcastingTags": [
 				"I"
@@ -4337,6 +4384,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The Pudding King's innate spellcasting ability is Intelligence (spell save {@dc 12}). He can innately cast the following spells, requiring no material components:"
 					],
@@ -4354,6 +4402,7 @@
 				},
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The Pudding King is a 9th-level spellcaster. His spellcasting ability is Charisma (spell save {@dc 14}, {@hit 6} to hit with spell attacks). The Pudding King knows the following sorcerer spells:"
 					],
@@ -4411,7 +4460,7 @@
 				{
 					"name": "Stone Camouflage",
 					"entries": [
-						"The Pudding King has advantage on Dexterity (Stealth) checks made to hide in rocky terrain."
+						"The Pudding King has advantage on Dexterity ({@skill Stealth}) checks made to hide in rocky terrain."
 					]
 				},
 				{
@@ -4523,10 +4572,12 @@
 			"_copy": {
 				"name": "Wererat",
 				"source": "MM",
-				"_trait": {
-					"name": "Deep Gnome",
-					"source": "DMG"
-				},
+				"_templates": [
+					{
+						"name": "Deep Gnome",
+						"source": "DMG"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -4599,7 +4650,7 @@
 				{
 					"name": "Chameleon Skin",
 					"entries": [
-						"The troglodyte has advantage on Dexterity (Stealth) checks made to hide."
+						"The troglodyte has advantage on Dexterity ({@skill Stealth}) checks made to hide."
 					]
 				},
 				{
@@ -4691,10 +4742,12 @@
 			"_copy": {
 				"name": "Wererat",
 				"source": "MM",
-				"_trait": {
-					"name": "Deep Gnome",
-					"source": "DMG"
-				},
+				"_templates": [
+					{
+						"name": "Deep Gnome",
+						"source": "DMG"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -4838,6 +4891,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The ixitxachitl is a 5th-level spellcaster that uses Wisdom as its spellcasting ability (Spell save {@dc 11}, {@hit 3} to hit with spell attacks). The ixitxachitl has the following cleric spells prepared:"
 					],
@@ -4944,6 +4998,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Veldyskar can innately cast the following spell, requiring no material components:"
 					],
@@ -5066,10 +5121,12 @@
 			"_copy": {
 				"name": "Bandit Captain",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -5121,10 +5178,12 @@
 			"_copy": {
 				"name": "Archmage",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",

@@ -11,12 +11,12 @@ class ObjectsSublistManager extends SublistManager {
 		return [
 			new SublistCellTemplate({
 				name: "Name",
-				css: "bold col-9 pl-0",
+				css: "bold ve-col-9 pl-0",
 				colStyle: "",
 			}),
 			new SublistCellTemplate({
 				name: "Size",
-				css: "col-3 pr-0 ve-text-center",
+				css: "ve-col-3 pr-0 ve-text-center",
 				colStyle: "text-center",
 			}),
 		];
@@ -87,9 +87,9 @@ class ObjectsPage extends ListPage {
 		const size = Renderer.utils.getRenderedSize(obj.size);
 
 		eleLi.innerHTML = `<a href="#${hash}" class="lst--border lst__row-inner">
-			<span class="bold col-8 pl-0">${obj.name}</span>
-			<span class="col-2 ve-text-center">${size}</span>
-			<span class="col-2 ve-text-center ${Parser.sourceJsonToColor(obj.source)} pr-0" title="${Parser.sourceJsonToFull(obj.source)}" ${Parser.sourceJsonToStyle(obj.source)}>${source}</span>
+			<span class="bold ve-col-8 pl-0">${obj.name}</span>
+			<span class="ve-col-2 ve-text-center">${size}</span>
+			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToColor(obj.source)} pr-0" title="${Parser.sourceJsonToFull(obj.source)}" ${Parser.sourceJsonToStyle(obj.source)}>${source}</span>
 		</a>`;
 
 		const listItem = new ListItem(
@@ -124,11 +124,10 @@ class ObjectsPage extends ListPage {
 
 		(this._$dispToken = this._$dispToken || $(`#float-token`)).empty();
 
-		const hasToken = ent.tokenUrl || ent.hasToken;
-		if (hasToken) {
-			const imgLink = Renderer.object.getTokenUrl(ent);
-			this._$dispToken.append(`<a href="${imgLink}" target="_blank" rel="noopener noreferrer"><img src="${imgLink}" id="token_image" class="token" alt="Token Image: ${(ent.name || "").qq()}" ${ent.tokenCredit ? `title="Credit: ${ent.tokenCredit.qq()}"` : ""} loading="lazy"></a>`);
-		}
+		if (!Renderer.object.hasToken(ent)) return;
+
+		const imgLink = Renderer.object.getTokenUrl(ent);
+		this._$dispToken.append(`<a href="${imgLink}" target="_blank" rel="noopener noreferrer"><img src="${imgLink}" id="token_image" class="token" alt="Token Image: ${(ent.name || "").qq()}" ${ent.tokenCredit ? `title="Credit: ${ent.tokenCredit.qq()}"` : ""} loading="lazy"></a>`);
 	}
 
 	_renderStats_onTabChangeStats () {

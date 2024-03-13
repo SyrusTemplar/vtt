@@ -76,7 +76,7 @@
 				{
 					"name": "Two Heads",
 					"entries": [
-						"The ettin has advantage on Wisdom (Perception) checks and on saving throws against being {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition stunned}, and knocked {@condition unconscious}."
+						"The ettin has advantage on Wisdom ({@skill Perception}) checks and on saving throws against being {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition stunned}, and knocked {@condition unconscious}."
 					]
 				},
 				{
@@ -338,6 +338,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Barbatos is a 6th-level spellcaster. His spellcasting ability is Wisdom (spell save {@dc 13}, {@hit 5} to hit with spell attacks). He has the following ranger spells prepared:"
 					],
@@ -486,10 +487,12 @@
 			"_copy": {
 				"name": "Cultist",
 				"source": "MM",
-				"_trait": {
-					"name": "Mountain Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Mountain Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -535,6 +538,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The medusa's innate spellcasting ability is Charisma (spell save {@dc 13}). The medusa can innately cast the following spells, requiring no material components:"
 					],
@@ -676,7 +680,7 @@
 				{
 					"name": "Special Equipment",
 					"entries": [
-						"Lynx's crystal eye is a magically shrunken crystal ball of true seeing. One of her teeth is a refashioned ring of mind shielding, while another has been magicked to place her under a permanent {@spell Nystul's magic aura} spell, concealing the magic of these items and hiding her true nature from magic or features that can detect undead."
+						"Lynx's crystal eye is a magically shrunken {@item crystal ball} of true seeing. One of her teeth is a refashioned {@item ring of mind shielding}, while another has been magicked to place her under a permanent {@spell Nystul's magic aura} spell, concealing the magic of these items and hiding her true nature from magic or features that can detect undead."
 					]
 				},
 				{
@@ -822,6 +826,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Moghadam is an 18th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 16}, {@hit 8} to hit with spell attacks). He has the following artificer spells prepared:"
 					],
@@ -1007,6 +1012,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The neo-otyugh's innate spellcasting ability is Intelligence (spell save {@dc 12}). It can innately cast the following spells, requiring no components:"
 					],
@@ -1214,7 +1220,7 @@
 				{
 					"name": "Special Equipment",
 					"entries": [
-						"Sir Ursas wears a ring of mind shielding and plate armor of fire resistance."
+						"Sir Ursas wears a {@item ring of mind shielding} and {@item plate armor of fire resistance}."
 					]
 				},
 				{
@@ -1529,6 +1535,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Thessalar is an 18th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 16}, {@hit 8} to hit with spell attacks). He has the following artificer spells prepared:"
 					],
@@ -1978,10 +1985,12 @@
 			"_copy": {
 				"name": "Cultist",
 				"source": "MM",
-				"_trait": {
-					"name": "Tiefling",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Tiefling",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -2052,7 +2061,7 @@
 				{
 					"name": "Two Heads",
 					"entries": [
-						"The two-headed crocodile has advantage on Wisdom (Perception) checks and on saving throws against being {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition stunned}, and knocked {@condition unconscious}."
+						"The two-headed crocodile has advantage on Wisdom ({@skill Perception}) checks and on saving throws against being {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition stunned}, and knocked {@condition unconscious}."
 					]
 				},
 				{
@@ -2138,7 +2147,7 @@
 				{
 					"name": "Two Heads",
 					"entries": [
-						"The two-headed owlbear has advantage on Wisdom (Perception) checks and on saving throws against being {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition stunned}, and knocked {@condition unconscious}."
+						"The two-headed owlbear has advantage on Wisdom ({@skill Perception}) checks and on saving throws against being {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition stunned}, and knocked {@condition unconscious}."
 					]
 				},
 				{

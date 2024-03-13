@@ -11,12 +11,12 @@ class VehiclesSublistManager extends SublistManager {
 		return [
 			new SublistCellTemplate({
 				name: "Type",
-				css: "col-8 pl-0 ve-text-center",
+				css: "ve-col-8 pl-0 ve-text-center",
 				colStyle: "text-center",
 			}),
 			new SublistCellTemplate({
 				name: "Name",
-				css: "bold col-4 pr-0",
+				css: "bold ve-col-4 pr-0",
 				colStyle: "",
 			}),
 		];
@@ -87,9 +87,9 @@ class VehiclesPage extends ListPage {
 		const displayType = it.vehicleType ? Parser.vehicleTypeToFull(it.vehicleType) : it.upgradeType.map(t => Parser.vehicleTypeToFull(t));
 
 		eleLi.innerHTML = `<a href="#${UrlUtil.autoEncodeHash(it)}" class="lst--border lst__row-inner">
-			<span class="col-6 pl-0 ve-text-center">${displayType}</span>
-			<span class="bold col-4">${it.name}</span>
-			<span class="col-2 ve-text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${Parser.sourceJsonToStyle(it.source)}>${source}</span>
+			<span class="ve-col-6 pl-0 ve-text-center">${displayType}</span>
+			<span class="bold ve-col-4">${it.name}</span>
+			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToColor(it.source)} pr-0" title="${Parser.sourceJsonToFull(it.source)}" ${Parser.sourceJsonToStyle(it.source)}>${source}</span>
 		</a>`;
 
 		const listItem = new ListItem(
@@ -118,8 +118,7 @@ class VehiclesPage extends ListPage {
 		(this._$dispToken = this._$dispToken || $(`#float-token`)).empty();
 
 		if (ent.vehicleType) {
-			const hasToken = ent.tokenUrl || ent.hasToken;
-			if (hasToken) {
+			if (Renderer.vehicle.hasToken(ent)) {
 				const imgLink = Renderer.vehicle.getTokenUrl(ent);
 				this._$dispToken.append(`<a href="${imgLink}" target="_blank" rel="noopener noreferrer"><img src="${imgLink}" id="token_image" class="token" alt="Token Image: ${(ent.name || "").qq()}" ${ent.tokenCredit ? `title="Credit: ${ent.tokenCredit.qq()}"` : ""} loading="lazy"></a>`);
 			}

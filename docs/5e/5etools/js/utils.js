@@ -2,7 +2,7 @@
 
 // in deployment, `IS_DEPLOYED = "<version number>";` should be set below.
 globalThis.IS_DEPLOYED = undefined;
-globalThis.VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"1.197.4"/* 5ETOOLS_VERSION__CLOSE */;
+globalThis.VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"1.201.1"/* 5ETOOLS_VERSION__CLOSE */;
 globalThis.DEPLOYED_IMG_ROOT = undefined;
 // for the roll20 script to set
 globalThis.IS_VTT = false;
@@ -300,8 +300,8 @@ globalThis.StrUtil = {
 	// Certain minor words should be left lowercase unless they are the first or last words in the string
 	TITLE_LOWER_WORDS: ["a", "an", "the", "and", "but", "or", "for", "nor", "as", "at", "by", "for", "from", "in", "into", "near", "of", "on", "onto", "to", "with", "over", "von"],
 	// Certain words such as initialisms or acronyms should be left uppercase
-	TITLE_UPPER_WORDS: ["Id", "Tv", "Dm", "Ok", "Npc", "Pc", "Tpk", "Wip", "Dc"],
-	TITLE_UPPER_WORDS_PLURAL: ["Ids", "Tvs", "Dms", "Oks", "Npcs", "Pcs", "Tpks", "Wips", "Dcs"], // (Manually pluralize, to avoid infinite loop)
+	TITLE_UPPER_WORDS: ["Id", "Tv", "Dm", "Ok", "Npc", "Pc", "Tpk", "Wip", "Dc", "D&d"],
+	TITLE_UPPER_WORDS_PLURAL: ["Ids", "Tvs", "Dms", "Oks", "Npcs", "Pcs", "Tpks", "Wips", "Dcs", "D&d"], // (Manually pluralize, to avoid infinite loop)
 
 	IRREGULAR_PLURAL_WORDS: {
 		"cactus": "cacti",
@@ -540,6 +540,16 @@ globalThis.SourceUtil = class {
 		if (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(source)) return SourceUtil.FILTER_GROUP_HOMEBREW;
 		if (SourceUtil.isPartneredSourceWotc(source)) return SourceUtil.FILTER_GROUP_PARTNERED;
 		return SourceUtil.FILTER_GROUP_STANDARD;
+	}
+
+	static getFilterGroupName (group) {
+		switch (group) {
+			case SourceUtil.FILTER_GROUP_NON_STANDARD: return "Other/Prerelease";
+			case SourceUtil.FILTER_GROUP_HOMEBREW: return "Homebrew";
+			case SourceUtil.FILTER_GROUP_PARTNERED: return "Partnered";
+			case SourceUtil.FILTER_GROUP_STANDARD: return null;
+			default: throw new Error(`Unhandled source filter group "${group}"`);
+		}
 	}
 
 	static getAdventureBookSourceHref (source, page) {
@@ -2052,13 +2062,13 @@ globalThis.MiscUtil = {
 };
 
 // EVENT HANDLERS ======================================================================================================
-globalThis.EventUtil = {
-	_mouseX: 0,
-	_mouseY: 0,
-	_isUsingTouch: false,
-	_isSetCssVars: false,
+globalThis.EventUtil = class {
+	static _mouseX = 0;
+	static _mouseY = 0;
+	static _isUsingTouch = false;
+	static _isSetCssVars = false;
 
-	init () {
+	static init () {
 		document.addEventListener("mousemove", evt => {
 			EventUtil._mouseX = evt.clientX;
 			EventUtil._mouseY = evt.clientY;
@@ -2067,46 +2077,50 @@ globalThis.EventUtil = {
 		document.addEventListener("touchstart", () => {
 			EventUtil._isUsingTouch = true;
 		});
-	},
+	}
 
-	_eleDocRoot: null,
-	_onMouseMove_setCssVars () {
+	static _eleDocRoot = null;
+	static _onMouseMove_setCssVars () {
 		if (!EventUtil._isSetCssVars) return;
 
 		EventUtil._eleDocRoot = EventUtil._eleDocRoot || document.querySelector(":root");
 
 		EventUtil._eleDocRoot.style.setProperty("--mouse-position-x", EventUtil._mouseX);
 		EventUtil._eleDocRoot.style.setProperty("--mouse-position-y", EventUtil._mouseY);
-	},
+	}
 
-	getClientX (evt) { return evt.touches && evt.touches.length ? evt.touches[0].clientX : evt.clientX; },
-	getClientY (evt) { return evt.touches && evt.touches.length ? evt.touches[0].clientY : evt.clientY; },
+	/* -------------------------------------------- */
 
-	getOffsetY (evt) {
+	static getClientX (evt) { return evt.touches && evt.touches.length ? evt.touches[0].clientX : evt.clientX; }
+	static getClientY (evt) { return evt.touches && evt.touches.length ? evt.touches[0].clientY : evt.clientY; }
+
+	static getOffsetY (evt) {
 		if (!evt.touches?.length) return evt.offsetY;
 
 		const bounds = evt.target.getBoundingClientRect();
 		return evt.targetTouches[0].clientY - bounds.y;
-	},
+	}
 
-	getMousePos () {
+	static getMousePos () {
 		return {x: EventUtil._mouseX, y: EventUtil._mouseY};
-	},
+	}
 
-	isUsingTouch () { return !!EventUtil._isUsingTouch; },
+	/* -------------------------------------------- */
 
-	isInInput (evt) {
+	static isUsingTouch () { return !!EventUtil._isUsingTouch; }
+
+	static isInInput (evt) {
 		return evt.target.nodeName === "INPUT" || evt.target.nodeName === "TEXTAREA"
 			|| evt.target.getAttribute("contenteditable") === "true";
-	},
+	}
 
-	isCtrlMetaKey (evt) {
+	static isCtrlMetaKey (evt) {
 		return evt.ctrlKey || evt.metaKey;
-	},
+	}
 
-	noModifierKeys (evt) { return !evt.ctrlKey && !evt.altKey && !evt.metaKey; },
+	static noModifierKeys (evt) { return !evt.ctrlKey && !evt.altKey && !evt.metaKey; }
 
-	getKeyIgnoreCapsLock (evt) {
+	static getKeyIgnoreCapsLock (evt) {
 		if (!evt.key) return null;
 		if (evt.key.length !== 1) return evt.key;
 		const isCaps = (evt.originalEvent || evt).getModifierState("CapsLock");
@@ -2116,7 +2130,29 @@ globalThis.EventUtil = {
 		const isLowerCase = asciiCode >= 97 && asciiCode <= 122;
 		if (!isUpperCase && !isLowerCase) return evt.key;
 		return isUpperCase ? evt.key.toLowerCase() : evt.key.toUpperCase();
-	},
+	}
+
+	/* -------------------------------------------- */
+
+	// In order of preference/priority.
+	// Note: `"application/json"`, as e.g. Founrdy's TinyMCE blocks drops which are not plain text.
+	static _MIME_TYPES_DROP_JSON = ["application/json", "text/plain"];
+
+	static getDropJson (evt) {
+		let data;
+		for (const mimeType of EventUtil._MIME_TYPES_DROP_JSON) {
+			if (!evt.dataTransfer.types.includes(mimeType)) continue;
+
+			try {
+				const rawJson = evt.dataTransfer.getData(mimeType);
+				if (!rawJson) return;
+				data = JSON.parse(rawJson);
+			} catch (e) {
+				// Do nothing
+			}
+		}
+		return data;
+	}
 };
 
 if (typeof window !== "undefined") window.addEventListener("load", EventUtil.init);
@@ -2647,7 +2683,7 @@ globalThis.UrlUtil = {
 	categoryToPage (category) { return UrlUtil.CAT_TO_PAGE[category]; },
 	categoryToHoverPage (category) { return UrlUtil.CAT_TO_HOVER_PAGE[category] || UrlUtil.categoryToPage(category); },
 
-	pageToDisplayPage (page) { return UrlUtil.PG_TO_NAME[page] || page; },
+	pageToDisplayPage (page) { return UrlUtil.PG_TO_NAME[page] || (page || "").replace(/\.html$/, ""); },
 
 	getFilename (url) { return url.slice(url.lastIndexOf("/") + 1); },
 
@@ -3093,6 +3129,14 @@ UrlUtil.SUBLIST_PAGES = {
 	[UrlUtil.PG_DECKS]: true,
 };
 
+UrlUtil.FAUX_PAGES = {
+	[UrlUtil.PG_CLASS_SUBCLASS_FEATURES]: true,
+	[UrlUtil.PG_CREATURE_FEATURES]: true,
+	[UrlUtil.PG_VEHICLE_FEATURES]: true,
+	[UrlUtil.PG_OBJECT_FEATURES]: true,
+	[UrlUtil.PG_TRAP_FEATURES]: true,
+};
+
 UrlUtil.PAGE_TO_PROPS = {};
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_SPELLS] = ["spell"];
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_ITEMS] = ["item", "itemGroup", "itemType", "itemEntry", "itemProperty", "itemTypeAdditionalEntries", "itemMastery", "baseitem", "magicvariant"];
@@ -3104,7 +3148,7 @@ if (!IS_DEPLOYED && !IS_VTT && typeof window !== "undefined") {
 		if (EventUtil.noModifierKeys(e) && typeof d20 === "undefined") {
 			if (e.key === "#") {
 				const spl = window.location.href.split("/");
-				window.prompt("Copy to clipboard: Ctrl+C, Enter", `https://5etools-mirror-1.github.io/${spl[spl.length - 1]}`);
+				window.prompt("Copy to clipboard: Ctrl+C, Enter", `https://5etools-mirror-2.github.io/${spl[spl.length - 1]}`);
 			}
 		}
 	});
@@ -4043,7 +4087,8 @@ globalThis.DataUtil = {
 			if (it._copy) await DataUtil.generic._pMergeCopy(impl, page, entryList, it, options);
 
 			// Preload templates, if required
-			const templateData = entry._copy?._trait
+			// TODO(Template) allow templates for other entity types
+			const templateData = entry._copy?._templates
 				? (await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/bestiary/template.json`))
 				: null;
 			return DataUtil.generic.copyApplier.getCopy(impl, MiscUtil.copyFast(it), entry, templateData, options);
@@ -4215,8 +4260,9 @@ globalThis.DataUtil = {
 						default: throw new Error(`${msgPtFailed} Unknown variable "${m[1]}"`);
 					}
 				});
+				// TODO(Future) add option to format as bonus
 				// eslint-disable-next-line no-eval
-				copyTo[prop][modInfo.prop] = eval(toExec);
+				copyTo[prop][modInfo.prop] = eval(DataUtil.generic.variableResolver.getCleanMathExpression(toExec));
 			}
 
 			static _doMod_scalarAddProp ({copyTo, copyFrom, modInfo, msgPtFailed, prop}) {
@@ -4565,25 +4611,49 @@ globalThis.DataUtil = {
 				if (copyMeta._mod) this._normaliseMods(copyMeta);
 
 				// fetch and apply any external template -- append them to existing copy mods where available
-				let template = null;
-				if (copyMeta._trait) {
-					template = templateData.monsterTemplate.find(t => t.name.toLowerCase() === copyMeta._trait.name.toLowerCase() && t.source.toLowerCase() === copyMeta._trait.source.toLowerCase());
-					if (!template) throw new Error(`${msgPtFailed} Could not find traits to apply with name "${copyMeta._trait.name}" and source "${copyMeta._trait.source}"`);
-					template = MiscUtil.copyFast(template);
+				let templates = null;
+				let templateErrors = [];
+				if (copyMeta._templates?.length) {
+					templates = copyMeta._templates
+						.map(({name: templateName, source: templateSource}) => {
+							templateName = templateName.toLowerCase().trim();
+							templateSource = templateSource.toLowerCase().trim();
 
-					if (template.apply._mod) {
-						this._normaliseMods(template.apply);
+							// TODO(Template) allow templates for other entity types
+							const template = templateData.monsterTemplate
+								.find(({name, source}) => name.toLowerCase().trim() === templateName && source.toLowerCase().trim() === templateSource);
 
-						if (copyMeta._mod) {
-							Object.entries(template.apply._mod).forEach(([k, v]) => {
-								if (copyMeta._mod[k]) copyMeta._mod[k] = copyMeta._mod[k].concat(v);
-								else copyMeta._mod[k] = v;
-							});
-						} else copyMeta._mod = template.apply._mod;
-					}
+							if (!template) {
+								templateErrors.push(`Could not find traits to apply with name "${templateName}" and source "${templateSource}"`);
+								return null;
+							}
 
-					delete copyMeta._trait;
+							return MiscUtil.copyFast(template);
+						})
+						.filter(Boolean);
+
+					templates
+						.forEach(template => {
+							if (!template.apply._mod) return;
+
+							this._normaliseMods(template.apply);
+
+							if (!copyMeta._mod) {
+								copyMeta._mod = template.apply._mod;
+								return;
+							}
+
+							Object.entries(template.apply._mod)
+								.forEach(([k, v]) => {
+									if (copyMeta._mod[k]) copyMeta._mod[k] = copyMeta._mod[k].concat(v);
+									else copyMeta._mod[k] = v;
+								});
+						});
+
+					delete copyMeta._templates;
 				}
+
+				if (templateErrors.length) throw new Error(`${msgPtFailed} ${templateErrors.join("; ")}`);
 
 				const copyToRootProps = new Set(Object.keys(copyTo));
 
@@ -4597,11 +4667,16 @@ globalThis.DataUtil = {
 					}
 				});
 
-				// apply any root racial properties after doing base copy
-				if (template && template.apply._root) {
-					Object.entries(template.apply._root)
-						.filter(([k, v]) => !copyToRootProps.has(k)) // avoid overwriting any real root properties
-						.forEach(([k, v]) => copyTo[k] = v);
+				// apply any root template properties after doing base copy
+				if (templates?.length) {
+					templates
+						.forEach(template => {
+							if (!template.apply?._root) return;
+
+							Object.entries(template.apply._root)
+								.filter(([k, v]) => !copyToRootProps.has(k)) // avoid overwriting any real root properties
+								.forEach(([k, v]) => copyTo[k] = v);
+						});
 				}
 
 				// apply mods
@@ -4627,72 +4702,197 @@ globalThis.DataUtil = {
 		},
 
 		variableResolver: class {
-			static _getSize ({ent}) { return ent.size?.[0] || Parser.SZ_MEDIUM; }
+			/** @abstract */
+			static _ResolverBase = class {
+				mode;
 
-			static _SIZE_TO_MULT = {
-				[Parser.SZ_LARGE]: 2,
-				[Parser.SZ_HUGE]: 3,
-				[Parser.SZ_GARGANTUAN]: 4,
+				getResolved ({ent, msgPtFailed, detail}) {
+					this._doVerifyInput({ent, msgPtFailed, detail});
+					return this._getResolved({ent, detail});
+				}
+
+				_doVerifyInput ({msgPtFailed, detail}) { /* Implement as required */ }
+
+				/**
+				 * @abstract
+				 * @return {string}
+				 */
+				_getResolved ({ent, mode, detail}) { throw new Error("Unimplemented!"); }
+
+				getDisplayText ({msgPtFailed, detail}) {
+					this._doVerifyInput({msgPtFailed, detail});
+					return this._getDisplayText({detail});
+				}
+
+				/**
+				 * @abstract
+				 * @return {string}
+				 */
+				_getDisplayText ({detail}) { throw new Error("Unimplemented!"); }
+
+				/* -------------------------------------------- */
+
+				_getSize ({ent}) { return ent.size?.[0] || Parser.SZ_MEDIUM; }
+
+				_SIZE_TO_MULT = {
+					[Parser.SZ_LARGE]: 2,
+					[Parser.SZ_HUGE]: 3,
+					[Parser.SZ_GARGANTUAN]: 4,
+				};
+
+				_getSizeMult (size) { return this._SIZE_TO_MULT[size] ?? 1; }
 			};
 
-			static _getSizeMult (size) { return this._SIZE_TO_MULT[size] ?? 1; }
+			static _ResolverName = class extends this._ResolverBase {
+				mode = "name";
+				_getResolved ({ent, detail}) { return ent.name; }
+				_getDisplayText ({detail}) { return "(name)"; }
+			};
 
-			static _getCleanMathExpression (str) { return str.replace(/[^-+/*0-9.,]+/g, ""); }
+			static _ResolverShortName = class extends this._ResolverBase {
+				mode = "short_name";
+				_getResolved ({ent, detail}) { return Renderer.monster.getShortName(ent); }
+				_getDisplayText ({detail}) { return "(short name)"; }
+			};
 
-			static resolve ({obj, ent, msgPtFailed = null}) {
-				return JSON.parse(
-					JSON.stringify(obj)
-						.replace(/<\$(?<variable>[^$]+)\$>/g, (...m) => {
-							const [mode, detail] = m.last().variable.split("__");
+			static _ResolverTitleShortName = class extends this._ResolverBase {
+				mode = "title_short_name";
+				_getResolved ({ent, detail}) { return Renderer.monster.getShortName(ent, {isTitleCase: true}); }
+				_getDisplayText ({detail}) { return "(short title name)"; }
+			};
 
-							switch (mode) {
-								case "name": return ent.name;
-								case "short_name":
-								case "title_short_name": {
-									return Renderer.monster.getShortName(ent, {isTitleCase: mode === "title_short_name"});
-								}
+			/** @abstract */
+			static _ResolverAbilityScore = class extends this._ResolverBase {
+				_doVerifyInput ({msgPtFailed, detail}) {
+					if (!Parser.ABIL_ABVS.includes(detail)) throw new Error(`${msgPtFailed ? `${msgPtFailed} ` : ""} Unknown ability score "${detail}"`);
+				}
+			};
 
-								case "dc":
-								case "spell_dc": {
-									if (!Parser.ABIL_ABVS.includes(detail)) throw new Error(`${msgPtFailed ? `${msgPtFailed} ` : ""} Unknown ability score "${detail}"`);
-									return 8 + Parser.getAbilityModNumber(Number(ent[detail])) + Parser.crToPb(ent.cr);
-								}
+			static _ResolverDc = class extends this._ResolverAbilityScore {
+				mode = "dc";
+				_getResolved ({ent, detail}) { return 8 + Parser.getAbilityModNumber(Number(ent[detail])) + Parser.crToPb(ent.cr); }
+				_getDisplayText ({detail}) { return `(${detail.toUpperCase()} DC)`; }
+			};
 
-								case "to_hit": {
-									if (!Parser.ABIL_ABVS.includes(detail)) throw new Error(`${msgPtFailed ? `${msgPtFailed} ` : ""} Unknown ability score "${detail}"`);
-									const total = Parser.crToPb(ent.cr) + Parser.getAbilityModNumber(Number(ent[detail]));
-									return total >= 0 ? `+${total}` : total;
-								}
+			static _ResolverSpellDc = class extends this._ResolverDc {
+				mode = "spell_dc";
+				_getDisplayText ({detail}) { return `(${detail.toUpperCase()} spellcasting DC)`; }
+			};
 
-								case "damage_mod": {
-									if (!Parser.ABIL_ABVS.includes(detail)) throw new Error(`${msgPtFailed ? `${msgPtFailed} ` : ""} Unknown ability score "${detail}"`);
-									const total = Parser.getAbilityModNumber(Number(ent[detail]));
-									return total === 0 ? "" : total > 0 ? ` + ${total}` : ` - ${Math.abs(total)}`;
-								}
+			static _ResolverToHit = class extends this._ResolverAbilityScore {
+				mode = "to_hit";
 
-								case "damage_avg": {
-									const replaced = detail
-										.replace(/\b(?<abil>str|dex|con|int|wis|cha)\b/gi, (...m) => Parser.getAbilityModNumber(Number(ent[m.last().abil])))
-										.replace(/\bsize_mult\b/g, () => this._getSizeMult(this._getSize({ent})));
+				_getResolved ({ent, detail}) {
+					const total = Parser.crToPb(ent.cr) + Parser.getAbilityModNumber(Number(ent[detail]));
+					return total >= 0 ? `+${total}` : total;
+				}
 
-									// eslint-disable-next-line no-eval
-									return Math.floor(eval(this._getCleanMathExpression(replaced)));
-								}
+				_getDisplayText ({detail}) { return `(${detail.toUpperCase()} to-hit)`; }
+			};
 
-								case "size_mult": {
-									const mult = this._getSizeMult(this._getSize({ent}));
+			static _ResolverDamageMod = class extends this._ResolverAbilityScore {
+				mode = "damage_mod";
 
-									if (!detail) return mult;
+				_getResolved ({ent, detail}) {
+					const total = Parser.getAbilityModNumber(Number(ent[detail]));
+					return total === 0 ? "" : total > 0 ? ` + ${total}` : ` - ${Math.abs(total)}`;
+				}
 
-									// eslint-disable-next-line no-eval
-									return Math.floor(eval(`${mult} * ${this._getCleanMathExpression(detail)}`));
-								}
+				_getDisplayText ({detail}) { return `(${detail.toUpperCase()} damage modifier)`; }
+			};
 
-								default: return m[0];
-							}
-						}),
+			static _ResolverDamageAvg = class extends this._ResolverBase {
+				mode = "damage_avg";
+
+				_getResolved ({ent, detail}) {
+					const replaced = detail
+						.replace(/\b(?<abil>str|dex|con|int|wis|cha)\b/gi, (...m) => Parser.getAbilityModNumber(Number(ent[m.last().abil])))
+						.replace(/\bsize_mult\b/g, () => this._getSizeMult(this._getSize({ent})));
+
+					// eslint-disable-next-line no-eval
+					return Math.floor(eval(DataUtil.generic.variableResolver.getCleanMathExpression(replaced)));
+				}
+
+				_getDisplayText ({detail}) { return "(damage average)"; } // TODO(Future) more specific
+			};
+
+			static _ResolverSizeMult = class extends this._ResolverBase {
+				mode = "size_mult";
+
+				_getResolved ({ent, detail}) {
+					const mult = this._getSizeMult(this._getSize({ent}));
+
+					if (!detail) return mult;
+
+					// eslint-disable-next-line no-eval
+					return Math.floor(eval(`${mult} * ${DataUtil.generic.variableResolver.getCleanMathExpression(detail)}`));
+				}
+
+				_getDisplayText ({detail}) { return "(size multiplier)"; } // TODO(Future) more specific
+			};
+
+			static _RESOLVERS = [
+				new this._ResolverName(),
+				new this._ResolverShortName(),
+				new this._ResolverTitleShortName(),
+				new this._ResolverDc(),
+				new this._ResolverSpellDc(),
+				new this._ResolverToHit(),
+				new this._ResolverDamageMod(),
+				new this._ResolverDamageAvg(),
+				new this._ResolverSizeMult(),
+			];
+
+			static _MODE_LOOKUP = (() => {
+				return Object.fromEntries(
+					this._RESOLVERS.map(resolver => [resolver.mode, resolver]),
 				);
+			})();
+
+			static _WALKER = null;
+			static resolve ({obj, ent, msgPtFailed = null}) {
+				DataUtil.generic.variableResolver._WALKER ||= MiscUtil.getWalker();
+
+				return DataUtil.generic.variableResolver._WALKER
+					.walk(
+						obj,
+						{
+							string: str => str.replace(/<\$(?<variable>[^$]+)\$>/g, (...m) => {
+								const [mode, detail] = m.last().variable.split("__");
+
+								const resolver = this._MODE_LOOKUP[mode];
+								if (!resolver) return m[0];
+
+								return resolver.getResolved({ent, msgPtFailed, detail});
+							}),
+						},
+					);
 			}
+
+			static getHumanReadable ({obj, msgPtFailed}) {
+				DataUtil.generic.variableResolver._WALKER ||= MiscUtil.getWalker();
+
+				return DataUtil.generic.variableResolver._WALKER
+					.walk(
+						obj,
+						{
+							string: str => this.getHumanReadableString(str, {msgPtFailed}),
+						},
+					);
+			}
+
+			static getHumanReadableString (str, {msgPtFailed = null} = {}) {
+				return str.replace(/<\$(?<variable>[^$]+)\$>/g, (...m) => {
+					const [mode, detail] = m.last().variable.split("__");
+
+					const resolver = this._MODE_LOOKUP[mode];
+					if (!resolver) return m[0];
+
+					return resolver.getDisplayText({msgPtFailed, detail});
+				});
+			}
+
+			static getCleanMathExpression (str) { return str.replace(/[^-+/*0-9.,]+/g, ""); }
 		},
 
 		getVersions (parent, {impl = null, isExternalApplicationIdentityOnly = false} = {}) {
@@ -4700,7 +4900,7 @@ globalThis.DataUtil = {
 
 			return parent._versions
 				.map(ver => {
-					if (ver._template && ver._implementations?.length) return DataUtil.generic._getVersions_template({ver});
+					if (ver._abstract && ver._implementations?.length) return DataUtil.generic._getVersions_template({ver});
 					return DataUtil.generic._getVersions_basic({ver});
 				})
 				.flat()
@@ -4710,7 +4910,7 @@ globalThis.DataUtil = {
 		_getVersions_template ({ver}) {
 			return ver._implementations
 				.map(impl => {
-					let cpyTemplate = MiscUtil.copyFast(ver._template);
+					let cpyTemplate = MiscUtil.copyFast(ver._abstract);
 					const cpyImpl = MiscUtil.copyFast(impl);
 
 					DataUtil.generic._getVersions_mutExpandCopy({ent: cpyTemplate});
@@ -5475,6 +5675,11 @@ globalThis.DataUtil = {
 		static _FILENAME = "optionalfeatures.json";
 	},
 
+	optionalfeatureFluff: class extends _DataUtilPropConfigSingleSource {
+		static _PAGE = UrlUtil.PG_OPT_FEATURES;
+		static _FILENAME = "fluff-optionalfeatures.json";
+	},
+
 	class: class clazz extends _DataUtilPropConfigCustom {
 		static _PAGE = UrlUtil.PG_CLASSES;
 
@@ -5929,7 +6134,11 @@ globalThis.RollerUtil = {
 
 	getColRollType (colLabel) {
 		if (typeof colLabel !== "string") return false;
-		colLabel = Renderer.stripTags(colLabel);
+
+		colLabel = colLabel.trim();
+		const mDice = /^{@dice (?<exp>[^}|]+)([^}]+)?}$/.exec(colLabel);
+
+		colLabel = mDice ? mDice.groups.exp : Renderer.stripTags(colLabel);
 
 		if (Renderer.dice.lang.getTree3(colLabel)) return RollerUtil.ROLL_COL_STANDARD;
 

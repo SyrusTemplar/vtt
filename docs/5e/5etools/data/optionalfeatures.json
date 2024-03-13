@@ -46,7 +46,8 @@
 					"level": {
 						"level": 14,
 						"class": {
-							"name": "Artificer"
+							"name": "Artificer",
+							"source": "TCE"
 						}
 					},
 					"item": [
@@ -418,7 +419,8 @@
 					"level": {
 						"level": 6,
 						"class": {
-							"name": "Artificer"
+							"name": "Artificer",
+							"source": "TCE"
 						}
 					},
 					"item": [
@@ -1530,7 +1532,8 @@
 					"level": {
 						"level": 10,
 						"class": {
-							"name": "Artificer"
+							"name": "Artificer",
+							"source": "TCE"
 						}
 					},
 					"item": [
@@ -1557,7 +1560,8 @@
 							"name": "Fighter"
 						},
 						"subclass": {
-							"name": "Rune Knight"
+							"name": "Rune Knight",
+							"source": "TCE"
 						}
 					}
 				}
@@ -1593,7 +1597,8 @@
 				"The homunculus is friendly to you and your companions, and it obeys your commands. See this creature's game statistics in the Homunculus Servant stat block, which uses your proficiency bonus (PB) in several places.",
 				"In combat, the homunculus shares your initiative count, but it takes its turn immediately after yours. It can move and use its reaction on its own, but the only action it takes on its turn is the {@action Dodge} action, unless you take a bonus action on your turn to command it to take another action. That action can be one in its stat block or some other action. If you are {@condition incapacitated}, the homunculus can take any action of its choice, not just {@action Dodge}.",
 				"The homunculus regains {@dice 2d6} hit points if the {@spell mending} spell is cast on it. If you or the homunculus dies, it vanishes, leaving its heart in its space."
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Improved Pact Weapon",
@@ -2239,7 +2244,8 @@
 					"level": {
 						"level": 6,
 						"class": {
-							"name": "Artificer"
+							"name": "Artificer",
+							"source": "TCE"
 						}
 					},
 					"item": [
@@ -2647,7 +2653,8 @@
 					"level": {
 						"level": 6,
 						"class": {
-							"name": "Artificer"
+							"name": "Artificer",
+							"source": "TCE"
 						}
 					},
 					"item": [
@@ -2678,7 +2685,8 @@
 					"level": {
 						"level": 6,
 						"class": {
-							"name": "Artificer"
+							"name": "Artificer",
+							"source": "TCE"
 						}
 					},
 					"item": [
@@ -3002,7 +3010,8 @@
 					"level": {
 						"level": 6,
 						"class": {
-							"name": "Artificer"
+							"name": "Artificer",
+							"source": "TCE"
 						}
 					},
 					"item": [
@@ -3046,7 +3055,8 @@
 							"name": "Fighter"
 						},
 						"subclass": {
-							"name": "Rune Knight"
+							"name": "Rune Knight",
+							"source": "TCE"
 						}
 					}
 				}

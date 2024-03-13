@@ -1,5 +1,4 @@
-
-.list {
+.list--stats {
 	height: initial;
 	max-height: 100%;
 	min-height: 100px;
@@ -24,13 +23,13 @@ h3.ele-magic {
 	margin: 0;
 }
 
-@media (max-width: 991px) {
-	.list {
+@media (width <= 991px) {
+	.list--stats {
 		max-height: 20em;
 	}
 }
 
-@media (max-device-height: 700px) {
+@media (device-height <= 700px) {
 	.list {
 		max-height: 20em;
 	}
@@ -43,10 +42,6 @@ h3.ele-magic {
 		flex-direction: column;
 		max-height: none;
 		height: auto;
-	}
-
-	.list {
-		max-height: 20em;
 	}
 }
 

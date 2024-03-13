@@ -632,7 +632,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "adventure/KKW/114-434.png"
+								"path": "adventure/KKW/114-434.webp"
 							},
 							"width": 2513,
 							"height": 3338,
@@ -829,6 +829,124 @@
 								"What's the balance of power between {@creature Krenko|KKW}'s gang and the Shattergang Brothers? Is either gang likely to take revenge on the characters for what they did? Or did the characters earn the gratitude of either gang?",
 								"How might Nassius, {@creature Krenko|KKW}, Falish, and other NPCs interact with the adventurers in the future? Could one of them ask for the characters' help with a new crisis, or turn into a dangerous antagonist?",
 								"Did the characters use any of their contacts to gather information? Might those individuals' involvement cause them trouble that could involve the adventurers?"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "section",
+			"name": "Credits",
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"columns": 2,
+					"items": [
+						{
+							"type": "item",
+							"name": "Lead Designers",
+							"entries": [
+								"James Wyatt, Jeremy Crawford"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Adventure Writer",
+							"entries": [
+								"Chris Tulach"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Designers",
+							"entries": [
+								"Ari Levitch, Ben Petrisor, Mike Mearls, Robert J. Schwalb"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Managing Editor",
+							"entries": [
+								"Jeremy Crawford"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Editors",
+							"entries": [
+								"Christopher Perkins, Kim Mohan, Michele Carter, Phil Athans, Kate Welch"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Art Direction",
+							"entries": [
+								"Shauna Narciso, Ari Levitch"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Graphic Designer",
+							"entries": [
+								"Trish Yochum, Emi Tanji"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Additional Art Direction",
+							"entries": [
+								"Jeremy Jarvis, Jeremy Cranford, Pamela Ansman-Wolfe, Taylor Ingvarsson, Dawn Murin, Cynthia Sheppard, Andrew Vallas, Mark Winters"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Cartography",
+							"entries": [
+								"Dyson Logos"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Interior Illustrators",
+							"entries": [
+								"Noah Bradley, Mathias Kollros, Karl Kopinski, Svetlin Velinov, Kev Walker, Richard Wright, Kristen Zirngibl"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Ravnica World Design",
+							"entries": [
+								"Doug Beyer, Sam Burley, Jeremy Cranford, Kelly Digges, Brady Dommermuth, Jenna Helland, Cory H. Herndon, Jeremy Jarvis, Kimberly Kreines, Chris L'etoile, Adam Lee, Ari Levitch, Alison Lührs, Shawn Main, Dawn Murin, Richard Whitters, Mark Winters, James Wyatt"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Producer",
+							"entries": [
+								"Matt Warren, Dan Tovar"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Imaging Technicians",
+							"entries": [
+								"Kevin Yee"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Art Administration",
+							"entries": [
+								"David Gershman"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Other D&D Team Members",
+							"entries": [
+								"Bart Carroll, Kate Irwin, Christopher Lindsay, Shelly Mazzanoble, Hilary Ross, Liz Schuh, Nathan Stewart, Greg Tito"
 							]
 						}
 					]

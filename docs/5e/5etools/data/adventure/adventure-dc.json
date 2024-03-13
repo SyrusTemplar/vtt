@@ -102,7 +102,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/DC/001-map-sc.jpg"
+												"path": "adventure/DC/001-map-sc.webp"
 											},
 											"title": "Map 1: The Sword Coast",
 											"width": 2105,
@@ -121,7 +121,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/DC/002-wnecz-map-sword-coast-pc.jpg"
+												"path": "adventure/DC/002-wnecz-map-sword-coast-pc.webp"
 											},
 											"title": "Player Version",
 											"width": 2153,
@@ -316,7 +316,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "adventure/DC/003-wjwlc-map-leilon-town-map_dm.jpg"
+								"path": "adventure/DC/003-wjwlc-map-leilon-town-map_dm.webp"
 							},
 							"title": "Map 2: Leilon Town",
 							"width": 3600,
@@ -631,7 +631,7 @@
 							"type": "image",
 							"href": {
 								"type": "internal",
-								"path": "adventure/DC/004-qfdcj-map-leilon-town-map_player.jpg"
+								"path": "adventure/DC/004-qfdcj-map-leilon-town-map_player.webp"
 							},
 							"title": "Player Version",
 							"width": 3600,
@@ -1103,7 +1103,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/DC/005-5omvv-map-dumathoins-gulch_dm.jpg"
+												"path": "adventure/DC/005-5omvv-map-dumathoins-gulch_dm.webp"
 											},
 											"title": "Map 3: Dumathoin's Gulch",
 											"width": 2835,
@@ -1121,7 +1121,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/DC/006-oubp4-map-dumathoins-gulch_player.jpg"
+												"path": "adventure/DC/006-oubp4-map-dumathoins-gulch_player.webp"
 											},
 											"title": "Player Version",
 											"width": 2835,
@@ -1343,7 +1343,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/DC/007-nokov-map-ebondeaths-mausoleum_dm.jpg"
+										"path": "adventure/DC/007-nokov-map-ebondeaths-mausoleum_dm.webp"
 									},
 									"title": "Map 4: Ebondeath's Mausoleum",
 									"width": 3600,
@@ -2720,7 +2720,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/DC/008-xva5z-map-ebondeaths-mausoleum_player.jpg"
+										"path": "adventure/DC/008-xva5z-map-ebondeaths-mausoleum_player.webp"
 									},
 									"title": "Player Version",
 									"width": 3600,
@@ -3065,7 +3065,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/DC/010-ibovp-map-icingdeath-and-twinkle_dm.jpg"
+												"path": "adventure/DC/010-ibovp-map-icingdeath-and-twinkle_dm.webp"
 											},
 											"title": "Map 5: Icingdeath and Twinkle",
 											"width": 3600,
@@ -4382,7 +4382,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/DC/011-enh49-map-icingdeath-and-twinkle_player.jpg"
+												"path": "adventure/DC/011-enh49-map-icingdeath-and-twinkle_player.webp"
 											},
 											"title": "Player Version",
 											"width": 3600,
@@ -4851,7 +4851,7 @@
 										],
 										[
 											"5",
-											"Allied soldiers ask the characters to disciplinegroup of deserters hiding out in a nearby barn."
+											"Allied soldiers ask the characters to discipline a group of deserters hiding out in a nearby barn."
 										],
 										[
 											"6",
@@ -5593,7 +5593,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/DC/014-cvtwd-map-stormlordshideout_dm.jpg"
+												"path": "adventure/DC/014-cvtwd-map-stormlordshideout_dm.webp"
 											},
 											"title": "Map 6: Storm Lord's Hideout",
 											"width": 3600,
@@ -6731,7 +6731,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/DC/015-en4hl-map-stormlordshideout_player.jpg"
+												"path": "adventure/DC/015-en4hl-map-stormlordshideout_player.webp"
 											},
 											"title": "Player Version",
 											"width": 3600,
@@ -7049,7 +7049,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/DC/016-qlle0-map-thalivars-beacon_dm.jpg"
+												"path": "adventure/DC/016-qlle0-map-thalivars-beacon_dm.webp"
 											},
 											"title": "Map 7: Thalivar's Beacon",
 											"width": 3600,
@@ -7655,7 +7655,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/DC/017-vxcmx-map-thalivars-beacon_player.jpg"
+												"path": "adventure/DC/017-vxcmx-map-thalivars-beacon_player.webp"
 											},
 											"title": "Player Version",
 											"width": 3600,
@@ -8715,6 +8715,88 @@
 										]
 									]
 								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"type": "section",
+			"name": "Credits",
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Story Creators",
+							"entries": [
+								"Bill Benham, Christopher Lindsay"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Story Consultant",
+							"entries": [
+								"Christopher Perkins"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Lead Designer",
+							"entries": [
+								"Will Doyle"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Developers",
+							"entries": [
+								"James Introcaso, Shawn Merwin"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Editors",
+							"entries": [
+								"Hannah Rose"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Managing Editor",
+							"entries": [
+								"Christopher Lindsay"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Graphic Designer",
+							"entries": [
+								"Rich Lescouflair"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Illustrators",
+							"entries": [
+								"Daren Bader, Mark Behm, Eric Belisle, Filip Burburan, Hector Ortiz, Claudio Pozas, Kieran Yanner"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Cartographers",
+							"entries": [
+								"Stacey Allen, Will Doyle"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Playtest Coordinator",
+							"entries": [
+								"Bill Benham"
 							]
 						}
 					]

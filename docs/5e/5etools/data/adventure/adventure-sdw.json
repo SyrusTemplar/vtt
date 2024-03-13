@@ -109,7 +109,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/SDW/001-map-sc.jpg"
+												"path": "adventure/SDW/001-map-sc.webp"
 											},
 											"title": "Map 1: The Sword Coast",
 											"width": 2105,
@@ -128,7 +128,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/SDW/002-wnecz-map-sword-coast-pc.jpg"
+												"path": "adventure/SDW/002-wnecz-map-sword-coast-pc.webp"
 											},
 											"title": "Player Version",
 											"width": 2153,
@@ -312,7 +312,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/SDW/003-8snmb-map-leilon-town-construction_dm.jpg"
+										"path": "adventure/SDW/003-8snmb-map-leilon-town-construction_dm.webp"
 									},
 									"title": "Map 2: Leilon Under Construction",
 									"width": 3600,
@@ -543,7 +543,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/SDW/004-kpcvb-map-leilon-town-construction_player.jpg"
+										"path": "adventure/SDW/004-kpcvb-map-leilon-town-construction_player.webp"
 									},
 									"title": "Player Version",
 									"width": 3600,
@@ -989,7 +989,7 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "adventure/SDW/006-jhbh5-map-bronze-shrine_dm.jpg"
+														"path": "adventure/SDW/006-jhbh5-map-bronze-shrine_dm.webp"
 													},
 													"title": "Map 3: Caverns with Bahamut Shrine",
 													"width": 3600,
@@ -1797,7 +1797,7 @@
 													"type": "image",
 													"href": {
 														"type": "internal",
-														"path": "adventure/SDW/007-vrzqg-map-bronze-shrine_player.jpg"
+														"path": "adventure/SDW/007-vrzqg-map-bronze-shrine_player.webp"
 													},
 													"title": "Player Version",
 													"width": 3600,
@@ -2145,7 +2145,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/SDW/008-s5vrm-map-claugyliamatars-lair_dm.jpg"
+												"path": "adventure/SDW/008-s5vrm-map-claugyliamatars-lair_dm.webp"
 											},
 											"title": "Map 4: Claugiyliamatar's lair",
 											"width": 3600,
@@ -7724,7 +7724,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/SDW/009-u8tfu-map-claugyliamatars-lair_player.jpg"
+												"path": "adventure/SDW/009-u8tfu-map-claugyliamatars-lair_player.webp"
 											},
 											"title": "Player Version",
 											"width": 3600,
@@ -8330,7 +8330,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/SDW/010-bivmm-map-deathknight-dreadnaught_dm.jpg"
+												"path": "adventure/SDW/010-bivmm-map-deathknight-dreadnaught_dm.webp"
 											},
 											"title": "Map 5: Death Knight-Dreadnaught",
 											"width": 3600,
@@ -9768,7 +9768,7 @@
 											"type": "image",
 											"href": {
 												"type": "internal",
-												"path": "adventure/SDW/011-jxmkr-map-deathknight-dreadnaught_player.jpg"
+												"path": "adventure/SDW/011-jxmkr-map-deathknight-dreadnaught_player.webp"
 											},
 											"title": "Player Version",
 											"width": 3600,
@@ -10169,7 +10169,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/SDW/012-tezjd-map-iniarvs-tower_dm.jpg"
+										"path": "adventure/SDW/012-tezjd-map-iniarvs-tower_dm.webp"
 									},
 									"title": "Map 6: Ruins of Iniarv's Tower",
 									"width": 3600,
@@ -10635,7 +10635,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/SDW/013-zsgrp-map-iniarvs-tower_player.jpg"
+										"path": "adventure/SDW/013-zsgrp-map-iniarvs-tower_player.webp"
 									},
 									"title": "Player Version",
 									"width": 3600,
@@ -10864,7 +10864,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/SDW/014-9qjz8-map-leilon-point_dm.jpg"
+										"path": "adventure/SDW/014-9qjz8-map-leilon-point_dm.webp"
 									},
 									"title": "Map 7: Leilon Point Farming Community",
 									"width": 3600,
@@ -11998,7 +11998,7 @@
 									"type": "image",
 									"href": {
 										"type": "internal",
-										"path": "adventure/SDW/015-ca4ip-map-leilon-point_player.jpg"
+										"path": "adventure/SDW/015-ca4ip-map-leilon-point_player.webp"
 									},
 									"title": "Player Version",
 									"width": 3600,
@@ -13014,6 +13014,88 @@
 				"The dreadnaught grows restless. Emberlost seeks hopelessly to be reunited with his fallen homeland of Anauria. How does one ease the obsessive behaviors of {@i eques mortem}? Particularly in its current state?",
 				"{@i [A note in the margin, written in a different hand]}",
 				"{@b Roadhouse? Could bard win him over}?"
+			]
+		},
+		{
+			"type": "section",
+			"name": "Credits",
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Story Creators",
+							"entries": [
+								"Bill Benham, Christopher Lindsay"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Story Consultant",
+							"entries": [
+								"Christopher Perkins"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Lead Designer",
+							"entries": [
+								"James Introcaso"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Developers",
+							"entries": [
+								"Will Doyle, Shawn Merwin"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Editors",
+							"entries": [
+								"Hannah Rose"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Managing Editor",
+							"entries": [
+								"Christopher Lindsay"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Graphic Designer",
+							"entries": [
+								"Rich Lescouflair"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Illustrators",
+							"entries": [
+								"Eric Belisle, Olga Drebas, Claudio Pozas, Ned Rogers, Cory Trego-Erdner"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Cartographers",
+							"entries": [
+								"Stacey Allen, Will Doyle"
+							]
+						},
+						{
+							"type": "item",
+							"name": "Playtest Coordinator",
+							"entries": [
+								"Bill Benham"
+							]
+						}
+					]
+				}
 			]
 		}
 	]

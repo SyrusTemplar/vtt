@@ -306,6 +306,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The brain's innate spellcasting ability is Intelligence (spell save {@dc 14}, {@hit 6} to hit with spell attacks). It can innately cast the following spells, requiring no components:"
 					],
@@ -544,7 +545,7 @@
 				{
 					"name": "False Object",
 					"entries": [
-						"If the carrionette is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the carrionette move or act, that creature must succeed on a {@dc 15} Wisdom (Perception) check to discern that the carrionette is animate."
+						"If the carrionette is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the carrionette move or act, that creature must succeed on a {@dc 15} Wisdom ({@skill Perception}) check to discern that the carrionette is animate."
 					]
 				},
 				{
@@ -797,13 +798,10 @@
 					]
 				}
 			],
+			"mythicHeader": [
+				"If the dullahan's Headless Summoning trait is active, it can use the options below as legendary actions."
+			],
 			"mythic": [
-				{
-					"name": "",
-					"entries": [
-						"If the dullahan's Headless Summoning trait is active, it can use the options below as legendary actions."
-					]
-				},
 				{
 					"name": "Coordinated Assault",
 					"entries": [
@@ -1396,6 +1394,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The inquisitor casts one of the following spells, requiring no components and using Charisma as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -1543,6 +1542,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The inquisitor casts one of the following spells, requiring no components and using Wisdom as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -1679,6 +1679,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting (Psionics)",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The inquisitor casts one of the following spells, requiring no components and using Intelligence as the spellcasting ability (spell save {@dc 15}):"
 					],
@@ -1856,6 +1857,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Isolde's spellcasting ability is Charisma (spell save {@dc 14}). Isolde can innately cast the following spells, requiring no material components:"
 					],
@@ -2744,7 +2746,7 @@
 				{
 					"name": "Semblance of Life",
 					"entries": [
-						"The podling is a physical copy of a creature digested by a bodytaker plant. The podling has the digested creature's memories and behaves like that creature, but with occasional lapses. An observer familiar with the digested creature can recognize the discrepancies with a successful {@dc 20} Wisdom (Insight) check, or automatically if the podling does something in direct contradiction to the digested creature's established beliefs or behavior. The podling melts into a slurry when it dies, when the bodytaker plant that created it dies, or when the bodytaker plant dismisses it (no action required)."
+						"The podling is a physical copy of a creature digested by a bodytaker plant. The podling has the digested creature's memories and behaves like that creature, but with occasional lapses. An observer familiar with the digested creature can recognize the discrepancies with a successful {@dc 20} Wisdom ({@skill Insight}) check, or automatically if the podling does something in direct contradiction to the digested creature's established beliefs or behavior. The podling melts into a slurry when it dies, when the bodytaker plant that created it dies, or when the bodytaker plant dismisses it (no action required)."
 					]
 				},
 				{
@@ -3210,7 +3212,7 @@
 				{
 					"name": "Scything Shrapnel",
 					"entries": [
-						"The target takes 14 ({@damage 4d6}) slashing damage, and the implement vanishes. At the start of each of its turns, the target takes 10 ({@damage 3d6}) necrotic damage from the wound left by the shrapnel. The wound ends if the target regains any hit points or if a creature uses an action to stanch the wound, which requires a successful {@dc 15} Wisdom (Medicine) check."
+						"The target takes 14 ({@damage 4d6}) slashing damage, and the implement vanishes. At the start of each of its turns, the target takes 10 ({@damage 3d6}) necrotic damage from the wound left by the shrapnel. The wound ends if the target regains any hit points or if a creature uses an action to stanch the wound, which requires a successful {@dc 15} Wisdom ({@skill Medicine}) check."
 					]
 				}
 			],
@@ -3340,7 +3342,7 @@
 				{
 					"name": "Slasher's Knife",
 					"entries": [
-						"{@atk mw,rw} {@hit 7} to hit, reach 5 ft. or range 30/60 ft., one target. {@h}6 ({@damage 1d4 + 4}) slashing damage plus 21 ({@damage 6d6}) necrotic damage. If the target is a creature, it suffers a lingering wound that causes it to take 7 ({@damage 2d6}) necrotic damage at the start of each of its turns. Each time the slasher hits the wounded target with this attack, the damage dealt by the wound increases by 3 ({@dice 1d6}). The wound ends if the target regains hit points or if a creature uses an action to stanch the wound, which requires a successful {@dc 15} Wisdom (Medicine) check."
+						"{@atk mw,rw} {@hit 7} to hit, reach 5 ft. or range 30/60 ft., one target. {@h}6 ({@damage 1d4 + 4}) slashing damage plus 21 ({@damage 6d6}) necrotic damage. If the target is a creature, it suffers a lingering wound that causes it to take 7 ({@damage 2d6}) necrotic damage at the start of each of its turns. Each time the slasher hits the wounded target with this attack, the damage dealt by the wound increases by 3 ({@dice 1d6}). The wound ends if the target regains hit points or if a creature uses an action to stanch the wound, which requires a successful {@dc 15} Wisdom ({@skill Medicine}) check."
 					]
 				}
 			],
@@ -4337,7 +4339,7 @@
 				{
 					"name": "Sunlight Sensitivity",
 					"entries": [
-						"While in sunlight, the mind flayer has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+						"While in sunlight, the mind flayer has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
 					]
 				},
 				{
@@ -4483,7 +4485,7 @@
 				{
 					"name": "Mimicry",
 					"entries": [
-						"The wereraven can mimic simple sounds it has heard, such as a person whispering, a baby crying, or an animal chittering. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom (Insight) check."
+						"The wereraven can mimic simple sounds it has heard, such as a person whispering, a baby crying, or an animal chittering. A creature that hears the sounds can tell they are imitations with a successful {@dc 10} Wisdom ({@skill Insight}) check."
 					]
 				},
 				{

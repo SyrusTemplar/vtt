@@ -381,6 +381,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Arcturia is an 18th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 20}, {@hit 12} to hit with spell attacks). Arcturia can cast {@spell alter self} at will and has the following wizard spells prepared:"
 					],
@@ -514,6 +515,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Ashtyrranthor's spellcasting ability is Charisma. She can innately cast the following spells, requiring no material components:"
 					],
@@ -543,10 +545,12 @@
 			"_copy": {
 				"name": "Brown Bear",
 				"source": "MM",
-				"_trait": {
-					"name": "Awakened",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Awakened",
+						"source": "PHB"
+					}
+				]
 			},
 			"hasToken": true
 		},
@@ -557,10 +561,12 @@
 			"_copy": {
 				"name": "Elk",
 				"source": "MM",
-				"_trait": {
-					"name": "Awakened",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Awakened",
+						"source": "PHB"
+					}
+				]
 			},
 			"hasToken": true
 		},
@@ -571,10 +577,12 @@
 			"_copy": {
 				"name": "Giant Wasp",
 				"source": "MM",
-				"_trait": {
-					"name": "Awakened",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Awakened",
+						"source": "PHB"
+					}
+				]
 			},
 			"hasToken": true
 		},
@@ -619,6 +627,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Berlain is an 18th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 17}, {@hit 9} to hit with spell attacks). Berlain can cast {@spell disguise self} and invisibility at will and has the following wizard spells prepared:"
 					],
@@ -1044,6 +1053,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Cassiok is an 18th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 19}, {@hit 11} to hit with spell attacks). Cassiok can cast {@spell disguise self} and invisibility at will and has the following wizard spells prepared:"
 					],
@@ -1160,10 +1170,12 @@
 			"_copy": {
 				"name": "Scout",
 				"source": "MM",
-				"_trait": {
-					"name": "Shield Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Shield Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -1352,6 +1364,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Dezmyr is a 19th-level spellcaster. Her spellcasting ability is Charisma (spell save {@dc 18}, {@hit 10} to hit with spell attacks). She has the following paladin spells prepared:"
 					],
@@ -1411,10 +1424,12 @@
 			"_copy": {
 				"name": "Archmage",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -1536,6 +1551,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Ezzat is an 18th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 20}, {@hit 12} to hit with spell attacks). He has the following wizard spells prepared:"
 					],
@@ -1820,6 +1836,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The drow's innate spellcasting ability is Charisma (spell save DC 15). The drow can innately cast the following spells, requiring no material components:"
 					],
@@ -1916,6 +1933,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The mummy lord is a 10th-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 17}, {@hit 9} to hit with spell attacks). The mummy lord has the following cleric spells prepared:"
 					],
@@ -2110,6 +2128,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Halaster is a 20th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 22}, {@hit 14} to hit with spell attacks). He can cast {@spell disguise self} and {@spell invisibility} at will. He can cast {@spell fly} and {@spell lightning bolt} once each without expending a spell slot, but can't do so again until he finishes a short or long rest. Halaster has the following wizard spells prepared:"
 					],
@@ -2217,7 +2236,7 @@
 				{
 					"name": "Special Equipment",
 					"entries": [
-						"Halaster wears a robe of eyes that lets him see in all directions, gives him darkvision out to a range of 120 feet, grants advantage on Wisdom (Perception) checks that rely on sight, and allows him to see {@condition invisible} creatures and objects, as well as into the Ethereal Plane, out to a range of 120 feet.",
+						"Halaster wears a {@item robe of eyes} that lets him see in all directions, gives him darkvision out to a range of 120 feet, grants advantage on Wisdom ({@skill Perception}) checks that rely on sight, and allows him to see {@condition invisible} creatures and objects, as well as into the Ethereal Plane, out to a range of 120 feet.",
 						"Halaster wields a blast scepter (a very rare magic item that requires attunement). It can be used as an arcane focus. Whoever is attuned to the blast scepter gains resistance to fire and lightning damage and can, as an action, use it to cast {@spell thunderwave} as a 4th-level spell (save {@dc 16}) without expending a spell slot.",
 						"Halaster also wears a horned ring (a very rare magic item that requires attunement), which allows an attuned wearer to ignore Undermountain's magical restrictions (see \"Alterations to Magic\")."
 					]
@@ -2489,10 +2508,12 @@
 			"_copy": {
 				"name": "Mage",
 				"source": "MM",
-				"_trait": {
-					"name": "Tiefling",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Tiefling",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -2595,6 +2616,7 @@
 			"spellcasting": [
 				{
 					"name": "Innate Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"The pudding's spellcasting ability is Intelligence (spell save {@dc 12}, {@hit 4} to hit with spell attacks). It can cast the following spells, requiring no components:"
 					],
@@ -2687,10 +2709,12 @@
 			"_copy": {
 				"name": "Priest",
 				"source": "MM",
-				"_trait": {
-					"name": "Drow",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Drow",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -2793,6 +2817,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Keresta is a 9th-level spellcaster. Her spellcasting ability is Wisdom (spell save {@dc 15}, {@hit 7} to hit with spell attacks). She has the following cleric spells prepared:"
 					],
@@ -3301,10 +3326,12 @@
 			"_copy": {
 				"name": "Mage",
 				"source": "MM",
-				"_trait": {
-					"name": "High Elf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "High Elf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -3538,6 +3565,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Muiral is a 13th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 17}, {@hit 9} to hit with spell attacks). He has the following wizard spells prepared:"
 					],
@@ -4556,13 +4584,13 @@
 				{
 					"name": "Control Module",
 					"entries": [
-						"A creature atop or above Shockerstomper's platform can locate its control module with a successful {@dc 15} Intelligence (Investigation) check or Wisdom (Perception) check. As an action, a character can try to open the control module's access panel, either by tearing it off with a successful {@dc 25} Strength (Athletics) check or by dislodging it with thieves' tools and a successful {@dc 25} Dexterity check. Behind the panel, embedded in the floor of the control module, is a 5-foot-diameter pulsating crystal hemisphere with AC 10, 25 hit points, and immunity to poison and psychic damage. Destroying the crystal hemisphere shuts down Shockerstomper."
+						"A creature atop or above Shockerstomper's platform can locate its control module with a successful {@dc 15} Intelligence ({@skill Investigation}) check or Wisdom ({@skill Perception}) check. As an action, a character can try to open the control module's access panel, either by tearing it off with a successful {@dc 25} Strength ({@skill Athletics}) check or by dislodging it with thieves' tools and a successful {@dc 25} Dexterity check. Behind the panel, embedded in the floor of the control module, is a 5-foot-diameter pulsating crystal hemisphere with AC 10, 25 hit points, and immunity to poison and psychic damage. Destroying the crystal hemisphere shuts down Shockerstomper."
 					]
 				},
 				{
 					"name": "Lightning Turret",
 					"entries": [
-						"A character can try to plug the nozzle of a lightning turret with a 10-pound rock or similar object, doing so with a successful {@dc 15} Strength (Athletics) check. A plugged turret can't shoot lightning until a creature uses an action to try to clear the obstruction, which requires another successful {@dc 15} Strength ({@skill Athletics}) check. Shockerstomper has no ability to clear an obstruction itself."
+						"A character can try to plug the nozzle of a lightning turret with a 10-pound rock or similar object, doing so with a successful {@dc 15} Strength ({@skill Athletics}) check. A plugged turret can't shoot lightning until a creature uses an action to try to clear the obstruction, which requires another successful {@dc 15} Strength ({@skill Athletics}) check. Shockerstomper has no ability to clear an obstruction itself."
 					]
 				}
 			],
@@ -4652,10 +4680,12 @@
 			"_copy": {
 				"name": "Commoner",
 				"source": "MM",
-				"_trait": {
-					"name": "Stout Halfling",
-					"source": "PHB"
-				}
+				"_templates": [
+					{
+						"name": "Stout Halfling",
+						"source": "PHB"
+					}
+				]
 			},
 			"alignment": [
 				"L",
@@ -4878,10 +4908,12 @@
 			"_copy": {
 				"name": "Champion",
 				"source": "VGM",
-				"_trait": {
-					"name": "Shield Dwarf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Shield Dwarf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -4941,10 +4973,12 @@
 			"_copy": {
 				"name": "Assassin",
 				"source": "MM",
-				"_trait": {
-					"name": "Bullywug",
-					"source": "DMG"
-				},
+				"_templates": [
+					{
+						"name": "Bullywug",
+						"source": "DMG"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -5001,6 +5035,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Trenzia is a 5th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 13}, {@hit 5} to hit with spell attacks). She requires no somatic or material components to cast its spells. Trenzia has the following wizard spells prepared:"
 					],
@@ -5085,6 +5120,7 @@
 			"spellcasting": [
 				{
 					"name": "Spellcasting",
+					"type": "spellcasting",
 					"headerEntries": [
 						"Trobriand is an 18th-level spellcaster. His spellcasting ability is Intelligence (spell save {@dc 20}, {@hit 12} to hit with spell attacks). He has the following wizard spells prepared:"
 					],
@@ -5199,10 +5235,12 @@
 			"_copy": {
 				"name": "Adult Bronze Dragon",
 				"source": "MM",
-				"_trait": {
-					"name": "Legendary Shadow Dragon",
-					"source": "MM"
-				}
+				"_templates": [
+					{
+						"name": "Legendary Shadow Dragon",
+						"source": "MM"
+					}
+				]
 			},
 			"alignment": [
 				"N",
@@ -5289,10 +5327,12 @@
 			"_copy": {
 				"name": "Archmage",
 				"source": "MM",
-				"_trait": {
-					"name": "Duergar",
-					"source": "MTF"
-				},
+				"_templates": [
+					{
+						"name": "Duergar",
+						"source": "MTF"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -5477,7 +5517,7 @@
 				{
 					"name": "Keen Hearing",
 					"entries": [
-						"The werebat has advantage on Wisdom (Perception) checks that rely on hearing."
+						"The werebat has advantage on Wisdom ({@skill Perception}) checks that rely on hearing."
 					]
 				},
 				{
@@ -5489,7 +5529,7 @@
 				{
 					"name": "Sunlight Sensitivity",
 					"entries": [
-						"While in sunlight, the werebat has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+						"While in sunlight, the werebat has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
 					]
 				}
 			],
@@ -5601,10 +5641,12 @@
 			"_copy": {
 				"name": "Archdruid",
 				"source": "VGM",
-				"_trait": {
-					"name": "Wood Elf",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Wood Elf",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",
@@ -5935,10 +5977,12 @@
 			"_copy": {
 				"name": "Archmage",
 				"source": "MM",
-				"_trait": {
-					"name": "Rock Gnome",
-					"source": "PHB"
-				},
+				"_templates": [
+					{
+						"name": "Rock Gnome",
+						"source": "PHB"
+					}
+				],
 				"_mod": {
 					"*": {
 						"mode": "replaceTxt",

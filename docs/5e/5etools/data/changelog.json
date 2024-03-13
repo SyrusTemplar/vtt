@@ -2628,5 +2628,44 @@
 		"ver": "1.197.4",
 		"date": "2024-01-10",
 		"txt": "- Added \"One D&D\" filter to Prerelease Content Manager \"Get Prerelease Content\" view\n- Switched \"Added [date]\" column to \"Published [date]\" in Prerelease Content Manager \"Get Prerelease Content\" view\n- Added tokens for Chains of Asmodeus NPCs/other creatures\n- (Brew) Added \"Preview\" button to text converter output\n- (Brew) Added support for \"month\" spell durations\n- (Brew) Fixed homebrew content which depends on prerelease content failing to load that prerelease content\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.198.0",
+		"date": "2024-01-06",
+		"title": "The Saturday Mirror",
+		"txt": "- Converted remaining images to `.webp`\n- (Brew) Moved Bestiary tokens into a more sensible directory structure; tokens may now be found under `bestiary/token` (similar to the existing setup for `objects`/`vehicles`)\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.199.0",
+		"date": "2024-01-25",
+		"title": "Housework",
+		"txt": "- Creature links may now be drag-dropped to the DM Screen Initiative Tracker _[from, for example, Omnisearch results, or adventure/book panels]_\n- Added labels to Source filter groups\n- Added automatic starting zoom to Dynamic Map Viewer, which will now attempt to select a zoom level at which the shortest side of the map approximately fits the window\n- Fixed DM Screen Initiative Tracker overwriting Additional Columns when importing non-\"Advanced Mode\" encounters, and when importing \"Advanced Mode\" encounters, added a prompt to overwrite or maintain existing Additional Columns\n- (Brew) Fixed auto-detection of rollable tables when dice tag has display text\n- (Brew) Text Converter warnings/errors can now be dismissed, and now have night-mode styling\n- (Brew) Text Converter \"Preview\" button will now re-use the last preview window, if it exists\n- (Brew) Added Spell Text Converter warning when output is missing required properties\n- (Brew) Fixed Spell Text Converter concentration/duration output\n- (Brew) Fixed inconsistent application of custom Homebrew Repository URL\n- (Brew) Added `\"token\"`/`\"tokenHref\"` alternates to `\"tokenUrl\"`; the former can be used to refer to an existing site token, and the latter replaces `\"tokenUrl\"` with an `\"image\"`-like form\n- (Brew) Fixed Items page handling of `\"varies\"`-rarity generic variants\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.199.1",
+		"date": "2024-02-01",
+		"txt": "- Added \"Mark Card as Drawn\" button to Decks page\n- Added \"Time\" filters to Recipes page _[note that, currently, only homebrew recipes have time data on which to filter]_ \n- Fixed CR Scaler crash when scaling no-modifier damage rolls at low CRs\n- Fixed CR Scaler crash when scaling fixed (i.e., no roll) damage numbers\n- (Brew) Added support for \"dexterityMax\" on non-medium armor\n- (Brew) Improved Feat Text Converter \"spellcasting\" handling\n- (Brew) Added support for short-form range units to Spell Text Converter\n- (Brew) Fixed Spell Text Converter \"missing property\" validation raising false positives\n- (Brew) Fixed crash when rendering demo page as Markdown\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.199.2",
+		"date": "2024-02-04",
+		"txt": "- Added \"Disadvantage on Stealth\" and \"Strength Requirement\" filters to Items page\n- (Brew) Added Creature Text Converter support for vulgar fraction characters\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.199.3",
+		"date": "2024-02-11",
+		"txt": "- Added page numbers to Planescape: Adventures in the Multiverse adventures/books (Sigil and the Outlands, Turn of Fortune's Wheel, Morte's Planar Parade)\n- (Brew) Added fluff support to `optionalfeature`s\n- (Brew) Fixed rare case where loading a homebrew subclass could fail to load its depended-upon class\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.200.0",
+		"date": "2024-02-19",
+		"title": "Digital Magpie",
+		"txt": "- Added The Deck of Many Things: Card Reference Guide content (thanks @ Lyra for the data entry and conversion)\n- Added Humblewood Campaign Setting (thanks @ Ragu and @ Spappz for the existing homebrew conversion)\n- Added page numbers to Dungeons of Drakkenheim adventure content\n- (Brew) Fixed Creature Text Converter failing to convert `@recharge` tags in some names\n- (Brew) Added basic \"special equipment\" tagging to Creature Text Converter\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "1.201.0",
+		"date": "2024-03-10",
+		"title": "Page of Wisdom",
+		"txt": "- Added \"The Dungeons & Dragons Tarot Deck\" as partnered content (thanks @ Lyra for the data entry and conversion)\n- Added page numbers to: Grim Hollow: Lairs of Etharis adventure content; Phandelver and Below: The Shattered Obelisk adventure content\n- Added remaining page numbers to entries from: Dungeons of Drakkenheim; Planescape: Adventures in the Multiverse; Grim Hollow: Lairs of Etharis; Phandelver and Below: The Shattered Obelisk\n- Added credits sections to all adventures/books\n- Omnisearch results (and other links) can now be directly dropped onto DM Screen panels, without first opening a permanent hover window\n- The DM Screen \"fullscreen\" mode can now be exited by pressing `ESC`\n- Fixed various hover window bugs; temporary windows should now more reliably auto-close, and clicking any element now correctly triggers a fallback cleanup\n- Fixed display of Filter \"Select by Date\" slider\n- (Brew) Added support for `@tag`s in immunity/resistance/vulnerability notes\n- (Brew) Added `+`/`-` keybinds to the Text Converter to increment/decrement page number\n- (Brew) Improved Creature Text Converter handling of homebrew spellcasting spell level formats\n- (Brew) Added support for `mailto:` in `@link` tags\n- (Brew) Fixed crash when adding homebrew from file when offline\n- (Fixed typos/added tags)"
 	}
 ]
