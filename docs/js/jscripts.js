@@ -56,7 +56,6 @@ function toggleTheme() {
 
 /* VARIOUS FUNCTIONS */
 
-var year = new Date().getFullYear();
-document.getElementById('copyright-year').innerHTML = ("Name " + year);
+
 
 
