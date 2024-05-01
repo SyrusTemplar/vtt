@@ -934,11 +934,11 @@ globalThis.Renderer = function () {
 	};
 
 	this._getPtExpandCollapse = function () {
-		return `<span class="rd__h-toggle ml-2 clickable no-select" data-rd-h-toggle-button="true" title="Toggle Visibility (CTRL to Toggle All)">[\u2013]</span>`;
+		return `<span class="rd__h-toggle ml-2 clickable no-select no-print lst-is-exporting-image__hidden" data-rd-h-toggle-button="true" title="Toggle Visibility (CTRL to Toggle All)">[\u2013]</span>`;
 	};
 
 	this._getPtExpandCollapseSpecial = function () {
-		return `<span class="rd__h-toggle ml-2 clickable no-select" data-rd-h-special-toggle-button="true" title="Toggle Visibility (CTRL to Toggle All)">[\u2013]</span>`;
+		return `<span class="rd__h-toggle ml-2 clickable no-select no-print lst-is-exporting-image__hidden" data-rd-h-special-toggle-button="true" title="Toggle Visibility (CTRL to Toggle All)">[\u2013]</span>`;
 	};
 
 	this._renderInset = function (entry, textStack, meta, options) {
@@ -1172,7 +1172,7 @@ globalThis.Renderer = function () {
 					if (i < len - 1) tempStack[0] += "<br>";
 				}
 			}
-			textStack[0] += `<span class="rd__quote-by">\u2014 ${byArr ? tempStack.join("") : ""}${byArr && entry.from ? `, ` : ""}${entry.from ? `<i>${entry.from}</i>` : ""}</span>`;
+			textStack[0] += `<span class="rd__quote-by">\u2014 ${byArr ? tempStack.join("") : ""}${byArr && entry.from ? `, ` : ""}${entry.from ? `<i>${this.render(entry.from)}</i>` : ""}</span>`;
 			textStack[0] += `</p>`;
 		}
 
@@ -1251,7 +1251,21 @@ globalThis.Renderer = function () {
 	this._renderDice = function (entry, textStack, meta, options) {
 		const pluginResults = this._applyPlugins_getAll("dice", {textStack, meta, options}, {input: entry});
 
-		textStack[0] += Renderer.getEntryDice(entry, entry.name, {isAddHandlers: this._isAddHandlers, pluginResults});
+		for (const res of pluginResults) {
+			if (res.rendered) {
+				textStack[0] += res.rendered;
+				return;
+			}
+		}
+
+		const toDisplay = Renderer.getEntryDiceDisplayText(entry);
+
+		if (entry.rollable === true) {
+			textStack[0] += Renderer.getRollableEntryDice(entry, entry.name, toDisplay, {isAddHandlers: this._isAddHandlers, pluginResults});
+			return;
+		}
+
+		textStack[0] += toDisplay;
 	};
 
 	this._renderActions = function (entry, textStack, meta, options) {
@@ -1625,9 +1639,21 @@ globalThis.Renderer = function () {
 				this._recursiveRender(text, textStack, meta);
 				textStack[0] += `</s>`;
 				break;
+			case "@s2":
+			case "@strikeDouble":
+				textStack[0] += `<s class="ve-strike-double">`;
+				this._recursiveRender(text, textStack, meta);
+				textStack[0] += `</s>`;
+				break;
 			case "@u":
 			case "@underline":
 				textStack[0] += `<u>`;
+				this._recursiveRender(text, textStack, meta);
+				textStack[0] += `</u>`;
+				break;
+			case "@u2":
+			case "@underlineDouble":
+				textStack[0] += `<u class="ve-underline-double">`;
 				this._recursiveRender(text, textStack, meta);
 				textStack[0] += `</u>`;
 				break;
@@ -1861,6 +1887,20 @@ globalThis.Renderer = function () {
 
 				break;
 			}
+			case "@5etoolsImg": {
+				const [displayText, page] = Renderer.splitTagByPipe(text);
+				const fauxEntry = {
+					type: "link",
+					href: {
+						type: "external",
+						url: UrlUtil.link(this.getMediaUrl("img", page)),
+					},
+					text: displayText,
+				};
+				this._recursiveRender(fauxEntry, textStack, meta);
+
+				break;
+			}
 
 			// OTHER HOVERABLES ////////////////////////////////////////////////////////////////////////////////
 			case "@footnote": {
@@ -2044,20 +2084,23 @@ globalThis.Renderer = function () {
 	};
 
 	this._renderLink_getHref = function (entry) {
-		let href;
 		if (entry.href.type === "internal") {
 			// baseURL is blank by default
-			href = `${this.baseUrl}${entry.href.path}#`;
+			const ptBase = `${this.baseUrl}${entry.href.path}`;
+			let ptHash = "";
 			if (entry.href.hash != null) {
-				href += entry.href.hashPreEncoded ? entry.href.hash : UrlUtil.encodeForHash(entry.href.hash);
+				ptHash += entry.href.hashPreEncoded ? entry.href.hash : UrlUtil.encodeForHash(entry.href.hash);
 			}
 			if (entry.href.subhashes != null) {
-				href += Renderer.utils.getLinkSubhashString(entry.href.subhashes);
+				ptHash += Renderer.utils.getLinkSubhashString(entry.href.subhashes);
 			}
-		} else if (entry.href.type === "external") {
-			href = entry.href.url;
+			if (!ptHash) return ptBase;
+			return `${ptBase}#${ptHash}`;
 		}
-		return href;
+		if (entry.href.type === "external") {
+			return entry.href.url;
+		}
+		return "";
 	};
 
 	this._renderLink_getHoverString = function (entry) {
@@ -2141,6 +2184,7 @@ Renderer._INLINE_HEADER_TERMINATORS = new Set([".", ",", "!", "?", ";", ":", `"`
 Renderer._STYLE_TAG_ID_TO_STYLE = {
 	"small-caps": "small-caps",
 	"small": "ve-small",
+	"large": "ve-large",
 	"capitalize": "capitalize",
 	"dnd-font": "dnd-font",
 };
@@ -2369,13 +2413,6 @@ Renderer._splitByPipeBase = function (leadingCharacter) {
 };
 
 Renderer.splitTagByPipe = Renderer._splitByPipeBase("@");
-
-Renderer.getEntryDice = function (entry, name, opts = {}) {
-	const toDisplay = Renderer.getEntryDiceDisplayText(entry);
-
-	if (entry.rollable === true) return Renderer.getRollableEntryDice(entry, name, toDisplay, opts);
-	else return toDisplay;
-};
 
 Renderer.getRollableEntryDice = function (
 	entry,
@@ -2794,7 +2831,7 @@ Renderer.utils = class {
 		let pageLinkPart;
 		if (opts.page) {
 			const hash = UrlUtil.URL_TO_HASH_BUILDER[opts.page](it);
-			dataPart = `data-page="${opts.page}" data-source="${it.source.escapeQuotes()}" data-hash="${hash.escapeQuotes()}" ${opts.extensionData != null ? `data-extension='${JSON.stringify(opts.extensionData).escapeQuotes()}` : ""}'`;
+			dataPart = `data-page="${opts.page}" data-source="${it.source.escapeQuotes()}" data-hash="${hash.escapeQuotes()}" ${opts.extensionData != null ? `data-extension='${JSON.stringify(opts.extensionData).escapeQuotes()}'` : ""}`;
 			pageLinkPart = SourceUtil.getAdventureBookSourceHref(it.source, it.page);
 
 			// Enable Rivet import for entities embedded in entries
@@ -3099,28 +3136,31 @@ Renderer.utils = class {
 		return fluff;
 	}
 
-	static async pGetFluff ({entity, pFnPostProcess, fnGetFluffData, fluffUrl, fluffBaseUrl, fluffProp} = {}) {
-		let predefinedFluff = await Renderer.utils.pGetPredefinedFluff(entity, fluffProp);
+	static async _pGetFluff ({entity, fluffProp} = {}) {
+		const fluffEntity = await DataLoader.pCacheAndGet(fluffProp, entity.source, UrlUtil.URL_TO_HASH_BUILDER[fluffProp](entity));
+		if (fluffEntity) return fluffEntity;
+
+		if (entity._versionBase_name && entity._versionBase_source) {
+			return DataLoader.pCacheAndGet(fluffProp, entity.source, UrlUtil.URL_TO_HASH_BUILDER[fluffProp]({
+				name: entity._versionBase_name,
+				source: entity._versionBase_source,
+			}));
+		}
+
+		return null;
+	}
+
+	static async pGetFluff ({entity, pFnPostProcess, fluffProp} = {}) {
+		const predefinedFluff = await Renderer.utils.pGetPredefinedFluff(entity, fluffProp);
 		if (predefinedFluff) {
-			if (pFnPostProcess) predefinedFluff = await pFnPostProcess(predefinedFluff);
+			if (pFnPostProcess) return pFnPostProcess(predefinedFluff);
 			return predefinedFluff;
 		}
-		if (!fnGetFluffData && !fluffBaseUrl && !fluffUrl) return null;
 
-		const fluffIndex = fluffBaseUrl ? await DataUtil.loadJSON(`${Renderer.get().baseUrl}${fluffBaseUrl}fluff-index.json`) : null;
-		if (fluffIndex && !fluffIndex[entity.source]) return null;
-
-		const data = fnGetFluffData ? await fnGetFluffData() : fluffIndex && fluffIndex[entity.source]
-			? await DataUtil.loadJSON(`${Renderer.get().baseUrl}${fluffBaseUrl}${fluffIndex[entity.source]}`)
-			: await DataUtil.loadJSON(`${Renderer.get().baseUrl}${fluffUrl}`);
-		if (!data) return null;
-
-		let fluff = (data[fluffProp] || []).find(it => it.name === entity.name && it.source === entity.source);
-		if (!fluff && entity._versionBase_name && entity._versionBase_source) fluff = (data[fluffProp] || []).find(it => it.name === entity._versionBase_name && it.source === entity._versionBase_source);
+		const fluff = await Renderer.utils._pGetFluff({entity, fluffProp});
 		if (!fluff) return null;
 
-		// Avoid modifying the original object
-		if (pFnPostProcess) fluff = await pFnPostProcess(fluff);
+		if (pFnPostProcess) return pFnPostProcess(fluff);
 		return fluff;
 	}
 
@@ -3669,7 +3709,12 @@ Renderer.utils = class {
 						if ((!fauxEntry.displayText && (rollText || "").includes("#$")) || (fauxEntry.displayText && fauxEntry.displayText.includes("#$"))) fauxEntry.displayText = (fauxEntry.displayText || rollText).replace(/#\$prompt_number[^$]*\$#/g, "(n)");
 						fauxEntry.displayText = fauxEntry.displayText || fauxEntry.toRoll;
 
-						if (tag === "@damage") fauxEntry.subType = "damage";
+						if (tag === "@damage") {
+							fauxEntry.subType = "damage";
+							const [damageType] = others;
+							if (damageType) fauxEntry.damageType = damageType;
+						}
+
 						if (tag === "@autodice") fauxEntry.autoRoll = true;
 
 						return fauxEntry;
@@ -4334,12 +4379,28 @@ Renderer.tag = class {
 		tagName = "strike";
 	};
 
+	static TagStrikethroughDoubleShort = class extends this._TagTextStyle {
+		tagName = "s2";
+	};
+
+	static TagStrikethroughDoubleLong = class extends this._TagTextStyle {
+		tagName = "strikeDouble";
+	};
+
 	static TagUnderlineShort = class extends this._TagTextStyle {
 		tagName = "u";
 	};
 
 	static TagUnderlineLong = class extends this._TagTextStyle {
 		tagName = "underline";
+	};
+
+	static TagUnderlineDoubleShort = class extends this._TagTextStyle {
+		tagName = "u2";
+	};
+
+	static TagUnderlineDoubleLong = class extends this._TagTextStyle {
+		tagName = "underlineDouble";
 	};
 
 	static TagSup = class extends this._TagTextStyle {
@@ -4407,13 +4468,13 @@ Renderer.tag = class {
 		}
 	};
 
-	static TagHit = class extends this._TagBaseAt {
+	static TagHitText = class extends this._TagBaseAt {
 		tagName = "h";
 
 		_getStripped (tag, text) { return "Hit: "; }
 	};
 
-	static TagMiss = class extends this._TagBaseAt {
+	static TagMissText = class extends this._TagBaseAt {
 		tagName = "m";
 
 		_getStripped (tag, text) { return "Miss: "; }
@@ -4493,43 +4554,43 @@ Renderer.tag = class {
 		}
 	};
 
-	static TaChance = class extends this._TagDiceFlavor {
+	static TagChance = class extends this._TagDiceFlavor {
 		tagName = "chance";
 	};
 
-	static TaD20 = class extends this._TagDiceFlavor {
+	static TagD20 = class extends this._TagDiceFlavor {
 		tagName = "d20";
 	};
 
-	static TaDamage = class extends this._TagDiceFlavor {
+	static TagDamage = class extends this._TagDiceFlavor {
 		tagName = "damage";
 	};
 
-	static TaDice = class extends this._TagDiceFlavor {
+	static TagDice = class extends this._TagDiceFlavor {
 		tagName = "dice";
 	};
 
-	static TaAutodice = class extends this._TagDiceFlavor {
+	static TagAutodice = class extends this._TagDiceFlavor {
 		tagName = "autodice";
 	};
 
-	static TaHit = class extends this._TagDiceFlavor {
+	static TagHit = class extends this._TagDiceFlavor {
 		tagName = "hit";
 	};
 
-	static TaRecharge = class extends this._TagDiceFlavor {
+	static TagRecharge = class extends this._TagDiceFlavor {
 		tagName = "recharge";
 	};
 
-	static TaAbility = class extends this._TagDiceFlavor {
+	static TagAbility = class extends this._TagDiceFlavor {
 		tagName = "ability";
 	};
 
-	static TaSavingThrow = class extends this._TagDiceFlavor {
+	static TagSavingThrow = class extends this._TagDiceFlavor {
 		tagName = "savingThrow";
 	};
 
-	static TaSkillCheck = class extends this._TagDiceFlavor {
+	static TagSkillCheck = class extends this._TagDiceFlavor {
 		tagName = "skillCheck";
 	};
 
@@ -4566,6 +4627,10 @@ Renderer.tag = class {
 
 	static Tag5etools = class extends this._TagPipedNoDisplayText {
 		tagName = "5etools";
+	};
+
+	static Tag5etoolsImg = class extends this._TagPipedNoDisplayText {
+		tagName = "5etoolsImg";
 	};
 
 	static TagAdventure = class extends this._TagPipedNoDisplayText {
@@ -4913,8 +4978,12 @@ Renderer.tag = class {
 		new this.TagItalicLong(),
 		new this.TagStrikethroughShort(),
 		new this.TagStrikethroughLong(),
+		new this.TagStrikethroughDoubleShort(),
+		new this.TagStrikethroughDoubleLong(),
 		new this.TagUnderlineShort(),
 		new this.TagUnderlineLong(),
+		new this.TagUnderlineDoubleShort(),
+		new this.TagUnderlineDoubleLong(),
 		new this.TagSup(),
 		new this.TagSub(),
 		new this.TagKbd(),
@@ -4934,8 +5003,8 @@ Renderer.tag = class {
 
 		new this.TagUnit(),
 
-		new this.TagHit(),
-		new this.TagMiss(),
+		new this.TagHitText(),
+		new this.TagMissText(),
 
 		new this.TagAtk(),
 
@@ -4945,16 +5014,16 @@ Renderer.tag = class {
 
 		new this.TagDcYourSpellSave(),
 
-		new this.TaChance(),
-		new this.TaD20(),
-		new this.TaDamage(),
-		new this.TaDice(),
-		new this.TaAutodice(),
-		new this.TaHit(),
-		new this.TaRecharge(),
-		new this.TaAbility(),
-		new this.TaSavingThrow(),
-		new this.TaSkillCheck(),
+		new this.TagChance(),
+		new this.TagD20(),
+		new this.TagDamage(),
+		new this.TagDice(),
+		new this.TagAutodice(),
+		new this.TagHit(),
+		new this.TagRecharge(),
+		new this.TagAbility(),
+		new this.TagSavingThrow(),
+		new this.TagSkillCheck(),
 
 		new this.TagScaledice(),
 		new this.TagScaledamage(),
@@ -4962,6 +5031,7 @@ Renderer.tag = class {
 		new this.TagCoinflip(),
 
 		new this.Tag5etools(),
+		new this.Tag5etoolsImg(),
 		new this.TagAdventure(),
 		new this.TagBook(),
 		new this.TagFilter(),
@@ -5313,7 +5383,6 @@ Renderer.feat = class {
 	static pGetFluff (feat) {
 		return Renderer.utils.pGetFluff({
 			entity: feat,
-			fnGetFluffData: DataUtil.featFluff.loadJSON.bind(DataUtil.featFluff),
 			fluffProp: "featFluff",
 		});
 	}
@@ -5334,9 +5403,13 @@ Renderer.class = class {
 		return Renderer.hover.getGenericCompactRenderedString(clsEntry);
 	}
 
-	static getHitDiceEntry (clsHd) { return clsHd ? {toRoll: `${clsHd.number}d${clsHd.faces}`, rollable: true} : null; }
+	static getHitDiceEntry (clsHd) { return clsHd ? `{@dice ${clsHd.number}d${clsHd.faces}||Hit die}` : null; }
 	static getHitPointsAtFirstLevel (clsHd) { return clsHd ? `${clsHd.number * clsHd.faces} + your Constitution modifier` : null; }
-	static getHitPointsAtHigherLevels (className, clsHd, hdEntry) { return className && clsHd && hdEntry ? `${Renderer.getEntryDice(hdEntry, "Hit die")} (or ${((clsHd.number * clsHd.faces) / 2 + 1)}) + your Constitution modifier per ${className} level after 1st` : null; }
+	static getHitPointsAtHigherLevels (className, clsHd) {
+		return className && clsHd
+			? `${Renderer.get().render(Renderer.class.getHitDiceEntry(clsHd))} (or ${((clsHd.number * clsHd.faces) / 2 + 1)}) + your Constitution modifier per ${className} level after 1st`
+			: null;
+	}
 
 	static getRenderedArmorProfs (armorProfs) { return armorProfs.map(a => Renderer.get().render(a.full ? a.full : a === "light" || a === "medium" || a === "heavy" ? `{@filter ${a} armor|items|type=${a} armor}` : a)).join(", "); }
 	static getRenderedWeaponProfs (weaponProfs) { return weaponProfs.map(w => Renderer.get().render(w === "simple" || w === "martial" ? `{@filter ${w} weapons|items|type=${w} weapon}` : w.optional ? `<span class="help help--hover" title="Optional Proficiency">${w.proficiency}</span>` : w)).join(", "); }
@@ -5456,19 +5529,50 @@ Renderer.class = class {
 			);
 		});
 	}
+
+	static pGetFluff (cls) {
+		// Handle legacy/deprecated class fluff
+		// TODO(Future) remove this after ~July 2024
+		if (cls.fluff instanceof Array) {
+			cls = {...cls};
+			cls.fluff = {entries: cls.fluff};
+		}
+
+		return Renderer.utils.pGetFluff({
+			entity: cls,
+			fluffProp: "classFluff",
+		});
+	}
 };
 
 Renderer.subclass = class {
 	static getCompactRenderedString (sc) {
+		const entries = MiscUtil.copyFast((sc.subclassFeatures || []).flat());
+		if (entries[0]?.name === sc.name) delete entries[0].name;
+
 		const scEntry = {
 			type: "section",
 			name: sc.name,
 			source: sc.source,
 			page: sc.page,
-			entries: MiscUtil.copyFast((sc.subclassFeatures || []).flat()),
+			entries,
 		};
 
 		return Renderer.hover.getGenericCompactRenderedString(scEntry);
+	}
+
+	static pGetFluff (sc) {
+		return Renderer.utils.pGetFluff({
+			entity: sc,
+			fluffProp: "subclassFluff",
+		});
+	}
+};
+
+Renderer.classSubclass = class {
+	static pGetFluff (clsOrSc) {
+		if (clsOrSc.__prop === "subclass") return Renderer.subclass.pGetFluff(clsOrSc);
+		return Renderer.class.pGetFluff(clsOrSc);
 	}
 };
 
@@ -6031,7 +6135,6 @@ Renderer.spell = class {
 	static pGetFluff (sp) {
 		return Renderer.utils.pGetFluff({
 			entity: sp,
-			fluffBaseUrl: `data/spells/`,
 			fluffProp: "spellFluff",
 		});
 	}
@@ -6059,7 +6162,6 @@ Renderer.condition = class {
 	static pGetFluff (it) {
 		return Renderer.utils.pGetFluff({
 			entity: it,
-			fnGetFluffData: it.__prop === "condition" ? DataUtil.conditionFluff.loadJSON.bind(DataUtil.conditionFluff) : null,
 			fluffProp: it.__prop === "condition" ? "conditionFluff" : "diseaseFluff",
 		});
 	}
@@ -6079,7 +6181,6 @@ Renderer.background = class {
 	static pGetFluff (bg) {
 		return Renderer.utils.pGetFluff({
 			entity: bg,
-			fnGetFluffData: DataUtil.backgroundFluff.loadJSON.bind(DataUtil.backgroundFluff),
 			fluffProp: "backgroundFluff",
 		});
 	}
@@ -6167,7 +6268,6 @@ Renderer.optionalfeature = class {
 	static pGetFluff (ent) {
 		return Renderer.utils.pGetFluff({
 			entity: ent,
-			fnGetFluffData: DataUtil.optionalfeatureFluff.loadJSON.bind(DataUtil.optionalfeatureFluff),
 			fluffProp: "optionalfeatureFluff",
 		});
 	}
@@ -6207,7 +6307,6 @@ Renderer.reward = class {
 	static pGetFluff (ent) {
 		return Renderer.utils.pGetFluff({
 			entity: ent,
-			fnGetFluffData: DataUtil.rewardFluff.loadJSON.bind(DataUtil.rewardFluff),
 			fluffProp: "rewardFluff",
 		});
 	}
@@ -6493,11 +6592,6 @@ Renderer.race = class {
 		if (cpySr.name) {
 			cpy._subraceName = cpySr.name;
 
-			if (cpySr.alias) {
-				cpy.alias = cpySr.alias.map(it => Renderer.race.getSubraceName(cpy.name, it));
-				delete cpySr.alias;
-			}
-
 			cpy.name = Renderer.race.getSubraceName(cpy.name, cpySr.name);
 			delete cpySr.name;
 		}
@@ -6719,7 +6813,6 @@ Renderer.race = class {
 	static pGetFluff (race) {
 		return Renderer.utils.pGetFluff({
 			entity: race,
-			fnGetFluffData: DataUtil.raceFluff.loadJSON.bind(DataUtil.raceFluff),
 			fluffProp: "raceFluff",
 		});
 	}
@@ -6905,7 +6998,6 @@ Renderer.object = class {
 	static pGetFluff (obj) {
 		return Renderer.utils.pGetFluff({
 			entity: obj,
-			fnGetFluffData: DataUtil.objectFluff.loadJSON.bind(DataUtil.objectFluff),
 			fluffProp: "objectFluff",
 		});
 	}
@@ -7040,7 +7132,6 @@ Renderer.traphazard = class {
 	static pGetFluff (ent) {
 		return Renderer.utils.pGetFluff({
 			entity: ent,
-			fnGetFluffData: ent.__prop === "trap" ? DataUtil.trapFluff.loadJSON.bind(DataUtil.trapFluff) : DataUtil.hazardFluff.loadJSON.bind(DataUtil.hazardFluff),
 			fluffProp: ent.__prop === "trap" ? "trapFluff" : "hazardFluff",
 		});
 	}
@@ -7482,7 +7573,7 @@ Renderer.monster = class {
 
 		return e_({
 			tag: "select",
-			clazz: "input-xs form-control form-control--minimal w-initial inline-block ve-popwindow__hidden",
+			clazz: "input-xs form-control form-control--minimal w-initial inline-block ve-popwindow__hidden no-print lst-is-exporting-image__hidden",
 			name: "mon__sel-summon-spell-level",
 			children: [
 				e_({tag: "option", val: "-1", text: "\u2014"}),
@@ -7500,7 +7591,7 @@ Renderer.monster = class {
 
 		return e_({
 			tag: "select",
-			clazz: "input-xs form-control form-control--minimal w-initial inline-block ve-popwindow__hidden",
+			clazz: "input-xs form-control form-control--minimal w-initial inline-block ve-popwindow__hidden no-print lst-is-exporting-image__hidden",
 			name: "mon__sel-summon-class-level",
 			children: [
 				e_({tag: "option", val: "-1", text: "\u2014"}),
@@ -7612,12 +7703,12 @@ Renderer.monster = class {
 			ptCrSpellLevel = `<td colspan="2">
 				${Parser.monCrToFull(mon.cr, {isMythic: !!mon.mythic})}
 				${opts.isShowScalers && !opts.isScaledCr && Parser.isValidCr(mon.cr ? (mon.cr.cr || mon.cr) : null) ? `
-				<button title="Scale Creature By CR (Highly Experimental)" class="mon__btn-scale-cr btn btn-xs btn-default">
+				<button title="Scale Creature By CR (Highly Experimental)" class="mon__btn-scale-cr btn btn-xs btn-default no-print">
 					<span class="glyphicon glyphicon-signal"></span>
 				</button>
 				` : ""}
 				${opts.isScaledCr ? `
-				<button title="Reset CR Scaling" class="mon__btn-reset-cr btn btn-xs btn-default">
+				<button title="Reset CR Scaling" class="mon__btn-reset-cr btn btn-xs btn-default no-print">
 					<span class="glyphicon glyphicon-refresh"></span>
 				</button>
 				` : ""}
@@ -7931,8 +8022,7 @@ Renderer.monster = class {
 	static pGetFluff (mon) {
 		return Renderer.utils.pGetFluff({
 			entity: mon,
-			pFnPostProcess: Renderer.monster.postProcessFluff.bind(null, mon),
-			fluffBaseUrl: `data/bestiary/`,
+			pFnPostProcess: Renderer.monster.postProcessFluff.bind(Renderer.monster, mon),
 			fluffProp: "monsterFluff",
 		});
 	}
@@ -9366,7 +9456,6 @@ Renderer.item = class {
 	static pGetFluff (item) {
 		return Renderer.utils.pGetFluff({
 			entity: item,
-			fnGetFluffData: DataUtil.itemFluff.loadJSON.bind(DataUtil.itemFluff),
 			fluffProp: "itemFluff",
 		});
 	}
@@ -9497,6 +9586,7 @@ Renderer.variantrule = class {
 	static getCompactRenderedString (rule) {
 		const cpy = MiscUtil.copyFast(rule);
 		delete cpy.name;
+		if (cpy.entries && cpy.ruleType) cpy.entries.unshift(`{@i ${Parser.ruleTypeToFull(cpy.ruleType)} Rule}`);
 		return `
 			${Renderer.utils.getExcludedTr({entity: rule, dataProp: "variantrule", page: UrlUtil.PG_VARIANTRULES})}
 			${Renderer.utils.getNameTr(rule, {page: UrlUtil.PG_VARIANTRULES})}
@@ -10092,7 +10182,6 @@ Renderer.vehicle = class {
 	static pGetFluff (veh) {
 		return Renderer.utils.pGetFluff({
 			entity: veh,
-			fnGetFluffData: DataUtil.vehicleFluff.loadJSON.bind(DataUtil.vehicleFluff),
 			fluffProp: "vehicleFluff",
 		});
 	}
@@ -10178,7 +10267,6 @@ Renderer.language = class {
 	static pGetFluff (it) {
 		return Renderer.utils.pGetFluff({
 			entity: it,
-			fnGetFluffData: DataUtil.languageFluff.loadJSON.bind(DataUtil.languageFluff),
 			fluffProp: "languageFluff",
 		});
 	}
@@ -10322,7 +10410,6 @@ Renderer.charoption = class {
 	static pGetFluff (it) {
 		return Renderer.utils.pGetFluff({
 			entity: it,
-			fnGetFluffData: DataUtil.charoptionFluff.loadJSON.bind(DataUtil.charoptionFluff),
 			fluffProp: "charoptionFluff",
 		});
 	}
@@ -10412,7 +10499,7 @@ Renderer.recipe = class {
 				${entriesMeta.entryCooksNotes ? `<div class="w-100 ve-flex-col mt-4"><div class="ve-flex-vh-center bold mb-1 small-caps">Cook's Notes</div><div class="italic">${Renderer.get().render(entriesMeta.entryCooksNotes)}</div></div>` : ""}
 			</div>
 
-			<div class="pl-2 ve-flex-2 rd-recipes__wrp-instructions overflow-x-auto">
+			<div class="pl-2 ve-flex-2 rd-recipes__wrp-instructions ve-overflow-x-auto">
 				${Renderer.get().setFirstSection(true).render(entriesMeta.entryInstructions, 2)}
 			</div>
 		</div>`;
@@ -10442,7 +10529,6 @@ Renderer.recipe = class {
 	static pGetFluff (it) {
 		return Renderer.utils.pGetFluff({
 			entity: it,
-			fnGetFluffData: DataUtil.recipeFluff.loadJSON.bind(DataUtil.recipeFluff),
 			fluffProp: "recipeFluff",
 		});
 	}
@@ -11603,9 +11689,14 @@ Renderer.hover = class {
 	 * @param [opts.isPopout] If the window should be immediately popped out.
 	 * @param [opts.compactReferenceData] Reference (e.g. page/source/hash/others) which can be used to load the contents into the DM screen.
 	 * @param [opts.sourceData] Source JSON (as raw as possible) used to construct this popout.
+	 * @param [opts.isResizeOnlyWidth]
+	 * @param [opts.isHideBottomBorder]
 	 */
 	static getShowWindow ($content, position, opts) {
 		opts = opts || {};
+		const {isHideBottomBorder, isResizeOnlyWidth} = opts;
+
+		if (isHideBottomBorder && !isResizeOnlyWidth) throw new Error(`"isHideBottomBorder" option requires "isResizeOnlyWidth"!`);
 
 		Renderer.hover._doInit();
 
@@ -11621,7 +11712,7 @@ Renderer.hover = class {
 			});
 		const $wrpContent = $(`<div class="hwin__wrp-table"></div>`);
 		if (opts.height != null) $wrpContent.css("height", opts.height);
-		const $hovTitle = $(`<span class="window-title min-w-0 overflow-ellipsis" title="${`${opts.title || ""}`.qq()}">${opts.title || ""}</span>`);
+		const $hovTitle = $(`<span class="window-title min-w-0 ve-overflow-ellipsis" title="${`${opts.title || ""}`.qq()}">${opts.title || ""}</span>`);
 
 		const hoverWindow = {};
 		const hoverId = Renderer.hover._getNextId();
@@ -11632,31 +11723,40 @@ Renderer.hover = class {
 		const drag = {};
 
 		const $brdrTopRightResize = $(`<div class="hoverborder__resize-ne"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 1}));
+			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 1, isResizeOnlyWidth}));
+		if (isResizeOnlyWidth) $brdrTopRightResize.hideVe();
 
 		const $brdrRightResize = $(`<div class="hoverborder__resize-e"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 2}));
+			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 2, isResizeOnlyWidth}));
 
 		const $brdrBottomRightResize = $(`<div class="hoverborder__resize-se"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 3}));
+			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 3, isResizeOnlyWidth}));
+		if (isResizeOnlyWidth) $brdrBottomRightResize.hideVe();
 
-		const $brdrBtm = $(`<div class="hoverborder hoverborder--btm ${opts.isBookContent ? "hoverborder-book" : ""}"><div class="hoverborder__resize-s"></div></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 4}));
+		const $brdrBtm = $(`<div class="hoverborder hoverborder--btm ${opts.isBookContent ? "hoverborder-book" : ""}"></div>`);
+		const $brdrBtmResize = $(`<div class="hoverborder__resize-s"></div>`)
+			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 4, isResizeOnlyWidth}))
+			.appendTo($brdrBtm);
+		if (isResizeOnlyWidth) $brdrBtmResize.hideVe();
+		if (isHideBottomBorder) $brdrBtm.hideVe();
 
 		const $brdrBtmLeftResize = $(`<div class="hoverborder__resize-sw"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 5}));
+			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 5, isResizeOnlyWidth}));
+		if (isResizeOnlyWidth) $brdrBtmLeftResize.hideVe();
 
 		const $brdrLeftResize = $(`<div class="hoverborder__resize-w"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 6}));
+			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 6, isResizeOnlyWidth}));
 
 		const $brdrTopLeftResize = $(`<div class="hoverborder__resize-nw"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 7}));
+			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 7, isResizeOnlyWidth}));
+		if (isResizeOnlyWidth) $brdrTopLeftResize.hideVe();
 
 		const $brdrTopResize = $(`<div class="hoverborder__resize-n"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 8}));
+			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 8, isResizeOnlyWidth}));
+		if (isResizeOnlyWidth) $brdrTopResize.hideVe();
 
 		const $brdrTop = $(`<div class="hoverborder hoverborder--top ${opts.isBookContent ? "hoverborder-book" : ""}" ${opts.isPermanent ? `data-perm="true"` : ""}></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 9}))
+			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 9, isResizeOnlyWidth}))
 			.on("contextmenu", (evt) => {
 				Renderer.hover._contextMenuLastClicked = {
 					hoverId,
@@ -11835,7 +11935,7 @@ Renderer.hover = class {
 		if (opts.cbClose) opts.cbClose(hoverWindow);
 	}
 
-	static _getShowWindow_handleDragMousedown ({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type}) {
+	static _getShowWindow_handleDragMousedown ({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type, isResizeOnlyWidth}) {
 		if (evt.which === 0 || evt.which === 1) evt.preventDefault();
 		hoverWindow.zIndex = Renderer.hover._getNextZIndex(hoverId);
 		$hov.css({
@@ -11847,11 +11947,11 @@ Renderer.hover = class {
 		drag.startY = EventUtil.getClientY(evt);
 		drag.baseTop = parseFloat($hov.css("top"));
 		drag.baseLeft = parseFloat($hov.css("left"));
-		drag.baseHeight = $wrpContent.height();
+		if (!isResizeOnlyWidth) drag.baseHeight = $wrpContent.height();
 		drag.baseWidth = parseFloat($hov.css("width"));
 		if (type < 9) {
 			$wrpContent.css({
-				"height": drag.baseHeight,
+				...(isResizeOnlyWidth ? {} : {"height": drag.baseHeight}),
 				"max-height": "initial",
 			});
 			$hov.css("max-width", "initial");
@@ -12324,6 +12424,8 @@ Renderer.hover = class {
 			case UrlUtil.PG_VEHICLES: return Renderer.vehicle.pGetFluff;
 			case UrlUtil.PG_CHAR_CREATION_OPTIONS: return Renderer.charoption.pGetFluff;
 			case UrlUtil.PG_RECIPES: return Renderer.recipe.pGetFluff;
+			case UrlUtil.PG_TRAPS_HAZARDS: return Renderer.traphazard.pGetFluff;
+			case UrlUtil.PG_CLASSES: return Renderer.classSubclass.pGetFluff;
 			default: return null;
 		}
 	}

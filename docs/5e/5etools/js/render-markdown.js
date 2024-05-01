@@ -399,7 +399,7 @@ class RendererMarkdown {
 				this._recursiveRender(by, tempStack, meta);
 				if (i < len - 1) tempStack[0] += "\n";
 			}
-			textStack[0] += `\u2014 ${tempStack.join("")}${entry.from ? `, *${entry.from}*` : ""}`;
+			textStack[0] += `\u2014 ${tempStack.join("")}${entry.from ? `, *${this.render(entry.from)}*` : ""}`;
 		}
 	}
 
@@ -688,6 +688,12 @@ class RendererMarkdown {
 				break;
 			case "@s":
 			case "@strike":
+				textStack[0] += `~~`;
+				this._recursiveRender(text, textStack, meta);
+				textStack[0] += `~~`;
+				break;
+			case "@s2":
+			case "@strikeDouble":
 				textStack[0] += `~~`;
 				this._recursiveRender(text, textStack, meta);
 				textStack[0] += `~~`;

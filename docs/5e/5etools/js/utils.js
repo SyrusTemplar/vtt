@@ -2,7 +2,7 @@
 
 // in deployment, `IS_DEPLOYED = "<version number>";` should be set below.
 globalThis.IS_DEPLOYED = undefined;
-globalThis.VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"1.203.0"/* 5ETOOLS_VERSION__CLOSE */;
+globalThis.VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"1.206.0"/* 5ETOOLS_VERSION__CLOSE */;
 globalThis.DEPLOYED_IMG_ROOT = undefined;
 // for the roll20 script to set
 globalThis.IS_VTT = false;
@@ -55,6 +55,7 @@ globalThis.VeCt = {
 
 	URL_BREW: `https://github.com/TheGiddyLimit/homebrew`,
 	URL_ROOT_BREW: `https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/`, // N.b. must end with a slash
+	URL_ROOT_BREW_IMG: `https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/`, // N.b. must end with a slash
 	URL_PRERELEASE: `https://github.com/TheGiddyLimit/unearthed-arcana`,
 	URL_ROOT_PRERELEASE: `https://raw.githubusercontent.com/TheGiddyLimit/unearthed-arcana/master/`, // As above
 
@@ -506,7 +507,7 @@ globalThis.SourceUtil = class {
 
 	static isLegacySourceWotc (source) {
 		if (source == null) return false;
-		return source === Parser.SRC_VGM || source === Parser.SRC_MTF;
+		return Parser.SOURCES_LEGACY_WOTC.has(source);
 	}
 
 	// TODO(Future) remove this in favor of simply checking existence in `PrereleaseUtil`
@@ -915,7 +916,7 @@ globalThis.JqueryUtil = {
 		if (JqueryUtil._WRP_TOAST == null) {
 			JqueryUtil._WRP_TOAST = e_({
 				tag: "div",
-				clazz: "toast__container no-events w-100 overflow-y-hidden ve-flex-col",
+				clazz: "toast__container no-events w-100 ve-overflow-y-hidden ve-flex-col",
 			});
 			document.body.appendChild(JqueryUtil._WRP_TOAST);
 		}
@@ -1339,6 +1340,34 @@ globalThis.MiscUtil = class {
 				} else doCompatibilityCopy();
 			} catch (e) { doCompatibilityCopy(); }
 		} else doCompatibilityCopy();
+	}
+
+	static async pCopyBlobToClipboard (blob) {
+		if (!navigator?.permissions) {
+			JqueryUtil.doToast({type: "danger", content: `Could not access clipboard!`});
+			return false;
+		}
+
+		const access = await navigator.permissions.query({name: "clipboard-write"});
+		if (!["granted", "prompt"].includes(access.state)) {
+			JqueryUtil.doToast({type: "danger", content: `Could not access clipboard!`});
+			return false;
+		}
+
+		try {
+			await navigator.clipboard.write([
+				new ClipboardItem({[blob.type]: blob}),
+			]);
+			return true;
+		} catch (e) {
+			if (e.message.includes("Document is not focused")) {
+				JqueryUtil.doToast({type: "danger", content: `Please focus the window first!`});
+				return false;
+			}
+
+			JqueryUtil.doToast({type: "danger", content: `Failed to copy! ${VeCt.STR_SEE_CONSOLE}`});
+			throw e;
+		}
 	}
 
 	static checkProperty (object, ...path) {
@@ -2427,6 +2456,9 @@ globalThis.ContextUtil = {
 					const result = await this.fnAction(evt, {userData: menu.userData});
 					if (menu.resolveResult_) menu.resolveResult_(result);
 				})
+				.on("mousedown", evt => {
+					evt.preventDefault();
+				})
 				.keydown(evt => {
 					if (evt.key !== "Enter") return;
 					$btnAction.click();
@@ -2450,6 +2482,9 @@ globalThis.ContextUtil = {
 
 					const result = await this.fnActionAlt(evt, {userData: menu.userData});
 					if (menu.resolveResult_) menu.resolveResult_(result);
+				})
+				.on("mousedown", evt => {
+					evt.preventDefault();
 				});
 			if (this.titleAlt) $btnActionAlt.title(this.titleAlt);
 
@@ -2584,6 +2619,9 @@ globalThis.ContextUtil = {
 					);
 
 					menu.close();
+				})
+				.on("mousedown", evt => {
+					evt.preventDefault();
 				});
 
 			return {
@@ -2975,6 +3013,7 @@ UrlUtil.URL_TO_HASH_BUILDER["skill"] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER["sense"] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER["raceFeature"] = (it) => UrlUtil.encodeArrayForHash(it.name, it.raceName, it.raceSource, it.source);
 UrlUtil.URL_TO_HASH_BUILDER["citation"] = UrlUtil.URL_TO_HASH_GENERIC;
+UrlUtil.URL_TO_HASH_BUILDER["languageScript"] = UrlUtil.URL_TO_HASH_GENERIC;
 
 // Add lowercase aliases
 Object.keys(UrlUtil.URL_TO_HASH_BUILDER)
@@ -3412,6 +3451,26 @@ globalThis.SortUtil = {
 	},
 };
 
+globalThis.MultiSourceUtil = class {
+	static getIndexKey (prop, ent) {
+		switch (prop) {
+			case "class":
+			case "classFluff":
+				return (ent.name || "").toLowerCase().split(" ").at(-1);
+			case "subclass":
+			case "subclassFluff":
+				return (ent.className || "").toLowerCase().split(" ").at(-1);
+			default:
+				return ent.source;
+		}
+	}
+
+	static isEntityIndexKeyMatch (indexKey, prop, ent) {
+		if (indexKey == null) return true;
+		return indexKey === MultiSourceUtil.getIndexKey(prop, ent);
+	}
+};
+
 // JSON LOADING ========================================================================================================
 class _DataUtilPropConfig {
 	static _MERGE_REQUIRES_PRESERVE = {};
@@ -3450,7 +3509,7 @@ class _DataUtilPropConfigMultiSource extends _DataUtilPropConfig {
 
 	static async pLoadAll () {
 		const json = await this.loadJSON();
-		return json[this._PROP];
+		return json[this._PROP] || [];
 	}
 
 	static async loadJSON () { return this._loadJSON({isUnmerged: false}); }
@@ -3460,7 +3519,7 @@ class _DataUtilPropConfigMultiSource extends _DataUtilPropConfig {
 		const index = await this.pLoadIndex();
 
 		const allData = await Object.entries(index)
-			.pMap(async ([source, file]) => this._pLoadSourceEntities({source, isUnmerged, file}));
+			.pMap(async ([indexKey, file]) => this._pLoadSourceEntities({indexKey, isUnmerged, file}));
 
 		return {[this._PROP]: allData.flat()};
 	}
@@ -3471,16 +3530,16 @@ class _DataUtilPropConfigMultiSource extends _DataUtilPropConfig {
 		const file = index[source];
 		if (!file) return null;
 
-		return {[this._PROP]: await this._pLoadSourceEntities({source, file})};
+		return {[this._PROP]: await this._pLoadSourceEntities({indexKey: source, file})};
 	}
 
-	static async _pLoadSourceEntities ({source, isUnmerged = false, file}) {
+	static async _pLoadSourceEntities ({indexKey = null, isUnmerged = false, file}) {
 		await this._pInitPreData();
 
 		const fnLoad = isUnmerged ? DataUtil.loadRawJSON.bind(DataUtil) : DataUtil.loadJSON.bind(DataUtil);
 
 		let data = await fnLoad(`${Renderer.get().baseUrl}data/${this._DIR}/${file}`);
-		data = data[this._PROP].filter(it => it.source === source);
+		data = (data[this._PROP] || []).filter(MultiSourceUtil.isEntityIndexKeyMatch.bind(this, indexKey, this._PROP));
 
 		if (!this._IS_MUT_ENTITIES) return data;
 
@@ -3781,12 +3840,17 @@ globalThis.DataUtil = {
 	},
 
 	_userDownload (filename, data, mimeType) {
-		const a = document.createElement("a");
 		const t = new Blob([data], {type: mimeType});
-		a.href = window.URL.createObjectURL(t);
+		const dataUrl = window.URL.createObjectURL(t);
+		DataUtil.userDownloadDataUrl(filename, dataUrl);
+		setTimeout(() => window.URL.revokeObjectURL(dataUrl), 100);
+	},
+
+	userDownloadDataUrl (filename, dataUrl) {
+		const a = document.createElement("a");
+		a.href = dataUrl;
 		a.download = filename;
 		a.dispatchEvent(new MouseEvent("click", {bubbles: true, cancelable: true, view: window}));
-		setTimeout(() => window.URL.revokeObjectURL(a.href), 100);
 	},
 
 	/** Always returns an array of files, even in "single" mode. */
@@ -3899,7 +3963,9 @@ globalThis.DataUtil = {
 		"spell": "spells",
 		"spellFluff": "spells",
 		"class": "class",
+		"classFluff": "class",
 		"subclass": "class",
+		"subclassFluff": "class",
 		"classFeature": "class",
 		"subclassFeature": "class",
 	},
@@ -3927,7 +3993,9 @@ globalThis.DataUtil = {
 
 			// region Multi-source
 			case "class":
+			case "classFluff":
 			case "subclass":
+			case "subclassFluff":
 			case "classFeature":
 			case "subclassFeature": {
 				const baseUrlPart = `${Renderer.get().baseUrl}data/${DataUtil._MULTI_SOURCE_PROP_TO_DIR[prop]}`;
@@ -5449,13 +5517,13 @@ globalThis.DataUtil = {
 
 			// region Populate fonts, based on script
 			const scriptLookup = {};
-			(rawData.languageScript || []).forEach(script => scriptLookup[script.name] = script);
+			(rawData.languageScript || []).forEach(script => MiscUtil.set(scriptLookup, script.source, script.name, script));
 
 			const out = {language: MiscUtil.copyFast(rawData.language)};
 			out.language.forEach(lang => {
 				if (!lang.script || lang.fonts === false) return;
 
-				const script = scriptLookup[lang.script];
+				const script = MiscUtil.get(scriptLookup, lang.source, lang.script);
 				if (!script) return;
 
 				lang._fonts = [...script.fonts];
@@ -5621,7 +5689,6 @@ globalThis.DataUtil = {
 			for (const r of recipes) {
 				const fluff = await Renderer.utils.pGetFluff({
 					entity: r,
-					fnGetFluffData: DataUtil.recipeFluff.loadJSON.bind(DataUtil.recipeFluff),
 					fluffProp: "recipeFluff",
 				});
 
@@ -5837,8 +5904,25 @@ globalThis.DataUtil = {
 		// endregion
 	},
 
-	subclass: class extends _DataUtilPropConfig {
+	classFluff: class extends _DataUtilPropConfigMultiSource {
+		static _PAGE = UrlUtil.PG_CLASSES;
+		static _DIR = "class";
+		static _PROP = "classFluff";
+	},
+
+	subclass: class extends _DataUtilPropConfigCustom {
 		static _PAGE = "subclass";
+		static _PROP = "subclassFluff";
+
+		static async loadJSON () {
+			return DataUtil.class.loadJSON();
+		}
+	},
+
+	subclassFluff: class extends _DataUtilPropConfigMultiSource {
+		static _PAGE = "subclassFluff";
+		static _DIR = "class";
+		static _PROP = "subclassFluff";
 	},
 
 	deity: class extends _DataUtilPropConfigSingleSource {
@@ -7249,7 +7333,7 @@ class BookModeViewBase {
 	}
 
 	async _pGetContentElementMetas () {
-		const $wrpContent = $(`<div class="bkmv__scroller smooth-scroll overflow-y-auto print__overflow-visible ${this._isColumns ? "bkmv__wrp" : "ve-flex-col"} w-100 min-h-0"></div>`);
+		const $wrpContent = $(`<div class="bkmv__scroller smooth-scroll ve-overflow-y-auto print__overflow-visible ${this._isColumns ? "bkmv__wrp" : "ve-flex-col"} w-100 min-h-0"></div>`);
 
 		const $wrpContentOuter = $$`<div class="h-100 print__h-initial w-100 min-h-0 ve-flex-col print__ve-block">${$wrpContent}</div>`;
 
@@ -7700,20 +7784,7 @@ if (!IS_VTT && typeof window !== "undefined") {
 	});
 
 	window.addEventListener("load", () => {
-		document.body.addEventListener("click", (evt) => {
-			const eleDice = evt.target.hasAttribute("data-packed-dice")
-				? evt.target
-				// Tolerate e.g. Bestiary wrapped proficiency dice rollers
-				: evt.target.parentElement?.hasAttribute("data-packed-dice")
-					? evt.target.parentElement
-					: null;
-
-			if (!eleDice) return;
-
-			evt.preventDefault();
-			evt.stopImmediatePropagation();
-			Renderer.dice.pRollerClickUseData(evt, eleDice).then(null);
-		});
+		Renderer.dice.bindOnclickListener(document.body);
 		Renderer.events.bindGeneric();
 	});
 
