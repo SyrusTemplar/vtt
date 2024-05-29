@@ -2,7 +2,7 @@
 Renderer
  */
 
-@use "vars";
+@use "../vars/vars";
 
 $rgb-inset-border: #656565;
 
@@ -118,6 +118,19 @@ $rgb-inset-border: #656565;
 		&wrp-image {
 			margin: 5px auto 0;
 			text-align: center;
+
+			&--bg {
+				border-radius: 5px;
+				padding: 7px;
+			}
+
+			&--bg-light {
+				background: vars.$rgb-bg;
+			}
+
+			&--bg-dark {
+				background: vars.$rgb-off-black;
+			}
 		}
 
 		&image {
@@ -209,6 +222,14 @@ $rgb-inset-border: #656565;
 		&scroller-viewer {
 			scrollbar-width: auto;
 
+			&--bg-light {
+				background: vars.$rgb-bg;
+			}
+
+			&--bg-dark {
+				background: vars.$rgb-off-black;
+			}
+
 			&::-webkit-scrollbar {
 				width: 15px;
 				height: 15px;
@@ -227,6 +248,10 @@ $rgb-inset-border: #656565;
 		&list-hang-notitle {
 			padding: 0;
 			list-style: none;
+
+			> .rd__list-name {
+				margin-left: 0;
+			}
 
 			> .rd__li {
 				margin-bottom: var(--h-mb-li);
