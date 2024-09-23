@@ -9111,6 +9111,9 @@
 			"name": "Draconic Spirit",
 			"source": "FTD",
 			"page": 21,
+			"reprintedAs": [
+				"Draconic Spirit|XPHB"
+			],
 			"summonedBySpell": "Summon Draconic Spirit|FTD",
 			"summonedBySpellLevel": 5,
 			"size": [
@@ -9229,7 +9232,42 @@
 				"MW",
 				"RCH"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"_versions": [
+				{
+					"name": "Draconic Spirit (Chromatic)",
+					"source": "FTD",
+					"resist": [
+						"acid",
+						"cold",
+						"fire",
+						"lightning",
+						"poison"
+					]
+				},
+				{
+					"name": "Draconic Spirit (Gem)",
+					"source": "FTD",
+					"resist": [
+						"force",
+						"necrotic",
+						"psychic",
+						"radiant",
+						"thunder"
+					]
+				},
+				{
+					"name": "Draconic Spirit (Metallic)",
+					"source": "FTD",
+					"resist": [
+						"acid",
+						"cold",
+						"fire",
+						"lightning",
+						"poison"
+					]
+				}
+			]
 		},
 		{
 			"name": "Dragon Blessed",

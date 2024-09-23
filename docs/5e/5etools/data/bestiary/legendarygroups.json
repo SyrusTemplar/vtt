@@ -405,7 +405,7 @@
 				{
 					"type": "insetReadaloud",
 					"entries": [
-						"The nightmarish arachnid unleashes a shriek that sounds like a thousand spider carapaces scarring slate. In response, the ground ripples and bursts over the monster, revealing itself as a {@item wave} of countless spiders. The tiny arachnids swarm the larger horror, girding it in skittering bodies."
+						"The nightmarish arachnid unleashes a shriek that sounds like a thousand spider carapaces scarring slate. In response, the ground ripples and bursts over the monster, revealing itself as a wave of countless spiders. The tiny arachnids swarm the larger horror, girding it in skittering bodies."
 					]
 				},
 				"Fighting Arasta as a mythic encounter is equivalent to taking on two challenge rating 21 creatures in one encounter. Award a party 66,000 XP for defeating Arasta after she uses Armor of Spiders."
@@ -590,7 +590,7 @@
 										"type": "item",
 										"name": "Protective Burrow",
 										"entries": [
-											"Baalzebul uses his burrow speed to dig into the ground. He gains half-cover when buried 10 feet and three-quarters cover at 20 feet."
+											"Baalzebul uses his burrow speed to dig into the ground. He gains half-cover when buried 10 feet and {@quickref Cover||3||three-quarters cover} at 20 feet."
 										]
 									}
 								]
@@ -628,7 +628,7 @@
 					"items": [
 						"Baalzebul casts his innate hold monster.",
 						"Baalzebul emits slime in a 5-foot radius centered on him. Any creature that starts their turn standing in this slime is considered {@condition grappled} and must use their action to succeed on DC 17 Strength ({@skill Athletics}) check to break free.",
-						"Baalzebul uses half his burrow speed to dig into the ground. He gains half-cover when buried 10 feet and three-quarters cover when at 20 feet."
+						"Baalzebul uses half his burrow speed to dig into the ground. He gains half-cover when buried 10 feet and {@quickref Cover||3||three-quarters cover} when at 20 feet."
 					]
 				}
 			],
@@ -1303,7 +1303,7 @@
 								{
 									"type": "item",
 									"name": "Misleading Mirage",
-									"entry": "Until initiative count 20 on the next round, at each intersection or branching passage in the lair, a creature other than the dragon has a {@chance 50|50 percent} chance of going in a different direction from the direction it intends."
+									"entry": "Until initiative count 20 on the next round, at each intersection or branching passage in the lair, a creature other than the dragon has a {@chance 50} chance of going in a different direction from the direction it intends."
 								},
 								{
 									"type": "item",
@@ -1372,7 +1372,7 @@
 				{
 					"type": "list",
 					"items": [
-						"A strong wind blows around the dragon. Each creature within 60 feet of the dragon must succeed on a {@dc 15} Strength saving throw or be pushed 15 feet away from the dragon and knocked {@condition prone}. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames; such as lanterns, have a {@chance 50|50 percent} chance of being extinguished.",
+						"A strong wind blows around the dragon. Each creature within 60 feet of the dragon must succeed on a {@dc 15} Strength saving throw or be pushed 15 feet away from the dragon and knocked {@condition prone}. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames; such as lanterns, have a {@chance 50} chance of being extinguished.",
 						"A cloud of sand swirls about in a 20-foot-radius sphere centered on a point the dragon can see within 120 feet of it. The cloud spreads around corners. Each creature in it must succeed on a {@dc 15} Constitution saving throw or be {@condition blinded} for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 					]
 				},
@@ -1393,7 +1393,7 @@
 								{
 									"type": "item",
 									"name": "Blast of Wind",
-									"entry": "A mighty wind sweeps through the lair in a direction of the dragon's choice, blowing along a line 40 feet wide and 100 feet long. Each creature in that area except the dragon must succeed on a DC 15 Strength saving throw or be pushed 15 feet in the wind's direction and be knocked {@condition prone}. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames, such as lanterns, have a {@chance 50|50 percent} chance of being extinguished. If the dragon is within the area of the wind, it can choose to be pushed 15 feet in the wind's direction, and the wind can't knock the dragon {@condition prone}."
+									"entry": "A mighty wind sweeps through the lair in a direction of the dragon's choice, blowing along a line 40 feet wide and 100 feet long. Each creature in that area except the dragon must succeed on a DC 15 Strength saving throw or be pushed 15 feet in the wind's direction and be knocked {@condition prone}. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames, such as lanterns, have a {@chance 50} chance of being extinguished. If the dragon is within the area of the wind, it can choose to be pushed 15 feet in the wind's direction, and the wind can't knock the dragon {@condition prone}."
 								},
 								{
 									"type": "item",
@@ -1942,7 +1942,7 @@
 							"type": "item",
 							"name": "Illusory Duplicate",
 							"entries": [
-								"Demogorgon creates an illusory duplicate of himself, which appears in his space and lasts until initiative count 20 of the next round. On his turn, Demogorgon can move the illusory duplicate a distance equal to his walking speed (no action required). The first time a creature or an object interacts physically with Demogorgon (for example, by hitting him with an attack), there is a {@chance 50|50 percent} chance that the illusory duplicate is affected, not Demogorgon, in which case the illusion disappears."
+								"Demogorgon creates an illusory duplicate of himself, which appears in his space and lasts until initiative count 20 of the next round. On his turn, Demogorgon can move the illusory duplicate a distance equal to his walking speed (no action required). The first time a creature or an object interacts physically with Demogorgon (for example, by hitting him with an attack), there is a {@chance 50} chance that the illusory duplicate is affected, not Demogorgon, in which case the illusion disappears."
 							]
 						}
 					]
@@ -1989,7 +1989,7 @@
 				{
 					"type": "list",
 					"items": [
-						"Demogorgon creates an illusory duplicate of himself, which appears in his own space and lasts until initiative count 20 of the next round. On his turn, Demogorgon can move the illusory duplicate a distance equal to his walking speed (no action required). The first time a creature or object interacts physically with Demogorgon (for example, hitting him with an attack), there is a {@chance 50|50 percent} chance that it is the illusory duplicate that is being affected, not Demogorgon himself, in which case the illusion disappears.",
+						"Demogorgon creates an illusory duplicate of himself, which appears in his own space and lasts until initiative count 20 of the next round. On his turn, Demogorgon can move the illusory duplicate a distance equal to his walking speed (no action required). The first time a creature or object interacts physically with Demogorgon (for example, hitting him with an attack), there is a {@chance 50} chance that it is the illusory duplicate that is being affected, not Demogorgon himself, in which case the illusion disappears.",
 						"Demogorgon casts the {@spell darkness} spell four times at its lowest level, targeting different areas with the spell. Demogorgon doesn't need to concentrate on the spells, which end on initiative count 20 of the next round."
 					]
 				}
@@ -2502,7 +2502,7 @@
 						{
 							"type": "item",
 							"name": "Chaotic Aura",
-							"entry": "The faerie dragon creates misdirecting currents of air and magic around itself. Until initiative count 20 on the next round, whenever a ranged attack roll misses the dragon, reroll the attack against a random creature within 30 feet of the dragon that doesn't have total cover against the attack."
+							"entry": "The faerie dragon creates misdirecting currents of air and magic around itself. Until initiative count 20 on the next round, whenever a ranged attack roll misses the dragon, reroll the attack against a random creature within 30 feet of the dragon that doesn't have {@quickref Cover||3||total cover} against the attack."
 						},
 						{
 							"type": "item",
@@ -2797,6 +2797,49 @@
 						}
 					]
 				}
+			]
+		},
+		{
+			"name": "Froghemoth Elder",
+			"source": "QftIS",
+			"lairActions": [
+				"On initiative count 20 (losing initiative ties), the froghemoth can take one of the following lair actions; the froghemoth can't take the same lair action two rounds in a row:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Croak",
+							"entry": "The froghemoth lets out an ear-splitting croak. Each creature within 30 feet of it must make a DC 18 Wisdom saving throw. On a failed save, the creature has the deafened and frightened conditions until the end of its next turn."
+						},
+						{
+							"type": "item",
+							"name": "Hypnotic Visions",
+							"entry": "One creature of the froghemoth's choice within 60 feet of it must make a DC 15 Wisdom saving throw. On a failed save, the target is mesmerized by otherworldly visions and has the charmed condition until the end of the target's next turn. While charmed in this way, the target has the incapacitated condition, and its speed is 0."
+						}
+					]
+				}
+			],
+			"regionalEffects": [
+				"The region within 1 mile of a froghemoth elder's lair is altered by the froghemoth's unearthly presence, creating one or more of the following effects:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Alien Flora",
+							"entry": "Strange, invasive plants with bright colors and odd patterns sprout up around the lair."
+						},
+						{
+							"type": "item",
+							"name": "Mutations",
+							"entry": "Wildlife encountered near the lair often sport mutations, such as extra limbs or eyes, glowing secretions, or vestigial tentacles."
+						}
+					]
+				},
+				"If the froghemoth elder dies, these effects fade over the course of {@dice 1d10} days."
 			]
 		},
 		{
@@ -4743,7 +4786,7 @@
 					"type": "list",
 					"items": [
 						"Food instantly molders and water instantly evaporates when brought into the lair. Other non magical drinks are spoiled - wine turning to vinegar, for instance.",
-						"{@spell Divination} spells cast within the lair by creatures other than the mummy lord have a {@chance 25|25 percent} chance to provide misleading results, as determined by the DM. If a {@spell divination} spell already has a chance to fail or become unreliable when cast multiple times, that chance increases by 25 percent.",
+						"{@spell Divination} spells cast within the lair by creatures other than the mummy lord have a {@chance 25} chance to provide misleading results, as determined by the DM. If a {@spell divination} spell already has a chance to fail or become unreliable when cast multiple times, that chance increases by 25 percent.",
 						"A creature that takes treasure from the lair is cursed until the treasure is returned. The cursed target has disadvantage on all saving throws. The curse lasts until removed by a {@spell remove curse} spell or other magic."
 					]
 				},
@@ -4782,6 +4825,59 @@
 						}
 					]
 				}
+			]
+		},
+		{
+			"name": "Nafas",
+			"source": "QftIS",
+			"lairActions": [
+				"On initiative count 20 (losing initiative ties), Nafas can take one of the following lair actions; he can't take the same lair action two rounds in a row:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Downdraft",
+							"entry": "Nafas targets one creature he can see within 120 feet of himself. A downward current of air surrounds the target, reducing its flying speed (if any) to 0 feet until the end of its next turn, and the target must succeed on a DC 21 Strength saving throw or have the prone condition."
+						},
+						{
+							"type": "item",
+							"name": "Lightning Strike",
+							"entry": "A bolt of lightning strikes a point Nafas can see within 120 feet of him. Each creature within 10 feet of that point must succeed on a DC 21 Dexterity saving throw or take 16 ({@dice 3d10}) lightning damage."
+						},
+						{
+							"type": "item",
+							"name": "Stardust",
+							"entry": "Nafas creates a 20-foot-radius sphere of multiversal dust centered on a point anywhere in his lair. The sphere spreads around corners, and its area is heavily obscured. The dust lasts until Nafas disperses it (no action required) or uses this lair action again, and it can't be dispersed by wind."
+						}
+					]
+				}
+			],
+			"regionalEffects": [
+				"The region containing Nafas's lair is warped by his magic, creating one or more of the following effects:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Mirages",
+							"entry": "Sapient creatures within 3 miles of the lair frequently see illusions of their hearts' desires, be they fame, fortune, or long-departed comrades. These mirages don't hold up to physical inspection and vanish after a brief interaction."
+						},
+						{
+							"type": "item",
+							"name": "Safe Descents",
+							"entry": "Within 3 miles of the lair, winds buoy creatures that fall, ushering them safely to the nearest staircase. Such creatures descend at a rate of 60 feet per round and take no damage from falling. Aberrations, Fiends, Undead, and creatures that fall due to Nafas's or his allies' actions don't gain this benefit, instead falling as normal."
+						},
+						{
+							"type": "item",
+							"name": "Wishful Winds",
+							"entry": "The wishes of creatures across the multiverse, including those within the Infinite Staircase, can be heard within 3 miles of the lair as fleeting voices carried on gentle breezes."
+						}
+					]
+				},
+				"If Nafas is destroyed, all these effects end immediately, resuming when he either gains a new body or is replaced by the creature that slays him (see the Last Wish trait in Nafas's stat block)."
 			]
 		},
 		{
@@ -5960,7 +6056,7 @@
 					"type": "list",
 					"items": [
 						"The dragon creates fog as if it had cast the {@spell fog cloud} spell. The fog lasts until initiative count 20 on the next round.",
-						"A blisteringly cold wind blows through the lair near the dragon. Each creature within 120 feet of the dragon must succeed on a {@dc 15} Constitution saving throw or take 5 ({@damage 1d10}) cold damage. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames, such as lanterns, have a {@chance 50|50 percent} chance of being extinguished."
+						"A blisteringly cold wind blows through the lair near the dragon. Each creature within 120 feet of the dragon must succeed on a {@dc 15} Constitution saving throw or take 5 ({@damage 1d10}) cold damage. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames, such as lanterns, have a {@chance 50} chance of being extinguished."
 					]
 				},
 				{
@@ -6154,7 +6250,7 @@
 							"type": "item",
 							"name": "Gale",
 							"entries": [
-								"The giant creates a 60-foot-long, 10-foot-wide line of strong wind (or strong current within water) originating from a point anywhere in its lair. Each creature in that line must succeed on a {@dc 18} Strength saving throw or be pushed 15 feet in the direction the wind is blowing. The gust disperses gas or vapor, and it extinguishes candles, torches, and similar unprotected flames in its area. Protected flames, such as those of lanterns, have a {@chance 50|50 percent} chance of being extinguished."
+								"The giant creates a 60-foot-long, 10-foot-wide line of strong wind (or strong current within water) originating from a point anywhere in its lair. Each creature in that line must succeed on a {@dc 18} Strength saving throw or be pushed 15 feet in the direction the wind is blowing. The gust disperses gas or vapor, and it extinguishes candles, torches, and similar unprotected flames in its area. Protected flames, such as those of lanterns, have a {@chance 50} chance of being extinguished."
 							]
 						}
 					]
@@ -6203,7 +6299,7 @@
 					"items": [
 						"The giant creates a thunderclap centered on a point anywhere in its lair. Each creature within 20 feet of that point must succeed on a {@dc 18} Constitution saving throw or be {@condition deafened} until the end of its next turn.",
 						"The giant creates a 20-foot-radius sphere of fog (or murky water within water) centered on a point anywhere in its lair. The sphere spreads around corners, and its area is heavily obscured. The fog lasts until the giant disperses it (no action required), and it can't be dispersed by wind.",
-						"The giant creates a 60-foot-long, 10-foot-wide line of strong wind ( or strong current within water) originating from a point anywhere in its lair. Each creature in that line must succeed on a {@dc 18} Strength saving throw or be pushed 15 feet in the direction the wind is blowing. The gust disperses gas or vapor, and it extinguishes candles, torches, and similar unprotected flames in its area. Protected flames, such as those of lanterns, have a {@chance 50|50 percent} chance of being extinguished."
+						"The giant creates a 60-foot-long, 10-foot-wide line of strong wind ( or strong current within water) originating from a point anywhere in its lair. Each creature in that line must succeed on a {@dc 18} Strength saving throw or be pushed 15 feet in the direction the wind is blowing. The gust disperses gas or vapor, and it extinguishes candles, torches, and similar unprotected flames in its area. Protected flames, such as those of lanterns, have a {@chance 50} chance of being extinguished."
 					]
 				}
 			],
@@ -6234,6 +6330,68 @@
 						"Strahd targets any number of doors and windows that he can see, causing each one to either open or close as he wishes. Closed doors can be magically locked (needing a successful {@dc 20} Strength check to force open) until Strahd chooses to end the effect, or until Strahd uses this lair action again.",
 						"Strahd summons the angry spirit of one who has died in the castle. The apparition appears next to a hostile creature that Strahd can see, makes an attack against that creature, and then disappears. The apparition has the statistics of a {@creature specter}.",
 						"Strahd targets one Medium or smaller creature that casts a shadow. The target's shadow must be visible to Strahd and within 30 feet of him. If the target fails a {@dc 17} Charisma saving throw, its shadow detaches from it and becomes a {@creature shadow} that obeys Strahd's commands, acting on initiative count 20. A {@spell greater restoration} spell or a {@spell remove curse} spell cast on the target restores its natural shadow, but only if its undead shadow has been destroyed."
+					]
+				}
+			]
+		},
+		{
+			"name": "The Gardener",
+			"source": "QftIS",
+			"lairActions": [
+				"On initiative count 20 (losing initiative ties), the Gardener can take one of the following lair actions; they can't take the same lair action two rounds in a row:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Plant Walk",
+							"entry": "The Gardener moves up to their speed into the space of a Medium or larger plant within the lair, then teleports to an unoccupied space within 5 feet of any other Medium or larger plant within the lair."
+						},
+						{
+							"type": "item",
+							"name": "Vine Wall",
+							"entry": "A wall of grasping vines appears on the ground within 120 feet of the Gardener. The wall is up to 60 feet long, 10 feet high, and 5 feet thick, and it blocks line of sight. When the wall appears, each creature in its area must succeed on a DC 15 Dexterity saving throw or have the grappled condition (escape DC 15). A creature must make this saving throw when it starts its turn inside the wall or when it enters the wall for the first time on a turn. The wall's area is difficult terrain for a creature that isn't grappled. The wall sinks back into the ground, freeing all creatures grappled by it, when the Gardener uses this lair action again or when the Gardener dies."
+						}
+					]
+				}
+			],
+			"regionalEffects": [
+				"The Eternal Garden has the following features:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Boundary",
+							"entry": "At the border of the domain is a lightly obscuring mist, tinged with a sweet blossom scent and the colors of sunset. No matter how far a creature travels into the mist, the creature finds itself back where it entered the border, returning to the garden."
+						},
+						{
+							"type": "item",
+							"name": "Eternal Summer",
+							"entry": "The climate in the garden is a perpetual, lovely summer, but weather conditions reflect the emotional tone of creatures in the garden. In times of danger, thunderstorms shake the sky. During times of melancholy or mourning, chill rain patters throughout the domain."
+						},
+						{
+							"type": "item",
+							"name": "Gardener's Vigil",
+							"entry": "The Gardener senses when anything dies in the garden. If a creature dies in the garden, roll a {@dice d6}. On a 1, the Gardener appears on initiative count 20 of the next round (losing initiative ties) to investigate."
+						},
+						{
+							"type": "item",
+							"name": "Lighting",
+							"entry": "The sky above the garden is a perpetual twilight range of orange, red, pink, and yellow hues with no visible sun, moon, or stars. During daylight hours, it emits bright light, but at night, it never reaches full darkness, becoming dim light instead."
+						},
+						{
+							"type": "item",
+							"name": "Memory Loss",
+							"entry": "Unless otherwise stated, a creature that leaves the domain must make a DC 10 Wisdom saving throw; Fey creatures and creatures with the Fey Ancestry trait automatically succeed on the saving throw. On a failed save, the creature remembers nothing of its time in the garden or the Palace of Spires. On a successful save, the creature's memories remain intact, but they're hazy and dreamlike. A Remove Curse or Greater Restoration spell restores the creature's memories."
+						},
+						{
+							"type": "item",
+							"name": "Time",
+							"entry": "Time passes slower in the Eternal Garden relative to other planes. For each day spent in the garden, one year passes on the Material Plane."
+						}
 					]
 				}
 			]
@@ -6479,7 +6637,7 @@
 					"type": "list",
 					"items": [
 						"Food instantly molders and water instantly evaporates when brought into the lair. Other nonmagical drinks are spoiled\u2014wine turning to vinegar, for instance.",
-						"{@spell Divination} spells cast within the lair by creatures other than Valin have a {@chance 25|25 percent} chance to provide misleading results, as determined by the DM. If a {@spell divination} spell already has a chance to fail or become unreliable when cast multiple times, that chance increases by 25 percent.",
+						"{@spell Divination} spells cast within the lair by creatures other than Valin have a {@chance 25} chance to provide misleading results, as determined by the DM. If a {@spell divination} spell already has a chance to fail or become unreliable when cast multiple times, that chance increases by 25 percent.",
 						"A creature that takes treasure from the lair is cursed until the treasure is returned. The cursed target has disadvantage on all saving throws. The curse lasts until removed by a {@spell remove curse} spell or other magic."
 					]
 				},
@@ -6697,7 +6855,7 @@
 								{
 									"type": "item",
 									"name": "Mirror Ice",
-									"entry": "The icy surfaces in the dragon's lair reflect light like mirrors, giving creatures in the lair other than the dragon disadvantage on Dexterity ({@skill Stealth}) checks made to hide. In addition, at each intersection or branching passage, any creature other than the dragon has a {@chance 50|50 percent} chance of going in a different direction from the direction it intends."
+									"entry": "The icy surfaces in the dragon's lair reflect light like mirrors, giving creatures in the lair other than the dragon disadvantage on Dexterity ({@skill Stealth}) checks made to hide. In addition, at each intersection or branching passage, any creature other than the dragon has a {@chance 50} chance of going in a different direction from the direction it intends."
 								}
 							]
 						}
@@ -6894,6 +7052,59 @@
 						}
 					]
 				}
+			]
+		},
+		{
+			"name": "Zargon the Returner",
+			"source": "QftIS",
+			"lairActions": [
+				"On initiative count 20 (losing initiative ties), Zargon can take one of the following lair actions; it can't take the same lair action two rounds in a row:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Dissolution",
+							"entry": "Zargon dissolves into a glob of slime, seeps to an unoccupied space anywhere in the lair without provoking opportunity attacks, then re-forms."
+						},
+						{
+							"type": "item",
+							"name": "Spell Breaker",
+							"entry": "Zargon targets up to two creatures it can see within the lair. All spells of 5th level or lower affecting the targets end."
+						},
+						{
+							"type": "item",
+							"name": "Sucking Slime",
+							"entry": "Zargon creates a 20-foot-radius puddle of slime on the ground centered on a point within the lair. The slime is difficult terrain, and each creature in that area when the slime appears has the grappled condition (escape DC 15). Aberrations and Oozes are unaffected by the slime. The slime lasts until Zargon dies or until it uses this lair action again."
+						}
+					]
+				}
+			],
+			"regionalEffects": [
+				"The region containing Zargon's lair is warped by Zargon's unnatural presence, creating one or more of the following effects:",
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Arcane Enervation",
+							"entry": "Enemies of Zargon within 1 mile of the lair have disadvantage on saving throws made to maintain concentration."
+						},
+						{
+							"type": "item",
+							"name": "Corrupted Water",
+							"entry": "Rain and water sources within 1 mile of the lair are tainted. A creature that drinks the water must succeed on a DC 15 Constitution saving throw or have the poisoned condition until it finishes a long rest."
+						},
+						{
+							"type": "item",
+							"name": "Eerie Weather",
+							"entry": "The area within 10 miles of the lair experiences strange weather patterns that defy the region's typical climate."
+						}
+					]
+				},
+				"If Zargon dies, these effects fade over the course of {@dice 1d10} days."
 			]
 		},
 		{

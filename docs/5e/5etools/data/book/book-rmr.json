@@ -1442,7 +1442,7 @@
 							"page": 17,
 							"id": "05c",
 							"entries": [
-								"{@b 1. Determine surprise}. The DM determines whether anyone involved in the combat encounter is {@quickref Surprise|PHB|3|0|surprised}.",
+								"{@b 1. Determine surprise}. The DM determines whether anyone involved in the combat encounter is {@status surprised}.",
 								"{@b 2. Establish positions}. The DM decides where all the characters and monsters are located. Given the adventurers' marching order or their stated positions in the room or other location, the DM figures out where the adversaries are\u2014how far away and in what direction.",
 								"{@b 3. Roll initiative}. Everyone involved rolls initiative, determining the order of combatants' turns.",
 								"{@b 4. Take turns}. Each participant in the battle takes a turn in initiative order.",
@@ -1465,8 +1465,8 @@
 									"height": 505,
 									"credit": "Troy Little"
 								},
-								"The DM determines who might be {@quickref Surprise|PHB|3|0|surprised}. If neither side tries to be stealthy, they automatically notice each other. Otherwise, the DM compares the Dexterity ({@skill Stealth}) checks of anyone hiding with the passive Wisdom ({@skill Perception}) score of each creature on the opposing side. Any character or monster that doesn't notice a threat is {@quickref Surprise|PHB|3|0|surprised} at the start of the encounter.",
-								"If you're {@quickref Surprise|PHB|3|0|surprised}, you can't move or take an action on your first turn of the combat, and you can't take a reaction until that turn ends. A member of a group can be {@quickref Surprise|PHB|3|0|surprised} even if the other members aren't.",
+								"The DM determines who might be {@status surprised}. If neither side tries to be stealthy, they automatically notice each other. Otherwise, the DM compares the Dexterity ({@skill Stealth}) checks of anyone hiding with the passive Wisdom ({@skill Perception}) score of each creature on the opposing side. Any character or monster that doesn't notice a threat is {@status surprised} at the start of the encounter.",
+								"If you're {@status surprised}, you can't move or take an action on your first turn of the combat, and you can't take a reaction until that turn ends. A member of a group can be {@status surprised} even if the other members aren't.",
 								{
 									"type": "inset",
 									"id": "05e",
@@ -5392,7 +5392,7 @@
 									"page": 48,
 									"id": "127",
 									"entries": [
-										"To target something, you must have a clear path to it, so it can't be behind total cover.",
+										"To target something, you must have a clear path to it, so it can't be behind {@quickref Cover||3||total cover}.",
 										"If you place an area of effect at a point that you can't see and an obstruction, such as a wall, is between you and that point, the point of origin comes into being on the near side of that obstruction."
 									]
 								},
@@ -5415,7 +5415,7 @@
 							"entries": [
 								"Spells such as {@spell burning hands} and {@spell fireball} cover an area, allowing them to affect multiple creatures at once.",
 								"A spell's description specifies its area of effect, which typically has one of four different shapes: cone, cube, line, or sphere (each illustrated on the DM screen). Every area of effect has a point of origin, a location from which the spell's energy erupts. The rules for each shape specify how you position its point of origin. Typically, a point of origin is a point in space, but some spells have an area whose origin is a creature or an object.",
-								"A spell's effect expands in straight lines from the point of origin. If no unblocked straight line extends from the point of origin to a location within the area of effect, that location isn't included in the spell's area. To block one of these imaginary lines, an obstruction must provide total cover, as explained in {@book chapter 2|RMR|1}.",
+								"A spell's effect expands in straight lines from the point of origin. If no unblocked straight line extends from the point of origin to a location within the area of effect, that location isn't included in the spell's area. To block one of these imaginary lines, an obstruction must provide {@quickref Cover||3||total cover}, as explained in {@book chapter 2|RMR|1}.",
 								"The point of origin of an area of effect isn't included in the area, unless the area is a sphere.",
 								{
 									"type": "entries",

@@ -1,6 +1,6 @@
 "use strict";
 
-class PageFilterCharCreationOptions extends PageFilter {
+class PageFilterCharCreationOptions extends PageFilterBase {
 	static _filterFeatureTypeSort (a, b) {
 		return SortUtil.ascSort(Parser.charCreationOptionTypeToFull(a.item), Parser.charCreationOptionTypeToFull(b.item));
 	}
@@ -13,15 +13,18 @@ class PageFilterCharCreationOptions extends PageFilter {
 			displayFn: Parser.charCreationOptionTypeToFull,
 			itemSortFn: PageFilterCharCreationOptions._filterFeatureTypeSort,
 		});
-		this._miscFilter = new Filter({header: "Miscellaneous", items: ["SRD", "Legacy", "Has Images", "Has Info"], isMiscFilter: true});
+		this._miscFilter = new Filter({
+			header: "Miscellaneous",
+			items: ["Legacy", "Has Images", "Has Info"],
+			isMiscFilter: true,
+			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
+		});
 	}
 
 	static mutateForFilters (it) {
 		it._fOptionType = Parser.charCreationOptionTypeToFull(it.optionType);
-		it._fMisc = it.srd ? ["SRD"] : [];
-		if (SourceUtil.isLegacySourceWotc(it.source)) it._fMisc.push("Legacy");
-		if (this._hasFluff(it)) it._fMisc.push("Has Info");
-		if (this._hasFluffImages(it)) it._fMisc.push("Has Images");
+
+		this._mutateForFilters_commonMisc(it);
 	}
 
 	addToFilters (it, isExcluded) {
@@ -29,6 +32,7 @@ class PageFilterCharCreationOptions extends PageFilter {
 
 		this._sourceFilter.addItem(it.source);
 		this._typeFilter.addItem(it._fOptionType);
+		this._miscFilter.addItem(it._fMisc);
 	}
 
 	async _pPopulateBoxOptions (opts) {

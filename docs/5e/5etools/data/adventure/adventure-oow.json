@@ -114,7 +114,8 @@
 							"grid": {
 								"type": "none"
 							},
-							"credit": "{@link Jared Blando|https://jaredblando.com/}"
+							"credit": "{@link Jared Blando|https://jaredblando.com/}",
+							"id": "332"
 						},
 						{
 							"type": "entries",
@@ -701,7 +702,7 @@
 											"page": 88,
 											"id": "02c",
 											"entries": [
-												"After the first character has been at the bottom of the fissure for 2 rounds, a group of six {@creature Giant Rat||giant rats} notices the potential feast. Any character at the bottom of the fissure who succeeds on a DC 12 Wisdom ({@skill Perception}) check can hear the approaching rats, and isn't {@quickref Surprise|PHB|3|0|surprised} when three rats emerge from cracks in the walls and attack. Three more rats arrive and attack 1 round later. All the rats are dyed a bright green from trap C in {@area area 3|03a|x}."
+												"After the first character has been at the bottom of the fissure for 2 rounds, a group of six {@creature Giant Rat||giant rats} notices the potential feast. Any character at the bottom of the fissure who succeeds on a DC 12 Wisdom ({@skill Perception}) check can hear the approaching rats, and isn't {@status surprised} when three rats emerge from cracks in the walls and attack. Three more rats arrive and attack 1 round later. All the rats are dyed a bright green from trap C in {@area area 3|03a|x}."
 											]
 										},
 										{
@@ -996,7 +997,7 @@
 											"page": 91,
 											"id": "04b",
 											"entries": [
-												"The {@creature giant spider} hides in a dust-filled depression in the floor. A successful DC 17 Wisdom ({@skill Perception}) check spots the arachnid before it springs from its hiding place to attack. Any characters who are focused on the webs above them have disadvantage on the check. Those who fail the check are {@quickref Surprise|PHB|3|0|surprised}.",
+												"The {@creature giant spider} hides in a dust-filled depression in the floor. A successful DC 17 Wisdom ({@skill Perception}) check spots the arachnid before it springs from its hiding place to attack. Any characters who are focused on the webs above them have disadvantage on the check. Those who fail the check are {@status surprised}.",
 												"The giant spider initially favors its web attack, hoping to restrain a couple of characters before it starts biting. If reduced to 10 hit points or fewer, the spider retreats into a nearby narrow fissure. However, it attacks again when the characters come back through this area."
 											]
 										},
@@ -1358,7 +1359,7 @@
 														"It has no bite attack."
 													]
 												},
-												"A creature {@condition grappled} by the tentacle is pulled immediately into the 3-foot-deep section of the cesspool. On the next round, if the creature is still {@condition grappled}, the tentacle pulls it into the 10-foot-deep section and under the sewage. There, the tentacle has three-quarters cover, and the creature can't breathe. A creature that falls {@condition unconscious} while {@condition grappled} beneath the sewage is pulled through the planar rupture into the filth plane, to be devoured and lost forever. Or, in grand Acquisitions Incorporated fashion, a character so destroyed might return later as a vile creature bent on revenge against its former party members."
+												"A creature {@condition grappled} by the tentacle is pulled immediately into the 3-foot-deep section of the cesspool. On the next round, if the creature is still {@condition grappled}, the tentacle pulls it into the 10-foot-deep section and under the sewage. There, the tentacle has {@quickref Cover||3||three-quarters cover}, and the creature can't breathe. A creature that falls {@condition unconscious} while {@condition grappled} beneath the sewage is pulled through the planar rupture into the filth plane, to be devoured and lost forever. Or, in grand Acquisitions Incorporated fashion, a character so destroyed might return later as a vile creature bent on revenge against its former party members."
 											]
 										}
 									]
@@ -1887,7 +1888,7 @@
 											"page": 101,
 											"id": "08a",
 											"entries": [
-												"The two dead horses are {@creature Warhorse Skeleton||warhorse skeletons} whose remaining flesh sloughs off as they fight. When any character comes within 20 feet of the fallen horses, these undead lurch to their feet and attack. When this happens, each character must succeed on a DC 15 Wisdom ({@skill Perception}) check or be {@quickref Surprise|PHB|3|0|surprised}."
+												"The two dead horses are {@creature Warhorse Skeleton||warhorse skeletons} whose remaining flesh sloughs off as they fight. When any character comes within 20 feet of the fallen horses, these undead lurch to their feet and attack. When this happens, each character must succeed on a DC 15 Wisdom ({@skill Perception}) check or be {@status surprised}."
 											]
 										},
 										{
@@ -6424,7 +6425,8 @@
 								"offsetX": 27,
 								"offsetY": -5
 							},
-							"credit": "Jason Engle"
+							"credit": "Jason Engle",
+							"id": "333"
 						},
 						{
 							"type": "entries",
@@ -6917,7 +6919,8 @@
 												"offsetX": 10,
 												"offsetY": 22
 											},
-											"credit": "{@link Jared Blando|https://jaredblando.com/}"
+											"credit": "{@link Jared Blando|https://jaredblando.com/}",
+											"id": "334"
 										},
 										{
 											"type": "insetReadaloud",
@@ -8518,7 +8521,7 @@
 								"Dropping out from behind a dark cloud is an airship held aloft by a large balloon\u2014emblazoned with the sigil of the Six! A crew of hobgoblins and goblins can be seen swarming the deck, and a ballista and three harpoon guns are trained on your vessel. To arms!"
 							]
 						},
-						"If the {@vehicle battle balloon|AI} took more than 20 damage, the chaos of the storm has distracted the characters and crew. In that event, all creatures on the characters' battle balloon are {@quickref Surprise|PHB|3|0|surprised} by the airship sent by the Six to engage the franchise\u2014and to steal the franchise's orrery components. Use the battle balloon stat block from {@book appendix C|AI|6} for the Six's airship, but substitute the following Blowout Ballista attack for the Green Flame Arbalester attack:",
+						"If the {@vehicle battle balloon|AI} took more than 20 damage, the chaos of the storm has distracted the characters and crew. In that event, all creatures on the characters' battle balloon are {@status surprised} by the airship sent by the Six to engage the franchise\u2014and to steal the franchise's orrery components. Use the battle balloon stat block from {@book appendix C|AI|6} for the Six's airship, but substitute the following Blowout Ballista attack for the Green Flame Arbalester attack:",
 						"{@i Ranged Weapon Attack}: +8 to hit, range 200/800 ft. (can't hit targets within 60 ft. of it), one target. {@i Hit}: 16 ({@dice 3d10}) piercing damage and 22 ({@dice 4d10}) fire damage.",
 						"The airship's crew is made up of a female {@creature hobgoblin captain} named Garla, six {@creature Hobgoblin||hobgoblins}, six {@creature Goblin||goblins}, six {@creature Smoke Mephit||smoke mephits}, and a {@creature hippogriff} (serving as the captain's mount). All these creatures are recent mercenary hires, so none of them have the iconic affiliate of the Six features. They employ the following strategy, hoping to distract the characters while they steal the orrery housing and as many of its components as they can.",
 						{
@@ -8630,7 +8633,7 @@
 											"page": 169,
 											"id": "279",
 											"entries": [
-												"The water of the river is thick and slow moving, glows a phosphorescent green, and smells awful. A successful DC 10 Wisdom ({@skill Medicine}) check indicates that the water has been contaminated by magic and has unusual side effects. Anyone drinking the water gains the {@condition poisoned} condition for 1 hour and has a {@chance 50|50 percent} chance to spontaneously grow an extra head. The extra head can speak, see, and hear, but provides no mechanical benefits. It shrinks away to nothing after 1 hour."
+												"The water of the river is thick and slow moving, glows a phosphorescent green, and smells awful. A successful DC 10 Wisdom ({@skill Medicine}) check indicates that the water has been contaminated by magic and has unusual side effects. Anyone drinking the water gains the {@condition poisoned} condition for 1 hour and has a {@chance 50} chance to spontaneously grow an extra head. The extra head can speak, see, and hear, but provides no mechanical benefits. It shrinks away to nothing after 1 hour."
 											]
 										}
 									]
@@ -10996,7 +10999,8 @@
 								"offsetX": 47,
 								"offsetY": 38
 							},
-							"credit": "Robert Lazzaretti"
+							"credit": "Robert Lazzaretti",
+							"id": "335"
 						},
 						{
 							"type": "entries",
@@ -11207,11 +11211,11 @@
 											"rows": [
 												[
 													"1",
-													"Each goblin has advantage or disadvantage ({@chance 50|50 percent} chance) on attack rolls until the end of its next turn."
+													"Each goblin has advantage or disadvantage ({@chance 50} chance) on attack rolls until the end of its next turn."
 												],
 												[
 													"2",
-													"Each character has advantage or disadvantage ({@chance 50|50 percent} chance) on attack rolls until the end of their next turn."
+													"Each character has advantage or disadvantage ({@chance 50} chance) on attack rolls until the end of their next turn."
 												],
 												[
 													"3",

@@ -1,4 +1,4 @@
-"use strict";
+import {ManageBrewUi} from "./utils-brew/utils-brew-ui-manage.js";
 
 class ManagePrerelease {
 	static async pInitialise () {
@@ -7,7 +7,7 @@ class ManagePrerelease {
 
 	static async pRender () {
 		const manager = new ManageBrewUi({brewUtil: PrereleaseUtil});
-		return manager.pRender($(`#prereleasemanager`).empty());
+		return manager.pRender($(`#manager`).empty());
 	}
 }
 

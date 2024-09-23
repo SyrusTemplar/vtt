@@ -2,15 +2,7 @@
 
 // TODO implement remaining methods
 class RendererMarkdown {
-	static async pInit () {
-		const settings = await StorageUtil.pGet("bookViewSettingsMarkdown") || Object.entries(RendererMarkdown._CONFIG).mergeMap(([k, v]) => ({[k]: v.default}));
-		Object.assign(RendererMarkdown, settings);
-		RendererMarkdown._isInit = true;
-	}
-
-	static checkInit () {
-		if (!RendererMarkdown._isInit) throw new Error(`RendererMarkdown has not been initialised!`);
-	}
+	static CHARS_PER_PAGE = 5500;
 
 	getLineBreak () { return "\n"; }
 
@@ -34,8 +26,6 @@ class RendererMarkdown {
 	set isSkipStylingItemLinks (val) { this._isSkipStylingItemLinks = val; }
 
 	static get () {
-		RendererMarkdown.checkInit();
-
 		return new RendererMarkdown().setFnPostProcess(RendererMarkdown._fnPostProcess);
 	}
 
@@ -639,26 +629,23 @@ class RendererMarkdown {
 
 	// region primitives
 	_renderString (entry, textStack, meta, options) {
-		switch (RendererMarkdown._tagRenderMode || 0) {
-			// render tags where possible
-			case 0: {
-				this._renderString_renderMode0(entry, textStack, meta, options);
+		switch (VetoolsConfig.get("markdown", "tagRenderMode") || "convertMarkdown") {
+			case "convertMarkdown": {
+				this._renderString_renderModeConvertMarkdown(entry, textStack, meta, options);
 				break;
 			}
-			// leave tags as-is
-			case 1: {
+			case "ignore": {
 				textStack[0] += entry;
 				break;
 			}
-			// strip tags
-			case 2: {
+			case "convertText": {
 				textStack[0] += Renderer.stripTags(entry);
 				break;
 			}
 		}
 	}
 
-	_renderString_renderMode0 (entry, textStack, meta, options) {
+	_renderString_renderModeConvertMarkdown (entry, textStack, meta, options) {
 		const tagSplit = Renderer.splitByTags(entry);
 		const len = tagSplit.length;
 		for (let i = 0; i < len; ++i) {
@@ -703,7 +690,15 @@ class RendererMarkdown {
 				this._recursiveRender(text, textStack, meta);
 				textStack[0] += "*";
 				break;
-			case "@atk": textStack[0] += `*${Renderer.attackTagToFull(text)}*`; break;
+			case "@atk":
+			case "@atkr":
+				textStack[0] += `*${Renderer.attackTagToFull(text, {isRoll: tag === "@atkr"})}* `;
+				break;
+			case "@actSave": textStack[0] += `*${Parser.attAbvToFull(text)} Saving Throw:*`; break;
+			case "@actSaveSuccess": textStack[0] += `*Success:*`; break;
+			case "@actSaveFail": textStack[0] += `*Failure:*`; break;
+			case "@actTrigger": textStack[0] += `*Trigger:*`; break;
+			case "@actResponse": textStack[0] += `*Response:*`; break;
 			case "@h": textStack[0] += `*Hit:* `; break;
 
 			// DCs /////////////////////////////////////////////////////////////////////////////////////////////
@@ -786,64 +781,10 @@ class RendererMarkdown {
 
 	// region Static options
 	static async pShowSettingsModal () {
-		RendererMarkdown.checkInit();
-
-		const {$modalInner} = UiUtil.getShowModal({
-			title: "Markdown Settings",
-			cbClose: () => RendererMarkdown.__$wrpSettings.detach(),
-		});
-		if (!RendererMarkdown.__$wrpSettings) {
-			const _compMarkdownSettings = BaseComponent.fromObject({
-				_tagRenderMode: RendererMarkdown._tagRenderMode,
-				_isAddColumnBreaks: RendererMarkdown._isAddColumnBreaks,
-			});
-			const compMarkdownSettings = _compMarkdownSettings.getPod();
-			const saveMarkdownSettingsDebounced = MiscUtil.debounce(() => StorageUtil.pSet("bookViewSettingsMarkdown", _compMarkdownSettings.toObject()), 100);
-			compMarkdownSettings.addHookAll(() => {
-				Object.assign(RendererMarkdown, compMarkdownSettings.getState());
-				saveMarkdownSettingsDebounced();
-			});
-
-			const $rows = Object.entries(RendererMarkdown._CONFIG)
-				.map(([k, v]) => {
-					let $ipt;
-					switch (v.type) {
-						case "boolean": {
-							$ipt = ComponentUiUtil.$getCbBool(_compMarkdownSettings, k).addClass("mr-1");
-							break;
-						}
-						case "enum": {
-							$ipt = ComponentUiUtil.$getSelEnum(_compMarkdownSettings, k, {values: v.values, fnDisplay: v.fnDisplay});
-							break;
-						}
-						default: throw new Error(`Unhandled input type!`);
-					}
-
-					return $$`<div class="m-1 stripe-even"><label class="split-v-center">
-						<div class="w-100 mr-2">${v.name}</div>
-						${$ipt.addClass("max-w-33")}
-					</label></div>`;
-				});
-
-			RendererMarkdown.__$wrpSettings = $$`<div class="ve-flex-v-col w-100 h-100">${$rows}</div>`;
-		}
-		RendererMarkdown.__$wrpSettings.appendTo($modalInner);
+		ConfigUi.show({settingsGroupIds: ["markdown"]});
 	}
 	// endregion
-
-	static getSetting (key) { return this[`_${key}`]; }
 }
-RendererMarkdown._isInit = false;
-RendererMarkdown.CHARS_PER_PAGE = 5500;
-RendererMarkdown.__$wrpSettings = null;
-RendererMarkdown._TAG_RENDER_MODES = ["Convert to Markdown", "Leave As-Is", "Convert to Text"];
-RendererMarkdown._CONFIG = {
-	_tagRenderMode: {default: 0, name: "Tag Handling (<code>@tag</code>)", fnDisplay: ix => RendererMarkdown._TAG_RENDER_MODES[ix], type: "enum", values: [0, 1, 2]},
-	_isAddColumnBreaks: {default: false, name: "Add GM Binder Column Breaks (<code>\\columnbreak</code>)", type: "boolean"},
-	_isAddPageBreaks: {default: false, name: "Add GM Binder Page Breaks (<code>\\pagebreak</code>)", type: "boolean"},
-};
-
-if (typeof window !== "undefined") window.addEventListener("load", () => RendererMarkdown.pInit());
 
 RendererMarkdown.utils = class {
 	static getPageText (it) {
@@ -905,7 +846,7 @@ RendererMarkdown.monster = class {
 
 		const monTypes = Parser.monTypeToFullObj(mon.type);
 		RendererMarkdown.get().isSkipStylingItemLinks = true;
-		const acPart = mon.ac == null ? "\u2014" : Parser.acToFull(mon.ac, RendererMarkdown.get());
+		const acPart = mon.ac == null ? "\u2014" : Parser.acToFull(mon.ac, {renderer: RendererMarkdown.get()});
 		RendererMarkdown.get().isSkipStylingItemLinks = false;
 		const resourcePart = mon.resource?.length
 			? mon.resource
@@ -919,8 +860,10 @@ RendererMarkdown.monster = class {
 		const damResPart = mon.resist ? `\n>- **Damage Resistances** ${Parser.getFullImmRes(mon.resist, {isPlainText: true})}` : "";
 		const damImmPart = mon.immune ? `\n>- **Damage Immunities** ${Parser.getFullImmRes(mon.immune, {isPlainText: true})}` : "";
 		const condImmPart = mon.conditionImmune ? `\n>- **Condition Immunities** ${Parser.getFullCondImm(mon.conditionImmune, {isPlainText: true})}` : "";
-		const sensePart = !opts.isHideSenses ? `\n>- **Senses** ${mon.senses ? `${Renderer.utils.getRenderedSenses(mon.senses, true)}, ` : ""}passive Perception ${mon.passive || "\u2014"}` : "";
+		const sensePart = !opts.isHideSenses ? `\n>- **Senses** ${mon.senses ? `${Renderer.utils.getRenderedSenses(mon.senses, {isPlainText: true})}, ` : ""}passive Perception ${mon.passive || "\u2014"}` : "";
 		const languagePart = !opts.isHideLanguages ? `\n>- **Languages** ${Renderer.monster.getRenderedLanguages(mon.languages)}` : "";
+
+		const pbPart = Renderer.monster.getPbPart(mon, {isPlainText: true});
 
 		const fnGetSpellTraits = RendererMarkdown.monster.getSpellcastingRenderedTraits.bind(RendererMarkdown.monster, meta);
 		const traitArray = Renderer.monster.getOrderedTraits(mon, {fnGetSpellTraits});
@@ -953,18 +896,18 @@ RendererMarkdown.monster = class {
 >*${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${Renderer.utils.getRenderedSize(mon.size)} ${monTypes.asText}${mon.alignment ? `, ${mon.alignmentPrefix ? RendererMarkdown.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment)}` : ""}*
 >___
 >- **Armor Class** ${acPart}
->- **Hit Points** ${mon.hp == null ? "\u2014" : Renderer.monster.getRenderedHp(mon.hp, true)}${resourcePart}
+>- **Hit Points** ${mon.hp == null ? "\u2014" : Renderer.monster.getRenderedHp(mon.hp, {isPlainText: true})}${resourcePart}
 >- **Speed** ${Parser.getSpeedString(mon)}
 >___
 ${abilityScorePart}
 >___${savePart}${skillPart}${damVulnPart}${damResPart}${damImmPart}${condImmPart}${sensePart}${languagePart}
->- **Challenge** ${mon.cr ? Parser.monCrToFull(mon.cr, {isMythic: !!mon.mythic}) : "\u2014"}
-${mon.pbNote || Parser.crToNumber(mon.cr) < VeCt.CR_CUSTOM ? `>- **Proficiency Bonus** ${mon.pbNote ?? UiUtil.intToBonus(Parser.crToPb(mon.cr), {isPretty: true})}` : ""}
+>- **Challenge** ${Renderer.monster.getChallengeRatingPart(mon, {style: "classic", isPlainText: true})}
+${pbPart ? `>- **Proficiency Bonus** ${pbPart}` : ""}
 >___`;
 
 		let breakablePart = `${traitsPart}${actionsPart}${bonusActionsPart}${reactionsPart}${legendaryActionsPart}${mythicActionsPart}${legendaryGroupLairPart}${legendaryGroupRegionalPart}${footerPart}`;
 
-		if (RendererMarkdown.getSetting("isAddColumnBreaks")) {
+		if (VetoolsConfig.get("markdown", "isAddColumnBreaks")) {
 			let charAllowanceFirstCol = 2200 - unbreakablePart.length;
 
 			const breakableLines = breakablePart.split("\n");
@@ -1102,7 +1045,7 @@ ${mon.pbNote || Parser.crToNumber(mon.cr) < VeCt.CR_CUSTOM ? `>- **Proficiency B
 
 				const out = [monEntry];
 
-				const isAddPageBreaks = RendererMarkdown.getSetting("isAddPageBreaks");
+				const isAddPageBreaks = VetoolsConfig.get("markdown", "isAddPageBreaks");
 				if (fluffText) {
 					// Insert a page break before every fluff section
 					if (isAddPageBreaks) out.push("", "\\pagebreak", "");
@@ -1144,7 +1087,7 @@ RendererMarkdown.spell = class {
 		subStack[0] += `#### ${sp._displayName || sp.name}
 *${Parser.spLevelSchoolMetaToFull(sp.level, sp.school, sp.meta, sp.subschools)}*
 ___
-- **Casting Time:** ${Parser.spTimeListToFull(sp.time)}
+- **Casting Time:** ${Parser.spTimeListToFull(sp.time, sp.meta)}
 - **Range:** ${Parser.spRangeToFull(sp.range)}
 - **Components:** ${Parser.spComponentsToFull(sp.components, sp.level, {isPlainText: true})}
 - **Duration:** ${Parser.spDurationToFull(sp.duration)}
@@ -1157,6 +1100,12 @@ ___
 			RendererMarkdown.get().recursiveRender({entries: sp.entriesHigherLevel}, subStack, meta, {suffix: "\n"});
 		}
 		meta.depth = cacheDepth;
+
+		const fromClassList = Renderer.spell.getCombinedClasses(sp, "fromClassList");
+		if (fromClassList.length) {
+			const [current] = Parser.spClassesToCurrentAndLegacy(fromClassList);
+			subStack[0] = `${subStack[0].trimEnd()}\n\n**Classes:** ${Parser.spMainClassesToFull(current, {isTextOnly: true})}`;
+		}
 
 		const spellRender = subStack.join("").trim();
 		return `\n${spellRender}\n\n`;
@@ -2554,8 +2503,8 @@ class MarkdownConverter {
 			// check if first column is all strictly number-like
 			tbl.rows.forEach(r => {
 				const r0Clean = Renderer.stripTags((r[0] || "").trim());
-				// u2012 = figure dash; u2013 = en-dash
-				if (!/^[-+*/×÷x^.,0-9\u2012\u2013]+(?:st|nd|rd|th)?$/i.exec(r0Clean)) return isDiceCol0 = false;
+				// u2012 = figure dash; u2013 = en-dash; u2014 = em-dash; u2212 = minus sign
+				if (!/^[-+*/×÷x^.,0-9\u2012-\u2014\u2212]+(?:st|nd|rd|th)?$/i.exec(r0Clean)) return isDiceCol0 = false;
 			});
 		})();
 

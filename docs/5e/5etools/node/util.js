@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import fs from "fs";
 import https from "https";
 
 function readJson (path) {
@@ -96,33 +96,43 @@ class PatchLoadJson {
 
 	static _CACHE_HTTP_REQUEST = {};
 
+	static async _pLoadUrl (url) {
+		if (!url.startsWith("http")) return this._CACHE_HTTP_REQUEST[url] = readJson(url);
+
+		if (process.env.HOMEBREW_REPO_DIR && DataUtil.brew.isUrlUnderDefaultRoot(url)) {
+			const urlLocal = [
+				process.env.HOMEBREW_REPO_DIR.trim(),
+				DataUtil.brew.getUrlRelativeToDefaultRoot(url),
+			]
+				.join("/")
+				.replace(/\/+/g, "/");
+			return this._CACHE_HTTP_REQUEST[url] = readJson(urlLocal);
+		}
+
+		return this._CACHE_HTTP_REQUEST[url] ||= new Promise((resolve, reject) => {
+			https
+				.get(
+					url,
+					resp => {
+						let stack = "";
+						resp.on("data", chunk => stack += chunk);
+						resp.on("end", () => resolve(JSON.parse(stack)));
+					},
+				)
+				.on("error", err => reject(err));
+		});
+	}
+
 	static patchLoadJson () {
 		if (this._PATCH_STACK++) return;
 
 		PatchLoadJson._CACHED = PatchLoadJson._CACHED || DataUtil.loadJSON.bind(DataUtil);
 
-		const pLoadUrl = async url => {
-			if (!url.startsWith("http")) return readJson(url);
-
-			return this._CACHE_HTTP_REQUEST[url] ||= new Promise((resolve, reject) => {
-				https
-					.get(
-						url,
-						resp => {
-							let stack = "";
-							resp.on("data", chunk => stack += chunk);
-							resp.on("end", () => resolve(JSON.parse(stack)));
-						},
-					)
-					.on("error", err => reject(err));
-			});
-		};
-
 		const loadJsonCache = {};
 		DataUtil.loadJSON = (url) => {
 			if (!loadJsonCache[url]) {
 				loadJsonCache[url] = (async () => {
-					const data = await pLoadUrl(url);
+					const data = await this._pLoadUrl(url);
 					await DataUtil.pDoMetaMerge(url, data, {isSkipMetaMergeCache: true});
 					return data;
 				})();
@@ -131,7 +141,7 @@ class PatchLoadJson {
 		};
 
 		PatchLoadJson._CACHED_RAW = PatchLoadJson._CACHED_RAW || DataUtil.loadRawJSON.bind(DataUtil);
-		DataUtil.loadRawJSON = async (url) => pLoadUrl(url);
+		DataUtil.loadRawJSON = async (url) => this._pLoadUrl(url);
 	}
 
 	static unpatchLoadJson () {
@@ -141,28 +151,6 @@ class PatchLoadJson {
 		if (PatchLoadJson._CACHED_RAW) DataUtil.loadRawJSON = PatchLoadJson._CACHED_RAW;
 	}
 }
-
-class ArgParser {
-	static parse () {
-		process.argv
-			.slice(2)
-			.forEach(arg => {
-				let [k, v] = arg.split("=").map(it => it.trim()).filter(Boolean);
-				if (v == null) ArgParser.ARGS[k] = true;
-				else {
-					v = v
-						.replace(/^"(.*)"$/, "$1")
-						.replace(/^'(.*)'$/, "$1")
-					;
-
-					if (!isNaN(v)) ArgParser.ARGS[k] = Number(v);
-					else ArgParser.ARGS[k] = v;
-				}
-			});
-	}
-}
-ArgParser.ARGS = {};
-
 class Timer {
 	static _ID = 0;
 	static _RUNNING = {};
@@ -192,7 +180,6 @@ export {
 	readJson,
 	listFiles,
 	FILE_PREFIX_BLOCKLIST,
-	ArgParser,
 	rmDirRecursiveSync,
 	Timer,
 };

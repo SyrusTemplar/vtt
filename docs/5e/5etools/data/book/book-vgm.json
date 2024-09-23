@@ -1092,7 +1092,8 @@
 									},
 									"width": 800,
 									"height": 1100,
-									"imageType": "map"
+									"imageType": "map",
+									"id": "199"
 								},
 								{
 									"type": "image",
@@ -1133,7 +1134,7 @@
 									"name": "Eyes in the Sky",
 									"page": 13,
 									"entries": [
-										"Because a beholder's paranoia knows no limits, it often designs its lair to include secret passageways that are used for reconnaissance or surprise attacks. (These features aren't shown on the accompanying map, but can be located anywhere you see fit.) A typical arrangement is a network of tunnels running above the main chambers of the lair, each wide enough for the beholder to fly through. Fist-sized holes in the floors of these tunnels open into the rooms below, allowing the beholder to spy on creatures in its lair and perhaps target them with eye rays. (Opponents can shoot back, but the holes function like arrow slits and provide three-quarters cover to the beholder.)"
+										"Because a beholder's paranoia knows no limits, it often designs its lair to include secret passageways that are used for reconnaissance or surprise attacks. (These features aren't shown on the accompanying map, but can be located anywhere you see fit.) A typical arrangement is a network of tunnels running above the main chambers of the lair, each wide enough for the beholder to fly through. Fist-sized holes in the floors of these tunnels open into the rooms below, allowing the beholder to spy on creatures in its lair and perhaps target them with eye rays. (Opponents can shoot back, but the holes function like arrow slits and provide {@quickref Cover||3||three-quarters cover} to the beholder.)"
 									],
 									"id": "023"
 								},
@@ -4211,7 +4212,8 @@
 										"offsetY": 7,
 										"scale": 4
 									},
-									"imageType": "map"
+									"imageType": "map",
+									"id": "1a7"
 								},
 								{
 									"type": "image",
@@ -4904,7 +4906,8 @@
 										"scale": 1.87,
 										"distance": 10
 									},
-									"imageType": "map"
+									"imageType": "map",
+									"id": "1a8"
 								},
 								{
 									"type": "image",
@@ -5324,6 +5327,7 @@
 								"type": "internal",
 								"path": "book/VGM/c1-7.webp"
 							},
+							"credit": "Brynn Metheney",
 							"width": 1000,
 							"height": 435
 						},
@@ -5722,7 +5726,8 @@
 										"offsetY": 6,
 										"scale": 4.15
 									},
-									"imageType": "map"
+									"imageType": "map",
+									"id": "1a9"
 								},
 								{
 									"type": "image",
@@ -6455,7 +6460,8 @@
 										"size": 138,
 										"distance": 50
 									},
-									"imageType": "map"
+									"imageType": "map",
+									"id": "1aa"
 								},
 								"No two lairs are the same, as the resident elder brain drives the form and function of each one. The lair shown in the accompanying map is typical and includes many elements found in every colony's stronghold.",
 								"The illithids, with their ability to levitate, design major portions of their lairs so as to make movement as difficult as possible for ordinary two-legged creatures. In such locations, thralls must climb or use ropes to move from place to place.",
@@ -7371,7 +7377,8 @@
 										"offsetY": 3,
 										"scale": 3.5
 									},
-									"imageType": "map"
+									"imageType": "map",
+									"id": "1ab"
 								},
 								{
 									"type": "image",
@@ -8663,7 +8670,8 @@
 										"scale": 2.32,
 										"distance": 10
 									},
-									"imageType": "map"
+									"imageType": "map",
+									"id": "1ac"
 								},
 								{
 									"type": "image",

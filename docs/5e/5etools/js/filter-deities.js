@@ -1,6 +1,6 @@
 "use strict";
 
-class PageFilterDeities extends PageFilter {
+class PageFilterDeities extends PageFilterBase {
 	static unpackAlignment (ent) {
 		ent.alignment.sort(SortUtil.alignmentSort);
 		if (ent.alignment.length === 2 && ent.alignment.includes("N")) {
@@ -28,10 +28,10 @@ class PageFilterDeities extends PageFilter {
 		});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Grants Piety Features", "Has Info", "Has Images", "Reprinted", "SRD", "Basic Rules", "Legacy"],
+			items: ["Grants Piety Features", "Has Info", "Has Images", "Reprinted", "Legacy"],
 			displayFn: StrUtil.uppercaseFirst,
-			deselFn: (it) => it === "Reprinted",
 			isMiscFilter: true,
+			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});
 	}
 
@@ -41,11 +41,7 @@ class PageFilterDeities extends PageFilter {
 		if (!ent.domains) ent.domains = [VeCt.STR_NONE];
 		ent.domains.sort(SortUtil.ascSort);
 
-		ent._fMisc = [];
-		if (ent.reprinted) ent._fMisc.push("Reprinted");
-		if (ent.srd) ent._fMisc.push("SRD");
-		if (ent.basicRules) ent._fMisc.push("Basic Rules");
-		if (SourceUtil.isLegacySourceWotc(ent.source)) ent._fMisc.push("Legacy");
+		this._mutateForFilters_commonMisc(ent);
 		if (ent.entries) ent._fMisc.push("Has Info");
 		if (ent.symbolImg) ent._fMisc.push("Has Images");
 		if (ent.piety) ent._fMisc.push("Grants Piety Features");
@@ -58,6 +54,7 @@ class PageFilterDeities extends PageFilter {
 		this._domainFilter.addItem(ent.domains);
 		this._pantheonFilter.addItem(ent.pantheon);
 		this._categoryFilter.addItem(ent.category);
+		this._miscFilter.addItem(ent._fMisc);
 	}
 
 	async _pPopulateBoxOptions (opts) {
@@ -85,3 +82,22 @@ class PageFilterDeities extends PageFilter {
 }
 
 globalThis.PageFilterDeities = PageFilterDeities;
+
+class ListSyntaxDeities extends ListUiUtil.ListSyntax {
+	_getSearchCacheStats (entity) {
+		const ptrOut = {_: ""};
+
+		const entriesMeta = Renderer.deity.getDeityRenderableEntriesMeta(entity);
+		Object.entries(entriesMeta.entriesAttributes)
+			.forEach(entry => this._getSearchCache_handleEntry(entry, ptrOut));
+
+		return ptrOut._;
+	}
+
+	/** Treat entries on the deity as "fluff" */
+	async _pGetSearchCacheFluff (entity) {
+		return this._getSearchCache_entries(entity, {indexableProps: ["entries"]});
+	}
+}
+
+globalThis.ListSyntaxDeities = ListSyntaxDeities;

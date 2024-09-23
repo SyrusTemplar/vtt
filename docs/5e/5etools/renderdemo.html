@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
 
 	<title>Renderer Demo - 5etools</title>
 
@@ -58,15 +58,21 @@
 </head>
 
 <body>
+
+<div class="overlay-noise no-print"></div>
+
+<div class="cancer__wrp-sidebar-rhs cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__sidebar-rhs-inner cancer__sidebar-rhs-inner--top"><!--5ETOOLS_AD_RIGHT_1--></div><div class="cancer__sidebar-rhs-inner cancer__sidebar-rhs-inner--bottom"><!--5ETOOLS_AD_RIGHT_2--></div></div>
+
 <div class="viewport-wrapper">
 	<div class="cancer__wrp-leaderboard cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__wrp-leaderboard-inner"><!--5ETOOLS_AD_LEADERBOARD--></div></div>
 
 	<header class="hidden-xs hidden-sm page__header">
 		<div class="container ve-flex-v-baseline">
-			<h1 class="page__title no-wrap my-0">Renderer Demo</h1>
-			<p class="page__subtitle no-wrap my-0" id="page__subtitle">Edit the JSON on the left, and see the results on the right</p>
+			<h1 class="page__title no-wrap my-0" id="page__title">Renderer Demo</h1>
+			<p class="page__subtitle no-wrap my-0" id="page__subtitle">Edit the JSON on the left, and see the results on the right.</p>
 		</div>
 	</header>
+
 	<nav class="container page__nav" id="navigation">
 		<ul class="nav nav-pills page__nav-inner" id="navbar"></ul>
 	</nav>
@@ -80,8 +86,8 @@
 					<option value="md">Markdown</option>
 					<option value="cards">RPG Cards</option>
 				</select>
-				<button class="btn btn-default btn-sm mr-2" id="demoRender">Render</button>
-				<button class="btn btn-default btn-sm" id="demoReset">Reset</button>
+				<button class="ve-btn ve-btn-default ve-btn-sm mr-2" id="demoRender">Render</button>
+				<button class="ve-btn ve-btn-default ve-btn-sm" id="demoReset">Reset</button>
 				<span id="message"></span>
 			</div>
 		</div>
@@ -96,26 +102,28 @@
 
 <!--5ETOOLS_SCRIPT_ANCHOR-->
 <!--5ETOOLS_AD_ADHESION-->
-<!--5ETOOLS_SCRIPT_ANCHOR__ACE-JS-->
-<script type="text/javascript" src="js/parser.js"></script>
-<script type="text/javascript" src="js/utils.js"></script>
-<script type="text/javascript" src="js/utils-ui.js"></script>
-<script type="text/javascript" src="lib/localforage.js"></script>
-<script type="text/javascript" src="js/omnidexer.js"></script>
-<script type="text/javascript" src="js/omnisearch.js"></script>
-<script type="text/javascript" src="js/filter.js"></script>
-<script type="text/javascript" src="js/utils-dataloader.js"></script>
-<script type="text/javascript" src="js/utils-brew.js"></script>
-<script type="text/javascript" src="js/render.js"></script>
-<script type="text/javascript" src="js/render-dice.js"></script>
-<script type="text/javascript" src="js/render-markdown.js"></script>
-<script type="text/javascript" src="js/render-card.js"></script>
-<script type="text/javascript" src="js/scalecreature.js"></script>
-<script type="text/javascript" src="js/hist.js"></script>
-<script type="text/javascript" src="js/renderdemo.js"></script>
-<script type="text/javascript" src="lib/jquery.js"></script>
-<script type="text/javascript" src="lib/elasticlunr.js"></script>
-<script type="text/javascript" src="lib/ace.js"></script>
-</body>
 
+<script type="text/javascript" defer src="lib/jquery.js"></script>
+<script type="text/javascript" defer src="lib/ace.js"></script>
+<script type="text/javascript" defer src="js/parser.js"></script>
+<script type="text/javascript" defer src="js/utils.js"></script>
+<script type="text/javascript" defer src="js/utils-ui.js"></script>
+<script type="text/javascript" defer src="lib/localforage.js"></script>
+<script type="module" defer src="js/omnidexer.js"></script>
+<script type="module" src="js/omnisearch.js"></script>
+<script type="module" src="js/filter.js"></script>
+<script type="text/javascript" defer src="js/utils-dataloader.js"></script>
+<script type="module" src="js/utils-brew.js"></script>
+<script type="module" src="js/utils-config.js"></script>
+<script type="text/javascript" defer src="js/render.js"></script>
+<script type="text/javascript" defer src="js/render-dice.js"></script>
+<script type="text/javascript" defer src="js/render-markdown.js"></script>
+<script type="text/javascript" defer src="js/render-card.js"></script>
+<script type="text/javascript" defer src="js/scalecreature.js"></script>
+<script type="text/javascript" defer src="js/hist.js"></script>
+<script type="text/javascript" defer src="js/renderdemo.js"></script>
+<script type="text/javascript" defer src="js/list2.js"></script>
+<script type="text/javascript" defer src="lib/elasticlunr.js"></script>
+
+</body>
 </html>

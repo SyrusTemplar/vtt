@@ -1,5 +1,7 @@
-v1.207.2
+v2.1.1
 
-- (Brew) Added `"alias"` support for subclasses
-- (Brew) Fixed display of subclass fluff in Classes page outline
-- (Fixed typos/added tags)/added tags)
+- Added "Gear" display to 2024-style Bestiary statblocks
+- (Brew) Added "Partnered" filter to Get Homebrew
+- (Brew) Fixed dynamic generation of 2024-compatible subclasses
+- (Brew) Fixed race "reprintedAs" being applied to subraces
+- (Fixed typos/added tags)

@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import fs from "fs";
 import * as ut from "../node/util.js";
 import "../js/parser.js";
 import "../js/utils.js";
@@ -105,7 +105,7 @@ class TestFoundry {
 
 		foundryData.raceFeature.forEach(raceFeature => {
 			const uid = HASH_BUILDER(raceFeature);
-			if (!uidsRaceFeature.has(uid)) errors.push(`\tRace feature "${uid}" not found!`);
+			if (!uidsRaceFeature.has(uid)) errors.push(`\tSpecies feature "${uid}" not found!`);
 		});
 	}
 

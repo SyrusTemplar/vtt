@@ -217,7 +217,8 @@
 						"size": 85,
 						"distance": 25
 					},
-					"credit": "Mike Schley"
+					"credit": "Mike Schley",
+					"id": "580"
 				}
 			]
 		},
@@ -3231,7 +3232,8 @@
 								"type": "none"
 							},
 							"title": "Map of Mystery",
-							"credit": "Claudio Pozas"
+							"credit": "Claudio Pozas",
+							"id": "581"
 						},
 						{
 							"type": "entries",
@@ -5104,7 +5106,7 @@
 															"items": [
 																"Undead within 30 feet of the figurine can't be turned.",
 																"Dead creatures within 30 feet of the figurine can't be brought back to life.",
-																"A creature that holds the figurine while praying to Orcus for at least 1 hour has a {@chance 10|10 percent} chance of summoning a smoky avatar of the demon lord. Once this avatar is summoned, it can't be summoned again for 30 days. Orcus's avatar has the statistics of a {@creature wraith} except that it's chaotic evil. It attacks all non-undead creatures it encounters, and it disappears after 1 hour or when reduced to 0 hit points."
+																"A creature that holds the figurine while praying to Orcus for at least 1 hour has a {@chance 10} chance of summoning a smoky avatar of the demon lord. Once this avatar is summoned, it can't be summoned again for 30 days. Orcus's avatar has the statistics of a {@creature wraith} except that it's chaotic evil. It attacks all non-undead creatures it encounters, and it disappears after 1 hour or when reduced to 0 hit points."
 															]
 														}
 													]
@@ -5923,7 +5925,7 @@
 												"type": "internal",
 												"path": "adventure/CM/thumbnail/033-map-5.01-vermeillon.webp"
 											},
-											"credit": "Time Hartin"
+											"credit": "Tim Hartin"
 										},
 										{
 											"type": "image",
@@ -5945,7 +5947,7 @@
 											"mapParent": {
 												"id": "564"
 											},
-											"credit": "Time Hartin"
+											"credit": "Tim Hartin"
 										}
 									]
 								},
@@ -6557,7 +6559,7 @@
 												"type": "internal",
 												"path": "adventure/CM/thumbnail/036-map-5.02-mayor-duvezins-house.webp"
 											},
-											"credit": "Time Hartin"
+											"credit": "Tim Hartin"
 										},
 										{
 											"type": "image",
@@ -6578,7 +6580,7 @@
 											"mapParent": {
 												"id": "565"
 											},
-											"credit": "Time Hartin"
+											"credit": "Tim Hartin"
 										}
 									]
 								},
@@ -8150,7 +8152,7 @@
 												"type": "internal",
 												"path": "adventure/CM/thumbnail/038-map-5.03-platinum-mine.webp"
 											},
-											"credit": "Time Hartin"
+											"credit": "Tim Hartin"
 										},
 										{
 											"type": "image",
@@ -8171,7 +8173,7 @@
 											"mapParent": {
 												"id": "566"
 											},
-											"credit": "Time Hartin"
+											"credit": "Tim Hartin"
 										}
 									]
 								},
@@ -15791,7 +15793,7 @@
 									"entries": [
 										"The characters might correctly assume that this place is what it looks like: the site of a well (which is now abandoned). If they approach to within 5 feet of the stone wall, they can peer over the 2-foot-high wall into the hole, which is dark, but they don't get an idea of how deep the hole is or what's in it.",
 										"If a character comes up to the stone wall and looks down inside the hole, this activity attracts the attention of a {@creature grick alpha} that uses the place as a lair. The water source at the bottom of the 30-foot-deep hole has long since dried up, making it an ideal place for the grick to lurk when it's not out hunting.",
-										"The grick's Stone Camouflage trait prevents the characters from realizing its presence\u2014unless they shine a light source down into the hole or have some other way of seeing the bottom of the pit. If they don't see the grick at the same time it sees them, the monster lurches out of the well to confront its prey. A character who can see into the hole and has a passive Wisdom ({@skill Perception}) score of 14 or higher notices the grick before it attacks; any other characters start the encounter {@quickref Surprise|PHB|3|0|surprised}."
+										"The grick's Stone Camouflage trait prevents the characters from realizing its presence\u2014unless they shine a light source down into the hole or have some other way of seeing the bottom of the pit. If they don't see the grick at the same time it sees them, the monster lurches out of the well to confront its prey. A character who can see into the hole and has a passive Wisdom ({@skill Perception}) score of 14 or higher notices the grick before it attacks; any other characters start the encounter {@status surprised}."
 									]
 								},
 								{
@@ -20629,7 +20631,7 @@
 											"page": 145,
 											"id": "397",
 											"entries": [
-												"On initiative count 20 (losing initiative ties), {@creature Zikran|CM} uses his handheld device to fire the cannon at one creature he can see, provided the creature is in the basement or on the staircase. {@creature Zikran|CM}'s target must make a DC 17 Dexterity saving throw, taking 24 ({@dice 7d6}) cold damage on a failed save, or half as much damage on a successful one. The basement furnishings provide half cover, should a creature wish to hide behind them.",
+												"On initiative count 20 (losing initiative ties), {@creature Zikran|CM} uses his handheld device to fire the cannon at one creature he can see, provided the creature is in the basement or on the staircase. {@creature Zikran|CM}'s target must make a DC 17 Dexterity saving throw, taking 24 ({@dice 7d6}) cold damage on a failed save, or half as much damage on a successful one. The basement furnishings provide {@quickref Cover||3||half cover}, should a creature wish to hide behind them.",
 												"The cannon is a Large object with AC 16, 80 hit points, and immunity to poison and psychic damage. It is mounted atop a swivel and bolted to the dais. The cannon draws power from the crystal in the middle of the room. This crystal sparks with elemental power whenever the cannon is about to fire. If the crystal is destroyed, both {@creature Zikran|CM}'s handheld device and the cannon become powerless. The crystal is a Large object with AC 13, 40 hit points, and immunity to poison and psychic damage."
 											]
 										},

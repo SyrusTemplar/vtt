@@ -1,4 +1,36 @@
-"use strict";
+import {UtilsFoundryItem} from "./utils-foundry.js";
+
+class FoundryOmnidexerUtils {
+	static getPackedFoundryExtras ({prop, ent}) {
+		switch (prop) {
+			case "spell": return this._getPackedFoundryExtras_spell({ent});
+
+			case "item":
+			case "baseitem": return this._getPackedFoundryExtras_item({ent});
+		}
+	}
+
+	static _getPackedFoundryExtras_spell ({ent}) {
+		return {l: ent.level};
+	}
+
+	static _getPackedFoundryExtras_item ({ent}) {
+		return {ft: UtilsFoundryItem.getFoundryItemType(ent)};
+	}
+
+	/* -------------------------------------------- */
+
+	static unpackFoundryExtras (packed) {
+		if (!packed) return null;
+
+		return {
+			level: packed.l,
+			foundryType: packed.ft,
+		};
+	}
+}
+
+globalThis.FoundryOmnidexerUtils = FoundryOmnidexerUtils;
 
 class Omnidexer {
 	constructor (id = 0) {
@@ -6,19 +38,25 @@ class Omnidexer {
 		 * Produces index of the form:
 		 * {
 		 *   n: "Display Name",
-		 *   b: "Base Name" // Optional; name is used if not specified
+		 *   [b: "Base Name"] // name is used if not specified
 		 *   s: "PHB", // source
+		 *   [sA: "PHB"], // source abbreviation
+		 *   [sF: "Player's Handbook"], // source full
+		 *   [sC: "ff00ff"], // source color
 		 *   u: "spell name_phb, // hash
 		 *   uh: "spell name_phb, // Optional; hash for href if the link should be different from the hover lookup hash.
 		 *   p: 110, // page number
 		 *   [q: "bestiary.html", // page; synthetic property only used by search widget]
 		 *   h: 1 // if isHover enabled, otherwise undefined
-		 *   r: 1 // if SRD
+		 *   r: 1 // if SRD 5.1
+		 *   r2: 1 // if SRD 5.2
+		 *   [dP: 1] // if partnered
 		 *   c: 10, // category ID
 		 *   id: 123, // index ID
 		 *   [t: "spell"], // tag
 		 *   [uu: "fireball|phb"], // UID
 		 *   [m: "img/spell/Fireball.webp"], // Image
+		 *   [xF: {...}], // Foundry extras
 		 * }
 		 */
 		this._index = [];
@@ -46,13 +84,16 @@ class Omnidexer {
 			Object.entries(metadata[k]).forEach(([kk, vv]) => (lookup[k] = lookup[k] || {})[vv] = kk);
 		});
 
-		index.forEach(it => Object.keys(it).filter(k => props.has(k))
-			.forEach(k => it[k] = lookup[k][it[k]] ?? it[k]));
+		index.forEach(it => {
+			Object.keys(it).filter(k => props.has(k))
+				.forEach(k => it[k] = lookup[k][it[k]] ?? it[k]);
+		});
+
 		return index;
 	}
 
 	static getProperty (obj, withDots) {
-		return withDots.split(".").reduce((o, i) => o[i], obj);
+		return MiscUtil.get(obj, ...withDots.split("."));
 	}
 
 	/**
@@ -65,6 +106,7 @@ class Omnidexer {
 	 * @param [options.isIncludeTag]
 	 * @param [options.isIncludeUid]
 	 * @param [options.isIncludeImg]
+	 * @param [options.isIncludeExtendedSourceInfo]
 	 */
 	async pAddToIndex (arbiter, json, options) {
 		options = options || {};
@@ -87,6 +129,11 @@ class Omnidexer {
 			if (typeof it.srd === "string") {
 				ixOffset++;
 				await this._pAddToIndex_pHandleItem(state, it, ix + ixOffset, it.srd);
+			}
+
+			if (typeof it.srd52 === "string") {
+				ixOffset++;
+				await this._pAddToIndex_pHandleItem(state, it, ix + ixOffset, it.srd52);
 			}
 
 			if (it.alias?.length) {
@@ -138,8 +185,11 @@ class Omnidexer {
 		if (arbiter.isHover) indexDoc.h = 1;
 		if (arbiter.isFauxPage) indexDoc.hx = 1;
 		if (ent.srd) indexDoc.r = 1;
+		if (ent.srd52) indexDoc.r2 = 1;
 
 		if (src) {
+			if (SourceUtil.isPartneredSourceWotc(src)) indexDoc.dP = 1;
+
 			if (options.isIncludeTag) {
 				indexDoc.t = this.getMetaId("t", Parser.getPropTag(arbiter.listProp));
 			}
@@ -166,6 +216,20 @@ class Omnidexer {
 				if (indexDoc.m) {
 					indexDoc.m = indexDoc.m.replace(/^img\//, "");
 				}
+			}
+
+			if (options.isIncludeExtendedSourceInfo) {
+				indexDoc.sA = this.getMetaId("sA", Parser.sourceJsonToAbv(src));
+
+				indexDoc.sF = this.getMetaId("sF", Parser.sourceJsonToFull(src));
+
+				const color = Parser.sourceJsonToColor(src);
+				if (color) indexDoc.sC = this.getMetaId("sC", color);
+			}
+
+			if (options.isIncludeFoundryExtras) {
+				const extras = FoundryOmnidexerUtils.getPackedFoundryExtras({prop: arbiter.listProp, ent});
+				if (extras) indexDoc.xF = extras;
 			}
 		}
 
@@ -200,6 +264,8 @@ class Omnidexer {
 		}
 	}
 }
+
+globalThis.Omnidexer = Omnidexer;
 
 class IndexableDirectory {
 	/**
@@ -464,6 +530,19 @@ class IndexableFileItemsBase extends IndexableFile {
 			fluffBaseListProp: "item",
 			baseUrl: "items.html",
 			isHover: true,
+		});
+	}
+}
+
+class IndexableFileItemMasteries extends IndexableFile {
+	constructor () {
+		super({
+			category: Parser.CAT_ID_ITEM_MASTERY,
+			file: "items-base.json",
+			listProp: "itemMastery",
+			baseUrl: "itemMastery",
+			isHover: true,
+			isFauxPage: true,
 		});
 	}
 }
@@ -862,7 +941,6 @@ class IndexableFileAdventures extends IndexableFile {
 		super({
 			category: Parser.CAT_ID_ADVENTURE,
 			file: "adventures.json",
-			source: "id",
 			listProp: "adventure",
 			baseUrl: "adventure.html",
 		});
@@ -874,7 +952,6 @@ class IndexableFileBooks extends IndexableFile {
 		super({
 			category: Parser.CAT_ID_BOOK,
 			file: "books.json",
-			source: "id",
 			listProp: "book",
 			baseUrl: "book.html",
 		});
@@ -898,8 +975,7 @@ class IndexableFileQuickReference extends IndexableFile {
 
 	static getChapterNameMetas (it, {isRequireQuickrefFlag = true} = {}) {
 		const trackedNames = [];
-		const renderer = Renderer.get().setDepthTracker(trackedNames);
-		renderer.render(it);
+		Renderer.get().withDepthTracker(trackedNames, ({renderer}) => renderer.render(it));
 
 		const nameCounts = {};
 		trackedNames.forEach(meta => {
@@ -955,6 +1031,8 @@ class IndexableFileQuickReference extends IndexableFile {
 		};
 	}
 }
+
+globalThis.IndexableFileQuickReference = IndexableFileQuickReference;
 
 class IndexableFileDeities extends IndexableFile {
 	constructor () {
@@ -1255,6 +1333,7 @@ Omnidexer.TO_INDEX = [
 	new IndexableFileOptFeatures_AlchemicalFormula(),
 	new IndexableFileOptFeatures_Maneuver(),
 	new IndexableFileItemsBase(),
+	new IndexableFileItemMasteries(),
 
 	new IndexableFileItems(),
 	new IndexableFileItemGroups(),
@@ -1313,5 +1392,3 @@ class IndexableSpecialPages extends IndexableSpecial {
 Omnidexer.TO_INDEX__SPECIAL = [
 	new IndexableSpecialPages(),
 ];
-
-globalThis.Omnidexer = Omnidexer;

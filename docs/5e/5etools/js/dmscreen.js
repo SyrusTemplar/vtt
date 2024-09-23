@@ -316,7 +316,7 @@ class Board {
 			.addTab(embedTab)
 			.addTab(specialTab);
 
-		this.menu.render();
+		await this.menu.pRender();
 
 		this.sideMenu.render();
 
@@ -560,7 +560,7 @@ class Board {
 			DataUtil.userDownload(`dm-screen`, toLoad, {fileType: "dm-screen"});
 		};
 
-		const $btnDownload = $(`<button class="btn btn-sm btn-primary mr-2">Download Save</button>`)
+		const $btnDownload = $(`<button class="ve-btn ve-btn-sm ve-btn-primary mr-2">Download Save</button>`)
 			.on("click", () => handleClickDownload());
 
 		const handleClickPurge = async () => {
@@ -569,7 +569,7 @@ class Board {
 			doClose(true);
 		};
 
-		const $btnPurge = $(`<button class="btn btn-sm btn-danger">Purge and Continue</button>`)
+		const $btnPurge = $(`<button class="ve-btn ve-btn-sm ve-btn-danger">Purge and Continue</button>`)
 			.on("click", () => handleClickPurge());
 
 		const $txtDownload = $(`<b class="clickable">download a backup of your save</b>`)
@@ -768,43 +768,47 @@ class SideMenu {
 		const $wrpResizeH = $(`<div class="w-100 mb-2 split-v-center"><div class="sidemenu__row__label">Height</div></div>`).appendTo(this.$mnu);
 		const $iptHeight = $(`<input class="form-control" type="number" value="${this.board.height}">`).appendTo($wrpResizeH);
 		this.$iptHeight = $iptHeight;
-		const $wrpSetDim = $(`<div class="w-100 split-v-center"/>`).appendTo(this.$mnu);
-		const $btnSetDim = $(`<button class="btn btn-primary" style="width: 100%;">Set Dimensions</div>`).appendTo($wrpSetDim);
-		$btnSetDim.on("click", () => {
+		const $wrpSetDim = $(`<div class="w-100 split-v-center"></div>`).appendTo(this.$mnu);
+		const $btnSetDim = $(`<button class="ve-btn ve-btn-primary" style="width: 100%;">Set Dimensions</div>`).appendTo($wrpSetDim);
+		$btnSetDim.on("click", async () => {
 			const w = Number($iptWidth.val());
 			const h = Number($iptHeight.val());
-			if ((w > 10 || h > 10) && !window.confirm("That's a lot of panels. You sure?")) return;
+
+			if (w > 10 || h > 10) {
+				if (!await InputUiUtil.pGetUserBoolean({title: "Too Many Panels", htmlDescription: "That's a lot of panels. Are you sure?", textYes: "Yes", textNo: "Cancel"})) return;
+			}
+
 			this.board.setDimensions(w, h);
 		});
 		renderDivider();
 
 		const $wrpFullscreen = $(`<div class="w-100 ve-flex-vh-center-around"></div>`).appendTo(this.$mnu);
-		const $btnFullscreen = $(`<button class="btn btn-primary">Toggle Fullscreen</button>`).appendTo($wrpFullscreen);
+		const $btnFullscreen = $(`<button class="ve-btn ve-btn-primary">Toggle Fullscreen</button>`).appendTo($wrpFullscreen);
 		this.board.$btnFullscreen = $btnFullscreen;
 		$btnFullscreen.on("click", () => this.board.doToggleFullscreen());
-		const $btnLockPanels = $(`<button class="btn btn-danger" title="Lock Panels"><span class="glyphicon glyphicon-lock"/></button>`).appendTo($wrpFullscreen);
+		const $btnLockPanels = $(`<button class="ve-btn ve-btn-danger" title="Lock Panels"><span class="glyphicon glyphicon-lock"></span></button>`).appendTo($wrpFullscreen);
 		this.board.$btnLockPanels = $btnLockPanels;
 		$btnLockPanels.on("click", () => {
 			this.board.isLocked = !this.board.isLocked;
 			if (this.board.isLocked) {
 				this.board.disablePanelMoves();
 				$(`body`).addClass(`dm-screen-locked`);
-				$btnLockPanels.removeClass(`btn-danger`).addClass(`btn-success`);
+				$btnLockPanels.removeClass(`ve-btn-danger`).addClass(`ve-btn-success`);
 			} else {
 				$(`body`).removeClass(`dm-screen-locked`);
-				$btnLockPanels.addClass(`btn-danger`).removeClass(`btn-success`);
+				$btnLockPanels.addClass(`ve-btn-danger`).removeClass(`ve-btn-success`);
 			}
 			this.board.doSaveStateDebounced();
 		});
 		renderDivider();
 
-		const $wrpSaveLoad = $(`<div class="w-100"/>`).appendTo(this.$mnu);
-		const $wrpSaveLoadFile = $(`<div class="w-100 mb-2 ve-flex-vh-center-around"/>`).appendTo($wrpSaveLoad);
-		const $btnSaveFile = $(`<button class="btn btn-primary">Save to File</button>`).appendTo($wrpSaveLoadFile);
+		const $wrpSaveLoad = $(`<div class="w-100"></div>`).appendTo(this.$mnu);
+		const $wrpSaveLoadFile = $(`<div class="w-100 mb-2 ve-flex-vh-center-around"></div>`).appendTo($wrpSaveLoad);
+		const $btnSaveFile = $(`<button class="ve-btn ve-btn-primary">Save to File</button>`).appendTo($wrpSaveLoadFile);
 		$btnSaveFile.on("click", () => {
 			DataUtil.userDownload(`dm-screen`, this.board.getSaveableState(), {fileType: "dm-screen"});
 		});
-		const $btnLoadFile = $(`<button class="btn btn-primary">Load from File</button>`).appendTo($wrpSaveLoadFile);
+		const $btnLoadFile = $(`<button class="ve-btn ve-btn-primary">Load from File</button>`).appendTo($wrpSaveLoadFile);
 		$btnLoadFile.on("click", async () => {
 			const {jsons, errors} = await InputUiUtil.pGetUserUploadJson({expectedFileTypes: ["dm-screen"]});
 
@@ -814,8 +818,8 @@ class SideMenu {
 			this.board.doReset();
 			await this.board.pDoLoadStateFrom(jsons[0]);
 		});
-		const $wrpSaveLoadUrl = $(`<div class="w-100 ve-flex-vh-center-around"/>`).appendTo($wrpSaveLoad);
-		const $btnSaveLink = $(`<button class="btn btn-primary">Save to URL</button>`).appendTo($wrpSaveLoadUrl);
+		const $wrpSaveLoadUrl = $(`<div class="w-100 ve-flex-vh-center-around"></div>`).appendTo($wrpSaveLoad);
+		const $btnSaveLink = $(`<button class="ve-btn ve-btn-primary">Save to URL</button>`).appendTo($wrpSaveLoadUrl);
 		$btnSaveLink.on("click", async () => {
 			const encoded = `${window.location.href.split("#")[0]}#${encodeURIComponent(JSON.stringify(this.board.getSaveableState()))}`;
 			await MiscUtil.pCopyTextToClipboard(encoded);
@@ -827,16 +831,15 @@ class SideMenu {
 		this.board.$cbConfirmTabClose = $(`<input type="checkbox" class="sidemenu__row__label__cb">`).appendTo($wrpCbConfirm.find(`label`));
 		renderDivider();
 
-		const $wrpReset = $(`<div class="w-100 split-v-center"/>`).appendTo(this.$mnu);
-		const $btnReset = $(`<button class="btn btn-danger" style="width: 100%;">Reset Screen</button>`).appendTo($wrpReset);
-		$btnReset.on("click", () => {
-			if (window.confirm("Are you sure?")) {
-				this.board.doReset();
-			}
+		const $wrpReset = $(`<div class="w-100 split-v-center"></div>`).appendTo(this.$mnu);
+		const $btnReset = $(`<button class="ve-btn ve-btn-danger" style="width: 100%;">Reset Screen</button>`).appendTo($wrpReset);
+		$btnReset.on("click", async () => {
+			if (!await InputUiUtil.pGetUserBoolean({title: "Reset", htmlDescription: "Are you sure?", textYes: "Yes", textNo: "Cancel"})) return;
+			this.board.doReset();
 		});
 		renderDivider();
 
-		this.$wrpHistory = $(`<div class="sidemenu__history"/>`).appendTo(this.$mnu);
+		this.$wrpHistory = $(`<div class="sidemenu__history"></div>`).appendTo(this.$mnu);
 	}
 
 	doUpdateDimensions () {
@@ -849,7 +852,7 @@ class SideMenu {
 		this.$wrpHistory.children().remove();
 		if (this.board.exiledPanels.length) {
 			const $wrpHistHeader = $(`<div class="w-100 mb-2 split-v-center"><span style="font-variant: small-caps;">Recently Removed</span></div>`).appendTo(this.$wrpHistory);
-			const $btnHistClear = $(`<button class="btn btn-danger">Clear</button>`).appendTo($wrpHistHeader);
+			const $btnHistClear = $(`<button class="ve-btn ve-btn-danger">Clear</button>`).appendTo($wrpHistHeader);
 			$btnHistClear.on("click", () => {
 				this.board.exiledPanels.forEach(p => p.destroy());
 				this.board.exiledPanels = [];
@@ -857,10 +860,10 @@ class SideMenu {
 			});
 		}
 		this.board.exiledPanels.forEach((p, i) => {
-			const $wrpHistItem = $(`<div class="sidemenu__history-item"/>`).appendTo(this.$wrpHistory);
-			const $cvrHistItem = $(`<div class="sidemenu__history-item-cover"/>`).appendTo($wrpHistItem);
-			const $btnRemove = $(`<div class="panel-history-control-remove-wrapper"><span class="panel-history-control-remove glyphicon glyphicon-remove" title="Remove"/></div>`).appendTo($cvrHistItem);
-			const $ctrlMove = $(`<div class="panel-history-control-middle" title="Move"/>`).appendTo($cvrHistItem);
+			const $wrpHistItem = $(`<div class="sidemenu__history-item"></div>`).appendTo(this.$wrpHistory);
+			const $cvrHistItem = $(`<div class="sidemenu__history-item-cover"></div>`).appendTo($wrpHistItem);
+			const $btnRemove = $(`<div class="panel-history-control-remove-wrapper"><span class="panel-history-control-remove glyphicon glyphicon-remove" title="Remove"></span></div>`).appendTo($cvrHistItem);
+			const $ctrlMove = $(`<div class="panel-history-control-middle" title="Move"></div>`).appendTo($cvrHistItem);
 
 			$btnRemove.on("click", () => {
 				this.board.exiledPanels[i].destroy();
@@ -1205,8 +1208,8 @@ class Panel {
 
 			const fn = Renderer.hover.getFnRenderCompact(page);
 
-			const $contentInner = $(`<div class="panel-content-wrapper-inner"/>`);
-			const $contentStats = $(`<table class="w-100 stats"/>`).appendTo($contentInner);
+			const $contentInner = $(`<div class="panel-content-wrapper-inner"></div>`);
+			const $contentStats = $(`<table class="w-100 stats"></table>`).appendTo($contentInner);
 			$contentStats.append(fn(it));
 
 			const fnBind = Renderer.hover.getFnBindListenersCompact(page);
@@ -1397,8 +1400,8 @@ class Panel {
 			hash,
 		).then(it => {
 			ScaleCreature.scale(it, targetCr).then(initialRender => {
-				const $contentInner = $(`<div class="panel-content-wrapper-inner"/>`);
-				const $contentStats = $(`<table class="w-100 stats"/>`).appendTo($contentInner);
+				const $contentInner = $(`<div class="panel-content-wrapper-inner"></div>`);
+				const $contentStats = $(`<table class="w-100 stats"></table>`).appendTo($contentInner);
 				$contentStats.append(Renderer.monster.getCompactRenderedString(initialRender, {isShowScalers: true, isScaledCr: true}));
 
 				this._stats_bindCrScaleClickHandler(it, meta, $contentInner, $contentStats);
@@ -1428,8 +1431,8 @@ class Panel {
 			hash,
 		).then(it => {
 			ScaleSpellSummonedCreature.scale(it, summonSpellLevel).then(scaledMon => {
-				const $contentInner = $(`<div class="panel-content-wrapper-inner"/>`);
-				const $contentStats = $(`<table class="w-100 stats"/>`).appendTo($contentInner);
+				const $contentInner = $(`<div class="panel-content-wrapper-inner"></div>`);
+				const $contentStats = $(`<table class="w-100 stats"></table>`).appendTo($contentInner);
 				$contentStats.append(Renderer.monster.getCompactRenderedString(scaledMon, {isShowScalers: true, isScaledSpellSummon: true}));
 
 				this._stats_doUpdateSummonScaleDropdowns(scaledMon, $contentStats);
@@ -1461,8 +1464,8 @@ class Panel {
 			hash,
 		).then(it => {
 			ScaleClassSummonedCreature.scale(it, summonClassLevel).then(scaledMon => {
-				const $contentInner = $(`<div class="panel-content-wrapper-inner"/>`);
-				const $contentStats = $(`<table class="w-100 stats"/>`).appendTo($contentInner);
+				const $contentInner = $(`<div class="panel-content-wrapper-inner"></div>`);
+				const $contentStats = $(`<table class="w-100 stats"></table>`).appendTo($contentInner);
 				$contentStats.append(Renderer.monster.getCompactRenderedString(scaledMon, {isShowScalers: true, isScaledClassSummon: true}));
 
 				this._stats_doUpdateSummonScaleDropdowns(scaledMon, $contentStats);
@@ -1554,7 +1557,7 @@ class Panel {
 		this.set$ContentTab(
 			PANEL_TYP_ROLLBOX,
 			null,
-			$(`<div class="panel-content-wrapper-inner"/>`).append(Renderer.dice.get$Roller().addClass("rollbox-panel")),
+			$(`<div class="panel-content-wrapper-inner"></div>`).append(Renderer.dice.get$Roller().addClass("rollbox-panel")),
 			title || "Dice Roller",
 			true,
 			!!title,
@@ -1565,7 +1568,7 @@ class Panel {
 		this.set$ContentTab(
 			PANEL_TYP_COUNTER,
 			state,
-			$(`<div class="panel-content-wrapper-inner"/>`).append(Counter.$getCounter(this.board, state)),
+			$(`<div class="panel-content-wrapper-inner"></div>`).append(Counter.$getCounter(this.board, state)),
 			title || "Counter",
 			true,
 		);
@@ -1575,7 +1578,7 @@ class Panel {
 		this.set$ContentTab(
 			PANEL_TYP_UNIT_CONVERTER,
 			state,
-			$(`<div class="panel-content-wrapper-inner"/>`).append(UnitConverter.make$Converter(this.board, state)),
+			$(`<div class="panel-content-wrapper-inner"></div>`).append(UnitConverter.make$Converter(this.board, state)),
 			title || "Unit Converter",
 			true,
 		);
@@ -1585,7 +1588,7 @@ class Panel {
 		this.set$ContentTab(
 			PANEL_TYP_MONEY_CONVERTER,
 			state,
-			$(`<div class="panel-content-wrapper-inner"/>`).append(MoneyConverter.make$Converter(this.board, state)),
+			$(`<div class="panel-content-wrapper-inner"></div>`).append(MoneyConverter.make$Converter(this.board, state)),
 			title || "Money Converter",
 			true,
 		);
@@ -1595,7 +1598,7 @@ class Panel {
 		this.set$ContentTab(
 			PANEL_TYP_TIME_TRACKER,
 			state,
-			$(`<div class="panel-content-wrapper-inner"/>`).append(TimeTracker.$getTracker(this.board, state)),
+			$(`<div class="panel-content-wrapper-inner"></div>`).append(TimeTracker.$getTracker(this.board, state)),
 			title || "Time Tracker",
 			true,
 		);
@@ -1605,7 +1608,7 @@ class Panel {
 		this.set$ContentTab(
 			PANEL_TYP_TEXTBOX,
 			null,
-			$(`<div class="panel-content-wrapper-inner ve-overflow-y-hidden"/>`).append(NoteBox.make$Notebox(this.board, content)),
+			$(`<div class="panel-content-wrapper-inner ve-overflow-y-hidden"></div>`).append(NoteBox.make$Notebox(this.board, content)),
 			title,
 			true,
 		);
@@ -1639,7 +1642,7 @@ class Panel {
 		this.set$ContentTab(
 			PANEL_TYP_TWITCH_CHAT,
 			meta,
-			$(`<div class="panel-content-wrapper-inner"><iframe src="${url}?parent=${location.hostname}" frameborder="0" scrolling="no" id="${channelId}"/></div>`),
+			$(`<div class="panel-content-wrapper-inner"><iframe src="${url}?parent=${location.hostname}" frameborder="0" scrolling="no" id="${channelId}"></iframe></div>`),
 			title,
 			true,
 		);
@@ -1650,7 +1653,7 @@ class Panel {
 		this.set$ContentTab(
 			PANEL_TYP_GENERIC_EMBED,
 			meta,
-			$(`<div class="panel-content-wrapper-inner"><iframe src="${url}"/></div>`),
+			$(`<div class="panel-content-wrapper-inner"><iframe src="${url}"></iframe></div>`),
 			title,
 			true,
 		);
@@ -1658,10 +1661,10 @@ class Panel {
 
 	doPopulate_Image (url, title = "Image") {
 		const meta = {u: url};
-		const $wrpPanel = $(`<div class="panel-content-wrapper-inner"/>`);
-		const $wrpImage = $(`<div class="panel-content-wrapper-img"/>`).appendTo($wrpPanel);
+		const $wrpPanel = $(`<div class="panel-content-wrapper-inner"></div>`);
+		const $wrpImage = $(`<div class="panel-content-wrapper-img"></div>`).appendTo($wrpPanel);
 		const $img = $(`<img src="${url}" alt="${title}" loading="lazy">`).appendTo($wrpImage);
-		const $iptReset = $(`<button class="panel-zoom-reset btn btn-xs btn-default"><span class="glyphicon glyphicon-refresh"/></button>`).appendTo($wrpPanel);
+		const $iptReset = $(`<button class="panel-zoom-reset ve-btn ve-btn-xs ve-btn-default"><span class="glyphicon glyphicon-refresh"></span></button>`).appendTo($wrpPanel);
 		const $iptRange = $(`<input type="range" class="panel-zoom-slider">`).appendTo($wrpPanel);
 		this.set$ContentTab(
 			PANEL_TYP_IMAGE,
@@ -1683,7 +1686,7 @@ class Panel {
 		this.set$ContentTab(
 			PANEL_TYP_ADVENTURE_DYNAMIC_MAP,
 			state,
-			$(`<div class="panel-content-wrapper-inner"/>`).append(DmMapper.$getMapper(this.board, state)),
+			$(`<div class="panel-content-wrapper-inner"></div>`).append(DmMapper.$getMapper(this.board, state)),
 			title || "Map Viewer",
 			true,
 		);
@@ -1693,7 +1696,7 @@ class Panel {
 		this.set$ContentTab(
 			PANEL_TYP_ERROR,
 			state,
-			$(`<div class="panel-content-wrapper-inner"/>`).append(`<div class="w-100 h-100 ve-flex-vh-center text-danger"><div>${state.message}</div></div>`),
+			$(`<div class="panel-content-wrapper-inner"></div>`).append(`<div class="w-100 h-100 ve-flex-vh-center text-danger"><div>${state.message}</div></div>`),
 			title,
 			true,
 		);
@@ -1704,7 +1707,7 @@ class Panel {
 		this.set$ContentTab(
 			PANEL_TYP_BLANK,
 			meta,
-			$(`<div class="dm-blank__panel"/>`),
+			$(`<div class="dm-blank__panel"></div>`),
 			title,
 			true,
 		);
@@ -2024,7 +2027,7 @@ class Panel {
 		const displayText = this.title !== TITLE_LOADING
 		&& (this.type === PANEL_TYP_STATS || this.type === PANEL_TYP_CREATURE_SCALED_CR || this.type === PANEL_TYP_CREATURE_SCALED_SPELL_SUMMON || this.type === PANEL_TYP_CREATURE_SCALED_CLASS_SUMMON || this.type === PANEL_TYP_RULES || this.type === PANEL_TYP_ADVENTURES || this.type === PANEL_TYP_BOOKS) ? this.title : "";
 
-		this.$pnlTitle.text(displayText);
+		this._doUpdatePanelTitleDisplay(displayText);
 		if (!displayText) this.$pnlTitle.addClass("hidden");
 		else this.$pnlTitle.removeClass("hidden");
 	}
@@ -2086,30 +2089,32 @@ class Panel {
 			});
 		};
 
-		const openAddMenu = () => {
+		const pOpenAddMenu = async () => {
 			this.board.menu.doOpen();
 			this.board.menu.setPanel(this);
-			if (!this.board.menu.hasActiveTab()) this.board.menu.setFirstTabActive();
-			else if (this.board.menu.getActiveTab().doTransitionActive) this.board.menu.getActiveTab().doTransitionActive();
+			if (!this.board.menu.hasActiveTab()) await this.board.menu.pSetFirstTabActive();
+			else if (this.board.menu.getActiveTab().pDoTransitionActive) await this.board.menu.getActiveTab().pDoTransitionActive();
 		};
 
 		function doInitialRender () {
-			const $pnl = $(`<div data-panelId="${this.id}" class="dm-screen-panel min-w-0 min-h-0" empty="true"/>`);
+			const $pnl = $(`<div data-panelId="${this.id}" class="dm-screen-panel min-w-0 min-h-0" empty="true"></div>`);
 			this.$pnl = $pnl;
-			const $ctrlBar = $(`<div class="panel-control-bar"/>`).appendTo($pnl);
-			this.$pnlTitle = $(`<div class="panel-control-bar panel-control-title"/>`).appendTo($pnl).click(() => this.$pnlTitle.toggleClass("panel-control-title--bumped"));
-			this.$pnlAddTab = $(`<div class="panel-control-bar panel-control-addtab"><div class="panel-control-icon glyphicon glyphicon-plus" title="Add Tab"/></div>`).click(() => {
-				this.setIsTabs(true);
-				this.setDirty(true);
-				this.render();
-				openAddMenu();
-			}).appendTo($pnl);
+			const $ctrlBar = $(`<div class="panel-control-bar"></div>`).appendTo($pnl);
+			this.$pnlTitle = $(`<div class="panel-control-bar panel-control-title"></div>`).appendTo($pnl).click(() => this.$pnlTitle.toggleClass("panel-control-title--bumped"));
+			this.$pnlAddTab = $(`<div class="panel-control-bar panel-control-addtab"><div class="panel-control-icon glyphicon glyphicon-plus" title="Add Tab"></div></div>`)
+				.on("click", async () => {
+					this.setIsTabs(true);
+					this.setDirty(true);
+					this.render();
+					await pOpenAddMenu();
+				})
+				.appendTo($pnl);
 
-			const $ctrlMove = $(`<div class="panel-control-icon glyphicon glyphicon-move" title="Move"/>`).appendTo($ctrlBar);
+			const $ctrlMove = $(`<div class="panel-control-icon glyphicon glyphicon-move" title="Move"></div>`).appendTo($ctrlBar);
 			$ctrlMove.on("click", () => {
 				this.toggleMovable();
 			});
-			const $ctrlEmpty = $(`<div class="panel-control-icon glyphicon glyphicon-remove" title="Close"/>`).appendTo($ctrlBar);
+			const $ctrlEmpty = $(`<div class="panel-control-icon glyphicon glyphicon-remove" title="Close"></div>`).appendTo($ctrlBar);
 			$ctrlEmpty.on("click", () => {
 				this.getReplacementPanel();
 			});
@@ -2118,11 +2123,11 @@ class Panel {
 			this.joyMenu = joyMenu;
 			joyMenu.initialise();
 
-			const $wrpContent = $(`<div class="panel-content-wrapper"/>`).appendTo($pnl);
-			const $wrpBtnAdd = $(`<div class="panel-add"/>`).appendTo($wrpContent);
-			const $btnAdd = $(`<span class="btn-panel-add glyphicon glyphicon-plus"/>`)
-				.on("click", () => {
-					openAddMenu();
+			const $wrpContent = $(`<div class="panel-content-wrapper"></div>`).appendTo($pnl);
+			const $wrpBtnAdd = $(`<div class="panel-add"></div>`).appendTo($wrpContent);
+			const $btnAdd = $(`<span class="ve-btn-panel-add glyphicon glyphicon-plus"></span>`)
+				.on("click", async () => {
+					await pOpenAddMenu();
 				})
 				.on("drop", async evt => {
 					evt = evt.originalEvent;
@@ -2144,14 +2149,15 @@ class Panel {
 			this.$btnAddInner = $btnAdd;
 			this.$pnlWrpContent = $wrpContent;
 
-			const $wrpTabs = $(`<div class="content-tab-bar ve-flex"/>`).hideVe().appendTo($pnl);
-			const $wrpTabsInner = $(`<div class="content-tab-bar-inner"/>`).on("wheel", (evt) => {
+			const $wrpTabs = $(`<div class="content-tab-bar ve-flex"></div>`).hideVe().appendTo($pnl);
+			const $wrpTabsInner = $(`<div class="content-tab-bar-inner"></div>`).on("wheel", (evt) => {
 				const delta = evt.originalEvent.deltaY;
 				const curr = $wrpTabsInner.scrollLeft();
 				$wrpTabsInner.scrollLeft(Math.max(0, curr + delta));
 			}).appendTo($wrpTabs);
-			const $btnTabAdd = $(`<button class="btn btn-default content-tab"><span class="glyphicon glyphicon-plus"/></button>`)
-				.click(() => openAddMenu()).appendTo($wrpTabsInner);
+			const $btnTabAdd = $(`<button class="ve-btn ve-btn-default content-tab" title="Add Tab"><span class="glyphicon glyphicon-plus"></span></button>`)
+				.on("click", () => pOpenAddMenu())
+				.appendTo($wrpTabsInner);
 			this.$pnlWrpTabs = $wrpTabs;
 			this.$pnlTabs = $wrpTabsInner;
 
@@ -2280,11 +2286,14 @@ class Panel {
 	_get$BtnSelTab (ix, title, tabCanRename) {
 		title = title || "[Untitled]";
 
-		const doCloseTabWithConfirmation = () => {
-			if (!this.board.getConfirmTabClose() || (this.board.getConfirmTabClose() && confirm(`Are you sure you want to close tab "${this.tabDatas[ix].title}"?`))) this.doCloseTab(ix);
+		const doCloseTabWithConfirmation = async () => {
+			if (this.board.getConfirmTabClose()) {
+				if (!await InputUiUtil.pGetUserBoolean({title: "Close Tab", htmlDescription: `Are you sure you want to close tab "${this.tabDatas[ix].title}"?`, textYes: "Yes", textNo: "Cancel"})) return;
+			}
+			this.doCloseTab(ix);
 		};
 
-		const $btnSelTab = $(`<span class="btn btn-default content-tab ve-flex ${tabCanRename ? "content-tab-can-rename" : ""}"><span class="content-tab-title ve-overflow-ellipsis" title="${title}">${title}</span></span>`)
+		const $btnSelTab = $(`<span class="ve-btn ve-btn-default content-tab ve-flex ${tabCanRename ? "content-tab-can-rename" : ""}"><span class="content-tab-title ve-overflow-ellipsis" title="${title}">${title}</span></span>`)
 			.on("mousedown", (evt) => {
 				if (evt.which === 1) {
 					this.setActiveTab(ix);
@@ -2303,7 +2312,7 @@ class Panel {
 					}
 				}
 			});
-		const $btnCloseTab = $(`<span class="glyphicon glyphicon-remove content-tab-remove"/>`)
+		const $btnCloseTab = $(`<span class="glyphicon glyphicon-remove content-tab-remove"></span>`)
 			.on("mousedown", (evt) => {
 				if (evt.button === 0) {
 					evt.stopPropagation();
@@ -2321,7 +2330,7 @@ class Panel {
 		const tabData = this.tabDatas[ix];
 
 		tabData.$tabButton.find(`.content-tab-title`).text(nuTitle).title(nuTitle);
-		this.$pnlTitle.text(nuTitle);
+		this._doUpdatePanelTitleDisplay(nuTitle);
 		const x = this.tabDatas[ix];
 		x.title = nuTitle;
 		x.tabRenamed = true;
@@ -2330,6 +2339,12 @@ class Panel {
 			this.tabRenamed = true;
 		}
 		this.board.doSaveStateDebounced();
+	}
+
+	_doUpdatePanelTitleDisplay (nuTitle) {
+		nuTitle = Renderer.stripTags(nuTitle);
+		this.$pnlTitle.text(nuTitle);
+		this.$pnl.attr("data-roll-name-ancestor-roller", nuTitle);
 	}
 
 	set$Tab (ix, type, contentMeta, $content, title, tabCanRename, tabRenamed) {
@@ -2958,7 +2973,7 @@ class AddMenu {
 		return this.tabs.find(it => it.label === label);
 	}
 
-	setActiveTab (tab) {
+	async pSetActiveTab (tab) {
 		$(document.activeElement).blur();
 
 		this._$menuInner.find(`.panel-addmenu-tab-head`).attr(`active`, false);
@@ -2967,7 +2982,7 @@ class AddMenu {
 		this.$tabView.append(tab.get$Tab());
 		tab.$head.attr(`active`, true);
 
-		if (tab.doTransitionActive) tab.doTransitionActive();
+		if (tab.pDoTransitionActive) await tab.pDoTransitionActive();
 	}
 
 	hasActiveTab () {
@@ -2978,27 +2993,29 @@ class AddMenu {
 		return this.activeTab;
 	}
 
-	setFirstTabActive () {
+	async pSetFirstTabActive () {
 		const t = this.tabs[0];
-		this.setActiveTab(t);
+		await this.pSetActiveTab(t);
 	}
 
-	render () {
-		if (!this._$menuInner) {
-			this._$menuInner = $(`<div class="ve-flex-col w-100 h-100">`);
-			const $tabBar = $(`<div class="panel-addmenu-bar"/>`).appendTo(this._$menuInner);
-			this.$tabView = $(`<div class="panel-addmenu-view"/>`).appendTo(this._$menuInner);
+	async pRender () {
+		if (this._$menuInner) return;
 
-			this.tabs.forEach(t => {
-				t.render();
-				const $head = $(`<button class="btn btn-default panel-addmenu-tab-head">${t.label}</button>`).appendTo($tabBar);
-				const $body = $(`<div class="panel-addmenu-tab-body"/>`).appendTo($tabBar);
+		this._$menuInner = $(`<div class="ve-flex-col w-100 h-100">`);
+		const $tabBar = $(`<div class="panel-addmenu-bar"></div>`).appendTo(this._$menuInner);
+		this.$tabView = $(`<div class="panel-addmenu-view"></div>`).appendTo(this._$menuInner);
+
+		await this.tabs.pMap(t => t.pRender());
+
+		this.tabs
+			.forEach(t => {
+				const $head = $(`<button class="ve-btn ve-btn-default panel-addmenu-tab-head">${t.label}</button>`).appendTo($tabBar);
+				const $body = $(`<div class="panel-addmenu-tab-body"></div>`).appendTo($tabBar);
 				$body.append(t.get$Tab);
 				t.$head = $head;
 				t.$body = $body;
-				$head.on("click", () => this.setActiveTab(t));
+				$head.on("click", () => this.pSetActiveTab(t));
 			});
-		}
 	}
 
 	setPanel (pnl) {
@@ -3054,17 +3071,17 @@ class AddMenuVideoTab extends AddMenuTab {
 		this.tabId = this.genTabId("tube");
 	}
 
-	render () {
+	async pRender () {
 		if (!this.$tab) {
-			const $tab = $(`<div class="ui-search__wrp-output underline-tabs" id="${this.tabId}"/>`);
+			const $tab = $(`<div class="ui-search__wrp-output underline-tabs" id="${this.tabId}"></div>`);
 
-			const $wrpYT = $(`<div class="ui-modal__row"/>`).appendTo($tab);
+			const $wrpYT = $(`<div class="ui-modal__row"></div>`).appendTo($tab);
 			const $iptUrlYT = $(`<input class="form-control" placeholder="Paste YouTube URL">`)
 				.on("keydown", (e) => {
 					if (e.which === 13) $btnAddYT.click();
 				})
 				.appendTo($wrpYT);
-			const $btnAddYT = $(`<button class="btn btn-primary btn-sm">Embed</button>`).appendTo($wrpYT);
+			const $btnAddYT = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Embed</button>`).appendTo($wrpYT);
 			$btnAddYT.on("click", () => {
 				let url = $iptUrlYT.val().trim();
 				const m = /https?:\/\/(www\.)?youtube\.com\/watch\?v=(.*?)(&.*$|$)/.exec(url);
@@ -3081,14 +3098,14 @@ class AddMenuVideoTab extends AddMenuTab {
 				}
 			});
 
-			const $wrpTwitch = $(`<div class="ui-modal__row"/>`).appendTo($tab);
+			const $wrpTwitch = $(`<div class="ui-modal__row"></div>`).appendTo($tab);
 			const $iptUrlTwitch = $(`<input class="form-control" placeholder="Paste Twitch URL">`)
 				.on("keydown", (e) => {
 					if (e.which === 13) $btnAddTwitch.click();
 				})
 				.appendTo($wrpTwitch);
-			const $btnAddTwitch = $(`<button class="btn btn-primary btn-sm">Embed</button>`).appendTo($wrpTwitch);
-			const $btnAddTwitchChat = $(`<button class="btn btn-primary btn-sm">Embed Chat</button>`).appendTo($wrpTwitch);
+			const $btnAddTwitch = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Embed</button>`).appendTo($wrpTwitch);
+			const $btnAddTwitchChat = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Embed Chat</button>`).appendTo($wrpTwitch);
 			const getTwitchM = (url) => {
 				return /https?:\/\/(www\.)?twitch\.tv\/(.*?)(\?.*$|$)/.exec(url);
 			};
@@ -3124,13 +3141,13 @@ class AddMenuVideoTab extends AddMenuTab {
 				}
 			});
 
-			const $wrpGeneric = $(`<div class="ui-modal__row"/>`).appendTo($tab);
+			const $wrpGeneric = $(`<div class="ui-modal__row"></div>`).appendTo($tab);
 			const $iptUrlGeneric = $(`<input class="form-control" placeholder="Paste any URL">`)
 				.on("keydown", (e) => {
 					if (e.which === 13) $iptUrlGeneric.click();
 				})
 				.appendTo($wrpGeneric);
-			const $btnAddGeneric = $(`<button class="btn btn-primary btn-sm">Embed</button>`).appendTo($wrpGeneric);
+			const $btnAddGeneric = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Embed</button>`).appendTo($wrpGeneric);
 			$btnAddGeneric.on("click", () => {
 				let url = $iptUrlGeneric.val().trim();
 				if (url) {
@@ -3155,13 +3172,13 @@ class AddMenuImageTab extends AddMenuTab {
 		this.tabId = this.genTabId("image");
 	}
 
-	render () {
+	async pRender () {
 		if (!this.$tab) {
-			const $tab = $(`<div class="ui-search__wrp-output underline-tabs" id="${this.tabId}"/>`);
+			const $tab = $(`<div class="ui-search__wrp-output underline-tabs" id="${this.tabId}"></div>`);
 
 			// region Imgur
-			const $wrpImgur = $(`<div class="ui-modal__row"/>`).appendTo($tab);
-			$(`<span>Imgur (Anonymous Upload) <i class="text-muted">(accepts <a href="https://help.imgur.com/hc/articles/115000083326" target="_blank" rel="noopener noreferrer">imgur-friendly formats</a>)</i></span>`).appendTo($wrpImgur);
+			const $wrpImgur = $(`<div class="ui-modal__row"></div>`).appendTo($tab);
+			$(`<span>Imgur (Anonymous Upload) <i class="ve-muted">(accepts <a href="https://help.imgur.com/hc/articles/115000083326" target="_blank" rel="noopener noreferrer">imgur-friendly formats</a>)</i></span>`).appendTo($wrpImgur);
 			const $iptFile = $(`<input type="file" class="hidden">`).on("change", (evt) => {
 				const input = evt.target;
 				const reader = new FileReader();
@@ -3206,20 +3223,20 @@ class AddMenuImageTab extends AddMenuTab {
 				const ix = this.menu.pnl.doPopulate_Loading("Uploading"); // will be null if not in tabbed mode
 				this.menu.doClose();
 			}).appendTo($tab);
-			const $btnAdd = $(`<button class="btn btn-primary btn-sm">Upload</button>`).appendTo($wrpImgur);
+			const $btnAdd = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Upload</button>`).appendTo($wrpImgur);
 			$btnAdd.on("click", () => {
 				$iptFile.click();
 			});
 			// endregion
 
 			// region URL
-			const $wrpUtl = $(`<div class="ui-modal__row"/>`).appendTo($tab);
+			const $wrpUtl = $(`<div class="ui-modal__row"></div>`).appendTo($tab);
 			const $iptUrl = $(`<input class="form-control" placeholder="Paste image URL">`)
 				.on("keydown", (e) => {
 					if (e.which === 13) $btnAddUrl.click();
 				})
 				.appendTo($wrpUtl);
-			const $btnAddUrl = $(`<button class="btn btn-primary btn-sm">Add</button>`).appendTo($wrpUtl);
+			const $btnAddUrl = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`).appendTo($wrpUtl);
 			$btnAddUrl.on("click", () => {
 				let url = $iptUrl.val().trim();
 				if (url) {
@@ -3234,10 +3251,10 @@ class AddMenuImageTab extends AddMenuTab {
 			});
 			// endregion
 
-			$(`<hr class="hr-2"/>`).appendTo($tab);
+			$(`<hr class="hr-2">`).appendTo($tab);
 
 			// region Adventure dynamic viewer
-			const $btnSelectAdventure = $(`<button class="btn btn-primary btn-sm">Add</button>`)
+			const $btnSelectAdventure = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`)
 				.click(() => DmMapper.pHandleMenuButtonClick(this.menu));
 
 			$$`<div class="ui-modal__row">
@@ -3257,19 +3274,19 @@ class AddMenuSpecialTab extends AddMenuTab {
 		this.tabId = this.genTabId("special");
 	}
 
-	render () {
+	async pRender () {
 		if (!this.$tab) {
-			const $tab = $(`<div class="ui-search__wrp-output underline-tabs ve-overflow-y-auto pr-1" id="${this.tabId}"/>`);
+			const $tab = $(`<div class="ui-search__wrp-output underline-tabs ve-overflow-y-auto pr-1" id="${this.tabId}"></div>`);
 
-			const $wrpRoller = $(`<div class="ui-modal__row"><span>Dice Roller <i class="text-muted">(pins the existing dice roller to a panel)</i></span></div>`).appendTo($tab);
-			const $btnRoller = $(`<button class="btn btn-primary btn-sm">Pin</button>`).appendTo($wrpRoller);
+			const $wrpRoller = $(`<div class="ui-modal__row"><span>Dice Roller <i class="ve-muted">(pins the existing dice roller to a panel)</i></span></div>`).appendTo($tab);
+			const $btnRoller = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Pin</button>`).appendTo($wrpRoller);
 			$btnRoller.on("click", () => {
 				Renderer.dice.bindDmScreenPanel(this.menu.pnl);
 				this.menu.doClose();
 			});
-			$(`<hr class="hr-2"/>`).appendTo($tab);
+			$(`<hr class="hr-2">`).appendTo($tab);
 
-			const $btnTracker = $(`<button class="btn btn-primary btn-sm">Add</button>`)
+			const $btnTracker = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`)
 				.on("click", async () => {
 					const pcm = new PanelContentManager_InitiativeTracker({board: this._board, panel: this.menu.pnl});
 					this.menu.doClose();
@@ -3281,7 +3298,7 @@ class AddMenuSpecialTab extends AddMenuTab {
 			${$btnTracker}
 			</div>`.appendTo($tab);
 
-			const $btnTrackerCreatureViewer = $(`<button class="btn btn-primary btn-sm">Add</button>`)
+			const $btnTrackerCreatureViewer = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`)
 				.on("click", async () => {
 					const pcm = new PanelContentManager_InitiativeTrackerCreatureViewer({board: this._board, panel: this.menu.pnl});
 					this.menu.doClose();
@@ -3293,7 +3310,7 @@ class AddMenuSpecialTab extends AddMenuTab {
 			${$btnTrackerCreatureViewer}
 			</div>`.appendTo($tab);
 
-			const $btnPlayerTrackerV1 = $(`<button class="btn btn-primary btn-sm">Add</button>`)
+			const $btnPlayerTrackerV1 = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`)
 				.on("click", async () => {
 					const pcm = new PanelContentManager_InitiativeTrackerPlayerViewV1({board: this._board, panel: this.menu.pnl});
 					this.menu.doClose();
@@ -3305,7 +3322,7 @@ class AddMenuSpecialTab extends AddMenuTab {
 			${$btnPlayerTrackerV1}
 			</div>`.appendTo($tab);
 
-			const $btnPlayerTrackerV0 = $(`<button class="btn btn-primary btn-sm">Add</button>`)
+			const $btnPlayerTrackerV0 = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`)
 				.on("click", async () => {
 					const pcm = new PanelContentManager_InitiativeTrackerPlayerViewV0({board: this._board, panel: this.menu.pnl});
 					this.menu.doClose();
@@ -3317,9 +3334,9 @@ class AddMenuSpecialTab extends AddMenuTab {
 			${$btnPlayerTrackerV0}
 			</div>`.appendTo($tab);
 
-			$(`<hr class="hr-2"/>`).appendTo($tab);
+			$(`<hr class="hr-2">`).appendTo($tab);
 
-			const $btnSublist = $(`<button class="btn btn-primary btn-sm">Add</button>`)
+			const $btnSublist = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`)
 				.click(async evt => {
 					await this.menu.pnl.pDoMassPopulate_Entities(evt);
 					this.menu.doClose();
@@ -3330,55 +3347,55 @@ class AddMenuSpecialTab extends AddMenuTab {
 			${$btnSublist}
 			</div>`.appendTo($tab);
 
-			$(`<hr class="hr-2"/>`).appendTo($tab);
+			$(`<hr class="hr-2">`).appendTo($tab);
 
-			const $btnSwitchToEmbedTag = $(`<button class="btn btn-default btn-xxs">embed</button>`)
-				.click(() => {
-					this.menu.setActiveTab(this.menu.getTab({label: "Embed"}));
+			const $btnSwitchToEmbedTag = $(`<button class="ve-btn ve-btn-default ve-btn-xxs">embed</button>`)
+				.on("click", async () => {
+					await this.menu.pSetActiveTab(this.menu.getTab({label: "Embed"}));
 				});
 
-			const $wrpText = $$`<div class="ui-modal__row"><span>Basic Text Box <i class="text-muted">(for a feature-rich editor, ${$btnSwitchToEmbedTag} a Google Doc or similar)</i></span></div>`.appendTo($tab);
-			const $btnText = $(`<button class="btn btn-primary btn-sm">Add</button>`).appendTo($wrpText);
+			const $wrpText = $$`<div class="ui-modal__row"><span>Basic Text Box <i class="ve-muted">(for a feature-rich editor, ${$btnSwitchToEmbedTag} a Google Doc or similar)</i></span></div>`.appendTo($tab);
+			const $btnText = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`).appendTo($wrpText);
 			$btnText.on("click", () => {
 				this.menu.pnl.doPopulate_TextBox();
 				this.menu.doClose();
 			});
-			$(`<hr class="hr-2"/>`).appendTo($tab);
+			$(`<hr class="hr-2">`).appendTo($tab);
 
 			const $wrpUnitConverter = $(`<div class="ui-modal__row"><span>Unit Converter</span></div>`).appendTo($tab);
-			const $btnUnitConverter = $(`<button class="btn btn-primary btn-sm">Add</button>`).appendTo($wrpUnitConverter);
+			const $btnUnitConverter = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`).appendTo($wrpUnitConverter);
 			$btnUnitConverter.on("click", () => {
 				this.menu.pnl.doPopulate_UnitConverter();
 				this.menu.doClose();
 			});
 
 			const $wrpMoneyConverter = $(`<div class="ui-modal__row"><span>Coin Converter</span></div>`).appendTo($tab);
-			const $btnMoneyConverter = $(`<button class="btn btn-primary btn-sm">Add</button>`).appendTo($wrpMoneyConverter);
+			const $btnMoneyConverter = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`).appendTo($wrpMoneyConverter);
 			$btnMoneyConverter.on("click", () => {
 				this.menu.pnl.doPopulate_MoneyConverter();
 				this.menu.doClose();
 			});
 
 			const $wrpCounter = $(`<div class="ui-modal__row"><span>Counter</span></div>`).appendTo($tab);
-			const $btnCounter = $(`<button class="btn btn-primary btn-sm">Add</button>`).appendTo($wrpCounter);
+			const $btnCounter = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`).appendTo($wrpCounter);
 			$btnCounter.on("click", () => {
 				this.menu.pnl.doPopulate_Counter();
 				this.menu.doClose();
 			});
 
-			$(`<hr class="hr-2"/>`).appendTo($tab);
+			$(`<hr class="hr-2">`).appendTo($tab);
 
 			const $wrpTimeTracker = $(`<div class="ui-modal__row"><span>In-Game Clock/Calendar</span></div>`).appendTo($tab);
-			const $btnTimeTracker = $(`<button class="btn btn-primary btn-sm">Add</button>`).appendTo($wrpTimeTracker);
+			const $btnTimeTracker = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`).appendTo($wrpTimeTracker);
 			$btnTimeTracker.on("click", () => {
 				this.menu.pnl.doPopulate_TimeTracker();
 				this.menu.doClose();
 			});
 
-			$(`<hr class="hr-2"/>`).appendTo($tab);
+			$(`<hr class="hr-2">`).appendTo($tab);
 
 			const $wrpBlank = $(`<div class="ui-modal__row"><span class="help" title="For those who don't like plus signs.">Blank Space</span></div>`).appendTo($tab);
-			$(`<button class="btn btn-primary btn-sm">Add</button>`)
+			$(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`)
 				.on("click", () => {
 					this.menu.pnl.doPopulate_Blank();
 					this.menu.doClose();
@@ -3419,7 +3436,7 @@ class AddMenuSearchTab extends AddMenuTab {
 		this.$srch = null;
 		this.$results = null;
 		this.showMsgIpt = null;
-		this.doSearch = null;
+		this._pDoSearch = null;
 		this._$ptrRows = null;
 	}
 
@@ -3502,7 +3519,7 @@ class AddMenuSearchTab extends AddMenuTab {
 		}
 	}
 
-	render () {
+	async pRender () {
 		const flags = {
 			doClickFirst: false,
 			isWait: false,
@@ -3524,12 +3541,17 @@ class AddMenuSearchTab extends AddMenuTab {
 
 		this._$ptrRows = {_: []};
 
-		this.doSearch = () => {
+		this._pDoSearch = async () => {
 			const srch = this.$srch.val().trim();
 
 			const searchOptions = this._getSearchOptions();
 			const index = this.indexes[this.cat];
-			const results = index.search(srch, searchOptions);
+			let results = index.search(srch, searchOptions);
+
+			if (this.subType === "content") {
+				results = await Omnisearch.pGetFilteredResults(results);
+			}
+
 			const resultCount = results.length ? results.length : index.documentStore.length;
 			const toProcess = results.length ? results : Object.values(index.documentStore.docs).slice(0, UiUtil.SEARCH_RESULTS_CAP).map(it => ({doc: it}));
 
@@ -3589,8 +3611,8 @@ class AddMenuSearchTab extends AddMenuTab {
 		};
 
 		if (!this.$tab) {
-			const $tab = $(`<div class="ui-search__wrp-output" id="${this.tabId}"/>`);
-			const $wrpCtrls = $(`<div class="ui-search__wrp-controls ui-search__wrp-controls--in-tabs"/>`).appendTo($tab);
+			const $tab = $(`<div class="ui-search__wrp-output" id="${this.tabId}"></div>`);
+			const $wrpCtrls = $(`<div class="ui-search__wrp-controls ui-search__wrp-controls--in-tabs"></div>`).appendTo($tab);
 
 			const $selCat = $(`
 				<select class="form-control ui-search__sel-category">
@@ -3600,17 +3622,17 @@ class AddMenuSearchTab extends AddMenuTab {
 			Object.keys(this.indexes).sort().filter(it => it !== "ALL").forEach(it => {
 				$selCat.append(`<option value="${it}">${this._getCatOptionText(it)}</option>`);
 			});
-			$selCat.on("change", () => {
+			$selCat.on("change", async () => {
 				this.cat = $selCat.val();
-				this.doSearch();
+				await this._pDoSearch();
 			});
 
 			const $srch = $(`<input class="ui-search__ipt-search search form-control" autocomplete="off" placeholder="Search...">`).blurOnEsc().appendTo($wrpCtrls);
-			const $results = $(`<div class="ui-search__wrp-results"/>`).appendTo($tab);
+			const $results = $(`<div class="ui-search__wrp-results"></div>`).appendTo($tab);
 
 			SearchWidget.bindAutoSearch($srch, {
 				flags,
-				fnSearch: this.doSearch,
+				pFnSearch: this._pDoSearch,
 				fnShowWait: showMsgDots,
 				$ptrRows: this._$ptrRows,
 			});
@@ -3620,13 +3642,13 @@ class AddMenuSearchTab extends AddMenuTab {
 			this.$srch = $srch;
 			this.$results = $results;
 
-			this.doSearch();
+			await this._pDoSearch();
 		}
 	}
 
-	doTransitionActive () {
+	async pDoTransitionActive () {
 		this.$srch.val("").focus();
-		if (this.doSearch) this.doSearch();
+		if (this._pDoSearch) await this._pDoSearch();
 	}
 }
 
@@ -3856,12 +3878,12 @@ class UnitConverter {
 		let ixConv = state.c || 0;
 		let dirConv = state.d || 0;
 
-		const $wrpConverter = $(`<div class="dm-unitconv dm__panel-bg split-column"/>`);
+		const $wrpConverter = $(`<div class="dm-unitconv dm__panel-bg split-column"></div>`);
 
-		const $tblConvert = $(`<table class="w-100 table-striped"/>`).appendTo($wrpConverter);
-		const $tbodyConvert = $(`<tbody/>`).appendTo($tblConvert);
+		const $tblConvert = $(`<table class="w-100 table-striped"></table>`).appendTo($wrpConverter);
+		const $tbodyConvert = $(`<tbody></tbody>`).appendTo($tblConvert);
 		units.forEach((u, i) => {
-			const $tr = $(`<tr class="row clickable"/>`).appendTo($tbodyConvert);
+			const $tr = $(`<tr class="row clickable"></tr>`).appendTo($tbodyConvert);
 			const clickL = () => {
 				ixConv = i;
 				dirConv = 0;
@@ -3878,20 +3900,20 @@ class UnitConverter {
 			$(`<td class="ve-col-3 code">×${u.x2.padStart(5)}</td>`).click(clickR).appendTo($tr);
 		});
 
-		const $wrpIpt = $(`<div class="split dm-unitconv__wrp-ipt"/>`).appendTo($wrpConverter);
+		const $wrpIpt = $(`<div class="split dm-unitconv__wrp-ipt"></div>`).appendTo($wrpConverter);
 
-		const $wrpLeft = $(`<div class="split-column dm-unitconv__wrp-ipt-inner"/>`).appendTo($wrpIpt);
-		const $lblLeft = $(`<span class="bold"/>`).appendTo($wrpLeft);
+		const $wrpLeft = $(`<div class="split-column dm-unitconv__wrp-ipt-inner"></div>`).appendTo($wrpIpt);
+		const $lblLeft = $(`<span class="bold"></span>`).appendTo($wrpLeft);
 		const $iptLeft = $(`<textarea class="dm-unitconv__ipt form-control">${state.i || ""}</textarea>`).appendTo($wrpLeft);
 
-		const $btnSwitch = $(`<button class="btn btn-primary dm-unitconv__btn-switch">⇆</button>`).click(() => {
+		const $btnSwitch = $(`<button class="ve-btn ve-btn-primary dm-unitconv__btn-switch">⇆</button>`).click(() => {
 			dirConv = Number(!dirConv);
 			updateDisplay();
 		}).appendTo($wrpIpt);
 
-		const $wrpRight = $(`<div class="split-column dm-unitconv__wrp-ipt-inner"/>`).appendTo($wrpIpt);
-		const $lblRight = $(`<span class="bold"/>`).appendTo($wrpRight);
-		const $iptRight = $(`<textarea class="dm-unitconv__ipt form-control" disabled style="background: #0000"/>`).appendTo($wrpRight);
+		const $wrpRight = $(`<div class="split-column dm-unitconv__wrp-ipt-inner"></div>`).appendTo($wrpIpt);
+		const $lblRight = $(`<span class="bold"></span>`).appendTo($wrpRight);
+		const $iptRight = $(`<textarea class="dm-unitconv__ipt form-control" disabled style="background: #0000"></textarea>`).appendTo($wrpRight);
 
 		const updateDisplay = () => {
 			const it = units[ixConv];
@@ -3972,17 +3994,17 @@ class AdventureOrBookView {
 	}
 
 	$getEle () {
-		this._$titlePrev = $(`<div class="dm-book__controls-title ve-overflow-ellipsis text-right"/>`);
-		this._$titleNext = $(`<div class="dm-book__controls-title ve-overflow-ellipsis"/>`);
+		this._$titlePrev = $(`<div class="dm-book__controls-title ve-overflow-ellipsis ve-text-right"></div>`);
+		this._$titleNext = $(`<div class="dm-book__controls-title ve-overflow-ellipsis"></div>`);
 
-		const $btnPrev = $(`<button class="btn btn-xs btn-default mr-2" title="Previous Chapter"><span class="glyphicon glyphicon-chevron-left"/></button>`)
+		const $btnPrev = $(`<button class="ve-btn ve-btn-xs ve-btn-default mr-2" title="Previous Chapter"><span class="glyphicon glyphicon-chevron-left"></span></button>`)
 			.click(() => this._handleButtonClick(-1));
-		const $btnNext = $(`<button class="btn btn-xs btn-default" title="Next Chapter"><span class="glyphicon glyphicon-chevron-right"/></button>`)
+		const $btnNext = $(`<button class="ve-btn ve-btn-xs ve-btn-default" title="Next Chapter"><span class="glyphicon glyphicon-chevron-right"></span></button>`)
 			.click(() => this._handleButtonClick(1));
 
-		this._$wrpContent = $(`<div class="h-100"/>`);
+		this._$wrpContent = $(`<div class="h-100"></div>`);
 		this._$wrpContentOuter = $$`<div class="h-100 dm-book__wrp-content">
-			<table class="w-100 stats stats--book stats--book-hover"><tr class="text"><td colspan="6">${this._$wrpContent}</td></tr></table>
+			<table class="w-100 stats stats--book stats--book-hover"><tr><td colspan="6" class="pb-3">${this._$wrpContent}</td></tr></table>
 		</div>`;
 
 		const $wrp = $$`<div class="ve-flex-col h-100">

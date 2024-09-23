@@ -5860,7 +5860,7 @@
 									"page": 77,
 									"entries": [
 										"As the adventurers pursue their goals and foil the villain's plans, how does the villain respond? Does it lash out in violence or send dire warnings? Does it look for simple solutions to its problems or create more complicated schemes to route around interference?",
-										"Look over the villain's actions that you outlined instep 2. For each event arising from those actions, think about how the adventurers are likely to react. If they can prevent an action or hamper its success, what effect does that have on the villain's overall plan? What can the villain do to compensate?",
+										"Look over the villain's actions that you outlined in step 2. For each event arising from those actions, think about how the adventurers are likely to react. If they can prevent an action or hamper its success, what effect does that have on the villain's overall plan? What can the villain do to compensate?",
 										"One way to track a villain's reactions is by using a flowchart. This might grow out of the timeline that describes the villain's plans, outlining how the villain gets back on track after the adventurers thwart its plans. Or the flowchart could be separate from the timeline, showing the various actions the adventurers might take and the villain's response to those actions."
 									],
 									"id": "13e"
@@ -7025,7 +7025,7 @@
 								{
 									"type": "list",
 									"items": [
-										"The whole party is {@quickref Surprise|PHB|3|0|surprised}, and the enemy isn't.",
+										"The whole party is {@status surprised}, and the enemy isn't.",
 										"The enemy has cover, and the party doesn't.",
 										"The characters are unable to see the enemy.",
 										"The characters are taking damage every round from some environmental effect or magical source, and the enemy isn't.",
@@ -19706,8 +19706,8 @@
 										"dmref": 2
 									},
 									"entries": [
-										"To determine whether a target has cover against an attack or other effect on a grid, choose a corner of the square the attacker occupies or the point of origin of an area of effect. Then trace imaginary lines from that corner to every corner of any one square the target occupies. If one or two of those lines are blocked by an obstacle (including another creature), the target has half cover. If three or four of those lines are blocked but the attack can still physically reach the target (such as when the target is behind an arrow slit), the target has three-quarters cover.",
-										"On hexes, use the same procedure as a grid, drawing lines between the corners of the hexagons. The target has half cover if up to three lines are blocked by an obstacle, and three-quarters cover if four or more lines are blocked but the attack can still physically reach the target."
+										"To determine whether a target has cover against an attack or other effect on a grid, choose a corner of the square the attacker occupies or the point of origin of an area of effect. Then trace imaginary lines from that corner to every corner of any one square the target occupies. If one or two of those lines are blocked by an obstacle (including another creature), the target has {@quickref Cover||3||half cover}. If three or four of those lines are blocked but the attack can still physically reach the target (such as when the target is behind an arrow slit), the target has {@quickref Cover||3||three-quarters cover}.",
+										"On hexes, use the same procedure as a grid, drawing lines between the corners of the hexagons. The target has {@quickref Cover||3||half cover} if up to three lines are blocked by an obstacle, and {@quickref Cover||3||three-quarters cover} if four or more lines are blocked but the attack can still physically reach the target."
 									],
 									"id": "2e2"
 								},
@@ -21892,7 +21892,7 @@
 								{
 									"type": "list",
 									"items": [
-										"The creature is {@quickref Surprise|PHB|3|0|surprised}.",
+										"The creature is {@status surprised}.",
 										"The creature is reduced to half its hit points or fewer for the first time in the battle.",
 										"The creature has no way to harm the opposing side on its turn."
 									]
@@ -21901,7 +21901,7 @@
 								{
 									"type": "list",
 									"items": [
-										"All the creatures in the group are {@quickref Surprise|PHB|3|0|surprised}.",
+										"All the creatures in the group are {@status surprised}.",
 										"The group's leader is reduced to 0 hit points, {@condition incapacitated}, taken prisoner, or removed from battle.",
 										"The group is reduced to half its original size with no losses on the opposing side."
 									]
@@ -28873,7 +28873,8 @@
 								"offsetX": -19,
 								"offsetY": 3,
 								"scale": 3
-							}
+							},
+							"id": "233"
 						},
 						{
 							"type": "image",
@@ -28891,7 +28892,8 @@
 								"offsetX": -50,
 								"offsetY": 50,
 								"scale": 2
-							}
+							},
+							"id": "234"
 						},
 						{
 							"type": "image",
@@ -28910,7 +28912,8 @@
 								"offsetY": -6,
 								"scale": 2,
 								"distance": 10
-							}
+							},
+							"id": "235"
 						},
 						{
 							"type": "image",
@@ -28926,7 +28929,8 @@
 								"type": "square",
 								"size": 84,
 								"scale": 3
-							}
+							},
+							"id": "236"
 						},
 						{
 							"type": "image",
@@ -28942,7 +28946,8 @@
 								"type": "none",
 								"size": 146,
 								"distance": 100
-							}
+							},
+							"id": "237"
 						},
 						{
 							"type": "image",
@@ -28958,7 +28963,8 @@
 								"type": "none",
 								"size": 53,
 								"distance": 100
-							}
+							},
+							"id": "238"
 						},
 						{
 							"type": "image",
@@ -28974,7 +28980,8 @@
 								"type": "square",
 								"size": 105,
 								"scale": 2
-							}
+							},
+							"id": "239"
 						},
 						{
 							"type": "image",
@@ -28991,7 +28998,8 @@
 								"size": 75,
 								"offsetX": 21,
 								"offsetY": 36
-							}
+							},
+							"id": "23a"
 						},
 						{
 							"type": "image",
@@ -29009,7 +29017,8 @@
 								"offsetX": 50,
 								"offsetY": 20,
 								"scale": 3
-							}
+							},
+							"id": "387"
 						}
 					]
 				}

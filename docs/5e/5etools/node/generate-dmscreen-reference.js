@@ -1,11 +1,11 @@
-import * as fs from "fs";
+import fs from "fs";
 import "../js/parser.js";
 import "../js/utils.js";
 import * as utB from "./util-book-reference.js";
 
 const index = utB.UtilBookReference.getIndex(
 	{
-		name: "Quick Reference",
+		name: "Quick Reference (2014)",
 		id: "bookref-quick",
 		tag: "quickref",
 	},

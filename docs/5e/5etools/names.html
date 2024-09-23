@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
 
 	<title>Names - 5etools</title>
 
@@ -58,6 +58,9 @@
 </head>
 
 <body>
+
+<div class="overlay-noise no-print"></div>
+
 <div class="cancer__wrp-sidebar-rhs cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__sidebar-rhs-inner cancer__sidebar-rhs-inner--top"><!--5ETOOLS_AD_RIGHT_1--></div><div class="cancer__sidebar-rhs-inner cancer__sidebar-rhs-inner--bottom"><!--5ETOOLS_AD_RIGHT_2--></div></div>
 
 <div class="viewport-wrapper">
@@ -65,22 +68,23 @@
 
 	<header class="hidden-xs hidden-sm page__header">
 		<div class="container ve-flex-v-baseline">
-			<h1 class="page__title no-wrap my-0">Names</h1>
+			<h1 class="page__title no-wrap my-0" id="page__title">Names</h1>
 			<p class="page__subtitle no-wrap my-0" id="page__subtitle">Choose a race and a type, then roll the dice!</p>
 		</div>
 	</header>
+
 	<nav class="container page__nav" id="navigation">
 		<ul class="nav nav-pills page__nav-inner" id="navbar"></ul>
 	</nav>
 
 	<div class="container view-col-wrapper">
 		<div class="view-col" id="listcontainer">
-			<div class="input-group btn-group search-box ve-flex">
+			<div class="input-group ve-btn-group search-box ve-flex">
 				<div class="w-100 relative">
 					<input type="search" id="lst__search" autocomplete="off" autocapitalize="off" spellcheck="false" class="search form-control lst__search br-0">
 					<div id="lst__search-glass" class="lst__wrp-search-glass no-events ve-flex-vh-center"><span class="glyphicon glyphicon-search"></span></div>
 				</div>
-				<button class="btn btn-default reset" id="reset" type="button">Reset</button>
+				<button class="ve-btn ve-btn-default reset" id="reset" type="button">Reset</button>
 			</div>
 
 			<div class="flex-col ve-overflow-y-scroll min-h-0 pr-2" data-name="tablepage-wrp-list">
@@ -96,29 +100,33 @@
 			</div>
 		</div>
 	</div>
-</div>    <!--5ETOOLS_SCRIPT_ANCHOR-->
-<!--5ETOOLS_AD_ADHESION-->
-<script type="text/javascript" src="js/parser.js"></script>
-<script type="text/javascript" src="js/utils.js"></script>
-<script type="text/javascript" src="js/utils-ui.js"></script>
-<script type="text/javascript" src="js/utils-list.js"></script>
-<script type="text/javascript" src="lib/localforage.js"></script>
-<script type="text/javascript" src="js/omnidexer.js"></script>
-<script type="text/javascript" src="js/omnisearch.js"></script>
-<script type="text/javascript" src="js/filter.js"></script>
-<script type="text/javascript" src="js/utils-dataloader.js"></script>
-<script type="text/javascript" src="js/utils-brew.js"></script>
-<script type="text/javascript" src="js/render.js"></script>
-<script type="text/javascript" src="js/render-dice.js"></script>
-<script type="text/javascript" src="js/render-markdown.js"></script>
-<script type="text/javascript" src="js/scalecreature.js"></script>
-<script type="text/javascript" src="js/hist.js"></script>
-<script type="text/javascript" src="js/listpage.js"></script>
-<script type="text/javascript" src="js/tablepage.js"></script>
-<script type="text/javascript" src="js/names.js"></script>
-<script type="text/javascript" src="js/list2.js"></script>
-<script type="text/javascript" src="lib/jquery.js"></script>
-<script type="text/javascript" src="lib/elasticlunr.js"></script>
-</body>
+</div>
 
+<!--5ETOOLS_SCRIPT_ANCHOR-->
+<!--5ETOOLS_AD_ADHESION-->
+
+<script type="text/javascript" defer src="lib/jquery.js"></script>
+<script type="text/javascript" defer src="js/parser.js"></script>
+<script type="text/javascript" defer src="js/utils.js"></script>
+<script type="text/javascript" defer src="js/utils-ui.js"></script>
+<script type="text/javascript" defer src="lib/localforage.js"></script>
+<script type="module" defer src="js/omnidexer.js"></script>
+<script type="module" src="js/omnisearch.js"></script>
+<script type="module" src="js/filter.js"></script>
+<script type="text/javascript" defer src="js/utils-dataloader.js"></script>
+<script type="module" src="js/utils-brew.js"></script>
+<script type="module" src="js/utils-config.js"></script>
+<script type="text/javascript" defer src="js/utils-list.js"></script>
+<script type="text/javascript" defer src="js/render.js"></script>
+<script type="text/javascript" defer src="js/render-dice.js"></script>
+<script type="text/javascript" defer src="js/render-markdown.js"></script>
+<script type="text/javascript" defer src="js/scalecreature.js"></script>
+<script type="text/javascript" defer src="js/hist.js"></script>
+<script type="text/javascript" defer src="js/listpage.js"></script>
+<script type="text/javascript" defer src="js/tablepage.js"></script>
+<script type="text/javascript" defer src="js/names.js"></script>
+<script type="text/javascript" defer src="js/list2.js"></script>
+<script type="text/javascript" defer src="lib/elasticlunr.js"></script>
+
+</body>
 </html>

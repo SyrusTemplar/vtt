@@ -1,6 +1,6 @@
 "use strict";
 
-class PageFilterBackgrounds extends PageFilter {
+class PageFilterBackgrounds extends PageFilterBase {
 	// TODO(Future) expand/move to `Renderer.generic`
 	static _getToolDisplayText (tool) {
 		if (tool === "anyTool") return "Any Tool";
@@ -12,23 +12,27 @@ class PageFilterBackgrounds extends PageFilter {
 	constructor () {
 		super();
 
-		this._skillFilter = new Filter({header: "Skill Proficiencies", displayFn: StrUtil.toTitleCase});
-		this._toolFilter = new Filter({header: "Tool Proficiencies", displayFn: PageFilterBackgrounds._getToolDisplayText.bind(PageFilterBackgrounds)});
-		this._languageFilter = new Filter({
-			header: "Language Proficiencies",
-			displayFn: it => it === "anyStandard"
-				? "Any Standard"
-				: it === "anyExotic"
-					? "Any Exotic"
-					: StrUtil.toTitleCase(it),
-		});
 		this._asiFilter = new AbilityScoreFilter({header: "Ability Scores"});
+		this._skillFilter = new Filter({header: "Skill Proficiencies", displayFn: StrUtil.toTitleCase});
+		this._prereqFilter = new Filter({
+			header: "Prerequisite",
+			items: [...FilterCommon.PREREQ_FILTER_ITEMS],
+		});
+		this._toolFilter = new Filter({header: "Tool Proficiencies", displayFn: PageFilterBackgrounds._getToolDisplayText.bind(PageFilterBackgrounds)});
+		this._languageFilter = FilterCommon.getLanguageProficienciesFilter();
 		this._otherBenefitsFilter = new Filter({header: "Other Benefits"});
-		this._miscFilter = new Filter({header: "Miscellaneous", items: ["Has Info", "Has Images", "SRD", "Basic Rules", "Legacy"], isMiscFilter: true});
+		this._miscFilter = new Filter({
+			header: "Miscellaneous",
+			items: ["Has Info", "Has Images", "Legacy"],
+			isMiscFilter: true,
+			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
+		});
 	}
 
 	static mutateForFilters (bg) {
 		bg._fSources = SourceFilter.getCompleteFilterSources(bg);
+
+		bg._fPrereq = FilterCommon.getFilterValuesPrerequisite(bg.prerequisite);
 
 		const {summary: skillDisplay, collection: skills} = Renderer.generic.getSkillSummary({
 			skillProfs: bg.skillProficiencies,
@@ -51,38 +55,39 @@ class PageFilterBackgrounds extends PageFilter {
 		});
 		bg._fLangs = languages;
 
-		bg._fMisc = [];
-		if (bg.srd) bg._fMisc.push("SRD");
-		if (bg.basicRules) bg._fMisc.push("Basic Rules");
-		if (SourceUtil.isLegacySourceWotc(bg.source)) bg._fMisc.push("Legacy");
-		if (this._hasFluff(bg)) bg._fMisc.push("Has Info");
-		if (this._hasFluffImages(bg)) bg._fMisc.push("Has Images");
+		this._mutateForFilters_commonMisc(bg);
 		bg._fOtherBenifits = [];
 		if (bg.feats) bg._fOtherBenifits.push("Feat");
 		if (bg.additionalSpells) bg._fOtherBenifits.push("Additional Spells");
 		if (bg.armorProficiencies) bg._fOtherBenifits.push("Armor Proficiencies");
 		if (bg.weaponProficiencies) bg._fOtherBenifits.push("Weapon Proficiencies");
 		bg._skillDisplay = skillDisplay;
+
+		const ability = Renderer.getAbilityData(bg.ability, {isOnlyShort: true, isBackgroundShortForm: bg.edition === "one"});
+		bg._slAbility = ability.asTextShort || VeCt.STR_NONE;
 	}
 
 	addToFilters (bg, isExcluded) {
 		if (isExcluded) return;
 
 		this._sourceFilter.addItem(bg._fSources);
+		this._asiFilter.addItem(bg.ability);
+		this._prereqFilter.addItem(bg._fPrereq);
 		this._skillFilter.addItem(bg._fSkills);
 		this._toolFilter.addItem(bg._fTools);
 		this._languageFilter.addItem(bg._fLangs);
-		this._asiFilter.addItem(bg.ability);
 		this._otherBenefitsFilter.addItem(bg._fOtherBenifits);
+		this._miscFilter.addItem(bg._fMisc);
 	}
 
 	async _pPopulateBoxOptions (opts) {
 		opts.filters = [
 			this._sourceFilter,
+			this._asiFilter,
+			this._prereqFilter,
 			this._skillFilter,
 			this._toolFilter,
 			this._languageFilter,
-			this._asiFilter,
 			this._otherBenefitsFilter,
 			this._miscFilter,
 		];
@@ -92,10 +97,11 @@ class PageFilterBackgrounds extends PageFilter {
 		return this._filterBox.toDisplay(
 			values,
 			bg._fSources,
+			bg.ability,
+			bg._fPrereq,
 			bg._fSkills,
 			bg._fTools,
 			bg._fLangs,
-			bg.ability,
 			bg._fOtherBenifits,
 			bg._fMisc,
 		);
@@ -104,7 +110,7 @@ class PageFilterBackgrounds extends PageFilter {
 
 globalThis.PageFilterBackgrounds = PageFilterBackgrounds;
 
-class ModalFilterBackgrounds extends ModalFilter {
+class ModalFilterBackgrounds extends ModalFilterBase {
 	/**
 	 * @param opts
 	 * @param opts.namespace
@@ -122,11 +128,12 @@ class ModalFilterBackgrounds extends ModalFilter {
 
 	_$getColumnHeaders () {
 		const btnMeta = [
-			{sort: "name", text: "Name", width: "4"},
-			{sort: "skills", text: "Skills", width: "6"},
+			{sort: "name", text: "Name", width: "3"},
+			{sort: "ability", text: "Ability", width: "4"},
+			{sort: "skills", text: "Skills", width: "4"},
 			{sort: "source", text: "Source", width: "1"},
 		];
-		return ModalFilter._$getFilterColumnHeaders(btnMeta);
+		return ModalFilterBase._$getFilterColumnHeaders(btnMeta);
 	}
 
 	async _pLoadAllData () {
@@ -144,16 +151,17 @@ class ModalFilterBackgrounds extends ModalFilter {
 		const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BACKGROUNDS](bg);
 		const source = Parser.sourceJsonToAbv(bg.source);
 
-		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst--border veapp__list-row no-select lst__wrp-cells">
+		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst__row-border veapp__list-row no-select lst__wrp-cells">
 			<div class="ve-col-0-5 pl-0 ve-flex-vh-center">${this._isRadio ? `<input type="radio" name="radio" class="no-events">` : `<input type="checkbox" class="no-events">`}</div>
 
 			<div class="ve-col-0-5 px-1 ve-flex-vh-center">
-				<div class="ui-list__btn-inline px-2" title="Toggle Preview (SHIFT to Toggle Info Preview)">[+]</div>
+				<div class="ui-list__btn-inline px-2 no-select" title="Toggle Preview (SHIFT to Toggle Info Preview)">[+]</div>
 			</div>
 
-			<div class="ve-col-4 ${bg._versionBase_isVersion ? "italic" : ""} ${this._getNameStyle()}">${bg._versionBase_isVersion ? `<span class="px-3"></span>` : ""}${bg.name}</div>
-			<div class="ve-col-6">${bg._skillDisplay}</div>
-			<div class="ve-col-1 pr-0 ve-flex-h-center ${Parser.sourceJsonToColor(bg.source)}" title="${Parser.sourceJsonToFull(bg.source)}" ${Parser.sourceJsonToStyle(bg.source)}>${source}${Parser.sourceJsonToMarkerHtml(bg.source)}</div>
+			<div class="ve-col-3 px-1 ${bg._versionBase_isVersion ? "italic" : ""} ${this._getNameStyle()}">${bg._versionBase_isVersion ? `<span class="px-3"></span>` : ""}${bg.name}</div>
+			<span class="ve-col-4 px-1 ${bg._slAbility === VeCt.STR_NONE ? "italic" : ""}">${bg._slAbility}</span>
+			<div class="ve-col-4 px-1">${bg._skillDisplay}</div>
+			<div class="ve-col-1 pl-1 pr-0 ve-flex-h-center ${Parser.sourceJsonToSourceClassname(bg.source)}" title="${Parser.sourceJsonToFull(bg.source)}" ${Parser.sourceJsonToStyle(bg.source)}>${source}${Parser.sourceJsonToMarkerHtml(bg.source)}</div>
 		</div>`;
 
 		const btnShowHidePreview = eleRow.firstElementChild.children[1].firstElementChild;
@@ -166,6 +174,7 @@ class ModalFilterBackgrounds extends ModalFilter {
 				hash,
 				source,
 				sourceJson: bg.source,
+				ability: bg._slAbility,
 				skills: bg._skillDisplay,
 			},
 			{

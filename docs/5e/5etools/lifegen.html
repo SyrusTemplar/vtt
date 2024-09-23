@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
 
 	<title>This Is Your Life - 5etools</title>
 
@@ -58,11 +58,14 @@
 </head>
 
 <body>
+
+<div class="overlay-noise no-print"></div>
+
 <div class="cancer__wrp-leaderboard cancer__anchor"><div class="cancer__disp-cancer"></div><div class="cancer__wrp-leaderboard-inner"><!--5ETOOLS_AD_LEADERBOARD--></div></div>
 
 <header class="hidden-xs hidden-sm page__header">
 	<div class="container ve-flex-v-baseline">
-		<h1 class="page__title no-wrap my-0">This Is Your Life</h1>
+		<h1 class="page__title no-wrap my-0" id="page__title">This Is Your Life</h1>
 		<p class="page__subtitle no-wrap my-0" id="page__subtitle">Select options, and hit generate.</p>
 	</div>
 </header>
@@ -77,7 +80,7 @@
 
 	<div class="ve-flex no-print">
 		<div class="form-group ve-col-2-4 mr-2">
-			<label for="race">Race</label>
+			<label for="race">Species</label>
 			<select class="form-control form-inline" id="race" disabled><option>Loading...</option></select>
 		</div>
 
@@ -103,7 +106,7 @@
 	</div>
 	<div class="ve-flex no-print">
 		<div class="form-group ve-col-12">
-			<button class="btn btn-default" onclick="pRoll()">Generate</button>
+			<button class="ve-btn ve-btn-default" onclick="pRoll()">Generate</button>
 		</div>
 	</div>
 
@@ -114,54 +117,57 @@
 
 	<hr class="life__output" style="display: none; background: transparent">
 	<div class="ve-flex-col life__output night__shadow-big ve-hidden">
-		<div class="wrp-sect-head"><h4>Parents</h4><button class="btn btn-xs btn-default btn-reroll" onclick="pSectParents()"></button></div>
+		<div class="wrp-sect-head"><h4>Parents</h4><button class="ve-btn ve-btn-xs ve-btn-default no-print" onclick="pSectParents()">Reroll</button></div>
 		<p id="parents"></p>
 	</div>
 	<div class="ve-flex-col life__output night__shadow-big ve-hidden">
-		<div class="wrp-sect-head"><h4>Birthplace</h4><button class="btn btn-xs btn-default btn-reroll" onclick="sectBirthplace()"></button></div>
+		<div class="wrp-sect-head"><h4>Birthplace</h4><button class="ve-btn ve-btn-xs ve-btn-default no-print" onclick="sectBirthplace()">Reroll</button></div>
 		<p id="birthplace"></p>
 	</div>
 	<div class="ve-flex-col life__output night__shadow-big ve-hidden">
-		<div class="wrp-sect-head"><h4>Siblings</h4><button class="btn btn-xs btn-default btn-reroll" onclick="pSectSiblings()"></button></div>
+		<div class="wrp-sect-head"><h4>Siblings</h4><button class="ve-btn ve-btn-xs ve-btn-default no-print" onclick="pSectSiblings()">Reroll</button></div>
 		<p id="siblings"></p>
 	</div>
 	<div class="ve-flex-col life__output night__shadow-big ve-hidden">
-		<div class="wrp-sect-head"><h4>Family and Friends</h4><button class="btn btn-xs btn-default btn-reroll" onclick="sectFamily()"></button></div>
+		<div class="wrp-sect-head"><h4>Family and Friends</h4><button class="ve-btn ve-btn-xs ve-btn-default no-print" onclick="sectFamily()">Reroll</button></div>
 		<p id="family"></p>
 	</div>
 	<div class="ve-flex-col life__output night__shadow-big ve-hidden">
-		<div class="wrp-sect-head"><h4>Personal Decisions</h4><button class="btn btn-xs btn-default btn-reroll" onclick="sectPersonalDecisions()"></button></div>
+		<div class="wrp-sect-head"><h4>Personal Decisions</h4><button class="ve-btn ve-btn-xs ve-btn-default no-print" onclick="sectPersonalDecisions()">Reroll</button></div>
 		<p id="personal"></p>
 	</div>
 	<div class="ve-flex-col life__output night__shadow-big ve-hidden">
-		<div class="wrp-sect-head"><h4>Class Training</h4><button class="btn btn-xs btn-default btn-reroll" onclick="sectClassTraining()"></button></div>
+		<div class="wrp-sect-head"><h4>Class Training</h4><button class="ve-btn ve-btn-xs ve-btn-default no-print" onclick="sectClassTraining()">Reroll</button></div>
 		<p id="clss"></p>
 	</div>
 	<div class="ve-flex-col life__output night__shadow-big ve-hidden">
-		<div class="wrp-sect-head"><h4>Life Events</h4><button class="btn btn-xs btn-default btn-reroll" onclick="sectLifeEvents()"></button></div>
+		<div class="wrp-sect-head"><h4>Life Events</h4><button class="ve-btn ve-btn-xs ve-btn-default no-print" onclick="sectLifeEvents()">Reroll</button></div>
 		<p id="events"></p>
 	</div>
 </main>
+
 <!--5ETOOLS_SCRIPT_ANCHOR-->
 <!--5ETOOLS_AD_ADHESION-->
-<script type="text/javascript" src="js/parser.js"></script>
-<script type="text/javascript" src="js/utils.js"></script>
-<script type="text/javascript" src="js/utils-ui.js"></script>
-<script type="text/javascript" src="lib/localforage.js"></script>
-<script type="text/javascript" src="js/genutils.js"></script>
-<script type="text/javascript" src="js/omnidexer.js"></script>
-<script type="text/javascript" src="js/omnisearch.js"></script>
-<script type="text/javascript" src="js/filter.js"></script>
-<script type="text/javascript" src="js/utils-dataloader.js"></script>
-<script type="text/javascript" src="js/utils-brew.js"></script>
-<script type="text/javascript" src="js/render.js"></script>
-<script type="text/javascript" src="js/render-dice.js"></script>
-<script type="text/javascript" src="js/scalecreature.js"></script>
-<script type="text/javascript" src="js/hist.js"></script>
-<script type="text/javascript" src="js/lifegen.js"></script>
-<script type="text/javascript" src="js/list2.js"></script>
-<script type="text/javascript" src="lib/jquery.js"></script>
-<script type="text/javascript" src="lib/elasticlunr.js"></script>
-</body>
 
+<script type="text/javascript" defer src="lib/jquery.js"></script>
+<script type="text/javascript" defer src="js/parser.js"></script>
+<script type="text/javascript" defer src="js/utils.js"></script>
+<script type="text/javascript" defer src="js/utils-ui.js"></script>
+<script type="text/javascript" defer src="lib/localforage.js"></script>
+<script type="module" defer src="js/omnidexer.js"></script>
+<script type="module" src="js/omnisearch.js"></script>
+<script type="module" src="js/filter.js"></script>
+<script type="text/javascript" defer src="js/utils-dataloader.js"></script>
+<script type="module" src="js/utils-brew.js"></script>
+<script type="module" src="js/utils-config.js"></script>
+<script type="text/javascript" defer src="js/utils-generate.js"></script>
+<script type="text/javascript" defer src="js/render.js"></script>
+<script type="text/javascript" defer src="js/render-dice.js"></script>
+<script type="text/javascript" defer src="js/scalecreature.js"></script>
+<script type="text/javascript" defer src="js/hist.js"></script>
+<script type="text/javascript" defer src="js/lifegen.js"></script>
+<script type="text/javascript" defer src="js/list2.js"></script>
+<script type="text/javascript" defer src="lib/elasticlunr.js"></script>
+
+</body>
 </html>

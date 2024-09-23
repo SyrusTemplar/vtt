@@ -57,8 +57,8 @@ function addMonsterFeatures (mfData) {
 	});
 
 	// when clicking a row in the "Monster Statistics by Challenge Rating" table
-	$("#msbcr tr").not(":has(th)").click(function () {
-		if (!confirm("This will reset the calculator. Are you sure?")) return;
+	$("#msbcr tr").not(":has(th)").click(async function () {
+		if (!await InputUiUtil.pGetUserBoolean({title: "Reset", htmlDescription: "This will reset the calculator. Are you sure?", textYes: "Yes", textNo: "Cancel"})) return;
 		$("#expectedcr").val($(this).children("td:eq(0)").html());
 		const [minHp, maxHp] = $(this).children("td:eq(4)").html().split("-").map(it => parseInt(it));
 		$("#hp").val(minHp + (maxHp - minHp) / 2);
@@ -156,11 +156,10 @@ function addMonsterFeatures (mfData) {
 
 	$("#monsterfeatures .crc__wrp_mon_features input").change(calculateCr);
 
-	$("#crcalc_reset").click(() => {
-		confirm("Are you sure?") && (() => {
-			window.location = "";
-			parseUrl();
-		})();
+	$("#crcalc_reset").click(async () => {
+		if (!await InputUiUtil.pGetUserBoolean({title: "Reset", htmlDescription: "Are you sure?", textYes: "Yes", textNo: "Cancel"})) return;
+		window.location = "";
+		parseUrl();
 	});
 
 	parseUrl();
@@ -169,7 +168,11 @@ function addMonsterFeatures (mfData) {
 function calculateCr () {
 	const expectedCr = parseInt($("#expectedcr").val());
 
+	// Effective HP
 	let hp = parseInt($("#crcalc #hp").val());
+
+	// Used in e.g. "Damage Transfer"
+	const hpActual = hp;
 
 	if ($("#vulnerabilities").prop("checked")) hp *= 0.5;
 	if ($("#resistances").val() === "res") {

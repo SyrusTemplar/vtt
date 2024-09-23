@@ -366,7 +366,7 @@
 										"entries": [
 											"{@i Measures:} Natural athleticism, bodily power",
 											"{@i Important for:} Barbarian, fighter, paladin",
-											"{@filter Races that have a bonus to Strength|races|Ability Scores (Including Subrace)=Strength +any}"
+											"{@filter Races that have a bonus to Strength|races|Ability Scores (Including Subspecies)=Strength +any}"
 										],
 										"id": "019"
 									}
@@ -392,7 +392,7 @@
 										"entries": [
 											"{@i Measures:} Physical agility, reflexes, balance, poise",
 											"{@i Important for:} Monk, ranger, rogue",
-											"{@filter Races that have a bonus to Dexterity|races|Ability Scores (Including Subrace)=Dexterity +any}"
+											"{@filter Races that have a bonus to Dexterity|races|Ability Scores (Including Subspecies)=Dexterity +any}"
 										],
 										"id": "01a"
 									}
@@ -418,7 +418,7 @@
 										"entries": [
 											"{@i Measures:} Health, stamina, vital force",
 											"{@i Important for:} Everyone",
-											"{@filter Races that have a bonus to Constitution|races|Ability Scores (Including Subrace)=Constitution +any}"
+											"{@filter Races that have a bonus to Constitution|races|Ability Scores (Including Subspecies)=Constitution +any}"
 										],
 										"id": "01b"
 									}
@@ -444,7 +444,7 @@
 										"entries": [
 											"{@i Measures:} Mental acuity, information recall, analytical skill",
 											"{@i Important for:} Wizard",
-											"{@filter Races that have a bonus to Intelligence|races|Ability Scores (Including Subrace)=Intelligence +any}"
+											"{@filter Races that have a bonus to Intelligence|races|Ability Scores (Including Subspecies)=Intelligence +any}"
 										],
 										"id": "01c"
 									}
@@ -470,7 +470,7 @@
 										"entries": [
 											"{@i Measures:} Awareness, intuition, insight",
 											"{@i Important for:} Cleric, druid",
-											"{@filter Races that have a bonus to Wisdom|races|Ability Scores (Including Subrace)=Wisdom +any}"
+											"{@filter Races that have a bonus to Wisdom|races|Ability Scores (Including Subspecies)=Wisdom +any}"
 										],
 										"id": "01d"
 									}
@@ -496,7 +496,7 @@
 										"entries": [
 											"{@i Measures:} Confidence, eloquence, leadership",
 											"{@i Important for:} Bard, sorcerer, warlock",
-											"{@filter Races that have a bonus to Charisma|races|Ability Scores (Including Subrace)=Charisma +any}"
+											"{@filter Races that have a bonus to Charisma|races|Ability Scores (Including Subspecies)=Charisma +any}"
 										],
 										"id": "01e"
 									}
@@ -7521,7 +7521,7 @@
 											"name": "Surprising Foes",
 											"page": 183,
 											"entries": [
-												"If the adventurers encounter a hostile creature or group, the DM determines whether the adventurers or their foes might be {@quickref Surprise|PHB|3|0|surprised} when combat erupts. See chapter 9 for more about surprise."
+												"If the adventurers encounter a hostile creature or group, the DM determines whether the adventurers or their foes might be {@status surprised} when combat erupts. See chapter 9 for more about surprise."
 											],
 											"id": "157"
 										}
@@ -7969,7 +7969,7 @@
 								{
 									"type": "item",
 									"name": "1. Determine surprise",
-									"entry": "The DM determines whether anyone involved in the combat encounter is {@quickref Surprise|PHB|3|0|surprised}."
+									"entry": "The DM determines whether anyone involved in the combat encounter is {@status surprised}."
 								}
 							]
 						},
@@ -8035,8 +8035,8 @@
 							"page": 189,
 							"entries": [
 								"A band of adventurers sneaks up on a bandit camp, springing from the trees to attack them. A gelatinous cube glides down a dungeon passage, unnoticed by the adventurers until the cube engulfs one of them. In these situations, one side of the battle gains surprise over the other.",
-								"The DM determines who might be {@quickref Surprise|PHB|3|0|surprised}. If neither side tries to be stealthy, they automatically notice each other. Otherwise, the DM compares the Dexterity ({@skill Stealth}) checks of anyone hiding with the passive Wisdom ({@skill Perception}) score of each creature on the opposing side. Any character or monster that doesn't notice a threat is {@quickref Surprise|PHB|3|0|surprised} at the start of the encounter.",
-								"If you're {@quickref Surprise|PHB|3|0|surprised}, you can't move or take an action on your first turn of the combat, and you can't take a reaction until that turn ends. A member of a group can be {@quickref Surprise|PHB|3|0|surprised} even if the other members aren't."
+								"The DM determines who might be {@status surprised}. If neither side tries to be stealthy, they automatically notice each other. Otherwise, the DM compares the Dexterity ({@skill Stealth}) checks of anyone hiding with the passive Wisdom ({@skill Perception}) score of each creature on the opposing side. Any character or monster that doesn't notice a threat is {@status surprised} at the start of the encounter.",
+								"If you're {@status surprised}, you can't move or take an action on your first turn of the combat, and you can't take a reaction until that turn ends. A member of a group can be {@status surprised} even if the other members aren't."
 							],
 							"data": {
 								"quickrefIndex": true
@@ -9272,7 +9272,7 @@
 									"name": "A Clear Path to the Target",
 									"page": 204,
 									"entries": [
-										"To target something, you must have a clear path to it, so it can't be behind total cover.",
+										"To target something, you must have a clear path to it, so it can't be behind {@quickref Cover||3||total cover}.",
 										"If you place an area of effect at a point that you can't see and an obstruction, such as a wall, is between you and that point, the point of origin comes into being on the near side of that obstruction."
 									],
 									"id": "1e3"
@@ -9360,7 +9360,7 @@
 							"page": 204,
 							"entries": [
 								"Spells such as {@spell burning hands} and {@spell cone of cold} cover an area, allowing them to affect multiple creatures at once. A spell's description specifies its area of effect, which typically has one of five different shapes: cone, cube, cylinder, line, or sphere. Every area of effect has a point of origin, a location from which the spell's energy erupts. The rules for each shape specify how you position its point of origin. Typically, a point of origin is a point in space, but some spells have an area whose origin is a creature or an object.",
-								"A spell's effect expands in straight lines from the point of origin. If no unblocked straight line extends from the point of origin to a location within the area of effect, that location isn't included in the spell's area. To block one of these imaginary lines, an obstruction must provide total cover, as explained in chapter 9.",
+								"A spell's effect expands in straight lines from the point of origin. If no unblocked straight line extends from the point of origin to a location within the area of effect, that location isn't included in the spell's area. To block one of these imaginary lines, an obstruction must provide {@quickref Cover||3||total cover}, as explained in chapter 9.",
 								{
 									"type": "image",
 									"href": {

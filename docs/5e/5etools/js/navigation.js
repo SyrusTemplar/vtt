@@ -15,7 +15,7 @@ class NavBar {
 
 	static _onLoad () {
 		NavBar._dropdowns = [...NavBar._navbar.querySelectorAll(`li.dropdown--navbar`)];
-		document.addEventListener("click", () => NavBar._dropdowns.forEach(ele => ele.classList.remove("open")));
+		document.addEventListener("click", () => NavBar._closeAllDropdowns());
 
 		NavBar._clearAllTimers();
 
@@ -35,7 +35,7 @@ class NavBar {
 
 		// create mobile "Menu" button
 		const btnShowHide = document.createElement("button");
-		btnShowHide.className = "btn btn-default page__btn-toggle-nav";
+		btnShowHide.className = "ve-btn ve-btn-default page__btn-toggle-nav";
 		btnShowHide.innerHTML = "Menu";
 		btnShowHide.onclick = () => {
 			$(btnShowHide).toggleClass("active");
@@ -46,18 +46,19 @@ class NavBar {
 		this._addElement_li(null, "index.html", "Home", {isRoot: true});
 
 		this._addElement_dropdown(null, NavBar._CAT_RULES);
-		this._addElement_li(NavBar._CAT_RULES, "quickreference.html", "Quick Reference");
-		this._addElement_li(NavBar._CAT_RULES, "variantrules.html", "Optional, Variant, and Expanded Rules");
+		this._addElement_li(NavBar._CAT_RULES, "variantrules.html", "Rules Glossary");
 		this._addElement_li(NavBar._CAT_RULES, "tables.html", "Tables");
 		this._addElement_divider(NavBar._CAT_RULES);
 		this._addElement_dropdown(NavBar._CAT_RULES, NavBar._CAT_BOOKS, {isSide: true, page: "books.html"});
 		this._addElement_li(NavBar._CAT_BOOKS, "books.html", "View All/Homebrew");
+		this._addElement_divider(NavBar._CAT_RULES);
+		this._addElement_li(NavBar._CAT_RULES, "quickreference.html", "Quick Reference (2014)");
 
 		this._addElement_dropdown(null, NavBar._CAT_PLAYER);
 		this._addElement_li(NavBar._CAT_PLAYER, "classes.html", "Classes");
 		this._addElement_li(NavBar._CAT_PLAYER, "backgrounds.html", "Backgrounds");
 		this._addElement_li(NavBar._CAT_PLAYER, "feats.html", "Feats");
-		this._addElement_li(NavBar._CAT_PLAYER, "races.html", "Races");
+		this._addElement_li(NavBar._CAT_PLAYER, "races.html", "Species");
 		this._addElement_li(NavBar._CAT_PLAYER, "charcreationoptions.html", "Other Character Creation Options");
 		this._addElement_li(NavBar._CAT_PLAYER, "optionalfeatures.html", "Other Options & Features");
 		this._addElement_divider(NavBar._CAT_PLAYER);
@@ -103,6 +104,33 @@ class NavBar {
 		this._addElement_li(NavBar._CAT_UTILITIES, "manageprerelease.html", "Prerelease Content Manager");
 		this._addElement_li(NavBar._CAT_UTILITIES, "makebrew.html", "Homebrew Builder");
 		this._addElement_li(NavBar._CAT_UTILITIES, "managebrew.html", "Homebrew Manager");
+		this._addElement_buttonSplit(
+			NavBar._CAT_UTILITIES,
+			{
+				metas: [
+					{
+						html: "Load All Partnered Content",
+						click: async evt => {
+							evt.stopPropagation();
+							evt.preventDefault();
+							const {ManageBrewUi} = await import("./utils-brew/utils-brew-ui-manage.js");
+							await ManageBrewUi.pOnClickBtnLoadAllPartnered();
+						},
+					},
+					{
+						html: `<span class="glyphicon glyphicon-link"></span>`,
+						title: `Export Prerelease Content/Homebrew List as URL`,
+						click: async evt => {
+							evt.stopPropagation();
+							evt.preventDefault();
+							const ele = evt.currentTarget;
+							const {ManageBrewUi} = await import("./utils-brew/utils-brew-ui-manage.js");
+							await ManageBrewUi.pOnClickBtnExportListAsUrl({ele});
+						},
+					},
+				],
+			},
+		);
 		this._addElement_divider(NavBar._CAT_UTILITIES);
 		this._addElement_li(NavBar._CAT_UTILITIES, "inittrackerplayerview.html", "Initiative Tracker Player View");
 		this._addElement_divider(NavBar._CAT_UTILITIES);
@@ -123,19 +151,11 @@ class NavBar {
 		this._addElement_button(
 			NavBar._CAT_SETTINGS,
 			{
-				html: styleSwitcher.getDayNightButtonText(),
-				click: (evt) => NavBar.InteractionManager._onClick_button_dayNight(evt),
-				context: (evt) => NavBar.InteractionManager._onContext_button_dayNight(evt),
-				className: "nightModeToggle",
-			},
-		);
-		this._addElement_button(
-			NavBar._CAT_SETTINGS,
-			{
-				html: styleSwitcher.getActiveWide() === true ? "Disable Wide Mode" : "Enable Wide Mode (Experimental)",
-				click: (evt) => NavBar.InteractionManager._onClick_button_wideMode(evt),
-				className: "wideModeToggle",
-				title: "This feature is unsupported. Expect bugs.",
+				html: "Preferences",
+				click: () => {
+					ConfigUi.show();
+					NavBar._closeAllDropdowns();
+				},
 			},
 		);
 		this._addElement_divider(NavBar._CAT_SETTINGS);
@@ -387,7 +407,7 @@ class NavBar {
 
 		const a = document.createElement("a");
 		a.href = href;
-		a.innerHTML = `${this._addElement_getDatePrefix({date: opts.date, isAddDateSpacer: opts.isAddDateSpacer})}${this._addElement_getSourcePrefix({source: opts.source})}${aText}`;
+		a.innerHTML = `${this._addElement_getDatePrefix({date: opts.date, isAddDateSpacer: opts.isAddDateSpacer})}${this._addElement_getSourcePrefix({source: opts.source})}${aText}${this._addElement_getSourceSuffix({source: opts.source})}`;
 		a.classList.add("nav__link");
 		if (opts.isInAccordion) a.classList.add(`nav2-accord__lnk-item`, `inline-block`, `w-100`);
 
@@ -395,7 +415,7 @@ class NavBar {
 			a.setAttribute("target", "_blank");
 			a.classList.add("inline-split-v-center");
 			a.classList.add("w-100");
-			a.innerHTML = `<span>${aText}</span><span class="glyphicon glyphicon-new-window"/>`;
+			a.innerHTML = `<span>${aText}</span><span class="glyphicon glyphicon-new-window"></span>`;
 		}
 
 		li.appendChild(a);
@@ -462,15 +482,20 @@ class NavBar {
 		parentNode.children[category] = node;
 	}
 
-	static _addElement_getDatePrefix ({date, isAddDateSpacer}) { return `${(date != null || isAddDateSpacer) ? `<div class="ve-small mr-2 page__nav-date inline-block text-right inline-block">${date || ""}</div>` : ""}`; }
-	static _addElement_getSourcePrefix ({source}) { return `${source != null ? `<div class="nav2-list__disp-source ${Parser.sourceJsonToColor(source)}" ${Parser.sourceJsonToStyle(source)}></div>` : ""}`; }
+	static _addElement_getDatePrefix ({date, isAddDateSpacer}) { return `${(date != null || isAddDateSpacer) ? `<div class="ve-small mr-2 page__nav-date inline-block ve-text-right inline-block">${date || ""}</div>` : ""}`; }
+	static _addElement_getSourcePrefix ({source}) { return `${source != null ? `<div class="nav2-list__disp-source ${Parser.sourceJsonToSourceClassname(source)}" ${Parser.sourceJsonToStyle(source)}></div>` : ""}`; }
+
+	static _addElement_getSourceSuffix ({source}) {
+		if (source == null) return "";
+		return Parser.sourceJsonToMarkerHtml(source, {isList: false, additionalStyles: "ml-1 nav2-list__disp-legacy-marker"});
+	}
 
 	static _addElement_divider (parentCategory) {
 		const parentNode = this._getNode(parentCategory);
 
 		const li = document.createElement("li");
 		li.setAttribute("role", "presentation");
-		li.className = "divider";
+		li.className = "ve-dropdown-divider";
 
 		parentNode.body.appendChild(li);
 	}
@@ -547,17 +572,53 @@ class NavBar {
 		const li = document.createElement("li");
 		li.setAttribute("role", "presentation");
 
-		const a = document.createElement("a");
-		a.href = "#";
-		if (options.className) a.className = options.className;
-		a.onclick = options.click;
-		a.innerHTML = options.html;
+		const eleSpan = document.createElement("span");
+		if (options.className) eleSpan.className = options.className;
+		eleSpan.onclick = options.click;
+		eleSpan.innerHTML = options.html;
 
-		if (options.context) a.oncontextmenu = options.context;
+		if (options.context) eleSpan.oncontextmenu = options.context;
 
 		if (options.title) li.setAttribute("title", options.title);
 
-		li.appendChild(a);
+		li.appendChild(eleSpan);
+		parentNode.body.appendChild(li);
+	}
+
+	/**
+	 * Special LI for button
+	 * @param parentCategory The element to append to.
+	 * @param options Options.
+	 * @param options.html
+	 * @param options.metas
+	 */
+	static _addElement_buttonSplit (parentCategory, options) {
+		const parentNode = this._getNode(parentCategory);
+
+		const li = document.createElement("li");
+		li.setAttribute("role", "presentation");
+		li.className = "ve-flex-v-center";
+
+		options.metas
+			.forEach(({className, click, html, title}, i) => {
+				const eleSpan = document.createElement("span");
+
+				eleSpan.className = [
+					className,
+					"inline-block",
+					i ? null : "w-100 min-w-0",
+				]
+					.filter(Boolean)
+					.join(" ");
+
+				eleSpan.onclick = click;
+				eleSpan.innerHTML = html;
+
+				if (title) eleSpan.setAttribute("title", title);
+
+				li.appendChild(eleSpan);
+			});
+
 		parentNode.body.appendChild(li);
 	}
 
@@ -616,6 +677,10 @@ class NavBar {
 		const isOpen = ele.parentNode.classList.contains("open");
 		if (isOpen) NavBar._dropdowns.forEach(ele => ele.classList.remove("open"));
 		else NavBar._openDropdown(ele);
+	}
+
+	static _closeAllDropdowns () {
+		NavBar._dropdowns.forEach(ele => ele.classList.remove("open"));
 	}
 
 	static _openDropdown (ele) {
@@ -887,7 +952,7 @@ NavBar.NodeLink = class extends NavBar.Node {
 };
 
 NavBar.NodeAccordion = class extends NavBar.Node {
-	static getDispToggleDisplayHtml (val) { return val ? `[\u2012]` : `[+]`; }
+	static getDispToggleDisplayHtml (val) { return val ? `[\u2212]` : `[+]`; }
 
 	constructor ({dispToggle, ...rest}) {
 		super(rest);

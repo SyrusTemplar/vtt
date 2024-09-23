@@ -186,7 +186,7 @@
 				{
 					"name": "Mount",
 					"entries": [
-						"If the archon isn't mounted, it can use a bonus action to magically teleport onto the creature serving as its mount, provided the archon and its mount are on the same plane of existence. When it teleports, the archon appears astride the mount along with any equipment it is wearing or carrying. While mounted and not {@condition incapacitated}, the archon can't be {@quickref Surprise|PHB|3|0|surprised}, and both it and its mount gain advantage on Dexterity saving throws. If the archon is reduced to 0 hit points while riding its mount, the mount is reduced to 0 hit points as well."
+						"If the archon isn't mounted, it can use a bonus action to magically teleport onto the creature serving as its mount, provided the archon and its mount are on the same plane of existence. When it teleports, the archon appears astride the mount along with any equipment it is wearing or carrying. While mounted and not {@condition incapacitated}, the archon can't be {@status surprised}, and both it and its mount gain advantage on Dexterity saving throws. If the archon is reduced to 0 hit points while riding its mount, the mount is reduced to 0 hit points as well."
 					]
 				}
 			],
@@ -1312,6 +1312,7 @@
 				"I"
 			],
 			"miscTags": [
+				"CUR",
 				"MLW",
 				"MW"
 			],
@@ -1706,6 +1707,9 @@
 						"{@atk mw} {@hit 5} to hit, reach 10 ft., one target. {@h}6 ({@damage 1d6 + 3}) slashing damage."
 					]
 				}
+			],
+			"traitTags": [
+				"Mimicry"
 			],
 			"senseTags": [
 				"SD"
@@ -4563,7 +4567,7 @@
 				{
 					"name": "Vigilant",
 					"entries": [
-						"The giant can't be {@quickref Surprise|PHB|3|0|surprised}."
+						"The giant can't be {@status surprised}."
 					]
 				}
 			],
@@ -4956,7 +4960,7 @@
 				{
 					"name": "Assassinate",
 					"entries": [
-						"During its first turn, the hybrid poisoner has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the hybrid scores against a {@quickref Surprise|PHB|3|0|surprised} creature is a critical hit."
+						"During its first turn, the hybrid poisoner has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the hybrid scores against a {@status surprised} creature is a critical hit."
 					]
 				},
 				{
@@ -7032,7 +7036,7 @@
 				{
 					"name": "Mount",
 					"entries": [
-						"If the specter isn't mounted, it can use a bonus action to magically teleport onto its gloamwing mount, provided the specter and the gloamwing are on the same plane of existence. When it teleports, the specter appears astride the gloamwing along with any equipment it is wearing or carrying. While mounted and not {@condition incapacitated}, the specter can't be {@quickref Surprise|PHB|3|0|surprised}, and both it and its mount gain advantage on Dexterity saving throws."
+						"If the specter isn't mounted, it can use a bonus action to magically teleport onto its gloamwing mount, provided the specter and the gloamwing are on the same plane of existence. When it teleports, the specter appears astride the gloamwing along with any equipment it is wearing or carrying. While mounted and not {@condition incapacitated}, the specter can't be {@status surprised}, and both it and its mount gain advantage on Dexterity saving throws."
 					]
 				}
 			],
@@ -9584,7 +9588,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"{@atk mw} {@hit 11} to hit, reach 10 ft., one target. {@h}22 ({@damage 3d10 + 6}) piercing damage. If the target is a Large or smaller creature, it must succeed on a {@dc 19} Dexterity saving throw or be swallowed by the skyswimmer. A swallowed creature is {@condition blinded} and {@condition restrained}, it has total cover against attacks and other effects outside the skyswimmer, and it takes 21 ({@damage 6d6}) acid damage at the start of each of the skyswimmer's turns. If the skyswimmer takes 30 damage or more on a single turn from the swallowed creature, the skyswimmer must succeed on a {@dc 18} Constitution saving throw at the end of that turn or regurgitate the creature, which falls {@condition prone} in a space within 10 feet of the skyswimmer. If the skyswimmer dies, a swallowed creature is no longer {@condition restrained} by it and can escape from the corpse by using 15 feet of movement, exiting {@condition prone}."
+						"{@atk mw} {@hit 11} to hit, reach 10 ft., one target. {@h}22 ({@damage 3d10 + 6}) piercing damage. If the target is a Large or smaller creature, it must succeed on a {@dc 19} Dexterity saving throw or be swallowed by the skyswimmer. A swallowed creature is {@condition blinded} and {@condition restrained}, it has {@quickref Cover||3||total cover} against attacks and other effects outside the skyswimmer, and it takes 21 ({@damage 6d6}) acid damage at the start of each of the skyswimmer's turns. If the skyswimmer takes 30 damage or more on a single turn from the swallowed creature, the skyswimmer must succeed on a {@dc 18} Constitution saving throw at the end of that turn or regurgitate the creature, which falls {@condition prone} in a space within 10 feet of the skyswimmer. If the skyswimmer dies, a swallowed creature is no longer {@condition restrained} by it and can escape from the corpse by using 15 feet of movement, exiting {@condition prone}."
 					]
 				},
 				{
@@ -10352,7 +10356,7 @@
 				{
 					"name": "Surprise Attack",
 					"entries": [
-						"During the first round of combat, the medusa has advantage on attack rolls against any creature that is {@quickref Surprise|PHB|3|0|surprised}, and it deals an extra 10 ({@dice 3d6}) damage each time it hits such a creature with an attack."
+						"During the first round of combat, the medusa has advantage on attack rolls against any creature that is {@status surprised}, and it deals an extra 10 ({@dice 3d6}) damage each time it hits such a creature with an attack."
 					]
 				}
 			],
@@ -10563,7 +10567,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"{@atk mw} {@hit 12} to hit, reach 10 ft., one target. {@h}24 ({@damage 5d6 + 7}) piercing damage. If the target is a Medium or smaller creature, it must succeed on a {@dc 20} Dexterity saving throw or be swallowed by the wurm. A swallowed creature is {@condition blinded} and {@condition restrained}, has total cover against attacks and other effects outside the wurm, and takes 17 ({@damage 5d6}) acid damage at the start of each of the wurm's turns. If the wurm takes 30 damage or more on a single turn from a creature inside it, the wurm must succeed on a {@dc 21} Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall {@condition prone} in a space within 10 feet of the wurm. If the wurm dies, a swallowed creature is no longer {@condition restrained} by it and can escape from the corpse by using 20 feet of movement, exiting {@condition prone}."
+						"{@atk mw} {@hit 12} to hit, reach 10 ft., one target. {@h}24 ({@damage 5d6 + 7}) piercing damage. If the target is a Medium or smaller creature, it must succeed on a {@dc 20} Dexterity saving throw or be swallowed by the wurm. A swallowed creature is {@condition blinded} and {@condition restrained}, has {@quickref Cover||3||total cover} against attacks and other effects outside the wurm, and takes 17 ({@damage 5d6}) acid damage at the start of each of the wurm's turns. If the wurm takes 30 damage or more on a single turn from a creature inside it, the wurm must succeed on a {@dc 21} Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall {@condition prone} in a space within 10 feet of the wurm. If the wurm dies, a swallowed creature is no longer {@condition restrained} by it and can escape from the corpse by using 20 feet of movement, exiting {@condition prone}."
 					]
 				}
 			],

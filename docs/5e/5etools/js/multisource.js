@@ -6,7 +6,6 @@ class ListPageMultiSource extends ListPage {
 		super({
 			...rest,
 			isLoadDataAfterFilterInit: true,
-			isBindHashHandlerUnknown: true,
 		});
 
 		this._propLoader = propLoader;
@@ -36,7 +35,7 @@ class ListPageMultiSource extends ListPage {
 
 	async _pForceLoadDefaultSources () {
 		const defaultSources = Object.keys(this._loadedSources)
-			.filter(s => PageFilter.defaultSourceSelFn(s));
+			.filter(s => PageFilterBase.defaultSourceSelFn(s));
 		await Promise.all(defaultSources.map(src => this._pLoadSource(src, "yes")));
 	}
 
@@ -79,7 +78,7 @@ class ListPageMultiSource extends ListPage {
 		if (nextFilterVal !== "yes") return;
 
 		const toLoad = this._loadedSources[src] || this._loadedSources[Object.keys(this._loadedSources).find(k => k.toLowerCase() === src)];
-		if (toLoad.loaded) return;
+		if (!toLoad || toLoad.loaded) return;
 
 		const data = await DataUtil[this._propLoader].pLoadSingleSource(src);
 		this._addData(data);
@@ -97,7 +96,7 @@ class ListPageMultiSource extends ListPage {
 			.forEach(src => this._loadedSources[src] = {source: src, loaded: false});
 
 		// collect a list of sources to load
-		const defaultSel = [...siteSourcesAvail].filter(s => PageFilter.defaultSourceSelFn(s));
+		const defaultSel = [...siteSourcesAvail].filter(s => PageFilterBase.defaultSourceSelFn(s));
 
 		const userSel = [
 			// Selected in filter
@@ -159,7 +158,7 @@ class ListPageMultiSource extends ListPage {
 		}
 
 		Object.keys(this._loadedSources)
-			.map(src => new SourceFilterItem({item: src, pFnChange: this._pLoadSource.bind(this)}))
+			.map(src => new SourceFilterItem({item: src}))
 			.forEach(fi => this._pageFilter.sourceFilter.addItem(fi));
 
 		const prerelease = await (this._prereleaseDataSource ? this._prereleaseDataSource() : PrereleaseUtil.pGetBrewProcessed());
@@ -173,5 +172,20 @@ class ListPageMultiSource extends ListPage {
 		return hashSourceRaw
 			? [...siteSourcesAvail].find(it => it.toLowerCase() === hashSourceRaw.toLowerCase())
 			: null;
+	}
+
+	async pHandleUnknownHash (link, sub) {
+		const {source: srcLink} = UrlUtil.autoDecodeHash(link);
+
+		const src = Object.keys(this._loadedSources)
+			.find(src => src.toLowerCase() === srcLink);
+
+		if (src) {
+			await this._pLoadSource(src, "yes");
+			Hist.hashChange();
+			return;
+		}
+
+		await super.pHandleUnknownHash(link, sub);
 	}
 }

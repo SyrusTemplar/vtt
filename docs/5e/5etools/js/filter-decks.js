@@ -1,21 +1,20 @@
 "use strict";
 
-class PageFilterDecks extends PageFilter {
+class PageFilterDecks extends PageFilterBase {
 	constructor () {
 		super();
 
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
-			items: ["Has Card Art", "SRD", "Legacy"],
+			items: ["Has Card Art", "Legacy"],
 			isMiscFilter: true,
 			selFn: it => it === "Has Card Art",
+			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});
 	}
 
 	static mutateForFilters (ent) {
-		ent._fMisc = [];
-		if (ent.srd) ent._fMisc.push("SRD");
-		if (SourceUtil.isLegacySourceWotc(ent.source)) ent._fMisc.push("Legacy");
+		this._mutateForFilters_commonMisc(ent);
 		if (ent.hasCardArt) ent._fMisc.push("Has Card Art");
 	}
 
@@ -23,6 +22,7 @@ class PageFilterDecks extends PageFilter {
 		if (isExcluded) return;
 
 		this._sourceFilter.addItem(ent.source);
+		this._miscFilter.addItem(ent._fMisc);
 	}
 
 	async _pPopulateBoxOptions (opts) {

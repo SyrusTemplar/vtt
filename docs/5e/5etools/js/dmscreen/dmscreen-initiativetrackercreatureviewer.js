@@ -73,7 +73,7 @@ export class InitiativeTrackerCreatureViewer extends BaseComponent {
 	}
 
 	_render_$getStgConnect () {
-		const $btnConnect = $(`<button class="btn btn-primary min-w-200p">Connect to Tracker</button>`)
+		const $btnConnect = $(`<button class="ve-btn ve-btn-primary min-w-200p">Connect to Tracker</button>`)
 			.on("click", async () => {
 				const $elesData = DmScreenUtil.$getPanelDataElements({board: this._board, type: PANEL_TYP_INITIATIVE_TRACKER});
 
@@ -85,13 +85,13 @@ export class InitiativeTrackerCreatureViewer extends BaseComponent {
 					title: "Select Tracker",
 				});
 
-				const $selTracker = $(`<select class="form-control input-xs mr-1">
+				const $selTracker = $(`<select class="form-control input-xs mb-2">
 					<option value="-1" disabled>Select tracker</option>
 					${$elesData.map(($e, i) => `<option value="${i}">${$e.data("getSummary")()}</option>`).join("")}
 				</select>`)
 					.on("change", () => $selTracker.removeClass("error-background"));
 
-				const $btnSubmit = $(`<button class="btn btn-primary btn-xs">Connect</button>`)
+				const $btnSubmit = $(`<button class="ve-btn ve-btn-primary ve-btn-xs">Connect</button>`)
 					.on("click", () => {
 						const ix = Number($selTracker.val());
 						if (!~ix) {
@@ -107,8 +107,8 @@ export class InitiativeTrackerCreatureViewer extends BaseComponent {
 					${$btnSubmit}
 				`;
 
-				const ixSel = await pGetResolved();
-				if (ixSel == null) return;
+				const [isDataEntered, ixSel] = await pGetResolved();
+				if (!isDataEntered || ixSel == null) return;
 
 				this._setLinkedTrackerFromEle({$eleData: $elesData[ixSel]});
 			});
