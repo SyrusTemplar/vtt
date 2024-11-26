@@ -51,7 +51,6 @@ p {
   color: var(--color-font);
   float: left;
   text-align: left;
-  font-size: 12px;
 }
 
 hr {
@@ -71,7 +70,6 @@ h1, h2, h3, h4, h5, h6 {
 a:link {
   color: var(--color-link);
   text-decoration: none;
-  font-size: 12px;
 }
 a:visited {
   color: var(--color-link);
