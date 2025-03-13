@@ -209,6 +209,11 @@
 			"conditionInflict": [
 				"invisible"
 			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"dexterity",
+				"strength"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -710,7 +715,8 @@
 			},
 			"traitTags": [
 				"Legendary Resistances",
-				"Magic Resistance"
+				"Magic Resistance",
+				"Regeneration"
 			],
 			"senseTags": [
 				"U"
@@ -744,6 +750,10 @@
 			],
 			"savingThrowForced": [
 				"dexterity"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"strength"
 			],
 			"savingThrowForcedSpell": [
 				"constitution",
@@ -808,7 +818,7 @@
 				{
 					"name": "Special Equipment",
 					"entries": [
-						"Augustus wields a +2 Longsword."
+						"Augustus wields a {@item +2 Longsword}."
 					]
 				}
 			],
@@ -1412,7 +1422,7 @@
 			"languages": [
 				"understands one of your languages but can't speak"
 			],
-			"pbNote": "equals your",
+			"pbNote": "equals your bonus",
 			"trait": [
 				{
 					"name": "Allied Knight",
@@ -1642,6 +1652,11 @@
 			],
 			"savingThrowForced": [
 				"wisdom"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"dexterity",
+				"strength"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -3210,6 +3225,10 @@
 			"savingThrowForced": [
 				"constitution"
 			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"dexterity"
+			],
 			"savingThrowForcedSpell": [
 				"dexterity"
 			],
@@ -4070,7 +4089,7 @@
 				{
 					"name": "Forge Hammer",
 					"entries": [
-						"{@atk mw,rw} {@hit 12} to hit, reach 10 ft. or range 60/180 ft., one target. {@h}28 ({@damage 4d10 + 6}) bludgeoning damage, and the target can't take reactions until the end of Malaxxix's next turn. Hit or Miss: The hammer then magically returns to Malaxxix's hand."
+						"{@atk mw,rw} {@hit 12} to hit, reach 10 ft. or range 60/180 ft., one target. {@h}28 ({@damage 4d10 + 6}) bludgeoning damage, and the target can't take reactions until the end of Malaxxix's next turn. {@hom}The hammer then magically returns to Malaxxix's hand."
 					]
 				},
 				{
@@ -4140,6 +4159,9 @@
 			],
 			"savingThrowForced": [
 				"dexterity",
+				"strength"
+			],
+			"savingThrowForcedLegendary": [
 				"strength"
 			],
 			"hasToken": true,
@@ -4656,6 +4678,11 @@
 				"intelligence",
 				"wisdom"
 			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"dexterity",
+				"strength"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -4866,6 +4893,11 @@
 				"constitution",
 				"dexterity",
 				"strength"
+			],
+			"savingThrowForcedLegendary": [
+				"charisma",
+				"dexterity",
+				"wisdom"
 			],
 			"savingThrowForcedSpell": [
 				"charisma",
@@ -5756,6 +5788,11 @@
 				"charisma",
 				"constitution",
 				"wisdom"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"dexterity",
+				"strength"
 			],
 			"hasToken": true,
 			"hasFluff": true,

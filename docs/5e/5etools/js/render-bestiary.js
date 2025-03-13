@@ -10,8 +10,8 @@ class _RenderBestiaryImplBase {
 	 * @param [opts]
 	 * @param {jQuery} [opts.$btnScaleCr]
 	 * @param {jQuery} [opts.$btnResetScaleCr]
-	 * @param {HTMLElementModified} [opts.selSummonSpellLevel]
-	 * @param {HTMLElementModified} [opts.selSummonClassLevel]
+	 * @param {HTMLElementExtended} [opts.selSummonSpellLevel]
+	 * @param {HTMLElementExtended} [opts.selSummonClassLevel]
 	 * @param {boolean} [opts.isSkipExcludesRender]
 	 * @param {boolean} [opts.isSkipTokenRender]
 	 *
@@ -37,8 +37,8 @@ class _RenderBestiaryImplBase {
 	 * @param opts
 	 * @param {jQuery} [opts.$btnScaleCr]
 	 * @param {jQuery} [opts.$btnResetScaleCr]
-	 * @param {HTMLElementModified} [opts.selSummonSpellLevel]
-	 * @param {HTMLElementModified} [opts.selSummonClassLevel]
+	 * @param {HTMLElementExtended} [opts.selSummonSpellLevel]
+	 * @param {HTMLElementExtended} [opts.selSummonClassLevel]
 	 * @param {boolean} [opts.isSkipExcludesRender]
 	 * @param {boolean} [opts.isSkipTokenRender]
 	 * @param {Renderer} renderer
@@ -76,10 +76,10 @@ class _RenderBestiaryImplBase {
 	 * @param prop
 	 * @param entries
 	 * @param depth
-	 * @param fnGetHeader
+	 * @param {?string} ptHeader
 	 * @return {string}
 	 */
-	_getRenderedSection ({mon = null, prop, entries, depth = 1, fnGetHeader = null}) {
+	_getRenderedSection ({mon = null, prop, entries, depth = 1, ptHeader = null}) {
 		const renderer = Renderer.get();
 		const renderStack = [];
 
@@ -92,13 +92,11 @@ class _RenderBestiaryImplBase {
 
 			case "legendary":
 			case "mythic": {
-				const cpy = MiscUtil.copy(entries).map(it => {
-					if (it.name && it.entries) {
-						it.name = `${it.name}.`;
-						it.type = it.type || "item";
-					}
-					return it;
-				});
+				const cpy = MiscUtil.copy(entries)
+					.map(it => {
+						if (it.name && it.entries) it.type ||= "item";
+						return it;
+					});
 				const toRender = {type: "list", style: "list-hang-notitle", items: cpy};
 				renderer.setFirstSection(true).recursiveRender(toRender, renderStack, {depth: depth});
 				break;
@@ -112,9 +110,7 @@ class _RenderBestiaryImplBase {
 			}
 		}
 
-		const ptHeader = mon
-			? (fnGetHeader ? fnGetHeader(mon) : Renderer.monster.getSectionIntro(mon, {prop}))
-			: "";
+		ptHeader ||= mon ? Renderer.monster.getSectionIntro(mon, {prop}) : "";
 
 		return `${ptHeader ? `<tr><td colspan="6" class="stats__sect-row-inner">${ptHeader}</td></tr>` : ""}
 			<tr><td colspan="6" class="stats__sect-row-inner">${renderStack.join("")}</td></tr>`;
@@ -134,6 +130,8 @@ class _RenderBestiaryImplBase {
 			entsAction,
 			entsBonusAction,
 			entsReaction,
+			entsLegendaryAction,
+			entsMythicAction,
 			legGroup,
 		},
 	) {
@@ -149,6 +147,7 @@ class _RenderBestiaryImplBase {
 			htmlPtAbilityScores: this._getHtmlParts_abilityScores({mon, renderer}),
 
 			htmlPtSkills: this._getCommonHtmlParts_skills({mon, renderer}),
+			htmlPtTools: this._getCommonHtmlParts_tools({mon, renderer}),
 			htmlPtVulnerabilities: this._getCommonHtmlParts_vulnerabilities({mon}),
 			htmlPtResistances: this._getCommonHtmlParts_resistances({mon}),
 			htmlPtSenses: this._getCommonHtmlParts_senses({mon}),
@@ -157,8 +156,8 @@ class _RenderBestiaryImplBase {
 			htmlPtActions: this._getCommonHtmlParts_actions({mon, entsAction}),
 			htmlPtBonusActions: this._getCommonHtmlParts_bonusActions({mon, entsBonusAction}),
 			htmlPtReactions: this._getCommonHtmlParts_reactions({mon, entsReaction}),
-			htmlPtLegendaryActions: this._getCommonHtmlParts_legendaryActions({mon}),
-			htmlPtMythicActions: this._getCommonHtmlParts_mythicActions({mon}),
+			htmlPtLegendaryActions: this._getCommonHtmlParts_legendaryActions({mon, entsLegendaryAction}),
+			htmlPtMythicActions: this._getCommonHtmlParts_mythicActions({mon, entsMythicAction}),
 
 			htmlPtLairActions: this._getCommonHtmlParts_lairActions({legGroup}),
 			htmlPtRegionalEffects: this._getCommonHtmlParts_regionalEffects({legGroup}),
@@ -211,7 +210,7 @@ class _RenderBestiaryImplBase {
 	}
 
 	_getCommonHtmlParts_speed ({mon, isInlinedToken}) {
-		return `<tr><td colspan="6"><div ${this._style !== "classic" && isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}><strong>Speed</strong> ${Parser.getSpeedString(mon)}</div></td></tr>`;
+		return `<tr><td colspan="6"><div ${this._style !== "classic" && isInlinedToken ? `class="stats__wrp-avoid-token"` : ""}><strong>Speed</strong> ${Parser.getSpeedString(mon, {styleHint: this._style})}</div></td></tr>`;
 	}
 
 	/* ----- */
@@ -226,6 +225,10 @@ class _RenderBestiaryImplBase {
 		return mon.skill ? `<tr><td colspan="6"><strong>Skills</strong> ${Renderer.monster.getSkillsString(renderer, mon)}</td></tr>` : "";
 	}
 
+	_getCommonHtmlParts_tools ({mon, renderer}) {
+		return mon.tool ? `<tr><td colspan="6"><strong>Tools</strong> ${Renderer.monster.getToolsString(renderer, mon, {styleHint: this._style})}</td></tr>` : "";
+	}
+
 	_getCommonHtmlParts_vulnerabilities ({mon}) {
 		const label = this._style === "classic" ? "Damage Vulnerabilities" : "Vulnerabilities";
 		return mon.vulnerable ? `<tr><td colspan="6"><strong>${label}</strong> ${Parser.getFullImmRes(mon.vulnerable, {isTitleCase: this._style !== "classic"})}</td></tr>` : "";
@@ -237,11 +240,12 @@ class _RenderBestiaryImplBase {
 	}
 
 	_getCommonHtmlParts_senses ({mon}) {
-		return `<tr><td colspan="6"><strong>Senses</strong> ${Renderer.monster.getSensesPart(mon, {isTitleCase: this._style !== "classic"})}</td></tr>`;
+		const pt = Renderer.monster.getSensesPart(mon, {isTitleCase: this._style !== "classic"});
+		return pt ? `<tr><td colspan="6"><strong>Senses</strong> ${pt}</td></tr>` : "";
 	}
 
 	_getCommonHtmlParts_languages ({mon}) {
-		return `<tr><td colspan="6"><strong>Languages</strong> ${Renderer.monster.getRenderedLanguages(mon.languages)}</td></tr>`;
+		return `<tr><td colspan="6"><strong>Languages</strong> ${Renderer.monster.getRenderedLanguages(mon.languages, {styleHint: this._style})}</td></tr>`;
 	}
 
 	/* ----- */
@@ -261,14 +265,17 @@ class _RenderBestiaryImplBase {
 		${this._getRenderedSection({mon, prop: "reaction", entries: entsReaction})}` : ""}`;
 	}
 
-	_getCommonHtmlParts_legendaryActions ({mon}) {
-		return `${mon.legendary ? `${this._getRenderedSectionHeader({mon, title: "Legendary Actions", prop: "legendary"})}
-		${this._getRenderedSection({mon, prop: "legendary", entries: mon.legendary, fnGetHeader: Renderer.monster.getLegendaryActionIntro.bind(Renderer.monster)})}` : ""}`;
+	_getCommonHtmlParts_legendaryActions ({mon, entsLegendaryAction}) {
+		if (!entsLegendaryAction?.length) return "";
+		const ptHeader = Renderer.monster.getLegendaryActionIntro(mon, {styleHint: this._style});
+		return `${this._getRenderedSectionHeader({mon, title: "Legendary Actions", prop: "legendary"})}
+		${this._getRenderedSection({mon, prop: "legendary", entries: entsLegendaryAction, ptHeader})}`;
 	}
 
-	_getCommonHtmlParts_mythicActions ({mon}) {
-		return `${mon.mythic ? `${this._getRenderedSectionHeader({mon, title: "Mythic Actions", prop: "mythic"})}
-		${this._getRenderedSection({mon, prop: "mythic", entries: mon.mythic})}` : ""}`;
+	_getCommonHtmlParts_mythicActions ({mon, entsMythicAction}) {
+		if (!entsMythicAction?.length) return "";
+		return `${this._getRenderedSectionHeader({mon, title: "Mythic Actions", prop: "mythic"})}
+		${this._getRenderedSection({mon, prop: "mythic", entries: entsMythicAction})}`;
 	}
 
 	/* ----- */
@@ -288,21 +295,24 @@ class _RenderBestiaryImplBase {
 	_getCommonHtmlParts_footerExtended ({mon, renderer, legGroup}) {
 		const renderedVariants = Renderer.monster.getRenderedVariants(mon, {renderer});
 
-		const htmlSourceAndEnvironment = this._getHtmlPartsourceAndEnvironment(mon, legGroup);
+		const ptSource = this._getHtmlPartSource(mon, legGroup);
+		const ptEnvironment = this._getHtmlPtEnvironment(mon);
+		const ptTreasure = this._getHtmlPtTreasure(mon);
 
 		const ptVariants = renderedVariants ? `<tr><td colspan="6">${renderedVariants}</td></tr>` : "";
 
 		const ptFooter = `${mon.footer ? `<tr><td colspan="6" class="stats__sect-row-inner">${renderer.render({entries: mon.footer})}</td></tr>` : ""}
 		${mon.summonedBySpell ? `<tr><td colspan="6"><b>Summoned By:</b> ${renderer.render(`{@spell ${mon.summonedBySpell}}`)}</td></tr>` : ""}
-		${htmlSourceAndEnvironment.length === 2 ? `<tr><td colspan="6">${htmlSourceAndEnvironment[1]}</td></tr>` : ""}
-		<tr><td colspan="6">${htmlSourceAndEnvironment[0]}</td></tr>`.trim();
+		${ptEnvironment ? `<tr><td colspan="6">${ptEnvironment}</td></tr>` : ""}
+		${ptTreasure ? `<tr><td colspan="6">${ptTreasure}</td></tr>` : ""}
+		<tr><td colspan="6">${ptSource}</td></tr>`.trim();
 
 		return `${ptVariants}
 		${ptFooter.length ? `<tr><td colspan="6" class="p-0 pt-3"></td></tr>` : ""}
 		${ptFooter}`;
 	}
 
-	_getHtmlPartsourceAndEnvironment (mon, legGroup) {
+	_getHtmlPartSource (mon, legGroup) {
 		const srcCpy = {
 			source: mon.source,
 			page: mon.page,
@@ -333,7 +343,20 @@ class _RenderBestiaryImplBase {
 
 		const pageTrInner = Renderer.utils.getSourceAndPageTrHtml(srcCpy);
 		if (!mon.environment?.length) return [pageTrInner];
-		return [pageTrInner, `<div><b>Environment:</b> ${Renderer.monster.getRenderedEnvironment(mon.environment)}</div>`];
+		return [
+			pageTrInner,
+
+		];
+	}
+
+	_getHtmlPtEnvironment (mon) {
+		if (!mon.environment?.length) return "";
+		return `<div><b>${this._style === "classic" ? "Environment" : "Habitat"}:</b> ${Renderer.monster.getRenderedEnvironment(mon.environment)}</div>`;
+	}
+
+	_getHtmlPtTreasure (mon) {
+		if (!mon.treasure?.length) return "";
+		return `<div><b>Treasure:</b> ${Renderer.monster.getRenderedTreasure(mon.treasure)}</div>`;
 	}
 
 	/* -------------------------------------------- */
@@ -341,10 +364,10 @@ class _RenderBestiaryImplBase {
 	_$getTdChallenge (mon, opts) {
 		const ptLabel = `<strong ${this._style === "classic" ? "" : `title="Challenge Rating"`}>${this._style !== "classic" ? "CR" : "Challenge"}</strong>`;
 
-		if (Parser.crToNumber(mon.cr) >= VeCt.CR_UNKNOWN) return `<td colspan="${this._style !== "classic" ? "6" : "3"}">${ptLabel} <span>\u2014</span></td>`;
+		if (Parser.crToNumber(mon.cr) >= VeCt.CR_UNKNOWN && this._style === "classic") return `<td colspan="3">${ptLabel} <span>\u2014</span></td>`;
 
 		return $$`<td colspan="${this._style !== "classic" ? "6" : "3"}">${ptLabel}
-			<span>${Renderer.monster.getChallengeRatingPart(mon, {style: this._style})}</span>
+			<span>${Renderer.monster.getChallengeRatingPart(mon, {styleHint: this._style})}</span>
 			${opts.$btnScaleCr || ""}
 			${opts.$btnResetScaleCr || ""}
 		</td>`;
@@ -424,6 +447,8 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 			entsAction,
 			entsBonusAction,
 			entsReaction,
+			entsLegendaryAction,
+			entsMythicAction,
 			legGroup,
 		} = Renderer.monster.getSubEntries(mon, {renderer});
 
@@ -439,6 +464,7 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 			htmlPtAbilityScores,
 
 			htmlPtSkills,
+			htmlPtTools,
 			htmlPtVulnerabilities,
 			htmlPtResistances,
 			htmlPtSenses,
@@ -465,6 +491,8 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 			entsAction,
 			entsBonusAction,
 			entsReaction,
+			entsLegendaryAction,
+			entsMythicAction,
 			legGroup,
 		});
 
@@ -509,6 +537,7 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 
 		${htmlPtSavingThrows}
 		${htmlPtSkills}
+		${htmlPtTools}
 		${htmlPtVulnerabilities}
 		${htmlPtResistances}
 		${htmlPtDamageImmunities}
@@ -522,7 +551,7 @@ class _RenderBestiaryImplClassic extends _RenderBestiaryImplBase {
 		</tr>
 
 		<tr>${opts.selSummonSpellLevel ? $$`<td colspan="6"><strong class="mr-2">Spell Level</strong> ${opts.selSummonSpellLevel}</td>` : ""}</tr>
-		<tr>${opts.selSummonClassLevel ? $$`<td colspan="6"><strong class="mr-2">Class Level</strong> ${opts.selSummonClassLevel}</td>` : ""}</tr>
+		<tr>${opts.selSummonClassLevel ? $$`<td colspan="6"><strong class="mr-2">${opts.classLevelScalerClass ? "Class Level" : "Level"}</strong> ${opts.selSummonClassLevel}</td>` : ""}</tr>
 
 		${htmlPtTraits}
 		${htmlPtActions}
@@ -616,6 +645,8 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 			entsAction,
 			entsBonusAction,
 			entsReaction,
+			entsLegendaryAction,
+			entsMythicAction,
 			legGroup,
 		} = Renderer.monster.getSubEntries(mon, {renderer});
 
@@ -631,6 +662,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 			htmlPtAbilityScores,
 
 			htmlPtSkills,
+			htmlPtTools,
 			htmlPtVulnerabilities,
 			htmlPtResistances,
 			htmlPtSenses,
@@ -657,6 +689,8 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 			entsAction,
 			entsBonusAction,
 			entsReaction,
+			entsLegendaryAction,
+			entsMythicAction,
 			legGroup,
 		});
 
@@ -697,6 +731,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 
 		${htmlPtSavingThrows}
 		${htmlPtSkills}
+		${htmlPtTools}
 		${htmlPtVulnerabilities}
 		${htmlPtResistances}
 		${htmlPtImmunities}
@@ -709,7 +744,7 @@ class _RenderBestiaryImplOne extends _RenderBestiaryImplBase {
 		</tr>
 
 		<tr>${opts.selSummonSpellLevel ? $$`<td colspan="6"><strong class="mr-2">Spell Level</strong> ${opts.selSummonSpellLevel}</td>` : ""}</tr>
-		<tr>${opts.selSummonClassLevel ? $$`<td colspan="6"><strong class="mr-2">Class Level</strong> ${opts.selSummonClassLevel}</td>` : ""}</tr>
+		<tr>${opts.selSummonClassLevel ? $$`<td colspan="6"><strong class="mr-2">${opts.classLevelScalerClass ? "Class Level" : "Level"}</strong> ${opts.selSummonClassLevel}</td>` : ""}</tr>
 
 		${htmlPtTraits}
 		${htmlPtActions}

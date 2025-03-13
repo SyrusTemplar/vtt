@@ -488,6 +488,9 @@ class UiUtil {
 			$modal: $(modal),
 			$modalInner: $(wrpScroller),
 			$modalFooter: $(modalFooter),
+			eleModal: modal,
+			eleModalInner: wrpScroller,
+			eleModalFooter: modalFooter,
 			doClose: pHandleCloseClick,
 			doTeardown,
 			pGetResolved: () => pResolveModal,
@@ -639,7 +642,11 @@ class UiUtil {
 		return out;
 	}
 
-	static bindTypingEnd ({$ipt, fnKeyup, fnKeypress, fnKeydown, fnClick, timeout} = {}) {
+	static bindTypingEnd ({ipt, $ipt, fnKeyup, fnKeypress, fnKeydown, fnClick, timeout} = {}) {
+		if (!ipt && !$ipt?.length) throw new Error(`"ipt" or "$ipt" must be provided!`);
+
+		$ipt = $ipt || $(ipt);
+
 		let timerTyping;
 		$ipt
 			.on("keyup search paste", evt => {
@@ -1019,9 +1026,12 @@ class ListUiUtil {
 	}
 
 	static bindPreviewAllButton ($btnAll, list) {
-		$btnAll
-			.click(async () => {
-				const nxtHtml = $btnAll.html() === ListUiUtil.HTML_GLYPHICON_EXPAND
+		const btnAll = $btnAll?.[0];
+		if (!btnAll) return;
+
+		btnAll
+			.addEventListener("click", async () => {
+				const nxtHtml = btnAll.innerHTML === ListUiUtil.HTML_GLYPHICON_EXPAND
 					? ListUiUtil.HTML_GLYPHICON_CONTRACT
 					: ListUiUtil.HTML_GLYPHICON_EXPAND;
 
@@ -1033,12 +1043,17 @@ class ListUiUtil {
 					if (!isSure) return;
 				}
 
-				$btnAll.html(nxtHtml);
+				btnAll.innerHTML = nxtHtml;
 
 				list.visibleItems.forEach(listItem => {
 					if (listItem.data.btnShowHidePreview.innerHTML !== nxtHtml) listItem.data.btnShowHidePreview.click();
 				});
 			});
+
+		list.on("updated", () => {
+			const isShowExpand = list.visibleItems.every(listItem => listItem.data.btnShowHidePreview.innerHTML === ListUiUtil.HTML_GLYPHICON_EXPAND);
+			btnAll.innerHTML = isShowExpand ? ListUiUtil.HTML_GLYPHICON_EXPAND : ListUiUtil.HTML_GLYPHICON_CONTRACT;
+		});
 	}
 
 	// ==================
@@ -1244,8 +1259,22 @@ class TabUiUtilBase {
 		};
 
 		/** Render a collection of tabs. */
-		obj._renderTabs = function (tabMetas, {$parent, propProxy = TabUiUtilBase._DEFAULT_PROP_PROXY, tabGroup = TabUiUtilBase._DEFAULT_TAB_GROUP, cbTabChange, additionalClassesWrpHeads} = {}) {
+		obj._renderTabs = function (
+			tabMetas,
+			{
+				$parent = null,
+				eleParent = null,
+				propProxy = TabUiUtilBase._DEFAULT_PROP_PROXY,
+				tabGroup = TabUiUtilBase._DEFAULT_TAB_GROUP,
+				cbTabChange,
+				additionalClassesWrpHeads,
+			} = {},
+		) {
 			if (!tabMetas.length) throw new Error(`One or more tab meta must be specified!`);
+			if ($parent && eleParent) throw new Error(`Only one of "$parent" and "eleParent" may be specified!`);
+
+			$parent ||= eleParent ? $(eleParent) : null;
+
 			obj._resetTabs({tabGroup});
 
 			const isSingleTab = tabMetas.length === 1;
@@ -1271,7 +1300,9 @@ class TabUiUtilBase {
 					...it,
 					ix: i,
 					$btnTab,
+					btnTab: $btnTab?.[0], // No button if `isSingleTab`
 					$wrpTab,
+					wrpTab: $wrpTab[0],
 				};
 			};
 
@@ -1639,7 +1670,7 @@ class SearchWidget {
 	}
 
 	/**
-	 * @param $iptSearch input element
+	 * @param iptOr$iptSearch input element
 	 * @param opts Options object.
 	 * @param opts.fnSearch Function which runs the search.
 	 * @param opts.pFnSearch Function which runs the search.
@@ -1650,8 +1681,10 @@ class SearchWidget {
 	 * @param opts.flags.doClickFirst Flag tracking "should first result get clicked"
 	 * @param opts.$ptrRows Pointer to array of rows.
 	 */
-	static bindAutoSearch ($iptSearch, opts) {
+	static bindAutoSearch (iptOr$iptSearch, opts) {
 		if (opts.fnSearch && opts.pFnSearch) throw new Error(`Options "fnSearch" and "pFnSearch" are mutually exclusive!`);
+
+		const $iptSearch = $(iptOr$iptSearch);
 
 		// Chain each search from the previous, to ensure the last search wins
 		let pSearching = null;
@@ -1853,7 +1886,7 @@ class SearchWidget {
 		const searchInput = this._$iptSearch.val().trim();
 
 		const index = this._indexes[this._cat];
-		const results = await Omnisearch.pGetFilteredResults(index.search(searchInput, this.__getSearchOptions()));
+		const results = await globalThis.OmnisearchBacking.pGetFilteredResults(index.search(searchInput, this.__getSearchOptions()));
 
 		const {toProcess, resultCount} = (() => {
 			if (results.length) {
@@ -3399,6 +3432,12 @@ class InputUiUtil {
 					const out = [];
 					const errs = [];
 
+					const msgExpectedTypes = expectedFileTypes != null
+						? expectedFileTypes.length
+							? `the expected file type was &quot;${expectedFileTypes.join("/")}&quot;`
+							: `no file type was expected`
+						: null;
+
 					reader.onload = async () => {
 						const name = input.files[readIndex - 1].name;
 						const text = reader.result;
@@ -3413,7 +3452,7 @@ class InputUiUtil {
 									textYes: "Yes",
 									textNo: "Cancel",
 									title: "File Type Mismatch",
-									htmlDescription: `The file "${name}" has the type "${json.fileType}" when the expected file type was "${expectedFileTypes.join("/")}".<br>Are you sure you want to upload this file?`,
+									htmlDescription: `The file "${name}" has the type "${json.fileType}" when ${msgExpectedTypes}.<br>Are you sure you want to upload this file?`,
 								}));
 
 							if (!isSkipFile) {
@@ -3551,7 +3590,7 @@ class DragReorderUiUtil {
 			const ixRow = $children.indexOf($fnGetRow());
 
 			$children.forEach(($child, i) => {
-				const dimensions = {w: $child.outerWidth(true), h: $child.outerHeight(true)};
+				const dimensions = {w: $child.outerWidth(), h: $child.outerHeight()};
 				const $dummy = $(`<div class="no-shrink ${i === ixRow ? "ui-drag__wrp-drag-dummy--highlight" : "ui-drag__wrp-drag-dummy--lowlight"}"></div>`)
 					.width(dimensions.w).height(dimensions.h)
 					.mouseup(() => {
@@ -4074,26 +4113,19 @@ function MixinBaseComponent (Cls) {
 		getSaveableState () { return {...this.getBaseSaveableState()}; }
 		setStateFrom (toLoad, isOverwrite = false) { this.setBaseSaveableStateFrom(toLoad, isOverwrite); }
 
-		async _pLock (lockName) {
-			while (this.__locks[lockName]) await this.__locks[lockName].lock;
-			let unlock = null;
-			const lock = new Promise(resolve => unlock = resolve);
-			this.__locks[lockName] = {
-				lock,
-				unlock,
-			};
+		async _pLock (lockName, {lockToken = null, isDbg = false} = {}) {
+			this.__locks[lockName] ||= new VeLock({name: lockName, isDbg});
+			return this.__locks[lockName].pLock({token: lockToken});
 		}
 
 		async _pGate (lockName) {
-			while (this.__locks[lockName]) await this.__locks[lockName].lock;
+			await this._pLock(lockName);
+			this._unlock(lockName);
 		}
 
 		_unlock (lockName) {
-			const lockMeta = this.__locks[lockName];
-			if (lockMeta) {
-				delete this.__locks[lockName];
-				lockMeta.unlock();
-			}
+			if (!this.__locks[lockName]) return;
+			this.__locks[lockName].unlock();
 		}
 
 		async _pDoProxySetBase (prop, value) { return this._pDoProxySet("state", this.__state, prop, value); }
@@ -4774,6 +4806,51 @@ class ComponentUiUtil {
 	 * @param prop Component to hook on.
 	 * @param [fallbackEmpty] Fallback number if string is empty.
 	 * @param [opts] Options Object.
+	 * @param [opts.ele] Element to use.
+	 * @param [opts.html] HTML to convert to element to use.
+	 * @param [opts.max] Max allowed return value.
+	 * @param [opts.min] Min allowed return value.
+	 * @param [opts.offset] Offset to add to value displayed.
+	 * @param [opts.padLength] Number of digits to pad the number to.
+	 * @param [opts.fallbackOnNaN] Return value if not a number.
+	 * @param [opts.isAllowNull] If an empty input should be treated as null.
+	 * @param [opts.asMeta] If a meta-object should be returned containing the hook and the checkbox.
+	 * @param [opts.hookTracker] Object in which to track hook.
+	 * @param [opts.decorationLeft] Decoration to be added to the left-hand-side of the input. Can be `"ticker"` or `"clear"`. REQUIRES `asMeta` TO BE SET.
+	 * @param [opts.decorationRight] Decoration to be added to the right-hand-side of the input. Can be `"ticker"` or `"clear"`. REQUIRES `asMeta` TO BE SET.
+	 * @return {HTMLElementExtended}
+	 */
+	static getIptInt (component, prop, fallbackEmpty = 0, opts) {
+		return ComponentUiUtil._getIptNumeric(component, prop, UiUtil.strToInt, fallbackEmpty, opts);
+	}
+
+	/**
+	 * @param component An instance of a class which extends BaseComponent.
+	 * @param prop Component to hook on.
+	 * @param [fallbackEmpty] Fallback number if string is empty.
+	 * @param [opts] Options Object.
+	 * @param [opts.ele] Element to use.
+	 * @param [opts.html] HTML to convert to element to use.
+	 * @param [opts.max] Max allowed return value.
+	 * @param [opts.min] Min allowed return value.
+	 * @param [opts.offset] Offset to add to value displayed.
+	 * @param [opts.padLength] Number of digits to pad the number to.
+	 * @param [opts.fallbackOnNaN] Return value if not a number.
+	 * @param [opts.isAllowNull] If an empty input should be treated as null.
+	 * @param [opts.asMeta] If a meta-object should be returned containing the hook and the checkbox.
+	 * @param [opts.decorationLeft] Decoration to be added to the left-hand-side of the input. Can be `"ticker"` or `"clear"`. REQUIRES `asMeta` TO BE SET.
+	 * @param [opts.decorationRight] Decoration to be added to the right-hand-side of the input. Can be `"ticker"` or `"clear"`. REQUIRES `asMeta` TO BE SET.
+	 * @return {HTMLElementExtended}
+	 */
+	static getIptNumber (component, prop, fallbackEmpty = 0, opts) {
+		return ComponentUiUtil._getIptNumeric(component, prop, UiUtil.strToNumber, fallbackEmpty, opts);
+	}
+
+	/**
+	 * @param component An instance of a class which extends BaseComponent.
+	 * @param prop Component to hook on.
+	 * @param [fallbackEmpty] Fallback number if string is empty.
+	 * @param [opts] Options Object.
 	 * @param [opts.$ele] Element to use.
 	 * @param [opts.html] HTML to convert to element to use.
 	 * @param [opts.max] Max allowed return value.
@@ -4789,7 +4866,15 @@ class ComponentUiUtil {
 	 * @return {jQuery}
 	 */
 	static $getIptInt (component, prop, fallbackEmpty = 0, opts) {
-		return ComponentUiUtil._$getIptNumeric(component, prop, UiUtil.strToInt, fallbackEmpty, opts);
+		if (opts?.$ele) opts.ele = opts.$ele[0];
+
+		const out = ComponentUiUtil._getIptNumeric(component, prop, UiUtil.strToInt, fallbackEmpty, opts);
+		if (!opts?.asMeta) return $(out);
+
+		out.$ipt = $(out.ipt);
+		out.$wrp = $(out.wrp);
+
+		return out;
 	}
 
 	/**
@@ -4811,27 +4896,36 @@ class ComponentUiUtil {
 	 * @return {jQuery}
 	 */
 	static $getIptNumber (component, prop, fallbackEmpty = 0, opts) {
-		return ComponentUiUtil._$getIptNumeric(component, prop, UiUtil.strToNumber, fallbackEmpty, opts);
+		if (opts?.$ele) opts.ele = opts.$ele[0];
+
+		const out = ComponentUiUtil._getIptNumeric(component, prop, UiUtil.strToNumber, fallbackEmpty, opts);
+		if (!opts?.asMeta) return $(out);
+
+		out.$ipt = $(out.ipt);
+		out.$wrp = $(out.wrp);
+
+		return out;
 	}
 
-	static _$getIptNumeric (component, prop, fnConvert, fallbackEmpty = 0, opts) {
+	static _getIptNumeric (component, prop, fnConvert, fallbackEmpty = 0, opts) {
 		opts = opts || {};
 		opts.offset = opts.offset || 0;
 
 		const setIptVal = () => {
 			if (opts.isAllowNull && component._state[prop] == null) {
-				return $ipt.val(null);
+				return ipt.val(null);
 			}
 
 			const num = (component._state[prop] || 0) + opts.offset;
 			const val = opts.padLength ? `${num}`.padStart(opts.padLength, "0") : num;
-			$ipt.val(val);
+			ipt.val(val);
 		};
 
-		const $ipt = (opts.$ele || $(opts.html || `<input class="form-control input-xs form-control--minimal ve-text-right">`)).disableSpellcheck()
-			.keydown(evt => { if (evt.key === "Escape") $ipt.blur(); })
-			.change(() => {
-				const raw = $ipt.val().trim();
+		const ipt = (opts.ele ? e_({ele: opts.ele}) : e_({outer: opts.html || `<input class="form-control input-xs form-control--minimal ve-text-right">`}))
+			.disableSpellcheck()
+			.onn("keydown", evt => { if (evt.key === "Escape") ipt.blur(); })
+			.onn("change", () => {
+				const raw = ipt.val().trim();
 				const cur = component._state[prop];
 
 				if (opts.isAllowNull && !raw) return component._state[prop] = null;
@@ -4868,8 +4962,57 @@ class ComponentUiUtil {
 		component._addHookBase(prop, hook);
 		hook();
 
-		if (opts.asMeta) return this._getIptDecoratedMeta(component, prop, $ipt, hook, opts);
-		else return $ipt;
+		if (opts.asMeta) return this._getIptDecoratedMeta(component, prop, ipt, hook, opts);
+		else return ipt;
+	}
+
+	/**
+	 * @param component An instance of a class which extends BaseComponent.
+	 * @param prop Component to hook on.
+	 * @param [opts] Options Object.
+	 * @param [opts.ele] Element to use.
+	 * @param [opts.html] HTML to convert to element to use.
+	 * @param [opts.isNoTrim] If the text should not be trimmed.
+	 * @param [opts.isAllowNull] If null should be allowed (and preferred) for empty inputs
+	 * @param [opts.asMeta] If a meta-object should be returned containing the hook and the checkbox.
+	 * @param [opts.autocomplete] Array of autocomplete strings. REQUIRES INCLUSION OF THE TYPEAHEAD LIBRARY.
+	 * @param [opts.decorationLeft] Decoration to be added to the left-hand-side of the input. Can be `"search"` or `"clear"`. REQUIRES `asMeta` TO BE SET.
+	 * @param [opts.decorationRight] Decoration to be added to the right-hand-side of the input. Can be `"search"` or `"clear"`. REQUIRES `asMeta` TO BE SET.
+	 * @param [opts.placeholder] Placeholder for the input.
+	 */
+	static getIptStr (component, prop, opts) {
+		opts = opts || {};
+
+		// Validate options
+		if ((opts.decorationLeft || opts.decorationRight) && !opts.asMeta) throw new Error(`Input must be created with "asMeta" option`);
+
+		const ipt = (opts.ele ? e_({ele: opts.ele}) : e_({outer: opts.html || `<input class="form-control input-xs form-control--minimal">`}))
+			.onn("keydown", evt => { if (evt.key === "Escape") ipt.blur(); })
+			.disableSpellcheck();
+		UiUtil.bindTypingEnd({
+			ipt,
+			fnKeyup: () => {
+				const nxtVal = opts.isNoTrim ? ipt.val() : ipt.val().trim();
+				component._state[prop] = opts.isAllowNull && !nxtVal ? null : nxtVal;
+			},
+		});
+
+		if (opts.placeholder) ipt.attr("placeholder", opts.placeholder);
+
+		// TODO(Future) replace with e.g. `datalist`
+		if (opts.autocomplete && opts.autocomplete.length) $(ipt).typeahead({source: opts.autocomplete});
+		const hook = () => {
+			if (component._state[prop] == null) ipt.val(null);
+			else {
+				// If the only difference is start/end whitespace, leave it; otherwise, adding spaces is frustrating
+				if (ipt.val().trim() !== component._state[prop]) ipt.val(component._state[prop]);
+			}
+		};
+		component._addHookBase(prop, hook);
+		hook();
+
+		if (opts.asMeta) return this._getIptDecoratedMeta(component, prop, ipt, hook, opts);
+		else return ipt;
 	}
 
 	/**
@@ -4887,70 +5030,54 @@ class ComponentUiUtil {
 	 * @param [opts.placeholder] Placeholder for the input.
 	 */
 	static $getIptStr (component, prop, opts) {
-		opts = opts || {};
+		if (opts?.$ele) opts.ele = opts.$ele[0];
 
-		// Validate options
-		if ((opts.decorationLeft || opts.decorationRight) && !opts.asMeta) throw new Error(`Input must be created with "asMeta" option`);
+		const out = ComponentUiUtil.getIptStr(component, prop, opts);
+		if (!opts?.asMeta) return $(out);
 
-		const $ipt = (opts.$ele || $(opts.html || `<input class="form-control input-xs form-control--minimal">`))
-			.keydown(evt => { if (evt.key === "Escape") $ipt.blur(); })
-			.disableSpellcheck();
-		UiUtil.bindTypingEnd({
-			$ipt,
-			fnKeyup: () => {
-				const nxtVal = opts.isNoTrim ? $ipt.val() : $ipt.val().trim();
-				component._state[prop] = opts.isAllowNull && !nxtVal ? null : nxtVal;
-			},
-		});
+		out.$ipt = $(out.ipt);
+		out.$wrp = $(out.wrp);
 
-		if (opts.placeholder) $ipt.attr("placeholder", opts.placeholder);
-
-		if (opts.autocomplete && opts.autocomplete.length) $ipt.typeahead({source: opts.autocomplete});
-		const hook = () => {
-			if (component._state[prop] == null) $ipt.val(null);
-			else {
-				// If the only difference is start/end whitespace, leave it; otherwise, adding spaces is frustrating
-				if ($ipt.val().trim() !== component._state[prop]) $ipt.val(component._state[prop]);
-			}
-		};
-		component._addHookBase(prop, hook);
-		hook();
-
-		if (opts.asMeta) return this._getIptDecoratedMeta(component, prop, $ipt, hook, opts);
-		else return $ipt;
+		return out;
 	}
 
-	static _getIptDecoratedMeta (component, prop, $ipt, hook, opts) {
-		const out = {$ipt, unhook: () => component._removeHookBase(prop, hook)};
+	static _getIptDecoratedMeta (component, prop, ipt, hook, opts) {
+		const out = {ipt, unhook: () => component._removeHookBase(prop, hook)};
 
 		if (opts.decorationLeft || opts.decorationRight) {
 			let $decorLeft;
 			let $decorRight;
 
 			if (opts.decorationLeft) {
-				$ipt.addClass(`ui-ideco__ipt ui-ideco__ipt--left`);
-				$decorLeft = ComponentUiUtil._$getDecor(component, prop, $ipt, opts.decorationLeft, "left", opts);
+				ipt.addClass("ui-ideco__ipt").addClass("ui-ideco__ipt--left");
+				$decorLeft = ComponentUiUtil._getEleDecor(component, prop, ipt, opts.decorationLeft, "left", opts);
 			}
 
 			if (opts.decorationRight) {
-				$ipt.addClass(`ui-ideco__ipt ui-ideco__ipt--right`);
-				$decorRight = ComponentUiUtil._$getDecor(component, prop, $ipt, opts.decorationRight, "right", opts);
+				ipt.addClass("ui-ideco__ipt").addClass("ui-ideco__ipt--right");
+				$decorRight = ComponentUiUtil._getEleDecor(component, prop, ipt, opts.decorationRight, "right", opts);
 			}
 
-			out.$wrp = $$`<div class="relative w-100">${$ipt}${$decorLeft}${$decorRight}</div>`;
+			out.wrp = ee`<div class="relative w-100">${ipt}${$decorLeft}${$decorRight}</div>`;
 		}
 
 		return out;
 	}
 
-	static _$getDecor (component, prop, $ipt, decorType, side, opts) {
+	static _getEleDecor (component, prop, ipt, decorType, side, opts) {
 		switch (decorType) {
 			case "search": {
-				return $(`<div class="ui-ideco__wrp ui-ideco__wrp--${side} no-events ve-flex-vh-center"><span class="glyphicon glyphicon-search"></span></div>`);
+				return ee`<div class="ui-ideco__wrp ui-ideco__wrp--${side} no-events ve-flex-vh-center"><span class="glyphicon glyphicon-search"></span></div>`;
 			}
 			case "clear": {
-				return $(`<div class="ui-ideco__wrp ui-ideco__wrp--${side} ve-flex-vh-center clickable" title="Clear"><span class="glyphicon glyphicon-remove"></span></div>`)
-					.click(() => $ipt.val("").change().keydown().keyup());
+				return ee`<div class="ui-ideco__wrp ui-ideco__wrp--${side} ve-flex-vh-center clickable" title="Clear"><span class="glyphicon glyphicon-remove"></span></div>`
+					.onn("click", () => {
+						ipt
+							.val("")
+							.trigger("change")
+							.trigger("keydown")
+							.trigger("keyup");
+					});
 			}
 			case "ticker": {
 				const isValidValue = val => {
@@ -4963,23 +5090,23 @@ class ComponentUiUtil {
 					// TODO(future) this should be run first to evaluate any lingering expressions in the input, but it
 					//  breaks when the number is negative, as we need to add a "=" to the front of the input before
 					//  evaluating
-					// $ipt.change();
+					// ipt.trigger("change");
 					const cur = isNaN(component._state[prop]) ? opts.fallbackOnNaN : component._state[prop];
 					const nxt = cur + delta;
 					if (!isValidValue(nxt)) return;
 					component._state[prop] = nxt;
-					$ipt.focus();
+					ipt.focus();
 				};
 
-				const $btnUp = $(`<button class="ve-btn ve-btn-default ui-ideco__btn-ticker p-0 bold no-select">+</button>`)
-					.click(() => handleClick(1));
+				const btnUp = ee`<button class="ve-btn ve-btn-default ui-ideco__btn-ticker p-0 bold no-select">+</button>`
+					.onn("click", () => handleClick(1));
 
-				const $btnDown = $(`<button class="ve-btn ve-btn-default ui-ideco__btn-ticker p-0 bold no-select">\u2212</button>`)
-					.click(() => handleClick(-1));
+				const btnDown = ee`<button class="ve-btn ve-btn-default ui-ideco__btn-ticker p-0 bold no-select">\u2212</button>`
+					.onn("click", () => handleClick(-1));
 
-				return $$`<div class="ui-ideco__wrp ui-ideco__wrp--${side} ve-flex-vh-center ve-flex-col">
-					${$btnUp}
-					${$btnDown}
+				return ee`<div class="ui-ideco__wrp ui-ideco__wrp--${side} ve-flex-vh-center ve-flex-col">
+					${btnUp}
+					${btnDown}
 				</div>`;
 			}
 			case "spacer": {
@@ -5113,7 +5240,7 @@ class ComponentUiUtil {
 	 * @param [opts.isTreatIndeterminateNullAsPositive]
 	 * @param [opts.stateName] State name.
 	 * @param [opts.stateProp] State prop.
-	 * @return {(HTMLElementModified | Object)}
+	 * @return {(HTMLElementExtended | Object)}
 	 */
 	static getCbBool (component, prop, opts) {
 		opts = opts || {};
@@ -6310,13 +6437,13 @@ class ComponentUiUtil {
 
 			if (group.text) $eles.push($(`<div class="ve-flex-v-center py-1"><div class="ml-1 mr-3"></div><i>${group.text}</i></div>`));
 
-			group.values.forEach(v => {
+			group.values.forEach(value => {
 				const ixValueFrozen = ixValue;
 
 				const propIsActive = this.getMetaWrpMultipleChoice_getPropIsActive(prop, ixValueFrozen);
 				const propIsRequired = this.getMetaWrpMultipleChoice_getPropIsRequired(prop, ixValueFrozen);
 
-				const isHardRequired = (opts.required && opts.required.includes(v))
+				const isHardRequired = (opts.required && opts.required.includes(value))
 					|| (opts.ixsRequired && opts.ixsRequired.includes(ixValueFrozen));
 				const isRequired = isHardRequired || comp._state[propIsRequired];
 
@@ -6373,12 +6500,12 @@ class ComponentUiUtil {
 					hk();
 				}
 
-				const displayValue = opts.fnDisplay ? opts.fnDisplay(v, ixValueFrozen) : v;
+				const displayValue = opts.fnDisplay ? opts.fnDisplay(value, ixValueFrozen) : value;
 
 				rowMetas.push({
 					$cb,
 					displayValue,
-					value: v,
+					value: value,
 					propIsActive,
 					unhook: () => {
 						if (hk) comp._removeHookBase(propIsActive, hk);
@@ -6392,7 +6519,7 @@ class ComponentUiUtil {
 				$eles.push($ele);
 
 				if (opts.isSearchable) {
-					const searchText = `${opts.fnGetSearchText ? opts.fnGetSearchText(v, ixValueFrozen) : v}`.toLowerCase().trim();
+					const searchText = `${opts.fnGetSearchText ? opts.fnGetSearchText(value, ixValueFrozen) : value}`.toLowerCase().trim();
 					($elesSearchable[searchText] = $elesSearchable[searchText] || []).push($ele);
 				}
 
@@ -6427,7 +6554,7 @@ class ComponentUiUtil {
 		// Always return this as a "meta" object
 		const unhook = () => rowMetas.forEach(it => it.unhook());
 		return {
-			$ele: $$`<div class="ve-flex-col w-100 ve-overflow-y-auto">${$eles}</div>`,
+			$ele: $$`<div class="ve-flex-col w-100 ve-overflow-y-auto min-h-40p">${$eles}</div>`,
 			$iptSearch,
 			rowMetas, // Return this to allow for creating custom UI
 			propIsAcceptable,

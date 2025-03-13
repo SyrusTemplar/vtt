@@ -317,7 +317,7 @@
 				{
 					"name": "Darkness Aura",
 					"entries": [
-						"The cave dragon emits magical darkness in a 30- foot radius around it. The darkness moves with the dragon and spreads around corners. Darkvision can't penetrate this darkness, and no natural light can illuminate it. If any of the darkness overlaps with an area of light created by a spell of 3rd level or lower, the spell creating the light is dispelled. At the start of each of its turns, the dragon chooses whether this aura is active. A successful {@spell dispel magic} ({@dc 14}) cast on the dragon suppresses this aura for 1 minute."
+						"The cave dragon emits magical darkness in a 30-foot radius around it. The darkness moves with the dragon and spreads around corners. Darkvision can't penetrate this darkness, and no natural light can illuminate it. If any of the darkness overlaps with an area of light created by a spell of 3rd level or lower, the spell creating the light is dispelled. At the start of each of its turns, the dragon chooses whether this aura is active. A successful {@spell dispel magic} ({@dc 14}) cast on the dragon suppresses this aura for 1 minute."
 					]
 				},
 				{
@@ -449,6 +449,10 @@
 				"constitution",
 				"dexterity",
 				"wisdom"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"dexterity"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -646,6 +650,10 @@
 				"dexterity",
 				"wisdom"
 			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"dexterity"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -837,6 +845,11 @@
 				"dexterity",
 				"wisdom"
 			],
+			"savingThrowForcedLegendary": [
+				"charisma",
+				"dexterity",
+				"wisdom"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -1023,6 +1036,10 @@
 			"savingThrowForced": [
 				"dexterity",
 				"wisdom"
+			],
+			"savingThrowForcedLegendary": [
+				"dexterity",
+				"strength"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -1242,6 +1259,10 @@
 				"dexterity",
 				"wisdom"
 			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"strength"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -1442,6 +1463,10 @@
 				"dexterity",
 				"strength",
 				"wisdom"
+			],
+			"savingThrowForcedLegendary": [
+				"dexterity",
+				"strength"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -2338,7 +2363,7 @@
 				{
 					"name": "Darkness Aura",
 					"entries": [
-						"The cave dragon emits magical darkness in a 30- foot radius around it. The darkness moves with the dragon and spreads around corners. Darkvision can't penetrate this darkness, and no natural light can illuminate it. If any of the darkness overlaps with an area of light created by a spell of 4th level or lower, the spell creating the light is dispelled. At the start of each of its turns, the dragon chooses whether this aura is active. A successful {@spell dispel magic} ({@dc 15}) cast on the dragon suppresses this aura for 1 minute."
+						"The cave dragon emits magical darkness in a 30-foot radius around it. The darkness moves with the dragon and spreads around corners. Darkvision can't penetrate this darkness, and no natural light can illuminate it. If any of the darkness overlaps with an area of light created by a spell of 4th level or lower, the spell creating the light is dispelled. At the start of each of its turns, the dragon chooses whether this aura is active. A successful {@spell dispel magic} ({@dc 15}) cast on the dragon suppresses this aura for 1 minute."
 					]
 				},
 				{
@@ -2470,6 +2495,10 @@
 				"constitution",
 				"dexterity",
 				"wisdom"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"dexterity"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -2667,6 +2696,10 @@
 				"dexterity",
 				"wisdom"
 			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"dexterity"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -2858,6 +2891,11 @@
 				"dexterity",
 				"wisdom"
 			],
+			"savingThrowForcedLegendary": [
+				"charisma",
+				"dexterity",
+				"wisdom"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -3044,6 +3082,10 @@
 			"savingThrowForced": [
 				"dexterity",
 				"wisdom"
+			],
+			"savingThrowForcedLegendary": [
+				"dexterity",
+				"strength"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -3423,6 +3465,10 @@
 				"dexterity",
 				"wisdom"
 			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"strength"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -3623,6 +3669,10 @@
 				"dexterity",
 				"strength",
 				"wisdom"
+			],
+			"savingThrowForcedLegendary": [
+				"dexterity",
+				"strength"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -4161,6 +4211,9 @@
 			],
 			"environment": [
 				"desert"
+			],
+			"traitTags": [
+				"Camouflage"
 			],
 			"senseTags": [
 				"D",
@@ -6670,6 +6723,10 @@
 				"strength",
 				"wisdom"
 			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"strength"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -7276,7 +7333,8 @@
 				"arctic"
 			],
 			"traitTags": [
-				"Flyby"
+				"Flyby",
+				"Regeneration"
 			],
 			"senseTags": [
 				"D"
@@ -7554,6 +7612,7 @@
 				"planar"
 			],
 			"traitTags": [
+				"Camouflage",
 				"Magic Resistance"
 			],
 			"senseTags": [
@@ -8142,7 +8201,8 @@
 				"dagger|phb"
 			],
 			"traitTags": [
-				"Amphibious"
+				"Amphibious",
+				"Camouflage"
 			],
 			"senseTags": [
 				"D"
@@ -8405,6 +8465,9 @@
 				"walk": 20,
 				"swim": 10
 			},
+			"initiative": {
+				"advantageMode": "adv"
+			},
 			"str": 10,
 			"dex": 14,
 			"con": 14,
@@ -8474,6 +8537,7 @@
 			],
 			"traitTags": [
 				"Amphibious",
+				"Camouflage",
 				"Pack Tactics"
 			],
 			"senseTags": [
@@ -8601,7 +8665,7 @@
 				{
 					"name": "Swirling Bones",
 					"entries": [
-						"{@atk mw} {@hit 10} to hit, reach 0 ft., one creature in the swarm's space. {@h}36 ({@dice 8d8}) bludgeoning, 36 ({@dice 8d8}) piercing, or 36 ({@damage 8d8}) slashing damage (the bone swarm's choice), or 18 ({@dice 4d8}) bludgeoning, 8 ({@dice 4d8}) piercing, or 8 ({@damage 4d8}) slashing damage (the bone swarm's choice) if the swarm has half of its hp or fewer."
+						"{@atk mw} {@hit 10} to hit, reach 0 ft., one creature in the swarm's space. {@h}36 ({@damage 8d8}) bludgeoning, 36 ({@damage 8d8}) piercing, or 36 ({@damage 8d8}) slashing damage (the bone swarm's choice), or 18 ({@damage 4d8}) bludgeoning, 8 ({@damage 4d8}) piercing, or 8 ({@damage 4d8}) slashing damage (the bone swarm's choice) if the swarm has half of its hp or fewer."
 					]
 				},
 				{
@@ -11622,6 +11686,9 @@
 			"speed": {
 				"walk": 30
 			},
+			"initiative": {
+				"advantageMode": "adv"
+			},
 			"str": 13,
 			"dex": 16,
 			"con": 14,
@@ -12961,7 +13028,7 @@
 				{
 					"name": "Improvised Weapon",
 					"entries": [
-						"{@atk mw,rw} {@hit 3} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}3 ({@dice 1d4 + 1})bludgeoning, 3 ({@dice 1d4 + 1})piercing, or 3 ({@dice 1d4 + 1})slashing damage, depending on the weapon."
+						"{@atk mw,rw} {@hit 3} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}3 ({@damage 1d4 + 1})bludgeoning, 3 ({@damage 1d4 + 1})piercing, or 3 ({@damage 1d4 + 1})slashing damage, depending on the weapon."
 					]
 				},
 				{
@@ -13237,6 +13304,7 @@
 				"underwater"
 			],
 			"traitTags": [
+				"Camouflage",
 				"Water Breathing"
 			],
 			"senseTags": [
@@ -13494,7 +13562,7 @@
 				{
 					"name": "Necrotic Weapons",
 					"entries": [
-						"The ushabti's weapon attacks are magical. When the ushabti hits with any weapon, the weapon deals an extra ({@dice 2d6}) necrotic damage (included in the attack)."
+						"The ushabti's weapon attacks are magical. When the ushabti hits with any weapon, the weapon deals an extra ({@damage 2d6}) necrotic damage (included in the attack)."
 					]
 				},
 				{
@@ -16202,6 +16270,11 @@
 				"dexterity",
 				"wisdom"
 			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"dexterity",
+				"wisdom"
+			],
 			"savingThrowForcedSpell": [
 				"constitution",
 				"dexterity",
@@ -16449,6 +16522,10 @@
 				"constitution",
 				"dexterity",
 				"wisdom"
+			],
+			"savingThrowForcedLegendary": [
+				"charisma",
+				"dexterity"
 			],
 			"savingThrowForcedSpell": [
 				"constitution",
@@ -16839,6 +16916,9 @@
 			"environment": [
 				"desert"
 			],
+			"traitTags": [
+				"Camouflage"
+			],
 			"actionTags": [
 				"Multiattack"
 			],
@@ -17166,7 +17246,8 @@
 				"forest"
 			],
 			"traitTags": [
-				"Amorphous"
+				"Amorphous",
+				"Camouflage"
 			],
 			"senseTags": [
 				"B"
@@ -20629,6 +20710,9 @@
 			"speed": {
 				"walk": 30
 			},
+			"initiative": {
+				"advantageMode": "adv"
+			},
 			"str": 14,
 			"dex": 10,
 			"con": 14,
@@ -23541,6 +23625,7 @@
 				"forest"
 			],
 			"traitTags": [
+				"Camouflage",
 				"Sunlight Sensitivity"
 			],
 			"senseTags": [
@@ -23988,6 +24073,9 @@
 			],
 			"environment": [
 				"grassland"
+			],
+			"traitTags": [
+				"Camouflage"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -27481,7 +27569,7 @@
 				{
 					"name": "Sudden Gust {@recharge 5}",
 					"entries": [
-						"Hraesvelgr unleashes a powerful gust of wind in a 60- foot line that is 10 feet wide. Each creature in the line must make a {@dc 19} Strength saving throw. On a failure, a creature takes 63 ({@damage 18d6}) bludgeoning damage and is pushed up to 15 feet away from Hraesvelgr. On a success, a creature takes half the damage and isn't pushed."
+						"Hraesvelgr unleashes a powerful gust of wind in a 60-foot line that is 10 feet wide. Each creature in the line must make a {@dc 19} Strength saving throw. On a failure, a creature takes 63 ({@damage 18d6}) bludgeoning damage and is pushed up to 15 feet away from Hraesvelgr. On a success, a creature takes half the damage and isn't pushed."
 					]
 				}
 			],
@@ -27557,6 +27645,11 @@
 			],
 			"savingThrowForced": [
 				"constitution",
+				"strength"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"dexterity",
 				"strength"
 			],
 			"hasToken": true,
@@ -28953,6 +29046,7 @@
 				"forest"
 			],
 			"traitTags": [
+				"Camouflage",
 				"Spider Climb",
 				"Web Sense",
 				"Web Walker"
@@ -30655,6 +30749,9 @@
 			"conditionInflict": [
 				"invisible"
 			],
+			"savingThrowForced": [
+				"charisma"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -31275,6 +31372,7 @@
 				"club|phb"
 			],
 			"traitTags": [
+				"Camouflage",
 				"Mimicry"
 			],
 			"senseTags": [
@@ -32317,6 +32415,10 @@
 			],
 			"savingThrowForced": [
 				"charisma"
+			],
+			"savingThrowForcedLegendary": [
+				"dexterity",
+				"wisdom"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -34711,7 +34813,8 @@
 				"swamp"
 			],
 			"traitTags": [
-				"Amphibious"
+				"Amphibious",
+				"Camouflage"
 			],
 			"senseTags": [
 				"D"
@@ -35703,6 +35806,9 @@
 				"dexterity",
 				"wisdom"
 			],
+			"savingThrowForcedLegendary": [
+				"wisdom"
+			],
 			"savingThrowForcedSpell": [
 				"charisma",
 				"constitution"
@@ -36069,6 +36175,7 @@
 				"underdark"
 			],
 			"traitTags": [
+				"Camouflage",
 				"Keen Senses"
 			],
 			"senseTags": [
@@ -37284,6 +37391,10 @@
 				"RCH"
 			],
 			"savingThrowForced": [
+				"constitution",
+				"wisdom"
+			],
+			"savingThrowForcedLegendary": [
 				"constitution",
 				"wisdom"
 			],
@@ -39504,6 +39615,9 @@
 			"environment": [
 				"forest"
 			],
+			"traitTags": [
+				"Camouflage"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -39639,7 +39753,7 @@
 				{
 					"name": "Slam",
 					"entries": [
-						"{@atk mw} {@hit 8} to hit, reach 5 ft., one target. {@h}14 ({@damage 2d8 + 5}) bludgeoning damage plus 9 ({@damage 2d8}) necrotic damage or ({@dice 2d8}) radiant damage (the pillar's choice)."
+						"{@atk mw} {@hit 8} to hit, reach 5 ft., one target. {@h}14 ({@damage 2d8 + 5}) bludgeoning damage plus 9 ({@damage 2d8}) necrotic damage or ({@damage 2d8}) radiant damage (the pillar's choice)."
 					]
 				}
 			],
@@ -40223,6 +40337,10 @@
 				"constitution",
 				"dexterity"
 			],
+			"savingThrowForcedLegendary": [
+				"dexterity",
+				"wisdom"
+			],
 			"savingThrowForcedSpell": [
 				"charisma",
 				"constitution",
@@ -40482,6 +40600,10 @@
 			"savingThrowForced": [
 				"dexterity",
 				"strength"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"dexterity"
 			],
 			"savingThrowForcedSpell": [
 				"constitution",
@@ -42711,7 +42833,8 @@
 				"arctic"
 			],
 			"traitTags": [
-				"Amphibious"
+				"Amphibious",
+				"Camouflage"
 			],
 			"senseTags": [
 				"SD"
@@ -42822,7 +42945,8 @@
 				"arctic"
 			],
 			"traitTags": [
-				"Amphibious"
+				"Amphibious",
+				"Camouflage"
 			],
 			"senseTags": [
 				"SD"
@@ -43180,6 +43304,11 @@
 				"restrained"
 			],
 			"savingThrowForced": [
+				"strength"
+			],
+			"savingThrowForcedLegendary": [
+				"charisma",
+				"constitution",
 				"strength"
 			],
 			"savingThrowForcedSpell": [
@@ -44601,6 +44730,9 @@
 			"environment": [
 				"desert"
 			],
+			"traitTags": [
+				"Camouflage"
+			],
 			"senseTags": [
 				"D",
 				"T"
@@ -44717,6 +44849,9 @@
 				"badlands",
 				"desert",
 				"grassland"
+			],
+			"traitTags": [
+				"Camouflage"
 			],
 			"senseTags": [
 				"D",
@@ -45384,6 +45519,7 @@
 				"underdark"
 			],
 			"traitTags": [
+				"Camouflage",
 				"Siege Monster"
 			],
 			"senseTags": [
@@ -46208,6 +46344,9 @@
 			"environment": [
 				"coastal",
 				"swamp"
+			],
+			"traitTags": [
+				"Camouflage"
 			],
 			"senseTags": [
 				"D"
@@ -47543,6 +47682,7 @@
 			],
 			"traitTags": [
 				"Amphibious",
+				"Camouflage",
 				"Keen Senses",
 				"Regeneration"
 			],
@@ -48764,6 +48904,10 @@
 				"constitution",
 				"dexterity"
 			],
+			"savingThrowForcedLegendary": [
+				"dexterity",
+				"strength"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -48869,20 +49013,20 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"{@atk mw} {@hit 12} to hit, reach 5 ft., one target. {@h}19 ({@damage 2d10 + 8}) piercing damage plus 10 ({@damage 3d6}) necrotic damage or ({@dice 3d6}) radiant damage (the son's choice). If the target is a Large or smaller creature, it must succeed on a {@dc 18} Dexterity saving throw or be swallowed by the son of Fenris. A swallowed creature is {@condition blinded} and {@condition restrained}, it has {@quickref Cover||3||total cover} against attacks and other effects outside the son, and it takes 21 ({@damage 6d6}) acid damage at the start of each of the son's turns. The son can have only one creature swallowed at a time.",
+						"{@atk mw} {@hit 12} to hit, reach 5 ft., one target. {@h}19 ({@damage 2d10 + 8}) piercing damage plus 10 ({@damage 3d6}) necrotic damage or ({@damage 3d6}) radiant damage (the son's choice). If the target is a Large or smaller creature, it must succeed on a {@dc 18} Dexterity saving throw or be swallowed by the son of Fenris. A swallowed creature is {@condition blinded} and {@condition restrained}, it has {@quickref Cover||3||total cover} against attacks and other effects outside the son, and it takes 21 ({@damage 6d6}) acid damage at the start of each of the son's turns. The son can have only one creature swallowed at a time.",
 						"If the son takes 30 damage or more on a single turn from a creature inside it, the son must succeed on a {@dc 20} Constitution saving throw at the end of that turn or regurgitate the swallowed creature, which falls {@condition prone} in a space within 10 feet of the son. If the son dies, the swallowed creature is no longer {@condition restrained} by it and can escape from the corpse by using 10 feet of movement, exiting {@condition prone}."
 					]
 				},
 				{
 					"name": "Slam",
 					"entries": [
-						"{@atk mw} {@hit 12} to hit, reach 5 ft., one target. {@h}13 ({@damage 1d10 + 8}) bludgeoning damage plus 10 ({@damage 3d6}) necrotic damage or ({@dice 3d6}) radiant damage (the son's choice)."
+						"{@atk mw} {@hit 12} to hit, reach 5 ft., one target. {@h}13 ({@damage 1d10 + 8}) bludgeoning damage plus 10 ({@damage 3d6}) necrotic damage or ({@damage 3d6}) radiant damage (the son's choice)."
 					]
 				},
 				{
 					"name": "Divine Bolt",
 					"entries": [
-						"{@atk rs} {@hit 8} to hit, range 60 ft., one target. {@h}18 ({@damage 4d6 + 4}) necrotic damage or ({@dice 4d6 + 4}) radiant damage (the son's choice)."
+						"{@atk rs} {@hit 8} to hit, range 60 ft., one target. {@h}18 ({@damage 4d6 + 4}) necrotic damage or ({@damage 4d6 + 4}) radiant damage (the son's choice)."
 					]
 				},
 				{
@@ -49378,6 +49522,9 @@
 			"speed": {
 				"walk": 40,
 				"climb": 20
+			},
+			"initiative": {
+				"advantageMode": "adv"
 			},
 			"str": 18,
 			"dex": 15,
@@ -51388,6 +51535,9 @@
 			"environment": [
 				"forest"
 			],
+			"traitTags": [
+				"Camouflage"
+			],
 			"senseTags": [
 				"D"
 			],
@@ -51454,6 +51604,9 @@
 			],
 			"environment": [
 				"swamp"
+			],
+			"traitTags": [
+				"Camouflage"
 			],
 			"senseTags": [
 				"B"
@@ -52260,6 +52413,9 @@
 			},
 			"speed": {
 				"walk": 30
+			},
+			"initiative": {
+				"advantageMode": "adv"
 			},
 			"str": 18,
 			"dex": 14,
@@ -53392,6 +53548,9 @@
 				"constitution",
 				"dexterity"
 			],
+			"savingThrowForcedLegendary": [
+				"dexterity"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -54427,7 +54586,7 @@
 				{
 					"name": "Necrotic Weapons",
 					"entries": [
-						"The ushabti's weapon attacks are magical. When the ushabti hits with any weapon, the weapon deals an extra ({@dice 3d8}) necrotic damage (included in the attack)."
+						"The ushabti's weapon attacks are magical. When the ushabti hits with any weapon, the weapon deals an extra ({@damage 3d8}) necrotic damage (included in the attack)."
 					]
 				}
 			],
@@ -54609,7 +54768,7 @@
 				{
 					"name": "Necrotic Weapons",
 					"entries": [
-						"The ushabti's weapon attacks are magical. When the ushabti hits with any weapon, the weapon deals an extra ({@dice 2d8}) necrotic damage (included in the attack)."
+						"The ushabti's weapon attacks are magical. When the ushabti hits with any weapon, the weapon deals an extra ({@damage 2d8}) necrotic damage (included in the attack)."
 					]
 				}
 			],
@@ -55318,6 +55477,9 @@
 			},
 			"speed": {
 				"walk": 30
+			},
+			"initiative": {
+				"advantageMode": "adv"
 			},
 			"str": 12,
 			"dex": 20,
@@ -56769,7 +56931,8 @@
 				"underwater"
 			],
 			"traitTags": [
-				"Amphibious"
+				"Amphibious",
+				"Camouflage"
 			],
 			"senseTags": [
 				"D"

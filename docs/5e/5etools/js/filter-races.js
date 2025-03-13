@@ -9,7 +9,7 @@ class PageFilterRaces extends PageFilterBase {
 		lProfs.forEach(lProfGroup => {
 			Object.keys(lProfGroup)
 				.forEach(k => {
-					if (!["choose", "any", "anyStandard", "anyExotic"].includes(k)) outSet.add(k.toTitleCase());
+					if (!["choose", "any", "anyStandard", "anyExotic", "anyRare"].includes(k)) outSet.add(k.toTitleCase());
 					else outSet.add("Choose");
 				});
 		});
@@ -39,6 +39,8 @@ class PageFilterRaces extends PageFilterBase {
 		"Monstrous Race": "Monstrous Species",
 		"NPC Race": "NPC Species",
 		"Uncommon Race": "Uncommon Species",
+
+		"Armor Proficiency": "Armor Training",
 	};
 
 	constructor () {
@@ -54,7 +56,8 @@ class PageFilterRaces extends PageFilterBase {
 				"Amphibious",
 				"Armor Proficiency",
 				"Blindsight",
-				"Darkvision", "Superior Darkvision",
+				"Darkvision",
+				"Superior Darkvision",
 				"Dragonmark",
 				"Feat",
 				"Improved Resting",
@@ -101,12 +104,13 @@ class PageFilterRaces extends PageFilterBase {
 				"Sylvan",
 				"Undercommon",
 			],
+			displayFn: it => it.split("|")[0].toTitleCase(),
 			umbrellaItems: ["Choose"],
 		});
 		this._creatureTypeFilter = new Filter({
 			header: "Creature Type",
 			items: Parser.MON_TYPES,
-			displayFn: StrUtil.toTitleCase,
+			displayFn: StrUtil.toTitleCase.bind(StrUtil),
 			itemSortFn: SortUtil.ascSortLower,
 		});
 		this._ageFilter = new RangeFilter({
@@ -125,6 +129,8 @@ class PageFilterRaces extends PageFilterBase {
 	}
 
 	static mutateForFilters (r) {
+		this._mutateForFilters_commonSources(r);
+
 		r._fSize = r.size ? [...r.size] : [];
 		if (r._fSize.length > 1) r._fSize.push("V");
 		r._fSpeed = r.speed ? r.speed.walk ? [r.speed.climb ? "Climb" : null, r.speed.fly ? "Fly" : null, r.speed.swim ? "Swim" : null, PageFilterRaces.getSpeedRating(r.speed.walk)].filter(it => it) : [PageFilterRaces.getSpeedRating(r.speed)] : [];
@@ -139,7 +145,6 @@ class PageFilterRaces extends PageFilterBase {
 			r.weaponProficiencies ? "Weapon Proficiency" : null,
 		].filter(it => it);
 		r._fTraits.push(...(r.traitTags || []));
-		r._fSources = SourceFilter.getCompleteFilterSources(r);
 		r._fLangs = PageFilterRaces.getLanguageProficiencyTags(r.languageProficiencies);
 		r._fCreatureTypes = r.creatureTypes ? r.creatureTypes.map(it => it.choose || it).flat() : ["humanoid"];
 		this._mutateForFilters_commonMisc(r);
@@ -155,8 +160,8 @@ class PageFilterRaces extends PageFilterBase {
 		else if (r.age?.mature != null) r._fAge = r.age.mature;
 		else if (r.age?.max != null) r._fAge = r.age.max;
 
-		FilterCommon.mutateForFilters_damageVulnResImmune_player(r);
-		FilterCommon.mutateForFilters_conditionImmune_player(r);
+		FilterCommon.mutateForFilters_damageVulnResImmune(r);
+		FilterCommon.mutateForFilters_conditionImmune(r);
 	}
 
 	addToFilters (r, isExcluded) {
@@ -301,6 +306,7 @@ class ModalFilterRaces extends ModalFilterBase {
 				hash,
 				source,
 				sourceJson: race.source,
+				page: race.page,
 				ability: ability.asTextShort,
 				size,
 				cleanName: PageFilterRaces.getInvertedName(race.name) || "",

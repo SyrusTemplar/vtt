@@ -2,6 +2,8 @@ import {VetoolsConfig} from "./utils-config/utils-config-config.js";
 import {RenderClassesSidebar} from "./render-class.js";
 import {SITE_STYLE__CLASSIC} from "./consts.js";
 
+import {OmnisearchUtilsUi} from "./omnisearch/omnisearch-utils-ui.js";
+
 class UtilClassesPage {
 	static getColorStyleClasses (entry, {isForceStandardSource, prefix, isSubclass} = {}) {
 		if (isSubclass) {
@@ -320,6 +322,9 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 	}
 	get activeClassRaw () { return this._dataList[this._classId._]; }
 
+	/**
+	 * @return {?FilterBox}
+	 */
 	get filterBox () { return this._filterBox; }
 
 	async pOnLoad () {
@@ -332,7 +337,7 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 			BrewUtil2.pInit(),
 		]);
 		await ExcludeUtil.pInitialise();
-		Omnisearch.addScrollTopFloat();
+		OmnisearchUtilsUi.addScrollTopFloat();
 		const data = await DataUtil.class.loadJSON();
 
 		const $btnReset = $("#reset");
@@ -381,6 +386,7 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 		await this._pInitAndRunRender();
 
 		ListPage._checkShowAllExcluded(this._dataList, this._$pgContent);
+		this._initLinkRedirectors();
 		this._initLinkGrabbers();
 		this._initScrollToSubclassSelection();
 		this._bindLinkExportButton({$btn: $(`#btn-link-export`)});
@@ -694,6 +700,69 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 		return Hist.util.getCleanHash(hashParts.join(HASH_PART_SEP));
 	}
 
+	/**
+	 * Override handling for class/subclass feature tag links, i.e.:
+	 * ```
+	 * {@classFeature Infuse Item|Artificer|TCE|2}"
+	 * {@subclassFeature Experimental Elixir|Artificer|TCE|Alchemist|TCE|3}"
+	 * ```
+	 * if they would otherwise negatively mutate the current page state.
+	 */
+	_initLinkRedirectors () {
+		const getIsAltViewActive = () => {
+			return this._state.isViewActiveScComp
+			|| this._state.isViewActiveBook;
+		};
+
+		const handleClickFeature = (evt) => {
+			if (getIsAltViewActive()) return;
+
+			const cls = this.activeClassRaw;
+			if (!cls) return;
+
+			const {page, source, hash} = Renderer.hover.getLinkElementData(evt.target);
+
+			const hashState = UrlUtil.unpackClassesPageStatePart(evt.target.href);
+
+			let {name, className, classSource, subclassShortName, subclassSource, level} = UrlUtil.autoDecodeHash(hash, {page});
+			className = className.toLowerCase();
+			classSource = classSource.toLowerCase();
+
+			// Approximate scroll position with feature scroll ID -- not always accurate,
+			//   but the best we can do in a sync context
+			const featureIndex = hashState?.feature || `${level - 1}-0`;
+
+			if (subclassShortName) subclassShortName = subclassShortName.toLowerCase();
+			if (subclassSource) subclassSource = subclassSource.toLowerCase();
+
+			if (
+				cls.name.toLowerCase() !== className.toLowerCase()
+				|| cls.source.toLowerCase() !== classSource.toLowerCase()
+			) {
+				return;
+			}
+
+			evt.preventDefault();
+
+			const wrpLevelFeatures = document.querySelector(`[data-scroll-id="${featureIndex}"]`);
+			if (!wrpLevelFeatures) return;
+
+			if (subclassShortName) {
+				const stateKey = UrlUtil.getStateKeySubclass({shortName: subclassShortName, source: subclassSource});
+				if (!this._state[stateKey]) this._state[stateKey] = true;
+			} else {
+				if (this._state.isHideFeatures) this._state.isHideFeatures = false;
+			}
+
+			wrpLevelFeatures.scrollIntoView({block: "start", inline: "nearest"});
+		};
+
+		document.body.addEventListener("click", evt => {
+			if (evt.target.matches(`a[data-vet-page="classfeature"]`)) return handleClickFeature(evt);
+			if (evt.target.matches(`a[data-vet-page="subclassfeature"]`)) return handleClickFeature(evt);
+		});
+	}
+
 	_initLinkGrabbers () {
 		const $body = $(document.body);
 		$body.on(`mousedown`, `.cls-main__linked-titles > td > * > .rd__h .entry-title-inner`, (evt) => evt.preventDefault());
@@ -754,6 +823,7 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 			{
 				hash,
 				source,
+				page: cls.page,
 			},
 			{
 				$lnk,
@@ -1049,7 +1119,7 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 		$$`<table class="cls-tbl shadow-big w-100 mb-2">
 			<tbody>
 			<tr><th class="ve-tbl-border" colspan="15"></th></tr>
-			<tr><th class="cls-tbl__disp-name" colspan="15">${cls.name}</th></tr>
+			<tr><th class="ve-text-left cls-tbl__disp-name" colspan="15">${cls.name}</th></tr>
 			<tr>
 				<th colspan="3"></th> <!-- spacer to match the 3 default cols (level, prof, features) -->
 				${$tblGroupHeaders}
@@ -1057,7 +1127,7 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 			<tr>
 				<th class="cls-tbl__col-level">Level</th>
 				<th class="cls-tbl__col-prof-bonus">Proficiency Bonus</th>
-				<th>Features</th>
+				<th class="ve-text-left">Features</th>
 				${$tblHeaders}
 			</tr>
 			${metasTblRows.map(it => it.$row)}
@@ -1098,6 +1168,8 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 		let $thGroupHeaderSpellPoints = null;
 		let $tblHeaderSpellPoints = null;
 		let $tblHeaderSpellPointsMaxSpellLevel = null;
+		let $elesDefault = null;
+		let $elesSpellPoints = null;
 		if (tableGroup.rowsSpellProgression) {
 			// This is always a "spacer"
 			$thGroupHeaderSpellPoints = $(`<th colspan="1" class="cls-tbl__cell-spell-points"></th>`);
@@ -1110,15 +1182,17 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 			$tblHeaderSpellPointsMaxSpellLevel = $(`<th class="cls-tbl__col-generic-center cls-tbl__cell-spell-points"><div class="cls__squash_header">Spell Level</div></th>`);
 			$tblHeaders.push($tblHeaderSpellPointsMaxSpellLevel);
 
-			const $elesDefault = [$thGroupHeader, ...$tblHeadersGroup];
-			const $elesSpellPoints = [$thGroupHeaderSpellPoints, $tblHeaderSpellPoints, $tblHeaderSpellPointsMaxSpellLevel];
+			$elesDefault = [$thGroupHeader, ...$tblHeadersGroup];
+			$elesSpellPoints = [$thGroupHeaderSpellPoints, $tblHeaderSpellPoints, $tblHeaderSpellPointsMaxSpellLevel];
 
-			const hkSpellPoints = () => {
-				$elesDefault.forEach($it => $it.toggleClass(`cls-tbl__cell-spell-progression--spell-points-enabled`, this._stateGlobal.isUseSpellPoints));
-				$elesSpellPoints.forEach($it => $it.toggleClass(`cls-tbl__cell-spell-points--spell-points-enabled`, this._stateGlobal.isUseSpellPoints));
-			};
-			this._addHookGlobal("isUseSpellPoints", hkSpellPoints);
-			hkSpellPoints();
+			if (!stateKey) {
+				const hkSpellPoints = () => {
+					$elesDefault.forEach($it => $it.toggleClass(`cls-tbl__cell-spell-progression--spell-points-enabled`, this._stateGlobal.isUseSpellPoints));
+					$elesSpellPoints.forEach($it => $it.toggleClass(`cls-tbl__cell-spell-points--spell-points-enabled`, this._stateGlobal.isUseSpellPoints));
+				};
+				this._addHookGlobal("isUseSpellPoints", hkSpellPoints);
+				hkSpellPoints();
+			}
 		}
 		// endregion
 
@@ -1132,9 +1206,15 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 			$tblHeaderSpellPointsMaxSpellLevel,
 		].filter(Boolean);
 
-		const hkShowHide = () => $elesSubclass.forEach($ele => $ele.toggleVe(!!this._state[stateKey]));
-		this._addHookBase(stateKey, hkShowHide);
-		MiscUtil.pDefer(hkShowHide);
+		const hkShowHideSubclass = () => {
+			$elesSubclass.forEach($ele => $ele.toggleVe(!!this._state[stateKey]));
+
+			if ($elesDefault) $elesDefault.forEach($it => $it.toggleClass(`cls-tbl__cell-spell-progression--spell-points-enabled`, !!this._state[stateKey] && this._stateGlobal.isUseSpellPoints));
+			if ($elesSpellPoints) $elesSpellPoints.forEach($it => $it.toggleClass(`cls-tbl__cell-spell-points--spell-points-enabled`, !!this._state[stateKey] && this._stateGlobal.isUseSpellPoints));
+		};
+		this._addHookBase(stateKey, hkShowHideSubclass);
+		this._addHookGlobal("isUseSpellPoints", hkShowHideSubclass);
+		MiscUtil.pDefer(hkShowHideSubclass);
 	}
 
 	_render_renderClassTable_getMetasTblRows (
@@ -1222,16 +1302,35 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 			sc,
 		},
 	) {
-		const $cells = tableGroup.rowsSpellProgression?.[ixLvl]
+		const {
+			$cells,
+			$cellsDefault = null,
+			$cellsSpellPoints = null,
+		} = tableGroup.rowsSpellProgression?.[ixLvl]
 			? this._render_renderClassTable_$getSpellProgressionCells({ixLvl, tableGroup, sc})
 			: this._render_renderClassTable_$getGenericRowCells({ixLvl, tableGroup});
 
-		if (!stateKey) return $cells;
+		if (!stateKey) {
+			const hkShowHideSpellPoints = () => {
+				if ($cellsDefault) $cellsDefault.forEach($it => $it.toggleClass(`cls-tbl__cell-spell-progression--spell-points-enabled`, this._stateGlobal.isUseSpellPoints));
+				if ($cellsSpellPoints) $cellsSpellPoints.forEach($it => $it.toggleClass(`cls-tbl__cell-spell-points--spell-points-enabled`, this._stateGlobal.isUseSpellPoints));
+			};
+			this._addHookGlobal("isUseSpellPoints", hkShowHideSpellPoints);
+			MiscUtil.pDefer(hkShowHideSpellPoints); // saves ~10ms
+
+			return $cells;
+		}
 
 		// If there is a state key, this is a subclass table group, and may therefore need to be hidden
-		const hkShowHide = () => $cells.forEach($cell => $cell.toggleVe(!!this._state[stateKey]));
-		this._addHookBase(stateKey, hkShowHide);
-		MiscUtil.pDefer(hkShowHide); // saves ~10ms
+		const hkShowHideSubclass = () => {
+			$cells.forEach($cell => $cell.toggleVe(!!this._state[stateKey]));
+
+			if ($cellsDefault) $cellsDefault.forEach($it => $it.toggleClass(`cls-tbl__cell-spell-progression--spell-points-enabled`, !!this._state[stateKey] && this._stateGlobal.isUseSpellPoints));
+			if ($cellsSpellPoints) $cellsSpellPoints.forEach($it => $it.toggleClass(`cls-tbl__cell-spell-points--spell-points-enabled`, !!this._state[stateKey] && this._stateGlobal.isUseSpellPoints));
+		};
+		this._addHookBase(stateKey, hkShowHideSubclass);
+		this._addHookGlobal("isUseSpellPoints", hkShowHideSubclass);
+		MiscUtil.pDefer(hkShowHideSubclass); // saves ~10ms
 
 		return $cells;
 	}
@@ -1244,14 +1343,16 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 		},
 	) {
 		const row = tableGroup[propRows][ixLvl] || [];
-		return row.map(cell => {
-			const td = e_({
-				tag: "td",
-				clazz: "cls-tbl__col-generic-center",
-				html: cell === 0 ? "\u2014" : Renderer.get().render(cell),
-			});
-			return $(td);
-		});
+		return {
+			$cells: row.map(cell => {
+				const td = e_({
+					tag: "td",
+					clazz: "cls-tbl__col-generic-center",
+					html: cell === 0 ? "\u2014" : Renderer.get().render(cell),
+				});
+				return $(td);
+			}),
+		};
 	}
 
 	_render_renderClassTable_$getSpellProgressionCells (
@@ -1296,18 +1397,15 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 			$cellSpellPointsMaxSpellLevel,
 		];
 
-		const hkSpellPoints = () => {
-			$cellsDefault.forEach($it => $it.toggleClass(`cls-tbl__cell-spell-progression--spell-points-enabled`, this._stateGlobal.isUseSpellPoints));
-			$cellsSpellPoints.forEach($it => $it.toggleClass(`cls-tbl__cell-spell-points--spell-points-enabled`, this._stateGlobal.isUseSpellPoints));
+		return {
+			$cells: [
+				...$cellsDefault.$cells,
+				$cellSpellPoints,
+				$cellSpellPointsMaxSpellLevel,
+			],
+			$cellsDefault: $cellsDefault.$cells,
+			$cellsSpellPoints,
 		};
-		this._addHookGlobal("isUseSpellPoints", hkSpellPoints);
-		hkSpellPoints();
-
-		return [
-			...$cellsDefault,
-			$cellSpellPoints,
-			$cellSpellPointsMaxSpellLevel,
-		];
 	}
 
 	_render_renderSidebar () {
@@ -1559,7 +1657,22 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 				${$dispName}
 				${$dispSource}
 			</button>`
-			.click(() => this._state[stateKey] = !this._state[stateKey])
+			.click(evt => {
+				if (evt.shiftKey) {
+					this._proxyAssignSimple(
+						"state",
+						Object.fromEntries(
+							cls.subclasses
+								.map(sc => {
+									const stateKeySc = UrlUtil.getStateKeySubclass(sc);
+									return [stateKeySc, stateKeySc === stateKey];
+								}),
+						),
+					);
+					return;
+				}
+				this._state[stateKey] = !this._state[stateKey];
+			})
 			.contextmenu(evt => {
 				evt.preventDefault();
 				this._state[stateKey] = !this._state[stateKey];
@@ -1574,6 +1687,7 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 			sc.name,
 			{
 				source: sc.source,
+				page: sc.page,
 				shortName: sc.shortName,
 				stateKey,
 				mod,
@@ -2126,6 +2240,8 @@ class ClassesPage extends MixinComponentGlobalState(MixinBaseComponent(MixinProx
 
 				this._trackOutlineScData(stateKey, ixLvl + 1, ixScFeature, depthArr);
 
+				if (ixScFeature) return;
+
 				const depthArrSubclassFluff = [];
 				const {hasEntries, rendered: rdScFluff} = UtilClassesPage.getRenderedSubclassFluff({sc, scFluff, depthArr: depthArrSubclassFluff});
 
@@ -2158,7 +2274,7 @@ ClassesPage._DEFAULT_STATE = {
 	isHideSidebar: false,
 	isHideFeatures: false,
 	isShowFluff: false,
-	isShowScSources: false,
+	isShowScSources: true,
 	isViewActiveScComp: false,
 	isViewActiveBook: false,
 	isHideOutline: false,
@@ -2542,8 +2658,17 @@ ClassesPage.ClassBookView = class extends BookModeViewBase {
 			this._parent.set("isShowFluff", !this._parent.get("isShowFluff"));
 		});
 
-		if (this._parent.get("isHideFeatures")) this._parent.set("isHideFeatures", false);
-		if (!this._parent.get("isShowFluff")) this._parent.set("isShowFluff", true);
+		// Display class/fluff if nothing would be displayed
+		const isAnySubclassActive = cls.subclasses
+			.map(sc => {
+				const stateKey = UrlUtil.getStateKeySubclass(sc);
+				return !!this._parent.get(stateKey);
+			})
+			.some(Boolean);
+		if (!isAnySubclassActive && this._parent.get("isHideFeatures") && !this._parent.get("isShowFluff")) {
+			this._parent.set("isHideFeatures", false);
+			this._parent.set("isShowFluff", true);
+		}
 
 		$pnlMenu.append($btnToggleCf);
 		$pnlMenu.append($btnToggleInfo);

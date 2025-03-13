@@ -1,21 +1,20 @@
 "use strict";
 
 class RenderTrapsHazards {
-	static $getRenderedTrapHazard (it) {
-		const renderStack = [];
+	static $getRenderedTrapHazard (ent) {
+		const styleHint = VetoolsConfig.get("styleSwitcher", "style");
 
-		Renderer.get().recursiveRender({entries: it.entries}, renderStack, {depth: 1});
-
-		const trapPart = Renderer.trap.getRenderedTrapPart(Renderer.get(), it);
-		const subtitle = Renderer.traphazard.getSubtitle(it);
-
+		const subtitle = Renderer.traphazard.getSubtitle(ent);
+		const ptBody = ent.__prop === "trap"
+			? Renderer.trap.getRenderedTrapBody(Renderer.get(), ent, {styleHint})
+			: Renderer.hazard.getRenderedHazardBody(Renderer.get(), ent, {styleHint});
 		return $$`
 		${Renderer.utils.getBorderTr()}
-		${Renderer.utils.getExcludedTr({entity: it, dataProp: it.__prop})}
-		${Renderer.utils.getNameTr(it, {page: UrlUtil.PG_TRAPS_HAZARDS})}
-		${subtitle ? `<tr><td colspan="6" class="pb-2"><i>${Renderer.traphazard.getSubtitle(it)}</i></td>` : ""}
-		<tr><td colspan="6">${renderStack.join("")}${trapPart}</td></tr>
-		${Renderer.utils.getPageTr(it)}
+		${Renderer.utils.getExcludedTr({entity: ent, dataProp: ent.__prop})}
+		${Renderer.utils.getNameTr(ent, {page: UrlUtil.PG_TRAPS_HAZARDS})}
+		${subtitle ? `<tr><td colspan="6" class="pb-2"><i>${Renderer.traphazard.getSubtitle(ent, {styleHint})}</i></td>` : ""}
+		<tr><td colspan="6">${ptBody}</td></tr>
+		${Renderer.utils.getPageTr(ent)}
 		${Renderer.utils.getBorderTr()}`;
 	}
 }

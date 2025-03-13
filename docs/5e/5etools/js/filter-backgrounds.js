@@ -6,31 +6,56 @@ class PageFilterBackgrounds extends PageFilterBase {
 		if (tool === "anyTool") return "Any Tool";
 		if (tool === "anyArtisansTool") return "Any Artisan's Tool";
 		if (tool === "anyMusicalInstrument") return "Any Musical Instrument";
+		if (tool === "anyGamingSet") return "Any Gaming Set";
 		return tool.toTitleCase();
 	}
+
+	static _TRAIT_DISPLAY_VALUES = {
+		"Armor Proficiency": "Armor Training",
+	};
 
 	constructor () {
 		super();
 
 		this._asiFilter = new AbilityScoreFilter({header: "Ability Scores"});
-		this._skillFilter = new Filter({header: "Skill Proficiencies", displayFn: StrUtil.toTitleCase});
+		this._skillFilter = new Filter({header: "Skill Proficiencies", displayFn: StrUtil.toTitleCase.bind(StrUtil)});
 		this._prereqFilter = new Filter({
 			header: "Prerequisite",
 			items: [...FilterCommon.PREREQ_FILTER_ITEMS],
 		});
 		this._toolFilter = new Filter({header: "Tool Proficiencies", displayFn: PageFilterBackgrounds._getToolDisplayText.bind(PageFilterBackgrounds)});
 		this._languageFilter = FilterCommon.getLanguageProficienciesFilter();
-		this._otherBenefitsFilter = new Filter({header: "Other Benefits"});
+		this._otherBenefitsFilter = new Filter({
+			header: "Other Benefits",
+			displayFn: val => this.constructor._TRAIT_DISPLAY_VALUES[val] || val,
+		});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
 			items: ["Has Info", "Has Images", "Legacy"],
 			isMiscFilter: true,
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});
+		this._featsFilter = new SearchableFilter({header: "Feats", itemSortFn: SortUtil.ascSortLower});
+	}
+
+	static _mutateForFilters_getFilterFeats (bg) {
+		if (!bg.feats?.length) return null;
+		return bg.feats
+			.flatMap(obj => {
+				return Object.entries(obj)
+					.filter(([, v]) => v)
+					.map(([k, v]) => {
+						switch (k) {
+							case "any": return "(Any)";
+							case "anyFromCategory": return `(Any From Category)`;
+							default: return k.split("|")[0].toTitleCase();
+						}
+					});
+			});
 	}
 
 	static mutateForFilters (bg) {
-		bg._fSources = SourceFilter.getCompleteFilterSources(bg);
+		this._mutateForFilters_commonSources(bg);
 
 		bg._fPrereq = FilterCommon.getFilterValuesPrerequisite(bg.prerequisite);
 
@@ -63,8 +88,11 @@ class PageFilterBackgrounds extends PageFilterBase {
 		if (bg.weaponProficiencies) bg._fOtherBenifits.push("Weapon Proficiencies");
 		bg._skillDisplay = skillDisplay;
 
-		const ability = Renderer.getAbilityData(bg.ability, {isOnlyShort: true, isBackgroundShortForm: bg.edition === "one"});
-		bg._slAbility = ability.asTextShort || VeCt.STR_NONE;
+		bg._slAbility = bg.ability
+			? (Renderer.getAbilityData(bg.ability, {isOnlyShort: true, isBackgroundShortForm: bg.edition === "one"}).asTextShort || VeCt.STR_NONE)
+			: VeCt.STR_NONE;
+
+		bg._fFeats = this._mutateForFilters_getFilterFeats(bg);
 	}
 
 	addToFilters (bg, isExcluded) {
@@ -78,6 +106,7 @@ class PageFilterBackgrounds extends PageFilterBase {
 		this._languageFilter.addItem(bg._fLangs);
 		this._otherBenefitsFilter.addItem(bg._fOtherBenifits);
 		this._miscFilter.addItem(bg._fMisc);
+		this._featsFilter.addItem(bg._fFeats);
 	}
 
 	async _pPopulateBoxOptions (opts) {
@@ -90,6 +119,7 @@ class PageFilterBackgrounds extends PageFilterBase {
 			this._languageFilter,
 			this._otherBenefitsFilter,
 			this._miscFilter,
+			this._featsFilter,
 		];
 	}
 
@@ -104,6 +134,7 @@ class PageFilterBackgrounds extends PageFilterBase {
 			bg._fLangs,
 			bg._fOtherBenifits,
 			bg._fMisc,
+			bg._fFeats,
 		);
 	}
 }
@@ -174,6 +205,7 @@ class ModalFilterBackgrounds extends ModalFilterBase {
 				hash,
 				source,
 				sourceJson: bg.source,
+				page: bg.page,
 				ability: bg._slAbility,
 				skills: bg._skillDisplay,
 			},

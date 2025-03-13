@@ -140,6 +140,7 @@ export class BrewUtil2Base {
 
 		try {
 			const lockToken = await this._LOCK.pLock();
+			if (this._cache_brewsProc) return this._cache_brewsProc;
 			await this._pGetBrewProcessed_({lockToken});
 		} catch (e) {
 			setTimeout(() => { throw e; });
@@ -210,6 +211,7 @@ export class BrewUtil2Base {
 
 		try {
 			lockToken = await this._LOCK.pLock({token: lockToken});
+			if (this._cache_brews) return this._cache_brews;
 
 			const out = [
 				...(await this._pGetBrewRaw({lockToken})),
@@ -239,6 +241,7 @@ export class BrewUtil2Base {
 
 		try {
 			await this._LOCK.pLock({token: lockToken});
+			if (this._cache_brewsLocal) return this._cache_brewsLocal;
 			return (await this._pGetBrew_pGetLocalBrew_());
 		} finally {
 			this._LOCK.unlock();
@@ -842,8 +845,11 @@ export class BrewUtil2Base {
 
 		if (!isSilent) JqueryUtil.doToast(`Found ${brewInfos.length} partnered ${brewInfos.length === 1 ? this.DISPLAY_NAME : this.DISPLAY_NAME_PLURAL}; loading...`);
 
-		await brewInfos
-			.pMap(brewInfo => this.pAddBrewFromUrl(brewInfo.urlDownload, {isLazy: true}));
+		(
+			await brewInfos
+				.pMap(brewInfo => this.pAddBrewFromUrl(brewInfo.urlDownload, {isLazy: true}))
+		)
+			.sort((a, b) => SortUtil.ascSortLower(a._brewName, b._brewName));
 
 		const brewDocsAdded = await this.pAddBrewsLazyFinalize();
 
@@ -993,6 +999,7 @@ export class BrewUtil2Base {
 		[UrlUtil.PG_RECIPES]: ["recipe"],
 		[UrlUtil.PG_CLASS_SUBCLASS_FEATURES]: ["classFeature", "subclassFeature"],
 		[UrlUtil.PG_DECKS]: ["card", "deck"],
+		[UrlUtil.PG_BASTIONS]: ["facility", "facilityFluff"],
 	};
 
 	getPageProps ({page, isStrict = false, fallback = null} = {}) {
@@ -1243,7 +1250,7 @@ export class BrewUtil2Base {
 		const brews = await this._pGetBrewRaw();
 		const brewsExportable = brews
 			.filter(brew => !brew.head.isEditable && !brew.head.isLocal);
-		return brewsExportable.flatMap(brew => brew.body._meta.sources.map(src => src.json)).unique();
+		return brewsExportable.flatMap(brew => (brew.body._meta?.sources || []).map(src => src.json)).unique();
 	}
 	// endregion
 }

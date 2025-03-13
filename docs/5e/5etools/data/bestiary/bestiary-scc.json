@@ -1016,6 +1016,9 @@
 			"speed": {
 				"walk": 30
 			},
+			"initiative": {
+				"advantageMode": "adv"
+			},
 			"str": 8,
 			"dex": 12,
 			"con": 13,
@@ -2380,6 +2383,9 @@
 			],
 			"savingThrowForced": [
 				"constitution"
+			],
+			"savingThrowForcedLegendary": [
+				"dexterity"
 			],
 			"hasToken": true,
 			"hasFluff": true,

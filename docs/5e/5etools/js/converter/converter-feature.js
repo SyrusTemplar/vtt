@@ -185,7 +185,7 @@ export class ConverterFeatureBase extends ConverterBase {
 				return;
 			}
 
-			const mAbility = new RegExp(`^${Object.entries(Parser.ATB_ABV_TO_FULL).map(([abv, full]) => `(?:or )?(?<${abv}>${full})?(?:,? )?`).join("")} (?<score>\\d+)\\+$`).exec(pt);
+			const mAbility = new RegExp(`^${Object.entries(Parser.ATB_ABV_TO_FULL).map(([abv, full]) => `(?:or )?(?<${abv}>${full})?(?:,? )?`).join("")} (?:score of )?(?<score>\\d+)(?:\\+| or higher)$`).exec(pt);
 			if (mAbility) {
 				// Expect only one ability score threshold (i.e. no "str 15 OR dex 13")
 				if (preAbilsMeta.score) {
@@ -252,6 +252,12 @@ export class ConverterFeatureBase extends ConverterBase {
 			const mFeature = /^(?<name>.*) Feature$/.exec(pt);
 			if (mFeature) {
 				pre.feature = [mFeature.groups.name];
+				return;
+			}
+
+			const mCulture = /^(?<name>.*) Culture$/.exec(pt);
+			if (mCulture) {
+				pre.culture = [mCulture.groups.name];
 				return;
 			}
 
@@ -338,8 +344,21 @@ export class ConverterFeatureBase extends ConverterBase {
 			const asi = {
 				[this._doRacePostProcess_ability_getAbilityName(mSimple.groups.ability)]: Number(mSimple.groups.amount),
 			};
-			if (mSimple.groups.max !== "20") asi.max = Number(mSimple.groups.max);
+			if (mSimple.groups.max && mSimple.groups.max !== "20") asi.max = Number(mSimple.groups.max);
 			entity.ability = [asi];
+			entity.entries = entity.entries.filter(ent => ent !== entry);
+			return true;
+		}
+
+		// "Your Wisdom and Charisma scores each increase by 1."
+		const mSimpleTwoSameAmount = new RegExp(`^Your (?<ability1>${Object.values(Parser.ATB_ABV_TO_FULL).join("|")}) and (?<ability2>${Object.values(Parser.ATB_ABV_TO_FULL).join("|")}) scores each increase by (?<amount>\\d+)\\.?$`, "i").exec(ent);
+		if (mSimpleTwoSameAmount) {
+			entity.ability = [
+				{
+					[this._doRacePostProcess_ability_getAbilityName(mSimpleTwoSameAmount.groups.ability1)]: Number(mSimpleTwoSameAmount.groups.amount),
+					[this._doRacePostProcess_ability_getAbilityName(mSimpleTwoSameAmount.groups.ability2)]: Number(mSimpleTwoSameAmount.groups.amount),
+				},
+			];
 			entity.entries = entity.entries.filter(ent => ent !== entry);
 			return true;
 		}
@@ -401,10 +420,48 @@ export class ConverterFeatureBase extends ConverterBase {
 							this._doRacePostProcess_ability_getAbilityName(mSimplePlusEitherSingle.groups.abilityC1),
 							this._doRacePostProcess_ability_getAbilityName(mSimplePlusEitherSingle.groups.abilityC2),
 						],
-						...(amountC === 1 ? {} : {amountC}),
+						...(amountC === 1 ? {} : {amount: amountC}),
 					},
 				},
 			];
+			entity.entries = entity.entries.filter(ent => ent !== entry);
+			return true;
+		}
+
+		// "Your Strength, Constitution, and Wisdom scores each increase by 1. Then, increase one ability score of your choice by 1."
+		const mThreePlusOne = new RegExp(`^Your (?<ability1>${Object.values(Parser.ATB_ABV_TO_FULL).join("|")}), (?<ability2>${Object.values(Parser.ATB_ABV_TO_FULL).join("|")}), and (?<ability3>${Object.values(Parser.ATB_ABV_TO_FULL).join("|")}) scores each increase by (?<amount1>\\d+)\\. Then, increase one ability score of your choice by (?<amount2>\\d+)\\.$`, "i").exec(ent);
+		if (mThreePlusOne) {
+			const abils = [
+				this._doRacePostProcess_ability_getAbilityName(mThreePlusOne.groups.ability1),
+				this._doRacePostProcess_ability_getAbilityName(mThreePlusOne.groups.ability2),
+				this._doRacePostProcess_ability_getAbilityName(mThreePlusOne.groups.ability3),
+			];
+			const amount1 = Number(mThreePlusOne.groups.amount1);
+			const amount2 = Number(mThreePlusOne.groups.amount2);
+			entity.ability = [
+				{
+					"choose": {
+						"weighted": {
+							"weights": [
+								amount1 + amount2,
+								amount2,
+								amount2,
+							],
+							"from": [...abils],
+						},
+					},
+				},
+				{
+					[this._doRacePostProcess_ability_getAbilityName(mThreePlusOne.groups.ability1)]: amount1,
+					[this._doRacePostProcess_ability_getAbilityName(mThreePlusOne.groups.ability2)]: amount1,
+					[this._doRacePostProcess_ability_getAbilityName(mThreePlusOne.groups.ability3)]: amount1,
+					"choose": {
+						"from": Parser.ABIL_ABVS.filter(abv => !abils.includes(abv)),
+						...(amount2 === 1 ? {} : {amount: amount2}),
+					},
+				},
+			];
+
 			entity.entries = entity.entries.filter(ent => ent !== entry);
 			return true;
 		}

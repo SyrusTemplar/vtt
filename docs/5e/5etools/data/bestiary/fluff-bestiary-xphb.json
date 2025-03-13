@@ -29,108 +29,54 @@
 			]
 		},
 		{
-			"name": "Ape",
+			"name": "Beast of the Land",
 			"source": "XPHB",
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/XPHB/Ape.webp"
+						"path": "bestiary/XPHB/Beast of the Land.webp"
 					}
 				}
 			]
 		},
 		{
-			"name": "Badger",
+			"name": "Beast of the Sea",
 			"source": "XPHB",
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/XPHB/Badger.webp"
+						"path": "bestiary/XPHB/Beast of the Sea.webp"
 					}
 				}
 			]
 		},
 		{
-			"name": "Bat",
+			"name": "Beast of the Sky",
 			"source": "XPHB",
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/XPHB/Bat.webp"
-					},
-					"credit": "Jonathan Kuo"
-				}
-			]
-		},
-		{
-			"name": "Black Bear",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Black Bear.webp"
+						"path": "bestiary/XPHB/Beast of the Sky.webp"
 					}
 				}
 			]
 		},
 		{
-			"name": "Boar",
+			"name": "Bestial Spirit",
 			"source": "XPHB",
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/XPHB/Boar.webp"
+						"path": "bestiary/XPHB/Bestial Spirit.webp"
 					}
-				}
-			]
-		},
-		{
-			"name": "Brown Bear",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Brown Bear.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Camel",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Camel.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Cat",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Cat.webp"
-					},
-					"credit": "Daneen Wilkerson"
 				}
 			]
 		},
@@ -163,46 +109,6 @@
 			]
 		},
 		{
-			"name": "Crab",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Crab.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Crocodile",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Crocodile.webp"
-					},
-					"credit": "Leesha Hannigan"
-				}
-			]
-		},
-		{
-			"name": "Dire Wolf",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Dire Wolf.webp"
-					}
-				}
-			]
-		},
-		{
 			"name": "Draconic Spirit",
 			"source": "XPHB",
 			"images": [
@@ -217,27 +123,14 @@
 			]
 		},
 		{
-			"name": "Draft Horse",
+			"name": "Elemental Spirit",
 			"source": "XPHB",
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/XPHB/Draft Horse.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Elephant",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Elephant.webp"
+						"path": "bestiary/XPHB/Elemental Spirit.webp"
 					}
 				}
 			]
@@ -271,162 +164,14 @@
 			]
 		},
 		{
-			"name": "Frog",
+			"name": "Giant Insect",
 			"source": "XPHB",
 			"images": [
 				{
 					"type": "image",
 					"href": {
 						"type": "internal",
-						"path": "bestiary/XPHB/Frog.webp"
-					},
-					"credit": "Wayne England"
-				}
-			]
-		},
-		{
-			"name": "Giant Badger",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Giant Badger.webp"
-					},
-					"credit": "Wayne England"
-				}
-			]
-		},
-		{
-			"name": "Giant Crab",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Giant Crab.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Giant Seahorse",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Giant Seahorse.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Giant Spider",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Giant Spider.webp"
-					},
-					"credit": "Michele Giorgi"
-				}
-			]
-		},
-		{
-			"name": "Giant Weasel",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Giant Weasel.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Hawk",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Hawk.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Imp",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Imp.webp"
-					},
-					"credit": "Patrik Hell"
-				}
-			]
-		},
-		{
-			"name": "Lion",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Lion.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Mastiff",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Mastiff.webp"
-					},
-					"credit": "Conceptopolis"
-				}
-			]
-		},
-		{
-			"name": "Mule",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Mule.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Octopus",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Octopus.webp"
+						"path": "bestiary/XPHB/Giant Insect.webp"
 					}
 				}
 			]
@@ -446,154 +191,6 @@
 			]
 		},
 		{
-			"name": "Pony",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Pony.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Pseudodragon",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Pseudodragon.webp"
-					},
-					"credit": "Adam Vehige"
-				}
-			]
-		},
-		{
-			"name": "Quasit",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Quasit.webp"
-					},
-					"credit": "Borja Pindado"
-				}
-			]
-		},
-		{
-			"name": "Reef Shark",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Reef Shark.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Riding Horse",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Riding Horse.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Scorpion",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Scorpion.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Slaad Tadpole",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Slaad Tadpole.webp"
-					},
-					"credit": "David Astruga"
-				}
-			]
-		},
-		{
-			"name": "Sphinx of Wonder",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Sphinx of Wonder.webp"
-					},
-					"credit": "Daneen Wilkerson"
-				}
-			]
-		},
-		{
-			"name": "Spider",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Spider.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Sprite",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Sprite.webp"
-					},
-					"credit": "Patrik Hell"
-				}
-			]
-		},
-		{
-			"name": "Tiger",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Tiger.webp"
-					}
-				}
-			]
-		},
-		{
 			"name": "Undead Spirit",
 			"source": "XPHB",
 			"images": [
@@ -604,59 +201,6 @@
 						"path": "bestiary/XPHB/Undead Spirit.webp"
 					},
 					"credit": "Ustin Sweet"
-				}
-			]
-		},
-		{
-			"name": "Warhorse",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Warhorse.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Weasel",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Weasel.webp"
-					}
-				}
-			]
-		},
-		{
-			"name": "Wolf",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Wolf.webp"
-					},
-					"credit": "Borja Pindado"
-				}
-			]
-		},
-		{
-			"name": "Zombie",
-			"source": "XPHB",
-			"images": [
-				{
-					"type": "image",
-					"href": {
-						"type": "internal",
-						"path": "bestiary/XPHB/Zombie.webp"
-					}
 				}
 			]
 		}

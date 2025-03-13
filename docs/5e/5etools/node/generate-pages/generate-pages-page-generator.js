@@ -27,6 +27,8 @@ export class PageGeneratorBase {
 	_registerPartials () {
 		this._registerPartial({ident: "head", filename: "head/template-head.hbs"});
 
+		this._registerPartial({ident: "adLhs", filename: "ad/template-ad-lhs.hbs"});
+		this._registerPartial({ident: "adLhsScrollingPage", filename: "ad/template-ad-lhs--scrolling-page.hbs"});
 		this._registerPartial({ident: "adRhs", filename: "ad/template-ad-rhs.hbs"});
 		this._registerPartial({ident: "adRhsScrollingPage", filename: "ad/template-ad-rhs--scrolling-page.hbs"});
 		this._registerPartial({ident: "adLeaderboard", filename: "ad/template-ad-leaderboard.hbs"});
@@ -206,6 +208,9 @@ export class PageGeneratorAdventureBookBase extends PageGeneratorGeneric {
 
 	_scriptsRenderAdditional = [
 		"render-markdown.js",
+	];
+
+	_scriptsModules = [
 		"render-map.js",
 	];
 
@@ -216,8 +221,8 @@ export class PageGeneratorAdventureBookBase extends PageGeneratorGeneric {
 
 			advBookPlaceholder: this._advBookPlaceholder,
 
-			scripts: [
-				...data.scripts || [],
+			scriptsModules: [
+				...data.scriptsModules || [],
 				"bookutils.js",
 				`${this._scriptIdentAdvBook}.js`,
 			],
@@ -240,8 +245,8 @@ export class PageGeneratorAdventuresBooksBase extends PageGeneratorGeneric {
 			searchName: this._searchName,
 			btnsList: this._btnsList,
 
-			scripts: [
-				...data.scripts || [],
+			scriptsModules: [
+				...data.scriptsModules || [],
 				"bookutils.js",
 				"bookslist.js",
 				`${this._scriptIdentAdvsBooks}.js`,

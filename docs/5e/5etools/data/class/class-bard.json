@@ -167,7 +167,7 @@
 					},
 					{
 						"_": [
-							"Leather armor|phb",
+							"leather armor|phb",
 							"dagger|phb"
 						]
 					}
@@ -629,6 +629,7 @@
 				21,
 				22
 			],
+			"preparedSpellsChange": "level",
 			"cantripProgression": [
 				2,
 				2,
@@ -653,7 +654,6 @@
 			],
 			"additionalSpells": [
 				{
-					"name": "Magical Secrets",
 					"expanded": {
 						"s5": [
 							{
@@ -680,6 +680,23 @@
 								"all": "level=9|class=Cleric;Druid;Wizard"
 							}
 						]
+					},
+					"prepared": {
+						"20": [
+							"power word heal|xphb",
+							"power word kill|xphb"
+						]
+					}
+				}
+			],
+			"featProgression": [
+				{
+					"name": "Epic Boon",
+					"category": [
+						"EB"
+					],
+					"progression": {
+						"19": 1
 					}
 				}
 			],
@@ -705,9 +722,7 @@
 				]
 			},
 			"startingEquipment": {
-				"entries": [
-					"{@i Choose A or B:} (A) {@item Leather Armor|XPHB}, 2 {@item Dagger|XPHB}, {@item Musical Instrument|XPHB} of your choice, {@item Entertainer's Pack|XPHB}, 19 GP; or (B) 90 GP"
-				],
+				"additionalFromBackground": true,
 				"defaultData": [
 					{
 						"A": [
@@ -734,6 +749,9 @@
 							}
 						]
 					}
+				],
+				"entries": [
+					"{@i Choose A or B:} (A) {@item Leather Armor|XPHB}, 2 {@item Dagger|XPHB}, {@item Musical Instrument|XPHB} of your choice, {@item Entertainer's Pack|XPHB}, 19 GP; or (B) 90 GP"
 				]
 			},
 			"multiclassing": {
@@ -1069,7 +1087,7 @@
 					]
 				},
 				{
-					"title": "Prepared Spells per Spell Level",
+					"title": "Spell Slots per Spell Level",
 					"colLabels": [
 						"{@filter 1st|spells|level=1|class=bard}",
 						"{@filter 2nd|spells|level=2|class=bard}",
@@ -1575,68 +1593,6 @@
 					"name": "College of Whispers",
 					"source": "XGE",
 					"shortName": "Whispers",
-					"className": "Bard",
-					"classSource": "PHB"
-				}
-			}
-		},
-		{
-			"name": "College of the Road",
-			"shortName": "Road",
-			"source": "HWCS",
-			"className": "Bard",
-			"classSource": "PHB",
-			"page": 36,
-			"edition": "classic",
-			"optionalfeatureProgression": [
-				{
-					"name": "Traveler's Tricks",
-					"featureType": [
-						"TT"
-					],
-					"progression": {
-						"3": 2,
-						"6": 1,
-						"14": 1
-					}
-				}
-			],
-			"subclassFeatures": [
-				"College of the Road|Bard||Road|HWCS|3",
-				"Favorite Trick|Bard||Road|HWCS|6",
-				"Improved Tricks|Bard||Road|HWCS|6",
-				"Traveler's Tricks|Bard||Road|HWCS|6",
-				"Favorite Trick|Bard||Road|HWCS|14",
-				"Improved Tricks|Bard||Road|HWCS|14",
-				"Traveler's Tricks|Bard||Road|HWCS|14"
-			],
-			"hasFluffImages": true
-		},
-		{
-			"name": "College of the Road",
-			"shortName": "Road",
-			"source": "HWCS",
-			"className": "Bard",
-			"classSource": "XPHB",
-			"_copy": {
-				"name": "College of the Road",
-				"source": "HWCS",
-				"shortName": "Road",
-				"className": "Bard",
-				"classSource": "PHB",
-				"_preserve": {
-					"page": true,
-					"otherSources": true,
-					"srd": true,
-					"basicRules": true,
-					"reprintedAs": true
-				}
-			},
-			"fluff": {
-				"_subclassFluff": {
-					"name": "College of the Road",
-					"source": "HWCS",
-					"shortName": "Road",
 					"className": "Bard",
 					"classSource": "PHB"
 				}
@@ -2473,8 +2429,8 @@
 			"classSource": "XPHB",
 			"level": 2,
 			"entries": [
-				"You can add half your {@variantrule Proficiency|XPHB} Bonus (round down) to any ability check you make that uses a skill proficiency you lack and that doesn't otherwise use your {@variantrule Proficiency|XPHB} Bonus.",
-				"For example, if you make a Strength ({@skill Athletics|XPHB}) check and lack {@skill Athletics|XPHB} proficiency, you can add half your {@variantrule Proficiency|XPHB} Bonus to the check.",
+				"You can add half your {@variantrule Proficiency|XPHB|Proficiency Bonus} (round down) to any ability check you make that uses a skill proficiency you lack and that doesn't otherwise use your {@variantrule Proficiency|XPHB|Proficiency Bonus}.",
+				"For example, if you make a Strength ({@skill Athletics|XPHB}) check and lack {@skill Athletics|XPHB} proficiency, you can add half your {@variantrule Proficiency|XPHB|Proficiency Bonus} to the check.",
 				{
 					"type": "inset",
 					"name": "A Bard's Repertoire",
@@ -2642,190 +2598,6 @@
 		}
 	],
 	"subclassFeature": [
-		{
-			"name": "College of the Road",
-			"source": "HWCS",
-			"page": 36,
-			"className": "Bard",
-			"classSource": "PHB",
-			"subclassShortName": "Road",
-			"subclassSource": "HWCS",
-			"level": 3,
-			"entries": [
-				"Not an officially recognized college, the College of the Road represents the personal and eclectic sets of skills, knowledge, and techniques a wandering bard picks up along their journey. As inveterate jacks-of-all-trades, bards possess a variety of aptitudes in combat, magecraft, and general know-how, making them particularly well suited to learning a variety of different skills. It often happens that while traveling, a bard winds up sharing their campfire with a motley assortment of wandering adventurers who may impart valuable lessons in exchange for a lively song or a well-told tale. Compared to students of other Bard Colleges, a special kind of sensibility is important for the College of the Road. How effectively a bard of this College can apply what they have learned depends on their understanding and insight. The College of the Road is sometimes a harsh teacher, but bards who follow this path often find themselves rewarded with a diverse array of useful tricks and tactics. Those who underestimate a bard from the College of the Road soon find that these \"graduates\" are full of surprises.",
-				{
-					"type": "entries",
-					"name": "Bonus Proficiencies",
-					"entries": [
-						"When you join the College of the Road at 3rd level, you gain a few useful proficiencies picked up from your time on the road. Choose three of the following options (each option can only be selected once):",
-						{
-							"type": "list",
-							"items": [
-								"You gain proficiency with a {@filter Gaming Set|items|source=phb|miscellaneous=mundane|type=gaming set} of your choice.",
-								"You gain proficiency with a {@filter martial weapon|items|source=phb|category=basic|type=martial weapon;melee weapon=sand} of your choice",
-								"You gain proficiency with {@item Herbalism Kit|phb|Herbalism Kits}",
-								"You gain proficiency with {@item Thieves' Tools|PHB}",
-								"You gain proficiency with a skill of your choice",
-								"You learn two languages of your choice"
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Wanderer's Lore",
-					"entries": [
-						"At 3rd level, you can share any useful tidbits of information you have come across in your travels to help others to see problems from a new angle. When a creature has a Bardic Inspiration die granted by you, they may make a single {@skill Arcana}, {@skill History}, {@skill Nature}, or {@skill Religion} check with advantage. The creature may choose whether or not to add the Bardic Inspiration die to this roll."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Traveler's Tricks",
-					"entries": [
-						"At 3rd level you already have several memorable experiences from your life on the road. You learn two Traveler's Tricks of your choice (see Traveler's Trick Options).",
-						"These Traveler's Tricks represent skills, techniques, and useful pieces of knowledge picked up along the way. Each one requires you to expend a use of your Bardic Inspiration, and takes a bonus action to use unless otherwise specified.",
-						"At 6th level and at 14th level you learn an additional Traveler's Trick."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Traveler's Trick Options",
-					"entries": [
-						"The Traveler's Trick feature lets you choose options for it at certain levels. The options are presented here in alphabetical order. Each one is associated with a different class.",
-						"Unlike traditional bard abilities which rely on skill or panache to be properly executed, the greatest asset for picking up tricks along the road is common sense and an openness to learning new ideas. Wisdom affects how powerful your traveler's tricks are, as well as how hard they are to counter. If an option requires a saving throw, your Traveler's Trick save DC equals 8 + your proficiency bonus + your Wisdom modifier.",
-						{
-							"type": "options",
-							"entries": [
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Acrobatics Lessons|HWCS"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Armed Combat Lessons|HWCS"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Bind the Wound|HWCS"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Boxing Lessons|HWCS"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Conjure Woodland Spirit|HWCS|Conjure Woodland Spirit*"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Dark Bargain|HWCS|Dark Bargain*"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Evocation Lessons|HWCS|Evocation Lessons*"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Hunting Lessons|HWCS|Hunting Lessons*"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Reckless Tactics|HWCS"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Warding Trick|HWCS|Warding Trick*"
-								}
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Favorite Trick",
-			"source": "HWCS",
-			"page": 36,
-			"className": "Bard",
-			"classSource": "PHB",
-			"subclassShortName": "Road",
-			"subclassSource": "HWCS",
-			"level": 6,
-			"header": 2,
-			"entries": [
-				"At 6th level, you have gained enough mastery over one of your Traveler's Tricks that you can use it whenever it's needed. You may choose one Traveler's Trick that you know and designate it as your favorite trick. If you roll initiative and have no uses of Bardic Inspiration remaining, you regain one use of it. Any Bardic Inspiration gained in this way can only be used to perform your favorite trick."
-			]
-		},
-		{
-			"name": "Improved Tricks",
-			"source": "HWCS",
-			"page": 36,
-			"className": "Bard",
-			"classSource": "PHB",
-			"subclassShortName": "Road",
-			"subclassSource": "HWCS",
-			"level": 6,
-			"header": 2,
-			"entries": [
-				"At 6th level, your Traveler's Tricks become stronger. By practicing the tricks you know, and encountering stronger adventurers who share their knowledge with you, your mastery over your tricks increases."
-			]
-		},
-		{
-			"name": "Traveler's Tricks",
-			"source": "HWCS",
-			"page": 36,
-			"className": "Bard",
-			"classSource": "PHB",
-			"subclassShortName": "Road",
-			"subclassSource": "HWCS",
-			"level": 6,
-			"header": 2,
-			"entries": [
-				"At 6th level you learn an additional Traveler's Trick."
-			]
-		},
-		{
-			"name": "Favorite Trick",
-			"source": "HWCS",
-			"page": 36,
-			"className": "Bard",
-			"classSource": "PHB",
-			"subclassShortName": "Road",
-			"subclassSource": "HWCS",
-			"level": 14,
-			"header": 2,
-			"entries": [
-				"At 14th level you can select a second favorite trick from among Traveler's Tricks you know."
-			]
-		},
-		{
-			"name": "Improved Tricks",
-			"source": "HWCS",
-			"page": 36,
-			"className": "Bard",
-			"classSource": "PHB",
-			"subclassShortName": "Road",
-			"subclassSource": "HWCS",
-			"level": 14,
-			"header": 2,
-			"entries": [
-				"At 14th level, your Traveler's Tricks become stronger. By practicing the tricks you know, and encountering stronger adventurers who share their knowledge with you, your mastery over your tricks increases."
-			]
-		},
-		{
-			"name": "Traveler's Tricks",
-			"source": "HWCS",
-			"page": 36,
-			"className": "Bard",
-			"classSource": "PHB",
-			"subclassShortName": "Road",
-			"subclassSource": "HWCS",
-			"level": 14,
-			"header": 2,
-			"entries": [
-				"At 14th level you learn an additional Traveler's Trick."
-			]
-		},
 		{
 			"name": "College of Lore",
 			"source": "PHB",
@@ -3448,7 +3220,9 @@
 						]
 					],
 					"data": {
-						"tableInclude": true
+						"genTables": {
+							"tableInclude": true
+						}
 					}
 				}
 			]
@@ -3607,6 +3381,45 @@
 			]
 		},
 		{
+			"name": "Defensive Flourish",
+			"source": "XGE",
+			"page": 15,
+			"className": "Bard",
+			"classSource": "PHB",
+			"subclassShortName": "Swords",
+			"subclassSource": "XGE",
+			"level": 3,
+			"entries": [
+				"You can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You also add the number rolled to your AC until the start of your next turn."
+			]
+		},
+		{
+			"name": "Mobile Flourish",
+			"source": "XGE",
+			"page": 15,
+			"className": "Bard",
+			"classSource": "PHB",
+			"subclassShortName": "Swords",
+			"subclassSource": "XGE",
+			"level": 3,
+			"entries": [
+				"You can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You can also push the target up to 5 feet away from you, plus a number of feet equal to the number you roll on that die. You can then immediately use your reaction to move up to your walking speed to an unoccupied space within 5 feet of the target."
+			]
+		},
+		{
+			"name": "Slashing Flourish",
+			"source": "XGE",
+			"page": 15,
+			"className": "Bard",
+			"classSource": "PHB",
+			"subclassShortName": "Swords",
+			"subclassSource": "XGE",
+			"level": 3,
+			"entries": [
+				"You can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit and to any other creature of your choice that you can see within 5 feet of you. The damage equals the number you roll on the Bardic Inspiration die."
+			]
+		},
+		{
 			"name": "Blade Flourish",
 			"source": "XGE",
 			"page": 15,
@@ -3624,15 +3437,15 @@
 					"entries": [
 						{
 							"type": "refSubclassFeature",
-							"subclassFeature": "Defensive Flourish|Bard|XGE|Swords|XGE|3"
+							"subclassFeature": "Defensive Flourish|Bard|PHB|Swords|XGE|3"
 						},
 						{
 							"type": "refSubclassFeature",
-							"subclassFeature": "Slashing Flourish|Bard|XGE|Swords|XGE|3"
+							"subclassFeature": "Slashing Flourish|Bard|PHB|Swords|XGE|3"
 						},
 						{
 							"type": "refSubclassFeature",
-							"subclassFeature": "Mobile Flourish|Bard|XGE|Swords|XGE|3"
+							"subclassFeature": "Mobile Flourish|Bard|PHB|Swords|XGE|3"
 						}
 					]
 				}
@@ -3744,7 +3557,7 @@
 			"entries": [
 				"When you join the College of Whispers at 3rd level, you gain the ability to make your weapon attacks magically toxic to a creature's mind.",
 				"When you hit a creature with a weapon attack, you can expend one use of your Bardic Inspiration to deal an extra {@damage 2d6} psychic damage to that target. You can do so only once per round on your turn.",
-				"The psychic damage increases when you reach certain levels in this class, increasing to {@dice 3d6} at 5th level, {@dice 5d6} at 10th level, and {@dice 8d6} at 15th level."
+				"The psychic damage increases when you reach certain levels in this class, increasing to {@damage 3d6} at 5th level, {@damage 5d6} at 10th level, and {@damage 8d6} at 15th level."
 			]
 		},
 		{
@@ -3802,45 +3615,6 @@
 			]
 		},
 		{
-			"name": "Defensive Flourish",
-			"source": "XGE",
-			"page": 15,
-			"className": "Bard",
-			"classSource": "XGE",
-			"subclassShortName": "Swords",
-			"subclassSource": "XGE",
-			"level": 3,
-			"entries": [
-				"You can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You also add the number rolled to your AC until the start of your next turn."
-			]
-		},
-		{
-			"name": "Mobile Flourish",
-			"source": "XGE",
-			"page": 15,
-			"className": "Bard",
-			"classSource": "XGE",
-			"subclassShortName": "Swords",
-			"subclassSource": "XGE",
-			"level": 3,
-			"entries": [
-				"You can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit. The damage equals the number you roll on the Bardic Inspiration die. You can also push the target up to 5 feet away from you, plus a number of feet equal to the number you roll on that die. You can then immediately use your reaction to move up to your walking speed to an unoccupied space within 5 feet of the target."
-			]
-		},
-		{
-			"name": "Slashing Flourish",
-			"source": "XGE",
-			"page": 15,
-			"className": "Bard",
-			"classSource": "XGE",
-			"subclassShortName": "Swords",
-			"subclassSource": "XGE",
-			"level": 3,
-			"entries": [
-				"You can expend one use of your Bardic Inspiration to cause the weapon to deal extra damage to the target you hit and to any other creature of your choice that you can see within 5 feet of you. The damage equals the number you roll on the Bardic Inspiration die."
-			]
-		},
-		{
 			"name": "College of Dance",
 			"source": "XPHB",
 			"page": 64,
@@ -3859,6 +3633,48 @@
 			]
 		},
 		{
+			"name": "Agile Strikes",
+			"source": "XPHB",
+			"page": 64,
+			"className": "Bard",
+			"classSource": "XPHB",
+			"subclassShortName": "Dance",
+			"subclassSource": "XPHB",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"When you expend a use of your Bardic Inspiration as part of an action, a {@variantrule Bonus Action|XPHB}, or a {@variantrule Reaction|XPHB}, you can make one {@variantrule Unarmed Strike|XPHB} as part of that action, {@variantrule Bonus Action|XPHB}, or {@variantrule Reaction|XPHB}."
+			]
+		},
+		{
+			"name": "Bardic Damage",
+			"source": "XPHB",
+			"page": 64,
+			"className": "Bard",
+			"classSource": "XPHB",
+			"subclassShortName": "Dance",
+			"subclassSource": "XPHB",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"You can use Dexterity instead of Strength for the attack rolls of your Unarmed Strikes. When you deal damage with an {@variantrule Unarmed Strike|XPHB}, you can deal Bludgeoning damage equal to a roll of your Bardic Inspiration die plus your Dexterity modifier, instead of the strike's normal damage. This roll doesn't expend the die."
+			]
+		},
+		{
+			"name": "Dance Virtuoso",
+			"source": "XPHB",
+			"page": 64,
+			"className": "Bard",
+			"classSource": "XPHB",
+			"subclassShortName": "Dance",
+			"subclassSource": "XPHB",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"You have {@variantrule Advantage|XPHB} on any Charisma ({@skill Performance|XPHB}) check you make that involves you dancing."
+			]
+		},
+		{
 			"name": "Dazzling Footwork",
 			"source": "XPHB",
 			"page": 64,
@@ -3871,33 +3687,35 @@
 			"entries": [
 				"While you aren't wearing armor or wielding a {@item Shield|XPHB}, you gain the following benefits.",
 				{
-					"type": "entries",
-					"name": "Dance Virtuoso",
-					"entries": [
-						"You have {@variantrule Advantage|XPHB} on any Charisma ({@skill Performance|XPHB}) check you make that involves you dancing."
-					]
+					"type": "refSubclassFeature",
+					"subclassFeature": "Dance Virtuoso|Bard|XPHB|Dance|XPHB|3"
 				},
 				{
-					"type": "entries",
-					"name": "Unarmored Defense",
-					"entries": [
-						"Your base {@variantrule Armor Class|XPHB} equals 10 plus your Dexterity and Charisma modifiers."
-					]
+					"type": "refSubclassFeature",
+					"subclassFeature": "Unarmored Defense|Bard|XPHB|Dance|XPHB|3"
 				},
 				{
-					"type": "entries",
-					"name": "Agile Strikes",
-					"entries": [
-						"When you expend a use of your Bardic Inspiration as part of an action, a {@variantrule Bonus Action|XPHB}, or a {@variantrule Reaction|XPHB}, you can make one {@variantrule Unarmed Strike|XPHB} as part of that action, {@variantrule Bonus Action|XPHB}, or {@variantrule Reaction|XPHB}."
-					]
+					"type": "refSubclassFeature",
+					"subclassFeature": "Agile Strikes|Bard|XPHB|Dance|XPHB|3"
 				},
 				{
-					"type": "entries",
-					"name": "Bardic Damage",
-					"entries": [
-						"You can use Dexterity instead of Strength for the attack rolls of your Unarmed Strikes. When you deal damage with an {@variantrule Unarmed Strike|XPHB}, you can deal Bludgeoning damage equal to a roll of your Bardic Inspiration die plus your Dexterity modifier, instead of the strike's normal damage. This roll doesn't expend the die."
-					]
+					"type": "refSubclassFeature",
+					"subclassFeature": "Bardic Damage|Bard|XPHB|Dance|XPHB|3"
 				}
+			]
+		},
+		{
+			"name": "Unarmored Defense",
+			"source": "XPHB",
+			"page": 64,
+			"className": "Bard",
+			"classSource": "XPHB",
+			"subclassShortName": "Dance",
+			"subclassSource": "XPHB",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"Your base {@variantrule Armor Class|XPHB} equals 10 plus your Dexterity and Charisma modifiers."
 			]
 		},
 		{
@@ -4168,7 +3986,7 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"You gain proficiency with Martial weapons and training with Medium armor and Shields.",
+				"You gain proficiency with {@filter Martial weapons|items|type=martial weapon} and training with {@filter Medium armor|items|type=Medium Armor} and {@item Shield|XPHB|Shields}.",
 				"In addition, you can use a Simple or Martial weapon as a {@variantrule Spellcasting Focus|XPHB} to cast spells from your {@filter Bard spell list|spells|class=Bard}."
 			]
 		},

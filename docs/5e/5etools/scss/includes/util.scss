@@ -1,15 +1,5 @@
 @use "../vars/vars";
 
-// region Fix Chrome
-input[type="checkbox"]:checked {
-	filter: grayscale(100%);
-}
-
-input[type="radio"]:checked {
-	filter: grayscale(100%);
-}
-// endregion
-
 // region Font
 .code {
 	font-family: monospace !important;
@@ -103,6 +93,10 @@ i > i {
 	}
 }
 
+.ve-background {
+	background-color: vars.$rgb-bg;
+}
+
 .ve-highlight {
 	background-color: vars.$rgb-bg-highlight !important;
 }
@@ -129,6 +123,10 @@ i > i {
 
 .word-break-all {
 	word-break: break-all;
+}
+
+.ve-text-wrap-balance {
+	text-wrap: balance !important;
 }
 
 .small-caps {
@@ -165,6 +163,14 @@ i > i {
 // region Transforms
 .trans-x-flip {
 	transform: scaleX(-1) !important;
+}
+
+.trans-y-flip {
+	transform: scaleY(-1) !important;
+}
+
+.trans-z-flip {
+	transform: scaleZ(-1) !important;
 }
 // endregion
 
@@ -419,6 +425,10 @@ i > i {
 	min-width: 20px !important;
 }
 
+.min-w-60p {
+	min-width: 60px !important;
+}
+
 .min-w-100p {
 	min-width: 100px !important;
 }
@@ -528,6 +538,10 @@ i > i {
 
 .min-h-24p {
 	min-height: 24px !important;
+}
+
+.min-h-40p {
+	min-height: 40px !important;
 }
 
 .min-h-100p {

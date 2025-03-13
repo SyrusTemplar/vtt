@@ -303,7 +303,8 @@
 				"strength"
 			],
 			"savingThrowForcedLegendary": [
-				"charisma"
+				"charisma",
+				"wisdom"
 			],
 			"savingThrowForcedSpell": [
 				"strength"
@@ -609,6 +610,10 @@
 				"constitution",
 				"dexterity"
 			],
+			"savingThrowForcedLegendary": [
+				"dexterity",
+				"wisdom"
+			],
 			"savingThrowForcedSpell": [
 				"wisdom"
 			],
@@ -897,6 +902,7 @@
 				"wisdom"
 			],
 			"savingThrowForcedLegendary": [
+				"constitution",
 				"wisdom"
 			],
 			"hasToken": true,
@@ -1212,6 +1218,10 @@
 				"dexterity",
 				"intelligence"
 			],
+			"savingThrowForcedLegendary": [
+				"intelligence",
+				"wisdom"
+			],
 			"savingThrowForcedSpell": [
 				"wisdom"
 			],
@@ -1498,6 +1508,11 @@
 				"constitution",
 				"dexterity",
 				"strength"
+			],
+			"savingThrowForcedLegendary": [
+				"charisma",
+				"intelligence",
+				"wisdom"
 			],
 			"savingThrowForcedSpell": [
 				"charisma",
@@ -1830,6 +1845,10 @@
 				"constitution",
 				"dexterity"
 			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"wisdom"
+			],
 			"savingThrowForcedSpell": [
 				"wisdom"
 			],
@@ -2130,6 +2149,10 @@
 			],
 			"savingThrowForced": [
 				"constitution"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"wisdom"
 			],
 			"savingThrowForcedSpell": [
 				"charisma",
@@ -2990,7 +3013,8 @@
 				"strength"
 			],
 			"savingThrowForcedLegendary": [
-				"charisma"
+				"charisma",
+				"wisdom"
 			],
 			"savingThrowForcedSpell": [
 				"charisma",
@@ -3299,6 +3323,10 @@
 				"constitution",
 				"dexterity"
 			],
+			"savingThrowForcedLegendary": [
+				"dexterity",
+				"wisdom"
+			],
 			"savingThrowForcedSpell": [
 				"wisdom"
 			],
@@ -3587,6 +3615,7 @@
 				"wisdom"
 			],
 			"savingThrowForcedLegendary": [
+				"constitution",
 				"wisdom"
 			],
 			"hasToken": true,
@@ -3867,6 +3896,10 @@
 				"restrained"
 			],
 			"savingThrowForced": [
+				"constitution",
+				"strength"
+			],
+			"savingThrowForcedLegendary": [
 				"constitution",
 				"strength"
 			],
@@ -4189,6 +4222,10 @@
 				"dexterity",
 				"intelligence"
 			],
+			"savingThrowForcedLegendary": [
+				"intelligence",
+				"wisdom"
+			],
 			"savingThrowForcedSpell": [
 				"wisdom"
 			],
@@ -4468,6 +4505,11 @@
 				"constitution",
 				"dexterity",
 				"strength"
+			],
+			"savingThrowForcedLegendary": [
+				"charisma",
+				"intelligence",
+				"wisdom"
 			],
 			"savingThrowForcedSpell": [
 				"charisma",
@@ -4800,6 +4842,10 @@
 			"savingThrowForced": [
 				"constitution",
 				"dexterity"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"wisdom"
 			],
 			"savingThrowForcedSpell": [
 				"wisdom"
@@ -5262,6 +5308,10 @@
 			],
 			"savingThrowForced": [
 				"constitution"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution",
+				"wisdom"
 			],
 			"savingThrowForcedSpell": [
 				"charisma",
@@ -5761,7 +5811,7 @@
 				{
 					"name": "Tail",
 					"entries": [
-						"{@atk mw} {@hit 19} to hit, reach 15 ft., one target. {@h}23 ({@dice 2d12 + 10}) bludgeoning damage. If the target is a creature, it must succeed on a {@dc 27} Strength saving throw or be knocked {@condition prone}."
+						"{@atk mw} {@hit 19} to hit, reach 15 ft., one target. {@h}23 ({@damage 2d12 + 10}) bludgeoning damage. If the target is a creature, it must succeed on a {@dc 27} Strength saving throw or be knocked {@condition prone}."
 					]
 				},
 				{
@@ -9456,7 +9506,7 @@
 				{
 					"name": "Handaxe",
 					"entries": [
-						"{@atk mw,rw} {@hit 6} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}7 ({@damage 1d6 + 4}) slashing damage. Hit or Miss: The handaxe magically returns to the chosen's hand immediately after a ranged attack."
+						"{@atk mw,rw} {@hit 6} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}7 ({@damage 1d6 + 4}) slashing damage. {@hom}The handaxe magically returns to the chosen's hand immediately after a ranged attack."
 					]
 				},
 				{
@@ -10836,7 +10886,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"{@atk mw} +3 plus PB to hit, reach 5 ft., one target. {@h}{@dice 1d6} plus PB piercing damage."
+						"{@atk mw} +3 plus PB to hit, reach 5 ft., one target. {@h}{@damage 1d6} plus PB piercing damage."
 					]
 				}
 			],

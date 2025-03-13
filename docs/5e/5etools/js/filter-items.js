@@ -10,6 +10,8 @@ class PageFilterEquipment extends PageFilterBase {
 		"Reprinted",
 		"Disadvantage on Stealth",
 		"Strength Requirement",
+		"Emits Light, Bright",
+		"Emits Light, Dim",
 	];
 
 	static _RE_FOUNDRY_ATTR = /(?:[-+*/]\s*)?@[a-z0-9.]+/gi;
@@ -47,9 +49,9 @@ class PageFilterEquipment extends PageFilterBase {
 		this._typeFilter = new Filter({
 			header: "Type",
 			deselFn: (it) => PageFilterItems._DEFAULT_HIDDEN_TYPES.has(it),
-			displayFn: StrUtil.toTitleCase,
+			displayFn: StrUtil.toTitleCase.bind(StrUtil),
 		});
-		this._propertyFilter = new Filter({header: "Property", displayFn: StrUtil.toTitleCase});
+		this._propertyFilter = new Filter({header: "Property", displayFn: StrUtil.toTitleCase.bind(StrUtil)});
 		this._categoryFilter = new Filter({
 			header: "Category",
 			items: ["Basic", "Generic Variant", "Specific Variant", "Other"],
@@ -72,22 +74,39 @@ class PageFilterEquipment extends PageFilterBase {
 		});
 		this._weightFilter = new RangeFilter({header: "Weight", min: 0, max: 100, isAllowGreater: true, suffix: " lb."});
 		this._focusFilter = new Filter({header: "Spellcasting Focus", items: [...Parser.ITEM_SPELLCASTING_FOCUS_CLASSES]});
-		this._damageTypeFilter = new Filter({header: "Weapon Damage Type", displayFn: it => Parser.dmgTypeToFull(it).uppercaseFirst(), itemSortFn: (a, b) => SortUtil.ascSortLower(Parser.dmgTypeToFull(a), Parser.dmgTypeToFull(b))});
+		this._damageTypeFilter = new Filter({header: "Weapon Damage Type", displayFn: it => Parser.dmgTypeToFull(it).uppercaseFirst(), itemSortFn: (a, b) => SortUtil.ascSortLower(Parser.dmgTypeToFull(a.item), Parser.dmgTypeToFull(b.item))});
 		this._damageDiceFilter = new Filter({header: "Weapon Damage Dice", items: ["1", "1d4", "1d6", "1d8", "1d10", "1d12", "2d6"], itemSortFn: (a, b) => PageFilterEquipment._sortDamageDice(a, b)});
+		this._acFilter = new RangeFilter({header: "Armor Class", displayFn: it => it === 0 ? "None" : it});
 		this._miscFilter = new Filter({
 			header: "Miscellaneous",
 			items: [...PageFilterEquipment._MISC_FILTER_ITEMS, ...Object.values(Parser.ITEM_MISC_TAG_TO_FULL)],
 			isMiscFilter: true,
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});
-		this._poisonTypeFilter = new Filter({header: "Poison Type", items: ["ingested", "injury", "inhaled", "contact"], displayFn: StrUtil.toTitleCase});
+		this._poisonTypeFilter = new Filter({header: "Poison Type", items: ["ingested", "injury", "inhaled", "contact"], displayFn: StrUtil.toTitleCase.bind(StrUtil)});
 		this._masteryFilter = new Filter({header: "Mastery", displayFn: this.constructor._getMasteryDisplay.bind(this)});
 	}
 
-	static mutateForFilters (item) {
-		item._fSources = SourceFilter.getCompleteFilterSources(item);
+	static _mutateForFilters_getFilterAc (item) {
+		if (!item.ac && !item.bonusAc) return null;
+		if (item.ac && !item.bonusAc) return item.ac;
+		if (isNaN(item.bonusAc)) return item.ac;
+		return (item.ac || 0) + Number(item.bonusAc);
+	}
 
-		item._fProperties = item.property ? item.property.map(p => Renderer.item.getProperty(p)?.name).filter(Boolean) : [];
+	static _mutateForFilters_mutFilterValue (item) {
+		if (item.value || item.valueMult) {
+			item._l_value = Parser.itemValueToFullMultiCurrency(item, {isShortForm: true}).replace(/ +/g, "\u00A0");
+			return;
+		}
+
+		item._l_value = "\u2014";
+	}
+
+	static mutateForFilters (item) {
+		this._mutateForFilters_commonSources(item);
+
+		item._fProperties = item.property ? item.property.map(p => Renderer.item.getProperty(p?.uid || p)?.name).filter(Boolean) : [];
 
 		this._mutateForFilters_commonMisc(item);
 		if (item._isItemGroup) item._fMisc.push("Item Group");
@@ -95,6 +114,8 @@ class PageFilterEquipment extends PageFilterBase {
 		if (item.miscTags) item._fMisc.push(...item.miscTags.map(Parser.itemMiscTagToFull));
 		if (item.stealth) item._fMisc.push("Disadvantage on Stealth");
 		if (item.strength != null) item._fMisc.push("Strength Requirement");
+		if (item.light?.some(l => l.bright)) item._fMisc.push("Emits Light, Bright");
+		if (item.light?.some(l => l.dim)) item._fMisc.push("Emits Light, Dim");
 
 		const itemTypeAbv = item.type ? DataUtil.itemType.unpackUid(item.type).abbreviation : null;
 		if (item.focus || item.name === "Thieves' Tools" || itemTypeAbv === Parser.ITM_TYP_ABV__INSTRUMENT || itemTypeAbv === Parser.ITM_TYP_ABV__SPELLCASTING_FOCUS || itemTypeAbv === Parser.ITM_TYP_ABV__ARTISAN_TOOL) {
@@ -128,11 +149,17 @@ class PageFilterEquipment extends PageFilterBase {
 		if (item.dmg2) item._fDamageDice.push(item.dmg2);
 
 		item._fMastery = item.mastery
-			? item.mastery.map(it => {
-				const {name, source} = DataUtil.proxy.unpackUid("itemMastery", it, "itemMastery", {isLower: true});
+			? item.mastery.map(info => {
+				const uid = info.uid || info;
+				const {name, source} = DataUtil.proxy.unpackUid("itemMastery", uid, "itemMastery", {isLower: true});
 				return [name, source].join("|");
 			})
 			: null;
+
+		item._fAc = this._mutateForFilters_getFilterAc(item);
+
+		item._l_weight = Parser.itemWeightToFull(item, true) || "\u2014";
+		this._mutateForFilters_mutFilterValue(item);
 	}
 
 	addToFilters (item, isExcluded) {
@@ -143,6 +170,7 @@ class PageFilterEquipment extends PageFilterBase {
 		this._propertyFilter.addItem(item._fProperties);
 		this._damageTypeFilter.addItem(item.dmgType);
 		this._damageDiceFilter.addItem(item._fDamageDice);
+		this._acFilter.addItem(item._fAc);
 		this._poisonTypeFilter.addItem(item.poisonTypes);
 		this._miscFilter.addItem(item._fMisc);
 		this._masteryFilter.addItem(item._fMastery);
@@ -159,6 +187,7 @@ class PageFilterEquipment extends PageFilterBase {
 			this._focusFilter,
 			this._damageTypeFilter,
 			this._damageDiceFilter,
+			this._acFilter,
 			this._miscFilter,
 			this._poisonTypeFilter,
 			this._masteryFilter,
@@ -177,6 +206,7 @@ class PageFilterEquipment extends PageFilterBase {
 			it._fFocus,
 			it.dmgType,
 			it._fDamageDice,
+			it._fAc,
 			it._fMisc,
 			it.poisonTypes,
 			it._fMastery,
@@ -195,20 +225,15 @@ class PageFilterItems extends PageFilterEquipment {
 		"futuristic",
 		"modern",
 		"renaissance",
+		"trade bar",
 	]);
 	static _FILTER_BASE_ITEMS_ATTUNEMENT = ["Requires Attunement", "Requires Attunement By...", "Attunement Optional", VeCt.STR_NO_ATTUNEMENT];
 
 	// region static
 	static sortItems (a, b, o) {
-		if (o.sortBy === "name") return SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "type") return SortUtil.ascSortLower(a.values.type, b.values.type) || SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "source") return SortUtil.ascSortLower(a.values.source, b.values.source) || SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "rarity") return SortUtil.ascSortItemRarity(a.values.rarity, b.values.rarity) || SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "attunement") return SortUtil.ascSort(a.values.attunement, b.values.attunement) || SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "count") return SortUtil.ascSort(a.data.count, b.data.count) || SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "weight") return SortUtil.ascSort(a.values.weight, b.values.weight) || SortUtil.compareListNames(a, b);
-		else if (o.sortBy === "cost") return SortUtil.ascSort(a.values.cost, b.values.cost) || SortUtil.compareListNames(a, b);
-		else return 0;
+		if (o.sortBy === "count") return SortUtil.ascSort(a.data.count, b.data.count) || SortUtil.compareListNames(a, b);
+		if (o.sortBy === "rarity") return SortUtil.ascSortItemRarity(a.values.rarity, b.values.rarity) || SortUtil.compareListNames(a, b);
+		return SortUtil.listSort(a, b, o);
 	}
 
 	static _getBaseItemDisplay (baseItem) {
@@ -268,7 +293,7 @@ class PageFilterItems extends PageFilterEquipment {
 	constructor (opts) {
 		super(opts);
 
-		this._tierFilter = new Filter({header: "Tier", items: ["none", "minor", "major"], itemSortFn: null, displayFn: StrUtil.toTitleCase});
+		this._tierFilter = new Filter({header: "Tier", items: ["none", "minor", "major"], itemSortFn: null, displayFn: StrUtil.toTitleCase.bind(StrUtil)});
 		this._attachedSpellsFilter = new SearchableFilter({header: "Attached Spells", displayFn: (it) => it.split("|")[0].toTitleCase(), itemSortFn: SortUtil.ascSortLower});
 		this._lootTableFilter = new Filter({
 			header: "Found On",
@@ -282,7 +307,7 @@ class PageFilterItems extends PageFilterEquipment {
 			header: "Rarity",
 			items: [...Parser.ITEM_RARITIES],
 			itemSortFn: null,
-			displayFn: StrUtil.toTitleCase,
+			displayFn: StrUtil.toTitleCase.bind(StrUtil),
 		});
 		this._attunementFilter = new Filter({header: "Attunement", items: [...PageFilterItems._FILTER_BASE_ITEMS_ATTUNEMENT], itemSortFn: PageFilterItems._sortAttunementFilter});
 		this._bonusFilter = new Filter({
@@ -303,7 +328,7 @@ class PageFilterItems extends PageFilterEquipment {
 			deselFn: PageFilterBase.defaultMiscellaneousDeselFn.bind(PageFilterBase),
 		});
 		this._baseSourceFilter = new SourceFilter({header: "Base Source", selFn: null});
-		this._baseItemFilter = new Filter({header: "Base Item", displayFn: this.constructor._getBaseItemDisplay.bind(this.constructor)});
+		this._baseItemFilter = new SearchableFilter({header: "Base Item", displayFn: this.constructor._getBaseItemDisplay.bind(this.constructor), itemSortFn: SortUtil.ascSortLower});
 		this._optionalfeaturesFilter = new Filter({
 			header: "Feature",
 			displayFn: (it) => {
@@ -315,6 +340,11 @@ class PageFilterItems extends PageFilterEquipment {
 			},
 			itemSortFn: SortUtil.ascSortLower,
 		});
+		this._vulnerableFilter = FilterCommon.getDamageVulnerableFilter();
+		this._resistFilter = FilterCommon.getDamageResistFilter();
+		this._immuneFilter = FilterCommon.getDamageImmuneFilter();
+		this._defenseFilter = new MultiFilter({header: "Damage", filters: [this._vulnerableFilter, this._resistFilter, this._immuneFilter]});
+		this._conditionImmuneFilter = FilterCommon.getConditionImmuneFilter();
 	}
 
 	static mutateForFilters (item) {
@@ -353,6 +383,9 @@ class PageFilterItems extends PageFilterEquipment {
 		if (item.bonusProficiencyBonus) item._fBonus.push("Proficiency Bonus");
 
 		item._fAttunement = this._getAttunementFilterItems(item);
+
+		FilterCommon.mutateForFilters_damageVulnResImmune(item);
+		FilterCommon.mutateForFilters_conditionImmune(item);
 	}
 
 	static _mutateForFilters_bonusWeapon ({prop, item, text}) {
@@ -379,6 +412,10 @@ class PageFilterItems extends PageFilterEquipment {
 		this._attunementFilter.addItem(item._fAttunement);
 		this._rechargeTypeFilter.addItem(item.recharge);
 		this._optionalfeaturesFilter.addItem(item.optionalfeatures);
+		this._vulnerableFilter.addItem(item._fVuln);
+		this._resistFilter.addItem(item._fRes);
+		this._immuneFilter.addItem(item._fImm);
+		this._conditionImmuneFilter.addItem(item._fCondImm);
 	}
 
 	async _pPopulateBoxOptions (opts) {
@@ -397,7 +434,10 @@ class PageFilterItems extends PageFilterEquipment {
 			this._focusFilter,
 			this._damageTypeFilter,
 			this._damageDiceFilter,
+			this._acFilter,
 			this._bonusFilter,
+			this._defenseFilter,
+			this._conditionImmuneFilter,
 			this._miscFilter,
 			this._rechargeTypeFilter,
 			this._poisonTypeFilter,
@@ -425,7 +465,14 @@ class PageFilterItems extends PageFilterEquipment {
 			it._fFocus,
 			it.dmgType,
 			it._fDamageDice,
+			it._fAc,
 			it._fBonus,
+			[
+				it._fVuln,
+				it._fRes,
+				it._fImm,
+			],
+			it._fCondImm,
 			it._fMisc,
 			it.recharge,
 			it.poisonTypes,
@@ -514,6 +561,7 @@ class ModalFilterItems extends ModalFilterBase {
 				hash,
 				source,
 				sourceJson: item.source,
+				page: item.page,
 				type,
 			},
 			{

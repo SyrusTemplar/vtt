@@ -1,10 +1,11 @@
-import {AttachedSpellTag, BasicTextClean, BonusTag, ChargeTag, ConditionImmunityTag, DamageImmunityTag, DamageResistanceTag, DamageVulnerabilityTag, ItemMiscTag, ItemOtherTagsTag, ItemSpellcastingFocusTag, RechargeAmountTag, RechargeTypeTag, ReqAttuneTagTag} from "./converterutils-item.js";
+import {AttachedSpellTag, BasicTextClean, BonusTag, ChargeTag, ConditionImmunityTag, DamageImmunityTag, DamageResistanceTag, DamageVulnerabilityTag, ItemMiscTag, ItemOtherTagsTag, ItemSpellcastingFocusTag, LightTag, RechargeAmountTag, RechargeTypeTag, ReqAttuneTagTag} from "./converterutils-item.js";
 import {ConverterBase} from "./converter-base.js";
 import {ArtifactPropertiesTag, TagCondition} from "./converterutils-tags.js";
 import {TagJsons} from "./converterutils-entries.js";
 import {ConverterUtils} from "./converterutils-utils.js";
 import {EntryCoalesceEntryLists, EntryCoalesceRawLines} from "./converterutils-entrycoalesce.js";
 import {SITE_STYLE__CLASSIC, SITE_STYLE__ONE} from "../consts.js";
+import {PropOrder} from "../utils-proporder.js";
 
 export class ConverterItem extends ConverterBase {
 	static _ALL_ITEMS = null;
@@ -97,12 +98,11 @@ export class ConverterItem extends ConverterBase {
 
 		const statsOut = this._getFinalState(item, options);
 		options.cbOutput(statsOut, options.isAppend);
+		return statsOut;
 	}
 
 	static _getFinalState (item, options) {
-		if (item.__prop === "baseitem") item.acceptsVariantEdition = options.styleHint;
-
-		if (!item.entries.length) delete item.entries;
+		if (!item.entries?.length) delete item.entries;
 		else this._setWeight(item, options);
 
 		if (item.staff) this._setQuarterstaffStats(item, options);
@@ -117,11 +117,11 @@ export class ConverterItem extends ConverterBase {
 	// SHARED UTILITY FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////////
 	static _doItemPostProcess (stats, options) {
 		TagCondition.tryTagConditions(stats, {styleHint: options.styleHint});
-		ArtifactPropertiesTag.tryRun(stats);
+		ArtifactPropertiesTag.tryRun(stats, {styleHint: options.styleHint});
 		if (stats.entries) {
 			EntryCoalesceEntryLists.mutCoalesce(stats, "entries", {styleHint: options.styleHint});
 
-			if (/is a (tiny|small|medium|large|huge|gargantuan) object/.test(JSON.stringify(stats.entries))) options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Item may be an object!`);
+			if (/is a (tiny|small|medium|large|huge|gargantuan) object/i.test(JSON.stringify(stats.entries))) options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Item may be an object!`);
 		}
 		this._doItemPostProcess_addTags(stats, options);
 		BasicTextClean.tryRun(stats);
@@ -143,6 +143,7 @@ export class ConverterItem extends ConverterBase {
 		ConditionImmunityTag.tryRun(stats, {cbMan: () => options.cbWarning(`${manName}Condition immunity tagging requires manual conversion`)});
 		ReqAttuneTagTag.tryRun(stats, {cbMan: () => options.cbWarning(`${manName}Attunement requirement tagging requires manual conversion`)});
 		AttachedSpellTag.tryRun(stats);
+		LightTag.tryRun(stats);
 
 		// TODO
 		//  - tag damage type?
@@ -210,6 +211,7 @@ export class ConverterItem extends ConverterBase {
 				case "rod": stats.type = options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_ROD : Parser.ITM_TYP__ROD; continue;
 				case "wand": stats.type = options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_WAND : Parser.ITM_TYP__WAND; continue;
 				case "scroll": stats.type = options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_SCROLL : Parser.ITM_TYP__SCROLL; continue;
+				case "adventuring gear": stats.type = options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_ADVENTURING_GEAR : Parser.ITM_TYP__ADVENTURING_GEAR; continue;
 			}
 			// endregion
 
@@ -269,16 +271,20 @@ export class ConverterItem extends ConverterBase {
 					stats.type = options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_ROD : Parser.ITM_TYP__ROD;
 				}
 
-				if (mBaseWeapon.groups.ptParens === "spear or javelin") {
-					(stats.requires ||= []).push(...this._setCleanTaglineInfo_getGenericRequires({stats, str: "spear", options}));
+				if (
+					/ or /.test(mBaseWeapon.groups.ptParens)
+					&& this._GENERIC_REQUIRES_LOOKUP_WEAPON[mBaseWeapon.groups.ptParens.toLowerCase()]
+				) {
+					(stats.requires ||= []).push(...this._setCleanTaglineInfo_getGenericRequires({stats, str: mBaseWeapon.groups.ptParens, options}));
 					stats.__genericType = true;
 					continue;
 				}
 
 				const ptsParens = ConverterUtils.splitConjunct(mBaseWeapon.groups.ptParens);
+				const ptsParensNoAny = ptsParens.map(pt => pt.replace(/^any /i, ""));
 
-				if (ptsParens.length > 1 && ptsParens.every(pt => this._GENERIC_REQUIRES_LOOKUP_WEAPON[pt.toLowerCase()])) {
-					ptsParens.forEach(pt => {
+				if (ptsParensNoAny.length > 1 && ptsParensNoAny.every(pt => this._GENERIC_REQUIRES_LOOKUP_WEAPON[pt.toLowerCase()])) {
+					ptsParensNoAny.forEach(pt => {
 						(stats.requires ||= []).push(
 							...this._setCleanTaglineInfo_getGenericRequires({stats, str: pt, options}),
 						);
@@ -295,7 +301,13 @@ export class ConverterItem extends ConverterBase {
 					continue;
 				}
 
-				throw new Error(`Multiple base item(s) for "${mBaseWeapon.groups.ptParens}"`);
+				if (options.styleHint === SITE_STYLE__CLASSIC) options.cbWarning(`${stats.name ? `(${stats.name}) ` : ""}Multiple base item(s) for "${mBaseWeapon.groups.ptParens}"`);
+
+				// e.g. XDMG items have broken down "any sword" into a specific list of items
+				(stats.requires ||= [])
+					.push(...baseItems.map(({name, source}) => ({name, source})));
+				stats.__genericType = true;
+				continue;
 			}
 
 			const mBaseArmor = /^armou?r \((?<type>[^)]+)\)$/i.exec(part);
@@ -307,10 +319,25 @@ export class ConverterItem extends ConverterBase {
 
 				const ptsParens = ConverterUtils.splitConjunct(mBaseArmor.groups.type);
 
-				if (ptsParens.length > 1 && ptsParens.every(pt => this._GENERIC_REQUIRES_LOOKUP_ARMOR[pt.toLowerCase()])) {
-					ptsParens.forEach(pt => {
+				const ptsParensClean = ptsParens.map(pt => pt.replace(/ armor$/i, ""));
+
+				const [ptsInclude, ptsExclude] = ptsParensClean.segregate(pt => !/^\bbut not\b/i.test(pt))
+					.map((arr, i) => !i ? arr : arr.map(pt => pt.replace(/^\bbut not\b/i, "").trim()));
+
+				if (
+					ptsParensClean.length > 1
+					&& ptsInclude.every(pt => this._GENERIC_REQUIRES_LOOKUP_ARMOR[pt.toLowerCase()])
+					&& ptsExclude.every(pt => this._GENERIC_EXCLUDES_LOOKUP_ARMOR[pt.toLowerCase()])
+				) {
+					ptsInclude.forEach(pt => {
 						(stats.requires ||= []).push(
 							...this._setCleanTaglineInfo_getGenericRequires({stats, str: pt, options}),
+						);
+					});
+					ptsExclude.forEach(pt => {
+						Object.assign(
+							(stats.excludes ||= {}),
+							this._GENERIC_EXCLUDES_LOOKUP_ARMOR[pt.toLowerCase()],
 						);
 					});
 					stats.__genericType = true;
@@ -348,9 +375,13 @@ export class ConverterItem extends ConverterBase {
 			return true;
 		}
 
-		const mWeaponAnyX = /^weapon \(any ([^)]+)\)$/i.exec(part);
+		const mWeaponAnyX = /^weapon \(any (?<ptParens>[^)]+)\)$/i.exec(part);
 		if (mWeaponAnyX) {
-			(stats.requires ||= []).push(...this._setCleanTaglineInfo_getGenericRequires({stats, str: mWeaponAnyX[1].trim(), options}));
+			const ptsAny = ConverterUtils.splitConjunct(mWeaponAnyX.groups.ptParens);
+			// e.g. "any ammunition or melee weapon"
+			if (ptsAny.length > 1) return false;
+
+			(stats.requires ||= []).push(...this._setCleanTaglineInfo_getGenericRequires({stats, str: mWeaponAnyX.groups.ptParens.trim(), options}));
 
 			if (mWeaponAnyX[1].trim().toLowerCase() === "ammunition") stats.ammo = true;
 
@@ -402,19 +433,30 @@ export class ConverterItem extends ConverterBase {
 	static _setCleanTaglineInfo_isMutAnyArmor ({stats, mBaseArmor, options}) {
 		if (/^any /i.test(mBaseArmor.groups.type)) {
 			const ptAny = mBaseArmor.groups.type.replace(/^any /i, "");
-			const [ptInclude, ptExclude] = ptAny.split(/\bexcept\b/i).map(it => it.trim()).filter(Boolean);
+
+			if (/^armor$/.test(ptAny)) {
+				(stats.requires ||= [])
+					.push(...[
+						{"type": options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_LIGHT_ARMOR : Parser.ITM_TYP__LIGHT_ARMOR},
+						{"type": options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MEDIUM_ARMOR : Parser.ITM_TYP__MEDIUM_ARMOR},
+						{"type": options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_HEAVY_ARMOR : Parser.ITM_TYP__HEAVY_ARMOR},
+					]);
+				return true;
+			}
+
+			const [ptInclude, ptExclude] = ptAny.split(/(?:, )?\b(?:except|but not)\b/i).map(it => it.trim()).filter(Boolean);
 
 			if (ptInclude) {
 				stats.requires = [
 					...(stats.requires || []),
-					...ptInclude.split(/\b(?:or|,)\b/g).map(it => it.trim()).filter(Boolean).map(it => this._setCleanTaglineInfo_getProcArmorPart({pt: it, options})),
+					...ptInclude.split(/\bor\b|,/g).map(it => it.trim()).filter(Boolean).map(it => this._setCleanTaglineInfo_getProcArmorPart({pt: it, options})),
 				];
 			}
 
 			if (ptExclude) {
 				Object.assign(
 					stats.excludes = stats.excludes || {},
-					ptExclude.split(/\b(?:or|,)\b/g).map(it => it.trim()).filter(Boolean).mergeMap(it => this._setCleanTaglineInfo_getProcArmorPart({pt: it, options})),
+					ptExclude.split(/\bor\b|,/g).map(it => it.trim()).filter(Boolean).mergeMap(it => this._setCleanTaglineInfo_getProcArmorPart({pt: it, options})),
 				);
 			}
 
@@ -460,7 +502,7 @@ export class ConverterItem extends ConverterBase {
 		delete stats.armor;
 		delete stats.value;
 
-		stats.baseItem = `${baseItem.name.toLowerCase()}${baseItem.source === Parser.SRC_DMG ? "" : `|${baseItem.source}`}`;
+		stats.baseItem = `${baseItem.name.toLowerCase()}${baseItem.source === Parser.SRC_DMG ? "" : `|${baseItem.source.toLowerCase()}`}`;
 	}
 
 	static _GENERIC_REQUIRES_LOOKUP_WEAPON = {
@@ -470,7 +512,6 @@ export class ConverterItem extends ConverterBase {
 		"armor": [{"armor": true}],
 		"bow": [{"bow": true}],
 		"crossbow": [{"crossbow": true}],
-		"bow or crossbow": [{"bow": true}, {"crossbow": true}],
 		"spear": [{"spear": true}],
 		"polearm": [{"polearm": true}],
 		"dagger": [{"dagger": true}],
@@ -480,12 +521,16 @@ export class ConverterItem extends ConverterBase {
 		"mace": [{"mace": true}],
 		"staff": [{"staff": true}],
 
-		"ammunition": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_AMMUNITION : Parser.ITM_TYP__AMMUNITION}, {"type": Parser.ITM_TYP__AMMUNITION_FUTURISTIC}],
+		"ammunition": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_AMMUNITION : Parser.ITM_TYP__AMMUNITION}, {"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_AMMUNITION_FUTURISTIC : Parser.ITM_TYP__AMMUNITION_FUTURISTIC}],
 		"arrow": [{"arrow": true}],
 		"bolt": [{"bolt": true}],
-		"arrow or bolt": [{"arrow": true}, {"bolt": true}],
 
-		"melee": [{"type": Parser.ITM_TYP__MELEE_WEAPON}],
+		"melee": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MELEE_WEAPON : Parser.ITM_TYP__MELEE_WEAPON}],
+		"melee weapon": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MELEE_WEAPON : Parser.ITM_TYP__MELEE_WEAPON}],
+
+		"simple": [{"weaponCategory": "simple"}],
+		"simple weapon": [{"weaponCategory": "simple"}],
+		"martial": [{"weaponCategory": "martial"}],
 		"martial weapon": [{"weaponCategory": "martial"}],
 
 		"bludgeoning": [{"dmgType": "B"}],
@@ -496,19 +541,47 @@ export class ConverterItem extends ConverterBase {
 		"melee bludgeoning weapon": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MELEE_WEAPON : Parser.ITM_TYP__MELEE_WEAPON, "dmgType": "B"}],
 	};
 
+	// TODO(Future) consider using
+	static _GENERIC_REQUIRES_LOOKUP_WEAPON_APPROXIMATION = {
+		"longbow or shortbow": [{"bow": true}],
+		"spear or javelin": [{"spear": true}],
+		"bow or crossbow": [{"bow": true}, {"crossbow": true}],
+		"arrow or bolt": [{"arrow": true}, {"bolt": true}],
+
+		// region XDMG
+		"battleaxe, greataxe, or halberd": ({styleHint}) => [{"axe": true, "property": styleHint === SITE_STYLE__ONE ? Parser.ITM_PROP__ODND_TWO_HANDED : Parser.ITM_PROP__TWO_HANDED}, {"halberd": true, "property": styleHint === SITE_STYLE__ONE ? Parser.ITM_PROP__ODND_TWO_HANDED : Parser.ITM_PROP__TWO_HANDED}],
+		"battleaxe, greataxe, halberd, or handaxe": [{"axe": true}, {"halberd": true}],
+
+		"greatsword, longsword, rapier, scimitar, or shortsword": [{"sword": true}],
+		"glaive, greatsword, longsword, or scimitar": [{"sword": true, "dmgType": "S"}, {"sword": true, "dmgType": "S"}],
+		"glaive, greatsword, longsword, rapier, scimitar, or shortsword": [{"sword": true}, {"glaive": true}],
+		"glaive, greatsword, longsword, rapier, scimitar, sickle, or shortsword": [{"sword": true}, {"glaive": true}, {"name": "Sickle"}],
+
+		"maul or warhammer": ({styleHint}) => [{"hammer": true, "property": styleHint === SITE_STYLE__ONE ? Parser.ITM_PROP__ODND_TWO_HANDED : Parser.ITM_PROP__TWO_HANDED}, {"hammer": true, "property": styleHint === SITE_STYLE__ONE ? Parser.ITM_PROP__ODND_VERSATILE : Parser.ITM_PROP__VERSATILE}],
+		// endregion
+	};
+
 	static _GENERIC_REQUIRES_LOOKUP_ARMOR = {
 		"light": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_LIGHT_ARMOR : Parser.ITM_TYP__LIGHT_ARMOR}],
 		"medium": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_MEDIUM_ARMOR : Parser.ITM_TYP__MEDIUM_ARMOR}],
 		"heavy": ({styleHint}) => [{"type": styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_HEAVY_ARMOR : Parser.ITM_TYP__HEAVY_ARMOR}],
 
 		"hide": ({styleHint}) => [{"name": "Hide Armor", "source": styleHint === SITE_STYLE__ONE ? Parser.SRC_XPHB : Parser.SRC_PHB}],
+		"half plate": ({styleHint}) => [{"name": "Half Plate Armor", "source": styleHint === SITE_STYLE__ONE ? Parser.SRC_XPHB : Parser.SRC_PHB}],
+		"plate": ({styleHint}) => [{"name": "Plate Armor", "source": styleHint === SITE_STYLE__ONE ? Parser.SRC_XPHB : Parser.SRC_PHB}],
+		"chain mail": ({styleHint}) => [{"name": "Chain Mail", "source": styleHint === SITE_STYLE__ONE ? Parser.SRC_XPHB : Parser.SRC_PHB}],
+		"chain shirt": ({styleHint}) => [{"name": "Chain Shirt", "source": styleHint === SITE_STYLE__ONE ? Parser.SRC_XPHB : Parser.SRC_PHB}],
+	};
+
+	static _GENERIC_EXCLUDES_LOOKUP_ARMOR = {
+		"hide": {"name": "Hide Armor"},
 	};
 
 	static _setCleanTaglineInfo_getGenericRequires ({stats, str, options}) {
 		const strLookup = str.toLowerCase();
 
 		const lookupWeapon = this._GENERIC_REQUIRES_LOOKUP_WEAPON[strLookup];
-		if (lookupWeapon[strLookup]) return typeof lookupWeapon === "function" ? lookupWeapon({styleHint: options.styleHint}) : MiscUtil.copyFast(lookupWeapon);
+		if (lookupWeapon) return typeof lookupWeapon === "function" ? lookupWeapon({styleHint: options.styleHint}) : MiscUtil.copyFast(lookupWeapon);
 
 		const lookupArmor = this._GENERIC_REQUIRES_LOOKUP_ARMOR[strLookup];
 		if (lookupArmor) return typeof lookupArmor === "function" ? lookupArmor({styleHint: options.styleHint}) : MiscUtil.copyFast(lookupArmor);
@@ -517,7 +590,7 @@ export class ConverterItem extends ConverterBase {
 		return [{[str.toCamelCase()]: true}];
 	}
 
-	static _RE_CATEGORIES_PREFIX_SUFFIX = /(?:weapon|blade|armor|sword|polearm|bow|crossbow|axe|ammunition|arrows?|bolts?)/;
+	static _RE_CATEGORIES_PREFIX_SUFFIX = /(?:weapon|blade|armor|sword|polearm|bow|crossbow|axe|hammer|ammunition|arrows?|bolts?|plate|chain)/;
 	static _RE_CATEGORIES_PREFIX = new RegExp(`^${this._RE_CATEGORIES_PREFIX_SUFFIX.source} `, "i");
 	static _RE_CATEGORIES_SUFFIX = new RegExp(` ${this._RE_CATEGORIES_PREFIX_SUFFIX.source}$`, "i");
 
@@ -541,7 +614,7 @@ export class ConverterItem extends ConverterBase {
 
 		stats.__prop = "magicvariant";
 		stats.type = options.styleHint === SITE_STYLE__ONE ? Parser.ITM_TYP__ODND_GENERIC_VARIANT : Parser.ITM_TYP__GENERIC_VARIANT;
-		stats.edition = options.styleHint;
+		if (options.styleHint === SITE_STYLE__CLASSIC) stats.edition = SITE_STYLE__CLASSIC;
 	}
 
 	static _setWeight (stats, options) {
@@ -560,12 +633,13 @@ export class ConverterItem extends ConverterBase {
 		});
 	}
 
-	static _setQuarterstaffStats (stats) {
-		const cpyStatsQuarterstaff = MiscUtil.copy(ConverterItem._ALL_ITEMS.find(it => it.name === "Quarterstaff" && it.source === Parser.SRC_PHB));
+	static _setQuarterstaffStats (stats, options) {
+		const cpyStatsQuarterstaff = MiscUtil.copy(ConverterItem._ALL_ITEMS.find(it => it.name === "Quarterstaff" && it.source === (options.styleHint === SITE_STYLE__CLASSIC ? Parser.SRC_PHB : Parser.SRC_XPHB)));
 
 		// remove unwanted properties
 		delete cpyStatsQuarterstaff.name;
 		delete cpyStatsQuarterstaff.source;
+		delete cpyStatsQuarterstaff.otherSources;
 		delete cpyStatsQuarterstaff.page;
 		delete cpyStatsQuarterstaff.rarity;
 		delete cpyStatsQuarterstaff.value;
@@ -573,6 +647,7 @@ export class ConverterItem extends ConverterBase {
 		delete cpyStatsQuarterstaff.srd52;
 		delete cpyStatsQuarterstaff.basicRules;
 		delete cpyStatsQuarterstaff.freeRules2024;
+		delete cpyStatsQuarterstaff.reprintedAs;
 
 		Object.entries(cpyStatsQuarterstaff)
 			.filter(([k]) => !k.startsWith("_"))
@@ -600,6 +675,9 @@ export class ConverterItem extends ConverterBase {
 			polearm: true,
 			lance: true,
 			rapier: true,
+			glaive: true,
+			halberd: true,
+			whip: true,
 			arrow: true,
 			bolt: true,
 			bulletFirearm: true,
@@ -607,6 +685,14 @@ export class ConverterItem extends ConverterBase {
 			needleBlowgun: true,
 			weapon: true,
 		})
+			.forEach(prop => delete stats[prop]);
+		// endregion
+
+		// region other props
+		[
+			"reprintedAs",
+			"edition",
+		]
 			.forEach(prop => delete stats[prop]);
 		// endregion
 	}

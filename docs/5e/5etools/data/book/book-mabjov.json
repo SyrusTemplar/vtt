@@ -910,7 +910,7 @@
 											"rows": [
 												[
 													"1-10",
-													"{@item +1 Ammunition||Ammunition, +1}\u2014{@item +1 Arrow||arrows} (10), {@item +1 Bolt||bolts} (10) or {@item +1 sling bullet||sling bullets} (20)",
+													"{@item +1 Ammunition||Ammunition, +1}\u2014{@item +1 Arrow||arrows} (10), {@item +1 Crossbow Bolt||bolts} (10) or {@item +1 sling bullet||sling bullets} (20)",
 													"100 gp"
 												],
 												[
@@ -1661,7 +1661,7 @@
 									"type": "entries",
 									"name": "Sorcerous Sundries",
 									"entries": [
-										"This famed magical shop has had multiple owners over the decades. Currently it is a front for a Red Wizard operation led by {@creature Edwin Odesseiron|mabjov}. The Red Wizards are adept at discerning a customer's importance (reflected in the required level for the item) and reserve rarer items to those customers who they consider influential. However, a successful DC 20 Charisma ({@skill Deception}) can bypass this restriction. The Red Wizards can have a purchased item teleported from Thay within an hour.",
+										"This famed magical shop has had multiple owners over the decades. Currently it is a front for a Red Wizard operation led by {@creature Edwin Odesseiron|mabjov}. The Red Wizards are adept at discerning a customer's importance (reflected in the required level for the item) and reserve rarer items to those customers who they consider influential. However, a successful {@dc 20} Charisma ({@skill Deception}) can bypass this restriction. The Red Wizards can have a purchased item teleported from Thay within an hour.",
 										{
 											"type": "table",
 											"caption": "Magic Items at Sorcerous Sundries",
@@ -2585,7 +2585,7 @@
 													"40 gp"
 												],
 												[
-													"{@item +1 Ammunition||Ammunition, +1}\u2014{@item +1 Arrow||arrows} (10), {@item +1 Bolt||bolts} (10) or {@item +1 sling bullet||sling bullets} (20)",
+													"{@item +1 Ammunition||Ammunition, +1}\u2014{@item +1 Arrow||arrows} (10), {@item +1 Crossbow Bolt||bolts} (10) or {@item +1 sling bullet||sling bullets} (20)",
 													"100 gp"
 												],
 												[

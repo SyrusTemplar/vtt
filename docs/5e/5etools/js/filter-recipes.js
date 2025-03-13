@@ -16,12 +16,12 @@ class PageFilterRecipes extends PageFilterBase {
 
 		this._typeFilter = new Filter({
 			header: "Category",
-			displayFn: StrUtil.toTitleCase,
+			displayFn: StrUtil.toTitleCase.bind(StrUtil),
 			itemSortFn: SortUtil.ascSortLower,
 		});
 		this._dishTypeFilter = new Filter({
 			header: "Dish Type",
-			displayFn: StrUtil.toTitleCase,
+			displayFn: StrUtil.toTitleCase.bind(StrUtil),
 			itemSortFn: SortUtil.ascSortLower,
 		});
 		this._servesFilter = new RangeFilter({header: "Serves", min: 1, max: 1});
@@ -39,7 +39,7 @@ class PageFilterRecipes extends PageFilterBase {
 		});
 		this._allergensFilter = new Filter({
 			header: "Allergens",
-			displayFn: StrUtil.toTitleCase,
+			displayFn: StrUtil.toTitleCase.bind(StrUtil),
 			itemSortFn: SortUtil.ascSortLower,
 		});
 		this._miscFilter = new Filter({
@@ -52,6 +52,7 @@ class PageFilterRecipes extends PageFilterBase {
 	}
 
 	static mutateForFilters (it) {
+		this._mutateForFilters_commonSources(it);
 		this._mutateForFilters_commonMisc(it);
 		if (it.miscTags) it._fMisc.push(...it.miscTags);
 		it._fServes = (it.serves?.min != null && it.serves?.max != null) ? [it.serves.min, it.serves.max] : (it.serves?.exact ?? null);
@@ -102,7 +103,7 @@ class PageFilterRecipes extends PageFilterBase {
 	addToFilters (it, isExcluded) {
 		if (isExcluded) return;
 
-		this._sourceFilter.addItem(it.source);
+		this._sourceFilter.addItem(it._fSources);
 		this._typeFilter.addItem(it.type);
 		this._dishTypeFilter.addItem(it.dishTypes);
 		this._servesFilter.addItem(it._fServes);
@@ -130,7 +131,7 @@ class PageFilterRecipes extends PageFilterBase {
 	toDisplay (values, it) {
 		return this._filterBox.toDisplay(
 			values,
-			it.source,
+			it._fSources,
 			it.type,
 			it.dishTypes,
 			it._fServes,

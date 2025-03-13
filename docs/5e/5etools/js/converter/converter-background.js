@@ -3,6 +3,8 @@ import {ConverterFeatureBase} from "./converter-feature.js";
 import {ItemTag, TagJsons} from "./converterutils-entries.js";
 import {BackgroundSkillTollLanguageEquipmentCoalesce, BackgroundSkillToolLanguageTag, ConverterBackgroundUtil, EquipmentBreakdown} from "./converterutils-background.js";
 import {EntryCoalesceEntryLists, EntryCoalesceRawLines} from "./converterutils-entrycoalesce.js";
+import {SITE_STYLE__ONE} from "../consts.js";
+import {PropOrder} from "../utils-proporder.js";
 
 class _ConversionStateTextBackground extends ConversionStateTextBase {}
 
@@ -46,6 +48,8 @@ export class ConverterBackground extends ConverterFeatureBase {
 		const entityOut = this._getFinalEntity(state, options);
 
 		options.cbOutput(entityOut, options.isAppend);
+
+		return entityOut;
 	}
 
 	static _doParseText_stepName (state) {
@@ -64,6 +68,7 @@ export class ConverterBackground extends ConverterFeatureBase {
 
 	// SHARED UTILITY FUNCTIONS ////////////////////////////////////////////////////////////////////////////////////////
 	static _getFinalEntity (state, options) {
+		if (options.styleHint === SITE_STYLE__ONE) state.entity.edition = SITE_STYLE__ONE;
 		this._doBackgroundPostProcess(state, options);
 		return PropOrder.getOrdered(state.entity, state.entity.__prop || "background");
 	}

@@ -103,8 +103,12 @@ class RendererCard {
 
 				const headerRowMeta = headerRowMetas[ixRow];
 				for (let ixCell = 0; ixCell < headerRowMeta.length; ++ixCell) {
-					const label = headerRowMeta[ixCell];
-					this._recursiveRender(label, textStack, meta);
+					const entCellHeader = headerRowMeta[ixCell];
+					const entryNxt = entCellHeader?.type === "cellHeader"
+						? entCellHeader.entry
+						: entCellHeader;
+					this._recursiveRender(entryNxt, textStack, meta);
+					if (entCellHeader?.type === "cellHeader" && entCellHeader.width) for (let i = 1; i < entCellHeader.width; ++i) textStack[0] += _VERTICAL_LINE;
 					if (ixCell !== headerRowMeta.length - 1) textStack[0] += _VERTICAL_LINE;
 				}
 
@@ -314,7 +318,9 @@ class RendererCard {
 	// region list items
 	_renderItem (entry, textStack, meta, options) {
 		this._renderPrefix(entry, textStack, meta, options);
-		textStack[0] += `<b>${this.render(entry.name)}</b> `;
+		textStack[0] += `<b>`;
+		this._recursiveRender(entry.name, textStack, meta);
+		textStack[0] += `${this._renderItem_isAddPeriod(entry) ? "." : ""}</b> `;
 		if (entry.entry) this._recursiveRender(entry.entry, textStack, meta);
 		else if (entry.entries) {
 			const len = entry.entries.length;
@@ -329,7 +335,7 @@ class RendererCard {
 
 	_renderItemSub (entry, textStack, meta, options) {
 		this._renderPrefix(entry, textStack, meta, options);
-		this._recursiveRender(entry.entry, textStack, meta, {prefix: `bullet | <i>${this.render(entry.name)}</i> `, suffix: "\n"});
+		this._recursiveRender(entry.entry, textStack, meta, {prefix: `bullet | <i>${Renderer.stripTags(entry.name)}</i> `, suffix: "\n"});
 		this._renderSuffix(entry, textStack, meta, options);
 	}
 

@@ -631,6 +631,7 @@
 				21,
 				22
 			],
+			"preparedSpellsChange": "level",
 			"cantripProgression": [
 				4,
 				4,
@@ -653,6 +654,17 @@
 				6,
 				6
 			],
+			"featProgression": [
+				{
+					"name": "Epic Boon",
+					"category": [
+						"EB"
+					],
+					"progression": {
+						"19": 1
+					}
+				}
+			],
 			"optionalfeatureProgression": [
 				{
 					"name": "Metamagic",
@@ -660,7 +672,7 @@
 						"MM"
 					],
 					"progression": {
-						"3": 2,
+						"2": 2,
 						"10": 4,
 						"17": 6
 					}
@@ -687,9 +699,7 @@
 				]
 			},
 			"startingEquipment": {
-				"entries": [
-					"{@i Choose A or B:} (A) {@item Spear|XPHB}, 2 {@item Dagger|XPHB|Daggers}, {@item Arcane Focus|XPHB} ({@item crystal|XPHB}), {@item Dungeoneer's Pack|XPHB}, and 28 GP; or (B) 50 GP"
-				],
+				"additionalFromBackground": true,
 				"defaultData": [
 					{
 						"A": [
@@ -716,6 +726,9 @@
 							}
 						]
 					}
+				],
+				"entries": [
+					"{@i Choose A or B:} (A) {@item Spear|XPHB}, 2 {@item Dagger|XPHB|Daggers}, {@item Arcane Focus|XPHB} ({@item crystal|XPHB}), {@item Dungeoneer's Pack|XPHB}, and 28 GP; or (B) 50 GP"
 				]
 			},
 			"multiclassing": {},
@@ -2960,6 +2973,10 @@
 			"className": "Sorcerer",
 			"classSource": "XPHB",
 			"level": 7,
+			"consumes": {
+				"name": "Sorcery Point",
+				"amount": 2
+			},
 			"entries": [
 				"If you have no uses of Innate Sorcery left, you can use it if you spend 2 Sorcery Points when you take the {@variantrule Bonus Action|XPHB} to activate it.",
 				"In addition, while your Innate Sorcery feature is active, you can use up to two of your {@filter Metamagic options|optionalfeatures|feature type=MM} on each spell you cast."
@@ -3083,70 +3100,92 @@
 				"On many worlds, the moon is a revered celestial body with magical properties. On Krynn, the gods of magic are associated with the world's three moons. On the world of Toril, the god Selûne uses the light of the moon to battle darkness. On Eberron, scholars of the Draconic Prophecy decipher ancient secrets from the waxing and waning of that world's twelve moons.",
 				"You or someone from your lineage has been exposed to the concentrated magic of the moon (or moons) of your world, imbuing you with lunar magic. Perhaps your ancestor was involved in a druidic ritual involving an eclipse, or maybe a mystical fragment of a moon crashed near you. However you came to have your magic, your connection to the moon is obvious when you cast sorcerer spells\u2014perhaps making your pupils glow with the color of a moon from your world, causing spectral manifestations of lunar phases to orbit you, or some other effect.",
 				{
-					"type": "entries",
-					"name": "Lunar Embodiment",
-					"entries": [
-						"{@i 1st-Level Lunar Sorcery Feature}",
-						"You learn additional spells when you reach certain levels in this class, as shown on the Lunar Spells table. Each of these spells counts as a sorcerer spell for you, but it doesn't count against the number of sorcerer spells you know.",
-						{
-							"type": "table",
-							"caption": "Lunar Spells",
-							"colLabels": [
-								"Sorcerer Level",
-								"Full Moon Spell",
-								"New Moon Spell",
-								"Crescent Moon Spell"
-							],
-							"colStyles": [
-								"col-1-1 text-center",
-								"col-3-3",
-								"col-3-3",
-								"col-3-3"
-							],
-							"rows": [
-								[
-									"1st",
-									"{@spell shield}",
-									"{@spell ray of sickness}",
-									"{@spell color spray}"
-								],
-								[
-									"3rd",
-									"{@spell lesser restoration}",
-									"{@spell blindness/deafness}",
-									"{@spell alter self}"
-								],
-								[
-									"5th",
-									"{@spell dispel magic}",
-									"{@spell vampiric touch}",
-									"{@spell phantom steed}"
-								],
-								[
-									"7th",
-									"{@spell death ward}",
-									"{@spell confusion}",
-									"{@spell hallucinatory terrain}"
-								],
-								[
-									"9th",
-									"{@spell Rary's telepathic bond}",
-									"{@spell hold monster}",
-									"{@spell mislead}"
-								]
-							]
-						},
-						"Whenever you finish a long rest, you can choose what lunar phase manifests its power through your magic: Full Moon, New Moon, or Crescent Moon. While in the chosen phase, you can cast one 1st-level spell of the associated phase in the Lunar Spells table once without expending a spell slot. Once you cast a spell in this way, you can't do so again until you finish a long rest."
-					]
+					"type": "refSubclassFeature",
+					"subclassFeature": "Lunar Embodiment|Sorcerer||Lunar|DSotDQ|1"
 				},
 				{
-					"type": "entries",
-					"name": "Moon Fire",
-					"entries": [
-						"{@i 1st-Level Lunar Sorcery Feature}",
-						"You can call down the radiant light of the moon on command. You learn the {@spell sacred flame} spell, which doesn't count against the number of sorcerer cantrips you know. When you cast the spell, you can target one creature as normal or target two creatures within range that are within 5 feet of each other."
-					]
+					"type": "refSubclassFeature",
+					"subclassFeature": "Moon Fire|Sorcerer||Lunar|DSotDQ|1"
 				}
+			]
+		},
+		{
+			"name": "Lunar Embodiment",
+			"source": "DSotDQ",
+			"page": 34,
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassShortName": "Lunar",
+			"subclassSource": "DSotDQ",
+			"level": 1,
+			"header": 2,
+			"entries": [
+				"{@i 1st-Level Lunar Sorcery Feature}",
+				"You learn additional spells when you reach certain levels in this class, as shown on the Lunar Spells table. Each of these spells counts as a sorcerer spell for you, but it doesn't count against the number of sorcerer spells you know.",
+				{
+					"type": "table",
+					"caption": "Lunar Spells",
+					"colLabels": [
+						"Sorcerer Level",
+						"Full Moon Spell",
+						"New Moon Spell",
+						"Crescent Moon Spell"
+					],
+					"colStyles": [
+						"col-1-1 text-center",
+						"col-3-3",
+						"col-3-3",
+						"col-3-3"
+					],
+					"rows": [
+						[
+							"1st",
+							"{@spell shield}",
+							"{@spell ray of sickness}",
+							"{@spell color spray}"
+						],
+						[
+							"3rd",
+							"{@spell lesser restoration}",
+							"{@spell blindness/deafness}",
+							"{@spell alter self}"
+						],
+						[
+							"5th",
+							"{@spell dispel magic}",
+							"{@spell vampiric touch}",
+							"{@spell phantom steed}"
+						],
+						[
+							"7th",
+							"{@spell death ward}",
+							"{@spell confusion}",
+							"{@spell hallucinatory terrain}"
+						],
+						[
+							"9th",
+							"{@spell Rary's telepathic bond}",
+							"{@spell hold monster}",
+							"{@spell mislead}"
+						]
+					]
+				},
+				"Whenever you finish a long rest, you can choose what lunar phase manifests its power through your magic: Full Moon, New Moon, or Crescent Moon. While in the chosen phase, you can cast one 1st-level spell of the associated phase in the Lunar Spells table once without expending a spell slot. Once you cast a spell in this way, you can't do so again until you finish a long rest."
+			]
+		},
+		{
+			"name": "Moon Fire",
+			"source": "DSotDQ",
+			"page": 34,
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassShortName": "Lunar",
+			"subclassSource": "DSotDQ",
+			"level": 1,
+			"header": 2,
+			"entries": [
+				"{@i 1st-Level Lunar Sorcery Feature}",
+				"You can call down the radiant light of the moon on command. You learn the {@spell sacred flame} spell, which doesn't count against the number of sorcerer cantrips you know. When you cast the spell, you can target one creature as normal or target two creatures within range that are within 5 feet of each other."
 			]
 		},
 		{
@@ -3720,7 +3759,9 @@
 						]
 					],
 					"data": {
-						"tableInclude": true
+						"genTables": {
+							"tableInclude": true
+						}
 					}
 				}
 			]
@@ -4651,7 +4692,7 @@
 			"level": 1,
 			"header": 1,
 			"entries": [
-				"Starting at 1st level, your existence in a twilight state between life and death makes you difficult to defeat. When damage reduces you to 0 hit points, you can make a Charisma saving throw (DC 5 + the damage taken). On a success, you instead drop to 1 hit point. You can't use this feature if you are reduced to 0 hit points by radiant damage or by a critical hit.",
+				"Starting at 1st level, your existence in a twilight state between life and death makes you difficult to defeat. When damage reduces you to 0 hit points, you can make a Charisma saving throw ({@dc 5} + the damage taken). On a success, you instead drop to 1 hit point. You can't use this feature if you are reduced to 0 hit points by radiant damage or by a critical hit.",
 				"After the saving throw succeeds, you can't use this feature again until you finish a long rest."
 			]
 		},
@@ -5202,6 +5243,10 @@
 			"subclassSource": "XPHB",
 			"level": 18,
 			"header": 2,
+			"consumes": {
+				"name": "Sorcery Point",
+				"amount": 5
+			},
 			"entries": [
 				"You can unleash a space-warping anomaly. As a {@action Magic|XPHB} action, you teleport to an unoccupied space you can see within 120 feet of yourself. Immediately after you disappear, each creature within 30 feet of the space you left must make a Strength saving throw against your spell save DC. On a failed save, a creature takes {@damage 3d10} Force damage and is pulled straight toward the space you left, ending in an unoccupied space as close to your former space as possible. On a successful save, the creature takes half as much damage only.",
 				"Once you use this feature, you can't do so again until you finish a {@variantrule Long Rest|XPHB} unless you spend 5 Sorcery Points (no action required) to restore your use of it."
@@ -5338,7 +5383,9 @@
 			"level": 6,
 			"header": 2,
 			"consumes": {
-				"name": "Sorcery Point"
+				"name": "Sorcery Point",
+				"amountMin": 1,
+				"amountMax": 5
 			},
 			"entries": [
 				"You can tap into the grand equation of existence to imbue a creature with a shimmering shield of order. As a {@action Magic|XPHB} action, you can expend 1 to 5 Sorcery Points to create a magical ward around yourself or another creature you can see within 30 feet of yourself. The ward is represented by a number of d8s equal to the number of Sorcery Points spent to create it. When the warded creature takes damage, it can expend a number of those dice, roll them, and reduce the damage taken by the total rolled on those dice.",
@@ -5355,6 +5402,10 @@
 			"subclassSource": "XPHB",
 			"level": 14,
 			"header": 2,
+			"consumes": {
+				"name": "Sorcery Point",
+				"amount": 5
+			},
 			"entries": [
 				"You gain the ability to align your consciousness with the endless calculations of Mechanus. As a {@variantrule Bonus Action|XPHB}, you can enter this state for 1 minute. For the duration, attack rolls against you can't benefit from {@variantrule Advantage|XPHB}, and whenever you make a {@variantrule D20 Test|XPHB}, you can treat a roll of 9 or lower on the {@dice d20} as a 10.",
 				"Once you use this feature, you can't use it again until you finish a {@variantrule Long Rest|XPHB} unless you spend 5 Sorcery Points (no action required) to restore your use of it."
@@ -5370,6 +5421,10 @@
 			"subclassSource": "XPHB",
 			"level": 18,
 			"header": 2,
+			"consumes": {
+				"name": "Sorcery Point",
+				"amount": 7
+			},
 			"entries": [
 				"You momentarily summon spirits of order to expunge disorder around you. As a {@action Magic|XPHB} action, you summon the spirits in a 30-foot {@variantrule Cube [Area of Effect]|XPHB|Cube} originating from you. The spirits look like modrons or other Constructs of your choice. The spirits are intangible and invulnerable, and they create the effects below within the {@variantrule Cube [Area of Effect]|XPHB|Cube} before vanishing. Once you use this action, you can't use it again until you finish a {@variantrule Long Rest|XPHB} unless you spend 7 Sorcery Points (no action required) to restore your use of it.",
 				{
@@ -5436,7 +5491,7 @@
 				"When you reach a Sorcerer level specified in the Draconic Spells table, you thereafter always have the listed spells prepared.",
 				{
 					"type": "table",
-					"caption": "Psionic Spells",
+					"caption": "Draconic Spells",
 					"colLabels": [
 						"Sorcerer Level",
 						"Spells"
@@ -5506,6 +5561,10 @@
 			"subclassSource": "XPHB",
 			"level": 14,
 			"header": 2,
+			"consumes": {
+				"name": "Sorcery Point",
+				"amount": 3
+			},
 			"entries": [
 				"As a {@variantrule Bonus Action|XPHB}, you can cause draconic wings to appear on your back. The wings last for 1 hour or until you dismiss them (no action required). For the duration, you have a {@variantrule Fly Speed|XPHB} of 60 feet.",
 				"Once you use this feature, you can't use it again until you finish a {@variantrule Long Rest|XPHB} unless you spend 3 Sorcery Points (no action required) to restore your use of it."
@@ -5690,7 +5749,9 @@
 						]
 					],
 					"data": {
-						"tableInclude": true
+						"genTables": {
+							"tableInclude": true
+						}
 					}
 				}
 			]
@@ -5706,8 +5767,7 @@
 			"level": 6,
 			"header": 2,
 			"consumes": {
-				"name": "Sorcery Point",
-				"amount": 1
+				"name": "Sorcery Point"
 			},
 			"entries": [
 				"You have the ability to twist fate using your wild magic. Immediately after another creature you can see rolls the {@dice d20} for a {@variantrule D20 Test|XPHB}, you can take a {@variantrule Reaction|XPHB} and spend 1 Sorcery Point to roll {@dice 1d4} and apply the number rolled as a bonus or penalty (your choice) to the {@dice d20} roll."

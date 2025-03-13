@@ -1,6 +1,6 @@
-"use strict";
+import {BookUtil} from "./bookutils.js";
 
-class AdventuresBooksList {
+export class AdventuresBooksList {
 	static _getDateStr (advBook) {
 		if (!advBook.published) return "\u2014";
 		const date = new Date(advBook.published);
@@ -58,7 +58,7 @@ class AdventuresBooksList {
 		this._dataList = [];
 	}
 
-	async pOnPageLoad () {
+	async pOnPageLoad ({handleBrew}) {
 		await Promise.all([
 			PrereleaseUtil.pInit(),
 			BrewUtil2.pInit(),
@@ -94,6 +94,7 @@ class AdventuresBooksList {
 		$("#reset").click(() => {
 			this._list.reset();
 			this._listAlt.reset();
+			$iptSearch.val("");
 
 			this._list.items.forEach(li => {
 				if (li.data.$btnToggleExpand.text() === "[\u2212]") li.data.$btnToggleExpand.click();

@@ -3,6 +3,7 @@ import {ConverterFeatureBase} from "./converter-feature.js";
 import {TagCondition} from "./converterutils-tags.js";
 import {EntryCoalesceEntryLists, EntryCoalesceRawLines} from "./converterutils-entrycoalesce.js";
 import {TagJsons} from "./converterutils-entries.js";
+import {PropOrder} from "../utils-proporder.js";
 
 class _ConversionStateTextFeat extends ConversionStateTextBase {
 
@@ -55,6 +56,8 @@ export class ConverterFeat extends ConverterFeatureBase {
 		const statsOut = this._getFinalState(state, options);
 
 		options.cbOutput(statsOut, options.isAppend);
+
+		return statsOut;
 	}
 
 	static _doParseText_stepName (state) {
@@ -135,6 +138,7 @@ export class ConverterFeat extends ConverterFeatureBase {
 
 		EntryCoalesceEntryLists.mutCoalesce(state, "entries", {styleHint: options.styleHint});
 		this._doPostProcess_setPrerequisites(state, options);
+		TagJsons.mutTagObjectStrictCapsWords(state.entity, {keySet: new Set(["entries"]), styleHint: options.styleHint});
 		TagJsons.mutTagObject(state.entity, {keySet: new Set(["entries"]), isOptimistic: false, styleHint: options.styleHint});
 	}
 

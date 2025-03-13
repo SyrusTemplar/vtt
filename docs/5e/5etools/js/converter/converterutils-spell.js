@@ -176,6 +176,20 @@ export class MiscTagsTagger {
 			},
 		);
 
+		MiscTagsTagger._WALKER.walk(
+			sp.entriesHigherLevel,
+			{
+				string: (str) => {
+					const stripped = Renderer.stripTags(str);
+
+					if (
+						new RegExp(`you can target [^.]+ additional (?:creature|${Parser.MON_TYPES.join("|")}) for each spell slot level`, "ig").test(stripped)
+						|| new RegExp(`you can (?:target|affect) [^.]+ additional [^.]*(?:creature|${Parser.MON_TYPES.join("|")}) for each slot level above`, "ig").test(stripped)
+					) this._addTag({tags, tag: "SCT", options});
+				},
+			},
+		);
+
 		(sp.time || [])
 			.forEach(time => {
 				if (!time.condition) return;
@@ -451,7 +465,7 @@ export class AffectedCreatureTypeTagger {
 		]);
 		if (!setAffectedOut.size) Parser.MON_TYPES.forEach(it => setAffectedOut.add(it));
 
-		sp.affectsCreatureType = [...CollectionUtil.setDiff(setAffectedOut, setNotAffected)].sort(SortUtil.ascSortLower);
+		sp.affectsCreatureType = [...setAffectedOut.difference(setNotAffected)].sort(SortUtil.ascSortLower);
 		if (!sp.affectsCreatureType.length) delete sp.affectsCreatureType;
 	}
 

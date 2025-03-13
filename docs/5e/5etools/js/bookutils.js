@@ -1,6 +1,7 @@
-"use strict";
+import {RenderMap} from "./render-map.js";
+import {OmnisearchUtilsUi} from "./omnisearch/omnisearch-utils-ui.js";
 
-class BookUtil {
+export class BookUtil {
 	static getHeaderText (header) {
 		return header.header || header;
 	}
@@ -385,7 +386,7 @@ class BookUtil {
 
 						const contentsInfo = this.curRender.fromIndex.contents[this.curRender.chapter];
 						DataUtil.userDownloadText(
-							`${this.curRender.fromIndex.name} - ${Parser.bookOrdinalToAbv(contentsInfo.ordinal).replace(/:/g, "")}${contentsInfo.name}.md`,
+							`${this.curRender.fromIndex.name} - ${Parser.bookOrdinalToAbv(contentsInfo.ordinal, {isPlainText: true}).replace(/:/g, "")}${contentsInfo.name}.md`,
 							RendererMarkdown.get().render(this.curRender.data[this.curRender.chapter]),
 						);
 					},
@@ -493,8 +494,8 @@ class BookUtil {
 	}
 
 	static initScrollTopFloat () {
-		const $wrpScrollTop = Omnisearch.addScrollTopFloat();
-		BookUtil.$wrpFloatControls = $(`<div class="ve-flex-vh-center w-100 mb-2 ve-btn-group"></div>`).prependTo($wrpScrollTop);
+		const wrpScrollTop = OmnisearchUtilsUi.addScrollTopFloat();
+		BookUtil.$wrpFloatControls = $(`<div class="ve-flex-vh-center w-100 mb-2 ve-btn-group"></div>`).prependTo(wrpScrollTop);
 	}
 
 	// custom loading to serve multiple sources
@@ -1186,6 +1187,8 @@ BookUtil.Search = class {
 	}
 };
 BookUtil.Search._EXTRA_WORDS = 2;
+
+RenderMap.BookUtil = BookUtil;
 
 globalThis.BookUtil = BookUtil;
 

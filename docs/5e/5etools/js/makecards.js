@@ -440,11 +440,15 @@ class MakeCards extends BaseComponent {
 
 	static _getCardContents_creature (mon) {
 		const renderer = RendererCard.get();
-		const fnGetSpellTraits = Renderer.monster.getSpellcastingRenderedTraits.bind(Renderer.monster, renderer);
-		const allTraits = Renderer.monster.getOrderedTraits(mon, {fnGetSpellTraits});
-		const allActions = Renderer.monster.getOrderedActions(mon, {fnGetSpellTraits});
-		const allBonusActions = Renderer.monster.getOrderedBonusActions(mon, {fnGetSpellTraits});
-		const allReactions = Renderer.monster.getOrderedReactions(mon, {fnGetSpellTraits});
+
+		const {
+			entsTrait,
+			entsAction,
+			entsBonusAction,
+			entsReaction,
+			entsLegendaryAction,
+			entsMythicAction,
+		} = Renderer.monster.getSubEntries(mon, {renderer});
 
 		return [
 			this._ct_subtitle(Renderer.monster.getTypeAlignmentPart(mon)),
@@ -458,27 +462,28 @@ class MakeCards extends BaseComponent {
 			this._ct_rule(),
 			mon.save ? this._ct_property("Saving Throws", this._ct_htmlToText(Renderer.monster.getSavesPart(mon))) : null,
 			mon.skill ? this._ct_property("Skills", this._ct_htmlToText(Renderer.monster.getSkillsString(Renderer.get(), mon))) : null,
+			mon.tool ? this._ct_property("Skills", this._ct_htmlToText(Renderer.monster.getToolsString(Renderer.get(), mon))) : null,
 			mon.vulnerable ? this._ct_property("Damage Vulnerabilities", this._ct_htmlToText(Parser.getFullImmRes(mon.vulnerable))) : null,
 			mon.resist ? this._ct_property("Damage Resistances", this._ct_htmlToText(Parser.getFullImmRes(mon.resist))) : null,
 			mon.immune ? this._ct_property("Damage Immunities", this._ct_htmlToText(Parser.getFullImmRes(mon.immune))) : null,
 			mon.conditionImmune ? this._ct_property("Condition Immunities", this._ct_htmlToText(Parser.getFullCondImm(mon.conditionImmune))) : null,
-			this._ct_property("Senses", this._ct_htmlToText(Renderer.monster.getSensesPart(mon))),
+			this._ct_property("Senses", this._ct_htmlToText(Renderer.monster.getSensesPart(mon, {isForcePassive: true}))),
 			this._ct_property("Languages", this._ct_htmlToText(Renderer.monster.getRenderedLanguages(mon.languages))),
 			this._ct_property("Challenge", this._ct_htmlToText(Renderer.monster.getChallengeRatingPart(mon))),
 			this._ct_rule(),
-			...(allTraits?.length ? this._ct_renderEntries(allTraits, 2) : []),
-			allActions?.length ? this._ct_section("Actions") : null,
-			...(allActions?.length ? this._ct_renderEntries(allActions, 2) : []),
-			allBonusActions?.length ? this._ct_section("Bonus Actions") : null,
-			...(allBonusActions?.length ? this._ct_renderEntries(allBonusActions, 2) : []),
-			allReactions?.length ? this._ct_section("Reactions") : null,
-			...(allReactions?.length ? this._ct_renderEntries(mon.reaction, 2) : []),
-			mon.legendary ? this._ct_section("Legendary Actions") : null,
-			mon.legendary ? this._ct_text(this._ct_htmlToText(Renderer.monster.getLegendaryActionIntro(mon, {renderer}))) : null,
-			...(mon.legendary ? this._ct_renderEntries(mon.legendary, 2) : []),
-			mon.mythic ? this._ct_section("Mythic Actions") : null,
-			mon.mythic ? this._ct_text(this._ct_htmlToText(Renderer.monster.getSectionIntro(mon, {renderer, prop: "mythic"}))) : null,
-			...(mon.mythic ? this._ct_renderEntries(mon.mythic, 2) : []),
+			...(entsTrait?.length ? this._ct_renderEntries(entsTrait, 2) : []),
+			entsAction?.length ? this._ct_section("Actions") : null,
+			...(entsAction?.length ? this._ct_renderEntries(entsAction, 2) : []),
+			entsBonusAction?.length ? this._ct_section("Bonus Actions") : null,
+			...(entsBonusAction?.length ? this._ct_renderEntries(entsBonusAction, 2) : []),
+			entsReaction?.length ? this._ct_section("Reactions") : null,
+			...(entsReaction?.length ? this._ct_renderEntries(entsReaction, 2) : []),
+			entsLegendaryAction?.length ? this._ct_section("Legendary Actions") : null,
+			entsLegendaryAction?.length ? this._ct_text(this._ct_htmlToText(Renderer.monster.getLegendaryActionIntro(mon, {renderer}))) : null,
+			...(entsLegendaryAction?.length ? this._ct_renderEntries(entsLegendaryAction, 2) : []),
+			entsMythicAction?.length ? this._ct_section("Mythic Actions") : null,
+			entsMythicAction ? this._ct_text(this._ct_htmlToText(Renderer.monster.getSectionIntro(mon, {renderer, prop: "mythic"}))) : null,
+			...(entsMythicAction?.length ? this._ct_renderEntries(entsMythicAction, 2) : []),
 		].filter(Boolean);
 	}
 
@@ -500,7 +505,7 @@ class MakeCards extends BaseComponent {
 			this._ct_property("Casting Time", Parser.spTimeListToFull(sp.time, sp.meta)),
 			this._ct_property("Range", Parser.spRangeToFull(sp.range)),
 			this._ct_property("Components", Parser.spComponentsToFull(sp.components, sp.level, {isPlainText: true})),
-			this._ct_property("Duration", Parser.spDurationToFull(sp.duration)),
+			this._ct_property("Duration", Parser.spDurationToFull(sp.duration, {isPlainText: true})),
 			this._ct_rule(),
 			...this._ct_renderEntries(sp.entries, 2),
 			...(higherLevel || []),
@@ -511,11 +516,12 @@ class MakeCards extends BaseComponent {
 		MakeCards.utils.enhanceItemAlt(item);
 
 		const [typeRarityText, subTypeText, tierText] = Renderer.item.getTypeRarityAndAttunementText(item);
-		const [damage, damageType, propertiesTxt] = Renderer.item.getDamageAndPropertiesText(item);
+		const [ptDamage, ptProperties] = Renderer.item.getRenderedDamageAndProperties(item);
+		const ptMastery = Renderer.item.getRenderedMastery(item, {isSkipPrefix: true});
 		const ptWeight = Parser.itemWeightToFull(item);
 		const ptValue = Parser.itemValueToFullMultiCurrency(item);
-		const ptDamage = this._ct_htmlToText([damage, damageType].filter(Boolean).join(" "));
-		const ptProperties = this._ct_htmlToText([propertiesTxt].filter(Boolean)).substring(2);
+		const ptDamageCt = this._ct_htmlToText(ptDamage);
+		const ptPropertiesCt = this._ct_htmlToText(ptProperties);
 
 		const itemEntries = [];
 		if (item._fullEntries || (item.entries && item.entries.length)) {
@@ -528,8 +534,9 @@ class MakeCards extends BaseComponent {
 
 		return [
 			typeRarityText ? this._ct_htmlToText(this._ct_subtitle(typeRarityText.uppercaseFirst())) : null,
-			ptDamage ? this._ct_property(ptDamage.startsWith("AC") ? "Armor Class" : "Damage", ptDamage) : null,
-			ptProperties ? this._ct_property("Properties", ptProperties.uppercaseFirst()) : null,
+			ptDamageCt ? this._ct_property(ptDamageCt.startsWith("AC") ? "Armor Class" : "Damage", ptDamageCt) : null,
+			ptPropertiesCt ? this._ct_property("Properties", ptPropertiesCt.uppercaseFirst()) : null,
+			ptMastery ? this._ct_property("Mastery", ptMastery) : null,
 			subTypeText ? this._ct_property("Type", subTypeText.uppercaseFirst()) : null,
 			tierText ? this._ct_property("Tier", tierText.uppercaseFirst()) : null,
 			ptWeight ? this._ct_property("Weight", ptWeight) : null,
@@ -826,7 +833,7 @@ MakeCards.utils = class {
 		const data = await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/makecards.json`);
 		data.reducedItemProperty.forEach(p => MakeCards.utils._addItemProperty(p));
 		data.reducedItemType.forEach(t => {
-			if (t.abbreviation === Parser.ITM_TYP_ABV__VEHICLE_WATER) {
+			if (t.abbreviation === Parser.ITM_TYP_ABV__VEHICLE_WATER && t.source === Parser.SRC_PHB) {
 				const cpy = MiscUtil.copy(t);
 				cpy.abbreviation = Parser.ITM_TYP_ABV__VEHICLE_AIR;
 				cpy.source = Parser.SRC_DMG;
@@ -882,16 +889,21 @@ MakeCards.utils = class {
 
 		if (item.property) {
 			item.property.forEach(p => {
-				const {abbreviation, source} = DataUtil.itemProperty.unpackUid(p, {isLower: true});
+				const uid = p?.uid || p;
+				const {abbreviation, source} = DataUtil.itemProperty.unpackUid(uid, {isLower: true});
+
 				const fromCustom = MiscUtil.get(MakeCards.utils._itemPropertyMap, source, abbreviation);
 				if (fromCustom) {
 					if (fromCustom.entries) {
 						Renderer.item._initFullEntries(item);
 						fromCustom.entries.forEach(e => item._fullEntries.push(e));
 					}
-				} else if (Renderer.item.getProperty(p)?.entries) {
+					return;
+				}
+
+				if (Renderer.item.getProperty(uid)?.entries) {
 					Renderer.item._initFullEntries(item);
-					Renderer.item.getProperty(p).entries.forEach(e => item._fullEntries.push(e));
+					Renderer.item.getProperty(uid).entries.forEach(e => item._fullEntries.push(e));
 				}
 			});
 		}

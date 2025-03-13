@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @use "../vars/vars";
 
 @mixin mix-source-color ($rgb) {
@@ -89,13 +91,13 @@
 	$rgb-source-VEoR: #b74c62;
 	$rgb-source-GHLoE: #c07e4e;
 	$rgb-source-DoDk: #825494;
-	$rgb-source-HWCS: #d0914b;
 	$rgb-source-ToB1-2023: #917792;
 	$rgb-source-TD: #bb9528;
 	$rgb-source-PaF: #5d7993;
 	$rgb-source-XPHB: #ed7c00;
 	$rgb-source-XDMG: #c43c4c;
 	$rgb-source-XMM: #5686b6;
+	$rgb-source-HFDoMM: #00817f;
 
 	// region Categories
 
@@ -202,6 +204,16 @@
 
 		&TftYP {
 			@include mix-source-color($rgb-source-TftYP);
+
+			&-AtG,
+			&-DiT,
+			&-TFoF,
+			&-THSoT,
+			&-TSC,
+			&-ToH,
+			&-WPM {
+				@include mix-source-color($rgb-source-TftYP);
+			}
 		}
 
 		&ToA {
@@ -486,11 +498,6 @@
 			@include mix-source-color($rgb-source-DoDk);
 		}
 
-		&HWCS,
-		&HWAitW {
-			@include mix-source-color($rgb-source-HWCS);
-		}
-
 		&ToB1-2023 {
 			@include mix-source-color($rgb-source-ToB1-2023);
 		}
@@ -513,6 +520,10 @@
 
 		&XMM {
 			@include mix-source-color($rgb-source-XMM);
+		}
+
+		&HFDoMM {
+			@include mix-source-color($rgb-source-HFDoMM);
 		}
 	}
 	// endregion
@@ -550,6 +561,65 @@
 
 		&C {
 			color: #bd0044;
+		}
+	}
+}
+
+// (Unused)
+.itm__ {
+	&rarity-alt- {
+		&common {
+			color: color.adjust(vars.$rgb-font, $lightness: 15%);
+		}
+
+		&uncommon {
+			color: #5c9659;
+		}
+
+		&rare {
+			color: #5c84b3;
+		}
+
+		// Scuffed, but performant
+		&very {
+			color: #b83b94;
+		}
+
+		&legendary {
+			color: #de993f;
+		}
+
+		&artifact {
+			color: #b61a1a;
+		}
+	}
+}
+
+.itm__ {
+	&rarity- {
+		&common {
+			color: color.adjust(vars.$rgb-font, $lightness: 15%);
+		}
+
+		&uncommon {
+			color: #c27341;
+		}
+
+		&rare {
+			color: #ac99d3;
+		}
+
+		// Scuffed, but performant
+		&very {
+			color: #de993f;
+		}
+
+		&legendary {
+			color: #6dcff7;
+		}
+
+		&artifact {
+			color: #b61a1a;
 		}
 	}
 }

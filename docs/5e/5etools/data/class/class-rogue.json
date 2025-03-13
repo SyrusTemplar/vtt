@@ -103,7 +103,7 @@
 					},
 					{
 						"_": [
-							"Leather armor|phb",
+							"leather armor|phb",
 							{
 								"item": "dagger|phb",
 								"quantity": 2
@@ -460,8 +460,17 @@
 				"dex",
 				"int"
 			],
-			"spellcastingAbility": "wis",
-			"casterProgression": "full",
+			"featProgression": [
+				{
+					"name": "Epic Boon",
+					"category": [
+						"EB"
+					],
+					"progression": {
+						"19": 1
+					}
+				}
+			],
 			"startingProficiencies": {
 				"armor": [
 					"light"
@@ -507,9 +516,7 @@
 				]
 			},
 			"startingEquipment": {
-				"entries": [
-					"{@i Choose A or B:} (A) {@item Leather Armor|XPHB}, 2 {@item Dagger|XPHB|Daggers}, {@item Shortsword|XPHB}, {@item Shortbow|XPHB}, {@item Arrows (20)|XPHB|20 Arrows}, {@item Quiver|XPHB}, {@item Thieves' Tools|XPHB}, {@item Burglar's Pack|XPHB}, and 8 GP; or (B) 100 GP"
-				],
+				"additionalFromBackground": true,
 				"defaultData": [
 					{
 						"A": [
@@ -527,7 +534,7 @@
 								"item": "shortbow|xphb"
 							},
 							{
-								"item": "arrows|xphb"
+								"item": "arrows (20)|xphb"
 							},
 							{
 								"item": "quiver|xphb"
@@ -548,6 +555,9 @@
 							}
 						]
 					}
+				],
+				"entries": [
+					"{@i Choose A or B:} (A) {@item Leather Armor|XPHB}, 2 {@item Dagger|XPHB|Daggers}, {@item Shortsword|XPHB}, {@item Shortbow|XPHB}, {@item Arrows (20)|XPHB|20 Arrows}, {@item Quiver|XPHB}, {@item Thieves' Tools|XPHB}, {@item Burglar's Pack|XPHB}, and 8 GP; or (B) 100 GP"
 				]
 			},
 			"multiclassing": {
@@ -1579,21 +1589,22 @@
 				4,
 				4,
 				4,
-				6,
+				5,
 				6,
 				6,
 				7,
-				7,
-				7,
+				8,
+				8,
 				9,
-				9,
-				9,
-				10,
 				10,
 				10,
 				11,
-				11
+				11,
+				11,
+				12,
+				13
 			],
+			"preparedSpellsChange": "level",
 			"cantripProgression": [
 				0,
 				0,
@@ -1863,10 +1874,10 @@
 				}
 			],
 			"subclassFeatures": [
-				"Arcane Trickster|Rogue|XPHB|Trickster|XPHB|3",
-				"Magical Ambush|Rogue|XPHB|Trickster|XPHB|9",
-				"Versatile Trickster|Rogue|XPHB|Trickster|XPHB|13",
-				"Spell Thief|Rogue|XPHB|Trickster|XPHB|17"
+				"Arcane Trickster|Rogue|XPHB|Arcane Trickster|XPHB|3",
+				"Magical Ambush|Rogue|XPHB|Arcane Trickster|XPHB|9",
+				"Versatile Trickster|Rogue|XPHB|Arcane Trickster|XPHB|13",
+				"Spell Thief|Rogue|XPHB|Arcane Trickster|XPHB|17"
 			],
 			"hasFluffImages": true
 		},
@@ -2371,8 +2382,8 @@
 			"classSource": "XPHB",
 			"level": 1,
 			"entries": [
-				"Your training with weapons allows you to use the mastery properties of two kinds of weapons of your choice with which you have proficiency, such as {@item Dagger|XPHB|Daggers} and {@item Shortbow|XPHB|Shortbows}.",
-				"Whenever you finish a {@variantrule Long Rest|XPHB}, you can change the kinds of weapons you chose. For example, you could switch to using the mastery properties of {@item Scimitar|XPHB|Scimitars} and {@item Shortsword|XPHB|Shortswords}."
+				"Your training with weapons allows you to use the {@variantrule weapon mastery properties|XPHB|mastery properties} of two kinds of {@filter weapons|items|type=simple weapon;martial weapon} of your choice with which you have proficiency, such as {@item Dagger|XPHB|Daggers} and {@item Shortbow|XPHB|Shortbows}.",
+				"Whenever you finish a {@variantrule Long Rest|XPHB}, you can change the kinds of weapons you chose. For example, you could switch to using the {@variantrule weapon mastery properties|XPHB|mastery properties} of {@item Scimitar|XPHB|Scimitars} and {@item Shortsword|XPHB|Shortswords}."
 			]
 		},
 		{
@@ -2428,7 +2439,7 @@
 			"level": 5,
 			"entries": [
 				"You've developed cunning ways to use your Sneak Attack. When you deal Sneak Attack damage, you can add one of the following Cunning Strike effects. Each effect has a die cost, which is the number of Sneak Attack damage dice you must forgo to add the effect. You remove the die before rolling, and the effect occurs immediately after the attack's damage is dealt. For example, if you add the Poison effect, remove {@dice 1d6} from the Sneak Attack's damage before rolling.",
-				"If a Cunning Strike effect requires a saving throw, the DC equals 8 plus your Dexterity modifier and {@variantrule Proficiency|XPHB} Bonus.",
+				"If a Cunning Strike effect requires a saving throw, the DC equals 8 plus your Dexterity modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}.",
 				{
 					"type": "entries",
 					"entries": [
@@ -2982,7 +2993,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is {@status surprised}, it must make a Constitution saving throw (DC 8 + your Dexterity modifier + your proficiency bonus). On a failed save, double the damage of your attack against the creature."
+				"Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is {@status surprised}, it must make a Constitution saving throw ({@dc 8} + your Dexterity modifier + your proficiency bonus). On a failed save, double the damage of your attack against the creature."
 			]
 		},
 		{
@@ -3206,6 +3217,36 @@
 			]
 		},
 		{
+			"name": "Psi-Bolstered Knack",
+			"source": "TCE",
+			"page": 63,
+			"className": "Rogue",
+			"classSource": "PHB",
+			"subclassShortName": "Soulknife",
+			"subclassSource": "TCE",
+			"level": 3,
+			"consumes": {
+				"name": "Psionic Energy Die"
+			},
+			"entries": [
+				"When your nonpsionic training fails you, your psionic power can help: if you fail an ability check using a skill or tool with which you have proficiency, you can roll one Psionic Energy die and add the number rolled to the check, potentially turning failure into success. You expend the die only if the roll succeeds."
+			]
+		},
+		{
+			"name": "Psychic Whispers",
+			"source": "TCE",
+			"page": 63,
+			"className": "Rogue",
+			"classSource": "PHB",
+			"subclassShortName": "Soulknife",
+			"subclassSource": "TCE",
+			"level": 3,
+			"entries": [
+				"You can establish telepathic communication between yourself and others-perfect for quiet infiltration. As an action, choose one or more creatures you can see, up to a number of creatures equal to your proficiency bonus, and then roll one Psionic Energy die. For a number of hours equal to the number rolled, the chosen creatures can speak telepathically with you, and you can speak telepathically with them. To send or receive a message (no action required), you and the other creature must be within 1 mile of each other. A creature can't use this telepathy if it can't speak any languages, and a creature can end the telepathic connection at any time (no action required). You and the creature don't need to speak a common language to understand each other.",
+				"The first time you use this power after each long rest, you don't expend the Psionic Energy die. All other times you use the power, you expend the die."
+			]
+		},
+		{
 			"name": "Soulknife",
 			"source": "TCE",
 			"page": 63,
@@ -3249,11 +3290,11 @@
 					"entries": [
 						{
 							"type": "refSubclassFeature",
-							"subclassFeature": "Psi-Bolstered Knack|Rogue|TCE|Soulknife|TCE|3"
+							"subclassFeature": "Psi-Bolstered Knack|Rogue|PHB|Soulknife|TCE|3"
 						},
 						{
 							"type": "refSubclassFeature",
-							"subclassFeature": "Psychic Whispers|Rogue|TCE|Soulknife|TCE|3"
+							"subclassFeature": "Psychic Whispers|Rogue|PHB|Soulknife|TCE|3"
 						}
 					]
 				}
@@ -3271,8 +3312,34 @@
 			"header": 1,
 			"entries": [
 				"{@i 3rd-level Soulknife feature}",
-				"You can manifest your psionic power as shimmering blades of psychic energy. Whenever you take the {@action Attack} action, you can manifest a psychic blade from your free hand and make the attack with that blade. This magic blade is a simple melee weapon with the finesse and thrown properties. It has a normal range of 60 feet and no long range, and on a hit, it deals psychic damage equal to {@dice 1d6} plus the ability modifier you used for the attack roll. The blade vanishes immediately after it hits or misses its target, and it leaves no mark on its target if it deals damage.",
-				"After you attack with the blade, you can make a melee or ranged weapon attack with a second psychic blade as a bonus action on the same turn, provided your other hand is free to create it. The damage die of this bonus attack is {@dice 1d4}, instead of {@dice 1d6}."
+				"You can manifest your psionic power as shimmering blades of psychic energy. Whenever you take the {@action Attack} action, you can manifest a psychic blade from your free hand and make the attack with that blade. This magic blade is a simple melee weapon with the finesse and thrown properties. It has a normal range of 60 feet and no long range, and on a hit, it deals psychic damage equal to {@damage 1d6} plus the ability modifier you used for the attack roll. The blade vanishes immediately after it hits or misses its target, and it leaves no mark on its target if it deals damage.",
+				"After you attack with the blade, you can make a melee or ranged weapon attack with a second psychic blade as a bonus action on the same turn, provided your other hand is free to create it. The damage die of this bonus attack is {@damage 1d4}, instead of {@damage 1d6}."
+			]
+		},
+		{
+			"name": "Homing Strikes",
+			"source": "TCE",
+			"page": 63,
+			"className": "Rogue",
+			"classSource": "PHB",
+			"subclassShortName": "Soulknife",
+			"subclassSource": "TCE",
+			"level": 9,
+			"entries": [
+				"If you make an attack roll with your Psychic Blades and miss the target, you can roll one Psionic Energy die and add the number rolled to the attack roll. If this causes the attack to hit, you expend the Psionic Energy die."
+			]
+		},
+		{
+			"name": "Psychic Teleportation",
+			"source": "TCE",
+			"page": 63,
+			"className": "Rogue",
+			"classSource": "PHB",
+			"subclassShortName": "Soulknife",
+			"subclassSource": "TCE",
+			"level": 9,
+			"entries": [
+				"As a bonus action, you manifest one of your Psychic Blades, expend one Psionic Energy die and roll it, and throw the blade at an unoccupied space you can see, up to a number of feet away equal to 10 times the number rolled. You then teleport to that space, and the blade vanishes."
 			]
 		},
 		{
@@ -3293,11 +3360,11 @@
 					"entries": [
 						{
 							"type": "refSubclassFeature",
-							"subclassFeature": "Homing Strikes|Rogue|TCE|Soulknife|TCE|9"
+							"subclassFeature": "Homing Strikes|Rogue|PHB|Soulknife|TCE|9"
 						},
 						{
 							"type": "refSubclassFeature",
-							"subclassFeature": "Psychic Teleportation|Rogue|TCE|Soulknife|TCE|9"
+							"subclassFeature": "Psychic Teleportation|Rogue|PHB|Soulknife|TCE|9"
 						}
 					]
 				}
@@ -3443,7 +3510,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"At 17th level, you learn to exploit a creature's weaknesses by carefully studying its tactics and movement. While your Insightful Fighting feature applies to a creature, your Sneak Attack damage against that creature increases by {@dice 3d6}."
+				"At 17th level, you learn to exploit a creature's weaknesses by carefully studying its tactics and movement. While your Insightful Fighting feature applies to a creature, your Sneak Attack damage against that creature increases by {@damage 3d6}."
 			]
 		},
 		{
@@ -3737,59 +3804,140 @@
 			]
 		},
 		{
-			"name": "Psi-Bolstered Knack",
-			"source": "TCE",
-			"page": 63,
+			"name": "Arcane Trickster",
+			"source": "XPHB",
+			"page": 132,
 			"className": "Rogue",
-			"classSource": "TCE",
-			"subclassShortName": "Soulknife",
-			"subclassSource": "TCE",
-			"level": 3,
-			"consumes": {
-				"name": "Psionic Energy Die"
-			},
-			"entries": [
-				"When your nonpsionic training fails you, your psionic power can help: if you fail an ability check using a skill or tool with which you have proficiency, you can roll one Psionic Energy die and add the number rolled to the check, potentially turning failure into success. You expend the die only if the roll succeeds."
-			]
-		},
-		{
-			"name": "Psychic Whispers",
-			"source": "TCE",
-			"page": 63,
-			"className": "Rogue",
-			"classSource": "TCE",
-			"subclassShortName": "Soulknife",
-			"subclassSource": "TCE",
+			"classSource": "XPHB",
+			"subclassShortName": "Arcane Trickster",
+			"subclassSource": "XPHB",
 			"level": 3,
 			"entries": [
-				"You can establish telepathic communication between yourself and others-perfect for quiet infiltration. As an action, choose one or more creatures you can see, up to a number of creatures equal to your proficiency bonus, and then roll one Psionic Energy die. For a number of hours equal to the number rolled, the chosen creatures can speak telepathically with you, and you can speak telepathically with them. To send or receive a message (no action required), you and the other creature must be within 1 mile of each other. A creature can't use this telepathy if it can't speak any languages, and a creature can end the telepathic connection at any time (no action required). You and the creature don't need to speak a common language to understand each other.",
-				"The first time you use this power after each long rest, you don't expend the Psionic Energy die. All other times you use the power, you expend the die."
+				"{@i Enhance Stealth with Arcane Spells}",
+				"Some Rogues enhance their fine-honed skills of stealth and agility with spells, learning magical tricks to aid them in their trade. Some Arcane Tricksters use their talents as pickpockets and burglars, while others are pranksters.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Spellcasting|Rogue|XPHB|Arcane Trickster|XPHB|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Mage Hand Legerdemain|Rogue|XPHB|Arcane Trickster|XPHB|3"
+				}
 			]
 		},
 		{
-			"name": "Homing Strikes",
-			"source": "TCE",
-			"page": 63,
+			"name": "Mage Hand Legerdemain",
+			"source": "XPHB",
+			"page": 133,
 			"className": "Rogue",
-			"classSource": "TCE",
-			"subclassShortName": "Soulknife",
-			"subclassSource": "TCE",
-			"level": 9,
+			"classSource": "XPHB",
+			"subclassShortName": "Arcane Trickster",
+			"subclassSource": "XPHB",
+			"level": 3,
 			"entries": [
-				"If you make an attack roll with your Psychic Blades and miss the target, you can roll one Psionic Energy die and add the number rolled to the attack roll. If this causes the attack to hit, you expend the Psionic Energy die."
+				"When you cast {@spell Mage Hand|XPHB}, you can cast it as a {@variantrule Bonus Action|XPHB}, and you can make the spectral hand {@condition Invisible|XPHB}. You can control the hand as a {@variantrule Bonus Action|XPHB}, and through it, you can make Dexterity ({@skill Sleight of Hand|XPHB}) checks."
 			]
 		},
 		{
-			"name": "Psychic Teleportation",
-			"source": "TCE",
-			"page": 63,
+			"name": "Spellcasting",
+			"source": "XPHB",
+			"page": 132,
 			"className": "Rogue",
-			"classSource": "TCE",
-			"subclassShortName": "Soulknife",
-			"subclassSource": "TCE",
-			"level": 9,
+			"classSource": "XPHB",
+			"subclassShortName": "Arcane Trickster",
+			"subclassSource": "XPHB",
+			"level": 3,
 			"entries": [
-				"As a bonus action, you manifest one of your Psychic Blades, expend one Psionic Energy die and roll it, and throw the blade at an unoccupied space you can see, up to a number of feet away equal to 10 times the number rolled. You then teleport to that space, and the blade vanishes."
+				"You have learned to cast spells. See {@book chapter 7|XPHB|7} for the rules on spellcasting. The information below details how you use those rules as an Arcane Trickster.",
+				{
+					"type": "entries",
+					"name": "Cantrips",
+					"entries": [
+						"You know three cantrips: {@spell Mage Hand|XPHB} and two other cantrips of your choice from the {@filter Wizard spell list|spells|class=Wizard} (see that class's section for its list). {@spell Mind Sliver|XPHB} and {@spell Minor Illusion|XPHB} are recommended.",
+						"Whenever you gain a Rogue level, you can replace one of your cantrips, except {@spell Mage Hand|XPHB}, with another Wizard cantrip of your choice.",
+						"When you reach Rogue level 10, you learn another Wizard cantrip of your choice."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Spell Slots",
+					"entries": [
+						"The Arcane Trickster Spellcasting table shows how many spell slots you have to cast your level 1+ spells. You regain all expended spell slots when you finish a {@variantrule Long Rest|XPHB}."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Prepared Spells of 1st+ Level",
+					"entries": [
+						"You prepare the list of level 1+ spells that are available for you to cast with this feature. To start, choose three level 1 Wizard spells. {@spell Charm Person|XPHB}, {@spell Disguise Self|XPHB}, and {@spell Fog Cloud|XPHB} are recommended.",
+						"The number of spells on your list increases as you gain Rogue levels, as shown in the Prepared Spells column of the Arcane Trickster Spellcasting table. Whenever that number increases, choose additional Wizard spells until the number of spells on your list matches the number in the Arcane Trickster Spellcasting table. The chosen spells must be of a level for which you have spell slots. For example, if you're a level 7 Rogue, your list of prepared spells can include five Wizard spells of level 1 or 2 in any combination."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Changing Your Prepared Spells",
+					"entries": [
+						"Whenever you gain a Rogue level, you can replace one spell on your list with another Wizard spell for which you have spell slots."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Spellcasting Ability",
+					"entries": [
+						"Intelligence is your spellcasting ability for your Wizard spells."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Spellcasting Focus",
+					"entries": [
+						"You can use an {@item Arcane Focus|XPHB} as a {@variantrule Spellcasting Focus|XPHB} for your Wizard spells."
+					]
+				}
+			]
+		},
+		{
+			"name": "Magical Ambush",
+			"source": "XPHB",
+			"page": 133,
+			"className": "Rogue",
+			"classSource": "XPHB",
+			"subclassShortName": "Arcane Trickster",
+			"subclassSource": "XPHB",
+			"level": 9,
+			"header": 2,
+			"entries": [
+				"If you have the {@condition Invisible|XPHB} condition when you cast a spell on a creature, it has {@variantrule Disadvantage|XPHB} on any saving throw it makes against the spell on the same turn."
+			]
+		},
+		{
+			"name": "Versatile Trickster",
+			"source": "XPHB",
+			"page": 133,
+			"className": "Rogue",
+			"classSource": "XPHB",
+			"subclassShortName": "Arcane Trickster",
+			"subclassSource": "XPHB",
+			"level": 13,
+			"header": 2,
+			"entries": [
+				"You gain the ability to distract targets with your {@spell Mage Hand|XPHB}. When you use the Trip option of your Cunning Strike on a creature, you can also use that option on another creature within 5 feet of the spectral hand."
+			]
+		},
+		{
+			"name": "Spell Thief",
+			"source": "XPHB",
+			"page": 133,
+			"className": "Rogue",
+			"classSource": "XPHB",
+			"subclassShortName": "Arcane Trickster",
+			"subclassSource": "XPHB",
+			"level": 17,
+			"header": 2,
+			"entries": [
+				"You gain the ability to magically steal the knowledge of how to cast a spell from another spellcaster.",
+				"Immediately after a creature casts a spell that targets you or includes you in its area of effect, you can take a {@variantrule Reaction|XPHB} to force the creature to make an Intelligence saving throw. The DC equals your spell save DC. On a failed save, you negate the spell's effect against you, and you steal the knowledge of the spell if it is at least level 1 and of a level you can cast (it doesn't need to be a Wizard spell). For the next 8 hours, you have the spell prepared. The creature can't cast it until the 8 hours have passed.",
+				"Once you steal a spell with this feature, you can't use this feature again until you finish a {@variantrule Long Rest|XPHB}."
 			]
 		},
 		{
@@ -3917,7 +4065,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"When you hit with your Sneak Attack on the first round of a combat, the target must succeed on a Constitution saving throw ({@dc 8} plus your Dexterity modifier and {@variantrule Proficiency|XPHB} Bonus), or the attack's damage is doubled against the target."
+				"When you hit with your Sneak Attack on the first round of a combat, the target must succeed on a Constitution saving throw ({@dc 8} plus your Dexterity modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}), or the attack's damage is doubled against the target."
 			]
 		},
 		{
@@ -4003,23 +4151,12 @@
 				"Any features in this subclass that use a Psionic Energy Die use only the dice from this subclass. Some of your powers expend a Psionic Energy Die, as specified in a power's description, and you can't use a power if it requires you to use a die when your Psionic Energy Dice are all expended.",
 				"You regain one of your expended Psionic Energy Dice when you finish a {@variantrule Short Rest|XPHB}, and you regain all of them when you finish a {@variantrule Long Rest|XPHB}.",
 				{
-					"type": "entries",
-					"entries": [
-						{
-							"type": "entries",
-							"name": "Psi-Bolstered Knack",
-							"entries": [
-								"If you fail an ability check using a skill or tool with which you have proficiency, you can roll one Psionic Energy Die and add the number rolled to the check, potentially turning failure into success. The die is expended only if the roll then succeeds."
-							]
-						},
-						{
-							"type": "entries",
-							"name": "Psychic Whispers",
-							"entries": [
-								"You can establish telepathic communication between yourself and others. As a {@action Magic|XPHB} action, choose one or more creatures you can see, up to a number of creatures equal to your {@variantrule Proficiency|XPHB} Bonus, and then roll one Psionic Energy Die. For a number of hours equal to the number rolled, the chosen creatures can speak telepathically with you, and you can speak telepathically with them. To send or receive a message (no action required), you and the other creature must be within 1 mile of each other. A creature can end the telepathic connection at any time (no action required)."
-							]
-						}
-					]
+					"type": "refSubclassFeature",
+					"subclassFeature": "Psi-Bolstered Knack|Rogue|XPHB|Soulknife|XPHB|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Psychic Whispers|Rogue|XPHB|Soulknife|XPHB|3"
 				},
 				"The first time you use this power after each {@variantrule Long Rest|XPHB}, you don't expend the Psionic Energy Die. All other times you use the power, you expend the die."
 			]
@@ -4043,7 +4180,75 @@
 					"source": "XPHB"
 				},
 				"The blade vanishes immediately after it hits or misses its target, and it leaves no mark if it deals damage.",
-				"After you attack with the blade on your turn, you can make a melee or ranged attack with a second psychic blade as a {@variantrule Bonus Action|XPHB} on the same turn if your other hand is free to create it. The damage die of this bonus attack is {@dice 1d4} instead of {@dice 1d6}."
+				"After you attack with the blade on your turn, you can make a melee or ranged attack with a second psychic blade as a {@variantrule Bonus Action|XPHB} on the same turn if your other hand is free to create it. The damage die of this bonus attack is {@damage 1d4} instead of {@damage 1d6}."
+			]
+		},
+		{
+			"name": "Psi-Bolstered Knack",
+			"source": "XPHB",
+			"page": 135,
+			"className": "Rogue",
+			"classSource": "XPHB",
+			"subclassShortName": "Soulknife",
+			"subclassSource": "XPHB",
+			"level": 3,
+			"header": 2,
+			"consumes": {
+				"name": "Psionic Energy Die"
+			},
+			"entries": [
+				"If you fail an ability check using a skill or tool with which you have proficiency, you can roll one Psionic Energy Die and add the number rolled to the check, potentially turning failure into success. The die is expended only if the roll then succeeds."
+			]
+		},
+		{
+			"name": "Psychic Whispers",
+			"source": "XPHB",
+			"page": 135,
+			"className": "Rogue",
+			"classSource": "XPHB",
+			"subclassShortName": "Soulknife",
+			"subclassSource": "XPHB",
+			"level": 3,
+			"header": 2,
+			"consumes": {
+				"name": "Psionic Energy Die"
+			},
+			"entries": [
+				"You can establish telepathic communication between yourself and others. As a {@action Magic|XPHB} action, choose one or more creatures you can see, up to a number of creatures equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and then roll one Psionic Energy Die. For a number of hours equal to the number rolled, the chosen creatures can speak telepathically with you, and you can speak telepathically with them. To send or receive a message (no action required), you and the other creature must be within 1 mile of each other. A creature can end the telepathic connection at any time (no action required)."
+			]
+		},
+		{
+			"name": "Homing Strikes",
+			"source": "XPHB",
+			"page": 136,
+			"className": "Rogue",
+			"classSource": "XPHB",
+			"subclassShortName": "Soulknife",
+			"subclassSource": "XPHB",
+			"level": 9,
+			"header": 2,
+			"consumes": {
+				"name": "Psionic Energy Die"
+			},
+			"entries": [
+				"If you make an attack roll with your {@item Psychic Blade|XPHB} and miss the target, you can roll one Psionic Energy Die and add the number rolled to the attack roll. If this causes the attack to hit, the die is expended."
+			]
+		},
+		{
+			"name": "Psychic Teleportation",
+			"source": "XPHB",
+			"page": 136,
+			"className": "Rogue",
+			"classSource": "XPHB",
+			"subclassShortName": "Soulknife",
+			"subclassSource": "XPHB",
+			"level": 9,
+			"header": 2,
+			"consumes": {
+				"name": "Psionic Energy Die"
+			},
+			"entries": [
+				"As a {@variantrule Bonus Action|XPHB}, you manifest a {@item Psychic Blade|XPHB}, expend one Psionic Energy Die and roll it, and throw the blade at an unoccupied space you can see up to a number of feet away equal to 10 times the number rolled. You then teleport to that space, and the blade vanishes."
 			]
 		},
 		{
@@ -4059,18 +4264,12 @@
 			"entries": [
 				"You can now use the following powers with your Psychic Blades.",
 				{
-					"type": "entries",
-					"name": "Homing Strikes",
-					"entries": [
-						"If you make an attack roll with your {@item Psychic Blade|XPHB} and miss the target, you can roll one Psionic Energy Die and add the number rolled to the attack roll. If this causes the attack to hit, the die is expended."
-					]
+					"type": "refSubclassFeature",
+					"subclassFeature": "Homing Strikes|Rogue|XPHB|Soulknife|XPHB|9"
 				},
 				{
-					"type": "entries",
-					"name": "Psychic Teleportation",
-					"entries": [
-						"As a {@variantrule Bonus Action|XPHB}, you manifest a {@item Psychic Blade|XPHB}, expend one Psionic Energy Die and roll it, and throw the blade at an unoccupied space you can see up to a number of feet away equal to 10 times the number rolled. You then teleport to that space, and the blade vanishes."
-					]
+					"type": "refSubclassFeature",
+					"subclassFeature": "Psychic Teleportation|Rogue|XPHB|Soulknife|XPHB|9"
 				}
 			]
 		},
@@ -4084,6 +4283,9 @@
 			"subclassSource": "XPHB",
 			"level": 13,
 			"header": 2,
+			"consumes": {
+				"name": "Psionic Energy Die"
+			},
 			"entries": [
 				"You can weave a veil of psychic static to mask yourself. As a {@action Magic|XPHB} action, you gain the {@condition Invisible|XPHB} condition for 1 hour or until you dismiss this effect (no action required). This invisibility ends early immediately after you deal damage to a creature or you force a creature to make a saving throw.",
 				"Once you use this feature, you can't do so again until you finish a {@variantrule Long Rest|XPHB} unless you expend a Psionic Energy Die (no action required) to restore your use of it."
@@ -4100,7 +4302,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"You can sweep your Psychic Blades through a creature's mind. When you use your Psychic Blades to deal Sneak Attack damage to a creature, you can force that target to make a Wisdom saving throw ({@dc 8} plus your Dexterity modifier and {@variantrule Proficiency|XPHB} Bonus). If the save fails, the target has the {@condition Stunned|XPHB} condition for 1 minute. The {@condition Stunned|XPHB} target repeats the save at the end of each of its turns, ending the effect on itself on a success.",
+				"You can sweep your Psychic Blades through a creature's mind. When you use your Psychic Blades to deal Sneak Attack damage to a creature, you can force that target to make a Wisdom saving throw ({@dc 8} plus your Dexterity modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}). If the save fails, the target has the {@condition Stunned|XPHB} condition for 1 minute. The {@condition Stunned|XPHB} target repeats the save at the end of each of its turns, ending the effect on itself on a success.",
 				"Once you use this feature, you can't do so again until you finish a {@variantrule Long Rest|XPHB} unless you expend three Psionic Energy Dice (no action required) to restore your use of it."
 			]
 		},
@@ -4251,7 +4453,7 @@
 					"type": "entries",
 					"name": "Scrolls",
 					"entries": [
-						"You can use any {@item Spell Scroll}, using Intelligence as your spellcasting ability for the spell. If the spell is a cantrip or a level 1 spell, you can cast it reliably. If the scroll contains a higher-level spell, you must first succeed on an Intelligence ({@skill Arcana|XPHB}) check ({@dc 10} plus the spell's level). On a successful check, you cast the spell from the scroll. On a failed check, the scroll disintegrates."
+						"You can use any {@item Spell Scroll|XDMG}, using Intelligence as your spellcasting ability for the spell. If the spell is a cantrip or a level 1 spell, you can cast it reliably. If the scroll contains a higher-level spell, you must first succeed on an Intelligence ({@skill Arcana|XPHB}) check ({@dc 10} plus the spell's level). On a successful check, you cast the spell from the scroll. On a failed check, the scroll disintegrates."
 					]
 				}
 			]
@@ -4269,143 +4471,6 @@
 			"header": 2,
 			"entries": [
 				"You are adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal {@variantrule Initiative|XPHB} and your second turn at your {@variantrule Initiative|XPHB} minus 10."
-			]
-		},
-		{
-			"name": "Arcane Trickster",
-			"source": "XPHB",
-			"page": 132,
-			"className": "Rogue",
-			"classSource": "XPHB",
-			"subclassShortName": "Trickster",
-			"subclassSource": "XPHB",
-			"level": 3,
-			"entries": [
-				"{@i Enhance Stealth with Arcane Spells}",
-				"Some Rogues enhance their fine-honed skills of stealth and agility with spells, learning magical tricks to aid them in their trade. Some Arcane Tricksters use their talents as pickpockets and burglars, while others are pranksters.",
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Spellcasting|Rogue|XPHB|Trickster|XPHB|3"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Mage Hand Legerdemain|Rogue|XPHB|Trickster|XPHB|3"
-				}
-			]
-		},
-		{
-			"name": "Mage Hand Legerdemain",
-			"source": "XPHB",
-			"page": 133,
-			"className": "Rogue",
-			"classSource": "XPHB",
-			"subclassShortName": "Trickster",
-			"subclassSource": "XPHB",
-			"level": 3,
-			"entries": [
-				"When you cast {@spell Mage Hand|XPHB}, you can cast it as a {@variantrule Bonus Action|XPHB}, and you can make the spectral hand {@condition Invisible|XPHB}. You can control the hand as a {@variantrule Bonus Action|XPHB}, and through it, you can make Dexterity ({@skill Sleight of Hand|XPHB}) checks."
-			]
-		},
-		{
-			"name": "Spellcasting",
-			"source": "XPHB",
-			"page": 132,
-			"className": "Rogue",
-			"classSource": "XPHB",
-			"subclassShortName": "Trickster",
-			"subclassSource": "XPHB",
-			"level": 3,
-			"entries": [
-				"You have learned to cast spells. See {@book chapter 7|XPHB|7} for the rules on spellcasting. The information below details how you use those rules as an Arcane Trickster.",
-				{
-					"type": "entries",
-					"name": "Cantrips",
-					"entries": [
-						"You know three cantrips: {@spell Mage Hand|XPHB} and two other cantrips of your choice from the {@filter Wizard spell list|spells|class=Wizard} (see that class's section for its list). {@spell Mind Sliver|XPHB} and {@spell Minor Illusion|XPHB} are recommended.",
-						"Whenever you gain a Rogue level, you can replace one of your cantrips, except {@spell Mage Hand|XPHB}, with another Wizard cantrip of your choice.",
-						"When you reach Rogue level 10, you learn another Wizard cantrip of your choice."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Spell Slots",
-					"entries": [
-						"The Arcane Trickster Spellcasting table shows how many spell slots you have to cast your level 1+ spells. You regain all expended spell slots when you finish a {@variantrule Long Rest|XPHB}."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Prepared Spells of 1st+ Level",
-					"entries": [
-						"You prepare the list of level 1+ spells that are available for you to cast with this feature. To start, choose three level 1 Wizard spells. {@spell Charm Person|XPHB}, {@spell Disguise Self|XPHB}, and {@spell Fog Cloud|XPHB} are recommended.",
-						"The number of spells on your list increases as you gain Rogue levels, as shown in the Prepared Spells column of the Arcane Trickster Spellcasting table. Whenever that number increases, choose additional Wizard spells until the number of spells on your list matches the number in the Arcane Trickster Spellcasting table. The chosen spells must be of a level for which you have spell slots. For example, if you're a level 7 Rogue, your list of prepared spells can include five Wizard spells of level 1 or 2 in any combination."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Changing Your Prepared Spells",
-					"entries": [
-						"Whenever you gain a Rogue level, you can replace one spell on your list with another Wizard spell for which you have spell slots."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Spellcasting Ability",
-					"entries": [
-						"Intelligence is your spellcasting ability for your Wizard spells."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Spellcasting Focus",
-					"entries": [
-						"You can use an {@item Arcane Focus|XPHB} as a {@variantrule Spellcasting Focus|XPHB} for your Wizard spells."
-					]
-				}
-			]
-		},
-		{
-			"name": "Magical Ambush",
-			"source": "XPHB",
-			"page": 133,
-			"className": "Rogue",
-			"classSource": "XPHB",
-			"subclassShortName": "Trickster",
-			"subclassSource": "XPHB",
-			"level": 9,
-			"header": 2,
-			"entries": [
-				"If you have the {@condition Invisible|XPHB} condition when you cast a spell on a creature, it has {@variantrule Disadvantage|XPHB} on any saving throw it makes against the spell on the same turn."
-			]
-		},
-		{
-			"name": "Versatile Trickster",
-			"source": "XPHB",
-			"page": 133,
-			"className": "Rogue",
-			"classSource": "XPHB",
-			"subclassShortName": "Trickster",
-			"subclassSource": "XPHB",
-			"level": 13,
-			"header": 2,
-			"entries": [
-				"You gain the ability to distract targets with your {@spell Mage Hand|XPHB}. When you use the Trip option of your Cunning Strike on a creature, you can also use that option on another creature within 5 feet of the spectral hand."
-			]
-		},
-		{
-			"name": "Spell Thief",
-			"source": "XPHB",
-			"page": 133,
-			"className": "Rogue",
-			"classSource": "XPHB",
-			"subclassShortName": "Trickster",
-			"subclassSource": "XPHB",
-			"level": 17,
-			"header": 2,
-			"entries": [
-				"You gain the ability to magically steal the knowledge of how to cast a spell from another spellcaster.",
-				"Immediately after a creature casts a spell that targets you or includes you in its area of effect, you can take a {@variantrule Reaction|XPHB} to force the creature to make an Intelligence saving throw. The DC equals your spell save DC. On a failed save, you negate the spell's effect against you, and you steal the knowledge of the spell if it is at least level 1 and of a level you can cast (it doesn't need to be a Wizard spell). For the next 8 hours, you have the spell prepared. The creature can't cast it until the 8 hours have passed.",
-				"Once you steal a spell with this feature, you can't use this feature again until you finish a {@variantrule Long Rest|XPHB}."
 			]
 		}
 	]

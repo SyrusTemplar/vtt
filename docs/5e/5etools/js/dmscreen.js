@@ -37,6 +37,8 @@ import {
 	PanelContentManagerFactory,
 } from "./dmscreen/dmscreen-panels.js";
 
+import {OmnisearchBacking} from "./omnisearch/omnisearch-backing.js";
+
 const UP = "UP";
 const RIGHT = "RIGHT";
 const LEFT = "LEFT";
@@ -370,7 +372,7 @@ class Board {
 					p: i,
 					id: bookOrAdventureId++,
 				};
-				if (chap.ordinal) chapDoc.o = Parser.bookOrdinalToAbv(chap.ordinal, true);
+				if (chap.ordinal) chapDoc.o = Parser.bookOrdinalToAbv(chap.ordinal, {isPreNoSuff: true, isPlainText: true});
 				if (isBrew) chapDoc.w = true;
 
 				indexStorage.ALL.addDoc(chapDoc);
@@ -416,17 +418,19 @@ class Board {
 
 	exilePanel (id) {
 		const panelK = Object.keys(this.panels).find(k => this.panels[k].id === id);
-		if (panelK) {
-			const toExile = this.panels[panelK];
-			if (!toExile.getEmpty()) {
-				delete this.panels[panelK];
-				this.exiledPanels.unshift(toExile);
-				const toDestroy = this.exiledPanels.splice(10);
-				toDestroy.forEach(p => p.destroy());
-				this.sideMenu.doUpdateHistory();
-			} else this.destroyPanel(id);
-			this.doSaveStateDebounced();
+		if (!panelK) return;
+
+		const toExile = this.panels[panelK];
+		if (toExile.getEmpty()) {
+			this.destroyPanel(id);
+		} else {
+			delete this.panels[panelK];
+			this.exiledPanels.unshift(toExile);
+			const toDestroy = this.exiledPanels.splice(10);
+			toDestroy.forEach(p => p.destroy());
+			this.sideMenu.doUpdateHistory();
 		}
+		this.doSaveStateDebounced();
 	}
 
 	recallPanel (panel) {
@@ -839,7 +843,7 @@ class SideMenu {
 		});
 		renderDivider();
 
-		this.$wrpHistory = $(`<div class="sidemenu__history"></div>`).appendTo(this.$mnu);
+		this.$wrpHistory = $(`<div class="sidemenu__history ve-overflow-y-auto ve-overflow-x-hidden"></div>`).appendTo(this.$mnu);
 	}
 
 	doUpdateDimensions () {
@@ -1213,7 +1217,7 @@ class Panel {
 			$contentStats.append(fn(it));
 
 			const fnBind = Renderer.hover.getFnBindListenersCompact(page);
-			if (fnBind) fnBind(it, $contentInner[0]);
+			if (fnBind) fnBind(it, $contentStats[0]);
 
 			this._stats_bindCrScaleClickHandler(it, meta, $contentInner, $contentStats);
 			this._stats_bindSummonScaleClickHandler(it, meta, $contentInner, $contentStats);
@@ -3549,7 +3553,7 @@ class AddMenuSearchTab extends AddMenuTab {
 			let results = index.search(srch, searchOptions);
 
 			if (this.subType === "content") {
-				results = await Omnisearch.pGetFilteredResults(results);
+				results = await OmnisearchBacking.pGetFilteredResults(results);
 			}
 
 			const resultCount = results.length ? results.length : index.documentStore.length;
@@ -3627,7 +3631,7 @@ class AddMenuSearchTab extends AddMenuTab {
 				await this._pDoSearch();
 			});
 
-			const $srch = $(`<input class="ui-search__ipt-search search form-control" autocomplete="off" placeholder="Search...">`).blurOnEsc().appendTo($wrpCtrls);
+			const $srch = $(`<input class="ui-search__ipt-search search form-control" autocomplete="off" placeholder="Search...">`).appendTo($wrpCtrls);
 			const $results = $(`<div class="ui-search__wrp-results"></div>`).appendTo($tab);
 
 			SearchWidget.bindAutoSearch($srch, {

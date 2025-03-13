@@ -126,6 +126,10 @@ $rgb-inset-border: #656565;
 			&--bg-dark {
 				background: vars.$rgb-off-black;
 			}
+
+			> a {
+				display: block;
+			}
 		}
 
 		&image {
@@ -133,6 +137,10 @@ $rgb-inset-border: #656565;
 			max-width: 100%;
 			max-height: 60vh;
 			cursor: zoom-in;
+		}
+
+		&cvs-image {
+			background: #ccc3;
 		}
 
 		&wrp-map {
@@ -149,7 +157,11 @@ $rgb-inset-border: #656565;
 
 		&wrp-gallery-image {
 			padding: 0 10px 10px;
-			max-width: 33%;
+			width: 33%;
+
+			@media screen and (width <= #{vars.$width-screen-md}) {
+				width: 50%;
+			}
 		}
 
 		&gallery-name {
@@ -245,7 +257,8 @@ $rgb-inset-border: #656565;
 			margin: 0;
 		}
 
-		&list-hang-notitle {
+		&list-hang-notitle,
+		&list-caption {
 			padding: 0;
 			list-style: none;
 
@@ -271,6 +284,14 @@ $rgb-inset-border: #656565;
 				> ul {
 					text-indent: initial;
 				}
+			}
+		}
+
+		&list-caption {
+			> .rd__list-name {
+				font-variant: small-caps;
+				font-weight: bold;
+				font-size: 1.08em;
 			}
 		}
 
@@ -364,7 +385,6 @@ $rgb-inset-border: #656565;
 
 			&-no-name {
 				justify-content: flex-end;
-				float: right;
 			}
 		}
 
@@ -426,6 +446,7 @@ $rgb-inset-border: #656565;
 			border-top: 2px solid $rgb-inset-border;
 			border-bottom: 2px solid $rgb-inset-border;
 			background-color: #e9ecda;
+			text-indent: initial;
 
 			> *:last-child {
 				margin-bottom: 0;
@@ -439,6 +460,14 @@ $rgb-inset-border: #656565;
 				background-color: #eef0f3;
 			}
 
+			&--comic-speaker {
+				&::after {
+					content: "";
+					display: block;
+					clear: both;
+				}
+			}
+
 			&-inner {
 				margin-top: 10px;
 			}
@@ -448,7 +477,7 @@ $rgb-inset-border: #656565;
 			border: 3px solid vars.$rgb-border-yellow--statblock;
 			border-left-width: 1px;
 			border-right-width: 1px;
-			margin: 5px;
+			margin: 15px 5px;
 			width: calc(100% - 12px);
 			table-layout: fixed;
 
@@ -456,6 +485,16 @@ $rgb-inset-border: #656565;
 				box-shadow: 0 0 4px 0 rgb(152 142 124);
 				border: 1px solid $rgb-inset-border;
 				background-color: rgb(156 150 120 / 10%);
+			}
+
+			&--narrow {
+				max-width: 600px;
+				margin: 15px auto;
+
+				@media screen and (width <= #{vars.$width-screen-sm}) {
+					max-width: initial;
+					margin: 15px 5px;
+				}
 			}
 		}
 
@@ -466,19 +505,22 @@ $rgb-inset-border: #656565;
 		&data-embed {
 			&-header {
 				cursor: pointer;
-				font-family: "Times New Roman", serif;
-				font-variant: small-caps;
-				text-transform: uppercase;
-				font-weight: bold;
 
 				&:hover {
 					background: rgb(100 100 100 / 8%);
 				}
 			}
 
-			&-toggle {
-				font-family: Arial, sans-serif;
-				float: right;
+			&-name {
+				font-family: "Times New Roman", serif;
+				font-variant: small-caps;
+				text-transform: uppercase;
+				font-weight: bold;
+			}
+
+			&-name-expanded {
+				font-weight: normal;
+				font-size: 90%;
 			}
 		}
 
@@ -513,6 +555,25 @@ $rgb-inset-border: #656565;
 				padding: 0;
 				font-weight: bold;
 				font-size: 1.08em;
+			}
+		}
+
+		&th {
+			text-align: left;
+
+			&-skewer {
+				&::after {
+					position: relative;
+					bottom: 3px;
+					left: 0;
+					margin: 0 auto;
+					padding: 0;
+					display: block;
+					content: "";
+					height: 3px;
+					width: 96%;
+					border-bottom: 1px solid vars.$rgb-border-grey;
+				}
 			}
 		}
 
@@ -559,8 +620,8 @@ $rgb-inset-border: #656565;
 
 				&::after {
 					content: "";
-					clear: both;
 					display: block;
+					clear: both;
 				}
 			}
 		}

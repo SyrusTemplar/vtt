@@ -22,6 +22,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 106,
 			"_copy": {
 				"name": "Ghost",
 				"source": "MM",
@@ -801,6 +802,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 66,
 			"_copy": {
 				"name": "Tower Sage",
 				"source": "QftIS",
@@ -1418,7 +1420,7 @@
 				{
 					"name": "Special Equipment",
 					"entries": [
-						"Drelnza wields Heretic."
+						"Drelnza wields {@item Heretic|QftIS}."
 					]
 				},
 				{
@@ -1667,6 +1669,9 @@
 				"intelligence",
 				"strength"
 			],
+			"savingThrowForcedLegendary": [
+				"wisdom"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -1756,6 +1761,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 70,
 			"_copy": {
 				"name": "Young Red Dragon",
 				"source": "MM",
@@ -2054,6 +2060,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 108,
 			"_copy": {
 				"name": "Acolyte",
 				"source": "MM",
@@ -2083,6 +2090,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 79,
 			"_copy": {
 				"name": "Bandit Captain",
 				"source": "MM",
@@ -2112,6 +2120,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 98,
 			"_copy": {
 				"name": "Noble",
 				"source": "MM",
@@ -2842,6 +2851,10 @@
 			"savingThrowForced": [
 				"strength"
 			],
+			"savingThrowForcedLegendary": [
+				"dexterity",
+				"strength"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -3043,6 +3056,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 98,
 			"_copy": {
 				"name": "Noble",
 				"source": "MM",
@@ -3224,6 +3238,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 67,
 			"_copy": {
 				"name": "Tower Sage",
 				"source": "QftIS",
@@ -3265,6 +3280,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 66,
 			"_copy": {
 				"name": "Tower Sage",
 				"source": "QftIS",
@@ -3294,6 +3310,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 34,
 			"_copy": {
 				"name": "Wight",
 				"source": "MM",
@@ -3335,6 +3352,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 68,
 			"_copy": {
 				"name": "Tower Sage",
 				"source": "QftIS",
@@ -3364,6 +3382,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 92,
 			"_copy": {
 				"name": "Unicorn",
 				"source": "MM",
@@ -3546,6 +3565,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 144,
 			"_copy": {
 				"name": "Wraith",
 				"source": "MM",
@@ -3565,6 +3585,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 92,
 			"_copy": {
 				"name": "Unicorn",
 				"source": "MM",
@@ -3885,6 +3906,10 @@
 			"savingThrowForced": [
 				"constitution"
 			],
+			"savingThrowForcedLegendary": [
+				"dexterity",
+				"wisdom"
+			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -4109,6 +4134,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 120,
 			"_copy": {
 				"name": "Knight",
 				"source": "MM",
@@ -4218,6 +4244,7 @@
 				}
 			],
 			"traitTags": [
+				"Camouflage",
 				"Regeneration"
 			],
 			"senseTags": [
@@ -4337,6 +4364,7 @@
 				"sling|phb"
 			],
 			"traitTags": [
+				"Camouflage",
 				"Regeneration"
 			],
 			"senseTags": [
@@ -4438,6 +4466,7 @@
 				}
 			],
 			"traitTags": [
+				"Camouflage",
 				"Pack Tactics",
 				"Regeneration"
 			],
@@ -4462,6 +4491,7 @@
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "QftIS",
+			"page": 88,
 			"_copy": {
 				"name": "Young Bronze Dragon",
 				"source": "MM",
@@ -4954,6 +4984,9 @@
 				"charisma",
 				"constitution",
 				"dexterity"
+			],
+			"savingThrowForcedLegendary": [
+				"constitution"
 			],
 			"hasToken": true,
 			"hasFluff": true,

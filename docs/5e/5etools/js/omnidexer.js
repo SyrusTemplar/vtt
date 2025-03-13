@@ -1,4 +1,4 @@
-import {UtilsFoundryItem} from "./utils-foundry.js";
+import {UtilsFoundryItem} from "./foundry/foundry-utils.js";
 
 class FoundryOmnidexerUtils {
 	static getPackedFoundryExtras ({prop, ent}) {
@@ -588,7 +588,7 @@ class IndexableFileMagicVariants extends IndexableFile {
 			additionalIndexes: {
 				item: async (indexer, rawVariants) => {
 					const specVars = await (async () => {
-						const baseItemJson = await DataUtil.loadJSON(`data/items-base.json`);
+						const baseItemJson = await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/items-base.json`);
 						const rawBaseItems = {...baseItemJson, baseitem: [...baseItemJson.baseitem]};
 
 						const prerelease = typeof PrereleaseUtil !== "undefined" ? await PrereleaseUtil.pGetBrewProcessed() : {};
@@ -1298,6 +1298,18 @@ class IndexableFileDecks extends IndexableFile {
 	}
 }
 
+class IndexableFileFacilities extends IndexableFile {
+	constructor () {
+		super({
+			category: Parser.CAT_ID_FACILITY,
+			file: "bastions.json",
+			listProp: "facility",
+			baseUrl: UrlUtil.PG_BASTIONS,
+			isHover: true,
+		});
+	}
+}
+
 class IndexableLegendaryGroups extends IndexableFile {
 	constructor () {
 		super({
@@ -1358,6 +1370,7 @@ Omnidexer.TO_INDEX = [
 	new IndexableFileTableGroups(),
 	new IndexableFileCards(),
 	new IndexableFileDecks(),
+	new IndexableFileFacilities(),
 	new IndexableLegendaryGroups(),
 
 	new IndexableFileVehicles(),

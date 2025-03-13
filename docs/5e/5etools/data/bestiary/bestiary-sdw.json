@@ -493,7 +493,9 @@
 				"wisdom"
 			],
 			"savingThrowForcedLegendary": [
-				"constitution"
+				"constitution",
+				"dexterity",
+				"strength"
 			],
 			"savingThrowForcedSpell": [
 				"dexterity",
@@ -828,6 +830,9 @@
 			},
 			"speed": {
 				"walk": 30
+			},
+			"initiative": {
+				"advantageMode": "adv"
 			},
 			"str": 18,
 			"dex": 14,

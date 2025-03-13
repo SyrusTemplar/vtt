@@ -27,6 +27,7 @@
 			"spellcastingAbility": "wis",
 			"casterProgression": "full",
 			"preparedSpells": "<$level$> + <$wis_mod$>",
+			"preparedSpellsChange": "restLong",
 			"cantripProgression": [
 				3,
 				3,
@@ -106,7 +107,7 @@
 					{
 						"a": [
 							"light crossbow|phb",
-							"Crossbow Bolts (20)|phb"
+							"crossbow bolts (20)|phb"
 						],
 						"b": [
 							{
@@ -523,6 +524,29 @@
 			],
 			"spellcastingAbility": "wis",
 			"casterProgression": "full",
+			"preparedSpellsProgression": [
+				4,
+				5,
+				6,
+				7,
+				9,
+				10,
+				11,
+				12,
+				14,
+				15,
+				16,
+				16,
+				17,
+				17,
+				18,
+				18,
+				19,
+				20,
+				21,
+				22
+			],
+			"preparedSpellsChange": "restLong",
 			"cantripProgression": [
 				3,
 				3,
@@ -544,6 +568,17 @@
 				5,
 				5,
 				5
+			],
+			"featProgression": [
+				{
+					"name": "Epic Boon",
+					"category": [
+						"EB"
+					],
+					"progression": {
+						"19": 1
+					}
+				}
 			],
 			"startingProficiencies": {
 				"armor": [
@@ -570,9 +605,7 @@
 				]
 			},
 			"startingEquipment": {
-				"entries": [
-					"{@i Choose A or B:} (A) {@item Chain Shirt|XPHB}, {@item Shield|XPHB}, {@item Mace|XPHB}, {@item Holy Symbol|XPHB}, {@item Priest's Pack|XPHB}, 7 GP; or (B) 90 GP"
-				],
+				"additionalFromBackground": true,
 				"defaultData": [
 					{
 						"A": [
@@ -592,7 +625,7 @@
 								"item": "priest's pack|xphb"
 							},
 							{
-								"value": 1900
+								"value": 7000
 							}
 						],
 						"B": [
@@ -601,6 +634,9 @@
 							}
 						]
 					}
+				],
+				"entries": [
+					"{@i Choose A or B:} (A) {@item Chain Shirt|XPHB}, {@item Shield|XPHB}, {@item Mace|XPHB}, {@item Holy Symbol|XPHB}, {@item Priest's Pack|XPHB}, 7 GP; or (B) 110 GP"
 				]
 			},
 			"multiclassing": {
@@ -723,7 +759,7 @@
 					]
 				},
 				{
-					"title": "Prepared Spells per Spell Level",
+					"title": "Spell Slots per Spell Level",
 					"colLabels": [
 						"{@filter 1st|spells|level=1|class=Cleric}",
 						"{@filter 2nd|spells|level=2|class=Cleric}",
@@ -2312,146 +2348,6 @@
 			}
 		},
 		{
-			"name": "Community Domain",
-			"shortName": "Community",
-			"source": "HWCS",
-			"className": "Cleric",
-			"classSource": "PHB",
-			"page": 39,
-			"edition": "classic",
-			"additionalSpells": [
-				{
-					"prepared": {
-						"1": [
-							"bless",
-							"goodberry"
-						],
-						"3": [
-							"aid",
-							"heroism"
-						],
-						"5": [
-							"beacon of hope",
-							"spirit guardians"
-						],
-						"7": [
-							"banishment",
-							"mordenkainen's faithful hound"
-						],
-						"9": [
-							"mass cure wounds",
-							"rary's telepathic bond"
-						]
-					}
-				}
-			],
-			"subclassFeatures": [
-				"Community Domain|Cleric||Community|HWCS|1",
-				"Channel Divinity: Magnificent Feast|Cleric||Community|HWCS|2",
-				"Channel Divinity: Community Watch|Cleric||Community|HWCS|6",
-				"Divine Strike|Cleric||Community|HWCS|8",
-				"Paragon of the People|Cleric||Community|HWCS|17"
-			]
-		},
-		{
-			"name": "Community Domain",
-			"shortName": "Community",
-			"source": "HWCS",
-			"className": "Cleric",
-			"classSource": "XPHB",
-			"_copy": {
-				"name": "Community Domain",
-				"source": "HWCS",
-				"shortName": "Community",
-				"className": "Cleric",
-				"classSource": "PHB",
-				"_preserve": {
-					"page": true,
-					"otherSources": true,
-					"srd": true,
-					"basicRules": true,
-					"reprintedAs": true
-				}
-			},
-			"subclassFeatures": [
-				"Community Domain|Cleric|XPHB|Community|HWCS|3",
-				"Channel Divinity: Magnificent Feast|Cleric|XPHB|Community|HWCS|3",
-				"Channel Divinity: Community Watch|Cleric||Community|HWCS|6",
-				"Divine Strike|Cleric||Community|HWCS|8",
-				"Paragon of the People|Cleric||Community|HWCS|17"
-			]
-		},
-		{
-			"name": "Night Domain",
-			"shortName": "Night",
-			"source": "HWCS",
-			"className": "Cleric",
-			"classSource": "PHB",
-			"page": 40,
-			"edition": "classic",
-			"additionalSpells": [
-				{
-					"prepared": {
-						"1": [
-							"sleep",
-							"veil of dusk|HWCS"
-						],
-						"3": [
-							"darkness",
-							"moonbeam"
-						],
-						"5": [
-							"nondetection",
-							"globe of twilight|HWCS"
-						],
-						"7": [
-							"divination",
-							"stellar bodies|HWCS"
-						],
-						"9": [
-							"dream",
-							"seeming"
-						]
-					}
-				}
-			],
-			"subclassFeatures": [
-				"Night Domain|Cleric||Night|HWCS|1",
-				"Channel Divinity: Invocation of Night|Cleric||Night|HWCS|2",
-				"Improved Ward|Cleric||Night|HWCS|6",
-				"Veil of Dreams|Cleric||Night|HWCS|8",
-				"Creature of the Night|Cleric||Night|HWCS|17"
-			]
-		},
-		{
-			"name": "Night Domain",
-			"shortName": "Night",
-			"source": "HWCS",
-			"className": "Cleric",
-			"classSource": "XPHB",
-			"_copy": {
-				"name": "Night Domain",
-				"source": "HWCS",
-				"shortName": "Night",
-				"className": "Cleric",
-				"classSource": "PHB",
-				"_preserve": {
-					"page": true,
-					"otherSources": true,
-					"srd": true,
-					"basicRules": true,
-					"reprintedAs": true
-				}
-			},
-			"subclassFeatures": [
-				"Night Domain|Cleric|XPHB|Night|HWCS|3",
-				"Channel Divinity: Invocation of Night|Cleric|XPHB|Night|HWCS|3",
-				"Improved Ward|Cleric||Night|HWCS|6",
-				"Veil of Dreams|Cleric||Night|HWCS|8",
-				"Creature of the Night|Cleric||Night|HWCS|17"
-			]
-		},
-		{
 			"name": "Order Domain",
 			"shortName": "Order",
 			"source": "TCE",
@@ -2923,7 +2819,7 @@
 						"3": [
 							"burning hands|xphb",
 							"faerie fire|xphb",
-							"moonbeam|xphb",
+							"scorching ray|xphb",
 							"see invisibility|xphb"
 						],
 						"5": [
@@ -2974,8 +2870,8 @@
 							"dimension door|xphb"
 						],
 						"9": [
-							"hold monster|xphb",
-							"mislead|xphb"
+							"dominate person|xphb",
+							"modify memory|xphb"
 						]
 					}
 				}
@@ -2999,7 +2895,7 @@
 				{
 					"prepared": {
 						"3": [
-							"divine favor|xphb",
+							"guiding bolt|xphb",
 							"magic weapon|xphb",
 							"shield of faith|xphb",
 							"spiritual weapon|xphb"
@@ -3009,12 +2905,12 @@
 							"spirit guardians|xphb"
 						],
 						"7": [
-							"freedom of movement|xphb",
-							"stoneskin|xphb"
+							"fire shield|xphb",
+							"freedom of movement|xphb"
 						],
 						"9": [
-							"destructive wave|xphb",
-							"hold monster|xphb"
+							"hold monster|xphb",
+							"steel wind strike|xphb"
 						]
 					}
 				}
@@ -3432,24 +3328,30 @@
 			"entries": [
 				"You have dedicated yourself to one of the following sacred roles of your choice.",
 				{
-					"type": "entries",
+					"type": "options",
+					"count": 1,
 					"entries": [
 						{
-							"type": "entries",
-							"name": "Protector",
-							"entries": [
-								"Trained for battle, you gain proficiency with Martial weapons and training with Heavy armor."
-							]
+							"type": "refClassFeature",
+							"classFeature": "Protector|Cleric|XPHB|1|XPHB"
 						},
 						{
-							"type": "entries",
-							"name": "Thaumaturge",
-							"entries": [
-								"You know one extra cantrip from the {@filter Cleric spell list|spells|class=Cleric}. In addition, your mystical connection to the divine gives you a bonus to your Intelligence ({@skill Arcana|XPHB} or {@skill Religion|XPHB}) checks. The bonus equals your Wisdom modifier (minimum of +1)."
-							]
+							"type": "refClassFeature",
+							"classFeature": "Thaumaturge|Cleric|XPHB|1|XPHB"
 						}
 					]
 				}
+			]
+		},
+		{
+			"name": "Protector",
+			"source": "XPHB",
+			"page": 70,
+			"className": "Cleric",
+			"classSource": "XPHB",
+			"level": 1,
+			"entries": [
+				"Trained for battle, you gain proficiency with {@filter Martial weapons|items|type=martial weapon} and training with {@filter Heavy armor|items|type=Heavy Armor}."
 			]
 		},
 		{
@@ -3512,6 +3414,17 @@
 						}
 					]
 				}
+			]
+		},
+		{
+			"name": "Thaumaturge",
+			"source": "XPHB",
+			"page": 70,
+			"className": "Cleric",
+			"classSource": "XPHB",
+			"level": 1,
+			"entries": [
+				"You know one extra cantrip from the {@filter Cleric spell list|spells|class=Cleric}. In addition, your mystical connection to the divine gives you a bonus to your Intelligence ({@skill Arcana|XPHB} or {@skill Religion|XPHB}) checks. The bonus equals your Wisdom modifier (minimum of +1)."
 			]
 		},
 		{
@@ -3694,7 +3607,7 @@
 							"type": "entries",
 							"name": "Divine Strike",
 							"entries": [
-								"The extra damage of your Divine Strike increases to {@dice 2d8}."
+								"The extra damage of your Divine Strike increases to {@damage 2d8}."
 							]
 						},
 						{
@@ -3897,7 +3810,7 @@
 			"level": 8,
 			"header": 2,
 			"entries": [
-				"At 8th level, the cleric gains the ability to infuse his or her weapon strikes with necrotic energy. Once on each of the cleric's turns when he or she hits a creature with a weapon attack, the cleric can cause the attack to deal an extra {@damage 1d8} necrotic damage to the target. When the cleric reaches 14th level, the extra damage increases to {@dice 2d8}."
+				"At 8th level, the cleric gains the ability to infuse his or her weapon strikes with necrotic energy. Once on each of the cleric's turns when he or she hits a creature with a weapon attack, the cleric can cause the attack to deal an extra {@damage 1d8} necrotic damage to the target. When the cleric reaches 14th level, the extra damage increases to {@damage 2d8}."
 			]
 		},
 		{
@@ -3912,276 +3825,6 @@
 			"header": 2,
 			"entries": [
 				"Starting at 17th level, when the cleric casts a Necromancy spell of 1st through 5th-level that targets only one creature, the spell can instead target two creatures within range and within 5 feet of each other. If the spell consumes its material components, the cleric must provide them for each target."
-			]
-		},
-		{
-			"name": "Community Domain",
-			"source": "HWCS",
-			"page": 39,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Community",
-			"subclassSource": "HWCS",
-			"level": 1,
-			"entries": [
-				"The community domain focuses on the ties that bind all people together. These are the ties of family and friendship, the ties to ancestors, as well as the ties between elders and the next generation with whom they share their wisdom. The power of the Gods of community is in the security of home and hearth, and the joy of good company. Many such gods teach the value of tradition and simple ways of living in harmony with the natural world. They also tend towards the rule of law, not as a kind of great bureaucracy, but as sacred traditions passed from generation to generation. Some gods advocate the removal of harsh or disruptive forces to this order, and proper sanctions for the violation of the goodwill that any community ought to provide.",
-				"Clerics of such gods value unity, and praise the strength that can be gained when people support each other.",
-				{
-					"type": "table",
-					"caption": "Community Domain Spells",
-					"colLabels": [
-						"Cleric Level",
-						"Spells"
-					],
-					"colStyles": [
-						"col-3 text-center",
-						"col-9"
-					],
-					"rows": [
-						[
-							"1st",
-							"{@spell Bless}, {@spell Goodberry}"
-						],
-						[
-							"3rd",
-							"{@spell Aid}, {@spell Heroism}"
-						],
-						[
-							"5th",
-							"{@spell Beacon of Hope}, {@spell Spirit Guardians}"
-						],
-						[
-							"7th",
-							"{@spell Banishment}, {@spell Mordenkainen's Faithful Hound}"
-						],
-						[
-							"9th",
-							"{@spell Mass Cure Wounds}, {@spell Rary's Telepathic Bond}"
-						]
-					]
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Blessing of the Hearth|Cleric||Community|HWCS|1"
-				}
-			]
-		},
-		{
-			"name": "Blessing of the Hearth",
-			"source": "HWCS",
-			"page": 39,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Community",
-			"subclassSource": "HWCS",
-			"level": 1,
-			"header": 1,
-			"entries": [
-				"From 1st level, you gain the ability to conjure a small flagstone hearth with a simple iron cooking pot whenever you rest. This hearth helps warm you and your companions, and can be used to prepare hearty and nutritious meals on the road. If you or any friendly creatures you make camp with would regain hit points at the end of a short rest by spending one or more hit dice, each of those creatures may choose to re-roll one of their resting dice, taking the higher roll between the two.",
-				"Additionally, you gain proficiency with {@item Cook's Utensils|PHB}."
-			]
-		},
-		{
-			"name": "Channel Divinity: Magnificent Feast",
-			"source": "HWCS",
-			"page": 39,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Community",
-			"subclassSource": "HWCS",
-			"level": 2,
-			"header": 2,
-			"entries": [
-				"Starting at 2nd level, you may use your Channel Divinity to conjure a magical feast for the rough road ahead. By spending 10 minutes, you may create a number of delicious, well-prepared, yet simple food items equal to your Wisdom modifier (minimum of 1). These food items will last up to 8 hours or until the end of a rest, and will never spoil. Eating food created in this way takes an action, providing whomever eats it with healing equal to {@dice 2d4} + your cleric level, and can remove either the {@condition frightened} or {@condition poisoned} condition from that creature (chosen by the creature when consumed)."
-			]
-		},
-		{
-			"name": "Channel Divinity: Community Watch",
-			"source": "HWCS",
-			"page": 39,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Community",
-			"subclassSource": "HWCS",
-			"level": 6,
-			"header": 2,
-			"entries": [
-				"Starting at 6th level, you can use your Channel Divinity to instill a feeling of vigilant protection in you and your allies. You grant yourself and a number of allies, up to your Wisdom modifier (minimum of 1), a boon from your deity. Allies must be able to see you and be within 30 feet to receive the boon. Once per round, a creature benefitting from this boon can roll a {@dice d6}, adding the result to a skill check, saving throw, or attack roll. This effect lasts for a number of rounds equal to your Wisdom modifier (minimum of 1 round). A creature can only benefit from this effect if it can see at least one of its allies."
-			]
-		},
-		{
-			"name": "Divine Strike",
-			"source": "HWCS",
-			"page": 39,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Community",
-			"subclassSource": "HWCS",
-			"level": 8,
-			"header": 2,
-			"entries": [
-				"At 8th level, you gain the ability to infuse your weapon with the power to punish wrongdoing. Once on each of your turns, when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@dice 1d8} psychic damage to the target. Visions of the evil they have wrought upon others flash before their eyes. You choose whether any foe reduced to 0 hit points by this attack remains stable or dies. When you reach 14th level, the extra damage increases to {@dice 2d8}."
-			]
-		},
-		{
-			"name": "Paragon of the People",
-			"source": "HWCS",
-			"page": 39,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Community",
-			"subclassSource": "HWCS",
-			"level": 17,
-			"header": 2,
-			"entries": [
-				"At 17th level, your Community Watch grants an additional {@dice d6} to each affected ally. It also grants immunity to fear for the duration of the effect. Additionally, your Magnificent Feast produces twice as many foodstuffs, each of which can, when consumed, remove a single curse or disease affecting the target (including attunement to a cursed item)."
-			]
-		},
-		{
-			"name": "Night Domain",
-			"source": "HWCS",
-			"page": 40,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Night",
-			"subclassSource": "HWCS",
-			"level": 1,
-			"entries": [
-				"The night is mysterious, and conceals many unseen dangers. However, the cover of darkness also brings protection from predators and shadows within which one can conceal themselves. The gods of night are varied, encompassing those who would use the cover of darkness to protect others from threats, to those who would use the shadows for wrong doings. The motives of night gods are often shrouded in mystery. Many teach their followers that it is only by peering through the darkness and looking beyond what is hidden that one can attain truth. Clerics of night do their best to keep themselves and their companions safe while journeying through the darkness.",
-				{
-					"type": "table",
-					"caption": "Night Domain Spells",
-					"colLabels": [
-						"Cleric Level",
-						"Spells"
-					],
-					"colStyles": [
-						"col-3 text-center",
-						"col-9"
-					],
-					"rows": [
-						[
-							"1st",
-							"{@spell Sleep}, {@spell Veil of Dusk|HWCS}"
-						],
-						[
-							"3rd",
-							"{@spell Darkness}, {@spell Moonbeam}"
-						],
-						[
-							"5th",
-							"{@spell Nondetection}, {@spell Globe of Twilight|HWCS}"
-						],
-						[
-							"7th",
-							"{@spell Divination}, {@spell Stellar Bodies|HWCS}"
-						],
-						[
-							"9th",
-							"{@spell Dream}, {@spell Seeming}"
-						]
-					]
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Eye of Twilight|Cleric||Night|HWCS|1"
-				},
-				{
-					"type": "refSubclassFeature",
-					"subclassFeature": "Ward of Shadows|Cleric||Night|HWCS|1"
-				}
-			]
-		},
-		{
-			"name": "Eye of Twilight",
-			"source": "HWCS",
-			"page": 40,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Night",
-			"subclassSource": "HWCS",
-			"level": 1,
-			"header": 1,
-			"entries": [
-				"Beginning at 1st level, a divine blessing grants you the ability to see more clearly in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in magical or nonmagical darkness as if it were only dim light. You can't discern color in the darkness, only shades of gray.",
-				"When you reach 6th level, you can see in dim light within 120 feet of you as if it were bright light, and in magical or nonmagical darkness as if it were dim light. You can't discern color in the darkness, only shades of gray.",
-				"At 8th level, you can see normally in darkness, both magical and nonmagical within 120 feet.",
-				"Finally, at 17th level, your eyes are able to see the truth hiding within darkness. You gain the ability to call upon the powers of your deity to grant yourself {@sense truesight} within 120 feet of you for a number of minutes equal to your Wisdom modifier (a minimum of 1 minute). Your {@sense truesight} only functions while in conditions of magical or nonmagical darkness. Once you have used this feature, you cannot use it again until you have completed a long rest."
-			]
-		},
-		{
-			"name": "Ward of Shadows",
-			"source": "HWCS",
-			"page": 40,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Night",
-			"subclassSource": "HWCS",
-			"level": 1,
-			"header": 1,
-			"entries": [
-				"At 1st level, you can create a ward of divine shadows to conceal yourself from an attacking enemy. When attacked by a creature you can see within 30 feet of you, you can use your reaction to impose disadvantage on the attack roll, as shadows envelop your form. An attacker that can't be {@condition blinded} is immune to this feature.",
-				"You can use this feature a number of times equal to your Wisdom modifier (a minimum of once), and regain all expended uses when you finish a long rest."
-			]
-		},
-		{
-			"name": "Channel Divinity: Invocation of Night",
-			"source": "HWCS",
-			"page": 40,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Night",
-			"subclassSource": "HWCS",
-			"level": 2,
-			"header": 2,
-			"entries": [
-				"Starting at 2nd level, you can use your Channel Divinity to harness the powers of night, clouding the vision of your foes in a shroud of darkness.",
-				"As an action, you present your holy symbol causing any source of mundane or magical light within 30 feet of you to be extinguished. Additionally, each hostile creature within 30 feet of you must make a Constitution saving throw. A creature who fails the saving throw is {@condition blinded} for a number of rounds equal to your cleric level. A creature blinded in this way gets a new saving throw at the end of each of its turns to remove the effect. A creature that has {@quickref Cover||3||total cover} from you is not affected."
-			]
-		},
-		{
-			"name": "Improved Ward",
-			"source": "HWCS",
-			"page": 40,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Night",
-			"subclassSource": "HWCS",
-			"level": 6,
-			"header": 2,
-			"entries": [
-				"At 6th level, you can use your Ward of Shadows feature whenever a creature you can see within 30 feet of you attacks a creature besides yourself."
-			]
-		},
-		{
-			"name": "Veil of Dreams",
-			"source": "HWCS",
-			"page": 40,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Night",
-			"subclassSource": "HWCS",
-			"level": 8,
-			"header": 2,
-			"entries": [
-				"When you reach 8th level, you gain mastery over magical sleep. When you cast the {@spell sleep} spell, add your cleric level to the dice you roll to determine how many hit points of creatures the spell can affect.",
-				"You may choose the order in which creatures within the spell's area are affected. If the first target chosen has too many hit points to be affected, the spell will instead target the next creature you have chosen that the spell could affect before affecting other targets.",
-				"Additionally, any creature you put to sleep cannot be woken until the start of your next turn. Otherwise, the {@spell sleep} spell acts as normal."
-			]
-		},
-		{
-			"name": "Creature of the Night",
-			"source": "HWCS",
-			"page": 40,
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Night",
-			"subclassSource": "HWCS",
-			"level": 17,
-			"header": 2,
-			"entries": [
-				"Starting at 17th level, you can use your action to activate a supernatural aura of deep night. It lasts for 1 minute, or until you dismiss it using another action. You emit heavily obscuring darkness in a 30-foot radius and lightly obscuring shadows 50 feet beyond that. The darkness and shadows overlap and smother existing sources of light. Only light produced by a 9th level spell or similarly powerful effect can negate the darkness and shadows.",
-				"Enemies within the shadows constantly feel the presence of hungry predators watching them, and become {@condition frightened} as long as they remain inside the affected area. Enemies in the darkness are both {@condition blinded} and {@condition frightened} for as long as they remain within its area."
 			]
 		},
 		{
@@ -4512,7 +4155,7 @@
 			"level": 8,
 			"header": 2,
 			"entries": [
-				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} radiant damage to the target. When you reach 14th level, the extra damage increases to {@dice 2d8}."
+				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} radiant damage to the target. When you reach 14th level, the extra damage increases to {@damage 2d8}."
 			]
 		},
 		{
@@ -4631,7 +4274,7 @@
 			},
 			"entries": [
 				"Starting at 2nd level, you can use your Channel Divinity to harness sunlight, banishing darkness and dealing radiant damage to your foes.",
-				"As an action, you present your holy symbol, and any magical darkness within 30 feet of you is dispelled. Additionally, each hostile creature within 30 feet of you must make a Constitution saving throw. A creature takes radiant damage equal to {@dice 2d10} + your cleric level on a failed saving throw, and half as much damage on a successful one. A creature that has {@quickref Cover||3||total cover} from you is not affected."
+				"As an action, you present your holy symbol, and any magical darkness within 30 feet of you is dispelled. Additionally, each hostile creature within 30 feet of you must make a Constitution saving throw. A creature takes radiant damage equal to {@damage 2d10} + your cleric level on a failed saving throw, and half as much damage on a successful one. A creature that has {@quickref Cover||3||total cover} from you is not affected."
 			]
 		},
 		{
@@ -4835,7 +4478,7 @@
 			"level": 8,
 			"header": 2,
 			"entries": [
-				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} cold, fire, or lightning damage (your choice) to the target. When you reach 14th level, the extra damage increases to {@dice 2d8}."
+				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} cold, fire, or lightning damage (your choice) to the target. When you reach 14th level, the extra damage increases to {@damage 2d8}."
 			]
 		},
 		{
@@ -4996,7 +4639,7 @@
 			"level": 8,
 			"header": 2,
 			"entries": [
-				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} thunder damage to the target. When you reach 14th level, the extra damage increases to {@dice 2d8}."
+				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} thunder damage to the target. When you reach 14th level, the extra damage increases to {@damage 2d8}."
 			]
 		},
 		{
@@ -5143,7 +4786,7 @@
 			"level": 8,
 			"header": 2,
 			"entries": [
-				"At 8th level, you gain the ability to infuse your weapon strikes with poison\u2014a gift from your deity. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} poison damage to the target. When you reach 14th level, the extra damage increases to {@dice 2d8}."
+				"At 8th level, you gain the ability to infuse your weapon strikes with poison\u2014a gift from your deity. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} poison damage to the target. When you reach 14th level, the extra damage increases to {@damage 2d8}."
 			]
 		},
 		{
@@ -5305,7 +4948,7 @@
 			"level": 8,
 			"header": 2,
 			"entries": [
-				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} damage of the same type dealt by the weapon to the target. When you reach 14th level, the extra damage increases to {@dice 2d8}."
+				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} damage of the same type dealt by the weapon to the target. When you reach 14th level, the extra damage increases to {@damage 2d8}."
 			]
 		},
 		{
@@ -5648,7 +5291,7 @@
 			"level": 8,
 			"header": 2,
 			"entries": [
-				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} damage of the same type dealt by the weapon to the target. When you reach 14th level, the extra damage increases to {@dice 2d8}."
+				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} damage of the same type dealt by the weapon to the target. When you reach 14th level, the extra damage increases to {@damage 2d8}."
 			]
 		},
 		{
@@ -5813,7 +5456,7 @@
 			"level": 8,
 			"header": 2,
 			"entries": [
-				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} damage of the same type dealt by the weapon to the target. When you reach 14th level, the extra damage increases to {@dice 2d8}."
+				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} damage of the same type dealt by the weapon to the target. When you reach 14th level, the extra damage increases to {@damage 2d8}."
 			]
 		},
 		{
@@ -5980,7 +5623,7 @@
 			"level": 8,
 			"header": 2,
 			"entries": [
-				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} damage of the same type dealt by the weapon to the target. When you reach 14th level, the extra damage increases to {@dice 2d8}."
+				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} damage of the same type dealt by the weapon to the target. When you reach 14th level, the extra damage increases to {@damage 2d8}."
 			]
 		},
 		{
@@ -6362,7 +6005,7 @@
 			"level": 8,
 			"header": 2,
 			"entries": [
-				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} psychic damage to the target. When you reach 14th level, the extra damage increases to {@dice 2d8}."
+				"At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} psychic damage to the target. When you reach 14th level, the extra damage increases to {@damage 2d8}."
 			]
 		},
 		{
@@ -6834,7 +6477,7 @@
 			"header": 2,
 			"entries": [
 				"{@i 8th-level Twilight Domain feature}",
-				"You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} radiant damage. When you reach 14th level, the extra damage increases to {@dice 2d8}."
+				"You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} radiant damage. When you reach 14th level, the extra damage increases to {@damage 2d8}."
 			]
 		},
 		{
@@ -7400,7 +7043,7 @@
 			"level": 8,
 			"header": 2,
 			"entries": [
-				"At 8th level, you gain the ability to infuse your weapon strikes with the fiery power of the forge. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} fire damage to the target. When you reach 14th level, the extra damage increases to {@dice 2d8}."
+				"At 8th level, you gain the ability to infuse your weapon strikes with the fiery power of the forge. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra {@damage 1d8} fire damage to the target. When you reach 14th level, the extra damage increases to {@damage 2d8}."
 			]
 		},
 		{
@@ -7622,90 +7265,6 @@
 				"classSource": "PHB",
 				"subclassShortName": "Death",
 				"subclassSource": "DMG",
-				"level": 1,
-				"_preserve": {
-					"page": true
-				}
-			}
-		},
-		{
-			"name": "Channel Divinity: Magnificent Feast",
-			"source": "HWCS",
-			"className": "Cleric",
-			"classSource": "XPHB",
-			"subclassShortName": "Community",
-			"subclassSource": "HWCS",
-			"level": 3,
-			"_copy": {
-				"name": "Channel Divinity: Magnificent Feast",
-				"source": "HWCS",
-				"className": "Cleric",
-				"classSource": "PHB",
-				"subclassShortName": "Community",
-				"subclassSource": "HWCS",
-				"level": 2,
-				"_preserve": {
-					"page": true
-				}
-			}
-		},
-		{
-			"name": "Community Domain",
-			"source": "HWCS",
-			"className": "Cleric",
-			"classSource": "XPHB",
-			"subclassShortName": "Community",
-			"subclassSource": "HWCS",
-			"level": 3,
-			"_copy": {
-				"name": "Community Domain",
-				"source": "HWCS",
-				"className": "Cleric",
-				"classSource": "PHB",
-				"subclassShortName": "Community",
-				"subclassSource": "HWCS",
-				"level": 1,
-				"_preserve": {
-					"page": true
-				}
-			}
-		},
-		{
-			"name": "Channel Divinity: Invocation of Night",
-			"source": "HWCS",
-			"className": "Cleric",
-			"classSource": "XPHB",
-			"subclassShortName": "Night",
-			"subclassSource": "HWCS",
-			"level": 3,
-			"_copy": {
-				"name": "Channel Divinity: Invocation of Night",
-				"source": "HWCS",
-				"className": "Cleric",
-				"classSource": "PHB",
-				"subclassShortName": "Night",
-				"subclassSource": "HWCS",
-				"level": 2,
-				"_preserve": {
-					"page": true
-				}
-			}
-		},
-		{
-			"name": "Night Domain",
-			"source": "HWCS",
-			"className": "Cleric",
-			"classSource": "XPHB",
-			"subclassShortName": "Night",
-			"subclassSource": "HWCS",
-			"level": 3,
-			"_copy": {
-				"name": "Night Domain",
-				"source": "HWCS",
-				"className": "Cleric",
-				"classSource": "PHB",
-				"subclassShortName": "Night",
-				"subclassSource": "HWCS",
 				"level": 1,
 				"_preserve": {
 					"page": true
@@ -8815,7 +8374,7 @@
 				"Gods of trickery are mischief-makers and instigators who stand as a constant challenge to the accepted order among both gods and mortals. They embody the forces of change and social upheaval, and they're patrons of thieves, scoundrels, gamblers, rebels, and liberators. Religious orders that operate in secret, especially those that seek to undermine oppressive governments or hierarchies, also draw on the power of the Trickery Domain.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Domain Spells|Cleric|XPHB|Trickery|XPHB|3"
+					"subclassFeature": "Trickery Domain Spells|Cleric|XPHB|Trickery|XPHB|3"
 				},
 				{
 					"type": "refSubclassFeature",
@@ -8836,13 +8395,51 @@
 			"subclassShortName": "Trickery",
 			"subclassSource": "XPHB",
 			"level": 3,
-			"header": 1,
+			"header": 2,
 			"entries": [
 				"As a {@action Magic|XPHB} action, you can choose yourself or a willing creature within 30 feet of yourself to have {@variantrule Advantage|XPHB} on Dexterity ({@skill Stealth|XPHB}) checks. This blessing lasts until you finish a {@variantrule Long Rest|XPHB} or you use this feature again."
 			]
 		},
 		{
-			"name": "Domain Spells",
+			"name": "Invoke Duplicity",
+			"source": "XPHB",
+			"page": 75,
+			"className": "Cleric",
+			"classSource": "XPHB",
+			"subclassShortName": "Trickery",
+			"subclassSource": "XPHB",
+			"level": 3,
+			"header": 2,
+			"consumes": {
+				"name": "Channel Divinity"
+			},
+			"entries": [
+				"As a {@variantrule Bonus Action|XPHB}, you can expend one use of your Channel Divinity to create a perfect visual illusion of yourself in an unoccupied space you can see within 30 feet of yourself. The illusion is intangible and doesn't occupy its space. It lasts for 1 minute, but it ends early if you dismiss it (no action required) or have the {@condition Incapacitated|XPHB} condition. The illusion is animated and mimics your expressions and gestures. While it persists, you gain the following benefits.",
+				{
+					"type": "entries",
+					"name": "Cast Spells",
+					"entries": [
+						"You can cast spells as though you were in the illusion's space, but you must use your own senses."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Distract",
+					"entries": [
+						"When both you and your illusion are within 5 feet of a creature that can see the illusion, you have {@variantrule Advantage|XPHB} on attack rolls against that creature, given how distracting the illusion is to the target."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Move",
+					"entries": [
+						"As a {@variantrule Bonus Action|XPHB}, you can move the illusion up to 30 feet to an unoccupied space you can see that is within 120 feet of yourself."
+					]
+				}
+			]
+		},
+		{
+			"name": "Trickery Domain Spells",
 			"source": "XPHB",
 			"page": 76,
 			"className": "Cleric",
@@ -8850,7 +8447,7 @@
 			"subclassShortName": "Trickery",
 			"subclassSource": "XPHB",
 			"level": 3,
-			"header": 1,
+			"header": 2,
 			"entries": [
 				"Your connection to this divine domain ensures you always have certain spells ready. When you reach a Cleric level specified in the Trickery Domain Spells table, you thereafter always have the listed spells prepared.",
 				{
@@ -8881,44 +8478,6 @@
 							"9th",
 							"{@spell Dominate Person|XPHB}, {@spell Modify Memory|XPHB}"
 						]
-					]
-				}
-			]
-		},
-		{
-			"name": "Invoke Duplicity",
-			"source": "XPHB",
-			"page": 75,
-			"className": "Cleric",
-			"classSource": "XPHB",
-			"subclassShortName": "Trickery",
-			"subclassSource": "XPHB",
-			"level": 3,
-			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"As a {@variantrule Bonus Action|XPHB}, you can expend one use of your Channel Divinity to create a perfect visual illusion of yourself in an unoccupied space you can see within 30 feet of yourself. The illusion is intangible and doesn't occupy its space. It lasts for 1 minute, but it ends early if you dismiss it (no action required) or have the {@condition Incapacitated|XPHB} condition. The illusion is animated and mimics your expressions and gestures. While it persists, you gain the following benefits.",
-				{
-					"type": "entries",
-					"name": "Cast Spells",
-					"entries": [
-						"You can cast spells as though you were in the illusion's space, but you must use your own senses."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Distract",
-					"entries": [
-						"When both you and your illusion are within 5 feet of a creature that can see the illusion, you have {@variantrule Advantage|XPHB} on attack rolls against that creature, given how distracting the illusion is to the target."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Move",
-					"entries": [
-						"As a {@variantrule Bonus Action|XPHB}, you can move the illusion up to 30 feet to an unoccupied space you can see that is within 120 feet of yourself."
 					]
 				}
 			]
@@ -8985,7 +8544,7 @@
 				"Gods of the War Domain watch over warriors and reward them for their great deeds. They include champions of honor and chivalry as well as gods of destruction and pillage. Other war gods take a more neutral stance, promoting war in all its manifestations and supporting warriors in any circumstance.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Domain Spells|Cleric|XPHB|War|XPHB|3"
+					"subclassFeature": "War Domain Spells|Cleric|XPHB|War|XPHB|3"
 				},
 				{
 					"type": "refSubclassFeature",
@@ -8998,7 +8557,24 @@
 			]
 		},
 		{
-			"name": "Domain Spells",
+			"name": "Guided Strike",
+			"source": "XPHB",
+			"page": 77,
+			"className": "Cleric",
+			"classSource": "XPHB",
+			"subclassShortName": "War",
+			"subclassSource": "XPHB",
+			"level": 3,
+			"header": 1,
+			"consumes": {
+				"name": "Channel Divinity"
+			},
+			"entries": [
+				"When you or a creature within 30 feet of you misses with an attack roll, you can expend one use of your Channel Divinity and give that roll a +10 bonus, potentially causing it to hit. When you use this feature to benefit another creature's attack roll, you must take a {@variantrule Reaction|XPHB} to do so."
+			]
+		},
+		{
+			"name": "War Domain Spells",
 			"source": "XPHB",
 			"page": 77,
 			"className": "Cleric",
@@ -9039,23 +8615,6 @@
 						]
 					]
 				}
-			]
-		},
-		{
-			"name": "Guided Strike",
-			"source": "XPHB",
-			"page": 77,
-			"className": "Cleric",
-			"classSource": "XPHB",
-			"subclassShortName": "War",
-			"subclassSource": "XPHB",
-			"level": 3,
-			"header": 1,
-			"consumes": {
-				"name": "Channel Divinity"
-			},
-			"entries": [
-				"When you or a creature within 30 feet of you misses with an attack roll, you can expend one use of your Channel Divinity and give that roll a +10 bonus, potentially causing it to hit. When you use this feature to benefit another creature's attack roll, you must take a {@variantrule Reaction|XPHB} to do so."
 			]
 		},
 		{

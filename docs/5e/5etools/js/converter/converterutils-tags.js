@@ -3,11 +3,11 @@ import {VetoolsConfig} from "../utils-config/utils-config-config.js";
 import {ConverterTaggerInitializable} from "./converterutils-taggerbase.js";
 
 export class TagUtil {
-	static _NONE_EMPTY_REGEX = /^(([-\u2014\u2013\u2221])+|none)$/gi;
+	static _NONE_EMPTY_REGEX = /^(([-\u2014\u2013\u2221])+|none)$/i;
 
 	static isNoneOrEmpty (str) {
 		if (!str || !str.trim()) return false;
-		return !!this._NONE_EMPTY_REGEX.exec(str);
+		return this._NONE_EMPTY_REGEX.test(str);
 	}
 }
 
@@ -100,11 +100,11 @@ export class TaggerUtils {
 	static walkerStringHandlerStrictCapsWords (targetTags, ptrStack, str, meta) {
 		const tagSplit = Renderer.splitByTags(str);
 
-		const reTokenStr = `([ .!?:;,])`;
+		const reTokenStr = /([ .!?:;,()])/.source;
 		const reTokenSplit = new RegExp(reTokenStr, "g");
 		const reTokenCheck = new RegExp(reTokenStr);
 
-		const reCapsFirst = /^[A-Z]+[a-z]*$/;
+		const reCapsFirst = /^[A-Z]+[a-z']*$/;
 
 		const setLower = new Set(StrUtil.TITLE_LOWER_WORDS);
 		const setUpper = new Set([...StrUtil.TITLE_UPPER_WORDS, ...StrUtil.TITLE_UPPER_WORDS_PLURAL].map(it => it.toUpperCase()));
@@ -258,16 +258,22 @@ export class TagCondition extends ConverterTaggerInitializable {
 
 	/* -------------------------------------------- */
 
-	static _getModifiedString_basic ({styleHint}, str) {
-		return str
+	static _fnTag ({strMod, styleHint, blocklistNames}) {
+		return strMod
 			.replace(this._conditionMatcher, (...m) => {
 				const name = m[1];
+
+				if (blocklistNames?.isBlocked(name)) return m[0];
+
 				const source = this._conditionSourceMapBrew[name.toLowerCase()];
 				if (!source) return `{@condition ${name}}`;
 				return `{@condition ${name}|${source}}`;
 			})
 			.replace(this._STATUS_MATCHER, (...m) => {
 				const name = m[1];
+
+				if (blocklistNames?.isBlocked(name)) return m[0];
+
 				if (styleHint === SITE_STYLE__CLASSIC) return `{@status ${name}}`;
 
 				if (name === "surprised") return `{@status ${name}|${Parser.SRC_XPHB}}`; // Surprised is never capitalized
@@ -277,22 +283,29 @@ export class TagCondition extends ConverterTaggerInitializable {
 				const displayText = m[1];
 				const name = this._STATUS_MATCHER_ALT_REPLACEMENTS[m[1].toLowerCase()];
 
+				if (blocklistNames?.isBlocked(name)) return m[0];
+
 				if (styleHint === SITE_STYLE__CLASSIC) return `{@status ${name}||${displayText}}`;
 				return `{@status ${name.toTitleCase()}|${Parser.SRC_XPHB}|${displayText.toTitleCase()}}`;
 			})
 		;
 	}
 
-	static _getModifiedString_one (str) {
-		return str
+	static _fnTagStrict ({strMod, blocklistNames}) {
+		if (blocklistNames?.isBlocked(strMod)) return strMod;
+
+		return strMod
 			.replace(this._conditionMatcherCore, (...m) => {
 				const {name} = m.at(-1);
+				if (blocklistNames?.isBlocked(name)) return name;
 				return `{@condition ${name}|${Parser.SRC_XPHB}}`;
 			})
 		;
 	}
 
-	static _walkerStringHandler ({styleHint, str, inflictedSet = null, inflictedAllowlist = null}) {
+	/* -------------------------------------------- */
+
+	static _walkerStringHandler ({styleHint, str, inflictedSet = null, inflictedAllowlist = null, blocklistNames = null}) {
 		const ptrStack = {_: ""};
 
 		TaggerUtils.walkerStringHandler(
@@ -302,21 +315,7 @@ export class TagCondition extends ConverterTaggerInitializable {
 			0,
 			str,
 			{
-				fnTag: this._getModifiedString_one.bind(this),
-			},
-		);
-
-		str = ptrStack._;
-		ptrStack._ = "";
-
-		TaggerUtils.walkerStringHandler(
-			["@condition", "@status"],
-			ptrStack,
-			0,
-			0,
-			str,
-			{
-				fnTag: this._getModifiedString_basic.bind(this, {styleHint}),
+				fnTag: strMod => this._fnTag({strMod, blocklistNames, styleHint}),
 			},
 		);
 
@@ -333,9 +332,29 @@ export class TagCondition extends ConverterTaggerInitializable {
 		return out;
 	}
 
+	static _walkerStringHandlerStrict ({styleHint, str, inflictedSet = null, inflictedAllowlist = null, blocklistNames = null}) {
+		const ptrStack = {_: ""};
+
+		TaggerUtils.walkerStringHandlerStrictCapsWords(
+			["@condition", "@status"],
+			ptrStack,
+			str,
+			{
+				fnTag: strMod => this._fnTagStrict({strMod, blocklistNames, styleHint}),
+			},
+		);
+
+		const out = ptrStack._;
+
+		// Collect inflicted conditions for tagging
+		if (inflictedSet) this._collectInflictedConditions(out, {inflictedSet, inflictedAllowlist});
+
+		return out;
+	}
+
 	/* -------------------------------------------- */
 
-	static _handleProp ({ent, prop, inflictedSet, inflictedAllowlist, styleHint} = {}) {
+	static _handleProp ({ent, prop, inflictedSet, inflictedAllowlist, styleHint, blocklistNames} = {}) {
 		if (!ent[prop]) return;
 
 		ent[prop] = ent[prop]
@@ -349,7 +368,8 @@ export class TagCondition extends ConverterTaggerInitializable {
 						(str) => {
 							if (nameStack.includes("Antimagic Susceptibility")) return str;
 							if (nameStack.includes("Sneak Attack (1/Turn)")) return str;
-							return this._walkerStringHandler({styleHint, str, inflictedSet, inflictedAllowlist});
+							str = this._walkerStringHandlerStrict({styleHint, str, inflictedSet, inflictedAllowlist, blocklistNames});
+							return this._walkerStringHandler({styleHint, str, inflictedSet, inflictedAllowlist, blocklistNames});
 						},
 					],
 				};
@@ -358,19 +378,32 @@ export class TagCondition extends ConverterTaggerInitializable {
 			});
 	}
 
-	static tryTagConditions (ent, {isTagInflicted = false, isInflictedAddOnly = false, inflictedAllowlist = null, styleHint = null} = {}) {
+	/**
+	 * @param ent
+	 * @param {boolean} isTagInflicted
+	 * @param {boolean} isInflictedAddOnly
+	 * @param {?Set} inflictedAllowlist
+	 * @param {?string} styleHint
+	 * @param {?ConverterStringBlocklist} blocklistNames
+	 */
+	static tryTagConditions (ent, {isTagInflicted = false, isInflictedAddOnly = false, inflictedAllowlist = null, styleHint = null, blocklistNames = null} = {}) {
 		const inflictedSet = isTagInflicted ? new Set() : null;
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		this._handleProp({ent, prop: "action", inflictedSet, inflictedAllowlist, styleHint});
-		this._handleProp({ent, prop: "reaction", inflictedSet, inflictedAllowlist, styleHint});
-		this._handleProp({ent, prop: "bonus", inflictedSet, inflictedAllowlist, styleHint});
-		this._handleProp({ent, prop: "trait", inflictedSet, inflictedAllowlist, styleHint});
-		this._handleProp({ent, prop: "legendary", inflictedSet, inflictedAllowlist, styleHint});
-		this._handleProp({ent, prop: "mythic", inflictedSet, inflictedAllowlist, styleHint});
-		this._handleProp({ent, prop: "variant", inflictedSet, inflictedAllowlist, styleHint});
-		this._handleProp({ent, prop: "entries", inflictedSet, inflictedAllowlist, styleHint});
-		this._handleProp({ent, prop: "entriesHigherLevel", inflictedSet, inflictedAllowlist, styleHint});
+		if (blocklistNames) blocklistNames = blocklistNames.getWithBlocklistIgnore([ent.name]);
+
+		[
+			"action",
+			"reaction",
+			"bonus",
+			"trait",
+			"legendary",
+			"mythic",
+			"variant",
+			"entries",
+			"entriesHigherLevel",
+		]
+			.forEach(prop => this._handleProp({ent, prop, inflictedSet, inflictedAllowlist, styleHint, blocklistNames}));
 
 		this._mutAddInflictedSet({ent, inflictedSet, isInflictedAddOnly, prop: "conditionInflict"});
 	}
@@ -392,7 +425,7 @@ export class TagCondition extends ConverterTaggerInitializable {
 	static _collectInflictedConditions_withAllowlist ({inflictedAllowlist, inflictedSet, cond}) {
 		// Treat XPHB conditions as base
 		const [name, source] = cond.toLowerCase().split("|");
-		const condClean = source === Parser.SRC_XPHB.toLowerCase() ? name : `${name}|${source}`;
+		const condClean = !source || [Parser.SRC_PHB.toLowerCase(), Parser.SRC_XPHB.toLowerCase()].includes(source) ? name : `${name}|${source}`;
 
 		if (!inflictedAllowlist || inflictedAllowlist.has(cond)) inflictedSet.add(condClean);
 		return "";
@@ -436,15 +469,36 @@ export class TagCondition extends ConverterTaggerInitializable {
 		else delete ent[prop];
 	}
 
+	/* -------------------------------------------- */
+
 	// region Run basic tagging
-	static _tryRun (it, {styleHint = null} = {}) {
+	static _tryRun (ent, {styleHint = null, blocklistNames = null} = {}) {
+		if (blocklistNames) blocklistNames = blocklistNames.getWithBlocklistIgnore([ent.name]);
+
 		const walker = MiscUtil.getWalker({keyBlocklist: this._KEY_BLOCKLIST});
 
 		return walker.walk(
-			it,
+			ent,
 			{
 				string: (str) => {
-					return this._walkerStringHandler({styleHint, str});
+					return this._walkerStringHandler({styleHint, str, blocklistNames});
+				},
+			},
+		);
+	}
+
+	static _tryRunStrictCapsWords (ent, {styleHint = null, blocklistNames = null} = {}) {
+		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
+
+		if (blocklistNames) blocklistNames = blocklistNames.getWithBlocklistIgnore([ent.name]);
+
+		const walker = MiscUtil.getWalker({keyBlocklist: this._KEY_BLOCKLIST});
+
+		return walker.walk(
+			ent,
+			{
+				string: (str) => {
+					return this._walkerStringHandlerStrict({styleHint, str, blocklistNames});
 				},
 			},
 		);
@@ -517,35 +571,35 @@ export class DiceConvert {
 	}
 
 	static _getConvertedEntry ({entry, isTagHits = false}) {
-		if (!DiceConvert._walker) {
-			DiceConvert._walker = MiscUtil.getWalker({
-				keyBlocklist: new Set([
-					...MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST,
-					"dmg1",
-					"dmg2",
-					"area",
-					"path",
-				]),
-			});
-			DiceConvert._walkerHandlers = {
-				string: (str) => {
-					const ptrStack = {_: ""};
-					TaggerUtils.walkerStringHandler(
-						["@dice", "@hit", "@damage", "@scaledice", "@scaledamage", "@d20"],
-						ptrStack,
-						0,
-						0,
-						str,
-						{
-							fnTag: str => this._walkerStringHandler({str, isTagHits}),
-						},
-					);
-					return ptrStack._;
-				},
-			};
-		}
-		entry = MiscUtil.copy(entry);
-		return DiceConvert._walker.walk(entry, DiceConvert._walkerHandlers);
+		DiceConvert._walker ||= MiscUtil.getWalker({
+			keyBlocklist: new Set([
+				...MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST,
+				"dmg1",
+				"dmg2",
+				"area",
+				"path",
+			]),
+		});
+
+		const walkerHandlers = {
+			string: (str) => {
+				const ptrStack = {_: ""};
+				TaggerUtils.walkerStringHandler(
+					["@dice", "@hit", "@damage", "@scaledice", "@scaledamage", "@d20"],
+					ptrStack,
+					0,
+					0,
+					str,
+					{
+						fnTag: str => this._walkerStringHandler({str, isTagHits}),
+					},
+				);
+				return ptrStack._;
+			},
+		};
+
+		entry = MiscUtil.copyFast(entry);
+		return DiceConvert._walker.walk(entry, walkerHandlers);
 	}
 
 	static _RE_NO_FORMAT_STRINGS = /(\b(?:plus|minus|PB)\b)/;
@@ -557,7 +611,7 @@ export class DiceConvert {
 				// Handle e.g. `+3 plus PB to hit`
 				.replace(/(?<op>[-+])?(?<bonus>\d+(?: (?:plus|minus|[-+]) PB)?)(?= to hit\b)/g, (...m) => `{@hit ${m.last().op === "-" ? "-" : ""}${m.last().bonus}}`)
 				// Handle E.g. "... Attack Roll: +5, ..."
-				.replace(/(?<=Attack Roll: )(?<op>[-+])?(?<bonus>\d+(?: (?:plus|minus|[-+]) PB)?)(?=,)/g, (...m) => `{@hit ${m.last().op === "-" ? "-" : ""}${m.last().bonus}}`)
+				.replace(/(?<=Attack Roll: )(?<op>[-+])?(?<bonus>\d+(?: (?:plus|minus|[-+]) PB)?)(?=,| \()/g, (...m) => `{@hit ${m.last().op === "-" ? "-" : ""}${m.last().bonus}}`)
 				// Handle E.g. "... Attack Roll: Bonus equals your spell attack modifier, ..."
 				.replace(/(?<=Attack Roll: )Bonus equals your spell attack modifier(?=,)/g, (...m) => `{@hitYourSpellAttack Bonus equals your spell attack modifier}`)
 			;
@@ -631,10 +685,10 @@ export class ArtifactPropertiesTag {
 				const mode = m[0].trim().toLowerCase();
 
 				switch (mode) {
-					case "major beneficial": return `{@table Artifact Properties; Major Beneficial Properties|dmg|${m[0]}}`;
-					case "minor beneficial": return `{@table Artifact Properties; Minor Beneficial Properties|dmg|${m[0]}}`;
-					case "major detrimental": return `{@table Artifact Properties; Major Detrimental Properties|dmg|${m[0]}}`;
-					case "minor detrimental": return `{@table Artifact Properties; Minor Detrimental Properties|dmg|${m[0]}}`;
+					case "major beneficial": return `{@table Artifact Properties; Major Beneficial Properties|${opts.styleHint === SITE_STYLE__CLASSIC ? Parser.SRC_DMG : Parser.SRC_XDMG}|${m[0]}}`;
+					case "minor beneficial": return `{@table Artifact Properties; Minor Beneficial Properties|${opts.styleHint === SITE_STYLE__CLASSIC ? Parser.SRC_DMG : Parser.SRC_XDMG}|${m[0]}}`;
+					case "major detrimental": return `{@table Artifact Properties; Major Detrimental Properties|${opts.styleHint === SITE_STYLE__CLASSIC ? Parser.SRC_DMG : Parser.SRC_XDMG}|${m[0]}}`;
+					case "minor detrimental": return `{@table Artifact Properties; Minor Detrimental Properties|${opts.styleHint === SITE_STYLE__CLASSIC ? Parser.SRC_DMG : Parser.SRC_XDMG}|${m[0]}}`;
 				}
 			}),
 		});
@@ -643,7 +697,7 @@ export class ArtifactPropertiesTag {
 
 export class SkillTag extends ConverterTaggerInitializable {
 	static _RE_BASIC_XPHB = null;
-	static _RE_BASIC = /\b(?<name>Acrobatics|Animal Handling|Arcana|Athletics|Deception|History|Insight|Intimidation|Investigation|Medicine|Nature|Perception|Performance|Persuasion|Religion|Sleight of Hand|Stealth|Survival)\b/g;
+	static _RE_BASIC = /^(?<name>Acrobatics|Animal Handling|Arcana|Athletics|Deception|History|Insight|Intimidation|Investigation|Medicine|Nature|Perception|Performance|Persuasion|Religion|Sleight of Hand|Stealth|Survival)$/g;
 
 	static async _pInit () {
 		const skillData = await DataLoader.pCacheAndGetAllSite("skill");
@@ -651,14 +705,14 @@ export class SkillTag extends ConverterTaggerInitializable {
 		const coreSKills = [...skillData]
 			.filter(skill => skill.source === Parser.SRC_XPHB);
 
-		this._RE_BASIC_XPHB = new RegExp(`\\b(?<name>${(coreSKills.map(skill => skill.name).join("|"))})\\b`, "g");
+		this._RE_BASIC_XPHB = new RegExp(`^(?<name>${(coreSKills.map(skill => skill.name).join("|"))})$`, "g");
 	}
 
 	/**
 	 * @param ent
 	 * @param {"classic" | "one" | null} styleHint
 	 */
-	static _tryRun (ent, {styleHint = null} = {}) {
+	static _tryRunStrictCapsWords (ent, {styleHint = null} = {}) {
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
 		const walker = MiscUtil.getWalker({keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST});
@@ -669,14 +723,12 @@ export class SkillTag extends ConverterTaggerInitializable {
 					const ptrStack = {_: ""};
 
 					if (styleHint === SITE_STYLE__ONE) {
-						TaggerUtils.walkerStringHandler(
+						TaggerUtils.walkerStringHandlerStrictCapsWords(
 							["@skill"],
 							ptrStack,
-							0,
-							0,
 							str,
 							{
-								fnTag: this._fnTag_one.bind(this),
+								fnTag: strMod => this._fnTagStrict_one(strMod),
 							},
 						);
 
@@ -684,14 +736,12 @@ export class SkillTag extends ConverterTaggerInitializable {
 						ptrStack._ = "";
 					}
 
-					TaggerUtils.walkerStringHandler(
+					TaggerUtils.walkerStringHandlerStrictCapsWords(
 						["@skill"],
 						ptrStack,
-						0,
-						0,
 						str,
 						{
-							fnTag: this._fnTag_classic.bind(this),
+							fnTag: strMod => this._fnTagStrict_classic(strMod),
 						},
 					);
 
@@ -701,31 +751,49 @@ export class SkillTag extends ConverterTaggerInitializable {
 		);
 	}
 
-	static _fnTag_one (strMod) {
-		return strMod
-			.replace(this._RE_BASIC_XPHB, (...m) => `{@skill ${m.at(-1).name}|${Parser.SRC_XPHB}}`)
-		;
+	static _getStrStrictReplaced_one (str) {
+		return str
+			.replace(this._RE_BASIC_XPHB, (...m) => `{@skill ${m.at(-1).name}|${Parser.SRC_XPHB}}`);
 	}
 
-	static _fnTag_classic (strMod) {
-		return strMod.replace(this._RE_BASIC, (...m) => {
-			const {name} = m.at(-1);
-			return `{@skill ${name}}`;
-		});
+	static _fnTagStrict_one (strMod) {
+		const strModOut = this._getStrStrictReplaced_one(strMod);
+
+		if (strMod !== strModOut) return strModOut;
+
+		const pts = this._getCapsWordConjunctionTokens(strMod);
+		if (pts.length === 1) return strMod;
+
+		return pts
+			.map(pt => this._getStrStrictReplaced_one(pt))
+			.join(" ");
 	}
 
-	static tryRunProps (ent, {props, styleHint = null} = {}) {
-		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
+	static _getStrStrictReplaced_classic (str) {
+		return str
+			.replace(this._RE_BASIC, (...m) => {
+				const {name} = m.at(-1);
+				return `{@skill ${name}}`;
+			});
+	}
 
-		props
-			.filter(prop => ent[prop])
-			.forEach(prop => this.tryRun(ent[prop], {styleHint}));
+	static _fnTagStrict_classic (strMod) {
+		const strModOut = this._getStrStrictReplaced_classic(strMod);
+
+		if (strMod !== strModOut) return strModOut;
+
+		const pts = this._getCapsWordConjunctionTokens(strMod);
+		if (pts.length === 1) return strMod;
+
+		return pts
+			.map(pt => this._getStrStrictReplaced_classic(pt))
+			.join(" ");
 	}
 }
 
 export class ActionTag extends ConverterTaggerInitializable {
 	static _RE_BASIC_XPHB = null;
-	static _RE_BASIC_CLASSIC = /\b(Attack|Dash|Disengage|Dodge|Help|Hide|Ready|Search|Use an Object|shove a creature)\b/g;
+	static _RE_BASIC_CLASSIC = /^(Attack|Dash|Disengage|Dodge|Help|Hide|Ready|Search|Use an Object|shove a creature)$/g;
 
 	static async _pInit () {
 		const actionData = await DataUtil.action.loadJSON();
@@ -733,10 +801,10 @@ export class ActionTag extends ConverterTaggerInitializable {
 		const coreActions = [...actionData.action]
 			.filter(action => action.source === Parser.SRC_XPHB);
 
-		this._RE_BASIC_XPHB = new RegExp(`\\b(?<name>${(coreActions.map(action => action.name).join("|"))})\\b`, "g");
+		this._RE_BASIC_XPHB = new RegExp(`^(?<name>${(coreActions.map(action => action.name).join("|"))})$`, "g");
 	}
 
-	static _tryRun (it) {
+	static _tryRunStrictCapsWords (it) {
 		const walker = MiscUtil.getWalker({keyBlocklist: MiscUtil.GENERIC_WALKER_ENTRIES_KEY_BLOCKLIST});
 		return walker.walk(
 			it,
@@ -744,34 +812,26 @@ export class ActionTag extends ConverterTaggerInitializable {
 				string: (str) => {
 					const ptrStack = {_: ""};
 
-					TaggerUtils.walkerStringHandler(
+					TaggerUtils.walkerStringHandlerStrictCapsWords(
 						["@action"],
 						ptrStack,
-						0,
-						0,
 						str,
 						{
-							fnTag: this._fnTag_one.bind(this),
+							fnTag: strMod => this._fnTagStrict_one(strMod),
 						},
 					);
 
 					str = ptrStack._;
 					ptrStack._ = "";
 
-					TaggerUtils.walkerStringHandler(
+					TaggerUtils.walkerStringHandlerStrictCapsWords(
 						["@action"],
 						ptrStack,
-						0,
-						0,
 						str,
 						{
-							fnTag: this._fnTag_classic.bind(this),
+							fnTag: strMod => this._fnTagStrict_classic(strMod),
 						},
 					);
-
-					ptrStack._ = ptrStack._
-						.replace(/(Extra|Sneak|Weapon|Spell) {@action Attack}/g, (...m) => `${m[1]} Attack`)
-					;
 
 					return ptrStack._;
 				},
@@ -779,13 +839,13 @@ export class ActionTag extends ConverterTaggerInitializable {
 		);
 	}
 
-	static _fnTag_one (strMod) {
+	static _fnTagStrict_one (strMod) {
 		return strMod
 			.replace(this._RE_BASIC_XPHB, (...m) => `{@action ${m.at(-1).name}|${Parser.SRC_XPHB}}`)
 		;
 	}
 
-	static _fnTag_classic (strMod) {
+	static _fnTagStrict_classic (strMod) {
 		// Avoid tagging text within titles
 		if (strMod.toTitleCase() === strMod) return strMod;
 

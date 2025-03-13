@@ -16,13 +16,13 @@ class _PageGeneratorMaps extends PageGeneratorGeneric {
 		"maps",
 	];
 
-	_scriptsRenderAdditional = [
-		"render-map.js",
-	];
-
 	_scripts = [
 		"maps-util.js",
 		"maps.js",
+	];
+
+	_scriptsModules = [
+		"render-map.js",
 	];
 }
 
@@ -49,11 +49,8 @@ class _PageGeneratorDmscreen extends PageGeneratorGeneric {
 		"utils-p2p.js",
 	];
 
-	_scriptsRenderAdditional = [
-		"render-map.js",
-	];
-
 	_scriptsModules = [
+		"render-map.js",
 		"dmscreen.js",
 	];
 }
@@ -110,10 +107,6 @@ class _PageGeneratorConverter extends PageGeneratorGeneric {
 		"render-markdown.js",
 	];
 
-	_scriptsUtilsAdditional = [
-		"utils-proporder.js",
-	];
-
 	_scriptsModules = [
 		"converter.js",
 	];
@@ -123,14 +116,14 @@ class _PageGeneratorCrcalculator extends PageGeneratorGeneric {
 	_filename = "page/template-page-crcalculator.hbs";
 	_page = "crcalculator.html";
 
-	_pageTitle = "CR Calculator";
+	_pageTitle = "CR Calculator (2014)";
 	_navbarDescription = "Easily build custom creatures.";
 
 	_stylesheets = [
 		"crcalculator",
 	];
 
-	_scripts = [
+	_scriptsModules = [
 		"crcalculator.js",
 	];
 }
@@ -238,13 +231,13 @@ class _PageGeneratorLootgen extends PageGeneratorGeneric {
 
 	_scriptsUtilsAdditional = [
 		"utils-generate.js",
+		"filter-common.js",
 		"filter-items.js",
 		"filter-spells.js",
 	];
 
-	_scripts = [
+	_scriptsModules = [
 		"lootgen.js",
-		"lootgen-ui.js",
 	];
 }
 
@@ -268,7 +261,6 @@ class _PageGeneratorMakebrew extends PageGeneratorGeneric {
 	];
 
 	_scriptsUtilsAdditional = [
-		"utils-proporder.js",
 		"filter-spells.js",
 	];
 
@@ -404,9 +396,8 @@ class _PageGeneratorStatgen extends PageGeneratorGeneric {
 		"filter-feats.js",
 	];
 
-	_scripts = [
+	_scriptsModules = [
 		"statgen.js",
-		"statgen-ui.js",
 	];
 }
 

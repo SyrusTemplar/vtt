@@ -19,10 +19,15 @@ export class PageFilterBase {
 		opts = opts || {};
 		this._sourceFilter = new SourceFilter(opts.sourceFilterOpts);
 		this._filterBox = null;
+		this._miscFilter = null;
 	}
 
+	/**
+	 * @return {?FilterBox}
+	 */
 	get filterBox () { return this._filterBox; }
 	get sourceFilter () { return this._sourceFilter; }
+	get miscFilter () { return this._miscFilter; }
 
 	mutateAndAddToFilters (entity, isExcluded, opts) {
 		this.constructor.mutateForFilters(entity, opts);
@@ -96,10 +101,15 @@ export class PageFilterBase {
 		});
 	}
 
-	static _isReprinted (ent) {
+	static isReprinted (ent, {fnMissingBuilder = null} = {}) {
 		if (!ent?.reprintedAs?.length) return false;
 		return ent.reprintedAs
 			.some(it => {
+				if (!UrlUtil.URL_TO_HASH_BUILDER[ent.__prop]) {
+					if (fnMissingBuilder) fnMissingBuilder(ent);
+					return false;
+				}
+
 				const unpacked = DataUtil.proxy.unpackUid(ent.__prop, it?.uid ?? it, Parser.getPropTag(ent.__prop));
 				const hash = UrlUtil.URL_TO_HASH_BUILDER[ent.__prop](unpacked);
 				return !ExcludeUtil.isExcluded(hash, ent.__prop, unpacked.source, {isNoCount: true});
@@ -112,6 +122,10 @@ export class PageFilterBase {
 
 	static _hasFluff (ent) { return ent.hasFluff || ent.fluff?.entries; }
 	static _hasFluffImages (ent) { return ent.hasFluffImages || ent.fluff?.images; }
+
+	static _mutateForFilters_commonSources (ent) {
+		ent._fSources = SourceFilter.getCompleteFilterSources(ent);
+	}
 
 	static _mutateForFilters_commonMisc (ent) {
 		ent._fMisc = [];
@@ -129,7 +143,7 @@ export class PageFilterBase {
 		if (this._hasFluff(ent)) ent._fMisc.push("Has Info");
 		if (this._hasFluffImages(ent)) ent._fMisc.push("Has Images");
 
-		if (this._isReprinted(ent)) ent._fMisc.push("Reprinted");
+		if (this.isReprinted(ent)) ent._fMisc.push("Reprinted");
 	}
 	// endregion
 }

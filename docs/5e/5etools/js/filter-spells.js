@@ -112,15 +112,10 @@ class PageFilterSpells extends PageFilterBase {
 	// region static
 	static sortSpells (a, b, o) {
 		switch (o.sortBy) {
-			case "name": return SortUtil.compareListNames(a, b);
-			case "source":
-			case "level":
-			case "school":
-			case "concentration":
-			case "ritual": return SortUtil.ascSort(a.values[o.sortBy], b.values[o.sortBy]) || SortUtil.compareListNames(a, b);
 			case "time": return SortUtil.ascSort(a.values.normalisedTime, b.values.normalisedTime) || SortUtil.compareListNames(a, b);
 			case "range": return SortUtil.ascSort(a.values.normalisedRange, b.values.normalisedRange) || SortUtil.compareListNames(a, b);
 		}
+		return SortUtil.listSort(a, b, o);
 	}
 
 	static sortMetaFilter (a, b) {
@@ -359,7 +354,7 @@ class PageFilterSpells extends PageFilterBase {
 		this._backgroundFilter = new SearchableFilter({header: "Background"});
 		this._featFilter = new SearchableFilter({header: "Feat"});
 		this._optionalfeaturesFilter = new SearchableFilter({header: "Other Option/Feature"});
-		this._metaFilter = new Filter({
+		this._miscFilter = new Filter({
 			header: "Components & Miscellaneous",
 			items: [...PageFilterSpells._META_FILTER_BASE_ITEMS, "Ritual", "Legacy", "Reprinted", "Has Images", "Has Token"],
 			itemSortFn: PageFilterSpells.sortMetaFilter,
@@ -448,7 +443,7 @@ class PageFilterSpells extends PageFilterBase {
 		this._affectsCreatureTypeFilter = new Filter({
 			header: "Affects Creature Types",
 			items: [...Parser.MON_TYPES],
-			displayFn: StrUtil.toTitleCase,
+			displayFn: StrUtil.toTitleCase.bind(StrUtil),
 		});
 	}
 
@@ -460,7 +455,7 @@ class PageFilterSpells extends PageFilterBase {
 		s._normalisedRange = PageFilterSpells.getNormalisedRange(s.range);
 
 		// used for filtering
-		s._fSources = SourceFilter.getCompleteFilterSources(s);
+		this._mutateForFilters_commonSources(s);
 		PageFilterSpells._mutMetaFilterObj(s);
 		s._fClasses = Renderer.spell.getCombinedClasses(s, "fromClassList").map(c => {
 			return this._getClassFilterItem({
@@ -529,7 +524,7 @@ class PageFilterSpells extends PageFilterBase {
 		this._groupFilter.addItem(s._fGroups);
 		this._schoolFilter.addItem(s.school);
 		this._sourceFilter.addItem(s._fSources);
-		this._metaFilter.addItem(s._fMisc);
+		this._miscFilter.addItem(s._fMisc);
 		this._backgroundFilter.addItem(s._fBackgrounds);
 		this._featFilter.addItem(s._fFeats);
 		this._optionalfeaturesFilter.addItem(s._fOptionalfeatures);
@@ -562,7 +557,7 @@ class PageFilterSpells extends PageFilterBase {
 			this._backgroundFilter,
 			this._featFilter,
 			this._optionalfeaturesFilter,
-			this._metaFilter,
+			this._miscFilter,
 			this._groupFilter,
 			this._schoolFilter,
 			this._subSchoolFilter,
@@ -694,6 +689,7 @@ class ModalFilterSpells extends ModalFilterBase {
 				hash,
 				source,
 				sourceJson: spell.source,
+				page: spell.page,
 				level: spell.level,
 				time,
 				school: Parser.spSchoolAbvToFull(spell.school),

@@ -102,7 +102,8 @@
 				"constitution"
 			],
 			"hasToken": true,
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Barnacle Bess",
@@ -243,7 +244,8 @@
 				"spear|phb"
 			],
 			"traitTags": [
-				"Amphibious"
+				"Amphibious",
+				"Camouflage"
 			],
 			"languageTags": [
 				"OTH"
@@ -389,7 +391,8 @@
 			],
 			"traitTags": [
 				"Amphibious",
-				"Brute"
+				"Brute",
+				"Camouflage"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -1568,7 +1571,7 @@
 				{
 					"name": "Martial Advantage",
 					"entries": [
-						"Once per turn, the koalinth can deal an extra 7 ({@dice 2d6}) damage to a creature it hits with a weapon attack if that creature is within 5 feet of an ally of the koalinth that isn't {@condition incapacitated}."
+						"Once per turn, the koalinth can deal an extra 7 ({@damage 2d6}) damage to a creature it hits with a weapon attack if that creature is within 5 feet of an ally of the koalinth that isn't {@condition incapacitated}."
 					]
 				}
 			],
@@ -1672,7 +1675,7 @@
 				{
 					"name": "Martial Advantage",
 					"entries": [
-						"Once per turn, the sergeant can deal an extra 7 ({@dice 2d6}) damage to a creature it hits with a weapon attack if that creature is within 5 feet of an ally of the sergeant that isn't {@condition incapacitated}."
+						"Once per turn, the sergeant can deal an extra 7 ({@damage 2d6}) damage to a creature it hits with a weapon attack if that creature is within 5 feet of an ally of the sergeant that isn't {@condition incapacitated}."
 					]
 				}
 			],
@@ -3729,6 +3732,9 @@
 			"name": "Pirate Captain",
 			"source": "GoS",
 			"page": 247,
+			"reprintedAs": [
+				"Pirate Captain|XMM"
+			],
 			"size": [
 				"M"
 			],

@@ -31,6 +31,8 @@ class PageFilterVehicles extends PageFilterBase {
 	}
 
 	static mutateForFilters (ent) {
+		this._mutateForFilters_commonSources(ent);
+
 		ent._fSpeed = 0;
 		if (typeof ent.speed === "number" && ent.speed > 0) {
 			ent._fSpeed = ent.speed;
@@ -38,7 +40,7 @@ class PageFilterVehicles extends PageFilterBase {
 			const maxSpeed = Math.max(...Object.values(ent.speed));
 			if (maxSpeed > 0) ent._fSpeed = maxSpeed;
 		} else if (ent.pace && typeof ent.pace === "number") {
-			ent._fSpeed = ent.pace * 10; // Based on "Special Travel Pace," DMG p242
+			ent._fSpeed = ent.pace * 10; // Based on "Special Travel Pace," DMG p242 and/or "Travel Pace" XDMG p39
 		}
 
 		ent._fHp = 0;
@@ -70,7 +72,7 @@ class PageFilterVehicles extends PageFilterBase {
 	addToFilters (it, isExcluded) {
 		if (isExcluded) return;
 
-		this._sourceFilter.addItem(it.source);
+		this._sourceFilter.addItem(it._fSources);
 		this._vehicleTypeFilter.addItem(it.vehicleType);
 		this._upgradeTypeFilter.addItem(it.upgradeType);
 		this._speedFilter.addItem(it._fSpeed);
@@ -98,7 +100,7 @@ class PageFilterVehicles extends PageFilterBase {
 	toDisplay (values, it) {
 		return this._filterBox.toDisplay(
 			values,
-			it.source,
+			it._fSources,
 			it.vehicleType,
 			it.upgradeType,
 			it.terrain,
