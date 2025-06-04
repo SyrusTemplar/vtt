@@ -900,7 +900,7 @@
 			"name": "Drow Mushroom Steaks",
 			"source": "HF",
 			"entries": [
-				"Adelicacy of the great Underdark City of Spiders, Menzoberranzan, these seasoned ripplebark mushroom steaks are harvested fresh from the fungi fields near Lake Donigarten. While their exact agronomy is a closely guarded drow secret, many speculate that fertilizer from the Donigarten island rothé make these mushrooms grow unusually large, meaty, and nutrient rich. They're so tasty and chewy, you'll think you are eating unicorn! This dish has become so popular that it has migrated to the surface, and it's even rumored to be a favorite of Xanathar of Waterdeep, a notorious beholder who prefers it to surface-grown mushrooms as well as raw meat. But make sure to carefully read the label on that bottle of balsamic vinegar\u2014the drow are as famous for their poisons as their sauces."
+				"A delicacy of the great Underdark City of Spiders, Menzoberranzan, these seasoned ripplebark mushroom steaks are harvested fresh from the fungi fields near Lake Donigarten. While their exact agronomy is a closely guarded drow secret, many speculate that fertilizer from the Donigarten island rothé make these mushrooms grow unusually large, meaty, and nutrient rich. They're so tasty and chewy, you'll think you are eating unicorn! This dish has become so popular that it has migrated to the surface, and it's even rumored to be a favorite of Xanathar of Waterdeep, a notorious beholder who prefers it to surface-grown mushrooms as well as raw meat. But make sure to carefully read the label on that bottle of balsamic vinegar\u2014the drow are as famous for their poisons as their sauces."
 			],
 			"images": [
 				{
@@ -1068,7 +1068,7 @@
 			"name": "Elven Marruth",
 			"source": "HF",
 			"entries": [
-				"These two-bite, turnover-style pastries, stuffed with a variety of minced regional vegetables, are perfect for snacking trailside or at the banquet table. Sometimes reductively referred to as \"root pies\" by dwarves and humans, marruth are incredibly hearty closed-face canapés that are filled with spiced and herbed mashes of vegetables (cabbage, potatoes, and carrots) and then lightly baked in a flaky, buttery crust. They are traditionally served warm, occasionally as a meal in itself, with a chilled flute of elverquist to wash them down. Once cooled, these pastries can be rolled into rallow leaves (thick and oily waterproof broadleaves) to preserve them for travel."
+				"These two-bite, turnover-style pastries, stuffed with a variety of minced regional vegetables, are perfect for snacking trailside or at the banquet table. Sometimes reductively referred to as \"root pies\" by dwarves and humans, marruth are incredibly hearty closed-face canapés that are filled with spiced and herbed mashes of vegetables (cabbage, potatoes, and carrots) and then lightly baked in a flaky, buttery crust. They are traditionally served warm, occasionally as a meal in itself, with a chilled flute of {@recipe Elverquisst|HFFotM} to wash them down. Once cooled, these pastries can be rolled into rallow leaves (thick and oily waterproof broadleaves) to preserve them for travel."
 			]
 		},
 		{
@@ -1208,7 +1208,7 @@
 			"name": "Eye of the Beholder",
 			"source": "PaF",
 			"entries": [
-				"Contrary to common claim, there is no beauty in the eye of a {@creature Beholder}. Those dungeon-dwelling creatures are ugly and repugnant floating abominations, with a disturbing number of needle-sharp teeth and ten grotesque eyes on serpentine stalks, all writhing around its one central dinnerplate-size eye. Beholders can kill with a single glance, so they are no laughing matter. However, few people will ever encounter a Beholder, and fewer still will live to tell the tale, so the creatures retain an almost mythic reputation in the minds of many adventurers.",
+				"Contrary to common claim, there is no beauty in the eye of a {@creature Beholder}. Those dungeon-dwelling creatures are ugly and repugnant floating abominations, with a disturbing number of needle-sharp teeth and ten grotesque eyes on serpentine stalks, all writhing around its one central dinner plate-size eye. Beholders can kill with a single glance, so they are no laughing matter. However, few people will ever encounter a Beholder, and fewer still will live to tell the tale, so the creatures retain an almost mythic reputation in the minds of many adventurers.",
 				"It is with utmost unseriousness that Beholders have been immortalized in the name and design of a tart green party punch. A few glasses of this, and everything seems beautiful in the eye of the beholder."
 			],
 			"images": [
@@ -1227,9 +1227,6 @@
 		{
 			"name": "Faerie Fire",
 			"source": "PaF",
-			"entries": [
-				""
-			],
 			"images": [
 				{
 					"type": "image",
@@ -3113,7 +3110,7 @@
 			"name": "Scrimshaw",
 			"source": "PaF",
 			"entries": [
-				"A merchant sailor named Hitoshi Jade often pays his bar tab at the Low Lantern with scrimshaw, an intricate carving on bone or ivory depicting ships at sea, mermaids, sea creatures, long-lost loves, or elegant abstract designs. The artform of scrimshaw has always been popular among sailors on long sea voyages, and Jade is an especially proficient scrimshaw artist, able to etch extraordinary intricate scenes for large amounts of coin. The Captain is an enthusiastic fan of Jade's work and has a cocktail on the menu with bone-white foam, served in an etched coupe glass in tribute to his scrimshaw. Unfortunately for Jade, he's an equally enthusiastic fan of booze, and his bar tab frequently exceeds his coin, so most of his work ends up behind the bar at the Low Lantern to cover his expenses rather than ever going on sale!"
+				"A merchant sailor named Hitoshi Jade often pays his bar tab at the Low Lantern with scrimshaw, an intricate carving on bone or ivory depicting ships at sea, mermaids, sea creatures, long-lost loves, or elegant abstract designs. The art form of scrimshaw has always been popular among sailors on long sea voyages, and Jade is an especially proficient scrimshaw artist, able to etch extraordinary intricate scenes for large amounts of coin. The Captain is an enthusiastic fan of Jade's work and has a cocktail on the menu with bone-white foam, served in an etched coupe glass in tribute to his scrimshaw. Unfortunately for Jade, he's an equally enthusiastic fan of booze, and his bar tab frequently exceeds his coin, so most of his work ends up behind the bar at the Low Lantern to cover his expenses rather than ever going on sale!"
 			],
 			"images": [
 				{

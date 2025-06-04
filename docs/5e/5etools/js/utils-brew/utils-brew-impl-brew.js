@@ -26,56 +26,7 @@ export class BrewUtil2_ extends BrewUtil2Base {
 	DEFAULT_AUTHOR = "";
 	STYLE_BTN = "ve-btn-info";
 	IS_PREFER_DATE_ADDED = true;
-
-	/* -------------------------------------------- */
-
-	_pInit_doBindDragDrop () {
-		document.body.addEventListener("drop", async evt => {
-			if (EventUtil.isInInput(evt)) return;
-
-			evt.stopPropagation();
-			evt.preventDefault();
-
-			const files = evt.dataTransfer?.files;
-			if (!files?.length) return;
-
-			const pFiles = [...files].map((file, i) => {
-				if (!/\.json$/i.test(file.name)) return null;
-
-				return new Promise(resolve => {
-					const reader = new FileReader();
-					reader.onload = () => {
-						let json;
-						try {
-							json = JSON.parse(reader.result);
-						} catch (ignored) {
-							return resolve(null);
-						}
-
-						resolve({name: file.name, json});
-					};
-
-					reader.readAsText(files[i]);
-				});
-			});
-
-			const fileMetas = (await Promise.allSettled(pFiles))
-				.filter(({status}) => status === "fulfilled")
-				.map(({value}) => value)
-				.filter(Boolean);
-
-			await this.pAddBrewsFromFiles(fileMetas);
-
-			if (this.isReloadRequired()) this.doLocationReload();
-		});
-
-		document.body.addEventListener("dragover", evt => {
-			if (EventUtil.isInInput(evt)) return;
-
-			evt.stopPropagation();
-			evt.preventDefault();
-		});
-	}
+	IS_ADD_BTN_ALL_PARTNERED = true;
 
 	/* -------------------------------------------- */
 

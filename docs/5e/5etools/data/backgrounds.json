@@ -263,7 +263,8 @@
 			"name": "Acolyte",
 			"source": "XPHB",
 			"page": 178,
-			"freeRules2024": true,
+			"srd52": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"ability": [
 				{
@@ -1316,7 +1317,7 @@
 								],
 								[
 									"4",
-									"My older sibling set out on their Aramante a year ago, and I haven't seen them since."
+									"My older sibling set out on their Aramente a year ago, and I haven't seen them since."
 								],
 								[
 									"5",
@@ -3823,7 +3824,7 @@
 							"rows": [
 								[
 									"1",
-									"My brother has a farm In Elmwood and I've helped him and his neighbors move their goods to Mulmaster and other surrounding towns. Those are good people."
+									"My brother has a farm in Elmwood and I've helped him and his neighbors move their goods to Mulmaster and other surrounding towns. Those are good people."
 								],
 								[
 									"2",
@@ -6056,7 +6057,7 @@
 			"name": "Criminal",
 			"source": "XPHB",
 			"page": 180,
-			"freeRules2024": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"ability": [
 				{
@@ -22584,7 +22585,7 @@
 			"name": "Sage",
 			"source": "XPHB",
 			"page": 183,
-			"freeRules2024": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"ability": [
 				{
@@ -25684,7 +25685,7 @@
 			"name": "Soldier",
 			"source": "XPHB",
 			"page": 185,
-			"freeRules2024": true,
+			"basicRules2024": true,
 			"edition": "one",
 			"ability": [
 				{

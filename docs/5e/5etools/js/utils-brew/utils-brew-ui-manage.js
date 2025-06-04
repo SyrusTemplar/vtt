@@ -84,6 +84,24 @@ export class ManageBrewUi {
 	}
 
 	static async pOnClickBtnLoadAllPartnered () {
+		const cntAvailable = (await Promise.all([
+			PrereleaseUtil.pGetCntBrewsPartnered({isSilent: true}),
+			BrewUtil2.pGetCntBrewsPartnered({isSilent: true}),
+		])).sum();
+		if (!cntAvailable) {
+			JqueryUtil.doToast({type: "warning", content: `No partnered content available!`});
+			return;
+		}
+
+		if (
+			!await InputUiUtil.pGetUserBoolean({
+				title: "Load Partnered Content",
+				htmlDescription: `<p>Are you sure you want to load all partnered content?<br>${cntAvailable} partnered content source${cntAvailable === 1 ? "" : "s"} will be loaded.</p>`,
+				textYes: "Yes",
+				textNo: "Cancel",
+			})
+		) return;
+
 		const brewDocs = [];
 		try {
 			const [brewDocsPrerelease, brewDocsHomebrew] = await Promise.all([
@@ -274,15 +292,19 @@ export class ManageBrewUi {
 				await this.constructor.pOnClickBtnExportListAsUrl({ele: evt.originalEvent.currentTarget});
 			});
 
+		const $wrpBtnLoadAll = this._brewUtil.IS_ADD_BTN_ALL_PARTNERED
+			? $$`<div class="ve-flex-v-center ve-btn-group mr-2">
+				${btnLoadPartnered}
+			</div>`
+			: null;
+
 		const $wrpBtns = $$`<div class="ve-flex-v-center no-shrink mobile__ve-flex-col">
 			<div class="ve-flex-v-center mobile__mb-2">
 				<div class="ve-flex-v-center ve-btn-group mr-2">
 					${$btnGet}
 					${$btnCustomUrl}
 				</div>
-				<div class="ve-flex-v-center ve-btn-group mr-2">
-					${btnLoadPartnered}
-				</div>
+				${$wrpBtnLoadAll}
 				<div class="ve-flex-v-center ve-btn-group mr-2">
 					${$btnLoadFromFile}
 					${$btnLoadFromUrl}

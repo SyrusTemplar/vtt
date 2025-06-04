@@ -30,9 +30,11 @@ import {
 	TagImmResVulnConditional,
 	TraitActionTag,
 } from "./converterutils-creature.js";
-import {CoreRuleTag, SpellTag} from "./converterutils-entries.js";
+import {CoreRuleTag, HazardTag, SpellTag} from "./converterutils-entries.js";
 import {PropOrder} from "../utils-proporder.js";
 import {ConverterStringBlocklist} from "./converterutils-utils-blocklist.js";
+import {VetoolsConfig} from "../utils-config/utils-config-config.js";
+import {SITE_STYLE__CLASSIC} from "../consts.js";
 
 class _ConversionStateTextCreature extends ConversionStateTextBase {
 	constructor (
@@ -383,7 +385,7 @@ export class ConverterCreature extends ConverterBase {
 			if (ConverterUtils.isStatblockLineHeaderStart({reStartStr: this._RE_START_SENSES, line: meta.curLine})) {
 				// noinspection StatementWithEmptyBodyJS
 				while (this._absorbBrokenLine({meta}));
-				this._setCleanSenses({stats, line: meta.curLine, cbWarning: options.cbWarning});
+				this._setCleanSenses({stats, line: meta.curLine, cbWarning: options.cbWarning, styleHint: options.styleHint});
 				continue;
 			}
 
@@ -1306,6 +1308,22 @@ export class ConverterCreature extends ConverterBase {
 					cur,
 					ptrList,
 					isMultiple,
+					fnIsMatchCurEntry: cur => /\bVampire Weakness/i.test(cur.name || ""),
+					// Assume that this is the last trait, and that everything following should be part of the list
+					fnIsMatchNxtStr: ({entryNxt, entryNxtStr}) => true,
+					listStyle: "list-hang-subtrait",
+					listItemType: "itemSub",
+				})
+			) continue;
+
+			if (
+				this._doMergeHangingLists_generic({
+					stats,
+					prop,
+					ix: i,
+					cur,
+					ptrList,
+					isMultiple,
 					fnIsMatchCurEntry: cur => /\bhas these weaknesses:/.test(cur.entries.last().trim()),
 					// Assume that this is the last trait, and that everything following should be part of the list
 					fnIsMatchNxtStr: ({entryNxt, entryNxtStr}) => true,
@@ -1327,18 +1345,31 @@ export class ConverterCreature extends ConverterBase {
 		}
 	}
 
-	static _doMergeHangingLists_generic ({stats, prop, ix, cur, ptrList, isMultiple, fnIsMatchCurEntry, fnIsMatchNxtStr}) {
+	static _doMergeHangingLists_generic (
+		{
+			stats,
+			prop,
+			ix,
+			cur,
+			ptrList,
+			isMultiple,
+			fnIsMatchCurEntry,
+			fnIsMatchNxtStr,
+			listStyle = "list-hang-notitle",
+			listItemType = "item",
+		},
+	) {
 		if (!fnIsMatchCurEntry(cur)) return false;
 
 		let cnt = 0;
 
 		const doAdd = ({entryNxt}) => {
 			if (!ptrList._) {
-				ptrList._ = {type: "list", style: "list-hang-notitle", items: []};
+				ptrList._ = {type: "list", style: listStyle, items: []};
 				cur.entries.push(ptrList._);
 			}
 
-			ConverterUtils.mutSetEntryTypePretty({obj: entryNxt, type: "item"});
+			ConverterUtils.mutSetEntryTypePretty({obj: entryNxt, type: listItemType});
 			ptrList._.items.push(entryNxt);
 			stats[prop].splice(ix + 1, 1);
 			cnt++;
@@ -1359,7 +1390,7 @@ export class ConverterCreature extends ConverterBase {
 			doAdd({entryNxt});
 		}
 
-		return true;
+		return !!cnt;
 	}
 
 	/* -------------------------------------------- */
@@ -1566,7 +1597,7 @@ export class ConverterCreature extends ConverterBase {
 
 				// senses
 				if (~meta.curLine.indexOf("Senses")) {
-					this._setCleanSenses({stats, line: ConverterUtilsMarkdown.getNoDashStarStar(meta.curLine), cbWarning: options.cbWarning});
+					this._setCleanSenses({stats, line: ConverterUtilsMarkdown.getNoDashStarStar(meta.curLine), cbWarning: options.cbWarning, styleHint: options.styleHint});
 					continue;
 				}
 
@@ -1827,6 +1858,7 @@ export class ConverterCreature extends ConverterBase {
 		TagImmResVulnConditional.tryRun(stats);
 		DragonAgeTag.tryRun(stats);
 		if (!stats.gear) AttachedItemTag.tryRun(stats);
+		HazardTag.tryRunPropsStrictCapsWords(stats, Renderer.monster.CHILD_PROPS_EXTENDED, {styleHint: options.styleHint});
 		CoreRuleTag.tryRunProps(stats, Renderer.monster.CHILD_PROPS_EXTENDED, {styleHint: options.styleHint});
 		this._doStatblockPostProcess_doCleanup(stats, options);
 		this._doStatblockPostProcess_doVerify(stats, options);
@@ -2276,7 +2308,9 @@ export class ConverterCreature extends ConverterBase {
 		stats.gear = out;
 	}
 
-	static _setCleanSenses ({stats, line, cbWarning}) {
+	static _setCleanSenses ({stats, line, cbWarning, styleHint}) {
+		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
+
 		const senses = ConverterUtils.getStatblockLineHeaderText({reStartStr: this._RE_START_SENSES, line});
 		const tempSenses = [];
 
@@ -2290,7 +2324,14 @@ export class ConverterCreature extends ConverterBase {
 						pt = pt.trim();
 						if (!pt) return;
 
-						if (!pt.toLowerCase().includes("passive perception")) return tempSenses.push(pt.toLowerCase());
+						if (!pt.toLowerCase().includes("passive perception")) {
+							if (styleHint === SITE_STYLE__CLASSIC) return tempSenses.push(pt.toLowerCase());
+
+							return tempSenses.push(
+								pt
+									.replace(/magical Darkness/g, `magical {@variantrule Darkness|XPHB}`),
+							);
+						}
 
 						let ptPassive = pt.replace(/^passive perception/i, "").trim();
 						if (!isNaN(ptPassive)) return stats.passive = this._tryConvertNumber(ptPassive);

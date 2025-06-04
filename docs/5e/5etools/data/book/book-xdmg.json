@@ -2259,6 +2259,8 @@
 						{
 							"type": "table",
 							"caption": "Abilities, Ability Checks, and Saving Throws",
+							"srd52": true,
+							"basicRules2024": true,
 							"colLabels": [
 								"Ability",
 								"Score Measures...",
@@ -2411,6 +2413,8 @@
 								{
 									"type": "table",
 									"caption": "Typical DCs",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"Task",
 										"DC"
@@ -3373,6 +3377,8 @@
 												{
 													"type": "table",
 													"caption": "Travel Terrain",
+													"srd52": true,
+													"basicRules2024": true,
 													"colLabels": [
 														"Terrain",
 														"Maximum Pace",
@@ -3870,6 +3876,8 @@
 										{
 											"type": "table",
 											"caption": "Creature Size and Space",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Size",
 												"Space in Squares",
@@ -4529,7 +4537,7 @@
 									"page": 52,
 									"id": "0f4",
 									"entries": [
-										"A chase participant can take the {@action Dash|XPHB} action a number of times equal to 3 plus its Constitution modifier (minimum of once). Each additional Dash action it takes during the chase requires the creature to succeed on a {@dc 10} Constitution saving throw at the end of its turn or gain 1 {@condition Exhaustion|XPHB} level. A participant drops out of the chase if its Speed is 0."
+										"A chase participant can take the {@action Dash|XPHB} action a number of times equal to 3 plus its Constitution modifier (minimum of once). Each additional Dash action it takes during the chase requires the creature to succeed on a {@dc 10} Constitution saving throw at the end of its turn or gain 1 {@condition Exhaustion|XPHB} level. A participant drops out of the chase if it has 5 {@condition Exhaustion|XPHB} levels. A creature can remove the {@condition Exhaustion|XPHB} levels it gained during the chase by finishing a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
 									]
 								},
 								{
@@ -8423,7 +8431,7 @@
 								"path": "book/XDMG/041-02-021.zarak-poison-dagger.webp"
 							},
 							"title": "Zarak applies poison to his dagger",
-							"credit": "Zuzanna Wuzyk",
+							"credit": "Zuzanna Wužyk",
 							"width": 850,
 							"height": 1414
 						},
@@ -15854,7 +15862,7 @@
 													]
 												},
 												"This temple, dedicated to serving the god Pelor in the heart of the Garden Quarter, opens at dawn and closes at dusk. In a sanctuary in the heart of the temple, {@creature Priest|XMM|Priests} conduct daily morning rites, as well as all-day observances every Godsday.",
-												"Sarana, the temple's {@b Archpriest} (Neutral Good), is a middle-aged, human woman wearing a sun-shaped headdress and yellow-and-gold robes. She is never seen in public without her {@item Staff of Healing|XDMG}. Sarana has straw-colored hair, green eyes, and a forgiving nature.",
+												"Sarana, the temple's {@creature Archpriest|XMM} (Neutral Good), is a middle-aged, human woman wearing a sun-shaped headdress and yellow-and-gold robes. She is never seen in public without her {@item Staff of Healing|XDMG}. Sarana has straw-colored hair, green eyes, and a forgiving nature.",
 												{
 													"type": "entries",
 													"name": "Character Backgrounds",
@@ -20944,7 +20952,7 @@
 									"id": "382",
 									"entries": [
 										"Lolth is the Demon Queen of Spiders, whose schemes entangle entire civilizations on worlds across the multiverse. Of all demon lords, she might have the most active interest in the worlds of the Material Plane and in the cultists who do her bidding on those worlds, but her interest lies only in domination.",
-										"Lolth's layer is an immense network of thick, magical webbing that forms passageways and cocoonlike chambers. Structures, ships, and other objects are caught in the webbing. The webs conceal random portals that snare objects from demiplanes and Material Plane worlds that figure into the schemes of the Spider Queen. Lolth's servants also build dungeons amid the webbing, trapping and hunting Lolth's hated enemies within crisscrossing corridors of web-mortared stone. Far beneath these dungeons lie the bottomless Demonweb Pits where the Spider Queen dwells with her most loyal servants\u2014yochlol demons created to serve her that outrank mightier demons while in the Spider Queen's realm."
+										"Lolth's layer is an immense network of thick, magical webbing that forms passageways and cocoon-like chambers. Structures, ships, and other objects are caught in the webbing. The webs conceal random portals that snare objects from demiplanes and Material Plane worlds that figure into the schemes of the Spider Queen. Lolth's servants also build dungeons amid the webbing, trapping and hunting Lolth's hated enemies within crisscrossing corridors of web-mortared stone. Far beneath these dungeons lie the bottomless Demonweb Pits where the Spider Queen dwells with her most loyal servants\u2014yochlol demons created to serve her that outrank mightier demons while in the Spider Queen's realm."
 									]
 								},
 								{
@@ -30242,7 +30250,7 @@
 								"path": "book/XDMG/205-11-002.modron-march.webp"
 							},
 							"title": "The Great Modron March",
-							"credit": "Zuzanna Wuzyk",
+							"credit": "Zuzanna Wužyk",
 							"width": 1700,
 							"height": 627
 						}
@@ -31693,7 +31701,7 @@
 								{
 									"type": "item",
 									"name": "Interior Illustrators:",
-									"entry": "Helder Almeida, Joy Ang, David Astruga, Alfven Ato, Tom Babbey, Helge C. Balzer, Luca Bancone, Mark Behm, Eric Belisle, Olivier Bernard, Zoltan Boros, Bruce Brenneise, Aleksi Briclot, Ekaterina Burmak, Filip Burburan, Paul Scott Canavan, Dawn Carlos, Clint Cearley, Diana Cearley, Sidharth Chaturvedi, David René Christensen, Conceptopolis, Harry Conway, CoupleOfKooks, Daarken, Kent Davis, Nikki Dawes, Axel Defois, Alex Diaz, Simon Dominic, Olga Drebas, Wayne England, Aurore Folny, Jessica Fong, Vallez Gax, Justyna Gil, Ilse Gort, Alexandre Honoré, Ralph Horsley, Jason Juta, Sam Keiser, Julian Kok, Katerina Ladon, Abigail Larson, Olly Lawson, Linda Lithen, Titus Lunter, Andrew Mar, Raluca Marinescu, Viko Menezes, Brynn Metheney, Robson Michel, Calder Moore, Martin Mottet, Jodie Muir, Scott Murphy, David Auden Nash, Irina Nordsol, William O'Connor, Robin Olausson, Claudio Pozas, Livia Prima, April Prime, Noor Rahman, Chris Rallis, Chris Seaman, Andrea Sipl, Craig J Spearing, Chase Stone, Joel Thomas, Beth Trott, Brian Valeza, Randy Vargas, Richard Whitters, Kieran Yanner, Zuzanna Wuzyk"
+									"entry": "Helder Almeida, Joy Ang, David Astruga, Alfven Ato, Tom Babbey, Helge C. Balzer, Luca Bancone, Mark Behm, Eric Belisle, Olivier Bernard, Zoltan Boros, Bruce Brenneise, Aleksi Briclot, Ekaterina Burmak, Filip Burburan, Paul Scott Canavan, Dawn Carlos, Clint Cearley, Diana Cearley, Sidharth Chaturvedi, David René Christensen, Conceptopolis, Harry Conway, CoupleOfKooks, Daarken, Kent Davis, Nikki Dawes, Axel Defois, Alex Diaz, Simon Dominic, Olga Drebas, Wayne England, Aurore Folny, Jessica Fong, Vallez Gax, Justyna Gil, Ilse Gort, Alexandre Honoré, Ralph Horsley, Jason Juta, Sam Keiser, Julian Kok, Katerina Ladon, Abigail Larson, Olly Lawson, Linda Lithen, Titus Lunter, Andrew Mar, Raluca Marinescu, Viko Menezes, Brynn Metheney, Robson Michel, Calder Moore, Martin Mottet, Jodie Muir, Scott Murphy, David Auden Nash, Irina Nordsol, William O'Connor, Robin Olausson, Claudio Pozas, Livia Prima, April Prime, Noor Rahman, Chris Rallis, Chris Seaman, Andrea Sipl, Craig J Spearing, Chase Stone, Joel Thomas, Beth Trott, Brian Valeza, Randy Vargas, Richard Whitters, Kieran Yanner, Zuzanna Wužyk"
 								},
 								{
 									"type": "item",

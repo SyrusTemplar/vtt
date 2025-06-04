@@ -20,8 +20,6 @@ class PageFilterClassesRaw extends PageFilterClassesBase {
 		this._sourceFilter.addItem(cls.source);
 		this._miscFilter.addItem(cls._fMisc);
 
-		if (cls.fluff) cls.fluff.forEach(it => this._addEntrySourcesToFilter(it));
-
 		cls.subclasses.forEach(sc => {
 			const isScExcluded = subclassExclusions[sc.source]?.[sc.name] || false;
 			if (isScExcluded) return;
@@ -460,8 +458,6 @@ class ModalFilterClasses extends ModalFilterBase {
 
 				(cls.subclasses = cls.subclasses || []).push(sc);
 			}
-
-			delete data.subclass;
 		}
 
 		// Clean and initialise fields; sort arrays
@@ -483,7 +479,7 @@ class ModalFilterClasses extends ModalFilterBase {
 				.map(it => it.choose ? (it.choose.count || 1) : 0)
 				.reduce((a, b) => a + b, 0);
 
-			cls._cntStartingSkillChoicesMutliclass = (MiscUtil.get(cls, "multiclassing", "proficienciesGained", "skills") || [])
+			cls._cntStartingSkillChoicesMulticlass = (MiscUtil.get(cls, "multiclassing", "proficienciesGained", "skills") || [])
 				.map(it => it.choose ? (it.choose.count || 1) : 0)
 				.reduce((a, b) => a + b, 0);
 		});

@@ -207,7 +207,10 @@ class Omnidexer {
 				}
 
 				if (!indexDoc.m) {
-					const fluff = await Renderer.hover.pGetHoverableFluff(arbiter.fluffBaseListProp || arbiter.listProp, src, hash, {isSilent: true});
+					const fluff = await Renderer.utils.pGetProxyFluff({
+						entity: ent,
+						prop: arbiter.fluffBaseListProp || arbiter.listProp,
+					});
 					if (fluff?.images?.length) {
 						indexDoc.m = Renderer.utils.getEntryMediaUrl(fluff.images[0], "href", "img");
 					}
@@ -699,10 +702,10 @@ class IndexableFileOptFeatures_Metamagic extends IndexableFile {
 	}
 }
 
-class IndexableFileOptFeatures_ManeuverBattlemaster extends IndexableFile {
+class IndexableFileOptFeatures_ManeuverBattleMaster extends IndexableFile {
 	constructor () {
 		super({
-			category: Parser.CAT_ID_MANEUVER_BATTLEMASTER,
+			category: Parser.CAT_ID_MANEUVER_BATTLE_MASTER,
 			file: "optionalfeatures.json",
 			listProp: "optionalfeature",
 			baseUrl: "optionalfeatures.html",
@@ -1332,7 +1335,7 @@ Omnidexer.TO_INDEX = [
 
 	new IndexableFileOptFeatures_EldritchInvocations(),
 	new IndexableFileOptFeatures_Metamagic(),
-	new IndexableFileOptFeatures_ManeuverBattlemaster(),
+	new IndexableFileOptFeatures_ManeuverBattleMaster(),
 	new IndexableFileOptFeatures_ManeuverCavalier(),
 	new IndexableFileOptFeatures_ArcaneShot(),
 	new IndexableFileOptFeatures_Other(),
@@ -1397,7 +1400,10 @@ class IndexableSpecialPages extends IndexableSpecial {
 				n: name,
 				c: Parser.CAT_ID_PAGE,
 				u: page,
-				r: 1, // Consider basic pages to be "SRD friendly"
+				// region Consider basic pages to be "SRD friendly"
+				r: 1,
+				r2: 1,
+				// endregion
 			}));
 	}
 }

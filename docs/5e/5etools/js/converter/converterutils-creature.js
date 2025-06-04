@@ -653,6 +653,10 @@ export class TagCreatureSubEntryInto {
 								.replace(/(?<=^|[.!?;] )(?<ordinal>First|Second|Third|Fourth|Fifth|Sixth|Seventh|Eighth|Ninth|Tenth) (?:Failure:)(?= )/g, (...m) => {
 									return `{@actSaveFail ${Parser.textToNumber(m.at(-1).ordinal)}}`;
 								})
+								// "Failure by X or More: ..."
+								.replace(/(?<=^|[.!?;] ) (?:Failure by (?<amount>\d+) or More:)(?= )/g, (...m) => {
+									return `{@actSaveFailBy ${m.at(-1).amount}}`;
+								})
 								.replace(/(?<=^|[.!?;] )(Failure:)(?= )/g, (...m) => `{@actSaveFail}`)
 							;
 						},
@@ -887,6 +891,10 @@ export class TraitActionTag {
 		});
 	}
 
+	static _doTagDeepRoot_trait ({m, tags, allowlist}) {
+		if (m.senses?.some(s => /\bunimpeded by magical darkness\b/i.test(Renderer.stripTags(s)))) return this._doAdd({tags, tag: "Devil's Sight", allowlist});
+	}
+
 	static _isTraits (prop) { return prop === "trait"; }
 	static _isActions (prop) { return prop === "action"; }
 
@@ -900,6 +908,8 @@ export class TraitActionTag {
 		this._doTag({m, cbMan, prop: "bonus", tags: actionTags, allowlist: allowlistActionTags});
 
 		this._doTagDeep({m, prop: "action", tags: actionTags, allowlist: allowlistActionTags});
+
+		this._doTagDeepRoot_trait({m, tags: traitTags, allowlist: allowlistTraitTags});
 
 		if (traitTags.size) m.traitTags = [...traitTags].sort(SortUtil.ascSortLower);
 		if (actionTags.size) m.actionTags = [...actionTags].sort(SortUtil.ascSortLower);
@@ -1292,7 +1302,7 @@ export class DamageTypeTag extends _PrimaryLegendarySpellsTaggerBase {
 			outSet.add(this._TYPE_LOOKUP[type.toLowerCase()]);
 		});
 
-		str.replace(this._TARGET_TASKES_DAMAGE_REGEX, (m0, type) => {
+		str.replace(this._TARGET_TAKES_DAMAGE_REGEX, (m0, type) => {
 			outSet.add(this._TYPE_LOOKUP[type.toLowerCase()]);
 		});
 
@@ -1315,7 +1325,7 @@ export class DamageTypeTag extends _PrimaryLegendarySpellsTaggerBase {
 	}
 }
 DamageTypeTag._STATIC_DAMAGE_REGEX = new RegExp(`\\d+ ${ConverterConst.STR_RE_DAMAGE_TYPE} damage`, "gi");
-DamageTypeTag._TARGET_TASKES_DAMAGE_REGEX = new RegExp(`(?:a|the) target takes (?:{@dice |{@damage )[^}]+} ?${ConverterConst.STR_RE_DAMAGE_TYPE} damage`, "gi");
+DamageTypeTag._TARGET_TAKES_DAMAGE_REGEX = new RegExp(`(?:a|the) target takes (?:{@dice |{@damage )[^}]+} ?${ConverterConst.STR_RE_DAMAGE_TYPE} damage`, "gi");
 DamageTypeTag._SUMMON_DAMAGE_REGEX = /(?:{@dice |{@damage )[^}]+}(?:\s*\+\s*the spell's level)? ([a-z]+( \([-a-zA-Z0-9 ]+\))?( or [a-z]+( \([-a-zA-Z0-9 ]+\))?)? damage)/gi;
 DamageTypeTag._TYPE_LOOKUP = {};
 

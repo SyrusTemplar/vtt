@@ -1596,7 +1596,7 @@
 					"name": "Dust Devil",
 					"entries": [
 						"The al-aeshma creates a swirling dust devil centered on a point it can see within 120 feet of it. The dust devil appears in the shape of a cylinder that is 30 feet tall with a 5-foot radius. Each creature in the area and each creature that enters the area for the first time on a turn or starts its turn there must succeed on a {@dc 17} Strength saving throw or be {@condition restrained}. While {@condition restrained}, a creature takes 7 ({@damage 2d6}) slashing damage and 7 ({@damage 2d6}) necrotic damage at the start of each of the al-aeshma's turns. A creature, including a {@condition restrained} creature, can take an action to free the {@condition restrained} creature by succeeding on a {@dc 17} Strength check.",
-						"The al-aeshma can use a bonus action on its turn to move the dust devil up to 30 feet. A {@condition restrained} creature doesn't move with the dust devil when the dust devil moves and is freed if the dust devil moves out of its space. The dust devil lasts until the al-aeshma loses its {@status concentration} (as if {@status concentration||concentrating} on a spell), and the alaeshma can have only one dust devil active at a time."
+						"The al-aeshma can use a bonus action on its turn to move the dust devil up to 30 feet. A {@condition restrained} creature doesn't move with the dust devil when the dust devil moves and is freed if the dust devil moves out of its space. The dust devil lasts until the al-aeshma loses its {@status concentration} (as if {@status concentration||concentrating} on a spell), and the al-aeshma can have only one dust devil active at a time."
 					]
 				}
 			],
@@ -7417,7 +7417,7 @@
 				{
 					"name": "Foul Form",
 					"entries": [
-						"The bereginyas's semi-solid form emits poisonous gases. Any creature that starts its turn within 5 feet of the bereginyas must succeed on a {@dc 14} Constitution saving throw or be {@condition poisoned}. A creature that succeeds on this saving throw by 5 or more is immune to the bereginyas's Foul Form for the next 24 hours."
+						"The bereginyas' semi-solid form emits poisonous gases. Any creature that starts its turn within 5 feet of the bereginyas must succeed on a {@dc 14} Constitution saving throw or be {@condition poisoned}. A creature that succeeds on this saving throw by 5 or more is immune to the bereginyas' Foul Form for the next 24 hours."
 					]
 				}
 			],
@@ -7425,7 +7425,7 @@
 				{
 					"name": "Multiattack",
 					"entries": [
-						"The bereginyas makes two Claw attacks. If both attacks hit the same target, the bereginyas attaches to the target. While attached, the bereginyas can use only the Smother action, and it moves with the target whenever the target moves, requiring none of the bereginyas's movement. The bereginyas can detach itself by spending 5 feet of its movement. A creature, including the target, can take its action to detach the bereginyas by succeeding on a {@dc 14} Strength check."
+						"The bereginyas makes two Claw attacks. If both attacks hit the same target, the bereginyas attaches to the target. While attached, the bereginyas can use only the Smother action, and it moves with the target whenever the target moves, requiring none of the bereginyas' movement. The bereginyas can detach itself by spending 5 feet of its movement. A creature, including the target, can take its action to detach the bereginyas by succeeding on a {@dc 14} Strength check."
 					]
 				},
 				{
@@ -39113,19 +39113,23 @@
 				{
 					"name": "Vampire Weaknesses",
 					"entries": [
-						"The pact vampire has the following flaws:"
-					]
-				},
-				{
-					"name": "Stake to the Heart",
-					"entries": [
-						"If a piercing weapon made of wood is driven into the vampire's heart while the vampire is {@condition incapacitated} in its resting place, the vampire is {@condition paralyzed} until the stake is removed."
-					]
-				},
-				{
-					"name": "Sunlight Hypersensitivity",
-					"entries": [
-						"The vampire takes 10 radiant damage when it starts its turn in sunlight. While in sunlight, it has disadvantage on attack rolls and ability checks."
+						"The pact vampire has the following flaws:",
+						{
+							"type": "list",
+							"style": "list-hang-subtrait",
+							"items": [
+								{
+									"type": "itemSub",
+									"name": "Stake to the Heart",
+									"entry": "If a piercing weapon made of wood is driven into the vampire's heart while the vampire is {@condition incapacitated} in its resting place, the vampire is {@condition paralyzed} until the stake is removed."
+								},
+								{
+									"type": "itemSub",
+									"name": "Sunlight Hypersensitivity",
+									"entry": "The vampire takes 10 radiant damage when it starts its turn in sunlight. While in sunlight, it has disadvantage on attack rolls and ability checks."
+								}
+							]
+						}
 					]
 				}
 			],

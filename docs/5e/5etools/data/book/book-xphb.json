@@ -583,6 +583,8 @@
 						{
 							"type": "table",
 							"caption": "Ability Descriptions",
+							"srd52": true,
+							"basicRules2024": true,
 							"colLabels": [
 								"Ability",
 								"Score Measures..."
@@ -628,6 +630,8 @@
 								{
 									"type": "table",
 									"caption": "Ability Scores",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"Score",
 										"Meaning"
@@ -679,6 +683,8 @@
 								{
 									"type": "table",
 									"caption": "Ability Modifiers",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"Score",
 										"Modifier"
@@ -835,6 +841,8 @@
 										{
 											"type": "table",
 											"caption": "Ability Check Examples",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Ability",
 												"Make a Check To..."
@@ -891,6 +899,8 @@
 										{
 											"type": "table",
 											"caption": "Typical Difficulty Classes",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Task Difficulty",
 												"DC"
@@ -948,6 +958,8 @@
 										{
 											"type": "table",
 											"caption": "Saving Throw Examples",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Ability",
 												"Make a Save To..."
@@ -1022,6 +1034,8 @@
 										{
 											"type": "table",
 											"caption": "Attack Roll Abilities",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Ability",
 												"Attack Type"
@@ -1190,6 +1204,8 @@
 						{
 							"type": "table",
 							"caption": "Proficiency Bonus",
+							"srd52": true,
+							"basicRules2024": true,
 							"colLabels": [
 								"Level or CR",
 								"Bonus"
@@ -1261,6 +1277,8 @@
 										{
 											"type": "table",
 											"caption": "Skills",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Skill",
 												"Ability",
@@ -1433,6 +1451,8 @@
 						{
 							"type": "table",
 							"caption": "Actions",
+							"srd52": true,
+							"basicRules2024": true,
 							"colLabels": [
 								"Action",
 								"Summary"
@@ -2100,6 +2120,8 @@
 										{
 											"type": "table",
 											"caption": "Travel Pace",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabelRows": [
 												[
 													"",
@@ -2794,6 +2816,8 @@
 										{
 											"type": "table",
 											"caption": "Creature Size and Space",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Size",
 												"Space (Feet)",
@@ -2893,6 +2917,8 @@
 								{
 									"type": "table",
 									"caption": "Cover",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"Degree",
 										"Benefit to Target",
@@ -4059,6 +4085,8 @@
 								{
 									"type": "table",
 									"caption": "Class Overview",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"Class",
 										"Likes...",
@@ -4247,6 +4275,8 @@
 										{
 											"type": "table",
 											"caption": "Ability Scores and Backgrounds",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Ability",
 												"Backgrounds"
@@ -4332,7 +4362,7 @@
 									"page": 37,
 									"id": "0d6",
 									"entries": [
-										"Choose a species for your character. The following species options are detailed in {@book chapter 4|XPHB|3}: {@race Aasimar|XPHB}, {@race Dragonborn|XPHB}, {@race Dwarf|XPHB}, {@race Elf|XPHB}, {@race Gnome|XPHB}, {@race Goliath|XPHB}, {@race Halfling|XPHB}, {@race Human|XPHB}, {@race Orc|XPHB}, and {@race Tiefling|XPHB}. Once you've chosen a species, write it on your character sheet. Then record your species' traits.",
+										"Choose a species for your character. The following species options are detailed in {@book chapter 4|XPHB|4}: {@race Aasimar|XPHB}, {@race Dragonborn|XPHB}, {@race Dwarf|XPHB}, {@race Elf|XPHB}, {@race Gnome|XPHB}, {@race Goliath|XPHB}, {@race Halfling|XPHB}, {@race Human|XPHB}, {@race Orc|XPHB}, and {@race Tiefling|XPHB}. Once you've chosen a species, write it on your character sheet. Then record your species' traits.",
 										"Your character's {@variantrule size|XPHB} and {@variantrule Speed|XPHB} are determined by the character's species; record these in the appropriate places on your character sheet as well (you may write just the first letter of your size)."
 									]
 								},
@@ -4367,6 +4397,8 @@
 										{
 											"type": "table",
 											"caption": "Standard Languages",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"{@dice 1d12}",
 												"Language",
@@ -4482,6 +4514,8 @@
 										{
 											"type": "table",
 											"caption": "Rare Languages",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Language",
 												"Origin"
@@ -4578,6 +4612,8 @@
 												{
 													"type": "table",
 													"caption": "Ability Score Point Costs",
+													"srd52": true,
+													"basicRules2024": true,
 													"colLabels": [
 														"Score",
 														"Cost"
@@ -4636,6 +4672,8 @@
 										{
 											"type": "table",
 											"caption": "Standard Array by Class",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Class",
 												"Str.",
@@ -4798,6 +4836,8 @@
 										{
 											"type": "table",
 											"caption": "Ability Scores and Modifiers",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Score",
 												"Modifier"
@@ -5447,6 +5487,8 @@
 												{
 													"type": "table",
 													"caption": "Level 1 Hit Points by Class",
+													"srd52": true,
+													"basicRules2024": true,
 													"colLabels": [
 														"Class",
 														"Hit Point Maximum"
@@ -5616,6 +5658,8 @@
 						{
 							"type": "table",
 							"caption": "Character Advancement",
+							"srd52": true,
+							"basicRules2024": true,
 							"colLabels": [
 								"Level",
 								"Experience Points",
@@ -5753,6 +5797,8 @@
 												{
 													"type": "table",
 													"caption": "Fixed Hit Points by Class",
+													"srd52": true,
+													"basicRules2024": true,
 													"colLabels": [
 														"Class",
 														"Hit Points per Level"
@@ -5884,6 +5930,8 @@
 								{
 									"type": "table",
 									"caption": "Starting Equipment at Higher Levels",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"Starting Level",
 										"Equipment and Money",
@@ -6011,6 +6059,8 @@
 										{
 											"type": "table",
 											"caption": "Multiclass Spellcaster: Spell Slots per Spell Level",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Level",
 												"1",
@@ -6333,7 +6383,9 @@
 					],
 					"data": {
 						"variantRuleInclude": {
-							"ruleType": "C"
+							"ruleType": "C",
+							"srd52": true,
+							"basicRules2024": true
 						}
 					}
 				},
@@ -7509,6 +7561,8 @@
 						{
 							"type": "table",
 							"caption": "Coin Values",
+							"srd52": true,
+							"basicRules2024": true,
 							"colLabels": [
 								"Coin",
 								"Value in GP"
@@ -7592,6 +7646,8 @@
 						{
 							"type": "table",
 							"caption": "Weapons",
+							"srd52": true,
+							"basicRules2024": true,
 							"colLabels": [
 								"Name",
 								"Damage",
@@ -8336,7 +8392,9 @@
 							"data": {
 								"variantRuleInclude": {
 									"name": "Weapon Mastery Properties",
-									"ruleType": "C"
+									"ruleType": "C",
+									"srd52": true,
+									"basicRules2024": true
 								}
 							}
 						}
@@ -8380,6 +8438,8 @@
 						{
 							"type": "table",
 							"caption": "Armor",
+							"srd52": true,
+							"basicRules2024": true,
 							"colLabels": [
 								"Armor",
 								"Armor Class (AC)",
@@ -8740,6 +8800,11 @@
 												},
 												{
 													"type": "item",
+													"name": "Weight:",
+													"entry": "8 lb."
+												},
+												{
+													"type": "item",
 													"name": "Utilize",
 													"entry": "Identify a substance ({@dc 15}), or start a fire ({@dc 15})"
 												},
@@ -8766,6 +8831,11 @@
 													"type": "item",
 													"name": "Ability:",
 													"entry": "Intelligence"
+												},
+												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "9 lb."
 												},
 												{
 													"type": "item",
@@ -8798,6 +8868,11 @@
 												},
 												{
 													"type": "item",
+													"name": "Weight:",
+													"entry": "5 lb."
+												},
+												{
+													"type": "item",
 													"name": "Utilize",
 													"entry": "Write text with impressive flourishes that guard against forgery ({@dc 15})"
 												},
@@ -8824,6 +8899,11 @@
 													"type": "item",
 													"name": "Ability:",
 													"entry": "Strength"
+												},
+												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "6 lb."
 												},
 												{
 													"type": "item",
@@ -8856,6 +8936,11 @@
 												},
 												{
 													"type": "item",
+													"name": "Weight:",
+													"entry": "6 lb."
+												},
+												{
+													"type": "item",
 													"name": "Utilize",
 													"entry": "Draft a map of a small area ({@dc 15})"
 												},
@@ -8882,6 +8967,11 @@
 													"type": "item",
 													"name": "Ability:",
 													"entry": "Dexterity"
+												},
+												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "5 lb."
 												},
 												{
 													"type": "item",
@@ -8914,6 +9004,11 @@
 												},
 												{
 													"type": "item",
+													"name": "Weight:",
+													"entry": "8 lb."
+												},
+												{
+													"type": "item",
 													"name": "Utilize",
 													"entry": "Improve food's flavor ({@dc 10}), or detect spoiled or poisoned food ({@dc 15})"
 												},
@@ -8940,6 +9035,11 @@
 													"type": "item",
 													"name": "Ability:",
 													"entry": "Intelligence"
+												},
+												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "5 lb."
 												},
 												{
 													"type": "item",
@@ -8972,6 +9072,11 @@
 												},
 												{
 													"type": "item",
+													"name": "Weight:",
+													"entry": "2 lb."
+												},
+												{
+													"type": "item",
 													"name": "Utilize",
 													"entry": "Discern a gem's value ({@dc 15})"
 												},
@@ -8998,6 +9103,11 @@
 													"type": "item",
 													"name": "Ability:",
 													"entry": "Dexterity"
+												},
+												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "5 lb."
 												},
 												{
 													"type": "item",
@@ -9030,6 +9140,11 @@
 												},
 												{
 													"type": "item",
+													"name": "Weight:",
+													"entry": "8 lb."
+												},
+												{
+													"type": "item",
 													"name": "Utilize",
 													"entry": "Chisel a symbol or hole in stone ({@dc 10})"
 												},
@@ -9056,6 +9171,11 @@
 													"type": "item",
 													"name": "Ability:",
 													"entry": "Wisdom"
+												},
+												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "5 lb."
 												},
 												{
 													"type": "item",
@@ -9088,6 +9208,11 @@
 												},
 												{
 													"type": "item",
+													"name": "Weight:",
+													"entry": "3 lb."
+												},
+												{
+													"type": "item",
 													"name": "Utilize",
 													"entry": "Discern what a ceramic object held in the past 24 hours ({@dc 15})"
 												},
@@ -9114,6 +9239,11 @@
 													"type": "item",
 													"name": "Ability:",
 													"entry": "Strength"
+												},
+												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "8 lb."
 												},
 												{
 													"type": "item",
@@ -9146,6 +9276,11 @@
 												},
 												{
 													"type": "item",
+													"name": "Weight:",
+													"entry": "10 lb."
+												},
+												{
+													"type": "item",
 													"name": "Utilize",
 													"entry": "Assemble a Tiny item composed of scrap, which falls apart in 1 minute ({@dc 20})"
 												},
@@ -9175,6 +9310,11 @@
 												},
 												{
 													"type": "item",
+													"name": "Weight:",
+													"entry": "5 lb."
+												},
+												{
+													"type": "item",
 													"name": "Utilize",
 													"entry": "Mend a tear in clothing ({@dc 10}), or sew a Tiny design ({@dc 10})"
 												},
@@ -9201,6 +9341,11 @@
 													"type": "item",
 													"name": "Ability:",
 													"entry": "Dexterity"
+												},
+												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "5 lb."
 												},
 												{
 													"type": "item",
@@ -9242,6 +9387,11 @@
 												},
 												{
 													"type": "item",
+													"name": "Weight:",
+													"entry": "3 lb."
+												},
+												{
+													"type": "item",
 													"name": "Utilize:",
 													"entry": "Apply makeup ({@dc 10})"
 												},
@@ -9271,6 +9421,11 @@
 												},
 												{
 													"type": "item",
+													"name": "Weight:",
+													"entry": "5 lb."
+												},
+												{
+													"type": "item",
 													"name": "Utilize:",
 													"entry": "Mimic 10 or fewer words of someone else's handwriting ({@dc 15}), or duplicate a wax seal ({@dc 20})"
 												}
@@ -9292,6 +9447,11 @@
 													"type": "item",
 													"name": "Ability:",
 													"entry": "Wisdom"
+												},
+												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "—"
 												},
 												{
 													"type": "item",
@@ -9324,6 +9484,11 @@
 												},
 												{
 													"type": "item",
+													"name": "Weight:",
+													"entry": "3 lb."
+												},
+												{
+													"type": "item",
 													"name": "Utilize:",
 													"entry": "Identify a plant ({@dc 10})"
 												},
@@ -9350,6 +9515,11 @@
 													"type": "item",
 													"name": "Ability:",
 													"entry": "Charisma"
+												},
+												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "Varies"
 												},
 												{
 													"type": "item",
@@ -9381,6 +9551,11 @@
 													"entry": "Wisdom"
 												},
 												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "2 lb."
+												},
+												{
 													"name": "Utilize:",
 													"type": "item",
 													"entries": [
@@ -9405,6 +9580,11 @@
 													"type": "item",
 													"name": "Ability:",
 													"entry": "Intelligence"
+												},
+												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "2 lb."
 												},
 												{
 													"name": "Utilize:",
@@ -9438,6 +9618,11 @@
 													"type": "item",
 													"name": "Ability:",
 													"entry": "Dexterity"
+												},
+												{
+													"type": "item",
+													"name": "Weight:",
+													"entry": "1 lb."
 												},
 												{
 													"name": "Utilize:",
@@ -9475,6 +9660,8 @@
 						{
 							"type": "table",
 							"caption": "Adventuring Gear",
+							"srd52": true,
+							"basicRules2024": true,
 							"colLabels": [
 								"Item",
 								"Weight",
@@ -9930,6 +10117,8 @@
 										{
 											"type": "table",
 											"caption": "Ammunition",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Type",
 												"Amount",
@@ -10003,6 +10192,8 @@
 										{
 											"type": "table",
 											"caption": "Arcane Focuses",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Focus",
 												"Weight",
@@ -10278,6 +10469,8 @@
 										{
 											"type": "table",
 											"caption": "Druidic Focuses",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Focus",
 												"Weight",
@@ -10373,6 +10566,8 @@
 										{
 											"type": "table",
 											"caption": "Holy Symbols",
+											"srd52": true,
+											"basicRules2024": true,
 											"colLabels": [
 												"Symbol",
 												"Weight",
@@ -10883,6 +11078,8 @@
 						{
 							"type": "table",
 							"caption": "Mounts and Other Animals",
+							"srd52": true,
+							"basicRules2024": true,
 							"colLabels": [
 								"Item",
 								"Carrying Capacity",
@@ -10939,6 +11136,8 @@
 						{
 							"type": "table",
 							"caption": "Tack, Harness, and Drawn Vehicles",
+							"srd52": true,
+							"basicRules2024": true,
 							"colLabels": [
 								"Item",
 								"Weight",
@@ -11104,6 +11303,8 @@
 								{
 									"type": "table",
 									"caption": "Airborne and Waterborne Vehicles",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"Ship",
 										"Speed",
@@ -11312,6 +11513,8 @@
 								{
 									"type": "table",
 									"caption": "Food, Drink, and Lodging",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"Item",
 										"Cost"
@@ -11531,6 +11734,8 @@
 								{
 									"type": "table",
 									"caption": "Hirelings",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"Service",
 										"Cost"
@@ -11566,6 +11771,8 @@
 								{
 									"type": "table",
 									"caption": "Spellcasting Services",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"Spell Level",
 										"Availability",
@@ -11795,6 +12002,8 @@
 								{
 									"type": "table",
 									"caption": "Spell Scroll Costs",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"Spell Level",
 										"Time",
@@ -11899,6 +12108,8 @@
 								{
 									"type": "table",
 									"caption": "Spell Preparation by Class",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"Class",
 										"Change When You...",
@@ -12057,6 +12268,8 @@
 								{
 									"type": "table",
 									"caption": "Schools of Magic",
+									"srd52": true,
+									"basicRules2024": true,
 									"colLabels": [
 										"School",
 										"Typical Effects"
@@ -12192,7 +12405,7 @@
 										"path": "book/XPHB/182-08-002.aasimar-wizard.webp"
 									},
 									"title": "An aasimar Wizard uses a crystal material component to focus the magic of Cone of Cold",
-									"credit": "Martina Faˇ Cková",
+									"credit": "Martina Fačková",
 									"width": 1700,
 									"height": 897
 								},
@@ -12210,7 +12423,7 @@
 											"page": 236,
 											"id": "73b",
 											"entries": [
-												"If you'd like to say a spell's Verbal component, you may make up the words. However you make them, the goal is to create something that's easy to say and that doesn't mean anything in the real world. Consider this method: take the name of the spell, keep only one instance of each of its letters, and rearrange the remaining letters into words. For example, remove the second {@i l} from {@spell Fireball|XPHB} and rearrange the remaining letters to create {@i Ber Fila} or{@i Fel Bira}."
+												"If you'd like to say a spell's Verbal component, you may make up the words. However you make them, the goal is to create something that's easy to say and that doesn't mean anything in the real world. Consider this method: take the name of the spell, keep only one instance of each of its letters, and rearrange the remaining letters into words. For example, remove the second {@i l} from {@spell Fireball|XPHB} and rearrange the remaining letters to create {@i Ber Fila} or {@i Fel Bira}."
 											]
 										}
 									]
@@ -14474,7 +14687,7 @@
 									"type": "item",
 									"name": "Interior Illustrators:",
 									"entries": [
-										"Rob Alexander, David Astruga, Helge C. Balzer, Luca Bancone, Eric Belisle, Olivier Bernard, Zoltan Boros, Michael Broussard, Ignatius Budi, Dmitry Burmak, Ekaterina Burmak, Pedro Cardoso, Kai Carpenter, Clint Cearley, Javier Charro, Jedd Chevrier, Billy Christian, Tuan Duong Chu, Conceptopolis, CoupleOfKooks, Justine Cruz, Daarken, Nikki Dawes, Jonas De Ro, Yuhong Ding, Aldo Dominguez, Olga Drebas, Tomas Duchek, Jesper Ejsing, Wayne England, Martina Fackova, Aurore Folny, Evyn Fong, Jessica Fong, Gaboleps, Caroline Gariba, Michele Giorgi, Igor Grechanyi, John Grello, Leesha Hannigan, Patrik Hell, Nathaniel Himawan, Alexandre Honoré, Ralph Horsley, Jane Katsubo, Jonathan Kuo, Katerina Ladon, Néstor Ossandón Leal, Linda Lithen, Titus Lunter, Erel Maatita, Randall Mackey, Erion Makuo, Antonio José Manzanedo, Andrew Mar, Raluca Marinescu, Marcela Medeiros, Julia Metzger, Alexander Mokhov, Caio Monteiro, Calder Moore, Riccardo Moscatello, Martin Mottet, Jodie Muir, David Auden Nash, Irina Nordsol, Hinchel Or, Hector Ortiz, Alejandro Pacheco, Mike Pape, Borja Pindado, Andrea Piparo, Polar Engine, April Prime, Noor Rahman, Chris Rallis, Joshua Raphael, Aaron J. Riley, Denman Rooke, Hocheol Ryu, Fabià Sans, Chris Seaman, Alditha Siregar, Bryan Sola, Craig J Spearing, Justin Sweet, Kamila Szutenberg, Wisnu Tan, Brian Valeza, Randy Vargas, Adam Vehige, Magali Villeneuve, Kenny Vo, Lauren Walsh, Joseph Weston, Campbell White, Richard Whitters, Daneen Wilkerson, Zuzanna Wuzyk, Lixin Yin"
+										"Rob Alexander, David Astruga, Helge C. Balzer, Luca Bancone, Eric Belisle, Olivier Bernard, Zoltan Boros, Michael Broussard, Ignatius Budi, Dmitry Burmak, Ekaterina Burmak, Pedro Cardoso, Kai Carpenter, Clint Cearley, Javier Charro, Jedd Chevrier, Billy Christian, Tuan Duong Chu, Conceptopolis, CoupleOfKooks, Justine Cruz, Daarken, Nikki Dawes, Jonas De Ro, Yuhong Ding, Aldo Dominguez, Olga Drebas, Tomas Duchek, Jesper Ejsing, Wayne England, Martina Fačková, Aurore Folny, Evyn Fong, Jessica Fong, Gaboleps, Caroline Gariba, Michele Giorgi, Igor Grechanyi, John Grello, Leesha Hannigan, Patrik Hell, Nathaniel Himawan, Alexandre Honoré, Ralph Horsley, Jane Katsubo, Jonathan Kuo, Katerina Ladon, Néstor Ossandón Leal, Linda Lithen, Titus Lunter, Erel Maatita, Randall Mackey, Erion Makuo, Antonio José Manzanedo, Andrew Mar, Raluca Marinescu, Marcela Medeiros, Julia Metzger, Alexander Mokhov, Caio Monteiro, Calder Moore, Riccardo Moscatello, Martin Mottet, Jodie Muir, David Auden Nash, Irina Nordsol, Hinchel Or, Hector Ortiz, Alejandro Pacheco, Mike Pape, Borja Pindado, Andrea Piparo, Polar Engine, April Prime, Noor Rahman, Chris Rallis, Joshua Raphael, Aaron J. Riley, Denman Rooke, Hocheol Ryu, Fabià Sans, Chris Seaman, Alditha Siregar, Bryan Sola, Craig J Spearing, Justin Sweet, Kamila Szutenberg, Wisnu Tan, Brian Valeza, Randy Vargas, Adam Vehige, Magali Villeneuve, Kenny Vo, Lauren Walsh, Joseph Weston, Campbell White, Richard Whitters, Daneen Wilkerson, Zuzanna Wužyk, Lixin Yin"
 									]
 								}
 							]
