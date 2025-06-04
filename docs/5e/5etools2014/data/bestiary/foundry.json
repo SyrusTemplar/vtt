@@ -1,0 +1,253 @@
+{
+	"monster": [
+		{
+			"name": "Beast of the Land",
+			"source": "TCE",
+			"prototypeToken": {
+				"actorLink": true
+			},
+			"effects": [
+				{
+					"name": "Ranger's Leadership",
+					"changes": [
+						{
+							"key": "system.attributes.hp.max",
+							"mode": "ADD",
+							"value": "+ 5 * @srd5e.userchar.classes.ranger.levels"
+						},
+						{
+							"key": "system.bonuses.abilities.save",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						},
+						{
+							"key": "system.bonuses.abilities.check",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Beast of the Sea",
+			"source": "TCE",
+			"prototypeToken": {
+				"actorLink": true
+			},
+			"effects": [
+				{
+					"name": "Ranger's Leadership",
+					"changes": [
+						{
+							"key": "system.attributes.hp.max",
+							"mode": "ADD",
+							"value": "+ 5 * @srd5e.userchar.classes.ranger.levels"
+						},
+						{
+							"key": "system.bonuses.abilities.save",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						},
+						{
+							"key": "system.bonuses.abilities.check",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Beast of the Sky",
+			"source": "TCE",
+			"prototypeToken": {
+				"actorLink": true
+			},
+			"effects": [
+				{
+					"name": "Ranger's Leadership",
+					"changes": [
+						{
+							"key": "system.attributes.prof",
+							"mode": "OVERRIDE",
+							"value": "@srd5e.userchar.pb"
+						},
+						{
+							"key": "system.attributes.hp.max",
+							"mode": "ADD",
+							"value": "+ 4 * @srd5e.userchar.classes.ranger.levels"
+						},
+						{
+							"key": "system.bonuses.abilities.save",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						},
+						{
+							"key": "system.bonuses.abilities.check",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Blighted Sapling",
+			"source": "TDCSR",
+			"effects": [
+				{
+					"name": "Druid's Leadership",
+					"changes": [
+						{
+							"key": "system.attributes.hp.max",
+							"mode": "ADD",
+							"value": "+(2 * @srd5e.userchar.classes.druid.levels)"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Drake Companion",
+			"source": "FTD",
+			"prototypeToken": {
+				"actorLink": true
+			},
+			"effects": [
+				{
+					"name": "Ranger's Leadership",
+					"changes": [
+						{
+							"key": "system.attributes.hp.max",
+							"mode": "ADD",
+							"value": "+(5 * @srd5e.userchar.classes.ranger.levels)"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						},
+						{
+							"key": "system.abilities.dex.bonuses.save",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						},
+						{
+							"key": "system.abilities.wis.bonuses.save",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						},
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "UPGRADE",
+							"value": "min(1, max(@srd5e.userchar.classes.ranger.levels - 6, 0)) * @attributes.movement.walk"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Homunculus Servant",
+			"source": "TCE",
+			"prototypeToken": {
+				"actorLink": true
+			},
+			"effects": [
+				{
+					"name": "Artificer's Leadership",
+					"changes": [
+						{
+							"key": "system.attributes.hp.max",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.abilities.int.mod + @srd5e.userchar.classes.artificer.levels"
+						},
+						{
+							"key": "system.abilities.dex.bonuses.save",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						},
+						{
+							"key": "system.skills.prc.bonuses.check",
+							"mode": "ADD",
+							"value": "+(2 * @srd5e.userchar.pb)"
+						},
+						{
+							"key": "system.skills.ste.bonuses.check",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Steel Defender",
+			"source": "TCE",
+			"prototypeToken": {
+				"actorLink": true
+			},
+			"effects": [
+				{
+					"name": "Artificer's Leadership",
+					"changes": [
+						{
+							"key": "system.attributes.hp.max",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.abilities.int.mod + (5 * @srd5e.userchar.classes.artificer.levels)"
+						},
+						{
+							"key": "system.abilities.dex.bonuses.save",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						},
+						{
+							"key": "system.abilities.con.bonuses.save",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						},
+						{
+							"key": "system.skills.ath.bonuses.check",
+							"mode": "ADD",
+							"value": "+ @srd5e.userchar.pb"
+						},
+						{
+							"key": "system.skills.prc.bonuses.check",
+							"mode": "ADD",
+							"value": "+(2 * @srd5e.userchar.pb)"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Wildfire Spirit",
+			"source": "TCE",
+			"effects": [
+				{
+					"name": "Druid's Leadership",
+					"changes": [
+						{
+							"key": "system.attributes.hp.max",
+							"mode": "ADD",
+							"value": "+(5 * @srd5e.userchar.classes.druid.levels)"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		}
+	]
+}

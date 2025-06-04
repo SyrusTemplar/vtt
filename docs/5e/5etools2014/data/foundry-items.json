@@ -1,0 +1,270 @@
+{
+	"item": [
+		{
+			"name": "Barrier Tattoo (Large)",
+			"source": "TCE",
+			"system": {
+				"armor.type": "heavy",
+				"armor.dex": 0,
+				"armor.value": 18
+			},
+			"migrationVersion": 3
+		},
+		{
+			"name": "Barrier Tattoo (Medium)",
+			"source": "TCE",
+			"system": {
+				"armor.type": "medium",
+				"armor.dex": 2,
+				"armor.value": 15
+			},
+			"migrationVersion": 3
+		},
+		{
+			"name": "Barrier Tattoo (Small)",
+			"source": "TCE",
+			"system": {
+				"armor.type": "light",
+				"armor.value": 12
+			},
+			"migrationVersion": 3
+		},
+		{
+			"name": "Bracers of Archery",
+			"source": "DMG",
+			"effects": [
+				{
+					"name": "Bracers of Archery",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.rwak.damage",
+							"mode": "ADD",
+							"value": "+ 2"
+						},
+						{
+							"key": "system.traits.weaponProf.value",
+							"mode": "ADD",
+							"value": "shortbow"
+						},
+						{
+							"key": "system.traits.weaponProf.value",
+							"mode": "ADD",
+							"value": "longbow"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Butcher's Bib",
+			"source": "EGW",
+			"effects": [
+				{
+					"name": "Butcher's Bib",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "flags.dnd5e.weaponCriticalThreshold",
+							"mode": "OVERRIDE",
+							"value": 19
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Dynamite",
+			"source": "TDCSR",
+			"img": "icons/weapons/thrown/bomb-timer.webp",
+			"migrationVersion": 3
+		},
+		{
+			"name": "Gloves of Thievery",
+			"source": "DMG",
+			"effects": [
+				{
+					"name": "Fast Hands",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.skills.slt.bonuses.check",
+							"mode": "ADD",
+							"value": "+ 5"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Gluebomb",
+			"source": "TDCSR",
+			"img": "icons/weapons/thrown/bomb-metal-brown.webp",
+			"migrationVersion": 3
+		},
+		{
+			"name": "Gnomengarde Grenade",
+			"source": "DC",
+			"type": "consumable",
+			"migrationVersion": 3
+		},
+		{
+			"name": "Hazirawn",
+			"source": "HotDQ",
+			"system": {
+				"magicalBonus": "+1"
+			},
+			"activities": [
+				{
+					"type": "attack",
+					"attack": {
+						"bonus": "+1"
+					},
+					"damage": {
+						"parts": [
+							{
+								"custom": {
+									"enabled": true,
+									"formula": "2d6+1"
+								},
+								"types": [
+									"slashing"
+								]
+							},
+							{
+								"custom": {
+									"enabled": true,
+									"formula": "1d6"
+								},
+								"types": [
+									"necrotic"
+								]
+							}
+						]
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Oversized Longbow",
+			"source": "WDH",
+			"activities": [
+				{
+					"type": "damage",
+					"damage": {
+						"parts": [
+							{
+								"custom": {
+									"enabled": true,
+									"formula": "2"
+								},
+								"types": [
+									"d"
+								]
+							},
+							{
+								"custom": {
+									"enabled": true,
+									"formula": "p"
+								},
+								"types": [
+									"i"
+								]
+							}
+						]
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Plainscow",
+			"source": "TDCSR",
+			"img": "icons/creatures/mammals/livestock-cow-green.webp",
+			"migrationVersion": 3
+		},
+		{
+			"name": "Robe of the Archmagi",
+			"source": "DMG",
+			"effects": [
+				{
+					"name": "Armor Class",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.calc",
+							"mode": "OVERRIDE",
+							"value": "custom"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "15 + @abilities.dex.mod"
+						}
+					]
+				}
+			],
+			"_merge": {
+				"effects": true
+			},
+			"migrationVersion": 3
+		},
+		{
+			"name": "Sentinel Shield",
+			"source": "DMG",
+			"effects": [
+				{
+					"name": "Sentinel's Eye",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "flags.dnd5e.initiativeAdv",
+							"mode": "OVERRIDE",
+							"value": true
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Stink Bomb",
+			"source": "TDCSR",
+			"img": "icons/weapons/thrown/bomb-purple.webp",
+			"migrationVersion": 3
+		},
+		{
+			"name": "Tangler Grenade",
+			"source": "WDMM",
+			"type": "consumable",
+			"migrationVersion": 3
+		}
+	],
+	"magicvariant": [
+		{
+			"name": "Berserker Axe",
+			"source": "DMG",
+			"effects": [
+				{
+					"name": "HP Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.hp.bonuses.overall",
+							"mode": "ADD",
+							"value": "+ @details.level"
+						}
+					]
+				}
+			],
+			"_merge": {
+				"effects": true
+			},
+			"migrationVersion": 3
+		}
+	]
+}

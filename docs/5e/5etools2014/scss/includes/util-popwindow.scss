@@ -1,0 +1,9 @@
+@layer vetools {
+	.ve-popwindow {
+		.ve-popwindow__ {
+			&hidden {
+				display: none !important;
+			}
+		}
+	}
+}

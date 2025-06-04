@@ -1,0 +1,55 @@
+{
+	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+	"version": "0.2",
+	"language": "en,en-GB",
+	"dictionaryDefinitions": [
+		{
+			"name": "dnd-words",
+			"path": "./spellcheck/dnd-words.txt",
+			"addWords": true
+		},
+		{
+			"name": "javascript-words",
+			"path": "./spellcheck/javascript-words.txt",
+			"addWords": true
+		},
+		{
+			"name": "artist-names",
+			"path": "./spellcheck/artist-names.txt",
+			"addWords": true
+		},
+		{
+			"name": "credits-names",
+			"path": "./spellcheck/credits-names.txt",
+			"addWords": true
+		}
+	],
+	"dictionaries": [
+		"dnd-words",
+		"javascript-words",
+		"artist-names",
+		"credits-names"
+	],
+	"ignorePaths": [
+		"./spellcheck/*.txt",
+		"css/",
+		"data/generated/",
+		"js/sw-files.js",
+		"lib/",
+		"node_modules",
+		"search/"
+	],
+	"languageSettings": [
+		{
+			"languageId": "json",
+			"ignoreRegExpList": [
+				"/\"path\": \".+\"/",
+				"/\"url\": \".+\"/",
+				"/\"replace\": \".+\"/",
+				"/\"foundryId\": \".+\"/",
+				"/\"race\": \".+\"/",
+				"/\"background\": \".+\"/"
+			]
+		}
+	]
+}

@@ -1,0 +1,187 @@
+{
+	"feat": [
+		{
+			"name": "Alert",
+			"source": "PHB",
+			"effects": [
+				{
+					"transfer": true,
+					"changes": [
+						{
+							"key": "flags.dnd5e.initiativeAlert",
+							"mode": "OVERRIDE",
+							"value": true
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Dual Wielder",
+			"source": "PHB",
+			"effects": [
+				{
+					"name": "AC Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": "+ 1"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Elven Accuracy",
+			"source": "XGE",
+			"effects": [
+				{
+					"transfer": true,
+					"changes": [
+						{
+							"key": "flags.dnd5e.elvenAccuracy",
+							"mode": "OVERRIDE",
+							"value": true
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Lucky",
+			"source": "PHB",
+			"system": {
+				"uses.max": 3,
+				"uses.recovery": [
+					{
+						"period": "lr",
+						"type": "recoverAll"
+					}
+				]
+			},
+			"activities": [
+				{
+					"type": "utility",
+					"activation": {
+						"type": "none",
+						"value": 0
+					},
+					"roll": {
+						"formula": "1d20"
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Mobile",
+			"source": "PHB",
+			"effects": [
+				{
+					"name": "Movement Speed Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk",
+							"mode": "ADD",
+							"value": "+ 10"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Observant",
+			"source": "PHB",
+			"effects": [
+				{
+					"transfer": true,
+					"changes": [
+						{
+							"key": "flags.dnd5e.observantFeat",
+							"mode": "OVERRIDE",
+							"value": true
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Squat Nimbleness",
+			"source": "XGE",
+			"effects": [
+				{
+					"name": "Movement Speed Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk",
+							"mode": "ADD",
+							"value": "+ 5"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Tavern Brawler",
+			"source": "PHB",
+			"effects": [
+				{
+					"transfer": true,
+					"changes": [
+						{
+							"key": "flags.dnd5e.tavernBrawlerFeat",
+							"mode": "OVERRIDE",
+							"value": true
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Tough",
+			"source": "PHB",
+			"effects": [
+				{
+					"name": "HP Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.hp.bonuses.overall",
+							"mode": "ADD",
+							"value": "+(2 * @details.level)"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "War Caster",
+			"source": "PHB",
+			"effects": [
+				{
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.concentration.roll.mode",
+							"mode": "OVERRIDE",
+							"value": "1"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		}
+	]
+}

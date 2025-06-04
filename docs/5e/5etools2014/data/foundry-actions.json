@@ -1,0 +1,164 @@
+{
+	"action": [
+		{
+			"name": "Attack",
+			"source": "PHB",
+			"activities": [
+				{
+					"type": "utility",
+					"target": {
+						"affects": {
+							"count": "1",
+							"type": "creature"
+						}
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Climb onto a Bigger Creature",
+			"source": "DMG",
+			"activities": [
+				{
+					"type": "utility",
+					"target": {
+						"affects": {
+							"count": "1",
+							"type": "creature"
+						}
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Disarm",
+			"source": "DMG",
+			"activities": [
+				{
+					"type": "utility",
+					"target": {
+						"affects": {
+							"count": "1",
+							"type": "creature"
+						}
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Grapple",
+			"source": "PHB",
+			"activities": [
+				{
+					"type": "utility",
+					"target": {
+						"affects": {
+							"count": "1",
+							"type": "creature"
+						}
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Mark",
+			"source": "DMG",
+			"activities": [
+				{
+					"type": "utility",
+					"target": {
+						"affects": {
+							"count": "1",
+							"type": "creature"
+						}
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Opportunity Attack",
+			"source": "PHB",
+			"activities": [
+				{
+					"type": "utility",
+					"target": {
+						"affects": {
+							"count": "1",
+							"type": "creature"
+						}
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Overrun",
+			"source": "DMG",
+			"activities": [
+				{
+					"type": "utility",
+					"target": {
+						"affects": {
+							"count": "1",
+							"type": "creature"
+						}
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Shove",
+			"source": "PHB",
+			"activities": [
+				{
+					"type": "utility",
+					"target": {
+						"affects": {
+							"count": "1",
+							"type": "creature"
+						}
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Shove Aside",
+			"source": "DMG",
+			"activities": [
+				{
+					"type": "utility",
+					"target": {
+						"affects": {
+							"count": "1",
+							"type": "creature"
+						}
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Tumble",
+			"source": "DMG",
+			"activities": [
+				{
+					"type": "utility",
+					"target": {
+						"affects": {
+							"count": "1",
+							"type": "creature"
+						}
+					}
+				}
+			],
+			"migrationVersion": 3
+		}
+	]
+}

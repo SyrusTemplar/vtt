@@ -1,0 +1,28 @@
+{
+	"reward": [
+		{
+			"name": "Boon of Fortitude",
+			"source": "DMG",
+			"effects": [
+				{
+					"name": "HP Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.hp.bonuses.overall",
+							"mode": "ADD",
+							"value": "+ 40"
+						}
+					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Curse of Ruin",
+			"source": "TDCSR",
+			"img": "icons/magic/holy/chalice-glowing-yellow-blue.webp",
+			"migrationVersion": 3
+		}
+	]
+}
