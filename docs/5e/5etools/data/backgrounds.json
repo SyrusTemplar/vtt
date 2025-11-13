@@ -4536,6 +4536,125 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Chondathan Freebooter",
+			"source": "FRHoF",
+			"page": 28,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"dex",
+								"wis"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"dex",
+								"wis"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"skilled|xphb": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"athletics": true,
+					"sleight of hand": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"weaver's tools": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"dagger|xphb",
+						"weaver's tools|xphb",
+						"backpack|xphb",
+						"ball bearings|xphb",
+						"basket|xphb",
+						"bedroll|xphb",
+						"bucket|xphb",
+						{
+							"item": "rations|xphb",
+							"quantity": 3,
+							"displayName": "Rations (3 days' worth)"
+						},
+						"rope|xphb",
+						"signal whistle|xphb",
+						"traveler's clothes|xphb",
+						{
+							"value": 3800
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Strength, Dexterity, Wisdom"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Skilled|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Athletics|XPHB} and {@skill Sleight of Hand|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Weaver's Tools|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Dagger|XPHB}, {@item Weaver's Tools|XPHB}, {@item Backpack|XPHB}, {@item Ball Bearings|XPHB}, {@item Basket|XPHB}, {@item Bedroll|XPHB}, {@item Bucket|XPHB}, {@item Rations|XPHB} (3 days' worth), {@item Rope|XPHB}, {@item Signal Whistle|XPHB}, {@item Traveler's Clothes|XPHB}, 38 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "City Watch",
 			"source": "SCAG",
 			"page": 145,
@@ -5072,387 +5191,6 @@
 			"hasFluff": true
 		},
 		{
-			"name": "Continental Nobility",
-			"source": "DoDk",
-			"page": 244,
-			"prerequisite": [
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Artificer",
-							"visible": true
-						}
-					}
-				},
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Barbarian",
-							"visible": true
-						}
-					}
-				},
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Bard",
-							"visible": true
-						}
-					}
-				},
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Cleric",
-							"visible": true
-						}
-					}
-				},
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Druid",
-							"visible": true
-						}
-					}
-				},
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Fighter",
-							"visible": true
-						}
-					}
-				},
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Monk",
-							"visible": true
-						}
-					}
-				},
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Paladin",
-							"visible": true
-						}
-					}
-				},
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Ranger",
-							"visible": true
-						}
-					}
-				},
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Rogue",
-							"visible": true
-						}
-					}
-				}
-			],
-			"skillProficiencies": [
-				{
-					"choose": {
-						"from": [
-							"persuasion",
-							"athletics",
-							"history",
-							"intimidation"
-						],
-						"count": 2
-					}
-				}
-			],
-			"languageProficiencies": [
-				{
-					"anyStandard": 2
-				}
-			],
-			"startingEquipment": [
-				{
-					"a": [
-						"signet ring|phb"
-					],
-					"b": [
-						{
-							"special": "brooch bearing your family crest"
-						}
-					]
-				},
-				{
-					"_": [
-						{
-							"special": "cape in the colours of your house"
-						},
-						"fine clothes|phb",
-						{
-							"item": "pouch|phb",
-							"containsValue": 2500
-						}
-					]
-				}
-			],
-			"entries": [
-				{
-					"type": "list",
-					"style": "list-hang-notitle",
-					"items": [
-						{
-							"type": "item",
-							"name": "Skill Proficiencies:",
-							"entry": "Two of the following: {@skill Persuasion}, {@skill Athletics}, {@skill History}, or {@skill Intimidation}"
-						},
-						{
-							"type": "item",
-							"name": "Languages:",
-							"entry": "Two of your choice"
-						},
-						{
-							"type": "item",
-							"name": "Equipment:",
-							"entry": "A {@item signet ring|PHB} or brooch bearing your family crest, a cape in the colours of your house, a set of {@item fine clothes|PHB}, and a {@item pouch|PHB} containing 25 gp"
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Defining Event",
-					"entries": [
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d8",
-								"Defining Event"
-							],
-							"rows": [
-								[
-									"1",
-									"I was well celebrated in my city as a slayer of a great troll."
-								],
-								[
-									"2",
-									"I witnessed the death of my family during the civil war. They were targets for their ties to the von Kessel name."
-								],
-								[
-									"3",
-									"I led my knights to victory in defending our castle during a raid in the war."
-								],
-								[
-									"4",
-									"I lost a lot of good soldiers in an earlier expedition into Drakkenheim. We never made it past the gate."
-								],
-								[
-									"5",
-									"My house was an enemy of the von Kessel family and had many battles with them."
-								],
-								[
-									"6",
-									"I broke ties with my family when they folded to the Silver Order."
-								],
-								[
-									"7",
-									"I am related, not to a king or queen, but to a noble figure who sat in the small council and made important decisions for their represented house."
-								],
-								[
-									"8",
-									"My family lost everything in the destruction of Drakkenheim. We are noble only in name, no longer in standing."
-								]
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Feature: Noble Confidence",
-					"entries": [
-						"During a short rest you can give an inspiring pep talk to a number of allies equal to your proficiency bonus. Once in the next 8 hours, each of those allies can roll {@dice 1d4} and add it to the result of a single attack roll, ability check, or saving throw.",
-						{
-							"type": "table",
-							"caption": "Suggested Characteristics",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d8",
-								"Personality Trait"
-							],
-							"rows": [
-								[
-									"1",
-									"I consider myself a renowned monster slayer, and like to remind everyone of the many accomplishments I hold to my name."
-								],
-								[
-									"2",
-									"I keep family traditions close. Honour and family are amongst the most important things in the world, and I cherish them."
-								],
-								[
-									"3",
-									"I miss the comforts of my home. This city is dirty and smells terrible."
-								],
-								[
-									"4",
-									"I believe in the good in people, and I hope to find a peaceful resolution to our problems. A diplomatic approach is something Westemär greatly needs."
-								],
-								[
-									"5",
-									"As a noble, I have a responsibility to protect those who cannot protect themselves."
-								],
-								[
-									"6",
-									"It is highly important that I look my best and maintain my regal demeanor in all situations. My reputation must go untarnished."
-								],
-								[
-									"7",
-									"I may be of noble birth, but have lived life on the road for some time. I am more than willing to share what I have with others, as I am no better or worse than anyone else."
-								],
-								[
-									"8",
-									"There is no challenge I can't face. I heard about the horrors and monsters of this world, and I am what they fear the most."
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Ideal"
-							],
-							"rows": [
-								[
-									"1",
-									"Respect. I am a respected member of my family, and I expect what remains of Drakkenheim's nobility and royal line to acknowledge my standing. (Lawful)"
-								],
-								[
-									"2",
-									"Responsibility. It is my responsibility as a representative of my noble line to remain cordial, and diplomatic in dealings with the various high ranking members of Drakkenheim's society. (Good)"
-								],
-								[
-									"3",
-									"Privacy. I do not wish for my nobility to come up. It may be best if the people of Drakkenheim do not know who I am. At least for now. (Any)"
-								],
-								[
-									"4",
-									"Duty. It is my duty to aid the people of Drakkenheim. As a noble I was connected to this city, and it is what is expected of me. (Good)"
-								],
-								[
-									"5",
-									"Glory. I must claim my victories and prove myself in battle. (Any)"
-								],
-								[
-									"6",
-									"Family. Blood is thicker than water and I will fight to defend my family's honour. (Good)"
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Bond"
-							],
-							"rows": [
-								[
-									"1",
-									"I must prove myself as a great warrior for my house and my people."
-								],
-								[
-									"2",
-									"My family was once bound to the royal family of Westemär, I must ensure we remain bound to whoever takes the throne."
-								],
-								[
-									"3",
-									"My family's fortune was lost. Drakkenheim may be our last chance to get it back."
-								],
-								[
-									"4",
-									"My family was betrayed by one of the royal houses, and I plan to make sure any that remain of that name are brought to justice and my family takes its place where it belongs."
-								],
-								[
-									"5",
-									"I am destined to rule, as my ancestors before me have."
-								],
-								[
-									"6",
-									"I have been sent unwillingly on a diplomatic mission to Drakkenheim. I am to gain political standing in these crumbling ruins."
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Flaw"
-							],
-							"rows": [
-								[
-									"1",
-									"I boast about my own triumphs, and belittle the accomplishments of others."
-								],
-								[
-									"2",
-									"Bound by honor, I can never back down from a challenge, nor can I let those who undervalue my name go unchallenged."
-								],
-								[
-									"3",
-									"I do not like getting my hands dirty. Other people must do the heavy lifting, not me."
-								],
-								[
-									"4",
-									"I like to flaunt my wealth, and I spare no expense."
-								],
-								[
-									"5",
-									"I'm never wrong. Even if I was, I would never admit it."
-								],
-								[
-									"6",
-									"I was forced to lead, but I am very far out of my depth and desperately hoping people do not catch on that I don't know what I am doing here."
-								]
-							]
-						}
-					],
-					"data": {
-						"isFeature": true
-					}
-				}
-			],
-			"hasFluff": true
-		},
-		{
 			"name": "Cormanthor Refugee",
 			"source": "ALRageOfDemons",
 			"page": 5,
@@ -5521,7 +5259,7 @@
 					"name": "Overview",
 					"type": "entries",
 					"entries": [
-						"You are one of hundreds of refugees that were driven from Hillsfar or that fled the destruction of Myth Drannor and who now shelter in hidden camps under the northern eaves of the Cormanthor Forest. If you up grew in the camps, you have never been to a settlement other than the village of Elventree. As a guest of the elves, you have learned their ways and the ways of the forest. You are also a traumatized, as residual wild magic, energies released by the fall of Thultanar upon Myth Drannor, and the constant fear of raids hunting for non-humans to fight in Hillsfar's Arena have taken their toll on you, as they have on everyone in the camps."
+						"You are one of hundreds of refugees that were driven from Hillsfar or that fled the destruction of Myth Drannor and who now shelter in hidden camps under the northern eaves of the Cormanthor Forest. If you up grew in the camps, you have never been to a settlement other than the village of Elventree. As a guest of the elves, you have learned their ways and the ways of the forest. You are also a traumatized, as residual wild magic, energies released by the fall of Thultanthar upon Myth Drannor, and the constant fear of raids hunting for non-humans to fight in Hillsfar's Arena have taken their toll on you, as they have on everyone in the camps."
 					]
 				},
 				{
@@ -6244,47 +5982,89 @@
 			]
 		},
 		{
-			"name": "Devoted Missionary",
-			"source": "DoDk",
-			"page": 246,
-			"skillProficiencies": [
+			"name": "Dead Magic Dweller",
+			"source": "FRHoF",
+			"page": 28,
+			"edition": "one",
+			"ability": [
 				{
 					"choose": {
-						"from": [
-							"history",
-							"religion",
-							"arcana",
-							"nature"
-						],
-						"count": 2
+						"weighted": {
+							"from": [
+								"str",
+								"con",
+								"wis"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"con",
+								"wis"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
 					}
 				}
 			],
-			"languageProficiencies": [
+			"feats": [
 				{
-					"anyStandard": 2
+					"healer|xphb": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"medicine": true,
+					"survival": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"leatherworker's tools": true
 				}
 			],
 			"startingEquipment": [
 				{
-					"_": [
+					"A": [
+						"greatclub|xphb",
+						"leatherworker's tools|xphb",
+						"bedroll|xphb",
+						"blanket|xphb",
+						"healer's kit|xphb",
+						"pole|xphb",
 						{
-							"item": "robes|phb",
-							"displayName": "set of pale robes"
+							"item": "rations|xphb",
+							"quantity": 3,
+							"displayName": "Rations (3 days' worth)"
 						},
+						"tent|xphb",
+						"tinderbox|xphb",
 						{
-							"special": "small chip of delerium encased in glass"
+							"item": "torch|xphb",
+							"displayName": "Torches",
+							"quantity": 5
 						},
+						"traveler's clothes|xphb",
+						"waterskin|xphb",
 						{
-							"special": "walking stick"
-						},
+							"value": 3200
+						}
+					],
+					"B": [
 						{
-							"item": "amulet|phb",
-							"displayName": "amulet with a symbol of your chosen god"
-						},
-						{
-							"item": "book|phb",
-							"displayName": "small book of religious text"
+							"value": 5000
 						}
 					]
 				}
@@ -6296,241 +6076,34 @@
 					"items": [
 						{
 							"type": "item",
-							"name": "Skill Proficiencies:",
-							"entry": "Two of the following: {@skill History}, {@skill Religion}, {@skill Arcana}, {@skill Nature}"
+							"name": "Ability Scores:",
+							"entry": "Strength, Constitution, Wisdom"
 						},
 						{
 							"type": "item",
-							"name": "Languages:",
-							"entry": "Two of your choice"
+							"name": "Feat:",
+							"entry": "{@feat Healer|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Medicine|XPHB} and {@skill Survival|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Leatherworker's Tools|XPHB}"
 						},
 						{
 							"type": "item",
 							"name": "Equipment:",
-							"entry": "A set of pale {@item robes|PHB}, a small chip of delerium encased in glass, a walking stick, an {@item amulet|PHB} with a symbol of your chosen god, a small {@item book|PHB} of religious text"
+							"entry": "Choose A or B: (A) {@item Greatclub|XPHB}, {@item Leatherworker's Tools|XPHB}, {@item Bedroll|XPHB}, {@item Blanket|XPHB}, {@item Healer's Kit|XPHB}, {@item Pole|XPHB}, {@item Rations|XPHB} (3 days' worth), {@item Tent|XPHB}, {@item Tinderbox|XPHB}, 5 {@item Torch|XPHB|Torches}, {@item Traveler's Clothes|XPHB}, {@item Waterskin|XPHB}, 32 GP; or (B) 50 GP"
 						}
 					]
-				},
-				{
-					"type": "entries",
-					"name": "Missionary Life",
-					"entries": [
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d8",
-								"Missionary Life"
-							],
-							"rows": [
-								[
-									"1",
-									"I was on a quest of self-enlightenment."
-								],
-								[
-									"2",
-									"I ritualistically surround myself with lit candles and ancient texts when I rest."
-								],
-								[
-									"3",
-									"I had taken a vow of silence until the time that my voice was needed to fulfil my destiny."
-								],
-								[
-									"4",
-									"I was the caretaker of ancient relics of our faith and am quested with finding others."
-								],
-								[
-									"5",
-									"I am but a pilgrim hoping to find divine light in dark places in the world."
-								],
-								[
-									"6",
-									"I was guided to my faith by angels who rescued me from my dark past."
-								],
-								[
-									"7",
-									"I broke my vows to my faith and was exiled. I seek redemption."
-								],
-								[
-									"8",
-									"I must prove myself worthy to my faith and its purpose, no matter the amount of blood spilled or lives lost."
-								]
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Feature: Guided by Faith",
-					"entries": [
-						"A number of times per day equal to your proficiency bonus, you may ask the Game Master to reveal the DC of any ability check you make before rolling the dice. You may then decide whether or not you wish to attempt the roll.",
-						{
-							"type": "table",
-							"caption": "Suggested Characteristics",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d8",
-								"Personality Trait"
-							],
-							"rows": [
-								[
-									"1",
-									"I empathize with those who do not follow the path of light. Creatures of all types can be brought back to the path of righteousness and are often suffering and in great pain."
-								],
-								[
-									"2",
-									"I believe in the words of my religion and quote its texts and scriptures as often as I can."
-								],
-								[
-									"3",
-									"I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods."
-								],
-								[
-									"4",
-									"I have spent my life in a temple or church. Rough living wears on me quickly."
-								],
-								[
-									"5",
-									"I believe very strongly that everything will turn out okay, and nothing can shake my positive attitude."
-								],
-								[
-									"6",
-									"My faith kept me distant from others. I have very little experience with the world outside the church/temple/shrine."
-								],
-								[
-									"7",
-									"I have extremely strict etiquette and manners for interactions and tasks, and I refuse to stray from them."
-								],
-								[
-									"8",
-									"I am working on my thesis of religious ongoings in the world and excitedly discuss the nuances of these ideas with anyone and everyone."
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Ideal"
-							],
-							"rows": [
-								[
-									"1",
-									"Logic. Emotions must not cloud our judgement on what is right or true. (Lawful)"
-								],
-								[
-									"2",
-									"Self. My religious journey is that of discovering myself. If I can obtain that, there is nothing left to know. (Any)"
-								],
-								[
-									"3",
-									"Charity. I will always help those in need, no matter the cost. (Good)"
-								],
-								[
-									"4",
-									"Faith. The path laid out before me is determined by the divine entity I worship. I will follow its signs and patterns to fulfil my purpose. (Lawful)"
-								],
-								[
-									"5",
-									"Power. The gods have granted me divine powers and I must use them to make those who do not worship as strongly as I see the divine light and understand that I am the one true speaker of my faith. (Chaotic)"
-								],
-								[
-									"6",
-									"Peace. I do not like to be part of conflicts, rather a neutral voice of reason to all sides. (Neutral)"
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Bond"
-							],
-							"rows": [
-								[
-									"1",
-									"Nothing is more important than my church and what it represents."
-								],
-								[
-									"2",
-									"I joined my religion to hide from a past I would rather forget."
-								],
-								[
-									"3",
-									"The path to enlightenment is unending. I must stay the course."
-								],
-								[
-									"4",
-									"I will die if it means doing right by my religious beliefs."
-								],
-								[
-									"5",
-									"Everything I do is for the good of the common people."
-								],
-								[
-									"6",
-									"I seek to preserve the ancient texts and artefact of my religion."
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Flaw"
-							],
-							"rows": [
-								[
-									"1",
-									"I judge others harshly and believe my path to be the one true path."
-								],
-								[
-									"2",
-									"I believe in the words of my religion so strongly that I follow them without question."
-								],
-								[
-									"3",
-									"The goal I have set for myself is my destiny, and I can not act against it or abandon it for any reason."
-								],
-								[
-									"4",
-									"My religion was meant to keep the dark thoughts at bay, but I find myself losing that battle and a blood thirst grows within me."
-								],
-								[
-									"5",
-									"This is my first taste of life outside my religion, and I enjoy its pleasures a little too much."
-								],
-								[
-									"6",
-									"The gods and my faith have determined that I am always correct as I speak on their behalf. There is no question in my mind that I speak the ultimate truths and any who do not agree are misguided fools."
-								]
-							]
-						}
-					],
-					"data": {
-						"isFeature": true
-					}
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Dimir Operative",
@@ -7152,7 +6725,7 @@
 					"name": "Feature: Dragonscarred",
 					"type": "entries",
 					"entries": [
-						"Over a period of several months you were subject to magical and mundane torture at the claws of Vorgansharaxse and his minions. These experiments have left you horribly disfigured but mark you as a survivor of the Maimed Virulence. This affords you a measure of fame and notoriety, for those who know of your harrowing ordeal are keen to hear the tale personally but makes it difficult to disguise your appearance and hide from prying eyes.",
+						"Over a period of several months you were subject to magical and mundane torture at the claws of Vorgansharax and his minions. These experiments have left you horribly disfigured but mark you as a survivor of the Maimed Virulence. This affords you a measure of fame and notoriety, for those who know of your harrowing ordeal are keen to hear the tale personally but makes it difficult to disguise your appearance and hide from prying eyes.",
 						"You can parlay this attention into access to people and places you might not otherwise have, for you and your companions. Nobles, scholars, mages, and those who seek to ferret out the secrets of the Maimed Virulence would all be keen to hear your tale of survival, and learn what secrets (if any) you might possess, and/or study your affliction with great interest. However, you fear that your afflictions are not completely mundane and that the Maimed Virulence may as yet have some nefarious reason for allowing your escape, as your scars burn with acidic fury and seem to writhe beneath your skin at times. Note: This feature is a variant of the Far Traveler feature."
 					],
 					"data": {
@@ -7375,6 +6948,126 @@
 				}
 			],
 			"hasFluff": true
+		},
+		{
+			"name": "Dragon Cultist",
+			"source": "FRHoF",
+			"page": 29,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"dex",
+								"con",
+								"int"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"dex",
+								"con",
+								"int"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"cult of the dragon initiate|frhof": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"deception": true,
+					"stealth": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"calligrapher's supplies": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"calligrapher's supplies|xphb",
+						"dagger|xphb",
+						"glass bottle|xphb",
+						"lamp|xphb",
+						"manacles|xphb",
+						{
+							"item": "oil|xphb",
+							"displayName": "Oil (5 flasks)"
+						},
+						{
+							"item": "pouch|xphb",
+							"displayName": "Pouches",
+							"quantity": 2
+						},
+						"robe|xphb",
+						"rope|xphb",
+						{
+							"value": 3000
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Dexterity, Constitution, Intelligence"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Cult of the Dragon Initiate|FRHoF}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Deception|XPHB} and {@skill Stealth|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Calligrapher's Supplies|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Calligrapher's Supplies|XPHB}, {@item Dagger|XPHB}, {@item Glass Bottle|XPHB}, {@item Lamp|XPHB}, {@item Manacles|XPHB}, {@item Oil|XPHB} (5 flasks), 2 {@item Pouch|XPHB|Pouches}, {@item Robe|XPHB}, {@item Rope|XPHB}, 30 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Earthspur Miner",
@@ -7623,6 +7316,118 @@
 				}
 			],
 			"hasFluff": true
+		},
+		{
+			"name": "Emerald Enclave Caretaker",
+			"source": "FRHoF",
+			"page": 29,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"con",
+								"int",
+								"wis"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"con",
+								"int",
+								"wis"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"emerald enclave fledgling|frhof": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"nature": true,
+					"survival": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"herbalism kit": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"shortbow|xphb",
+						"arrows (20)|xphb",
+						"herbalism kit|xphb",
+						"bedroll|xphb",
+						"blanket|xphb",
+						"pouch|xphb",
+						"tent|xphb",
+						"traveler's clothes|xphb",
+						{
+							"value": 1300
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Constitution, Intelligence, Wisdom"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Emerald Enclave Fledgling|FRHoF}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Nature|XPHB} and {@skill Survival|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Herbalism Kit|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Shortbow|XPHB}, 20 Arrows, {@item Herbalism Kit|XPHB}, {@item Bedroll|XPHB}, {@item Blanket|XPHB}, {@item Pouch|XPHB}, {@item Tent|XPHB}, {@item Traveler's Clothes|XPHB}, 13 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Entertainer",
@@ -9759,6 +9564,115 @@
 			"hasFluff": true
 		},
 		{
+			"name": "Flaming Fist Mercenary",
+			"source": "FRHoF",
+			"page": 30,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"con",
+								"cha"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"con",
+								"cha"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"tough|xphb": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"intimidation": true,
+					"perception": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"mace|xphb",
+						"smith's tools|xphb",
+						"fine clothes|xphb",
+						"manacles|xphb",
+						"portable ram|xphb",
+						{
+							"value": 400
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Strength, Constitution, Charisma"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Tough|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Intimidation|XPHB} and {@skill Perception|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Smith's Tools|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Mace|XPHB}, {@item Smith's Tools|XPHB}, {@item Fine Clothes|XPHB}, {@item Manacles|XPHB}, {@item Portable Ram|XPHB}, 4 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Folk Hero",
 			"source": "PHB",
 			"page": 131,
@@ -10701,6 +10615,114 @@
 							"entries": [
 								"When you make your character, you can roll once on the {@item Gate Warden Trinket|SatO|Gate Warden Trinkets} table, instead of on the {@item Trinket|PHB|Trinkets} table in the Player's Handbook, for your starting trinket."
 							]
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Genie Touched",
+			"source": "FRHoF",
+			"page": 30,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"dex",
+								"wis",
+								"cha"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"dex",
+								"wis",
+								"cha"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"skillProficiencies": [
+				{
+					"perception": true,
+					"persuasion": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"glassblower's tools": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"light hammer|xphb",
+						"glassblower's tools|xphb",
+						"fine clothes|xphb",
+						"lamp|xphb",
+						{
+							"item": "oil|xphb",
+							"displayName": "Oil (3 flasks)"
+						},
+						"waterskin|xphb",
+						{
+							"value": 200
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Dexterity, Wisdom, Charisma"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Magic Initiate|XPHB} (Wizard)"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Perception|XPHB} and {@skill Persuasion|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Glassblower's Tools|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Light Hammer|XPHB}, {@item Glassblower's Tools|XPHB}, {@item Fine Clothes|XPHB}, {@item Lamp|XPHB}, {@item Oil|XPHB} (3 flasks), {@item Waterskin|XPHB}, 2 GP; or (B) 50 GP"
 						}
 					]
 				}
@@ -12095,7 +12117,7 @@
 							"item": "bolts (20)|xphb"
 						},
 						{
-							"item": "gaming set|xphb"
+							"equipmentType": "setGaming"
 						},
 						{
 							"item": "hooded lantern|xphb"
@@ -12650,7 +12672,7 @@
 							"displayName": "or Three-Dragon Ante set"
 						},
 						"common clothes|phb",
-						"rowboat|",
+						"rowboat",
 						{
 							"item": "pouch|phb",
 							"containsValue": 500
@@ -12870,6 +12892,116 @@
 			"hasFluff": true
 		},
 		{
+			"name": "Harper",
+			"source": "FRHoF",
+			"page": 31,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"dex",
+								"int",
+								"cha"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"dex",
+								"int",
+								"cha"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"harper agent|frhof": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"performance": true,
+					"sleight of hand": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"disguise kit": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"disguise kit|xphb",
+						"bedroll|xphb",
+						"costume|xphb",
+						"grappling hook|xphb",
+						"rope|xphb",
+						"traveler's clothes|xphb",
+						{
+							"value": 1400
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Dexterity, Intelligence, Charisma"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Harper Agent|FRHoF}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Performance|XPHB} and {@skill Sleight of Hand|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Disguise Kit|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Disguise Kit|XPHB}, {@item Bedroll|XPHB}, {@item Costume|XPHB}, {@item Grappling Hook|XPHB}, {@item Rope|XPHB}, {@item Traveler's Clothes|XPHB}, 14 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Haunted One",
 			"source": "VRGR",
 			"page": 34,
@@ -12942,7 +13074,7 @@
 						{
 							"type": "item",
 							"name": "Equipment:",
-							"entry": "{@item Monster hunter's pack|vrgr} (containing a {@item chest|PHB}, a {@item crowbar|PHB}, a {@item hammer|PHB}, three wooden stakes, a {@item holy symbol|PHB}, a {@item Holy Water (flask)|PHB|flask of holy water}, a {@item Manacles|PHB|set of manacles}, a {@item steel mirror|PHB}, a {@item Oil (flask)|PHB|flask of oil}, a {@item tinderbox|PHB}, and 3 {@item Torch|PHB|torches}), a set of {@item common clothes|phb}, one {@item trinket|CoS} of special significance (choose one or roll on the {@item Horror Trinket|VRGR|Horror Trinkets} table), and 1 sp"
+							"entry": "{@item Monster hunter's pack|VRGR} (containing a {@item chest|PHB}, a {@item crowbar|PHB}, a {@item hammer|PHB}, three wooden stakes, a {@item holy symbol|PHB}, a {@item Holy Water (flask)|PHB|flask of holy water}, a {@item Manacles|PHB|set of manacles}, a {@item steel mirror|PHB}, a {@item Oil (flask)|PHB|flask of oil}, a {@item tinderbox|PHB}, and 3 {@item Torch|PHB|torches}), a set of {@item common clothes|phb}, one {@item trinket|CoS} of special significance (choose one or roll on the {@item Horror Trinket|VRGR|Horror Trinkets} table), and 1 sp"
 						}
 					]
 				},
@@ -14185,7 +14317,7 @@
 								],
 								[
 									"3",
-									"I treat all Hillsfarans poorly. I am disgusted with their failure to revolt against the Great Law of Humanity."
+									"I treat all Hillsfarians poorly. I am disgusted with their failure to revolt against the Great Law of Humanity."
 								],
 								[
 									"4",
@@ -14600,6 +14732,123 @@
 				}
 			],
 			"hasFluff": true
+		},
+		{
+			"name": "Ice Fisher",
+			"source": "FRHoF",
+			"page": 31,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"dex",
+								"con"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"dex",
+								"con"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"alert|xphb": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"animal handling": true,
+					"athletics": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"woodcarver's tools": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"woodcarver's tools|xphb",
+						"basket|xphb",
+						"block and tackle|xphb",
+						"chain|xphb",
+						"hunting trap|xphb",
+						"net|xphb",
+						"pole|xphb",
+						{
+							"item": "rations|xphb",
+							"quantity": 3,
+							"displayName": "Rations (3 days' worth)"
+						},
+						"traveler's clothes|xphb",
+						{
+							"value": 3200
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Strength, Dexterity, Constitution"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Alert|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Animal Handling|XPHB} and {@skill Athletics|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Woodcarver's Tools|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Woodcarver's Tools|XPHB}, {@item Basket|XPHB}, {@item Block and Tackle|XPHB}, {@item Chain|XPHB}, {@item Hunting Trap|XPHB}, {@item Net|XPHB}, {@item Pole|XPHB}, {@item Rations|XPHB} (3 days' worth), {@item Traveler's Clothes|XPHB}, 32 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Inheritor",
@@ -16292,6 +16541,121 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Knight of the Gauntlet",
+			"source": "FRHoF",
+			"page": 32,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"int",
+								"wis"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"int",
+								"wis"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"tyro of the gauntlet|frhof": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"athletics": true,
+					"medicine": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"spear|xphb",
+						"smith's tools|xphb",
+						"bullseye lantern|xphb",
+						"holy symbol|xphb",
+						"manacles|xphb",
+						{
+							"item": "oil|xphb",
+							"displayName": "Oil (5 flasks)"
+						},
+						"tinderbox|xphb",
+						"traveler's clothes|xphb",
+						{
+							"value": 900
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Strength, Intelligence, Wisdom"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Tyro of the Gauntlet|FRHoF}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Athletics|XPHB} and {@skill Medicine|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Smith's Tools|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Spear|XPHB}, {@item Smith's Tools|XPHB}, {@item Bullseye Lantern|XPHB}, {@item Holy Symbol|XPHB}, {@item Manacles|XPHB}, {@item Oil|XPHB} (5 flasks), {@item Tinderbox|XPHB}, {@item Traveler's Clothes|XPHB}, 9 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Knight of the Order",
 			"source": "SCAG",
 			"page": 151,
@@ -16385,6 +16749,126 @@
 				}
 			],
 			"hasFluff": true
+		},
+		{
+			"name": "Lords' Alliance Vassal",
+			"source": "FRHoF",
+			"page": 32,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"int",
+								"cha"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"int",
+								"cha"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"lords' alliance agent|frhof": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"insight": true,
+					"persuasion": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"calligrapher's supplies": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						{
+							"item": "javelin|xphb",
+							"displayName": "Javelins",
+							"quantity": 2
+						},
+						"calligrapher's supplies|xphb",
+						"fine clothes|xphb",
+						"ink|xphb",
+						{
+							"item": "ink|xphb",
+							"quantity": 5
+						},
+						{
+							"item": "parchment|xphb",
+							"displayName": "Parchment (9 sheets)"
+						},
+						{
+							"value": 1300
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Strength, Intelligence, Charisma"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Lords' Alliance Agent|FRHoF}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Insight|XPHB} and {@skill Persuasion|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Calligrapher's Supplies|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) 2 {@item Javelin|XPHB|Javelins}, {@item Calligrapher's Supplies|XPHB}, {@item Fine Clothes|XPHB}, {@item Ink|XPHB}, 5 {@item Ink|XPHB} Pens, {@item Parchment|XPHB} (9 sheets), 13 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Lorehold Student",
@@ -16979,354 +17463,6 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "Mageborn",
-			"source": "DoDk",
-			"page": 245,
-			"prerequisite": [
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Bard",
-							"visible": true
-						}
-					}
-				},
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Sorcerer",
-							"visible": true
-						}
-					}
-				},
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Warlock",
-							"visible": true
-						}
-					}
-				},
-				{
-					"level": {
-						"level": 1,
-						"class": {
-							"name": "Wizard",
-							"visible": true
-						}
-					}
-				}
-			],
-			"skillProficiencies": [
-				{
-					"choose": {
-						"from": [
-							"arcana",
-							"deception",
-							"investigation",
-							"perception"
-						],
-						"count": 2
-					}
-				}
-			],
-			"languageProficiencies": [
-				{
-					"draconic": true
-				},
-				{
-					"elvish": true
-				}
-			],
-			"toolProficiencies": [
-				{
-					"choose": {
-						"from": [
-							"calligrapher's supplies",
-							"alchemist's supplies"
-						]
-					}
-				}
-			],
-			"startingEquipment": [
-				{
-					"_": [
-						{
-							"item": "wand|phb",
-							"displayName": "gnarled wand made of wood"
-						},
-						{
-							"special": "duster jacket"
-						},
-						{
-							"special": "satchel for material components and potions"
-						}
-					]
-				},
-				{
-					"a": [
-						"amulet|phb"
-					],
-					"b": [
-						{
-							"item": "trinket|phb",
-							"displayName": "other trinket of importance to you"
-						}
-					]
-				}
-			],
-			"entries": [
-				{
-					"type": "list",
-					"style": "list-hang-notitle",
-					"items": [
-						{
-							"type": "item",
-							"name": "Skill Proficiencies:",
-							"entry": "Two of the following: {@skill Arcana}, {@skill Deception}, {@skill Investigation}, {@skill Perception}"
-						},
-						{
-							"type": "item",
-							"name": "Tool Proficiencies:",
-							"entry": "Either calligraphers' supplies or alchemists' supplies"
-						},
-						{
-							"type": "item",
-							"name": "Languages:",
-							"entry": "Draconic or Elvish"
-						},
-						{
-							"type": "item",
-							"name": "Equipment:",
-							"entry": "A gnarled {@item wand|PHB} made of wood, a duster jacket, a satchel for material components and potions, an {@item amulet|PHB} or other {@item trinket|PHB} of importance to you"
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Mageborn Quirk",
-					"entries": [
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d8",
-								"Mageborn Quirk"
-							],
-							"rows": [
-								[
-									"1",
-									"My eyes are two different colours."
-								],
-								[
-									"2",
-									"Whenever I cast a spell, my voice echoes and an unknown wind seems to blow around me."
-								],
-								[
-									"3",
-									"My eyes glow with octarine light when I am casting spells."
-								],
-								[
-									"4",
-									"I hear voices and sounds when close to magical entities, as if the magic itself speaks to me."
-								],
-								[
-									"5",
-									"I have full conversations with myself out loud that occasionally can get heated."
-								],
-								[
-									"6",
-									"Magic floods my mind and makes it difficult to sleep without constant nightmares and visions."
-								],
-								[
-									"7",
-									"I speak to beings from other planes of existence who manifest as simple creatures before me."
-								],
-								[
-									"8",
-									"I have a birthmark in a unique shape that appears every day for 2 and a half hours, then vanishes."
-								]
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Feature: Bookworm",
-					"entries": [
-						"Once per day after you finish a long rest, you can spend one hour to create a spell scroll. You need only paper and ink to do so, and the level of the spell you can create equals one half your proficiency bonus (rounded down) or lower. The scroll you create must be a spell you know or have prepared. It crumbles to dust in 24 hours.",
-						{
-							"type": "table",
-							"caption": "Suggested Characteristics",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d8",
-								"Personality Trait"
-							],
-							"rows": [
-								[
-									"1",
-									"I idolize one of the archmages of the Academy and hope to prove myself to them in time."
-								],
-								[
-									"2",
-									"Nothing will get between me and my goals. When people say something I care about is impossible, I prove them wrong."
-								],
-								[
-									"3",
-									"I am confident in my powers, and do not fear the horrors of Drakkenheim, for I can bend reality."
-								],
-								[
-									"4",
-									"I am constantly reading books. The more knowledge I can obtain, the more I can outwit friends and foes alike."
-								],
-								[
-									"5",
-									"I am a mage for hire and am not afraid to use my magic to get my hands dirty. A lot of people will pay top coin for a skillset like mine."
-								],
-								[
-									"6",
-									"I am a sucker for a good mystery and pride myself in my ability to solve them."
-								],
-								[
-									"7",
-									"Everyone is always so serious - we all die in the end, might as well enjoy the ride."
-								],
-								[
-									"8",
-									"I always push myself to be the best at whatever it is I set out to do."
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Ideal"
-							],
-							"rows": [
-								[
-									"1",
-									"Respect. My powers are a blessing and a curse, and I work diligently to show people not to fear magic. (Good)"
-								],
-								[
-									"2",
-									"Knowledge. I left the Academy on good terms to work at one of the many historical institutes of the world, hoping that my love for books and history would be of use. (Any)"
-								],
-								[
-									"3",
-									"Love. I left the Academy due to love, and I plan to keep my promise to that love. (Good)"
-								],
-								[
-									"4",
-									"Forgiveness. I must undo the mistakes of my past by proving myself to those I care about most. (Good)"
-								],
-								[
-									"5",
-									"Power. Delerium is power, and I must learn all I can about its origins and properties if I am to harness that power. (Chaotic)"
-								],
-								[
-									"6",
-									"Independence. I stand alone from the Academy for a reason. I do not wish to be on their bad side, but I do not wish to be on their good side either. (Neutral)"
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Bond"
-							],
-							"rows": [
-								[
-									"1",
-									"It is my duty to protect the Amethyst Academy."
-								],
-								[
-									"2",
-									"My life's work in the study of delerium caused my expulsion. I must continue that research to prove its value."
-								],
-								[
-									"3",
-									"The mysteries of my past and my power are tied to the meteor. I need answers."
-								],
-								[
-									"4",
-									"My terrible mistake was covered up by my mentor in the Academy. I owe them my life."
-								],
-								[
-									"5",
-									"My nightmares have guided me to Drakkenheim. I must investigate these visions."
-								],
-								[
-									"6",
-									"I come from a long line of wizards, my exit from the Academy was highly upsetting to them and I need to earn my way back into their favour, even if it means risking my life in Drakkenheim."
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Flaw"
-							],
-							"rows": [
-								[
-									"1",
-									"I walk straight into danger. What's the worst that could happen?"
-								],
-								[
-									"2",
-									"I believe my plan is always far superior to everyone else's."
-								],
-								[
-									"3",
-									"I am distracted by possibilities of gaining knowledge or power, regardless of the cost or danger."
-								],
-								[
-									"4",
-									"I overcomplicate most situations with small details and over analyzing simple things."
-								],
-								[
-									"5",
-									"I get angry quickly, and cause more harm than good with my magic when I get mad."
-								],
-								[
-									"6",
-									"I can't get enough delerium. I want the power for myself."
-								]
-							]
-						}
-					],
-					"data": {
-						"isFeature": true
-					}
-				}
-			],
-			"hasFluff": true
-		},
-		{
 			"name": "Marine",
 			"source": "GoS",
 			"page": 31,
@@ -17800,6 +17936,246 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Moonwell Pilgrim",
+			"source": "FRHoF",
+			"page": 33,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"con",
+								"wis",
+								"cha"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"con",
+								"wis",
+								"cha"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"magic initiate; druid|xphb": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"nature": true,
+					"performance": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"painter's supplies": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"quarterstaff|xphb",
+						"painter's supplies|xphb",
+						"bedroll|xphb",
+						"bell|xphb",
+						"pouch|xphb",
+						"robe|xphb",
+						"string|xphb",
+						"traveler's clothes|xphb",
+						"waterskin|xphb",
+						{
+							"value": 3800
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Constitution, Wisdom, Charisma"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Magic Initiate|XPHB} (Druid)"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Nature|XPHB} and {@skill Performance|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Painter's Supplies|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Quarterstaff|XPHB}, {@item Painter's Supplies|XPHB}, {@item Bedroll|XPHB}, {@item Bell|XPHB}, {@item Pouch|XPHB}, {@item Robe|XPHB}, {@item String|XPHB}, {@item Traveler's Clothes|XPHB}, {@item Waterskin|XPHB}, 38 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Mulhorandi Tomb Raider",
+			"source": "FRHoF",
+			"page": 33,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"dex",
+								"con",
+								"int"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"dex",
+								"con",
+								"int"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"lucky|xphb": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"investigation": true,
+					"religion": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"mason's tools": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"dagger|xphb",
+						"light hammer|xphb",
+						"mason's tools|xphb",
+						"backpack|xphb",
+						"bedroll|xphb",
+						"crowbar|xphb",
+						"ladder|xphb",
+						"pole|xphb",
+						{
+							"item": "pouch|xphb",
+							"displayName": "Pouches",
+							"quantity": 2
+						},
+						"rope|xphb",
+						"string|xphb",
+						"tinderbox|xphb",
+						{
+							"item": "torch|xphb",
+							"displayName": "Torches",
+							"quantity": 5
+						},
+						"traveler's clothes|xphb",
+						{
+							"item": "waterskin|xphb",
+							"displayName": "Waterskin 26 GP"
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Dexterity, Constitution, Intelligence"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Lucky|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Investigation|XPHB} and {@skill Religion|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Mason's Tools|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Dagger|XPHB}, {@item Light Hammer|XPHB}, {@item Mason's Tools|XPHB}, {@item Backpack|XPHB}, {@item Bedroll|XPHB}, {@item Crowbar|XPHB}, {@item Ladder|XPHB}, {@item Pole|XPHB}, 2 {@item Pouch|XPHB|Pouches}, {@item Rope|XPHB}, {@item String|XPHB}, {@item Tinderbox|XPHB}, 5 {@item Torch|XPHB|Torches}, {@item Traveler's Clothes|XPHB}, {@item Waterskin|XPHB} 26 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Mulmaster Aristocrat",
 			"source": "ALElementalEvil",
 			"page": 5,
@@ -18058,6 +18434,118 @@
 				"source": "PHB"
 			},
 			"hasFluff": true
+		},
+		{
+			"name": "Mythalkeeper",
+			"source": "FRHoF",
+			"page": 34,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"int",
+								"wis",
+								"cha"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"int",
+								"wis",
+								"cha"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"crafter|xphb": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"arcana": true,
+					"history": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"jeweler's tools": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"quarterstaff|xphb",
+						"jeweler's tools|xphb",
+						"perfume|xphb",
+						"pouch|xphb",
+						"robe|xphb",
+						"shovel|xphb",
+						"string|xphb",
+						"waterskin|xphb",
+						{
+							"value": 1600
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Intelligence, Wisdom, Charisma"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Crafter|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Arcana|XPHB} and {@skill History|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Jeweler's Tools|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Quarterstaff|XPHB}, {@item Jeweler's Tools|XPHB}, {@item Perfume|XPHB}, {@item Pouch|XPHB}, {@item Robe|XPHB}, {@item Shovel|XPHB}, {@item String|XPHB}, {@item Waterskin|XPHB}, 16 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Noble",
@@ -18359,7 +18847,7 @@
 				{
 					"A": [
 						{
-							"item": "gaming set|xphb"
+							"equipmentType": "setGaming"
 						},
 						{
 							"item": "fine clothes|xphb"
@@ -18997,7 +19485,7 @@
 							"rows": [
 								[
 									"1",
-									" I'm driven by a wanderlust that led me away from home."
+									"I'm driven by a wanderlust that led me away from home."
 								],
 								[
 									"2",
@@ -19132,11 +19620,11 @@
 								],
 								[
 									"5",
-									" Violence is my answer to almost any challenge."
+									"Violence is my answer to almost any challenge."
 								],
 								[
 									"6",
-									" Don't expect me to save those who can't save themselves. It is nature's way that the strong thrive and the weak perish."
+									"Don't expect me to save those who can't save themselves. It is nature's way that the strong thrive and the weak perish."
 								]
 							]
 						}
@@ -20501,6 +20989,113 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Purple Dragon Squire",
+			"source": "FRHoF",
+			"page": 34,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"wis",
+								"cha"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"wis",
+								"cha"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"purple dragon rook|frhof": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"animal handling": true,
+					"insight": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"navigator's tools": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"spear|xphb",
+						"navigator's tools|xphb",
+						"fine clothes|xphb",
+						{
+							"value": 900
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Strength, Wisdom, Charisma"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Purple Dragon Rook|FRHoF}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Animal Handling|XPHB} and {@skill Insight|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Navigator's Tools|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Spear|XPHB}, {@item Navigator's Tools|XPHB}, {@item Fine Clothes|XPHB}, 9 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Quandrix Student",
 			"source": "SCC",
 			"page": 33,
@@ -21224,6 +21819,122 @@
 			"hasFluff": true
 		},
 		{
+			"name": "Rashemi Wanderer",
+			"source": "FRHoF",
+			"page": 35,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"con",
+								"cha"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"con",
+								"cha"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"tough|xphb": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"intimidation": true,
+					"perception": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"cartographer's tools": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"cartographer's tools|xphb",
+						"backpack|xphb",
+						"bedroll|xphb",
+						"hooded lantern|xphb",
+						{
+							"item": "oil|xphb",
+							"displayName": "Oil (3 flasks)"
+						},
+						"rope|xphb",
+						"tinderbox|xphb",
+						"traveler's clothes|xphb",
+						"waterskin|xphb",
+						{
+							"value": 2300
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Strength, Constitution, Charisma"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Tough|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Intimidation|XPHB} and {@skill Perception|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Cartographer's Tools|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Cartographer's Tools|XPHB}, {@item Backpack|XPHB}, {@item Bedroll|XPHB}, {@item Hooded Lantern|XPHB}, {@item Oil|XPHB} (3 flasks), {@item Rope|XPHB}, {@item Tinderbox|XPHB}, {@item Traveler's Clothes|XPHB}, {@item Waterskin|XPHB}, 23 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Reformed Cultist",
 			"source": "TDCSR",
 			"page": 185,
@@ -21514,8 +22225,8 @@
 							"quantity": 5
 						},
 						{
-							"item": "gaming set|phb",
-							"displayName": "gaming set (matching your chosen proficiency)"
+							"equipmentType": "setGaming",
+							"displayName": "gaming set matching your chosen proficiency"
 						},
 						"signet ring|phb",
 						"fine clothes|phb",
@@ -21955,8 +22666,8 @@
 						},
 						"hunting trap|phb",
 						{
-							"item": "gaming set|phb",
-							"displayName": "gaming set (matching your chosen proficiency)"
+							"equipmentType": "setGaming",
+							"displayName": "gaming set matching your chosen proficiency"
 						},
 						"traveler's clothes|phb",
 						{
@@ -24120,6 +24831,128 @@
 			"hasFluff": true
 		},
 		{
+			"name": "Shadowmasters Exile",
+			"source": "FRHoF",
+			"page": 35,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"dex",
+								"int",
+								"cha"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"dex",
+								"int",
+								"cha"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"savage attacker|xphb": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"acrobatics": true,
+					"stealth": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"thieves' tools": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						{
+							"item": "dagger|xphb",
+							"displayName": "Daggers",
+							"quantity": 2
+						},
+						"thieves' tools|xphb",
+						"caltrops|xphb",
+						"costume|xphb",
+						"grappling hook|xphb",
+						"iron spikes|xphb",
+						"mirror|xphb",
+						{
+							"item": "pouch|xphb",
+							"displayName": "Pouches",
+							"quantity": 2
+						},
+						"rope|xphb",
+						"traveler's clothes|xphb",
+						{
+							"value": 300
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Dexterity, Intelligence, Charisma"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Savage Attacker|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Acrobatics|XPHB} and {@skill Stealth|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Thieves' Tools|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) 2 Daggers, {@item Thieves' Tools|XPHB}, {@item Caltrops|XPHB}, {@item Costume|XPHB}, {@item Grappling Hook|XPHB}, {@item Iron Spikes|XPHB}, {@item Mirror|XPHB}, 2 {@item Pouch|XPHB|Pouches}, {@item Rope|XPHB}, {@item Traveler's Clothes|XPHB}, 3 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Shipwright",
 			"source": "GoS",
 			"page": 33,
@@ -25749,7 +26582,7 @@
 							"item": "arrows (20)|xphb"
 						},
 						{
-							"item": "gaming set|xphb"
+							"equipmentType": "setGaming"
 						},
 						{
 							"item": "healer's kit|xphb"
@@ -25800,6 +26633,124 @@
 							"type": "item",
 							"name": "Equipment:",
 							"entry": "Choose A or B: (A) {@item Spear|XPHB}, {@item Shortbow|XPHB}, {@item Arrow|XPHB|20 Arrows}, {@item Gaming Set|XPHB} (same as above), {@item Healer's Kit|XPHB}, {@item Quiver|XPHB}, {@item Traveler's Clothes|XPHB}, 14 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Spellfire Initiate",
+			"source": "FRHoF",
+			"page": 36,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"con",
+								"int",
+								"cha"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"con",
+								"int",
+								"cha"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"spellfire spark|frhof": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"arcana": true,
+					"perception": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"anyGamingSet": 1
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						{
+							"item": "gaming set|xphb",
+							"displayName": "Gaming Set (same as above)"
+						},
+						{
+							"item": "arcane focus|xphb",
+							"displayName": "Arcane Focus (Crystal or Wand)"
+						},
+						{
+							"item": "pouch|xphb",
+							"displayName": "Pouches",
+							"quantity": 2
+						},
+						"traveler's clothes|xphb",
+						{
+							"value": 3600
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Constitution, Intelligence, Charisma"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Spellfire Spark|FRHoF}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Arcana|XPHB} and {@skill Perception|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "Choose one kind of {@item Gaming Set|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Gaming Set|XPHB} (same as above), {@item Arcane Focus|XPHB} ({@item Crystal|XPHB} or {@item Wand|XPHB}), 2 {@item Pouch|XPHB|Pouches}, {@item Traveler's Clothes|XPHB}, 36 GP; or (B) 50 GP"
 						}
 					]
 				}
@@ -26049,287 +27000,6 @@
 							]
 						}
 					]
-				}
-			],
-			"hasFluff": true
-		},
-		{
-			"name": "Survivor",
-			"source": "DoDk",
-			"page": 247,
-			"skillProficiencies": [
-				{
-					"choose": {
-						"from": [
-							"perception",
-							"survival",
-							"stealth",
-							"athletics"
-						],
-						"count": 2
-					}
-				}
-			],
-			"toolProficiencies": [
-				{
-					"cook's utensils": true,
-					"artisan's tools": true
-				}
-			],
-			"startingEquipment": [
-				{
-					"_": [
-						"cook's utensils|phb",
-						"climber's kit|phb",
-						"shovel|phb",
-						{
-							"special": "pair of thick gloves"
-						},
-						{
-							"special": "cloak with a hood"
-						}
-					]
-				}
-			],
-			"entries": [
-				{
-					"type": "list",
-					"style": "list-hang-notitle",
-					"items": [
-						{
-							"type": "item",
-							"name": "Skill Proficiencies:",
-							"entry": "Two of the following: {@skill Perception}, {@skill Survival}, {@skill Stealth}, {@skill Athletics}"
-						},
-						{
-							"type": "item",
-							"name": "Tool Proficiencies:",
-							"entry": "Cook's utensils, one other set of artisan's tools"
-						},
-						{
-							"type": "item",
-							"name": "Equipment:",
-							"entry": "{@item Cook's utensils|PHB}, {@item climber's kit|PHB}, a {@item shovel|PHB}, a pair of thick gloves, a cloak with a hood."
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Marks of Survival",
-					"entries": [
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d8",
-								"Marks of Survival"
-							],
-							"rows": [
-								[
-									"1",
-									"Being alone for so long means I am very used to conversing with myself out loud."
-								],
-								[
-									"2",
-									"I eat things that others find disgusting. I have learned to love the delicacies of scavenged food in the ruins."
-								],
-								[
-									"3",
-									"I have many scars across my body from barely scraping by."
-								],
-								[
-									"4",
-									"I am missing a finger on one hand due to a horrible encounter I had in the ruins."
-								],
-								[
-									"5",
-									"I keep a locket of someone I lost in the ruins. I stare at it every night before I fall asleep to remember what I am looking for."
-								],
-								[
-									"6",
-									"I keep souvenirs of the monsters I have bested in these ruins, to remind myself how strong I truly am."
-								],
-								[
-									"7",
-									"I can sleep just about anywhere, nothing really phases me anymore."
-								],
-								[
-									"8",
-									"I often recite the names of people I used to know and lost so I can hold on to their memory."
-								]
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Feature: Makeshift Meals",
-					"entries": [
-						"You know how to purify food and rations found in the ruins. When you take a short rest, you prepare a meal for a number of creatures equal to your proficiency bonus. Creatures who consume the food regain hit points equal to your level. Once they do, they can't regain hit points from another one of your meals until they finish a long rest.",
-						{
-							"type": "table",
-							"caption": "Suggested Characteristics",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d8",
-								"Personality Trait"
-							],
-							"rows": [
-								[
-									"1",
-									"I always have an exit strategy in mind if things go poorly."
-								],
-								[
-									"2",
-									"You can't survive in this grim city without a good sense of humor, but I have a taste for gallows humor."
-								],
-								[
-									"3",
-									"I try to work in the thin grey area between the squabbling factions, squeezing under their radar when possible. The less I am seen, the better."
-								],
-								[
-									"4",
-									"If you spot danger, it is best to avoid it, that's how you survive."
-								],
-								[
-									"5",
-									"Drakkenheim is a dangerous place. But I can navigate it with my eyes closed. No one else I've ever met is as good as I am."
-								],
-								[
-									"6",
-									"In order to survive the monsters of Drakkenheim, one must be a monster of Drakkenheim."
-								],
-								[
-									"7",
-									"Take everything you can from the dead, take it from the living if you can. If you are to survive, you must take any opportunity to scavenge."
-								],
-								[
-									"8",
-									"I will never give up until I reclaim what I lost in these ruins."
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Ideal"
-							],
-							"rows": [
-								[
-									"1",
-									"Self-Reliance. I won't risk my life for others. Everyone must fend for themselves\u2014better you than me. (Evil)"
-								],
-								[
-									"2",
-									"Bravery. I find the thrill of surviving the monsters and magics of Drakkenheim exhilarating and thrive on the chaos. (Chaotic)"
-								],
-								[
-									"3",
-									"Safety. Whatever I can do to keep myself fed and keep a safe place to rest is good in my books. (Any)"
-								],
-								[
-									"4",
-									"Helpful. People need all the help they can get in the city, and I know I can provide it. (Good)"
-								],
-								[
-									"5",
-									"Hope. I believe there is something worth saving here, we must hold on to the idea of a better future. (Good)"
-								],
-								[
-									"6",
-									"Responsibility. I lived here before the meteor, I'll live here long after. I must protect my home and do what I can to make it livable again. (Lawful)"
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Bond"
-							],
-							"rows": [
-								[
-									"1",
-									"I had family in these ruins. I know not what became of them, but I must find out."
-								],
-								[
-									"2",
-									"This city is my home, and I will fight for what's left of it until the very end."
-								],
-								[
-									"3",
-									"I'll do any dirty work in the city if it means a hot meal, a warm bed, or some good company."
-								],
-								[
-									"4",
-									"I've spent so long in these ruins, its the outside world that terrifies me now."
-								],
-								[
-									"5",
-									"Why haven't I left Drakkenheim? Have you seen how much gold there is to be made here?"
-								],
-								[
-									"6",
-									"I am bound to the throne of Drakkenheim, and fight to see it one day reclaimed."
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Flaw"
-							],
-							"rows": [
-								[
-									"1",
-									"Any meal could be my last. I'll eat just about anything. I do what I must to survive."
-								],
-								[
-									"2",
-									"I don't like being outside the Haze of the city for too long, I've gotten used to it."
-								],
-								[
-									"3",
-									"I am convinced my family is alive in the city somewhere. I hear their voices call to me at night."
-								],
-								[
-									"4",
-									"I don't trust anyone easily. I'll sleep with one eye open even around my companions, for Drakkenheim makes monsters of us all."
-								],
-								[
-									"5",
-									"The years spent here have turned me to a vice, I very much rely on that vice to get me through my days."
-								],
-								[
-									"6",
-									"I hear voices constantly. Sometimes I get distracted with conversations with people who are not there."
-								]
-							]
-						}
-					],
-					"data": {
-						"isFeature": true
-					}
 				}
 			],
 			"hasFluff": true
@@ -26838,294 +27508,6 @@
 						}
 					],
 					"name": "Suggested Characteristics"
-				}
-			],
-			"hasFluff": true
-		},
-		{
-			"name": "Treasure Seeker",
-			"source": "DoDk",
-			"page": 248,
-			"skillProficiencies": [
-				{
-					"investigation": true,
-					"choose": {
-						"from": [
-							"stealth",
-							"insight",
-							"perception"
-						]
-					}
-				}
-			],
-			"toolProficiencies": [
-				{
-					"thieves' tools": true,
-					"cartographer's tools": true
-				}
-			],
-			"startingEquipment": [
-				{
-					"_": [
-						"thieves' tools|phb",
-						{
-							"special": "dark clothes with a hood and a face covering"
-						},
-						{
-							"item": "signet ring|phb",
-							"displayName": "signet ring of a fake lord"
-						},
-						{
-							"special": "fake identification"
-						},
-						{
-							"special": "set of weighted dice"
-						},
-						{
-							"special": "deck of cards"
-						}
-					]
-				}
-			],
-			"entries": [
-				{
-					"type": "list",
-					"style": "list-hang-notitle",
-					"items": [
-						{
-							"type": "item",
-							"name": "Skill Proficiencies:",
-							"entry": "{@skill Investigation} and one choice from the following: {@skill Stealth}, {@skill Insight}, or {@skill Perception}"
-						},
-						{
-							"type": "item",
-							"name": "Tool Proficiencies:",
-							"entry": "Thieves' tools, cartographer's tools"
-						},
-						{
-							"type": "item",
-							"name": "Equipment:",
-							"entry": "{@item Thieves' tools|PHB}, a set of dark clothes with a hood and a face covering. A {@item signet ring|PHB} of a fake lord, a fake identification, a set of weighted dice, and a deck of cards"
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Treasure Hunters' Secrets",
-					"entries": [
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d8",
-								"Treasure Hunters' Secrets"
-							],
-							"rows": [
-								[
-									"1",
-									"You keep a cryptic map to a lost treasure that you have always wanted to uncover."
-								],
-								[
-									"2",
-									"You have a coin that is heads on both sides, helpful for winning a chance game."
-								],
-								[
-									"3",
-									"You have a magnifying spyglass you use to examine items."
-								],
-								[
-									"4",
-									"You have a ring that opens to reveal a small compartment inside."
-								],
-								[
-									"5",
-									"Your left boot has a compartment for a hidden dagger."
-								],
-								[
-									"6",
-									"You carry an old compass that doesn't point north, you hope it points towards a great treasure."
-								],
-								[
-									"7",
-									"You have a collection of exotic coins and medals that are of personal value to you."
-								],
-								[
-									"8",
-									"You have a rival treasure hunter who used to be a partner. You parted ways years ago."
-								]
-							]
-						}
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Feature: Detail-Oriented",
-					"entries": [
-						"You double your proficiency bonus when making any ability check to search the ruins of Drakkenheim.",
-						{
-							"type": "table",
-							"caption": "Suggested Characteristics",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d8",
-								"Personality Trait"
-							],
-							"rows": [
-								[
-									"1",
-									"I believe that I am destined for greatness, and nothing can convince me otherwise."
-								],
-								[
-									"2",
-									"I always have a plan or plot to outwit my foes. It may not always be good, but it's almost always overly complex."
-								],
-								[
-									"3",
-									"I love to flaunt my wealth and showcase the things I have bought with it."
-								],
-								[
-									"4",
-									"I pay no mind to the risks of a situation. I always bet on myself and my abilities and it's gotten me this far. Never tell me the odds."
-								],
-								[
-									"5",
-									"I have a quip, allegory, or joke for almost any situation."
-								],
-								[
-									"6",
-									"I lie about anything and everything. I lie for almost no reason at all, sometimes just to see if I can fool the people around me."
-								],
-								[
-									"7",
-									"I use flattery and honeyed words to get what I want."
-								],
-								[
-									"8",
-									"I can't help it if valuable objects lying around end up in my pockets. It's for safe keeping."
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Ideal"
-							],
-							"rows": [
-								[
-									"1",
-									"Independent. No one tells me what to do. I make my own rules, and my own luck. (Chaotic)"
-								],
-								[
-									"2",
-									"Fair. I do not take anything from anyone who couldn't afford to lose it. I am a treasure hunter, not a thief. (Lawful)"
-								],
-								[
-									"3",
-									"Family. I care about material possessions and wealth, but not as much as I care about my friends and family. (Good)"
-								],
-								[
-									"4",
-									"Aspiration. Wealth is power. Wealth means you will be remembered. In this world making a name for yourself is as simple as acquiring enough gold to buy your way to victory. I intend to be remembered. (Any)"
-								],
-								[
-									"5",
-									"Danger. Every great discovery requires risk. The greater the risk, the greater the reward. It's the thrill of the hunt that I live for. (Any)"
-								],
-								[
-									"6",
-									"Dignity. The dead and their prized belongings deserve more than to waste away in the ruins. They deserve to be found, remembered, and taken care of. (Lawful)"
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Bond"
-							],
-							"rows": [
-								[
-									"1",
-									"My desire for wealth is out of a need to protect my family."
-								],
-								[
-									"2",
-									"Something important to me was stolen. I've longed to get it back ever since."
-								],
-								[
-									"3",
-									"I'm wanted for my many crimes and hope that where I am going, the law will not follow."
-								],
-								[
-									"4",
-									"I made mistakes in my past that cost me the life of someone I loved. I will not let that happen again."
-								],
-								[
-									"5",
-									"I plan to be the greatest thief or most cunning explorer of all time."
-								],
-								[
-									"6",
-									"This is my last job, the big one. After this I hope to settle down with my wealth, maybe start a family."
-								]
-							]
-						},
-						{
-							"type": "table",
-							"colStyles": [
-								"col-2 text-center",
-								"col-10"
-							],
-							"colLabels": [
-								"d6",
-								"Flaw"
-							],
-							"rows": [
-								[
-									"1",
-									"My entire identity is layers of falsities presented to hide my true self, for I am not a good person. I've never told the truth for as long as I can remember and it's too late now to stop."
-								],
-								[
-									"2",
-									"Every situation, every person, is only as valuable to me as what I can gain from them. I'm not afraid to pull strings to bend luck in my favour."
-								],
-								[
-									"3",
-									"I jump to defensive measures as soon as someone catches me in a lie, or tries to call me out for anything."
-								],
-								[
-									"4",
-									"I take what I want, and I want it all."
-								],
-								[
-									"5",
-									"I like to show my skills, talk big, and take big risks in the hopes of impressing everyone watching."
-								],
-								[
-									"6",
-									"I know for a fact I am the smartest person in the room, and if people are suggesting anything otherwise they are terribly mistaken."
-								]
-							]
-						}
-					],
-					"data": {
-						"isFeature": true
-					}
 				}
 			],
 			"hasFluff": true
@@ -27653,16 +28035,6 @@
 			}
 		},
 		{
-			"name": "Variant Continental Nobility (Last of the Line)",
-			"source": "DoDk",
-			"page": 245,
-			"_copy": {
-				"name": "Continental Nobility",
-				"source": "DoDk"
-			},
-			"hasFluff": true
-		},
-		{
 			"name": "Variant Criminal (Spy)",
 			"source": "PHB",
 			"page": 130,
@@ -27686,16 +28058,6 @@
 						}
 					}
 				}
-			},
-			"hasFluff": true
-		},
-		{
-			"name": "Variant Devoted Missionary (Stargazer)",
-			"source": "DoDk",
-			"page": 247,
-			"_copy": {
-				"name": "Devoted Missionary",
-				"source": "DoDk"
 			},
 			"hasFluff": true
 		},
@@ -27817,16 +28179,6 @@
 			"hasFluff": true
 		},
 		{
-			"name": "Variant Mageborn (Malfeasant Mage)",
-			"source": "DoDk",
-			"page": 246,
-			"_copy": {
-				"name": "Mageborn",
-				"source": "DoDk"
-			},
-			"hasFluff": true
-		},
-		{
 			"name": "Variant Noble (Knight)",
 			"source": "PHB",
 			"page": 136,
@@ -27918,26 +28270,6 @@
 						}
 					}
 				}
-			},
-			"hasFluff": true
-		},
-		{
-			"name": "Variant Survivor (Veteran of the Civil War)",
-			"source": "DoDk",
-			"page": 248,
-			"_copy": {
-				"name": "Survivor",
-				"source": "DoDk"
-			},
-			"hasFluff": true
-		},
-		{
-			"name": "Variant Treasure Seeker (Soldier of Fortune)",
-			"source": "DoDk",
-			"page": 249,
-			"_copy": {
-				"name": "Treasure Seeker",
-				"source": "DoDk"
 			},
 			"hasFluff": true
 		},
@@ -28631,7 +28963,7 @@
 							"item": "thieves' tools|xphb"
 						},
 						{
-							"item": "gaming set|xphb"
+							"equipmentType": "setGaming"
 						},
 						{
 							"item": "bedroll|xphb"
@@ -29681,6 +30013,126 @@
 				}
 			],
 			"hasFluff": true
+		},
+		{
+			"name": "Zhentarim Mercenary",
+			"source": "FRHoF",
+			"page": 36,
+			"edition": "one",
+			"ability": [
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"dex",
+								"cha"
+							],
+							"weights": [
+								2,
+								1
+							]
+						}
+					}
+				},
+				{
+					"choose": {
+						"weighted": {
+							"from": [
+								"str",
+								"dex",
+								"cha"
+							],
+							"weights": [
+								1,
+								1,
+								1
+							]
+						}
+					}
+				}
+			],
+			"feats": [
+				{
+					"zhentarim ruffian|frhof": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"intimidation": true,
+					"perception": true
+				}
+			],
+			"toolProficiencies": [
+				{
+					"forgery kit": true
+				}
+			],
+			"startingEquipment": [
+				{
+					"A": [
+						"club|xphb",
+						"dagger|xphb",
+						"forgery kit|xphb",
+						"fine clothes|xphb",
+						"hooded lantern|xphb",
+						{
+							"item": "oil|xphb",
+							"displayName": "Oil (3 flasks)"
+						},
+						{
+							"item": "pouch|xphb",
+							"displayName": "Pouches",
+							"quantity": 2
+						},
+						"string|xphb",
+						"tinderbox|xphb",
+						{
+							"value": 1100
+						}
+					],
+					"B": [
+						{
+							"value": 5000
+						}
+					]
+				}
+			],
+			"entries": [
+				{
+					"type": "list",
+					"style": "list-hang-notitle",
+					"items": [
+						{
+							"type": "item",
+							"name": "Ability Scores:",
+							"entry": "Strength, Dexterity, Charisma"
+						},
+						{
+							"type": "item",
+							"name": "Feat:",
+							"entry": "{@feat Zhentarim Ruffian|FRHoF}"
+						},
+						{
+							"type": "item",
+							"name": "Skill Proficiencies:",
+							"entry": "{@skill Intimidation|XPHB} and {@skill Perception|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Tool Proficiencies:",
+							"entry": "{@item Forgery Kit|XPHB}"
+						},
+						{
+							"type": "item",
+							"name": "Equipment:",
+							"entry": "Choose A or B: (A) {@item Club|XPHB}, {@item Dagger|XPHB}, {@item Forgery Kit|XPHB}, {@item Fine Clothes|XPHB}, {@item Hooded Lantern|XPHB}, {@item Oil|XPHB} (3 flasks), 2 {@item Pouch|XPHB|Pouches}, {@item String|XPHB}, {@item Tinderbox|XPHB}, 11 GP; or (B) 50 GP"
+						}
+					]
+				}
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
 		}
 	]
 }

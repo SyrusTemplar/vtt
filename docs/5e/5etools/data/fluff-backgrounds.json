@@ -557,6 +557,25 @@
 			]
 		},
 		{
+			"name": "Chondathan Freebooter",
+			"source": "FRHoF",
+			"entries": [
+				"Though most youths in Chondath accept their four-year term of compulsory military service, you bristled at that authoritarian attempt to control your life. You forsook your nationhood, discarded your given name, and worked as a freebooter with the first ship that would have you. Since then, you've traveled the Vilhon Reach. Though you've never sailed more than a few dozen leagues from land, you make up for it with deep local connections and the breadth of your experiences."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Chondathan Freebooter.webp"
+					},
+					"credit": "Miro Petrov",
+					"width": 1700,
+					"height": 648
+				}
+			]
+		},
+		{
 			"name": "City Watch",
 			"source": "SCAG",
 			"entries": [
@@ -587,7 +606,7 @@
 							"type": "entries",
 							"entries": [
 								"The Stout Folk are well known for their artisanship and the worth of their handiworks, and you have been trained in that ancient tradition. For years you labored under a dwarf master of the craft, enduring long hours and dismissive, sour-tempered treatment in order to gain the fine skills you possess today.",
-								"You are most likely a dwarf, but not necessarily\u2014particularly in the North, the shield dwarf clans learned long ago that only proud fools who are more concerned for their egos than their craft turn away promising apprentices, even those of other races. If you aren't a dwarf, however, you have taken a solemn oath never to take on an apprentice in the craft: it is not for nondwarves to pass on the skills of Moradin's favored children. You would have no difficulty, however, finding a dwarf master who was willing to receive potential apprentices who came with your recommendation."
+								"You are most likely a dwarf, but not necessarily\u2014particularly in the North, the shield dwarf clans learned long ago that only proud fools who are more concerned for their egos than their craft turn away promising apprentices, even those of other races. If you aren't a dwarf, however, you have taken a solemn oath never to take on an apprentice in the craft: it is not for non-dwarves to pass on the skills of Moradin's favored children. You would have no difficulty, however, finding a dwarf master who was willing to receive potential apprentices who came with your recommendation."
 							]
 						}
 					]
@@ -654,13 +673,6 @@
 			]
 		},
 		{
-			"name": "Continental Nobility",
-			"source": "DoDk",
-			"entries": [
-				"You are the scion of a noble household. Whether you hail from Caspia, Elyria, or Westemär, the fall of Drakkenheim has either adversely impacted your family's fortunes, or created a tantalizing opportunity to increase your political power and influence."
-			]
-		},
-		{
 			"name": "Cormanthor Refugee",
 			"source": "ALRageOfDemons",
 			"entries": [
@@ -670,7 +682,7 @@
 						{
 							"type": "entries",
 							"entries": [
-								"You are one of hundreds of refugees that were driven from Hillsfar or that fled the destruction of Myth Drannor and who now shelter in hidden camps under the northern eaves of the Cormanthor Forest. If you up grew in the camps, you have never been to a settlement other than the village of Elventree. As a guest of the elves, you have learned their ways and the ways of the forest. You are also a traumatized, as residual wild magic, energies released by the fall of Thultanar upon Myth Drannor, and the constant fear of raids hunting for nonhumans to fight in Hillsfar's Arena have taken their toll on you, as they have on everyone in the camps."
+								"You are one of hundreds of refugees that were driven from Hillsfar or that fled the destruction of Myth Drannor and who now shelter in hidden camps under the northern eaves of the Cormanthor Forest. If you up grew in the camps, you have never been to a settlement other than the village of Elventree. As a guest of the elves, you have learned their ways and the ways of the forest. You are also a traumatized, as residual wild magic, energies released by the fall of Thultanthar upon Myth Drannor, and the constant fear of raids hunting for nonhumans to fight in Hillsfar's Arena have taken their toll on you, as they have on everyone in the camps."
 							]
 						}
 					]
@@ -733,10 +745,22 @@
 			]
 		},
 		{
-			"name": "Devoted Missionary",
-			"source": "DoDk",
+			"name": "Dead Magic Dweller",
+			"source": "FRHoF",
 			"entries": [
-				"You are a follower of one of the many religions of the world. Through either divine calling, visions, or prophecies, or because your church sent you as an envoy and representative, or maybe because you are seeking divine answers, you have made the journey to Drakkenheim. What sacred purpose lies in the ruins that you are quested with uncovering?"
+				"The dead magic zones of the Anauroch desert are anathema to spellcasters and monsters that rely on magic\u2014which is exactly why you made your life there. Perhaps you're on the run from Red Wizards, or you ran afoul of a powerful djinni in Calimshan. Whatever the case, you decided that living in Anauroch was your best option. After long months or years, you're stronger, wiser, and armed with hard-earned knowledge of desert medicine and wasteland survival."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Dead Magic Dweller.webp"
+					},
+					"credit": "Erel Maatita",
+					"width": 1700,
+					"height": 626
+				}
 			]
 		},
 		{
@@ -776,6 +800,25 @@
 			]
 		},
 		{
+			"name": "Dragon Cultist",
+			"source": "FRHoF",
+			"entries": [
+				"You are an initiate of the Cult of the Dragon. You discovered or were brought to a cell cult, where you exemplified the values honored by dragon cultists: duplicity, secrecy, and determination. In exchange for your oath to serve the cult, the cult offered you the company of fellow dragon worshipers, plus access to resources that might help further your studies in the realms of arcana and occultism."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Dragon Cultist.webp"
+					},
+					"credit": "Swatches Studio, Sam White",
+					"width": 1700,
+					"height": 650
+				}
+			]
+		},
+		{
 			"name": "Earthspur Miner",
 			"source": "ALElementalEvil",
 			"entries": [
@@ -789,6 +832,25 @@
 							]
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Emerald Enclave Caretaker",
+			"source": "FRHoF",
+			"entries": [
+				"As a Caretaker with the Emerald Enclave, you take care of those who care for the world. Either alongside your fellow Emerald Enclave members or by yourself, you've learned essential skills for living with the land: how to track game, where to forage for useful herbs, and even how to forecast the weather. You use these talents to maintain the balance between civilization and the wilds and to rid the world of unnatural creatures."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Emerald Enclave Caretaker.webp"
+					},
+					"credit": "Polar Engine",
+					"width": 1700,
+					"height": 628
 				}
 			]
 		},
@@ -1071,6 +1133,25 @@
 			]
 		},
 		{
+			"name": "Flaming Fist Mercenary",
+			"source": "FRHoF",
+			"entries": [
+				"The chief law enforcement branch of Baldur's Gate is the Flaming Fist, a brawny mercenary guild led by the city's grand duke. You once served as a Flaming Fist, where you learned how to preempt trouble with your intimidating stare and, when necessary, absorb deadly blows. Flaming Fist mercenaries, active or retired, are known as some of the toughest, most resilient warriors along the Sword Coast, and you seek to maintain that reputation."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Flaming Fist Mercenary.webp"
+					},
+					"credit": "Luca Bancone",
+					"width": 1700,
+					"height": 648
+				}
+			]
+		},
+		{
 			"name": "Folk Hero",
 			"source": "PHB",
 			"entries": [
@@ -1137,6 +1218,25 @@
 					"credit": "Robson Michel",
 					"width": 750,
 					"height": 2167
+				}
+			]
+		},
+		{
+			"name": "Genie Touched",
+			"source": "FRHoF",
+			"entries": [
+				"Although genies no longer rule Calimshan, genie magic is still common in your homeland. Perhaps you inadvertently summoned a djinni from a magic lamp, or maybe you came upon an oasis guarded by a marid. A dao might have saved you from a landslide, or you bargained with an efreeti for fleeting wealth. However your fate intersected with that of a genie, the experience left you with a keen eye, a silver tongue, and more than a touch of magic."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Genie Touched.webp"
+					},
+					"credit": "Luca Bancone",
+					"width": 1700,
+					"height": 626
 				}
 			]
 		},
@@ -1342,6 +1442,25 @@
 			]
 		},
 		{
+			"name": "Harper",
+			"source": "FRHoF",
+			"entries": [
+				"You accepted an invitation to join the Harpers, pledging an oath to uphold the Harper code and act in service to the common good. Like all Harpers, you understand the value of teamwork as well as when it's best to go it alone. Harper veterans have taught you the order's secrets\u2014magical melodies, special watchwords, and legerdemain\u2014and have entrusted you to use such knowledge to surveil and undermine the forces of evil."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Harper.webp"
+					},
+					"credit": "Katerina Ladon",
+					"width": 1700,
+					"height": 649
+				}
+			]
+		},
+		{
 			"name": "Haunted One",
 			"source": "VRGR",
 			"entries": [
@@ -1455,6 +1574,25 @@
 							]
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Ice Fisher",
+			"source": "FRHoF",
+			"entries": [
+				"You come from a proud line of ice fishers out of Ten-Towns in Icewind Dale. Catching knucklehead trout isn't the most glorious trade in the North, but it's an honest living. You've trained your senses for the slightest tug on the line, wrestled big trout out of ice-covered lakes, and gutted enough knucklehead trout to feed your village many times over. These experiences have toughened your body and mind for a life of adventuring."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Ice Fisher.webp"
+					},
+					"credit": "Erel Maatita",
+					"width": 1700,
+					"height": 627
 				}
 			]
 		},
@@ -1673,6 +1811,25 @@
 			]
 		},
 		{
+			"name": "Knight of the Gauntlet",
+			"source": "FRHoF",
+			"entries": [
+				"Not all who answer the call of a higher power are content to pore over scripture in a stuffy temple apse. You chose the path of the holy warrior by joining the Order of the Gauntlet. As a knight of the Gauntlet, you exercise righteous scorn for the forces of evil, unswerving camaraderie for your siblings in arms, and heartfelt compassion for the survivors of war. With weapon and holy symbol in hand, you've sworn not to rest until the light of justice has vanquished the shadow of chaos across Faerûn."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Knight of the Gauntlet.webp"
+					},
+					"credit": "Eric Belisle",
+					"width": 1700,
+					"height": 648
+				}
+			]
+		},
+		{
 			"name": "Knight of the Order",
 			"source": "SCAG",
 			"entries": [
@@ -1716,6 +1873,25 @@
 							]
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Lords' Alliance Vassal",
+			"source": "FRHoF",
+			"entries": [
+				"You've pledged your loyalty to a member-city of the Lords' Alliance. As an Alliance agent, you must uphold the tenets of the Alliance and seek to increase safety and prosperity along the Sword Coast. You're sworn to bring honor and glory to your lord's house, whether that means securing trade roads for a merchant-lord of Waterdeep or vanquishing monsters upriver of Daggerford. You've trained in the arts of swordplay and statecraft and are as deft with a blade as you are with a quill."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Lords' Alliance Vassal.webp"
+					},
+					"credit": "Ignatius Budi",
+					"width": 1700,
+					"height": 626
 				}
 			]
 		},
@@ -1787,13 +1963,6 @@
 			]
 		},
 		{
-			"name": "Mageborn",
-			"source": "DoDk",
-			"entries": [
-				"You manifested arcane magical abilities at a young age, and were taken into the guardianship of the Amethyst Academy. You learned to harness your magic at a secluded magical school. After you came of age and completed your apprenticeship, you became free to pursue your own interests, but you must respect the laws and customs that govern all those with spellcasting powers. Under the Edicts of Lumen, mages are disinherited of any noble titles, and cannot own land."
-			]
-		},
-		{
 			"name": "Marine",
 			"source": "GoS",
 			"entries": [
@@ -1826,7 +1995,7 @@
 									"type": "inset",
 									"name": "Mercenaries of the North",
 									"entries": [
-										"Countless mercenary companies operate up and down the Sword Coast and throughout the North. Most are smallscale operations that employ a dozen to a hundred folk who offer security services, hunt monsters and brigands, or go to war in exchange for gold. Some organizations, such as the Zhentarim, Flaming Fist, and the nation of Mintarn have hundreds or thousands of members and can provide private armies to those with enough funds. A few organizations operating in the North are described below.",
+										"Countless mercenary companies operate up and down the Sword Coast and throughout the North. Most are small-scale operations that employ a dozen to a hundred folk who offer security services, hunt monsters and brigands, or go to war in exchange for gold. Some organizations, such as the Zhentarim, Flaming Fist, and the nation of Mintarn have hundreds or thousands of members and can provide private armies to those with enough funds. A few organizations operating in the North are described below.",
 										{
 											"type": "entries",
 											"name": "The Chill",
@@ -1876,6 +2045,44 @@
 			]
 		},
 		{
+			"name": "Moonwell Pilgrim",
+			"source": "FRHoF",
+			"entries": [
+				"Like many who hail from the Moonshae Isles, you grew up revering the blessed land, its unique gods, and the mysterious shrines called the moonwells. As a moonwell pilgrim, you undertook a quest to visit and commune with every moonwell on (or off) the map. Along your idyllic journeys, you collected a repertoire of Moonshavian folk songs, painted landscapes of enchanting vistas, and even learned how to wield a bit of primal magic."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Moonwell Pilgrim.webp"
+					},
+					"credit": "Luca Bancone",
+					"width": 1700,
+					"height": 649
+				}
+			]
+		},
+		{
+			"name": "Mulhorandi Tomb Raider",
+			"source": "FRHoF",
+			"entries": [
+				"You grew up in a land of living god-kings, and as a child you were told countless stories of ancient empires and buried cities. In these tales, Mulhorand was a land overflowing with forgotten riches\u2014priceless treasures awaiting anyone cunning and brave enough to seek them out. You've taken it upon yourself to explore your homeland's crypts, tombs, and pyramids to reclaim your people's relics."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Mulhorandi Tomb Raider.webp"
+					},
+					"credit": "Erel Maatita",
+					"width": 1700,
+					"height": 627
+				}
+			]
+		},
+		{
 			"name": "Mulmaster Aristocrat",
 			"source": "ALElementalEvil",
 			"entries": [
@@ -1907,6 +2114,25 @@
 							]
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Mythalkeeper",
+			"source": "FRHoF",
+			"entries": [
+				"Mythals are sources of great magical power that can alter the Weave or even the very nature of reality. Most were constructed in antiquity, and many have since been damaged or gone dormant. As a mythalkeeper from the Dalelands, your first experience with a mythal was likely in the ruins of Myth Drannor. You roam Faerûn in search of other ruined places of power, hoping to learn more about the history and powers of mythals\u2014or even restore a malfunctioning one."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Mythalkeeper.webp"
+					},
+					"credit": "Pedro Cardoso",
+					"width": 1700,
+					"height": 648
 				}
 			]
 		},
@@ -2092,6 +2318,25 @@
 			]
 		},
 		{
+			"name": "Purple Dragon Squire",
+			"source": "FRHoF",
+			"entries": [
+				"You've pledged your life to the safety of Cormyr and sought admission to that realm's order of elite warriors: the Purple Dragon Knights. But before you have the chance to join the ranks officially, you must first serve as a knight's squire. You've found a liege willing to take you on and teach you the order's ways. Will you uphold the Purple Dragon Knights' ideals of glory, honor, and strength and prove yourself worthy of knighthood?"
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Purple Dragon Squire.webp"
+					},
+					"credit": "Ioannis Fiore",
+					"width": 1700,
+					"height": 626
+				}
+			]
+		},
+		{
 			"name": "Quandrix Student",
 			"source": "SCC",
 			"entries": [
@@ -2126,6 +2371,25 @@
 							]
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Rashemi Wanderer",
+			"source": "FRHoF",
+			"entries": [
+				"You spent years wandering the highlands of Rashemen, a dangerous windswept heath that's dotted with ancient obelisks enchanted to imprison Fiends and home to dragons, gnolls, and other deadly creatures. Friendships are hard to find in such an isolated land, and you've learned to keep strangers at a distance."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Rashemi Wanderer.webp"
+					},
+					"credit": "Bruce Brenneise",
+					"width": 1700,
+					"height": 648
 				}
 			]
 		},
@@ -2388,6 +2652,25 @@
 			]
 		},
 		{
+			"name": "Shadowmasters Exile",
+			"source": "FRHoF",
+			"entries": [
+				"You trained your whole life to become a member of the Shadowmasters, the mysterious thieves' guild that controls the realm of Thesk from behind the scenes. Stealth and quick reflexes were just the start of your Shadowmaster education; you also needed to hone your ruthlessness to ensure the safety of the guild's secrets. But one wrong move led to your expulsion from the order. Now you must walk your own path."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Shadowmasters Exile.webp"
+					},
+					"credit": "Bruce Brenneise",
+					"width": 1700,
+					"height": 627
+				}
+			]
+		},
+		{
 			"name": "Shipwright",
 			"source": "GoS",
 			"entries": [
@@ -2483,6 +2766,25 @@
 			]
 		},
 		{
+			"name": "Spellfire Initiate",
+			"source": "FRHoF",
+			"entries": [
+				"You bear the gift of spellfire: a rare form of magic that channels the raw power of the Weave. Wielding spellfire takes a heavy toll on the body. You've trained both mind and body to efficiently wield this sacred power."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Spellfire Initiate.webp"
+					},
+					"credit": "Taras Susak",
+					"width": 1700,
+					"height": 648
+				}
+			]
+		},
+		{
 			"name": "Stojanow Prisoner",
 			"source": "ALCurseOfStrahd",
 			"entries": [
@@ -2498,13 +2800,6 @@
 						}
 					]
 				}
-			]
-		},
-		{
-			"name": "Survivor",
-			"source": "DoDk",
-			"entries": [
-				"Not everyone left Drakkenheim after the meteor. Some stayed behind, searching the ruins for things they lost: friends and family, or just seeking out treasure and artefacts. You know what places in the city are the most dangerous, what paths are the best to take, and often have an idea of the fastest ways to travel. Despite the Haze, and dangers, you've managed to survive, but carry the weight of Drakkenheim's madness with you."
 			]
 		},
 		{
@@ -2540,13 +2835,6 @@
 						}
 					]
 				}
-			]
-		},
-		{
-			"name": "Treasure Seeker",
-			"source": "DoDk",
-			"entries": [
-				"Lost treasure and valuable relics brought you to Drakkenheim. Perhaps the prospect of earning more gold than you can spend in your lifetime is too tantalizing to pass up, or alternatively you may seek items for their historical or religious significance."
 			]
 		},
 		{
@@ -2632,13 +2920,6 @@
 			]
 		},
 		{
-			"name": "Variant Continental Nobility (Last of the Line)",
-			"source": "DoDk",
-			"entries": [
-				"In the years following the destruction of Drakkenheim, calamity and misfortune wracked your house leaving you the sole surviving heir. Penniless and without land, you have come to Drakkenheim to rebuild your family's legacy."
-			]
-		},
-		{
 			"name": "Variant Criminal (Spy)",
 			"source": "PHB",
 			"entries": [
@@ -2653,13 +2934,6 @@
 						}
 					]
 				}
-			]
-		},
-		{
-			"name": "Variant Devoted Missionary (Stargazer)",
-			"source": "DoDk",
-			"entries": [
-				"You witnessed the meteor 15 years ago. Whether you believe it to be destiny, a magical or divine calling, or just curiosity of the secrets that need to be unearthed, you are drawn to the crater. You believe that the crater holds some answers to the questions you seek, and that somewhere in Drakkenheim lies a truth beyond your comprehension. Your pilgrimage to Drakkenheim may have taken you weeks, months or even years but you had to come - something called you here and you must discover its origin."
 			]
 		},
 		{
@@ -2694,13 +2968,6 @@
 						}
 					]
 				}
-			]
-		},
-		{
-			"name": "Variant Mageborn (Malfeasant Mage)",
-			"source": "DoDk",
-			"entries": [
-				"You were expelled from the Amethyst Academy for some trespass, real or imagined, or perhaps you were never taken in by them and learned magic on your own. Common folk are often mistrustful of spellcasters who do not wear the Amethyst Academy colours, so you may need to hide your identity and abilities, especially from the Amethyst Academy and the Knights of the Silver Order."
 			]
 		},
 		{
@@ -2745,20 +3012,6 @@
 						}
 					]
 				}
-			]
-		},
-		{
-			"name": "Variant Survivor (Veteran of the Civil War)",
-			"source": "DoDk",
-			"entries": [
-				"You survived the civil war that ravaged Westemär, either as a soldier or fleeing refugee. The war took something from you and changed you. It may be that you had to do things that went against your morals, or perhaps you lost friends and family in the bloodshed. Regardless, you walked away with scars that will not easily heal."
-			]
-		},
-		{
-			"name": "Variant Treasure Seeker (Soldier of Fortune)",
-			"source": "DoDk",
-			"entries": [
-				"Rather than seeking your fortune from finding treasure, you seek yours by hunting down the brigands, outlaws, and monsters that now hide in Drakkenheim. You often take up dangerous bounties and follow wanted posters as long as the price is right. Danger is second nature to you and the horrors of the city are nothing compared to the thrill of the hunt, and the coin it can gain you."
 			]
 		},
 		{
@@ -3026,6 +3279,25 @@
 			"source": "SCC",
 			"entries": [
 				"You filled your childhood with rudimentary alchemical experiments, all in the hope of becoming a student of Witherbloom College. The life sciences are the focus of your reading, which include biology and necromancy. Brewing strange concoctions with medicinal properties, exploring the anatomies of monsters, and cataloging swamp flora are the kinds of studies you might pursue at Witherbloom College."
+			]
+		},
+		{
+			"name": "Zhentarim Mercenary",
+			"source": "FRHoF",
+			"entries": [
+				"Maybe you needed the money. Maybe you longed for a family, no matter how dubious. Or maybe you're just good at getting the job done by any means necessary. Whatever your reason, you enlisted with the Zhentarim, the most notorious mercenary guild in the Realms. Though the Zhentarim's leaders insist the organization is more like a family than a shadowy syndicate, few families exhibit as much dishonesty, nepotism, and corruption as this one. You've honed your cunning, reflexes, and blade to climb the guild's ranks."
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "backgrounds/FRHoF/Zhentarim Mercenary.webp"
+					},
+					"credit": "Ignatius Budi",
+					"width": 1700,
+					"height": 626
+				}
 			]
 		}
 	]

@@ -113,7 +113,7 @@ class ItemsSublistManager extends SublistManager {
 
 		if (availConversions.size) {
 			this._$totalValue
-				.text(Parser.itemValueToFullMultiCurrency({value, currencyConversion: this._sublistCurrencyConversion}))
+				.text(Parser.itemValueToFullMultiCurrency({value, currencyConversion: this._sublistCurrencyConversion}, {styleHint: this._styleHint}))
 				.off("click")
 				.click(async () => {
 					const values = ["(Default)", ...[...availConversions].sort(SortUtil.ascSortLower)];
@@ -194,9 +194,11 @@ class ItemsPage extends ListPage {
 			dataProps: ["item"],
 
 			bookViewOptions: {
+				nameSingular: "item",
 				namePlural: "items",
 				pageTitle: "Items Book View",
 				propMarkdown: "item",
+				isSublistItemsCountable: true,
 			},
 
 			tableViewOptions: {
@@ -212,7 +214,7 @@ class ItemsPage extends ListPage {
 					_properties: {name: "Properties", transform: it => Renderer.item.getRenderedDamageAndProperties(it)[1]},
 					_mastery: {name: "Mastery", transform: it => Renderer.item.getRenderedMastery(it)},
 					_weight: {name: "Weight", transform: it => Parser.itemWeightToFull(it)},
-					_value: {name: "Value", transform: it => Parser.itemValueToFullMultiCurrency(it)},
+					_value: {name: "Value", transform: it => Parser.itemValueToFullMultiCurrency(it, {styleHint: this._styleHint})},
 					_entries: {name: "Text", transform: (it) => Renderer.item.getRenderedEntries(it, {isCompact: true}), flex: 3},
 				},
 			},
@@ -228,7 +230,7 @@ class ItemsPage extends ListPage {
 	get _bindOtherButtonsOptions () {
 		return {
 			other: [
-				this._bindOtherButtonsOptions_openAsSinglePage({slugPage: "items", fnGetHash: () => Hist.getHashParts()[0]}),
+				this._bindOtherButtonsOptions_openAsSinglePage({slugPage: "items"}),
 			].filter(Boolean),
 		};
 	}
@@ -266,7 +268,6 @@ class ItemsPage extends ListPage {
 							e_({
 								tag: "span",
 								clazz: `ve-col-1 ve-text-center ${Parser.sourceJsonToSourceClassname(item.source)} pl-1 pr-0`,
-								style: Parser.sourceJsonToStylePart(item.source),
 								title: `${Parser.sourceJsonToFull(item.source)}${Renderer.utils.getSourceSubText(item)}`,
 								text: source,
 							}),
@@ -282,7 +283,7 @@ class ItemsPage extends ListPage {
 				{
 					hash,
 					source,
-					page: item.page,
+					...ListItem.getCommonValues(item),
 					type,
 					cost: item.value || 0,
 					weight: Parser.weightValueToNumber(item.weight),
@@ -318,7 +319,6 @@ class ItemsPage extends ListPage {
 							e_({
 								tag: "span",
 								clazz: `ve-col-1 ve-text-center ${Parser.sourceJsonToSourceClassname(item.source)} pr-0`,
-								style: Parser.sourceJsonToStylePart(item.source),
 								title: `${Parser.sourceJsonToFull(item.source)}${Renderer.utils.getSourceSubText(item)}`,
 								text: source,
 							}),
@@ -334,7 +334,7 @@ class ItemsPage extends ListPage {
 				{
 					hash,
 					source,
-					page: item.page,
+					...ListItem.getCommonValues(item),
 					type,
 					rarity: item.rarity,
 					attunement: item._attunementCategory !== VeCt.STR_NO_ATTUNEMENT,
@@ -387,8 +387,8 @@ class ItemsPage extends ListPage {
 			},
 		});
 
-		SortUtil.initBtnSortHandlers($("#filtertools-mundane"), this._mundaneList);
-		SortUtil.initBtnSortHandlers($("#filtertools-magic"), this._magicList);
+		SortUtil.initBtnSortHandlers(es("#filtertools-mundane"), this._mundaneList);
+		SortUtil.initBtnSortHandlers(es("#filtertools-magic"), this._magicList);
 
 		this._mundaneList.nextList = this._magicList;
 		this._magicList.prevList = this._mundaneList;

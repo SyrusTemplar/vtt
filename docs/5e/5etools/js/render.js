@@ -579,10 +579,15 @@ globalThis.Renderer = function () {
 		const ptTitle = ptTitleCreditTooltip ? `title="${ptTitleCreditTooltip}"` : "";
 		const pluginDataIsNoLink = this._applyPlugins_useFirst("image_isNoLink", {textStack, meta, options}, {input: entry});
 
+		const ptLabels = this._renderImage_geLabels(entry);
+
 		textStack[0] += `<div class="${this._renderImage_getWrapperClasses(entry, meta)}" ${entry.title && this._isHeaderIndexIncludeImageTitles ? `data-title-index="${this._headerIndex++}"` : ""}>
-			${pluginDataIsNoLink ? "" : `<a href="${href}" target="_blank" rel="noopener noreferrer" ${ptTitle}>`}
-				${this._renderImage_getImg({entry, meta, href, pluginDataIsNoLink, ptTitle})}
-			${pluginDataIsNoLink ? "" : `</a>`}
+			<div class="w-100 h-100 relative">
+				${pluginDataIsNoLink ? "" : `<a class="relative" href="${href}" target="_blank" rel="noopener noreferrer" ${ptTitle}>`}
+					${this._renderImage_getImg({entry, meta, href, pluginDataIsNoLink, ptTitle})}
+				${pluginDataIsNoLink ? "" : `</a>`}
+				${ptLabels}
+			</div>
 		</div>`;
 
 		if (!this._renderImage_isComicStyling(entry) && (entry.title || entry.credit || entry.mapRegions)) {
@@ -665,6 +670,46 @@ globalThis.Renderer = function () {
 				.filter(Boolean)
 				.join(". "),
 		).qq();
+	};
+
+	this._renderImage_geLabels = function (entry) {
+		if (
+			!entry.labelMapRegions
+			|| !globalThis.BookUtil?.curRender?.headerMap
+			|| !globalThis.polylabel
+			|| !entry.width
+			|| !entry.height
+			|| !entry.mapRegions?.length
+		) return "";
+
+		const tagInfo = Renderer.tag.TAG_LOOKUP.area;
+
+		return entry.mapRegions
+			.map(region => {
+				const area = globalThis.BookUtil.curRender.headerMap[region.area];
+				if (!area) return "";
+
+				// TODO(Future) refine
+				// TODO(Future) allow area to define name
+				const areaName = area.name.split(/[.:; ]/)[0].slice(0, 4);
+
+				const mapRegionPointsGeoJson = [region.points];
+				const [xNote, yNote] = polylabel(mapRegionPointsGeoJson);
+
+				const [xLabel, yLabel] = polylabel(mapRegionPointsGeoJson);
+
+				const pctLeft = ((xLabel / entry.width) * 100).toFixed(3);
+				const pctTop = ((yLabel / entry.height) * 100).toFixed(3);
+
+				const hoverMeta = Renderer.hover.getInlineHover(area.entry, {isLargeBookContent: true, depth: area.depth});
+
+				const variantClass = areaName.length === 3 ? "rd__image-label-map-region--chars-3" : areaName.length >= 4 ? "rd__image-label-map-region--chars-4" : "";
+
+				return `<a class="rd__image-label-map-region ${variantClass} absolute small-caps dnd-font bold ve-block ve-text-center ve-overflow-hidden" style="left: ${pctLeft}%; top: ${pctTop}%;" href="${tagInfo.getHref(globalThis.BookUtil.curRender, area)}" ${hoverMeta.html}>
+					${areaName}
+				</a>`;
+			})
+			.join("");
 	};
 
 	this._renderImage_getStylePart = function (entry) {
@@ -925,8 +970,10 @@ globalThis.Renderer = function () {
 	};
 
 	this._getPagePart = function (entry, isInset) {
-		if (!Renderer.utils.isDisplayPage(entry.page)) return "";
-		return ` <span class="rd__title-link ${isInset ? `rd__title-link--inset` : ""}">${entry.source ? `<span class="help-subtle" title="${Parser.sourceJsonToFull(entry.source)}">${Parser.sourceJsonToAbv(entry.source)}</span> ` : ""}<span title="Page ${entry.page}">p${entry.page}</span></span>`;
+		const isDisplaySource = !!entry.source;
+		const isDisplayPage = Renderer.utils.isDisplayPage(entry.page);
+		if (!isDisplaySource && !isDisplayPage) return "";
+		return ` <span class="rd__title-link ${isInset ? `rd__title-link--inset` : ""}">${isDisplaySource ? `<span class="help-subtle" title="${Parser.sourceJsonToFull(entry.source)}">${Parser.sourceJsonToAbv(entry.source)}</span> ` : ""}${isDisplayPage ? `<span title="Page ${entry.page}">p${entry.page}</span>` : ""}</span>`;
 	};
 
 	this._renderEntriesSubtypes = function (entry, textStack, meta, options, incDepth) {
@@ -1130,9 +1177,10 @@ globalThis.Renderer = function () {
 	this._renderList = function (entry, textStack, meta, options) {
 		if (!entry.items) return;
 
-		const tag = entry.start != null ? "ol" : "ul";
+		const start = (entry.start ?? 1) + (entry.name ? -1 : 0);
+		const tag = start !== 1 ? "ol" : "ul";
 		const cssClasses = this._renderList_getListCssClasses(entry, textStack, meta, options);
-		textStack[0] += `<${tag} ${cssClasses ? `class="${cssClasses}"` : ""} ${entry.start != null ? `start="${entry.start}"` : ""}>`;
+		textStack[0] += `<${tag} ${cssClasses ? `class="${cssClasses}"` : ""} ${start !== 1 ? `start="${start}"` : ""}>`;
 		if (entry.name) textStack[0] += `<li class="rd__list-name">${this.render({type: "inline", entries: [entry.name]})}</li>`;
 		const isListHang = entry.style && entry.style.split(" ").includes("list-hang");
 		const len = entry.items.length;
@@ -1366,7 +1414,7 @@ globalThis.Renderer = function () {
 		"monthly",
 		"yearly",
 		"ritual",
-		"legendar",
+		"legendary",
 	];
 
 	this._renderSpellcasting_getEntries = function (entry) {
@@ -2020,8 +2068,10 @@ globalThis.Renderer = function () {
 				break;
 			}
 			case "@font": {
-				const [displayText, fontFamily] = Renderer.splitTagByPipe(text);
-				textStack[0] += `<span style="font-family: '${fontFamily}'">`;
+				const [displayText, fontDecl] = Renderer.splitTagByPipe(text);
+				const fontInfo = Renderer.tag.TagFont.getFontInfo(fontDecl);
+				if (fontInfo.fontUrl) FontManager.pAddFont({fontId: fontInfo.fontId, fontUrl: fontInfo.fontUrl}).then(null);
+				textStack[0] += `<span style="font-family: '${fontInfo.fontId}'">`;
 				this._recursiveRender(displayText, textStack, meta);
 				textStack[0] += `</span>`;
 				break;
@@ -2294,15 +2344,23 @@ globalThis.Renderer = function () {
 				break;
 			}
 			case "@area": {
-				const {areaId, displayText} = Renderer.tag.TAG_LOOKUP.area.getMeta(tag, text);
+				const tagInfo = Renderer.tag.TAG_LOOKUP.area;
+
+				const {areaId, displayText} = tagInfo.getMeta(tag, text);
 
 				if (!globalThis.BookUtil) { // for the roll20 script
 					textStack[0] += displayText;
-				} else {
-					const area = globalThis.BookUtil.curRender.headerMap[areaId] || {entry: {name: ""}}; // default to prevent rendering crash on bad tag
-					const hoverMeta = Renderer.hover.getInlineHover(area.entry, {isLargeBookContent: true, depth: area.depth});
-					textStack[0] += `<a href="#${globalThis.BookUtil.curRender.curBookId},${area.chapter},${UrlUtil.encodeForHash(area.entry.name)},0" ${hoverMeta.html}>${displayText}</a>`;
+					break;
 				}
+
+				const area = globalThis.BookUtil.curRender.headerMap[areaId];
+				if (!area) {
+					textStack[0] += displayText;
+					break;
+				}
+
+				const hoverMeta = Renderer.hover.getInlineHover(area.entry, {isLargeBookContent: true, depth: area.depth});
+				textStack[0] += `<a href="${tagInfo.getHref(globalThis.BookUtil.curRender, area)}" ${hoverMeta.html}>${displayText}</a>`;
 
 				break;
 			}
@@ -2331,7 +2389,7 @@ globalThis.Renderer = function () {
 				const page = tag === "@book" ? "book.html" : "adventure.html";
 				const [displayText, book, chapter, section, rawNumber] = Renderer.splitTagByPipe(text);
 				const number = rawNumber || 0;
-				const hash = `${book}${chapter ? `${HASH_PART_SEP}${chapter}${section ? `${HASH_PART_SEP}${UrlUtil.encodeForHash(section)}${number != null ? `${HASH_PART_SEP}${UrlUtil.encodeForHash(number)}` : ""}` : ""}` : ""}`;
+				const hash = `${book?.toLowerCase()}${chapter ? `${HASH_PART_SEP}${chapter}${section ? `${HASH_PART_SEP}${UrlUtil.encodeForHash(section)}${number != null ? `${HASH_PART_SEP}${UrlUtil.encodeForHash(number)}` : ""}` : ""}` : ""}`;
 				const fauxEntry = {
 					type: "link",
 					href: {
@@ -2348,7 +2406,7 @@ globalThis.Renderer = function () {
 			}
 
 			default: {
-				const {name, source, displayText, others, page, hash, hashPreEncoded, pageHover, hashHover, hashPreEncodedHover, preloadId, linkText, subhashes, subhashesHover, isFauxPage, isAllowRedirect} = Renderer.utils.getTagMeta(tag, text);
+				const {name, source, displayText, others, page, hash, hashPreEncoded, pageHover, sourceHover, hashHover, hashPreEncodedHover, preloadId, linkText, subhashes, subhashesHover, isFauxPage, isAllowRedirect} = Renderer.utils.getTagMeta(tag, text);
 
 				const fauxEntry = {
 					type: "link",
@@ -2367,6 +2425,7 @@ globalThis.Renderer = function () {
 
 				if (hashPreEncoded != null) fauxEntry.href.hashPreEncoded = hashPreEncoded;
 				if (pageHover != null) fauxEntry.href.hover.page = pageHover;
+				if (sourceHover != null) fauxEntry.href.hover.source = sourceHover;
 				if (hashHover != null) fauxEntry.href.hover.hash = hashHover;
 				if (hashPreEncodedHover != null) fauxEntry.href.hover.hashPreEncoded = hashPreEncodedHover;
 				if (preloadId != null) fauxEntry.href.hover.preloadId = preloadId;
@@ -2718,12 +2777,13 @@ Renderer.splitByTags = function (string) {
 Renderer._splitByPipeBase = function (leadingCharacter) {
 	return function (string) {
 		let tagDepth = 0;
-		let char, char2;
+		let char0, char, char2;
 		const out = [];
 		let curStr = "";
 
 		const len = string.length;
 		for (let i = 0; i < len; ++i) {
+			char0 = string[i - 1];
 			char = string[i];
 			char2 = string[i + 1];
 
@@ -2741,6 +2801,10 @@ Renderer._splitByPipeBase = function (leadingCharacter) {
 					break;
 
 				case "|": {
+					if (char0 === "\\") {
+						curStr += char;
+						break;
+					}
 					if (tagDepth) curStr += "|";
 					else {
 						out.push(curStr);
@@ -3221,9 +3285,11 @@ Renderer.utils = class {
 						${!globalThis.IS_VTT && ExtensionUtil.ACTIVE && opts.page ? Renderer.utils.getBtnSendToFoundryHtml() : ""}
 					</div>
 					<div class="stats__wrp-h-source ${opts.isInlinedToken ? `stats__wrp-h-source--token` : ""} ve-flex-v-baseline">
-						${tagPartSourceStart} class="help-subtle stats__h-source-abbreviation ${ent.source ? `${Parser.sourceJsonToSourceClassname(ent.source)}" title="${Parser.sourceJsonToFull(ent.source)}${Renderer.utils.getSourceSubText(ent)}` : ""}" ${Parser.sourceJsonToStyle(ent.source)}>${ent.source ? Parser.sourceJsonToAbv(ent.source) : ""}${tagPartSourceEnd}
+						${tagPartSourceStart} class="help-subtle stats__h-source-abbreviation ${ent.source ? `${Parser.sourceJsonToSourceClassname(ent.source)}" title="${Parser.sourceJsonToFull(ent.source)}${Renderer.utils.getSourceSubText(ent)}` : ""}">${ent.source ? Parser.sourceJsonToAbv(ent.source) : ""}${tagPartSourceEnd}
 
-						${Renderer.utils.isDisplayPage(ent.page) ? ` ${tagPartSourceStart} class="rd__stats-name-page ml-1" title="Page ${ent.page}">p${ent.page}${tagPartSourceEnd}` : ""}
+						${ent.source ? Parser.sourceJsonToMarkerHtml(ent.source, {isStatsName: true}) : ""}
+
+						${Renderer.utils.isDisplayPage(ent.page) ? ` ${tagPartSourceStart} class="rd__stats-name-page ml-1 lst-is-exporting-image__no-wrap" title="Page ${ent.page}">p${ent.page}${tagPartSourceEnd}` : ""}
 
 						${ptBrewSourceLink}
 					</div>
@@ -3242,7 +3308,7 @@ Renderer.utils = class {
 	}
 
 	static getBtnSendToFoundryHtml ({isMb = true} = {}) {
-		return `<button title="Send to Foundry (SHIFT for Temporary Import)" class="ve-btn ve-btn-xs ve-btn-default stats__btn-stats-name mx-2 ${isMb ? "mb-2" : ""} ve-self-flex-end lst-is-exporting-image__hidden" onclick="ExtensionUtil.pDoSendStats(event, this)" draggable="true" ondragstart="ExtensionUtil.doDragStart(event, this)"><span class="glyphicon glyphicon-send"></span></button>`;
+		return `<button title="Send to Foundry (SHIFT for Temporary Import)" class="no-print ve-btn ve-btn-xs ve-btn-default stats__btn-stats-name mx-2 ${isMb ? "mb-2" : ""} ve-self-flex-end lst-is-exporting-image__hidden" onclick="ExtensionUtil.pDoSendStats(event, this)" draggable="true" ondragstart="ExtensionUtil.doDragStart(event, this)"><span class="glyphicon glyphicon-send"></span></button>`;
 	}
 
 	static isDisplayPage (page) { return page != null && ((!isNaN(page) && page > 0) || isNaN(page)); }
@@ -3381,6 +3447,24 @@ Renderer.utils = class {
 
 	static getEmbeddedDataFooter () {
 		return `</tbody></table>`;
+	}
+
+	static getTokenMetadataAttributes (ent, {displayName = null} = {}) {
+		const tokenName = displayName || ent.name;
+
+		const ptTitle = [
+			ent.tokenCredit ? `Credit: ${ent.tokenCredit.qq()}` : "",
+			ent.tokenCustom ? `This is a custom/unofficial token.` : "",
+		]
+			.filter(Boolean)
+			.join(" ");
+
+		return [
+			`alt="Token Image${tokenName ? `: ${tokenName.qq()}` : ""}"`,
+			ptTitle ? `title="${ptTitle}"` : "",
+		]
+			.filter(Boolean)
+			.join(" ");
 	}
 
 	static TabButton = function ({label, fnChange, fnPopulate, isVisible}) {
@@ -3742,7 +3826,8 @@ Renderer.utils = class {
 		/**
 		 * @param prerequisites
 		 * @param isListMode
-		 * @param blocklistKeys
+		 * @param {?Set} blocklistKeys
+		 * @param {?object} keyOptions
 		 * @param isTextOnly
 		 * @param isSkipPrefix
 		 * @param {"classic" | null} styleHint
@@ -3752,7 +3837,8 @@ Renderer.utils = class {
 			prerequisites,
 			{
 				isListMode = false,
-				blocklistKeys = new Set(),
+				blocklistKeys = null,
+				keyOptions = null,
 				isTextOnly = false,
 				isSkipPrefix = false,
 				styleHint = null,
@@ -3790,38 +3876,39 @@ Renderer.utils = class {
 						.filter(([k]) => !prereqsShared[k])
 						.sort(([kA], [kB]) => this._WEIGHTS[kA] - this._WEIGHTS[kB])
 						.map(([k, v]) => {
-							if (k === "note" || blocklistKeys.has(k)) return false;
+							if (k === "note" || blocklistKeys?.has(k)) return false;
 
 							cntPrerequisites += 1;
 
 							switch (k) {
-								case "level": return this._getHtml_level({v, isListMode, isTextOnly, styleHint});
-								case "pact": return this._getHtml_pact({v, isListMode, isTextOnly, styleHint});
-								case "patron": return this._getHtml_patron({v, isListMode, isTextOnly, styleHint});
-								case "spell": return this._getHtml_spell({v, isListMode, isTextOnly, styleHint});
-								case "feat": return this._getHtml_feat({v, isListMode, isTextOnly, styleHint});
-								case "optionalfeature": return this._getHtml_optionalfeature({v, isListMode, isTextOnly, styleHint});
-								case "feature": return this._getHtml_feature({v, isListMode, isTextOnly, styleHint});
-								case "item": return this._getHtml_item({v, isListMode, isTextOnly, styleHint});
-								case "itemType": return this._getHtml_itemType({v, isListMode, isTextOnly, styleHint});
-								case "itemProperty": return this._getHtml_itemProperty({v, isListMode, isTextOnly, styleHint});
-								case "otherSummary": return this._getHtml_otherSummary({v, isListMode, isTextOnly, styleHint});
-								case "other": return this._getHtml_other({v, isListMode, isTextOnly, styleHint});
-								case "race": return this._getHtml_race({v, isListMode, isTextOnly, styleHint});
-								case "background": return this._getHtml_background({v, isListMode, isTextOnly, styleHint});
-								case "ability": return this._getHtml_ability({v, isListMode, isTextOnly, styleHint});
-								case "proficiency": return this._getHtml_proficiency({v, isListMode, isTextOnly, styleHint});
-								case "expertise": return this._getHtml_expertise({v, isListMode, isTextOnly, styleHint});
-								case "spellcasting": return this._getHtml_spellcasting({v, isListMode, isTextOnly, styleHint});
-								case "spellcasting2020": return this._getHtml_spellcasting2020({v, isListMode, isTextOnly, styleHint});
-								case "spellcastingFeature": return this._getHtml_spellcastingFeature({v, isListMode, isTextOnly, styleHint});
-								case "spellcastingPrepared": return this._getHtml_spellcastingPrepared({v, isListMode, isTextOnly, styleHint});
-								case "spellcastingFocus": return this._getHtml_spellcastingFocus({v, isListMode, isTextOnly, styleHint});
-								case "psionics": return this._getHtml_psionics({v, isListMode, isTextOnly, styleHint});
-								case "alignment": return this._getHtml_alignment({v, isListMode, isTextOnly, styleHint});
-								case "campaign": return this._getHtml_campaign({v, isListMode, isTextOnly, styleHint});
-								case "culture": return this._getHtml_culture({v, isListMode, isTextOnly, styleHint});
-								case "group": return this._getHtml_group({v, isListMode, isTextOnly, styleHint});
+								case "level": return this._getHtml_level({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "pact": return this._getHtml_pact({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "patron": return this._getHtml_patron({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "spell": return this._getHtml_spell({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "feat": return this._getHtml_feat({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "optionalfeature": return this._getHtml_optionalfeature({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "feature": return this._getHtml_feature({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "item": return this._getHtml_item({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "itemType": return this._getHtml_itemType({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "itemProperty": return this._getHtml_itemProperty({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "otherSummary": return this._getHtml_otherSummary({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "other": return this._getHtml_other({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "race": return this._getHtml_race({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "background": return this._getHtml_background({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "ability": return this._getHtml_ability({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "proficiency": return this._getHtml_proficiency({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "expertise": return this._getHtml_expertise({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "spellcasting": return this._getHtml_spellcasting({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "spellcasting2020": return this._getHtml_spellcasting2020({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "spellcastingFeature": return this._getHtml_spellcastingFeature({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "spellcastingPrepared": return this._getHtml_spellcastingPrepared({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "spellcastingFocus": return this._getHtml_spellcastingFocus({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "psionics": return this._getHtml_psionics({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "alignment": return this._getHtml_alignment({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "campaign": return this._getHtml_campaign({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "culture": return this._getHtml_culture({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "membership": return this._getHtml_membership({v, isListMode, keyOptions, isTextOnly, styleHint});
+								case "group": return this._getHtml_group({v, isListMode, keyOptions, isTextOnly, styleHint});
 								default: throw new Error(`Unhandled key: ${k}`);
 							}
 						})
@@ -3860,9 +3947,11 @@ Renderer.utils = class {
 			return `${ptPrefix}${[shared, joinedChoices].filter(Boolean).join(ptsSharedOtherJoiner)}`;
 		}
 
-		static _getHtml_level ({v, isListMode, styleHint}) {
+		static _getHtml_level ({v, isListMode, keyOptions, isTextOnly, styleHint}) {
 			// a generic level requirement
 			if (typeof v === "number") {
+				if (keyOptions?.level?.isNameOnly) return "";
+
 				if (isListMode) return `Lvl ${v}`;
 
 				if (styleHint === "classic") return `${Parser.getOrdinalForm(v)} level`;
@@ -3870,15 +3959,26 @@ Renderer.utils = class {
 			}
 
 			if (!v.class && !v.subclass) {
+				if (keyOptions?.level?.isNameOnly) return "";
+
 				if (isListMode) return `Lvl ${v.level}`;
 
 				if (styleHint === "classic") return `${Parser.getOrdinalForm(v.level)} level`;
 				return `Level ${v.level}+`;
 			}
 
-			const isLevelVisible = v.level !== 1; // Hide the "implicit" 1st level.
-			const isSubclassVisible = v.subclass && v.subclass.visible;
-			const isClassVisible = v.class && (v.class.visible || isSubclassVisible); // force the class name to be displayed if there's a subclass being displayed
+			const isLevelVisible = v.level !== 1 // Hide the "implicit" 1st level.
+				&& !keyOptions?.level?.isNameOnly;
+			const isSubclassVisible = v.subclass?.visible
+				|| (!isListMode && v.subclass?.visibleStats)
+				|| (isListMode && v.subclass?.visibleList);
+			const isClassVisible = v.class
+				&& (
+					v.class.visible
+					|| isSubclassVisible // force the class name to be displayed if there's a subclass being displayed
+					|| (!isListMode && v.class?.visibleStats)
+					|| (isListMode && v.class?.visibleList)
+				);
 			if (isListMode) {
 				const shortNameRaw = isClassVisible ? this._getShortClassName(v.class.name) : null;
 				return `${isClassVisible ? `${shortNameRaw.slice(0, 4)}${isSubclassVisible ? "*" : "."}` : ""}${isLevelVisible ? ` Lvl ${v.level}` : ""}`;
@@ -3906,7 +4006,7 @@ Renderer.utils = class {
 			return isListMode ? `${Parser.prereqPatronToShort(v)} patron` : `${v} patron`;
 		}
 
-		static _getHtml_spell ({v, isListMode, isTextOnly}) {
+		static _getHtml_spell ({v, isListMode, keyOptions, isTextOnly}) {
 			return isListMode
 				? v.map(sp => {
 					if (typeof sp === "string") return sp.split("#")[0].split("|")[0].toTitleCase();
@@ -3920,15 +4020,15 @@ Renderer.utils = class {
 					.joinConjunct(", ", " or ");
 		}
 
-		static _getHtml_feat ({v, isListMode, isTextOnly, styleHint}) {
-			return this._getHtml_uidTag({v, isListMode, isTextOnly, styleHint, tag: "feat"});
+		static _getHtml_feat ({v, isListMode, keyOptions, isTextOnly, styleHint}) {
+			return this._getHtml_uidTag({v, isListMode, keyOptions, isTextOnly, styleHint, tag: "feat"});
 		}
 
-		static _getHtml_optionalfeature ({v, isListMode, isTextOnly, styleHint}) {
-			return this._getHtml_uidTag({v, isListMode, isTextOnly, styleHint, tag: "optfeature"});
+		static _getHtml_optionalfeature ({v, isListMode, keyOptions, isTextOnly, styleHint}) {
+			return this._getHtml_uidTag({v, isListMode, keyOptions, isTextOnly, styleHint, tag: "optfeature"});
 		}
 
-		static _getHtml_uidTag ({v, isListMode, isTextOnly, styleHint, tag}) {
+		static _getHtml_uidTag ({v, isListMode, keyOptions, isTextOnly, styleHint, tag}) {
 			if (isListMode) return v.map(x => x.split("|")[0].toTitleCase()).join("/");
 
 			return v
@@ -3940,7 +4040,7 @@ Renderer.utils = class {
 				.joinConjunct(", ", " or ");
 		}
 
-		static _getHtml_feature ({v, isListMode, isTextOnly, styleHint}) {
+		static _getHtml_feature ({v, isListMode, keyOptions, isTextOnly, styleHint}) {
 			if (isListMode) return v.map(x => Renderer.stripTags(x).toTitleCase()).join("/");
 
 			const ptNames = v.map(it => isTextOnly ? Renderer.stripTags(it) : Renderer.get().render(it)).joinConjunct(", ", " or ");
@@ -3986,17 +4086,17 @@ Renderer.utils = class {
 				);
 		}
 
-		static _getHtml_otherSummary ({v, isListMode, isTextOnly}) {
+		static _getHtml_otherSummary ({v, isListMode, keyOptions, isTextOnly}) {
 			return isListMode
 				? (v.entrySummary || Renderer.stripTags(v.entry))
 				: (isTextOnly ? Renderer.stripTags(v.entry) : Renderer.get().render(v.entry));
 		}
 
-		static _getHtml_other ({v, isListMode, isTextOnly}) {
+		static _getHtml_other ({v, isListMode, keyOptions, isTextOnly}) {
 			return isListMode ? "Special" : (isTextOnly ? Renderer.stripTags(v) : Renderer.get().render(v));
 		}
 
-		static _getHtml_race ({v, isListMode, isTextOnly, styleHint}) {
+		static _getHtml_race ({v, isListMode, keyOptions, isTextOnly, styleHint}) {
 			const parts = v.map((it, i) => {
 				if (isListMode) {
 					return `${it.name.toTitleCase()}${it.subrace != null ? ` (${it.subrace})` : ""}`;
@@ -4008,7 +4108,7 @@ Renderer.utils = class {
 			return isListMode ? parts.join("/") : parts.joinConjunct(", ", " or ");
 		}
 
-		static _getHtml_background ({v, isListMode, isTextOnly}) {
+		static _getHtml_background ({v, isListMode, keyOptions, isTextOnly}) {
 			const parts = v.map((it, i) => {
 				if (isListMode) {
 					return `${it.name.toTitleCase()}`;
@@ -4019,7 +4119,7 @@ Renderer.utils = class {
 			return isListMode ? parts.join("/") : parts.joinConjunct(", ", " or ");
 		}
 
-		static _getHtml_ability ({v, isListMode, isTextOnly, styleHint}) {
+		static _getHtml_ability ({v, isListMode, keyOptions, isTextOnly, styleHint}) {
 			// `v` is an array or objects with str/dex/... properties; array is "OR"'d together, object is "AND"'d together
 
 			let hadMultipleInner = false;
@@ -4085,7 +4185,7 @@ Renderer.utils = class {
 			return `${joined}${allValuesEqual != null ? ` ${allValuesEqual}${ptHigher}` : ""}`;
 		}
 
-		static _getHtml_proficiency ({v, isListMode, styleHint}) {
+		static _getHtml_proficiency ({v, isListMode, keyOptions, isTextOnly, styleHint}) {
 			const parts = v.map(obj => {
 				return Object.entries(obj).map(([profType, prof]) => {
 					switch (profType) {
@@ -4102,7 +4202,7 @@ Renderer.utils = class {
 							return isListMode ? `Prof ${Parser.weaponFullToAbv(prof)} weapon` : `Proficiency with a ${prof} weapon`;
 						}
 						case "weaponGroup": {
-							return isListMode ? `Prof ${Parser.weaponFullToAbv(prof)} weapons` : `${prof.toTitleCase()} Proficiency`;
+							return isListMode ? `Prof ${Parser.weaponFullToAbv(prof)} weapons` : `${prof.toTitleCase()} Weapon Proficiency`;
 						}
 						default: throw new Error(`Unhandled proficiency type: "${profType}"`);
 					}
@@ -4111,7 +4211,7 @@ Renderer.utils = class {
 			return isListMode ? parts.join("/") : parts.joinConjunct(", ", " or ");
 		}
 
-		static _getHtml_expertise ({v, isListMode, styleHint}) {
+		static _getHtml_expertise ({v, isListMode, keyOptions, isTextOnly, styleHint}) {
 			const parts = v.map(obj => {
 				return Object.entries(obj).map(([profType, prof]) => {
 					switch (profType) {
@@ -4131,7 +4231,7 @@ Renderer.utils = class {
 			return isListMode ? "Spellcasting" : "The ability to cast at least one spell";
 		}
 
-		static _getHtml_spellcasting2020 ({v, isListMode, styleHint}) {
+		static _getHtml_spellcasting2020 ({v, isListMode, keyOptions, isTextOnly, styleHint}) {
 			if (isListMode) return "Spellcasting";
 			return styleHint === "classic" ? "Spellcasting or Pact Magic feature" : "Spellcasting or Pact Magic Feature";
 		}
@@ -4149,7 +4249,7 @@ Renderer.utils = class {
 			"druid": "Druidic Focus",
 			"holy": "Holy Symbol",
 		};
-		static _getHtml_spellcastingFocus ({v, isListMode, isTextOnly, styleHint}) {
+		static _getHtml_spellcastingFocus ({v, isListMode, keyOptions, isTextOnly, styleHint}) {
 			if (isListMode) {
 				if (v === true) return `Spellcasting Focus`;
 				return v.map(n => this._SCF_TYPE_TO_NAME[n] || `Spellcasting ${n.toTitleCase()}`).join("/");
@@ -4179,7 +4279,7 @@ Renderer.utils = class {
 			return (isTextOnly ? Renderer.stripTags : Renderer.get().render.bind(Renderer.get()))(ent);
 		}
 
-		static _getHtml_psionics ({v, isListMode, isTextOnly}) {
+		static _getHtml_psionics ({v, isListMode, keyOptions, isTextOnly}) {
 			return isListMode
 				? "Psionics"
 				: (isTextOnly ? Renderer.stripTags : Renderer.get().render.bind(Renderer.get()))("Psionic Talent feature or Wild Talent feat");
@@ -4204,6 +4304,12 @@ Renderer.utils = class {
 			return isListMode
 				? v.join("/")
 				: `${v.joinConjunct(", ", " or ")} Culture`;
+		}
+
+		static _getHtml_membership ({v, isListMode}) {
+			return isListMode
+				? v.join("/")
+				: `Membeership in the ${v.joinConjunct(", ", " or ")}`;
 		}
 
 		static _getHtml_group ({v, isListMode}) {
@@ -4712,16 +4818,16 @@ Renderer.utils = class {
 				if (others.length) {
 					const [subclassShortName, subclassSource, featurePart] = others;
 
-					if (subclassSource) out.source = subclassSource;
-
 					const classStateOpts = {
 						subclass: {
 							shortName: subclassShortName.trim(),
 							source: subclassSource
 								? subclassSource.trim()
-								: Parser.SRC_PHB,
+								: out.source,
 						},
 					};
+
+					out.sourceHover = classStateOpts.subclass.source;
 
 					// Don't include the feature part for hovers, as it is unsupported
 					const hoverSubhashObj = UrlUtil.unpackSubHash(UrlUtil.getClassesPageStatePart(classStateOpts));
@@ -5136,6 +5242,36 @@ Renderer.tag = class {
 
 	static TagFont = class extends this._TagTextStyle {
 		tagName = "font";
+
+		static getFontInfo (fontDecl) {
+			if (!fontDecl) {
+				return {
+					fontId: null,
+					fontUrl: null,
+				};
+			}
+
+			const spl = fontDecl.split("/");
+
+			if (spl.length === 1) {
+				return {
+					fontId: spl[0],
+					fontUrl: null,
+				};
+			}
+
+			const ptName = spl.at(-1);
+			const fontIdFaux = ptName.split(".")[0];
+
+			const fontUrl = /^https?:\/\//.test(fontDecl)
+				? fontDecl
+				: Renderer.get().getMediaUrl("fonts", fontDecl);
+
+			return {
+				fontId: fontIdFaux,
+				fontUrl,
+			};
+		}
 	};
 
 	static TagComic = class extends this._TagTextStyle {
@@ -5507,6 +5643,12 @@ Renderer.tag = class {
 		page = UrlUtil.PG_BESTIARY;
 	};
 
+	static TagCreatureFluff = class extends this._TagPipedDisplayTextThird {
+		tagName = "creatureFluff";
+		defaultSource = Parser.SRC_MM;
+		page = "monsterFluff";
+	};
+
 	static TagCult = class extends this._TagPipedDisplayTextThird {
 		tagName = "cult";
 		defaultSource = Parser.SRC_MTF;
@@ -5761,6 +5903,11 @@ Renderer.tag = class {
 				displayText,
 			};
 		}
+
+		getHref (bookRender, area) {
+			if (!area) return `javascript:void(0)`;
+			return `#${bookRender.curBookId},${area.chapter},${UrlUtil.encodeForHash(area.entry.name)},0`;
+		}
 	};
 
 	static TagHomebrew = class extends this._TagBaseAt {
@@ -5878,6 +6025,7 @@ Renderer.tag = class {
 		new this.TagClass(),
 		new this.TagCondition(),
 		new this.TagCreature(),
+		new this.TagCreatureFluff(),
 		new this.TagCult(),
 		new this.TagDeck(),
 		new this.TagDisease(),
@@ -7236,7 +7384,7 @@ class _RenderCompactSpellsImplBase extends _RenderCompactImplBase {
 	}
 
 	_getHtmlParts_range ({ent}) {
-		return Renderer.spell.getHtmlPtRange(ent, {styleHint: this._style});
+		return Renderer.spell.getHtmlPtRange(ent, {styleHint: this._style, isDisplaySelfArea: SourceUtil.isClassicSource(ent.source)});
 	}
 
 	_getHtmlParts_components ({ent}) {
@@ -7263,6 +7411,12 @@ class _RenderCompactSpellsImplBase extends _RenderCompactImplBase {
 		if (fromClassList.length) {
 			const [current] = Parser.spClassesToCurrentAndLegacy(fromClassList);
 			stack.push(`<div><span class="bold">Classes: </span>${Parser.spMainClassesToFull(current)}</div>`);
+		}
+
+		const fromClassListVariant = Renderer.spell.getCombinedClasses(ent, "fromClassListVariant");
+		if (fromClassListVariant.length) {
+			const [current, legacy] = Parser.spVariantClassesToCurrentAndLegacy(fromClassListVariant);
+			stack.push(`<div><span class="bold" title="&quot;Optional&quot; spells may be added to a campaign by the DM. &quot;Variant&quot; spells are generally available, but may be made available to a class by the DM.">Optional/Variant Classes: </span>${Parser.spMainClassesToFull(current)}</div>`);
 		}
 
 		return stack.join("");
@@ -7307,7 +7461,7 @@ Renderer.spell = class {
 		return `<b>Casting Time:</b> ${Parser.spTimeListToFull(spell.time, spell.meta, {styleHint})}`;
 	}
 
-	static getHtmlPtRange (spell, {styleHint = null} = {}) { return `<b>Range:</b> ${Parser.spRangeToFull(spell.range, {styleHint})}`; }
+	static getHtmlPtRange (spell, {styleHint = null, isDisplaySelfArea = false} = {}) { return `<b>Range:</b> ${Parser.spRangeToFull(spell.range, {styleHint, isDisplaySelfArea})}`; }
 	static getHtmlPtComponents (spell) { return `<b>Components:</b> ${Parser.spComponentsToFull(spell.components, spell.level)}`; }
 	static getHtmlPtDuration (spell, {styleHint = null} = {}) { return `<b>Duration:</b> ${Parser.spDurationToFull(spell.duration, {styleHint})}`; }
 
@@ -9054,7 +9208,7 @@ Renderer.traphazard = class {
 
 Renderer.cultboon = class {
 	static getCultRenderableEntriesMeta (ent) {
-		if (!ent.goal && !ent.cultists && !ent.signaturespells) return null;
+		if (!ent.goal && !ent.cultists && !ent.signatureSpells) return null;
 
 		const fauxList = {
 			type: "list",
@@ -9077,11 +9231,11 @@ Renderer.cultboon = class {
 				entry: ent.cultists.entry,
 			});
 		}
-		if (ent.signaturespells) {
+		if (ent.signatureSpells) {
 			fauxList.items.push({
 				type: "item",
 				name: "Signature Spells:",
-				entry: ent.signaturespells.entry,
+				entry: ent.signatureSpells.entry,
 			});
 		}
 
@@ -9097,7 +9251,7 @@ Renderer.cultboon = class {
 	/* -------------------------------------------- */
 
 	static getBoonRenderableEntriesMeta (ent) {
-		if (!ent.ability && !ent.signaturespells) return null;
+		if (!ent.ability && !ent.signatureSpells) return null;
 
 		const benefits = {type: "list", style: "list-hang-notitle", items: []};
 
@@ -9109,11 +9263,11 @@ Renderer.cultboon = class {
 			});
 		}
 
-		if (ent.signaturespells) {
+		if (ent.signatureSpells) {
 			benefits.items.push({
 				type: "item",
 				name: "Signature Spells:",
-				entry: ent.signaturespells ? ent.signaturespells.entry : "None",
+				entry: ent.signatureSpells ? ent.signatureSpells.entry : "None",
 			});
 		}
 
@@ -9741,7 +9895,7 @@ class _RenderCompactBestiaryImplOne extends _RenderCompactBestiaryImplBase {
 	_getHtmlParts_gear ({mon}) {
 		const pt = Renderer.monster.getGearPart(mon);
 		if (!pt) return "";
-		return `<p><b title="Immunities">Gear</b> ${pt}</p>`;
+		return `<p><b>Gear</b> ${pt}</p>`;
 	}
 
 	/* ----- */
@@ -9885,6 +10039,7 @@ class _RenderCompactBestiaryImplOne extends _RenderCompactBestiaryImplBase {
 
 Renderer.monster = class {
 	static CHILD_PROPS = ["action", "bonus", "reaction", "trait", "legendary", "mythic", "variant", "spellcasting"];
+	static CHILD_PROPS__SPELLCASTING_DISPLAY_AS = ["trait", "action", "bonus", "reaction", "legendary", "mythic"];
 
 	/* -------------------------------------------- */
 
@@ -10238,7 +10393,7 @@ Renderer.monster = class {
 
 		return e_({
 			tag: "select",
-			clazz: "input-xs form-control form-control--minimal w-initial inline-block ve-popwindow__hidden no-print",
+			clazz: "input-xs form-control form-control--minimal w-initial ve-inline-block ve-popwindow__hidden no-print",
 			name: "mon__sel-summon-spell-level",
 			children: [
 				e_({tag: "option", val: "-1", text: "\u2014"}),
@@ -10256,7 +10411,7 @@ Renderer.monster = class {
 
 		return e_({
 			tag: "select",
-			clazz: "input-xs form-control form-control--minimal w-initial inline-block ve-popwindow__hidden no-print",
+			clazz: "input-xs form-control form-control--minimal w-initial ve-inline-block ve-popwindow__hidden no-print",
 			name: "mon__sel-summon-class-level",
 			children: [
 				e_({tag: "option", val: "-1", text: "\u2014"}),
@@ -10342,7 +10497,7 @@ Renderer.monster = class {
 	static getTypeAlignmentPart (mon) {
 		const typeObj = Parser.monTypeToFullObj(mon.type);
 
-		return `${mon.level ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${typeObj.asTextSidekick ? `${typeObj.asTextSidekick}; ` : ""}${Renderer.utils.getRenderedSize(mon.size)}${mon.sizeNote ? ` ${mon.sizeNote}` : ""} ${typeObj.asText}${mon.alignment ? `, ${mon.alignmentPrefix ? Renderer.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment).toTitleCase()}` : ""}`;
+		return `${mon.level != null ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${typeObj.asTextSidekick ? `${typeObj.asTextSidekick}; ` : ""}${Renderer.utils.getRenderedSize(mon.size)}${mon.sizeNote ? ` ${mon.sizeNote}` : ""} ${typeObj.asText}${mon.alignment ? `, ${mon.alignmentPrefix ? Renderer.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment).toTitleCase()}` : ""}`;
 	}
 
 	static _getInitiativePart_passive ({mon, initPassive}) {
@@ -10493,15 +10648,16 @@ Renderer.monster = class {
 
 	/* -------------------------------------------- */
 
-	static getImmunitiesCombinedPart (mon) {
+	static getImmunitiesCombinedPart (mon, {isPlainText = false} = {}) {
 		if (!mon.immune && !mon.conditionImmune) return "";
 
-		const ptImmune = mon.immune ? Parser.getFullImmRes(mon.immune, {isTitleCase: true}) : "";
-		const ptConditionImmune = mon.conditionImmune ? Parser.getFullCondImm(mon.conditionImmune, {isTitleCase: true}) : "";
+		const ptImmune = mon.immune ? Parser.getFullImmRes(mon.immune, {isTitleCase: true, isPlainText}) : "";
+		const ptConditionImmune = mon.conditionImmune ? Parser.getFullCondImm(mon.conditionImmune, {isTitleCase: true, isPlainText}) : "";
 
 		const hasSemi = ptImmune && ptConditionImmune && (ptImmune.includes(";") || ptConditionImmune.includes(";"));
+		const joiner = !hasSemi || !isPlainText ? "; " : `<span class="italic">;</span> `;
 
-		return [ptImmune, ptConditionImmune].filter(Boolean).join(hasSemi ? `<span class="italic">;</span> ` : "; ");
+		return [ptImmune, ptConditionImmune].filter(Boolean).join(joiner);
 	}
 
 	/* -------------------------------------------- */
@@ -10705,7 +10861,7 @@ Renderer.monster = class {
 				const colClass = i % 5 === 0
 					? "stats-tbl-ability-scores__lbl-abv"
 					: i % 5 === 4 ? "stats-tbl-ability-scores__lbl-spacer" : "stats-tbl-ability-scores__lbl-score";
-				return `<td class="${colClass}"><div class="ve-muted ve-text-center small-caps">${i % 5 === 2 ? "mod" : i % 5 === 3 ? "save" : ""}</div></td>`;
+				return `<td class="${colClass}"><div class="ve-muted ve-text-center small-caps no-wrap">${i % 5 === 2 ? "mod" : i % 5 === 3 ? "save" : ""}</div></td>`;
 			},
 		)
 			.join("");
@@ -10767,33 +10923,32 @@ Renderer.monster = class {
 
 	/* -------------------------------------------- */
 
-	static getSpellcastingRenderedTraits (renderer, mon, displayAsProp = "trait") {
-		const out = [];
-		(mon.spellcasting || [])
-			.filter(it => (it.displayAs || "trait") === displayAsProp)
-			.forEach(entry => {
+	static getSpellcastingRenderedTraits (renderer, mon, {displayAsProp = "trait"} = {}) {
+		return (mon.spellcasting || [])
+			.filter(entry => (entry.displayAs || "trait") === displayAsProp)
+			.map(entry => {
 				const isLegendaryMythic = ["legendary", "mythic"].includes(displayAsProp);
 
 				// For legendary/mythic, assume list-item format
 				if (isLegendaryMythic) {
-					if (!entry.headerEntries?.length) return;
-					out.push({type: "item", name: entry.name, entries: entry.headerEntries});
-					return;
+					if (!entry.headerEntries?.length) return null;
+					return {type: "item", name: entry.name, entries: entry.headerEntries};
 				}
 
-				entry.type = entry.type || "spellcasting";
+				entry.type ||= "spellcasting";
 				const rendered = renderer.render(entry, 2);
-				if (!rendered.length) return;
-				out.push({name: entry.name, rendered});
-			});
-		return out;
+				if (!rendered.length) return null;
+
+				return {name: entry.name, rendered};
+			})
+			.filter(Boolean);
 	}
 
 	static getOrderedTraits (mon, {fnGetSpellTraits} = {}) {
 		let traits = mon.trait ? MiscUtil.copyFast(mon.trait) : null;
 
 		if (fnGetSpellTraits) {
-			const spellTraits = fnGetSpellTraits(mon, "trait");
+			const spellTraits = fnGetSpellTraits(mon, {displayAsProp: "trait"});
 			if (spellTraits.length) traits = traits ? traits.concat(spellTraits) : spellTraits;
 		}
 
@@ -10812,7 +10967,7 @@ Renderer.monster = class {
 
 		let spellActions;
 		if (fnGetSpellTraits) {
-			spellActions = fnGetSpellTraits(mon, prop);
+			spellActions = fnGetSpellTraits(mon, {displayAsProp: prop});
 		}
 
 		if (!spellActions?.length && !actions?.length) return null;
@@ -10826,10 +10981,22 @@ Renderer.monster = class {
 		// Insert our spellcasting section into the "Other actions" part, in an alphabetically-appropriate place.
 
 		const ixLastAttack = actions.findLastIndex(it => it.entries && it.entries.length && typeof it.entries[0] === "string" && /\{@atkr? /.test(it.entries[0]));
-		const ixNext = actions.findIndex((act, ix) => ix > ixLastAttack && act.name && SortUtil.ascSortLower(act.name, "Spellcasting") >= 0);
-		if (~ixNext) actions.splice(ixNext, 0, ...spellActions);
-		else actions.push(...spellActions);
-		return actions;
+
+		const actionsAttack = ~ixLastAttack ? actions.slice(0, ixLastAttack) : [];
+		const actionsOther = ~ixLastAttack ? actions.slice(ixLastAttack) : actions;
+
+		// Weave spellcasting actions into the "other" actions block.
+		// This attempts to minimize re-ordering, which would otherwise occur if we were to use e.g. `sort`.
+		spellActions
+			.forEach(ent => {
+				if (!ent.name) return actionsOther.push(ent);
+
+				const ixInsert = actionsOther.findIndex((entAction, ix) => entAction.name && SortUtil.ascSortLower(entAction.name, ent.name) >= 0);
+				if (~ixInsert) actionsOther.splice(ixInsert, 0, ent);
+				else actionsOther.push(ent);
+			});
+
+		return [...actionsAttack, ...actionsOther];
 	}
 
 	static getSkillsString (renderer, mon) {
@@ -10983,7 +11150,7 @@ Renderer.monster = class {
 		renderer = renderer || Renderer.get();
 		const dragonVariant = Renderer.monster.dragonCasterVariant.getHtml(mon, {renderer});
 		const variants = mon.variant;
-		if (!variants && !dragonVariant) return null;
+		if (!variants && !dragonVariant) return "";
 
 		const rStack = [];
 		(variants || []).forEach(v => renderer.recursiveRender(v, rStack));
@@ -11669,6 +11836,8 @@ Renderer.item = class {
 	static getCompactRenderedString (item, opts) {
 		opts = opts || {};
 
+		const styleHint = VetoolsConfig.get("styleSwitcher", "style");
+
 		const [ptDamage, ptProperties] = Renderer.item.getRenderedDamageAndProperties(item);
 		const ptMastery = Renderer.item.getRenderedMastery(item);
 		const [typeRarityText, subTypeText, tierText] = Renderer.item.getTypeRarityAndAttunementText(item);
@@ -11687,7 +11856,7 @@ Renderer.item = class {
 		${Renderer.utils.getNameTr(item, {page: UrlUtil.PG_ITEMS, isEmbeddedEntity: opts.isEmbeddedEntity})}
 		<tr><td class="rd-item__type-rarity-attunement" colspan="6">${Renderer.item.getTypeRarityAndAttunementHtml(typeRarityText, subTypeText, tierText)}</td></tr>
 		<tr>
-			<td colspan="2">${[Parser.itemValueToFullMultiCurrency(item), Parser.itemWeightToFull(item)].filter(Boolean).join(", ").uppercaseFirst()}</td>
+			<td colspan="2">${[Parser.itemValueToFullMultiCurrency(item, {styleHint}), Parser.itemWeightToFull(item)].filter(Boolean).join(", ").uppercaseFirst()}</td>
 			<td colspan="4">
 				${textRight}
 			</td>
@@ -12071,13 +12240,22 @@ Renderer.item = class {
 		delete specificVariant.basicRules;
 		delete specificVariant.basicRules2024;
 		delete specificVariant.page;
+		delete specificVariant.reprintedAs;
 
 		// Remove fluff specifiers
 		delete specificVariant.hasFluff;
 		delete specificVariant.hasFluffImages;
 
 		specificVariant._category = "Specific Variant";
+		specificVariant.baseItem = DataUtil.proxy.getUid("item", baseItem);
 		Object.entries(inherits)
+			// Always apply "remove"s first
+			// This allows for e.g.
+			//   - base item: "Very Rare Reagent"
+			//   - variant: "Poisonous Reagent"
+			//     `{"nameRemove": "Reagent", "nameSuffix": "Poisonous Reagent"}`
+			//   -> `"Very Rare Poisonous Reagent"`
+			.sort(([kA], [kB]) => kB.includes("Remove") - kA.includes("Remove"))
 			.forEach(([inheritedProperty, val]) => {
 				switch (inheritedProperty) {
 					case "namePrefix": specificVariant.name = `${val}${specificVariant.name}`; break;
@@ -12958,7 +13136,18 @@ Renderer.table = class {
 	}
 
 	static getConvertedEncounterTableName (group, tableRaw) {
-		return `${group.name}${tableRaw.caption ? ` ${tableRaw.caption}` : ""}${/\bencounters?\b/i.test(group.name) ? "" : " Encounters"}${tableRaw.minlvl && tableRaw.maxlvl ? ` (Levels ${tableRaw.minlvl}\u2014${tableRaw.maxlvl})` : ""}`;
+		const baseName = tableRaw.caption
+			? tableRaw.caption
+			: [
+				tableRaw.captionPrefix,
+				group.name,
+				tableRaw.captionSuffix,
+				/\bencounters?\b/i.test(group.name) ? "" : "Encounters",
+			]
+				.filter(Boolean)
+				.join(" ");
+
+		return `${baseName}${tableRaw.minlvl && tableRaw.maxlvl ? ` (Levels ${tableRaw.minlvl}\u2014${tableRaw.maxlvl})` : ""}`;
 	}
 
 	static getConvertedNameTableName (group, tableRaw) {
@@ -13581,7 +13770,7 @@ Renderer.action = class {
 
 Renderer.language = class {
 	static getLanguageRenderableEntriesMeta (ent) {
-		const hasMeta = ent.typicalSpeakers || ent.script;
+		const hasMeta = ent.typicalSpeakers || ent.script || ent.origin;
 
 		const entriesContent = [];
 
@@ -13595,6 +13784,7 @@ Renderer.language = class {
 		return {
 			entryType: ent.type ? `{@i ${ent.type.toTitleCase()} language}` : null,
 			entryTypicalSpeakers: ent.typicalSpeakers ? `{@b Typical Speakers:} ${ent.typicalSpeakers.join(", ")}` : null,
+			entryOrigin: ent.origin ? `{@b Origin:} ${ent.origin}` : null,
 			entryScript: ent.script ? `{@b Script:} ${ent.script}` : null,
 			entriesContent: entriesContent.length ? entriesContent : null,
 		};
@@ -13609,7 +13799,7 @@ Renderer.language = class {
 
 		const ptText = [
 			entriesMeta.entryType ? Renderer.get().render(entriesMeta.entryType) : "",
-			[entriesMeta.entryTypicalSpeakers, entriesMeta.entryScript]
+			[entriesMeta.entryTypicalSpeakers, entriesMeta.entryOrigin, entriesMeta.entryScript]
 				.filter(Boolean)
 				.map(it => `<div>${Renderer.get().render(it)}</div>`)
 				.join(""),
@@ -14186,6 +14376,36 @@ Renderer.deck = class {
 };
 
 Renderer.facility = class {
+	static _getFacilityRenderableEntriesMeta_space ({ent}) {
+		if (!ent.space) return null;
+		return ent.space.map(spc => Renderer.facility._getSpaceEntry(spc, {isIncludeCostTime: ent.facilityType === "basic"})).joinConjunct(", ", " or ");
+	}
+
+	static _getFacilityRenderableEntriesMeta_hirelings ({ent}) {
+		if (!ent.hirelings) return null;
+
+		const out = ent.hirelings
+			.map(hire => {
+				const ptSpace = hire.space ? ` {@style (${hire.space.toTitleCase()})|muted}` : "";
+
+				if (hire.exact != null) return `${hire.exact}${ptSpace}`;
+				if (hire.min != null && hire.max != null) return `${hire.min}\u2013${hire.max}${ptSpace}`;
+				if (hire.min != null) return `${hire.min}+ (see below${ptSpace ? ";" : ""}${ptSpace})`;
+
+				return null;
+			})
+			.filter(Boolean)
+			.joinConjunct(", ", " or ");
+
+		if (out) return out;
+		return null;
+	}
+
+	static _getFacilityRenderableEntriesMeta_orders ({ent}) {
+		if (!ent.orders) return null;
+		return ent.orders.map(it => it.toTitleCase()).joinConjunct(", ", " or ");
+	}
+
 	static getFacilityRenderableEntriesMeta (ent) {
 		const entsList = [];
 
@@ -14200,26 +14420,14 @@ Renderer.facility = class {
 			entsList.push({type: "item", name: `Prerequisite:`, entry: "None"});
 		}
 
-		if (ent.space) entsList.push({type: "item", name: `Space:`, entry: ent.space.map(spc => Renderer.facility._getSpaceEntry(spc, {isIncludeCostTime: ent.facilityType === "basic"})).joinConjunct(", ", " or ")});
+		const entrySpace = this._getFacilityRenderableEntriesMeta_space({ent});
+		if (entrySpace) entsList.push({type: "item", name: `Space:`, entry: entrySpace});
 
-		if (ent.hirelings) {
-			const ptHirelings = ent.hirelings
-				.map(hire => {
-					const ptSpace = hire.space ? ` {@style (${hire.space.toTitleCase()})|muted}` : "";
+		const entryHirelings = this._getFacilityRenderableEntriesMeta_hirelings({ent});
+		if (entryHirelings) entsList.push({type: "item", name: `Hirelings:`, entry: entryHirelings});
 
-					if (hire.exact != null) return `${hire.exact}${ptSpace}`;
-					if (hire.min != null && hire.max != null) return `${hire.min}\u2013${hire.max}${ptSpace}`;
-					if (hire.min != null) return `${hire.min}+ (see below${ptSpace ? ";" : ""}${ptSpace})`;
-
-					return null;
-				})
-				.filter(Boolean)
-				.joinConjunct(", ", " or ");
-
-			if (ptHirelings) entsList.push({type: "item", name: `Hirelings:`, entry: ptHirelings});
-		}
-
-		if (ent.orders) entsList.push({type: "item", name: `Order${ent.orders.length !== 1 ? "s" : ""}:`, entry: ent.orders.map(it => it.toTitleCase()).joinConjunct(", ", " or ")});
+		const entryOrders = this._getFacilityRenderableEntriesMeta_orders({ent});
+		if (entryOrders) entsList.push({type: "item", name: `Order${ent.orders.length !== 1 ? "s" : ""}:`, entry: entryOrders});
 
 		return {
 			entriesDescription: [
@@ -14233,6 +14441,9 @@ Renderer.facility = class {
 				...(ent.entries || []),
 			]
 				.filter(Boolean),
+			entrySpace,
+			entryHirelings,
+			entryOrders,
 		};
 	}
 
@@ -14449,6 +14660,7 @@ Renderer.generic = class {
 	static FEATURE__TOOLS_GAMING_SETS = [
 		"dragonchess set",
 		"dice set",
+		"playing card set",
 		"three-dragon ante set",
 	];
 	static _FEATURE__TOOL_GROUPS = new Set([
@@ -14843,40 +15055,41 @@ Renderer.hover = class {
 	static _getNextId () { return ++Renderer.hover._lastId; }
 
 	static _doInit () {
-		if (!Renderer.hover._isInit) {
-			Renderer.hover._isInit = true;
+		if (Renderer.hover._isInit) return;
+		Renderer.hover._isInit = true;
 
-			$(document.body).on("click", () => Renderer.hover.cleanTempWindows());
+		document.body.addEventListener("click", () => {
+			Renderer.hover.cleanTempWindows();
+		});
 
-			Renderer.hover._contextMenu = ContextUtil.getMenu([
-				new ContextUtil.Action(
-					"Maximize All",
-					() => {
-						const $permWindows = $(`.hoverborder[data-perm="true"]`);
-						$permWindows.attr("data-display-title", "false");
-					},
-				),
-				new ContextUtil.Action(
-					"Minimize All",
-					() => {
-						const $permWindows = $(`.hoverborder[data-perm="true"]`);
-						$permWindows.attr("data-display-title", "true");
-					},
-				),
-				null,
-				new ContextUtil.Action(
-					"Close Others",
-					() => {
-						const hoverId = Renderer.hover._contextMenuLastClicked?.hoverId;
-						Renderer.hover._doCloseAllWindows({hoverIdBlocklist: new Set([hoverId])});
-					},
-				),
-				new ContextUtil.Action(
-					"Close All",
-					() => Renderer.hover._doCloseAllWindows(),
-				),
-			]);
-		}
+		Renderer.hover._contextMenu = ContextUtil.getMenu([
+			new ContextUtil.Action(
+				"Maximize All",
+				() => {
+					const $permWindows = $(`.hoverborder[data-perm="true"]`);
+					$permWindows.attr("data-display-title", "false");
+				},
+			),
+			new ContextUtil.Action(
+				"Minimize All",
+				() => {
+					const $permWindows = $(`.hoverborder[data-perm="true"]`);
+					$permWindows.attr("data-display-title", "true");
+				},
+			),
+			null,
+			new ContextUtil.Action(
+				"Close Others",
+				() => {
+					const hoverId = Renderer.hover._contextMenuLastClicked?.hoverId;
+					Renderer.hover._doCloseAllWindows({hoverIdBlocklist: new Set([hoverId])});
+				},
+			),
+			new ContextUtil.Action(
+				"Close All",
+				() => Renderer.hover._doCloseAllWindows(),
+			),
+		]);
 	}
 
 	static cleanTempWindows () {
@@ -14917,9 +15130,9 @@ Renderer.hover = class {
 		return Renderer.hover._eleCache.get(key);
 	}
 
-	static _handleGenericMouseOverStart ({evt, ele}) {
+	static _handleGenericMouseOverStart ({evt, ele, opts}) {
 		// Don't open on small screens unless forced
-		if (Renderer.hover.isSmallScreen(evt) && !evt.shiftKey) return;
+		if (Renderer.hover.isSmallScreen(evt) && !evt.shiftKey && !opts?.isForceOpenPermanent) return;
 
 		Renderer.hover.cleanTempWindows();
 
@@ -14931,7 +15144,7 @@ Renderer.hover = class {
 
 		meta.isHovered = true;
 		meta.isLoading = true;
-		meta.isPermanent = evt.shiftKey;
+		meta.isPermanent = evt.shiftKey || opts?.isForceOpenPermanent || false;
 
 		return meta;
 	}
@@ -14960,7 +15173,8 @@ Renderer.hover = class {
 			`onmouseover="Renderer.hover.pHandleLinkMouseOver(event, this)"`,
 			`onmouseleave="Renderer.hover.handleLinkMouseLeave(event, this)"`,
 			`onmousemove="Renderer.hover.handleLinkMouseMove(event, this)"`,
-			`onclick="Renderer.hover.handleLinkClick(event, this)"`,
+			`onclick="Renderer.hover.handleLinkClick(event, this${isFauxPage ? `, {isForceOpenPermanent: true}` : ``})"`,
+			`onwheel="Renderer.hover.handleLinkWheel(event, this)"`,
 			`ondragstart="Renderer.hover.handleLinkDragStart(event, this)"`,
 			`data-vet-page="${page.qq()}"`,
 			`data-vet-source="${source.qq()}"`,
@@ -14989,30 +15203,14 @@ Renderer.hover = class {
 	static async pHandleLinkMouseOver (evt, ele, opts) {
 		Renderer.hover._doInit();
 
-		let page, source, hash, preloadId, customHashId, isFauxPage, isAllowRedirect;
-		if (opts) {
-			page = opts.page;
-			source = opts.source;
-			hash = opts.hash;
-			preloadId = opts.preloadId;
-			customHashId = opts.customHashId;
-			isFauxPage = !!opts.isFauxPage;
-			isAllowRedirect = !!opts.isAllowRedirect;
-		} else {
-			({
-				page,
-				source,
-				hash,
-				preloadId,
-				isFauxPage,
-				isAllowRedirect,
-			} = Renderer.hover.getLinkElementData(ele));
-		}
+		const linkData = Renderer.hover._pHandleLinkMouseOver_getLinkData({ele, opts});
+		let {page, source, hash} = linkData;
+		const {preloadId, customHashId, isFauxPage, isAllowRedirect} = linkData;
 
 		const redirectMeta = await this._pHandleLinkMouseOver_pGetVersionRedirectMeta({page, source, hash, preloadId, customHashId, isAllowRedirect});
 		if (redirectMeta != null) ({page, source, hash} = redirectMeta);
 
-		let meta = Renderer.hover._handleGenericMouseOverStart({evt, ele});
+		let meta = Renderer.hover._handleGenericMouseOverStart({evt, ele, opts});
 		if (meta == null) return;
 
 		if (EventUtil.isCtrlMetaKey(evt)) meta.isFluff = true;
@@ -15102,6 +15300,22 @@ Renderer.hover = class {
 			const fnBind = Renderer.hover.getFnBindListenersCompact(page);
 			if (fnBind && toRender) fnBind(toRender, $content);
 		}
+	}
+
+	static _pHandleLinkMouseOver_getLinkData ({ele, opts}) {
+		if (opts?.isSpecifiedLinkData) {
+			return {
+				page: opts.page,
+				source: opts.source,
+				hash: opts.hash,
+				preloadId: opts.preloadId,
+				customHashId: opts.customHashId,
+				isFauxPage: !!opts.isFauxPage,
+				isAllowRedirect: !!opts.isAllowRedirect,
+			};
+		}
+
+		return Renderer.hover.getLinkElementData(ele);
 	}
 
 	static async _pHandleLinkMouseOver_pGetVersionRedirectMeta ({page, source, hash, preloadId, customHashId, isAllowRedirect}) {
@@ -15239,10 +15453,31 @@ Renderer.hover = class {
 		ele.style.cursor = "";
 	}
 
-	static handleLinkClick (evt, ele) {
+	static handleLinkClick (evt, ele, {isForceOpenPermanent = false} = {}) {
+		// Open faux pages as permanent hover windows
+		if (isForceOpenPermanent) {
+			Renderer.hover.pHandleLinkMouseOver(evt, ele, {isForceOpenPermanent});
+		}
+
 		// Close the window (if not permanent)
 		// Note that this prevents orphan windows when e.g. clicking a specific variant on an Items page magicvariant
 		Renderer.hover.handleLinkMouseLeave(evt, ele);
+	}
+
+	static handleLinkWheel (evt, ele) {
+		if (!evt.altKey) return;
+
+		const meta = Renderer.hover._eleCache.get(ele);
+		if (!meta || meta.isPermanent) return;
+
+		if (!meta.windowMeta) return;
+
+		evt.stopPropagation();
+		evt.preventDefault();
+
+		const {deltaPixelsX, deltaPixelsY} = EventUtil.getDeltaPixels(evt);
+
+		meta.windowMeta.mutScroll({deltaPixelsX, deltaPixelsY});
 	}
 
 	// (Baked into render strings)
@@ -15397,10 +15632,10 @@ Renderer.hover = class {
 			win._IS_POPOUT = true;
 			win.document.write(`
 				<!DOCTYPE html>
-				<html lang="en" class="ve-popwindow ${typeof styleSwitcher !== "undefined" ? styleSwitcher.getDayNightClassNames() : ""}"><head>
+				<html lang="en" class="ve-popwindow ${typeof styleSwitcher !== "undefined" ? styleSwitcher.getClassNamesStyleTheme() : ""}"><head>
 					<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 					<title>${opts.title}</title>
-					${$(`link[rel="stylesheet"][href]`).map((i, e) => e.outerHTML).get().join("\n")}
+					${[...document.querySelectorAll(`link[rel="stylesheet"][href]`)].map(ele => ele.outerHTML).join("\n")}
 					<!-- Favicons -->
 					<link rel="icon" type="image/svg+xml" href="favicon.svg">
 					<link rel="icon" type="image/png" sizes="256x256" href="favicon-256x256.png">
@@ -15431,6 +15666,9 @@ Renderer.hover = class {
 					<!-- macOS Safari Pinned Tab and Touch Bar -->
 					<link rel="mask-icon" href="safari-pinned-tab.svg" color="#006bc4">
 
+					${PrereleaseUtil.getPopoutStyleElementHtml()}
+					${BrewUtil2.getPopoutStyleElementHtml()}
+
 					<style>
 						html, body { width: 100%; height: 100%; }
 						body { overflow-y: scroll; }
@@ -15446,10 +15684,9 @@ Renderer.hover = class {
 
 			win.Renderer = Renderer;
 
-			let ticks = 50;
-			while (!win.document.body && ticks-- > 0) await MiscUtil.pDelay(5);
+			win.document.close();
 
-			win.$wrpHoverContent = $(win.document).find(`.hoverbox--popout`);
+			win._wrpHoverContent = $(win.document).find(`.hoverbox--popout`);
 		}
 
 		let $cpyContent;
@@ -15459,7 +15696,10 @@ Renderer.hover = class {
 			$cpyContent = $content.clone(true, true);
 		}
 
-		$cpyContent.appendTo(win.$wrpHoverContent.empty());
+		win._wrpHoverContent.innerHTML = "";
+		$cpyContent.appendTo(win._wrpHoverContent);
+
+		return win;
 	}
 
 	/* -------------------------------------------- */
@@ -15485,6 +15725,9 @@ Renderer.hover = class {
 	 * @param [opts.isHideBottomBorder]
 	 */
 	static getShowWindow ($content, position, opts) {
+		// eslint-disable-next-line vet-jquery/jquery
+		$content = $($content);
+
 		opts = opts || {};
 		const {isHideBottomBorder, isResizeOnlyWidth} = opts;
 
@@ -15504,7 +15747,7 @@ Renderer.hover = class {
 			});
 		const $wrpContent = $(`<div class="hwin__wrp-table"></div>`);
 		if (opts.height != null) $wrpContent.css("height", opts.height);
-		const $hovTitle = $(`<span class="window-title min-w-0 ve-overflow-ellipsis" title="${`${opts.title || ""}`.qq()}">${opts.title || ""}</span>`);
+		const hovTitle = ee`<span class="window-title min-w-0 ve-overflow-ellipsis" title="${`${opts.title || ""}`.qq()}">${opts.title || ""}</span>`;
 
 		const hoverWindow = {};
 		const hoverId = Renderer.hover._getNextId();
@@ -15513,43 +15756,53 @@ Renderer.hover = class {
 		const mouseMoveId = `mousemove.${hoverId} touchmove.${hoverId}`;
 		const resizeId = `resize.${hoverId}`;
 		const drag = {};
+		const eventChannel = new EventTarget();
 
-		const $brdrTopRightResize = $(`<div class="hoverborder__resize-ne"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 1, isResizeOnlyWidth}));
-		if (isResizeOnlyWidth) $brdrTopRightResize.hideVe();
+		const brdrTopRightResize = ee`<div class="hoverborder__resize-ne ve-touch-action-none"></div>`
+			.onn("mousedown", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 1, isResizeOnlyWidth}))
+			.onn("touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 1, isResizeOnlyWidth}));
+		if (isResizeOnlyWidth) brdrTopRightResize.hideVe();
 
-		const $brdrRightResize = $(`<div class="hoverborder__resize-e"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 2, isResizeOnlyWidth}));
+		const brdrRightResize = ee`<div class="hoverborder__resize-e ve-touch-action-none"></div>`
+			.onn("mousedown", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 2, isResizeOnlyWidth}))
+			.onn("touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 2, isResizeOnlyWidth}));
 
-		const $brdrBottomRightResize = $(`<div class="hoverborder__resize-se"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 3, isResizeOnlyWidth}));
-		if (isResizeOnlyWidth) $brdrBottomRightResize.hideVe();
+		const brdrBottomRightResize = ee`<div class="hoverborder__resize-se ve-touch-action-none"></div>`
+			.onn("mousedown", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 3, isResizeOnlyWidth}))
+			.onn("touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 3, isResizeOnlyWidth}));
+		if (isResizeOnlyWidth) brdrBottomRightResize.hideVe();
 
-		const $brdrBtm = $(`<div class="hoverborder hoverborder--btm ${opts.isBookContent ? "hoverborder-book" : ""}"></div>`);
-		const $brdrBtmResize = $(`<div class="hoverborder__resize-s"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 4, isResizeOnlyWidth}))
-			.appendTo($brdrBtm);
-		if (isResizeOnlyWidth) $brdrBtmResize.hideVe();
-		if (isHideBottomBorder) $brdrBtm.hideVe();
+		const brdrBtmResize = ee`<div class="hoverborder__resize-s ve-touch-action-none"></div>`
+			.onn("mousedown", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 4, isResizeOnlyWidth}))
+			.onn("touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 4, isResizeOnlyWidth}));
+		if (isResizeOnlyWidth) brdrBtmResize.hideVe();
 
-		const $brdrBtmLeftResize = $(`<div class="hoverborder__resize-sw"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 5, isResizeOnlyWidth}));
-		if (isResizeOnlyWidth) $brdrBtmLeftResize.hideVe();
+		const brdrBtm = ee`<div class="hoverborder hoverborder--btm ${opts.isBookContent ? "hoverborder-book" : ""} ve-touch-action-none">${brdrBtmResize}</div>`;
+		if (isHideBottomBorder) brdrBtm.hideVe();
 
-		const $brdrLeftResize = $(`<div class="hoverborder__resize-w"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 6, isResizeOnlyWidth}));
+		const brdrBtmLeftResize = ee`<div class="hoverborder__resize-sw ve-touch-action-none"></div>`
+			.onn("mousedown", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 5, isResizeOnlyWidth}))
+			.onn("touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 5, isResizeOnlyWidth}));
+		if (isResizeOnlyWidth) brdrBtmLeftResize.hideVe();
 
-		const $brdrTopLeftResize = $(`<div class="hoverborder__resize-nw"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 7, isResizeOnlyWidth}));
-		if (isResizeOnlyWidth) $brdrTopLeftResize.hideVe();
+		const brdrLeftResize = ee`<div class="hoverborder__resize-w ve-touch-action-none"></div>`
+			.onn("mousedown", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 6, isResizeOnlyWidth}))
+			.onn("touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 6, isResizeOnlyWidth}));
 
-		const $brdrTopResize = $(`<div class="hoverborder__resize-n"></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 8, isResizeOnlyWidth}));
-		if (isResizeOnlyWidth) $brdrTopResize.hideVe();
+		const brdrTopLeftResize = ee`<div class="hoverborder__resize-nw ve-touch-action-none"></div>`
+			.onn("mousedown", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 7, isResizeOnlyWidth}))
+			.onn("touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 7, isResizeOnlyWidth}));
+		if (isResizeOnlyWidth) brdrTopLeftResize.hideVe();
 
-		const $brdrTop = $(`<div class="hoverborder hoverborder--top ${opts.isBookContent ? "hoverborder-book" : ""}" ${opts.isPermanent ? `data-perm="true"` : ""}></div>`)
-			.on("mousedown touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 9, isResizeOnlyWidth}))
-			.on("contextmenu", (evt) => {
+		const brdrTopResize = ee`<div class="hoverborder__resize-n ve-touch-action-none"></div>`
+			.onn("mousedown", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 8, isResizeOnlyWidth}))
+			.onn("touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 8, isResizeOnlyWidth}));
+		if (isResizeOnlyWidth) brdrTopResize.hideVe();
+
+		const brdrTop = ee`<div class="hoverborder hoverborder--top ${opts.isBookContent ? "hoverborder-book" : ""} ve-touch-action-none" ${opts.isPermanent ? `data-perm="true"` : ""}></div>`
+			.onn("mousedown", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 9, isResizeOnlyWidth}))
+			.onn("touchstart", (evt) => Renderer.hover._getShowWindow_handleDragMousedown({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type: 9, isResizeOnlyWidth}))
+			.onn("contextmenu", (evt) => {
 				Renderer.hover._contextMenuLastClicked = {
 					hoverId,
 				};
@@ -15563,7 +15816,7 @@ Renderer.hover = class {
 						$wrpContent.css("max-height", "");
 						$hov.css("max-width", "");
 					}
-					Renderer.hover._getShowWindow_adjustPosition({$hov, $wrpContent, position});
+					Renderer.hover._getShowWindow_adjustPosition({$hov, $wrpContent, position, eventChannel});
 
 					if (drag.type === 9) {
 						// handle mobile button touches
@@ -15626,12 +15879,12 @@ Renderer.hover = class {
 					}
 				}
 			});
-		$(position.window).on(resizeId, () => Renderer.hover._getShowWindow_adjustPosition({$hov, $wrpContent, position}));
+		$(position.window).on(resizeId, () => Renderer.hover._getShowWindow_adjustPosition({$hov, $wrpContent, position, eventChannel}));
 
-		$brdrTop.attr("data-display-title", false);
-		$brdrTop.on("dblclick", () => Renderer.hover._getShowWindow_doToggleMinimizedMaximized({$brdrTop, $hov}));
-		$brdrTop.append($hovTitle);
-		const $brdTopRhs = $(`<div class="ve-flex ml-auto no-shrink"></div>`).appendTo($brdrTop);
+		brdrTop.attr("data-display-title", false);
+		brdrTop.onn("dblclick", () => Renderer.hover._getShowWindow_doToggleMinimizedMaximized({$brdrTop: brdrTop, $hov}));
+		brdrTop.appends(hovTitle);
+		const $brdTopRhs = $(`<div class="ve-flex ml-auto no-shrink"></div>`).appendTo(brdrTop);
 
 		if (opts.pageUrl && !position.window._IS_POPOUT && !Renderer.get().isInternalLinksDisabled()) {
 			const $btnGotoPage = $(`<a class="hwin__top-border-icon glyphicon glyphicon-modal-window" title="Go to Page" href="${opts.pageUrl}"></a>`)
@@ -15686,30 +15939,33 @@ Renderer.hover = class {
 
 		$wrpContent.append($content);
 
-		$hov.append($brdrTopResize).append($brdrTopRightResize).append($brdrRightResize).append($brdrBottomRightResize)
-			.append($brdrBtmLeftResize).append($brdrLeftResize).append($brdrTopLeftResize)
+		$hov.append(brdrTopResize).append(brdrTopRightResize).append(brdrRightResize).append(brdrBottomRightResize)
+			.append(brdrBtmLeftResize).append(brdrLeftResize).append(brdrTopLeftResize)
 
-			.append($brdrTop)
+			.append(brdrTop)
 			.append($wrpContent)
-			.append($brdrBtm);
+			.append(brdrBtm);
 
 		$body.append($hov);
 
-		Renderer.hover._getShowWindow_setPosition({$hov, $wrpContent, position}, position);
+		Renderer.hover._getShowWindow_setPosition({$hov, $wrpContent, position, eventChannel}, position);
 
-		hoverWindow.$windowTitle = $hovTitle;
 		hoverWindow.zIndex = initialZIndex;
 		hoverWindow.setZIndex = Renderer.hover._getNextZIndex.bind(this, {$hov, hoverWindow});
 
-		hoverWindow.setPosition = Renderer.hover._getShowWindow_setPosition.bind(this, {$hov, $wrpContent, position});
-		hoverWindow.setIsPermanent = Renderer.hover._getShowWindow_setIsPermanent.bind(this, {opts, $brdrTop});
+		hoverWindow.setPosition = Renderer.hover._getShowWindow_setPosition.bind(this, {$hov, $wrpContent, position, eventChannel});
+		hoverWindow.mutScroll = Renderer.hover._getShowWindow_mutScroll.bind(this, {$hov, $wrpContent, position});
+		hoverWindow.setIsPermanent = Renderer.hover._getShowWindow_setIsPermanent.bind(this, {opts, $brdrTop: brdrTop});
 		hoverWindow.doClose = Renderer.hover._getShowWindow_doClose.bind(this, {$hov, position, mouseUpId, mouseMoveId, resizeId, hoverId, opts, hoverWindow});
-		hoverWindow.doMaximize = Renderer.hover._getShowWindow_doMaximize.bind(this, {$brdrTop, $hov});
+		hoverWindow.doMaximize = Renderer.hover._getShowWindow_doMaximize.bind(this, {$brdrTop: brdrTop, $hov});
 		hoverWindow.doZIndexToFront = Renderer.hover._getShowWindow_doZIndexToFront.bind(this, {$hov, hoverWindow, hoverId});
 
-		hoverWindow.getPosition = Renderer.hover._getShowWindow_getPosition.bind(this, {$hov, $wrpContent, position});
+		hoverWindow.getPosition = Renderer.hover._getShowWindow_getPosition.bind(this, {$hov, hoverWindow, $wrpContent, position});
 
 		hoverWindow.$setContent = ($contentNxt) => $wrpContent.empty().append($contentNxt);
+		hoverWindow.setContent = (contentNxt) => $wrpContent.empty().append(contentNxt);
+
+		hoverWindow.eventChannel = eventChannel;
 
 		if (opts.isPopout) Renderer.hover._getShowWindow_pDoPopout({$hov, position, mouseUpId, mouseMoveId, resizeId, hoverId, opts, hoverWindow, $content});
 
@@ -15728,7 +15984,8 @@ Renderer.hover = class {
 	}
 
 	static _getShowWindow_handleDragMousedown ({hoverWindow, hoverId, $hov, drag, $wrpContent}, {evt, type, isResizeOnlyWidth}) {
-		if (evt.which === 0 || evt.which === 1) evt.preventDefault();
+		if (evt.button === 0) evt.preventDefault();
+
 		hoverWindow.zIndex = Renderer.hover._getNextZIndex(hoverId);
 		$hov.css({
 			"z-index": hoverWindow.zIndex,
@@ -15803,11 +16060,12 @@ Renderer.hover = class {
 	}
 
 	static async _getShowWindow_pDoPopout ({$hov, position, mouseUpId, mouseMoveId, resizeId, hoverId, opts, hoverWindow, $content}, {evt} = {}) {
-		await Renderer.hover.pDoShowBrowserWindow($content, opts);
+		const winPopup = await Renderer.hover.pDoShowBrowserWindow($content, opts);
 		Renderer.hover._getShowWindow_doClose({$hov, position, mouseUpId, mouseMoveId, resizeId, hoverId, opts, hoverWindow});
+		hoverWindow._winPopup = winPopup;
 	}
 
-	static _getShowWindow_setPosition ({$hov, $wrpContent, position}, positionNxt) {
+	static _getShowWindow_setPosition ({$hov, $wrpContent, position, eventChannel}, positionNxt) {
 		switch (positionNxt.mode) {
 			case "autoFromElement": {
 				const bcr = $hov[0].getBoundingClientRect();
@@ -15860,10 +16118,15 @@ Renderer.hover = class {
 			default: throw new Error(`Positioning mode unimplemented: "${positionNxt.mode}"`);
 		}
 
-		Renderer.hover._getShowWindow_adjustPosition({$hov, $wrpContent, position});
+		Renderer.hover._getShowWindow_adjustPosition({$hov, $wrpContent, position, eventChannel});
 	}
 
-	static _getShowWindow_adjustPosition ({$hov, $wrpContent, position}) {
+	static _getShowWindow_mutScroll ({$hov, $wrpContent, position}, {deltaPixelsX, deltaPixelsY}) {
+		if (!deltaPixelsX && !deltaPixelsY) return;
+		$wrpContent[0].scrollBy(deltaPixelsX, deltaPixelsY);
+	}
+
+	static _getShowWindow_adjustPosition ({$hov, $wrpContent, position, eventChannel}) {
 		const eleHov = $hov[0];
 		const wrpContent = $wrpContent[0];
 
@@ -15907,9 +16170,18 @@ Renderer.hover = class {
 				wrpContent.style.height = `${bcr.height}px`;
 			}
 		}
+
+		eventChannel.dispatchEvent(new Event("resize"));
 	}
 
-	static _getShowWindow_getPosition ({$hov, $wrpContent}) {
+	static _getShowWindow_getPosition ({$hov, hoverWindow, $wrpContent}) {
+		if (hoverWindow._winPopup && !hoverWindow._winPopup.closed) {
+			return {
+				wWrpContent: $(hoverWindow._winPopup.document.body).width(),
+				hWrapContent: $(hoverWindow._winPopup.document.body).height(),
+			};
+		}
+
 		return {
 			wWrpContent: $wrpContent.width(),
 			hWrapContent: $wrpContent.height(),
@@ -15962,7 +16234,18 @@ Renderer.hover = class {
 	static getInlineHover (entry, opts) {
 		return {
 			// Re-use link handlers, as the inline version is a simplified version
-			html: `onmouseover="Renderer.hover.handleInlineMouseOver(event, this)" onmouseleave="Renderer.hover.handleLinkMouseLeave(event, this)" onmousemove="Renderer.hover.handleLinkMouseMove(event, this)" data-vet-entry="${JSON.stringify(entry).qq()}" ${opts ? `data-vet-opts="${JSON.stringify(opts).qq()}"` : ""} ${Renderer.hover.getPreventTouchString()}`,
+			html: [
+				`onmouseover="Renderer.hover.handleInlineMouseOver(event, this)"`,
+				`onmouseleave="Renderer.hover.handleLinkMouseLeave(event, this)"`,
+				`onmousemove="Renderer.hover.handleLinkMouseMove(event, this)"`,
+				`onclick="Renderer.hover.handleLinkClick(event, this)"`,
+				`onwheel="Renderer.hover.handleLinkWheel(event, this)"`,
+				`data-vet-entry="${JSON.stringify(entry).qq()}"`,
+				`${opts ? `data-vet-opts="${JSON.stringify(opts).qq()}"` : ""}`,
+				`${Renderer.hover.getPreventTouchString()}`,
+			]
+				.filter(Boolean)
+				.join(" "),
 		};
 	}
 
@@ -16191,12 +16474,12 @@ Renderer.hover = class {
 	 * @param [opts.isBookContent]
 	 * @param [renderFnOpts]
 	 */
-	static $getHoverContent_fluff (page, toRender, opts, renderFnOpts) {
+	static getHoverContent_fluff (page, toRender, opts, renderFnOpts) {
 		opts = opts || {};
 		if (page === UrlUtil.PG_RECIPES) opts = {...MiscUtil.copyFast(opts), isBookContent: true};
 
 		if (!toRender) {
-			return $$`<table class="w-100 stats ${opts.isBookContent ? `stats--book` : ""}"><tr><td colspan="6" class="p-2 ve-text-center">${Renderer.utils.HTML_NO_INFO}</td></tr></table>`;
+			return ee`<table class="w-100 stats ${opts.isBookContent ? `stats--book` : ""}"><tr><td colspan="6" class="p-2 ve-text-center">${Renderer.utils.HTML_NO_INFO}</td></tr></table>`;
 		}
 
 		toRender = MiscUtil.copyFast(toRender);
@@ -16221,7 +16504,18 @@ Renderer.hover = class {
 		}
 
 		const name = toRender._displayName || toRender.name;
-		return $$`<table class="w-100 stats ${opts.isBookContent ? `stats--book` : ""}" ${name ? `data-roll-name-ancestor-roller="${Renderer.stripTags(name).qq()}"` : ""}>${Renderer.generic.getCompactRenderedString(toRender, renderFnOpts)}</table>`;
+		return ee`<table class="w-100 stats ${opts.isBookContent ? `stats--book` : ""}" ${name ? `data-roll-name-ancestor-roller="${Renderer.stripTags(name).qq()}"` : ""}>${Renderer.generic.getCompactRenderedString(toRender, renderFnOpts)}</table>`;
+	}
+
+	/**
+	 * @param page
+	 * @param toRender
+	 * @param [opts]
+	 * @param [opts.isBookContent]
+	 * @param [renderFnOpts]
+	 */
+	static $getHoverContent_fluff (page, toRender, opts, renderFnOpts) {
+		return $(this.getHoverContent_fluff(page, toRender, opts, renderFnOpts));
 	}
 
 	static $getHoverContent_statsCode (toRender, {isSkipClean = false, title = null} = {}) {

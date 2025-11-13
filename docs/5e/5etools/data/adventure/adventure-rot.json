@@ -1873,8 +1873,8 @@
 													"grid": {
 														"type": "square",
 														"size": 85,
-														"offsetY": 17,
-														"distance": 15
+														"offsetY": 51,
+														"scale": 3
 													},
 													"id": "114",
 													"mapRegions": [
@@ -3206,8 +3206,8 @@
 													"grid": {
 														"type": "square",
 														"size": 85,
-														"offsetY": 17,
-														"distance": 15
+														"offsetY": 51,
+														"scale": 3
 													},
 													"mapParent": {
 														"id": "114"
@@ -3977,9 +3977,9 @@
 															"grid": {
 																"type": "square",
 																"size": 95,
-																"offsetX": 7,
-																"offsetY": -71,
-																"distance": 10
+																"offsetX": 14,
+																"offsetY": -142,
+																"scale": 2
 															},
 															"id": "24a",
 															"mapRegions": [
@@ -4672,9 +4672,9 @@
 															"grid": {
 																"type": "square",
 																"size": 94,
-																"offsetX": 21,
-																"offsetY": 36,
-																"distance": 10
+																"offsetX": 42,
+																"offsetY": 72,
+																"scale": 2
 															},
 															"mapParent": {
 																"id": "24a"
@@ -4758,7 +4758,7 @@
 							"page": 127,
 							"id": "0f7",
 							"entries": [
-								"Six statues stand here, all of cowled wizards leaning on staffs, their faces obscured by deep hoods. The hollows the hoods form are particulalry dark. Niches between the statues once held skeletal guardians that fought the cultists. The bones of more than a dozen humanoids now litter the ground.",
+								"Six statues stand here, all of cowled wizards leaning on staffs, their faces obscured by deep hoods. The hollows the hoods form are particularly dark. Niches between the statues once held skeletal guardians that fought the cultists. The bones of more than a dozen humanoids now litter the ground.",
 								"Characters who chose well when speaking with the statues in area 1 are struck by a sudden thought when they enter this area: \"Some secrets are not meant for mortal minds to know. Look away from the darkness in which such knowledge hides.\"",
 								{
 									"type": "entries",
@@ -4766,7 +4766,7 @@
 									"page": 127,
 									"id": "0f8",
 									"entries": [
-										" When the first adventurer passes the halfway point of the room, the sound of grinding stone announces the statues turning their cowled heads to follow the characters' movements. The characters must not look into the darkness in the statues' hoods. Any character who does must make a {@dc 15} Wisdom saving throw against a {@spell suggestion} spell. Success indicates that the character shrugs off the statue's magic, while failure indicates the character is held by the dark gaze within the stony cowl for 1 round. During this time, the statue whispers impossible secrets to the character, which carry both benefit and burden.",
+										"When the first adventurer passes the halfway point of the room, the sound of grinding stone announces the statues turning their cowled heads to follow the characters' movements. The characters must not look into the darkness in the statues' hoods. Any character who does must make a {@dc 15} Wisdom saving throw against a {@spell suggestion} spell. Success indicates that the character shrugs off the statue's magic, while failure indicates the character is held by the dark gaze within the stony cowl for 1 round. During this time, the statue whispers impossible secrets to the character, which carry both benefit and burden.",
 										"The character must then make a {@dc 15} Intelligence saving throw. On a failed save, the character cannot grasp the secrets it was shown, and there is no effect. On a success, the character understands the world more accurately, gaining advantage on Intelligence checks for the next 24 hours. However, the character is also driven temporarily insane for 1 minute. An insane creature can't take actions or reactions, can't understand what other creatures say, can't read, and speaks only in gibberish. You control the creature's movement, which is erratic."
 									]
 								}
@@ -5056,7 +5056,7 @@
 									"id": "113",
 									"entries": [
 										"{@creature Diderius|RoT}, the mummy lord, rests within the sarcophagus. When the characters approach within a few paces of it, a deep, clear voice issues from the coffin, saying, \"You approach {@creature Diderius|RoT} in repose. I know what you seek.\"",
-										"If the adventurers spoke well to the staues in area 1, the voice says, \"Yuan-ti have taken the one called {@creature Varram|RoT} beyond their portal in the northern wall. Be prepared, for I shall open the way to peril.\" Unless the characters ask {@creature Diderius|RoT} to wait, a moment later, with a chiming sound, the secret door opens to {@area area 14|11d|x}. The party gains a surprise round to act against the guards there.",
+										"If the adventurers spoke well to the statues in area 1, the voice says, \"Yuan-ti have taken the one called {@creature Varram|RoT} beyond their portal in the northern wall. Be prepared, for I shall open the way to peril.\" Unless the characters ask {@creature Diderius|RoT} to wait, a moment later, with a chiming sound, the secret door opens to {@area area 14|11d|x}. The party gains a surprise round to act against the guards there.",
 										"Those who didn't speak well in area 1 must ask {@creature Diderius|RoT} about {@creature Varram|RoT} to gain information about his whereabouts. Failure to do so respectfully causes {@creature Diderius|RoT} to say, \"Leave me to my rest or face your doom.\" {@creature Diderius|RoT} opens the way only for those who are particularly decorous in this exchange.",
 										"If the adventurers try to open the sarcophagus, {@creature Diderius|RoT} warns them. If they persist, he attacks. The {@creature Mummy||mummies} behind the frescoes also smash free and attack. None of the monsters pursue those who flee this room, which soon returns to its original state.",
 										"{@creature Diderius|RoT} can use mummy lord legendary actions, but he is unusual because he casts wizard spells. He uses his 18 Intelligence as his spellcasting ability (his Wisdom remains 18) and has the following wizard spells prepared:",
@@ -5520,9 +5520,9 @@
 															"grid": {
 																"type": "square",
 																"size": 192,
-																"offsetX": 87,
-																"offsetY": -7,
-																"distance": 15
+																"offsetX": 261,
+																"offsetY": -21,
+																"scale": 3
 															},
 															"id": "24b",
 															"mapRegions": [
@@ -6403,8 +6403,8 @@
 															"grid": {
 																"type": "square",
 																"size": 191,
-																"offsetX": -86,
-																"distance": 15
+																"offsetX": -258,
+																"scale": 3
 															},
 															"mapParent": {
 																"id": "24b"
@@ -7151,7 +7151,7 @@
 											"page": 146,
 											"id": "17d",
 											"entries": [
-												"Ileuthra believes that the dragon masks are too dangerous to remain in the worldin the world if the humanoid races are aware of where they are. If the characters agree that all dragon masks will be handed over to the metallic dragons as soon as they are found\u2014including any masks captured after the final battle\u2014his attitude can be improved."
+												"Ileuthra believes that the dragon masks are too dangerous to remain in the world if the humanoid races are aware of where they are. If the characters agree that all dragon masks will be handed over to the metallic dragons as soon as they are found\u2014including any masks captured after the final battle\u2014his attitude can be improved."
 											]
 										}
 									]
@@ -7376,7 +7376,7 @@
 				"Though {@creature Severin|RoT}'s hold on the Cult of the Dragon is strong, there remain traditionalist elements within the cult that long for the old ways of reverence for the dracoliches. Many such elements center around scholars and academics, for whom the cult's new focus has made their knowledge and research irrelevant. Others think that {@creature Severin|RoT} is being taken in by devils and that {@creature Tiamat|RoT} will play him for a fool\u2014a notion fairly close to the truth.",
 				"Two of the leading dracolich traditionalists\u2014a dragonsoul named Jorgen Pawl and his trusted lieutenant {@creature Iskander|RoT}\u2014have been most vocal in their objections. As the time of the summoning ritual approaches, {@creature Severin|RoT} understands that he can't risk losing loyal troops to infighting and insurrection. He has thus agreed to give Jorgen Pawl and his followers a dragon mask to examine, allowing them to determine whether {@creature Severin|RoT}'s understanding of the masks' power is correct. If {@creature Severin|RoT} is wrong, he will know before risking everything on a do-or-die gamble. If he is right, the traditionalists will give their support to {@creature Severin|RoT}'s plans.",
 				"What Jorgen does not know is that {@creature Severin|RoT} asked his {@creature Red Wizard|RoT} allies to create a false mask, supplying the scholar with a duplicate of the {@item Blue Dragon Mask|RoTOS} that appears both powerful and inscrutable, though it holds little in the way of real magic. {@creature Severin|RoT} knows the scholars will discover the deception eventually, but he hopes that the false mask will keep the traditionalists occupied while he completes his plans.",
-				"The Cult of the Dragon recently took control of Xonthal's Tower\u2014an ancient and mysterious wizard's tower on the southern slope of Mount Hlim. Although not all the cult members at Xonthal's Tower are dracolich traditionalists, Jorgen Pawl and {@creature Iskander|RoT} are in command there, and they have drawn many likeminded individuals under their sway.",
+				"The Cult of the Dragon recently took control of Xonthal's Tower\u2014an ancient and mysterious wizard's tower on the southern slope of Mount Hlim. Although not all the cult members at Xonthal's Tower are dracolich traditionalists, Jorgen Pawl and {@creature Iskander|RoT} are in command there, and they have drawn many like-minded individuals under their sway.",
 				{
 					"type": "entries",
 					"name": "Iskander",
@@ -7488,9 +7488,9 @@
 											"grid": {
 												"type": "square",
 												"size": 57,
-												"offsetX": -32,
-												"offsetY": -21,
-												"distance": 10
+												"offsetX": -64,
+												"offsetY": -42,
+												"scale": 2
 											},
 											"id": "24c",
 											"mapRegions": [
@@ -8296,9 +8296,9 @@
 											"grid": {
 												"type": "square",
 												"size": 96,
-												"offsetX": 21,
-												"offsetY": 30,
-												"distance": 10
+												"offsetX": 42,
+												"offsetY": 60,
+												"scale": 2
 											},
 											"mapParent": {
 												"id": "24c",
@@ -9372,8 +9372,7 @@
 											"grid": {
 												"type": "square",
 												"size": 62,
-												"scale": 2,
-												"distance": 20
+												"scale": 8
 											},
 											"id": "24d",
 											"mapRegions": [
@@ -11012,10 +11011,9 @@
 											"grid": {
 												"type": "square",
 												"size": 103,
-												"offsetX": 12,
-												"offsetY": 16,
-												"scale": 2,
-												"distance": 20
+												"offsetX": 48,
+												"offsetY": 64,
+												"scale": 8
 											},
 											"mapParent": {
 												"id": "24d",
@@ -11293,10 +11291,9 @@
 									"grid": {
 										"type": "square",
 										"size": 55,
-										"offsetX": -23,
-										"offsetY": -3,
-										"scale": 2,
-										"distance": 10
+										"offsetX": -46,
+										"offsetY": -6,
+										"scale": 4
 									},
 									"id": "24e",
 									"mapRegions": [
@@ -11340,10 +11337,9 @@
 									"grid": {
 										"type": "square",
 										"size": 92,
-										"offsetX": -44,
-										"offsetY": -13,
-										"scale": 2,
-										"distance": 10
+										"offsetX": -88,
+										"offsetY": -26,
+										"scale": 4
 									},
 									"mapParent": {
 										"id": "24e",
@@ -13603,6 +13599,14 @@
 						}
 					],
 					"id": "250"
+				},
+				{
+					"type": "entries",
+					"entries": [
+						"{@note Disclaimer: Tiamat does not apologize for TPKs.}",
+						"{@note Disclaimer (Tyranny of Dragons): Under no circumstances shall the Cult of the Dragon or its adherents, affiliates, partners, licensors, or thralls (enchanted or otherwise) be liable for any direct, indirect, incidental, consequential, or cataclysmic damages to the Material Plane or its features, denizens, geographies, spheres, or natural laws, arising from the acts, incarnations, servants, and ruinous whims of Tiamat, Queen of Dragons. Those seeking to avoid abject draconic annihilation should relocate to the nearest convenient afterlife or just try and stop us.}"
+					],
+					"id": "253"
 				}
 			],
 			"id": "24f"

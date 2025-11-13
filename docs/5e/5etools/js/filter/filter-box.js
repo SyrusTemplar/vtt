@@ -25,12 +25,19 @@ export class FilterBox extends ProxyBase {
 	/**
 	 * @param opts Options object.
 	 * @param [opts.$wrpFormTop] Form input group.
+	 * @param [opts.wrpFormTop] Form input group.
 	 * @param opts.$btnReset Form reset button.
+	 * @param opts.btnReset Form reset button.
 	 * @param [opts.$btnOpen] A custom button to use to open the filter overlay.
+	 * @param [opts.btnOpen] A custom button to use to open the filter overlay.
 	 * @param [opts.$iptSearch] Search input associated with the "form" this filter is a part of. Only used for passing
 	 * through search terms in @filter tags.
+	 * @param [opts.iptSearch] Search input associated with the "form" this filter is a part of. Only used for passing
+	 * through search terms in @filter tags.
 	 * @param [opts.$wrpMiniPills] Element to house mini pills.
+	 * @param [opts.wrpMiniPills] Element to house mini pills.
 	 * @param [opts.$btnToggleSummaryHidden] Button which toggles the filter summary.
+	 * @param [opts.btnToggleSummaryHidden] Button which toggles the filter summary.
 	 * @param opts.filters Array of filters to be included in this box.
 	 * @param [opts.isCompact] True if this box should have a compact/reduced UI.
 	 * @param [opts.namespace] Namespace for this filter, to prevent collisions with other filters on the same page.
@@ -38,6 +45,22 @@ export class FilterBox extends ProxyBase {
 	 */
 	constructor (opts) {
 		super();
+
+		// region TODO(jQuery) migrate
+		if (opts.$wrpFormTop && opts.wrpFormTop) throw new Error(`Only one of "$wrpFormTop" and "wrpFormTop" may be specified!`);
+		if (opts.$btnReset && opts.btnReset) throw new Error(`Only one of "$btnReset" and "btnReset" may be specified!`);
+		if (opts.$btnOpen && opts.btnOpen) throw new Error(`Only one of "$btnOpen" and "btnOpen" may be specified!`);
+		if (opts.$iptSearch && opts.iptSearch) throw new Error(`Only one of "$iptSearch" and "iptSearch" may be specified!`);
+		if (opts.$wrpMiniPills && opts.wrpMiniPills) throw new Error(`Only one of "$wrpMiniPills" and "wrpMiniPills" may be specified!`);
+		if (opts.$btnToggleSummaryHidden && opts.btnToggleSummaryHidden) throw new Error(`Only one of "$btnToggleSummaryHidden" and "btnToggleSummaryHidden" may be specified!`);
+
+		if (!opts.$wrpFormTop && opts.wrpFormTop) opts.$wrpFormTop = $(opts.wrpFormTop);
+		if (!opts.$btnReset && opts.btnReset) opts.$btnReset = $(opts.btnReset);
+		if (!opts.$btnOpen && opts.btnOpen) opts.$btnOpen = $(opts.btnOpen);
+		if (!opts.$iptSearch && opts.iptSearch) opts.$iptSearch = $(opts.iptSearch);
+		if (!opts.$wrpMiniPills && opts.wrpMiniPills) opts.$wrpMiniPills = $(opts.wrpMiniPills);
+		if (!opts.$btnToggleSummaryHidden && opts.btnToggleSummaryHidden) opts.$btnToggleSummaryHidden = $(opts.btnToggleSummaryHidden);
+		// endregion
 
 		this._$iptSearch = opts.$iptSearch;
 		this._$wrpFormTop = opts.$wrpFormTop;
@@ -236,12 +259,20 @@ export class FilterBox extends ProxyBase {
 
 		const sourceFilter = this._filters.find(it => it.header === SOURCE_HEADER);
 		if (sourceFilter) {
-			const selFnAlt = (val) => !SourceUtil.isNonstandardSource(val) && !PrereleaseUtil.hasSourceJson(val) && !BrewUtil2.hasSourceJson(val);
 			const hkSelFn = () => {
-				if (this._meta.isBrewDefaultHidden) sourceFilter.setTempFnSel(selFnAlt);
-				else sourceFilter.setTempFnSel(null);
+				const {isPrereleaseDefaultHidden, isBrewDefaultHidden} = this._meta;
+				if (isPrereleaseDefaultHidden || isBrewDefaultHidden) {
+					const selFnAlt = (val) => {
+						return PageFilterBase.defaultSourceSelFnStandardPartnered(val)
+							|| (SourceUtil.getFilterGroup(val) === SourceUtil.FILTER_GROUP_PRERELEASE && !isPrereleaseDefaultHidden)
+							|| (SourceUtil.getFilterGroup(val) === SourceUtil.FILTER_GROUP_HOMEBREW && !isBrewDefaultHidden);
+					};
+					sourceFilter.setTempFnSel(selFnAlt);
+				} else sourceFilter.setTempFnSel(null);
+
 				sourceFilter.updateMiniPillClasses();
 			};
+			this._addHook("meta", "isPrereleaseDefaultHidden", hkSelFn);
 			this._addHook("meta", "isBrewDefaultHidden", hkSelFn);
 			hkSelFn();
 		}
@@ -352,6 +383,7 @@ export class FilterBox extends ProxyBase {
 	async _pOpenSettingsModal () {
 		const {$modalInner} = await UiUtil.pGetShowModal({title: "Settings"});
 
+		UiUtil.$getAddModalRowCb($modalInner, "Deselect Prerelease Content Sources by Default", this._meta, "isPrereleaseDefaultHidden");
 		UiUtil.$getAddModalRowCb($modalInner, "Deselect Homebrew Sources by Default", this._meta, "isBrewDefaultHidden");
 
 		UiUtil.addModalSep($modalInner);
@@ -858,6 +890,7 @@ FilterBox._STORAGE_KEY = "filterBoxState";
 FilterBox._DEFAULT_META = {
 	modeCombineFilters: "and",
 	isSummaryHidden: false,
+	isPrereleaseDefaultHidden: false,
 	isBrewDefaultHidden: false,
 };
 FilterBox._STORAGE_KEY_ALWAYS_SAVE_UNCHANGED = "filterAlwaysSaveUnchanged";

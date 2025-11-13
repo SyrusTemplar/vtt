@@ -86,21 +86,25 @@ class PageFilterOptionalFeatures extends PageFilterBase {
 
 	static _RE_OPTIONALFEATURE_PACT = /^pact of (?:the )?(?<pactName>[^|]+)(?:\|[^|]+)?$/;
 
-	static _mutateForFilters_getPrerequisitePact (ent) {
-		if (!ent.prerequisite) return [];
+	static _mutateForFilters_getPrerequisitesFeaturePact (ent) {
+		if (!ent.prerequisite) return {};
 
-		const out = [];
+		const out = {prereqPact: [], prereqFeature: []};
 
 		for (const prereq of ent.prerequisite) {
-			if (prereq.pact) out.push(prereq.pact);
+			if (prereq.pact) out.prereqPact.push(prereq.pact);
+			if (prereq.feature) out.prereqFeature.push(...prereq.feature);
 
 			// Modern pacts are linked `optionalfeatures`; convert to "pact" filter format
 			if (!prereq.optionalfeature) continue;
 
 			for (const uid of prereq.optionalfeature) {
 				const m = this._RE_OPTIONALFEATURE_PACT.exec(uid);
-				if (!m) continue;
-				out.push(m.groups.pactName.toTitleCase());
+				if (m) {
+					out.prereqPact.push(m.groups.pactName.toTitleCase());
+					continue;
+				}
+				out.prereqFeature.push(uid.split("|")[0].toTitleCase());
 			}
 		}
 
@@ -114,9 +118,11 @@ class PageFilterOptionalFeatures extends PageFilterBase {
 		ent.featureType = ent.featureType && ent.featureType instanceof Array ? ent.featureType : ent.featureType ? [ent.featureType] : ["OTH"];
 		if (ent.prerequisite) {
 			ent._sPrereq = true;
-			ent._fPrereqPact = this._mutateForFilters_getPrerequisitePact(ent);
+			const {prereqPact, prereqFeature} = this._mutateForFilters_getPrerequisitesFeaturePact(ent);
+			ent._fPrereqPact = prereqPact;
+			ent._fPrereqFeature = prereqFeature;
 			ent._fPrereqPatron = ent.prerequisite.filter(it => it.patron).map(it => it.patron);
-			ent._fprereqSpell = ent.prerequisite
+			ent._fPrereqSpell = ent.prerequisite
 				.filter(it => it.spell)
 				.map(prereq => {
 					return (prereq.spell || [])
@@ -139,7 +145,6 @@ class PageFilterOptionalFeatures extends PageFilterBase {
 							return `Any ${ptChoose}`;
 						});
 				});
-			ent._fprereqFeature = ent.prerequisite.filter(it => it.feature).map(it => it.feature);
 			ent._fPrereqLevel = ent.prerequisite.filter(it => it.level).map(PageFilterOptionalFeatures.getLevelFilterItem.bind(PageFilterOptionalFeatures));
 		}
 
@@ -158,8 +163,8 @@ class PageFilterOptionalFeatures extends PageFilterBase {
 		this._typeFilter.addItem(it.featureType);
 		this._pactFilter.addItem(it._fPrereqPact);
 		this._patronFilter.addItem(it._fPrereqPatron);
-		this._spellFilter.addItem(it._fprereqSpell);
-		this._featureFilter.addItem(it._fprereqFeature);
+		this._spellFilter.addItem(it._fPrereqSpell);
+		this._featureFilter.addItem(it._fPrereqFeature);
 		this._miscFilter.addItem(it._fMisc);
 
 		(it._fPrereqLevel || []).forEach(it => {
@@ -185,9 +190,9 @@ class PageFilterOptionalFeatures extends PageFilterBase {
 			[
 				it._fPrereqPact,
 				it._fPrereqPatron,
-				it._fprereqSpell,
+				it._fPrereqSpell,
 				it._fPrereqLevel,
-				it._fprereqFeature,
+				it._fPrereqFeature,
 			],
 			it._fMisc,
 		);
@@ -225,7 +230,7 @@ class ModalFilterOptionalFeatures extends ModalFilterBase {
 
 	async _pLoadAllData () {
 		return [
-			...(await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/optionalfeatures.json`)).optionalfeature,
+			...(await DataLoader.pCacheAndGetAllSite(UrlUtil.PG_OPT_FEATURES)),
 			...((await PrereleaseUtil.pGetBrewProcessed()).optionalfeature || []),
 			...((await BrewUtil2.pGetBrewProcessed()).optionalfeature || []),
 		];
@@ -237,7 +242,7 @@ class ModalFilterOptionalFeatures extends ModalFilterBase {
 
 		const hash = UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_OPT_FEATURES](optfeat);
 		const source = Parser.sourceJsonToAbv(optfeat.source);
-		const prerequisite = Renderer.utils.prerequisite.getHtml(optfeat.prerequisite, {isListMode: true, blocklistKeys: new Set(["level"])});
+		const prerequisite = Renderer.utils.prerequisite.getHtml(optfeat.prerequisite, {isListMode: true, keyOptions: {level: {isNameOnly: true}}});
 		const level = Renderer.optionalfeature.getListPrerequisiteLevelText(optfeat.prerequisite);
 
 		eleRow.innerHTML = `<div class="w-100 ve-flex-vh-center lst__row-border veapp__list-row no-select lst__wrp-cells">
@@ -251,7 +256,7 @@ class ModalFilterOptionalFeatures extends ModalFilterBase {
 			<span class="ve-col-2 px-1 ve-text-center" title="${optfeat._dFeatureType.join(", ").qq()}">${optfeat._lFeatureType}</span>
 			<span class="ve-col-4 px-1 ve-text-center">${prerequisite}</span>
 			<span class="ve-col-1 px-1 ve-text-center">${level}</span>
-			<div class="ve-col-1 pl-1 pr-0 ve-flex-h-center ${Parser.sourceJsonToSourceClassname(optfeat.source)}" title="${Parser.sourceJsonToFull(optfeat.source)}" ${Parser.sourceJsonToStyle(optfeat.source)}>${source}${Parser.sourceJsonToMarkerHtml(optfeat.source)}</div>
+			<div class="ve-col-1 pl-1 pr-0 ve-flex-h-center ${Parser.sourceJsonToSourceClassname(optfeat.source)}" title="${Parser.sourceJsonToFull(optfeat.source)}">${source}${Parser.sourceJsonToMarkerHtml(optfeat.source, {isList: true})}</div>
 		</div>`;
 
 		const btnShowHidePreview = eleRow.firstElementChild.children[1].firstElementChild;
@@ -264,7 +269,7 @@ class ModalFilterOptionalFeatures extends ModalFilterBase {
 				hash,
 				source,
 				sourceJson: optfeat.source,
-				page: optfeat.page,
+				...ListItem.getCommonValues(optfeat),
 				prerequisite,
 				level,
 				type: optfeat._lFeatureType,

@@ -171,7 +171,7 @@
 							"name": "Entering the Well",
 							"page": 6,
 							"entries": [
-								"Those who wish to enter Undermountain for adventure (or the daring tourists who just want to \"ride the rope\") must pay a gold piece to be lowered down. The return trip also costs a piece of gold, sent up in a bucket in advance. Once the initial payment is made, a few stairs takes one to the top of the waisthigh lip of the well. The rope that hangs in the center of the well is levered over to the lip by a beam in the rafters, and when those who have paid are ready, they mount the rope and take the long ride down."
+								"Those who wish to enter Undermountain for adventure (or the daring tourists who just want to \"ride the rope\") must pay a gold piece to be lowered down. The return trip also costs a piece of gold, sent up in a bucket in advance. Once the initial payment is made, a few stairs takes one to the top of the waist-high lip of the well. The rope that hangs in the center of the well is levered over to the lip by a beam in the rafters, and when those who have paid are ready, they mount the rope and take the long ride down."
 							],
 							"id": "010"
 						},
@@ -587,7 +587,7 @@
 									"name": "Eberron",
 									"page": 95,
 									"entries": [
-										"On the continent of Xen'Drik, the mountain could stand in the range known as the Fangs of Argarak."
+										"On the continent of Xen'drik, the mountain could stand in the range known as the Fangs of Argarak."
 									],
 									"id": "020"
 								}
@@ -1539,10 +1539,9 @@
 									"grid": {
 										"type": "square",
 										"size": 91,
-										"offsetX": -7,
-										"offsetY": -57,
-										"scale": 2,
-										"distance": 10
+										"offsetX": -14,
+										"offsetY": -114,
+										"scale": 4
 									},
 									"id": "077",
 									"mapRegions": [
@@ -3639,9 +3638,9 @@
 									"grid": {
 										"type": "square",
 										"size": 207,
-										"offsetX": -104,
-										"offsetY": -62,
-										"distance": 10
+										"offsetX": -208,
+										"offsetY": -124,
+										"scale": 2
 									},
 									"mapRegions": [
 										{
@@ -3893,9 +3892,9 @@
 									"grid": {
 										"type": "square",
 										"size": 110,
-										"offsetX": -44,
-										"offsetY": 46,
-										"distance": 10
+										"offsetX": -88,
+										"offsetY": 92,
+										"scale": 2
 									},
 									"mapRegions": [
 										{
@@ -4173,9 +4172,9 @@
 									"grid": {
 										"type": "square",
 										"size": 145,
-										"offsetX": -11,
-										"offsetY": -54,
-										"distance": 10
+										"offsetX": -22,
+										"offsetY": -108,
+										"scale": 2
 									},
 									"mapRegions": [
 										{
@@ -4881,6 +4880,13 @@
 						"{@note (1. Gargoyle (Tomb of Horrors); 2. Tarul Var (Dead in Thay); 3. Mialee (Sunless Citadel); 4. Sir Bluto Sans Pite (White Plume Mountain); 5. Tordek (Forge of Fury); 6. Xipe, the Oni (Hidden Shrine of Tamoachan); 7. Manticore (White Plume Mountain); 8. Kieren, Chosen of Ilmater (Dead in Thay))}"
 					],
 					"id": "080"
+				},
+				{
+					"type": "entries",
+					"entries": [
+						"{@note Disclaimer: Do we really need a disclaimer to tell you that it's not our fault that your character died because you decided to climb down into a monster\u2014and trap-filled hole in the ground?}"
+					],
+					"id": "081"
 				}
 			],
 			"id": "072"

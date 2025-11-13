@@ -46,8 +46,39 @@
 					]
 				}
 			},
+			"tokenCustom": true,
 			"hasToken": true,
 			"hasFluff": true
+		},
+		{
+			"name": "Arveiaturace",
+			"isNpc": true,
+			"isNamedCreature": true,
+			"source": "IDRotF",
+			"page": 105,
+			"_copy": {
+				"name": "Ancient White Dragon",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the dragon",
+						"with": "Arveiaturace",
+						"flags": "i"
+					}
+				}
+			},
+			"senses": [
+				"blindsight 60 ft. (blind beyond this radius)",
+				"darkvision 60 ft."
+			],
+			"senseTags": [
+				"B",
+				"D"
+			],
+			"hasToken": true,
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Auril (First Form)",
@@ -148,7 +179,7 @@
 				{
 					"name": "Divine Rejuvenation",
 					"entries": [
-						"When Auril drops to 0 hit points, her body turns to slush and melts away. Auril instantly reappears in her {@creature Auril (second form)|idrotf|second form}, in an unoccupied space within 60 feet of where her first form disappeared. Her initiative count doesn't change."
+						"When Auril drops to 0 hit points, her body turns to slush and melts away. Auril instantly reappears in her {@creature Auril (second form)|IDRotF|second form}, in an unoccupied space within 60 feet of where her first form disappeared. Her initiative count doesn't change."
 					]
 				},
 				{
@@ -340,7 +371,7 @@
 				{
 					"name": "Divine Rejuvenation",
 					"entries": [
-						"When Auril drops to 0 hit points, her body collapses into shards of ice, whereupon Auril instantly reappears in her {@creature Auril (third form)|idrotf|third form}, in an unoccupied space within 60 feet of where her second form was destroyed. Her initiative count doesn't change."
+						"When Auril drops to 0 hit points, her body collapses into shards of ice, whereupon Auril instantly reappears in her {@creature Auril (third form)|IDRotF|third form}, in an unoccupied space within 60 feet of where her second form was destroyed. Her initiative count doesn't change."
 					]
 				},
 				{
@@ -982,6 +1013,7 @@
 				"L",
 				"G"
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"D"
 			],
@@ -1396,6 +1428,7 @@
 					}
 				}
 			},
+			"tokenCustom": true,
 			"hasToken": true
 		},
 		{
@@ -1410,6 +1443,7 @@
 				"blindsight 60 ft.",
 				"tremorsense 60 ft."
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"B",
 				"T"
@@ -1436,6 +1470,7 @@
 					}
 				}
 			},
+			"tokenCustom": true,
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -1452,6 +1487,7 @@
 				"burrow": 5,
 				"fly": 30
 			},
+			"tokenCustom": true,
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -1474,6 +1510,7 @@
 					}
 				}
 			},
+			"tokenCustom": true,
 			"hasToken": true
 		},
 		{
@@ -1505,6 +1542,7 @@
 					}
 				}
 			},
+			"tokenCustom": true,
 			"miscTags": [
 				"AOE",
 				"MW"
@@ -2030,6 +2068,7 @@
 			"cr": "0",
 			"spellcasting": null,
 			"action": null,
+			"tokenCustom": true,
 			"actionTags": [],
 			"spellcastingTags": [],
 			"miscTags": [],
@@ -3602,6 +3641,7 @@
 					]
 				}
 			],
+			"tokenCustom": true,
 			"attachedItems": [
 				"battleaxe|phb",
 				"javelin|phb"
@@ -3750,6 +3790,7 @@
 				"N",
 				"G"
 			],
+			"tokenCustom": true,
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -4178,6 +4219,7 @@
 					]
 				}
 			],
+			"tokenCustom": true,
 			"attachedItems": [
 				"javelin|phb"
 			],
@@ -4298,6 +4340,7 @@
 					]
 				}
 			],
+			"tokenCustom": true,
 			"attachedItems": [
 				"heavy crossbow|phb",
 				"sickle|phb"
@@ -4415,6 +4458,7 @@
 					]
 				}
 			],
+			"tokenCustom": true,
 			"attachedItems": [
 				"javelin|phb",
 				"warhammer|phb"
@@ -4546,6 +4590,7 @@
 					]
 				}
 			],
+			"familiar": true,
 			"traitTags": [
 				"Hold Breath"
 			],
@@ -4588,6 +4633,7 @@
 				"Common",
 				"Infernal"
 			],
+			"tokenCustom": true,
 			"languageTags": [
 				"C",
 				"I"
@@ -4650,6 +4696,7 @@
 					]
 				}
 			],
+			"familiar": true,
 			"traitTags": [
 				"Water Breathing"
 			],
@@ -5197,6 +5244,7 @@
 			"alignment": [
 				"N"
 			],
+			"tokenCustom": true,
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -5618,6 +5666,7 @@
 					]
 				}
 			},
+			"tokenCustom": true,
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -5646,6 +5695,7 @@
 					]
 				}
 			},
+			"tokenCustom": true,
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -5678,6 +5728,7 @@
 				"Common",
 				"Druidic"
 			],
+			"tokenCustom": true,
 			"languageTags": [
 				"C",
 				"DU"
@@ -5740,6 +5791,7 @@
 					}
 				}
 			},
+			"tokenCustom": true,
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -5798,6 +5850,7 @@
 					]
 				}
 			],
+			"familiar": true,
 			"traitTags": [
 				"Hold Breath",
 				"Keen Senses"
@@ -6478,6 +6531,7 @@
 				"swim": 30,
 				"climb": 30
 			},
+			"tokenCustom": true,
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -6661,6 +6715,7 @@
 			],
 			"languages": null,
 			"trait": null,
+			"tokenCustom": true,
 			"traitTags": [],
 			"senseTags": [
 				"B"
@@ -7110,6 +7165,7 @@
 					]
 				}
 			],
+			"tokenCustom": true,
 			"traitTags": [
 				"Hold Breath"
 			],

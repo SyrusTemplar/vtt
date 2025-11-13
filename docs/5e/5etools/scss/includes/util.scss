@@ -156,6 +156,10 @@
 		text-align: center !important;
 	}
 
+	.ve-text-justify {
+		text-align: justify !important;
+	}
+
 	.text-rtl {
 		direction: rtl;
 	}
@@ -212,6 +216,10 @@
 
 	.user-select-all {
 		user-select: all !important;
+	}
+
+	.ve-touch-action-none {
+		touch-action: none !important;
 	}
 	// endregion
 
@@ -524,6 +532,10 @@
 		height: 120px !important;
 	}
 
+	.h-480p {
+		height: 480px !important;
+	}
+
 	.h-ipt-xs {
 		height: vars.$h-ipt-xs;
 	}
@@ -585,15 +597,11 @@
 		display: block !important;
 	}
 
-	.inline-block {
-		display: inline-block !important;
-	}
-
 	.ve-inline-block {
 		display: inline-block !important;
 	}
 
-	.inline {
+	.ve-inline {
 		display: inline !important;
 	}
 

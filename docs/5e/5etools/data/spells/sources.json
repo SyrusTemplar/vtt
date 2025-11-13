@@ -9928,834 +9928,6 @@
 			]
 		}
 	},
-	"GHLoE": {
-		"Arboreal Curse": {
-			"class": [
-				{
-					"name": "Druid",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Druid",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				}
-			]
-		},
-		"Consume Mind": {
-			"class": [
-				{
-					"name": "Cleric",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Cleric",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				}
-			]
-		},
-		"Heartseeker": {
-			"class": [
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				}
-			]
-		},
-		"Hunter Sense": {
-			"class": [
-				{
-					"name": "Druid",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Druid",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				}
-			]
-		},
-		"Magic Mirror": {
-			"class": [
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				}
-			]
-		},
-		"Suffocate": {
-			"class": [
-				{
-					"name": "Bard",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Bard",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				}
-			]
-		},
-		"Wrack": {
-			"class": [
-				{
-					"name": "Cleric",
-					"source": "PHB",
-					"definedInSource": "GHLoE"
-				},
-				{
-					"name": "Cleric",
-					"source": "XPHB",
-					"definedInSource": "GHLoE"
-				}
-			]
-		}
-	},
-	"DoDk": {
-		"Conjure the Deep Haze": {
-			"classVariant": [
-				{
-					"name": "Druid",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Druid",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Contaminated Power": {
-			"classVariant": [
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Contamination Immunity": {
-			"classVariant": [
-				{
-					"name": "Bard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Cleric",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Druid",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Bard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Cleric",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Druid",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Delerium Blast": {
-			"classVariant": [
-				{
-					"name": "Bard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Bard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Delerium Orb": {
-			"classVariant": [
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Forced Evolution": {
-			"classVariant": [
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Neutralizing Field": {
-			"classVariant": [
-				{
-					"name": "Bard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Cleric",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Druid",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Paladin",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Ranger",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Bard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Cleric",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Druid",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Paladin",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Ranger",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Octarine Spray": {
-			"classVariant": [
-				{
-					"name": "Bard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Bard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Purge Contamination": {
-			"classVariant": [
-				{
-					"name": "Bard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Cleric",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Druid",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Paladin",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Ranger",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Bard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Cleric",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Druid",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Paladin",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Ranger",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Ray of Contamination": {
-			"classVariant": [
-				{
-					"name": "Druid",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Druid",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Ride the Rifts": {
-			"classVariant": [
-				{
-					"name": "Bard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Bard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Sacrament of the Falling Fire": {
-			"classVariant": [
-				{
-					"name": "Bard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Cleric",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Druid",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Bard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Cleric",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Druid",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Siphon Contamination": {
-			"classVariant": [
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		},
-		"Warp Bolt": {
-			"classVariant": [
-				{
-					"name": "Sorcerer",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "PHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Sorcerer",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Warlock",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				},
-				{
-					"name": "Wizard",
-					"source": "XPHB",
-					"definedInSource": "DoDk"
-				}
-			]
-		}
-	},
 	"XPHB": {
 		"Acid Splash": {
 			"class": [
@@ -16566,6 +15738,324 @@
 				{
 					"name": "Paladin",
 					"source": "XPHB"
+				}
+			]
+		}
+	},
+	"FRHoF": {
+		"Alustriel's Mooncloak": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Druid",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Ranger",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Backlash": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Blade of Disaster": {
+			"class": [
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Cacophonic Shield": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Conjure Constructs": {
+			"class": [
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Death Armor": {
+			"class": [
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Deryan's Helpful Homunculi": {
+			"class": [
+				{
+					"name": "Cleric",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Dirge": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Cleric",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Doomtide": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Cleric",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Elminster's Effulgent Spheres": {
+			"class": [
+				{
+					"name": "Druid",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Elminster's Elusion": {
+			"class": [
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Holy Star of Mystra": {
+			"class": [
+				{
+					"name": "Cleric",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Laeral's Silver Lance": {
+			"class": [
+				{
+					"name": "Cleric",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Simbul's Synostodweomer": {
+			"class": [
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Songal's Elemental Suffusion": {
+			"class": [
+				{
+					"name": "Druid",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Spellfire Flare": {
+			"class": [
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Spellfire Storm": {
+			"class": [
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Syluné's Viper": {
+			"class": [
+				{
+					"name": "Druid",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				}
+			]
+		},
+		"Wardaway": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Cleric",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Paladin",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "FRHoF"
 				}
 			]
 		}

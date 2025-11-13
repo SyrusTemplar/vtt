@@ -250,6 +250,7 @@
 				"understands Abyssal but can't speak"
 			],
 			"cr": "11",
+			"tokenCustom": true,
 			"traitTags": [
 				"Immutable Form",
 				"Magic Resistance",
@@ -713,6 +714,7 @@
 					"ability": "int"
 				}
 			],
+			"tokenCustom": true,
 			"languageTags": [
 				"C",
 				"DS",
@@ -768,6 +770,30 @@
 				"MW",
 				"RCH"
 			],
+			"hasToken": true
+		},
+		{
+			"name": "Blacktongue Bullywug",
+			"source": "WDMM",
+			"page": 110,
+			"_copy": {
+				"name": "Bullywug",
+				"source": "MM",
+				"_mod": {
+					"action": {
+						"mode": "replaceArr",
+						"replace": "Spear",
+						"items": [
+							{
+								"name": "Spear",
+								"entries": [
+									"{@atk mw,rw} {@hit 3} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}4 ({@damage 1d6 + 1}) piercing damage, or 5 ({@damage 1d8 + 1}) piercing damage if used with two hands to make a melee attack. A creature hit by a bullywug's Spear attack must succeed on a {@dc 13} Constitution saving throw or be {@condition poisoned} for 1 minute. A creature {@condition poisoned} in this way is also {@condition paralyzed}. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+								]
+							}
+						]
+					}
+				}
+			},
 			"hasToken": true
 		},
 		{
@@ -867,7 +893,7 @@
 				{
 					"name": "Tail Stinger",
 					"entries": [
-						"{@atk mw} {@hit 9} to hit, reach 10 ft., one creature. {@h}19 ({@damage 3d6 + 9}) piercing damage, and the target must make a {@dc 19} Constitution saving throw, taking 42 ({@damage 12d6}) poison damage on a failed save, or half as much damage on a successful one."
+						"{@atk mw} {@hit 14} to hit, reach 10 ft., one creature. {@h}19 ({@damage 3d6 + 9}) piercing damage, and the target must make a {@dc 19} Constitution saving throw, taking 42 ({@damage 12d6}) poison damage on a failed save, or half as much damage on a successful one."
 					]
 				}
 			],
@@ -973,6 +999,7 @@
 					]
 				}
 			],
+			"tokenCustom": true,
 			"actionTags": [
 				"Multiattack",
 				"Tentacles"
@@ -1140,6 +1167,7 @@
 					"ability": "int"
 				}
 			],
+			"tokenCustom": true,
 			"languageTags": [
 				"C",
 				"DS",
@@ -1190,6 +1218,7 @@
 				"N",
 				"E"
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"D"
 			],
@@ -1311,7 +1340,7 @@
 								]
 							},
 							{
-								"name": "Merged Heads",
+								"name": "Two Heads",
 								"entries": [
 									"The duergar has advantage on Wisdom ({@skill Perception}) checks and on saving throws against being {@condition charmed}, {@condition frightened}, {@condition stunned}, and knocked {@condition unconscious}."
 								]
@@ -1457,6 +1486,7 @@
 				"Goblin",
 				"Undercommon"
 			],
+			"tokenCustom": true,
 			"traitTags": [
 				"Fey Ancestry",
 				"Magic Resistance",
@@ -1507,6 +1537,7 @@
 					}
 				}
 			},
+			"tokenCustom": true,
 			"damageTags": [
 				"F",
 				"S"
@@ -1711,10 +1742,18 @@
 					}
 				}
 			},
+			"alignment": [
+				"L",
+				"G"
+			],
 			"hp": {
 				"average": 80,
 				"formula": "10d8"
 			},
+			"languages": [
+				"Common"
+			],
+			"tokenCustom": true,
 			"hasToken": true
 		},
 		{
@@ -1771,6 +1810,36 @@
 			],
 			"miscTags": [
 				"MW"
+			],
+			"hasToken": true
+		},
+		{
+			"name": "Flying Wand",
+			"source": "WDMM",
+			"page": 105,
+			"_copy": {
+				"name": "Flying Sword",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "\\bsword\\b",
+						"with": "wand"
+					}
+				}
+			},
+			"action": [
+				{
+					"name": "Magic Missile",
+					"entries": [
+						"The wand shoots a dart of magical force at one creature that it can detect within 60 feet of it. The target takes 3 ({@damage 1d4 + 1}) force damage as the dart hits it unerringly."
+					]
+				}
+			],
+			"tokenCredit": "Hayden Stutz",
+			"tokenCustom": true,
+			"damageTags": [
+				"O"
 			],
 			"hasToken": true
 		},
@@ -1853,6 +1922,7 @@
 					"ability": "cha"
 				}
 			],
+			"tokenCustom": true,
 			"traitTags": [
 				"Fey Ancestry",
 				"Keen Senses",
@@ -2383,6 +2453,7 @@
 					]
 				}
 			],
+			"tokenCustom": true,
 			"damageTags": [
 				"B"
 			],
@@ -2495,6 +2566,8 @@
 					]
 				}
 			],
+			"familiar": true,
+			"tokenCustom": true,
 			"traitTags": [
 				"Spider Climb"
 			],
@@ -2535,6 +2608,7 @@
 				"Infernal",
 				"Undercommon"
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"D"
 			],
@@ -2701,6 +2775,7 @@
 					]
 				}
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"B"
 			],
@@ -2883,6 +2958,7 @@
 				"name": "Keresta Delvingstone",
 				"source": "WDMM"
 			},
+			"tokenCustom": true,
 			"damageTagsSpell": [
 				"I",
 				"N",
@@ -3132,6 +3208,7 @@
 				"blinded",
 				"deafened"
 			],
+			"tokenCustom": true,
 			"hasToken": true
 		},
 		{
@@ -3258,6 +3335,7 @@
 				"and Undercommon but can't speak"
 			],
 			"cr": "12",
+			"tokenCustom": true,
 			"languageTags": [
 				"AB",
 				"C",
@@ -3352,15 +3430,6 @@
 								]
 							}
 						}
-					},
-					"trait": {
-						"mode": "prependArr",
-						"items": {
-							"name": "Fey Ancestry",
-							"entries": [
-								"Marta has advantage on saving throws against being {@condition charmed}, and magic can't put her to sleep."
-							]
-						}
 					}
 				}
 			},
@@ -3375,6 +3444,7 @@
 				"Elvish",
 				"Undercommon"
 			],
+			"tokenCustom": true,
 			"traitTags": [
 				"Fey Ancestry"
 			],
@@ -3432,6 +3502,7 @@
 				"Draconic",
 				"Dwarvish"
 			],
+			"tokenCustom": true,
 			"languageTags": [
 				"C",
 				"D",
@@ -3471,6 +3542,7 @@
 				"petrified",
 				"poisoned"
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"D"
 			],
@@ -3507,6 +3579,7 @@
 				"average": 42,
 				"formula": "7d6"
 			},
+			"tokenCustom": true,
 			"hasToken": true
 		},
 		{
@@ -3861,6 +3934,7 @@
 				"Giant",
 				"Terran"
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"D"
 			],
@@ -3996,6 +4070,7 @@
 			"languages": [
 				"Common"
 			],
+			"tokenCustom": true,
 			"languageTags": [
 				"C"
 			],
@@ -4089,6 +4164,7 @@
 			"languages": [
 				"Common"
 			],
+			"tokenCustom": true,
 			"languageTags": [
 				"C"
 			],
@@ -4155,6 +4231,7 @@
 					]
 				}
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"SD"
 			],
@@ -4197,6 +4274,7 @@
 			"languages": null,
 			"cr": "0",
 			"action": null,
+			"tokenCustom": true,
 			"languageTags": [],
 			"hasToken": true
 		},
@@ -4618,6 +4696,7 @@
 					]
 				}
 			],
+			"tokenCustom": true,
 			"traitTags": [
 				"Immutable Form"
 			],
@@ -4672,6 +4751,7 @@
 				"L",
 				"E"
 			],
+			"tokenCustom": true,
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -4703,6 +4783,7 @@
 				"Common",
 				"Halfling"
 			],
+			"tokenCustom": true,
 			"languageTags": [
 				"C",
 				"H"
@@ -4777,6 +4858,7 @@
 				"Dwarvish",
 				"Terran"
 			],
+			"tokenCustom": true,
 			"languageTags": [
 				"D",
 				"DR",
@@ -4816,6 +4898,7 @@
 					}
 				}
 			},
+			"tokenCustom": true,
 			"hasToken": true
 		},
 		{
@@ -4846,6 +4929,7 @@
 				"Infernal",
 				"and Undercommon but can't speak"
 			],
+			"tokenCustom": true,
 			"languageTags": [
 				"AB",
 				"C",
@@ -4893,6 +4977,7 @@
 				"Common",
 				"Giant"
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"D"
 			],
@@ -4953,6 +5038,7 @@
 				"N",
 				"E"
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"D"
 			],
@@ -4996,6 +5082,7 @@
 				"C",
 				"E"
 			],
+			"tokenCustom": true,
 			"traitTags": [
 				"Amphibious",
 				"Sneak Attack"
@@ -5319,6 +5406,7 @@
 					]
 				}
 			],
+			"tokenCustom": true,
 			"hasToken": true,
 			"hasFluff": true
 		},
@@ -5369,6 +5457,7 @@
 				"Troglodyte",
 				"Undercommon"
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"SD"
 			],
@@ -5431,6 +5520,7 @@
 				"Deep Speech",
 				"Undercommon"
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"B"
 			],
@@ -5685,6 +5775,26 @@
 			"hasFluff": true
 		},
 		{
+			"name": "Xorta",
+			"isNpc": true,
+			"isNamedCreature": true,
+			"source": "WDMM",
+			"page": 98,
+			"_copy": {
+				"name": "Stone Giant",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the giant",
+						"with": "Xorta",
+						"flags": "i"
+					}
+				}
+			},
+			"hasToken": true
+		},
+		{
 			"name": "Zalthar Shadowdusk",
 			"isNpc": true,
 			"isNamedCreature": true,
@@ -5737,6 +5847,7 @@
 				"Common",
 				"Deep Speech"
 			],
+			"tokenCustom": true,
 			"languageTags": [
 				"AB",
 				"C",
@@ -5814,12 +5925,12 @@
 				"Common",
 				"Dwarvish"
 			],
-			"cr": "13",
+			"cr": "14",
 			"trait": [
 				{
 					"name": "Dwarven Resilience",
 					"entries": [
-						"Augrek has advantage on saving throws against poison."
+						"Zorak has advantage on saving throws against poison, and has resistance against poison damage."
 					]
 				},
 				{
@@ -5957,6 +6068,7 @@
 				"name": "Vampire",
 				"source": "MM"
 			},
+			"tokenCustom": true,
 			"attachedItems": [
 				"dwarven thrower|dmg"
 			],
@@ -6038,6 +6150,7 @@
 				"Ignan",
 				"Terran"
 			],
+			"tokenCustom": true,
 			"senseTags": [
 				"D"
 			],
@@ -6069,6 +6182,15 @@
 					}
 				}
 			},
+			"ac": [
+				{
+					"ac": 18,
+					"from": [
+						"{@item mithral plate armor|dmg}"
+					]
+				}
+			],
+			"tokenCustom": true,
 			"hasToken": true
 		}
 	]

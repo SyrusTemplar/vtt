@@ -1,6 +1,7 @@
 import {ConfigSettingsGroup} from "./util-config-settings-group.js";
 import {ConfigSettingBoolean, ConfigSettingEnum, ConfigSettingExternal} from "./utils-config-setting-base.js";
 import {SITE_STYLE__CLASSIC, SITE_STYLE__ONE, SITE_STYLE_DISPLAY} from "../consts.js";
+import {StyleSwitcher} from "../styleswitch.js";
 
 const settingsGroupStyleSwitcher = new ConfigSettingsGroup({
 	groupId: "styleSwitcher",
@@ -29,6 +30,16 @@ const settingsGroupStyleSwitcher = new ConfigSettingsGroup({
 			],
 			fnDisplay: it => SITE_STYLE_DISPLAY[it] || it,
 		}),
+		new (
+			class extends ConfigSettingExternal {
+				_configId = "styleRollbox";
+				_name = "Dice Roller Position";
+				_help = "The position of the dice roller.";
+				_isRowLabel = true;
+
+				_getEleExternal () { return StyleSwitcher.getSelRollboxPosition(); }
+			}
+		)(),
 		new (
 			class extends ConfigSettingExternal {
 				_configId = "isWideMode";

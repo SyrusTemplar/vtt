@@ -471,7 +471,7 @@
 									"page": 10,
 									"id": "01e",
 									"entries": [
-										"This drow elite warrior has assumed the role of Ilvara's lieutenant and lover after the injuries suffered by his predecessor, Jorlan Duskryn. Shoor is relatively young and quite arrogant for a drow male, proud of his abilities and accomplishments. He is still flush with his success in winning the favor of Ilvara and advancing his position Twithin the outpost, which shows in his swagger and the way he lords it over every other male in Velkynvelve, particularly Jorlan. Still insecure in his position, Shoor feels the need to demonstrate his skill and effectiveness to his mistress and to find ways to please her.",
+										"This drow elite warrior has assumed the role of Ilvara's lieutenant and lover after the injuries suffered by his predecessor, Jorlan Duskryn. Shoor is relatively young and quite arrogant for a drow male, proud of his abilities and accomplishments. He is still flush with his success in winning the favor of Ilvara and advancing his position within the outpost, which shows in his swagger and the way he lords it over every other male in Velkynvelve, particularly Jorlan. Still insecure in his position, Shoor feels the need to demonstrate his skill and effectiveness to his mistress and to find ways to please her.",
 										"As Ilvara's lieutenant, Shoor carries a {@item wand of viscid globs|OotA} (see {@adventure appendix B|OotA|18}), which once belonged to Jorlan and is used to capture and restrain prisoners."
 									]
 								},
@@ -559,7 +559,7 @@
 									"page": 11,
 									"id": "027",
 									"entries": [
-										"Bridges of spider-silk rope connect the walkways to the guard tower and the entrance to the priestess's tower. The swaying bridges are {@quickref difficult terrain||3} for non-drow."
+										"Bridges of spider silk rope connect the walkways to the guard tower and the entrance to the priestess's tower. The swaying bridges are {@quickref difficult terrain||3} for non-drow."
 									]
 								},
 								{
@@ -1704,7 +1704,7 @@
 							"id": "03e",
 							"entries": [
 								"The fourth hanging tower, connected by rope bridges to the slave pen and the walkway alongside the priestess's tower, serves as a guard tower for observing the cavern, the western passage, and the slave pen.",
-								"The lower chamber of the tower is occupied by two {@creature drow} and one {@creature drow elite warrior} on guard duty. It contains a zurkhwood table and three chairs, a smaller side table, and spider-silk webbing set with hooks for hanging equipment.",
+								"The lower chamber of the tower is occupied by two {@creature drow} and one {@creature drow elite warrior} on guard duty. It contains a zurkhwood table and three chairs, a smaller side table, and spider silk webbing set with hooks for hanging equipment.",
 								"As at the watch posts, guard duty here is a dull affair, and the guards are usually distracted enough (talking or passing the time with dice games) that prisoners can move or act unnoticed with a successful Dexterity ({@skill Stealth}) check contested by the guards' passive Wisdom ({@skill Perception}) score.",
 								"The tower's upper chamber stores extra arms and armor for the outpost. Characters who gain entrance to the armory can easily loot it (see \"Treasure\").",
 								{
@@ -2612,7 +2612,7 @@
 							"id": "07e",
 							"entries": [
 								"The drow try to capture the escaped prisoners if at all possible, since Ilvara wants the pleasure of teaching them a lesson about disobedience. If the dark elves reduce any characters to 0 hit points, those characters are knocked out rather than dying (see \"{@book Knocking a Creature Out|PHB|9|Knocking a Creature Out}\" in chapter 9 of the {@i Player's Handbook}). Even if one or more of the characters are accidentally killed, Ilvara is obsessed enough to cast {@spell raise dead} to restore them to life (assuming the character's soul is willing to return).",
-								"Captured characters are disarmed, their hands bound with spider-silk rope, and gagged. The drow march them back to Velkynvelve unless Menzoberranzan is closer, in which case Ilvara takes them there instead. The characters will need to come up with a new plan of escape, ideally before Ilvara has the opportunity to torture them or sell them into slavery in the City of Spiders. If they escape her clutches again, the drow priestess continues her pursuit until she is dead or the party leaves the Underdark (see {@adventure chapter 7|OotA|6})."
+								"Captured characters are disarmed, their hands bound with spider silk rope, and gagged. The drow march them back to Velkynvelve unless Menzoberranzan is closer, in which case Ilvara takes them there instead. The characters will need to come up with a new plan of escape, ideally before Ilvara has the opportunity to torture them or sell them into slavery in the City of Spiders. If they escape her clutches again, the drow priestess continues her pursuit until she is dead or the party leaves the Underdark (see {@adventure chapter 7|OotA|6})."
 							]
 						}
 					]
@@ -3994,9 +3994,9 @@
 									"grid": {
 										"type": "square",
 										"size": 130,
-										"offsetX": 39,
-										"offsetY": 59,
-										"distance": 10
+										"offsetX": 78,
+										"offsetY": 118,
+										"scale": 2
 									},
 									"mapRegions": [
 										{
@@ -4553,9 +4553,9 @@
 									"grid": {
 										"type": "square",
 										"size": 108,
-										"offsetX": 38,
-										"offsetY": 53,
-										"distance": 10
+										"offsetX": 76,
+										"offsetY": 106,
+										"scale": 2
 									},
 									"title": "Player Version",
 									"mapParent": {
@@ -5581,9 +5581,9 @@
 									"grid": {
 										"type": "square",
 										"size": 223,
-										"offsetX": 11,
-										"offsetY": 140,
-										"distance": 10
+										"offsetX": 22,
+										"offsetY": 280,
+										"scale": 2
 									},
 									"mapRegions": [
 										{
@@ -5714,9 +5714,9 @@
 									"grid": {
 										"type": "square",
 										"size": 186,
-										"offsetX": 9,
-										"offsetY": 116,
-										"distance": 10
+										"offsetX": 18,
+										"offsetY": 232,
+										"scale": 2
 									}
 								}
 							]
@@ -5895,7 +5895,7 @@
 									"page": 40,
 									"id": "0ef",
 									"entries": [
-										"Travelers can mix and match modes of travel, and a sizable party might need multiple boats or rafts. A creature with a swimming speed (including a polymorphed character) can travel without risk of fatigue for up to 8 hours, and can even serve as a mount for a creature smaller than it. Water-breathing (or nonbreathing) creatures can swim underwater or even walk across the bottom of shallow sections of the Darklake, but need {@sense darkvision} or a source of light to see.",
+										"Travelers can mix and match modes of travel, and a sizable party might need multiple boats or rafts. A creature with a swimming speed (including a polymorphed character) can travel without risk of fatigue for up to 8 hours, and can even serve as a mount for a creature smaller than it. Water-breathing (or non-breathing) creatures can swim underwater or even walk across the bottom of shallow sections of the Darklake, but need {@sense darkvision} or a source of light to see.",
 										{
 											"type": "image",
 											"href": {
@@ -6649,9 +6649,9 @@
 											"grid": {
 												"type": "square",
 												"size": 71,
-												"offsetX": -29,
-												"offsetY": -29,
-												"distance": 10
+												"offsetX": -58,
+												"offsetY": -58,
+												"scale": 2
 											},
 											"mapRegions": [
 												{
@@ -6828,9 +6828,9 @@
 											"grid": {
 												"type": "square",
 												"size": 59,
-												"offsetX": 35,
-												"offsetY": -19,
-												"distance": 10
+												"offsetX": 70,
+												"offsetY": -38,
+												"scale": 2
 											}
 										}
 									]
@@ -7863,7 +7863,7 @@
 									"id": "171",
 									"entries": [
 										"The ground at your feet has been getting smoother and flatter, a welcome respite from the uneven passages to which you have grown wearily accustomed. Eventually, stone tiles become more noticeable, turning the path into a proper road. You can see spots of light in the distance, blue-white and too regularly placed to be phosphorescent mushrooms.",
-										"The lights are proper lamps flanking two massive stone gates blocking the tunnel. Before you get a chance to examine the intricate carvings on the gates' surface, a harsh voice hisses from a slit on the cavern wall that was not therebefore.",
+										"The lights are proper lamps flanking two massive stone gates blocking the tunnel. Before you get a chance to examine the intricate carvings on the gates' surface, a harsh voice hisses from a slit on the cavern wall that was not there before.",
 										"\"State your names and business!\" the voice orders in Dwarvish. Other similar slits open, revealing the tips of a dozen crossbow bolts. Behind you, a metallic din announces a group of six heavily armored dwarves appearing out of thin air, their swords leveled at you from behind sturdy metal shields."
 									]
 								},
@@ -11860,7 +11860,7 @@
 							"page": 69,
 							"id": "1c2",
 							"entries": [
-								"The narrow corridor from the West Cleft opens into a long cavern lined with stalactites and stalagmites. Whater drips from the stalactites, forming small pools on the floor.",
+								"The narrow corridor from the West Cleft opens into a long cavern lined with stalactites and stalagmites. Water drips from the stalactites, forming small pools on the floor.",
 								{
 									"type": "insetReadaloud",
 									"id": "1c3",
@@ -13423,9 +13423,9 @@
 							"grid": {
 								"type": "square",
 								"size": 112,
-								"offsetX": -49,
-								"offsetY": -50,
-								"distance": 10
+								"offsetX": -98,
+								"offsetY": -100,
+								"scale": 2
 							},
 							"mapRegions": [
 								{
@@ -14284,9 +14284,9 @@
 							"grid": {
 								"type": "square",
 								"size": 94,
-								"offsetX": 41,
-								"offsetY": 41,
-								"distance": 10
+								"offsetX": 82,
+								"offsetY": 82,
+								"scale": 2
 							}
 						}
 					]
@@ -22177,7 +22177,7 @@
 					"page": 103,
 					"id": "2a7",
 					"entries": [
-						"The Stoneheart Enclave agreed to join the Diggermattock effort to resettle Blingdenstone in exchange for help reclaiming this temple known as the Ruby in the Rough. The temple is dedicated to Segojan Earthcaller, the svirfneblin god of deep earth and nature. The rituals and day-to-day duties of the temple are overseen by a deep gnome named Glyphic Shroomlight, a nervous young novice doing his best in a situation requiring a much older and more experienced cleric (use the {@creature acolyte} statistics in the {@i Monster Manual}, but also give Glyphic the Stone Camouflage, Gnome Cunning, and Innate Spellcasting features of a {@creature Deep Gnome (Svirfneblin)||deep gnome}).",
+						"The Stoneheart Enclave agreed to join the Diggermattock effort to resettle Blingdenstone in exchange for help reclaiming this temple known as the Ruby in the Rough. The temple is dedicated to Segojan Earthcaller, the svirfneblin god of deep earth and nature. The rituals and day-to-day duties of the temple are overseen by a deep gnome named {@creature Glyphic Shroomlight|OotA}, a nervous young novice doing his best in a situation requiring a much older and more experienced cleric (use the {@creature acolyte} statistics in the {@i Monster Manual}, but also give Glyphic the Stone Camouflage, Gnome Cunning, and Innate Spellcasting features of a {@creature Deep Gnome (Svirfneblin)||deep gnome}).",
 						"Despite the desecration of the drow invasion and the decades of scavenging and raiding in its aftermath, the old city's honored dead still rest securely in the catacombs beneath the temple. A passage on the east side of the cavern leads down into this network of small linked caverns accessible only through the temple.",
 						"The catacombs are built along a mostly regular grid, making it easy for characters to find their way among standing statues and funerary niches. If the characters come here following rumors of ghosts, it's only a matter of time before they meet Burrow Warden Jadger, a ghost from the time of the drow invasion.",
 						"If the characters recovered Pelek's severed hand in the \"{@area Whorlstone Tunnels|1a5|x}\" section of chapter 4, they can lay Pelek's spirit to rest by placing his remains in the catacombs. If they do this, the ghost of Burrow Warden Jadger appears before them.",
@@ -23222,7 +23222,7 @@
 					"id": "2da",
 					"entries": [
 						"The svirfneblin wererats of the Goldwhisker clan don't remember having lived anywhere but in the ruins of Blingdenstone. They descend from survivors of the drow invasion who became infected with lycanthropy after an unfortunate encounter with a pack of wererats.",
-						"For decades, the Goldwhisker svirfneblin have lived and thrived in these caverns, avoiding drow and crazed elementals, and securing their homes in cunning and vicious ways. They aren't willing to leave just because the cowards who fled Blingdenstone when it needed them most have nowreturned.",
+						"For decades, the Goldwhisker svirfneblin have lived and thrived in these caverns, avoiding drow and crazed elementals, and securing their homes in cunning and vicious ways. They aren't willing to leave just because the cowards who fled Blingdenstone when it needed them most have now returned.",
 						{
 							"type": "inset",
 							"name": "Goldwhisker Warrens: General Features",
@@ -24269,7 +24269,7 @@
 							"page": 117,
 							"id": "312",
 							"entries": [
-								"Knowing that many of their NPC companions have homes in the Underdark can be an important part of the decision-making process that guides the characters through the early chapters of this adventure. The Underdark is a dangerous place, and characters might be reluctant to let their newfound friends fend for themselves. Helping some of them return home makes a good incentive to visit locations in the Underdark. Shuushar, {@creature Topsy|OotA}, {@creature Turvy|OotA}, {@creature Stool|OotA}, {@creature Rumpadump|OotA}, and {@creature Glabbagool|OotA} would rather remain in the Underdark than suffer sunlight."
+								"Knowing that many of their NPC companions have homes in the Underdark can be an important part of the decision-making process that guides the characters through the early chapters of this adventure. The Underdark is a dangerous place, and characters might be reluctant to let their newfound friends fend for themselves. Helping some of them return home makes a good incentive to visit locations in the Underdark. {@creature Shuushar the Awakened|OotA|Shuushar}, {@creature Topsy|OotA}, {@creature Turvy|OotA}, {@creature Stool|OotA}, {@creature Rumpadump|OotA}, and {@creature Glabbagool|OotA} would rather remain in the Underdark than suffer sunlight."
 							]
 						},
 						{
@@ -24278,7 +24278,7 @@
 							"page": 117,
 							"id": "313",
 							"entries": [
-								"Companions such as Eldeth and {@creature Ront|OotA}, who prefer to live on or near the surface, gladly follow the characters all the way out if they can. Eldeth wishes to return to Gauntlgrym, and her presence there can provide a connection for the characters when they visit the dwarven settlement in {@adventure chapter 8|OotA|7}. If Eldeth didn't survive, she might have charged the characters with returning her body or effects to Gauntlgrym. {@creature Ront|OotA} might wish to rejoin his tribe or seek a new home elsewhere, based on how the events in the earlier chapters of the adventure have influenced him. Depending on how he was treated, the orc most likely parts from the characters in peace\u2014out of respect for their battle prowess, if nothing else."
+								"Companions such as {@creature Eldeth Feldrun|OotA|Eldeth} and {@creature Ront|OotA}, who prefer to live on or near the surface, gladly follow the characters all the way out if they can. Eldeth wishes to return to Gauntlgrym, and her presence there can provide a connection for the characters when they visit the dwarven settlement in {@adventure chapter 8|OotA|7}. If Eldeth didn't survive, she might have charged the characters with returning her body or effects to Gauntlgrym. {@creature Ront|OotA} might wish to rejoin his tribe or seek a new home elsewhere, based on how the events in the earlier chapters of the adventure have influenced him. Depending on how he was treated, the orc most likely parts from the characters in peace\u2014out of respect for their battle prowess, if nothing else."
 							]
 						},
 						{
@@ -24635,7 +24635,7 @@
 									"page": 122,
 									"id": "32f",
 									"entries": [
-										"Shield dwarf {@creature Priest||priests} have begun the long task of rebuilding, revitalizing, and restoring the Iron Tabernacle to its former glory. The area is vast, and its halls are numerous and multileveled. The dwarf priests have restored many shrines and altars, and have cleared paths through the cracked and broken hallways to the Vault of Kings so that Bruenor can make personal visits to the main shrines and offer thanks to the gods. This procession often includes Bruenor's visitors or those ambassadors from the surface who come to Gauntlgrym to seek counsel with the king. Bruenor leads these processions not only to show off the city and its sheer size, but also to take measure of his guests' endurance and patience in matters of spirit."
+										"Shield dwarf {@creature Priest||priests} have begun the long task of rebuilding, revitalizing, and restoring the Iron Tabernacle to its former glory. The area is vast, and its halls are numerous and multi-leveled. The dwarf priests have restored many shrines and altars, and have cleared paths through the cracked and broken hallways to the Vault of Kings so that Bruenor can make personal visits to the main shrines and offer thanks to the gods. This procession often includes Bruenor's visitors or those ambassadors from the surface who come to Gauntlgrym to seek counsel with the king. Bruenor leads these processions not only to show off the city and its sheer size, but also to take measure of his guests' endurance and patience in matters of spirit."
 									]
 								},
 								{
@@ -25366,9 +25366,9 @@
 											"grid": {
 												"type": "square",
 												"size": 91,
-												"offsetX": 59,
-												"offsetY": 70,
-												"distance": 20
+												"offsetX": 236,
+												"offsetY": 280,
+												"scale": 4
 											},
 											"mapRegions": [
 												{
@@ -28054,9 +28054,9 @@
 											"grid": {
 												"type": "square",
 												"size": 76,
-												"offsetX": -30,
-												"offsetY": -21,
-												"distance": 20
+												"offsetX": -120,
+												"offsetY": -84,
+												"scale": 4
 											}
 										}
 									]
@@ -28424,7 +28424,7 @@
 									"page": 138,
 									"id": "377",
 									"entries": [
-										"Yantha is the leader of the Stoneheart Enclave based in Blingdenstone (see {@adventure chapter 6|OotA|5}). She is bound with rope and spinning an elaborate lie about how the drow must've {@condition charmed} her and taken Krimgol's gem. She has an Intelligence of 16 (+3) and the following additional feature:",
+										"{@creature Yantha Coaxrock|OotA|Yantha} is the leader of the Stoneheart Enclave based in Blingdenstone (see {@adventure chapter 6|OotA|5}). She is bound with rope and spinning an elaborate lie about how the drow must've {@condition charmed} her and taken Krimgol's gem. She has an Intelligence of 16 (+3) and the following additional feature:",
 										{
 											"type": "inset",
 											"id": "378",
@@ -29026,88 +29026,88 @@
 									"page": 146,
 									"id": "3a5",
 									"entries": [
-										"The party stumbles upon the remains of one or more creatures slaughtered by rampaging demons. Roll a {@dice d10} and consult the Corpses table to determine what they find. A thorough search of the area yields no treasure."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Corpses",
-									"page": 146,
-									"id": "3a6",
-									"entries": [
+										"The party stumbles upon the remains of one or more creatures slaughtered by rampaging demons. Roll a {@dice d10} and consult the Corpses table to determine what they find. A thorough search of the area yields no treasure.",
 										{
-											"type": "table",
-											"colLabels": [
-												"d10",
-												"Corpse Present"
-											],
-											"colStyles": [
-												"col-2 text-center",
-												"col-10"
-											],
-											"rows": [
-												[
-													"1",
-													"1 dead {@creature behir}"
-												],
-												[
-													"2\u20133",
-													"{@dice 1d4} dead {@creature drow} and {@dice 1d4}\u22121 dead {@creature Giant Lizard||giant lizards}"
-												],
-												[
-													"4\u20135",
-													"{@dice 3d8} dead {@creature Giant Fire Beetle||giant fire beetles} (their glands are no longer glowing)"
-												],
-												[
-													"6\u20137",
-													"{@dice 2d4} dead {@creature Grick||gricks}"
-												],
-												[
-													"8\u20139",
-													"{@dice 2d4} dead {@creature kuo-toa}"
-												],
-												[
-													"10",
-													"1 dead {@creature purple worm}"
-												]
-											]
-										},
-										"Roll a {@dice d6} and consult the Scavengers table to determine what scavengers, if any, are feasting on the remains."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Scavengers",
-									"page": 146,
-									"id": "3a7",
-									"entries": [
-										{
-											"type": "table",
-											"colLabels": [
-												"d6",
-												"Scavengers"
-											],
-											"colStyles": [
-												"col-2 text-center",
-												"col-10"
-											],
-											"rows": [
-												[
-													"1\u20132",
-													"{@dice 1d3} {@creature Black Pudding||black puddings}"
-												],
-												[
-													"3\u20134",
-													"{@dice 1d4} {@creature Carrion Crawler||carrion crawlers}"
-												],
-												[
-													"5",
-													"{@dice 1d6} {@creature Gnoll||gnolls} and {@dice 1d6} {@creature Hyena||hyenas}"
-												],
-												[
-													"6",
-													"1 {@creature otyugh}"
-												]
+											"type": "entries",
+											"name": "Corpses",
+											"page": 146,
+											"id": "3a6",
+											"entries": [
+												{
+													"type": "table",
+													"colLabels": [
+														"d10",
+														"Corpse Present"
+													],
+													"colStyles": [
+														"col-2 text-center",
+														"col-10"
+													],
+													"rows": [
+														[
+															"1",
+															"1 dead {@creature behir}"
+														],
+														[
+															"2\u20133",
+															"{@dice 1d4} dead {@creature drow} and {@dice 1d4}\u22121 dead {@creature Giant Lizard||giant lizards}"
+														],
+														[
+															"4\u20135",
+															"{@dice 3d8} dead {@creature Giant Fire Beetle||giant fire beetles} (their glands are no longer glowing)"
+														],
+														[
+															"6\u20137",
+															"{@dice 2d4} dead {@creature Grick||gricks}"
+														],
+														[
+															"8\u20139",
+															"{@dice 2d4} dead {@creature kuo-toa}"
+														],
+														[
+															"10",
+															"1 dead {@creature purple worm}"
+														]
+													]
+												},
+												"Roll a {@dice d6} and consult the Scavengers table to determine what scavengers, if any, are feasting on the remains.",
+												{
+													"type": "entries",
+													"name": "Scavengers",
+													"page": 146,
+													"id": "3a7",
+													"entries": [
+														{
+															"type": "table",
+															"colLabels": [
+																"d6",
+																"Scavengers"
+															],
+															"colStyles": [
+																"col-2 text-center",
+																"col-10"
+															],
+															"rows": [
+																[
+																	"1\u20132",
+																	"{@dice 1d3} {@creature Black Pudding||black puddings}"
+																],
+																[
+																	"3\u20134",
+																	"{@dice 1d4} {@creature Carrion Crawler||carrion crawlers}"
+																],
+																[
+																	"5",
+																	"{@dice 1d6} {@creature Gnoll||gnolls} and {@dice 1d6} {@creature Hyena||hyenas}"
+																],
+																[
+																	"6",
+																	"1 {@creature otyugh}"
+																]
+															]
+														}
+													]
+												}
 											]
 										}
 									]
@@ -29127,50 +29127,50 @@
 									"page": 146,
 									"id": "3a9",
 									"entries": [
-										"Roll a {@dice d20} and consult the Demon Encounters table to determine what appears. If the characters stumble upon Juiblex and flee immediately, the demon lord doesn't pursue or attack them."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Demon Encounters",
-									"page": 146,
-									"id": "3aa",
-									"entries": [
+										"Roll a {@dice d20} and consult the Demon Encounters table to determine what appears. If the characters stumble upon Juiblex and flee immediately, the demon lord doesn't pursue or attack them.",
 										{
-											"type": "table",
-											"colLabels": [
-												"d20",
-												"Encounter"
-											],
-											"colStyles": [
-												"col-2 text-center",
-												"col-10"
-											],
-											"rows": [
-												[
-													"1\u20134",
-													"{@dice 1d4} {@creature Barlgura||barlguras}"
-												],
-												[
-													"5\u20138",
-													"{@dice 1d4} {@creature Chasme||chasmes}"
-												],
-												[
-													"9\u201310",
-													"{@dice 1d2} {@creature Hezrou||hezrous}"
-												],
-												[
-													"11\u201314",
-													"{@dice 1d4} {@creature shadow} demons"
-												],
-												[
-													"15\u201318",
-													"{@dice 1d3} {@creature Vrock||vrocks}"
-												],
-												[
-													"19\u201320",
-													"{@creature Juiblex|MTF} (see {@adventure appendix D|OotA|20})"
-												]
+											"type": "entries",
+											"name": "Demon Encounters",
+											"page": 146,
+											"id": "3aa",
+											"entries": [
+												{
+													"type": "table",
+													"colLabels": [
+														"d20",
+														"Encounter"
+													],
+													"colStyles": [
+														"col-2 text-center",
+														"col-10"
+													],
+													"rows": [
+														[
+															"1\u20134",
+															"{@dice 1d4} {@creature Barlgura||barlguras}"
+														],
+														[
+															"5\u20138",
+															"{@dice 1d4} {@creature Chasme||chasmes}"
+														],
+														[
+															"9\u201310",
+															"{@dice 1d2} {@creature Hezrou||hezrous}"
+														],
+														[
+															"11\u201314",
+															"{@dice 1d4} {@creature shadow demon||shadow demons}"
+														],
+														[
+															"15\u201318",
+															"{@dice 1d3} {@creature Vrock||vrocks}"
+														],
+														[
+															"19\u201320",
+															"{@creature Juiblex|MTF} (see {@adventure appendix D|OotA|20})"
+														]
+													]
+												}
 											]
 										}
 									]
@@ -29181,38 +29181,38 @@
 									"page": 146,
 									"id": "3ab",
 									"entries": [
-										"A discipline problem is revealed among the NPCs. Roll a {@dice d6} and consult the Discipline Problems table to determine what transpires."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Discipline Problems",
-									"page": 146,
-									"id": "3ac",
-									"entries": [
+										"A discipline problem is revealed among the NPCs. Roll a {@dice d6} and consult the Discipline Problems table to determine what transpires.",
 										{
-											"type": "table",
-											"colLabels": [
-												"d6",
-												"Problem"
-											],
-											"colStyles": [
-												"col-2 text-center",
-												"col-10"
-											],
-											"rows": [
-												[
-													"1\u20132",
-													"A loud argument that has a 50 percent chance of attracting nearby monsters (roll on the Creature Encounters table in {@area chapter 2|07f|x})"
-												],
-												[
-													"3\u20134",
-													"Theft or dispute over the division of spoils"
-												],
-												[
-													"5\u20136",
-													"Brawl or other outbreak of violence"
-												]
+											"type": "entries",
+											"name": "Discipline Problems",
+											"page": 146,
+											"id": "3ac",
+											"entries": [
+												{
+													"type": "table",
+													"colLabels": [
+														"d6",
+														"Problem"
+													],
+													"colStyles": [
+														"col-2 text-center",
+														"col-10"
+													],
+													"rows": [
+														[
+															"1\u20132",
+															"A loud argument that has a 50 percent chance of attracting nearby monsters (roll on the Creature Encounters table in {@area chapter 2|07f|x})"
+														],
+														[
+															"3\u20134",
+															"Theft or dispute over the division of spoils"
+														],
+														[
+															"5\u20136",
+															"Brawl or other outbreak of violence"
+														]
+													]
+												}
 											]
 										}
 									]
@@ -29223,42 +29223,42 @@
 									"page": 146,
 									"id": "3ad",
 									"entries": [
-										"One or more NPC party members contract a disease. Roll a {@dice d4} to determine how many NPCs are affected, then roll a {@dice d6} and consult the Diseases table to determine which disease is contracted. See in chapter 8, \"{@book Running the Game|DMG|8|Diseases},\" in the {@i Dungeon Master's Guide} for descriptions of cackle fever, sewer plague, and sight rot."
-									]
-								},
-								{
-									"type": "entries",
-									"name": "Diseases",
-									"page": 146,
-									"id": "3ae",
-									"entries": [
+										"One or more NPC party members contract a disease. Roll a {@dice d4} to determine how many NPCs are affected, then roll a {@dice d6} and consult the Diseases table to determine which disease is contracted. See in chapter 8, \"{@book Running the Game|DMG|8|Diseases},\" in the {@i Dungeon Master's Guide} for descriptions of cackle fever, sewer plague, and sight rot.",
 										{
-											"type": "table",
-											"colLabels": [
-												"d6",
-												"Disease"
-											],
-											"colStyles": [
-												"col-2 text-center",
-												"col-10"
-											],
-											"rows": [
-												[
-													"1\u20132",
-													"Cackle fever"
-												],
-												[
-													"3\u20134",
-													"Sewer plague"
-												],
-												[
-													"5",
-													"Sight rot"
-												],
-												[
-													"6",
-													"Zuggtmoy's spores (see chapter 5, \"{@area Neverlight Grove|224|x}\")"
-												]
+											"type": "entries",
+											"name": "Diseases",
+											"page": 146,
+											"id": "3ae",
+											"entries": [
+												{
+													"type": "table",
+													"colLabels": [
+														"d6",
+														"Disease"
+													],
+													"colStyles": [
+														"col-2 text-center",
+														"col-10"
+													],
+													"rows": [
+														[
+															"1\u20132",
+															"Cackle fever"
+														],
+														[
+															"3\u20134",
+															"Sewer plague"
+														],
+														[
+															"5",
+															"Sight rot"
+														],
+														[
+															"6",
+															"Zuggtmoy's spores (see chapter 5, \"{@area Neverlight Grove|224|x}\")"
+														]
+													]
+												}
 											]
 										}
 									]
@@ -30154,7 +30154,7 @@
 											"type": "insetReadaloud",
 											"id": "3fa",
 											"entries": [
-												"An imperious drow archwizard in spider-silk robes casts a mighty conjuration spell. As the ritual draws toward its conclusion, a web of {@i faerzress} energy expands outward. The wizard seems alarmed by this, his efforts to complete the spell growing more crazed as he realizes he's lost control.",
+												"An imperious drow archwizard in spider silk robes casts a mighty conjuration spell. As the ritual draws toward its conclusion, a web of {@i faerzress} energy expands outward. The wizard seems alarmed by this, his efforts to complete the spell growing more crazed as he realizes he's lost control.",
 												"And then, madness! Rifts open in the web of energy around him. These cracks stretch and widen, and through them come horrific fiends that scream, shriek, and howl as they are wrenched from the Abyss and cast into the Underdark.",
 												"A woman's deep, dark laugh echoes in your mind as the drow wizard shrinks away from the demonic hordes he has unwittingly unleashed."
 											]
@@ -30584,7 +30584,7 @@
 										"Gromph Baenre vanished following the ritual. Vizeran has not been able to detect any trace of his rival archmage using any of the resources at his command.",
 										"Demogorgon, the Prince of Demons, arrived in the Claw Rift of Menzoberranzan and rampaged through the city before escaping into the wider Underdark.",
 										"The intended purpose of Gromph's ritual is unclear, but Vizeran believes that his rival meant to summon and bind one specific demon lord. Vizeran finds it difficult to believe that even Gromph could be arrogant enough to think he could bind all the demon lords of the Abyss at once.",
-										"The fact that the summoning originated in Menzoberranzan remains largely unknown. If the other races of the Underdark knew, they would have already moved against the drow. The dark elves almost certainly wish to keep this information a secret\u2014assuming they even know itthemselves.",
+										"The fact that the summoning originated in Menzoberranzan remains largely unknown. If the other races of the Underdark knew, they would have already moved against the drow. The dark elves almost certainly wish to keep this information a secret\u2014assuming they even know it themselves.",
 										"Vizeran knows of no means by which Gromph Baenre's ritual can be reversed. However, he believes there might be a different means of sending the demon lords back to the Abyss (see \"Vizeran's Plan\")."
 									]
 								}
@@ -31015,9 +31015,9 @@
 									"grid": {
 										"type": "square",
 										"size": 87,
-										"offsetX": -60,
-										"offsetY": -44,
-										"distance": 10
+										"offsetX": -120,
+										"offsetY": -88,
+										"scale": 2
 									},
 									"mapRegions": [
 										{
@@ -33682,9 +33682,9 @@
 									"grid": {
 										"type": "square",
 										"size": 73,
-										"offsetX": 12,
-										"offsetY": 26,
-										"distance": 10
+										"offsetX": 24,
+										"offsetY": 52,
+										"scale": 2
 									}
 								}
 							]
@@ -33795,7 +33795,7 @@
 									"page": 170,
 									"id": "44d",
 									"entries": [
-										"Within the cave, four zurkhwood boxes hold a 50-foot length of spider-silk rope, four flasks of oil, twenty pounds of rancid food, a pile of moldy blankets, six maces and sixteen javelins (all battered but usable), four casks of unspoiled wine worth 10 gp each, and a locked tribute chest. It takes a successful {@dc 15} Dexterity check using thieves' tools to open the chest, which contains 180 gp (minted in Menzoberranzan and Gracklstugh), three gems each worth 50 gp each, a {@item potion of gaseous form}, and a {@item +1 dagger} with silvery, weblike filigree worked into the hilt. The dagger is of drow manufacture (see the \"{@adventure Drowcraft Items|OotA|18}\" sidebar in appendix B). The crude litters that the troglodytes use to bear these goods are propped up against the cave wall."
+										"Within the cave, four zurkhwood boxes hold a 50-foot length of spider silk rope, four flasks of oil, twenty pounds of rancid food, a pile of moldy blankets, six maces and sixteen javelins (all battered but usable), four casks of unspoiled wine worth 10 gp each, and a locked tribute chest. It takes a successful {@dc 15} Dexterity check using thieves' tools to open the chest, which contains 180 gp (minted in Menzoberranzan and Gracklstugh), three gems each worth 50 gp each, a {@item potion of gaseous form}, and a {@item +1 dagger} with silvery, weblike filigree worked into the hilt. The dagger is of drow manufacture (see the \"{@adventure Drowcraft Items|OotA|18}\" sidebar in appendix B). The crude litters that the troglodytes use to bear these goods are propped up against the cave wall."
 									]
 								}
 							]
@@ -33825,7 +33825,7 @@
 							"page": 170,
 							"id": "450",
 							"entries": [
-								"H'Slaat stationed four {@creature Troglodyte||troglodytes} here to watch for any of S'Slaar's forces that might try to make their way into attack position through the outer caverns. These guards are always on alert. One of them carries a horn that it sounds in the event of an attack. If the horn is blown, eight of the troglodytes in area 2 come through area 5 and into this cave to investigate and shore up the defenses."
+								"H'slaat stationed four {@creature Troglodyte||troglodytes} here to watch for any of S'slaar's forces that might try to make their way into attack position through the outer caverns. These guards are always on alert. One of them carries a horn that it sounds in the event of an attack. If the horn is blown, eight of the troglodytes in area 2 come through area 5 and into this cave to investigate and shore up the defenses."
 							]
 						},
 						{
@@ -33932,7 +33932,7 @@
 								{
 									"type": "list",
 									"items": [
-										"H'slaat orders his fellow troglodytes in area 2 to rush across the stream while the troglodytes in area 3 rain javelins down on the chieftain's forces. Meanwhile, H'Slaat grabs H'hoort from area 3.",
+										"H'slaat orders his fellow troglodytes in area 2 to rush across the stream while the troglodytes in area 3 rain javelins down on the chieftain's forces. Meanwhile, H'slaat grabs H'hoort from area 3.",
 										"H'slaat crosses the stream, dragging her behind him. He threatens to kill her unless the chieftain meets him in battle.",
 										"The troglodytes in areas 5 and 7 try to make their way through the side caverns to attack the chieftain's forces in area 4 from the rear. However, if the ropers and piercers in area 8 have not already been killed by the adventurers, the troglodytes are {@status surprised} and massacred.",
 										"S'slaar's cavalry in area 14 makes its way through the western side caves and attack H'slaat's forces from behind."
@@ -34025,9 +34025,9 @@
 									"grid": {
 										"type": "square",
 										"size": 89,
-										"offsetX": -33,
-										"offsetY": 35,
-										"distance": 10
+										"offsetX": -66,
+										"offsetY": 70,
+										"scale": 2
 									},
 									"mapRegions": [
 										{
@@ -37554,9 +37554,9 @@
 									"grid": {
 										"type": "square",
 										"size": 74,
-										"offsetX": 50,
-										"offsetY": 32,
-										"distance": 10
+										"offsetX": 100,
+										"offsetY": 64,
+										"scale": 2
 									}
 								}
 							]
@@ -37804,7 +37804,7 @@
 							"page": 174,
 							"id": "477",
 							"entries": [
-								"Giant spiders enjoy a symbiotic relationship with purple worms and are frequently found lairing in purple worm nurseries. The multitude of predators that seek out the worms' eggs provide the spiders with easy prey, while the presence of the spiders provides additional protection for thehatchery.",
+								"Giant spiders enjoy a symbiotic relationship with purple worms and are frequently found lairing in purple worm nurseries. The multitude of predators that seek out the worms' eggs provide the spiders with easy prey, while the presence of the spiders provides additional protection for the hatchery.",
 								"The eastern half of this cavern floor is covered in webs stretching up to the ceiling. See \"{@book Dungeon Hazards|DMG|5|Dungeon Hazards}\" in chapter 5 of the {@i Dungeon Master's Guide} for rules about webs. Eight {@creature Giant Spider||giant spiders} lurk in the nest, minus any killed elsewhere in the nursery."
 							]
 						},
@@ -38244,7 +38244,7 @@
 											"width": 944,
 											"height": 1000
 										},
-										"A {@creature gnoll fang of Yeenoghu} named {@creature Kurr|OotA} made his way into the Labyrinth shortly after Yeenoghu was summoned to the Underdark. {@creature Kurr|OotA} brought with him a pack of hyenas and had them feast on the corpses of his slain victims. This heinous act transformed the hyenas into ten {@creature Gnoll||gnolls}. {@creature Kurr|OotA}'s pack now prowls the Labyrinth in search of Yeenoghu, slaughtering anything and anyone they happen upon.",
+										"A {@creature gnoll fang of Yeenoghu} named {@creature Kurr|OotA} made his way into the Labyrinth shortly after Yeenoghu was summoned to the Underdark. {@creature Kurr|OotA} brought with him a pack of hyenas and had them feast on the corpses of his slain victims. This heinous act transformed the hyenas into ten {@creature Gnoll||gnolls}. {@creature Kurr|OotA|Kurr's} pack now prowls the Labyrinth in search of Yeenoghu, slaughtering anything and anyone they happen upon.",
 										"Unknown to his gnoll progeny, {@creature Kurr|OotA} has succumbed to a form of madness that quells his feral demeanor. He's lost his appetite for carnage and is overcome with guilt for all of the creatures he has slain. When his pack happens upon the party, he sends his gnolls into battle but doesn't partake of the violence, hoping that the characters slaughter his brethren. Once they are dead, {@creature Kurr|OotA} bows his head solemnly, begs Yeenoghu's forgiveness (first in his own language and then in Abyssal), and then throws himself at the party's mercy.",
 										"{@creature Kurr|OotA} is suffering from a form of indefinite madness (see \"{@book Madness|DMG|8|Madness}\" in chapter 8 of the {@i Dungeon Master's Guide}) which, if cured, reverts him to a typically feral gnoll. While afflicted with madness, {@creature Kurr|OotA} can't bring himself to kill any living creature except in self-defense. If the characters spare his life, {@creature Kurr|OotA} can act as a guide, for he has explored a great deal of the Labyrinth and can lead the characters along a safe route to an Underdark shanty town (see \"{@area Filthriddens|4b2|x}\"). Characters have no random encounters if they follow {@creature Kurr|OotA} along this route, although they periodically stumble upon the corpses and bones of Underdark creatures slain by his gnolls.",
 										"The encounter with {@creature Kurr|OotA}'s pack occurs only once. Any subsequent occurrence of this encounter is with a pack of {@dice 3d6} {@creature Gnoll||gnolls}. These gnolls came to the Underdark with Yeenoghu. They cackle and scream the demon lord's name as they tear into their prey."
@@ -41722,7 +41722,7 @@
 									"page": 211,
 									"id": "58b",
 									"entries": [
-										"Warped by Demogorgon's presence in the Underdark, these trolls have each grown a second head. As part of its Multiattack routine, a two-headed troll can make a Bite attack as a bonus action on its turn. The party encounters {@dice 1d4 + 1} of these hungry creatures, which otherwise have the statistics of a normal troll."
+										"Warped by Demogorgon's presence in the Underdark, these trolls have each grown a second head. As part of its Multiattack routine, a {@creature two-headed troll|OotA} can make a Bite attack as a bonus action on its turn. The party encounters {@dice 1d4 + 1} of these hungry creatures, which otherwise have the statistics of a normal troll."
 									]
 								}
 							]
@@ -42367,7 +42367,7 @@
 							"page": 219,
 							"id": "5c3",
 							"entries": [
-								"When Orcus is defeated, he drops the {@item Wand of Orcus} (see {@book chapter 7|DMG|-1} of the {@i Dungeon Master's Guide}), which falls to the ground. A party member can try to grab the wand before Demogorgon seizes it as a trophy, but any such theft draws the attention and ire of the Prince of Demons. Angry at its master's defeat, the {@item Wand of Orcus} tries to attune itself to the first willing creature other than Demogorgon that touches it. The attunement is instantaneous, allowing the wand's properties to be used during the battle."
+								"When Orcus is defeated, he drops the {@item Wand of Orcus} (see {@book chapter 7|DMG|7} of the {@i Dungeon Master's Guide}), which falls to the ground. A party member can try to grab the wand before Demogorgon seizes it as a trophy, but any such theft draws the attention and ire of the Prince of Demons. Angry at its master's defeat, the {@item Wand of Orcus} tries to attune itself to the first willing creature other than Demogorgon that touches it. The attunement is instantaneous, allowing the wand's properties to be used during the battle."
 							]
 						},
 						{
@@ -43020,6 +43020,13 @@
 							]
 						}
 					]
+				},
+				{
+					"type": "entries",
+					"entries": [
+						"{@note Disclaimer: Before you take on demon lords, consult a physician. Do not drink alcohol while taking on demon lords. Taking alcohol and demon lords may increase your risk of death. Other side effects of demon lords may include hallucinations, mindless rage, gluttony, greed, paranoia, self-delusion, bestial urges, nihilism, hedonism, megalomania, a messiah complex, cannibalism, multiple personalities, and homicidal psychosis.}"
+					],
+					"id": "5df"
 				}
 			],
 			"id": "5de"

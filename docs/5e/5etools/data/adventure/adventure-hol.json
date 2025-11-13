@@ -870,8 +870,8 @@
 									"grid": {
 										"type": "square",
 										"size": 150,
-										"offsetX": -57,
-										"distance": 10
+										"offsetX": -114,
+										"scale": 2
 									},
 									"title": "Map 4.1: The House of Lament",
 									"width": 4000,
@@ -3181,8 +3181,8 @@
 									"grid": {
 										"type": "square",
 										"size": 150,
-										"offsetX": -60,
-										"distance": 10
+										"offsetX": -120,
+										"scale": 2
 									},
 									"title": "Player Version",
 									"width": 4000,
@@ -4956,6 +4956,13 @@
 							"height": 607
 						}
 					]
+				},
+				{
+					"type": "entries",
+					"entries": [
+						"{@note Disclaimer: By the sole act of opening this book, you acknowledge your complicity in the domains-spanning conspiracy that denied me, Azalin Rex, Wizard-King of Darkon, my rightful place as both author of and cover model for what could have been so much more than this doubtful collection of lies and slanders. Fortunately, as I've recently found my immortality unburdened by the trivialities of rule, I have endless opportunity to pursue thorough vengeances for even the pettiest affronts. Please prepare for my coming. I expect to be quartered in the utmost comfort while we personalize your redefinition of the word \"horror.\"}"
+					],
+					"id": "001"
 				}
 			],
 			"id": "04c"

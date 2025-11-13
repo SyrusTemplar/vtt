@@ -2,7 +2,7 @@
 
 // in deployment, `IS_DEPLOYED = "<version number>";` should be set below.
 globalThis.IS_DEPLOYED = undefined;
-globalThis.VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"2.8.8"/* 5ETOOLS_VERSION__CLOSE */;
+globalThis.VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"2.16.0"/* 5ETOOLS_VERSION__CLOSE */;
 globalThis.DEPLOYED_IMG_ROOT = undefined;
 // for the roll20 script to set
 globalThis.IS_VTT = false;
@@ -489,6 +489,7 @@ CleanUtil.SHARED_REPLACEMENTS = {
 	"’": "'",
 	"‘": "'",
 	"": "'",
+	"\u02BC": "'",
 	"…": "...",
 	"\u200B": "", // zero-width space
 	"\u2002": " ", // em space
@@ -532,6 +533,7 @@ globalThis.SourceUtil = class {
 		{group: "setting", displayName: "Settings"},
 		{group: "setting-alt", displayName: "Additional Settings"},
 		{group: "supplement-alt", displayName: "Extras"},
+		{group: "organized-play", displayName: "Organized Play"},
 		{group: "prerelease", displayName: "Prerelease"},
 		{group: "homebrew", displayName: "Homebrew"},
 		{group: "screen", displayName: "Screens"},
@@ -845,7 +847,7 @@ class TemplateUtil {
 					const parts2 = [...passed[0]];
 					const args2 = passed.slice(1);
 					parts2[0] = `<div>${parts2[0]}`;
-					parts2.last(`${parts2.last()}</div>`);
+					parts2.last(`${parts2.at(-1)}</div>`);
 
 					const eleParts = parts instanceof jQuery ? parts[0] : parts;
 					const $temp = $$(parts2, ...args2);
@@ -861,7 +863,9 @@ class TemplateUtil {
 					if (arg instanceof Array) return arg.flatMap(argSub => argSub instanceof jQuery ? argSub.get() : argSub);
 					return arg instanceof jQuery ? arg.get() : arg;
 				});
-			return $(ee(partsNxt, ...argsNxt));
+			const ele = ee(partsNxt, ...argsNxt);
+			if (ele?.nodeType === Node.DOCUMENT_FRAGMENT_NODE) return $([...ele.children]);
+			return $(ele);
 		};
 	}
 
@@ -875,12 +879,18 @@ class TemplateUtil {
 		 * @return {HTMLElementExtended}
 		 */
 		globalThis.ee = (parts, ...args) => {
+			// eslint-disable-next-line vet-jquery/jquery
+			if (parts instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
+			// eslint-disable-next-line vet-jquery/jquery
+			if (args?.some(arg => arg instanceof $)) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
 			if (parts instanceof Node) {
 				return (...passed) => {
 					const parts2 = [...passed[0]];
 					const args2 = passed.slice(1);
 					parts2[0] = `<div>${parts2[0]}`;
-					parts2.last(`${parts2.last()}</div>`);
+					parts2.last(`${parts2.at(-1)}</div>`);
 
 					const eleTmp = ee(parts2, ...args2);
 					Array.from(eleTmp.childNodes).forEach(node => parts.appendChild(node));
@@ -920,9 +930,11 @@ class TemplateUtil {
 			// If the caller has passed in a single element, return it
 			if (childNodes.length === 1) return e_({ele: childNodes[0]});
 
-			// If the caller has passed in multiple elements with no wrapper, return an array
-			return childNodes
-				.map(childNode => e_({ele: childNode}));
+			// If the caller has passed in multiple elements with no wrapper, return a fragment
+			const fragment = document.createDocumentFragment();
+			childNodes
+				.forEach(childNode => fragment.appendChild(e_({ele: childNode})));
+			return fragment;
 		};
 	}
 
@@ -943,8 +955,6 @@ globalThis.JqueryUtil = {
 	initEnhancements () {
 		if (JqueryUtil._isEnhancementsInit) return;
 		JqueryUtil._isEnhancementsInit = true;
-
-		JqueryUtil.addSelectors();
 
 		TemplateUtil.initVanilla();
 		TemplateUtil.initJquery();
@@ -983,21 +993,6 @@ globalThis.JqueryUtil = {
 			remove: function (o) {
 				if (o.handler) o.handler();
 			},
-		};
-	},
-
-	addSelectors () {
-		// Add a selector to match exact text (case insensitive) to jQuery's arsenal
-		//   Note that the search text should be `trim().toLowerCase()`'d before being passed in
-		$.expr[":"].textEquals = (el, i, m) => $(el).text().toLowerCase().trim() === m[3].unescapeQuotes();
-
-		// Add a selector to match contained text (case insensitive)
-		$.expr[":"].containsInsensitive = (el, i, m) => {
-			const searchText = m[3];
-			const textNode = $(el).contents().filter((i, e) => e.nodeType === 3)[0];
-			if (!textNode) return false;
-			const match = textNode.nodeValue.toLowerCase().trim().match(`${searchText.toLowerCase().trim().escapeRegexp()}`);
-			return match && match.length > 0;
 		};
 	},
 
@@ -1043,12 +1038,12 @@ globalThis.JqueryUtil = {
 	},
 
 	_dropdownInit: false,
-	bindDropdownButton ($ele) {
+	bindDropdownButton (ele) {
 		if (!JqueryUtil._dropdownInit) {
 			JqueryUtil._dropdownInit = true;
 			document.addEventListener("click", () => [...document.querySelectorAll(`.open`)].filter(ele => !(ele.className || "").split(" ").includes(`dropdown--navbar`)).forEach(ele => ele.classList.remove("open")));
 		}
-		$ele.click(() => setTimeout(() => $ele.parent().addClass("open"), 1)); // defer to allow the above to complete
+		ele.onn("click", () => setTimeout(() => ele.parente().addClass("open"), 1)); // defer to allow the above to complete
 	},
 
 	_WRP_TOAST: null,
@@ -1173,6 +1168,7 @@ class ElementUtil {
 	static _ATTRS_NO_FALSY = new Set([
 		"checked",
 		"disabled",
+		"readonly",
 	]);
 
 	/**
@@ -1181,8 +1177,13 @@ class ElementUtil {
 	 *
 	 * @property {function(string): ?HTMLElementExtended} find
 	 * @property {function(string): Array<HTMLElementExtended>} findAll
+	 * @property {function(string=): ?HTMLElementExtended} prev
+	 * @property {function(): Array<HTMLElementExtended>} prevAll
+	 * @property {function(string=): ?HTMLElementExtended} next
+	 * @property {function(): Array<HTMLElementExtended>} nextAll
 	 *
 	 * @property {function(HTMLElement|string): HTMLElementExtended} appends
+	 * @property {function(HTMLElement|string): HTMLElementExtended} prepends
 	 * @property {function(HTMLElement): HTMLElementExtended} appendTo
 	 * @property {function(HTMLElement): HTMLElementExtended} prependTo
 	 * @property {function(HTMLElement|string): HTMLElementExtended} aftere
@@ -1191,6 +1192,7 @@ class ElementUtil {
 	 * @property {function(string): HTMLElementExtended} addClass
 	 * @property {function(string): HTMLElementExtended} removeClass
 	 * @property {function(string, ?boolean): HTMLElementExtended} toggleClass
+	 * @property {function(string): boolean} hasClass
 	 *
 	 * @property {function(): HTMLElementExtended} showVe
 	 * @property {function(): HTMLElementExtended} hideVe
@@ -1220,10 +1222,24 @@ class ElementUtil {
 	 *
 	 * @property {function(string): HTMLElementExtended} trigger
 	 *
-	 * @property {function(string): HTMLElementExtended} first
+	 * @property {function(string=): HTMLElementExtended} first
 	 * @property {function(string): HTMLElementExtended} closeste
 	 * @property {function(string): Array<HTMLElementExtended>} childrene
 	 * @property {function(string): Array<HTMLElementExtended>} siblings
+	 * @property {function(): HTMLElementExtended} parente
+	 *
+	 * @property {function(): number} outerWidthe
+	 * @property {function(): number} outerWidthe
+	 * @property {function(): number} outerHeighte
+	 * @property {function(): number} outerHeighte
+	 *
+	 * @property {function(): HTMLElementExtended} focuse
+	 * @property {function(): HTMLElementExtended} selecte
+	 * @property {function(): HTMLElementExtended} blure
+	 *
+	 * @property {function(?number): HTMLElementExtended} scrollTope
+	 *
+	 * @property {function(string): boolean} is
 	 *
 	 * @return {HTMLElementExtended}
 	 */
@@ -1244,6 +1260,7 @@ class ElementUtil {
 			pointerup,
 			keydown,
 			html,
+			/** @deprecated */
 			text,
 			txt,
 			children,
@@ -1273,6 +1290,9 @@ class ElementUtil {
 		});
 		ele = metaEle.ele;
 
+		// TODO(Future) remove `text` option
+		const _txt = txt ?? text;
+
 		if (clazz) ele.className = clazz;
 		if (style) ele.setAttribute("style", style);
 		if (click) ele.addEventListener("click", click);
@@ -1285,7 +1305,10 @@ class ElementUtil {
 		if (pointerup) ele.addEventListener("pointerup", pointerup);
 		if (keydown) ele.addEventListener("keydown", keydown);
 		if (html != null) ele.innerHTML = html;
-		if (text != null || txt != null) ele.textContent = text;
+		if (_txt != null) {
+			if (ele instanceof HTMLOptionElement) ele.text = _txt;
+			else ele.textContent = _txt;
+		}
 		if (id != null && metaEle.isSetId) ele.setAttribute("id", id);
 		if (name != null) ele.setAttribute("name", name);
 		if (title != null) ele.setAttribute("title", title);
@@ -1310,7 +1333,12 @@ class ElementUtil {
 
 		ele.find = ele.find || ElementUtil._find.bind(ele);
 		ele.findAll = ele.findAll || ElementUtil._findAll.bind(ele);
+		ele.prev = ele.prev || ElementUtil._prev.bind(ele);
+		ele.prevAll = ele.prevAll || ElementUtil._prevAll.bind(ele);
+		ele.next = ele.next || ElementUtil._next.bind(ele);
+		ele.nextAll = ele.nextAll || ElementUtil._nextAll.bind(ele);
 		ele.appends = ele.appends || ElementUtil._appends.bind(ele);
+		ele.prepends = ele.prepends || ElementUtil._prepends.bind(ele);
 		ele.appendTo = ele.appendTo || ElementUtil._appendTo.bind(ele);
 		ele.prependTo = ele.prependTo || ElementUtil._prependTo.bind(ele);
 		ele.aftere = ele.aftere || ElementUtil._aftere.bind(ele);
@@ -1318,6 +1346,7 @@ class ElementUtil {
 		ele.addClass = ele.addClass || ElementUtil._addClass.bind(ele);
 		ele.removeClass = ele.removeClass || ElementUtil._removeClass.bind(ele);
 		ele.toggleClass = ele.toggleClass || ElementUtil._toggleClass.bind(ele);
+		ele.hasClass = ele.hasClass || ElementUtil._hasClass.bind(ele);
 		ele.showVe = ele.showVe || ElementUtil._showVe.bind(ele);
 		ele.hideVe = ele.hideVe || ElementUtil._hideVe.bind(ele);
 		ele.toggleVe = ele.toggleVe || ElementUtil._toggleVe.bind(ele);
@@ -1343,8 +1372,14 @@ class ElementUtil {
 		ele.closeste = ele.closeste || ElementUtil._closeste.bind(ele);
 		ele.childrene = ele.childrene || ElementUtil._childrene.bind(ele);
 		ele.siblings = ele.siblings || ElementUtil._siblings.bind(ele);
+		ele.parente = ele.parente || ElementUtil._parente.bind(ele);
 		ele.outerWidthe = ele.outerWidthe || ElementUtil._outerWidthe.bind(ele);
 		ele.outerHeighte = ele.outerHeighte || ElementUtil._outerHeighte.bind(ele);
+		ele.focuse = ele.focuse || ElementUtil._focuse.bind(ele);
+		ele.selecte = ele.selecte || ElementUtil._selecte.bind(ele);
+		ele.blure = ele.blure || ElementUtil._blure.bind(ele);
+		ele.scrollTope = ele.scrollTope || ElementUtil._scrollTope.bind(ele);
+		ele.is = ele.is || ElementUtil._is.bind(ele);
 
 		return ele;
 	}
@@ -1382,26 +1417,86 @@ class ElementUtil {
 	}
 
 	/** @this {HTMLElementExtended} */
+	static _prev (selector) {
+		let prv = this.previousElementSibling;
+		if (selector != null) while (prv && !prv.matches(selector)) prv = prv.previousElementSibling;
+		return prv ? e_({ele: prv}) : null;
+	}
+
+	/** @this {HTMLElementExtended} */
+	static _prevAll () {
+		const out = [];
+		let tmp = this;
+		while (tmp.previousElementSibling) {
+			out.push(e_({ele: tmp.previousElementSibling}));
+			tmp = tmp.previousElementSibling;
+		}
+		return out;
+	}
+
+	/** @this {HTMLElementExtended} */
+	static _next (selector) {
+		let nxt = this.nextElementSibling;
+		if (selector != null) while (nxt && !nxt.matches(selector)) nxt = nxt.nextElementSibling;
+		return nxt ? e_({ele: nxt}) : null;
+	}
+
+	/** @this {HTMLElementExtended} */
+	static _nextAll () {
+		const out = [];
+		let tmp = this;
+		while (tmp.nextElementSibling) {
+			out.push(e_({ele: tmp.nextElementSibling}));
+			tmp = tmp.nextElementSibling;
+		}
+		return out;
+	}
+
+	/** @this {HTMLElementExtended} */
 	static _appends (child) {
 		if (typeof child === "string") child = ee`${child}`;
+
+		// eslint-disable-next-line vet-jquery/jquery
+		if (child instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
 		this.appendChild(child);
 		return this;
 	}
 
 	/** @this {HTMLElementExtended} */
+	static _prepends (child) {
+		if (typeof child === "string") child = ee`${child}`;
+
+		// eslint-disable-next-line vet-jquery/jquery
+		if (child instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
+		this.prepend(child);
+		return this;
+	}
+
+	/** @this {HTMLElementExtended} */
 	static _appendTo (parent) {
+		// eslint-disable-next-line vet-jquery/jquery
+		if (parent instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
 		parent.appendChild(this);
 		return this;
 	}
 
 	/** @this {HTMLElementExtended} */
 	static _prependTo (parent) {
+		// eslint-disable-next-line vet-jquery/jquery
+		if (parent instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
 		parent.prepend(this);
 		return this;
 	}
 
 	/** @this {HTMLElementExtended} */
 	static _aftere (other) {
+		// eslint-disable-next-line vet-jquery/jquery
+		if (other instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
 		if (typeof other === "string") other = ee`${other}`;
 		this.after(other);
 		return this;
@@ -1409,6 +1504,9 @@ class ElementUtil {
 
 	/** @this {HTMLElementExtended} */
 	static _insertAfter (parent) {
+		// eslint-disable-next-line vet-jquery/jquery
+		if (parent instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
 		parent.after(this);
 		return this;
 	}
@@ -1431,6 +1529,11 @@ class ElementUtil {
 		else if (isActive) this.classList.add(clazz);
 		else this.classList.remove(clazz);
 		return this;
+	}
+
+	/** @this {HTMLElementExtended} */
+	static _hasClass (clazz) {
+		return this.classList.contains(clazz);
 	}
 
 	/** @this {HTMLElementExtended} */
@@ -1494,6 +1597,7 @@ class ElementUtil {
 
 	/** @this {HTMLElementExtended} */
 	static _tooltip (title) {
+		if (title === undefined) return this.getAttribute("title");
 		return this.attr("title", title);
 	}
 
@@ -1560,7 +1664,8 @@ class ElementUtil {
 			}
 
 			default: {
-				this.value = val;
+				if (val === undefined) this.value = null;
+				else this.value = val;
 				return this;
 			}
 		}
@@ -1568,6 +1673,9 @@ class ElementUtil {
 
 	/** @this {HTMLElementExtended} */
 	static _first (selector) {
+		if (selector == null) {
+			return this.firstElementChild ? e_({ele: this.firstElementChild}) : this.firstElementChild;
+		}
 		const child = this.querySelector(selector);
 		if (!child) return child;
 		return e_({ele: child});
@@ -1600,10 +1708,54 @@ class ElementUtil {
 	}
 
 	/** @this {HTMLElementExtended} */
+	static _parente (selector) {
+		if (selector) throw new Error(`.parente "select" argument is not supported!`);
+		return this.parentElement ? e_({ele: this.parentElement}) : null;
+	}
+
+	/** @this {HTMLElementExtended} */
 	static _outerWidthe () { return this.getBoundingClientRect().width; }
 
 	/** @this {HTMLElementExtended} */
 	static _outerHeighte () { return this.getBoundingClientRect().height; }
+
+	/** @this {HTMLElementExtended} */
+	static _focuse () {
+		this.focus();
+		return this;
+	}
+
+	/** @this {HTMLElementExtended} */
+	static _selecte () {
+		this.select();
+		return this;
+	}
+
+	/** @this {HTMLElementExtended} */
+	static _blure () {
+		this.blur();
+		return this;
+	}
+
+	/* -------------------------------------------- */
+
+	/** @this {HTMLElementExtended} */
+	static _scrollTope (val) {
+		this.scrollTop = val;
+		return this;
+	}
+
+	/* -------------------------------------------- */
+
+	/** @this {HTMLElementExtended} */
+	static _is (nodeTypeOrEle) {
+		// eslint-disable-next-line vet-jquery/jquery
+		if (nodeTypeOrEle instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
+		if (typeof nodeTypeOrEle === "string") return this.nodeName.toLowerCase() === nodeTypeOrEle.toLowerCase();
+
+		return nodeTypeOrEle === this;
+	}
 
 	/* -------------------------------------------- */
 
@@ -1611,6 +1763,9 @@ class ElementUtil {
 	 * @return {?HTMLElementExtended}
 	 */
 	static getBySelector (selector, parent) {
+		// eslint-disable-next-line vet-jquery/jquery
+		if (parent instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
 		const ele = (parent || document).querySelector(selector);
 		if (!ele) return null;
 		return e_({ele});
@@ -1620,6 +1775,9 @@ class ElementUtil {
 	 * @return {Array<HTMLElementExtended>}
 	 */
 	static getBySelectorMulti (selector, parent) {
+		// eslint-disable-next-line vet-jquery/jquery
+		if (parent instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
 		return [...(parent || document).querySelectorAll(selector)]
 			.map(ele => e_({ele}));
 	}
@@ -1858,7 +2016,7 @@ globalThis.MiscUtil = class {
 			object = object[path[i]];
 			if (object == null) return object;
 		}
-		return delete object[path.last()];
+		return delete object[path.at(-1)];
 	}
 
 	/** Delete a prop from a nested object, then all now-empty objects backwards from that point. */
@@ -1871,7 +2029,7 @@ globalThis.MiscUtil = class {
 			stack.push(object);
 			if (object === undefined) return object;
 		}
-		const out = delete object[path.last()];
+		const out = delete object[path.at(-1)];
 
 		for (let i = path.length - 1; i > 0; --i) {
 			if (!Object.keys(stack[i]).length) delete stack[i - 1][path[i - 1]];
@@ -2725,6 +2883,29 @@ globalThis.EventUtil = class {
 
 	static isMiddleMouse (evt) { return evt.button === 1; }
 
+	static getDeltaPixels (evt, {lineHeight = null} = {}) {
+		const {deltaX, deltaY, deltaMode} = evt;
+		return {
+			deltaPixelsX: deltaX ? this._getDeltaPixels({delta: deltaX, deltaMode, lineHeight}) : 0,
+			deltaPixelsY: deltaY ? this._getDeltaPixels({delta: deltaY, deltaMode, lineHeight}) : 0,
+		};
+	}
+
+	static _getDeltaPixels ({delta, deltaMode, lineHeight = null}) {
+		switch (deltaMode) {
+			case WheelEvent.DOM_DELTA_PIXEL: return delta;
+			case WheelEvent.DOM_DELTA_LINE: return delta * (lineHeight ?? this._getInitDeltaPixelsLineHeight());
+			case WheelEvent.DOM_DELTA_PAGE: return delta * window.innerHeight;
+			default: throw new Error(`Unimplemented!`);
+		}
+	}
+
+	static _DELTA_PIXELS_LINE_HEIGHT_DEFAULT = null;
+
+	static _getInitDeltaPixelsLineHeight () {
+		return (this._DELTA_PIXELS_LINE_HEIGHT_DEFAULT ??= Number(window.getComputedStyle(document.body).lineHeight.replace(/px$/, "")));
+	}
+
 	/* -------------------------------------------- */
 
 	// In order of preference/priority.
@@ -3392,7 +3573,14 @@ globalThis.UrlUtil = {
 
 	pageToDisplayPage (page) { return UrlUtil.PG_TO_NAME[page] || (page || "").replace(/\.html$/, ""); },
 
-	getFilename (url) { return url.slice(url.lastIndexOf("/") + 1); },
+	getFilename (url) {
+		const out = url.slice(url.lastIndexOf("/") + 1);
+		try {
+			return decodeURIComponent(out);
+		} catch (e) {
+			return out;
+		}
+	},
 
 	isFullUrl (url) { return url && /^.*?:\/\//.test(url); },
 
@@ -3953,7 +4141,7 @@ globalThis.SortUtil = {
 
 		function popEndNumber (str) {
 			const spl = str.split(" ");
-			return spl.last().isNumeric() ? [spl.slice(0, -1).join(" "), Number(spl.last().replace(Parser._numberCleanRegexp, ""))] : [spl.join(" "), 0];
+			return spl.at(-1).isNumeric() ? [spl.slice(0, -1).join(" "), Number(spl.at(-1).replace(Parser._numberCleanRegexp, ""))] : [spl.join(" "), 0];
 		}
 
 		const [aStr, aNum] = popEndNumber(a.item || a);
@@ -4066,10 +4254,14 @@ globalThis.SortUtil = {
 
 	ascSortSize (a, b) { return Parser.SIZE_ABVS.indexOf(a) - Parser.SIZE_ABVS.indexOf(b); },
 
-	initBtnSortHandlers ($wrpBtnsSort, list) {
+	initBtnSortHandlers (wrpBtnsSort, list) {
+		if (wrpBtnsSort instanceof $) { // TODO(jquery) migrate
+			wrpBtnsSort = wrpBtnsSort[0];
+		}
+
 		let dispCaretInitial = null;
 
-		const dispCarets = [...$wrpBtnsSort[0].querySelectorAll(`[data-sort]`)]
+		const dispCarets = [...wrpBtnsSort.querySelectorAll(`[data-sort]`)]
 			.map(btnSort => {
 				const dispCaret = e_({
 					tag: "span",
@@ -4987,6 +5179,8 @@ globalThis.DataUtil = class {
 			hasFluff: true,
 			hasFluffImages: true,
 			hasToken: true,
+			tokenCredit: true,
+			tokenCustom: true,
 			_versions: true,
 		};
 
@@ -5018,13 +5212,19 @@ globalThis.DataUtil = class {
 			};
 		}
 
-		static packUid (ent, tag) {
+		static getUidPacked (ent, tag, opts = {}) {
 			// <name>|<source>
+			const {name} = ent;
+			const source = SourceUtil.getEntitySource(ent);
+			if (!name || !source) throw new Error(`Entity did not have a name and source!`);
 			const sourceDefault = Parser.getTagSource(tag);
-			return [
+			const out = [
 				ent.name,
-				(ent.source || "").toLowerCase() === sourceDefault.toLowerCase() ? "" : ent.source,
-			].join("|").replace(/\|+$/, ""); // Trim trailing pipes
+				source.toLowerCase() === sourceDefault.toLowerCase() ? "" : source,
+			]
+				.join("|")
+				.replace(/\|+$/, ""); // Trim trailing pipes
+			return opts.isMaintainCase ? out : out.toLowerCase();
 		}
 
 		static getUid (ent, {isMaintainCase = false, displayName = null} = {}) {
@@ -5060,11 +5260,9 @@ globalThis.DataUtil = class {
 			if (entParent._copy) await DataUtil.generic._pMergeCopy(impl, page, entryList, entParent, options);
 
 			// Preload templates, if required
-			// TODO(Template) allow templates for other entity types
-			const templateData = entry._copy?._templates
-				? (await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/bestiary/template.json`))
-				: null;
-			return DataUtil.generic.copyApplier.getCopy(impl, MiscUtil.copyFast(entParent), entry, templateData, options);
+			const templates = await this._pMergeCopy_pGetTemplates(entry);
+
+			return DataUtil.generic.copyApplier.getCopy(impl, MiscUtil.copyFast(entParent), entry, templates, options);
 		}
 
 		static _pMergeCopy_search (impl, page, entryList, entry, options) {
@@ -5075,6 +5273,19 @@ globalThis.DataUtil = class {
 				impl._mergeCache[hash] ||= ent;
 				return hash === entryHash;
 			});
+		}
+
+		static async _pMergeCopy_pGetTemplates (entry) {
+			if (!entry._copy?._templates) return null;
+
+			// TODO(Template) allow templates for other entity types
+			switch (entry.__prop) {
+				case "monster": {
+					const templateData = await DataUtil.loadJSON(`${Renderer.get().baseUrl}data/bestiary/template.json`);
+					return templateData.monsterTemplate;
+				}
+				default: throw new Error(`Unsupported!`);
+			}
 		}
 
 		static COPY_ENTRY_PROPS = [
@@ -5653,7 +5864,7 @@ globalThis.DataUtil = class {
 				else this._doMod_handleProp({copyTo, copyFrom, modInfos, msgPtFailed});
 			}
 
-			static getCopy (impl, copyFrom, copyTo, templateData, {isExternalApplicationKeepCopy = false, isExternalApplicationIdentityOnly = false} = {}) {
+			static getCopy (impl, copyFrom, copyTo, templates, {isExternalApplicationKeepCopy = false, isExternalApplicationIdentityOnly = false} = {}) {
 				this._WALKER ||= MiscUtil.getWalker();
 
 				if (isExternalApplicationKeepCopy) copyTo.__copy = MiscUtil.copyFast(copyFrom);
@@ -5665,16 +5876,15 @@ globalThis.DataUtil = class {
 				if (copyMeta._mod) this._normaliseMods(copyMeta);
 
 				// fetch and apply any external template -- append them to existing copy mods where available
-				let templates = null;
+				let templatesToApply = null;
 				let templateErrors = [];
 				if (copyMeta._templates?.length) {
-					templates = copyMeta._templates
+					templatesToApply = copyMeta._templates
 						.map(({name: templateName, source: templateSource}) => {
 							templateName = templateName.toLowerCase().trim();
 							templateSource = templateSource.toLowerCase().trim();
 
-							// TODO(Template) allow templates for other entity types
-							const template = templateData.monsterTemplate
+							const template = templates
 								.find(({name, source}) => name.toLowerCase().trim() === templateName && source.toLowerCase().trim() === templateSource);
 
 							if (!template) {
@@ -5686,7 +5896,7 @@ globalThis.DataUtil = class {
 						})
 						.filter(Boolean);
 
-					templates
+					templatesToApply
 						.forEach(template => {
 							if (!template.apply._mod) return;
 
@@ -5724,8 +5934,8 @@ globalThis.DataUtil = class {
 				});
 
 				// apply any root template properties after doing base copy
-				if (templates?.length) {
-					templates
+				if (templatesToApply?.length) {
+					templatesToApply
 						.forEach(template => {
 							if (!template.apply?._root) return;
 
@@ -5862,7 +6072,7 @@ globalThis.DataUtil = class {
 
 				_getResolved ({ent, detail}) {
 					const replaced = detail
-						.replace(/\b(?<abil>str|dex|con|int|wis|cha)\b/gi, (...m) => Parser.getAbilityModNumber(Number(ent[m.last().abil])))
+						.replace(/\b(?<abil>str|dex|con|int|wis|cha)\b/gi, (...m) => Parser.getAbilityModNumber(Number(ent[m.at(-1).abil])))
 						.replace(/\bsize_mult\b/g, () => this._getSizeMult(this._getSize({ent})));
 
 					// eslint-disable-next-line no-eval
@@ -5914,7 +6124,7 @@ globalThis.DataUtil = class {
 						obj,
 						{
 							string: str => str.replace(/<\$(?<variable>[^$]+)\$>/g, (...m) => {
-								const [mode, detail] = m.last().variable.split("__");
+								const [mode, detail] = m.at(-1).variable.split("__");
 
 								const resolver = this._MODE_LOOKUP[mode];
 								if (!resolver) return m[0];
@@ -5939,7 +6149,7 @@ globalThis.DataUtil = class {
 
 			static getHumanReadableString (str, {msgPtFailed = null} = {}) {
 				return str.replace(/<\$(?<variable>[^$]+)\$>/g, (...m) => {
-					const [mode, detail] = m.last().variable.split("__");
+					const [mode, detail] = m.at(-1).variable.split("__");
 
 					const resolver = this._MODE_LOOKUP[mode];
 					if (!resolver) return m[0];
@@ -6082,6 +6292,11 @@ globalThis.DataUtil = class {
 		static getUid (prop, ent, opts) {
 			if (DataUtil[prop]?.getUid) return DataUtil[prop].getUid(ent, opts);
 			return DataUtil.generic.getUid(ent, opts);
+		}
+
+		static getUidPacked (prop, ent, tag, opts) {
+			if (DataUtil[prop]?.getPackedUid) return DataUtil[prop].getUidPacked(ent, tag, opts);
+			return DataUtil.generic.getUidPacked(ent, tag, opts);
 		}
 	};
 
@@ -6753,6 +6968,71 @@ globalThis.DataUtil = class {
 
 	static raceFeature = class extends _DataUtilPropConfig {
 		static _PAGE = "raceFeature";
+
+		static _psLoadJson = {};
+
+		static async loadJSON ({isAddBaseRaces = false} = {}) {
+			const cacheKey = `site-${isAddBaseRaces}`;
+			DataUtil.raceFeature._psLoadJson[cacheKey] ||= (async () => {
+				const raceJson = await DataUtil.race.loadJSON({isAddBaseRaces});
+
+				return {
+					raceFeature: raceJson.race
+						.flatMap(race => {
+							return (race.entries || [])
+								.filter(ent => ent.name && ent.entries)
+								.map(ent => DataUtil.raceFeature.getFauxRaceFeature(race, ent));
+						}),
+				};
+			})();
+			return DataUtil.raceFeature._psLoadJson[cacheKey];
+		}
+
+		static getFauxRaceFeature (race, entry) {
+			return {
+				source: entry.source || race.source,
+				raceName: race.name,
+				raceSource: race.source,
+				_raceSubraceName: race._subraceName,
+				_raceBaseName: race._baseName,
+				_raceBaseSource: race._baseSource,
+				srd: !!(race.srd || race._baseSrd),
+				basicRules: !!race.basicRules,
+				page: entry.page ?? race.page,
+				...MiscUtil.copyFast(entry),
+				__prop: "raceFeature",
+			};
+		}
+
+		static unpackUid (uid, opts) {
+			opts = opts || {};
+			if (opts.isLower) uid = uid.toLowerCase();
+			let [name, raceName, raceSource, source, displayName] = uid.split("|").map(it => it.trim());
+			const sourceDefault = Parser.getTagSource("race");
+			raceSource ||= opts.isLower ? sourceDefault.toLowerCase() : sourceDefault;
+			source ||= opts.isLower ? sourceDefault.toLowerCase() : sourceDefault;
+			return {
+				name,
+				raceName,
+				raceSource,
+				source,
+				displayName,
+			};
+		}
+
+		static getUid (ent, opts) {
+			// <name>|<raceName>|<raceSource>|<source>
+			const sourceDefault = Parser.getTagSource("race");
+			const out = [
+				ent.name,
+				ent.raceName,
+				(ent.raceSource || "").toLowerCase() === sourceDefault.toLowerCase() ? "" : ent.source,
+				(ent.source || "").toLowerCase() === sourceDefault.toLowerCase() ? "" : ent.source,
+				opts?.displayName || "",
+			].join("|").replace(/\|+$/, ""); // Trim trailing pipes
+			if (opts?.isMaintainCase) return out;
+			return out.toLowerCase();
+		}
 	};
 
 	static recipe = class extends _DataUtilPropConfigSingleSource {
@@ -7045,7 +7325,7 @@ globalThis.DataUtil = class {
 				data.deity.filter(it => it.source === src).forEach(it => inSource[src][it.reprintAlias || it.name] = it); // TODO need to handle similar names
 			});
 
-			const laterPrinting = [PRINT_ORDER.last()];
+			const laterPrinting = [PRINT_ORDER.at(-1)];
 			[...PRINT_ORDER].reverse().slice(1).forEach(src => {
 				laterPrinting.forEach(laterSrc => {
 					Object.keys(inSource[src]).forEach(name => {
@@ -8295,7 +8575,7 @@ Array.prototype.nextWrap || Object.defineProperty(Array.prototype, "nextWrap", {
 		if (~ix) {
 			if (ix + 1 < this.length) return this[ix + 1];
 			else return this[0];
-		} else return this.last();
+		} else return this.at(-1);
 	},
 });
 
@@ -8306,25 +8586,8 @@ Array.prototype.prevWrap || Object.defineProperty(Array.prototype, "prevWrap", {
 		const ix = this.indexOf(item);
 		if (~ix) {
 			if (ix - 1 >= 0) return this[ix - 1];
-			else return this.last();
+			else return this.at(-1);
 		} else return this[0];
-	},
-});
-
-Array.prototype.findLast || Object.defineProperty(Array.prototype, "findLast", {
-	enumerable: false,
-	writable: true,
-	value: function (fn) {
-		for (let i = this.length - 1; i >= 0; --i) if (fn(this[i])) return this[i];
-	},
-});
-
-Array.prototype.findLastIndex || Object.defineProperty(Array.prototype, "findLastIndex", {
-	enumerable: false,
-	writable: true,
-	value: function (fn) {
-		for (let i = this.length - 1; i >= 0; --i) if (fn(this[i])) return i;
-		return -1;
 	},
 });
 
@@ -8374,8 +8637,8 @@ Map.prototype.getOrSet || Object.defineProperty(Map.prototype, "getOrSet", {
  *
  * @param opts Options object.
  * @param opts.hashKey to use in the URL so that forward/back can open/close the view
- * @param opts.$btnOpen jQuery-selected button to bind click open/close
- * @param [opts.$eleNoneVisible] "error" message to display if user has not selected any viewable content
+ * @param opts.btnOpen jQuery-selected button to bind click open/close
+ * @param [opts.eleNoneVisible] "error" message to display if user has not selected any viewable content
  * @param opts.pageTitle Title.
  * @param opts.state State to modify when opening/closing.
  * @param opts.stateKey Key in state to set true/false when opening/closing.
@@ -8397,17 +8660,17 @@ class BookModeViewBase {
 
 	constructor (opts) {
 		opts = opts || {};
-		const {$btnOpen, state} = opts;
+		const {btnOpen, state} = opts;
 
 		if (this._hashKey && this._stateKey) throw new Error(`Only one of "hashKey" and "stateKey" may be specified!`);
 
 		this._state = state;
-		this._$btnOpen = $btnOpen;
+		this._btnOpen = e_({ele: btnOpen});
 
 		this._isActive = false;
-		this._$wrpBook = null;
+		this._wrpBook = null;
 
-		this._$btnOpen.off("click").on("click", () => this.setStateOpen());
+		this._btnOpen.onn("click", () => this.setStateOpen());
 	}
 
 	/* -------------------------------------------- */
@@ -8424,67 +8687,75 @@ class BookModeViewBase {
 
 	/* -------------------------------------------- */
 
-	_$getWindowHeaderLhs () {
-		return $(`<div class="ve-flex-v-center"></div>`);
+	_getWindowHeaderLhs () {
+		return ee`<div class="ve-flex-v-center"></div>`;
 	}
 
-	_$getBtnWindowClose () {
-		return $(`<button class="ve-btn ve-btn-xs ve-btn-danger br-0 bt-0 btl-0 btr-0 bbr-0 bbl-0 h-20p" title="Close"><span class="glyphicon glyphicon-remove"></span></button>`)
-			.click(() => this.setStateClosed());
+	_getBtnWindowClose () {
+		return ee`<button class="ve-btn ve-btn-xs ve-btn-danger br-0 bt-0 btl-0 btr-0 bbr-0 bbl-0 h-20p" title="Close"><span class="glyphicon glyphicon-remove"></span></button>`
+			.onn("click", () => this.setStateClosed());
 	}
 
 	/* -------------------------------------------- */
 
-	async _$pGetWrpControls ({$wrpContent}) {
-		const $wrp = $(`<div class="w-100 ve-flex-col no-shrink no-print"></div>`);
+	async _pGetWrpControls ({wrpContent}) {
+		const wrp = ee`<div class="w-100 ve-flex-col no-shrink no-print"></div>`;
 
-		if (!this._hasPrintColumns) return $wrp;
+		if (!this._hasPrintColumns) return {wrp};
 
-		$wrp.addClass("px-2 mt-2 bb-1p pb-1");
+		["px-2", "mt-2", "bb-1p", "pb-1"].forEach(clz => wrp.addClass(clz));
 
 		const onChangeColumnCount = (cols) => {
-			$wrpContent.toggleClass(`bkmv__wrp--columns-1`, cols === 1);
-			$wrpContent.toggleClass(`bkmv__wrp--columns-2`, cols === 2);
+			wrpContent.toggleClass(`bkmv__wrp--columns-1`, cols === 1);
+			wrpContent.toggleClass(`bkmv__wrp--columns-2`, cols === 2);
 		};
 
 		const lastColumns = StorageUtil.syncGetForPage(BookModeViewBase._BOOK_VIEW_COLUMNS_K);
 
-		const $selColumns = $(`<select class="form-control input-sm">
+		const onChangeSelColumns = () => {
+			const val = Number(selColumns.val());
+			if (val === 0) onChangeColumnCount(2);
+			else onChangeColumnCount(1);
+
+			StorageUtil.syncSetForPage(BookModeViewBase._BOOK_VIEW_COLUMNS_K, val);
+		};
+
+		const selColumns = ee`<select class="form-control input-sm">
 			<option value="0">Two (book style)</option>
 			<option value="1">One</option>
-		</select>`)
-			.change(() => {
-				const val = Number($selColumns.val());
-				if (val === 0) onChangeColumnCount(2);
-				else onChangeColumnCount(1);
+		</select>`
+			.onn("change", () => onChangeSelColumns());
+		selColumns.val(`${lastColumns ?? 0}`);
+		onChangeSelColumns();
 
-				StorageUtil.syncSetForPage(BookModeViewBase._BOOK_VIEW_COLUMNS_K, val);
-			});
-		if (lastColumns != null) $selColumns.val(lastColumns);
-		$selColumns.change();
+		const wrpPrint = ee`<div class="w-100 ve-flex">
+			<div class="ve-flex-vh-center"><div class="mr-2 no-wrap help-subtle" title="Applied when printing the page.">Print columns:</div>${selColumns}</div>
+		</div>`.appendTo(wrp);
 
-		const $wrpPrint = $$`<div class="w-100 ve-flex">
-			<div class="ve-flex-vh-center"><div class="mr-2 no-wrap help-subtle" title="Applied when printing the page.">Print columns:</div>${$selColumns}</div>
-		</div>`.appendTo($wrp);
-
-		return {$wrp, $wrpPrint};
+		return {wrp, wrpPrint};
 	}
 
 	/* -------------------------------------------- */
 
-	_$getEleNoneVisible () { return null; }
+	_getEleNoneVisible () { return null; }
 
-	_$getBtnNoneVisibleClose () {
-		return $(`<button class="ve-btn ve-btn-default">Close</button>`)
-			.click(() => this.setStateClosed());
+	_getBtnNoneVisibleClose () {
+		return ee`<button class="ve-btn ve-btn-default">Close</button>`
+			.onn("click", () => this.setStateClosed());
 	}
 
 	/** @abstract */
-	async _pGetRenderContentMeta ({$wrpContent, $wrpContentOuter}) {
+	async _pGetRenderContentMeta ({wrpContent, wrpContentOuter}) {
 		return {cntSelectedEnts: 0, isAnyEntityRendered: false};
 	}
 
 	/* -------------------------------------------- */
+
+	async pInit () {
+		await this._pInit();
+	}
+
+	async _pInit () { /* Implement as required */ }
 
 	async pOpen () {
 		if (this._isActive) return;
@@ -8494,33 +8765,43 @@ class BookModeViewBase {
 		document.body.style.overflow = "hidden";
 		document.body.classList.add("bkmv-active");
 
-		const {$wrpContentOuter, $wrpContent} = await this._pGetContentElementMetas();
+		await this._pRender();
+	}
 
-		this._$wrpBook = $$`<div class="bkmv print__h-initial ve-flex-col print__ve-block">
-			<div class="bkmv__spacer-name no-print split-v-center no-shrink no-print">${this._$getWindowHeaderLhs()}${this._$getBtnWindowClose()}</div>
-			${(await this._$pGetWrpControls({$wrpContent})).$wrp}
-			${$wrpContentOuter}
+	_preRender () { /* Implement as required */ }
+
+	async _pRender () {
+		this._preRender();
+
+		const {wrpContentOuter, wrpContent} = await this._pGetContentElementMetas();
+
+		if (this._wrpBook) this._wrpBook.remove();
+
+		this._wrpBook = ee`<div class="bkmv print__h-initial ve-flex-col print__ve-block">
+			<div class="bkmv__spacer-name no-print split-v-center no-shrink no-print">${this._getWindowHeaderLhs()}${this._getBtnWindowClose()}</div>
+			${(await this._pGetWrpControls({wrpContent})).wrp}
+			${wrpContentOuter}
 		</div>`
 			.appendTo(document.body);
 	}
 
 	async _pGetContentElementMetas () {
-		const $wrpContent = $(`<div class="bkmv__scroller smooth-scroll ve-overflow-y-auto print__overflow-visible ${this._isColumns ? "bkmv__wrp" : "ve-flex-col"} w-100 min-h-0"></div>`);
+		const wrpContent = ee`<div class="bkmv__scroller smooth-scroll ve-overflow-y-auto print__overflow-visible ${this._isColumns ? "bkmv__wrp" : "ve-flex-col"} w-100 min-h-0"></div>`;
 
-		const $wrpContentOuter = $$`<div class="h-100 print__h-initial w-100 min-h-0 ve-flex-col print__ve-block">${$wrpContent}</div>`;
+		const wrpContentOuter = ee`<div class="h-100 print__h-initial w-100 min-h-0 ve-flex-col print__ve-block">${wrpContent}</div>`;
 
 		const out = {
-			$wrpContentOuter,
-			$wrpContent,
+			wrpContentOuter,
+			wrpContent,
 		};
 
-		const {cntSelectedEnts, isAnyEntityRendered} = await this._pGetRenderContentMeta({$wrpContent, $wrpContentOuter});
+		const {cntSelectedEnts, isAnyEntityRendered} = await this._pGetRenderContentMeta({wrpContent, wrpContentOuter});
 
-		if (isAnyEntityRendered) $wrpContentOuter.append($wrpContent);
+		if (isAnyEntityRendered) wrpContentOuter.appends(wrpContent);
 
 		if (cntSelectedEnts) return out;
 
-		$wrpContentOuter.append(this._$getEleNoneVisible());
+		wrpContentOuter.appends(this._getEleNoneVisible());
 
 		return out;
 	}
@@ -8531,7 +8812,7 @@ class BookModeViewBase {
 		document.body.style.overflow = "";
 		document.body.classList.remove("bkmv-active");
 
-		this._$wrpBook.remove();
+		this._wrpBook.remove();
 		this._isActive = false;
 	}
 
@@ -8550,22 +8831,22 @@ class BookModeViewBase {
 }
 
 // CONTENT EXCLUSION ===================================================================================================
-globalThis.ExcludeUtil = {
-	isInitialised: false,
-	_excludes: null,
-	_cache_excludesLookup: null,
-	_lock: null,
+globalThis.ExcludeUtil = class {
+	static isInitialised = false;
+	static _excludes = null;
+	static _cache_excludesLookup = null;
+	static _lock = null;
 
-	async pInitialise ({lockToken = null} = {}) {
+	static async pInitialise ({lockToken = null} = {}) {
 		try {
 			await ExcludeUtil._lock.pLock({token: lockToken});
 			await ExcludeUtil._pInitialise();
 		} finally {
 			ExcludeUtil._lock.unlock();
 		}
-	},
+	}
 
-	async _pInitialise () {
+	static async _pInitialise () {
 		if (ExcludeUtil.isInitialised) return;
 
 		ExcludeUtil.pSave = MiscUtil.throttle(ExcludeUtil._pSave, 50);
@@ -8588,61 +8869,73 @@ globalThis.ExcludeUtil = {
 			setTimeout(() => { throw e; });
 		}
 		ExcludeUtil.isInitialised = true;
-	},
+	}
 
-	_getValidExcludes (excludes) {
+	static _getValidExcludes (excludes) {
 		return excludes
 			.filter(it => it.hash) // remove legacy rows
-			.filter(it => it.hash != null && it.category != null && it.source != null); // remove invalid rows
-	},
+			.filter(it => it.hash != null && it.category != null && it.source != null) // remove invalid rows
+			// update legacy rows
+			.map(it => {
+				it.isAuto ??= false;
+				return it;
+			})
+		;
+	}
 
-	getList () {
+	static getList () {
 		return MiscUtil.copyFast(ExcludeUtil._excludes || []);
-	},
+	}
 
-	async pSetList (toSet) {
+	static async pSetList (toSet) {
 		ExcludeUtil._excludes = toSet;
 		ExcludeUtil._cache_excludesLookup = null;
 		await ExcludeUtil.pSave();
-	},
+	}
 
-	async pExtendList (toAdd) {
+	/**
+	 * @param {{displayName, hash, category, source, isAuto}[]} toAdd
+	 */
+	static async pExtendList (toAdd) {
 		try {
 			const lockToken = await ExcludeUtil._lock.pLock();
 			await ExcludeUtil._pExtendList({toAdd, lockToken});
 		} finally {
 			ExcludeUtil._lock.unlock();
 		}
-	},
+	}
 
-	async _pExtendList ({toAdd, lockToken}) {
+	static async _pExtendList ({toAdd, lockToken}) {
 		await ExcludeUtil.pInitialise({lockToken});
-		this._doBuildCache();
 
 		const out = MiscUtil.copyFast(ExcludeUtil._excludes || []);
 		MiscUtil.copyFast(toAdd || [])
 			.filter(({hash, category, source}) => {
 				if (!hash || !category || !source) return false;
-				const cacheUid = ExcludeUtil._getCacheUids(hash, category, source, true);
+				const [cacheUid] = ExcludeUtil._getCacheUids(hash, category, source, {isExact: true});
 				return !ExcludeUtil._cache_excludesLookup[cacheUid];
 			})
-			.forEach(it => out.push(it));
+			.forEach(it => {
+				it.isAuto ??= false;
+				out.push(it);
+			});
 
 		await ExcludeUtil.pSetList(out);
-	},
+	}
 
-	_doBuildCache () {
+	static _doBuildCache () {
 		if (ExcludeUtil._cache_excludesLookup) return;
 		if (!ExcludeUtil._excludes) return;
 
 		ExcludeUtil._cache_excludesLookup = {};
-		ExcludeUtil._excludes.forEach(({source, category, hash}) => {
-			const cacheUid = ExcludeUtil._getCacheUids(hash, category, source, true);
-			ExcludeUtil._cache_excludesLookup[cacheUid] = true;
-		});
-	},
+		ExcludeUtil._excludes
+			.forEach(({source, category, hash}) => {
+				const [cacheUid] = ExcludeUtil._getCacheUids(hash, category, source, {isExact: true});
+				ExcludeUtil._cache_excludesLookup[cacheUid] = true;
+			});
+	}
 
-	_getCacheUids (hash, category, source, isExact) {
+	static _getCacheUids (hash, category, source, {isExact = false} = {}) {
 		hash = (hash || "").toLowerCase();
 		category = (category || "").toLowerCase();
 		source = (source?.source || source || "").toLowerCase();
@@ -8651,7 +8944,7 @@ globalThis.ExcludeUtil = {
 		if (isExact) return [exact];
 
 		return [
-			`${hash}__${category}__${source}`,
+			exact,
 			`*__${category}__${source}`,
 			`${hash}__*__${source}`,
 			`${hash}__${category}__*`,
@@ -8660,9 +8953,9 @@ globalThis.ExcludeUtil = {
 			`${hash}__*__*`,
 			`*__*__*`,
 		];
-	},
+	}
 
-	_excludeCount: 0,
+	static _excludeCount = 0;
 	/**
 	 * @param hash
 	 * @param category
@@ -8670,7 +8963,7 @@ globalThis.ExcludeUtil = {
 	 * @param [opts]
 	 * @param [opts.isNoCount]
 	 */
-	isExcluded (hash, category, source, opts) {
+	static isExcluded (hash, category, source, opts) {
 		if (!ExcludeUtil._excludes || !ExcludeUtil._excludes.length) return false;
 		if (!source) throw new Error(`Entity had no source!`);
 		opts = opts || {};
@@ -8687,24 +8980,24 @@ globalThis.ExcludeUtil = {
 		if (!opts.isNoCount) ++ExcludeUtil._excludeCount;
 
 		return isExcluded;
-	},
+	}
 
-	_isExcluded (hash, category, source) {
+	static _isExcluded (hash, category, source) {
 		for (const cacheUid of ExcludeUtil._getCacheUids(hash, category, source)) {
 			if (ExcludeUtil._cache_excludesLookup[cacheUid]) return true;
 		}
 		return false;
-	},
+	}
 
-	isAllContentExcluded (list) { return (!list.length && ExcludeUtil._excludeCount) || (list.length > 0 && list.length === ExcludeUtil._excludeCount); },
-	getAllContentBlocklistedHtml () { return `<div class="initial-message initial-message--med">(All content <a href="blocklist.html">blocklisted</a>)</div>`; },
+	static isAllContentExcluded (list) { return (!list.length && ExcludeUtil._excludeCount) || (list.length > 0 && list.length === ExcludeUtil._excludeCount); }
+	static getAllContentBlocklistedHtml () { return `<div class="initial-message initial-message--med">(All content <a href="blocklist.html">blocklisted</a>)</div>`; }
 
-	async _pSave () {
+	static async _pSave () {
 		return StorageUtil.pSet(VeCt.STORAGE_EXCLUDES, ExcludeUtil._excludes);
-	},
+	}
 
 	// The throttled version, available post-initialisation
-	async pSave () { /* no-op */ },
+	static async pSave () { /* no-op */ }
 };
 
 // EXTENSIONS ==========================================================================================================
@@ -8908,16 +9201,29 @@ DatetimeUtil._SECS_PER_DAY = 86400;
 DatetimeUtil._SECS_PER_HOUR = 3600;
 DatetimeUtil._SECS_PER_MINUTE = 60;
 
-globalThis.EditorUtil = {
-	getTheme () {
+globalThis.EditorUtil = class {
+	static getTheme () {
 		const {isNight} = styleSwitcher.getSummary();
 		return isNight ? "ace/theme/tomorrow_night" : "ace/theme/textmate";
-	},
+	}
 
-	initEditor (id, additionalOpts = null) {
+	static _P_LOADING_ACE = null;
+
+	static async _pLoadAce () {
+		if (typeof ace !== "undefined") return;
+
+		return this._P_LOADING_ACE ||= (async () => {
+			await import("../lib/ace.js");
+			ace.config.set("basePath", "../lib");
+		})();
+	}
+
+	static async pInitEditor (eleOrId, additionalOpts = null) {
+		await this._pLoadAce();
+
 		additionalOpts = additionalOpts || {};
 
-		const editor = ace.edit(id);
+		const editor = ace.edit(eleOrId);
 		editor.setOptions({
 			theme: EditorUtil.getTheme(),
 			wrap: true,
@@ -8940,10 +9246,10 @@ globalThis.EditorUtil = {
 			});
 		}
 
-		styleSwitcher.addFnOnChange(() => editor.setOptions({theme: EditorUtil.getTheme()}));
+		styleSwitcher.addFnOnChangeTheme(() => editor.setOptions({theme: EditorUtil.getTheme()}));
 
 		return editor;
-	},
+	}
 };
 
 globalThis.BrowserUtil = class {

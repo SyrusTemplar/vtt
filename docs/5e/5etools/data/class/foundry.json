@@ -174,22 +174,22 @@
 				{
 					"type": "ScaleValue",
 					"configuration": {
-						"type": "string",
+						"type": "number",
 						"scale": {
 							"1": {
-								"value": "2"
+								"value": 2
 							},
 							"3": {
-								"value": "3"
+								"value": 3
 							},
 							"6": {
-								"value": "4"
+								"value": 4
 							},
 							"12": {
-								"value": "5"
+								"value": 5
 							},
 							"16": {
-								"value": "6"
+								"value": 6
 							}
 						}
 					},
@@ -201,75 +201,7 @@
 		{
 			"name": "Bard",
 			"source": "XPHB",
-			"system": {
-				"spellcasting": {
-					"preparation": {
-						"formula": "@scale.bard.prepared-max"
-					}
-				}
-			},
 			"advancement": [
-				{
-					"type": "ScaleValue",
-					"configuration": {
-						"identifier": "prepared-max",
-						"type": "number",
-						"scale": {
-							"1": {
-								"value": 4
-							},
-							"2": {
-								"value": 5
-							},
-							"3": {
-								"value": 6
-							},
-							"4": {
-								"value": 7
-							},
-							"5": {
-								"value": 9
-							},
-							"6": {
-								"value": 10
-							},
-							"7": {
-								"value": 11
-							},
-							"8": {
-								"value": 12
-							},
-							"9": {
-								"value": 14
-							},
-							"10": {
-								"value": 15
-							},
-							"11": {
-								"value": 16
-							},
-							"13": {
-								"value": 17
-							},
-							"15": {
-								"value": 18
-							},
-							"17": {
-								"value": 19
-							},
-							"18": {
-								"value": 20
-							},
-							"19": {
-								"value": 21
-							},
-							"20": {
-								"value": 22
-							}
-						}
-					},
-					"title": "Max Prepared Spells"
-				},
 				{
 					"type": "ScaleValue",
 					"configuration": {
@@ -298,13 +230,6 @@
 		{
 			"name": "Cleric",
 			"source": "XPHB",
-			"system": {
-				"spellcasting": {
-					"preparation": {
-						"formula": "@scale.cleric.prepared-max"
-					}
-				}
-			},
 			"advancement": [
 				{
 					"type": "ScaleValue",
@@ -324,67 +249,6 @@
 						}
 					},
 					"title": "Channel Divinity Uses"
-				},
-				{
-					"type": "ScaleValue",
-					"configuration": {
-						"identifier": "prepared-max",
-						"type": "number",
-						"scale": {
-							"1": {
-								"value": 4
-							},
-							"2": {
-								"value": 5
-							},
-							"3": {
-								"value": 6
-							},
-							"4": {
-								"value": 7
-							},
-							"5": {
-								"value": 9
-							},
-							"6": {
-								"value": 10
-							},
-							"7": {
-								"value": 11
-							},
-							"8": {
-								"value": 12
-							},
-							"9": {
-								"value": 14
-							},
-							"10": {
-								"value": 15
-							},
-							"11": {
-								"value": 16
-							},
-							"13": {
-								"value": 17
-							},
-							"15": {
-								"value": 18
-							},
-							"17": {
-								"value": 19
-							},
-							"18": {
-								"value": 20
-							},
-							"19": {
-								"value": 21
-							},
-							"20": {
-								"value": 22
-							}
-						}
-					},
-					"title": "Max Prepared Spells"
 				},
 				{
 					"type": "ScaleValue",
@@ -409,75 +273,7 @@
 		{
 			"name": "Druid",
 			"source": "XPHB",
-			"system": {
-				"spellcasting": {
-					"preparation": {
-						"formula": "@scale.druid.prepared-max"
-					}
-				}
-			},
 			"advancement": [
-				{
-					"type": "ScaleValue",
-					"configuration": {
-						"identifier": "prepared-max",
-						"type": "number",
-						"scale": {
-							"1": {
-								"value": 4
-							},
-							"2": {
-								"value": 5
-							},
-							"3": {
-								"value": 6
-							},
-							"4": {
-								"value": 7
-							},
-							"5": {
-								"value": 9
-							},
-							"6": {
-								"value": 10
-							},
-							"7": {
-								"value": 11
-							},
-							"8": {
-								"value": 12
-							},
-							"9": {
-								"value": 14
-							},
-							"10": {
-								"value": 15
-							},
-							"11": {
-								"value": 16
-							},
-							"13": {
-								"value": 17
-							},
-							"15": {
-								"value": 18
-							},
-							"17": {
-								"value": 19
-							},
-							"18": {
-								"value": 20
-							},
-							"19": {
-								"value": 21
-							},
-							"20": {
-								"value": 22
-							}
-						}
-					},
-					"title": "Max Prepared Spells"
-				},
 				{
 					"type": "ScaleValue",
 					"configuration": {
@@ -740,13 +536,6 @@
 		{
 			"name": "Paladin",
 			"source": "XPHB",
-			"system": {
-				"spellcasting": {
-					"preparation": {
-						"formula": "@scale.paladin.prepared-max"
-					}
-				}
-			},
 			"advancement": [
 				{
 					"type": "ScaleValue",
@@ -763,52 +552,6 @@
 						}
 					},
 					"title": "Aura Distance"
-				},
-				{
-					"type": "ScaleValue",
-					"configuration": {
-						"identifier": "prepared-max",
-						"type": "number",
-						"scale": {
-							"1": {
-								"value": 2
-							},
-							"2": {
-								"value": 3
-							},
-							"3": {
-								"value": 4
-							},
-							"4": {
-								"value": 5
-							},
-							"5": {
-								"value": 6
-							},
-							"7": {
-								"value": 7
-							},
-							"9": {
-								"value": 9
-							},
-							"11": {
-								"value": 10
-							},
-							"13": {
-								"value": 11
-							},
-							"15": {
-								"value": 12
-							},
-							"17": {
-								"value": 14
-							},
-							"19": {
-								"value": 15
-							}
-						}
-					},
-					"title": "Max Prepared Spells"
 				},
 				{
 					"type": "ScaleValue",
@@ -832,13 +575,6 @@
 		{
 			"name": "Ranger",
 			"source": "XPHB",
-			"system": {
-				"spellcasting": {
-					"preparation": {
-						"formula": "@scale.ranger.max-prepared"
-					}
-				}
-			},
 			"advancement": [
 				{
 					"type": "ScaleValue",
@@ -881,52 +617,6 @@
 						}
 					},
 					"title": "Hunter's Mark Damage"
-				},
-				{
-					"type": "ScaleValue",
-					"configuration": {
-						"identifier": "max-prepared",
-						"type": "number",
-						"scale": {
-							"1": {
-								"value": 2
-							},
-							"2": {
-								"value": 3
-							},
-							"3": {
-								"value": 4
-							},
-							"4": {
-								"value": 5
-							},
-							"5": {
-								"value": 6
-							},
-							"7": {
-								"value": 7
-							},
-							"9": {
-								"value": 9
-							},
-							"11": {
-								"value": 10
-							},
-							"13": {
-								"value": 11
-							},
-							"15": {
-								"value": 12
-							},
-							"17": {
-								"value": 14
-							},
-							"19": {
-								"value": 15
-							}
-						}
-					},
-					"title": "Max Prepared Spells"
 				}
 			],
 			"migrationVersion": 3
@@ -990,75 +680,7 @@
 		{
 			"name": "Sorcerer",
 			"source": "XPHB",
-			"system": {
-				"spellcasting": {
-					"preparation": {
-						"formula": "@scale.sorcerer.prepared-max"
-					}
-				}
-			},
 			"advancement": [
-				{
-					"type": "ScaleValue",
-					"configuration": {
-						"identifier": "prepared-max",
-						"type": "number",
-						"scale": {
-							"1": {
-								"value": 2
-							},
-							"2": {
-								"value": 4
-							},
-							"3": {
-								"value": 6
-							},
-							"4": {
-								"value": 7
-							},
-							"5": {
-								"value": 9
-							},
-							"6": {
-								"value": 10
-							},
-							"7": {
-								"value": 11
-							},
-							"8": {
-								"value": 12
-							},
-							"9": {
-								"value": 14
-							},
-							"10": {
-								"value": 15
-							},
-							"11": {
-								"value": 16
-							},
-							"13": {
-								"value": 17
-							},
-							"15": {
-								"value": 18
-							},
-							"17": {
-								"value": 19
-							},
-							"18": {
-								"value": 20
-							},
-							"19": {
-								"value": 21
-							},
-							"20": {
-								"value": 22
-							}
-						}
-					},
-					"title": "Max Prepared Spells"
-				},
 				{
 					"type": "ScaleValue",
 					"configuration": {
@@ -1128,156 +750,49 @@
 				}
 			],
 			"migrationVersion": 3
-		},
-		{
-			"name": "Warlock",
-			"source": "XPHB",
-			"system": {
-				"spellcasting": {
-					"preparation": {
-						"formula": "@scale.warlock.prepared-max"
-					}
-				}
-			},
-			"advancement": [
-				{
-					"type": "ScaleValue",
-					"configuration": {
-						"identifier": "prepared-max",
-						"type": "number",
-						"scale": {
-							"1": {
-								"value": 2
-							},
-							"2": {
-								"value": 3
-							},
-							"3": {
-								"value": 4
-							},
-							"4": {
-								"value": 5
-							},
-							"5": {
-								"value": 6
-							},
-							"6": {
-								"value": 7
-							},
-							"7": {
-								"value": 8
-							},
-							"8": {
-								"value": 9
-							},
-							"9": {
-								"value": 10
-							},
-							"11": {
-								"value": 11
-							},
-							"13": {
-								"value": 12
-							},
-							"15": {
-								"value": 13
-							},
-							"17": {
-								"value": 14
-							},
-							"19": {
-								"value": 15
-							}
-						}
-					},
-					"title": "Max Pact Magic Spells"
-				}
-			],
-			"migrationVersion": 3
-		},
-		{
-			"name": "Wizard",
-			"source": "XPHB",
-			"system": {
-				"spellcasting": {
-					"preparation": {
-						"formula": "@scale.wizard.max-prepared"
-					}
-				}
-			},
-			"advancement": [
-				{
-					"type": "ScaleValue",
-					"configuration": {
-						"identifier": "max-prepared",
-						"type": "number",
-						"scale": {
-							"1": {
-								"value": 4
-							},
-							"2": {
-								"value": 5
-							},
-							"3": {
-								"value": 6
-							},
-							"4": {
-								"value": 7
-							},
-							"5": {
-								"value": 9
-							},
-							"6": {
-								"value": 10
-							},
-							"7": {
-								"value": 11
-							},
-							"8": {
-								"value": 12
-							},
-							"9": {
-								"value": 14
-							},
-							"10": {
-								"value": 15
-							},
-							"11": {
-								"value": 16
-							},
-							"13": {
-								"value": 17
-							},
-							"14": {
-								"value": 18
-							},
-							"15": {
-								"value": 19
-							},
-							"16": {
-								"value": 21
-							},
-							"17": {
-								"value": 22
-							},
-							"18": {
-								"value": 23
-							},
-							"19": {
-								"value": 24
-							},
-							"20": {
-								"value": 25
-							}
-						}
-					},
-					"title": "Max Prepared Spells"
-				}
-			],
-			"migrationVersion": 3
 		}
 	],
 	"subclass": [
+		{
+			"name": "Battle Master",
+			"shortName": "Battle Master",
+			"source": "PHB",
+			"className": "Fighter",
+			"classSource": "PHB",
+			"advancement": [
+				{
+					"type": "ScaleValue",
+					"configuration": {
+						"identifier": "superiority",
+						"type": "dice",
+						"scale": {
+							"3": {
+								"number": 4,
+								"faces": 8
+							},
+							"7": {
+								"number": 5,
+								"faces": 8
+							},
+							"10": {
+								"number": 5,
+								"faces": 10
+							},
+							"15": {
+								"number": 6,
+								"faces": 10
+							},
+							"18": {
+								"number": 6,
+								"faces": 12
+							}
+						}
+					},
+					"title": "Superiority Dice"
+				}
+			],
+			"migrationVersion": 3
+		},
 		{
 			"name": "Nature Domain",
 			"shortName": "Nature",
@@ -1790,42 +1305,6 @@
 			"migrationVersion": 3
 		},
 		{
-			"name": "Path of the Zealot",
-			"shortName": "Zealot",
-			"source": "XPHB",
-			"className": "Barbarian",
-			"classSource": "XPHB",
-			"advancement": [
-				{
-					"type": "ScaleValue",
-					"configuration": {
-						"identifier": "pool",
-						"type": "dice",
-						"scale": {
-							"3": {
-								"number": 4,
-								"faces": 12
-							},
-							"6": {
-								"number": 5,
-								"faces": 12
-							},
-							"12": {
-								"number": 6,
-								"faces": 12
-							},
-							"17": {
-								"number": 7,
-								"faces": 12
-							}
-						}
-					},
-					"title": "Warrior of the Gods: Pool Size"
-				}
-			],
-			"migrationVersion": 3
-		},
-		{
 			"name": "Psi Warrior",
 			"shortName": "Psi Warrior",
 			"source": "XPHB",
@@ -2160,7 +1639,9 @@
 			"className": "Fighter",
 			"classSource": "PHB",
 			"level": 1,
-			"isIgnored": true,
+			"entries": [
+				"You adopt a particular style of fighting as your specialty. You can't take the same Fighting Style option more than once, even if you get to choose again."
+			],
 			"migrationVersion": 3
 		},
 		{
@@ -2290,6 +1771,82 @@
 			"migrationVersion": 3
 		},
 		{
+			"name": "Deflect Missiles",
+			"source": "PHB",
+			"className": "Monk",
+			"classSource": "PHB",
+			"level": 3,
+			"activities": [
+				{
+					"name": "Reduce",
+					"type": "heal",
+					"activation": {
+						"type": "reaction",
+						"condition": "When you are hit by a ranged weapon attack"
+					},
+					"target": {
+						"affects": {
+							"type": "self"
+						}
+					},
+					"healing": {
+						"number": 1,
+						"denomination": 10,
+						"types": [
+							"healing"
+						],
+						"scaling": {
+							"number": 1
+						},
+						"bonus": "@abilities.dex.mod + @classes.monk.levels"
+					}
+				},
+				{
+					"name": "Redirect",
+					"type": "attack",
+					"activation": {
+						"type": "",
+						"condition": "If you reduce the damage to 0"
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"value": "1",
+								"target": {
+									"consumes": {
+										"name": "Ki"
+									}
+								}
+							}
+						]
+					},
+					"range": {
+						"value": "20",
+						"units": "ft"
+					},
+					"attack": {
+						"ability": "dex",
+						"type": {
+							"value": "ranged",
+							"classification": "weapon"
+						}
+					},
+					"damage": {
+						"parts": [
+							{
+								"custom": {
+									"enabled": true,
+									"formula": "1@scale.monk.die + @mod"
+								}
+							}
+						]
+					}
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
 			"name": "Diamond Soul",
 			"source": "PHB",
 			"className": "Monk",
@@ -2314,7 +1871,9 @@
 			"className": "Paladin",
 			"classSource": "PHB",
 			"level": 2,
-			"isIgnored": true,
+			"entries": [
+				"You adopt a particular style of fighting as your specialty. You can't take the same Fighting Style option more than once, even if you get to choose again."
+			],
 			"migrationVersion": 3
 		},
 		{
@@ -2379,7 +1938,9 @@
 			"className": "Ranger",
 			"classSource": "PHB",
 			"level": 2,
-			"isIgnored": true,
+			"entries": [
+				"You adopt a particular style of fighting as your specialty. You can't take the same Fighting Style option more than once, even if you get to choose again."
+			],
 			"migrationVersion": 3
 		},
 		{
@@ -2865,8 +2426,39 @@
 							"key": "system.traits.dr.value",
 							"mode": "ADD",
 							"value": "bludgeoning"
+						},
+						{
+							"key": "system.abilities.str.check.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.abilities.str.save.roll.mode",
+							"mode": "ADD",
+							"value": 1
 						}
 					]
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Danger Sense",
+			"source": "XPHB",
+			"className": "Barbarian",
+			"classSource": "XPHB",
+			"level": 2,
+			"effects": [
+				{
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.dex.save.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"description": "You have Advantage on Dexterity saving throws unless you have the &Reference[Incapacitated] condition."
 				}
 			],
 			"migrationVersion": 3
@@ -3546,11 +3138,14 @@
 						"value": "30"
 					},
 					"healing": {
-						"number": 1,
 						"denomination": 8,
 						"types": [
 							"healing"
 						],
+						"custom": {
+							"enabled": true,
+							"formula": "(@scale.divine-spark.spark)d8 + @abilities.wis.mod"
+						},
 						"scaling": {
 							"number": 1
 						},
@@ -3589,6 +3184,10 @@
 					"damage": {
 						"parts": [
 							{
+								"custom": {
+									"enabled": true,
+									"formula": "(@scale.divine-spark.spark)d8 + @abilities.wis.mod"
+								},
 								"number": 1,
 								"denomination": 8,
 								"bonus": "@abilities.wis.mod",
@@ -3610,6 +3209,30 @@
 					}
 				}
 			],
+			"advancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Divine Spark Die Count",
+					"configuration": {
+						"identifier": "spark",
+						"type": "number",
+						"scale": {
+							"2": {
+								"value": 1
+							},
+							"7": {
+								"value": 2
+							},
+							"13": {
+								"value": 3
+							},
+							"18": {
+								"value": 4
+							}
+						}
+					}
+				}
+			],
 			"migrationVersion": 3
 		},
 		{
@@ -3621,7 +3244,7 @@
 			"activities": [
 				{
 					"name": "Turn Undead",
-					"type": "utility",
+					"type": "save",
 					"activation": {
 						"type": "action"
 					},
@@ -3648,6 +3271,17 @@
 						"units": "ft",
 						"value": "30"
 					},
+					"damage": {
+						"onSave": "none"
+					},
+					"save": {
+						"ability": [
+							"wis"
+						],
+						"dc": {
+							"calculation": "spellcasting"
+						}
+					},
 					"effects": [
 						{
 							"foundryId": "turnUndead"
@@ -3665,7 +3299,8 @@
 					"statuses": [
 						"frightened",
 						"incapacitated"
-					]
+					],
+					"description": "For that duration, it tries to move as far from you as it can on its turns. This effect ends early on the creature if it takes any damage, if you have the Incapacitated condition, or if you die."
 				}
 			],
 			"migrationVersion": 3
@@ -4081,19 +3716,28 @@
 			"classSource": "XPHB",
 			"level": 2,
 			"system": {
-				"uses.max": "@scale.druid.wild-shape-uses"
+				"uses.max": "@scale.druid.wild-shape-uses",
+				"uses.recovery": [
+					{
+						"period": "lr",
+						"type": "recoverAll"
+					},
+					{
+						"period": "sr",
+						"type": "formula",
+						"formula": "1"
+					}
+				]
 			},
 			"activities": [
 				{
-					"name": "Wild Shape",
-					"type": "utility",
+					"type": "transform",
 					"activation": {
-						"type": "bonus",
-						"value": 1
+						"type": "bonus"
 					},
 					"duration": {
-						"value": "(floor(@classes.druid.levels / 2))",
-						"units": "hour"
+						"units": "hour",
+						"value": "(floor(@classes.druid.levels / 2))"
 					},
 					"consumption": {
 						"targets": [
@@ -4107,6 +3751,50 @@
 						"affects": {
 							"type": "self"
 						}
+					},
+					"profiles": [
+						{
+							"cr": "0.25",
+							"name": "CR ¼",
+							"types": [
+								"beast"
+							],
+							"movement": [
+								"fly"
+							],
+							"level": {
+								"max": 5
+							}
+						},
+						{
+							"cr": "0.5",
+							"name": "CR ½",
+							"types": [
+								"beast"
+							],
+							"movement": [
+								"fly"
+							],
+							"level": {
+								"min": 6,
+								"max": 7
+							}
+						},
+						{
+							"cr": "1",
+							"name": "CR 1",
+							"types": [
+								"beast"
+							],
+							"level": {
+								"min": 8
+							}
+						}
+					],
+					"transform": {
+						"mode": "cr",
+						"identifier": "druid",
+						"preset": "wildshape"
 					}
 				}
 			],
@@ -4468,7 +4156,7 @@
 			"level": 9,
 			"effects": [
 				{
-					"name": "Tactial Master",
+					"name": "Tactical Master",
 					"transfer": true,
 					"changes": [
 						{
@@ -4573,6 +4261,7 @@
 					},
 					"target": {
 						"affects": {
+							"count": "1",
 							"type": "object"
 						}
 					},
@@ -4598,119 +4287,55 @@
 							}
 						}
 					]
-				},
-				{
-					"foundryId": "martialArts",
-					"name": "Monk Attack",
-					"type": "attack",
-					"activation": {
-						"type": "action",
-						"value": 1
-					},
-					"target": {
-						"affects": {
-							"count": "1",
-							"type": "creature"
-						}
-					},
-					"range": {
-						"value": "5",
-						"units": "ft"
-					},
-					"attack": {
-						"ability": "dex",
-						"type": {
-							"value": "melee",
-							"classification": "weapon"
-						}
-					},
-					"damage": {
-						"parts": [
-							{
-								"custom": {
-									"enabled": true,
-									"formula": "@scale.monk.die + @mod"
-								}
-							}
-						]
-					}
 				}
 			],
 			"effects": [
 				{
 					"foundryId": "martialArts",
+					"name": "Dexterous Attacks & Martial Arts Damage",
 					"type": "enchantment",
 					"disabled": true,
-					"transfer": true
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.properties",
+							"mode": "ADD",
+							"value": "fin"
+						},
+						{
+							"key": "system.damage.base.custom.enabled",
+							"mode": "OVERRIDE",
+							"value": true
+						},
+						{
+							"key": "system.damage.base.custom.formula",
+							"mode": "OVERRIDE",
+							"value": "@scale.monk.die + @mod"
+						},
+						{
+							"key": "name",
+							"mode": "OVERRIDE",
+							"value": "{} (Martial Arts)"
+						}
+					],
+					"descriptionEntries": [
+						{
+							"type": "entries",
+							"name": "Martial Arts Die",
+							"entries": [
+								"You can roll [[lookup @scale.monk.die]] in place of the normal damage of your Unarmed Strike or Monk weapons. This die changes as you gain Monk levels, as shown in the Martial Arts column of the Monk Features table."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Dexterous Attacks",
+							"entries": [
+								"You can use your Dexterity modifier instead of your Strength modifier for the attack and damage rolls of your Unarmed Strikes and Monk weapons. In addition, when you use the Grapple or Shove option of your Unarmed Strike, you can use your Dexterity modifier instead of your Strength modifier to determine the save DC."
+							]
+						}
+					]
 				}
 			],
-			"subEntities": {
-				"item": [
-					{
-						"name": "Unarmed Strike (Monk)",
-						"source": "XPHB",
-						"page": 100,
-						"srd52": true,
-						"type": "M",
-						"rarity": "none",
-						"weaponCategory": "simple",
-						"entries": [
-							{
-								"type": "quote",
-								"entries": [
-									"Tether even a roasted chicken."
-								],
-								"by": "Yamamoto Tsunetomo",
-								"from": "Hagakure Kikigaki"
-							}
-						],
-						"foundrySystem": {
-							"equipped": true
-						},
-						"foundryActivities": [
-							{
-								"foundryId": "martialArts",
-								"name": "Monk Attack",
-								"type": "attack",
-								"activation": {
-									"type": "action",
-									"value": 1
-								},
-								"target": {
-									"affects": {
-										"count": "1",
-										"type": "creature"
-									}
-								},
-								"range": {
-									"value": "5",
-									"units": "ft"
-								},
-								"attack": {
-									"ability": "dex",
-									"type": {
-										"value": "melee",
-										"classification": "weapon"
-									}
-								},
-								"damage": {
-									"parts": [
-										{
-											"custom": {
-												"enabled": true,
-												"formula": "@scale.monk.die + @mod"
-											},
-											"types": [
-												"bludgeoning"
-											]
-										}
-									]
-								}
-							}
-						]
-					}
-				]
-			},
 			"migrationVersion": 3
 		},
 		{
@@ -4776,6 +4401,9 @@
 			"className": "Monk",
 			"classSource": "XPHB",
 			"level": 2,
+			"system": {
+				"uses.max": null
+			},
 			"entryData": {
 				"resources": [
 					{
@@ -4785,7 +4413,8 @@
 						"count": "@scale.monk.focus"
 					}
 				]
-			}
+			},
+			"migrationVersion": 3
 		},
 		{
 			"name": "Patient Defense",
@@ -5603,7 +5232,45 @@
 			"className": "Paladin",
 			"classSource": "XPHB",
 			"level": 2,
-			"isIgnored": true,
+			"entries": [
+				"You gain a {@filter Fighting Style feat|feats|category=FS} of your choice. Instead of choosing one of those feats, you can choose the {@feat Blessed Warrior|XPHB} Fighting Style."
+			],
+			"migrationVersion": 3
+		},
+		{
+			"name": "Paladin's Smite",
+			"source": "XPHB",
+			"className": "Paladin",
+			"classSource": "XPHB",
+			"level": 2,
+			"activities": [
+				{
+					"type": "cast",
+					"activation": {
+						"type": "action"
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "activityUses",
+								"value": "1"
+							}
+						]
+					},
+					"uses": {
+						"recovery": [
+							{
+								"period": "lr",
+								"type": "recoverAll"
+							}
+						],
+						"max": "1"
+					},
+					"spell": {
+						"uuid": "@spell[divine smite|xphb]"
+					}
+				}
+			],
 			"migrationVersion": 3
 		},
 		{
@@ -5919,7 +5586,9 @@
 			"className": "Ranger",
 			"classSource": "XPHB",
 			"level": 2,
-			"isIgnored": true,
+			"entries": [
+				"You gain a {@filter Fighting Style feat|feats|category=FS} of your choice. Instead of choosing one of those feats, you can choose the {@feat Druidic Warrior|XPHB} Fighting Style."
+			],
 			"migrationVersion": 3
 		},
 		{
@@ -6166,6 +5835,12 @@
 						"type": ""
 					},
 					"uses": {
+						"recovery": [
+							{
+								"period": "turn",
+								"type": "recoverAll"
+							}
+						],
 						"max": "1"
 					},
 					"target": {
@@ -7375,31 +7050,6 @@
 					}
 				}
 			],
-			"chooseSystem": [
-				{
-					"name": "Necrotic Damage",
-					"system": {
-						"damage.parts": [
-							[
-								"1d6 + floor(@classes.barbarian.levels / 2)",
-								"necrotic"
-							]
-						]
-					}
-				},
-				{
-					"name": "Radiant Damage",
-					"system": {
-						"damage.parts": [
-							[
-								"1d6 + floor(@classes.barbarian.levels / 2)",
-								"radiant"
-							]
-						]
-					}
-				}
-			],
-			"isChooseSystemRenderEntries": true,
 			"migrationVersion": 3
 		},
 		{
@@ -7647,6 +7297,9 @@
 			"subclassShortName": "Swords",
 			"subclassSource": "XGE",
 			"level": 3,
+			"entries": [
+				"At 3rd level, you adopt a style of fighting as your specialty. You can't take a Fighting Style option more than once, even if something in the game lets you choose again."
+			],
 			"isIgnored": true,
 			"migrationVersion": 3
 		},
@@ -8184,7 +7837,7 @@
 							{
 								"custom": {
 									"enabled": true,
-									"formula": "@scale.order-domain.divine-strike"
+									"formula": "@scale.trickery-domain.divine-strike"
 								},
 								"types": [
 									"poison"
@@ -9090,24 +8743,18 @@
 					"transfer": true,
 					"changes": [
 						{
-							"key": "flags.dnd5e.remarkableAthlete",
-							"mode": "OVERRIDE",
-							"value": true
+							"key": "system.skills.ath.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.attributes.init.roll.mode",
+							"mode": "ADD",
+							"value": 1
 						}
 					]
 				}
 			],
-			"migrationVersion": 3
-		},
-		{
-			"name": "Additional Fighting Style",
-			"source": "PHB",
-			"className": "Fighter",
-			"classSource": "PHB",
-			"subclassShortName": "Champion",
-			"subclassSource": "PHB",
-			"level": 10,
-			"isIgnored": true,
 			"migrationVersion": 3
 		},
 		{
@@ -12210,6 +11857,8 @@
 				{
 					"foundryId": "rageOfTheWilds",
 					"name": "Rage of the Bear",
+					"disabled": true,
+					"transfer": true,
 					"duration": {
 						"rounds": 1
 					},
@@ -12698,7 +12347,7 @@
 			"subclassSource": "XPHB",
 			"level": 3,
 			"system": {
-				"uses.max": "@scale.zealot.pool.number",
+				"uses.max": "@scale.warrior-of-the-gods.pool",
 				"uses.recovery": [
 					{
 						"period": "lr",
@@ -12725,7 +12374,7 @@
 						],
 						"scaling": {
 							"allowed": true,
-							"max": "@scale.zealot.pool.number"
+							"max": "@item.uses.value"
 						}
 					},
 					"target": {
@@ -12743,6 +12392,30 @@
 						},
 						"scaling": {
 							"mode": "whole"
+						}
+					}
+				}
+			],
+			"advancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Pool Size",
+					"configuration": {
+						"identifier": "pool",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 4
+							},
+							"6": {
+								"value": 5
+							},
+							"12": {
+								"value": 6
+							},
+							"17": {
+								"value": 7
+							}
 						}
 					}
 				}
@@ -12821,6 +12494,43 @@
 					"duration": {
 						"turns": 1
 					},
+					"changes": [
+						{
+							"key": "system.abilities.str.save.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.abilities.dex.save.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.abilities.con.save.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.abilities.int.save.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.abilities.wis.save.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.abilities.cha.save.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.attributes.death.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
 					"description": "You gain Advantage on attack rolls and saving throws until the start of Zealots next turn."
 				}
 			],
@@ -13013,7 +12723,7 @@
 					"activation": {
 						"type": "reaction",
 						"value": 1,
-						"condition": "When an enemy you can see ends it turns within 5 feet o fyou"
+						"condition": "When an enemy you can see ends it turns within 5 feet of you"
 					},
 					"consumption": {
 						"targets": [
@@ -14331,7 +14041,7 @@
 							{
 								"custom": {
 									"enabled": true,
-									"formula": "@scale.land.lands-aid"
+									"formula": "@scale.circle-of-the-land.lands-aid"
 								},
 								"types": [
 									"necrotic"
@@ -14375,7 +14085,7 @@
 						],
 						"custom": {
 							"enabled": true,
-							"formula": "@scale.land.lands-aid"
+							"formula": "@scale.circle-of-the-land.lands-aid"
 						},
 						"scaling": {
 							"number": 1
@@ -14680,17 +14390,63 @@
 			"subclassShortName": "Moon",
 			"subclassSource": "XPHB",
 			"level": 3,
-			"effects": [
+			"activities": [
 				{
-					"disabled": true,
-					"transfer": true,
-					"changes": [
-						{
-							"key": "system.attributes.ac.min",
-							"mode": "UPGRADE",
-							"value": "13 + @abilities.wis.mod"
+					"type": "transform",
+					"activation": {
+						"type": "bonus"
+					},
+					"duration": {
+						"units": "hour",
+						"value": "(floor(@classes.druid.levels / 2))"
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"value": "1",
+								"target": {
+									"prop": "classFeature",
+									"uid": "Wild Shape|Druid|XPHB|2"
+								}
+							}
+						]
+					},
+					"target": {
+						"affects": {
+							"type": "self"
 						}
-					]
+					},
+					"profiles": [
+						{
+							"cr": "floor(@classes.druid.levels / 3)",
+							"name": "Circle Form Options",
+							"types": [
+								"beast"
+							],
+							"level": {
+								"min": 8
+							}
+						},
+						{
+							"cr": "floor(@classes.druid.levels / 3)",
+							"name": "Circle Form Options",
+							"types": [
+								"beast"
+							],
+							"movement": [
+								"fly"
+							],
+							"level": {
+								"max": 7
+							}
+						}
+					],
+					"transform": {
+						"mode": "cr",
+						"identifier": "druid",
+						"preset": "wildshape"
+					}
 				}
 			],
 			"migrationVersion": 3
@@ -14854,6 +14610,7 @@
 			"level": 3,
 			"activities": [
 				{
+					"name": "Manifest Ocean Spray",
 					"type": "save",
 					"activation": {
 						"type": "bonus"
@@ -14878,7 +14635,7 @@
 						"template": {
 							"units": "ft",
 							"type": "radius",
-							"size": "@scale.sea.wrath-range"
+							"size": "@scale.circle-of-the-sea.wrath-range"
 						},
 						"affects": {
 							"choice": true,
@@ -14907,7 +14664,12 @@
 						"dc": {
 							"calculation": "spellcasting"
 						}
-					}
+					},
+					"effects": [
+						{
+							"foundryId": "wrathOfTheSea"
+						}
+					]
 				},
 				{
 					"name": "Bonus Action Save",
@@ -14923,7 +14685,7 @@
 						"template": {
 							"units": "ft",
 							"type": "radius",
-							"size": "@scale.sea.wrath-range"
+							"size": "@scale.circle-of-the-sea.wrath-range"
 						},
 						"affects": {
 							"choice": true,
@@ -14953,6 +14715,18 @@
 							"calculation": "spellcasting"
 						}
 					}
+				}
+			],
+			"effects": [
+				{
+					"foundryId": "wrathOfTheSea",
+					"name": "Manifesting Ocean Spray",
+					"disabled": true,
+					"transfer": true,
+					"duration": {
+						"seconds": 600
+					},
+					"description": "A [[lookup @scale.circle-of-the-sea.wrath-range]]-ft.  Emanation of ocean spray surrounds you for 10 minutes. It ends early if you dismiss it (no action required), manifest it again, or have the Incapacitated condition."
 				}
 			],
 			"migrationVersion": 3
@@ -14991,7 +14765,7 @@
 						"template": {
 							"units": "ft",
 							"type": "radius",
-							"size": "@scale.sea.wrath-range"
+							"size": "@scale.circle-of-the-sea.wrath-range"
 						},
 						"affects": {
 							"choice": true,
@@ -15092,7 +14866,7 @@
 						"template": {
 							"units": "ft",
 							"type": "radius",
-							"size": "@scale.sea.wrath-range"
+							"size": "@scale.circle-of-the-sea.wrath-range"
 						},
 						"affects": {
 							"choice": true,
@@ -15160,7 +14934,7 @@
 							"units": "ft",
 							"count": "2",
 							"type": "radius",
-							"size": "@scale.sea.wrath-range"
+							"size": "@scale.circle-of-the-sea.wrath-range"
 						},
 						"affects": {
 							"choice": true,
@@ -15267,7 +15041,7 @@
 							{
 								"custom": {
 									"enabled": true,
-									"formula": "@scale.stars.die + @abilities.wis.mod"
+									"formula": "@scale.circle-of-the-stars.die + @abilities.wis.mod"
 								},
 								"types": [
 									"radiant"
@@ -15311,7 +15085,7 @@
 						],
 						"custom": {
 							"enabled": true,
-							"formula": "@scale.stars.die + @abilities.wis.mod"
+							"formula": "@scale.circle-of-the-stars.die + @abilities.wis.mod"
 						},
 						"scaling": {
 							"number": 1
@@ -15352,9 +15126,28 @@
 				{
 					"foundryId": "dragon",
 					"name": "Dragon Form",
+					"disabled": true,
+					"transfer": true,
 					"duration": {
 						"seconds": 600
 					},
+					"changes": [
+						{
+							"key": "system.abilities.int.check.roll.min",
+							"mode": "UPGRADE",
+							"value": 10
+						},
+						{
+							"key": "system.abilities.wis.check.roll.min",
+							"mode": "UPGRADE",
+							"value": 10
+						},
+						{
+							"key": "system.attributes.concentration.roll.min",
+							"mode": "UPGRADE",
+							"value": 10
+						}
+					],
 					"description": "A constellation of a wise dragon appears on you. When you make an Intelligence or a Wisdom check or a Constitution saving throw to maintain Concentration, you can treat a roll of 9 or lower on the d20 as a 10."
 				}
 			],
@@ -15422,6 +15215,8 @@
 			"effects": [
 				{
 					"foundryId": "starryForm",
+					"disabled": true,
+					"transfer": true,
 					"duration": {
 						"seconds": 600
 					},
@@ -15754,10 +15549,11 @@
 			"level": 18,
 			"activities": [
 				{
+					"name": "Heroic Rally",
 					"type": "heal",
 					"activation": {
-						"type": "",
-						"condition": "At the start of each of your turns"
+						"type": "turnStart",
+						"condition": "if Bloodied"
 					},
 					"target": {
 						"affects": {
@@ -15770,12 +15566,34 @@
 						],
 						"custom": {
 							"enabled": true,
-							"formula": "5"
+							"formula": "5 + @abilities.con.mod"
 						},
 						"scaling": {
 							"number": 1
 						}
 					}
+				}
+			],
+			"effects": [
+				{
+					"name": "Defy Death",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.death.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"descriptionEntries": [
+						{
+							"type": "entries",
+							"name": "Note:",
+							"entries": [
+								"This effect does not modify the behavior of rolling an 18 or 19 on a Death Saving Throw."
+							]
+						}
+					]
 				}
 			],
 			"migrationVersion": 3
@@ -15794,14 +15612,29 @@
 					"type": "utility",
 					"activation": {
 						"type": "bonus"
+					},
+					"target": {
+						"affects": {
+							"count": "1",
+							"type": "object",
+							"special": "bonded weapon"
+						}
+					},
+					"range": {
+						"units": "any",
+						"special": "same plane of existence"
 					}
 				},
 				{
 					"name": "Bond with Weapon",
 					"type": "enchant",
 					"activation": {
-						"type": "hour",
-						"value": 1
+						"type": "shortRest",
+						"value": 1,
+						"condition": "or 1 Hour"
+					},
+					"duration": {
+						"units": "disp"
 					},
 					"consumption": {
 						"targets": [
@@ -15811,7 +15644,18 @@
 							}
 						]
 					},
+					"target": {
+						"affects": {
+							"count": "1",
+							"type": "object",
+							"special": "currently unbound weapon"
+						}
+					},
+					"range": {
+						"units": "touch"
+					},
 					"restrictions": {
+						"allowMagical": true,
 						"type": "weapon"
 					},
 					"effects": [
@@ -15833,7 +15677,8 @@
 							"mode": "ADD",
 							"value": ", War Bonded"
 						}
-					]
+					],
+					"description": "Once you have bonded a weapon to yourself, you can't be disarmed of that weapon unless you have the Incapacitated condition. If it is on the same plane of existence, you can summon that weapon as a Bonus Action, causing it to teleport instantly to your hand."
 				}
 			],
 			"migrationVersion": 3
@@ -16288,41 +16133,7 @@
 			"level": 3,
 			"activities": [
 				{
-					"name": "Elemental Attunement",
-					"type": "utility",
-					"activation": {
-						"type": "",
-						"condition": "At the start of your turn"
-					},
-					"duration": {
-						"units": "minute",
-						"value": "10"
-					},
-					"consumption": {
-						"targets": [
-							{
-								"type": "itemUses",
-								"value": "1",
-								"target": {
-									"consumes": {
-										"name": "Focus Point"
-									}
-								}
-							}
-						]
-					},
-					"target": {
-						"affects": {
-							"type": "self"
-						}
-					},
-					"effects": [
-						{
-							"foundryId": "elementalAttunem"
-						}
-					]
-				},
-				{
+					"foundryId": "elementalAttunem",
 					"name": "Elemental Strike",
 					"type": "attack",
 					"activation": {
@@ -16330,8 +16141,7 @@
 					},
 					"target": {
 						"affects": {
-							"count": "1",
-							"type": "creature"
+							"count": "1"
 						}
 					},
 					"range": {
@@ -16355,16 +16165,19 @@
 								},
 								"types": [
 									"acid",
+									"bludgeoning",
 									"cold",
 									"fire",
 									"lightning",
-									"thunder"
+									"thunder",
+									"force"
 								]
 							}
 						]
 					}
 				},
 				{
+					"foundryId": "elementalAttune1",
 					"name": "Elemental Save",
 					"type": "save",
 					"activation": {
@@ -16374,11 +16187,13 @@
 					"target": {
 						"affects": {
 							"count": "1",
-							"type": "creature"
+							"type": "creatureOrObject",
+							"special": "hit by elemental damage from imbued strike"
 						}
 					},
 					"range": {
-						"units": "ft",
+						"units": "spec",
+						"special": "pushed or pulled up to 10 feet",
 						"value": "15"
 					},
 					"damage": {
@@ -16392,16 +16207,95 @@
 							"calculation": "wis"
 						}
 					}
+				},
+				{
+					"name": "Activate Attunement",
+					"type": "enchant",
+					"activation": {
+						"type": "turnStart"
+					},
+					"duration": {
+						"units": "minute",
+						"value": "10"
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"value": "1",
+								"target": {
+									"consumes": {
+										"name": "Focus Point"
+									}
+								}
+							}
+						]
+					},
+					"target": {
+						"affects": {
+							"type": "self"
+						}
+					},
+					"restrictions": {
+						"allowMagical": true
+					},
+					"enchant": {
+						"self": true,
+						"identifier": "monk"
+					},
+					"effects": [
+						{
+							"foundryId": "elementalAttunem",
+							"riders": {
+								"activity": [
+									{
+										"foundryId": "elementalAttunem"
+									},
+									{
+										"foundryId": "elementalAttune1"
+									}
+								]
+							}
+						}
+					]
 				}
 			],
 			"effects": [
 				{
 					"foundryId": "elementalAttunem",
+					"name": "Active Attunement",
+					"type": "enchantment",
+					"disabled": true,
+					"transfer": true,
 					"duration": {
 						"seconds": 600
 					},
-					"descriptionEntries": [
-						"You gain the following benefits while this feature is active: {@b Reach} and {@b Elemental Strikes}."
+					"changes": [
+						{
+							"key": "name",
+							"mode": "OVERRIDE",
+							"value": "{} (Active)"
+						},
+						{
+							"key": "activities[enchant].activation.type",
+							"mode": "OVERRIDE",
+							"value": "special"
+						},
+						{
+							"key": "activities[enchant].activation.condition",
+							"mode": "OVERRIDE",
+							"value": "at end of duration"
+						},
+						{
+							"key": "activities[enchant].name",
+							"mode": "OVERRIDE",
+							"value": "End Attunement"
+						},
+						{
+							"key": "activities[enchant].consumption.targets",
+							"mode": "OVERRIDE",
+							"value": []
+						}
 					]
 				}
 			],
@@ -17045,7 +16939,7 @@
 			"subclassSource": "XPHB",
 			"level": 6,
 			"system": {
-				"uses.max": "(max(1,@abilities.wis.mod))",
+				"uses.max": "max(1,@abilities.wis.mod)",
 				"uses.recovery": [
 					{
 						"period": "lr",
@@ -17078,7 +16972,7 @@
 						],
 						"custom": {
 							"enabled": true,
-							"formula": "@scale.monk.die"
+							"formula": "@scale.monk.die + @abilities.wis.mod"
 						},
 						"scaling": {
 							"number": 1
@@ -17794,6 +17688,68 @@
 			"migrationVersion": 3
 		},
 		{
+			"name": "Peerless Athlete",
+			"source": "XPHB",
+			"className": "Paladin",
+			"classSource": "XPHB",
+			"subclassShortName": "Glory",
+			"subclassSource": "XPHB",
+			"level": 3,
+			"activities": [
+				{
+					"type": "utility",
+					"activation": {
+						"type": "bonus"
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"value": "1",
+								"target": {
+									"consumes": {
+										"name": "Channel Divinity"
+									}
+								}
+							}
+						]
+					},
+					"target": {
+						"affects": {
+							"type": "self"
+						}
+					},
+					"effects": [
+						{
+							"foundryId": "peerlessAthlete"
+						}
+					]
+				}
+			],
+			"effects": [
+				{
+					"foundryId": "peerlessAthlete",
+					"duration": {
+						"seconds": 3600
+					},
+					"changes": [
+						{
+							"key": "system.skills.ath.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.skills.acr.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"description": "For 1 hour, you have Advantage on Strength (Athletics) and Dexterity (Acrobatics) checks, and the distance of your Long and High Jumps increases by 10 feet (this extra distance costs movement as normal)."
+				}
+			],
+			"migrationVersion": 3
+		},
+		{
 			"name": "Aura of Alacrity",
 			"source": "XPHB",
 			"className": "Paladin",
@@ -17929,10 +17885,20 @@
 			"effects": [
 				{
 					"foundryId": "livingLegend",
+					"name": "Living Legend: Charismatic",
+					"disabled": true,
+					"transfer": true,
 					"duration": {
 						"seconds": 600
 					},
-					"description": "You are empowered with the legends\u2014whether true or exaggerated\u2014of your great deeds."
+					"changes": [
+						{
+							"key": "system.abilities.cha.check.roll.mode",
+							"mode": "ADD",
+							"value": 1
+						}
+					],
+					"description": "You are blessed with an otherworldly presence and have Advantage on all Charisma checks."
 				}
 			],
 			"migrationVersion": 3
@@ -18344,7 +18310,7 @@
 							{
 								"custom": {
 									"enabled": true,
-									"formula": "@scale.fey.dreadful-strike"
+									"formula": "@scale.fey-wanderer.dreadful-strike"
 								},
 								"types": [
 									"psychic"
@@ -18538,7 +18504,7 @@
 							{
 								"custom": {
 									"enabled": true,
-									"formula": "@scale.gloom.dreadful-strike"
+									"formula": "@scale.gloom-stalker.dreadful-strike"
 								},
 								"types": [
 									"psychic"
@@ -20279,6 +20245,8 @@
 				{
 					"foundryId": "bastionOfLaw",
 					"name": "Warded by Law",
+					"disabled": true,
+					"transfer": true,
 					"description": "When the warded creature takes damage, it can expend a number of those dice, roll them, and reduce the damage taken by the total rolled on those dice. The ward lasts until you finish a Long Rest or until you use this feature again."
 				}
 			],
@@ -21786,7 +21754,13 @@
 			"subclassSource": "XPHB",
 			"level": 3,
 			"system": {
-				"uses.max": "(2 * @classes.wizard.levels) + @abilities.int.mod"
+				"uses.max": "(2 * @classes.wizard.levels) + @abilities.int.mod",
+				"uses.recovery": [
+					{
+						"period": "lr",
+						"type": "loseAll"
+					}
+				]
 			},
 			"activities": [
 				{
@@ -21805,7 +21779,7 @@
 							},
 							{
 								"type": "itemUses",
-								"value": "-((@classes.wizard.levels * 2) + @abilities.int.mod)"
+								"value": "-@item.uses.max"
 							}
 						]
 					},
@@ -21817,6 +21791,11 @@
 							}
 						],
 						"max": "1"
+					},
+					"target": {
+						"affects": {
+							"type": "self"
+						}
 					}
 				},
 				{
@@ -21829,7 +21808,7 @@
 					"consumption": {
 						"scaling": {
 							"allowed": true,
-							"max": "@classes.wizard.levels + @abilities.cha.mod"
+							"max": "@item.uses.value"
 						},
 						"targets": [
 							{
@@ -21858,9 +21837,10 @@
 						"targets": [
 							{
 								"type": "itemUses",
-								"value": "-(@scaling * 2)",
+								"value": "-2",
 								"scaling": {
-									"mode": "amount"
+									"mode": "amount",
+									"formula": "-2"
 								}
 							}
 						]
@@ -21889,9 +21869,10 @@
 							},
 							{
 								"type": "itemUses",
-								"value": "-(@scaling * 2)",
+								"value": "-2",
 								"scaling": {
-									"mode": "amount"
+									"mode": "amount",
+									"formula": "-2"
 								}
 							}
 						]
@@ -21919,7 +21900,7 @@
 					"consumption": {
 						"scaling": {
 							"allowed": true,
-							"max": "@classes.wizard.levels + @abilities.cha.mod"
+							"max": "(2 * @classes.wizard.levels) + @abilities.int.mod"
 						},
 						"targets": [
 							{

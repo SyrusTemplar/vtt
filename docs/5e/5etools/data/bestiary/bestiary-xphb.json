@@ -36,7 +36,7 @@
 			"wis": 10,
 			"cha": 6,
 			"senses": [
-				"darkvision 60 ft."
+				"Darkvision 60 ft."
 			],
 			"passive": 10,
 			"immune": [
@@ -284,7 +284,7 @@
 			"wis": 3,
 			"cha": 1,
 			"senses": [
-				"blindsight 30 ft."
+				"Blindsight 30 ft."
 			],
 			"passive": 6,
 			"languages": [
@@ -386,7 +386,7 @@
 			"wis": 14,
 			"cha": 11,
 			"senses": [
-				"darkvision 60 ft."
+				"Darkvision 60 ft."
 			],
 			"passive": 12,
 			"languages": [
@@ -405,7 +405,7 @@
 				{
 					"name": "Beast's Strike",
 					"entries": [
-						"{@atkr m} {@hitYourSpellAttack Bonus equals your spell attack modifier}, reach 5 ft. {@h}{@dice 1d8 + 2} plus your Wisdom modifier Bludgeoning, Piercing, or Slashing damage (your choice when you summon the beast). If the beast moved at least 20 feet straight toward the target before the hit, the target takes an extra {@damage 1d6} damage of the same type, and the target has the {@condition Prone|XPHB} condition if it is a Large or smaller creature."
+						"{@atkr m} {@hitYourSpellAttack Bonus equals your spell attack modifier}, reach 5 ft. {@h}{@damage 1d8 + 2} plus your Wisdom modifier Bludgeoning, Piercing, or Slashing damage (your choice when you summon the beast). If the beast moved at least 20 feet straight toward the target before the hit, the target takes an extra {@damage 1d6} damage of the same type, and the target has the {@condition Prone|XPHB} condition if it is a Large or smaller creature."
 					]
 				}
 			],
@@ -449,7 +449,7 @@
 			"wis": 14,
 			"cha": 11,
 			"senses": [
-				"darkvision 90 ft."
+				"Darkvision 90 ft."
 			],
 			"passive": 12,
 			"languages": [
@@ -474,7 +474,7 @@
 				{
 					"name": "Beast's Strike",
 					"entries": [
-						"{@atkr m} {@hitYourSpellAttack Bonus equals your spell attack modifier}, reach 5 ft. {@h}{@dice 1d6 + 2} plus your Wisdom modifier Bludgeoning or Piercing damage (your choice when you summon the beast), and the target has the {@condition Grappled|XPHB} condition (escape DC equals your spell save DC)."
+						"{@atkr m} {@hitYourSpellAttack Bonus equals your spell attack modifier}, reach 5 ft. {@h}{@damage 1d6 + 2} plus your Wisdom modifier Bludgeoning or Piercing damage (your choice when you summon the beast), and the target has the {@condition Grappled|XPHB} condition (escape DC equals your spell save DC)."
 					]
 				}
 			],
@@ -521,7 +521,7 @@
 			"wis": 14,
 			"cha": 11,
 			"senses": [
-				"darkvision 60 ft."
+				"Darkvision 60 ft."
 			],
 			"passive": 12,
 			"languages": [
@@ -532,7 +532,7 @@
 				{
 					"name": "Flyby",
 					"entries": [
-						"The beast doesn't provoke Opportunity Attacks when it flies out of an enemy's reach."
+						"The beast doesn't provoke {@action Opportunity Attack|XPHB|Opportunity Attacks} when it flies out of an enemy's reach."
 					]
 				},
 				{
@@ -546,7 +546,7 @@
 				{
 					"name": "Beast's Strike",
 					"entries": [
-						"{@atkr m} {@hitYourSpellAttack Bonus equals your spell attack modifier}, reach 5 ft. {@h}{@dice 1d4 + 3} plus your Wisdom modifier Slashing damage."
+						"{@atkr m} {@hitYourSpellAttack Bonus equals your spell attack modifier}, reach 5 ft. {@h}{@damage 1d4 + 3} plus your Wisdom modifier Slashing damage."
 					]
 				}
 			],
@@ -602,7 +602,7 @@
 			"wis": 14,
 			"cha": 5,
 			"senses": [
-				"darkvision 60 ft."
+				"Darkvision 60 ft."
 			],
 			"passive": 12,
 			"languages": [
@@ -613,7 +613,7 @@
 				{
 					"name": "Flyby (Air Only)",
 					"entries": [
-						"The spirit doesn't provoke Opportunity Attacks when it flies out of an enemy's reach."
+						"The spirit doesn't provoke {@action Opportunity Attack|XPHB|Opportunity Attacks} when it flies out of an enemy's reach."
 					]
 				},
 				{
@@ -790,7 +790,7 @@
 			"wis": 14,
 			"cha": 16,
 			"senses": [
-				"darkvision 60 ft."
+				"Darkvision 60 ft."
 			],
 			"passive": 12,
 			"resist": [
@@ -934,7 +934,7 @@
 			"wis": 11,
 			"cha": 5,
 			"senses": [
-				"darkvision 60 ft."
+				"Darkvision 60 ft."
 			],
 			"passive": 10,
 			"resist": [
@@ -961,7 +961,7 @@
 				{
 					"name": "Stony Lethargy (Stone Only)",
 					"entries": [
-						"When a creature starts its turn within 10 feet of the spirit, the spirit can target it with magical energy if the spirit can see it. {@actSave wis} DC equals your spell save DC, the target. {@actSaveFail} Until the start of its next turn, the target can't make Opportunity Attacks, and its Speed is halved."
+						"When a creature starts its turn within 10 feet of the spirit, the spirit can target it with magical energy if the spirit can see it. {@actSave wis} DC equals your spell save DC, the target. {@actSaveFail} Until the start of its next turn, the target can't make {@action Opportunity Attack|XPHB|Opportunity Attacks}, and its Speed is halved."
 					]
 				}
 			],
@@ -983,7 +983,7 @@
 				{
 					"name": "Berserk Lashing (Clay Only)",
 					"entries": [
-						"{@actTrigger} The spirit takes damage from a creature. {@actResponse} The spirit makes a Slam attack against that creature if possible, or the spirit moves up to half its Speed toward that creature without provoking Opportunity Attacks."
+						"{@actTrigger} The spirit takes damage from a creature. {@actResponse} The spirit makes a Slam attack against that creature if possible, or the spirit moves up to half its Speed toward that creature without provoking {@action Opportunity Attack|XPHB|Opportunity Attacks}."
 					]
 				}
 			],
@@ -1100,8 +1100,8 @@
 			"wis": 14,
 			"cha": 14,
 			"senses": [
-				"blindsight 30 ft.",
-				"darkvision 60 ft."
+				"Blindsight 30 ft.",
+				"Darkvision 60 ft."
 			],
 			"passive": 12,
 			"resist": [
@@ -1209,7 +1209,7 @@
 			"wis": 10,
 			"cha": 16,
 			"senses": [
-				"darkvision 60 ft."
+				"Darkvision 60 ft."
 			],
 			"passive": 10,
 			"resist": [
@@ -1473,7 +1473,7 @@
 			"wis": 11,
 			"cha": 16,
 			"senses": [
-				"darkvision 60 ft."
+				"Darkvision 60 ft."
 			],
 			"passive": 10,
 			"conditionImmune": [
@@ -1634,7 +1634,7 @@
 			"wis": 10,
 			"cha": 16,
 			"senses": [
-				"darkvision 60 ft."
+				"Darkvision 60 ft."
 			],
 			"passive": 10,
 			"resist": [
@@ -1901,7 +1901,7 @@
 			"wis": 14,
 			"cha": 3,
 			"senses": [
-				"darkvision 60 ft."
+				"Darkvision 60 ft."
 			],
 			"passive": 12,
 			"languages": [
@@ -2270,7 +2270,7 @@
 			"wis": 10,
 			"cha": 9,
 			"senses": [
-				"darkvision 60 ft."
+				"Darkvision 60 ft."
 			],
 			"passive": 10,
 			"immune": [

@@ -1,7 +1,11 @@
-v2.8.8
+v2.16.0, "Mukkabout" Edition
 
-- Added "CR" and "XP" optional additional columns to the DM Screen Initiative Tracker
-- Fixed Markdown and RPG Cards JSON failing to render in the presence of list items
-- Fixed context menus failing to stay open when navigating nested menus
-- (Brew) Fixed JSON drag-drop always being treated as homebrew (rather than potentially prerelease content)
+- Added _Adventure with Muk_ and _Muk's Guide to Everything He Learned From Tasha_ book content (thanks @ Lyra)
+- Added Dynamic Map Viewer support to Forgotten Realms: Adventures in Faerûn
+- Added "Has Custom/Unofficial Token" and "Has Token Credit" Miscellaneous filters to Bestiary
+- Fixed Classes page "Feeling Lucky?" button
+- Fixed Adventure/Book pages failing to apply same search filtering to cover images as to list items
+- Fixed creature Markdown rendering of hit points; passive perception
+- (Brew) Improved Text Converter tagging of `@trap`s
+- (Added workaround for failing Docker builds)
 - (Fixed typos/added tags)

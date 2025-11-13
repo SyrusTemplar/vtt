@@ -1,41 +1,60 @@
-"use strict";
+export class StyleSwitcher {
+	static _STORAGE_KEY_THEME = "StyleSwitcher_style";
+	static _STORAGE_KEY_ROLLBOX = "StyleSwitcher_style-rollbox";
+	static _STORAGE_KEY_WIDE = "StyleSwitcher_style-wide";
 
-class StyleSwitcher {
-	static _STORAGE_DAY_NIGHT = "StyleSwitcher_style";
-	static _STORAGE_IS_MANUAL_MODE = "StyleSwitcher_style-is-manual-mode";
-	static _STORAGE_WIDE = "StyleSwitcher_style-wide";
+	static _STORAGE_KEYS = [
+		this._STORAGE_KEY_THEME,
+		this._STORAGE_KEY_ROLLBOX,
+		this._STORAGE_KEY_WIDE,
+	];
 
-	static _STYLE_DAY = "day";
-	static _STYLE_NIGHT = "night";
-	static _STYLE_NIGHT_ALT = "nightAlt";
-	static _STYLE_NIGHT_CLEAN = "nightClean";
+	static _STYLE_THEME_AUTOMATIC = "auto";
+	static _STYLE_THEME_DAY = "day";
+	static _STYLE_THEME_NIGHT = "night";
+	static _STYLE_THEME_NIGHT_ALT = "nightAlt";
+	static _STYLE_THEME_NIGHT_CLEAN = "nightClean";
 
-	static _NIGHT_CLASS = "ve-night-mode";
-	static _NIGHT_CLASS_STANDARD = "ve-night-mode--standard";
-	static _NIGHT_CLASS_ALT = "ve-night-mode--classic";
-	static _NIGHT_CLASS_CLEAN = "ve-night-mode--clean";
+	static _CLASS_THEME_NIGHT = "ve-night-mode";
+	static _CLASS_THEME_NIGHT_STANDARD = "ve-night-mode--standard";
+	static _CLASS_THEME_NIGHT_ALT = "ve-night-mode--classic";
+	static _CLASS_THEME_NIGHT_CLEAN = "ve-night-mode--clean";
+
+	static _STYLE_ROLLBOX_DEFAULT = "default";
+	static _STYLE_ROLLBOX_RIGHT = "right";
+	static _STYLE_ROLLBOX_LEFT = "left";
+
+	static _CLASS_ROLLBOX_DEFAULT = "ve-rollbox-mode--default";
+	static _CLASS_ROLLBOX_RIGHT = "ve-rollbox-mode--right";
+	static _CLASS_ROLLBOX_LEFT = "ve-rollbox-mode--left";
 
 	static _WIDE_ID = "style-switch__wide";
 
-	static _STYLES = [
-		this._STYLE_DAY,
-		this._STYLE_NIGHT,
-		this._STYLE_NIGHT_ALT,
-		this._STYLE_NIGHT_CLEAN,
-	];
-
-	static _STYLE_TO_DISPLAY_NAME = {
-		[this._STYLE_DAY]: "Day Mode",
-		[this._STYLE_NIGHT]: "Night Mode",
-		[this._STYLE_NIGHT_ALT]: "Night Mode (Classic)",
-		[this._STYLE_NIGHT_CLEAN]: "Night Mode (Clean)",
+	static _STYLE_THEME_TO_DISPLAY_NAME = {
+		[this._STYLE_THEME_AUTOMATIC]: "Browser Default",
+		[this._STYLE_THEME_DAY]: "Day Mode",
+		[this._STYLE_THEME_NIGHT]: "Night Mode",
+		[this._STYLE_THEME_NIGHT_ALT]: "Night Mode (Classic)",
+		[this._STYLE_THEME_NIGHT_CLEAN]: "Night Mode (Clean)",
 	};
 
-	static _STYLE_CLASSES = [
-		this._NIGHT_CLASS,
-		this._NIGHT_CLASS_STANDARD,
-		this._NIGHT_CLASS_ALT,
-		this._NIGHT_CLASS_CLEAN,
+	static _STYLE_ROLLBOX_TO_DISPLAY_NAME = {
+		[this._STYLE_ROLLBOX_DEFAULT]: "Default",
+		[this._STYLE_ROLLBOX_RIGHT]: "Right",
+		[this._STYLE_ROLLBOX_LEFT]: "Left",
+	};
+
+	static _CLASSES_THEME = [
+		this._CLASS_THEME_NIGHT,
+		this._CLASS_THEME_NIGHT_STANDARD,
+		this._CLASS_THEME_NIGHT_ALT,
+		this._CLASS_THEME_NIGHT_CLEAN,
+	];
+
+	static _CLASSES_ROLLBOX = [
+		this._CLASS_ROLLBOX_DEFAULT,
+		this._CLASS_ROLLBOX_RIGHT,
+		this._CLASS_ROLLBOX_LEFT,
 	];
 
 	/* -------------------------------------------- */
@@ -44,14 +63,30 @@ class StyleSwitcher {
 		const selStyle = e_({
 			tag: "select",
 			clazz: "form-control input-xs",
-			children: Object.entries(this._STYLE_TO_DISPLAY_NAME)
+			children: Object.entries(this._STYLE_THEME_TO_DISPLAY_NAME)
 				.map(([id, name]) => ee`<option value="${id}">${name}</option>`),
 			change: () => {
-				styleSwitcher._setActiveDayNight(selStyle.val());
-				StyleSwitcher.storage.setItem(StyleSwitcher._STORAGE_IS_MANUAL_MODE, true);
+				styleSwitcher._setActiveStyleTheme(selStyle.val());
 			},
 		})
-			.val(styleSwitcher.currentStylesheet);
+			.val(styleSwitcher._styleTheme);
+
+		return selStyle;
+	}
+
+	/* -------------------------------------------- */
+
+	static getSelRollboxPosition () {
+		const selStyle = e_({
+			tag: "select",
+			clazz: "form-control input-xs",
+			children: Object.entries(this._STYLE_ROLLBOX_TO_DISPLAY_NAME)
+				.map(([id, name]) => ee`<option value="${id}">${name}</option>`),
+			change: () => {
+				styleSwitcher._setActiveStyleRollbox(selStyle.val());
+			},
+		})
+			.val(styleSwitcher._styleRollbox);
 
 		return selStyle;
 	}
@@ -67,96 +102,107 @@ class StyleSwitcher {
 			},
 		});
 
-		if (StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_WIDE) === "true") cbWide.checked = true;
+		if (StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_KEY_WIDE) === "true") cbWide.checked = true;
 
 		return cbWide;
 	}
 
 	/* -------------------------------------------- */
 
+	_styleTheme;
+	_styleRollbox;
+
 	constructor () {
-		this.currentStylesheet = StyleSwitcher._STYLE_DAY;
-
-		// If the user has never manually specified a style, always load the default from their OS
-		const isManualMode = StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_IS_MANUAL_MODE);
-		if (isManualMode) {
-			this._setActiveDayNight(StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_DAY_NIGHT) || StyleSwitcher._getDefaultStyleDayNight());
-		} else {
-			this._setActiveDayNight(StyleSwitcher._getDefaultStyleDayNight());
-		}
-
-		this._setActiveWide(StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_WIDE) === "true");
-	}
-
-	static _setButtonText (btnClassName, text) {
-		[...document.getElementsByClassName(btnClassName)].forEach(ele => ele.innerHTML = text);
+		if (typeof window === "undefined") return;
+		this._setActiveStyleTheme(StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_KEY_THEME) || StyleSwitcher._STYLE_THEME_AUTOMATIC);
+		this._setActiveStyleRollbox(StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_KEY_ROLLBOX) || StyleSwitcher._STYLE_ROLLBOX_DEFAULT);
+		this._setActiveWide(StyleSwitcher.storage.getItem(StyleSwitcher._STORAGE_KEY_WIDE) === "true");
 	}
 
 	getSummary () {
-		return {isNight: this.currentStylesheet !== StyleSwitcher._STYLE_DAY};
+		return {isNight: this._getResolvedStyleTheme() !== StyleSwitcher._STYLE_THEME_DAY};
 	}
 
-	_fnsOnChange = [];
-	addFnOnChange (fn) { this._fnsOnChange.push(fn); }
+	_fnsOnChangeTheme = [];
+	addFnOnChangeTheme (fn) { this._fnsOnChangeTheme.push(fn); }
 
 	// region Night Mode
-	_setActiveDayNight (style) {
-		this.currentStylesheet = style;
+	_getResolvedStyleTheme () {
+		if (this._styleTheme === StyleSwitcher._STYLE_THEME_AUTOMATIC) return this.constructor._getDefaultStyleTheme();
+		return this._styleTheme;
+	}
 
-		this.constructor._STYLE_CLASSES
+	static _getDefaultStyleTheme () {
+		if (window.matchMedia("(prefers-color-scheme: dark)").matches) return StyleSwitcher._STYLE_THEME_NIGHT;
+		return StyleSwitcher._STYLE_THEME_DAY;
+	}
+
+	_setActiveStyleTheme (style) {
+		this._styleTheme = style;
+		const styleResolved = this._getResolvedStyleTheme();
+
+		this.constructor._CLASSES_THEME
 			.forEach(clazzName => document.documentElement.classList.remove(clazzName));
 
-		switch (style) {
-			case StyleSwitcher._STYLE_DAY: {
+		switch (styleResolved) {
+			case StyleSwitcher._STYLE_THEME_DAY: {
 				break;
 			}
-			case StyleSwitcher._STYLE_NIGHT: {
-				document.documentElement.classList.add(StyleSwitcher._NIGHT_CLASS);
-				document.documentElement.classList.add(StyleSwitcher._NIGHT_CLASS_STANDARD);
+			case StyleSwitcher._STYLE_THEME_NIGHT: {
+				document.documentElement.classList.add(StyleSwitcher._CLASS_THEME_NIGHT);
+				document.documentElement.classList.add(StyleSwitcher._CLASS_THEME_NIGHT_STANDARD);
 				break;
 			}
-			case StyleSwitcher._STYLE_NIGHT_ALT: {
-				document.documentElement.classList.add(StyleSwitcher._NIGHT_CLASS);
-				document.documentElement.classList.add(StyleSwitcher._NIGHT_CLASS_ALT);
+			case StyleSwitcher._STYLE_THEME_NIGHT_ALT: {
+				document.documentElement.classList.add(StyleSwitcher._CLASS_THEME_NIGHT);
+				document.documentElement.classList.add(StyleSwitcher._CLASS_THEME_NIGHT_ALT);
 				break;
 			}
-			case StyleSwitcher._STYLE_NIGHT_CLEAN: {
-				document.documentElement.classList.add(StyleSwitcher._NIGHT_CLASS);
-				document.documentElement.classList.add(StyleSwitcher._NIGHT_CLASS_CLEAN);
+			case StyleSwitcher._STYLE_THEME_NIGHT_CLEAN: {
+				document.documentElement.classList.add(StyleSwitcher._CLASS_THEME_NIGHT);
+				document.documentElement.classList.add(StyleSwitcher._CLASS_THEME_NIGHT_CLEAN);
 				break;
 			}
 		}
 
-		StyleSwitcher.storage.setItem(StyleSwitcher._STORAGE_DAY_NIGHT, this.currentStylesheet);
+		StyleSwitcher.storage.setItem(StyleSwitcher._STORAGE_KEY_THEME, this._styleTheme);
 
-		this._fnsOnChange.forEach(fn => fn());
+		this._fnsOnChangeTheme.forEach(fn => fn());
 	}
 
-	getDayNightClassNames () {
-		switch (this.currentStylesheet) {
-			case StyleSwitcher._STYLE_DAY: return "";
-			case StyleSwitcher._STYLE_NIGHT: return [StyleSwitcher._NIGHT_CLASS, StyleSwitcher._NIGHT_CLASS_STANDARD].join(" ");
-			case StyleSwitcher._STYLE_NIGHT_ALT: return [StyleSwitcher._NIGHT_CLASS, StyleSwitcher._NIGHT_CLASS_ALT].join(" ");
-			case StyleSwitcher._STYLE_NIGHT_CLEAN: return [StyleSwitcher._NIGHT_CLASS, StyleSwitcher._NIGHT_CLASS_CLEAN].join(" ");
+	getClassNamesStyleTheme () {
+		switch (this._getResolvedStyleTheme()) {
+			case StyleSwitcher._STYLE_THEME_DAY: return "";
+			case StyleSwitcher._STYLE_THEME_NIGHT: return [StyleSwitcher._CLASS_THEME_NIGHT, StyleSwitcher._CLASS_THEME_NIGHT_STANDARD].join(" ");
+			case StyleSwitcher._STYLE_THEME_NIGHT_ALT: return [StyleSwitcher._CLASS_THEME_NIGHT, StyleSwitcher._CLASS_THEME_NIGHT_ALT].join(" ");
+			case StyleSwitcher._STYLE_THEME_NIGHT_CLEAN: return [StyleSwitcher._CLASS_THEME_NIGHT, StyleSwitcher._CLASS_THEME_NIGHT_CLEAN].join(" ");
 		}
 	}
+	// endregion
 
-	static _getDefaultStyleDayNight () {
-		if (window.matchMedia("(prefers-color-scheme: dark)").matches) return StyleSwitcher._STYLE_NIGHT;
-		return StyleSwitcher._STYLE_DAY;
-	}
+	// region Rollbox
+	_setActiveStyleRollbox (style) {
+		this._styleRollbox = style;
 
-	cycleDayNightMode (direction) {
-		const ixCur = this.constructor._STYLES.indexOf(this.currentStylesheet);
-		const ixNxt = ixCur === 0
-			? this.constructor._STYLES.length - 1
-			: ixCur === this.constructor._STYLES.length - 1
-				? 0
-				: ixCur + direction;
-		const newStyle = this.constructor._STYLES[ixNxt];
+		this.constructor._CLASSES_ROLLBOX
+			.forEach(clazzName => document.documentElement.classList.remove(clazzName));
 
-		this._setActiveDayNight(newStyle);
-		StyleSwitcher.storage.setItem(StyleSwitcher._STORAGE_IS_MANUAL_MODE, true);
+		switch (this._styleRollbox) {
+			case StyleSwitcher._STYLE_ROLLBOX_DEFAULT: {
+				document.documentElement.classList.add(StyleSwitcher._CLASS_ROLLBOX_DEFAULT);
+				break;
+			}
+			case StyleSwitcher._STYLE_ROLLBOX_RIGHT: {
+				document.documentElement.classList.add(StyleSwitcher._CLASS_ROLLBOX_RIGHT);
+				break;
+			}
+			case StyleSwitcher._STYLE_ROLLBOX_LEFT: {
+				document.documentElement.classList.add(StyleSwitcher._CLASS_ROLLBOX_LEFT);
+				break;
+			}
+		}
+
+		StyleSwitcher.storage.setItem(StyleSwitcher._STORAGE_KEY_ROLLBOX, this._styleRollbox);
 	}
 	// endregion
 
@@ -206,17 +252,25 @@ class StyleSwitcher {
 				document.documentElement.appendChild(eleScript);
 			}
 		}
-		StyleSwitcher._setButtonText("wideModeToggle", isActive ? "Disable Wide Mode" : "Enable Wide Mode (Experimental)");
-		StyleSwitcher.storage.setItem(StyleSwitcher._STORAGE_WIDE, isActive);
+		StyleSwitcher.storage.setItem(StyleSwitcher._STORAGE_KEY_WIDE, isActive);
 	}
-
-	toggleWide () {
-		if (this.getActiveWide()) this._setActiveWide(false);
-		else this._setActiveWide(true);
-	}
-
-	getActiveWide () { return document.getElementById(StyleSwitcher._WIDE_ID) != null; }
 	// endregion
+
+	/* -------------------------------------------- */
+
+	static syncGetStorageDump () {
+		return Object.fromEntries(
+			this._STORAGE_KEYS
+				.map(storageKey => [storageKey, this.storage.getItem(storageKey)]),
+		);
+	}
+
+	static syncSetFromStorageDump (dump) {
+		if (!dump) return;
+		this._STORAGE_KEYS
+			.filter(storageKey => storageKey in dump)
+			.forEach(storageKey => this.storage.setItem(storageKey, dump[storageKey]));
+	}
 }
 
 try {
@@ -225,8 +279,9 @@ try {
 	StyleSwitcher.storage = {
 		getItem (k) {
 			switch (k) {
-				case StyleSwitcher._STORAGE_DAY_NIGHT: return StyleSwitcher._getDefaultStyleDayNight();
-				case StyleSwitcher._STORAGE_WIDE: return false;
+				case StyleSwitcher._STORAGE_KEY_THEME: return StyleSwitcher._STYLE_THEME_AUTOMATIC;
+				case StyleSwitcher._STORAGE_KEY_ROLLBOX: return StyleSwitcher._STYLE_ROLLBOX_DEFAULT;
+				case StyleSwitcher._STORAGE_KEY_WIDE: return false;
 			}
 			return null;
 		},
@@ -236,3 +291,4 @@ try {
 }
 
 const styleSwitcher = new StyleSwitcher();
+globalThis.styleSwitcher = styleSwitcher;

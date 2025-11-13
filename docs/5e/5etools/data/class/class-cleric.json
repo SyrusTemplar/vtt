@@ -1036,6 +1036,9 @@
 			"className": "Cleric",
 			"classSource": "PHB",
 			"page": 59,
+			"reprintedAs": [
+				"Knowledge|Cleric|XPHB|FRHoF"
+			],
 			"edition": "classic",
 			"additionalSpells": [
 				{
@@ -1078,6 +1081,9 @@
 			"source": "PHB",
 			"className": "Cleric",
 			"classSource": "XPHB",
+			"reprintedAs": [
+				"Knowledge|Cleric|XPHB|FRHoF"
+			],
 			"_copy": {
 				"name": "Knowledge Domain",
 				"source": "PHB",
@@ -1096,8 +1102,6 @@
 				"Knowledge Domain|Cleric|XPHB|Knowledge||3",
 				"Channel Divinity: Knowledge of the Ages|Cleric|XPHB|Knowledge||3",
 				"Channel Divinity: Read Thoughts|Cleric||Knowledge||6",
-				"Potent Spellcasting|Cleric||Knowledge||8",
-				"Blessed Strikes|Cleric||Knowledge||8|TCE",
 				"Visions of the Past|Cleric||Knowledge||17"
 			]
 		},
@@ -1173,8 +1177,6 @@
 				"Life Domain|Cleric|XPHB|Life||3",
 				"Channel Divinity: Preserve Life|Cleric|XPHB|Life||3",
 				"Blessed Healer|Cleric||Life||6",
-				"Divine Strike|Cleric||Life||8",
-				"Blessed Strikes|Cleric||Life||8|TCE",
 				"Supreme Healing|Cleric||Life||17"
 			]
 		},
@@ -1253,8 +1255,6 @@
 				"Light Domain|Cleric|XPHB|Light||3",
 				"Channel Divinity: Radiance of the Dawn|Cleric|XPHB|Light||3",
 				"Improved Flare|Cleric||Light||6",
-				"Potent Spellcasting|Cleric||Light||8",
-				"Blessed Strikes|Cleric||Light||8|TCE",
 				"Corona of Light|Cleric||Light||17"
 			]
 		},
@@ -1334,8 +1334,6 @@
 				"Nature Domain|Cleric|XPHB|Nature||3",
 				"Channel Divinity: Charm Animals and Plants|Cleric|XPHB|Nature||3",
 				"Dampen Elements|Cleric||Nature||6",
-				"Divine Strike|Cleric||Nature||8",
-				"Blessed Strikes|Cleric||Nature||8|TCE",
 				"Master of Nature|Cleric||Nature||17"
 			]
 		},
@@ -1406,8 +1404,6 @@
 				"Tempest Domain|Cleric|XPHB|Tempest||3",
 				"Channel Divinity: Destructive Wrath|Cleric|XPHB|Tempest||3",
 				"Thunderbolt Strike|Cleric||Tempest||6",
-				"Divine Strike|Cleric||Tempest||8",
-				"Blessed Strikes|Cleric||Tempest||8|TCE",
 				"Stormborn|Cleric||Tempest||17"
 			]
 		},
@@ -1481,8 +1477,6 @@
 				"Trickery Domain|Cleric|XPHB|Trickery||3",
 				"Channel Divinity: Invoke Duplicity|Cleric|XPHB|Trickery||3",
 				"Channel Divinity: Cloak of Shadows|Cleric||Trickery||6",
-				"Divine Strike|Cleric||Trickery||8",
-				"Blessed Strikes|Cleric||Trickery||8|TCE",
 				"Improved Duplicity|Cleric||Trickery||17"
 			]
 		},
@@ -1556,8 +1550,6 @@
 				"War Domain|Cleric|XPHB|War||3",
 				"Channel Divinity: Guided Strike|Cleric|XPHB|War||3",
 				"Channel Divinity: War God's Blessing|Cleric||War||6",
-				"Divine Strike|Cleric||War||8",
-				"Blessed Strikes|Cleric||War||8|TCE",
 				"Avatar of Battle|Cleric||War||17"
 			]
 		},
@@ -1639,8 +1631,6 @@
 				"Death Domain|Cleric|XPHB|Death|DMG|3",
 				"Channel Divinity: Touch of Death|Cleric|XPHB|Death|DMG|3",
 				"Inescapable Destruction|Cleric||Death|DMG|6",
-				"Divine Strike|Cleric||Death|DMG|8",
-				"Blessed Strikes|Cleric||Death|DMG|8|TCE",
 				"Improved Reaper|Cleric||Death|DMG|17"
 			],
 			"fluff": {
@@ -1745,8 +1735,6 @@
 				"Arcana Domain|Cleric|XPHB|Arcana|SCAG|3",
 				"Channel Divinity: Arcane Abjuration|Cleric|XPHB|Arcana|SCAG|3",
 				"Spell Breaker|Cleric||Arcana|SCAG|6",
-				"Potent Spellcasting|Cleric||Arcana|SCAG|8",
-				"Blessed Strikes|Cleric||Arcana|SCAG|8|TCE",
 				"Arcane Mastery|Cleric||Arcana|SCAG|17"
 			],
 			"fluff": {
@@ -1827,8 +1815,6 @@
 				"Ambition Domain (PSA)|Cleric|XPHB|Ambition (PSA)|PSA|3",
 				"Channel Divinity: Invoke Duplicity|Cleric|XPHB|Ambition (PSA)|PSA|3",
 				"Channel Divinity: Cloak of Shadows|Cleric||Ambition (PSA)|PSA|6",
-				"Potent Spellcasting|Cleric||Ambition (PSA)|PSA|8",
-				"Blessed Strikes|Cleric||Ambition (PSA)|PSA|8|TCE",
 				"Improved Duplicity|Cleric||Ambition (PSA)|PSA|17"
 			],
 			"fluff": {
@@ -1910,8 +1896,6 @@
 				"Knowledge Domain (PSA)|Cleric|XPHB|Knowledge (PSA)|PSA|3",
 				"Channel Divinity: Knowledge of the Ages|Cleric|XPHB|Knowledge||3",
 				"Channel Divinity: Read Thoughts|Cleric||Knowledge||6",
-				"Potent Spellcasting|Cleric||Knowledge||8",
-				"Blessed Strikes|Cleric||Knowledge||8|TCE",
 				"Visions of the Past|Cleric||Knowledge||17"
 			],
 			"fluff": {
@@ -1992,8 +1976,6 @@
 				"Solidarity Domain (PSA)|Cleric|XPHB|Solidarity (PSA)|PSA|3",
 				"Channel Divinity: Preserve Life|Cleric|XPHB|Solidarity (PSA)|PSA|3",
 				"Oketra's Blessing|Cleric||Solidarity (PSA)|PSA|6",
-				"Divine Strike|Cleric||Solidarity (PSA)|PSA|8",
-				"Blessed Strikes|Cleric||Solidarity (PSA)|PSA|8|TCE",
 				"Supreme Healing|Cleric||Solidarity (PSA)|PSA|17"
 			],
 			"fluff": {
@@ -2083,8 +2065,6 @@
 				"Strength Domain (PSA)|Cleric|XPHB|Strength (PSA)|PSA|3",
 				"Channel Divinity: Feat of Strength|Cleric|XPHB|Strength (PSA)|PSA|3",
 				"Rhonas's Blessing|Cleric||Strength (PSA)|PSA|6",
-				"Divine Strike|Cleric||Strength (PSA)|PSA|8",
-				"Blessed Strikes|Cleric||Strength (PSA)|PSA|8|TCE",
 				"Avatar of Battle|Cleric||Strength (PSA)|PSA|17"
 			],
 			"fluff": {
@@ -2165,8 +2145,6 @@
 				"Zeal Domain (PSA)|Cleric|XPHB|Zeal (PSA)|PSA|3",
 				"Channel Divinity: Consuming Fervor|Cleric|XPHB|Zeal (PSA)|PSA|3",
 				"Resounding Strike|Cleric||Zeal (PSA)|PSA|6",
-				"Divine Strike|Cleric||Zeal (PSA)|PSA|8",
-				"Blessed Strikes|Cleric||Zeal (PSA)|PSA|8|TCE",
 				"Blaze of Glory|Cleric||Zeal (PSA)|PSA|17"
 			],
 			"fluff": {
@@ -2248,8 +2226,6 @@
 				"Forge Domain|Cleric|XPHB|Forge|XGE|3",
 				"Channel Divinity: Artisan's Blessing|Cleric|XPHB|Forge|XGE|3",
 				"Soul of the Forge|Cleric||Forge|XGE|6",
-				"Divine Strike|Cleric||Forge|XGE|8",
-				"Blessed Strikes|Cleric||Forge|XGE|8|TCE",
 				"Saint of Forge and Fire|Cleric||Forge|XGE|17"
 			],
 			"fluff": {
@@ -2336,8 +2312,6 @@
 				"Grave Domain|Cleric|XPHB|Grave|XGE|3",
 				"Channel Divinity: Path to the Grave|Cleric|XPHB|Grave|XGE|3",
 				"Sentinel at Death's Door|Cleric||Grave|XGE|6",
-				"Potent Spellcasting|Cleric||Grave|XGE|8",
-				"Blessed Strikes|Cleric||Grave|XGE|8|TCE",
 				"Keeper of Souls|Cleric||Grave|XGE|17"
 			],
 			"fluff": {
@@ -2424,8 +2398,6 @@
 				"Order Domain|Cleric|XPHB|Order|TCE|3",
 				"Channel Divinity: Order's Demand|Cleric|XPHB|Order|TCE|3",
 				"Embodiment of the Law|Cleric||Order|TCE|6",
-				"Divine Strike|Cleric||Order|TCE|8",
-				"Blessed Strikes|Cleric||Order|TCE|8|TCE",
 				"Order's Wrath|Cleric||Order|TCE|17"
 			],
 			"fluff": {
@@ -2506,8 +2478,6 @@
 				"Peace Domain|Cleric|XPHB|Peace|TCE|3",
 				"Channel Divinity: Balm of Peace|Cleric|XPHB|Peace|TCE|3",
 				"Protective Bond|Cleric||Peace|TCE|6",
-				"Potent Spellcasting|Cleric||Peace|TCE|8",
-				"Blessed Strikes|Cleric||Peace|TCE|8|TCE",
 				"Expansive Bond|Cleric||Peace|TCE|17"
 			],
 			"fluff": {
@@ -2588,8 +2558,6 @@
 				"Twilight Domain|Cleric|XPHB|Twilight|TCE|3",
 				"Channel Divinity: Twilight Sanctuary|Cleric|XPHB|Twilight|TCE|3",
 				"Steps of Night|Cleric||Twilight|TCE|6",
-				"Divine Strike|Cleric||Twilight|TCE|8",
-				"Blessed Strikes|Cleric||Twilight|TCE|8|TCE",
 				"Twilight Shroud|Cleric||Twilight|TCE|17"
 			],
 			"fluff": {
@@ -2673,8 +2641,6 @@
 				"Channel Divinity: Crimson Bond|Cleric|XPHB|Blood|TDCSR|3",
 				"Channel Divinity: Blood Puppet|Cleric|PHB|Blood|TDCSR|6",
 				"Sanguine Recall|Cleric|PHB|Blood|TDCSR|6",
-				"Divine Strike|Cleric|PHB|Blood|TDCSR|8",
-				"Divine Strike (14th Level)|Cleric|PHB|Blood|TDCSR|14",
 				"Channel Divinity: Blood Puppet (17th Level)|Cleric|PHB|Blood|TDCSR|17",
 				"Vascular Corruption Aura|Cleric|PHB|Blood|TDCSR|17"
 			],
@@ -2755,7 +2721,6 @@
 				"Moon Domain|Cleric|XPHB|Moon|TDCSR|3",
 				"Channel Divinity: Blessing of the Full Moon|Cleric|XPHB|Moon|TDCSR|3",
 				"Channel Divinity: Mind of Two Moons|Cleric|PHB|Moon|TDCSR|6",
-				"Empowered Cantrips|Cleric|PHB|Moon|TDCSR|8",
 				"Eclipse of Ill Omen|Cleric|PHB|Moon|TDCSR|17"
 			],
 			"fluff": {
@@ -2923,6 +2888,49 @@
 				"War Domain|Cleric|XPHB|War|XPHB|3",
 				"War God's Blessing|Cleric|XPHB|War|XPHB|6",
 				"Avatar of Battle|Cleric|XPHB|War|XPHB|17"
+			],
+			"hasFluffImages": true
+		},
+		{
+			"name": "Knowledge Domain",
+			"shortName": "Knowledge",
+			"source": "FRHoF",
+			"className": "Cleric",
+			"classSource": "XPHB",
+			"edition": "one",
+			"additionalSpells": [
+				{
+					"prepared": {
+						"3": [
+							"command|xphb",
+							"comprehend languages|xphb",
+							"detect magic|xphb",
+							"detect thoughts|xphb",
+							"identify|xphb",
+							"mind spike|xphb"
+						],
+						"5": [
+							"dispel magic|xphb",
+							"nondetection|xphb",
+							"tongues|xphb"
+						],
+						"7": [
+							"arcane eye|xphb",
+							"banishment|xphb",
+							"confusion|xphb"
+						],
+						"9": [
+							"legend lore|xphb",
+							"scrying|xphb",
+							"synaptic static|xphb"
+						]
+					}
+				}
+			],
+			"subclassFeatures": [
+				"Knowledge Domain|Cleric|XPHB|Knowledge|FRHoF|3|FRHoF",
+				"Unfettered Mind|Cleric|XPHB|Knowledge|FRHoF|6|FRHoF",
+				"Divine Foreknowledge|Cleric|XPHB|Knowledge|FRHoF|17|FRHoF"
 			],
 			"hasFluffImages": true
 		}
@@ -7338,6 +7346,132 @@
 			}
 		},
 		{
+			"name": "Blessings of Knowledge",
+			"source": "FRHoF",
+			"className": "Cleric",
+			"classSource": "XPHB",
+			"subclassShortName": "Knowledge",
+			"subclassSource": "FRHoF",
+			"level": 3,
+			"entries": [
+				"You gain proficiency with one type of {@item Artisan's Tools|XPHB} of your choice and in two of the following skills of your choice: {@skill Arcana|XPHB}, {@skill History|XPHB}, {@skill Nature|XPHB}, or {@skill Religion|XPHB}. You have {@variantrule Expertise|XPHB} in those two skills."
+			]
+		},
+		{
+			"name": "Knowledge Domain",
+			"source": "FRHoF",
+			"className": "Cleric",
+			"classSource": "XPHB",
+			"subclassShortName": "Knowledge",
+			"subclassSource": "FRHoF",
+			"level": 3,
+			"entries": [
+				"{@i Unearth Secrets and Master the Mind}",
+				"The Knowledge Domain values learning and understanding above all. Clerics who tap into this domain study esoteric lore, collect old tomes, delve into secret places, and examine the processes of the mind. To them, knowledge is more valuable than material wealth, and learning is an act of worship. Libraries, universities, and other educational institutions also draw on the power of the Knowledge Domain.",
+				"Gods of knowledge vary from masters of arcane magic to patrons of craft and invention. In Faerûn, Clerics of the Knowledge Domain worship deities of learning and ingenuity such as {@deity Oghma|Faerûnian|FRHoF} and {@deity Gond|Faerûnian|FRHoF}, among many others.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Blessings of Knowledge|Cleric|XPHB|Knowledge|FRHoF|3|FRHoF"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Knowledge Domain Spells|Cleric|XPHB|Knowledge|FRHoF|3|FRHoF"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Mind Magic|Cleric|XPHB|Knowledge|FRHoF|3|FRHoF"
+				}
+			]
+		},
+		{
+			"name": "Knowledge Domain Spells",
+			"source": "FRHoF",
+			"page": 2,
+			"className": "Cleric",
+			"classSource": "XPHB",
+			"subclassShortName": "Knowledge",
+			"subclassSource": "FRHoF",
+			"level": 3,
+			"entries": [
+				"When you reach a Cleric level specified in the Knowledge Domain Spells table, you thereafter always have the listed spells prepared.",
+				{
+					"type": "table",
+					"colLabels": [
+						"Cleric Level",
+						"Spells"
+					],
+					"colStyles": [
+						"col-2 text-center",
+						"col-10"
+					],
+					"rows": [
+						[
+							"3",
+							"{@spell Command|XPHB}, {@spell Comprehend Languages|XPHB}*, {@spell Detect Magic|XPHB}*, {@spell Detect Thoughts|XPHB}*, {@spell Identify|XPHB}*, {@spell Mind Spike|XPHB}*"
+						],
+						[
+							"5",
+							"{@spell Dispel Magic|XPHB}, {@spell Nondetection|XPHB}, {@spell Tongues|XPHB}*"
+						],
+						[
+							"7",
+							"{@spell Arcane Eye|XPHB}*, {@spell Banishment|XPHB}, {@spell Confusion|XPHB}"
+						],
+						[
+							"9",
+							"{@spell Legend Lore|XPHB}*, {@spell Scrying|XPHB}*, {@spell Synaptic Static|XPHB}"
+						]
+					],
+					"footnotes": [
+						"*Spell of the Divination school"
+					]
+				}
+			]
+		},
+		{
+			"name": "Mind Magic",
+			"source": "FRHoF",
+			"className": "Cleric",
+			"classSource": "XPHB",
+			"subclassShortName": "Knowledge",
+			"subclassSource": "FRHoF",
+			"level": 3,
+			"consumes": {
+				"name": "Channel Divinity",
+				"amount": 1
+			},
+			"entries": [
+				"As a Magic action, you can expend one use of your Channel Divinity to manifest your magical knowledge. Choose one spell from the Divination school on the Knowledge Domain Spells table that you have prepared. As part of that action, you cast that spell without expending a spell slot or needing Material components."
+			]
+		},
+		{
+			"name": "Unfettered Mind",
+			"source": "FRHoF",
+			"className": "Cleric",
+			"classSource": "XPHB",
+			"subclassShortName": "Knowledge",
+			"subclassSource": "FRHoF",
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"You gain {@variantrule telepathy|XPHB} out to 60 feet. When you use this {@variantrule telepathy|XPHB}, you can simultaneously contact a number of creatures equal to your Wisdom modifier (minimum of one).",
+				"Additionally, you gain proficiency in Intelligence saving throws. If you already have this proficiency, you instead gain saving throw proficiency with one ability in which you lack it."
+			]
+		},
+		{
+			"name": "Divine Foreknowledge",
+			"source": "FRHoF",
+			"className": "Cleric",
+			"classSource": "XPHB",
+			"subclassShortName": "Knowledge",
+			"subclassSource": "FRHoF",
+			"level": 17,
+			"header": 2,
+			"entries": [
+				"As a {@variantrule Bonus Action|XPHB}, you magically expand your mind to the future. For 1 hour, you have {@variantrule Advantage|XPHB} on {@variantrule D20 Test|XPHB|D20 Tests}. Once you use this feature, you can't use it again until you finish a {@variantrule Long Rest|XPHB}. You can also restore your use of this feature by expending a level 6+ spell slot (no action required)."
+			]
+		},
+		{
 			"name": "Channel Divinity: Knowledge of the Ages",
 			"source": "PHB",
 			"className": "Cleric",
@@ -8267,7 +8401,7 @@
 				"name": "Channel Divinity"
 			},
 			"entries": [
-				"As a {@action Magic|XPHB} action, you present your {@item Holy Symbol|XPHB} and expend a use of your Channel Divinity to evoke healing energy that can restore a number of {@variantrule Hit Points|XPHB} equal to five times your Cleric level. Choose {@variantrule Bloodied|XPHB} creatures within 30 feet of yourself (which can include you), and divide those {@variantrule Hit Points|XPHB} among them. This feature can restore a creature to no more than half its {@variantrule Hit Points|XPHB|Hit Point} maximum."
+				"As a {@action Magic|XPHB} action, you present your {@item Holy Symbol|XPHB} and expend a use of your Channel Divinity to evoke healing energy that can restore a number of {@variantrule Hit Points|XPHB} equal to five times your Cleric level. Choose {@status Bloodied|XPHB} creatures within 30 feet of yourself (which can include you), and divide those {@variantrule Hit Points|XPHB} among them. This feature can restore a creature to no more than half its {@variantrule Hit Points|XPHB|Hit Point} maximum."
 			]
 		},
 		{

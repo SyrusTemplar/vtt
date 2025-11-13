@@ -137,7 +137,7 @@ class DecksPage extends ListPage {
 
 		eleLi.innerHTML = `<a href="#${hash}" class="lst__row-border lst__row-inner">
 			<span class="ve-col-10 bold pl-0 pr-1">${ent.name}</span>
-			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToSourceClassname(ent.source)} pl-1 pr-0" title="${Parser.sourceJsonToFull(ent.source)}" ${Parser.sourceJsonToStyle(ent.source)}>${source}</span>
+			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToSourceClassname(ent.source)} pl-1 pr-0" title="${Parser.sourceJsonToFull(ent.source)}">${source}</span>
 		</a>`;
 
 		const listItem = new ListItem(
@@ -180,13 +180,13 @@ class DecksPage extends ListPage {
 				if (!card._isReplacement || evt.shiftKey) await this._compCardState.pDrawCard(ent, card);
 
 				if (EventUtil.isCtrlMetaKey(evt)) {
-					const $eleChat = $$`<span>Drew card: ${Renderer.get().render(`{@card ${card.name}|${card.set}|${card.source}}`)}</span>`;
+					const eleChat = ee`<span>Drew card: ${Renderer.get().render(`{@card ${card.name}|${card.set}|${card.source}}`)}</span>`;
 
 					Renderer.dice.addRoll({
 						rolledBy: {
 							name: ent.name,
 						},
-						$ele: $eleChat,
+						ele: eleChat,
 					});
 
 					return;
@@ -256,3 +256,5 @@ class DecksPage extends ListPage {
 const decksPage = new DecksPage();
 decksPage.sublistManager = new DecksSublistManager();
 window.addEventListener("load", () => decksPage.pOnLoad());
+
+globalThis.dbg_page = decksPage;

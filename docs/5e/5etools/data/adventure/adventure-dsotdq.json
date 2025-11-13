@@ -151,7 +151,7 @@
 						"The Dragon Queen's forces are organized into five Dragon Armies. Draconians fill the ranks of each, though the armies' numbers also include humans, goblins, hobgoblins, ogres, and others who seek wealth and a return to pre-Cataclysm glories. Each Dragon Army is supported by chromatic dragons and their smaller kin, such as dragonnels and wyverns. These winged terrors provide a staggering advantage not seen on battlefields for over a thousand years.",
 						"The Dragon Queen has elevated her five most cunning and devout followers to the rank of dragon highlord, each commanding one of her armies. The highlords all report to Takhisis's champion, Duulket Ariakas, but there is no shortage of treachery between\u2014and within\u2014the Dragon Armies. The Dragon Queen encourages these conflicts, trusting them to bring the most ruthless and capable leaders to prominence.",
 						"The Red Dragon Army\u2014the first, largest, and most powerful of Takhisis's forces\u2014is commanded by the fanatical Dragon Highlord Verminaard, but he has temporarily given control of many of its troops to his acolyte, Dragon Highmaster {@creature Kansaldi Fire-Eyes|DSotDQ}, tasking her with spearheading a daring attack on Solamnia. Meanwhile, Verminaard's force follows whispers from the Dragon Queen into the southern lands of Abanasinia.",
-						"The ambitious Highlord Kitiara Uth Matar commands the Blue Dragon Army. Second in power among the Dragon Queen's forces, the Blue Dragon Army prepares to join the Red Dragon Army's multipronged invasion of Solamnia. The Green Dragon Army recently came under the command of Salah-Khan, a Khur leader who united the region's nomads under Dragon Army rule. The half-ogre Lucien of Takar commands the Black Dragon Army, whose focused force supports the other armies and occupies the lands they conquer, including Nordmaar and Goodlund. Finally, the small White Dragon Army is led by Highlord Feal-Thas, a Silvanesti elf and black-robed member of the Mages of High Sorcery."
+						"The ambitious Highlord Kitiara Uth Matar commands the Blue Dragon Army. Second in power among the Dragon Queen's forces, the Blue Dragon Army prepares to join the Red Dragon Army's multi-pronged invasion of Solamnia. The Green Dragon Army recently came under the command of Salah-Khan, a Khur leader who united the region's nomads under Dragon Army rule. The half-ogre Lucien of Takar commands the Black Dragon Army, whose focused force supports the other armies and occupies the lands they conquer, including Nordmaar and Goodlund. Finally, the small White Dragon Army is led by Highlord Feal-Thas, a Silvanesti elf and black-robed member of the Mages of High Sorcery."
 					]
 				},
 				{
@@ -4314,7 +4314,7 @@
 									"type": "insetReadaloud",
 									"id": "127",
 									"entries": [
-										"After much laughter and jostling, the mayor, Cudgel, and other spectators walk to a nearby vantage to watch. As they do, the militia takes up its position atop High Hill\u2014the same hill Solamnic troops held centuries ago. They face the mercenaries of the Ironclad Regiment at the base of the hill, arrayed as the forces of Istar once were. Although the event is only a reenactment, a tingle of excitement fills the field. Somewhere on the line, a reenactor hoots and yells, \"Let's send those Istarian rats running!\"",
+										"After much laughter and jostling, the mayor, Cudgel, and other spectators walk to a nearby vantage to watch. As they do, the militia takes up its position atop High Hill\u2014the same hill Solamnic troops held centuries ago. They face the mercenaries of the Ironclad Regiment at the base of the hill, arrayed as the forces of Istar once were. Although the event is only a reenactment, a tingle of excitement fills the field. Somewhere on the line, a re-enactor hoots and yells, \"Let's send those Istarian rats running!\"",
 										"A moment later, a trumpet blast signals the start of the battle. \"For Istar!\" yells the mercenaries' leader, a tall half-ogre among several mounted soldiers. The mock Istarian troops assault the hill. Around you, the Vogler militia charges to meet them."
 									]
 								},
@@ -5182,7 +5182,7 @@
 									]
 								},
 								"Despite its appearance, the thing nearing Vogler's wharf isn't a dragon\u2014it's a boilerdrak, a gnomish siege engine invented for the Red Dragon Army (see {@adventure appendix A|DSotDQ|8}). The boilerdrak is crewed by four {@creature Baaz Draconian|DSotDQ|baaz draconians} (see {@adventure appendix B|DSotDQ|9}).",
-								"This battle takes place in front of Vogler's wharf, depicted on {@adventure map 3.3|DSotDQ|3|Map 3.3: escape from vogler}. The \"{@area Vogler Battlefield Features|162|x}\" and \"{@area Vogler Battlefield Events|163|x}\" sections detail elements of this battle. The boilerdrak is positioned on the scorched ground. The characters start the battle anywhere on the wharf.",
+								"This battle takes place in front of Vogler's wharf, depicted on {@adventure map 3.3|DSotDQ|3|Map 3.3: Escape from Vogler}. The \"{@area Vogler Battlefield Features|162|x}\" and \"{@area Vogler Battlefield Events|163|x}\" sections detail elements of this battle. The boilerdrak is positioned on the scorched ground. The characters start the battle anywhere on the wharf.",
 								"On the first round of battle, three draconians use their actions to load, aim, and fire the boilerdrak at the Wharfinger's Office\u2014the structure at the north of the map. The building rapidly catches fire.",
 								"Characters who succeed on a {@dc 12} Wisdom ({@skill Perception}) check or who come within 5 feet of the boilerdrak recognize it isn't a dragon, but a mechanical device.",
 								"After the baaz draconians are defeated, proceed with the \"{@area Fewmaster Gholcag|164|x}\" encounter.",
@@ -12372,7 +12372,7 @@
 									"page": 117,
 									"id": "288",
 									"entries": [
-										"At the base of the spire's remains stand a dozen ragged canvas tents in the red and black colors of the Red Dragon Army. Dozens of empty or shattered crates are scattered amid the camp. Nearby, an earthen ramp cuts through the clay and leads to an opening into the ruined spire's foundation. This opening leads to {@adventure area {@dice D1}|DSotDQ|5|D1: Entry Chamber}.",
+										"At the base of the spire's remains stand a dozen ragged canvas tents in the red and black colors of the Red Dragon Army. Dozens of empty or shattered crates are scattered amid the camp. Nearby, an earthen ramp cuts through the clay and leads to an opening into the ruined spire's foundation. This opening leads to {@adventure area D1|DSotDQ|5|D1: Entry Chamber}.",
 										{
 											"type": "entries",
 											"name": "Abandoned Gear",
@@ -13201,7 +13201,7 @@
 											"page": 117,
 											"id": "291",
 											"entries": [
-												"The stairs here descend to {@adventure area {@dice D3}|DSotDQ|5|D3: Lower Chambers}."
+												"The stairs here descend to {@adventure area D3|DSotDQ|5|D3: Lower Chambers}."
 											]
 										}
 									]
@@ -13277,7 +13277,7 @@
 											"page": 118,
 											"id": "29a",
 											"entries": [
-												"In the northwest corner of the level, stairs descend to {@adventure area {@dice D5}|DSotDQ|5|D5: Spire Depths}."
+												"In the northwest corner of the level, stairs descend to {@adventure area D5|DSotDQ|5|D5: Spire Depths}."
 											]
 										}
 									]
@@ -13422,7 +13422,7 @@
 									"id": "2a6",
 									"entries": [
 										"Once the characters have investigated area {@dice D5}\u2014and potentially claimed {@creature Virruza|DSotDQ}'s notes\u2014they have all the information about this site {@creature Dalamar|DSotDQ} requires.",
-										"If the characters want to seal the entrance to the Sunward Fortress or otherwise bury the Spawning Shard, the equipment left around the ruins allows them to collapse the ramp leading to {@adventure area {@dice D1}|DSotDQ|5|D1: Entry Chamber} with four hours of effort. Destructive magic hastens this work."
+										"If the characters want to seal the entrance to the Sunward Fortress or otherwise bury the Spawning Shard, the equipment left around the ruins allows them to collapse the ramp leading to {@adventure area D1|DSotDQ|5|D1: Entry Chamber} with four hours of effort. Destructive magic hastens this work."
 									]
 								}
 							]
@@ -14116,7 +14116,7 @@
 											"entries": [
 												"The archway was created to connect the tower with a friendly realm within the Feywild. When Wakenreth toppled from Onyari, though, its magic was disrupted. Now the portal connects to the Shadowfell.",
 												"A character who inspects the portal and succeeds on a {@dc 14} Intelligence ({@skill Arcana}) check recognizes the sculpted dragon heads as those of green dragons, while the runes relate to the natural magic of the Feywild. They also notice the runes can rotate, likely as a means of controlling the portal, but their function is unclear. A character who attempts to adjust the runes without instructions from Veriel in area E5 must make the saving throw detailed in the \"{@area Restoring the Tower|2c3|x}\" section, and they can't close the portal yet.",
-												"A creature that steps through the portal appears in area E5 (an endless expanse not depicted on {@adventure map 5.4|DSotDQ|5|Map 5.4: wakenreth}). If no character steps through the portal, Veriel (see area E5) appears amid the mist in the arch and converses with the characters."
+												"A creature that steps through the portal appears in area E5 (an endless expanse not depicted on {@adventure map 5.4|DSotDQ|5|Map 5.4: Wakenreth}). If no character steps through the portal, Veriel (see area E5) appears amid the mist in the arch and converses with the characters."
 											]
 										}
 									]
@@ -27478,6 +27478,13 @@
 							"height": 780
 						}
 					]
+				},
+				{
+					"type": "entries",
+					"entries": [
+						"{@note Disclaimer: The Dragon Armies cannot ensure that owners of this book will not have their lives repurposed in the service of the Dragon Queen's glorious will. Promises to the contrary should be considered best-case scenarios, not statements of certainty. Thank you for supporting the Dragon Armies and a cataclysmically bright future for all of Krynn.}"
+					],
+					"id": "07a"
 				}
 			],
 			"id": "05b"

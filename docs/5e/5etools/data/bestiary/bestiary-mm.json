@@ -159,9 +159,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				},
 				{
@@ -560,9 +557,6 @@
 				},
 				{
 					"source": "PaBTSO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -2486,6 +2480,9 @@
 				},
 				{
 					"source": "JttRC"
+				},
+				{
+					"source": "WDH"
 				}
 			],
 			"reprintedAs": [
@@ -3129,6 +3126,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -4094,9 +4094,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -4629,6 +4626,9 @@
 				},
 				{
 					"source": "TCE"
+				},
+				{
+					"source": "SKT"
 				}
 			],
 			"reprintedAs": [
@@ -5236,9 +5236,6 @@
 			"otherSources": [
 				{
 					"source": "GoS"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -5868,9 +5865,6 @@
 			"otherSources": [
 				{
 					"source": "SatO"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -7734,9 +7728,6 @@
 					"source": "SatO"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -7978,6 +7969,9 @@
 				},
 				{
 					"source": "CRCotN"
+				},
+				{
+					"source": "SKT"
 				}
 			],
 			"reprintedAs": [
@@ -8526,12 +8520,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -8539,6 +8527,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -8859,12 +8850,6 @@
 					"source": "ToFW"
 				},
 				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -9034,9 +9019,6 @@
 				},
 				{
 					"source": "PSI"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -9329,10 +9311,10 @@
 					"source": "KftGV"
 				},
 				{
-					"source": "DoDk"
+					"source": "CoA"
 				},
 				{
-					"source": "CoA"
+					"source": "FRAiF"
 				}
 			],
 			"reprintedAs": [
@@ -9512,6 +9494,7 @@
 				"forest",
 				"hill"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/baboon.mp3"
@@ -9539,6 +9522,9 @@
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -9592,6 +9578,7 @@
 			"environment": [
 				"forest"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/badger.mp3"
@@ -9636,10 +9623,10 @@
 					"source": "ToFW"
 				},
 				{
-					"source": "DoDk"
+					"source": "CoA"
 				},
 				{
-					"source": "CoA"
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -9907,9 +9894,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				},
 				{
@@ -10093,9 +10077,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -10443,9 +10424,6 @@
 				},
 				{
 					"source": "TCE"
-				},
-				{
-					"source": "GHLoE"
 				},
 				{
 					"source": "VEoR"
@@ -10870,6 +10848,9 @@
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -10978,9 +10959,6 @@
 				},
 				{
 					"source": "PSX"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -11083,9 +11061,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -11297,6 +11272,9 @@
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -11474,6 +11452,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -11998,9 +11979,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -12471,9 +12449,6 @@
 				},
 				{
 					"source": "ToFW"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -13321,10 +13296,10 @@
 					"source": "SatO"
 				},
 				{
-					"source": "DoDk"
+					"source": "CoA"
 				},
 				{
-					"source": "CoA"
+					"source": "HotDQ"
 				}
 			],
 			"reprintedAs": [
@@ -13670,6 +13645,9 @@
 				},
 				{
 					"source": "BMT"
+				},
+				{
+					"source": "ToA"
 				}
 			],
 			"reprintedAs": [
@@ -13813,6 +13791,11 @@
 			"source": "MM",
 			"page": 106,
 			"srd": true,
+			"otherSources": [
+				{
+					"source": "OoW"
+				}
+			],
 			"reprintedAs": [
 				"Brass Dragon Wyrmling|XMM"
 			],
@@ -14443,9 +14426,6 @@
 					"source": "PaBTSO"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				}
 			],
@@ -14574,6 +14554,9 @@
 				},
 				{
 					"source": "CRCotN"
+				},
+				{
+					"source": "NRH-AT"
 				}
 			],
 			"size": [
@@ -14944,12 +14927,6 @@
 				"type": "internal",
 				"path": "bestiary/bullywug.mp3"
 			},
-			"altArt": [
-				{
-					"name": "Blacktongue Bullywug",
-					"source": "WDMM"
-				}
-			],
 			"attachedItems": [
 				"spear|phb"
 			],
@@ -15397,6 +15374,9 @@
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -15549,9 +15529,6 @@
 				},
 				{
 					"source": "JttRC"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -15635,6 +15612,9 @@
 				},
 				{
 					"source": "WDMM"
+				},
+				{
+					"source": "SKT"
 				}
 			],
 			"reprintedAs": [
@@ -15892,6 +15872,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "WDH"
 				}
 			],
 			"reprintedAs": [
@@ -16067,6 +16050,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -16241,9 +16227,6 @@
 					"source": "BGDIA"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				}
 			],
@@ -16384,9 +16367,6 @@
 				},
 				{
 					"source": "PaBTSO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -16727,9 +16707,6 @@
 				},
 				{
 					"source": "PaBTSO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -17121,6 +17098,9 @@
 				},
 				{
 					"source": "WBtW"
+				},
+				{
+					"source": "OoW"
 				}
 			],
 			"reprintedAs": [
@@ -17301,12 +17281,6 @@
 				},
 				{
 					"source": "HFStCM"
-				},
-				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -18342,9 +18316,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -18352,6 +18323,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "HotDQ"
 				}
 			],
 			"reprintedAs": [
@@ -18594,12 +18568,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -19262,6 +19230,9 @@
 				},
 				{
 					"source": "AATM"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -19395,6 +19366,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "WDMM"
 				}
 			],
 			"reprintedAs": [
@@ -19637,6 +19611,9 @@
 				},
 				{
 					"source": "VEoR"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -19871,6 +19848,9 @@
 				},
 				{
 					"source": "BMT"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -20326,6 +20306,7 @@
 				"grassland",
 				"forest"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/deer.mp3"
@@ -20636,9 +20617,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -21089,9 +21067,6 @@
 					"source": "SatO"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				},
 				{
@@ -21403,9 +21378,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				},
 				{
@@ -21553,9 +21525,6 @@
 				},
 				{
 					"source": "PaBTSO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -21812,6 +21781,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -21946,6 +21918,9 @@
 				},
 				{
 					"source": "VEoR"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -22226,6 +22201,9 @@
 				},
 				{
 					"source": "BMT"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -22458,6 +22436,9 @@
 				},
 				{
 					"source": "PaBTSO"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -22948,6 +22929,9 @@
 				},
 				{
 					"source": "GoS"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -23127,7 +23111,7 @@
 							"type": "entries",
 							"entries": [
 								"Drow often wear magic armor and carry magic weapons that lose their enhancement bonuses permanently if they are exposed to sunlight for 1 hour or longer.",
-								"A {@creature drow priestess of lolth} wearing {@item +3 scale mail} has AC 19."
+								"A {@creature drow priestess of Lolth} wearing {@item +3 scale mail} has AC 19."
 							]
 						}
 					]
@@ -23194,7 +23178,7 @@
 							"items": {
 								"name": "Special Equipment",
 								"entries": [
-									"The drow wears {@item drow +3 scale mail|mm|+3 scale mail}. This armor loses its enhancement bonuses permanently if it is exposed to sunlight for 1 hour or longer."
+									"The drow wears {@item drow +3 scale mail|MM|+3 scale mail}. This armor loses its enhancement bonuses permanently if it is exposed to sunlight for 1 hour or longer."
 								]
 							}
 						}
@@ -23203,7 +23187,7 @@
 						{
 							"ac": 19,
 							"from": [
-								"{@item drow +3 scale mail|mm|+3 scale mail}"
+								"{@item drow +3 scale mail|MM|+3 scale mail}"
 							]
 						}
 					],
@@ -23273,9 +23257,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -23474,12 +23455,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -23819,6 +23794,9 @@
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -23968,9 +23946,6 @@
 				},
 				{
 					"source": "SatO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -24189,6 +24164,7 @@
 				"hill",
 				"coastal"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/eagle.mp3"
@@ -24238,9 +24214,6 @@
 				},
 				{
 					"source": "PaBTSO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -24408,9 +24381,6 @@
 				},
 				{
 					"source": "SatO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -25104,9 +25074,6 @@
 				},
 				{
 					"source": "SatO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -26170,6 +26137,11 @@
 			"name": "Faerie Dragon (Orange)",
 			"source": "MM",
 			"page": 133,
+			"otherSources": [
+				{
+					"source": "CM"
+				}
+			],
 			"reprintedAs": [
 				"Faerie Dragon Youth|XMM"
 			],
@@ -26875,9 +26847,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -27785,6 +27754,9 @@
 				},
 				{
 					"source": "BMT"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -27922,6 +27894,9 @@
 				},
 				{
 					"source": "KftGV"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -28054,9 +28029,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -28200,6 +28172,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -28764,9 +28739,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				}
 			],
@@ -28905,6 +28877,9 @@
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -29035,10 +29010,10 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
+					"source": "QftIS"
 				},
 				{
-					"source": "QftIS"
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -29394,9 +29369,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -29636,9 +29608,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "GHLoE"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -29751,7 +29720,7 @@
 					"source": "GoS"
 				},
 				{
-					"source": "GHLoE"
+					"source": "ToA"
 				}
 			],
 			"reprintedAs": [
@@ -30503,12 +30472,6 @@
 				},
 				{
 					"source": "ToFW"
-				},
-				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -30858,6 +30821,9 @@
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -30915,6 +30881,7 @@
 			"environment": [
 				"underdark"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/giant-fire-beetle.mp3"
@@ -31823,12 +31790,6 @@
 				},
 				{
 					"source": "WBtW"
-				},
-				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -32948,6 +32909,9 @@
 				},
 				{
 					"source": "PSX"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -33092,13 +33056,13 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -33788,9 +33752,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -34030,9 +33991,6 @@
 					"source": "ToFW"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				},
 				{
@@ -34208,9 +34166,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -34343,6 +34298,9 @@
 				},
 				{
 					"source": "BMT"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -34706,6 +34664,7 @@
 				"hill",
 				"urban"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/goat.mp3"
@@ -34796,9 +34755,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "GHLoE"
 				}
 			],
 			"reprintedAs": [
@@ -34948,6 +34904,9 @@
 				},
 				{
 					"source": "PaBTSO"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -35337,9 +35296,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -35742,7 +35698,7 @@
 					"type": "variant",
 					"name": "Psychic Gray Ooze",
 					"entries": [
-						"A gray ooze that lives a long time can evolve to become more intelligent and develop limited psionic ability. Such occurrences are more common in gray oozes that live near psioncic creatures such as {@creature mind flayer||mind flayers}, suggesting that the ooze can sense and mimic psionic ability.",
+						"A gray ooze that lives a long time can evolve to become more intelligent and develop limited psionic ability. Such occurrences are more common in gray oozes that live near psionic creatures such as {@creature mind flayer||mind flayers}, suggesting that the ooze can sense and mimic psionic ability.",
 						"A psionic gray ooze has an intelligence score of 6 (-2), as well as the following additional action.",
 						{
 							"type": "entries",
@@ -36285,6 +36241,9 @@
 				},
 				{
 					"source": "BMT"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -36607,6 +36566,9 @@
 				},
 				{
 					"source": "VEoR"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -37126,6 +37088,9 @@
 				},
 				{
 					"source": "PaBTSO"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -37279,9 +37244,6 @@
 					"source": "JttRC"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				}
 			],
@@ -37392,13 +37354,13 @@
 					"source": "PaBTSO"
 				},
 				{
-					"source": "GHLoE"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -37584,9 +37546,6 @@
 				},
 				{
 					"source": "ToFW"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -37911,6 +37870,9 @@
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "LLK"
 				}
 			],
 			"reprintedAs": [
@@ -38269,6 +38231,9 @@
 				},
 				{
 					"source": "IMR"
+				},
+				{
+					"source": "HotDQ"
 				}
 			],
 			"reprintedAs": [
@@ -38432,9 +38397,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "CoA"
@@ -38693,9 +38655,6 @@
 				},
 				{
 					"source": "HFStCM"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "CoA"
@@ -39946,9 +39905,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -40188,9 +40144,6 @@
 				},
 				{
 					"source": "SatO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -40528,9 +40481,6 @@
 				},
 				{
 					"source": "SatO"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -40712,6 +40662,7 @@
 				"hill",
 				"desert"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/hyena.mp3"
@@ -40748,6 +40699,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "WDMM"
 				}
 			],
 			"reprintedAs": [
@@ -41172,9 +41126,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -41378,10 +41329,10 @@
 					"source": "ToFW"
 				},
 				{
-					"source": "GHLoE"
+					"source": "CoA"
 				},
 				{
-					"source": "CoA"
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -41556,6 +41507,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -41737,9 +41691,6 @@
 					"source": "PaBTSO"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -41904,9 +41855,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -42074,6 +42022,9 @@
 			"otherSources": [
 				{
 					"source": "GoS"
+				},
+				{
+					"source": "ToA"
 				}
 			],
 			"reprintedAs": [
@@ -42133,6 +42084,7 @@
 				"grassland",
 				"desert"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/jackal.mp3"
@@ -42629,9 +42581,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				},
 				{
@@ -42798,9 +42747,6 @@
 					"source": "DoSI"
 				},
 				{
-					"source": "GHLoE"
-				},
-				{
 					"source": "CoA"
 				}
 			],
@@ -42949,6 +42895,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "SKT"
 				}
 			],
 			"reprintedAs": [
@@ -44199,6 +44148,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "PotA"
 				}
 			],
 			"reprintedAs": [
@@ -45435,12 +45387,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -45657,9 +45603,6 @@
 				},
 				{
 					"source": "SjA"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -46075,6 +46018,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -46212,9 +46158,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -46645,9 +46588,6 @@
 					"source": "TCE"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -46986,7 +46926,7 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -47130,6 +47070,9 @@
 				},
 				{
 					"source": "JttRC"
+				},
+				{
+					"source": "SKT"
 				}
 			],
 			"reprintedAs": [
@@ -47252,9 +47195,6 @@
 				},
 				{
 					"source": "DSotDQ"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -47648,13 +47588,13 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -47832,6 +47772,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -48002,6 +47945,9 @@
 				},
 				{
 					"source": "SatO"
+				},
+				{
+					"source": "LLK"
 				}
 			],
 			"reprintedAs": [
@@ -48424,6 +48370,9 @@
 				},
 				{
 					"source": "VEoR"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -48561,6 +48510,9 @@
 				},
 				{
 					"source": "ToFW"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -48852,9 +48804,6 @@
 				},
 				{
 					"source": "KftGV"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -48975,9 +48924,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -49428,6 +49374,9 @@
 				},
 				{
 					"source": "BMT"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -49592,6 +49541,9 @@
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -49769,6 +49721,9 @@
 				},
 				{
 					"source": "BMT"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -49878,9 +49833,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -49888,6 +49840,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -50217,9 +50172,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "CoA"
@@ -50765,12 +50717,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -51320,9 +51266,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				}
 			],
@@ -51627,9 +51570,6 @@
 					"source": "SatO"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				}
 			],
@@ -51760,9 +51700,6 @@
 				},
 				{
 					"source": "PaBTSO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -52759,9 +52696,6 @@
 				},
 				{
 					"source": "ToFW"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -52900,9 +52834,6 @@
 				},
 				{
 					"source": "ToFW"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -53703,9 +53634,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				}
 			],
@@ -54349,10 +54277,10 @@
 					"source": "SatO"
 				},
 				{
-					"source": "DoDk"
+					"source": "CoA"
 				},
 				{
-					"source": "CoA"
+					"source": "WDMM"
 				}
 			],
 			"reprintedAs": [
@@ -55168,9 +55096,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -55348,9 +55273,6 @@
 				},
 				{
 					"source": "IDRotF"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -55621,13 +55543,13 @@
 					"source": "ToFW"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -55917,6 +55839,9 @@
 				},
 				{
 					"source": "PaBTSO"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -56032,6 +55957,9 @@
 				},
 				{
 					"source": "IDRotF"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -56307,10 +56235,10 @@
 					"source": "PaBTSO"
 				},
 				{
-					"source": "DoDk"
+					"source": "VEoR"
 				},
 				{
-					"source": "VEoR"
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -56601,6 +56529,9 @@
 				},
 				{
 					"source": "VEoR"
+				},
+				{
+					"source": "WDH"
 				}
 			],
 			"reprintedAs": [
@@ -56788,10 +56719,10 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
+					"source": "QftIS"
 				},
 				{
-					"source": "QftIS"
+					"source": "SKT"
 				}
 			],
 			"reprintedAs": [
@@ -56981,6 +56912,9 @@
 				},
 				{
 					"source": "DSotDQ"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -57798,6 +57732,9 @@
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "PotA"
 				}
 			],
 			"reprintedAs": [
@@ -57909,12 +57846,6 @@
 				},
 				{
 					"source": "KftGV"
-				},
-				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -58157,9 +58088,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				}
 			],
@@ -58330,9 +58258,6 @@
 				},
 				{
 					"source": "KftGV"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -58704,6 +58629,9 @@
 				},
 				{
 					"source": "SatO"
+				},
+				{
+					"source": "FRAiF"
 				}
 			],
 			"reprintedAs": [
@@ -59691,6 +59619,9 @@
 				},
 				{
 					"source": "PSX"
+				},
+				{
+					"source": "TTP"
 				}
 			],
 			"reprintedAs": [
@@ -59740,6 +59671,7 @@
 			"environment": [
 				"desert"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/scorpion.mp3"
@@ -59833,12 +59765,6 @@
 				},
 				{
 					"source": "SatO"
-				},
-				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -60002,9 +59928,6 @@
 				},
 				{
 					"source": "SatO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "CoA"
@@ -60393,12 +60316,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -60770,12 +60687,6 @@
 					"source": "HFStCM"
 				},
 				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -60946,9 +60857,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -61101,6 +61009,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -61480,9 +61391,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -61609,6 +61517,9 @@
 				},
 				{
 					"source": "SatO"
+				},
+				{
+					"source": "WDMM"
 				}
 			],
 			"reprintedAs": [
@@ -62843,6 +62754,9 @@
 				},
 				{
 					"source": "VEoR"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -63246,9 +63160,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				},
 				{
@@ -63390,9 +63301,6 @@
 				},
 				{
 					"source": "ToFW"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -63686,9 +63594,6 @@
 					"source": "MOT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				}
 			],
@@ -63915,9 +63820,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -64312,10 +64214,10 @@
 					"source": "BMT"
 				},
 				{
-					"source": "GHLoE"
+					"source": "CoA"
 				},
 				{
-					"source": "CoA"
+					"source": "HotDQ"
 				}
 			],
 			"reprintedAs": [
@@ -64856,6 +64758,9 @@
 				},
 				{
 					"source": "PSA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -65132,9 +65037,6 @@
 					"source": "PSA"
 				},
 				{
-					"source": "GHLoE"
-				},
-				{
 					"source": "QftIS"
 				}
 			],
@@ -65272,9 +65174,6 @@
 				},
 				{
 					"source": "CM"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -65776,9 +65675,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -66297,12 +66193,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
-				},
-				{
 					"source": "CoA"
 				}
 			],
@@ -66595,9 +66485,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -66972,6 +66859,9 @@
 				},
 				{
 					"source": "CoA"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -67319,9 +67209,6 @@
 				},
 				{
 					"source": "SatO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -67746,9 +67633,6 @@
 				},
 				{
 					"source": "SatO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "QftIS"
@@ -68796,9 +68680,6 @@
 					"source": "AATM"
 				},
 				{
-					"source": "GHLoE"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -69624,9 +69505,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
@@ -70027,9 +69905,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				}
 			],
@@ -70282,6 +70157,7 @@
 				"hill",
 				"desert"
 			],
+			"familiar": true,
 			"soundClip": {
 				"type": "internal",
 				"path": "bestiary/vulture.mp3"
@@ -70333,7 +70209,7 @@
 					"source": "DSotDQ"
 				},
 				{
-					"source": "DoDk"
+					"source": "HotDQ"
 				}
 			],
 			"reprintedAs": [
@@ -70685,9 +70561,6 @@
 				},
 				{
 					"source": "PaBTSO"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -71278,6 +71151,9 @@
 				},
 				{
 					"source": "BMT"
+				},
+				{
+					"source": "PotA"
 				}
 			],
 			"reprintedAs": [
@@ -71481,6 +71357,9 @@
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -72298,13 +72177,13 @@
 					"source": "BMT"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "VEoR"
 				},
 				{
 					"source": "QftIS"
+				},
+				{
+					"source": "HotDQ"
 				}
 			],
 			"reprintedAs": [
@@ -72512,9 +72391,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -72821,9 +72697,6 @@
 				},
 				{
 					"source": "KftGV"
-				},
-				{
-					"source": "GHLoE"
 				}
 			],
 			"reprintedAs": [
@@ -72998,9 +72871,6 @@
 					"source": "BMT"
 				},
 				{
-					"source": "GHLoE"
-				},
-				{
 					"source": "QftIS"
 				},
 				{
@@ -73121,9 +72991,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "DoDk"
 				}
 			],
 			"reprintedAs": [
@@ -73298,12 +73165,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"
@@ -73902,6 +73763,9 @@
 				},
 				{
 					"source": "VEoR"
+				},
+				{
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -74857,9 +74721,6 @@
 					"source": "CM"
 				},
 				{
-					"source": "DoDk"
-				},
-				{
 					"source": "QftIS"
 				}
 			],
@@ -75627,6 +75488,9 @@
 				},
 				{
 					"source": "BMT"
+				},
+				{
+					"source": "LMoP"
 				}
 			],
 			"reprintedAs": [
@@ -78030,12 +77894,6 @@
 				},
 				{
 					"source": "BMT"
-				},
-				{
-					"source": "GHLoE"
-				},
-				{
-					"source": "DoDk"
 				},
 				{
 					"source": "VEoR"

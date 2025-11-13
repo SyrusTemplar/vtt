@@ -269,7 +269,7 @@
 							"id": "016",
 							"entries": [
 								"The town of Leilon was once a fortified settlement on the High Road, midway between the cities of Neverwinter and Waterdeep. The settlement has been destroyed and rebuilt many times in its long history. The Lord Protector of Neverwinter, Dagult Neverember, recently hired a group of his citizens to rebuild the town, a construction project now well underway. They hope to create a fortified waypoint for travelers and merchants that can ward off the threats of the surrounding wilderness.",
-								"Two forces of evil are on the rise nearby, eager to control the region around Leilon and eventually the Sword Coast. The first is a cult of Talos, god of storms, led by the priestess Fheralai Stormsworm. The cult's headquarters are inside a death knight-dreadnaught, an undead battleship, beached near a temple of Talos called the Tower of Storms.",
+								"Two forces of evil are on the rise nearby, eager to control the region around Leilon and eventually the Sword Coast. The first is a cult of Talos, god of storms, led by the priestess Fheralai Stormsworn. The cult's headquarters are inside a death knight-dreadnaught, an undead battleship, beached near a temple of Talos called the Tower of Storms.",
 								"Ularan Mortus, a priest of Myrkul, god of death, and his followers are raising an army of undead to lay siege to the city of Neverwinter. The spirit of the dead black dragon Chardansearavitriol, also known as Ebondeath, aids Ularan Mortus in exchange for help finding and seizing the body of a living dragon to inhabit.",
 								"The people of Leilon have just begun to uncover the threats both groups pose to the region. They need the help of adventurers if they want their fledgling settlement to survive the danger."
 							]
@@ -738,7 +738,7 @@
 									"rows": [
 										[
 											"1",
-											"\"The famers at Leilon Point have seen more shark fins in the water lately. Some even claim to see humanoids swimming alongside the sharks! Can you imagine?\" (If the characters visit Leilon Point, see \"{@adventure Leilon Point|SDW|6}\" for more information.)"
+											"\"The farmers at Leilon Point have seen more shark fins in the water lately. Some even claim to see humanoids swimming alongside the sharks! Can you imagine?\" (If the characters visit Leilon Point, see \"{@adventure Leilon Point|SDW|6}\" for more information.)"
 										],
 										[
 											"2",
@@ -2154,9 +2154,9 @@
 											"grid": {
 												"type": "square",
 												"size": 86,
-												"offsetX": 37,
-												"offsetY": 25,
-												"distance": 10
+												"offsetX": 74,
+												"offsetY": 50,
+												"scale": 2
 											},
 											"id": "0fb",
 											"mapRegions": [
@@ -7733,9 +7733,9 @@
 											"grid": {
 												"type": "square",
 												"size": 86,
-												"offsetX": 37,
-												"offsetY": 25,
-												"distance": 10
+												"offsetX": 74,
+												"offsetY": 50,
+												"scale": 2
 											},
 											"mapParent": {
 												"id": "0fb"
@@ -7889,7 +7889,7 @@
 												"{@b Vajra Safahr} is a human depicted with short hair, fine but practical clothing, and a thin, wolf-headed, rune-covered staff, which is taller than her. She is the current Blackstaff and Archmage of Waterdeep.",
 												"{@b Lady Aribeth de Tylmarande} is a half-elf depicted wearing plate armor emblazoned with the symbol of Tyr (balanced scales resting on a warhammer). She was a heroic paladin who attacked Neverwinter when the city's leaders unjustly executed her lover.",
 												"{@b Danica Bonaduce} is a lean-muscled human wearing simple clothing. She has her fists raised in an unarmed fighting stance. She was a heroic monk and the lady of the now-ruined Spirit Soaring cathedral in the Snowflake Mountains.",
-												"{@b Laerel Silverhand} is a human with long hair in elaborate braids, wearing magnificent flowing robes. She is the Open Lord of Waterdeep, and one of the Seven Sisters chosen by Mystra."
+												"{@b Laeral Silverhand} is a human with long hair in elaborate braids, wearing magnificent flowing robes. She is the Open Lord of Waterdeep, and one of the Seven Sisters chosen by Mystra."
 											]
 										}
 									]
@@ -10751,7 +10751,7 @@
 									"id": "0d1",
 									"entries": [
 										"Ten {@creature Swarm of Ravens||swarms of ravens} live on what remains of the main tower's roof. They attack any creature that comes within 30 feet of the roof, fighting until the creature retreats.",
-										"If more than 100 pounds of weight are added to the remains of the roof, it collapses. Creatures inside the tower when the roof collapses must make a {@dc 12} Dexterity saving throw, taking 28 ({@dice 8d6}) bludgeoning damage on a failed save, or half as much damage on a successful one. Creatures on top of the roof when it collapses take 28 ({@dice 8d6}) bludgeoning damage from the fall and another 28 ({@dice 8d6}) bludgeoning damage from fallig roof debris."
+										"If more than 100 pounds of weight are added to the remains of the roof, it collapses. Creatures inside the tower when the roof collapses must make a {@dc 12} Dexterity saving throw, taking 28 ({@dice 8d6}) bludgeoning damage on a failed save, or half as much damage on a successful one. Creatures on top of the roof when it collapses take 28 ({@dice 8d6}) bludgeoning damage from the fall and another 28 ({@dice 8d6}) bludgeoning damage from falling roof debris."
 									]
 								},
 								{
@@ -10873,9 +10873,9 @@
 									"grid": {
 										"type": "square",
 										"size": 86,
-										"offsetX": 37,
-										"offsetY": 25,
-										"distance": 10
+										"offsetX": 74,
+										"offsetY": 50,
+										"scale": 2
 									},
 									"id": "0fe",
 									"mapRegions": [
@@ -12007,9 +12007,9 @@
 									"grid": {
 										"type": "square",
 										"size": 86,
-										"offsetX": 37,
-										"offsetY": 25,
-										"distance": 10
+										"offsetX": 74,
+										"offsetY": 50,
+										"scale": 2
 									},
 									"mapParent": {
 										"id": "0fe"

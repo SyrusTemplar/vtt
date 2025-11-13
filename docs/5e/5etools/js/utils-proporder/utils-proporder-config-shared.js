@@ -31,7 +31,9 @@ export const PROPORDER_FOUNDRY_ACTIVITIES = new ArrayKey("activities", {
 		"type",
 
 		"img",
+		"advice",
 		"description",
+		"descriptionEntries",
 
 		"activation",
 		"duration",
@@ -60,6 +62,11 @@ export const PROPORDER_FOUNDRY_ACTIVITIES = new ArrayKey("activities", {
 
 		// "enchant"-type
 		"restrictions",
+		"enchant",
+
+		// "transform"-type
+		"transform",
+		"settings",
 
 		"effects",
 	],
@@ -88,5 +95,6 @@ export const PROPORDER_FOUNDRY_EFFECTS = new ArrayKey("effects", {
 		"description",
 		"descriptionEntries",
 		"img",
+		"advice",
 	],
 });

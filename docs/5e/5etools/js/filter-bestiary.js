@@ -73,6 +73,16 @@ class PageFilterBestiary extends PageFilterBase {
 		});
 		this._speedFilter = new RangeFilter({header: "Speed", min: 30, max: 30, suffix: " ft"});
 		this._speedTypeFilter = new Filter({header: "Speed Type", items: [...Parser.SPEED_MODES, "hover"], displayFn: StrUtil.uppercaseFirst});
+		this._speedFilterWalk = new RangeFilter({header: "Walk", min: 30, max: 30, suffix: " ft"});
+		this._speedFilterBurrow = new RangeFilter({header: "Burrow", min: 30, max: 30, suffix: " ft"});
+		this._speedFilterClimb = new RangeFilter({header: "Climb", min: 30, max: 30, suffix: " ft"});
+		this._speedFilterFly = new RangeFilter({header: "Fly", min: 30, max: 30, suffix: " ft"});
+		this._speedFilterSwim = new RangeFilter({header: "Swim", min: 30, max: 30, suffix: " ft"});
+		this._speedsFilter = new MultiFilter({
+			header: "Speeds",
+			filters: [this._speedFilterWalk, this._speedFilterBurrow, this._speedFilterClimb, this._speedFilterFly, this._speedFilterSwim],
+			isAddDropdownToggle: true,
+		});
 		this._strengthFilter = new RangeFilter({header: "Strength", min: 1, max: 30});
 		this._dexterityFilter = new RangeFilter({header: "Dexterity", min: 1, max: 30});
 		this._constitutionFilter = new RangeFilter({header: "Constitution", min: 1, max: 30});
@@ -282,7 +292,7 @@ class PageFilterBestiary extends PageFilterBase {
 		FilterCommon.mutateForFilters_conditionImmune(mon);
 		mon._fSave = mon.save ? Object.keys(mon.save) : [];
 		mon._fSkill = mon.skill ? Object.keys(mon.skill) : [];
-		mon._fPassive = !isNaN(mon.passive) ? Number(mon.passive) : null;
+		mon._fPassive = typeof mon.passive === "number" ? mon.passive : null;
 
 		Parser.ABIL_ABVS
 			.forEach(ab => {
@@ -322,7 +332,6 @@ class PageFilterBestiary extends PageFilterBase {
 			if (legGroup.regionalEffects) mon._fMisc.push("Regional Effects");
 		}
 		if (mon.variant) mon._fMisc.push("Has Variants");
-		if (mon._isCopy) mon._fMisc.push("Modified Copy");
 		if (mon.altArt) mon._fMisc.push("Has Alternate Token");
 		if (Renderer.monster.hasToken(mon)) mon._fMisc.push("Has Token");
 		if (this._hasFluff(mon)) mon._fMisc.push("Has Info");
@@ -345,7 +354,15 @@ class PageFilterBestiary extends PageFilterBase {
 		mon._fEquipment = this._getEquipmentList(mon);
 	}
 
+	static _F_SPEED_PROP_MAPPING = Object.fromEntries(Parser.SPEED_MODES.map(prop => [prop, `_fSpeed${prop.uppercaseFirst()}`]));
+
 	static _mutateForFilters_speed (mon) {
+		mon._fSpeedWalk = null;
+		mon._fSpeedBurrow = null;
+		mon._fSpeedClimb = null;
+		mon._fSpeedFly = null;
+		mon._fSpeedSwim = null;
+
 		if (mon.speed == null) {
 			mon._fSpeedType = [];
 			mon._fSpeed = null;
@@ -355,12 +372,23 @@ class PageFilterBestiary extends PageFilterBase {
 		if (typeof mon.speed === "number" && mon.speed > 0) {
 			mon._fSpeedType = ["walk"];
 			mon._fSpeed = mon.speed;
+			mon._fSpeedWalk = mon.speed;
 			return;
 		}
 
-		mon._fSpeedType = Object.keys(mon.speed).filter(k => mon.speed[k]);
-		if (mon._fSpeedType.length) mon._fSpeed = Math.max(...Object.values(mon.speed).map(v => v.number || (isNaN(v) ? 0 : v)));
-		else mon._fSpeed = 0;
+		let maxSpeed = 0;
+		mon._fSpeedType = Parser.SPEED_MODES
+			.filter(prop => {
+				const v = mon.speed[prop];
+				if (!v) return false;
+				if (typeof v !== "number") return false;
+				maxSpeed = Math.max(maxSpeed, v);
+				mon[this._F_SPEED_PROP_MAPPING[prop]] = v;
+				return true;
+			});
+
+		mon._fSpeed = maxSpeed;
+
 		if (mon.speed.canHover) mon._fSpeedType.push("hover");
 	}
 
@@ -486,6 +514,11 @@ class PageFilterBestiary extends PageFilterBase {
 		this._wisdomFilter.addItem(mon._fWis);
 		this._charismaFilter.addItem(mon._fCha);
 		this._speedFilter.addItem(mon._fSpeed);
+		this._speedFilterWalk.addItem(mon._fSpeedWalk);
+		this._speedFilterBurrow.addItem(mon._fSpeedBurrow);
+		this._speedFilterClimb.addItem(mon._fSpeedClimb);
+		this._speedFilterFly.addItem(mon._fSpeedFly);
+		this._speedFilterSwim.addItem(mon._fSpeedSwim);
 		(mon.ac || []).forEach(it => this._acFilter.addItem(it.ac || it));
 		if (mon.hp?.average) this._averageHpFilter.addItem(mon.hp.average);
 		this._tagFilter.addItem(mon._pTypes.tags);
@@ -544,6 +577,7 @@ class PageFilterBestiary extends PageFilterBase {
 			this._sizeFilter,
 			this._speedFilter,
 			this._speedTypeFilter,
+			this._speedsFilter,
 			this._alignmentFilter,
 			this._saveFilter,
 			this._skillFilter,
@@ -589,6 +623,13 @@ class PageFilterBestiary extends PageFilterBase {
 			m.size,
 			m._fSpeed,
 			m._fSpeedType,
+			[
+				m._fSpeedWalk,
+				m._fSpeedBurrow,
+				m._fSpeedClimb,
+				m._fSpeedFly,
+				m._fSpeedSwim,
+			],
 			m._fAlign,
 			m._fSave,
 			m._fSkill,
@@ -660,7 +701,7 @@ class ModalFilterBestiary extends ModalFilterBase {
 
 	async _pLoadAllData () {
 		return [
-			...(await DataUtil.monster.pLoadAll()),
+			...(await DataLoader.pCacheAndGetAllSite(UrlUtil.PG_BESTIARY)),
 			...((await PrereleaseUtil.pGetBrewProcessed()).monster || []),
 			...((await BrewUtil2.pGetBrewProcessed()).monster || []),
 		];
@@ -688,7 +729,7 @@ class ModalFilterBestiary extends ModalFilterBase {
 			<div class="ve-col-4 px-1 ${mon._versionBase_isVersion ? "italic" : ""} ${this._getNameStyle()}">${mon._versionBase_isVersion ? `<span class="px-3"></span>` : ""}${mon.name}</div>
 			<div class="ve-col-4 px-1">${type}</div>
 			<div class="ve-col-2 px-1 ve-text-center">${cr}</div>
-			<div class="ve-col-1 ve-flex-h-center ${Parser.sourceJsonToSourceClassname(mon.source)} pl-1 pr-0" title="${Parser.sourceJsonToFull(mon.source)}" ${Parser.sourceJsonToStyle(mon.source)}>${source}${Parser.sourceJsonToMarkerHtml(mon.source)}</div>
+			<div class="ve-col-1 ve-flex-h-center ${Parser.sourceJsonToSourceClassname(mon.source)} pl-1 pr-0" title="${Parser.sourceJsonToFull(mon.source)}">${source}${Parser.sourceJsonToMarkerHtml(mon.source, {isList: true})}</div>
 		</div>`;
 
 		const btnShowHidePreview = eleRow.firstElementChild.children[1].firstElementChild;
@@ -701,7 +742,7 @@ class ModalFilterBestiary extends ModalFilterBase {
 				hash,
 				source,
 				sourceJson: mon.source,
-				page: mon.page,
+				...ListItem.getCommonValues(mon),
 				type,
 				cr,
 			},

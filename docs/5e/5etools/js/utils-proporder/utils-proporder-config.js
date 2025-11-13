@@ -42,6 +42,7 @@ const PROPORDER_FOUNDRY_GENERIC = [
 	PROPORDER_FOUNDRY_EFFECTS,
 	"flags",
 	"img",
+	"advice",
 
 	new ObjectKey("subEntities", {
 		fnGetOrder: () => PROPORDER_ROOT,
@@ -61,6 +62,7 @@ const PROPORDER_FOUNDRY_GENERIC_FEATURE = [
 	PROPORDER_FOUNDRY_EFFECTS,
 	"flags",
 	"img",
+	"advice",
 
 	"isIgnored",
 	"ignoreSrdActivities",
@@ -71,6 +73,8 @@ const PROPORDER_FOUNDRY_GENERIC_FEATURE = [
 	new ObjectKey("entryData", {
 		fnGetOrder: () => PROPORDER_ENTRY_DATA_OBJECT,
 	}),
+
+	"advancement",
 
 	new ObjectKey("subEntities", {
 		fnGetOrder: () => PROPORDER_ROOT,
@@ -99,6 +103,7 @@ const PROPORDER_MONSTER = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	"isReprinted",
 	"reprintedAs",
 
 	"summonedBySpell",
@@ -205,6 +210,7 @@ const PROPORDER_MONSTER = [
 	"token",
 	"tokenHref",
 	"tokenCredit",
+	"tokenCustom",
 	"soundClip",
 
 	...PROPS_FOUNDRY_DATA_INLINE,
@@ -319,6 +325,7 @@ const PROPORDER_FOUNDRY_MONSTER = [
 	PROPORDER_FOUNDRY_EFFECTS,
 	"flags",
 	"img",
+	"advice",
 
 	"migrationVersion",
 ];
@@ -513,6 +520,7 @@ const PROPORDER_BOOK = [
 
 	"id",
 	"source",
+	"parentSource",
 
 	"group",
 
@@ -692,6 +700,7 @@ const PROPORDER_FOUNDRY_CLASS = [
 	PROPORDER_FOUNDRY_EFFECTS,
 	"flags",
 	"img",
+	"advice",
 
 	"advancement",
 	"chooseSystem",
@@ -796,6 +805,7 @@ const PROPORDER_FOUNDRY_SUBCLASS = [
 	PROPORDER_FOUNDRY_EFFECTS,
 	"flags",
 	"img",
+	"advice",
 
 	"advancement",
 	"chooseSystem",
@@ -923,6 +933,7 @@ const PROPORDER_FOUNDRY_CLASS_FEATURE = [
 	PROPORDER_FOUNDRY_EFFECTS,
 	"flags",
 	"img",
+	"advice",
 
 	"entries",
 
@@ -930,6 +941,7 @@ const PROPORDER_FOUNDRY_CLASS_FEATURE = [
 		fnGetOrder: () => PROPORDER_ENTRY_DATA_OBJECT,
 	}),
 
+	"advancement",
 	"chooseSystem",
 	"isChooseSystemRenderEntries",
 	"isChooseFlagsRenderEntries",
@@ -959,6 +971,7 @@ const PROPORDER_FOUNDRY_SUBCLASS_FEATURE = [
 	PROPORDER_FOUNDRY_EFFECTS,
 	"flags",
 	"img",
+	"advice",
 
 	"entries",
 
@@ -966,6 +979,7 @@ const PROPORDER_FOUNDRY_SUBCLASS_FEATURE = [
 		fnGetOrder: () => PROPORDER_ENTRY_DATA_OBJECT,
 	}),
 
+	"advancement",
 	"chooseSystem",
 	"isChooseSystemRenderEntries",
 	"isChooseFlagsRenderEntries",
@@ -998,6 +1012,7 @@ const PROPORDER_LANGUAGE = [
 
 	"type",
 	"typicalSpeakers",
+	"origin",
 	"script",
 
 	"fonts",
@@ -1115,7 +1130,7 @@ const PROPORDER_CULT = [
 
 	"goal",
 	"cultists",
-	"signaturespells",
+	"signatureSpells",
 
 	"entries",
 ];
@@ -1139,7 +1154,7 @@ const PROPORDER_BOON = [
 
 	"goal",
 	"cultists",
-	"signaturespells",
+	"signatureSpells",
 
 	"entries",
 ];
@@ -1344,6 +1359,7 @@ const PROPORDER_VEHICLE = [
 	"token",
 	"tokenHref",
 	"tokenCredit",
+	"tokenCustom",
 
 	"hasToken",
 	"hasFluff",
@@ -1384,6 +1400,7 @@ const PROPORDER_RACE_FLUFF = [
 const PROPORDER_ITEM = [
 	"name",
 	"alias",
+	"group",
 	"namePrefix",
 	"nameSuffix",
 	"nameRemove",
@@ -1554,6 +1571,9 @@ const PROPORDER_ITEM = [
 
 				ObjectKey.getAttachedSpellFrequencyKey("charges"),
 
+				ObjectKey.getAttachedSpellFrequencyKey("resource"),
+				"resourceName",
+
 				ObjectKey.getAttachedSpellFrequencyKey("rest"),
 				ObjectKey.getAttachedSpellFrequencyKey("daily"),
 				ObjectKey.getAttachedSpellFrequencyKey("limited"),
@@ -1595,6 +1615,7 @@ const PROPORDER_ITEM__COPY_MOD = [
 const PROPORDER_MAGICVARIANT = [
 	"name",
 	"alias",
+	"group",
 	"source",
 
 	ObjectKey.getCopyKey({fnGetModOrder: () => PROPORDER_MAGICVARIANT__COPY_MOD}),
@@ -1767,6 +1788,7 @@ const PROPORDER_OBJECT = [
 	"token",
 	"tokenHref",
 	"tokenCredit",
+	"tokenCustom",
 
 	"altArt",
 
@@ -1858,6 +1880,11 @@ const PROPORDER_REWARD = [
 
 	"source",
 	"page",
+	"srd",
+	"srd52",
+	"basicRules",
+	"basicRules2024",
+	"otherSources",
 	"reprintedAs",
 
 	"type",
@@ -2033,6 +2060,7 @@ const PROPORDER_FOUNDRY_RACE_FEATURE = [
 	PROPORDER_FOUNDRY_EFFECTS,
 	"flags",
 	"img",
+	"advice",
 
 	"migrationVersion",
 ];
@@ -2286,6 +2314,10 @@ const PROPORDER_ENCOUNTER = [
 	new ArrayKey("tables", {
 		order: [
 			"caption",
+
+			"captionPrefix",
+			"captionSuffix",
+
 			"minlvl",
 			"maxlvl",
 
@@ -2346,6 +2378,13 @@ const PROPORDER_FACILITY = [
 	"hasFluffImages",
 
 	"fluff",
+];
+
+const PROPORDER_CONVERTER_SAMPLE = [
+	"converterId",
+	"format",
+	"edition",
+	"text",
 ];
 
 export const PROPORDER_PROP_TO_LIST = {
@@ -2449,6 +2488,7 @@ export const PROPORDER_PROP_TO_LIST = {
 	"foundryMap": PROPORDER_FOUNDRY_MAP,
 	"facility": PROPORDER_FACILITY,
 	"facilityFluff": PROPORDER_GENERIC_FLUFF,
+	"converterSample": PROPORDER_CONVERTER_SAMPLE,
 };
 
 export const PROPORDER_ROOT = [
@@ -2603,6 +2643,7 @@ export const PROPORDER_ROOT = [
 	// region Tooling
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "makebrewCreatureTrait"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "makebrewCreatureAction"),
+	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "converterSample"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "monsterfeatures"),
 	// endregion
 

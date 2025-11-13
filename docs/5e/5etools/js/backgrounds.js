@@ -68,6 +68,7 @@ class BackgroundPage extends ListPage {
 			pageFilter,
 
 			bookViewOptions: {
+				nameSingular: "background",
 				namePlural: "backgrounds",
 				pageTitle: "Backgrounds Book View",
 			},
@@ -90,7 +91,7 @@ class BackgroundPage extends ListPage {
 			<span class="bold ve-col-2-5 pl-0 pr-1">${name}</span>
 			<span class="ve-col-3-5 px-1 ${bg._slAbility === VeCt.STR_NONE ? "italic" : ""}">${bg._slAbility}</span>
 			<span class="ve-col-4 px-1">${bg._skillDisplay}</span>
-			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToSourceClassname(bg.source)}  pl-1 pr-0" title="${Parser.sourceJsonToFull(bg.source)}" ${Parser.sourceJsonToStyle(bg.source)}>${source}</span>
+			<span class="ve-col-2 ve-text-center ${Parser.sourceJsonToSourceClassname(bg.source)}  pl-1 pr-0" title="${Parser.sourceJsonToFull(bg.source)}">${source}</span>
 		</a>`;
 
 		const listItem = new ListItem(

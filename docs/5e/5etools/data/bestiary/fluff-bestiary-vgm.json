@@ -915,7 +915,7 @@
 						{
 							"type": "entries",
 							"entries": [
-								"Chitines are multiarmed humanoids with arachnid qualities that serve Lolth. They operate in well-organized colonies that prove to be effective fighters in the war against the enemies of the Demon Queen of Spiders. On occasion, Lolth pits chitines against dark elves-even though both groups worship her-as a way of punishing the drow, who created the chitines but displeased their goddess by doing so.",
+								"Chitines are multi-armed humanoids with arachnid qualities that serve Lolth. They operate in well-organized colonies that prove to be effective fighters in the war against the enemies of the Demon Queen of Spiders. On occasion, Lolth pits chitines against dark elves-even though both groups worship her-as a way of punishing the drow, who created the chitines but displeased their goddess by doing so.",
 								{
 									"name": "Unnatural Origin",
 									"entries": [
@@ -1110,7 +1110,7 @@
 						{
 							"type": "entries",
 							"entries": [
-								"Ancient legends speak of a seelie fey who betrayed the Summer Queen. His true name has been stricken from history, but the stories call him Dubh Catha (\"Dark Crow\" in Common). So great was the Summer Queen's wrath that she cursed every member of his house. Other fey refer to the descendants of Dubh Catha's house as the dubh sith-or, in Common, \"darklings.\" Darklings most often settle in secluded caverns and chambers beneath the towns of other species. From such enclaves, they quietly ply their trade as thieves and assassins.",
+								"Ancient legends speak of a seelie fey who betrayed the Summer Queen. His true name has been stricken from history, but the stories call him Dubh Catha (\"Dark Crow\" in Common). So great was the Summer Queen's wrath that she cursed every member of his house. Other fey refer to the descendants of Dubh Catha's house as the dubh sith\u2014or, in Common, \"darklings.\" Darklings most often settle in secluded caverns and chambers beneath the towns of other species. From such enclaves, they quietly ply their trade as thieves and assassins.",
 								{
 									"name": "The Killing Light",
 									"entries": [
@@ -1157,7 +1157,7 @@
 						{
 							"type": "entries",
 							"entries": [
-								"Ancient legends speak of a seelie fey who betrayed the Summer Queen. His true name has been stricken from history, but the stories call him Dubh Catha (\"Dark Crow\" in Common). So great was the Summer Queen's wrath that she cursed every member of his house. Other fey refer to the descendants of Dubh Catha's house as the dubh sith-or, in Common, \"darklings.\" Darklings most often settle in secluded caverns and chambers beneath the towns of other species. From such enclaves, they quietly ply their trade as thieves and assassins.",
+								"Ancient legends speak of a seelie fey who betrayed the Summer Queen. His true name has been stricken from history, but the stories call him Dubh Catha (\"Dark Crow\" in Common). So great was the Summer Queen's wrath that she cursed every member of his house. Other fey refer to the descendants of Dubh Catha's house as the dubh sith\u2014or, in Common, \"darklings.\" Darklings most often settle in secluded caverns and chambers beneath the towns of other species. From such enclaves, they quietly ply their trade as thieves and assassins.",
 								{
 									"name": "The Killing Light",
 									"entries": [
@@ -1246,8 +1246,24 @@
 			"name": "Deep Rothé",
 			"source": "VGM",
 			"_copy": {
-				"name": "Rothe, Deep",
-				"source": "VGM"
+				"name": "Rothé",
+				"source": "VGM",
+				"_mod": {
+					"entries": {
+						"mode": "prependArr",
+						"items": {
+							"type": "entries",
+							"entries": [
+								{
+									"type": "entries",
+									"entries": [
+										"Deep rothé are stunted Underdark variants of {@creature rothé|vgm}."
+									]
+								}
+							]
+						}
+					}
+				}
 			}
 		},
 		{
@@ -4242,7 +4258,7 @@
 			]
 		},
 		{
-			"name": "Rothe",
+			"name": "Rothé",
 			"source": "VGM",
 			"entries": [
 				{
@@ -4252,26 +4268,6 @@
 					]
 				}
 			]
-		},
-		{
-			"name": "Rothe, Deep",
-			"source": "VGM",
-			"entries": [
-				{
-					"type": "entries",
-					"entries": [
-						"Deep rothé are stunted Underdark variants of {@creature rothé|vgm}."
-					]
-				}
-			]
-		},
-		{
-			"name": "Rothé",
-			"source": "VGM",
-			"_copy": {
-				"name": "Rothe",
-				"source": "VGM"
-			}
 		},
 		{
 			"name": "Sea Spawn",

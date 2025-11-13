@@ -105,42 +105,48 @@ class SpellPageBookView extends ListPageBookView {
 	constructor (opts) {
 		super({
 			pageTitle: "Spells Book View",
+			nameSingular: "spell",
 			namePlural: "spells",
 			propMarkdown: "spell",
 			...opts,
 		});
 
 		this._bookViewLastOrder = null;
-		this._$wrpContent = null;
+		this._wrpContent = null;
 	}
 
 	_getSorted (a, b) {
+		a = a.entity;
+		b = b.entity;
 		return this._bookViewLastOrder === "0" ? SortUtil.ascSort(a.level, b.level) : SortUtil.ascSortLower(a.name, b.name);
 	}
 
-	async _$pGetWrpControls ({$wrpContent}) {
-		const out = await super._$pGetWrpControls({$wrpContent});
+	async _pGetWrpControls ({wrpContent}) {
+		const out = await super._pGetWrpControls({wrpContent});
 
-		const {$wrpPrint} = out;
+		const {wrpPrint} = out;
 
 		this._bookViewLastOrder = StorageUtil.syncGetForPage(SpellPageBookView._BOOK_VIEW_MODE_K);
 		if (this._bookViewLastOrder != null) this._bookViewLastOrder = `${this._bookViewLastOrder}`;
 
-		const $selSortMode = $(`<select class="form-control input-sm">
+		const onChangeSortMode = () => {
+			if (!this._bookViewToShow.length && Hist.lastLoadedId != null) return;
+
+			const val = selSortMode.val();
+			if (val === "0") this._renderByLevel();
+			else this._renderByAlpha();
+
+			StorageUtil.syncSetForPage(SpellPageBookView._BOOK_VIEW_MODE_K, val);
+		};
+
+		const selSortMode = ee`<select class="form-control input-sm">
 			<option value="0">Spell Level</option>
 			<option value="1">Alphabetical</option>
-		</select>`)
-			.change(() => {
-				if (!this._bookViewToShow.length && Hist.lastLoadedId != null) return;
+		</select>`
+			.onn("change", () => onChangeSortMode());
 
-				const val = $selSortMode.val();
-				if (val === "0") this._renderByLevel();
-				else this._renderByAlpha();
-
-				StorageUtil.syncSetForPage(SpellPageBookView._BOOK_VIEW_MODE_K, val);
-			});
-		if (this._bookViewLastOrder != null) $selSortMode.val(this._bookViewLastOrder);
-		$$`<div class="ve-flex-vh-center ml-3"><div class="mr-2 no-wrap">Sort order:</div>${$selSortMode}</div>`.appendTo($wrpPrint);
+		selSortMode.val(`${this._bookViewLastOrder ?? 0}`);
+		ee`<div class="ve-flex-vh-center ml-3"><div class="mr-2 no-wrap">Sort order:</div>${selSortMode}</div>`.appendTo(wrpPrint);
 
 		return out;
 	}
@@ -155,24 +161,24 @@ class SpellPageBookView extends ListPageBookView {
 		let isAnyEntityRendered = false;
 		const stack = [];
 		for (let i = 0; i < 10; ++i) {
-			const atLvl = this._bookViewToShow.filter(sp => sp.level === i);
+			const atLvl = this._bookViewToShow.filter(({entity}) => entity.level === i);
 			if (atLvl.length) {
 				stack.push(`<div class="bkmv__no-breaks">`);
 				stack.push(`<div class="bkmv__spacer-name ve-flex-v-center no-shrink no-print pl-2">${Parser.spLevelToFullLevelText(i)}</div>`);
-				atLvl.forEach(sp => this._renderSpell({stack, sp}));
+				atLvl.forEach(({entity}) => this._renderSpell({stack, sp: entity}));
 				isAnyEntityRendered = true;
 				stack.push(`</div>`);
 			}
 		}
-		this._$wrpContent.empty().append(stack.join(""));
+		this._wrpContent.empty().appends(stack.join(""));
 		this._bookViewLastOrder = "0";
 		return {isAnyEntityRendered};
 	}
 
 	_renderByAlpha () {
 		const stack = [];
-		this._bookViewToShow.forEach(sp => this._renderSpell({stack, sp}));
-		this._$wrpContent.empty().append(stack.join(""));
+		this._bookViewToShow.forEach(({entity}) => this._renderSpell({stack, sp: entity}));
+		this._wrpContent.empty().appends(stack.join(""));
 		this._bookViewLastOrder = "1";
 		return {isAnyEntityRendered: !!this._bookViewToShow.length};
 	}
@@ -182,7 +188,7 @@ class SpellPageBookView extends ListPageBookView {
 		stack.push(`<div class="w-100 h-100 no-breaks">`);
 		this._renderSpell({stack, sp: this._fnGetEntLastLoaded()});
 		stack.push(`</div>`);
-		this._$wrpContent.empty().append(stack.join(""));
+		this._wrpContent.empty().appends(stack.join(""));
 		return {isAnyEntityRendered: false};
 	}
 
@@ -192,12 +198,12 @@ class SpellPageBookView extends ListPageBookView {
 		else return this._renderByLevel();
 	}
 
-	async _pGetRenderContentMeta ({$wrpContent, $wrpControls}) {
-		this._$wrpContent = $wrpContent;
-		$wrpContent.addClass("p-2");
+	async _pGetRenderContentMeta ({wrpContent, wrpControls}) {
+		this._wrpContent = wrpContent;
+		wrpContent.addClass("p-2");
 
-		this._bookViewToShow = this._sublistManager.getSublistedEntities()
-			.sort((a, b) => SortUtil.ascSortLower(a.name, b.name));
+		this._bookViewToShow = this._sublistManager.getSublistedEntityMetas()
+			.sort(this._getSorted.bind(this));
 
 		const {isAnyEntityRendered} = this._renderSpells();
 
@@ -253,14 +259,23 @@ class SpellsPage extends ListPageMultiSource {
 						name: "Classes",
 						transform: (sp) => {
 							const [current] = Parser.spClassesToCurrentAndLegacy(Renderer.spell.getCombinedClasses(sp, "fromClassList"));
-							return Parser.spMainClassesToFull(current);
+							return Parser.spMainClassesToFull(current, {isIncludeSource: true});
 						},
 					},
 					_classesVariant: {
 						name: "Optional/Variant Classes",
 						transform: (sp) => {
 							const [current] = Parser.spVariantClassesToCurrentAndLegacy(Renderer.spell.getCombinedClasses(sp, "fromClassListVariant"));
-							return Parser.spMainClassesToFull(current);
+							return Parser.spMainClassesToFull(current, {isIncludeSource: true});
+						},
+					},
+					_subclasses: {
+						name: "Subclasses",
+						transform: (sp, additionalData) => {
+							const fromSubclass = Renderer.spell.getCombinedClasses(sp, "fromSubclass");
+							if (!fromSubclass.length) return "";
+							const [current] = Parser.spSubclassesToCurrentAndLegacyFull(sp, additionalData.subclassLookup, {isIncludeSource: true});
+							return current;
 						},
 					},
 					entries: {name: "Text", transform: (it) => Renderer.get().render({type: "entries", entries: it}, 1), flex: 3},
@@ -280,6 +295,12 @@ class SpellsPage extends ListPageMultiSource {
 		this._bookViewLastOrder = null;
 	}
 
+	async _pGetTableViewAdditionalData () {
+		return {
+			subclassLookup: await DataUtil.class.pGetSubclassLookup(),
+		};
+	}
+
 	get _bindOtherButtonsOptions () {
 		return {
 			upload: {
@@ -294,7 +315,7 @@ class SpellsPage extends ListPageMultiSource {
 				}),
 			},
 			other: [
-				this._bindOtherButtonsOptions_openAsSinglePage({slugPage: "spells", fnGetHash: () => Hist.getHashParts()[0]}),
+				this._bindOtherButtonsOptions_openAsSinglePage({slugPage: "spells"}),
 			].filter(Boolean),
 		};
 	}
@@ -340,7 +361,6 @@ class SpellsPage extends ListPageMultiSource {
 						e_({
 							tag: "span",
 							clazz: `ve-col-1-7 ve-text-center ${Parser.sourceJsonToSourceClassname(spell.source)} pl-1 pr-0`,
-							style: Parser.sourceJsonToStylePart(spell.source),
 							title: `${Parser.sourceJsonToFull(spell.source)}${Renderer.utils.getSourceSubText(spell)}`,
 							text: source,
 						}),
@@ -375,7 +395,7 @@ class SpellsPage extends ListPageMultiSource {
 	_tabTitleStats = "Spell";
 
 	_renderStats_doBuildStatsTab ({ent}) {
-		this._$pgContent.empty().append(RenderSpells.$getRenderedSpell(ent, {subclassLookup: this._subclassLookup, settings: this._compSettings.getValues()}));
+		this._$pgContent.empty().append(RenderSpells.getRenderedSpell(ent, {subclassLookup: this._subclassLookup, settings: this._compSettings.getValues()}));
 	}
 
 	async _pOnLoad_pPreDataLoad () {
