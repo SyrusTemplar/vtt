@@ -24,6 +24,9 @@
 			"otherSources": [
 				{
 					"source": "MOT"
+				},
+				{
+					"source": "TftYP-THSoT"
 				}
 			],
 			"size": [
@@ -463,8 +466,7 @@
 				"R"
 			],
 			"spellcastingTags": [
-				"CC",
-				"I"
+				"CC"
 			],
 			"hasToken": true,
 			"hasFluffImages": true
@@ -671,7 +673,7 @@
 				{
 					"name": "Multiattack",
 					"entries": [
-						"The drowned assassin makes two hand crossbow attacks or two dagger attacks. It can then take the Dash, Disengage, or Hide action."
+						"The drowned assassin makes two hand crossbow attacks or two dagger attacks. It can then take the {@action Dash}, {@action Disengage}, or {@action Hide} action."
 					]
 				},
 				{
@@ -5640,6 +5642,7 @@
 				"S"
 			],
 			"miscTags": [
+				"AOE",
 				"MW",
 				"RCH"
 			],

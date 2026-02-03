@@ -56,10 +56,10 @@ class _RenderItemsImplBase extends RenderPageImplBase {
 	/* ----- */
 
 	_getCommonHtmlParts_typeRarityAttunement ({ent, renderer}) {
-		const [typeRarityText, subTypeText, tierText] = Renderer.item.getTypeRarityAndAttunementText(ent);
+		const {typeRarityHtml, subTypeHtml, tierHtml} = Renderer.item.getTypeRarityAndAttunementHtmlParts(ent, {styleHint: this._style});
 
 		return `<tr>
-			<td class="rd-item__type-rarity-attunement" colSpan="6">${Renderer.item.getTypeRarityAndAttunementHtml(typeRarityText, subTypeText, tierText)}</td>
+			<td class="rd-item__type-rarity-attunement" colSpan="6">${Renderer.item.getTypeRarityAndAttunementHtml({typeRarityHtml, subTypeHtml, tierHtml}, {styleHint: this._style})}</td>
 		</tr>`;
 	}
 
@@ -112,12 +112,12 @@ class _RenderItemsImplClassic extends _RenderItemsImplBase {
 
 			${htmlPtIsExcluded}
 			${htmlPtName}
-			
+
 			${htmlPtTypeRarityAttunement}
 			${htmlPtTextLeftRight}
-		
+
 			${htmlPtEntries}
-			
+
 			${htmlPtPage}
 			${Renderer.utils.getBorderTr()}
 		`;
@@ -149,12 +149,12 @@ class _RenderItemsImplOne extends _RenderItemsImplBase {
 
 			${htmlPtIsExcluded}
 			${htmlPtName}
-			
+
 			${htmlPtTypeRarityAttunement}
 			${htmlPtTextLeftRight}
-		
+
 			${htmlPtEntries}
-			
+
 			${htmlPtPage}
 			${Renderer.utils.getBorderTr()}
 		`;
@@ -172,9 +172,5 @@ export class RenderItems {
 			case SITE_STYLE__ONE: return this._RENDER_ONE.getRendered(ent);
 			default: throw new Error(`Unhandled style "${styleHint}"!`);
 		}
-	}
-
-	static $getRenderedItem (ent) {
-		return $(this.getRenderedItem(ent));
 	}
 }

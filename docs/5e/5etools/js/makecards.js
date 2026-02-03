@@ -322,7 +322,7 @@ class MakeCards extends BaseComponent {
 			.css({backgroundImage: `url('${MakeCards._getIconPath(cardMeta.icon)}')`});
 		const btnIcon = ee`<button class="ve-btn ve-btn-default ve-btn-xs cards__btn-choose-icon">${dispIcon}</button>`
 			.onn("click", async () => {
-				const icon = await MakeCards._pGetUserIcon();
+				const icon = await MakeCards._pGetUserIcon(listItem.values.icon);
 				if (icon) setIcon(icon);
 			});
 		const setIcon = (icon) => {
@@ -370,7 +370,7 @@ class MakeCards extends BaseComponent {
 					);
 				} else {
 					await MiscUtil.pCopyTextToClipboard(JSON.stringify(toCopy, null, 2));
-					JqueryUtil.showCopiedEffect(btnCopy, "Copied JSON!");
+					JqueryUtil.showCopiedEffect(btnCopy, {text: "Copied JSON!"});
 				}
 			});
 		const btnDelete = ee`<button class="ve-btn ve-btn-danger ve-btn-xs" title="Remove"><span class="glyphicon glyphicon-trash"></span></button>`
@@ -517,7 +517,7 @@ class MakeCards extends BaseComponent {
 	static _getCardContents_item (item) {
 		MakeCards.utils.enhanceItemAlt(item);
 
-		const [typeRarityText, subTypeText, tierText] = Renderer.item.getTypeRarityAndAttunementText(item);
+		const {typeRarityHtml, subTypeHtml, tierHtml} = Renderer.item.getTypeRarityAndAttunementHtmlParts(item);
 		const [ptDamage, ptProperties] = Renderer.item.getRenderedDamageAndProperties(item);
 		const ptMastery = Renderer.item.getRenderedMastery(item, {isSkipPrefix: true});
 		const ptWeight = Parser.itemWeightToFull(item);
@@ -535,12 +535,12 @@ class MakeCards extends BaseComponent {
 		}
 
 		return [
-			typeRarityText ? this._ct_htmlToText(this._ct_subtitle(typeRarityText.uppercaseFirst())) : null,
+			typeRarityHtml ? this._ct_htmlToText(this._ct_subtitle(typeRarityHtml)) : null,
 			ptDamageCt ? this._ct_property(ptDamageCt.startsWith("AC") ? "Armor Class" : "Damage", ptDamageCt) : null,
 			ptPropertiesCt ? this._ct_property("Properties", ptPropertiesCt.uppercaseFirst()) : null,
 			ptMastery ? this._ct_property("Mastery", ptMastery) : null,
-			subTypeText ? this._ct_property("Type", subTypeText.uppercaseFirst()) : null,
-			tierText ? this._ct_property("Tier", tierText.uppercaseFirst()) : null,
+			subTypeHtml ? this._ct_property("Type", subTypeHtml) : null,
+			tierHtml ? this._ct_property("Tier", tierHtml) : null,
 			ptWeight ? this._ct_property("Weight", ptWeight) : null,
 			ptValue ? this._ct_property("Value", ptValue) : null,
 			itemEntries.length ? this._ct_rule() : null,
@@ -627,42 +627,67 @@ class MakeCards extends BaseComponent {
 
 	static _pGetUserIcon (initialVal) {
 		return new Promise(resolve => {
-			const iptStr = ee`<input class="form-control mb-2">`
-				.onn("keydown", async evt => {
-					// prevent double-binding the return key if we have autocomplete enabled
-					await MiscUtil.pDelay(17); // arbitrary delay to allow dropdown to render (~1000/60, i.e. 1 60 FPS frame)
-					if (eleModalInner.find(`.typeahead.ve-dropdown-menu:is(:visible)`)) return;
-					if (evt.key === "Enter") doClose(true);
-					evt.stopPropagation();
-				});
+			const comp = BaseComponent.fromObject({
+				selectedIcon: initialVal || null,
+				searchTerm: "",
+			});
 
-			if (initialVal) iptStr.val(initialVal);
+			const btnMetas = icon_names
+				.reduce((accum, iconName) => {
+					const btn = ee`<button class="ve-btn ve-btn-default m-2 no-grow ve-self-flex-start">
+						<img src="${MakeCards._getIconPath(iconName)}" title="${iconName}" loading="lazy" class="w-50p h-50p">
+					</button>`
+						.onn("click", () => {
+							comp._state.selectedIcon = iconName;
+						});
 
-			// eslint-disable-next-line vet-jquery/jquery
-			$(iptStr).typeahead({
-				source: icon_names,
-				items: "16",
-				fnGetItemPrefix: (iconName) => {
-					return `<span class="cards__disp-typeahead-icon mr-2" style="background-image: url('${MakeCards._getIconPath(iconName)}')"></span> `;
-				},
+					comp._addHookBase("selectedIcon", () => {
+						btn.toggleClass("active", comp._state.selectedIcon === iconName);
+					})();
+
+					accum[iconName] = {btn};
+
+					return accum;
+				}, {});
+
+			comp._addHookBase("searchTerm", () => {
+				Object.entries(btnMetas)
+					.forEach(([iconName, btnMeta]) => {
+						btnMeta.btn.toggleVe(iconName.includes(comp._state.searchTerm) || iconName === comp._state.selectedIcon);
+					});
+			});
+
+			const iptSearch = ee`<input class="form-control mb-2">`;
+
+			UiUtil.bindTypingEnd({
+				ipt: iptSearch,
+				fnKeyup: () => comp._state.searchTerm = iptSearch.val().trim().toLowerCase(),
 			});
 
 			const btnOk = ee`<button class="ve-btn ve-btn-default">Confirm</button>`
 				.onn("click", () => doClose(true));
+
 			const {eleModalInner, doClose} = UiUtil.getShowModal({
-				title: "Enter Icon",
-				isMinHeight0: true,
+				title: "Select Icon",
 				cbClose: (isDataEntered) => {
 					if (!isDataEntered) return resolve(null);
-					const raw = iptStr.val();
-					if (!raw.trim()) return resolve(null);
-					else return resolve(raw);
+					if (!comp._state.selectedIcon) return resolve(null);
+					else return resolve(comp._state.selectedIcon);
 				},
+				isHeight100: true,
+				isMaxWidth640p: true,
 			});
-			iptStr.appendTo(eleModalInner);
-			ee`<div class="ve-flex-vh-center">${btnOk}</div>`.appendTo(eleModalInner);
-			iptStr.focus();
-			iptStr.select();
+
+			ee(eleModalInner)`
+				<div>${iptSearch}</div>
+				<div class="ve-overflow-y-auto ve-flex ve-flex-wrap w-100 min-h-0 h-100 py-1 bb-1p mb-1 smooth-scroll">
+					${Object.values(btnMetas).map(({btn}) => btn)}
+				</div>
+				<div class="ve-flex-vh-center">${btnOk}</div>
+			`;
+
+			iptSearch.focus();
+			iptSearch.select();
 		});
 	}
 
@@ -746,8 +771,8 @@ MakeCards._AVAILABLE_TYPES = {
 		pFnSearch: SearchWidget.pGetUserItemSearch,
 		fnGetContents: MakeCards._getCardContents_item.bind(MakeCards),
 		fnGetTags: (item) => {
-			const [typeListText] = Renderer.item.getHtmlAndTextTypes(item);
-			return ["item", Parser.sourceJsonToAbv(item.source), ...typeListText];
+			const {textTypes} = Renderer.item.getRenderableTypeEntriesMeta(item);
+			return ["item", Parser.sourceJsonToAbv(item.source), ...textTypes];
 		},
 	},
 	spell: {

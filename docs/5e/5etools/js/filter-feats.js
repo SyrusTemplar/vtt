@@ -103,8 +103,8 @@ class PageFilterFeats extends PageFilterBase {
 		feat._slAbility = ability.asTextShort || VeCt.STR_NONE;
 		feat._slPrereq = prereqText;
 
-		FilterCommon.mutateForFilters_damageVulnResImmune(feat);
-		FilterCommon.mutateForFilters_conditionImmune(feat);
+		FilterCommon.mutateForFilters_damageVulnResImmunePlayer(feat);
+		FilterCommon.mutateForFilters_conditionImmunePlayer(feat);
 	}
 
 	addToFilters (feat, isExcluded) {
@@ -175,7 +175,7 @@ class ModalFilterFeats extends ModalFilterBase {
 		});
 	}
 
-	_$getColumnHeaders () {
+	_getColumnHeaders () {
 		const btnMeta = [
 			{sort: "name", text: "Name", width: "3-5"},
 			{sort: "category", text: "Category", width: "1-5"},
@@ -183,7 +183,7 @@ class ModalFilterFeats extends ModalFilterBase {
 			{sort: "prerequisite", text: "Prerequisite", width: "3"},
 			{sort: "source", text: "Source", width: "1"},
 		];
-		return ModalFilterBase._$getFilterColumnHeaders(btnMeta);
+		return ModalFilterBase._getFilterColumnHeaders(btnMeta);
 	}
 
 	async _pLoadAllData () {

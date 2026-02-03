@@ -15,7 +15,7 @@ class VariantClassFilter extends Filter {
 	set parent (multiFilterClasses) { this._parent = multiFilterClasses; }
 
 	handleVariantSplit (isVariantSplit) {
-		this.__$wrpFilter.toggleVe(isVariantSplit);
+		this.__wrpFilter.toggleVe(isVariantSplit);
 	}
 }
 
@@ -33,14 +33,14 @@ class MultiFilterClasses extends MultiFilter {
 	get classFilter_ () { return this._classFilter; }
 	get isVariantSplit () { return this._meta.isVariantSplit; }
 
-	$render (opts) {
-		const $out = super.$render(opts);
+	render (opts) {
+		const out = super.render(opts);
 
 		const hkVariantSplit = () => this._variantClassFilter.handleVariantSplit(this._meta.isVariantSplit);
 		this._addHook("meta", "isVariantSplit", hkVariantSplit);
 		hkVariantSplit();
 
-		return $out;
+		return out;
 	}
 
 	_getHeaderControls_addExtraStateBtns (opts, wrpStateBtnsOuter) {
@@ -58,7 +58,7 @@ class MultiFilterClasses extends MultiFilter {
 
 		e_({
 			tag: "div",
-			clazz: `ve-btn-group w-100 ve-flex-v-center mobile__m-1 mobile__mb-2`,
+			clazz: `ve-btn-group w-100 ve-flex-v-center mobile-sm__m-1 mobile-sm__mb-2`,
 			children: [
 				btnToggleVariantSplit,
 			],
@@ -436,7 +436,7 @@ class PageFilterSpells extends PageFilterBase {
 		});
 		this._areaTypeFilter = new Filter({
 			header: "Area Style",
-			items: ["ST", "MT", "R", "N", "C", "Y", "H", "L", "S", "Q", "W"],
+			items: ["ST", "MT", "R", "N", "C", "Y", "H", "E", "L", "S", "Q", "W"],
 			displayFn: Parser.spAreaTypeToFull,
 			itemSortFn: null,
 		});
@@ -502,6 +502,7 @@ class PageFilterSpells extends PageFilterBase {
 
 		s._fAreaTags = [...(s.areaTags || [])];
 		if (s.range.type === "line" && !s._fAreaTags.includes("L")) s._fAreaTags.push("L");
+		if (s.range.type === "emanation" && !s._fAreaTags.includes("E")) s._fAreaTags.push("E");
 
 		s._fAffectsCreatureType = s.affectsCreatureType || [...Parser.MON_TYPES];
 	}
@@ -625,7 +626,7 @@ class ModalFilterSpells extends ModalFilterBase {
 		});
 	}
 
-	_$getColumnHeaders () {
+	_getColumnHeaders () {
 		const btnMeta = [
 			{sort: "name", text: "Name", width: "3"},
 			{sort: "level", text: "Level", width: "1-5"},
@@ -635,7 +636,7 @@ class ModalFilterSpells extends ModalFilterBase {
 			{sort: "range", text: "Range", width: "2"},
 			{sort: "source", text: "Source", width: "1"},
 		];
-		return ModalFilterBase._$getFilterColumnHeaders(btnMeta);
+		return ModalFilterBase._getFilterColumnHeaders(btnMeta);
 	}
 
 	async _pInit () {

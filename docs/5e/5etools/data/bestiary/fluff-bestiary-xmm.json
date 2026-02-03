@@ -2709,7 +2709,7 @@
 							]
 						},
 						"Basilisks are ponderous predators with eight clawed legs, crystalline spines, and mighty jaws. Rather than chasing prey, they use their supernatural gaze to turn creatures to stone and then consume these victims at their leisure. While basilisks are most comfortable in subterranean lairs, many are captured and kept by unscrupulous folk seeking guardians for their treasures.",
-						"The remains of {@condition Petrified|XPHB} creatures litter the area where a basilisk hunts. These might be mundane creatures or more unusual beings that had dire encounters with a basilisk. Roll on or choose a result from the {@condition Petrified|XPHB} Basilisk Victims table to inspire the statues that might appear in a basilisk's hunting grounds. There is a {@chance 50} chance that any of these statues are missing limbs or broken into pieces.",
+						"The remains of {@condition Petrified|XPHB} creatures litter the area where a basilisk hunts. These might be mundane creatures or more unusual beings that had dire encounters with a basilisk. Roll on or choose a result from the Petrified Basilisk Victims table to inspire the statues that might appear in a basilisk's hunting grounds. There is a {@chance 50} chance that any of these statues are missing limbs or broken into pieces.",
 						{
 							"type": "insetReadaloud",
 							"entries": [
@@ -12659,7 +12659,7 @@
 							]
 						},
 						"Magic and malice give form to invisible stalkers, bodiless spirits of the air. These elusive beings pass unseen with nothing more than a stirring of air. They control powerful winds capable of moving objects and battering foes. Magic-users conjure these creatures to serve as killers and thieves. {@condition Invisible|XPHB} stalkers relentlessly pursue their quarry, and they rarely leave evidence of their crimes.",
-						"In rare cases, an invisible stalker lingers in the world without a spellcaster controlling it. Roll on or choose a result from the Uncontrolled {@condition Invisible|XPHB} Stalkers table to inspire why one of these monsters lurks in an area without a direct command.",
+						"In rare cases, an invisible stalker lingers in the world without a spellcaster controlling it. Roll on or choose a result from the Uncontrolled Invisible Stalkers table to inspire why one of these monsters lurks in an area without a direct command.",
 						{
 							"type": "table",
 							"caption": "Uncontrolled Invisible Stalkers",

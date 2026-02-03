@@ -4,34 +4,34 @@ class _RenderableCollectionConditionsCustomEdit extends RenderableCollectionGene
 	constructor (
 		{
 			comp,
-			$wrpRows,
+			wrpRows,
 		},
 	) {
-		super(comp, "conditionsCustom", $wrpRows);
+		super(comp, "conditionsCustom", wrpRows);
 	}
 
 	/* -------------------------------------------- */
 
-	_populateRow ({comp, $wrpRow, entity}) {
-		const $iptName = ComponentUiUtil.$getIptStr(comp, "name");
+	_populateRow ({comp, wrpRow, entity}) {
+		const iptName = ComponentUiUtil.getIptStr(comp, "name");
 
-		const $iptColor = ComponentUiUtil.$getIptColor(comp, "color")
+		const iptColor = ComponentUiUtil.getIptColor(comp, "color")
 			.addClass("w-100");
 
-		const $iptTurns = ComponentUiUtil.$getIptInt(comp, "turns", null, {isAllowNull: true, fallbackOnNaN: null})
+		const iptTurns = ComponentUiUtil.getIptInt(comp, "turns", null, {isAllowNull: true, fallbackOnNaN: null})
 			.addClass("mr-2")
-			.placeholder("Unlimited");
+			.placeholdere("Unlimited");
 
-		const $btnDelete = this._utils.$getBtnDelete({entity});
+		const btnDelete = this._utils.getBtnDelete({entity});
 
-		$$($wrpRow)`
+		ee(wrpRow)`
 			<div class="ve-flex-vh-center w-100 my-1">
-				<div class="ve-col-5 pr-1 ve-flex-v-center">${$iptName}</div>
-				<div class="ve-col-2 px-1 ve-flex-v-center">${$iptColor}</div>
+				<div class="ve-col-5 pr-1 ve-flex-v-center">${iptName}</div>
+				<div class="ve-col-2 px-1 ve-flex-v-center">${iptColor}</div>
 				<div class="ve-col-5 pr-1 ve-flex-v-center">
-					${$iptTurns}
+					${iptTurns}
 					<div class="ve-flex-vh-center ve-btn-group">
-						${$btnDelete}
+						${btnDelete}
 					</div>
 				</div>
 			</div>
@@ -70,9 +70,9 @@ export class InitiativeTrackerConditionCustomEdit extends BaseComponent {
 				this._state.conditionsCustom = [...this._state.conditionsCustom, InitiativeTrackerConditionUtil.getNewRowState()];
 			});
 
-		const $wrpRows = $(`<div class="ve-flex-col h-100 min-h-0 ve-overflow-y-auto"></div>`);
+		const wrpRows = ee`<div class="ve-flex-col h-100 min-h-0 ve-overflow-y-auto"></div>`;
 
-		const compRows = new _RenderableCollectionConditionsCustomEdit({comp: this, $wrpRows});
+		const compRows = new _RenderableCollectionConditionsCustomEdit({comp: this, wrpRows});
 		this._addHookBase("conditionsCustom", () => compRows.render())();
 
 		$$($modalInner)`
@@ -84,7 +84,7 @@ export class InitiativeTrackerConditionCustomEdit extends BaseComponent {
 					<div class="ve-col-1 ve-flex-v-center ve-flex-h-right">${$btnAdd}</div>
 				</div>
 
-				${$wrpRows}
+				${wrpRows}
 			</div>
 		`;
 

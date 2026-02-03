@@ -255,6 +255,16 @@ export class EquipmentBreakdown {
 							const [name, source, displayText] = mItem[1].split("|").map(it => it.trim()).filter(Boolean);
 							const idItem = [name, source].join("|").toLowerCase();
 
+							const equipmentType = this._getEquipmentType(idItem);
+							if (equipmentType) {
+								const info = {equipmentType};
+
+								if (quantity !== 1) info.quantity = quantity;
+								if (ptPlain !== ptDisplay) info.displayName = ptDisplayNoTags;
+
+								return info;
+							}
+
 							if (quantity !== 1 || ptPlain !== ptDisplay || valueCp) {
 								const info = {item: idItem};
 
@@ -289,7 +299,8 @@ export class EquipmentBreakdown {
 							// We expect that the entire text is now a filter tag
 							if (!ptPlainFilter.startsWith("{@") || !ptPlainFilter.endsWith("}")) throw new Error(`Text "${ptPlainFilter}" was not a single tag!`);
 
-							const info = this._getFilterType(mFilter[1].split("|")[0]);
+							const equipmentType = this._getEquipmentType(mFilter[1].split("|")[0], {isStrict: true});
+							const info = {equipmentType};
 							if (quantity !== 1) info.quantity = quantity;
 							if (valueCp) info.containsValue = valueCp;
 							return info;
@@ -535,13 +546,22 @@ export class EquipmentBreakdown {
 		return {plain: out.filter(Boolean), inParens: outParens.filter(Boolean)};
 	}
 
-	static _getFilterType (str) {
+	static _getEquipmentType (str, {isStrict = false} = {}) {
 		switch (str.toLowerCase().trim()) {
-			case "artisan's tools": return {equipmentType: "toolArtisan"};
-			case "gaming set": return {equipmentType: "setGaming"};
-			case "musical instrument": return {equipmentType: "instrumentMusical"};
+			case "artisan's tools":
+			case "artisan's tools|xphb":
+				return "toolArtisan";
+			case "gaming set":
+			case "gaming set|xphb":
+				return "setGaming";
+			case "musical instrument":
+			case "musical instrument|xphb":
+				return "instrumentMusical";
 
-			default: throw new Error(`Unhandled filter type "${str}"`);
+			default: {
+				if (!isStrict) return null;
+				throw new Error(`Unhandled filter type "${str}"`);
+			}
 		}
 	}
 }
@@ -680,17 +700,23 @@ export class BackgroundSkillToolLanguageTag {
 		];
 	}
 
+	static _TOOL_GROUP_MAPPINGS = {
+		"gaming set": "anyGamingSet",
+		"artisan's tools": "anyArtisansTool",
+		"musical instrument": "anyMusicalInstrument",
+	};
+
 	static _doToolTag ({bg, list, cbWarning}) {
 		const toolProf = list.items.find(ent => BackgroundConverterConst.RE_NAME_TOOLS.test(ent.name));
 		if (!toolProf) return;
 
 		const entry = Renderer.stripTags(toolProf.entry.toLowerCase())
 			.replace(/\(see [^)]+\)/g, "").trim()
-			.replace(/one (?:type|kind) of gaming set/g, "gaming set")
-			.replace(/one (?:type|kind) of artisan's tools/g, "artisan's tools")
-			.replace(/one (?:type|kind) of gaming set/g, "gaming set")
-			.replace(/one (?:type|kind) of musical instrument/g, "musical instrument")
-			.replace(/one other set of artisan's tools/g, "artisan's tools")
+			.replace(/(?:choose )?one (?:type|kind) of gaming set/g, "gaming set")
+			.replace(/(?:choose )?one (?:type|kind) of artisan's tools/g, "artisan's tools")
+			.replace(/(?:choose )?one (?:type|kind) of gaming set/g, "gaming set")
+			.replace(/(?:choose )?one (?:type|kind) of musical instrument/g, "musical instrument")
+			.replace(/(?:choose )?one other set of artisan's tools/g, "artisan's tools")
 			.replace(/s' supplies/g, "'s supplies")
 		;
 
@@ -704,7 +730,11 @@ export class BackgroundSkillToolLanguageTag {
 					.filter(Boolean)
 					.map(pt => pt.trim())
 					.filter(pt => pt)
-					.mergeMap(pt => ({[pt]: true})),
+					.mergeMap(pt => {
+						const group = this._TOOL_GROUP_MAPPINGS[pt];
+						if (group) return {[group]: 1};
+						return {[pt]: true};
+					}),
 			];
 			return;
 		}

@@ -23,7 +23,10 @@ export class StatGenUi extends BaseComponent {
 		...this._MODES,
 	];
 
-	static _PROPS_POINT_BUY_CUSTOM = [
+	static _PROPS_CUSTOM = [
+		"rolled_formula",
+		"rolled_rollCount",
+
 		"pb_rules",
 		"pb_budget",
 		"pb_isCustom",
@@ -96,7 +99,7 @@ export class StatGenUi extends BaseComponent {
 	set ixActiveTab (ix) { this._setIxActiveTab({ixActiveTab: ix}); }
 
 	// region Expose for external use
-	addHookPointBuyCustom (hook) { this.constructor._PROPS_POINT_BUY_CUSTOM.forEach(prop => this._addHookBase(prop, hook)); }
+	addHookCustom (hook) { this.constructor._PROPS_CUSTOM.forEach(prop => this._addHookBase(prop, hook)); }
 
 	addHookAbilityScores (hook) { Parser.ABIL_ABVS.forEach(ab => this._addHookBase(`common_export_${ab}`, hook)); }
 	addHookPulseAsi (hook) { this._addHookBase("common_pulseAsi", hook); }
@@ -494,9 +497,9 @@ export class StatGenUi extends BaseComponent {
 				}
 			});
 
-		return ee`<div class="ve-flex mobile__ve-flex-col mb-2">
+		return ee`<div class="ve-flex mobile-sm__ve-flex-col mb-2">
 			<div class="ve-flex-v-center">
-				<div class="statgen-pb__cell mr-4 mobile__hidden"></div>
+				<div class="statgen-pb__cell mr-4 mobile-sm__hidden"></div>
 
 				<label class="ve-flex-col mr-2">
 					<div class="mb-1 ve-text-center">Budget</div>
@@ -509,14 +512,14 @@ export class StatGenUi extends BaseComponent {
 				</label>
 			</div>
 
-			<div class="ve-flex-v-center mobile__mt-2">
+			<div class="ve-flex-v-center mobile-sm__mt-2">
 				<div class="ve-flex-col mr-2">
-					<div class="mb-1 ve-text-center mobile__hidden">&nbsp;</div>
+					<div class="mb-1 ve-text-center mobile-sm__hidden">&nbsp;</div>
 					${btnReset}
 				</div>
 
 				<div class="ve-flex-col">
-					<div class="mb-1 ve-text-center mobile__hidden">&nbsp;</div>
+					<div class="mb-1 ve-text-center mobile-sm__hidden">&nbsp;</div>
 					${btnRandom}
 				</div>
 			</div>
@@ -584,7 +587,7 @@ export class StatGenUi extends BaseComponent {
 		const btnContext = ee`<button class="ve-btn ve-btn-default ve-btn-xs" title="Menu"><span class="glyphicon glyphicon-option-vertical"></span></button>`
 			.onn("click", evt => ContextUtil.pOpenMenu(evt, menuCustom));
 
-		const stgCustomCostControls = ee`<div class="ve-flex-col mb-auto ml-2 mobile__ml-0 mobile__mt-3">
+		const stgCustomCostControls = ee`<div class="ve-flex-col mb-auto ml-2 mobile-sm__ml-0 mobile-sm__mt-3">
 			<div class="ve-btn-group-vertical ve-flex-col mb-2">${btnAddLower}${btnAddHigher}</div>
 			<div class="ve-flex-v-center">
 				${btnResetRules}
@@ -629,8 +632,8 @@ export class StatGenUi extends BaseComponent {
 			<h4>Ability Score Point Cost</h4>
 
 			<div class="ve-flex-col">
-				<div class="ve-flex mobile__ve-flex-col">
-					<div class="ve-flex-col mr-3mobile__mr-0">
+				<div class="ve-flex mobile-sm__ve-flex-col">
+					<div class="ve-flex-col mr-3mobile-sm__mr-0">
 						<div class="ve-flex-v-center mb-1">
 							<div class="statgen-pb__col-cost ve-flex-vh-center bold">Score</div>
 							<div class="statgen-pb__col-cost ve-flex-vh-center bold">Modifier</div>
@@ -1307,10 +1310,13 @@ export class StatGenUi extends BaseComponent {
 	}
 
 	// region External use
-	getSaveableStatePointBuyCustom () {
+	getSaveableStateCustom () {
 		const base = this.getSaveableState();
 		return {
-			state: this.constructor._PROPS_POINT_BUY_CUSTOM.mergeMap(k => ({[k]: base.state[k]})),
+			state: Object.fromEntries(
+				this.constructor._PROPS_CUSTOM
+					.map(k => [k, base.state[k]]),
+			),
 		};
 	}
 	// endregion

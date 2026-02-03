@@ -3250,52 +3250,32 @@
 											"caption": "Weather",
 											"colLabels": [
 												"1d20",
-												"Temperature"
-											],
-											"colStyles": [
-												"col-2 text-center",
-												"col-10"
-											],
-											"rows": [
-												[
-													"1\u201314",
-													"Normal for the season"
-												],
-												[
-													"15\u201317",
-													"{@dice 1d4 × 10} degrees Fahrenheit colder"
-												],
-												[
-													"18\u201320",
-													"{@dice 1d4 × 10} degrees Fahrenheit hotter"
-												]
-											]
-										},
-										{
-											"type": "table",
-											"colLabels": [
-												"1d20",
+												"Temperature",
 												"Wind",
 												"Precipitation"
 											],
 											"colStyles": [
 												"col-2 text-center",
-												"col-2",
-												"col-8"
+												"col-4",
+												"col-3",
+												"col-3"
 											],
 											"rows": [
 												[
-													"1\u201312",
+													"1\u201314",
+													"Normal for the season",
 													"None",
 													"None"
 												],
 												[
-													"13\u201317",
+													"15\u201317",
+													"{@dice 1d4 × 10} degrees Fahrenheit colder",
 													"Light",
 													"Light rain or light snowfall"
 												],
 												[
 													"18\u201320",
+													"{@dice 1d4 × 10} degrees Fahrenheit hotter",
 													"Strong",
 													"Heavy rain or heavy snowfall"
 												]
@@ -4215,7 +4195,7 @@
 									"type": "list",
 									"items": [
 										"The monster starts its turn {@status Bloodied|XPHB} and more than half its allies are dead or have the {@condition Incapacitated|XPHB} condition, while no one is dead or Incapacitated on the other side.",
-										"The monster starts its turn Bloodied and has the {@condition Frightened|XPHB} condition."
+										"The monster starts its turn {@status Bloodied|XPHB} and has the {@condition Frightened|XPHB} condition."
 									]
 								},
 								"In those circumstances, you can decide the monster flees, or you can have it make a {@dc 10} Wisdom saving throw and flee or parley on a failed save. In general, if it is obvious to you that a creature is going to lose, assume it's obvious to that creature as well.",
@@ -9337,7 +9317,7 @@
 								"An adventurer might also receive a Blessing in advance of a perilous quest. For example, a Paladin could receive one before setting out on a quest to slay a terrifying lich that is responsible for a magical plague sweeping the land.",
 								"A character should receive a Blessing only if it is useful to that character, and some Blessings come with expectations on the part of the benefactor. A god might give a Blessing for a particular purpose, such as recovering a holy person's remains or toppling a tyrannical empire, and could revoke the Blessing if a character fails to pursue that purpose or acts counter to it.",
 								"A character retains the benefit of a Blessing forever or until it is taken away by the being who granted it.",
-								"There is no limit on the number of Blessings a character can receive, but it should be rare for a character to have more than one at a time. Moreover, a character can't benefit from multiple instances of a Blessing at the same time. For example, a character can't benefit from two instances of the {@i Blessing of Health} at once.",
+								"There is no limit on the number of Blessings a character can receive, but it should be rare for a character to have more than one at a time. Moreover, a character can't benefit from multiple instances of a Blessing at the same time. For example, a character can't benefit from two instances of the {@reward Blessing of Health} at once.",
 								"You can easily create more Blessings by mimicking the properties of a Wondrous Item.",
 								{
 									"type": "list",
@@ -24770,7 +24750,7 @@
 							"page": 218,
 							"id": "42f",
 							"entries": [
-								"It usually takes a Magic action to activate a magic item. The item's user might also need to do something special. The description of each item category or individual item details how an item is activated. Certain items use the following rules for their activation.",
+								"It usually takes a {@action Magic|XPHB} action to activate a magic item. The item's user might also need to do something special. The description of each item category or individual item details how an item is activated. Certain items use the following rules for their activation.",
 								{
 									"type": "entries",
 									"name": "Command Word",

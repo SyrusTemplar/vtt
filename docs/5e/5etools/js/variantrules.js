@@ -19,17 +19,17 @@ class VariantRulesSublistManager extends SublistManager {
 	pGetSublistItem (it, hash) {
 		const cellsText = [it.name, it.ruleType ? Parser.ruleTypeToFull(it.ruleType) : "\u2014"];
 
-		const $ele = $(`<div class="lst__row lst__row--sublist ve-flex-col">
+		const ele = ee`<div class="lst__row lst__row--sublist ve-flex-col">
 			<a href="#${hash}" class="lst__row-border lst__row-inner">
 				${this.constructor._getRowCellsHtml({values: cellsText})}
 			</a>
-		</div>`)
-			.contextmenu(evt => this._handleSublistItemContextMenu(evt, listItem))
-			.click(evt => this._listSub.doSelect(listItem, evt));
+		</div>`
+			.onn("contextmenu", evt => this._handleSublistItemContextMenu(evt, listItem))
+			.onn("click", evt => this._listSub.doSelect(listItem, evt));
 
 		const listItem = new ListItem(
 			hash,
-			$ele,
+			ele,
 			it.name,
 			{
 				hash,
@@ -100,15 +100,17 @@ class VariantRulesPage extends ListPage {
 	}
 
 	_renderStats_doBuildStatsTab ({ent}) {
-		this._$pgContent.empty().append(RenderVariantRules.$getRenderedVariantRule(ent));
+		this._pgContent.empty().appends(RenderVariantRules.getRenderedVariantRule(ent));
 	}
 
 	async _pDoLoadSubHash ({sub, lockToken}) {
 		sub = await super._pDoLoadSubHash({sub, lockToken});
 
 		if (!sub.length) return;
-		const $title = $(`.rd__h[data-title-index="${sub[0]}"]`);
-		if ($title.length) $title[0].scrollIntoView();
+
+		const ixHeader = UrlUtil.unpackSubHash(sub[0], true)?.header;
+		const eleTitle = es(`.rd__h[data-title-index="${ixHeader}"]`);
+		if (eleTitle) eleTitle.scrollIntoView();
 	}
 }
 

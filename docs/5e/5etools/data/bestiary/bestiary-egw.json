@@ -807,7 +807,7 @@
 				{
 					"name": "Nimble Escape",
 					"entries": [
-						"Bol'bara can take the Disengage or Hide action as a bonus action on each of her turns."
+						"Bol'bara can take the {@action Disengage} or {@action Hide} action as a bonus action on each of her turns."
 					]
 				}
 			],
@@ -1774,6 +1774,7 @@
 				"P"
 			],
 			"miscTags": [
+				"AOE",
 				"MW",
 				"RCH"
 			],
@@ -2598,6 +2599,7 @@
 				"P"
 			],
 			"miscTags": [
+				"AOE",
 				"MLW",
 				"MW",
 				"RNG",
@@ -2966,7 +2968,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in dim light or darkness, the nergaliid can take the Hide action as a bonus action."
+						"While in dim light or darkness, the nergaliid can take the {@action Hide} action as a bonus action."
 					]
 				},
 				{
@@ -3692,7 +3694,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in dim light or darkness, the shadowghast can take the Hide action as a bonus action."
+						"While in dim light or darkness, the shadowghast can take the {@action Hide} action as a bonus action."
 					]
 				}
 			],

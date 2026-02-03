@@ -159,8 +159,8 @@ class PageFilterRaces extends PageFilterBase {
 		else if (r.age?.mature != null) r._fAge = r.age.mature;
 		else if (r.age?.max != null) r._fAge = r.age.max;
 
-		FilterCommon.mutateForFilters_damageVulnResImmune(r);
-		FilterCommon.mutateForFilters_conditionImmune(r);
+		FilterCommon.mutateForFilters_damageVulnResImmunePlayer(r);
+		FilterCommon.mutateForFilters_conditionImmunePlayer(r);
 	}
 
 	addToFilters (r, isExcluded) {
@@ -255,14 +255,14 @@ class ModalFilterRaces extends ModalFilterBase {
 		});
 	}
 
-	_$getColumnHeaders () {
+	_getColumnHeaders () {
 		const btnMeta = [
 			{sort: "name", text: "Name", width: "4"},
 			{sort: "ability", text: "Ability", width: "4"},
 			{sort: "size", text: "Size", width: "2"},
 			{sort: "source", text: "Source", width: "1"},
 		];
-		return ModalFilterBase._$getFilterColumnHeaders(btnMeta);
+		return ModalFilterBase._getFilterColumnHeaders(btnMeta);
 	}
 
 	async _pLoadAllData () {

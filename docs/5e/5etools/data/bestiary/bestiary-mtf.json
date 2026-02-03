@@ -843,6 +843,9 @@
 				"O",
 				"Y"
 			],
+			"miscTags": [
+				"AOE"
+			],
 			"conditionInflict": [
 				"stunned"
 			],
@@ -1884,6 +1887,11 @@
 			"name": "Balhannoth",
 			"source": "MTF",
 			"page": 119,
+			"otherSources": [
+				{
+					"source": "RtG"
+				}
+			],
 			"reprintedAs": [
 				"Balhannoth|MPMM"
 			],
@@ -2528,7 +2536,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in dim light or darkness, the abishai can take the Hide action as a bonus action."
+						"While in dim light or darkness, the abishai can take the {@action Hide} action as a bonus action."
 					]
 				}
 			],
@@ -2940,7 +2948,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in dim light or darkness, the boneclaw can take the Hide action as a bonus action."
+						"While in dim light or darkness, the boneclaw can take the {@action Hide} action as a bonus action."
 					]
 				}
 			],
@@ -3016,6 +3024,11 @@
 			"name": "Bronze Scout",
 			"source": "MTF",
 			"page": 125,
+			"otherSources": [
+				{
+					"source": "RtG"
+				}
+			],
 			"reprintedAs": [
 				"Clockwork Bronze Scout|MPMM"
 			],
@@ -5346,6 +5359,7 @@
 				"I"
 			],
 			"miscTags": [
+				"AOE",
 				"MW"
 			],
 			"savingThrowForced": [
@@ -5494,6 +5508,7 @@
 				"S"
 			],
 			"miscTags": [
+				"AOE",
 				"MW",
 				"RCH"
 			],
@@ -5517,7 +5532,11 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"elf"
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					}
 				]
 			},
 			"alignment": [
@@ -5775,7 +5794,11 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"elf"
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					}
 				]
 			},
 			"alignment": [
@@ -6018,6 +6041,11 @@
 			"name": "Drow House Captain",
 			"source": "MTF",
 			"page": 184,
+			"otherSources": [
+				{
+					"source": "WDMM"
+				}
+			],
 			"reprintedAs": [
 				"Drow House Captain|MPMM"
 			],
@@ -6027,7 +6055,11 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"elf"
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					}
 				]
 			},
 			"alignment": [
@@ -6097,7 +6129,7 @@
 				{
 					"name": "Battle Command",
 					"entries": [
-						"As a bonus action, the drow targets one ally he can see within 30 feet of him. If the target can see or hear the drow, the target can use its reaction to make one melee attack or to take the Dodge or Hide action."
+						"As a bonus action, the drow targets one ally he can see within 30 feet of him. If the target can see or hear the drow, the target can use its reaction to make one melee attack or to take the {@action Dodge} or {@action Hide} action."
 					]
 				},
 				{
@@ -6216,7 +6248,11 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"elf"
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					}
 				]
 			},
 			"alignment": [
@@ -6489,7 +6525,11 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"elf"
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					}
 				]
 			},
 			"alignment": [
@@ -6809,7 +6849,11 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"elf"
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					}
 				]
 			},
 			"alignment": [
@@ -7151,6 +7195,7 @@
 				"P"
 			],
 			"miscTags": [
+				"AOE",
 				"MW"
 			],
 			"conditionInflict": [
@@ -7549,7 +7594,7 @@
 				{
 					"name": "Reduce (Recharges after a Short or Long Rest)",
 					"entries": [
-						"For 1 minute, the duergar magically decreases in size, along with anything it is wearing or carrying. While reduced, the duergar is Tiny, reduces its weapon damage to 1, and makes attacks, checks, and saving throws with disadvantage if they use Strength. It gains a +5 bonus to all Dexterity ({@skill Stealth}) checks and a +5 bonus to its AC. It can also take a bonus action on each of its turns to take the Hide action."
+						"For 1 minute, the duergar magically decreases in size, along with anything it is wearing or carrying. While reduced, the duergar is Tiny, reduces its weapon damage to 1, and makes attacks, checks, and saving throws with disadvantage if they use Strength. It gains a +5 bonus to all Dexterity ({@skill Stealth}) checks and a +5 bonus to its AC. It can also take a bonus action on each of its turns to take the {@action Hide} action."
 					]
 				}
 			],
@@ -8739,7 +8784,7 @@
 				{
 					"name": "Divine Dread",
 					"entries": [
-						"Each creature within 60 feet of the eidolon that can see it must succeed on a {@dc 15} Wisdom saving throw or be {@condition frightened} for 1 minute. While {@condition frightened} in this way, the creature must take the Dash action and move away from the eidolon by the safest available route at the start of each of its turns, unless there is nowhere for it to move, in which case the creature also becomes {@condition stunned} until it can move again. A {@condition frightened} target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a target's saving throw is successful or the effect ends for it, the target is immune to any eidolon's Divine Dread for the next 24 hours."
+						"Each creature within 60 feet of the eidolon that can see it must succeed on a {@dc 15} Wisdom saving throw or be {@condition frightened} for 1 minute. While {@condition frightened} in this way, the creature must take the {@action Dash} action and move away from the eidolon by the safest available route at the start of each of its turns, unless there is nowhere for it to move, in which case the creature also becomes {@condition stunned} until it can move again. A {@condition frightened} target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a target's saving throw is successful or the effect ends for it, the target is immune to any eidolon's Divine Dread for the next 24 hours."
 					]
 				}
 			],
@@ -8767,6 +8812,9 @@
 			],
 			"damageTags": [
 				"O"
+			],
+			"miscTags": [
+				"AOE"
 			],
 			"conditionInflict": [
 				"frightened",
@@ -9132,6 +9180,7 @@
 				"T"
 			],
 			"miscTags": [
+				"AOE",
 				"MW",
 				"RCH"
 			],
@@ -9152,8 +9201,7 @@
 			"page": 238,
 			"otherSources": [
 				{
-					"source": "OotA",
-					"page": 231
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -10173,6 +10221,7 @@
 				"S"
 			],
 			"miscTags": [
+				"AOE",
 				"MLW",
 				"MW",
 				"RW"
@@ -12672,7 +12721,7 @@
 					"entries": [
 						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) piercing damage. If the target is a creature, it must succeed on a {@dc 13} Constitution saving throw or suffer one random poison effect:",
 						"1. Poison Damage: The target takes 13 ({@damage 3d8}) poison damage.",
-						"2. Confusion: On its next turn, the target must use its action to make one weapon attack against a random creature it can see within 30 feet of it, using whatever weapon it has in hand and moving beforehand if necessary to get in range. If it's holding no weapon, it makes an unarmed strike. If no creature is visible within 30 feet, it takes the Dash action, moving toward the nearest creature.",
+						"2. Confusion: On its next turn, the target must use its action to make one weapon attack against a random creature it can see within 30 feet of it, using whatever weapon it has in hand and moving beforehand if necessary to get in range. If it's holding no weapon, it makes an unarmed strike. If no creature is visible within 30 feet, it takes the {@action Dash} action, moving toward the nearest creature.",
 						"3. Paralysis: The target is {@condition paralyzed} until the end of its next turn."
 					]
 				}
@@ -13283,8 +13332,7 @@
 			"page": 238,
 			"otherSources": [
 				{
-					"source": "OotA",
-					"page": 231
+					"source": "OotA"
 				}
 			],
 			"reprintedAs": [
@@ -13780,7 +13828,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in dim light or darkness, the meazel can take the Hide action as a bonus action."
+						"While in dim light or darkness, the meazel can take the {@action Hide} action as a bonus action."
 					]
 				}
 			],
@@ -14003,6 +14051,11 @@
 			"name": "Merrenoloth",
 			"source": "MTF",
 			"page": 250,
+			"otherSources": [
+				{
+					"source": "LLK"
+				}
+			],
 			"reprintedAs": [
 				"Merrenoloth|MPMM"
 			],
@@ -14372,7 +14425,7 @@
 				{
 					"name": "Breath of Despair {@recharge 5}",
 					"entries": [
-						"Moloch exhales in a 30-foot cube. Each creature in that area must succeed on a {@dc 21} Wisdom saving throw or take 27 ({@damage 5d10}) psychic damage, drop whatever it is holding, and become {@condition frightened} for 1 minute. While {@condition frightened} in this way, a creature must take the Dash action and move away from Moloch by the safest available route on each of its turns, unless there is nowhere to move, in which case it needn't take the Dash action. If the creature ends its turn in a location where it doesn't have line of sight to Moloch, the creature can repeat the saving throw. On a success, the effect ends."
+						"Moloch exhales in a 30-foot cube. Each creature in that area must succeed on a {@dc 21} Wisdom saving throw or take 27 ({@damage 5d10}) psychic damage, drop whatever it is holding, and become {@condition frightened} for 1 minute. While {@condition frightened} in this way, a creature must take the {@action Dash} action and move away from Moloch by the safest available route on each of its turns, unless there is nowhere to move, in which case it needn't take the {@action Dash} action. If the creature ends its turn in a location where it doesn't have line of sight to Moloch, the creature can repeat the saving throw. On a success, the effect ends."
 					]
 				},
 				{
@@ -15081,6 +15134,7 @@
 				"CW"
 			],
 			"miscTags": [
+				"AOE",
 				"MW"
 			],
 			"conditionInflict": [
@@ -15556,6 +15610,14 @@
 			"name": "Oaken Bolter",
 			"source": "MTF",
 			"page": 126,
+			"otherSources": [
+				{
+					"source": "LLK"
+				},
+				{
+					"source": "RtG"
+				}
+			],
 			"reprintedAs": [
 				"Clockwork Oaken Bolter|MPMM"
 			],
@@ -15677,6 +15739,7 @@
 				"S"
 			],
 			"miscTags": [
+				"AOE",
 				"MW",
 				"RW"
 			],
@@ -16810,6 +16873,7 @@
 				"T"
 			],
 			"miscTags": [
+				"AOE",
 				"MLW",
 				"MW",
 				"RW"
@@ -17503,6 +17567,7 @@
 				"S"
 			],
 			"miscTags": [
+				"AOE",
 				"MW"
 			],
 			"hasToken": true,
@@ -19354,6 +19419,7 @@
 				"Y"
 			],
 			"miscTags": [
+				"AOE",
 				"MW",
 				"RCH"
 			],
@@ -19650,7 +19716,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in dim light or darkness, the mangler can take the Hide action as a bonus action."
+						"While in dim light or darkness, the mangler can take the {@action Hide} action as a bonus action."
 					]
 				}
 			],
@@ -20150,6 +20216,11 @@
 			"name": "Stone Defender",
 			"source": "MTF",
 			"page": 126,
+			"otherSources": [
+				{
+					"source": "RtG"
+				}
+			],
 			"reprintedAs": [
 				"Clockwork Stone Defender|MPMM"
 			],
@@ -21072,6 +21143,7 @@
 				"Y"
 			],
 			"miscTags": [
+				"AOE",
 				"MW",
 				"RCH"
 			],
@@ -21212,6 +21284,11 @@
 			"name": "The Wretched",
 			"source": "MTF",
 			"page": 233,
+			"otherSources": [
+				{
+					"source": "LLK"
+				}
+			],
 			"reprintedAs": [
 				"Wretched Sorrowsworn|MPMM"
 			],
@@ -21465,7 +21542,7 @@
 				{
 					"name": "Frightful Word",
 					"entries": [
-						"Titivilus targets one creature he can see within 10 feet of him. The target must succeed on a {@dc 21} Wisdom saving throw or become {@condition frightened} for 1 minute. While {@condition frightened} in this way, the target must take the Dash action and move away from Titivilus by the safest available route on each of its turns, unless there is nowhere to move, in which case it needn't take the Dash action. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+						"Titivilus targets one creature he can see within 10 feet of him. The target must succeed on a {@dc 21} Wisdom saving throw or become {@condition frightened} for 1 minute. While {@condition frightened} in this way, the target must take the {@action Dash} action and move away from Titivilus by the safest available route on each of its turns, unless there is nowhere to move, in which case it needn't take the {@action Dash} action. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 					]
 				},
 				{
@@ -23257,6 +23334,7 @@
 				"I"
 			],
 			"miscTags": [
+				"AOE",
 				"MLW",
 				"MW",
 				"RCH"

@@ -468,7 +468,7 @@
 				{
 					"name": "Cunning Action",
 					"entries": [
-						"On each of his turns, Garret can use a bonus action to take the Dash, Disengage, or Hide action."
+						"On each of his turns, Garret can use a bonus action to take the {@action Dash}, {@action Disengage}, or {@action Hide} action."
 					]
 				},
 				{
@@ -590,6 +590,11 @@
 			"isNamedCreature": true,
 			"source": "LLK",
 			"page": 23,
+			"otherSources": [
+				{
+					"source": "IMR"
+				}
+			],
 			"_copy": {
 				"name": "Medusa",
 				"source": "MM",
@@ -773,6 +778,7 @@
 				"CL"
 			],
 			"miscTags": [
+				"AOE",
 				"MLW",
 				"MW"
 			],

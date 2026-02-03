@@ -163,6 +163,17 @@ export class SourceFilter extends Filter {
 			),
 			null,
 			new ContextUtil.Action(
+				`Select 2014 Sources`,
+				() => this._doSetPinsClassic(),
+				{title: `Select sources published from 2014 to 2024.`},
+			),
+			new ContextUtil.Action(
+				`Select 2024 Sources`,
+				() => this._doSetPinsOne(),
+				{title: `Select sources published from 2024 onwards.`},
+			),
+			null,
+			new ContextUtil.Action(
 				`Select "Vanilla" Sources`,
 				() => this._doSetPinsVanilla(),
 				{title: `Select a baseline set of sources suitable for any campaign.`},
@@ -212,7 +223,7 @@ export class SourceFilter extends Filter {
 
 		e_({
 			tag: "div",
-			clazz: `ve-btn-group mr-2 w-100 ve-flex-v-center mobile__m-1 mobile__mb-2`,
+			clazz: `ve-btn-group mr-2 w-100 ve-flex-v-center mobile-sm__m-1 mobile-sm__mb-2`,
 			children: [
 				btnSupplements,
 				btnAdventures,
@@ -268,6 +279,14 @@ export class SourceFilter extends Filter {
 		);
 	}
 
+	_doSetPinsClassic () {
+		Object.keys(this._state).forEach(k => this._state[k] = SourceUtil.isClassicSource(k) ? PILL_STATE__YES : PILL_STATE__IGNORE);
+	}
+
+	_doSetPinsOne () {
+		Object.keys(this._state).forEach(k => this._state[k] = SourceUtil.isClassicSource(k) ? PILL_STATE__IGNORE : PILL_STATE__YES);
+	}
+
 	_doSetPinsVanilla () {
 		Object.keys(this._state).forEach(k => this._state[k] = Parser.SOURCES_VANILLA.has(k) ? PILL_STATE__YES : PILL_STATE__IGNORE);
 	}
@@ -320,15 +339,26 @@ export class SourceFilter extends Filter {
 		if (reprintedFilter) reprintedFilter.setValue("Reprinted", PILL_STATE__IGNORE);
 	}
 
-	static getCompleteFilterSources (ent) {
-		if (!ent.otherSources) return ent.source;
+	static getCompleteFilterSources (ent, {isIncludeBaseSource = false} = {}) {
+		const isSkipBaseSource = !isIncludeBaseSource || !ent._baseSource;
 
-		const otherSourcesFilt = ent.otherSources
+		if (!ent.otherSources && isSkipBaseSource) return ent.source;
+
+		const otherSourcesFilt = (ent.otherSources || [])
 			// Avoid `otherSources` from e.g. homebrews which are not loaded, and so lack their metadata
-			.filter(src => !ExcludeUtil.isExcluded("*", "*", src.source, {isNoCount: true}) && SourceUtil.isKnownSource(src.source));
-		if (!otherSourcesFilt.length) return ent.source;
+			.filter(src => this._getCompleteFilterSources_isIncludedSource(src.source));
+		if (!otherSourcesFilt.length && isSkipBaseSource) return ent.source;
 
-		return [ent.source].concat(otherSourcesFilt.map(src => new SourceFilterItem({item: src.source, isIgnoreRed: true, isOtherSource: true})));
+		const out = [ent.source].concat(otherSourcesFilt.map(src => new SourceFilterItem({item: src.source, isIgnoreRed: true, isOtherSource: true})));
+
+		// Base sources should already be filtered
+		if (!isSkipBaseSource && this._getCompleteFilterSources_isIncludedSource(ent._baseSource)) out.push(ent._baseSource);
+
+		return out;
+	}
+
+	static _getCompleteFilterSources_isIncludedSource (source) {
+		return !ExcludeUtil.isExcluded("*", "*", source, {isNoCount: true}) && SourceUtil.isKnownSource(source);
 	}
 
 	_doRenderPills_doRenderWrpGroup_getDividerHeaders (group) {

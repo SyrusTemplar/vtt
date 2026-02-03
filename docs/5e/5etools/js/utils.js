@@ -2,7 +2,7 @@
 
 // in deployment, `IS_DEPLOYED = "<version number>";` should be set below.
 globalThis.IS_DEPLOYED = undefined;
-globalThis.VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"2.16.0"/* 5ETOOLS_VERSION__CLOSE */;
+globalThis.VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"2.24.1"/* 5ETOOLS_VERSION__CLOSE */;
 globalThis.DEPLOYED_IMG_ROOT = undefined;
 // for the roll20 script to set
 globalThis.IS_VTT = false;
@@ -269,13 +269,12 @@ globalThis.StrUtil = class {
 	// Certain minor words should be left lowercase unless they are the first or last words in the string
 	static TITLE_LOWER_WORDS = ["a", "an", "the", "and", "but", "or", "for", "nor", "as", "at", "by", "for", "from", "in", "into", "near", "of", "on", "onto", "to", "with", "over", "von", "between", "per", "beyond", "among"];
 	// Certain words such as initialisms or acronyms should be left uppercase
-	static TITLE_UPPER_WORDS = ["Id", "Tv", "Dm", "Ok", "Npc", "Pc", "Tpk", "Wip", "Dc", "D&d"];
+	static TITLE_UPPER_WORDS = ["Id", "Tv", "Dm", "Ok", "Npc", "Pc", "Tpk", "Wip", "Dc", "D&d", "Ac", "Hp"];
 	static TITLE_UPPER_WORDS_PLURAL = ["Ids", "Tvs", "Dms", "Oks", "Npcs", "Pcs", "Tpks", "Wips", "Dcs"]; // (Manually pluralize, to avoid infinite loop)
 
-	static _TITLE_RE_INITIAL = /(\w+[^-\u2014\s/]*) */g;
-	static _TITLE_RE_SPLIT_PUNCT = /([;:?!.])/g;
+	static _TITLE_RE_INITIAL = /(?<!{[@=])(\b\w+[^-\u2014\s/|]*) */g;
 	static _TITLE_RE_COMPOUND_LOWER = /([a-z]-(?:Like|Kreen|Toa))/g;
-	static _TITLE_RE_POST_PUNCT = /^(\s*)(\S)/;
+	static _TITLE_RE_POST_PUNCT = /([;:?!.])(\s*)(\S)/g;
 
 	static _TITLE_LOWER_WORDS_RE = null;
 	static _TITLE_UPPER_WORDS_RE = null;
@@ -293,13 +292,11 @@ globalThis.StrUtil = class {
 
 		return str
 			.replace(this._TITLE_RE_INITIAL, m0 => m0.charAt(0).toUpperCase() + m0.substring(1).toLowerCase())
-			.replace(this._TITLE_LOWER_WORDS_RE, (...m) => m[0].toLowerCase())
-			.replace(this._TITLE_UPPER_WORDS_RE, (...m) => m[0].toUpperCase())
-			.replace(this._TITLE_UPPER_WORDS_PLURAL_RE, (...m) => `${m[0].slice(0, -1).toUpperCase()}${m[0].slice(-1).toLowerCase()}`)
-			.replace(this._TITLE_RE_COMPOUND_LOWER, (...m) => m[0].toLowerCase())
-			.split(this._TITLE_RE_SPLIT_PUNCT)
-			.map(pt => pt.replace(this._TITLE_RE_POST_PUNCT, (...m) => `${m[1]}${m[2].toUpperCase()}`))
-			.join("");
+			.replace(this._TITLE_LOWER_WORDS_RE, m0 => m0.toLowerCase())
+			.replace(this._TITLE_UPPER_WORDS_RE, m0 => m0.toUpperCase())
+			.replace(this._TITLE_UPPER_WORDS_PLURAL_RE, m0 => `${m0.slice(0, -1).toUpperCase()}${m0.slice(-1).toLowerCase()}`)
+			.replace(this._TITLE_RE_COMPOUND_LOWER, m0 => m0.toLowerCase())
+			.replace(this._TITLE_RE_POST_PUNCT, (_, m1, m2, m3) => `${m1}${m2}${m3.toUpperCase()}`);
 	}
 
 	/* -------------------------------------------- */
@@ -428,7 +425,13 @@ globalThis.StrUtil = class {
 	}
 };
 
+Number.prototype.toLocaleStringVe = Number.prototype.toLocaleStringVe || function () {
+	return NumberUtil._NUMBER_FORMATTER.format(this);
+};
+
 globalThis.NumberUtil = class {
+	static _NUMBER_FORMATTER = new Intl.NumberFormat(undefined, {maximumFractionDigits: 5});
+
 	static toFixedNumber (num, toFixed) {
 		if (num == null || isNaN(num)) return num;
 
@@ -612,6 +615,9 @@ globalThis.SourceUtil = class {
 	static _CLASSIC_THRESHOLD_TIMESTAMP = null;
 
 	static isClassicSource (source) {
+		if (typeof PrereleaseUtil !== "undefined" && PrereleaseUtil.hasSourceJson(source)) return PrereleaseUtil.isClassicSource(source);
+		if (typeof BrewUtil2 !== "undefined" && BrewUtil2.hasSourceJson(source)) return BrewUtil2.isClassicSource(source);
+
 		this._CLASSIC_THRESHOLD_TIMESTAMP ||= new Date(Parser.sourceJsonToDate(Parser.SRC_XPHB));
 		return new Date(Parser.sourceJsonToDate(source)) < this._CLASSIC_THRESHOLD_TIMESTAMP;
 	}
@@ -950,9 +956,9 @@ class TemplateUtil {
 
 globalThis.TemplateUtil = TemplateUtil;
 
-globalThis.JqueryUtil = {
-	_isEnhancementsInit: false,
-	initEnhancements () {
+globalThis.JqueryUtil = class {
+	static _isEnhancementsInit = false;
+	static initEnhancements () {
 		if (JqueryUtil._isEnhancementsInit) return;
 		JqueryUtil._isEnhancementsInit = true;
 
@@ -988,75 +994,47 @@ globalThis.JqueryUtil = {
 				else return this.toggleClass("ve-hidden", !val);
 			},
 		});
+	}
 
-		$.event.special.destroyed = {
-			remove: function (o) {
-				if (o.handler) o.handler();
-			},
-		};
-	},
+	static showCopiedEffect ($_ele, {text = "Copied!", isBubble = false} = {}) {
+		const ele = $_ele instanceof $ ? $_ele[0] : $_ele;
 
-	showCopiedEffect ($_ele, text = "Copied!", bubble) {
-		const $ele = $_ele instanceof $ ? $_ele : $($_ele);
+		const {top, left, width} = ele.getBoundingClientRect();
 
-		const top = $(window).scrollTop();
-		const pos = $ele.offset();
-
-		const animationOptions = {
-			top: "-=8",
-			opacity: 0,
-		};
-		if (bubble) {
-			animationOptions.left = `${Math.random() > 0.5 ? "-" : "+"}=${~~(Math.random() * 17)}`;
-		}
 		const seed = Math.random();
-		const duration = bubble ? 250 + seed * 200 : 250;
-		const offsetY = bubble ? 16 : 0;
+		const duration = isBubble ? 250 + seed * 200 : 250;
 
-		const $dispCopied = $(`<div class="clp__disp-copied ve-flex-vh-center py-2 px-4"></div>`);
-		$dispCopied
+		const dispCopied = ee`<div class="clp__disp-copied ve-flex-vh-center"></div>`;
+		dispCopied
 			.html(text)
 			.css({
-				top: (pos.top - 24) + offsetY - top,
-				left: pos.left + ($ele.width() / 2),
+				top: `${(top - 14)}px`,
+				left: `${left + (width / 2)}px`,
+				animationDuration: `${duration}ms`,
 			})
-			.appendTo(document.body)
-			.animate(
-				animationOptions,
-				{
-					duration,
-					complete: () => $dispCopied.remove(),
-					progress: (_, progress) => { // progress is 0..1
-						if (bubble) {
-							const diffProgress = 0.5 - progress;
-							animationOptions.top = `${diffProgress > 0 ? "-" : "+"}=40`;
-							$dispCopied.css("transform", `rotate(${seed > 0.5 ? "-" : ""}${seed * 500 * progress}deg)`);
-						}
-					},
-				},
-			);
-	},
-
-	_dropdownInit: false,
-	bindDropdownButton (ele) {
-		if (!JqueryUtil._dropdownInit) {
-			JqueryUtil._dropdownInit = true;
-			document.addEventListener("click", () => [...document.querySelectorAll(`.open`)].filter(ele => !(ele.className || "").split(" ").includes(`dropdown--navbar`)).forEach(ele => ele.classList.remove("open")));
+			.appendTo(document.body);
+		if (isBubble) {
+			dispCopied
+				.addClass(`clp__disp-copied--bubble`)
+				.addClass(`clp__disp-copied--bubble-variant-${RollerUtil.randomise(5)}`);
+		} else {
+			dispCopied.addClass(`clp__disp-copied--basic`);
 		}
-		ele.onn("click", () => setTimeout(() => ele.parente().addClass("open"), 1)); // defer to allow the above to complete
-	},
 
-	_WRP_TOAST: null,
-	_ACTIVE_TOAST: [],
+		setTimeout(() => dispCopied.remove(), duration);
+	}
+
+	static _WRP_TOAST = null;
+	static _ACTIVE_TOAST = [];
 	/**
-	 * @param {{content: jQuery|string, type?: string, autoHideTime?: boolean} | string} options The options for the toast.
-	 * @param {(jQuery|string)} options.content Toast contents. Supports jQuery objects.
+	 * @param {{content: jQuery|string|HTMLElementExtended, type?: string, autoHideTime?: boolean} | string} options The options for the toast.
+	 * @param {(jQuery|string|HTMLElementExtended)} options.content Toast contents. Supports jQuery objects.
 	 * @param {string} options.type Toast type. Can be any Bootstrap alert type ("success", "info", "warning", or "danger").
 	 * @param {number} options.autoHideTime The time in ms before the toast will be automatically hidden.
 	 * Defaults to 5000 ms.
 	 * @param {boolean} options.isAutoHide
 	 */
-	doToast (options) {
+	static doToast (options) {
 		if (typeof window === "undefined") return;
 
 		if (JqueryUtil._WRP_TOAST == null) {
@@ -1147,19 +1125,19 @@ globalThis.JqueryUtil = {
 						});
 				}
 			});
-	},
+	}
 
-	_doToastCleanup (toastMeta) {
+	static _doToastCleanup (toastMeta) {
 		toastMeta.eleToast.removeClass("toast--animate");
 		JqueryUtil._ACTIVE_TOAST.splice(JqueryUtil._ACTIVE_TOAST.indexOf(toastMeta), 1);
 		setTimeout(() => toastMeta.eleToast.parentElement && toastMeta.eleToast.remove(), 85);
-	},
+	}
 
-	isMobile () {
+	static isMobile () {
 		if (navigator?.userAgentData?.mobile) return true;
 		// Equivalent to `$width-screen-sm`
 		return window.matchMedia("(max-width: 768px)").matches;
-	},
+	}
 };
 
 if (typeof window !== "undefined") window.addEventListener("load", JqueryUtil.initEnhancements);
@@ -1188,6 +1166,8 @@ class ElementUtil {
 	 * @property {function(HTMLElement): HTMLElementExtended} prependTo
 	 * @property {function(HTMLElement|string): HTMLElementExtended} aftere
 	 * @property {function(HTMLElement): HTMLElementExtended} insertAfter
+	 * @property {function(HTMLElement|string): HTMLElementExtended} beforee
+	 * @property {function(HTMLElement|string): HTMLElementExtended} insertBeforee
 	 *
 	 * @property {function(string): HTMLElementExtended} addClass
 	 * @property {function(string): HTMLElementExtended} removeClass
@@ -1208,8 +1188,10 @@ class ElementUtil {
 	 * @property {function(string=): (HTMLElementExtended|string)} html
 	 * @property {function(string=): (HTMLElementExtended|string)} txt
 	 *
-	 * @property {function(string): HTMLElementExtended} tooltip
+	 * @property {function(?string): HTMLElementExtended} tooltip
+	 * @property {function(?string): HTMLElementExtended} placeholdere
 	 * @property {function(): HTMLElementExtended} disableSpellcheck
+	 * @property {function(Array<string>): HTMLElementExtended} typeahead
 	 *
 	 * @property {function(object): HTMLElementExtended} css
 	 *
@@ -1229,8 +1211,6 @@ class ElementUtil {
 	 * @property {function(): HTMLElementExtended} parente
 	 *
 	 * @property {function(): number} outerWidthe
-	 * @property {function(): number} outerWidthe
-	 * @property {function(): number} outerHeighte
 	 * @property {function(): number} outerHeighte
 	 *
 	 * @property {function(): HTMLElementExtended} focuse
@@ -1244,6 +1224,7 @@ class ElementUtil {
 	 * @return {HTMLElementExtended}
 	 */
 	static getOrModify (opts) {
+		if (!opts) return null;
 		if (opts instanceof Element) opts = {ele: opts};
 
 		const {
@@ -1343,6 +1324,8 @@ class ElementUtil {
 		ele.prependTo = ele.prependTo || ElementUtil._prependTo.bind(ele);
 		ele.aftere = ele.aftere || ElementUtil._aftere.bind(ele);
 		ele.insertAfter = ele.insertAfter || ElementUtil._insertAfter.bind(ele);
+		ele.beforee = ele.beforee || ElementUtil._beforee.bind(ele);
+		ele.insertBeforee = ele.insertBeforee || ElementUtil._insertBeforee.bind(ele);
 		ele.addClass = ele.addClass || ElementUtil._addClass.bind(ele);
 		ele.removeClass = ele.removeClass || ElementUtil._removeClass.bind(ele);
 		ele.toggleClass = ele.toggleClass || ElementUtil._toggleClass.bind(ele);
@@ -1358,7 +1341,9 @@ class ElementUtil {
 		ele.html = ele.html || ElementUtil._html.bind(ele);
 		ele.txt = ele.txt || ElementUtil._txt.bind(ele);
 		ele.tooltip = ele.tooltip || ElementUtil._tooltip.bind(ele);
+		ele.placeholdere = ele.placeholdere || ElementUtil._placeholdere.bind(ele);
 		ele.disableSpellcheck = ele.disableSpellcheck || ElementUtil._disableSpellcheck.bind(ele);
+		ele.typeahead = ele.typeahead || ElementUtil._typeahead.bind(ele);
 		ele.css = ele.css || ElementUtil._css.bind(ele);
 		ele.onn = ele.onn || ElementUtil._onX.bind(ele);
 		ele.off = ele.off || ElementUtil._offX.bind(ele);
@@ -1512,6 +1497,25 @@ class ElementUtil {
 	}
 
 	/** @this {HTMLElementExtended} */
+	static _beforee (other) {
+		// eslint-disable-next-line vet-jquery/jquery
+		if (other instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
+		if (typeof other === "string") other = ee`${other}`;
+		this.before(other);
+		return this;
+	}
+
+	/** @this {HTMLElementExtended} */
+	static _insertBeforee (parent) {
+		// eslint-disable-next-line vet-jquery/jquery
+		if (parent instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+
+		parent.before(this);
+		return this;
+	}
+
+	/** @this {HTMLElementExtended} */
 	static _addClass (clazz) {
 		this.classList.add(clazz);
 		return this;
@@ -1602,6 +1606,12 @@ class ElementUtil {
 	}
 
 	/** @this {HTMLElementExtended} */
+	static _placeholdere (placeholder) {
+		if (placeholder === undefined) return this.getAttribute("placeholder");
+		return this.attr("placeholder", placeholder);
+	}
+
+	/** @this {HTMLElementExtended} */
 	static _disableSpellcheck () {
 		// avoid setting input type to "search" as it visually offsets the contents of the input
 		return this
@@ -1611,21 +1621,52 @@ class ElementUtil {
 	}
 
 	/** @this {HTMLElementExtended} */
-	static _css (obj) {
-		Object.entries(obj)
+	static _typeahead (values) {
+		const id = CryptUtil.md5(JSON.stringify(values));
+
+		if (!document.getElementById(id)) {
+			ee`<datalist id="${id}">${values.map(val => `<option value="${val.qq()}"></option>`).join("")}</datalist>`
+				.appendTo(document.body);
+		}
+
+		return this
+			.attr("list", id);
+	}
+
+	/** @this {HTMLElementExtended} */
+	static _css (keyOrObj, val) {
+		if (typeof keyOrObj === "string") {
+			if (val === undefined) return this.style[keyOrObj];
+			this.style[keyOrObj] = val;
+			return this;
+		}
+		Object.entries(keyOrObj)
 			.forEach(([k, v]) => this.style[k] = v);
 		return this;
 	}
 
 	/** @this {HTMLElementExtended} */
 	static _onX (evtName, fn, opts) {
+		((this._veListeners ||= {})[evtName] ||= []).push({fn, opts});
+
 		if (opts) this.addEventListener(evtName, fn, opts);
 		else this.addEventListener(evtName, fn);
 		return this;
 	}
 
 	/** @this {HTMLElementExtended} */
-	static _offX (evtName, fn) {
+	static _offX (evtName, fn, opts) {
+		if (!fn) {
+			(this._veListeners?.[evtName] || [])
+				.forEach(({fn, opts}) => {
+					this.removeEventListener(evtName, fn);
+					if (opts) this.removeEventListener(evtName, fn, opts);
+					else this.removeEventListener(evtName, fn);
+				});
+			return this;
+		}
+
+		if (this._veListeners?.[evtName]) this._veListeners[evtName] = this._veListeners[evtName].filter(({fn: fn_, opts: opts_}) => fn_ === fn && MiscUtil.isNearStrictlyEqual(opts_?.capture, opts?.capture));
 		this.removeEventListener(evtName, fn);
 		return this;
 	}
@@ -1683,9 +1724,9 @@ class ElementUtil {
 
 	/** @this {HTMLElementExtended} */
 	static _closeste (selector) {
-		const sibling = this.closest(selector);
-		if (!sibling) return sibling;
-		return e_({ele: sibling});
+		const ancestor = this.closest(selector);
+		if (!ancestor) return ancestor;
+		return e_({ele: ancestor});
 	}
 
 	/** @this {HTMLElementExtended} */
@@ -1741,6 +1782,7 @@ class ElementUtil {
 
 	/** @this {HTMLElementExtended} */
 	static _scrollTope (val) {
+		if (val === undefined) return this.scrollTop;
 		this.scrollTop = val;
 		return this;
 	}
@@ -1898,6 +1940,7 @@ globalThis.MiscUtil = class {
 	static COLOR_HURT = "#c5ca00";
 	static COLOR_BLOODIED = "#f7a100";
 	static COLOR_DEFEATED = "#cc0000";
+	static COLOR_DEAD = "#9b1d20";
 
 	/**
 	 * @param obj
@@ -3034,7 +3077,7 @@ globalThis.ContextUtil = class {
 		}
 
 		width () { return this._ele ? this._ele.outerWidthe() : undefined; }
-		height () { return this._ele ? this._ele.outerWidthe() : undefined; }
+		height () { return this._ele ? this._ele.outerHeighte() : undefined; }
 
 		pOpen (evt, {userData = null, offsetY = null, boundsX = null} = {}) {
 			evt.stopPropagation();
@@ -3106,13 +3149,13 @@ globalThis.ContextUtil = class {
 		}
 
 		_getMenuPosition (evt, axis, {bounds = null, offset = null} = {}) {
-			const {fnMenuSize, fnGetEventPos, fnWindowSize, fnScrollDir} = axis === "x"
-				? {fnMenuSize: "width", fnGetEventPos: "getClientX", fnWindowSize: "width", fnScrollDir: "scrollLeft"}
-				: {fnMenuSize: "height", fnGetEventPos: "getClientY", fnWindowSize: "height", fnScrollDir: "scrollTop"};
+			const {fnMenuSize, fnGetEventPos, propWindowSize, propScrollPos} = axis === "x"
+				? {fnMenuSize: "width", fnGetEventPos: "getClientX", propWindowSize: "innerWidth", propScrollPos: "scrollX"}
+				: {fnMenuSize: "height", fnGetEventPos: "getClientY", propWindowSize: "innerHeight", propScrollPos: "scrollY"};
 
 			const posMouse = EventUtil[fnGetEventPos](evt);
-			const szWin = $(window)[fnWindowSize]();
-			const posScroll = $(window)[fnScrollDir]();
+			const szWin = window[propWindowSize];
+			const posScroll = window[propScrollPos];
 			const posMouseOffset = offset ? posMouse + offset : posMouse;
 			const szMenu = this[fnMenuSize]();
 
@@ -3896,6 +3939,7 @@ UrlUtil.URL_TO_HASH_BUILDER["sense"] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER["raceFeature"] = (it) => UrlUtil.encodeArrayForHash(it.name, it.raceName, it.raceSource, it.source);
 UrlUtil.URL_TO_HASH_BUILDER["citation"] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER["languageScript"] = UrlUtil.URL_TO_HASH_GENERIC;
+UrlUtil.URL_TO_HASH_BUILDER["encounterShape"] = UrlUtil.URL_TO_HASH_GENERIC;
 
 // Add lowercase aliases
 Object.keys(UrlUtil.URL_TO_HASH_BUILDER)
@@ -4106,19 +4150,19 @@ if (!IS_DEPLOYED && !globalThis.IS_VTT && typeof window !== "undefined") {
 }
 
 // SORTING =============================================================================================================
-globalThis.SortUtil = {
-	ascSort: (a, b) => {
+globalThis.SortUtil = class {
+	static ascSort (a, b) {
 		if (typeof FilterItem !== "undefined") {
 			if (a instanceof FilterItem) a = a.item;
 			if (b instanceof FilterItem) b = b.item;
 		}
 
 		return SortUtil._ascSort(a, b);
-	},
+	}
 
-	ascSortProp: (prop, a, b) => { return SortUtil.ascSort(a[prop], b[prop]); },
+	static ascSortProp (prop, a, b) { return SortUtil.ascSort(a[prop], b[prop]); }
 
-	ascSortLower: (a, b) => {
+	static ascSortLower (a, b) {
 		if (typeof FilterItem !== "undefined") {
 			if (a instanceof FilterItem) a = a.item;
 			if (b instanceof FilterItem) b = b.item;
@@ -4128,12 +4172,12 @@ globalThis.SortUtil = {
 		b = b ? b.toLowerCase() : b;
 
 		return SortUtil._ascSort(a, b);
-	},
+	}
 
-	ascSortLowerProp: (prop, a, b) => { return SortUtil.ascSortLower(a[prop], b[prop]); },
+	static ascSortLowerProp (prop, a, b) { return SortUtil.ascSortLower(a[prop], b[prop]); }
 
 	// warning: slow
-	ascSortNumericalSuffix (a, b) {
+	static ascSortNumericalSuffix (a, b) {
 		if (typeof FilterItem !== "undefined") {
 			if (a instanceof FilterItem) a = a.item;
 			if (b instanceof FilterItem) b = b.item;
@@ -4149,58 +4193,58 @@ globalThis.SortUtil = {
 		const initialSort = SortUtil.ascSort(aStr, bStr);
 		if (initialSort) return initialSort;
 		return SortUtil.ascSort(aNum, bNum);
-	},
+	}
 
-	_RE_SORT_NUM: /\d+/g,
-	ascSortLowerPropNumeric (prop, a, b) {
+	static _RE_SORT_NUM = /\d+/g;
+	static ascSortLowerPropNumeric (prop, a, b) {
 		a._sortName ||= (a[prop] || "").replace(SortUtil._RE_SORT_NUM, (...m) => `${m[0].padStart(10, "0")}`);
 		b._sortName ||= (b[prop] || "").replace(SortUtil._RE_SORT_NUM, (...m) => `${m[0].padStart(10, "0")}`);
 		return SortUtil.ascSortLower(a._sortName, b._sortName);
-	},
+	}
 
-	_ascSort: (a, b) => {
+	static _ascSort (a, b) {
 		if (b === a) return 0;
 		return b < a ? 1 : -1;
-	},
+	}
 
-	ascSortDate (a, b) {
+	static ascSortDate (a, b) {
 		return b.getTime() - a.getTime();
-	},
+	}
 
-	ascSortDateString (a, b) {
+	static ascSortDateString (a, b) {
 		return SortUtil.ascSortDate(new Date(a || "1970-01-01"), new Date(b || "1970-01-01"));
-	},
+	}
 
-	compareListNames (a, b) { return SortUtil._ascSort(a.name.toLowerCase(), b.name.toLowerCase()); },
+	static compareListNames (a, b) { return SortUtil._ascSort(a.name.toLowerCase(), b.name.toLowerCase()); }
 
-	listSort (a, b, opts) {
+	static listSort (a, b, opts) {
 		opts = opts || {sortBy: "name"};
 		if (opts.sortBy === "name") return SortUtil.compareListNames(a, b);
 		if (opts.sortBy === "source") return SortUtil._listSort_compareBy(a, b, opts.sortBy) || SortUtil._listSort_compareBy(a, b, "page") || SortUtil.compareListNames(a, b);
 		return SortUtil._compareByOrDefault_compareByOrDefault(a, b, opts.sortBy);
-	},
+	}
 
-	_listSort_compareBy (a, b, sortBy) {
+	static _listSort_compareBy (a, b, sortBy) {
 		const aValue = typeof a.values[sortBy] === "string" ? a.values[sortBy].toLowerCase() : a.values[sortBy];
 		const bValue = typeof b.values[sortBy] === "string" ? b.values[sortBy].toLowerCase() : b.values[sortBy];
 
 		return SortUtil._ascSort(aValue, bValue);
-	},
+	}
 
-	_compareByOrDefault_compareByOrDefault (a, b, sortBy) {
+	static _compareByOrDefault_compareByOrDefault (a, b, sortBy) {
 		return SortUtil._listSort_compareBy(a, b, sortBy) || SortUtil.compareListNames(a, b);
-	},
+	}
 
 	/**
 	 * "Special Equipment" first, then alphabetical
 	 */
-	_MON_TRAIT_ORDER: [
+	static _MON_TRAIT_ORDER = [
 		"temporary statblock",
 
 		"special equipment",
 		"shapechanger",
-	],
-	monTraitSort: (a, b) => {
+	];
+	static monTraitSort (a, b) {
 		if (a.sort != null && b.sort != null) return a.sort - b.sort;
 		if (a.sort != null && b.sort == null) return -1;
 		if (a.sort == null && b.sort != null) return 1;
@@ -4220,20 +4264,20 @@ globalThis.SortUtil = {
 		else if (~ixA) return -1;
 		else if (~ixB) return 1;
 		else return SortUtil.ascSort(aClean, bClean);
-	},
+	}
 
-	_alignFirst: ["L", "C"],
-	_alignSecond: ["G", "E"],
-	alignmentSort: (a, b) => {
+	static _alignFirst = ["L", "C"];
+	static _alignSecond = ["G", "E"];
+	static alignmentSort (a, b) {
 		if (a === b) return 0;
 		if (SortUtil._alignFirst.includes(a)) return -1;
 		if (SortUtil._alignSecond.includes(a)) return 1;
 		if (SortUtil._alignFirst.includes(b)) return 1;
 		if (SortUtil._alignSecond.includes(b)) return -1;
 		return 0;
-	},
+	}
 
-	ascSortCr (a, b) {
+	static ascSortCr (a, b) {
 		if (typeof FilterItem !== "undefined") {
 			if (a instanceof FilterItem) a = a.item;
 			if (b instanceof FilterItem) b = b.item;
@@ -4244,17 +4288,17 @@ globalThis.SortUtil = {
 		if (a === "\u2014" || a == null) a = "999";
 		if (b === "\u2014" || b == null) b = "999";
 		return SortUtil.ascSort(Parser.crToNumber(a), Parser.crToNumber(b));
-	},
+	}
 
-	ascSortAtts (a, b) {
+	static ascSortAtts (a, b) {
 		const aSpecial = a === "special";
 		const bSpecial = b === "special";
 		return aSpecial && bSpecial ? 0 : aSpecial ? 1 : bSpecial ? -1 : Parser.ABIL_ABVS.indexOf(a) - Parser.ABIL_ABVS.indexOf(b);
-	},
+	}
 
-	ascSortSize (a, b) { return Parser.SIZE_ABVS.indexOf(a) - Parser.SIZE_ABVS.indexOf(b); },
+	static ascSortSize (a, b) { return Parser.SIZE_ABVS.indexOf(a) - Parser.SIZE_ABVS.indexOf(b); }
 
-	initBtnSortHandlers (wrpBtnsSort, list) {
+	static initBtnSortHandlers (wrpBtnsSort, list) {
 		if (wrpBtnsSort instanceof $) { // TODO(jquery) migrate
 			wrpBtnsSort = wrpBtnsSort[0];
 		}
@@ -4289,9 +4333,9 @@ globalThis.SortUtil = {
 		dispCaretInitial = dispCaretInitial || dispCarets[0]; // Fall back on displaying the first caret
 
 		SortUtil._initBtnSortHandlers_showCaret({dispCaret: dispCaretInitial, dispCarets, direction: list.sortDir});
-	},
+	}
 
-	_initBtnSortHandlers_showCaret (
+	static _initBtnSortHandlers_showCaret (
 		{
 			dispCaret,
 			dispCarets,
@@ -4300,10 +4344,10 @@ globalThis.SortUtil = {
 	) {
 		dispCarets.forEach($it => $it.removeClass("lst__caret--active"));
 		dispCaret.addClass("lst__caret--active").toggleClass("lst__caret--reverse", direction === "asc");
-	},
+	}
 
 	/** Add more list sort on-clicks to existing sort buttons. */
-	initBtnSortHandlersAdditional ($wrpBtnsSort, list) {
+	static initBtnSortHandlersAdditional ($wrpBtnsSort, list) {
 		[...$wrpBtnsSort[0].querySelectorAll(".sort")]
 			.map(btnSort => {
 				const btnSortField = btnSort.dataset.sort;
@@ -4317,57 +4361,57 @@ globalThis.SortUtil = {
 					},
 				});
 			});
-	},
+	}
 
-	ascSortSourceGroup (a, b) {
+	static ascSortSourceGroup (a, b) {
 		const grpA = a.group || "other";
 		const grpB = b.group || "other";
 		const ixA = SourceUtil.ADV_BOOK_GROUPS.findIndex(it => it.group === grpA);
 		const ixB = SourceUtil.ADV_BOOK_GROUPS.findIndex(it => it.group === grpB);
 		return SortUtil.ascSort(ixA, ixB);
-	},
+	}
 
-	ascSortAdventure (a, b) {
+	static ascSortAdventure (a, b) {
 		return SortUtil.ascSortDateString(b.published, a.published)
 			|| SortUtil.ascSortLower(a.parentSource || "", b.parentSource || "")
 			|| SortUtil.ascSort(a.publishedOrder ?? 0, b.publishedOrder ?? 0)
 			|| SortUtil.ascSortLower(a.storyline, b.storyline)
 			|| SortUtil.ascSort(a.level?.start ?? 20, b.level?.start ?? 20)
 			|| SortUtil.ascSortLower(a.name, b.name);
-	},
+	}
 
-	ascSortBook (a, b) {
+	static ascSortBook (a, b) {
 		return SortUtil.ascSortDateString(b.published, a.published)
 			|| SortUtil.ascSortLower(a.parentSource || "", b.parentSource || "")
 			|| SortUtil.ascSortLower(a.name, b.name);
-	},
+	}
 
-	ascSortBookData (a, b) {
+	static ascSortBookData (a, b) {
 		return SortUtil.ascSortLower(a.id || "", b.id || "");
-	},
+	}
 
-	ascSortGenericEntity (a, b) {
+	static ascSortGenericEntity (a, b) {
 		return SortUtil.ascSortLower(a.name || "", b.name || "") || SortUtil.ascSortLower(a.source || "", b.source || "");
-	},
+	}
 
-	ascSortDeity (a, b) {
+	static ascSortDeity (a, b) {
 		return SortUtil.ascSortLower(a.name, b.name) || SortUtil.ascSortLower(a.source, b.source) || SortUtil.ascSortLower(a.pantheon, b.pantheon);
-	},
+	}
 
-	ascSortCard (a, b) {
+	static ascSortCard (a, b) {
 		return SortUtil.ascSortLower(a.set, b.set) || SortUtil.ascSortLower(a.source, b.source) || SortUtil.ascSortLower(a.name, b.name);
-	},
+	}
 
-	ascSortEncounter (a, b) {
+	static ascSortEncounter (a, b) {
 		return SortUtil.ascSortLower(a.name, b.name) || SortUtil.ascSortLower(a.caption || "", b.caption || "") || SortUtil.ascSort(a.minlvl || 0, b.minlvl || 0) || SortUtil.ascSort(a.maxlvl || Number.MAX_SAFE_INTEGER, b.maxlvl || Number.MAX_SAFE_INTEGER);
-	},
+	}
 
-	_ITEM_RARITY_ORDER: ["none", "common", "uncommon", "rare", "very rare", "legendary", "artifact", "varies", "unknown (magic)", "unknown"],
-	ascSortItemRarity (a, b) {
+	static _ITEM_RARITY_ORDER = ["none", "common", "uncommon", "rare", "very rare", "legendary", "artifact", "varies", "unknown (magic)", "unknown"];
+	static ascSortItemRarity (a, b) {
 		const ixA = SortUtil._ITEM_RARITY_ORDER.indexOf(a);
 		const ixB = SortUtil._ITEM_RARITY_ORDER.indexOf(b);
 		return (~ixA ? ixA : Number.MAX_SAFE_INTEGER) - (~ixB ? ixB : Number.MAX_SAFE_INTEGER);
-	},
+	}
 };
 
 globalThis.MultiSourceUtil = class {
@@ -5312,8 +5356,9 @@ globalThis.DataUtil = class {
 				return new RegExp(replace, `g${flags || ""}`);
 			}
 
-			static _doReplaceStringHandler ({re, withStr}, str) {
-				// TODO(Future) may need to have this handle replaces inside _some_ tags
+			static _doReplaceStringHandler ({re, withStr, isTagInsensitive = false}, str) {
+				if (isTagInsensitive) return str.replace(re, withStr);
+
 				const split = Renderer.splitByTags(str);
 				const len = split.length;
 				for (let i = 0; i < len; ++i) {
@@ -5335,7 +5380,7 @@ globalThis.DataUtil = class {
 
 				DataUtil.generic._walker_replaceTxt = DataUtil.generic._walker_replaceTxt || MiscUtil.getWalker();
 				const re = this._getRegexFromReplaceModInfo({replace: modInfo.replace, flags: modInfo.flags});
-				const handlers = {string: this._doReplaceStringHandler.bind(null, {re: re, withStr: modInfo.with})};
+				const handlers = {string: this._doReplaceStringHandler.bind(null, {re: re, withStr: modInfo.with, isTagInsensitive: modInfo.tagInsensitive})};
 
 				ents.forEach(ent => {
 					if (ent.name) ent.name = DataUtil.generic._walker_replaceTxt.walk(ent.name, handlers);
@@ -5348,7 +5393,7 @@ globalThis.DataUtil = class {
 
 				DataUtil.generic._walker_replaceTxt = DataUtil.generic._walker_replaceTxt || MiscUtil.getWalker();
 				const re = this._getRegexFromReplaceModInfo({replace: modInfo.replace, flags: modInfo.flags});
-				const handlers = {string: this._doReplaceStringHandler.bind(null, {re: re, withStr: modInfo.with})};
+				const handlers = {string: this._doReplaceStringHandler.bind(null, {re: re, withStr: modInfo.with, isTagInsensitive: modInfo.tagInsensitive})};
 
 				const props = modInfo.props || [null, "entries", "headerEntries", "footerEntries"];
 				if (!props.length) return;
@@ -5585,8 +5630,12 @@ globalThis.DataUtil = class {
 			static _doMod_addSpells ({copyTo, copyFrom, modInfo, msgPtFailed}) {
 				if (!copyTo.spellcasting) throw new Error(`${msgPtFailed} Creature did not have a spellcasting property!`);
 
-				// TODO could accept a "position" or "name" parameter should spells need to be added to other spellcasting traits
-				const spellcasting = copyTo.spellcasting[0];
+				// TODO could accept a "position" parameter should spells need to be added to other spellcasting traits
+				const spellcasting = modInfo.name
+					? copyTo.spellcasting.find(ent => ent.name === modInfo.name)
+					: copyTo.spellcasting[0];
+
+				if (modInfo.name && !spellcasting) throw new Error(`${msgPtFailed} Creature did not have spellcasting trait named "${modInfo.name}"!`);
 
 				if (modInfo.spells) {
 					const spells = spellcasting.spells;
@@ -5864,6 +5913,15 @@ globalThis.DataUtil = class {
 				else this._doMod_handleProp({copyTo, copyFrom, modInfos, msgPtFailed});
 			}
 
+			static _PROPS_TAIL = [
+				"_",
+				"*",
+			];
+
+			static _sortProps (propA, propB) {
+				return SortUtil.ascSort(this._PROPS_TAIL.indexOf(propA), this._PROPS_TAIL.indexOf(propB));
+			}
+
 			static getCopy (impl, copyFrom, copyTo, templates, {isExternalApplicationKeepCopy = false, isExternalApplicationIdentityOnly = false} = {}) {
 				this._WALKER ||= MiscUtil.getWalker();
 
@@ -5952,11 +6010,13 @@ globalThis.DataUtil = class {
 						copyMeta._mod[k] = DataUtil.generic.variableResolver.resolve({obj: v, ent: copyTo});
 					});
 
-					Object.entries(copyMeta._mod).forEach(([prop, modInfos]) => {
-						if (prop === "*") this._doMod({copyTo, copyFrom, modInfos, props: DataUtil.generic.COPY_ENTRY_PROPS, msgPtFailed, isExternalApplicationIdentityOnly});
-						else if (prop === "_") this._doMod({copyTo, copyFrom, modInfos, msgPtFailed, isExternalApplicationIdentityOnly});
-						else this._doMod({copyTo, copyFrom, modInfos, props: [prop], msgPtFailed, isExternalApplicationIdentityOnly});
-					});
+					Object.entries(copyMeta._mod)
+						.sort(([propA], [propB]) => this._sortProps(propA, propB))
+						.forEach(([prop, modInfos]) => {
+							if (prop === "*") this._doMod({copyTo, copyFrom, modInfos, props: DataUtil.generic.COPY_ENTRY_PROPS, msgPtFailed, isExternalApplicationIdentityOnly});
+							else if (prop === "_") this._doMod({copyTo, copyFrom, modInfos, msgPtFailed, isExternalApplicationIdentityOnly});
+							else this._doMod({copyTo, copyFrom, modInfos, props: [prop], msgPtFailed, isExternalApplicationIdentityOnly});
+						});
 				}
 
 				// add filter tag
@@ -7668,7 +7728,7 @@ globalThis.RollerUtil = {
 };
 RollerUtil.DICE_REGEX = new RegExp(RollerUtil._DICE_REGEX_STR, "g");
 RollerUtil.DICE_REGEX_FULLMATCH = new RegExp(`^\\s*${RollerUtil._DICE_REGEX_STR}\\s*$`);
-RollerUtil.REGEX_DAMAGE_DICE = /(?<average>\d+)(?<prefix> \((?:{@dice |{@damage ))(?<diceExp>[-+0-9d ]*)(?<suffix>}\)(?:\s*\+\s*the spell's level)? [a-z]+( \([-a-zA-Z0-9 ]+\))?( or [a-z]+( \([-a-zA-Z0-9 ]+\))?)? damage)/gi;
+RollerUtil.REGEX_DAMAGE_DICE = /(?<average>\d+)(?<prefix> \((?:{@dice |{@damage ))(?<diceExp>[-+0-9d ]*)(?<suffix>}\)(?:\s*\+\s*the spell's level)?(?: magic(?:al)?)? [a-z]+( \([-a-zA-Z0-9 ]+\))?( or [a-z]+( \([-a-zA-Z0-9 ]+\))?)? damage)/gi;
 RollerUtil.REGEX_DAMAGE_FLAT = /(?<prefix>Hit(?: or Miss)?: |Miss: |{@hom}|{@h}|{@m})(?<flatVal>[0-9]+)(?<suffix> [a-z]+( \([-a-zA-Z0-9 ]+\))?( or [a-z]+( \([-a-zA-Z0-9 ]+\))?)? damage)/gi;
 RollerUtil._REGEX_ROLLABLE_COL_LABEL = /^(.*?\d)(\s*[-+/*^×÷]\s*)([a-zA-Z0-9 ]+)$/;
 RollerUtil._REGEX_ROLLABLE_COL_TRAILING_VARIABLE = /^(.*?\d)(\s*[-+/*^×÷]\s*)(#\$.*?\$#)$/;
@@ -8434,6 +8494,17 @@ Array.prototype.getNext || Object.defineProperty(Array.prototype, "getNext", {
 	},
 });
 
+Array.prototype.getPrevious || Object.defineProperty(Array.prototype, "getPrevious", {
+	enumerable: false,
+	writable: true,
+	value: function (curVal) {
+		let ix = this.indexOf(curVal);
+		if (!~ix) throw new Error("Value was not in array!");
+		if (--ix < 0) ix = this.length - 1;
+		return this[ix];
+	},
+});
+
 // See: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
 Array.prototype.shuffle || Object.defineProperty(Array.prototype, "shuffle", {
 	enumerable: false,
@@ -8588,6 +8659,16 @@ Array.prototype.prevWrap || Object.defineProperty(Array.prototype, "prevWrap", {
 			if (ix - 1 >= 0) return this[ix - 1];
 			else return this.at(-1);
 		} else return this[0];
+	},
+});
+
+Array.prototype.rotateRight || Object.defineProperty(Array.prototype, "rotateRight", {
+	enumerable: false,
+	writable: true,
+	value: function (n) {
+		n = n % this.length;
+		this.unshift.apply(this, this.splice(n, this.length));
+		return this;
 	},
 });
 
@@ -8838,6 +8919,7 @@ globalThis.ExcludeUtil = class {
 	static _lock = null;
 
 	static async pInitialise ({lockToken = null} = {}) {
+		if (ExcludeUtil.isInitialised) return;
 		try {
 			await ExcludeUtil._lock.pLock({token: lockToken});
 			await ExcludeUtil._pInitialise();
@@ -8854,6 +8936,7 @@ globalThis.ExcludeUtil = class {
 			ExcludeUtil._excludes = ExcludeUtil._getValidExcludes(
 				await StorageUtil.pGet(VeCt.STORAGE_EXCLUDES) || [],
 			);
+			this._doBuildCache();
 		} catch (e) {
 			JqueryUtil.doToast({
 				content: "Error when loading content blocklist! Purged blocklist data. (See the log for more information.)",
@@ -8899,6 +8982,7 @@ globalThis.ExcludeUtil = class {
 	static async pExtendList (toAdd) {
 		try {
 			const lockToken = await ExcludeUtil._lock.pLock();
+			await ExcludeUtil.pInitialise({lockToken});
 			await ExcludeUtil._pExtendList({toAdd, lockToken});
 		} finally {
 			ExcludeUtil._lock.unlock();

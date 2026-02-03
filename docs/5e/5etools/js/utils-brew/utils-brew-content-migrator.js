@@ -1,5 +1,17 @@
 export class BrewDocContentMigrator {
+	static _IS_INIT = false;
+
+	static async pInit () {
+		if (this._IS_INIT) return;
+		await Renderer.redirect.pInit();
+		this._IS_INIT = true;
+	}
+
+	/* ----- */
+
 	static mutMakeCompatible (json) {
+		if (!this._IS_INIT) throw new Error(`Homebrew migrator was not initialized!`);
+
 		this._mutMakeCompatible_item(json);
 		this._mutMakeCompatible_race(json);
 		this._mutMakeCompatible_monster(json);
@@ -96,6 +108,12 @@ export class BrewDocContentMigrator {
 
 	static _MIN_SUBCLASS_FEATURE_LEVEL = 3; // 2024+ classes all gain initial subclass features at level 3
 
+	static _isOneToCopySubclass (sc) {
+		if (sc.source !== Parser.SRC_XPHB && sc.classSource === Parser.SRC_PHB) return true;
+		if (sc.className === "Artificer" && sc.source !== Parser.SRC_EFA && sc.classSource === Parser.SRC_TCE) return true;
+		return false;
+	}
+
 	/**
 	 * @since 2024-09-20
 	 * Copy subclasses (and subclass features, if they are below level 3) from reprinted 2014-era classes to
@@ -105,7 +123,7 @@ export class BrewDocContentMigrator {
 	 * breaks if referenced `subclassFeature` is missing in the brew.
 	 */
 	static _mutMakeCompatible_subclass_oneSubclassCopies (json) {
-		const hasCopies = (json.subclass || []).some(sc => sc.source !== Parser.SRC_XPHB && sc.classSource === Parser.SRC_PHB);
+		const hasCopies = (json.subclass || []).some(sc => this._isOneToCopySubclass(sc));
 		if (!hasCopies) return false;
 
 		const internalCopies = MiscUtil.getOrSet(json, "_meta", "internalCopies", []);
@@ -116,10 +134,11 @@ export class BrewDocContentMigrator {
 		const depsSubclass = new Set();
 
 		json.subclass
-			.filter(sc => sc.source !== Parser.SRC_XPHB && sc.classSource === Parser.SRC_PHB)
+			.filter(sc => this._isOneToCopySubclass(sc))
 			.forEach(sc => {
+				const classSource = sc.className === "Artificer" ? Parser.SRC_EFA : Parser.SRC_XPHB;
 				const scNxt = {
-					classSource: Parser.SRC_XPHB,
+					classSource,
 				};
 				this._PROPS_SUBCLASS_MAINTAIN.forEach(prop => scNxt[prop] = MiscUtil.copyFast(sc[prop]));
 				scNxt._copy = {
@@ -179,7 +198,7 @@ export class BrewDocContentMigrator {
 							}
 
 							const scfNxt = {
-								classSource: Parser.SRC_XPHB,
+								classSource,
 								level: this._MIN_SUBCLASS_FEATURE_LEVEL,
 							};
 							this._PROPS_SUBCLASS_FEATURE_MAINTAIN.forEach(prop => scfNxt[prop] = MiscUtil.copyFast(unpacked[prop]));
@@ -230,9 +249,12 @@ export class BrewDocContentMigrator {
 			.filter(uid => typeof uid === "string")
 			.map(it => it.trim())
 			.filter(Boolean)
-			.map(uid => DataUtil.proxy.unpackUid("spell", uid, "spell", {isLower: true}))
-			.filter(unpacked => unpacked.source === Parser.SRC_PHB.toLowerCase())
-			.map(unpacked => DataUtil.proxy.getUid("spell", {...unpacked, source: Parser.SRC_XPHB}));
+			.map(uid => {
+				const redirect = Renderer.redirect.getRedirectByUid("spell", uid);
+				if (!redirect) return null;
+				return DataUtil.proxy.getUid("spell", redirect);
+			})
+			.filter(Boolean);
 	}
 
 	/**
@@ -291,18 +313,26 @@ export class BrewDocContentMigrator {
 				if (!ent?.classes?.[prop]?.length) return;
 
 				const phbNames = {};
+				const tceNames = {};
 				const xphbNames = {};
+				const efaNames = {};
 
 				ent.classes[prop]
 					.forEach(classMeta => {
 						if (classMeta.source === Parser.SRC_PHB) phbNames[classMeta.name] = classMeta;
+						if (classMeta.name === "Artificer" && classMeta.source === Parser.SRC_TCE) tceNames[classMeta.name] = classMeta;
+
 						if (classMeta.source === Parser.SRC_XPHB) xphbNames[classMeta.name] = true;
+						if (classMeta.name === "Artificer" && classMeta.source === Parser.SRC_EFA) efaNames[classMeta.name] = true;
 					});
 
-				Object.keys(xphbNames).forEach(name => delete xphbNames[name]);
+				Object.keys(xphbNames).forEach(name => delete phbNames[name]);
+				Object.keys(efaNames).forEach(name => delete tceNames[name]);
 
 				Object.values(phbNames)
 					.forEach(classMeta => ent.classes[prop].push({...classMeta, source: Parser.SRC_XPHB}));
+				Object.values(tceNames)
+					.forEach(classMeta => ent.classes[prop].push({...classMeta, source: Parser.SRC_EFA}));
 			});
 	}
 }

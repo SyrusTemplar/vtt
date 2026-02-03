@@ -122,6 +122,9 @@
 				"entries": [
 					"You have a {=bonusAc} bonus to AC while wearing this armor."
 				],
+				"classFeatures": [
+					"replicate magic item|artificer|efa|2|efa"
+				],
 				"lootTables": [
 					"Armaments - Rare|XDMG",
 					"Relics - Rare|XDMG"
@@ -183,6 +186,9 @@
 				"entries": [
 					"While holding this Shield, you have a {=bonusAc} bonus to {@variantrule Armor Class|XPHB}, in addition to the Shield's normal bonus to AC."
 				],
+				"classFeatures": [
+					"replicate magic item|artificer|efa|2|efa"
+				],
 				"lootTables": [
 					"Armaments - Uncommon|XDMG"
 				]
@@ -238,6 +244,9 @@
 				"bonusWeapon": "+1",
 				"entries": [
 					"You have a {=bonusWeapon} bonus to attack and damage rolls made with this magic weapon."
+				],
+				"classFeatures": [
+					"replicate magic item|artificer|efa|2|efa"
 				],
 				"lootTables": [
 					"Armaments - Uncommon|XDMG"
@@ -386,6 +395,9 @@
 				"entries": [
 					"You have a {=bonusAc} bonus to AC while wearing this armor."
 				],
+				"classFeatures": [
+					"replicate magic item|artificer|efa|2|efa"
+				],
 				"lootTables": [
 					"Armaments - Very Rare|XDMG",
 					"Relics - Very Rare|XDMG"
@@ -447,6 +459,9 @@
 				"entries": [
 					"While holding this Shield, you have a {=bonusAc} bonus to {@variantrule Armor Class|XPHB}, in addition to the Shield's normal bonus to AC."
 				],
+				"classFeatures": [
+					"replicate magic item|artificer|efa|2|efa"
+				],
 				"lootTables": [
 					"Armaments - Rare|XDMG"
 				]
@@ -502,6 +517,9 @@
 				"bonusWeapon": "+2",
 				"entries": [
 					"You have a {=bonusWeapon} bonus to attack and damage rolls made with this magic weapon."
+				],
+				"classFeatures": [
+					"replicate magic item|artificer|efa|2|efa"
 				],
 				"lootTables": [
 					"Armaments - Rare|XDMG"
@@ -2586,6 +2604,42 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Dazzling Weapon",
+			"type": "GV|XDMG",
+			"requires": [
+				{
+					"weaponCategory": "simple"
+				},
+				{
+					"weaponCategory": "martial"
+				}
+			],
+			"inherits": {
+				"namePrefix": "Dazzling ",
+				"source": "EFA",
+				"page": 112,
+				"rarity": "rare",
+				"reqAttune": true,
+				"bonusWeapon": "+1",
+				"recharge": "dawn",
+				"rechargeAmount": "{@dice 1d4}",
+				"charges": 4,
+				"entries": [
+					"This magic weapon grants a {=bonusWeapon} bonus to attack and damage rolls made with it. While holding it, you can take a {@variantrule Bonus Action|XPHB} to cause it to shed {@variantrule Bright Light|XPHB} in a 30-foot radius and {@variantrule Dim Light|XPHB} for an additional 30 feet. You can extinguish the light as a {@variantrule Bonus Action|XPHB}.",
+					"The weapon has 4 charges. You can take a {@variantrule Reaction|XPHB} immediately after being hit by an attack roll to expend 1 of the weapon's charges and force the attacker to make a DC 15 Constitution saving throw. On a failed save, the attacker has the {@condition Blinded|XPHB} condition until the end of its next turn. The weapon regains {@dice 1d4} expended charges daily at dawn."
+				],
+				"light": [
+					{
+						"bright": 30,
+						"dim": 60
+					}
+				],
+				"classFeatures": [
+					"replicate magic item|artificer|efa|2|efa"
+				]
+			}
+		},
+		{
 			"name": "Defender",
 			"edition": "classic",
 			"type": "GV|DMG",
@@ -2668,6 +2722,7 @@
 				"rarity": "very rare",
 				"reqAttune": true,
 				"curse": true,
+				"grantsLanguage": true,
 				"bonusWeapon": "+1",
 				"bonusAc": "+1",
 				"entries": [
@@ -3069,6 +3124,7 @@
 				],
 				"rarity": "legendary",
 				"reqAttune": true,
+				"grantsLanguage": true,
 				"bonusAc": "+3",
 				"entries": [
 					"While wearing this armor, you gain a {=bonusAc} bonus to {@variantrule Armor Class|XPHB}, you have {@variantrule Immunity|XPHB} to Fire damage, and you know Primordial. In addition, you can stand on and move across molten rock as if it were solid ground."
@@ -3103,6 +3159,9 @@
 				"bonusAc": "+1",
 				"entries": [
 					"You gain a {=bonusAc} bonus to {@variantrule Armor Class|XPHB} while you wear this armor. You are considered trained with this armor even if you lack training with Medium or Heavy armor."
+				],
+				"classFeatures": [
+					"replicate magic item|artificer|efa|2|efa"
 				],
 				"lootTables": [
 					"Armaments - Rare|XDMG"
@@ -3827,6 +3886,9 @@
 						"bright": 40,
 						"dim": 80
 					}
+				],
+				"classFeatures": [
+					"replicate magic item|artificer|efa|2|efa"
 				],
 				"lootTables": [
 					"Armaments - Rare|XDMG"
@@ -5146,7 +5208,7 @@
 						"type": "entries",
 						"name": "Minor Property",
 						"entries": [
-							"In addition to its aforementioned properties, each Moonblade has a minor property determined by rolling on the {@action Magic|XPHB} Item's Minor Property table."
+							"In addition to its aforementioned properties, each Moonblade has a minor property determined by rolling on the Magic Item's Minor Property table."
 						]
 					},
 					{
@@ -5313,52 +5375,6 @@
 				]
 			},
 			"hasFluffImages": true
-		},
-		{
-			"name": "Oceanic Weapon",
-			"type": "GV|DMG",
-			"requires": [
-				{
-					"type": "R"
-				},
-				{
-					"property": "T"
-				},
-				{
-					"type": "R|XPHB"
-				},
-				{
-					"property": "T|XPHB"
-				}
-			],
-			"excludes": {
-				"net": true
-			},
-			"inherits": {
-				"namePrefix": "Oceanic ",
-				"source": "TDCSR",
-				"page": 199,
-				"rarity": "rare",
-				"reqAttune": true,
-				"bonusWeapon": "+1",
-				"modifySpeed": {
-					"static": {
-						"swim": 30
-					}
-				},
-				"recharge": "dawn",
-				"entries": [
-					"This elegant weapon is adorned with engravings depicting leaping dolphins and drifting jellyfish. You gain a {=bonusWeapon} bonus to attack and damage rolls made with this magic weapon, and you ignore {@quickref Underwater Combat|PHB|3|0|the normal penalties on ranged weapon attacks while using this weapon underwater}. While holding the weapon in front of you with both hands, you have a swimming speed of 30 feet.",
-					"Additionally, while you hold the weapon, you can use an action to cast the {@spell water breathing} spell. Once this property is used, it can't be used again until the next dawn."
-				],
-				"attachedSpells": {
-					"daily": {
-						"1e": [
-							"water breathing"
-						]
-					}
-				}
-			}
 		},
 		{
 			"name": "Orb of Shielding (Fernian Basalt)",
@@ -5783,6 +5799,62 @@
 							"This weapon is cursed, and becoming attuned to it extends the curse to you. Until the curse is broken with a {@spell remove curse} spell or similar magic, you are unwilling to part with the weapon. Whenever you attack a creature with this weapon and roll a 1 on the attack roll, you suffer the effect of a {@spell polymorph} spell for 1 hour, rolling on the table to determine your new form."
 						]
 					}
+				]
+			}
+		},
+		{
+			"name": "Repeating Shot",
+			"type": "GV|XDMG",
+			"requires": [
+				{
+					"weaponCategory": "simple",
+					"property": "A|XPHB"
+				},
+				{
+					"weaponCategory": "martial",
+					"property": "A|XPHB"
+				}
+			],
+			"inherits": {
+				"namePrefix": "Repeating ",
+				"source": "EFA",
+				"page": 112,
+				"rarity": "uncommon",
+				"reqAttune": true,
+				"bonusWeapon": "+1",
+				"entries": [
+					"This magic weapon grants a {=bonusWeapon} bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the {@itemProperty LD|XPHB|Loading} property if it has that property.",
+					"If the weapon lacks ammunition, it produces its own, automatically creating one piece of magic ammunition when the wielder makes a ranged attack roll with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target."
+				],
+				"classFeatures": [
+					"replicate magic item|artificer|efa|2|efa"
+				]
+			}
+		},
+		{
+			"name": "Returning Weapon",
+			"type": "GV|XDMG",
+			"requires": [
+				{
+					"weaponCategory": "simple",
+					"property": "T|XPHB"
+				},
+				{
+					"weaponCategory": "martial",
+					"property": "T|XPHB"
+				}
+			],
+			"inherits": {
+				"namePrefix": "Returning ",
+				"source": "EFA",
+				"page": 112,
+				"rarity": "uncommon",
+				"bonusWeapon": "+1",
+				"entries": [
+					"This magic weapon grants a {=bonusWeapon} bonus to attack and damage rolls made with it, and it returns to your hand immediately after you use it to make a ranged attack roll."
+				],
+				"classFeatures": [
+					"replicate magic item|artificer|efa|2|efa"
 				]
 			}
 		},
@@ -7011,6 +7083,9 @@
 							"Each subject has {@variantrule Advantage|XPHB} on its {@variantrule Initiative|XPHB} rolls."
 						]
 					}
+				],
+				"classFeatures": [
+					"replicate magic item|artificer|efa|2|efa"
 				],
 				"lootTables": [
 					"Armaments - Uncommon|XDMG"

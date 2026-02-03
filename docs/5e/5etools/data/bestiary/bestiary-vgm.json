@@ -198,6 +198,11 @@
 			"name": "Alhoon",
 			"source": "VGM",
 			"page": 172,
+			"otherSources": [
+				{
+					"source": "TLK"
+				}
+			],
 			"reprintedAs": [
 				"Alhoon|MPMM"
 			],
@@ -1154,6 +1159,12 @@
 				},
 				{
 					"source": "ERLW"
+				},
+				{
+					"source": "TLK"
+				},
+				{
+					"source": "AZfyT"
 				}
 			],
 			"reprintedAs": [
@@ -1914,7 +1925,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in dim light or darkness, the banderhobb can take the Hide action as a bonus action."
+						"While in dim light or darkness, the banderhobb can take the {@action Hide} action as a bonus action."
 					]
 				}
 			],
@@ -4240,6 +4251,9 @@
 				},
 				{
 					"source": "ToA"
+				},
+				{
+					"source": "GoS"
 				}
 			],
 			"reprintedAs": [
@@ -5850,6 +5864,9 @@
 				{
 					"source": "PSX",
 					"page": 30
+				},
+				{
+					"source": "XMtS"
 				}
 			],
 			"reprintedAs": [
@@ -6071,6 +6088,9 @@
 			"otherSources": [
 				{
 					"source": "ToA"
+				},
+				{
+					"source": "TTP"
 				}
 			],
 			"reprintedAs": [
@@ -6330,6 +6350,9 @@
 			"otherSources": [
 				{
 					"source": "GoS"
+				},
+				{
+					"source": "TTP"
 				}
 			],
 			"reprintedAs": [
@@ -6976,6 +6999,9 @@
 				},
 				{
 					"source": "ERLW"
+				},
+				{
+					"source": "LLK"
 				}
 			],
 			"reprintedAs": [
@@ -7575,6 +7601,9 @@
 				},
 				{
 					"source": "SLW"
+				},
+				{
+					"source": "TTP"
 				}
 			],
 			"reprintedAs": [
@@ -7631,21 +7660,18 @@
 							"style": "list-hang-notitle",
 							"items": [
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "1\u20132",
-									"style": "italic",
 									"entry": "If the spell affects an area or has multiple targets, it fails and has no effect. If the spell targets only the snail, it has no effect on the snail and is reflected back at the caster, using the spell slot level, spell save DC, attack bonus, and spellcasting ability of the caster."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "3\u20134",
-									"style": "italic",
 									"entry": "No additional effect."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "5\u20136",
-									"style": "italic",
 									"entry": "The snail's shell converts some of the spell's energy into a burst of destructive force. Each creature within 30 feet of the snail must make a {@dc 15} Constitution saving throw, taking {@damage 1d6} force damage per level of the spell on a failed save, or half as much damage on a successful one."
 								}
 							]
@@ -7871,6 +7897,9 @@
 			"otherSources": [
 				{
 					"source": "ToA"
+				},
+				{
+					"source": "LLK"
 				}
 			],
 			"reprintedAs": [
@@ -8239,39 +8268,33 @@
 							"style": "list-hang-notitle",
 							"items": [
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "1. Devour Magic Ray",
-									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 14} Dexterity saving throw or have one of its magic items lose all magical properties until the start of the gauth's next turn. If the object is a charged item, it also loses {@dice 1d4} charges. Determine the affected item randomly, ignoring single-use items such as potions and scrolls."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "2. Enervation Ray",
-									"style": "italic",
 									"entry": "The targeted creature must make a {@dc 14} Constitution saving throw, taking 18 ({@damage 4d8}) necrotic damage on a failed save, or half as much damage on a successful one."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "3. Pushing Ray",
-									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 14} Strength saving throw or be pushed up to 15 feet directly away from the gauth and have its speed halved until the start of the gauth's next turn."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "4. Fire Ray",
-									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 14} Dexterity saving throw or take 22 ({@damage 4d10}) fire damage."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "5. Paralyzing Ray",
-									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 14} Constitution saving throw or be {@condition paralyzed} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "6. Sleep Ray",
-									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 14} Wisdom saving throw or fall asleep and remain {@condition unconscious} for 1 minute. The target awakens if it takes damage or another creature takes an action to wake it. This ray has no effect on constructs and undead."
 								}
 							]
@@ -8303,6 +8326,7 @@
 				"P"
 			],
 			"miscTags": [
+				"AOE",
 				"MW"
 			],
 			"conditionInflict": [
@@ -8409,27 +8433,23 @@
 							"style": "list-hang-notitle",
 							"items": [
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "1. Dazing Ray",
-									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 12} Wisdom saving throw or be {@condition charmed} until the start of the gazer's next turn. While the target is {@condition charmed} in this way, its speed is halved, and it has disadvantage on attack rolls."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "2. Fear Ray",
-									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 12} Wisdom saving throw or be {@condition frightened} until the start of the gazer's next turn."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "3. Frost Ray",
-									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 12} Dexterity saving throw or take 10 ({@damage 3d6}) cold damage."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "4. Telekinetic Ray",
-									"style": "italic",
 									"entries": [
 										"If the target is a creature that is Medium or smaller, it must succeed on a {@dc 12} Strength saving throw or be moved up to 30 feet directly away from the gazer.",
 										"If the target is an object weighing 10 pounds or less that isn't being worn or carried, the gazer moves it up to 30 feet in any direction. The gazer can also exert fine control on objects with this ray, such as manipulating a simple tool or opening a container."
@@ -11450,6 +11470,9 @@
 			"otherSources": [
 				{
 					"source": "ToA"
+				},
+				{
+					"source": "LLK"
 				}
 			],
 			"reprintedAs": [
@@ -11532,51 +11555,43 @@
 							"style": "list-hang-notitle",
 							"items": [
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "1. Acid",
-									"style": "italic",
 									"entry": "The kobold hurls a flask of {@item Acid (vial)|phb|acid}. {@atk rw} {@hit 4} to hit, range 5/20 ft., one target. {@h}7 ({@damage 2d6}) acid damage."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "2. Alchemist's fire",
-									"style": "italic",
 									"entry": "The kobold throws a flask of {@item Alchemist's Fire (flask)|phb|alchemist's fire}. {@atk rw} {@hit 4} to hit, range 5/20 ft., one target. {@h}2 ({@damage 1d4}) fire damage at the start of each of the target's turns. A creature can end this damage by using its action to make a {@dc 10} Dexterity check to extinguish the flames."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "3. Basket of Centipedes",
-									"style": "italic",
 									"entry": "The kobold throws a small basket into a 5-foot-square space within 20 feet of it. A {@creature swarm of centipedes||swarm of insects (centipedes)} with 11 hit points emerges from the basket and rolls initiative. At the end of each of the swarm's turns, there's a {@chance 50} chance that the swarm disperses."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "4. Green Slime Pot",
-									"style": "italic",
 									"entry": "The kobold throws a clay pot full of green slime at the target, and it breaks open on impact. {@atk rw} {@hit 4} to hit, range 5/20 ft., one target. {@h}The target is covered in a patch of {@hazard green slime} (see chapter 5 of the Dungeon Master's Guide). Miss: A patch of green slime covers a randomly determined 5-foot-square section of wall or floor within 5 feet of the target."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "5. Rot Grub Pot",
-									"style": "italic",
 									"entry": "The kobold throws a clay pot into a 5-foot-square space within 20 feet of it, and it breaks open on impact. A {@creature swarm of rot grubs|vgm} (see appendix A) emerges from the shattered pot and remains a hazard in that square."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "6. Scorpion on a Stick",
-									"style": "italic",
 									"entry": "The kobold makes a melee attack with a scorpion tied to the end of a 5-foot-long pole. {@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}1 piercing damage, and the target must make a {@dc 9} Constitution saving throw, taking 4 ({@damage 1d8}) poison damage on a failed save, or half as much damage on a successful one."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "7. Skunk in a Cage",
-									"style": "italic",
 									"entry": "The kobold releases a skunk into an unoccupied space within 5 feet of it. The skunk has a walking speed of 20 feet, AC 10, 1 hit point, and no effective attacks. It rolls initiative and, on its turn, uses its action to spray musk at a random creature within 5 feet of it. The target must make a {@dc 9} Constitution saving throw. On a failed save, the target retches and can't take actions for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. A creature that doesn't need to breathe or is immune to poison automatically succeeds on the saving throw. Once the skunk has sprayed its musk, it can't do so again until it finishes a short or long rest."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "8. Wasp Nest in a Bag",
-									"style": "italic",
 									"entry": "The kobold throws a small bag into a 5-foot-square space within 20 feet of it. A {@creature swarm of wasps||swarm of insects (wasps)} with 11 hit points emerges from the bag and rolls initiative. At the end of each of the swarm's turns, there's a {@chance 50} chance that the swarm disperses."
 								}
 							]
@@ -12231,7 +12246,7 @@
 				{
 					"name": "Kicking Retreat",
 					"entries": [
-						"If the leucrotta attacks with its hooves, it can take the Disengage action as a bonus action."
+						"If the leucrotta attacks with its hooves, it can take the {@action Disengage} action as a bonus action."
 					]
 				},
 				{
@@ -12314,6 +12329,9 @@
 				},
 				{
 					"source": "ToA"
+				},
+				{
+					"source": "LLK"
 				}
 			],
 			"reprintedAs": [
@@ -12459,6 +12477,9 @@
 				},
 				{
 					"source": "MOT"
+				},
+				{
+					"source": "TLK"
 				}
 			],
 			"reprintedAs": [
@@ -12517,7 +12538,7 @@
 				{
 					"name": "Cunning Action",
 					"entries": [
-						"On each of its turns, the thief can use a bonus action to take the Dash, Disengage, or Hide action."
+						"On each of its turns, the thief can use a bonus action to take the {@action Dash}, {@action Disengage}, or {@action Hide} action."
 					]
 				},
 				{
@@ -13132,39 +13153,33 @@
 							"style": "list-hang-notitle",
 							"items": [
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "1. Aversion Ray",
-									"style": "italic",
 									"entry": "The targeted creature must make a {@dc 13} Charisma saving throw. On a failed save, the target has disadvantage on attack rolls for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "2. Fear Ray",
-									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 13} Wisdom saving throw or be {@condition frightened} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "3. Psychic Ray",
-									"style": "italic",
 									"entry": "The target must succeed on a {@dc 13} Intelligence saving throw or take 27 ({@damage 6d8}) psychic damage."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "4. Slowing Ray",
-									"style": "italic",
 									"entry": "The targeted creature must make a {@dc 13} Dexterity saving throw. On a failed save, the target's speed is halved for 1 minute. In addition, the creature can't take reactions, and it can take either an action or a bonus action on its turn but not both. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "5. Stunning Ray",
-									"style": "italic",
 									"entry": "The targeted creature must succeed on a {@dc 13} Constitution saving throw or be {@condition stunned} for 1 minute. The target can repeat the saving throw at the start of each of its turns, ending the effect on itself on a success."
 								},
 								{
-									"type": "item",
+									"type": "itemSub",
 									"name": "6. Telekinetic Ray",
-									"style": "italic",
 									"entries": [
 										"If the target is a creature, it must make a {@dc 13} Strength saving throw. On a failed save, the mindwitness moves it up to 30 feet in any direction, and it is {@condition restrained} by the ray's telekinetic grip until the start of the mindwitness's next turn or until the mindwitness is {@condition incapacitated}.",
 										"If the target is an object weighing 300 pounds or less that isn't being worn or carried, it is telekinetically moved up to 30 feet in any direction. The mindwitness can also exert fine control on objects with this ray, such as manipulating a simple tool or opening a door or a container."
@@ -13386,7 +13401,7 @@
 				{
 					"name": "Hypnosis",
 					"entries": [
-						"The morkoth projects a 30-foot cone of magical energy. Each creature in that area must make a {@dc 17} Wisdom saving throw. On a failed save, the creature is {@condition charmed} by the morkoth for 1 minute. While {@condition charmed} in this way, the target tries to get as close to the morkoth as possible, using its actions to Dash until it is within 5 feet of the morkoth. A {@condition charmed} target can repeat the saving throw at the end of each of its turns and whenever it takes damage, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature has advantage on saving throws against the morkoth's Hypnosis for 24 hours."
+						"The morkoth projects a 30-foot cone of magical energy. Each creature in that area must make a {@dc 17} Wisdom saving throw. On a failed save, the creature is {@condition charmed} by the morkoth for 1 minute. While {@condition charmed} in this way, the target tries to get as close to the morkoth as possible, using its actions to {@action Dash} until it is within 5 feet of the morkoth. A {@condition charmed} target can repeat the saving throw at the end of each of its turns and whenever it takes damage, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature has advantage on saving throws against the morkoth's Hypnosis for 24 hours."
 					]
 				}
 			],
@@ -14414,7 +14429,7 @@
 				{
 					"name": "Nimble Escape",
 					"entries": [
-						"The nilbog can take the Disengage or Hide action as a bonus action on each of its turns."
+						"The nilbog can take the {@action Disengage} or {@action Hide} action as a bonus action on each of its turns."
 					]
 				}
 			],
@@ -15102,7 +15117,7 @@
 				{
 					"name": "Cunning Action",
 					"entries": [
-						"On each of its turns, the orc can use a bonus action to take the Dash, Disengage, or Hide action."
+						"On each of its turns, the orc can use a bonus action to take the {@action Dash}, {@action Disengage}, or {@action Hide} action."
 					]
 				},
 				{
@@ -15278,6 +15293,9 @@
 			"otherSources": [
 				{
 					"source": "ToA"
+				},
+				{
+					"source": "XMtS"
 				}
 			],
 			"reprintedAs": [
@@ -15368,6 +15386,9 @@
 			"otherSources": [
 				{
 					"source": "WBtW"
+				},
+				{
+					"source": "LLK"
 				}
 			],
 			"reprintedAs": [
@@ -16372,7 +16393,7 @@
 				{
 					"name": "Watery Stealth",
 					"entries": [
-						"While underwater, the slithering tracker has advantage on Dexterity ({@skill Stealth}) checks made to hide, and it can take the Hide action as a bonus action."
+						"While underwater, the slithering tracker has advantage on Dexterity ({@skill Stealth}) checks made to hide, and it can take the {@action Hide} action as a bonus action."
 					]
 				}
 			],
@@ -17339,7 +17360,7 @@
 				{
 					"name": "Lightfooted",
 					"entries": [
-						"The swashbuckler can take the Dash or Disengage action as a bonus action on each of its turns."
+						"The swashbuckler can take the {@action Dash} or {@action Disengage} action as a bonus action on each of its turns."
 					]
 				},
 				{
@@ -18623,6 +18644,9 @@
 				{
 					"source": "PSX",
 					"page": 30
+				},
+				{
+					"source": "XMtS"
 				}
 			],
 			"reprintedAs": [
@@ -19949,7 +19973,7 @@
 				{
 					"name": "Low Cunning",
 					"entries": [
-						"The xvart can take the Disengage action as a bonus action on each of its turns."
+						"The xvart can take the {@action Disengage} action as a bonus action on each of its turns."
 					]
 				},
 				{
@@ -20064,7 +20088,7 @@
 				{
 					"name": "Low Cunning",
 					"entries": [
-						"The xvart can take the Disengage action as a bonus action on each of its turns."
+						"The xvart can take the {@action Disengage} action as a bonus action on each of its turns."
 					]
 				},
 				{
@@ -20228,7 +20252,7 @@
 				{
 					"name": "Low Cunning",
 					"entries": [
-						"The xvart can take the Disengage action as a bonus action on each of its turns."
+						"The xvart can take the {@action Disengage} action as a bonus action on each of its turns."
 					]
 				},
 				{

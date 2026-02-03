@@ -940,7 +940,7 @@
 				{
 					"name": "Emergency Speed (2/Day)",
 					"entries": [
-						"The robot takes the Dash or Disengage action."
+						"The robot takes the {@action Dash} or {@action Disengage} action."
 					]
 				}
 			],
@@ -2258,7 +2258,7 @@
 				{
 					"name": "Cunning Trick",
 					"entries": [
-						"The leprechaun takes the Disengage or Hide action or makes a Dexterity ({@skill Sleight of Hand}) check."
+						"The leprechaun takes the {@action Disengage} or {@action Hide} action or makes a Dexterity ({@skill Sleight of Hand}) check."
 					]
 				}
 			],
@@ -3030,6 +3030,7 @@
 			],
 			"miscTags": [
 				"CUR",
+				"HPR",
 				"MW"
 			],
 			"conditionInflict": [
@@ -3147,7 +3148,7 @@
 					"name": "Communal Spellcasting (2/Day)",
 					"type": "spellcasting",
 					"headerEntries": [
-						"The pech works with three or more pechs to cast spells, requiring no spell components and using Wisdom as the spellcasting ability (save {@dc 12}). If at least three other pechs are within 30 feet of it, the pech can cast {@spell Wall of Stone} . If at least seven other pechs are within 30 feet of it, it can cast {@spell Greater Restoration} . Each other pech involved in casting the spell can't have the incapacitated condition and must have at least one use of Communal Spellcasting remaining, which it must immediately expend to participate (no action required)."
+						"The pech works with three or more pechs to cast spells, requiring no spell components and using Wisdom as the spellcasting ability (save {@dc 12}). If at least three other pechs are within 30 feet of it, the pech can cast {@spell Wall of Stone}. If at least seven other pechs are within 30 feet of it, it can cast {@spell Greater Restoration}. Each other pech involved in casting the spell can't have the incapacitated condition and must have at least one use of Communal Spellcasting remaining, which it must immediately expend to participate (no action required)."
 					],
 					"daily": {
 						"2": [
@@ -4356,7 +4357,7 @@
 				{
 					"name": "Nimble Escape",
 					"entries": [
-						"The vegepygmy takes the Disengage or Hide action."
+						"The vegepygmy takes the {@action Disengage} or {@action Hide} action."
 					]
 				}
 			],

@@ -2,38 +2,31 @@ import {
 	PANEL_TYP_EMPTY,
 	PANEL_TYP_STATS,
 	PANEL_TYP_ROLLBOX,
-	PANEL_TYP_TEXTBOX,
 	PANEL_TYP_RULES,
-	PANEL_TYP_UNIT_CONVERTER,
 	PANEL_TYP_CREATURE_SCALED_CR,
 	PANEL_TYP_CREATURE_SCALED_SPELL_SUMMON,
 	PANEL_TYP_CREATURE_SCALED_CLASS_SUMMON,
-	PANEL_TYP_TIME_TRACKER,
-	PANEL_TYP_MONEY_CONVERTER,
 	PANEL_TYP_TUBE,
 	PANEL_TYP_TWITCH,
 	PANEL_TYP_TWITCH_CHAT,
 	PANEL_TYP_ADVENTURES,
 	PANEL_TYP_BOOKS,
-	PANEL_TYP_COUNTER,
 	PANEL_TYP_IMAGE,
-	PANEL_TYP_ADVENTURE_DYNAMIC_MAP,
 	PANEL_TYP_GENERIC_EMBED,
 	PANEL_TYP_ERROR,
 	PANEL_TYP_BLANK,
 } from "./dmscreen/dmscreen-consts.js";
 import {DmMapper} from "./dmscreen/dmscreen-mapper.js";
-import {MoneyConverter} from "./dmscreen/dmscreen-moneyconverter.js";
+import {TimerTrackerMoonSpriteLoader} from "./dmscreen/dmscreen-timetracker.js";
 import {
-	TimerTrackerMoonSpriteLoader,
-	TimeTracker,
-} from "./dmscreen/dmscreen-timetracker.js";
-import {Counter} from "./dmscreen/dmscreen-counter.js";
-import {
+	PanelContentManager_Counter,
 	PanelContentManager_InitiativeTracker,
 	PanelContentManager_InitiativeTrackerCreatureViewer,
 	PanelContentManager_InitiativeTrackerPlayerViewV0,
 	PanelContentManager_InitiativeTrackerPlayerViewV1,
+	PanelContentManager_MoneyConverter,
+	PanelContentManager_NoteBox, PanelContentManager_TimeTracker,
+	PanelContentManager_UnitConverter,
 	PanelContentManagerFactory,
 } from "./dmscreen/dmscreen-panels.js";
 
@@ -449,21 +442,23 @@ class Board {
 
 	doCheckFillSpaces ({isSkipSave = false} = {}) {
 		const panelsToRender = [];
+		let isAnyFilled = false;
 
 		for (let x = 0; x < this.width; x++) {
 			for (let y = 0; y < this.height; ++y) {
 				const pnl = this.getPanel(x, y);
-				if (!pnl) {
-					const nuPnl = new Panel(this, x, y);
-					this.panels[nuPnl.id] = nuPnl;
-					this.fireBoardEvent({type: "panelIdSetActive", payload: {type: nuPnl.type}});
-					panelsToRender.push(nuPnl);
-				}
+				if (pnl) continue;
+
+				isAnyFilled = true;
+				const nuPnl = new Panel(this, x, y);
+				this.panels[nuPnl.id] = nuPnl;
+				this.fireBoardEvent({type: "panelIdSetActive", payload: {type: nuPnl.type}});
+				panelsToRender.push(nuPnl);
 			}
 		}
 
 		panelsToRender.forEach(p => p.render());
-		if (!isSkipSave) this.doSaveStateDebounced();
+		if (!isSkipSave && isAnyFilled) this.doSaveStateDebounced();
 	}
 
 	hasSavedStateUrl () {
@@ -1056,26 +1051,6 @@ class Panel {
 					Renderer.dice.bindDmScreenPanel(panel, saved.r);
 					handleTabRenamed(panel);
 					return panel;
-				case PANEL_TYP_TEXTBOX:
-					panel.doPopulate_TextBox(saved.s.x, saved.r);
-					handleTabRenamed(panel);
-					return panel;
-				case PANEL_TYP_COUNTER:
-					panel.doPopulate_Counter(saved.s, saved.r);
-					handleTabRenamed(panel);
-					return panel;
-				case PANEL_TYP_UNIT_CONVERTER:
-					panel.doPopulate_UnitConverter(saved.s, saved.r);
-					handleTabRenamed(panel);
-					return panel;
-				case PANEL_TYP_MONEY_CONVERTER:
-					panel.doPopulate_MoneyConverter(saved.s, saved.r);
-					handleTabRenamed(panel);
-					return panel;
-				case PANEL_TYP_TIME_TRACKER:
-					panel.doPopulate_TimeTracker(saved.s, saved.r);
-					handleTabRenamed(panel);
-					return panel;
 				case PANEL_TYP_TUBE:
 					panel.doPopulate_YouTube(saved.c.u, saved.r);
 					handleTabRenamed(panel);
@@ -1094,10 +1069,6 @@ class Panel {
 					return panel;
 				case PANEL_TYP_IMAGE:
 					panel.doPopulate_Image(saved.c.u, saved.r);
-					handleTabRenamed(panel);
-					return panel;
-				case PANEL_TYP_ADVENTURE_DYNAMIC_MAP:
-					panel.doPopulate_AdventureBookDynamicMap(saved.s, saved.r);
 					handleTabRenamed(panel);
 					return panel;
 				case PANEL_TYP_ERROR:
@@ -1186,12 +1157,11 @@ class Panel {
 	}
 
 	doPopulate_Loading (message) {
-		return this.set$ContentTab(
-			PANEL_TYP_EMPTY,
-			null,
-			Panel._get$eleLoading(message),
-			TITLE_LOADING,
-		);
+		return this.set$ContentTab({
+			panelType: PANEL_TYP_EMPTY,
+			$content: Panel._get$eleLoading(message),
+			title: TITLE_LOADING,
+		});
 	}
 
 	doPopulate_Stats (page, source, hash, skipSetTab, title) { // FIXME skipSetTab is never used
@@ -1222,15 +1192,15 @@ class Panel {
 			this._stats_bindCrScaleClickHandler(it, meta, $contentInner, $contentStats);
 			this._stats_bindSummonScaleClickHandler(it, meta, $contentInner, $contentStats);
 
-			this.set$Tab(
+			this.set$Tab({
 				ix,
-				PANEL_TYP_STATS,
-				meta,
-				$contentInner,
-				title || it.name,
-				true,
-				!!title,
-			);
+				type: PANEL_TYP_STATS,
+				contentMeta: meta,
+				$content: $contentInner,
+				title: title || it.name,
+				tabCanRename: true,
+				tabRenamed: !!title,
+			});
 		});
 	}
 
@@ -1260,14 +1230,14 @@ class Panel {
 						};
 						if (originalCr) delete nxtMeta.cr;
 
-						self.set$Tab(
-							self.tabIndex,
-							originalCr ? PANEL_TYP_STATS : PANEL_TYP_CREATURE_SCALED_CR,
-							nxtMeta,
-							$contentInner,
-							toRender._displayName || toRender.name,
-							true,
-						);
+						self.set$Tab({
+							ix: self.tabIndex,
+							type: originalCr ? PANEL_TYP_STATS : PANEL_TYP_CREATURE_SCALED_CR,
+							contentMeta: nxtMeta,
+							$content: $contentInner,
+							title: toRender._displayName || toRender.name,
+							tabCanRename: true,
+						});
 					};
 
 					if (originalCr) {
@@ -1281,14 +1251,14 @@ class Panel {
 
 		$contentStats.off("click", ".mon__btn-reset-cr").on("click", ".mon__btn-reset-cr", function () {
 			$contentStats.empty().append(Renderer.monster.getCompactRenderedString(mon, {isShowScalers: true, isScaledCr: false}));
-			self.set$Tab(
-				self.tabIndex,
-				PANEL_TYP_STATS,
-				meta,
-				$contentInner,
-				mon.name,
-				true,
-			);
+			self.set$Tab({
+				ix: self.tabIndex,
+				type: PANEL_TYP_STATS,
+				contentMeta: meta,
+				$content: $contentInner,
+				title: mon.name,
+				tabCanRename: true,
+			});
 		});
 	}
 
@@ -1313,28 +1283,28 @@ class Panel {
 
 							self._stats_doUpdateSummonScaleDropdowns(toRender, $contentStats);
 
-							self.set$Tab(
-								self.tabIndex,
-								PANEL_TYP_CREATURE_SCALED_SPELL_SUMMON,
-								nxtMeta,
-								$contentInner,
-								mon._displayName || mon.name,
-								true,
-							);
+							self.set$Tab({
+								ix: self.tabIndex,
+								type: PANEL_TYP_CREATURE_SCALED_SPELL_SUMMON,
+								contentMeta: nxtMeta,
+								$content: $contentInner,
+								title: mon._displayName || mon.name,
+								tabCanRename: true,
+							});
 						});
 				} else {
 					$contentStats.empty().append(Renderer.monster.getCompactRenderedString(mon, {isShowScalers: true, isScaledCr: false, isScaledSpellSummon: false}));
 
 					self._stats_doUpdateSummonScaleDropdowns(mon, $contentStats);
 
-					self.set$Tab(
-						self.tabIndex,
-						PANEL_TYP_STATS,
-						meta,
-						$contentInner,
-						mon.name,
-						true,
-					);
+					self.set$Tab({
+						ix: self.tabIndex,
+						type: PANEL_TYP_STATS,
+						contentMeta: meta,
+						$content: $contentInner,
+						title: mon.name,
+						tabCanRename: true,
+					});
 				}
 			});
 
@@ -1356,28 +1326,28 @@ class Panel {
 
 							self._stats_doUpdateSummonScaleDropdowns(toRender, $contentStats);
 
-							self.set$Tab(
-								self.tabIndex,
-								PANEL_TYP_CREATURE_SCALED_CLASS_SUMMON,
-								nxtMeta,
-								$contentInner,
-								mon._displayName || mon.name,
-								true,
-							);
+							self.set$Tab({
+								ix: self.tabIndex,
+								type: PANEL_TYP_CREATURE_SCALED_CLASS_SUMMON,
+								contentMeta: nxtMeta,
+								$content: $contentInner,
+								title: mon._displayName || mon.name,
+								tabCanRename: true,
+							});
 						});
 				} else {
 					$contentStats.empty().append(Renderer.monster.getCompactRenderedString(mon, {isShowScalers: true, isScaledCr: false, isScaledClassSummon: false}));
 
 					self._stats_doUpdateSummonScaleDropdowns(mon, $contentStats);
 
-					self.set$Tab(
-						self.tabIndex,
-						PANEL_TYP_STATS,
-						meta,
-						$contentInner,
-						mon.name,
-						true,
-					);
+					self.set$Tab({
+						ix: self.tabIndex,
+						type: PANEL_TYP_STATS,
+						contentMeta: meta,
+						$content: $contentInner,
+						title: mon.name,
+						tabCanRename: true,
+					});
 				}
 			});
 	}
@@ -1410,15 +1380,15 @@ class Panel {
 
 				this._stats_bindCrScaleClickHandler(it, meta, $contentInner, $contentStats);
 
-				this.set$Tab(
-					ix,
-					PANEL_TYP_CREATURE_SCALED_CR,
-					meta,
-					$contentInner,
-					title || initialRender._displayName || initialRender.name,
-					true,
-					!!title,
-				);
+				this.set$Tab({
+					ix: ix,
+					type: PANEL_TYP_CREATURE_SCALED_CR,
+					contentMeta: meta,
+					$content: $contentInner,
+					title: title || initialRender._displayName || initialRender.name,
+					tabCanRename: true,
+					tabRenamed: !!title,
+				});
 			});
 		});
 	}
@@ -1443,15 +1413,15 @@ class Panel {
 
 				this._stats_bindSummonScaleClickHandler(it, meta, $contentInner, $contentStats);
 
-				this.set$Tab(
-					ix,
-					PANEL_TYP_CREATURE_SCALED_SPELL_SUMMON,
-					meta,
-					$contentInner,
-					title || scaledMon._displayName || scaledMon.name,
-					true,
-					!!title,
-				);
+				this.set$Tab({
+					ix: ix,
+					type: PANEL_TYP_CREATURE_SCALED_SPELL_SUMMON,
+					contentMeta: meta,
+					$content: $contentInner,
+					title: title || scaledMon._displayName || scaledMon.name,
+					tabCanRename: true,
+					tabRenamed: !!title,
+				});
 			});
 		});
 	}
@@ -1476,15 +1446,15 @@ class Panel {
 
 				this._stats_bindSummonScaleClickHandler(it, meta, $contentInner, $contentStats);
 
-				this.set$Tab(
-					ix,
-					PANEL_TYP_CREATURE_SCALED_CLASS_SUMMON,
-					meta,
-					$contentInner,
-					title || scaledMon._displayName || scaledMon.name,
-					true,
-					!!title,
-				);
+				this.set$Tab({
+					ix: ix,
+					type: PANEL_TYP_CREATURE_SCALED_CLASS_SUMMON,
+					contentMeta: meta,
+					$content: $contentInner,
+					title: title || scaledMon._displayName || scaledMon.name,
+					tabCanRename: true,
+					tabRenamed: !!title,
+				});
 			});
 		});
 	}
@@ -1498,15 +1468,15 @@ class Panel {
 		return RuleLoader.pFill(book).then(() => {
 			const rule = RuleLoader.getFromCache(book, chapter, header);
 			const it = Renderer.rule.getCompactRenderedString(rule);
-			this.set$Tab(
-				ix,
-				PANEL_TYP_RULES,
-				meta,
-				$(`<div class="panel-content-wrapper-inner"><table class="w-100 stats">${it}</table></div>`),
-				title || rule.name || "",
-				true,
-				!!title,
-			);
+			this.set$Tab({
+				ix: ix,
+				type: PANEL_TYP_RULES,
+				contentMeta: meta,
+				$content: $(`<div class="panel-content-wrapper-inner"><table class="w-100 stats">${it}</table></div>`),
+				title: title || rule.name || "",
+				tabCanRename: true,
+				tabRenamed: !!title,
+			});
 		});
 	}
 
@@ -1519,15 +1489,15 @@ class Panel {
 		return adventureLoader.pFill(adventure).then(() => {
 			const data = adventureLoader.getFromCache(adventure, chapter);
 			const view = new AdventureOrBookView("a", this, adventureLoader, ix, meta);
-			this.set$Tab(
-				ix,
-				PANEL_TYP_ADVENTURES,
-				meta,
-				$(`<div class="panel-content-wrapper-inner"></div>`).append(view.$getEle()),
-				title || data?.chapter?.name || "",
-				true,
-				!!title,
-			);
+			this.set$Tab({
+				ix: ix,
+				type: PANEL_TYP_ADVENTURES,
+				contentMeta: meta,
+				$content: $(`<div class="panel-content-wrapper-inner"></div>`).append(view.$getEle()),
+				title: title || data?.chapter?.name || "",
+				tabCanRename: true,
+				tabRenamed: !!title,
+			});
 		});
 	}
 
@@ -1540,127 +1510,96 @@ class Panel {
 		return bookLoader.pFill(book).then(() => {
 			const data = bookLoader.getFromCache(book, chapter);
 			const view = new AdventureOrBookView("b", this, bookLoader, ix, meta);
-			this.set$Tab(
-				ix,
-				PANEL_TYP_BOOKS,
-				meta,
-				$(`<div class="panel-content-wrapper-inner"></div>`).append(view.$getEle()),
-				title || data?.chapter?.name || "",
-				true,
-				!!title,
-			);
+			this.set$Tab({
+				ix: ix,
+				type: PANEL_TYP_BOOKS,
+				contentMeta: meta,
+				$content: $(`<div class="panel-content-wrapper-inner"></div>`).append(view.$getEle()),
+				title: title || data?.chapter?.name || "",
+				tabCanRename: true,
+				tabRenamed: !!title,
+			});
 		});
 	}
 
-	set$ContentTab (type, contentMeta, $content, title, tabCanRename, tabRenamed) {
+	set$ContentTab (
+		{
+			panelType,
+			contentMeta = null,
+			panelApp = null,
+			$content,
+			title,
+			tabCanRename,
+			tabRenamed,
+		},
+	) {
 		const ix = this.isTabs ? this.getNextTabIndex() : 0;
-		return this.set$Tab(ix, type, contentMeta, $content, title, tabCanRename, tabRenamed);
+		return this.set$Tab({
+			ix: ix,
+			type: panelType,
+			contentMeta: contentMeta,
+			panelApp,
+			$content: $content,
+			title: title,
+			tabCanRename: tabCanRename,
+			tabRenamed: tabRenamed,
+		});
 	}
 
 	doPopulate_Rollbox (title) {
-		this.set$ContentTab(
-			PANEL_TYP_ROLLBOX,
-			null,
-			$(ee`<div class="panel-content-wrapper-inner"></div>`.appends(Renderer.dice.getRoller().addClass("rollbox-panel"))),
-			title || "Dice Roller",
-			true,
-			!!title,
-		);
-	}
-
-	doPopulate_Counter (state = {}, title) {
-		this.set$ContentTab(
-			PANEL_TYP_COUNTER,
-			state,
-			$(`<div class="panel-content-wrapper-inner"></div>`).append(Counter.$getCounter(this.board, state)),
-			title || "Counter",
-			true,
-		);
-	}
-
-	doPopulate_UnitConverter (state = {}, title) {
-		this.set$ContentTab(
-			PANEL_TYP_UNIT_CONVERTER,
-			state,
-			$(`<div class="panel-content-wrapper-inner"></div>`).append(UnitConverter.make$Converter(this.board, state)),
-			title || "Unit Converter",
-			true,
-		);
-	}
-
-	doPopulate_MoneyConverter (state = {}, title) {
-		this.set$ContentTab(
-			PANEL_TYP_MONEY_CONVERTER,
-			state,
-			$(`<div class="panel-content-wrapper-inner"></div>`).append(MoneyConverter.make$Converter(this.board, state)),
-			title || "Money Converter",
-			true,
-		);
-	}
-
-	doPopulate_TimeTracker (state = {}, title) {
-		this.set$ContentTab(
-			PANEL_TYP_TIME_TRACKER,
-			state,
-			$(`<div class="panel-content-wrapper-inner"></div>`).append(TimeTracker.$getTracker(this.board, state)),
-			title || "Time Tracker",
-			true,
-		);
-	}
-
-	doPopulate_TextBox (content, title = "Notes") {
-		this.set$ContentTab(
-			PANEL_TYP_TEXTBOX,
-			null,
-			$(`<div class="panel-content-wrapper-inner ve-overflow-y-hidden"></div>`).append(NoteBox.make$Notebox(this.board, content)),
-			title,
-			true,
-		);
+		this.set$ContentTab({
+			panelType: PANEL_TYP_ROLLBOX,
+			contentMeta: null,
+			$content: $(ee`<div class="panel-content-wrapper-inner"></div>`.appends(Renderer.dice.getRoller().addClass("rollbox-panel"))),
+			title: title || "Dice Roller",
+			tabCanRename: true,
+			tabRenamed: !!title,
+		});
 	}
 
 	doPopulate_YouTube (url, title = "YouTube") {
 		const meta = {u: url};
-		this.set$ContentTab(
-			PANEL_TYP_TUBE,
-			meta,
-			$(`<div class="panel-content-wrapper-inner"><iframe src="${url}?autoplay=1&enablejsapi=1&modestbranding=1&iv_load_policy=3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen ${ElementUtil.getIframeSandboxAttribute()}></iframe></div>`),
-			title,
-			true,
-		);
+		this.set$ContentTab({
+			panelType: PANEL_TYP_TUBE,
+			contentMeta: meta,
+			$content: $(`<div class="panel-content-wrapper-inner"><iframe src="${url}?autoplay=1&enablejsapi=1&modestbranding=1&iv_load_policy=3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen ${ElementUtil.getIframeSandboxAttribute()}></iframe></div>`),
+			title: title,
+			tabCanRename: true,
+		});
 	}
 
 	doPopulate_Twitch (url, title = "Twitch") {
 		const meta = {u: url};
-		this.set$ContentTab(
-			PANEL_TYP_TWITCH,
-			meta,
-			$(`<div class="panel-content-wrapper-inner"><iframe src="${url}&parent=${location.hostname}" frameborder="0" allowfullscreen scrolling="no" ${ElementUtil.getIframeSandboxAttribute()}></iframe></div>`),
-			title,
-			true,
-		);
+		this.set$ContentTab({
+			panelType: PANEL_TYP_TWITCH,
+			contentMeta: meta,
+			$content: $(`<div class="panel-content-wrapper-inner"><iframe src="${url}&parent=${location.hostname}" frameborder="0" allowfullscreen scrolling="no" ${ElementUtil.getIframeSandboxAttribute()}></iframe></div>`),
+			title: title,
+			tabCanRename: true,
+		});
 	}
 
 	doPopulate_TwitchChat (url, title = "Twitch Chat") {
 		const meta = {u: url};
 		const channelId = url.split("/").map(it => it.trim()).filter(Boolean).slice(-2)[0];
-		this.set$ContentTab(
-			PANEL_TYP_TWITCH_CHAT,
-			meta,
-			$(`<div class="panel-content-wrapper-inner"><iframe src="${url}?parent=${location.hostname}" frameborder="0" scrolling="no" id="${channelId}" ${ElementUtil.getIframeSandboxAttribute()}></iframe></div>`),
-			title,
-			true,
-		);
+		this.set$ContentTab({
+			panelType: PANEL_TYP_TWITCH_CHAT,
+			contentMeta: meta,
+			$content: $(`<div class="panel-content-wrapper-inner"><iframe src="${url}?parent=${location.hostname}" frameborder="0" scrolling="no" id="${channelId}" ${ElementUtil.getIframeSandboxAttribute()}></iframe></div>`),
+			title: title,
+			tabCanRename: true,
+		});
 	}
 
 	doPopulate_GenericEmbed (url, title = "Embed") {
 		const meta = {u: url};
-		this.set$ContentTab(
-			PANEL_TYP_GENERIC_EMBED,
-			meta,
-			$(`<div class="panel-content-wrapper-inner"><iframe src="${url}" ${ElementUtil.getIframeSandboxAttribute({url, isAllowPdf: true})}></iframe></div>`),
-			title,
-			true,
-		);
+		this.set$ContentTab({
+			panelType: PANEL_TYP_GENERIC_EMBED,
+			contentMeta: meta,
+			$content: $(`<div class="panel-content-wrapper-inner"><iframe src="${url}" ${ElementUtil.getIframeSandboxAttribute({url, isAllowPdf: true})}></iframe></div>`),
+			title: title,
+			tabCanRename: true,
+		});
 	}
 
 	doPopulate_Image (url, title = "Image") {
@@ -1670,13 +1609,13 @@ class Panel {
 		const $img = $(`<img src="${url}" alt="${title}" loading="lazy">`).appendTo($wrpImage);
 		const $iptReset = $(`<button class="panel-zoom-reset ve-btn ve-btn-xs ve-btn-default"><span class="glyphicon glyphicon-refresh"></span></button>`).appendTo($wrpPanel);
 		const $iptRange = $(`<input type="range" class="panel-zoom-slider">`).appendTo($wrpPanel);
-		this.set$ContentTab(
-			PANEL_TYP_IMAGE,
-			meta,
-			$wrpPanel,
-			title,
-			true,
-		);
+		this.set$ContentTab({
+			panelType: PANEL_TYP_IMAGE,
+			contentMeta: meta,
+			$content: $wrpPanel,
+			title: title,
+			tabCanRename: true,
+		});
 		$img.panzoom({
 			$reset: $iptReset,
 			$zoomRange: $iptRange,
@@ -1686,35 +1625,25 @@ class Panel {
 		});
 	}
 
-	doPopulate_AdventureBookDynamicMap (state, title = "Map Viewer") {
-		this.set$ContentTab(
-			PANEL_TYP_ADVENTURE_DYNAMIC_MAP,
-			state,
-			$(`<div class="panel-content-wrapper-inner"></div>`).append(DmMapper.$getMapper(this.board, state)),
-			title || "Map Viewer",
-			true,
-		);
-	}
-
 	doPopulate_Error (state, title = "") {
-		this.set$ContentTab(
-			PANEL_TYP_ERROR,
-			state,
-			$(`<div class="panel-content-wrapper-inner"></div>`).append(`<div class="w-100 h-100 ve-flex-vh-center text-danger"><div>${state.message}</div></div>`),
-			title,
-			true,
-		);
+		this.set$ContentTab({
+			panelType: PANEL_TYP_ERROR,
+			contentMeta: state,
+			$content: $(`<div class="panel-content-wrapper-inner"></div>`).append(`<div class="w-100 h-100 ve-flex-vh-center text-danger"><div>${state.message}</div></div>`),
+			title: title,
+			tabCanRename: true,
+		});
 	}
 
 	doPopulate_Blank (title = "") {
 		const meta = {};
-		this.set$ContentTab(
-			PANEL_TYP_BLANK,
-			meta,
-			$(`<div class="dm-blank__panel"></div>`),
-			title,
-			true,
-		);
+		this.set$ContentTab({
+			panelType: PANEL_TYP_BLANK,
+			contentMeta: meta,
+			$content: $(`<div class="dm-blank__panel"></div>`),
+			title: title,
+			tabCanRename: true,
+		});
 	}
 
 	// endregion
@@ -2226,7 +2155,15 @@ class Panel {
 	}
 
 	close$TabContent (ixOpt = 0) {
-		return this.set$Tab(-1 * (ixOpt + 1), PANEL_TYP_EMPTY, null, null, null, false);
+		return this.set$Tab({
+			ix: -1 * (ixOpt + 1),
+			type: PANEL_TYP_EMPTY,
+			contentMeta: null,
+			panelApp: null,
+			$content: null,
+			title: null,
+			tabCanRename: false,
+		});
 	}
 
 	set$Content (type, contentMeta, $content, title, tabCanRename, tabRenamed) {
@@ -2260,7 +2197,16 @@ class Panel {
 		this.tabCanRename = hisMeta.tabCanRename;
 		this.tabRenamed = hisMeta.tabRenamed;
 
-		this.set$Tab(hisMeta.tabIndex, hisMeta.type, hisMeta.contentMeta, $hisContent, hisMeta.title, hisMeta.tabCanRename, hisMeta.tabRenamed);
+		this.set$Tab({
+			ix: hisMeta.tabIndex,
+			type: hisMeta.type,
+			contentMeta: hisMeta.contentMeta,
+			panelApp: hisMeta.tabDatas[hisMeta.tabIndex]?.panelApp,
+			$content: $hisContent,
+			title: hisMeta.title,
+			tabCanRename: hisMeta.tabCanRename,
+			tabRenamed: hisMeta.tabRenamed,
+		});
 		hisMeta.tabDatas
 			.forEach((it, ix) => {
 				if (!it.isDeleted && it.$tabButton) {
@@ -2279,12 +2225,12 @@ class Panel {
 	}
 
 	set$TabLoading (type, contentMeta) {
-		return this.set$ContentTab(
-			type,
-			contentMeta,
-			Panel._get$eleLoading(),
-			TITLE_LOADING,
-		);
+		return this.set$ContentTab({
+			panelType: type,
+			contentMeta: contentMeta,
+			$content: Panel._get$eleLoading(),
+			title: TITLE_LOADING,
+		});
 	}
 
 	_get$BtnSelTab (ix, title) {
@@ -2354,7 +2300,18 @@ class Panel {
 		this.$pnl.attr("data-roll-name-ancestor-roller", nuTitle);
 	}
 
-	set$Tab (ix, type, contentMeta, $content, title, tabCanRename, tabRenamed) {
+	set$Tab (
+		{
+			ix,
+			type,
+			contentMeta,
+			panelApp,
+			$content,
+			title,
+			tabCanRename,
+			tabRenamed,
+		},
+	) {
 		if (ix === null) ix = 0;
 		if (ix < 0) {
 			const ixPos = Math.abs(ix + 1);
@@ -2368,6 +2325,7 @@ class Panel {
 			this.tabDatas[ix] = {
 				type: type,
 				contentMeta: contentMeta,
+				panelApp,
 				$content: $content,
 				title: title,
 				tabCanRename: !!tabCanRename,
@@ -2433,12 +2391,15 @@ class Panel {
 		// do cleanup
 		if (this.type === PANEL_TYP_ROLLBOX) Renderer.dice.unbindDmScreenPanel();
 
-		const fnOnDestroy = this.$content ? $(this.$content.children()[0]).data("onDestroy") : null;
+		const fnsOnDestroy = this.tabDatas
+			.filter(tabData => tabData?.panelApp?.onDestroy)
+			.map(tabData => tabData.panelApp.onDestroy.bind(tabData.panelApp));
 
 		if (this.$pnl) this.$pnl.remove();
 		this.board.destroyPanel(this.id);
 
-		if (fnOnDestroy) fnOnDestroy();
+		fnsOnDestroy
+			.forEach(fnOnDestroy => fnOnDestroy());
 
 		this.board.fireBoardEvent({type: "panelDestroy"});
 	}
@@ -2460,166 +2421,23 @@ class Panel {
 			t: this.type,
 		};
 
-		const getSaveableContent = (type, contentMeta, $content, tabRenamed, tabTitle) => {
-			const toSaveTitle = tabRenamed ? tabTitle : undefined;
-
-			// TODO(Future) refactor other panels to use this
-			const fromPcm = PanelContentManagerFactory.getSaveableContent({
-				type,
-				toSaveTitle,
-				$content,
-			});
-			if (fromPcm !== undefined) return fromPcm;
-
-			switch (type) {
-				case PANEL_TYP_EMPTY:
-					return null;
-
-				case PANEL_TYP_ROLLBOX:
-					return {
-						t: type,
-						r: toSaveTitle,
-					};
-				case PANEL_TYP_STATS:
-					return {
-						t: type,
-						r: toSaveTitle,
-						c: {
-							p: contentMeta.p,
-							s: contentMeta.s,
-							u: contentMeta.u,
-						},
-					};
-				case PANEL_TYP_CREATURE_SCALED_CR:
-					return {
-						t: type,
-						r: toSaveTitle,
-						c: {
-							p: contentMeta.p,
-							s: contentMeta.s,
-							u: contentMeta.u,
-							cr: contentMeta.cr,
-						},
-					};
-				case PANEL_TYP_CREATURE_SCALED_SPELL_SUMMON:
-					return {
-						t: type,
-						r: toSaveTitle,
-						c: {
-							p: contentMeta.p,
-							s: contentMeta.s,
-							u: contentMeta.u,
-							ssl: contentMeta.ssl,
-						},
-					};
-				case PANEL_TYP_CREATURE_SCALED_CLASS_SUMMON:
-					return {
-						t: type,
-						r: toSaveTitle,
-						c: {
-							p: contentMeta.p,
-							s: contentMeta.s,
-							u: contentMeta.u,
-							csl: contentMeta.csl,
-						},
-					};
-				case PANEL_TYP_RULES:
-					return {
-						t: type,
-						r: toSaveTitle,
-						c: {
-							b: contentMeta.b,
-							c: contentMeta.c,
-							h: contentMeta.h,
-						},
-					};
-				case PANEL_TYP_ADVENTURES:
-					return {
-						t: type,
-						r: toSaveTitle,
-						c: {
-							a: contentMeta.a,
-							c: contentMeta.c,
-						},
-					};
-				case PANEL_TYP_BOOKS:
-					return {
-						t: type,
-						r: toSaveTitle,
-						c: {
-							b: contentMeta.b,
-							c: contentMeta.c,
-						},
-					};
-				case PANEL_TYP_TEXTBOX:
-					return {
-						t: type,
-						r: toSaveTitle,
-						s: {
-							x: $content ? $content.find(`textarea`).val() : "",
-						},
-					};
-				case PANEL_TYP_COUNTER: {
-					return {
-						t: type,
-						r: toSaveTitle,
-						s: $content.find(`.dm-cnt__root`).data("getState")(),
-					};
-				}
-				case PANEL_TYP_UNIT_CONVERTER: {
-					return {
-						t: type,
-						r: toSaveTitle,
-						s: $content.find(`.dm-unitconv`).data("getState")(),
-					};
-				}
-				case PANEL_TYP_MONEY_CONVERTER: {
-					return {
-						t: type,
-						r: toSaveTitle,
-						s: $content.find(`.dm_money`).data("getState")(),
-					};
-				}
-				case PANEL_TYP_TIME_TRACKER: {
-					return {
-						t: type,
-						r: toSaveTitle,
-						s: $content.find(`.dm-time__root`).data("getState")(),
-					};
-				}
-				case PANEL_TYP_ADVENTURE_DYNAMIC_MAP: {
-					return {
-						t: type,
-						r: toSaveTitle,
-						s: $content.find(`.dm-map__root`).data("getState")(),
-					};
-				}
-				case PANEL_TYP_TUBE:
-				case PANEL_TYP_TWITCH:
-				case PANEL_TYP_TWITCH_CHAT:
-				case PANEL_TYP_GENERIC_EMBED:
-				case PANEL_TYP_IMAGE:
-					return {
-						t: type,
-						r: toSaveTitle,
-						c: {
-							u: contentMeta.u,
-						},
-					};
-				case PANEL_TYP_ERROR:
-					return {r: toSaveTitle, s: contentMeta};
-				case PANEL_TYP_BLANK:
-					return {r: toSaveTitle};
-				default:
-					throw new Error(`Unhandled panel type ${this.type}`);
-			}
-		};
-
-		const toSave = getSaveableContent(this.type, this.contentMeta, this.$content);
+		const toSave = this._getSaveableState_getSaveableContent({
+			type: this.type,
+			contentMeta: this.contentMeta,
+			panelApp: this.tabDatas[this.tabIndex]?.panelApp,
+		});
 		if (toSave) Object.assign(out, toSave);
 
 		if (this.isTabs) {
-			out.a = this.tabDatas.filter(it => !it.isDeleted).map(td => getSaveableContent(td.type, td.contentMeta, td.$content, td.tabRenamed, td.title));
+			out.a = this.tabDatas.filter(it => !it.isDeleted)
+				.map(td => this._getSaveableState_getSaveableContent({
+					type: td.type,
+					contentMeta: td.contentMeta,
+					panelApp: td.panelApp,
+					tabRenamed: td.tabRenamed,
+					tabTitle: td.title,
+				}));
+
 			// offset saved tabindex by number of deleted tabs that come before
 			let delCount = 0;
 			for (let i = 0; i < this.tabIndex; ++i) {
@@ -2631,13 +2449,131 @@ class Panel {
 		return out;
 	}
 
+	_getSaveableState_getSaveableContent (
+		{
+			type,
+			contentMeta,
+			panelApp,
+			tabRenamed,
+			tabTitle,
+		},
+	) {
+		const toSaveTitle = tabRenamed ? tabTitle : undefined;
+
+		// TODO(Future) refactor other panels to use this
+		const fromPcm = PanelContentManagerFactory.getSaveableContent({
+			type,
+			toSaveTitle,
+			panelApp,
+		});
+		if (fromPcm !== undefined) return fromPcm;
+
+		switch (type) {
+			case PANEL_TYP_EMPTY:
+				return null;
+
+			case PANEL_TYP_ROLLBOX:
+				return {
+					t: type,
+					r: toSaveTitle,
+				};
+			case PANEL_TYP_STATS:
+				return {
+					t: type,
+					r: toSaveTitle,
+					c: {
+						p: contentMeta.p,
+						s: contentMeta.s,
+						u: contentMeta.u,
+					},
+				};
+			case PANEL_TYP_CREATURE_SCALED_CR:
+				return {
+					t: type,
+					r: toSaveTitle,
+					c: {
+						p: contentMeta.p,
+						s: contentMeta.s,
+						u: contentMeta.u,
+						cr: contentMeta.cr,
+					},
+				};
+			case PANEL_TYP_CREATURE_SCALED_SPELL_SUMMON:
+				return {
+					t: type,
+					r: toSaveTitle,
+					c: {
+						p: contentMeta.p,
+						s: contentMeta.s,
+						u: contentMeta.u,
+						ssl: contentMeta.ssl,
+					},
+				};
+			case PANEL_TYP_CREATURE_SCALED_CLASS_SUMMON:
+				return {
+					t: type,
+					r: toSaveTitle,
+					c: {
+						p: contentMeta.p,
+						s: contentMeta.s,
+						u: contentMeta.u,
+						csl: contentMeta.csl,
+					},
+				};
+			case PANEL_TYP_RULES:
+				return {
+					t: type,
+					r: toSaveTitle,
+					c: {
+						b: contentMeta.b,
+						c: contentMeta.c,
+						h: contentMeta.h,
+					},
+				};
+			case PANEL_TYP_ADVENTURES:
+				return {
+					t: type,
+					r: toSaveTitle,
+					c: {
+						a: contentMeta.a,
+						c: contentMeta.c,
+					},
+				};
+			case PANEL_TYP_BOOKS:
+				return {
+					t: type,
+					r: toSaveTitle,
+					c: {
+						b: contentMeta.b,
+						c: contentMeta.c,
+					},
+				};
+			case PANEL_TYP_TUBE:
+			case PANEL_TYP_TWITCH:
+			case PANEL_TYP_TWITCH_CHAT:
+			case PANEL_TYP_GENERIC_EMBED:
+			case PANEL_TYP_IMAGE:
+				return {
+					t: type,
+					r: toSaveTitle,
+					c: {
+						u: contentMeta.u,
+					},
+				};
+			case PANEL_TYP_ERROR:
+				return {r: toSaveTitle, s: contentMeta};
+			case PANEL_TYP_BLANK:
+				return {r: toSaveTitle};
+			default:
+				throw new Error(`Unhandled panel type ${this.type}`);
+		}
+	}
+
 	fireBoardEvent (boardEvt) {
-		if (!this.$content) return;
-
-		const fnHandleBoardEvent = $(this.$content.children()[0]).data("onBoardEvent");
-		if (!fnHandleBoardEvent) return;
-
-		fnHandleBoardEvent(boardEvt);
+		this.tabDatas
+			.filter(tabData => tabData?.panelApp?.onBoardEvent)
+			.map(tabData => tabData.panelApp.onBoardEvent.bind(tabData.panelApp))
+			.forEach(fnOnBoardEvent => fnOnBoardEvent(boardEvt));
 	}
 }
 
@@ -3361,40 +3297,45 @@ class AddMenuSpecialTab extends AddMenuTab {
 
 			const $wrpText = $$`<div class="ui-modal__row"><span>Basic Text Box <i class="ve-muted">(for a feature-rich editor, ${$btnSwitchToEmbedTag} a Google Doc or similar)</i></span></div>`.appendTo($tab);
 			const $btnText = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`).appendTo($wrpText);
-			$btnText.on("click", () => {
-				this.menu.pnl.doPopulate_TextBox();
+			$btnText.on("click", async () => {
+				const pcm = new PanelContentManager_NoteBox({board: this._board, panel: this.menu.pnl});
 				this.menu.doClose();
+				await pcm.pDoPopulate();
 			});
 			$(`<hr class="hr-2">`).appendTo($tab);
 
 			const $wrpUnitConverter = $(`<div class="ui-modal__row"><span>Unit Converter</span></div>`).appendTo($tab);
 			const $btnUnitConverter = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`).appendTo($wrpUnitConverter);
-			$btnUnitConverter.on("click", () => {
-				this.menu.pnl.doPopulate_UnitConverter();
+			$btnUnitConverter.on("click", async () => {
+				const pcm = new PanelContentManager_UnitConverter({board: this._board, panel: this.menu.pnl});
 				this.menu.doClose();
+				await pcm.pDoPopulate();
 			});
 
 			const $wrpMoneyConverter = $(`<div class="ui-modal__row"><span>Coin Converter</span></div>`).appendTo($tab);
 			const $btnMoneyConverter = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`).appendTo($wrpMoneyConverter);
-			$btnMoneyConverter.on("click", () => {
-				this.menu.pnl.doPopulate_MoneyConverter();
+			$btnMoneyConverter.on("click", async () => {
+				const pcm = new PanelContentManager_MoneyConverter({board: this._board, panel: this.menu.pnl});
 				this.menu.doClose();
+				await pcm.pDoPopulate();
 			});
 
 			const $wrpCounter = $(`<div class="ui-modal__row"><span>Counter</span></div>`).appendTo($tab);
 			const $btnCounter = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`).appendTo($wrpCounter);
-			$btnCounter.on("click", () => {
-				this.menu.pnl.doPopulate_Counter();
+			$btnCounter.on("click", async () => {
+				const pcm = new PanelContentManager_Counter({board: this._board, panel: this.menu.pnl});
 				this.menu.doClose();
+				await pcm.pDoPopulate();
 			});
 
 			$(`<hr class="hr-2">`).appendTo($tab);
 
 			const $wrpTimeTracker = $(`<div class="ui-modal__row"><span>In-Game Clock/Calendar</span></div>`).appendTo($tab);
 			const $btnTimeTracker = $(`<button class="ve-btn ve-btn-primary ve-btn-sm">Add</button>`).appendTo($wrpTimeTracker);
-			$btnTimeTracker.on("click", () => {
-				this.menu.pnl.doPopulate_TimeTracker();
+			$btnTimeTracker.on("click", async () => {
+				const pcm = new PanelContentManager_TimeTracker({board: this._board, panel: this.menu.pnl});
 				this.menu.doClose();
+				await pcm.pDoPopulate();
 			});
 
 			$(`<hr class="hr-2">`).appendTo($tab);
@@ -3438,11 +3379,11 @@ class AddMenuSearchTab extends AddMenuTab {
 		this._adventureOrBookIdToSource = adventureOrBookIdToSource;
 
 		this.$selCat = null;
-		this.$srch = null;
-		this.$results = null;
+		this.iptSearch = null;
+		this.wrpResults = null;
 		this.showMsgIpt = null;
 		this._pDoSearch = null;
-		this._$ptrRows = null;
+		this._ptrRows = null;
 	}
 
 	_getSearchOptions () {
@@ -3476,27 +3417,27 @@ class AddMenuSearchTab extends AddMenuTab {
 		}
 	}
 
-	_$getRow (r) {
+	_getRow (r) {
 		switch (this.subType) {
-			case "content": return $(`
+			case "content": return ee`
 				<div class="ui-search__row" tabindex="0">
 					<span><span class="ve-muted">${r.doc.cf}</span> ${r.doc.n}</span>
 					<span>${r.doc.s ? `<i title="${Parser.sourceJsonToFull(r.doc.s)}">${Parser.sourceJsonToAbv(r.doc.s)}${r.doc.p ? ` p${r.doc.p}` : ""}</i>` : ""}</span>
 				</div>
-			`);
-			case "rule": return $(`
+			`;
+			case "rule": return ee`
 				<div class="ui-search__row" tabindex="0">
 					<span>${r.doc.h}</span>
 					<span><i>${r.doc.n}, ${r.doc.s}</i></span>
 				</div>
-			`);
+			`;
 			case "adventure":
-			case "book": return $(`
+			case "book": return ee`
 				<div class="ui-search__row" tabindex="0">
 					<span>${r.doc.c}</span>
 					<span><i>${r.doc.n}${r.doc.o ? `, ${r.doc.o}` : ""}</i></span>
 				</div>
-			`);
+			`;
 			default: throw new Error(`Unhandled search tab subtype: "${this.subType}"`);
 		}
 	}
@@ -3532,22 +3473,22 @@ class AddMenuSearchTab extends AddMenuTab {
 
 		this.showMsgIpt = () => {
 			flags.isWait = true;
-			this.$results.empty().append(SearchWidget.getSearchEnter());
+			this.wrpResults.empty().appends(SearchWidget.getSearchEnter());
 		};
 
 		const showMsgDots = () => {
-			this.$results.empty().append(SearchWidget.getSearchLoading());
+			this.wrpResults.empty().appends(SearchWidget.getSearchLoading());
 		};
 
 		const showNoResults = () => {
 			flags.isWait = true;
-			this.$results.empty().append(SearchWidget.getSearchEnter());
+			this.wrpResults.empty().appends(SearchWidget.getSearchEnter());
 		};
 
-		this._$ptrRows = {_: []};
+		this._ptrRows = {_: []};
 
 		this._pDoSearch = async () => {
-			const srch = this.$srch.val().trim();
+			const srch = this.iptSearch.val().trim();
 
 			const searchOptions = this._getSearchOptions();
 			const index = this.indexes[this.cat];
@@ -3560,8 +3501,8 @@ class AddMenuSearchTab extends AddMenuTab {
 			const resultCount = results.length ? results.length : index.documentStore.length;
 			const toProcess = results.length ? results : Object.values(index.documentStore.docs).slice(0, UiUtil.SEARCH_RESULTS_CAP).map(it => ({doc: it}));
 
-			this.$results.empty();
-			this._$ptrRows._ = [];
+			this.wrpResults.empty();
+			this._ptrRows._ = [];
 
 			if (toProcess.length) {
 				const handleClick = (r) => {
@@ -3600,14 +3541,14 @@ class AddMenuSearchTab extends AddMenuTab {
 				const res = toProcess.slice(0, UiUtil.SEARCH_RESULTS_CAP);
 
 				res.forEach(r => {
-					const $row = this._$getRow(r).appendTo(this.$results);
-					SearchWidget.bindRowHandlers({result: r, $row, $ptrRows: this._$ptrRows, fnHandleClick: handleClick, $iptSearch: this.$srch});
-					this._$ptrRows._.push($row);
+					const row = this._getRow(r).appendTo(this.wrpResults);
+					SearchWidget.bindRowHandlers({result: r, row, ptrRows: this._ptrRows, fnHandleClick: handleClick, iptSearch: this.iptSearch});
+					this._ptrRows._.push(row);
 				});
 
 				if (resultCount > UiUtil.SEARCH_RESULTS_CAP) {
 					const diff = resultCount - UiUtil.SEARCH_RESULTS_CAP;
-					this.$results.append(`<div class="ui-search__row ui-search__row--readonly">...${diff} more result${diff === 1 ? " was" : "s were"} hidden. Refine your search!</div>`);
+					this.wrpResults.appends(`<div class="ui-search__row ui-search__row--readonly">...${diff} more result${diff === 1 ? " was" : "s were"} hidden. Refine your search!</div>`);
 				}
 			} else {
 				if (!srch.trim()) this.showMsgIpt();
@@ -3632,27 +3573,27 @@ class AddMenuSearchTab extends AddMenuTab {
 				await this._pDoSearch();
 			});
 
-			const $srch = $(`<input class="ui-search__ipt-search search form-control" autocomplete="off" placeholder="Search...">`).appendTo($wrpCtrls);
-			const $results = $(`<div class="ui-search__wrp-results"></div>`).appendTo($tab);
+			const iptSearch = ee`<input class="ui-search__ipt-search search form-control" autocomplete="off" placeholder="Search...">`.appendTo($wrpCtrls[0]);
+			const wrpResults = ee`<div class="ui-search__wrp-results"></div>`.appendTo($tab[0]);
 
-			SearchWidget.bindAutoSearch($srch, {
+			SearchWidget.bindAutoSearch(iptSearch, {
 				flags,
 				pFnSearch: this._pDoSearch,
 				fnShowWait: showMsgDots,
-				$ptrRows: this._$ptrRows,
+				ptrRows: this._ptrRows,
 			});
 
 			this.$tab = $tab;
 			this.$selCat = $selCat;
-			this.$srch = $srch;
-			this.$results = $results;
+			this.iptSearch = iptSearch;
+			this.wrpResults = wrpResults;
 
 			await this._pDoSearch();
 		}
 	}
 
 	async pDoTransitionActive () {
-		this.$srch.val("").focus();
+		this.iptSearch.val("").focuse();
 		if (this._pDoSearch) await this._pDoSearch();
 	}
 }
@@ -3776,213 +3717,6 @@ class BookLoader extends AdventureOrBookLoader { constructor () { super("book");
 
 const adventureLoader = new AdventureLoader();
 const bookLoader = new BookLoader();
-
-class NoteBox {
-	static make$Notebox (board, content) {
-		const $iptText = $(`<textarea class="panel-content-textarea" placeholder="Supports inline rolls and content tags (CTRL-q with the caret in the text to activate the embed):\n • Inline rolls,  [[1d20+2]]\n • Content tags (as per the Demo page), {@creature goblin}, {@spell fireball}\n • Link tags, {@link https://5e.tools}">${content || ""}</textarea>`)
-			.on("keydown", async evt => {
-				const key = EventUtil.getKeyIgnoreCapsLock(evt);
-
-				const isCtrlQ = (EventUtil.isCtrlMetaKey(evt)) && key === "q";
-
-				if (!isCtrlQ) {
-					board.doSaveStateDebounced();
-					return;
-				}
-
-				const txt = $iptText[0];
-				if (txt.selectionStart === txt.selectionEnd) {
-					const pos = txt.selectionStart - 1;
-					const text = txt.value;
-					const l = text.length;
-					let beltStack = [];
-					let braceStack = [];
-					let belts = 0;
-					let braces = 0;
-					let beltsAtPos = null;
-					let bracesAtPos = null;
-					let lastBeltPos = null;
-					let lastBracePos = null;
-					outer: for (let i = 0; i < l; ++i) {
-						const c = text[i];
-						switch (c) {
-							case "[":
-								belts = Math.min(belts + 1, 2);
-								if (belts === 2) beltStack = [];
-								lastBeltPos = i;
-								break;
-							case "]":
-								belts = Math.max(belts - 1, 0);
-								if (belts === 0 && i > pos) break outer;
-								break;
-							case "{":
-								if (text[i + 1] === "@") {
-									braces = 1;
-									braceStack = [];
-									lastBracePos = i;
-								}
-								break;
-							case "}":
-								braces = 0;
-								if (i >= pos) break outer;
-								break;
-							default:
-								if (belts === 2) {
-									beltStack.push(c);
-								}
-								if (braces) {
-									braceStack.push(c);
-								}
-						}
-						if (i === pos) {
-							beltsAtPos = belts;
-							bracesAtPos = braces;
-						}
-					}
-
-					if (beltsAtPos === 2 && belts === 0) {
-						const str = beltStack.join("");
-						await Renderer.dice.pRoll2(str.replace(`[[`, "").replace(`]]`, ""), {
-							isUser: false,
-							name: "DM Screen",
-						});
-					} else if (bracesAtPos === 1 && braces === 0) {
-						const str = braceStack.join("");
-						const tag = str.split(" ")[0].replace(/^@/, "");
-						const text = str.split(" ").slice(1).join(" ");
-						if (Renderer.tag.getPage(tag)) {
-							const r = Renderer.get().render(`{${str}}`);
-							evt.type = "mouseover";
-							evt.shiftKey = true;
-							evt.ctrlKey = false;
-							evt.metaKey = false;
-							$(r).trigger(evt);
-						} else if (tag === "link") {
-							const [txt, link] = Renderer.splitTagByPipe(text);
-							window.open(link && link.trim() ? link : txt);
-						}
-					}
-				}
-			});
-
-		return $iptText;
-	}
-}
-
-class UnitConverter {
-	static make$Converter (board, state) {
-		const units = [
-			new UnitConverterUnit("Inches", "2.54", "Centimetres", "0.394"),
-			new UnitConverterUnit("Feet", "0.305", "Metres", "3.28"),
-			new UnitConverterUnit("Miles", "1.61", "Kilometres", "0.620"),
-			new UnitConverterUnit("Pounds", "0.454", "Kilograms", "2.20"),
-			new UnitConverterUnit("Gallons", "3.79", "Litres", "0.264"),
-			new UnitConverterUnit("Gallons", "8", "Pints", "0.125"),
-		];
-
-		let ixConv = state.c || 0;
-		let dirConv = state.d || 0;
-
-		const $wrpConverter = $(`<div class="dm-unitconv dm__panel-bg split-column"></div>`);
-
-		const $tblConvert = $(`<table class="w-100 table-striped"></table>`).appendTo($wrpConverter);
-		const $tbodyConvert = $(`<tbody></tbody>`).appendTo($tblConvert);
-		units.forEach((u, i) => {
-			const $tr = $(`<tr class="row clickable"></tr>`).appendTo($tbodyConvert);
-			const clickL = () => {
-				ixConv = i;
-				dirConv = 0;
-				updateDisplay();
-			};
-			const clickR = () => {
-				ixConv = i;
-				dirConv = 1;
-				updateDisplay();
-			};
-			$(`<td class="ve-col-3">${u.n1}</td>`).click(clickL).appendTo($tr);
-			$(`<td class="ve-col-3 code">×${u.x1.padStart(5)}</td>`).click(clickL).appendTo($tr);
-			$(`<td class="ve-col-3">${u.n2}</td>`).click(clickR).appendTo($tr);
-			$(`<td class="ve-col-3 code">×${u.x2.padStart(5)}</td>`).click(clickR).appendTo($tr);
-		});
-
-		const $wrpIpt = $(`<div class="split dm-unitconv__wrp-ipt"></div>`).appendTo($wrpConverter);
-
-		const $wrpLeft = $(`<div class="split-column dm-unitconv__wrp-ipt-inner"></div>`).appendTo($wrpIpt);
-		const $lblLeft = $(`<span class="bold"></span>`).appendTo($wrpLeft);
-		const $iptLeft = $(`<textarea class="dm-unitconv__ipt form-control">${state.i || ""}</textarea>`).appendTo($wrpLeft);
-
-		const $btnSwitch = $(`<button class="ve-btn ve-btn-primary dm-unitconv__btn-switch">⇆</button>`).click(() => {
-			dirConv = Number(!dirConv);
-			updateDisplay();
-		}).appendTo($wrpIpt);
-
-		const $wrpRight = $(`<div class="split-column dm-unitconv__wrp-ipt-inner"></div>`).appendTo($wrpIpt);
-		const $lblRight = $(`<span class="bold"></span>`).appendTo($wrpRight);
-		const $iptRight = $(`<textarea class="dm-unitconv__ipt form-control" disabled style="background: #0000"></textarea>`).appendTo($wrpRight);
-
-		const updateDisplay = () => {
-			const it = units[ixConv];
-			const [lblL, lblR] = dirConv === 0 ? [it.n1, it.n2] : [it.n2, it.n1];
-			$lblLeft.text(lblL);
-			$lblRight.text(lblR);
-			handleInput();
-		};
-
-		const mMaths = /^([0-9.+\-*/ ()e])*$/;
-		const handleInput = () => {
-			const showInvalid = () => {
-				$iptLeft.addClass(`ipt-invalid`);
-				$iptRight.val("");
-			};
-			const showValid = () => {
-				$iptLeft.removeClass(`ipt-invalid`);
-			};
-
-			const val = ($iptLeft.val() || "").trim();
-			if (!val) {
-				showValid();
-				$iptRight.val("");
-			} else if (mMaths.exec(val)) {
-				showValid();
-				const it = units[ixConv];
-				const mL = [Number(it.x1), Number(it.x2)][dirConv];
-				try {
-					/* eslint-disable */
-					const total = eval(val);
-					/* eslint-enable */
-					$iptRight.val(Number((total * mL).toFixed(5)));
-				} catch (e) {
-					$iptLeft.addClass(`ipt-invalid`);
-					$iptRight.val("");
-				}
-			} else showInvalid();
-			board.doSaveStateDebounced();
-		};
-
-		UiUtil.bindTypingEnd({$ipt: $iptLeft, fnKeyup: handleInput});
-
-		updateDisplay();
-
-		$wrpConverter.data("getState", () => {
-			return {
-				c: ixConv,
-				d: dirConv,
-				i: $iptLeft.val(),
-			};
-		});
-
-		return $wrpConverter;
-	}
-}
-
-class UnitConverterUnit {
-	constructor (n1, x1, n2, x2) {
-		this.n1 = n1;
-		this.x1 = x1;
-		this.n2 = n2;
-		this.x2 = x2;
-	}
-}
 
 class AdventureOrBookView {
 	constructor (prop, panel, loader, tabIx, contentMeta) {

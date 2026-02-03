@@ -1124,6 +1124,15 @@
 			"migrationVersion": 3
 		},
 		{
+			"name": "Circle of the Moon",
+			"shortName": "Moon",
+			"source": "XPHB",
+			"className": "Druid",
+			"classSource": "XPHB",
+			"identifier": "moon",
+			"migrationVersion": 3
+		},
+		{
 			"name": "Circle of the Sea",
 			"shortName": "Sea",
 			"source": "XPHB",
@@ -3047,14 +3056,20 @@
 			"level": 1,
 			"effects": [
 				{
-					"name": "Thaumaturge",
+					"name": "Thaumaturge (Arcana)",
 					"transfer": true,
 					"changes": [
 						{
 							"key": "system.skills.arc.bonuses.check",
 							"mode": "ADD",
 							"value": "(max(1,@abilities.wis.mod))"
-						},
+						}
+					]
+				},
+				{
+					"name": "Thaumaturge (Religion)",
+					"transfer": true,
+					"changes": [
 						{
 							"key": "system.skills.rel.bonuses.check",
 							"mode": "ADD",
@@ -5995,6 +6010,9 @@
 						}
 					},
 					"damage": {
+						"critical": {
+							"allow": true
+						},
 						"parts": [
 							{
 								"custom": {
@@ -6441,7 +6459,6 @@
 				{
 					"foundryId": "innateSorcery",
 					"disabled": true,
-					"transfer": true,
 					"duration": {
 						"seconds": 60
 					},
@@ -6947,6 +6964,145 @@
 		}
 	],
 	"subclassFeature": [
+		{
+			"name": "Tools of the Trade",
+			"source": "EFA",
+			"className": "Artificer",
+			"classSource": "EFA",
+			"subclassShortName": "Alchemist",
+			"subclassSource": "EFA",
+			"level": 3,
+			"entryData": {
+				"toolProficiencies": [
+					{
+						"alchemist's supplies": true
+					},
+					{
+						"anyArtisansTool": 1
+					}
+				]
+			},
+			"migrationVersion": 3
+		},
+		{
+			"name": "Chemical Mastery",
+			"source": "EFA",
+			"className": "Artificer",
+			"classSource": "EFA",
+			"subclassShortName": "Alchemist",
+			"subclassSource": "EFA",
+			"level": 15,
+			"entryData": {
+				"resist": [
+					"acid",
+					"poison"
+				]
+			},
+			"migrationVersion": 3
+		},
+		{
+			"name": "Tools of the Trade",
+			"source": "EFA",
+			"className": "Artificer",
+			"classSource": "EFA",
+			"subclassShortName": "Armorer",
+			"subclassSource": "EFA",
+			"level": 3,
+			"entryData": {
+				"armorProficiencies": [
+					{
+						"heavy": true
+					}
+				],
+				"toolProficiencies": [
+					{
+						"smith's tools": true
+					},
+					{
+						"anyArtisansTool": 1
+					}
+				]
+			},
+			"migrationVersion": 3
+		},
+		{
+			"name": "Tools of the Trade",
+			"source": "EFA",
+			"className": "Artificer",
+			"classSource": "EFA",
+			"subclassShortName": "Artillerist",
+			"subclassSource": "EFA",
+			"level": 3,
+			"entryData": {
+				"toolProficiencies": [
+					{
+						"woodcarver's tools": true
+					},
+					{
+						"anyArtisansTool": 1
+					}
+				]
+			},
+			"migrationVersion": 3
+		},
+		{
+			"name": "Battle Ready",
+			"source": "EFA",
+			"className": "Artificer",
+			"classSource": "EFA",
+			"subclassShortName": "Battle Smith",
+			"subclassSource": "EFA",
+			"level": 3,
+			"entryData": {
+				"weaponProficiencies": [
+					{
+						"martial": true
+					}
+				]
+			},
+			"migrationVersion": 3
+		},
+		{
+			"name": "Tools of the Trade",
+			"source": "EFA",
+			"className": "Artificer",
+			"classSource": "EFA",
+			"subclassShortName": "Battle Smith",
+			"subclassSource": "EFA",
+			"level": 3,
+			"entryData": {
+				"toolProficiencies": [
+					{
+						"smith's tools": true
+					},
+					{
+						"anyArtisansTool": 1
+					}
+				]
+			},
+			"migrationVersion": 3
+		},
+		{
+			"name": "Tools of the Trade",
+			"source": "EFA",
+			"className": "Artificer",
+			"classSource": "EFA",
+			"subclassShortName": "Cartographer",
+			"subclassSource": "EFA",
+			"level": 3,
+			"entryData": {
+				"toolProficiencies": [
+					{
+						"calligrapher's supplies": true,
+						"cartographer's tools": true
+					},
+					{
+						"anyArtisansTool": 1
+					}
+				]
+			},
+			"migrationVersion": 3
+		},
 		{
 			"name": "Eagle",
 			"source": "PHB",
@@ -8116,23 +8272,6 @@
 			"migrationVersion": 3
 		},
 		{
-			"name": "Bonus Proficiencies",
-			"source": "TDCSR",
-			"className": "Cleric",
-			"classSource": "PHB",
-			"subclassShortName": "Blood",
-			"subclassSource": "TDCSR",
-			"level": 1,
-			"entryData": {
-				"weaponProficiencies": [
-					{
-						"martial": true
-					}
-				]
-			},
-			"migrationVersion": 3
-		},
-		{
 			"name": "Bonus Proficiency",
 			"source": "XGE",
 			"className": "Cleric",
@@ -8395,32 +8534,6 @@
 					}
 				}
 			],
-			"migrationVersion": 3
-		},
-		{
-			"name": "Call of the Shadowseeds",
-			"source": "TDCSR",
-			"className": "Druid",
-			"classSource": "PHB",
-			"subclassShortName": "Blighted",
-			"subclassSource": "TDCSR",
-			"level": 6,
-			"system": {},
-			"migrationVersion": 3
-		},
-		{
-			"name": "Incarnation of Corruption",
-			"source": "TDCSR",
-			"className": "Druid",
-			"classSource": "PHB",
-			"subclassShortName": "Blighted",
-			"subclassSource": "TDCSR",
-			"level": 14,
-			"entryData": {
-				"resist": [
-					"necrotic"
-				]
-			},
 			"migrationVersion": 3
 		},
 		{
@@ -9321,99 +9434,6 @@
 				"toolProficiencies": [
 					{
 						"herbalism kit": true
-					}
-				]
-			},
-			"migrationVersion": 3
-		},
-		{
-			"name": "Mystical Erudition",
-			"source": "TDCSR",
-			"className": "Monk",
-			"classSource": "PHB",
-			"subclassShortName": "Cobalt Soul",
-			"subclassSource": "TDCSR",
-			"level": 6,
-			"entryData": {
-				"languageProficiencies": [
-					{
-						"any": 1
-					}
-				],
-				"skillProficiencies": [
-					{
-						"choose": {
-							"from": [
-								"arcana",
-								"history",
-								"investigation",
-								"nature",
-								"religion"
-							],
-							"count": 1
-						}
-					}
-				]
-			},
-			"migrationVersion": 3
-		},
-		{
-			"name": "Mystical Erudition (11th Level)",
-			"source": "TDCSR",
-			"className": "Monk",
-			"classSource": "PHB",
-			"subclassShortName": "Cobalt Soul",
-			"subclassSource": "TDCSR",
-			"level": 11,
-			"entryData": {
-				"languageProficiencies": [
-					{
-						"any": 1
-					}
-				],
-				"skillProficiencies": [
-					{
-						"choose": {
-							"from": [
-								"arcana",
-								"history",
-								"investigation",
-								"nature",
-								"religion"
-							],
-							"count": 1
-						}
-					}
-				]
-			},
-			"migrationVersion": 3
-		},
-		{
-			"name": "Mystical Erudition (17th Level)",
-			"source": "TDCSR",
-			"className": "Monk",
-			"classSource": "PHB",
-			"subclassShortName": "Cobalt Soul",
-			"subclassSource": "TDCSR",
-			"level": 17,
-			"entryData": {
-				"languageProficiencies": [
-					{
-						"any": 1
-					}
-				],
-				"skillProficiencies": [
-					{
-						"choose": {
-							"from": [
-								"arcana",
-								"history",
-								"investigation",
-								"nature",
-								"religion"
-							],
-							"count": 1
-						}
 					}
 				]
 			},
@@ -19215,6 +19235,9 @@
 						}
 					},
 					"damage": {
+						"critical": {
+							"allow": true
+						},
 						"parts": [
 							{
 								"bonus": "@classes.rogue.levels",

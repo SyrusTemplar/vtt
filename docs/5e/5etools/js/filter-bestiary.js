@@ -288,8 +288,8 @@ class PageFilterBestiary extends PageFilterBase {
 		} else {
 			mon._fAlign = ["No Alignment"];
 		}
-		FilterCommon.mutateForFilters_damageVulnResImmune(mon);
-		FilterCommon.mutateForFilters_conditionImmune(mon);
+		FilterCommon.mutateForFilters_damageVulnResImmuneNonPlayer(mon);
+		FilterCommon.mutateForFilters_conditionImmuneNonPlayer(mon);
 		mon._fSave = mon.save ? Object.keys(mon.save) : [];
 		mon._fSkill = mon.skill ? Object.keys(mon.skill) : [];
 		mon._fPassive = typeof mon.passive === "number" ? mon.passive : null;
@@ -689,14 +689,14 @@ class ModalFilterBestiary extends ModalFilterBase {
 		});
 	}
 
-	_$getColumnHeaders () {
+	_getColumnHeaders () {
 		const btnMeta = [
 			{sort: "name", text: "Name", width: "4"},
 			{sort: "type", text: "Type", width: "4"},
 			{sort: "cr", text: "CR", width: "2"},
 			{sort: "source", text: "Source", width: "1"},
 		];
-		return ModalFilterBase._$getFilterColumnHeaders(btnMeta);
+		return ModalFilterBase._getFilterColumnHeaders(btnMeta);
 	}
 
 	async _pLoadAllData () {

@@ -1,4 +1,5 @@
 import {OmnisearchBacking} from "./omnisearch-backing.js";
+import {PARTNERED_CONTENT_MODE_NONE, PARTNERED_CONTENT_MODE_TEXT, PARTNERED_CONTENT_MODE_TOOLTIP, PARTNERED_CONTENT_MODES} from "./omnisearch-consts.js";
 
 export class OmnisearchUtilsUi {
 	static _isFauxPage (resultDoc) {
@@ -31,6 +32,27 @@ export class OmnisearchUtilsUi {
 
 	/* -------------------------------------------- */
 
+	static bindBtnCyclePartneredMode ({btn, omnisearchState, fnDoSearch}) {
+		btn
+			.onn("click", () => {
+				omnisearchState.setPartneredMode(PARTNERED_CONTENT_MODES.getNext(omnisearchState.getPartneredMode()));
+			})
+			.onn("contextmenu", evt => {
+				evt.preventDefault();
+				omnisearchState.setPartneredMode(PARTNERED_CONTENT_MODES.getPrevious(omnisearchState.getPartneredMode()));
+			});
+
+		omnisearchState.addHookPartnered((val) => {
+			btn
+				.tooltip(PARTNERED_CONTENT_MODE_TOOLTIP[omnisearchState.getPartneredMode()] || "")
+				.txt(PARTNERED_CONTENT_MODE_TEXT[omnisearchState.getPartneredMode()])
+				.toggleClass("active", omnisearchState.getPartneredMode() !== PARTNERED_CONTENT_MODE_NONE);
+			if (val != null) fnDoSearch().then(null);
+		})();
+	}
+
+	/* -------------------------------------------- */
+
 	static addScrollTopFloat () {
 		// "To top" button
 		const btnToTop = ee`<button class="ve-btn ve-btn-sm ve-btn-default" title="To Top"><span class="glyphicon glyphicon-arrow-up"></span></button>`
@@ -51,7 +73,7 @@ export class OmnisearchUtilsUi {
 	/* -------------------------------------------- */
 
 	static doShowHelp ({isIncludeHotkeys = false} = {}) {
-		const {$modalInner} = UiUtil.getShowModal({
+		const {eleModalInner} = UiUtil.getShowModal({
 			title: "Help",
 			isMinHeight0: true,
 			isUncappedHeight: true,
@@ -69,7 +91,7 @@ export class OmnisearchUtilsUi {
 			})
 			.join("");
 
-		$modalInner.append(`
+		eleModalInner.appends(`
 			<p>The following search syntax is available:</p>
 			<ul>
 				<li><code>source:&lt;abbreviation&gt;</code> where <code>&lt;abbreviation&gt;</code> is an abbreviated source/book name (&quot;PHB&quot;, &quot;MM&quot;, etc.)</li>

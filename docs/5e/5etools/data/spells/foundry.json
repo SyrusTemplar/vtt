@@ -16860,9 +16860,17 @@
 						"seconds": 60
 					},
 					"statuses": [
-						"incapacitated",
-						"prone"
+						"incapacitated"
 					],
+					"flags": {
+						"dnd5e": {
+							"riders": {
+								"statuses": [
+									"prone"
+								]
+							}
+						}
+					},
 					"description": "has the &Reference[prone apply=false] and &Reference[incapacitated apply=false] conditions for the duration. During that time, it laughs uncontrollably if it's capable of laughter, and it can't end the Prone condition on itself. At the end of each of its turns and each time it takes damage, it makes another [[/save ability=wis dc=@attributes.spell.dc]] saving throw. The target has Advantage on the save if the save is triggered by damage. On a successful save, the spell ends."
 				}
 			],
@@ -17314,6 +17322,44 @@
 							}
 						}
 					]
+				},
+				{
+					"foundryId": "trueStrike",
+					"name": "Spellcasting Attack",
+					"type": "attack",
+					"img": "systems/dnd5e/icons/svg/damage/bludgeoning.svg",
+					"activation": {
+						"type": "action"
+					},
+					"attack": {
+						"type": {
+							"value": "melee",
+							"classification": "weapon"
+						},
+						"ability": "spellcasting"
+					},
+					"damage": {
+						"includeBase": true
+					}
+				},
+				{
+					"foundryId": "trueStrike1",
+					"name": "Spellcasting Attack",
+					"type": "attack",
+					"img": "systems/dnd5e/icons/svg/damage/piercing.svg",
+					"activation": {
+						"type": "action"
+					},
+					"attack": {
+						"type": {
+							"value": "ranged",
+							"classification": "weapon"
+						},
+						"ability": "spellcasting"
+					},
+					"damage": {
+						"includeBase": true
+					}
 				}
 			],
 			"effects": [
@@ -17348,6 +17394,31 @@
 							"key": "activities[attack].attack.ability",
 							"mode": "OVERRIDE",
 							"value": "spellcasting"
+						}
+					]
+				},
+				{
+					"foundryId": "trueStrike1",
+					"name": "Ranged Weapon",
+					"type": "enchantment",
+					"duration": {
+						"turns": 1
+					},
+					"changes": [
+						{
+							"key": "system.damage.base.types",
+							"mode": "ADD",
+							"value": "radiant"
+						},
+						{
+							"key": "name",
+							"mode": "OVERRIDE",
+							"value": "{} (True Strike)"
+						},
+						{
+							"key": "system.damage.base.bonus",
+							"mode": "ADD",
+							"value": "(floor((@details.level + 1) / 6))d6[radiant]"
 						}
 					]
 				}

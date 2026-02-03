@@ -225,6 +225,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -2808,6 +2811,12 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
+				},
+				{
+					"source": "FFotR"
 				}
 			],
 			"size": [
@@ -3021,6 +3030,11 @@
 			"page": 40,
 			"srd52": true,
 			"basicRules2024": true,
+			"otherSources": [
+				{
+					"source": "LFL"
+				}
+			],
 			"size": [
 				"G"
 			],
@@ -4080,6 +4094,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "LFL"
 				}
 			],
 			"size": [
@@ -4513,6 +4530,11 @@
 			"page": 256,
 			"srd52": true,
 			"basicRules2024": true,
+			"otherSources": [
+				{
+					"source": "LFL"
+				}
+			],
 			"size": [
 				"G"
 			],
@@ -5490,6 +5512,12 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -5577,6 +5605,14 @@
 			"name": "Animated Broom",
 			"source": "XMM",
 			"page": 16,
+			"otherSources": [
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "EFA"
+				}
+			],
 			"size": [
 				"S"
 			],
@@ -5670,6 +5706,9 @@
 			"otherSources": [
 				{
 					"source": "HotB"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -5760,6 +5799,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -6658,6 +6700,12 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -6868,6 +6916,12 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -7040,6 +7094,15 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "ABH"
+				},
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -7124,7 +7187,7 @@
 				{
 					"name": "Cunning Action",
 					"entries": [
-						"The assassin takes the Dash, Disengage, or Hide action."
+						"The assassin takes the {@action Dash|XPHB}, {@action Disengage|XPHB}, or {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -7157,7 +7220,6 @@
 				"RNG"
 			],
 			"conditionInflict": [
-				"incapacitated",
 				"poisoned"
 			],
 			"hasToken": true,
@@ -7530,9 +7592,6 @@
 				"MA",
 				"RA"
 			],
-			"conditionInflict": [
-				"incapacitated"
-			],
 			"savingThrowForcedSpell": [
 				"dexterity"
 			],
@@ -7634,9 +7693,6 @@
 			"miscTags": [
 				"AOE",
 				"MA"
-			],
-			"conditionInflict": [
-				"incapacitated"
 			],
 			"hasToken": true,
 			"hasFluff": true,
@@ -7976,6 +8032,12 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "ABH"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -8064,6 +8126,15 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "ABH"
+				},
+				{
+					"source": "EFA"
+				},
+				{
+					"source": "FFotR"
 				}
 			],
 			"size": [
@@ -8289,9 +8360,6 @@
 				"RA",
 				"RNG"
 			],
-			"conditionInflict": [
-				"incapacitated"
-			],
 			"hasToken": true,
 			"hasFluff": true,
 			"hasFluffImages": true
@@ -8303,6 +8371,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -8945,6 +9016,9 @@
 			"otherSources": [
 				{
 					"source": "DrDe"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -9631,6 +9705,11 @@
 			],
 			"source": "XMM",
 			"page": 347,
+			"otherSources": [
+				{
+					"source": "NF"
+				}
+			],
 			"size": [
 				"L"
 			],
@@ -9805,6 +9884,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -10229,6 +10311,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -10445,6 +10530,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -10922,6 +11010,7 @@
 			],
 			"miscTags": [
 				"CUR",
+				"HPR",
 				"MA",
 				"RCH"
 			],
@@ -13445,6 +13534,7 @@
 				"P"
 			],
 			"miscTags": [
+				"HPR",
 				"MA"
 			],
 			"conditionInflict": [
@@ -13814,7 +13904,7 @@
 				{
 					"name": "Hasten {@recharge 5}",
 					"entries": [
-						"The golem takes the Dash and Disengage actions."
+						"The golem takes the {@action Dash|XPHB} and {@action Disengage|XPHB} actions."
 					]
 				}
 			],
@@ -13848,6 +13938,7 @@
 				"B"
 			],
 			"miscTags": [
+				"HPR",
 				"MA"
 			],
 			"hasToken": true,
@@ -14543,6 +14634,15 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "ABH"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "LFL"
 				}
 			],
 			"size": [
@@ -16167,6 +16267,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -16376,6 +16479,7 @@
 				"P"
 			],
 			"miscTags": [
+				"HPR",
 				"MA"
 			],
 			"conditionInflict": [
@@ -16588,10 +16692,8 @@
 			],
 			"miscTags": [
 				"AOE",
+				"HPR",
 				"MA"
-			],
-			"conditionInflict": [
-				"incapacitated"
 			],
 			"conditionInflictSpell": [
 				"prone"
@@ -16765,9 +16867,6 @@
 			"miscTags": [
 				"AOE",
 				"MA"
-			],
-			"conditionInflict": [
-				"incapacitated"
 			],
 			"conditionInflictSpell": [
 				"prone"
@@ -17457,6 +17556,7 @@
 			],
 			"miscTags": [
 				"AOE",
+				"HPR",
 				"MA",
 				"RA"
 			],
@@ -17975,7 +18075,6 @@
 				"MA"
 			],
 			"conditionInflict": [
-				"incapacitated",
 				"prone"
 			],
 			"hasToken": true,
@@ -19016,6 +19115,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -21033,6 +21135,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -21169,9 +21274,9 @@
 			"str": 3,
 			"dex": 20,
 			"con": 13,
-			"int": 12,
+			"int": 14,
 			"wis": 12,
-			"cha": 14,
+			"cha": 16,
 			"skill": {
 				"arcana": "+4",
 				"perception": "+3",
@@ -21717,6 +21822,7 @@
 				"F"
 			],
 			"miscTags": [
+				"AOE",
 				"MA"
 			],
 			"hasToken": true,
@@ -21839,6 +21945,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -21986,6 +22095,7 @@
 				"O"
 			],
 			"miscTags": [
+				"AOE",
 				"MA",
 				"RA"
 			],
@@ -22263,6 +22373,11 @@
 			"name": "Flumph",
 			"source": "XMM",
 			"page": 122,
+			"otherSources": [
+				{
+					"source": "NF"
+				}
+			],
 			"size": [
 				"S"
 			],
@@ -23481,6 +23596,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -23868,6 +23986,9 @@
 			"otherSources": [
 				{
 					"source": "DrDe"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -24093,6 +24214,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -24344,6 +24468,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -25461,6 +25588,14 @@
 			"page": 359,
 			"srd52": true,
 			"basicRules2024": true,
+			"otherSources": [
+				{
+					"source": "NF"
+				},
+				{
+					"source": "EFA"
+				}
+			],
 			"size": [
 				"L"
 			],
@@ -27639,6 +27774,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -28370,7 +28508,7 @@
 				{
 					"name": "Nimble Escape",
 					"entries": [
-						"The goblin takes the Disengage or Hide action."
+						"The goblin takes the {@action Disengage|XPHB} or {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -28635,7 +28773,7 @@
 				{
 					"name": "Nimble Escape",
 					"entries": [
-						"The goblin takes the Disengage or Hide action."
+						"The goblin takes the {@action Disengage|XPHB} or {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -28759,7 +28897,7 @@
 				{
 					"name": "Nimble Escape",
 					"entries": [
-						"The goblin takes the Disengage or Hide action."
+						"The goblin takes the {@action Disengage|XPHB} or {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -28945,6 +29083,11 @@
 			"page": 148,
 			"srd52": true,
 			"basicRules2024": true,
+			"otherSources": [
+				{
+					"source": "EFA"
+				}
+			],
 			"size": [
 				"L"
 			],
@@ -30401,6 +30544,14 @@
 			"page": 159,
 			"srd52": true,
 			"basicRules2024": true,
+			"otherSources": [
+				{
+					"source": "NF"
+				},
+				{
+					"source": "EFA"
+				}
+			],
 			"size": [
 				"L"
 			],
@@ -30570,6 +30721,12 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -30656,6 +30813,15 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "FFotR"
 				}
 			],
 			"size": [
@@ -31031,6 +31197,7 @@
 				"P"
 			],
 			"miscTags": [
+				"HPR",
 				"MA",
 				"RA",
 				"RCH"
@@ -31184,6 +31351,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -31347,7 +31517,7 @@
 				{
 					"name": "Multiattack",
 					"entries": [
-						"The revenant makes two {@variantrule Object|XPHB} Slam attacks and uses Invitation."
+						"The revenant makes two Object Slam attacks and uses Invitation."
 					]
 				},
 				{
@@ -31483,6 +31653,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -31598,6 +31771,18 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "ABH"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "EFA"
+				},
+				{
+					"source": "FFotR"
 				}
 			],
 			"size": [
@@ -32153,6 +32338,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -32645,6 +32833,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -33348,6 +33539,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -33924,6 +34118,12 @@
 			"otherSources": [
 				{
 					"source": "DrDe"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "LFL"
 				}
 			],
 			"size": [
@@ -34498,7 +34698,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, the dragon takes the Hide action."
+						"While in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, the dragon takes the {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -34546,6 +34746,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "ABH"
 				}
 			],
 			"size": [
@@ -35000,6 +35203,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -35202,6 +35408,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -35328,6 +35537,11 @@
 			"name": "Kuo-toa Archpriest",
 			"source": "XMM",
 			"page": 191,
+			"otherSources": [
+				{
+					"source": "EFA"
+				}
+			],
 			"size": [
 				"M"
 			],
@@ -35494,6 +35708,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -35604,6 +35821,11 @@
 			"name": "Kuo-toa Whip",
 			"source": "XMM",
 			"page": 190,
+			"otherSources": [
+				{
+					"source": "EFA"
+				}
+			],
 			"size": [
 				"M"
 			],
@@ -36168,6 +36390,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -36761,6 +36986,11 @@
 			"name": "Lizardfolk Sovereign",
 			"source": "XMM",
 			"page": 197,
+			"otherSources": [
+				{
+					"source": "NF"
+				}
+			],
 			"size": [
 				"M"
 			],
@@ -36885,6 +37115,15 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -37060,6 +37299,15 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "ABH"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -37390,6 +37638,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -37654,7 +37905,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, the manes takes the Hide action."
+						"While in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, the manes takes the {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -38620,6 +38871,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "LFL"
 				}
 			],
 			"size": [
@@ -40348,6 +40602,7 @@
 			],
 			"miscTags": [
 				"CUR",
+				"HPR",
 				"MA"
 			],
 			"conditionInflict": [
@@ -40588,6 +40843,7 @@
 			],
 			"miscTags": [
 				"CUR",
+				"HPR",
 				"MA",
 				"RA"
 			],
@@ -41458,6 +41714,7 @@
 				"O"
 			],
 			"miscTags": [
+				"HPR",
 				"MA"
 			],
 			"savingThrowForcedSpell": [
@@ -41592,6 +41849,15 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -41686,6 +41952,12 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -42309,6 +42581,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -42515,6 +42790,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -42801,6 +43079,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -42889,6 +43170,7 @@
 				"P"
 			],
 			"miscTags": [
+				"HPR",
 				"MA",
 				"RCH"
 			],
@@ -43143,7 +43425,7 @@
 				{
 					"name": "Nimble Escape",
 					"entries": [
-						"The panther takes the Disengage or Hide action."
+						"The panther takes the {@action Disengage|XPHB} or {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -43178,6 +43460,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -43493,6 +43778,12 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -43634,6 +43925,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -44048,6 +44342,12 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "ABH"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -44301,6 +44601,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -44627,6 +44930,9 @@
 			"otherSources": [
 				{
 					"source": "FRHoF"
+				},
+				{
+					"source": "LFL"
 				}
 			],
 			"size": [
@@ -45195,6 +45501,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -45498,6 +45807,12 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -46868,6 +47183,11 @@
 			"page": 253,
 			"srd52": true,
 			"basicRules2024": true,
+			"otherSources": [
+				{
+					"source": "ABH"
+				}
+			],
 			"size": [
 				"M"
 			],
@@ -47798,6 +48118,9 @@
 			"otherSources": [
 				{
 					"source": "DrDe"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -47928,6 +48251,9 @@
 			"otherSources": [
 				{
 					"source": "DrDe"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -48261,6 +48587,11 @@
 			"page": 369,
 			"srd52": true,
 			"basicRules2024": true,
+			"otherSources": [
+				{
+					"source": "NF"
+				}
+			],
 			"size": [
 				"L"
 			],
@@ -48323,7 +48654,7 @@
 				{
 					"name": "Nimble Escape",
 					"entries": [
-						"The tiger takes the Disengage or Hide action."
+						"The tiger takes the {@action Disengage|XPHB} or {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -48500,6 +48831,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -48660,6 +48994,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -49356,6 +49693,14 @@
 			"name": "Scarecrow",
 			"source": "XMM",
 			"page": 269,
+			"otherSources": [
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "EFA"
+				}
+			],
 			"size": [
 				"M"
 			],
@@ -49639,6 +49984,12 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -50075,7 +50426,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, the shadow takes the Hide action."
+						"While in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, the shadow takes the {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -50226,7 +50577,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, the demon takes the Hide action."
+						"While in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, the demon takes the {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -50370,7 +50721,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, the dragon takes the Hide action."
+						"While in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, the dragon takes the {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -50566,6 +50917,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -50903,6 +51257,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -51725,6 +52082,7 @@
 				"O"
 			],
 			"miscTags": [
+				"HPR",
 				"MA"
 			],
 			"hasToken": true,
@@ -51743,6 +52101,9 @@
 				},
 				{
 					"source": "FRHoF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -51931,6 +52292,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -52807,6 +53171,12 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "UtHftLH"
 				}
 			],
 			"size": [
@@ -52933,6 +53303,15 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -52999,7 +53378,7 @@
 				{
 					"name": "Cunning Action",
 					"entries": [
-						"The spy takes the Dash, Disengage, or Hide action."
+						"The spy takes the {@action Dash|XPHB}, {@action Disengage|XPHB}, or {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -53039,6 +53418,12 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "LFL"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -53123,7 +53508,7 @@
 				{
 					"name": "Cunning Action",
 					"entries": [
-						"The spy takes the Dash, Disengage, or Hide action."
+						"The spy takes the {@action Dash|XPHB}, {@action Disengage|XPHB}, or {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -53272,9 +53657,6 @@
 			],
 			"miscTags": [
 				"MA"
-			],
-			"conditionInflict": [
-				"incapacitated"
 			],
 			"savingThrowForced": [
 				"constitution",
@@ -53949,6 +54331,7 @@
 				"Y"
 			],
 			"miscTags": [
+				"HPR",
 				"MA"
 			],
 			"savingThrowForced": [
@@ -55328,6 +55711,11 @@
 			"name": "Thri-kreen Marauder",
 			"source": "XMM",
 			"page": 306,
+			"otherSources": [
+				{
+					"source": "EFA"
+				}
+			],
 			"size": [
 				"M"
 			],
@@ -55609,7 +55997,7 @@
 				{
 					"name": "Nimble Escape",
 					"entries": [
-						"The tiger takes the Disengage or Hide action."
+						"The tiger takes the {@action Disengage|XPHB} or {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -55649,6 +56037,12 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "ABH"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -55748,6 +56142,15 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "ABH"
+				},
+				{
+					"source": "NF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -55862,6 +56265,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "LFL"
 				}
 			],
 			"size": [
@@ -56269,6 +56675,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -57002,6 +57411,7 @@
 		{
 			"name": "Unicorn",
 			"source": "XMM",
+			"page": 313,
 			"srd52": true,
 			"basicRules2024": true,
 			"otherSources": [
@@ -57442,13 +57852,12 @@
 				"O"
 			],
 			"miscTags": [
+				"HPR",
 				"MA"
 			],
 			"conditionInflict": [
 				"charmed",
-				"grappled",
-				"incapacitated",
-				"paralyzed"
+				"grappled"
 			],
 			"conditionInflictSpell": [
 				"charmed",
@@ -57473,6 +57882,11 @@
 			"page": 314,
 			"srd52": true,
 			"basicRules2024": true,
+			"otherSources": [
+				{
+					"source": "EFA"
+				}
+			],
 			"size": [
 				"S",
 				"M"
@@ -57563,7 +57977,7 @@
 				{
 					"name": "Deathless Agility",
 					"entries": [
-						"The familiar takes the Dash or Disengage action."
+						"The familiar takes the {@action Dash|XPHB} or {@action Disengage|XPHB} action."
 					]
 				}
 			],
@@ -57609,6 +58023,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "ABH"
 				}
 			],
 			"size": [
@@ -57698,7 +58115,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, the vampire takes the Hide action."
+						"While in {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, the vampire takes the {@action Hide|XPHB} action."
 					]
 				}
 			],
@@ -57730,6 +58147,7 @@
 				"S"
 			],
 			"miscTags": [
+				"HPR",
 				"MA"
 			],
 			"hasToken": true,
@@ -57745,6 +58163,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "ABH"
 				}
 			],
 			"size": [
@@ -57863,7 +58284,7 @@
 				{
 					"name": "Deathless Agility",
 					"entries": [
-						"The vampire takes the Dash or Disengage action."
+						"The vampire takes the {@action Dash|XPHB} or {@action Disengage|XPHB} action."
 					]
 				}
 			],
@@ -57899,11 +58320,11 @@
 				"S"
 			],
 			"miscTags": [
+				"HPR",
 				"MA"
 			],
 			"conditionInflict": [
-				"grappled",
-				"incapacitated"
+				"grappled"
 			],
 			"savingThrowForced": [
 				"constitution"
@@ -58144,12 +58565,11 @@
 				"O"
 			],
 			"miscTags": [
+				"HPR",
 				"MA",
 				"RA"
 			],
 			"conditionInflict": [
-				"incapacitated",
-				"paralyzed",
 				"poisoned"
 			],
 			"conditionInflictSpell": [
@@ -58800,6 +59220,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "UtHftLH"
 				}
 			],
 			"size": [
@@ -58942,6 +59365,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -59175,6 +59601,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "FFotR"
 				}
 			],
 			"size": [
@@ -60128,7 +60557,7 @@
 				{
 					"name": "Prowl (Tiger or Hybrid Form Only)",
 					"entries": [
-						"The weretiger moves up to its {@variantrule Speed|XPHB} without provoking {@action Opportunity Attack|XPHB|Opportunity Attacks}. At the end of this movement, the weretiger can take the Hide action."
+						"The weretiger moves up to its {@variantrule Speed|XPHB} without provoking {@action Opportunity Attack|XPHB|Opportunity Attacks}. At the end of this movement, the weretiger can take the {@action Hide|XPHB} action."
 					]
 				},
 				{
@@ -60589,6 +61018,7 @@
 				"S"
 			],
 			"miscTags": [
+				"HPR",
 				"MA",
 				"RA"
 			],
@@ -60872,6 +61302,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -61279,6 +61712,7 @@
 				"O"
 			],
 			"miscTags": [
+				"HPR",
 				"MA"
 			],
 			"hasToken": true,
@@ -61297,6 +61731,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [
@@ -61519,6 +61956,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -61996,6 +62436,9 @@
 			"otherSources": [
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "FFotR"
 				}
 			],
 			"size": [
@@ -62958,6 +63401,9 @@
 			"otherSources": [
 				{
 					"source": "DrDe"
+				},
+				{
+					"source": "NF"
 				}
 			],
 			"size": [
@@ -64111,6 +64557,9 @@
 				},
 				{
 					"source": "FRAiF"
+				},
+				{
+					"source": "EFA"
 				}
 			],
 			"size": [

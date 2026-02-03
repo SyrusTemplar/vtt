@@ -1466,7 +1466,7 @@ RendererMarkdown.item = class {
 
 		const [ptDamage, ptProperties] = Renderer.item.getRenderedDamageAndProperties(item, {renderer: RendererMarkdown.get()});
 		const ptMastery = Renderer.item.getRenderedMastery(item, {renderer: RendererMarkdown.get()});
-		const [typeRarityText, subTypeText, tierText] = RendererMarkdown.item.getTypeRarityAndAttunementText(item);
+		const {typeRarityText, subTypeText, tierText} = RendererMarkdown.item.getTypeRarityAndAttunementTextParts(item, {styleHint});
 
 		const typeRarityTierValueWeight = [typeRarityText, subTypeText, tierText, Parser.itemValueToFullMultiCurrency(item, {styleHint}), Parser.itemWeightToFull(item)].filter(Boolean).join(", ").uppercaseFirst();
 
@@ -1496,17 +1496,20 @@ RendererMarkdown.item = class {
 		return `\n${itemRender}\n\n`;
 	}
 
-	static getTypeRarityAndAttunementText (item) {
-		const typeRarity = [
-			item._typeHtml === "other" ? "" : $(`<div></div>`).html(item._typeHtml).text(),
-			(item.rarity && Renderer.item.doRenderRarity(item.rarity) ? item.rarity : ""),
-		].filter(Boolean).join(", ");
+	static getTypeRarityAndAttunementTextParts (item, {styleHint = null} = {}) {
+		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		return [
-			item.reqAttune ? `${typeRarity} ${item._attunement}` : typeRarity,
-			item._subTypeHtml || "",
-			item.tier ? `${item.tier} tier` : "",
-		];
+		const {
+			entryTypeRarity,
+			entrySubtype,
+			entryTier,
+		} = Renderer.item.getTransformedTypeEntriesMeta({item, styleHint});
+
+		return {
+			typeRarityText: RendererMarkdown.get().render(entryTypeRarity),
+			subTypeText: RendererMarkdown.get().render(entrySubtype),
+			tierText: RendererMarkdown.get().render(entryTier),
+		};
 	}
 };
 
@@ -1637,29 +1640,11 @@ RendererMarkdown.status = class {
 
 RendererMarkdown.race = class {
 	static getCompactRenderedString (ent, opts = {}) {
+		const entriesMeta = Renderer.race.getRaceRenderableEntriesMeta(ent);
+
 		const entries = [
-			{
-				type: "list",
-				style: "list-hang-notitle",
-				items: [
-					{
-						type: "item",
-						name: "Ability Scores",
-						entry: Renderer.getAbilityData(ent.ability).asText,
-					},
-					{
-						type: "item",
-						name: "Size",
-						entry: Renderer.race.getRenderedSize(ent),
-					},
-					{
-						type: "item",
-						name: "Speed",
-						entry: Parser.getSpeedString(ent),
-					},
-				],
-			},
-			Renderer.race.getRaceRenderableEntriesMeta(ent)?.entryMain,
+			entriesMeta.entryAttributes,
+			entriesMeta.entryMain,
 		]
 			.filter(Boolean);
 
@@ -1898,6 +1883,7 @@ RendererMarkdown.vehicle = class {
 		switch (ent.vehicleType) {
 			case "SHIP": return RendererMarkdown.vehicle._getRenderedString_ship(ent, opts);
 			case "SPELLJAMMER": return RendererMarkdown.vehicle._getRenderedString_spelljammer(ent, opts);
+			case "ELEMENTAL_AIRSHIP": return RendererMarkdown.vehicle._getRenderedString_elementalAirship(ent, opts);
 			case "INFWAR": return RendererMarkdown.vehicle._getRenderedString_infwar(ent, opts);
 			case "CREATURE": return RendererMarkdown.monster.getCompactRenderedString(ent, {...opts, isHideLanguages: true, isHideSenses: true, page: UrlUtil.PG_VEHICLES});
 			case "OBJECT": return RendererMarkdown.object.getCompactRenderedString(ent, {...opts, page: UrlUtil.PG_VEHICLES});
@@ -2029,17 +2015,16 @@ RendererMarkdown.vehicle = class {
 			.trim();
 	}
 
-	static spelljammer = class {
-		static getWeaponSection_ ({entry}) {
+	static spelljammerElementalAirship = class {
+		static getStationSection_ ({entriesMetaParent, entry, isDisplayEmptyCost = false}) {
 			const renderer = RendererMarkdown.get();
-			const entriesMetaSectionWeapon = Renderer.vehicle.spelljammer.getSectionWeaponEntriesMeta(entry);
-			const entriesMetaSectionHpCost = Renderer.vehicle.spelljammer.getSectionHpCostEntriesMeta(entry);
+			const entriesMeta = Renderer.vehicle.spelljammerElementalAirship.getStationEntriesMeta(entry);
 
 			return [
-				`### ${entriesMetaSectionWeapon.entryName}`,
-				entriesMetaSectionHpCost.entryArmorClass ? renderer.render(entriesMetaSectionHpCost.entryArmorClass) : null,
-				entriesMetaSectionHpCost.entryHitPoints ? renderer.render(entriesMetaSectionHpCost.entryHitPoints) : null,
-				entriesMetaSectionHpCost.entryCost ? renderer.render(entriesMetaSectionHpCost.entryCost) : null,
+				`### ${entriesMetaParent.entryName}`,
+				entriesMeta.entryArmorClass ? renderer.render(entriesMeta.entryArmorClass) : null,
+				entriesMeta.entryHitPoints ? renderer.render(entriesMeta.entryHitPoints) : null,
+				(isDisplayEmptyCost || entry.costs?.length) && entriesMeta.entryCost ? renderer.render(entriesMeta.entryCost) : null,
 				RendererMarkdown.get().render({entries: entry.entries}),
 				...(entry.action || []).map(act => renderer.render(act, 2)),
 			]
@@ -2049,15 +2034,49 @@ RendererMarkdown.vehicle = class {
 		}
 	};
 
+	static spelljammer = class {
+		static getStationSection_ ({entry}) {
+			const entriesMeta = Renderer.vehicle.spelljammer.getStationEntriesMeta(entry);
+			return RendererMarkdown.vehicle.spelljammerElementalAirship.getStationSection_({entriesMetaParent: entriesMeta, entry, isDisplayEmptyCost: true});
+		}
+	};
+
 	static _getRenderedString_spelljammer (ent, opts) {
 		const renderer = RendererMarkdown.get();
-		const entriesMetaSpelljammer = Renderer.vehicle.spelljammer.getVehicleSpelljammerRenderableEntriesMeta(ent);
+		const entriesMeta = Renderer.vehicle.spelljammer.getRenderableEntriesMeta(ent);
 
 		const ptsJoined = [
 			`## ${ent.name}`,
-			renderer.render(entriesMetaSpelljammer.entryTableSummary),
+			renderer.render(entriesMeta.entryTableSummary),
 			...(ent.weapon || [])
-				.map(entry => RendererMarkdown.vehicle.spelljammer.getWeaponSection_({entry})),
+				.map(entry => RendererMarkdown.vehicle.spelljammer.getStationSection_({entry})),
+		]
+			.map(it => it != null ? it.trim() : it)
+			.filter(Boolean)
+			.join("\n\n");
+
+		return ptsJoined
+			.trim();
+	}
+
+	static elementalAirship = class {
+		static getStationSection_ ({entry}) {
+			const entriesMeta = Renderer.vehicle.elementalAirship.getStationEntriesMeta(entry);
+			return RendererMarkdown.vehicle.spelljammerElementalAirship.getStationSection_({entriesMetaParent: entriesMeta, entry});
+		}
+	};
+
+	static _getRenderedString_elementalAirship (ent, opts) {
+		const renderer = RendererMarkdown.get();
+		const entriesMeta = Renderer.vehicle.elementalAirship.getRenderableEntriesMeta(ent);
+
+		const ptsJoined = [
+			`## ${ent.name}`,
+			renderer.render(entriesMeta.entryTableSummary),
+			...(ent.weapon || [])
+				.map(entry => RendererMarkdown.vehicle.elementalAirship.getStationSection_({entry})),
+			...(ent.station || [])
+				.map(entry => RendererMarkdown.vehicle.elementalAirship.getStationSection_({entry})),
 		]
 			.map(it => it != null ? it.trim() : it)
 			.filter(Boolean)
@@ -2171,6 +2190,23 @@ RendererMarkdown.recipe = class {
 RendererMarkdown.variantrule = class {
 	static getCompactRenderedString (ent, opts = {}) {
 		return RendererMarkdown.generic.getCompactRenderedString(ent, opts);
+	}
+};
+
+RendererMarkdown.facility = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		const entriesMeta = Renderer.facility.getFacilityRenderableEntriesMeta(ent);
+
+		const out = [
+			`## ${ent.name}`,
+			entriesMeta.entryLevel ? RendererMarkdown.get().render(entriesMeta.entryLevel) : null,
+			...entriesMeta.entriesDescription
+				.map(entry => RendererMarkdown.get().render(entry)),
+		]
+			.filter(Boolean)
+			.join("\n\n");
+
+		return RendererMarkdown.utils.getNormalizedNewlines(out);
 	}
 };
 

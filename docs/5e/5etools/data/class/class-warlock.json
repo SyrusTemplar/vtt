@@ -4149,7 +4149,7 @@
 			"level": 3,
 			"entries": [
 				"{@i Bargain with Whimsical Fey}",
-				"Your pact draws on the power of the Feywild. When you choose this subclass, you might make a deal with an archfey, such as the Prince of Frost; the Queen of Air and {@variantrule Darkness|XPHB}, ruler of the Gloaming Court; Titania of the Summer Court; or an ancient hag. Or you might call on a spectrum of Fey, weaving a web of favors and debts. Whoever they are, your patron is often inscrutable and whimsical.",
+				"Your pact draws on the power of the Feywild. When you choose this subclass, you might make a deal with an archfey, such as the Prince of Frost; the Queen of Air and Darkness, ruler of the Gloaming Court; Titania of the Summer Court; or an ancient hag. Or you might call on a spectrum of Fey, weaving a web of favors and debts. Whoever they are, your patron is often inscrutable and whimsical.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Archfey Spells|Warlock|XPHB|Archfey|XPHB|3"
@@ -4657,7 +4657,7 @@
 			"level": 3,
 			"header": 1,
 			"entries": [
-				"When you cast a Warlock spell that deals damage, you can change its damage type to Psychic. In addition, when you cast a Warlock spell that is an Enchantment or {@variantrule Illusions|XPHB|Illusion}, you can do so without Verbal or Somatic components."
+				"When you cast a Warlock spell that deals damage, you can change its damage type to Psychic. In addition, when you cast a Warlock spell that is an {@filter Enchantment|spells|class=Warlock|school=E} or {@filter Illusion|spells|class=Warlock|school=I}, you can do so without Verbal or Somatic components."
 			]
 		},
 		{
@@ -4672,7 +4672,7 @@
 			"header": 2,
 			"entries": [
 				"When you form a telepathic bond with a creature using your Awakened Mind, you can force that creature to make a Wisdom saving throw against your spell save DC. On a failed save, the creature has {@variantrule Disadvantage|XPHB} on attack rolls against you, and you have {@variantrule Advantage|XPHB} on attack rolls against that creature for the duration of the bond.",
-				"Once you use this feature, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB} unless you expend a Pact {@action Magic|XPHB} spell slot (no action required) to restore your use of it."
+				"Once you use this feature, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB} unless you expend a Pact Magic spell slot (no action required) to restore your use of it."
 			]
 		},
 		{

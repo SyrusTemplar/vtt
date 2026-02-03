@@ -71,7 +71,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in dim light or darkness, the ancient deep crow can take the Hide action as a bonus action."
+						"While in dim light or darkness, the ancient deep crow can take the {@action Hide} action as a bonus action."
 					]
 				}
 			],
@@ -145,6 +145,7 @@
 				"Y"
 			],
 			"miscTags": [
+				"AOE",
 				"MW",
 				"RCH"
 			],
@@ -701,7 +702,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in dim light or darkness, the deep crow can take the Hide action as a bonus action."
+						"While in dim light or darkness, the deep crow can take the {@action Hide} action as a bonus action."
 					]
 				},
 				{
@@ -1274,7 +1275,11 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"elf"
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					}
 				]
 			},
 			"alignment": [
@@ -2912,7 +2917,7 @@
 				{
 					"name": "Nimble Escape",
 					"entries": [
-						"Splugoth can take the Disengage or Hide action as a bonus action on each of his turns."
+						"Splugoth can take the {@action Disengage} or {@action Hide} action as a bonus action on each of his turns."
 					]
 				},
 				{

@@ -3,6 +3,66 @@ import {PROPS_FOUNDRY_DATA_INLINE} from "../foundry/foundry-consts.js";
 import {getFnRootPropListSort} from "./utils-proporder-sort.js";
 import {PROPORDER_ENTRY_DATA_OBJECT, PROPORDER_FOUNDRY_ACTIVITIES, PROPORDER_FOUNDRY_EFFECTS} from "./utils-proporder-config-shared.js";
 
+const getFoundryGeneric = ({propsMatchAdditional = [], isFeature = false} = {}) => {
+	const proporder = [
+		"name",
+		"source",
+
+		...propsMatchAdditional,
+
+		ObjectKey.getCopyKey({
+			identKeys: [
+				"name",
+				"source",
+				...propsMatchAdditional,
+			],
+			fnGetModOrder: () => proporderCopy,
+		}),
+
+		"type",
+		"system",
+		PROPORDER_FOUNDRY_ACTIVITIES,
+		PROPORDER_FOUNDRY_EFFECTS,
+		"flags",
+		"img",
+		"advice",
+
+		...(
+			isFeature
+				? [
+					"isIgnored",
+					"ignoreSrdActivities",
+					"ignoreSrdEffects",
+
+					"entries",
+
+					new ObjectKey("entryData", {
+						fnGetOrder: () => PROPORDER_ENTRY_DATA_OBJECT,
+					}),
+
+					"advancement",
+				]
+				: []
+		),
+
+		new ObjectKey("subEntities", {
+			fnGetOrder: () => PROPORDER_ROOT,
+		}),
+
+		"_merge",
+
+		"migrationVersion",
+	];
+
+	const proporderCopy = [
+		"*",
+		"_",
+		...proporder,
+	];
+
+	return proporder;
+};
+
 const PROPORDER_META = [
 	"sources",
 
@@ -32,58 +92,8 @@ const PROPORDER_META = [
 const PROPORDER_TEST = [
 	"additionalImageSources",
 ];
-const PROPORDER_FOUNDRY_GENERIC = [
-	"name",
-	"source",
-
-	"type",
-	"system",
-	PROPORDER_FOUNDRY_ACTIVITIES,
-	PROPORDER_FOUNDRY_EFFECTS,
-	"flags",
-	"img",
-	"advice",
-
-	new ObjectKey("subEntities", {
-		fnGetOrder: () => PROPORDER_ROOT,
-	}),
-
-	"_merge",
-
-	"migrationVersion",
-];
-const PROPORDER_FOUNDRY_GENERIC_FEATURE = [
-	"name",
-	"source",
-
-	"type",
-	"system",
-	PROPORDER_FOUNDRY_ACTIVITIES,
-	PROPORDER_FOUNDRY_EFFECTS,
-	"flags",
-	"img",
-	"advice",
-
-	"isIgnored",
-	"ignoreSrdActivities",
-	"ignoreSrdEffects",
-
-	"entries",
-
-	new ObjectKey("entryData", {
-		fnGetOrder: () => PROPORDER_ENTRY_DATA_OBJECT,
-	}),
-
-	"advancement",
-
-	new ObjectKey("subEntities", {
-		fnGetOrder: () => PROPORDER_ROOT,
-	}),
-
-	"_merge",
-
-	"migrationVersion",
-];
+const PROPORDER_FOUNDRY_GENERIC = getFoundryGeneric();
+const PROPORDER_FOUNDRY_GENERIC_FEATURE = getFoundryGeneric({isFeature: true});
 const PROPORDER_MONSTER = [
 	"name",
 	"shortName",
@@ -211,6 +221,7 @@ const PROPORDER_MONSTER = [
 	"tokenHref",
 	"tokenCredit",
 	"tokenCustom",
+	"tokenHref3d",
 	"soundClip",
 
 	...PROPS_FOUNDRY_DATA_INLINE,
@@ -272,6 +283,7 @@ const PROPORDER_MONSTER__COPY_MOD = [
 ];
 const PROPORDER_MONSTER_TEMPLATE = [
 	"name",
+	"alias",
 
 	"source",
 	"page",
@@ -329,6 +341,7 @@ const PROPORDER_FOUNDRY_MONSTER = [
 
 	"migrationVersion",
 ];
+const PROPORDER_FOUNDRY_MONSTER_SUB_ENTITY = getFoundryGeneric({propsMatchAdditional: ["monsterName", "monsterFeature"]});
 const PROPORDER_GENERIC_FLUFF = [
 	"name",
 
@@ -496,6 +509,7 @@ const PROPORDER_ADVENTURE = [
 	"coverUrl",
 	"published",
 	"publishedOrder",
+	"revised",
 	"author",
 	"storyline",
 	"level",
@@ -527,6 +541,7 @@ const PROPORDER_BOOK = [
 	"cover",
 	"coverUrl",
 	"published",
+	"revised",
 	"author",
 
 	"contents",
@@ -595,6 +610,13 @@ const PROPORDER_BACKGROUND__COPY_MOD = [
 	"_",
 	...PROPORDER_BACKGROUND,
 ];
+const PROPORDER_FOUNDRY_BACKGROUND_FEATURE = getFoundryGeneric({
+	propsMatchAdditional: [
+		"backgroundName",
+		"backgroundSource",
+	],
+	isFeature: true,
+});
 const PROPORDER_LEGENDARY_GROUP = [
 	"name",
 	"alias",
@@ -800,6 +822,7 @@ const PROPORDER_FOUNDRY_SUBCLASS = [
 	"className",
 	"classSource",
 
+	"identifier",
 	"system",
 	PROPORDER_FOUNDRY_ACTIVITIES,
 	PROPORDER_FOUNDRY_EFFECTS,
@@ -1038,7 +1061,17 @@ const PROPORDER_NAME = [
 	"page",
 	"legacy",
 
-	"tables",
+	new ArrayKey("tables", {
+		order: [
+			"option",
+
+			"page",
+
+			"diceExpression",
+			"table",
+		],
+		fnSort: SortUtil.ascSortEncounter,
+	}),
 ];
 const PROPORDER_CONDITION = [
 	"name",
@@ -1346,6 +1379,7 @@ const PROPORDER_VEHICLE = [
 	"control",
 	"movement",
 	"weapon",
+	"station",
 	"other",
 
 	"entries",
@@ -1360,6 +1394,7 @@ const PROPORDER_VEHICLE = [
 	"tokenHref",
 	"tokenCredit",
 	"tokenCustom",
+	"tokenHref3d",
 
 	"hasToken",
 	"hasFluff",
@@ -1561,6 +1596,7 @@ const PROPORDER_ITEM = [
 
 	"light",
 
+	"classFeatures",
 	"optionalfeatures",
 	new ObjectOrArrayKey({
 		objectKey: new ObjectKey("attachedSpells", {
@@ -1789,6 +1825,7 @@ const PROPORDER_OBJECT = [
 	"tokenHref",
 	"tokenCredit",
 	"tokenCustom",
+	"tokenHref3d",
 
 	"altArt",
 
@@ -2037,38 +2074,13 @@ const PROPORDER_SUBRACE = [
 
 	...PROPORDER_RACE_SUBRACE,
 ];
-const PROPORDER_FOUNDRY_RACE_FEATURE = [
-	"name",
-
-	"source",
-
-	"raceName",
-	"raceSource",
-
-	ObjectKey.getCopyKey({
-		identKeys: [
-			"name",
-			"source",
-			"raceName",
-			"raceSource",
-		],
-		fnGetModOrder: () => PROPORDER_FOUNDRY_RACE_FEATURE__COPY_MOD,
-	}),
-
-	"system",
-	PROPORDER_FOUNDRY_ACTIVITIES,
-	PROPORDER_FOUNDRY_EFFECTS,
-	"flags",
-	"img",
-	"advice",
-
-	"migrationVersion",
-];
-const PROPORDER_FOUNDRY_RACE_FEATURE__COPY_MOD = [
-	"*",
-	"_",
-	...PROPORDER_FOUNDRY_RACE_FEATURE,
-];
+const PROPORDER_FOUNDRY_RACE_FEATURE = getFoundryGeneric({
+	propsMatchAdditional: [
+		"raceName",
+		"raceSource",
+	],
+	isFeature: true,
+});
 const PROPORDER_TABLE = [
 	"name",
 	"alias",
@@ -2318,6 +2330,8 @@ const PROPORDER_ENCOUNTER = [
 			"captionPrefix",
 			"captionSuffix",
 
+			"page",
+
 			"minlvl",
 			"maxlvl",
 
@@ -2387,11 +2401,29 @@ const PROPORDER_CONVERTER_SAMPLE = [
 	"text",
 ];
 
+const PROPORDER_ENCOUNTER_SHAPE = [
+	"name",
+	"alias",
+
+	"source",
+	"page",
+	"otherSources",
+	"reprintedAs",
+
+	"shapeTemplate",
+];
+
 export const PROPORDER_PROP_TO_LIST = {
 	"_meta": PROPORDER_META,
 	"_test": PROPORDER_TEST,
 	"monster": PROPORDER_MONSTER,
 	"foundryMonster": PROPORDER_FOUNDRY_MONSTER,
+	"foundryMonsterAction": PROPORDER_FOUNDRY_MONSTER_SUB_ENTITY,
+	"foundryMonsterBonus": PROPORDER_FOUNDRY_MONSTER_SUB_ENTITY,
+	"foundryMonsterReaction": PROPORDER_FOUNDRY_MONSTER_SUB_ENTITY,
+	"foundryMonsterTrait": PROPORDER_FOUNDRY_MONSTER_SUB_ENTITY,
+	"foundryMonsterLegendary": PROPORDER_FOUNDRY_MONSTER_SUB_ENTITY,
+	"foundryMonsterMythic": PROPORDER_FOUNDRY_MONSTER_SUB_ENTITY,
 	"monsterFluff": PROPORDER_GENERIC_FLUFF,
 	"monsterTemplate": PROPORDER_MONSTER_TEMPLATE,
 	"makebrewCreatureTrait": PROPORDER_MAKE_BREW_CREATURE_TRAIT,
@@ -2421,6 +2453,7 @@ export const PROPORDER_PROP_TO_LIST = {
 	"book": PROPORDER_BOOK,
 	"bookData": PROPORDER_BOOK_DATA,
 	"background": PROPORDER_BACKGROUND,
+	"foundryBackgroundFeature": PROPORDER_FOUNDRY_BACKGROUND_FEATURE,
 	"legendaryGroup": PROPORDER_LEGENDARY_GROUP,
 	"class": PROPORDER_CLASS,
 	"classFluff": PROPORDER_GENERIC_FLUFF,
@@ -2489,6 +2522,7 @@ export const PROPORDER_PROP_TO_LIST = {
 	"facility": PROPORDER_FACILITY,
 	"facilityFluff": PROPORDER_GENERIC_FLUFF,
 	"converterSample": PROPORDER_CONVERTER_SAMPLE,
+	"encounterShape": PROPORDER_ENCOUNTER_SHAPE,
 };
 
 export const PROPORDER_ROOT = [
@@ -2643,6 +2677,7 @@ export const PROPORDER_ROOT = [
 	// region Tooling
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "makebrewCreatureTrait"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "makebrewCreatureAction"),
+	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "encounterShape"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "converterSample"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "monsterfeatures"),
 	// endregion

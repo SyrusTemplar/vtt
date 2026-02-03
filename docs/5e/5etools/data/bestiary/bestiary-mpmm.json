@@ -5361,7 +5361,7 @@
 				{
 					"name": "Tail",
 					"entries": [
-						"{@atk mw} {@hit 8} to hit, reach 20 ft., one target. {@h}32 ({@damage 6d8 + 5}) bludgeoning damage"
+						"{@atk mw} {@hit 8} to hit, reach 20 ft., one target. {@h}32 ({@damage 6d8 + 5}) bludgeoning damage."
 					]
 				}
 			],
@@ -10598,7 +10598,11 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"elf"
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					}
 				]
 			},
 			"alignment": [
@@ -10814,7 +10818,11 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"elf",
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					},
 					"wizard"
 				]
 			},
@@ -10995,7 +11003,11 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"elf"
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					}
 				]
 			},
 			"alignment": [
@@ -11191,7 +11203,11 @@
 				"type": "humanoid",
 				"tags": [
 					"cleric",
-					"elf"
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					}
 				]
 			},
 			"alignment": [
@@ -11393,7 +11409,11 @@
 				"type": "humanoid",
 				"tags": [
 					"cleric",
-					"elf"
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					}
 				]
 			},
 			"alignment": [
@@ -11653,7 +11673,11 @@
 			"type": {
 				"type": "humanoid",
 				"tags": [
-					"elf"
+					{
+						"tag": "elf",
+						"prefix": "Drow",
+						"prefixHidden": true
+					}
 				]
 			},
 			"alignment": [
@@ -15992,8 +16016,7 @@
 				{
 					"name": "Burning Fury",
 					"entries": [
-						"When the salamander takes fire damage, its",
-						"Freezing Breath automatically recharges."
+						"When the salamander takes fire damage, its Freezing Breath automatically recharges."
 					]
 				}
 			],
@@ -18359,6 +18382,9 @@
 				{
 					"source": "MTF",
 					"page": 149
+				},
+				{
+					"source": "KftGV"
 				}
 			],
 			"size": [
@@ -24237,7 +24263,7 @@
 				{
 					"name": "Shortsword",
 					"entries": [
-						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) piercing damage plus 3 ({@damage 1d6}) necrotic damage"
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d6 + 3}) piercing damage plus 3 ({@damage 1d6}) necrotic damage."
 					]
 				},
 				{
@@ -27034,6 +27060,7 @@
 				"P"
 			],
 			"miscTags": [
+				"AOE",
 				"MW",
 				"RCH"
 			],
@@ -34450,6 +34477,9 @@
 				{
 					"source": "MTF",
 					"page": 241
+				},
+				{
+					"source": "CRCotN"
 				}
 			],
 			"size": [
@@ -34610,6 +34640,9 @@
 				{
 					"source": "MTF",
 					"page": 241
+				},
+				{
+					"source": "CRCotN"
 				}
 			],
 			"size": [

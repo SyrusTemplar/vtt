@@ -2,6 +2,7 @@ import {OmnisearchState} from "./omnisearch-state.js";
 import {VetoolsConfig} from "../utils-config/utils-config-config.js";
 import {SITE_STYLE__CLASSIC} from "../consts.js";
 import {SyntaxMetaCategories, SyntaxMetaGroup, SyntaxMetaPageRange, SyntaxMetaSource} from "./omnisearch-models.js";
+import {PARTNERED_CONTENT_MODE_ALL, PARTNERED_CONTENT_MODE_LOCAL, PARTNERED_CONTENT_MODE_NONE} from "./omnisearch-consts.js";
 
 export class OmnisearchBacking {
 	static _CATEGORY_COUNTS = {};
@@ -49,7 +50,10 @@ export class OmnisearchBacking {
 		//   - avoid any holes
 		partneredIndex
 			.forEach((it, i) => it.id = this._maxId + 1 + i);
-		partneredIndex.forEach(it => this._addToIndex(it));
+		partneredIndex.forEach(it => {
+			it.isRemote = true;
+			this._addToIndex(it);
+		});
 		// endregion
 
 		this._adventureBookLookup = {};
@@ -136,7 +140,7 @@ export class OmnisearchBacking {
 		]
 			.join("|");
 
-		this._RE_SYNTAX__IN_CATEGORY = new RegExp(`\\bin:\\s*(?<isNegate>!)?(?<category>${ptCategory})s?\\b`, "i");
+		this._RE_SYNTAX__IN_CATEGORY = new RegExp(`\\bin:\\s*(?<isNegate>!)?(?<category>${ptCategory})s?\\b`, "ig");
 	}
 
 	/* -------------------------------------------- */
@@ -146,8 +150,13 @@ export class OmnisearchBacking {
 			results = results.filter(res => res.doc.r || res.doc.r2);
 		}
 
-		if (isApplyPartneredFilter && !OmnisearchState.isShowPartnered) {
-			results = results.filter(res => !res.doc.s || !res.doc.dP);
+		if (isApplyPartneredFilter) {
+			switch (OmnisearchState.getPartneredMode()) {
+				case PARTNERED_CONTENT_MODE_ALL: break;
+				case PARTNERED_CONTENT_MODE_LOCAL: results = results.filter(res => (!res.doc.s || !res.doc.dP) || (res.doc.dP && !res.doc.isRemote)); break;
+				case PARTNERED_CONTENT_MODE_NONE: results = results.filter(res => !res.doc.s || !res.doc.dP); break;
+				default: throw new Error(`Unhandled partnered content search mode "${OmnisearchState.getPartneredMode()}"!`);
+			}
 		}
 
 		if (!OmnisearchState.isShowBrew) {
@@ -193,8 +202,8 @@ export class OmnisearchBacking {
 
 	/* -------------------------------------------- */
 
-	static _RE_SYNTAX__SOURCE = /\bsource:\s*(?<isNegate>!)?(?<source>.*)\b/i;
-	static _RE_SYNTAX__PAGE = /\bpage:\s*(?<isNegate>!)?(?<pageStart>\d+)\s*(?:-\s*(?<pageEnd>\d+)\s*)?\b/i;
+	static _RE_SYNTAX__SOURCE = /\bsource:\s*(?<isNegate>!)?(?<source>.*)\b/ig;
+	static _RE_SYNTAX__PAGE = /\bpage:\s*(?<isNegate>!)?(?<pageStart>\d+)\s*(?:-\s*(?<pageEnd>\d+)\s*)?\b/ig;
 
 	static async pGetResults (searchTerm) {
 		await this._pInit();
@@ -340,6 +349,8 @@ export class OmnisearchBacking {
 
 		if (this._CATEGORIES_DEPRIORITIZED.has(result.doc.c)) result.score *= 0.5;
 		if (styleHint !== SITE_STYLE__CLASSIC && this._CATEGORIES_DEPRIORITIZED_MODERN.has(result.doc.c)) result.score *= 0.5;
+
+		if (result.doc.dR) result.score *= 0.9;
 	}
 
 	/* -------------------------------------------- */

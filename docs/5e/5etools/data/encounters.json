@@ -1,6 +1,68 @@
 {
 	"encounter": [
 		{
+			"name": "Airborne Encounters",
+			"source": "EFA",
+			"page": 111,
+			"tables": [
+				{
+					"diceExpression": "1d10",
+					"table": [
+						{
+							"min": 1,
+							"max": 1,
+							"result": "A gleaming {@book Lyrandar Air Cruiser|EFA|7|Lyrandar Air Cruiser Summary} helmed by a Friendly but pompous {@creature Noble Prodigy|XMM} or {@creature Lyrandar Scion|EFA}"
+						},
+						{
+							"min": 2,
+							"max": 2,
+							"result": "A {@book Strider Airship|EFA|7|Strider Airship Summary} with a Hostile crew of {@dice 2d4} {@creature Pirate|XMM|Pirates} and one {@creature Pirate Captain|XMM}"
+						},
+						{
+							"min": 3,
+							"max": 3,
+							"result": "{@dice 2d6} {@book Lyrandar Skyskiffs|EFA|7|Lyrandar Skyskiff Summary} gathered for a race; the ships' pilots are Indifferent but disgruntled toward anyone who interrupts their activities"
+						},
+						{
+							"min": 4,
+							"max": 4,
+							"result": "A derelict Lyrandar Air Cruiser, stranded in the sky after its engine's elemental core shattered"
+						},
+						{
+							"min": 5,
+							"max": 5,
+							"result": "{@dice 1d4} {@creature Air Elemental|XMM|Air Elementals} making cloud sculptures"
+						},
+						{
+							"min": 6,
+							"max": 6,
+							"result": "{@dice 2d6} {@creature Griffon|XMM|Griffons} defending their territory"
+						},
+						{
+							"min": 7,
+							"max": 7,
+							"result": "Two {@creature Sphinx of Secrets|XMM|Sphinxes of Secrets}, trying to figure out how the airship flies"
+						},
+						{
+							"min": 8,
+							"max": 8,
+							"result": "Three {@creature Wyvern|XMM|Wyverns} hunting for prey"
+						},
+						{
+							"min": 9,
+							"max": 9,
+							"result": "A flock of {@dice 2d4} {@creature Peryton|XMM|Perytons} hiding in a cloud, waiting to ambush unsuspecting travelers"
+						},
+						{
+							"min": 10,
+							"max": 10,
+							"result": "One {@creature Roc|XMM} looking for food to carry to its nest"
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Arctic",
 			"source": "XGE",
 			"page": 92,
@@ -3977,6 +4039,7 @@
 			"tables": [
 				{
 					"caption": "Baldur's Gate Encounters",
+					"page": 221,
 					"diceExpression": "1d20",
 					"table": [
 						{
@@ -4002,7 +4065,7 @@
 						{
 							"min": 5,
 							"max": 5,
-							"result": "A {@creature Noble|XMM} suggests the characters secure an invitation to a party at Eomane House (see \"{@area Blood Night|454|x}\" later in this chapter)."
+							"result": "A {@creature Noble|XMM} suggests the characters secure an invitation to a party at Eomane House (see \"{@book Blood Night|FRAiF|6|Blood Night}\" later in this chapter)."
 						},
 						{
 							"min": 6,
@@ -4022,7 +4085,7 @@
 						{
 							"min": 9,
 							"max": 9,
-							"result": "An old sailor suggests that the Harborhands crew at the dock needs aid (see \"{@area Tide of Teeth|446|x}\" later in this chapter)."
+							"result": "An old sailor suggests that the Harborhands crew at the dock needs aid (see \"{@book Tide of Teeth|FRAiF|6|Tide of Teeth}\" later in this chapter)."
 						},
 						{
 							"min": 10,
@@ -4057,7 +4120,7 @@
 						{
 							"min": 16,
 							"max": 16,
-							"result": "A merchant ({@creature Noble|XMM}) specializing in {@item Mechanical Wonder|FRAiF|Mechanical Wonders} sends the characters to meet the clever clock-worker Flurn Eightspoke (see \"{@area Clockwork Memories|45e|x}\" later in this chapter)."
+							"result": "A merchant ({@creature Noble|XMM}) specializing in {@item Mechanical Wonder|FRAiF|Mechanical Wonders} sends the characters to meet the clever clock-worker Flurn Eightspoke (see \"{@book Clockwork Memories|FRAiF|6|Clockwork Memories}\" later in this chapter)."
 						},
 						{
 							"min": 17,
@@ -4083,6 +4146,7 @@
 				},
 				{
 					"caption": "Calim Desert Encounters",
+					"page": 155,
 					"diceExpression": "1d20",
 					"table": [
 						{
@@ -4108,7 +4172,7 @@
 						{
 							"min": 5,
 							"max": 5,
-							"result": "A Calim sandstorm is coming! (See \"{@area Environmental Effects|295|x}\" earlier in this chapter.)"
+							"result": "A Calim sandstorm is coming! (See \"{@book Environmental Effects|FRAiF|4|Environmental Effects}\" earlier in this chapter.)"
 						},
 						{
 							"min": 6,
@@ -4183,12 +4247,13 @@
 						{
 							"min": 20,
 							"max": 20,
-							"result": "The city of {@area Miziltep|2ae|x} flies by in the distance."
+							"result": "The city of {@book Miziltep|FRAiF|4|Miziltep} flies by in the distance."
 						}
 					]
 				},
 				{
 					"caption": "Calimport Encounters",
+					"page": 156,
 					"diceExpression": "1d20",
 					"table": [
 						{
@@ -4295,6 +4360,7 @@
 				},
 				{
 					"caption": "Cormanthor Encounters",
+					"page": 85,
 					"diceExpression": "1d20",
 					"table": [
 						{
@@ -4340,7 +4406,7 @@
 						{
 							"min": 9,
 							"max": 9,
-							"result": "A {@creature Shambling Mound|XMM} created by {@area Moander's|181|x} corruption fights any living thing it sees."
+							"result": "A {@creature Shambling Mound|XMM} created by {@book Moander's|FRAiF|2|Moander, God of Rot} corruption fights any living thing it sees."
 						},
 						{
 							"min": 10,
@@ -4401,6 +4467,7 @@
 				},
 				{
 					"caption": "Sea of Moonshae Encounters",
+					"page": 186,
 					"diceExpression": "1d20",
 					"table": [
 						{
@@ -4426,7 +4493,7 @@
 						{
 							"min": 5,
 							"max": 5,
-							"result": "One of the characters spots a bottle bobbing in the sea not far from the ship. Inside is a message and a map (see \"{@area Message in a Bottle|394|x}\" later in this chapter)."
+							"result": "One of the characters spots a bottle bobbing in the sea not far from the ship. Inside is a message and a map (see \"{@book Message in a Bottle|FRAiF|5|Message in a Bottle}\" later in this chapter)."
 						},
 						{
 							"min": 6,
@@ -4461,7 +4528,7 @@
 						{
 							"min": 12,
 							"max": 12,
-							"result": "The characters spot the wreckage of a trading vessel that hit a hidden sandbar (see \"{@area Wreck of the Silverhand|39c|x}\" later in this chapter)."
+							"result": "The characters spot the wreckage of a trading vessel that hit a hidden sandbar (see \"{@book Wreck of the Silverhand|FRAiF|5|Wreck of the Silverhand}\" later in this chapter)."
 						},
 						{
 							"min": 13,
@@ -4507,6 +4574,7 @@
 				},
 				{
 					"caption": "Ten-Towns Encounters",
+					"page": 123,
 					"diceExpression": "1d10",
 					"table": [
 						{
@@ -4532,7 +4600,7 @@
 						{
 							"min": 5,
 							"max": 5,
-							"result": "A bloodcursed {@creature Berserker|XMM} from {@area Dougan's Hole|205|x} fights the characters."
+							"result": "A bloodcursed {@creature Berserker|XMM} from {@book Dougan's Hole|FRAiF|3|Dougan's Hole} fights the characters."
 						},
 						{
 							"min": 6,
@@ -4563,6 +4631,7 @@
 				},
 				{
 					"caption": "Wilderness Encounters",
+					"page": 123,
 					"diceExpression": "1d10",
 					"table": [
 						{
@@ -4608,7 +4677,7 @@
 						{
 							"min": 9,
 							"max": 9,
-							"result": "A group of {@dice 2d6} {@creature Tough|XMM|Toughs} from the {@area Reghed Glacier|23a|x} spots the characters and approaches."
+							"result": "A group of {@dice 2d6} {@creature Tough|XMM|Toughs} from the {@book Reghed Glacier|FRAiF|3|Reghed Glacier} spots the characters and approaches."
 						},
 						{
 							"min": 10,
@@ -6580,7 +6649,7 @@
 						{
 							"min": 1,
 							"max": 1,
-							"result": "{@creature Factol Skall|AATM}* drifts through the Mortuary toward his {@area orrery|025|x} (detailed later in this supplement)."
+							"result": "{@creature Factol Skall|AATM}* drifts through the Mortuary toward his {@book orrery|AATM|0|Factol Skall's Orrery} (detailed later in this supplement)."
 						},
 						{
 							"min": 2,

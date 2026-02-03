@@ -128,7 +128,7 @@
 		"ver": "1.63.0",
 		"date": "2018-09-30",
 		"title": "Casters and Tables",
-		"txt": "- Spells \"At Higher Levels\" dice rollers now prompt for which level to cast atTables:\n- Added new \"Tables\" page, https://5e.tools/tables.html, containing various tables extracted from rulebooks  \n- These tables can be loaded in the DM ScreenClasses:\n- Fixed Wild Shape requirements\n- Fixed nightmode \"outline\" colouring\n- Fixed bug where homebrew subclasses wouldn't appear without switching classItems:\n- Added base weapon type to variants which can only apply to one item, e.g. \"Oathbow\" now tells you it's a longbow\n- Added \"base item is from X\" note to variants with a base item from a non-standard source, e.g. \"Double-Bladed Scimitar +1\"\n- Fixed some items not showing up in \"Base Items\" section of generic variantsAdventures/Books:\n- Fixed sorting on overview pages\n- Removed \"Living Document\" AL stuff. Kept the Faction Guide, but if you want the rest, use the official doc. It was too much busiwork to maintain, I'm afraid.\n- Added RoT Appendix C\n- Added various missing ToA flavor imagesDM Screen:\n- Inverted Initiative Tracker status turn \"tick\" direction on click (add a turn of duration on click, remove a turn of duration on right-click; was previously the opposite)\n- Fixed resetting CR-scaled creaturesHomebrew:\n- Added \"Add All\" button when loading from the repo\n- Added support for custom properties on Deities; see The Lost Lands in the homebrew repoClass/Optional Features:\n- Added Fighting Styles + various Fighter subclass options\n- Fixed list sorting\n- Added missing WDH fluff to Bestiary\n- Added link to the community wiki, curated by @ Ryan (Modnar)\n- Added \"sort carets\" to lists (thanks to @ JeffreyStocker on GitHub)\n- Print/etc view overlays now close when clicking \"dead\"/background space\n- Added Donate page\n- (Fixed typos/added tags)"
+		"txt": "- Spells \"At Higher Levels\" dice rollers now prompt for which level to cast atTables:\n- Added new \"Tables\" page, https://5e.tools/tables.html, containing various tables extracted from rulebooks  \n- These tables can be loaded in the DM ScreenClasses:\n- Fixed Wild Shape requirements\n- Fixed nightmode \"outline\" colouring\n- Fixed bug where homebrew subclasses wouldn't appear without switching classItems:\n- Added base weapon type to variants which can only apply to one item, e.g. \"Oathbow\" now tells you it's a longbow\n- Added \"base item is from X\" note to variants with a base item from a non-standard source, e.g. \"Double-Bladed Scimitar +1\"\n- Fixed some items not showing up in \"Base Items\" section of generic variantsAdventures/Books:\n- Fixed sorting on overview pages\n- Removed \"Living Document\" AL stuff. Kept the Faction Guide, but if you want the rest, use the official doc. It was too much busiwork to maintain, I'm afraid.\n- Added RoT Appendix C\n- Added various missing ToA flavor imagesDM Screen:\n- Inverted Initiative Tracker status turn \"tick\" direction on click (add a turn of duration on click, remove a turn of duration on right-click; was previously the opposite)\n- Fixed resetting CR-scaled creaturesHomebrew:\n- Added \"Add All\" button when loading from the repo\n- Added support for custom properties on Deities; see The Lost Lands in the homebrew repo\nClass/Optional Features:\n- Added Fighting Styles + various Fighter subclass options\n- Fixed list sorting\n- Added missing WDH fluff to Bestiary\n- Added link to the community wiki, curated by @ Ryan (Modnar)\n- Added \"sort carets\" to lists (thanks to @ JeffreyStocker on GitHub)\n- Print/etc view overlays now close when clicking \"dead\"/background space\n- Added Donate page\n- (Fixed typos/added tags)"
 	},
 	{
 		"ver": "1.63.1",
@@ -3080,5 +3080,73 @@
 		"date": "2025-11-09",
 		"title": "Mukkabout",
 		"txt": "- Added _Adventure with Muk_ and _Muk's Guide to Everything He Learned From Tasha_ book content (thanks @ Lyra)\n- Added Dynamic Map Viewer support to Forgotten Realms: Adventures in Faerûn\n- Added \"Has Custom/Unofficial Token\" and \"Has Token Credit\" Miscellaneous filters to Bestiary\n- Fixed Classes page \"Feeling Lucky?\" button\n- Fixed Adventure/Book pages failing to apply same search filtering to cover images as to list items\n- Fixed creature Markdown rendering of hit points; passive perception\n- (Brew) Improved Text Converter tagging of `@trap`s\n- (Added workaround for failing Docker builds)\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.17.0",
+		"date": "2025-11-13",
+		"title": "Vamp Anthem",
+		"txt": "- Added _Astarion's Book of Hungers_ and _Netheril's Fall_ content\n- Added _Forgotten Realms: Adventures in Faerûn_ tokens\n- (Brew) Added `\"raceFluff\"` `\"statblock\"` support\n- (Brew) Fixed crash when setting blocklist from homebrew/prerelease file\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.18.0",
+		"date": "2025-11-20",
+		"title": "The Pendulum Swings",
+		"txt": "- Added _Lorwyn: First Light_ content\n- Added Dynamic Map Viewer support to Astarion's Book of Hungers and Netheril's Fall\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.19.0",
+		"date": "2025-11-29",
+		"title": "Twice the 'Fice",
+		"titleAlt": "Of 'Fice And Men",
+		"txt": "- Added _Eberron: Forge of the Artificer_ content\n- Added Markdown support to Bastions page\n- Added \"Elemental Airship\" support to Vehicles page\n- Fixed Vehicles page failing to display Spelljammer vehicle travel pace\n- (Brew) Improved accuracy of Text Converter Tagging; fixed various cases where tags could be added to non-taggable data; expanded tagging of `@item`s\n- (Brew) Added Dragonmark parsing, and expanded prerequisite parsing, to Feat Text Converter\n- (Brew) Improved Background Text Converter handling of proficiencies; feats\n- (Brew) Expanded Creature Text Converter '24-style ability score format handling\n- (Brew) Fixed Spell Text Converter crash\n- (Brew) Fixed lazy-load of multiple homebrews failing to de-duplicate loaded dependencies/references\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.19.1",
+		"date": "2025-11-30",
+		"txt": "- Added tokens for Eberron: Forge of the Artificer vehicles and objects\n- (Brew) Improved Text Converter tagging of core rules; conditions; statuses\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.20.0",
+		"date": "2025-12-14",
+		"title": "Probably Broken",
+		"txt": "- Added _Fated Flight of the Recluse_ content\n- Added tokens for Eberron: Forge of the Artificer creatures\n- Added more Xanathar's Guide to Everything subclass images; Eberron: Forge of the Artificer feat images\n- Updated various '14 creature tokens\n- Added \"Select 2014 Sources\" and \"Select 2024 Sources\" to dropdown of Source filters\n- Added support for multiple instances of the same `in:...`, `page:...`,...-type syntax to Omnisearch\n- Added \"Class Features\" filter to Items page; added \"Replicate Magic Item\" tag for EFA Artificer\n- Tweaked Omnisearch result priority to slightly de-prioritize \"Reprinted\" entities\n- Fixed rendering of item properties in '24-style Markdown\n- Fixed Adventure/Book page failing to scroll to top on changing chapter via link\n- (Brew) Added auto-migration for TCE -> EFA Artificer subclasses\n- (Brew) Improved accuracy of Creature Text Converter \"condition inflicted\" tagging\n- (Brew) Fixed Spell Homebrew Builder handling of \"up-to\" durations\n- (Brew) Fixed crash when creating a sub-species from a base species with no entries\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.21.0",
+		"date": "2025-12-21",
+		"title": "Partner In Crime",
+		"txt": "- Converted Omnisearch \"Partnered\" button to three-state toggle; this now allows choosing between \"Partnered (All)\", \"Partnered (Local)\", and \"None\". When using \"Partnered (Local)\", additional partnered content from the Homebrew repo will not be shown _[which thereby prevents unintentional loading]_\n- Migrated _Tal'Dorei Campaign Setting Reborn_ to \"Partnered\" content\n- Updated \"Partnered\" filter categorization to reflect latest D&D Beyond changes\n- Marginally improved loading times of various pages, most notably the Items page\n- Fixed links from an item's subtitle (e.g. \"(Longsword)\") pointing to a non-existent page\n- Fixed \"Copy as JSON/Markdown\" menu failing to appear in fluff tabs\n- Fixed Species page failing to fully populate damage immunity/resistance/vulnerability; condition immunity filters\n- Fixed Markdown rendering of species attributes\n- Fixed Omnisearch layout overflow on narrow screens\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.22.0",
+		"date": "2025-12-29",
+		"title": "Closer Encounters",
+		"txt": "- Reworked and expanded the Bestiary page Encounter Builder:\n  - Added support for '24 encounter building rules\n  - Added support for MCDM's \"Flee, Mortals!\" encounter building rules\n  - Added support for K+FC encounter templates\n  - Added support for custom encounter templates\n  - Added support for homebrew encounter templates\n  - Reworked randomization, to produce more usable results _[hopefully]_\n  - Updated estimated TTK for '24 rules\n  - Improved UI, including a new \"thermometer\" visualizer for encounter difficulty\n- The Items page now supports exclusion of specific variants generated from filter-excluded base items (i.e., those from a \"red\"-filter'd source)\n- Converted Items page sublist \"count\" display to an editable field\n- Added \"Reprinted\" tagging for '14 PHB and DMG in the Tables page\n- Added SHIFT+click for +/-5 to tickers in number inputs\n- The full List page sublist UI is now always available if the list has previously been saved (even if that list is empty)\n- Fixed List page visual flicker when loading a new sublist\n- Fixed sublist count failing to update on sublist duplication\n- Fixed Loot Generator crash on gems/art object generation\n- Fixed Decks page crash when attempting to view a card\n- Fixed Other Options and Features failing to show feature type above stats in some cases\n- Fixed Items page rendering of tier/subtypes\n- (Brew) Added \"Editing ...\" indicator to Homebrew Builder, showing the prior name of the entity currently being edited\n- (Brew) Fixed Background Text Converter failing to convert starting equipment categories in '24 content\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.22.1",
+		"date": "2026-01-12",
+		"txt": "- Switched Bestiary \"Proficiency Dice\" button to more obvious 'toggle' button, and added '14 note\n- Fixed various Bestiary page Encounter Builder layout bugs (notably on mobile)\n- Fixed summon-spell-level scaler reducing HP in some cases\n- Fixed crash when attempting to build item cards in the RPG Cards JSON Builder\n- Fixed missing \"Import All\"/\"Export All\" buttons in \"Load Saved [Sub]List\" modal\n- (Brew) Added custom display handling for Foundry-scaled tokens in the Bestiary\n- (Brew) Fixed \"encounter shape\" homebrews failing to appear in Bestiary \"Get Homebrew\" list\n- (Brew) Fixed auto-migration of '14 class/subclass spells failing in some cases\n- (Brew) Fixed missing \"Update All\"/\"Delete All\" buttons in \"Manage Homebrew\" modal\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.22.2",
+		"date": "2026-01-13",
+		"txt": "- Fixed DM Screen Initiative Tracker crash when rendering \"Additional Columns\" settings\n- Fixed crash when rendering previews in Search page\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.23.0",
+		"date": "2026-01-15",
+		"title": "Salvia Officinalis",
+		"txt": "- Added _Sage Advice Compendium (2025)_ (thanks @ Lyra)\n- Added \"'14 Sources\" quick-block/unblock buttons to Blocklist\n- Fixed position of context menus when opened near bottom of window\n- Fixed crash when saving DM Screen state for non-primary panel tabs\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.24.0",
+		"date": "2026-01-21",
+		"txt": "- Added page numbers to various sources (thanks @ Lyra)\n  - _Vecna: Eve of Ruin_\n  - _Dragon Delves_\n  - _Heroes of the Borderlands_\n  - _Forgotten Realms: Adventures in Faerûn_\n  - _Forgotten Realms: Heroes of Faerûn_\n  - _Eberron: Forge of the Artificer_\n  - _Hold Back The Dead_\n- Updated '14 Sage Advice Compendium (thanks @ Lyra)\n- Added \"Emanation\" option to Spells page \"Area Style\" filter\n- Removed screen size restriction for opening hover windows\n- Fixed DM Screen Initiative Tracker resetting default party state when importing a new encounter\n- Fixed DM Screen crash on save after moving a panel\n- (Brew) Added cast time \"Condition\" field to all cast times in Spell Homebrew Builder\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.24.1",
+		"date": "2026-01-23",
+		"txt": "- Adjusted how some creature types (notable sub-species) are handled during statblock rendering vs. filtering, to allow for more book-accurate statblock views without sacrificing filter capabilities\n- Fixed crash when attempting to \"Show Source Data\" in hover window\n- Fixed DM Screen Initiative Tracker crash when attempting to add conditions and/or add custom conditions\n- Fixed crash when attempting to manage Filter Snapshots\n- (Fixed typos/added tags)"
 	}
 ]

@@ -1539,7 +1539,7 @@
 				{
 					"name": "Shadow Stealth",
 					"entries": [
-						"While in dim light or darkness, the inkling takes the Hide action."
+						"While in dim light or darkness, the inkling takes the {@action Hide} action."
 					]
 				}
 			],
@@ -2255,6 +2255,7 @@
 		},
 		{
 			"name": "Murgaxor",
+			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "SCC",
 			"page": 180,
@@ -5981,6 +5982,7 @@
 		},
 		{
 			"name": "Y'demi",
+			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "SCC",
 			"page": 172,
