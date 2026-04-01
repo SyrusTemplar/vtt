@@ -18,7 +18,7 @@ export class UnitConverter extends DmScreenPanelAppBase {
 		this._iptLeft = null;
 	}
 
-	_$getPanelElement (board, state) {
+	_getPanelElement (board, state) {
 		const units = [
 			new _UnitConverterUnit("Inches", "2.54", "Centimetres", "0.394"),
 			new _UnitConverterUnit("Feet", "0.305", "Metres", "3.28"),
@@ -31,12 +31,12 @@ export class UnitConverter extends DmScreenPanelAppBase {
 		this._ixConv = state.c || 0;
 		this._dirConv = state.d || 0;
 
-		const $wrpConverter = $(`<div class="dm-unitconv dm__panel-bg split-column"></div>`);
+		const wrpConverter = ee`<div class="dm-unitconv dm__panel-bg ve-split-column"></div>`;
 
-		const $tblConvert = $(`<table class="w-100 table-striped"></table>`).appendTo($wrpConverter);
-		const $tbodyConvert = $(`<tbody></tbody>`).appendTo($tblConvert);
+		const tblConvert = ee`<table class="ve-w-100 table-striped"></table>`.appendTo(wrpConverter);
+		const tbodyConvert = ee`<tbody></tbody>`.appendTo(tblConvert);
 		units.forEach((u, i) => {
-			const $tr = $(`<tr class="row clickable"></tr>`).appendTo($tbodyConvert);
+			const eleTr = ee`<tr class="row ve-clickable"></tr>`.appendTo(tbodyConvert);
 			const clickL = () => {
 				this._ixConv = i;
 				this._dirConv = 0;
@@ -47,32 +47,32 @@ export class UnitConverter extends DmScreenPanelAppBase {
 				this._dirConv = 1;
 				updateDisplay();
 			};
-			$(`<td class="ve-col-3">${u.n1}</td>`).click(clickL).appendTo($tr);
-			$(`<td class="ve-col-3 code">×${u.x1.padStart(5)}</td>`).click(clickL).appendTo($tr);
-			$(`<td class="ve-col-3">${u.n2}</td>`).click(clickR).appendTo($tr);
-			$(`<td class="ve-col-3 code">×${u.x2.padStart(5)}</td>`).click(clickR).appendTo($tr);
+			ee`<td class="ve-col-3">${u.n1}</td>`.onn("click", evt => clickL(evt)).appendTo(eleTr);
+			ee`<td class="ve-col-3 ve-code">×${u.x1.padStart(5)}</td>`.onn("click", evt => clickL(evt)).appendTo(eleTr);
+			ee`<td class="ve-col-3">${u.n2}</td>`.onn("click", evt => clickR(evt)).appendTo(eleTr);
+			ee`<td class="ve-col-3 ve-code">×${u.x2.padStart(5)}</td>`.onn("click", evt => clickR(evt)).appendTo(eleTr);
 		});
 
-		const $wrpIpt = $(`<div class="ve-flex dm-unitconv__wrp-ipt"></div>`).appendTo($wrpConverter);
+		const wrpIpt = ee`<div class="ve-flex dm-unitconv__wrp-ipt"></div>`.appendTo(wrpConverter);
 
-		const $wrpLeft = $(`<div class="split-column dm-unitconv__wrp-ipt-inner w-100"></div>`).appendTo($wrpIpt);
-		const $lblLeft = $(`<span class="bold"></span>`).appendTo($wrpLeft);
-		this._iptLeft = ee`<textarea class="dm-unitconv__ipt form-control h-100">${state.i || ""}</textarea>`.appendTo($wrpLeft[0]);
+		const wrpLeft = ee`<div class="ve-split-column dm-unitconv__wrp-ipt-inner ve-w-100"></div>`.appendTo(wrpIpt);
+		const eleLblLeft = ee`<span class="ve-bold"></span>`.appendTo(wrpLeft);
+		this._iptLeft = ee`<textarea class="dm-unitconv__ipt ve-form-control ve-h-100">${state.i || ""}</textarea>`.appendTo(wrpLeft);
 
-		const $btnSwitch = $(`<button class="ve-btn ve-btn-primary dm-unitconv__btn-switch">⇆</button>`).click(() => {
+		const btnSwitch = ee`<button class="ve-btn ve-btn-primary dm-unitconv__btn-switch">⇆</button>`.onn("click", () => {
 			this._dirConv = Number(!this._dirConv);
 			updateDisplay();
-		}).appendTo($wrpIpt);
+		}).appendTo(wrpIpt);
 
-		const $wrpRight = $(`<div class="split-column dm-unitconv__wrp-ipt-inner w-100"></div>`).appendTo($wrpIpt);
-		const $lblRight = $(`<span class="bold"></span>`).appendTo($wrpRight);
-		const $iptRight = $(`<textarea class="dm-unitconv__ipt form-control h-100" disabled style="background: #0000"></textarea>`).appendTo($wrpRight);
+		const wrpRight = ee`<div class="ve-split-column dm-unitconv__wrp-ipt-inner ve-w-100"></div>`.appendTo(wrpIpt);
+		const eleLblRight = ee`<span class="ve-bold"></span>`.appendTo(wrpRight);
+		const iptRight = ee`<textarea class="dm-unitconv__ipt ve-form-control ve-h-100" disabled style="background: #0000"></textarea>`.appendTo(wrpRight);
 
 		const updateDisplay = () => {
 			const it = units[this._ixConv];
 			const [lblL, lblR] = this._dirConv === 0 ? [it.n1, it.n2] : [it.n2, it.n1];
-			$lblLeft.text(lblL);
-			$lblRight.text(lblR);
+			eleLblLeft.txt(lblL);
+			eleLblRight.txt(lblR);
 			handleInput();
 		};
 
@@ -80,7 +80,7 @@ export class UnitConverter extends DmScreenPanelAppBase {
 		const handleInput = () => {
 			const showInvalid = () => {
 				this._iptLeft.addClass(`ipt-invalid`);
-				$iptRight.val("");
+				iptRight.val("");
 			};
 			const showValid = () => {
 				this._iptLeft.removeClass(`ipt-invalid`);
@@ -89,7 +89,7 @@ export class UnitConverter extends DmScreenPanelAppBase {
 			const val = (this._iptLeft.val() || "").trim();
 			if (!val) {
 				showValid();
-				$iptRight.val("");
+				iptRight.val("");
 			} else if (mMaths.exec(val)) {
 				showValid();
 				const it = units[this._ixConv];
@@ -98,10 +98,10 @@ export class UnitConverter extends DmScreenPanelAppBase {
 					/* eslint-disable */
 					const total = eval(val);
 					/* eslint-enable */
-					$iptRight.val(Number((total * mL).toFixed(5)));
+					iptRight.val(Number((total * mL).toFixed(5)));
 				} catch (e) {
 					this._iptLeft.addClass(`ipt-invalid`);
-					$iptRight.val("");
+					iptRight.val("");
 				}
 			} else showInvalid();
 			board.doSaveStateDebounced();
@@ -111,7 +111,7 @@ export class UnitConverter extends DmScreenPanelAppBase {
 
 		updateDisplay();
 
-		return $wrpConverter;
+		return wrpConverter;
 	}
 
 	getState () {

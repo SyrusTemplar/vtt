@@ -39,7 +39,9 @@
 						"type": "internal",
 						"path": "feats/XPHB/Boon of Fate.webp"
 					},
-					"credit": "Wayne England"
+					"credit": "Wayne England",
+					"width": 2063,
+					"height": 1123
 				}
 			]
 		},
@@ -53,7 +55,9 @@
 						"type": "internal",
 						"path": "feats/EFA/Siberys Mark of Detection.webp"
 					},
-					"credit": "Lee Moyer"
+					"credit": "Lee Moyer",
+					"width": 277,
+					"height": 287
 				},
 				{
 					"type": "image",
@@ -61,7 +65,9 @@
 						"type": "internal",
 						"path": "feats/EFA/Siberys Mark of Making.webp"
 					},
-					"credit": "Lee Moyer"
+					"credit": "Lee Moyer",
+					"width": 252,
+					"height": 319
 				},
 				{
 					"type": "image",
@@ -69,7 +75,9 @@
 						"type": "internal",
 						"path": "feats/EFA/Siberys Mark of Shadow.webp"
 					},
-					"credit": "Lee Moyer"
+					"credit": "Lee Moyer",
+					"width": 337,
+					"height": 250
 				}
 			]
 		},
@@ -83,7 +91,9 @@
 						"type": "internal",
 						"path": "feats/XPHB/Boon of Skill.webp"
 					},
-					"credit": "Wayne England"
+					"credit": "Wayne England",
+					"width": 1777,
+					"height": 1059
 				}
 			]
 		},
@@ -97,7 +107,9 @@
 						"type": "internal",
 						"path": "feats/TCE/Eldritch Adept.webp"
 					},
-					"credit": "Brian Valeza"
+					"credit": "Brian Valeza",
+					"width": 800,
+					"height": 1214
 				}
 			]
 		},
@@ -111,7 +123,9 @@
 						"type": "internal",
 						"path": "feats/XPHB/Fey-Touched.webp"
 					},
-					"credit": "Wayne England"
+					"credit": "Wayne England",
+					"width": 1637,
+					"height": 1182
 				}
 			]
 		},
@@ -124,7 +138,9 @@
 					"href": {
 						"type": "internal",
 						"path": "feats/BGG/Fury of the Frost Giant.webp"
-					}
+					},
+					"width": 850,
+					"height": 1172
 				}
 			]
 		},
@@ -138,7 +154,9 @@
 						"type": "internal",
 						"path": "feats/EFA/Greater Mark of Detection.webp"
 					},
-					"credit": "Lee Moyer"
+					"credit": "Lee Moyer",
+					"width": 283,
+					"height": 284
 				}
 			]
 		},
@@ -152,7 +170,9 @@
 						"type": "internal",
 						"path": "feats/EFA/Greater Mark of Finding.webp"
 					},
-					"credit": "Lee Moyer"
+					"credit": "Lee Moyer",
+					"width": 632,
+					"height": 541
 				}
 			]
 		},
@@ -166,7 +186,9 @@
 						"type": "internal",
 						"path": "feats/EFA/Greater Mark of Making.webp"
 					},
-					"credit": "Lee Moyer"
+					"credit": "Lee Moyer",
+					"width": 211,
+					"height": 307
 				}
 			]
 		},
@@ -180,7 +202,9 @@
 						"type": "internal",
 						"path": "feats/EFA/Greater Mark of Passage.webp"
 					},
-					"credit": "Lee Moyer"
+					"credit": "Lee Moyer",
+					"width": 592,
+					"height": 564
 				}
 			]
 		},
@@ -194,7 +218,9 @@
 						"type": "internal",
 						"path": "feats/EFA/Greater Mark of Shadow.webp"
 					},
-					"credit": "Lee Moyer"
+					"credit": "Lee Moyer",
+					"width": 306,
+					"height": 247
 				}
 			]
 		},
@@ -208,7 +234,9 @@
 						"type": "internal",
 						"path": "feats/EFA/Greater Mark of Storm.webp"
 					},
-					"credit": "Lee Moyer"
+					"credit": "Lee Moyer",
+					"width": 484,
+					"height": 614
 				}
 			]
 		},
@@ -222,7 +250,9 @@
 						"type": "internal",
 						"path": "feats/XPHB/Healer.webp"
 					},
-					"credit": "Wayne England"
+					"credit": "Wayne England",
+					"width": 1999,
+					"height": 938
 				}
 			]
 		},
@@ -237,7 +267,9 @@
 						"path": "feats/DSotDQ/Mage of High Sorcery.webp"
 					},
 					"title": "Mages of High Sorcery of the Orders of the Black, Red, and White Robes",
-					"credit": "Linda Lithén"
+					"credit": "Linda Lithén",
+					"width": 1700,
+					"height": 1223
 				}
 			]
 		},
@@ -250,7 +282,9 @@
 					"href": {
 						"type": "internal",
 						"path": "feats/PHB/Inspiring Leader.webp"
-					}
+					},
+					"width": 1000,
+					"height": 750
 				}
 			]
 		},
@@ -264,7 +298,73 @@
 						"type": "internal",
 						"path": "feats/EFA/Mark of Detection.webp"
 					},
-					"credit": "Lee Moyer"
+					"credit": "Lee Moyer",
+					"width": 500,
+					"height": 525
+				}
+			]
+		},
+		{
+			"name": "Mark of Finding",
+			"source": "EFA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/EFA/Mark of Finding.webp"
+					},
+					"credit": "Lee Moyer",
+					"width": 500,
+					"height": 525
+				}
+			]
+		},
+		{
+			"name": "Mark of Handling",
+			"source": "EFA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/EFA/Mark of Handling.webp"
+					},
+					"credit": "Lee Moyer",
+					"width": 500,
+					"height": 525
+				}
+			]
+		},
+		{
+			"name": "Mark of Healing",
+			"source": "EFA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/EFA/Mark of Healing.webp"
+					},
+					"credit": "Lee Moyer",
+					"width": 500,
+					"height": 525
+				}
+			]
+		},
+		{
+			"name": "Mark of Hospitality",
+			"source": "EFA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/EFA/Mark of Hospitality.webp"
+					},
+					"credit": "Lee Moyer",
+					"width": 500,
+					"height": 525
 				}
 			]
 		},
@@ -278,7 +378,57 @@
 						"type": "internal",
 						"path": "feats/EFA/Mark of Making.webp"
 					},
-					"credit": "Lee Moyer"
+					"credit": "Lee Moyer",
+					"width": 500,
+					"height": 525
+				}
+			]
+		},
+		{
+			"name": "Mark of Passage",
+			"source": "EFA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/EFA/Mark of Passage.webp"
+					},
+					"credit": "Lee Moyer",
+					"width": 500,
+					"height": 525
+				}
+			]
+		},
+		{
+			"name": "Mark of Scribing",
+			"source": "EFA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/EFA/Mark of Scribing.webp"
+					},
+					"credit": "Lee Moyer",
+					"width": 500,
+					"height": 525
+				}
+			]
+		},
+		{
+			"name": "Mark of Sentinel",
+			"source": "EFA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/EFA/Mark of Sentinel.webp"
+					},
+					"credit": "Lee Moyer",
+					"width": 500,
+					"height": 525
 				}
 			]
 		},
@@ -292,7 +442,41 @@
 						"type": "internal",
 						"path": "feats/EFA/Mark of Shadow.webp"
 					},
-					"credit": "Lee Moyer"
+					"credit": "Lee Moyer",
+					"width": 500,
+					"height": 525
+				}
+			]
+		},
+		{
+			"name": "Mark of Storm",
+			"source": "EFA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/EFA/Mark of Storm.webp"
+					},
+					"credit": "Lee Moyer",
+					"width": 500,
+					"height": 525
+				}
+			]
+		},
+		{
+			"name": "Mark of Warding",
+			"source": "EFA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "feats/EFA/Mark of Warding.webp"
+					},
+					"credit": "Lee Moyer",
+					"width": 500,
+					"height": 525
 				}
 			]
 		},
@@ -307,7 +491,9 @@
 						"path": "feats/SatO/Planar Wanderer.webp"
 					},
 					"title": "A planar cartographer on a Lower Plane asks a pit fiend for directions",
-					"credit": "Michele Giorgi"
+					"credit": "Michele Giorgi",
+					"width": 850,
+					"height": 1981
 				}
 			]
 		},
@@ -321,7 +507,9 @@
 						"type": "internal",
 						"path": "feats/XPHB/Poisoner.webp"
 					},
-					"credit": "Wayne England"
+					"credit": "Wayne England",
+					"width": 2098,
+					"height": 1275
 				}
 			]
 		},
@@ -334,7 +522,9 @@
 					"href": {
 						"type": "internal",
 						"path": "feats/PHB/Ritual Caster.webp"
-					}
+					},
+					"width": 1000,
+					"height": 749
 				}
 			]
 		},
@@ -348,7 +538,9 @@
 						"type": "internal",
 						"path": "feats/XPHB/Ritual Caster.webp"
 					},
-					"credit": "Wayne England"
+					"credit": "Wayne England",
+					"width": 1627,
+					"height": 1094
 				}
 			]
 		},
@@ -363,7 +555,9 @@
 						"path": "feats/PSK/Servo Crafting.webp"
 					},
 					"title": "Servo",
-					"credit": "Igor Kieryluk"
+					"credit": "Igor Kieryluk",
+					"width": 739,
+					"height": 985
 				}
 			]
 		},
@@ -378,7 +572,9 @@
 						"path": "feats/TCE/Telepathic.webp"
 					},
 					"title": "Astride a unicorn, a telepathic bard inspires her wizard companion.",
-					"credit": "Zoltan Boros"
+					"credit": "Zoltan Boros",
+					"width": 1200,
+					"height": 802
 				}
 			]
 		},
@@ -392,7 +588,9 @@
 						"type": "internal",
 						"path": "feats/XPHB/Two-Weapon Fighting.webp"
 					},
-					"credit": "Wayne England"
+					"credit": "Wayne England",
+					"width": 1409,
+					"height": 1440
 				}
 			]
 		},
@@ -406,7 +604,9 @@
 						"type": "internal",
 						"path": "feats/XPHB/Weapon Master.webp"
 					},
-					"credit": "Wayne England"
+					"credit": "Wayne England",
+					"width": 850,
+					"height": 657
 				}
 			]
 		}

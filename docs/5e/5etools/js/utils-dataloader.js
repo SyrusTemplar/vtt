@@ -1823,6 +1823,8 @@ class DataLoader {
 		"bookData": UrlUtil.PG_BOOK,
 	};
 
+	static getPropPage (prop) { return this._PROP_TO_HASH_PAGE[prop]; }
+
 	static _DATA_TYPE_LOADERS = {};
 	static _DATA_TYPE_LOADER_LIST = [];
 
@@ -1833,8 +1835,7 @@ class DataLoader {
 	}
 
 	static _registerPropToHashPages () {
-		Object.entries(this._PROP_TO_HASH_PAGE)
-			.forEach(([k, v]) => this._PROP_TO_HASH_PAGE[`${k}Fluff`] = _DataLoaderInternalUtil.getCleanPageFluff({page: v}));
+		// (Implement as required)
 	}
 
 	static _registerDataTypeLoader ({loader, props, page, isFluff}) {
@@ -2109,7 +2110,7 @@ class DataLoader {
 	static async pCacheAndGetHash (page, hash, opts) {
 		const {source} = await UrlUtil.pAutoDecodeHash(hash, {page});
 		if (!source) {
-			if (opts.isRequired) throw new Error(`Could not find entity for page "${page}" with hash "${hash}"`);
+			if (opts?.isRequired) throw new Error(`Could not find entity for page "${page}" with hash "${hash}"`);
 			return null;
 		}
 		return DataLoader.pCacheAndGet(page, source, hash, opts);

@@ -4,7 +4,7 @@ import {InitiativeTrackerConditionUtil} from "./dmscreen-initiativetracker-condi
 
 class _UtilConditionsCustomView {
 	static getBtnCondition ({comp, cbSubmit, cbClick}) {
-		const btn = ee`<button class="ve-btn ve-btn-default ve-btn-xs dm-init-cond__btn-cond" title="SHIFT to add with &quot;Unlimited&quot; duration; CTRL to add with 1-turn duration; SHIFT+CTRL to add with 10-turn duration."></button>`
+		const btn = ee`<button class="ve-btn ve-btn-default ve-btn-xs dm-init-cond__btn-cond ve-text-clip-ellipsis ve-mx-1" title="Add the &quot;${comp._state.name.qq()}&quot; condition. SHIFT to add with &quot;Unlimited&quot; duration; CTRL to add with 1-turn duration; SHIFT+CTRL to add with 10-turn duration."></button>`
 			.onn("click", evt => {
 				cbClick({
 					name: comp._state.name,
@@ -41,7 +41,7 @@ class _RenderableCollectionConditionsCustomView extends RenderableCollectionGene
 	}
 
 	_getWrpRow () {
-		return ee`<div class="ve-flex-vh-center w-33 my-1"></div>`;
+		return ee`<div class="ve-flex-vh-center ve-w-33 ve-my-1"></div>`;
 	}
 
 	/* -------------------------------------------- */
@@ -81,31 +81,31 @@ export class InitiativeTrackerConditionAdd extends BaseComponent {
 	async pGetShowModalResults () {
 		const rdState = new this.constructor._RenderState();
 
-		const {$modalInner, doClose, pGetResolved} = UiUtil.getShowModal({
+		const {eleModalInner, doClose, pGetResolved} = UiUtil.getShowModal({
 			isMinHeight0: true,
 			isHeaderBorder: true,
 			title: "Add Condition",
-			$titleSplit: this._render_$getBtnEditCustom({rdState}),
+			eleTitleSplit: this._render_getBtnEditCustom({rdState}),
 		});
 		rdState.cbDoClose = doClose;
 
-		$$($modalInner)`
+		ee(eleModalInner)`
 			${this._render_getStgConditionsStandard({rdState})}
 
-			<hr class="hr-3">
+			<hr class="ve-hr-3">
 
-			${this._render_$getStgConditionsCustom({rdState})}
+			${this._render_getStgConditionsCustom({rdState})}
 
-			${this._render_$getStgIpts({rdState})}
-			${this._render_$getStgSubmit({rdState})}
+			${this._render_getStgIpts({rdState})}
+			${this._render_getStgSubmit({rdState})}
 		`;
 
 		return pGetResolved();
 	}
 
-	_render_$getBtnEditCustom ({rdState}) {
-		return $(`<button class="ve-btn ve-btn-default ve-btn-xs" title="Manage Custom Conditions"><span class="glyphicon glyphicon-cog"></span></button>`)
-			.on("click", async () => {
+	_render_getBtnEditCustom ({rdState}) {
+		return ee`<button class="ve-btn ve-btn-default ve-btn-xs" title="Manage Custom Conditions"><span class="glyphicon glyphicon-cog"></span></button>`
+			.onn("click", async () => {
 				const compEdit = new InitiativeTrackerConditionCustomEdit({conditionsCustom: MiscUtil.copyFast(this._state.conditionsCustom)});
 				await compEdit.pGetShowModalResults();
 				this._state.conditionsCustom = compEdit.getConditionsCustom();
@@ -131,20 +131,20 @@ export class InitiativeTrackerConditionAdd extends BaseComponent {
 					},
 				});
 
-				return ee`<div class="ve-flex-vh-center w-33 my-1">${btn}</div>`;
+				return ee`<div class="ve-flex-vh-center ve-w-33 ve-my-1">${btn}</div>`;
 			});
 
 		return ee`
-			<div class="ve-flex-col w-100 h-100 min-h-0 ve-flex-v-center">
-				<div class="ve-flex-wrap w-100 h-100 min-h-0 dm-init-cond__wrp-btns">
+			<div class="ve-flex-col ve-w-100 ve-h-100 ve-min-h-0 ve-flex-v-center">
+				<div class="ve-flex-wrap ve-w-100 ve-h-100 ve-min-h-0 dm-init-cond__wrp-btns">
 					${wrps}
 				</div>
 			</div>
 		`;
 	}
 
-	_render_$getStgConditionsCustom ({rdState}) {
-		const wrpRows = ee`<div class="ve-flex-wrap w-100 min-h-0 dm-init-cond__wrp-btns"></div>`;
+	_render_getStgConditionsCustom ({rdState}) {
+		const wrpRows = ee`<div class="ve-flex-wrap ve-w-100 ve-min-h-0 dm-init-cond__wrp-btns"></div>`;
 
 		const compRows = new _RenderableCollectionConditionsCustomView({
 			comp: this,
@@ -154,35 +154,35 @@ export class InitiativeTrackerConditionAdd extends BaseComponent {
 		});
 		this._addHookBase("conditionsCustom", () => compRows.render())();
 
-		const $stg = $$`<div class="ve-flex-col w-100 h-100 min-h-0 ve-flex-v-center">
+		const stg = ee`<div class="ve-flex-col ve-w-100 ve-h-100 ve-min-h-0 ve-flex-v-center">
 			${wrpRows}
-			<hr class="hr-3">
+			<hr class="ve-hr-3">
 		</div>`;
 
-		this._addHookBase("conditionsCustom", () => $stg.toggleVe(!!this._state.conditionsCustom.length))();
+		this._addHookBase("conditionsCustom", () => stg.toggleVe(!!this._state.conditionsCustom.length))();
 
-		return $stg;
+		return stg;
 	}
 
-	_render_$getStgIpts ({rdState}) {
-		const $iptName = ComponentUiUtil.$getIptStr(this, "name", {html: `<input class="form-control">`})
-			.on("keydown", evt => {
+	_render_getStgIpts ({rdState}) {
+		const ipt = ComponentUiUtil.getIptStr(this, "name", {html: `<input class="ve-form-control">`})
+			.onn("keydown", evt => {
 				if (evt.key !== "Enter") return;
-				$iptName.trigger("change");
+				ipt.trigger("change");
 				this._doSubmit({rdState});
 			});
 
-		const $iptColor = ComponentUiUtil.$getIptColor(this, "color", {html: `<input class="form-control" type="color">`});
+		const iptColor = ComponentUiUtil.getIptColor(this, "color", {html: `<input class="ve-form-control" type="color">`});
 
-		const $iptTurns = ComponentUiUtil.$getIptInt(this, "turns", null, {isAllowNull: true, fallbackOnNaN: null, html: `<input class="form-control" placeholder="Unlimited">`})
-			.on("keydown", evt => {
+		const iptTurns = ComponentUiUtil.getIptInt(this, "turns", null, {isAllowNull: true, fallbackOnNaN: null, html: `<input class="ve-form-control" placeholder="Unlimited">`})
+			.onn("keydown", evt => {
 				if (evt.key !== "Enter") return;
-				$iptTurns.trigger("change");
+				iptTurns.trigger("change");
 				this._doSubmit({rdState});
 			});
 
-		const $btnSave = $(`<button class="ve-btn ve-btn-default w-100" title="Save as New Custom Condition"><span class="glyphicon glyphicon-floppy-disk"></span></button>`)
-			.click(() => {
+		const btnSave = ee`<button class="ve-btn ve-btn-default ve-w-100" title="Save as New Custom Condition"><span class="glyphicon glyphicon-floppy-disk"></span></button>`
+			.onn("click", () => {
 				this._state.conditionsCustom = [
 					...this._state.conditionsCustom,
 					InitiativeTrackerConditionUtil.getNewRowState({
@@ -193,28 +193,28 @@ export class InitiativeTrackerConditionAdd extends BaseComponent {
 				];
 			});
 
-		return $$`
-			<div class="ve-flex-v-center mb-2">
-				<div class="small-caps ve-col-5 pr-1">Name</div>
-				<div class="small-caps ve-col-2 px-1">Color</div>
-				<div class="small-caps ve-col-4 px-1">Duration</div>
-				<div class="ve-col-1 pl-1">&nbsp;</div>
+		return ee`
+			<div class="ve-flex-v-center ve-mb-2">
+				<div class="ve-small-caps ve-col-5 ve-pr-1">Name</div>
+				<div class="ve-small-caps ve-col-2 ve-px-1">Color</div>
+				<div class="ve-small-caps ve-col-4 ve-px-1">Duration</div>
+				<div class="ve-col-1 ve-pl-1">&nbsp;</div>
 			</div>
-			<div class="ve-flex-v-center mb-3">
-				<div class="ve-col-5 pr-1">${$iptName}</div>
-				<div class="ve-col-2 px-1">${$iptColor}</div>
-				<div class="ve-col-4 px-1">${$iptTurns}</div>
-				<div class="ve-col-1 pl-1">${$btnSave}</div>
+			<div class="ve-flex-v-center ve-mb-3">
+				<div class="ve-col-5 ve-pr-1">${ipt}</div>
+				<div class="ve-col-2 ve-px-1">${iptColor}</div>
+				<div class="ve-col-4 ve-px-1">${iptTurns}</div>
+				<div class="ve-col-1 ve-pl-1">${btnSave}</div>
 			</div>
 		`;
 	}
 
-	_render_$getStgSubmit ({rdState}) {
-		const $btnAdd = $(`<button class="ve-btn ve-btn-primary w-100">Set Condition</button>`)
-			.click(() => this._doSubmit({rdState}));
-		return $$`
+	_render_getStgSubmit ({rdState}) {
+		const btnAdd = ee`<button class="ve-btn ve-btn-primary ve-w-100">Set Condition</button>`
+			.onn("click", () => this._doSubmit({rdState}));
+		return ee`
 			<div class="ve-flex-v-center">
-				${$btnAdd}
+				${btnAdd}
 			</div>
 		`;
 	}

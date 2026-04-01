@@ -38,7 +38,6 @@ class _PageGeneratorDmscreen extends PageGeneratorGeneric {
 
 	_scriptsLibAdditional = [
 		"peerjs.js",
-		"jquery.panzoom.js",
 		"lzma.js",
 	];
 
@@ -114,7 +113,7 @@ class _PageGeneratorCrcalculator extends PageGeneratorGeneric {
 	_filename = "page/template-page-crcalculator.hbs";
 	_page = "crcalculator.html";
 
-	_pageTitle = "CR Calculator (2014)";
+	_pageTitle = "CR Calculator (5e/2014)";
 	_navbarDescription = "Easily build custom creatures.";
 
 	_stylesheets = [

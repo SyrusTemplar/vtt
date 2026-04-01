@@ -26,7 +26,7 @@ export class InitiativeTrackerSettingsImport extends BaseComponent {
 	/* -------------------------------------------- */
 
 	pGetShowModalResults () {
-		const {eleModalInner, $modalFooter, pGetResolved, doClose} = UiUtil.getShowModal({
+		const {eleModalInner, eleModalFooter, pGetResolved, doClose} = UiUtil.getShowModal({
 			title: "Import Settings",
 			isUncappedHeight: true,
 			hasFooter: true,
@@ -37,7 +37,7 @@ export class InitiativeTrackerSettingsImport extends BaseComponent {
 		UiUtil.addModalSep(eleModalInner);
 		this._pGetShowModalResults_renderSection_import({eleModalInner});
 
-		this._pGetShowModalResults_renderFooter({$modalFooter, doClose});
+		this._pGetShowModalResults_renderFooter({eleModalFooter, doClose});
 
 		return pGetResolved();
 	}
@@ -57,12 +57,12 @@ export class InitiativeTrackerSettingsImport extends BaseComponent {
 
 	/* -------------------------------------------- */
 
-	_pGetShowModalResults_renderFooter ({$modalFooter, doClose}) {
-		const $btnSave = $(`<button class="ve-btn ve-btn-primary ve-btn-sm w-100">Save</button>`)
-			.click(() => doClose(true));
+	_pGetShowModalResults_renderFooter ({eleModalFooter, doClose}) {
+		const btnSave = ee`<button class="ve-btn ve-btn-primary ve-btn-sm ve-w-100">Save</button>`
+			.onn("click", () => doClose(true));
 
-		$$($modalFooter)`<div class="w-100 py-3 no-shrink">
-			${$btnSave}
+		ee(eleModalFooter)`<div class="ve-w-100 ve-py-3 ve-no-shrink">
+			${btnSave}
 		</div>`;
 	}
 }

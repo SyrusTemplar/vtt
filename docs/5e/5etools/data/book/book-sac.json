@@ -920,7 +920,8 @@
 														"The spell lets you make a roll of any kind that can affect more than one creature before the spell's duration expires"
 													]
 												}
-											]
+											],
+											"id": "168"
 										}
 									]
 								},
@@ -3379,32 +3380,38 @@
 											"name": "Recent books include monster stat blocks\u2014like the dragon blessed in Fizban's Treasury of Dragons and the Silverquill apprentice in Strixhaven: A Curriculum of Chaos\u2014that contain actions designated as spell attacks, rather than weapon attacks. What was the motivation for adding this type of action to the game?",
 											"entries": [
 												"This type of action isn't new. Monsters have had spell attacks since the {@book Monster Manual|MM} (2014). See the {@creature lich|MM|lich's} Paralyzing Touch action and the {@creature cambion|MM|cambion's} Fire Ray action for other examples of actions that are spell attacks. As discussed in the {@book introduction|MM|0|Melee and Ranged Attacks} of the {@book Monster Manual|MM}, a monster's attack action is designated as either a weapon attack or a spell attack."
-											]
+											],
+											"id": "16b"
 										},
 										{
 											"type": "entries",
 											"name": "Is a spell attack a spell?",
 											"entries": [
 												"No. The game has two types of attacks\u2014weapon attacks and spell attacks\u2014so a spell attack is a type of attack, not a type of spell. Sometimes a spell attack is part of a spell, as in the {@spell fire bolt} spell, but other times a spell attack occurs outside a spell, as in the {@creature specter|MM|specter's} Life Drain attack in the {@book Monster Manual|MM}."
-											]
+											],
+											"id": "16c"
 										},
 										{
 											"type": "entries",
 											"name": "When a monster casts a spell without using spell slots, how do I know the spell's level?",
 											"entries": [
 												"A spell's level is specified in the spell's description. For example, the description of {@spell fireball} says it's a 3rd-level spell. If you cast spells using spell slots, you get the additional option of temporarily increasing a spell's level by expending a spell lot of a higher level to cast the spell."
-											]
+											],
+											"id": "16d"
 										},
 										{
 											"type": "entries",
 											"name": "Can the silvery barbs spell in Strixhaven affect Legendary Resistance?",
 											"entries": [
 												"No. When a creature uses Legendary Resistance, the creature turns a failed saving throw into a success, regardless of the number rolled on the {@dice d20}. Forcing that creature to reroll the {@dice d20} afterward doesn't change the fact that the save succeeded as a result of Legendary Resistance. No amount of rerolling will undo that success."
-											]
+											],
+											"id": "16e"
 										}
-									]
+									],
+									"id": "16a"
 								}
-							]
+							],
+							"id": "169"
 						}
 					]
 				}

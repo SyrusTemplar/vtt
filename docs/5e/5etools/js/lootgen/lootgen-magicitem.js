@@ -3,6 +3,49 @@ import {VetoolsConfig} from "../utils-config/utils-config-config.js";
 import {SITE_STYLE__ONE} from "../consts.js";
 import {LootGenRender} from "./lootgen-render.js";
 
+class _LootGenMagicItemSpellUtils {
+	static getBindEles ({spells, comp, isVerbose = false}) {
+		const btnRerollSpell = ee`<span class="ve-roller render-roller ve-mr-2">[reroll${isVerbose ? ` spell` : ""}]</span>`
+			.onn("click", evt => evt.preventDefault())
+			.onn("click", () => {
+				comp._state.spell = RollerUtil.rollOnArray(spells.filter(it => it.level === comp._state.spellLevel));
+			});
+
+		const dispSpell = ee`<div class="ve-no-wrap"></div>`;
+		comp._addHookBase("spell", () => {
+			if (!comp._state.spell) return dispSpell.html(`<span class="ve-help-subtle" title="${TOOLTIP_NOTHING.qq()}">(no spell)</span>`);
+			dispSpell.html(LootGenRender.er(`{@spell ${comp._state.spell.name}|${comp._state.spell.source}}`));
+		})();
+
+		const dispFilter = ee`<div class="no-wrap"></div>`;
+		comp._addHookBase("spellLevel", () => {
+			if (comp._state.spellLevel == null) {
+				return dispFilter
+					.html("")
+					.hideVe();
+			}
+
+			dispFilter
+				.html(`${LootGenRender.er(`{@filter see all ${Parser.spLevelToFullLevelText(comp._state.spellLevel, {isDash: true})} spells|spells|level=${comp._state.spellLevel}}`)}`)
+				.showVe();
+		})();
+
+		const stgSpellScroll = ee`<div class="ve-flex-v-center ve-italic ve-mr-2">
+			<span>(</span>
+			${btnRerollSpell}
+			${dispSpell}
+			<span class="ve-muted ve-mx-2 ve-no-wrap">-or-</span>
+			${dispFilter}
+			<span>)</span>
+		</div>`;
+		comp._addHookBase("isSpellScroll", () => {
+			stgSpellScroll.toggleVe(!!comp._state.isSpellScroll);
+		})();
+
+		return stgSpellScroll;
+	}
+}
+
 export class LootGenMagicItem extends BaseComponent {
 	static async pGetMagicItemRoll (
 		{
@@ -142,7 +185,7 @@ export class LootGenMagicItem extends BaseComponent {
 
 			const baseEntry = item
 				? `{@item ${DataUtil.proxy.getUidPacked("item", item, "item", {isMaintainCase: true})}}`
-				: `<span class="help-subtle" title="${TOOLTIP_NOTHING.qq()}">(No item)</span>`;
+				: `<span class="ve-help-subtle" title="${TOOLTIP_NOTHING.qq()}">(No item)</span>`;
 
 			return new LootGenMagicItemSubItems({
 				dataManager,
@@ -154,10 +197,11 @@ export class LootGenMagicItem extends BaseComponent {
 				isItemsAltChooseRoll,
 				fnGetIsPreferAltChoose,
 				baseEntry,
-				item: RollerUtil.rollOnArray(subItems),
+				item,
 				roll: rowRoll,
 				rollAdditionalText: ptAdditionalText ? `; ${ptAdditionalText}` : "",
 				subItems,
+				isInlineReroll: true,
 			});
 		}
 
@@ -226,7 +270,7 @@ export class LootGenMagicItem extends BaseComponent {
 	) {
 		baseEntry = baseEntry || item
 			? `{@item ${DataUtil.proxy.getUidPacked("item", item, "item", {isMaintainCase: true})}}`
-			: `<span class="help-subtle" title="${TOOLTIP_NOTHING.qq()}">(no item)</span>`;
+			: `<span class="ve-help-subtle" title="${TOOLTIP_NOTHING.qq()}">(no item)</span>`;
 
 		if (item?.spellScrollLevel != null) {
 			return new LootGenMagicItemSpellScroll({
@@ -401,7 +445,7 @@ export class LootGenMagicItem extends BaseComponent {
 		const title = this._itemsAltChoose
 			? isAltModeDefault ? `SHIFT to roll on Magic Item Table ${this._magicItemTable.type}` : `SHIFT to roll ${Parser.getArticle(this._itemsAltChooseDisplayText)} ${this._itemsAltChooseDisplayText} item`
 			: null;
-		return ee`<span class="roller render-roller" ${title ? `title="${title}"` : ""}>[reroll]</span>`
+		return ee`<span class="ve-roller render-roller" ${title ? `title="${title}"` : ""}>[reroll]</span>`
 			.onn("mousedown", evt => evt.preventDefault())
 			.onn("click", evt => this._pDoReroll({isAltRoll: isAltModeDefault ? !evt.shiftKey : evt.shiftKey}));
 	}
@@ -417,8 +461,8 @@ export class LootGenMagicItem extends BaseComponent {
 
 		const btnReroll = this._getBtnReroll();
 
-		return ee`<li class="split-v-center">
-			<div class="ve-flex-v-center ve-flex-wrap pr-3 min-w-0">
+		return ee`<li class="ve-split-v-center">
+			<div class="ve-flex-v-center ve-flex-wrap ve-pr-3 ve-min-w-0">
 				${dispBaseEntry}
 				${dispRoll}
 			</div>
@@ -427,7 +471,7 @@ export class LootGenMagicItem extends BaseComponent {
 	}
 
 	_getRender_getDispBaseEntry ({prop = "baseEntry"} = {}) {
-		const dispBaseEntry = ee`<div class="mr-2"></div>`;
+		const dispBaseEntry = ee`<div class="ve-mr-2"></div>`;
 		const hkBaseEntry = () => dispBaseEntry.html(LootGenRender.er(this._state.isItemsAltChooseRoll ? `{@i ${this._state[prop]}}` : this._state[prop]));
 		this._addHookBase(prop, hkBaseEntry);
 		hkBaseEntry();
@@ -458,8 +502,8 @@ class LootGenMagicItemNull extends LootGenMagicItem {
 	getExtensionExportMeta () { return null; }
 
 	_getRender () {
-		return ee`<li class="split-v-center">
-			<div class="ve-flex-v-center ve-flex-wrap ve-muted help-subtle" title="${TOOLTIP_NOTHING.qq()}">&mdash;</div>
+		return ee`<li class="ve-split-v-center">
+			<div class="ve-flex-v-center ve-flex-wrap ve-muted ve-help-subtle" title="${TOOLTIP_NOTHING.qq()}">&mdash;</div>
 		</li>`;
 	}
 }
@@ -494,33 +538,14 @@ class LootGenMagicItemSpellScroll extends LootGenMagicItem {
 		const dispBaseEntry = this._getRender_getDispBaseEntry();
 		const dispRoll = this._getRender_getDispRoll();
 
-		const btnRerollSpell = ee`<span class="roller render-roller mr-2">[reroll]</span>`
-			.onn("click", evt => evt.preventDefault())
-			.onn("click", () => {
-				this._state.spell = RollerUtil.rollOnArray(this._spells.filter(it => it.level === this._state.spellLevel));
-			});
-
-		const dispSpell = ee`<div class="no-wrap"></div>`;
-		const hkSpell = () => {
-			if (!this._state.spell) return dispSpell.html(`<span class="help-subtle" title="${TOOLTIP_NOTHING.qq()}">(no spell)</span>`);
-			dispSpell.html(LootGenRender.er(`{@spell ${this._state.spell.name}|${this._state.spell.source}}`));
-		};
-		this._addHookBase("spell", hkSpell);
-		hkSpell();
+		const stgSpellScroll = _LootGenMagicItemSpellUtils.getBindEles({spells: this._spells, comp: this});
 
 		const btnReroll = this._getBtnReroll();
 
-		return ee`<li class="split-v-center">
-			<div class="ve-flex-v-center ve-flex-wrap pr-3 min-w-0">
+		return ee`<li class="ve-split-v-center">
+			<div class="ve-flex-v-center ve-flex-wrap ve-pr-3 ve-min-w-0">
 				${dispBaseEntry}
-				<div class="ve-flex-v-center italic mr-2">
-					<span>(</span>
-					${btnRerollSpell}
-					${dispSpell}
-					<span class="ve-muted mx-2 no-wrap">-or-</span>
-					<div class="no-wrap">${LootGenRender.er(`{@filter see all ${Parser.spLevelToFullLevelText(this._state.spellLevel, {isDash: true})} spells|spells|level=${this._state.spellLevel}}`)}</div>
-					<span>)</span>
-				</div>
+				${stgSpellScroll}
 				${dispRoll}
 			</div>
 			${btnReroll}
@@ -530,6 +555,7 @@ class LootGenMagicItemSpellScroll extends LootGenMagicItem {
 	_getDefaultState () {
 		return {
 			...super._getDefaultState(),
+			isSpellScroll: true,
 			spellLevel: null,
 			spell: null,
 		};
@@ -540,33 +566,73 @@ class LootGenMagicItemSubItems extends LootGenMagicItem {
 	constructor (
 		{
 			subItems,
+			isInlineReroll = false,
 			...others
 		},
 	) {
 		super(others);
 		this._subItems = subItems;
+		this._isInlineReroll = isInlineReroll;
+	}
+
+	getExtensionExportMeta () {
+		if (!this._state.isSpellScroll) return super.getExtensionExportMeta();
+
+		return {
+			page: UrlUtil.PG_SPELLS,
+			entity: this._state.spell,
+			options: {
+				isSpellScroll: true,
+			},
+		};
 	}
 
 	_getRender () {
 		const dispBaseEntry = this._getRender_getDispBaseEntry();
 		const dispRoll = this._getRender_getDispRoll();
 
-		const btnRerollSubItem = ee`<span class="roller render-roller mr-2">[reroll]</span>`
+		const stgSpellScroll = _LootGenMagicItemSpellUtils.getBindEles({spells: this._spells, comp: this, isVerbose: true});
+
+		const btnRerollSubItem = ee`<span class="ve-roller render-roller">[reroll]</span>`
 			.onn("mousedown", evt => evt.preventDefault())
 			.onn("click", () => {
-				this._state.item = RollerUtil.rollOnArray(this._subItems);
+				const itemRolled = RollerUtil.rollOnArray(this._subItems);
+				if (!itemRolled) return;
+				this._state.item = itemRolled;
+				if (this._isInlineReroll) this._state.baseEntry = `{@item ${DataUtil.proxy.getUidPacked("item", itemRolled, "item", {isMaintainCase: true})}}`;
 			});
 
-		const dispSubItem = ee`<div></div>`;
+		const dispSubItem = this._isInlineReroll
+			? null
+			: ee`<div class="ve-ml-2"></div>`;
+		if (!this._isInlineReroll) {
+			this._addHookBase("item", () => {
+				if (!this._state.item) return;
+				dispSubItem.html(LootGenRender.er(`{@item ${DataUtil.proxy.getUidPacked("item", this._state.item, "item", {isMaintainCase: true})}}`));
+			})();
+		}
+
 		this._addHookBase("item", () => {
-			if (!this._state.item) return;
-			dispSubItem.html(LootGenRender.er(`{@item ${DataUtil.proxy.getUidPacked("item", this._state.item, "item", {isMaintainCase: true})}}`));
+			if (this._state.item?.spellScrollLevel == null) {
+				this._proxyAssignSimple("state", {
+					isSpellScroll: false,
+					spellLevel: null,
+					spell: null,
+				});
+				return;
+			}
+
+			this._proxyAssignSimple("state", {
+				isSpellScroll: true,
+				spellLevel: this._state.item.spellScrollLevel,
+				spell: RollerUtil.rollOnArray(this._spells.filter(it => it.level === this._state.item.spellScrollLevel)),
+			});
 		})();
 
 		const btnReroll = this._getBtnReroll();
 
 		const ptSubItem = this._subItems.length
-			? ee`<div class="ve-flex-v-center italic mr-2">
+			? ee`<div class="ve-flex-v-center ve-italic ve-mr-2">
 					<span>(</span>
 					${btnRerollSubItem}
 					${dispSubItem}
@@ -574,14 +640,24 @@ class LootGenMagicItemSubItems extends LootGenMagicItem {
 				</div>`
 			: null;
 
-		return ee`<li class="split-v-center">
-			<div class="ve-flex-v-center ve-flex-wrap pr-3 min-w-0">
+		return ee`<li class="ve-split-v-center">
+			<div class="ve-flex-v-center ve-flex-wrap ve-pr-3 ve-min-w-0">
 				${dispBaseEntry}
 				${ptSubItem}
+				${stgSpellScroll}
 				${dispRoll}
 			</div>
 			${btnReroll}
 		</li>`;
+	}
+
+	_getDefaultState () {
+		return {
+			...super._getDefaultState(),
+			isSpellScroll: false,
+			spellLevel: null,
+			spell: null,
+		};
 	}
 }
 
@@ -624,7 +700,7 @@ export class LootGenMagicItemTable extends LootGenMagicItem {
 
 		const btnReroll = this._getBtnReroll();
 
-		const btnRerollSub = ee`<span class="roller render-roller ve-small ve-self-flex-end">[reroll]</span>`
+		const btnRerollSub = ee`<span class="ve-roller render-roller ve-small ve-self-flex-end">[reroll]</span>`
 			.onn("mousedown", evt => evt.preventDefault())
 			.onn("click", async () => {
 				const {subRowRoll, subRow, subItem} = await LootGenMagicItemTable.pGetSubRollMeta({
@@ -639,16 +715,16 @@ export class LootGenMagicItemTable extends LootGenMagicItem {
 			});
 
 		return ee`<li class="ve-flex-col">
-			<div class="split-v-center">
-				<div class="ve-flex-v-center ve-flex-wrap pr-3 min-w-0">
+			<div class="ve-split-v-center">
+				<div class="ve-flex-v-center ve-flex-wrap ve-pr-3 ve-min-w-0">
 					${dispBaseEntry}
 					${dispRoll}
 				</div>
 				${btnReroll}
 			</div>
-			<div class="split-v-center pl-2">
-				<div class="ve-flex-v-center ve-flex-wrap pr-3 min-w-0">
-					<span class="ml-1 mr-2">&rarr;</span>
+			<div class="ve-split-v-center ve-pl-2">
+				<div class="ve-flex-v-center ve-flex-wrap ve-pr-3 ve-min-w-0">
+					<span class="ve-ml-1 ve-mr-2">&rarr;</span>
 					${dispTableEntry}
 					${dispTableRoll}
 				</div>

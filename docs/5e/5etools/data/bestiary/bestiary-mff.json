@@ -398,10 +398,8 @@
 			"name": "Eye of Fear and Flame",
 			"source": "MFF",
 			"page": 8,
-			"otherSources": [
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR"
 			],
 			"size": [
 				"M"

@@ -592,6 +592,27 @@
 			"hasToken": true
 		},
 		{
+			"name": "Azal",
+			"isNpc": true,
+			"isNamedCreature": true,
+			"source": "WDMM",
+			"page": 202,
+			"_copy": {
+				"name": "Githzerai Zerth",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the githzerai",
+						"with": "Azal",
+						"flags": "i"
+					}
+				}
+			},
+			"hasToken": true,
+			"hasFluffImages": true
+		},
+		{
 			"name": "Berlain Shadowdusk",
 			"isNpc": true,
 			"isNamedCreature": true,
@@ -610,7 +631,7 @@
 					"bonus": {
 						"mode": "appendArr",
 						"items": {
-							"name": "Extra Parts",
+							"name": "Fused Form",
 							"entries": [
 								"As a bonus action, Berlain can use her extra mouth and arms to cast any cantrip she has prepared."
 							]
@@ -1335,7 +1356,8 @@
 				"name": "Nothic",
 				"source": "MM"
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Deformed Duergar",
@@ -1605,6 +1627,9 @@
 							]
 						}
 					}
+				},
+				"_preserve": {
+					"legendaryGroup": true
 				}
 			},
 			"languages": [
@@ -1893,89 +1918,6 @@
 				"climb": 30,
 				"fly": 40
 			},
-			"hasToken": true
-		},
-		{
-			"name": "Giant Mutated Drow",
-			"source": "WDMM",
-			"page": 143,
-			"_copy": {
-				"name": "Cloud Giant",
-				"source": "MM",
-				"_mod": {
-					"*": {
-						"mode": "replaceTxt",
-						"replace": "giant",
-						"with": "drow",
-						"flags": "i"
-					},
-					"trait": {
-						"mode": "appendArr",
-						"items": [
-							{
-								"name": "Fey Ancestry",
-								"entries": [
-									"The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep."
-								]
-							},
-							{
-								"name": "Sunlight Sensitivity",
-								"entries": [
-									"While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
-								]
-							}
-						]
-					}
-				}
-			},
-			"type": "giant",
-			"alignment": [
-				"N",
-				"E"
-			],
-			"senses": [
-				"darkvision 120 ft."
-			],
-			"languages": [
-				"Elvish",
-				"Undercommon"
-			],
-			"spellcasting": [
-				{
-					"name": "Innate Spellcasting",
-					"type": "spellcasting",
-					"headerEntries": [
-						"The drow's innate spellcasting ability is Charisma (spell save {@dc 15}). The drow can innately cast the following spells, requiring no material components:"
-					],
-					"will": [
-						"{@spell dancing lights}"
-					],
-					"daily": {
-						"1e": [
-							"{@spell darkness}",
-							"{@spell faerie fire}"
-						]
-					},
-					"ability": "cha"
-				}
-			],
-			"tokenCustom": true,
-			"traitTags": [
-				"Fey Ancestry",
-				"Keen Senses",
-				"Sunlight Sensitivity"
-			],
-			"senseTags": [
-				"SD"
-			],
-			"languageTags": [
-				"C",
-				"E",
-				"GI"
-			],
-			"savingThrowForcedSpell": [
-				"dexterity"
-			],
 			"hasToken": true
 		},
 		{
@@ -2677,7 +2619,8 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Huge Gray Ooze",
@@ -2792,7 +2735,7 @@
 			"source": "WDMM",
 			"page": 165,
 			"size": [
-				"M"
+				"L"
 			],
 			"type": "construct",
 			"alignment": [
@@ -2822,6 +2765,20 @@
 				"poison",
 				"psychic"
 			],
+			"trait": [
+				{
+					"name": "Spider Climb",
+					"entries": [
+						"The iron spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+					]
+				},
+				{
+					"name": "Antimagic Susceptibility",
+					"entries": [
+						"The iron spider is {@condition incapacitated} while in the area of an {@spell antimagic field}. If targeted by {@spell dispel magic}, the iron spider must succeed on a Constitution saving throw against the caster's spell save DC or fall {@condition unconscious} for 1 minute."
+					]
+				}
+			],
 			"action": [
 				{
 					"name": "Web Cable",
@@ -2831,10 +2788,15 @@
 				}
 			],
 			"tokenCustom": true,
+			"traitTags": [
+				"Antimagic Susceptibility",
+				"Spider Climb"
+			],
 			"senseTags": [
 				"B"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluff": true
 		},
 		{
 			"name": "Junior Drow Priestess of Lolth",
@@ -2861,6 +2823,10 @@
 				"N",
 				"E"
 			],
+			"languages": [
+				"Elvish",
+				"Undercommon"
+			],
 			"traitTags": [
 				"Fey Ancestry",
 				"Sunlight Sensitivity"
@@ -2870,7 +2836,7 @@
 			],
 			"languageTags": [
 				"E",
-				"X"
+				"U"
 			],
 			"spellcastingTags": [
 				"CC",
@@ -2879,7 +2845,7 @@
 			"hasToken": true
 		},
 		{
-			"name": "Kavil",
+			"name": "Kavil Mereshanter",
 			"isNpc": true,
 			"isNamedCreature": true,
 			"source": "WDMM",
@@ -3583,6 +3549,10 @@
 					]
 				}
 			],
+			"hp": {
+				"average": 24,
+				"formula": "3d8"
+			},
 			"senses": [
 				"darkvision 60 ft."
 			],
@@ -3870,6 +3840,89 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Mutated Drow",
+			"source": "WDMM",
+			"page": 143,
+			"_copy": {
+				"name": "Cloud Giant",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "giant",
+						"with": "drow",
+						"flags": "i"
+					},
+					"trait": {
+						"mode": "appendArr",
+						"items": [
+							{
+								"name": "Fey Ancestry",
+								"entries": [
+									"The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep."
+								]
+							},
+							{
+								"name": "Sunlight Sensitivity",
+								"entries": [
+									"While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
+								]
+							}
+						]
+					}
+				}
+			},
+			"type": "giant",
+			"alignment": [
+				"N",
+				"E"
+			],
+			"senses": [
+				"darkvision 120 ft."
+			],
+			"languages": [
+				"Elvish",
+				"Undercommon"
+			],
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"type": "spellcasting",
+					"headerEntries": [
+						"The drow's innate spellcasting ability is Charisma (spell save {@dc 15}). The drow can innately cast the following spells, requiring no material components:"
+					],
+					"will": [
+						"{@spell dancing lights}"
+					],
+					"daily": {
+						"1e": [
+							"{@spell darkness}",
+							"{@spell faerie fire}"
+						]
+					},
+					"ability": "cha"
+				}
+			],
+			"tokenCustom": true,
+			"traitTags": [
+				"Fey Ancestry",
+				"Keen Senses",
+				"Sunlight Sensitivity"
+			],
+			"senseTags": [
+				"SD"
+			],
+			"languageTags": [
+				"C",
+				"E",
+				"GI"
+			],
+			"savingThrowForcedSpell": [
+				"dexterity"
+			],
+			"hasToken": true
+		},
+		{
 			"name": "Nerozar the Defeated",
 			"isNpc": true,
 			"isNamedCreature": true,
@@ -3987,7 +4040,8 @@
 				"Draconic",
 				"Dwarvish",
 				"Giant",
-				"Terran"
+				"Terran",
+				"but can't speak (he uses {@spell Rary's telepathic bond} to communicate)"
 			],
 			"tokenCustom": true,
 			"senseTags": [
@@ -3996,6 +4050,7 @@
 			"languageTags": [
 				"AU",
 				"C",
+				"CS",
 				"D",
 				"DR",
 				"GI",
@@ -4341,6 +4396,27 @@
 			"tokenCustom": true,
 			"languageTags": [],
 			"hasToken": true
+		},
+		{
+			"name": "Rishindar",
+			"isNpc": true,
+			"isNamedCreature": true,
+			"source": "WDMM",
+			"page": 202,
+			"_copy": {
+				"name": "Githzerai Zerth",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the githzerai",
+						"with": "Rishindar",
+						"flags": "i"
+					}
+				}
+			},
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Rowboat Mimic",
@@ -4909,6 +4985,12 @@
 				"name": "Adult Silver Dragon",
 				"source": "MM",
 				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the dragon",
+						"with": "Stalagma",
+						"flags": "i"
+					},
 					"action": {
 						"mode": "replaceArr",
 						"replace": "Breath Weapons {@recharge 5}",
@@ -4975,12 +5057,12 @@
 						"with": "statue",
 						"flags": "i"
 					},
-					"trait": {
+					"bonus": {
 						"mode": "appendArr",
 						"items": {
 							"name": "Magic Theft",
 							"entries": [
-								"As a bonus action, the golem targets one creature it can see within 30 feet of it. The target must succeed on a {@dc 17} Charisma saving throw, or all magic items in its possession are teleported to the bottom of the pit in {@adventure area 31|WDMM|15|31. Hall of Embers}."
+								"The golem targets one creature it can see within 30 feet of it. The target must succeed on a {@dc 17} Charisma saving throw, or all magic items in its possession are teleported to the bottom of the pit in {@adventure area 31|WDMM|15|31. Hall of Embers}."
 							]
 						}
 					}
@@ -5126,14 +5208,17 @@
 				"N",
 				"E"
 			],
+			"languages": [
+				"Common",
+				"Dwarvish"
+			],
 			"tokenCustom": true,
 			"senseTags": [
 				"D"
 			],
 			"languageTags": [
 				"C",
-				"D",
-				"X"
+				"D"
 			],
 			"damageTags": [
 				"B",
@@ -5419,7 +5504,15 @@
 						"name": "Legendary Shadow Dragon",
 						"source": "MM"
 					}
-				]
+				],
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the dragon",
+						"with": "Umbraxakar",
+						"flags": "i"
+					}
+				}
 			},
 			"alignment": [
 				"N",
@@ -5619,6 +5712,27 @@
 				"U"
 			],
 			"hasToken": true
+		},
+		{
+			"name": "Vond",
+			"isNpc": true,
+			"isNamedCreature": true,
+			"source": "WDMM",
+			"page": 202,
+			"_copy": {
+				"name": "Githzerai Zerth",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the githzerai",
+						"with": "Vond",
+						"flags": "i"
+					}
+				}
+			},
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Werebat",
@@ -5908,7 +6022,8 @@
 				"E",
 				"U"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Xorta",
@@ -5928,7 +6043,38 @@
 					}
 				}
 			},
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Yrlakka",
+			"isNpc": true,
+			"isNamedCreature": true,
+			"source": "WDMM",
+			"page": 202,
+			"_copy": {
+				"name": "Githzerai Zerth",
+				"source": "MM",
+				"_mod": {
+					"*": {
+						"mode": "replaceTxt",
+						"replace": "the githzerai",
+						"with": "Yrlakka",
+						"flags": "i"
+					},
+					"trait": {
+						"mode": "appendArr",
+						"items": {
+							"name": "Special Equipment",
+							"entries": [
+								"Yrlakka carries a {@item Potion of Fire Resistance||potion of resistance (fire)} in a tiny crystal vial fastened to a cord around his right ankle, and he has a {@item wand of magic detection} hanging from his belt."
+							]
+						}
+					}
+				}
+			},
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Zalthar Shadowdusk",
@@ -6314,12 +6460,19 @@
 				"name": "Drow House Captain",
 				"source": "MTF",
 				"_mod": {
-					"*": {
-						"mode": "replaceTxt",
-						"replace": "the drow",
-						"with": "Zress",
-						"flags": "i"
-					}
+					"*": [
+						{
+							"mode": "replaceTxt",
+							"replace": "the drow",
+							"with": "Zress",
+							"flags": "i"
+						},
+						{
+							"mode": "replaceTxt",
+							"replace": "\\bhis\\b",
+							"with": "her"
+						}
+					]
 				}
 			},
 			"ac": [

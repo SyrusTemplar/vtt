@@ -229,10 +229,8 @@
 			"name": "Cannith Artificer",
 			"source": "EFA",
 			"page": 80,
-			"otherSources": [
-				{
-					"source": "FFotR"
-				}
+			"referenceSources": [
+				"FFotR"
 			],
 			"size": [
 				"S",

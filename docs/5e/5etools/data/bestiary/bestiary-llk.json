@@ -17,10 +17,8 @@
 			"name": "Brain in a Jar",
 			"source": "LLK",
 			"page": 38,
-			"otherSources": [
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR"
 			],
 			"size": [
 				"M"
@@ -590,10 +588,8 @@
 			"isNamedCreature": true,
 			"source": "LLK",
 			"page": 23,
-			"otherSources": [
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR"
 			],
 			"_copy": {
 				"name": "Medusa",

@@ -609,10 +609,8 @@
 			"name": "Cinder Hulk",
 			"source": "BGG",
 			"page": 123,
-			"otherSources": [
-				{
-					"source": "GotSF"
-				}
+			"referenceSources": [
+				"GotSF"
 			],
 			"size": [
 				"L"
@@ -3176,10 +3174,8 @@
 			"name": "Firbolg Wanderer",
 			"source": "BGG",
 			"page": 137,
-			"otherSources": [
-				{
-					"source": "GotSF"
-				}
+			"referenceSources": [
+				"GotSF"
 			],
 			"size": [
 				"M"
@@ -3324,10 +3320,8 @@
 			"name": "Fire Giant Forgecaller",
 			"source": "BGG",
 			"page": 138,
-			"otherSources": [
-				{
-					"source": "GotSF"
-				}
+			"referenceSources": [
+				"GotSF"
 			],
 			"size": [
 				"H"
@@ -3470,13 +3464,9 @@
 			"name": "Fire Giant of Evil Fire",
 			"source": "BGG",
 			"page": 139,
-			"otherSources": [
-				{
-					"source": "GotSF"
-				},
-				{
-					"source": "HFStCM"
-				}
+			"referenceSources": [
+				"GotSF",
+				"HFStCM"
 			],
 			"size": [
 				"H"
@@ -6884,10 +6874,8 @@
 			"name": "Scion of Grolantor",
 			"source": "BGG",
 			"page": 165,
-			"otherSources": [
-				{
-					"source": "HFStCM"
-				}
+			"referenceSources": [
+				"HFStCM"
 			],
 			"size": [
 				"G"

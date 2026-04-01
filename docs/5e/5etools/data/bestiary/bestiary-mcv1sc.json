@@ -139,10 +139,8 @@
 			"name": "Clockwork Horror",
 			"source": "MCV1SC",
 			"page": 4,
-			"otherSources": [
-				{
-					"source": "SjA"
-				}
+			"referenceSources": [
+				"SjA"
 			],
 			"size": [
 				"S"
@@ -1106,10 +1104,8 @@
 			"name": "Star Lancer",
 			"source": "MCV1SC",
 			"page": 12,
-			"otherSources": [
-				{
-					"source": "SjA"
-				}
+			"referenceSources": [
+				"SjA"
 			],
 			"size": [
 				"L"

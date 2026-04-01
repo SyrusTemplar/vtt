@@ -62,7 +62,7 @@ export class RenderableCollectionRowDataBase extends RenderableCollectionAsyncGe
 	/* -------------------------------------------- */
 
 	_getWrpRow () {
-		return ee`<div class="dm-init__row ve-overflow-hidden pr-1"></div>`;
+		return ee`<div class="dm-init__row ve-overflow-hidden ve-pr-1"></div>`;
 	}
 
 	async _pPopulateRow ({comp, wrpRow, entity}) {
@@ -163,7 +163,7 @@ export class RenderableCollectionRowDataBase extends RenderableCollectionAsyncGe
 			comp,
 			"name",
 			{
-				html: `<input class="form-control input-sm name dm-init__ipt-name dm-init-lockable dm-init__row-input" placeholder="Name">`,
+				html: `<input class="ve-form-control ve-input-sm name dm-init__ipt-name dm-init-lockable dm-init__row-input" placeholder="Name">`,
 			},
 		).appendTo(wrpLhs);
 	}
@@ -218,7 +218,7 @@ export class RenderableCollectionRowDataBase extends RenderableCollectionAsyncGe
 			{
 				isAllowNull: true,
 				fallbackOnNaN: null,
-				html: `<input class="form-control input-sm hp dm-init__row-input ve-text-right w-40p mr-0 br-0">`,
+				html: `<input class="ve-form-control ve-input-sm hp dm-init__row-input ve-text-right ve-w-40p ve-mr-0 ve-br-0">`,
 			},
 		)
 			.onn("click", () => iptHpCurrent.select());
@@ -230,7 +230,7 @@ export class RenderableCollectionRowDataBase extends RenderableCollectionAsyncGe
 			{
 				isAllowNull: true,
 				fallbackOnNaN: null,
-				html: `<input class="form-control input-sm hp-max dm-init__row-input w-40p mr-0 bl-0">`,
+				html: `<input class="ve-form-control ve-input-sm hp-max dm-init__row-input ve-w-40p ve-mr-0 ve-bl-0">`,
 			},
 		)
 			.onn("click", () => iptHpMax.select());
@@ -256,7 +256,7 @@ export class RenderableCollectionRowDataBase extends RenderableCollectionAsyncGe
 		this._comp._addHookBase("isInvertWoundDirection", hkHpColors)();
 		fnsCleanup.push(() => this._comp._removeHookBase("isInvertWoundDirection", hkHpColors));
 
-		ee`<div class="ve-flex relative mr-3p">
+		ee`<div class="ve-flex ve-relative ve-mr-3p">
 			<div class="ve-text-right">${iptHpCurrent}</div>
 			<div class="dm-init__sep-fields-slash ve-flex-vh-center">/</div>
 			<div class="ve-text-left">${iptHpMax}</div>
@@ -318,36 +318,36 @@ export class InitiativeTrackerRowDataViewBase {
 	getRenderedView () {
 		const rdState = new this.constructor._RenderState();
 
-		const $ele = $$`<div class="dm-init__wrp-header-outer">
-				<div class="dm-init__wrp-header pr-1">
+		const ele = ee`<div class="dm-init__wrp-header-outer">
+				<div class="dm-init__wrp-header ve-pr-1">
 					<div class="dm-init__row-lhs dm-init__header">
-						<div class="w-100">${this._TextHeaderLhs}</div>
+						<div class="ve-w-100">${this._TextHeaderLhs}</div>
 					</div>
 
-					${this._render_$getWrpHeaderStatsCols({rdState})}
+					${this._render_getWrpHeaderStatsCols({rdState})}
 
-					${this._render_$getWrpHeaderRhs({rdState})}
+					${this._render_getWrpHeaderRhs({rdState})}
 				</div>
 
 				${this._render_getWrpRows({rdState})}
 		</div>`;
 
 		return {
-			$ele,
+			ele,
 			cbDoCleanup: () => rdState.fnsCleanup.forEach(fn => fn()),
 		};
 	}
 
-	_render_$getWrpHeaderStatsCols ({rdState}) {
-		const $wrpHeaderStatsCols = $(`<div class="dm-init__row-mid"></div>`);
+	_render_getWrpHeaderStatsCols ({rdState}) {
+		const wrpHeaderStatsCols = ee`<div class="dm-init__row-mid"></div>`;
 		const hkHeaderStatsCols = () => {
-			$wrpHeaderStatsCols.empty();
+			wrpHeaderStatsCols.empty();
 
 			if (!this._comp._state.isStatsAddColumns) return;
 
 			this._comp._state.statsCols.forEach(data => {
 				const meta = InitiativeTrackerStatColumnFactory.fromStateData({data});
-				$wrpHeaderStatsCols.append(meta.$getRenderedHeader());
+				wrpHeaderStatsCols.appends(meta.getEleRenderedHeader());
 			});
 		};
 		this._comp._addHookBase("isStatsAddColumns", hkHeaderStatsCols);
@@ -358,14 +358,14 @@ export class InitiativeTrackerRowDataViewBase {
 			() => this._comp._removeHookBase("statsCols", hkHeaderStatsCols),
 		);
 
-		return $wrpHeaderStatsCols;
+		return wrpHeaderStatsCols;
 	}
 
 	/**
 	 * @abstract
-	 * @return {jQuery}
+	 * @return {HTMLElementExtended}
 	 */
-	_render_$getWrpHeaderRhs ({rdState}) {
+	_render_getWrpHeaderRhs ({rdState}) {
 		throw new Error("Unimplemented!");
 	}
 

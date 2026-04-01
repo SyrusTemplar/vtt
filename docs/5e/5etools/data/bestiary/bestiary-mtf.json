@@ -4,10 +4,8 @@
 			"name": "Abyssal Wretch",
 			"source": "MTF",
 			"page": 136,
-			"otherSources": [
-				{
-					"source": "BGDIA"
-				}
+			"referenceSources": [
+				"BGDIA"
 			],
 			"size": [
 				"M"
@@ -211,10 +209,8 @@
 			"name": "Adult Oblex",
 			"source": "MTF",
 			"page": 218,
-			"otherSources": [
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR"
 			],
 			"reprintedAs": [
 				"Adult Oblex|MPMM"
@@ -392,18 +388,15 @@
 			"page": 202,
 			"otherSources": [
 				{
-					"source": "DC"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SLW"
-				},
-				{
 					"source": "PotA",
 					"page": 212
 				}
+			],
+			"referenceSources": [
+				"DC",
+				"DIP",
+				"PotA",
+				"SLW"
 			],
 			"reprintedAs": [
 				"Air Elemental Myrmidon|MPMM"
@@ -541,13 +534,9 @@
 			"name": "Alkilith",
 			"source": "MTF",
 			"page": 130,
-			"otherSources": [
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SDW"
-				}
+			"referenceSources": [
+				"DIP",
+				"SDW"
 			],
 			"reprintedAs": [
 				"Alkilith|MPMM"
@@ -707,13 +696,9 @@
 			"name": "Allip",
 			"source": "MTF",
 			"page": 116,
-			"otherSources": [
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SLW"
-				}
+			"referenceSources": [
+				"DIP",
+				"SLW"
 			],
 			"reprintedAs": [
 				"Allip|MPMM"
@@ -860,10 +845,8 @@
 			"name": "Amnizu",
 			"source": "MTF",
 			"page": 164,
-			"otherSources": [
-				{
-					"source": "BGDIA"
-				}
+			"referenceSources": [
+				"BGDIA"
 			],
 			"reprintedAs": [
 				"Amnizu|MPMM"
@@ -1887,10 +1870,8 @@
 			"name": "Balhannoth",
 			"source": "MTF",
 			"page": 119,
-			"otherSources": [
-				{
-					"source": "RtG"
-				}
+			"referenceSources": [
+				"RtG"
 			],
 			"reprintedAs": [
 				"Balhannoth|MPMM"
@@ -2050,10 +2031,11 @@
 				{
 					"source": "OotA",
 					"page": 235
-				},
-				{
-					"source": "BGDIA"
 				}
+			],
+			"referenceSources": [
+				"BGDIA",
+				"OotA"
 			],
 			"reprintedAs": [
 				"Baphomet|MPMM"
@@ -2861,13 +2843,9 @@
 			"name": "Boneclaw",
 			"source": "MTF",
 			"page": 121,
-			"otherSources": [
-				{
-					"source": "DC"
-				},
-				{
-					"source": "DIP"
-				}
+			"referenceSources": [
+				"DC",
+				"DIP"
 			],
 			"reprintedAs": [
 				"Boneclaw|MPMM"
@@ -3024,10 +3002,8 @@
 			"name": "Bronze Scout",
 			"source": "MTF",
 			"page": 125,
-			"otherSources": [
-				{
-					"source": "RtG"
-				}
+			"referenceSources": [
+				"RtG"
 			],
 			"reprintedAs": [
 				"Clockwork Bronze Scout|MPMM"
@@ -3153,10 +3129,8 @@
 			"name": "Bulezau",
 			"source": "MTF",
 			"page": 131,
-			"otherSources": [
-				{
-					"source": "BGDIA"
-				}
+			"referenceSources": [
+				"BGDIA"
 			],
 			"reprintedAs": [
 				"Bulezau|MPMM"
@@ -3249,6 +3223,9 @@
 				"type": "internal",
 				"path": "bestiary/bulezau.mp3"
 			},
+			"traitTags": [
+				"Sure-Footed"
+			],
 			"senseTags": [
 				"SD"
 			],
@@ -3593,6 +3570,15 @@
 					"source": "TftYP",
 					"page": 232
 				}
+			],
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
 			],
 			"reprintedAs": [
 				"Choker|MPMM"
@@ -4154,10 +4140,8 @@
 			"name": "Deathlock Mastermind",
 			"source": "MTF",
 			"page": 129,
-			"otherSources": [
-				{
-					"source": "SDW"
-				}
+			"referenceSources": [
+				"SDW"
 			],
 			"reprintedAs": [
 				"Deathlock Mastermind|MPMM"
@@ -4511,6 +4495,15 @@
 					"page": 233
 				}
 			],
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"reprintedAs": [
 				"Deathlock Wight|MPMM"
 			],
@@ -4680,6 +4673,9 @@
 					"source": "OotA",
 					"page": 236
 				}
+			],
+			"referenceSources": [
+				"OotA"
 			],
 			"reprintedAs": [
 				"Demogorgon|MPMM"
@@ -6034,17 +6030,14 @@
 				"strength"
 			],
 			"hasToken": true,
-			"hasFluff": true,
-			"hasFluffImages": true
+			"hasFluff": true
 		},
 		{
 			"name": "Drow House Captain",
 			"source": "MTF",
 			"page": 184,
-			"otherSources": [
-				{
-					"source": "WDMM"
-				}
+			"referenceSources": [
+				"WDMM"
 			],
 			"reprintedAs": [
 				"Drow House Captain|MPMM"
@@ -7215,10 +7208,8 @@
 			"name": "Duergar Hammerer",
 			"source": "MTF",
 			"page": 188,
-			"otherSources": [
-				{
-					"source": "IDRotF"
-				}
+			"referenceSources": [
+				"IDRotF"
 			],
 			"reprintedAs": [
 				"Duergar Hammerer|MPMM"
@@ -7344,6 +7335,9 @@
 					"source": "OotA",
 					"page": 226
 				}
+			],
+			"referenceSources": [
+				"OotA"
 			],
 			"reprintedAs": [
 				"Duergar Kavalrachni|MPMM"
@@ -7486,10 +7480,8 @@
 			"name": "Duergar Mind Master",
 			"source": "MTF",
 			"page": 189,
-			"otherSources": [
-				{
-					"source": "IDRotF"
-				}
+			"referenceSources": [
+				"IDRotF"
 			],
 			"reprintedAs": [
 				"Duergar Mind Master|MPMM"
@@ -7765,6 +7757,9 @@
 					"page": 227
 				}
 			],
+			"referenceSources": [
+				"OotA"
+			],
 			"reprintedAs": [
 				"Duergar Soulblade|MPMM"
 			],
@@ -7917,6 +7912,9 @@
 					"source": "OotA",
 					"page": 227
 				}
+			],
+			"referenceSources": [
+				"OotA"
 			],
 			"reprintedAs": [
 				"Duergar Stone Guard|MPMM"
@@ -8215,6 +8213,9 @@
 					"source": "OotA",
 					"page": 226
 				}
+			],
+			"referenceSources": [
+				"OotA"
 			],
 			"reprintedAs": [
 				"Duergar Xarrorn|MPMM"
@@ -8544,6 +8545,9 @@
 					"page": 212
 				}
 			],
+			"referenceSources": [
+				"PotA"
+			],
 			"reprintedAs": [
 				"Earth Elemental Myrmidon|MPMM"
 			],
@@ -8673,16 +8677,10 @@
 			"name": "Eidolon",
 			"source": "MTF",
 			"page": 194,
-			"otherSources": [
-				{
-					"source": "DC"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"DC",
+				"DIP",
+				"IMR"
 			],
 			"reprintedAs": [
 				"Eidolon|MPMM"
@@ -9199,10 +9197,8 @@
 			"name": "Female Steeder",
 			"source": "MTF",
 			"page": 238,
-			"otherSources": [
-				{
-					"source": "OotA"
-				}
+			"referenceSources": [
+				"OotA"
 			],
 			"reprintedAs": [
 				"Female Steeder|MPMM"
@@ -9309,6 +9305,9 @@
 					"source": "PotA",
 					"page": 213
 				}
+			],
+			"referenceSources": [
+				"PotA"
 			],
 			"reprintedAs": [
 				"Fire Elemental Myrmidon|MPMM"
@@ -9455,6 +9454,9 @@
 					"source": "OotA",
 					"page": 238
 				}
+			],
+			"referenceSources": [
+				"OotA"
 			],
 			"reprintedAs": [
 				"Fraz-Urb'luu|MPMM"
@@ -10241,10 +10243,8 @@
 			"name": "Githyanki Gish",
 			"source": "MTF",
 			"page": 205,
-			"otherSources": [
-				{
-					"source": "WDMM"
-				}
+			"referenceSources": [
+				"WDMM"
 			],
 			"reprintedAs": [
 				"Githyanki Gish|MPMM"
@@ -11398,6 +11398,9 @@
 					"source": "OotA",
 					"page": 241
 				}
+			],
+			"referenceSources": [
+				"OotA"
 			],
 			"reprintedAs": [
 				"Graz'zt|MPMM"
@@ -12643,12 +12646,13 @@
 			"page": 125,
 			"otherSources": [
 				{
-					"source": "GoS"
-				},
-				{
 					"source": "RtG",
 					"page": 33
 				}
+			],
+			"referenceSources": [
+				"GoS",
+				"RtG"
 			],
 			"reprintedAs": [
 				"Clockwork Iron Cobra|MPMM"
@@ -12772,6 +12776,9 @@
 					"source": "OotA",
 					"page": 243
 				}
+			],
+			"referenceSources": [
+				"OotA"
 			],
 			"reprintedAs": [
 				"Juiblex|MPMM"
@@ -13330,10 +13337,8 @@
 			"name": "Male Steeder",
 			"source": "MTF",
 			"page": 238,
-			"otherSources": [
-				{
-					"source": "OotA"
-				}
+			"referenceSources": [
+				"OotA"
 			],
 			"reprintedAs": [
 				"Male Steeder|MPMM"
@@ -13896,10 +13901,8 @@
 			"name": "Merregon",
 			"source": "MTF",
 			"page": 166,
-			"otherSources": [
-				{
-					"source": "BGDIA"
-				}
+			"referenceSources": [
+				"BGDIA"
 			],
 			"reprintedAs": [
 				"Merregon|MPMM"
@@ -14051,10 +14054,8 @@
 			"name": "Merrenoloth",
 			"source": "MTF",
 			"page": 250,
-			"otherSources": [
-				{
-					"source": "LLK"
-				}
+			"referenceSources": [
+				"LLK"
 			],
 			"reprintedAs": [
 				"Merrenoloth|MPMM"
@@ -15166,10 +15167,8 @@
 			"name": "Narzugon",
 			"source": "MTF",
 			"page": 167,
-			"otherSources": [
-				{
-					"source": "BGDIA"
-				}
+			"referenceSources": [
+				"BGDIA"
 			],
 			"reprintedAs": [
 				"Narzugon|MPMM"
@@ -15484,10 +15483,8 @@
 			"name": "Nupperibo",
 			"source": "MTF",
 			"page": 168,
-			"otherSources": [
-				{
-					"source": "BGDIA"
-				}
+			"referenceSources": [
+				"BGDIA"
 			],
 			"reprintedAs": [
 				"Nupperibo|MPMM"
@@ -15610,13 +15607,9 @@
 			"name": "Oaken Bolter",
 			"source": "MTF",
 			"page": 126,
-			"otherSources": [
-				{
-					"source": "LLK"
-				},
-				{
-					"source": "RtG"
-				}
+			"referenceSources": [
+				"LLK",
+				"RtG"
 			],
 			"reprintedAs": [
 				"Clockwork Oaken Bolter|MPMM"
@@ -16456,6 +16449,9 @@
 					"page": 245
 				}
 			],
+			"referenceSources": [
+				"OotA"
+			],
 			"reprintedAs": [
 				"Orcus|MPMM"
 			],
@@ -16684,10 +16680,8 @@
 			"name": "Orthon",
 			"source": "MTF",
 			"page": 169,
-			"otherSources": [
-				{
-					"source": "BGDIA"
-				}
+			"referenceSources": [
+				"BGDIA"
 			],
 			"reprintedAs": [
 				"Orthon|MPMM"
@@ -16896,10 +16890,8 @@
 			"name": "Phoenix",
 			"source": "MTF",
 			"page": 199,
-			"otherSources": [
-				{
-					"source": "MOT"
-				}
+			"referenceSources": [
+				"MOT"
 			],
 			"reprintedAs": [
 				"Phoenix|MPMM"
@@ -17458,15 +17450,14 @@
 			"page": 244,
 			"otherSources": [
 				{
-					"source": "DIP"
-				},
-				{
-					"source": "SLW"
-				},
-				{
 					"source": "RtG",
 					"page": 34
 				}
+			],
+			"referenceSources": [
+				"DIP",
+				"RtG",
+				"SLW"
 			],
 			"reprintedAs": [
 				"Rot Troll|MPMM"
@@ -17682,16 +17673,10 @@
 			"name": "Sacred Statue",
 			"source": "MTF",
 			"page": 194,
-			"otherSources": [
-				{
-					"source": "DC"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"DC",
+				"DIP",
+				"IMR"
 			],
 			"reprintedAs": [
 				"Sacred Statue|MPMM"
@@ -17976,10 +17961,8 @@
 			"name": "Sibriex",
 			"source": "MTF",
 			"page": 137,
-			"otherSources": [
-				{
-					"source": "BGDIA"
-				}
+			"referenceSources": [
+				"BGDIA"
 			],
 			"reprintedAs": [
 				"Sibriex|MPMM"
@@ -19438,10 +19421,8 @@
 			"name": "Star Spawn Larva Mage",
 			"source": "MTF",
 			"page": 235,
-			"otherSources": [
-				{
-					"source": "WDMM"
-				}
+			"referenceSources": [
+				"WDMM"
 			],
 			"reprintedAs": [
 				"Star Spawn Larva Mage|MPMM"
@@ -19641,16 +19622,10 @@
 			"name": "Star Spawn Mangler",
 			"source": "MTF",
 			"page": 236,
-			"otherSources": [
-				{
-					"source": "DC"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SLW"
-				}
+			"referenceSources": [
+				"DC",
+				"DIP",
+				"SLW"
 			],
 			"reprintedAs": [
 				"Star Spawn Mangler|MPMM"
@@ -20216,10 +20191,8 @@
 			"name": "Stone Defender",
 			"source": "MTF",
 			"page": 126,
-			"otherSources": [
-				{
-					"source": "RtG"
-				}
+			"referenceSources": [
+				"RtG"
 			],
 			"reprintedAs": [
 				"Clockwork Stone Defender|MPMM"
@@ -20509,16 +20482,10 @@
 			"name": "Sword Wraith Commander",
 			"source": "MTF",
 			"page": 241,
-			"otherSources": [
-				{
-					"source": "DC"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SDW"
-				}
+			"referenceSources": [
+				"DC",
+				"DIP",
+				"SDW"
 			],
 			"reprintedAs": [
 				"Sword Wraith Commander|MPMM"
@@ -20668,16 +20635,10 @@
 			"name": "Sword Wraith Warrior",
 			"source": "MTF",
 			"page": 241,
-			"otherSources": [
-				{
-					"source": "DC"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SDW"
-				}
+			"referenceSources": [
+				"DC",
+				"DIP",
+				"SDW"
 			],
 			"reprintedAs": [
 				"Sword Wraith Warrior|MPMM"
@@ -21284,10 +21245,8 @@
 			"name": "The Wretched",
 			"source": "MTF",
 			"page": 233,
-			"otherSources": [
-				{
-					"source": "LLK"
-				}
+			"referenceSources": [
+				"LLK"
 			],
 			"reprintedAs": [
 				"Wretched Sorrowsworn|MPMM"
@@ -21655,6 +21614,9 @@
 					"page": 23
 				}
 			],
+			"referenceSources": [
+				"TTP"
+			],
 			"reprintedAs": [
 				"Tortle|MPMM"
 			],
@@ -21778,6 +21740,9 @@
 					"source": "TTP",
 					"page": 23
 				}
+			],
+			"referenceSources": [
+				"TTP"
 			],
 			"reprintedAs": [
 				"Tortle Druid|MPMM"
@@ -21943,6 +21908,15 @@
 					"source": "TftYP",
 					"page": 247
 				}
+			],
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
 			],
 			"reprintedAs": [
 				"Vampiric Mist|MPMM"
@@ -22407,12 +22381,13 @@
 			"page": 203,
 			"otherSources": [
 				{
-					"source": "LR"
-				},
-				{
 					"source": "PotA",
 					"page": 213
 				}
+			],
+			"referenceSources": [
+				"LR",
+				"PotA"
 			],
 			"reprintedAs": [
 				"Water Elemental Myrmidon|MPMM"
@@ -22541,10 +22516,8 @@
 			"name": "White Abishai",
 			"source": "MTF",
 			"page": 163,
-			"otherSources": [
-				{
-					"source": "BGDIA"
-				}
+			"referenceSources": [
+				"BGDIA"
 			],
 			"reprintedAs": [
 				"White Abishai|MPMM"
@@ -23125,10 +23098,11 @@
 				{
 					"source": "OotA",
 					"page": 247
-				},
-				{
-					"source": "BGDIA"
 				}
+			],
+			"referenceSources": [
+				"BGDIA",
+				"OotA"
 			],
 			"reprintedAs": [
 				"Yeenoghu|MPMM"
@@ -23965,6 +23939,9 @@
 					"source": "OotA",
 					"page": 249
 				}
+			],
+			"referenceSources": [
+				"OotA"
 			],
 			"reprintedAs": [
 				"Zuggtmoy|MPMM"

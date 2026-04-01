@@ -21,13 +21,9 @@
 			"name": "Amphisbaena",
 			"source": "GoS",
 			"page": 230,
-			"otherSources": [
-				{
-					"source": "MOT"
-				},
-				{
-					"source": "TftYP-THSoT"
-				}
+			"referenceSources": [
+				"MOT",
+				"TftYP-THSoT"
 			],
 			"size": [
 				"M"
@@ -274,10 +270,8 @@
 			"name": "Bullywug Royal",
 			"source": "GoS",
 			"page": 232,
-			"otherSources": [
-				{
-					"source": "WBtW"
-				}
+			"referenceSources": [
+				"WBtW"
 			],
 			"size": [
 				"M"
@@ -475,10 +469,8 @@
 			"name": "Drowned Ascetic",
 			"source": "GoS",
 			"page": 233,
-			"otherSources": [
-				{
-					"source": "LR"
-				}
+			"referenceSources": [
+				"LR"
 			],
 			"size": [
 				"M"
@@ -593,10 +585,8 @@
 			"name": "Drowned Assassin",
 			"source": "GoS",
 			"page": 234,
-			"otherSources": [
-				{
-					"source": "LR"
-				}
+			"referenceSources": [
+				"LR"
 			],
 			"size": [
 				"M"
@@ -737,10 +727,8 @@
 			"name": "Drowned Blade",
 			"source": "GoS",
 			"page": 235,
-			"otherSources": [
-				{
-					"source": "LR"
-				}
+			"referenceSources": [
+				"LR"
 			],
 			"size": [
 				"M"
@@ -850,10 +838,8 @@
 			"name": "Drowned Master",
 			"source": "GoS",
 			"page": 235,
-			"otherSources": [
-				{
-					"source": "LR"
-				}
+			"referenceSources": [
+				"LR"
 			],
 			"size": [
 				"M"
@@ -2134,13 +2120,9 @@
 			"name": "Lizardfolk Render",
 			"source": "GoS",
 			"page": 241,
-			"otherSources": [
-				{
-					"source": "SLW"
-				},
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR",
+				"SLW"
 			],
 			"size": [
 				"L"
@@ -2370,10 +2352,8 @@
 			"name": "Lizardfolk Subchief",
 			"source": "GoS",
 			"page": 242,
-			"otherSources": [
-				{
-					"source": "SLW"
-				}
+			"referenceSources": [
+				"SLW"
 			],
 			"size": [
 				"M"
@@ -2529,10 +2509,8 @@
 			"name": "Locathah",
 			"source": "GoS",
 			"page": 243,
-			"otherSources": [
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR"
 			],
 			"size": [
 				"M"
@@ -4200,13 +4178,9 @@
 			"name": "Sahuagin Blademaster",
 			"source": "GoS",
 			"page": 249,
-			"otherSources": [
-				{
-					"source": "SDW"
-				},
-				{
-					"source": "LR"
-				}
+			"referenceSources": [
+				"LR",
+				"SDW"
 			],
 			"size": [
 				"M"
@@ -4579,10 +4553,8 @@
 			"name": "Sahuagin Deep Diver",
 			"source": "GoS",
 			"page": 250,
-			"otherSources": [
-				{
-					"source": "LR"
-				}
+			"referenceSources": [
+				"LR"
 			],
 			"size": [
 				"M"
@@ -4734,10 +4706,8 @@
 			"name": "Sahuagin Hatchling Swarm",
 			"source": "GoS",
 			"page": 250,
-			"otherSources": [
-				{
-					"source": "LR"
-				}
+			"referenceSources": [
+				"LR"
 			],
 			"size": [
 				"L"
@@ -4841,10 +4811,8 @@
 			"name": "Sahuagin High Priestess",
 			"source": "GoS",
 			"page": 251,
-			"otherSources": [
-				{
-					"source": "SDW"
-				}
+			"referenceSources": [
+				"SDW"
 			],
 			"size": [
 				"M"
@@ -5548,10 +5516,8 @@
 			"name": "Skeletal Juggernaut",
 			"source": "GoS",
 			"page": 253,
-			"otherSources": [
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR"
 			],
 			"size": [
 				"L"
@@ -5656,13 +5622,9 @@
 			"name": "Skeletal Swarm",
 			"source": "GoS",
 			"page": 254,
-			"otherSources": [
-				{
-					"source": "DC"
-				},
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"DC",
+				"IMR"
 			],
 			"size": [
 				"L"

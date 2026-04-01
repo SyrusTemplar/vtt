@@ -1,4 +1,25 @@
 {
+	"baseitem": [
+		{
+			"name": "Alchemist's Supplies",
+			"source": "XPHB",
+			"activities": [
+				{
+					"type": "check",
+					"activation": {
+						"type": "action"
+					},
+					"check": {
+						"ability": "int",
+						"dc": {
+							"formula": "15"
+						}
+					}
+				}
+			],
+			"migrationVersion": 3
+		}
+	],
 	"item": [
 		{
 			"name": "+1 Rhythm-Maker's Drum",
@@ -301,25 +322,6 @@
 					"foundryId": "alchemistsFire",
 					"name": "Burning.",
 					"description": "Rules reference: &Reference[burning]."
-				}
-			],
-			"migrationVersion": 3
-		},
-		{
-			"name": "Alchemist's Supplies",
-			"source": "XPHB",
-			"activities": [
-				{
-					"type": "check",
-					"activation": {
-						"type": "action"
-					},
-					"check": {
-						"ability": "int",
-						"dc": {
-							"formula": "15"
-						}
-					}
 				}
 			],
 			"migrationVersion": 3

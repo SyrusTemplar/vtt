@@ -9317,7 +9317,7 @@
 								"An adventurer might also receive a Blessing in advance of a perilous quest. For example, a Paladin could receive one before setting out on a quest to slay a terrifying lich that is responsible for a magical plague sweeping the land.",
 								"A character should receive a Blessing only if it is useful to that character, and some Blessings come with expectations on the part of the benefactor. A god might give a Blessing for a particular purpose, such as recovering a holy person's remains or toppling a tyrannical empire, and could revoke the Blessing if a character fails to pursue that purpose or acts counter to it.",
 								"A character retains the benefit of a Blessing forever or until it is taken away by the being who granted it.",
-								"There is no limit on the number of Blessings a character can receive, but it should be rare for a character to have more than one at a time. Moreover, a character can't benefit from multiple instances of a Blessing at the same time. For example, a character can't benefit from two instances of the {@reward Blessing of Health} at once.",
+								"There is no limit on the number of Blessings a character can receive, but it should be rare for a character to have more than one at a time. Moreover, a character can't benefit from multiple instances of a Blessing at the same time. For example, a character can't benefit from two instances of the {@reward Blessing of Health|XDMG} at once.",
 								"You can easily create more Blessings by mimicking the properties of a Wondrous Item.",
 								{
 									"type": "list",
@@ -19467,6 +19467,9 @@
 											"title": "Player Version",
 											"width": 8192,
 											"height": 5755,
+											"mapParent": {
+												"id": "1fd"
+											},
 											"id": "1fe",
 											"grid": {
 												"type": "hexColsEven",
@@ -19476,6 +19479,49 @@
 												"distance": 30,
 												"units": "miles"
 											}
+										}
+									]
+								},
+								{
+									"type": "gallery",
+									"images": [
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/XDMG/078-map-5.03-flanaess-grid.webp"
+											},
+											"imageType": "map",
+											"title": "Flanaess (Hex Grid)",
+											"credit": "Mike Schley",
+											"data": {
+												"foundryImporterMap": {
+													"isIgnore": true
+												}
+											},
+											"id": "194",
+											"width": 3040,
+											"height": 2136
+										},
+										{
+											"type": "image",
+											"href": {
+												"type": "internal",
+												"path": "book/XDMG/079-map-5.03-flanaess-player-grid.webp"
+											},
+											"imageType": "map",
+											"title": "Player Version",
+											"data": {
+												"foundryImporterMap": {
+													"isIgnore": true
+												}
+											},
+											"id": "195",
+											"mapParent": {
+												"id": "194"
+											},
+											"width": 3040,
+											"height": 2136
 										}
 									]
 								},
@@ -20640,7 +20686,7 @@
 									"id": "370",
 									"entries": [
 										"The Outer Planes are realms of thought and morality more than merely physical reality, and they can affect visitors on a deeply personal level as well as a physical one.",
-										"At your discretion, a creature that spends a long time on an Outer Plane that is not its home plan can begin to take on aspects of that plane's ethos. Visitors to the Upper Planes might feel strange urges to perform deeds of kindness or compassion, while visitors to the Lower Planes might find themselves drawn to acts of cruelty or betrayal. Those who spend time on Mechanus and other lawful planes might feel their ties of loyalty to each other growing stronger, while those who visit Limbo and other chaotic planes might become temporarily more independent or self-absorbed. These tendencies are best handled as DM suggestions and then roleplayed by the players, but you might award {@variantrule Heroic Inspiration|XPHB} to characters who bring these characteristics to life in their characters.",
+										"At your discretion, a creature that spends a long time on an Outer Plane that is not its home plane can begin to take on aspects of that plane's ethos. Visitors to the Upper Planes might feel strange urges to perform deeds of kindness or compassion, while visitors to the Lower Planes might find themselves drawn to acts of cruelty or betrayal. Those who spend time on Mechanus and other lawful planes might feel their ties of loyalty to each other growing stronger, while those who visit Limbo and other chaotic planes might become temporarily more independent or self-absorbed. These tendencies are best handled as DM suggestions and then roleplayed by the players, but you might award {@variantrule Heroic Inspiration|XPHB} to characters who bring these characteristics to life in their characters.",
 										{
 											"type": "entries",
 											"name": "Planar Dissonance",

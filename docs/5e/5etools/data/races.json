@@ -1,7 +1,8 @@
 {
 	"_meta": {
 		"internalCopies": [
-			"race"
+			"race",
+			"subrace"
 		]
 	},
 	"race": [
@@ -5279,7 +5280,7 @@
 								"type": "entries",
 								"name": "Reach to the Blaze",
 								"entries": [
-									"You know the {@spell produce flame} cantrip. Starting at 3rd level, you can cast the {@spell burning hands} spell with this trait. Starting at 5th level, you can also cast the {@spell flame blade} spell with this trait, without a material component. Once you cast {@spell burning hands} or {@spell flame blade} with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast either of those spells using any spell slots you have of the appropriate level.",
+									"You know the {@spell produce flame|XPHB} cantrip. Starting at 3rd level, you can cast the {@spell burning hands|XPHB} spell with this trait. Starting at 5th level, you can also cast the {@spell flame blade|XPHB} spell with this trait, without a material component. Once you cast {@spell burning hands|XPHB} or {@spell flame blade|XPHB} with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast either of those spells using any spell slots you have of the appropriate level.",
 									"Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
 								]
 							}
@@ -5297,14 +5298,14 @@
 						"3": {
 							"daily": {
 								"1": [
-									"burning hands"
+									"burning hands|xphb"
 								]
 							}
 						},
 						"5": {
 							"daily": {
 								"1": [
-									"flame blade"
+									"flame blade|xphb"
 								]
 							}
 						}
@@ -5318,12 +5319,13 @@
 					},
 					"known": {
 						"1": [
-							"produce flame#c"
+							"produce flame|xphb#c"
 						]
 					}
 				}
 			],
-			"hasFluff": true
+			"hasFluff": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Genasi",
@@ -6698,6 +6700,7 @@
 			"name": "Goliath",
 			"source": "XPHB",
 			"page": 192,
+			"srd52": true,
 			"basicRules2024": true,
 			"edition": "one",
 			"creatureTypes": [
@@ -7151,7 +7154,8 @@
 						"You can speak, read, and write Grung."
 					]
 				}
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Hadozee",
@@ -7490,6 +7494,7 @@
 			"name": "Halfling",
 			"source": "XPHB",
 			"page": 193,
+			"srd52": true,
 			"basicRules2024": true,
 			"edition": "one",
 			"creatureTypes": [
@@ -8163,100 +8168,6 @@
 					"entries": [
 						"You gain an {@filter Origin feat|feats|category=o} of your choice."
 					]
-				}
-			],
-			"hasFluff": true,
-			"hasFluffImages": true
-		},
-		{
-			"name": "Human (Amonkhet)",
-			"source": "PSA",
-			"page": 14,
-			"size": [
-				"M"
-			],
-			"speed": 30,
-			"ability": [
-				{
-					"choose": {
-						"from": [
-							"str",
-							"dex",
-							"con",
-							"int",
-							"wis",
-							"cha"
-						],
-						"count": 2
-					}
-				}
-			],
-			"age": {
-				"mature": 20,
-				"max": 100
-			},
-			"feats": [
-				{
-					"any": 1
-				}
-			],
-			"skillProficiencies": [
-				{
-					"any": 1
-				}
-			],
-			"languageProficiencies": [
-				{
-					"common": true,
-					"anyStandard": 1
-				}
-			],
-			"soundClip": {
-				"type": "internal",
-				"path": "races/human.mp3"
-			},
-			"entries": [
-				{
-					"name": "Age",
-					"type": "entries",
-					"entries": [
-						"Humans reach adulthood in their late teens. Most human initiates have completed the trials and found a glorious or inglorious death before they turn 30. Viziers can enjoy longer service to their gods, in theory living up to a century."
-					]
-				},
-				{
-					"name": "Alignment",
-					"type": "entries",
-					"entries": [
-						"Humans tend toward no particular alignment. The best and the worst are found among them."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Size",
-					"entries": [
-						"Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium"
-					]
-				},
-				{
-					"name": "Skills",
-					"entries": [
-						"You gain proficiency in one skill of your choice."
-					],
-					"type": "entries"
-				},
-				{
-					"name": "Feat",
-					"entries": [
-						"You gain one {@5etools feat|feats.html} of your choice."
-					],
-					"type": "entries"
-				},
-				{
-					"name": "Languages",
-					"entries": [
-						"You can speak, read, and write Common and one extra language of your choice."
-					],
-					"type": "entries"
 				}
 			],
 			"hasFluff": true,
@@ -10102,7 +10013,12 @@
 			"darkvision": 120,
 			"skillProficiencies": [
 				{
-					"performance": true
+					"choose": {
+						"from": [
+							"deception",
+							"performance"
+						]
+					}
 				}
 			],
 			"sizeEntry": {
@@ -10131,14 +10047,14 @@
 					"type": "entries",
 					"name": "Delightful Imitator",
 					"entries": [
-						"You have proficiency in the {@skill Performance|XPHB} skill."
+						"You have proficiency in the {@skill Deception|XPHB} or {@skill Performance|XPHB} skill."
 					]
 				},
 				{
 					"type": "entries",
 					"name": "Unpredictable Movement",
 					"entries": [
-						"When you roll {@variantrule Initiative|XPHB} and don't have {@variantrule Disadvantage|XPHB} on that roll, you can take the {@action Dash|XPHB} action as a {@variantrule Reaction|XPHB}."
+						"When you roll {@variantrule Initiative|XPHB}, you can immediately move up to half your {@variantrule Speed|XPHB}, provided you don't have {@variantrule Disadvantage|XPHB} on the {@variantrule Initiative|XPHB} roll."
 					]
 				}
 			],
@@ -11219,6 +11135,7 @@
 			"name": "Orc",
 			"source": "XPHB",
 			"page": 195,
+			"srd52": true,
 			"basicRules2024": true,
 			"edition": "one",
 			"creatureTypes": [
@@ -13110,6 +13027,7 @@
 			},
 			"additionalSpells": [
 				{
+					"name": "Abyssal",
 					"ability": {
 						"choose": [
 							"int",
@@ -13119,8 +13037,89 @@
 					},
 					"known": {
 						"1": [
-							"thaumaturgy|xphb#c"
+							"thaumaturgy|xphb#c",
+							"poison spray|xphb#c"
 						]
+					},
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"ray of sickness|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"hold person|xphb"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Chthonic",
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"1": [
+							"thaumaturgy|xphb#c",
+							"chill touch|xphb#c"
+						]
+					},
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"false life|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"ray of enfeeblement|xphb"
+								]
+							}
+						}
+					}
+				},
+				{
+					"name": "Infernal",
+					"ability": {
+						"choose": [
+							"int",
+							"wis",
+							"cha"
+						]
+					},
+					"known": {
+						"1": [
+							"thaumaturgy|xphb#c",
+							"fire bolt|xphb#c"
+						]
+					},
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"hellish rebuke|xphb"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"darkness|xphb"
+								]
+							}
+						}
 					}
 				}
 			],
@@ -14779,6 +14778,55 @@
 		}
 	],
 	"subrace": [
+		{
+			"name": "Amonkhet",
+			"source": "PSA",
+			"page": 14,
+			"_copy": {
+				"name": "Variant",
+				"source": "PHB",
+				"raceName": "Human",
+				"raceSource": "PHB",
+				"_mod": {
+					"entries": [
+						{
+							"mode": "appendArr",
+							"items": [
+								{
+									"name": "Age",
+									"type": "entries",
+									"entries": [
+										"Humans reach adulthood in their late teens. Most human initiates have completed the trials and found a glorious or inglorious death before they turn 30. Viziers can enjoy longer service to their gods, in theory living up to a century."
+									],
+									"data": {
+										"overwrite": "Age"
+									}
+								},
+								{
+									"name": "Languages",
+									"entries": [
+										"You can speak, read, and write Common and one extra language of your choice."
+									],
+									"type": "entries",
+									"data": {
+										"overwrite": "Languages"
+									}
+								},
+								{
+									"name": "Alignment",
+									"type": "entries",
+									"entries": [
+										"Humans tend toward no particular alignment. The best and the worst are found among them."
+									]
+								}
+							]
+						}
+					]
+				}
+			},
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
 		{
 			"name": "Fallen",
 			"source": "VGM",

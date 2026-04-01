@@ -1069,7 +1069,7 @@
 			"page": 227,
 			"entries": [
 				"Pain grips the creature's mind, and its eyes turn milky white. The creature has disadvantage on Wisdom checks and Wisdom saving throws and is {@condition blinded}.",
-				"{@note This disease can be inflicted with the {@spell contagion} spell.}"
+				"{@note This disease can be inflicted with the {@spell contagion|PHB} spell.}"
 			]
 		},
 		{
@@ -1157,7 +1157,7 @@
 			"page": 227,
 			"entries": [
 				"A raging fever sweeps through the creature's body. The creature has disadvantage on Strength checks, Strength saving throws, and attack rolls that use Strength.",
-				"{@note This disease can be inflicted with the {@spell contagion} spell.}"
+				"{@note This disease can be inflicted with the {@spell contagion|PHB} spell.}"
 			]
 		},
 		{
@@ -1166,7 +1166,7 @@
 			"page": 227,
 			"entries": [
 				"The creature's flesh decays. The creature has disadvantage on Charisma checks and vulnerability to all damage.",
-				"{@note This disease can be inflicted with the {@spell contagion} spell.}"
+				"{@note This disease can be inflicted with the {@spell contagion|PHB} spell.}"
 			]
 		},
 		{
@@ -1248,7 +1248,7 @@
 			"page": 227,
 			"entries": [
 				"The creature's mind becomes feverish. The creature has disadvantage on Intelligence checks and Intelligence saving throws, and the creature behaves as if under the effects of the {@spell confusion} spell during combat.",
-				"{@note This disease can be inflicted with the {@spell contagion} spell.}"
+				"{@note This disease can be inflicted with the {@spell contagion|PHB} spell.}"
 			]
 		},
 		{
@@ -1316,7 +1316,7 @@
 			"page": 227,
 			"entries": [
 				"The creature is overcome with shaking. The creature has disadvantage on Dexterity checks, Dexterity saving throws, and attack rolls that use Dexterity.",
-				"{@note This disease can be inflicted with the {@spell contagion} spell.}"
+				"{@note This disease can be inflicted with the {@spell contagion|PHB} spell.}"
 			]
 		},
 		{
@@ -1408,16 +1408,21 @@
 				},
 				{
 					"type": "entries",
-					"name": "Fighting the Contagion",
 					"entries": [
-						"Daily at dawn, an infected creature makes a {@dc 11} Constitution saving throw. On a failed save, the creature gains 1 {@condition Exhaustion|XPHB} level as its fatigue worsens. On a successful save, the creature's {@condition Exhaustion|XPHB} level decreases by 1. If the creature's {@condition Exhaustion|XPHB} level is reduced to 0, the contagion ends on the creature."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Spreading the Contagion",
-					"entries": [
-						"Any Humanoid that makes skin contact with a creature infected with Shaking Plague must succeed on a {@dc 11} Constitution saving throw or also become infected with the contagion. On a successful save, the Humanoid can't catch the contagion from that particular infected creature for the next 24 hours."
+						{
+							"type": "entries",
+							"name": "Fighting the Contagion",
+							"entries": [
+								"Daily at dawn, an infected creature makes a {@dc 11} Constitution saving throw. On a failed save, the creature gains 1 {@condition Exhaustion|XPHB} level as its fatigue worsens. On a successful save, the creature's {@condition Exhaustion|XPHB} level decreases by 1. If the creature's {@condition Exhaustion|XPHB} level is reduced to 0, the contagion ends on the creature."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Spreading the Contagion",
+							"entries": [
+								"Any Humanoid that makes skin contact with a creature infected with Shaking Plague must succeed on a {@dc 11} Constitution saving throw or also become infected with the contagion. On a successful save, the Humanoid can't catch the contagion from that particular infected creature for the next 24 hours."
+							]
+						}
 					]
 				}
 			]
@@ -1482,7 +1487,7 @@
 			"page": 227,
 			"entries": [
 				"The creature begins to bleed uncontrollably. The creature has disadvantage on Constitution checks and Constitution saving throws. In addition, whenever the creature takes damage, it is {@condition stunned} until the end of its next turn.",
-				"{@note This disease can be inflicted with the {@spell contagion} spell.}"
+				"{@note This disease can be inflicted with the {@spell contagion|PHB} spell.}"
 			]
 		},
 		{
@@ -1582,10 +1587,15 @@
 				},
 				{
 					"type": "entries",
-					"name": "Fighting the Contagion",
 					"entries": [
-						"Daily at dawn, an afflicted creature makes a {@dc 10} Constitution saving throw. On a failed save, the creature gains 1 {@condition Exhaustion|XPHB} level as more iron coats its skin. On a successful save, the creature's {@condition Exhaustion|XPHB} level decreases by 1. If the creature's {@condition Exhaustion|XPHB} level is reduced to 0, the contagion ends on the creature.",
-						"Removing the curse immediately ends the contagion for a creature."
+						{
+							"type": "entries",
+							"name": "Fighting the Contagion",
+							"entries": [
+								"Daily at dawn, an afflicted creature makes a {@dc 10} Constitution saving throw. On a failed save, the creature gains 1 {@condition Exhaustion|XPHB} level as more iron coats its skin. On a successful save, the creature's {@condition Exhaustion|XPHB} level decreases by 1. If the creature's {@condition Exhaustion|XPHB} level is reduced to 0, the contagion ends on the creature.",
+								"Removing the curse immediately ends the contagion for a creature."
+							]
+						}
 					]
 				}
 			]

@@ -106,11 +106,11 @@ class _PanelContentManager {
 	async pDoPopulate ({state = {}, title = null} = {}) {
 		const panelApp = this._getPanelApp({state});
 
-		this._panel.set$ContentTab({
+		this._panel.setEleContentTab({
 			panelType: this.constructor._PANEL_TYPE,
 			contentMeta: state,
 			panelApp,
-			$content: $(`<div class="panel-content-wrapper-inner"></div>`).append(panelApp.$getPanelElement()),
+			eleContent: ee`<div class="panel-content-wrapper-inner"></div>`.appends(panelApp.getPanelElement()),
 			title: title || this.constructor._TITLE,
 			tabCanRename: true,
 		});

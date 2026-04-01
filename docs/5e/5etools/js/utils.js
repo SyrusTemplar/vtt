@@ -2,7 +2,7 @@
 
 // in deployment, `IS_DEPLOYED = "<version number>";` should be set below.
 globalThis.IS_DEPLOYED = undefined;
-globalThis.VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"2.24.1"/* 5ETOOLS_VERSION__CLOSE */;
+globalThis.VERSION_NUMBER = /* 5ETOOLS_VERSION__OPEN */"2.25.4"/* 5ETOOLS_VERSION__CLOSE */;
 globalThis.DEPLOYED_IMG_ROOT = undefined;
 // for the roll20 script to set
 globalThis.IS_VTT = false;
@@ -442,15 +442,55 @@ globalThis.NumberUtil = class {
 	}
 };
 
-globalThis.CleanUtil = {
-	getCleanJson (data, {isMinify = false, isFast = true} = {}) {
+globalThis.CleanUtil = class {
+	static SHARED_REPLACEMENTS = {
+		"’": "'",
+		"‘": "'",
+		"": "'",
+		"\u02BC": "'",
+		"…": "...",
+		"\u200B": "", // zero-width space
+		"\u2002": " ", // em space
+		"ﬀ": "ff",
+		"ﬃ": "ffi",
+		"ﬄ": "ffl",
+		"ﬁ": "fi",
+		"ﬂ": "fl",
+		"Ĳ": "IJ",
+		"ĳ": "ij",
+		"Ǉ": "LJ",
+		"ǈ": "Lj",
+		"ǉ": "lj",
+		"Ǌ": "NJ",
+		"ǋ": "Nj",
+		"ǌ": "nj",
+		"ﬅ": "ft",
+		"“": `"`,
+		"”": `"`,
+		"\u201a": ",",
+	};
+	static STR_REPLACEMENTS = {
+		"—": "\\u2014",
+		"–": "\\u2013",
+		"‑": "\\u2011",
+		"−": "\\u2212",
+		" ": "\\u00A0",
+		" ": "\\u2007",
+	};
+	static SHARED_REPLACEMENTS_REGEX = new RegExp(Object.keys(this.SHARED_REPLACEMENTS).join("|"), "g");
+	static STR_REPLACEMENTS_REGEX = new RegExp(Object.keys(this.STR_REPLACEMENTS).join("|"), "g");
+	static _SOFT_HYPHEN_REMOVE_REGEX = /\u00AD *\r?\n?\r?/g;
+	static _ELLIPSIS_COLLAPSE_REGEX = /\s*(\.\s*\.\s*\.)/g;
+	static _DASH_COLLAPSE_REGEX = /[ ]*([\u2014\u2013])[ ]*/g;
+
+	static getCleanJson (data, {isMinify = false, isFast = true} = {}) {
 		data = MiscUtil.copy(data);
 		data = MiscUtil.getWalker().walk(data, {string: (str) => CleanUtil.getCleanString(str, {isFast})});
 		let str = isMinify ? JSON.stringify(data) : `${JSON.stringify(data, null, "\t")}\n`;
 		return str.replace(CleanUtil.STR_REPLACEMENTS_REGEX, (match) => CleanUtil.STR_REPLACEMENTS[match]);
-	},
+	}
 
-	getCleanString (str, {isFast = true} = {}) {
+	static getCleanString (str, {isFast = true} = {}) {
 		str = str
 			.replace(CleanUtil.SHARED_REPLACEMENTS_REGEX, (match) => CleanUtil.SHARED_REPLACEMENTS[match])
 			.replace(CleanUtil._SOFT_HYPHEN_REMOVE_REGEX, "")
@@ -461,9 +501,9 @@ globalThis.CleanUtil = {
 		const ptrStack = {_: ""};
 		CleanUtil._getCleanString_walkerStringHandler(ptrStack, 0, str);
 		return ptrStack._;
-	},
+	}
 
-	_getCleanString_walkerStringHandler (ptrStack, tagCount, str) {
+	static _getCleanString_walkerStringHandler (ptrStack, tagCount, str) {
 		const tagSplit = Renderer.splitByTags(str);
 		const len = tagSplit.length;
 		for (let i = 0; i < len; ++i) {
@@ -486,47 +526,8 @@ globalThis.CleanUtil = {
 				}
 			}
 		}
-	},
+	}
 };
-CleanUtil.SHARED_REPLACEMENTS = {
-	"’": "'",
-	"‘": "'",
-	"": "'",
-	"\u02BC": "'",
-	"…": "...",
-	"\u200B": "", // zero-width space
-	"\u2002": " ", // em space
-	"ﬀ": "ff",
-	"ﬃ": "ffi",
-	"ﬄ": "ffl",
-	"ﬁ": "fi",
-	"ﬂ": "fl",
-	"Ĳ": "IJ",
-	"ĳ": "ij",
-	"Ǉ": "LJ",
-	"ǈ": "Lj",
-	"ǉ": "lj",
-	"Ǌ": "NJ",
-	"ǋ": "Nj",
-	"ǌ": "nj",
-	"ﬅ": "ft",
-	"“": `"`,
-	"”": `"`,
-	"\u201a": ",",
-};
-CleanUtil.STR_REPLACEMENTS = {
-	"—": "\\u2014",
-	"–": "\\u2013",
-	"‑": "\\u2011",
-	"−": "\\u2212",
-	" ": "\\u00A0",
-	" ": "\\u2007",
-};
-CleanUtil.SHARED_REPLACEMENTS_REGEX = new RegExp(Object.keys(CleanUtil.SHARED_REPLACEMENTS).join("|"), "g");
-CleanUtil.STR_REPLACEMENTS_REGEX = new RegExp(Object.keys(CleanUtil.STR_REPLACEMENTS).join("|"), "g");
-CleanUtil._SOFT_HYPHEN_REMOVE_REGEX = /\u00AD *\r?\n?\r?/g;
-CleanUtil._ELLIPSIS_COLLAPSE_REGEX = /\s*(\.\s*\.\s*\.)/g;
-CleanUtil._DASH_COLLAPSE_REGEX = /[ ]*([\u2014\u2013])[ ]*/g;
 
 // SOURCES =============================================================================================================
 globalThis.SourceUtil = class {
@@ -607,7 +608,6 @@ globalThis.SourceUtil = class {
 	static isNonstandardSourceWotc (source) {
 		return SourceUtil.isPrereleaseSource(source)
 			|| source.startsWith(Parser.SRC_PS_PREFIX)
-			|| source.startsWith(Parser.SRC_AL_PREFIX)
 			|| source.startsWith(Parser.SRC_MCVX_PREFIX)
 			|| Parser.SOURCES_NON_STANDARD_WOTC.has(source);
 	}
@@ -841,6 +841,10 @@ Math.seed = Math.seed || function (s) {
 
 class TemplateUtil {
 	static initJquery () {
+		// eslint-disable-next-line vet-jquery/jquery
+		if (!globalThis.jQuery) return;
+
+		/* eslint-disable vet-jquery/jquery */
 		/**
 		 * Template strings which can contain jQuery objects.
 		 * Usage: $$`<div>Press this button: ${$btn}</div>`
@@ -873,6 +877,7 @@ class TemplateUtil {
 			if (ele?.nodeType === Node.DOCUMENT_FRAGMENT_NODE) return $([...ele.children]);
 			return $(ele);
 		};
+		/* eslint-enable vet-jquery/jquery */
 	}
 
 	/* -------------------------------------------- */
@@ -880,16 +885,16 @@ class TemplateUtil {
 	static initVanilla () {
 		/**
 		 * Template strings which can contain DOM elements.
-		 * Usage: ee`<div>Press this button: ${ve-btn}</div>`
-		 * or:    ee(ele)`<div>Press this button: ${ve-btn}</div>`
+		 * Usage: ee`<div>Press this button: ${btn}</div>`
+		 * or:    ee(ele)`<div>Press this button: ${btn}</div>`
 		 * @return {HTMLElementExtended}
 		 */
 		globalThis.ee = (parts, ...args) => {
 			// eslint-disable-next-line vet-jquery/jquery
-			if (parts instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+			if (globalThis.jQuery && parts instanceof globalThis.jQuery) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 			// eslint-disable-next-line vet-jquery/jquery
-			if (args?.some(arg => arg instanceof $)) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+			if (globalThis.jQuery && args?.some(arg => arg instanceof globalThis.jQuery)) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 			if (parts instanceof Node) {
 				return (...passed) => {
@@ -927,7 +932,7 @@ class TemplateUtil {
 
 			if (!eleTmp.children.length) throw new Error(`Failed to create HTML element(s) from "${raw}"!`);
 
-			Array.from(eleTmp.querySelectorAll(`[data-r="true"]`))
+			Array.from(eleTmp.querySelectorAll(".ve-ee-r"))
 				.forEach((node, i) => node.replaceWith(eles[i]));
 
 			const childNodes = Array.from(eleTmp.childNodes);
@@ -947,7 +952,8 @@ class TemplateUtil {
 	static _ee_handleArg (eles, arg) {
 		if (arg instanceof Node) {
 			eles.push(arg);
-			return `<${arg.tagName} data-r="true"></${arg.tagName}>`;
+			// Use a class for performance
+			return `<${arg.tagName} class="ve-ee-r"></${arg.tagName}>`;
 		}
 
 		return arg;
@@ -965,6 +971,10 @@ globalThis.JqueryUtil = class {
 		TemplateUtil.initVanilla();
 		TemplateUtil.initJquery();
 
+		// eslint-disable-next-line vet-jquery/jquery
+		if (!globalThis.jQuery) return;
+
+		// eslint-disable-next-line vet-jquery/jquery
 		$.fn.extend({
 			// avoid setting input type to "search" as it visually offsets the contents of the input
 			disableSpellcheck: function () { return this.attr("autocomplete", "new-password").attr("autocapitalize", "off").attr("spellcheck", "false"); },
@@ -996,15 +1006,26 @@ globalThis.JqueryUtil = class {
 		});
 	}
 
-	static showCopiedEffect ($_ele, {text = "Copied!", isBubble = false} = {}) {
-		const ele = $_ele instanceof $ ? $_ele[0] : $_ele;
+	static _COPY_BUBBLE_CLASS_NAMES = [
+		"ve-clp__disp-copied--bubble-variant-1",
+		"ve-clp__disp-copied--bubble-variant-2",
+		"ve-clp__disp-copied--bubble-variant-3",
+		"ve-clp__disp-copied--bubble-variant-4",
+		"ve-clp__disp-copied--bubble-variant-5",
+	];
+
+	static showCopiedEffect (ele, {text = "Copied!", isBubble = false} = {}) {
+		// eslint-disable-next-line vet-jquery/jquery
+		ele = (globalThis.jQuery && ele instanceof globalThis.jQuery)
+			? e_({ele: ele[0]})
+			: ele;
 
 		const {top, left, width} = ele.getBoundingClientRect();
 
 		const seed = Math.random();
 		const duration = isBubble ? 250 + seed * 200 : 250;
 
-		const dispCopied = ee`<div class="clp__disp-copied ve-flex-vh-center"></div>`;
+		const dispCopied = ee`<div class="ve-clp__disp-copied ve-flex-vh-center"></div>`;
 		dispCopied
 			.html(text)
 			.css({
@@ -1015,10 +1036,10 @@ globalThis.JqueryUtil = class {
 			.appendTo(document.body);
 		if (isBubble) {
 			dispCopied
-				.addClass(`clp__disp-copied--bubble`)
-				.addClass(`clp__disp-copied--bubble-variant-${RollerUtil.randomise(5)}`);
+				.addClass(`ve-clp__disp-copied--bubble`)
+				.addClass(RollerUtil.rollOnArray(this._COPY_BUBBLE_CLASS_NAMES));
 		} else {
-			dispCopied.addClass(`clp__disp-copied--basic`);
+			dispCopied.addClass(`ve-clp__disp-copied--basic`);
 		}
 
 		setTimeout(() => dispCopied.remove(), duration);
@@ -1040,7 +1061,7 @@ globalThis.JqueryUtil = class {
 		if (JqueryUtil._WRP_TOAST == null) {
 			JqueryUtil._WRP_TOAST = e_({
 				tag: "div",
-				clazz: "toast__container no-events w-100 ve-overflow-y-hidden ve-flex-col",
+				clazz: "toast__container ve-no-events ve-w-100 ve-overflow-y-hidden ve-flex-col",
 			});
 			document.body.appendChild(JqueryUtil._WRP_TOAST);
 		}
@@ -1058,13 +1079,16 @@ globalThis.JqueryUtil = class {
 
 		const eleToast = e_({
 			tag: "div",
-			clazz: `toast toast--type-${options.type} events-initial relative my-2 mx-auto`,
+			clazz: `toast toast--type-${options.type} ve-events-initial ve-relative ve-my-2 ve-mx-auto`,
 			children: [
 				e_({
 					tag: "div",
 					clazz: "toast__wrp-content",
 					children: [
-						options.content instanceof $ ? options.content[0] : options.content,
+						// eslint-disable-next-line vet-jquery/jquery
+						(globalThis.jQuery && options.content instanceof globalThis.jQuery)
+							? options.content[0]
+							: options.content,
 					],
 				}),
 				e_({
@@ -1196,6 +1220,7 @@ class ElementUtil {
 	 * @property {function(object): HTMLElementExtended} css
 	 *
 	 * @property {function(string, function, object=): HTMLElementExtended} onn
+	 * @property {function(string, function=, object=): HTMLElementExtended} off
 	 * @property {function(function): HTMLElementExtended} onClick
 	 * @property {function(function): HTMLElementExtended} onContextmenu
 	 * @property {function(function): HTMLElementExtended} onChange
@@ -1206,8 +1231,8 @@ class ElementUtil {
 	 *
 	 * @property {function(string=): HTMLElementExtended} first
 	 * @property {function(string): HTMLElementExtended} closeste
-	 * @property {function(string): Array<HTMLElementExtended>} childrene
-	 * @property {function(string): Array<HTMLElementExtended>} siblings
+	 * @property {function(string=): Array<HTMLElementExtended>} childrene
+	 * @property {function(string=): Array<HTMLElementExtended>} siblings
 	 * @property {function(): HTMLElementExtended} parente
 	 *
 	 * @property {function(): number} outerWidthe
@@ -1378,7 +1403,13 @@ class ElementUtil {
 		},
 	) {
 		if (ele) return {ele, isSetId: true};
-		if (outer) return {ele: (new DOMParser()).parseFromString(outer, "text/html").body.childNodes[0], isSetId: true};
+		if (outer) {
+			const eleTmpTemplate = document.createElement("template");
+			eleTmpTemplate.innerHTML = outer.trim();
+			const {content: eleTmp} = eleTmpTemplate;
+			if (eleTmp.childNodes.length !== 1) throw new Error(`Failed to create exactly one DOM element from HTML "${outer}"!`);
+			return {ele: eleTmp.childNodes[0], isSetId: true};
+		}
 		if (tag) return {ele: document.createElement(tag), isSetId: true};
 		if (id) {
 			const eleId = document.getElementById(id);
@@ -1442,7 +1473,7 @@ class ElementUtil {
 		if (typeof child === "string") child = ee`${child}`;
 
 		// eslint-disable-next-line vet-jquery/jquery
-		if (child instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+		if (globalThis.jQuery && child instanceof globalThis.jQuery) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 		this.appendChild(child);
 		return this;
@@ -1453,7 +1484,7 @@ class ElementUtil {
 		if (typeof child === "string") child = ee`${child}`;
 
 		// eslint-disable-next-line vet-jquery/jquery
-		if (child instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+		if (globalThis.jQuery && child instanceof globalThis.jQuery) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 		this.prepend(child);
 		return this;
@@ -1462,7 +1493,7 @@ class ElementUtil {
 	/** @this {HTMLElementExtended} */
 	static _appendTo (parent) {
 		// eslint-disable-next-line vet-jquery/jquery
-		if (parent instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+		if (globalThis.jQuery && parent instanceof globalThis.jQuery) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 		parent.appendChild(this);
 		return this;
@@ -1471,7 +1502,7 @@ class ElementUtil {
 	/** @this {HTMLElementExtended} */
 	static _prependTo (parent) {
 		// eslint-disable-next-line vet-jquery/jquery
-		if (parent instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+		if (globalThis.jQuery && parent instanceof globalThis.jQuery) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 		parent.prepend(this);
 		return this;
@@ -1480,7 +1511,7 @@ class ElementUtil {
 	/** @this {HTMLElementExtended} */
 	static _aftere (other) {
 		// eslint-disable-next-line vet-jquery/jquery
-		if (other instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+		if (globalThis.jQuery && other instanceof globalThis.jQuery) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 		if (typeof other === "string") other = ee`${other}`;
 		this.after(other);
@@ -1490,7 +1521,7 @@ class ElementUtil {
 	/** @this {HTMLElementExtended} */
 	static _insertAfter (parent) {
 		// eslint-disable-next-line vet-jquery/jquery
-		if (parent instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+		if (globalThis.jQuery && parent instanceof globalThis.jQuery) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 		parent.after(this);
 		return this;
@@ -1499,7 +1530,7 @@ class ElementUtil {
 	/** @this {HTMLElementExtended} */
 	static _beforee (other) {
 		// eslint-disable-next-line vet-jquery/jquery
-		if (other instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+		if (globalThis.jQuery && other instanceof globalThis.jQuery) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 		if (typeof other === "string") other = ee`${other}`;
 		this.before(other);
@@ -1509,7 +1540,7 @@ class ElementUtil {
 	/** @this {HTMLElementExtended} */
 	static _insertBeforee (parent) {
 		// eslint-disable-next-line vet-jquery/jquery
-		if (parent instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+		if (globalThis.jQuery && parent instanceof globalThis.jQuery) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 		parent.before(this);
 		return this;
@@ -1647,6 +1678,10 @@ class ElementUtil {
 
 	/** @this {HTMLElementExtended} */
 	static _onX (evtName, fn, opts) {
+		// TODO(jquery) migrate
+		if (evtName.includes(" ")) throw new Error(`Event name "${evtName}" contains a space! This should be split into multiple ".onn" calls.`);
+		if (evtName.includes(".")) throw new Error(`Event name "${evtName}" contains a "."! This should be revised as a non-namespaced name.`);
+
 		((this._veListeners ||= {})[evtName] ||= []).push({fn, opts});
 
 		if (opts) this.addEventListener(evtName, fn, opts);
@@ -1656,6 +1691,10 @@ class ElementUtil {
 
 	/** @this {HTMLElementExtended} */
 	static _offX (evtName, fn, opts) {
+		// TODO(jquery) migrate
+		if (evtName.includes(" ")) throw new Error(`Event name "${evtName}" contains a space! This should be split into multiple ".onn" calls.`);
+		if (evtName.includes(".")) throw new Error(`Event name "${evtName}" contains a "."! This should be revised as a non-namespaced name.`);
+
 		if (!fn) {
 			(this._veListeners?.[evtName] || [])
 				.forEach(({fn, opts}) => {
@@ -1673,6 +1712,11 @@ class ElementUtil {
 
 	/** @this {HTMLElementExtended} */
 	static _trigger (evtOrEvtName) {
+		// e.g. `<input type="file">` requires a native `.click()` call to show file browser
+		if (evtOrEvtName === "click") {
+			this.click();
+			return this;
+		}
 		const evt = evtOrEvtName instanceof Event ? evtOrEvtName : new Event(evtOrEvtName);
 		this.dispatchEvent(evt);
 		return this;
@@ -1692,6 +1736,17 @@ class ElementUtil {
 
 		switch (this.tagName) {
 			case "SELECT": {
+				if (val == null) {
+					this.selectedIndex = -1;
+					return this;
+				}
+
+				if (typeof val !== "string") {
+					// TODO(jquery) upgrade to blocking error
+					setTimeout(() => { throw new Error(`Attempted to assign SELECT value to non-string "${val}"!`); });
+					return this;
+				}
+
 				let selectedIndexNxt = -1;
 				for (let i = 0, len = this.options.length; i < len; ++i) {
 					if (this.options[i]?.value === val) {
@@ -1792,7 +1847,7 @@ class ElementUtil {
 	/** @this {HTMLElementExtended} */
 	static _is (nodeTypeOrEle) {
 		// eslint-disable-next-line vet-jquery/jquery
-		if (nodeTypeOrEle instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+		if (globalThis.jQuery && nodeTypeOrEle instanceof globalThis.jQuery) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 		if (typeof nodeTypeOrEle === "string") return this.nodeName.toLowerCase() === nodeTypeOrEle.toLowerCase();
 
@@ -1806,7 +1861,7 @@ class ElementUtil {
 	 */
 	static getBySelector (selector, parent) {
 		// eslint-disable-next-line vet-jquery/jquery
-		if (parent instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+		if (globalThis.jQuery && parent instanceof globalThis.jQuery) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 		const ele = (parent || document).querySelector(selector);
 		if (!ele) return null;
@@ -1818,7 +1873,7 @@ class ElementUtil {
 	 */
 	static getBySelectorMulti (selector, parent) {
 		// eslint-disable-next-line vet-jquery/jquery
-		if (parent instanceof $) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
+		if (globalThis.jQuery && parent instanceof globalThis.jQuery) throw new Error(`Unhandled jQuery instance!`); // TODO(jquery) migrate
 
 		return [...(parent || document).querySelectorAll(selector)]
 			.map(ele => e_({ele}));
@@ -1915,8 +1970,8 @@ if (typeof window !== "undefined") {
 	window.em = ElementUtil.getBySelectorMulti.bind(ElementUtil);
 }
 
-globalThis.ObjUtil = {
-	async pForEachDeep (source, pCallback, options = {depth: Infinity, callEachLevel: false}) {
+globalThis.ObjUtil = class {
+	static async pForEachDeep (source, pCallback, options = {depth: Infinity, callEachLevel: false}) {
 		const path = [];
 		const pDiveDeep = async function (val, path, depth = 0) {
 			if (options.callEachLevel || typeof val !== "object" || options.depth === depth) {
@@ -1931,7 +1986,7 @@ globalThis.ObjUtil = {
 			path.pop();
 		};
 		await pDiveDeep(source, path);
-	},
+	}
 };
 
 // TODO refactor specific utils out of this
@@ -1965,12 +2020,12 @@ globalThis.MiscUtil = class {
 
 	static async pCopyTextToClipboard (text) {
 		function doCompatibilityCopy () {
-			const $iptTemp = $(`<textarea class="clp__wrp-temp"></textarea>`)
+			const iptTemp = ee`<textarea class="ve-clp__wrp-temp"></textarea>`
 				.appendTo(document.body)
 				.val(text)
-				.select();
+				.selecte();
 			document.execCommand("Copy");
-			$iptTemp.remove();
+			iptTemp.remove();
 		}
 
 		try {
@@ -2915,6 +2970,7 @@ globalThis.EventUtil = class {
 	static getKeyIgnoreCapsLock (evt) {
 		if (!evt.key) return null;
 		if (evt.key.length !== 1) return evt.key;
+		// TODO(jquery) migrate
 		const isCaps = (evt.originalEvent || evt).getModifierState("CapsLock");
 		if (!isCaps) return evt.key;
 		const asciiCode = evt.key.charCodeAt(0);
@@ -3136,14 +3192,14 @@ globalThis.ContextUtil = class {
 			}
 
 			const elesAction = this._actions.map(it => {
-				if (it == null) return ee`<div class="my-1 w-100 ui-ctx__divider"></div>`;
+				if (it == null) return ee`<div class="ve-my-1 ve-w-100 ve-ui-ctx__divider"></div>`;
 
 				const rdMeta = it.render({menu: this});
 				this._metasActions.push(rdMeta);
 				return rdMeta.eleRow;
 			});
 
-			this._ele = ee`<div class="ve-flex-col ui-ctx__wrp py-2 absolute">${elesAction}</div>`
+			this._ele = ee`<div class="ve-flex-col ve-ui-ctx__wrp ve-py-2 ve-absolute">${elesAction}</div>`
 				.hideVe()
 				.appendTo(document.body);
 		}
@@ -3232,8 +3288,8 @@ globalThis.ContextUtil = class {
 
 			return {
 				action: this,
-				eleRow: ee`<div class="ui-ctx__row ve-flex-v-center ${this.style || ""}">${btnAction}${btnActionAlt}</div>`,
-				eleBtn: btnAction,
+				eleRow: ee`<div class="ve-ui-ctx__row ve-flex-v-center ${this.style || ""}">${btnAction}${btnActionAlt}</div>`,
+				btn: btnAction,
 			};
 		}
 
@@ -3250,7 +3306,7 @@ globalThis.ContextUtil = class {
 				if (menu.resolveResult_) menu.resolveResult_(result);
 			};
 
-			const btnAction = ee`<div class="w-100 min-w-0 ui-ctx__btn py-1 pl-5 ${this.fnActionAlt ? "" : "pr-5"}" ${this.isDisabled ? "disabled" : ""} tabindex="0">${this.text}</div>`
+			const btnAction = ee`<div class="ve-w-100 ve-min-w-0 ve-ui-ctx__btn ve-py-1 ve-pl-5 ${this.fnActionAlt ? "" : "ve-pr-5"}" ${this.isDisabled ? "disabled" : ""} tabindex="0">${this.text}</div>`
 				.onn("click", evt => pOnClick(evt))
 				.onn("mousedown", evt => {
 					evt.preventDefault();
@@ -3267,7 +3323,7 @@ globalThis.ContextUtil = class {
 		_render_btnActionAlt ({menu}) {
 			if (!this.fnActionAlt) return null;
 
-			const btnActionAlt = ee`<div class="ui-ctx__btn ml-1 bl-1 py-1 px-4" ${this.isDisabled ? "disabled" : ""}>${this.textAlt ?? `<span class="glyphicon glyphicon-cog"></span>`}</div>`
+			const btnActionAlt = ee`<div class="ve-ui-ctx__btn ve-ml-1 ve-bl-1 ve-py-1 ve-px-4" ${this.isDisabled ? "disabled" : ""}>${this.textAlt ?? `<span class="glyphicon glyphicon-cog"></span>`}</div>`
 				.onn("click", async evt => {
 					if (this.isDisabled) return;
 
@@ -3299,7 +3355,7 @@ globalThis.ContextUtil = class {
 		}
 
 		_render_btnAction () {
-			this._btnAction = ee`<a href="${this.fnHref()}" class="w-100 min-w-0 ui-ctx__btn py-1 pl-5 ${this.fnActionAlt ? "" : "pr-5"}" ${this.isDisabled ? "disabled" : ""} tabindex="0">${this.text}</a>`;
+			this._btnAction = ee`<a href="${this.fnHref()}" class="ve-w-100 ve-min-w-0 ve-ui-ctx__btn ve-py-1 ve-pl-5 ${this.fnActionAlt ? "" : "ve-pr-5"}" ${this.isDisabled ? "disabled" : ""} tabindex="0">${this.text}</a>`;
 			if (this.title) this._btnAction.tooltip(this.title);
 
 			return this._btnAction;
@@ -3337,14 +3393,14 @@ globalThis.ContextUtil = class {
 
 			return {
 				action: this,
-				eleRow: ee`<div class="ui-ctx__row ve-flex-v-center">${this._sel}</div>`,
+				eleRow: ee`<div class="ve-ui-ctx__row ve-flex-v-center">${this._sel}</div>`,
 			};
 		}
 
 		_render_sel ({menu}) {
 			const sel = e_({
 				tag: "select",
-				clazz: "w-100 min-w-0 mx-5 py-1",
+				clazz: "ve-w-100 ve-min-w-0 ve-mx-5 ve-py-1",
 				tabindex: 0,
 				children: this._values
 					.map((val, i) => {
@@ -3395,9 +3451,9 @@ globalThis.ContextUtil = class {
 			const menuSub = ContextUtil.getMenu(this._actions, {menuParent: menu});
 			menu.addSubMenu(menuSub);
 
-			const eleRow = ee`<div class="ui-ctx__btn py-1 px-5 split-v-center">
+			const eleRow = ee`<div class="ve-ui-ctx__btn ve-py-1 ve-px-5 ve-split-v-center">
 				<div>${this._name}</div>
-				<div class="pl-4"><span class="caret caret--right"></span></div>
+				<div class="ve-pl-4"><span class="caret caret--right"></span></div>
 			</div>`
 				.onn("click", async evt => {
 					evt.stopPropagation();
@@ -3433,34 +3489,101 @@ globalThis.ContextUtil = class {
 };
 
 // LIST AND SEARCH =====================================================================================================
-globalThis.SearchUtil = {
-	removeStemmer (elasticSearch) {
+globalThis.SearchUtil = class {
+	static removeStemmer (elasticSearch) {
 		const stemmer = elasticlunr.Pipeline.getRegisteredFunction("stemmer");
 		elasticSearch.pipeline.remove(stemmer);
-	},
+	}
 };
 
 // ENCODING/DECODING ===================================================================================================
-globalThis.UrlUtil = {
-	encodeForHash (toEncode) {
+globalThis.UrlUtil = class {
+	static URL_TO_HASH_BUILDER = {};
+	static PG_TO_NAME = {};
+	static CAT_TO_PAGE = {};
+	static CAT_TO_HOVER_PAGE = {};
+	static PAGE_TO_PROPS = {};
+	static PROP_TO_PAGE = {};
+
+	static PG_BESTIARY = "bestiary.html";
+	static PG_SPELLS = "spells.html";
+	static PG_BACKGROUNDS = "backgrounds.html";
+	static PG_ITEMS = "items.html";
+	static PG_CLASSES = "classes.html";
+	static PG_CONDITIONS_DISEASES = "conditionsdiseases.html";
+	static PG_FEATS = "feats.html";
+	static PG_OPT_FEATURES = "optionalfeatures.html";
+	static PG_PSIONICS = "psionics.html";
+	static PG_RACES = "races.html";
+	static PG_REWARDS = "rewards.html";
+	static PG_VARIANTRULES = "variantrules.html";
+	static PG_ADVENTURE = "adventure.html";
+	static PG_ADVENTURES = "adventures.html";
+	static PG_BOOK = "book.html";
+	static PG_BOOKS = "books.html";
+	static PG_DEITIES = "deities.html";
+	static PG_CULTS_BOONS = "cultsboons.html";
+	static PG_OBJECTS = "objects.html";
+	static PG_TRAPS_HAZARDS = "trapshazards.html";
+	static PG_QUICKREF = "quickreference.html";
+	static PG_MANAGE_BREW = "managebrew.html";
+	static PG_MANAGE_PRERELEASE = "manageprerelease.html";
+	static PG_MAKE_BREW = "makebrew.html";
+	static PG_DEMO_RENDER = "renderdemo.html";
+	static PG_TABLES = "tables.html";
+	static PG_VEHICLES = "vehicles.html";
+	static PG_CHARACTERS = "characters.html";
+	static PG_ACTIONS = "actions.html";
+	static PG_LANGUAGES = "languages.html";
+	static PG_STATGEN = "statgen.html";
+	static PG_LIFEGEN = "lifegen.html";
+	static PG_NAMES = "names.html";
+	static PG_DM_SCREEN = "dmscreen.html";
+	static PG_CR_CALCULATOR = "crcalculator.html";
+	static PG_ENCOUNTERGEN = "encountergen.html";
+	static PG_LOOTGEN = "lootgen.html";
+	static PG_TEXT_CONVERTER = "converter.html";
+	static PG_CHANGELOG = "changelog.html";
+	static PG_CHAR_CREATION_OPTIONS = "charcreationoptions.html";
+	static PG_RECIPES = "recipes.html";
+	static PG_CLASS_SUBCLASS_FEATURES = "classfeatures.html";
+	static PG_CREATURE_FEATURES = "creaturefeatures.html";
+	static PG_VEHICLE_FEATURES = "vehiclefeatures.html";
+	static PG_OBJECT_FEATURES = "objectfeatures.html";
+	static PG_TRAP_FEATURES = "trapfeatures.html";
+	static PG_MAPS = "maps.html";
+	static PG_SEARCH = "search.html";
+	static PG_DECKS = "decks.html";
+	static PG_BASTIONS = "bastions.html";
+
+	static URL_TO_HASH_GENERIC = (it) => UrlUtil.encodeArrayForHash(it.name, it.source);
+
+	static encodeForHash (toEncode) {
 		if (toEncode instanceof Array) return toEncode.map(it => `${it}`.toUrlified()).join(HASH_LIST_SEP);
 		else return `${toEncode}`.toUrlified();
-	},
+	}
 
-	encodeArrayForHash (...toEncodes) {
+	static encodeArrayForHash (...toEncodes) {
 		return toEncodes.map(UrlUtil.encodeForHash).join(HASH_LIST_SEP);
-	},
+	}
 
-	autoEncodeHash (obj) {
+	static autoEncodeHash (obj) {
 		const curPage = UrlUtil.getCurrentPage();
 		const encoder = UrlUtil.URL_TO_HASH_BUILDER[curPage];
 		if (!encoder) throw new Error(`No encoder found for page ${curPage}`);
 		return encoder(obj);
-	},
+	}
 
-	decodeHash (hash) {
+	static decodeHash (hash) {
 		return hash.split(HASH_LIST_SEP).map(it => decodeURIComponent(it));
-	},
+	}
+
+	/* -------------------------------------------- */
+
+	static getHashBuilder (propOrPage) {
+		if (!UrlUtil.URL_TO_HASH_BUILDER[propOrPage]) throw new Error(`No hash builder available for "${propOrPage}"!`);
+		return UrlUtil.URL_TO_HASH_BUILDER[propOrPage];
+	}
 
 	/* -------------------------------------------- */
 
@@ -3468,19 +3591,19 @@ globalThis.UrlUtil = {
 	 * @param hash
 	 * @param {?string} page
 	 */
-	async pAutoDecodeHash (hash, {page = null} = {}) {
+	static async pAutoDecodeHash (hash, {page = null} = {}) {
 		page ||= UrlUtil.getCurrentPage();
 
 		if ([UrlUtil.PG_ADVENTURE, UrlUtil.PG_BOOK].includes(page)) return UrlUtil._pAutoDecodeHashAdventureBookHash(hash, {page});
 		return UrlUtil.autoDecodeHash(hash, {page});
-	},
+	}
 
 	// TODO(Future) expand
 	/**
 	 * @param hash
 	 * @param {?string} page
 	 */
-	autoDecodeHash (hash, {page = null} = {}) {
+	static autoDecodeHash (hash, {page = null} = {}) {
 		page ||= UrlUtil.getCurrentPage();
 		const parts = UrlUtil.decodeHash(hash.toLowerCase().trim());
 
@@ -3509,13 +3632,13 @@ globalThis.UrlUtil = {
 
 		const [name, source] = parts;
 		return {name, source};
-	},
+	}
 
 	/**
 	 * @param hash
 	 * @param {?string} page
 	 */
-	async _pAutoDecodeHashAdventureBookHash (hash, {page = null} = {}) {
+	static async _pAutoDecodeHashAdventureBookHash (hash, {page = null} = {}) {
 		page ||= UrlUtil.getCurrentPage();
 		const parts = UrlUtil.decodeHash(hash.toLowerCase().trim());
 
@@ -3546,21 +3669,21 @@ globalThis.UrlUtil = {
 		}
 
 		return {};
-	},
+	}
 
 	/* -------------------------------------------- */
 
-	getSluggedHash (hash) {
+	static getSluggedHash (hash) {
 		return Parser.stringToSlug(decodeURIComponent(hash)).replace(/_/g, "-");
-	},
+	}
 
-	getCurrentPage () {
+	static getCurrentPage () {
 		if (typeof window === "undefined") return VeCt.PG_NONE;
 		const pSplit = window.location.pathname.split("/");
 		let out = pSplit[pSplit.length - 1];
 		if (!out.toLowerCase().endsWith(".html")) out += ".html";
 		return out;
-	},
+	}
 
 	/**
 	 * All internal URL construction should pass through here, to ensure `static.5etools.com` is used when required.
@@ -3568,17 +3691,17 @@ globalThis.UrlUtil = {
 	 * @param href the link
 	 * @param isBustCache If a cache-busting parameter should always be added.
 	 */
-	link (href, {isBustCache = false} = {}) {
+	static link (href, {isBustCache = false} = {}) {
 		if (isBustCache) return UrlUtil._link_getWithParam(href, {param: `t=${Date.now()}`});
 		return href;
-	},
+	}
 
-	_link_getWithParam (href, {param = `v=${VERSION_NUMBER}`} = {}) {
+	static _link_getWithParam (href, {param = `v=${VERSION_NUMBER}`} = {}) {
 		if (href.includes("?")) return `${href}&${param}`;
 		return `${href}?${param}`;
-	},
+	}
 
-	unpackSubHash (subHash, unencode) {
+	static unpackSubHash (subHash, unencode) {
 		// format is "key:value~list~sep~with~tilde"
 		if (subHash.includes(HASH_SUB_KV_SEP)) {
 			const keyValArr = subHash.split(HASH_SUB_KV_SEP).map(s => s.trim());
@@ -3593,7 +3716,7 @@ globalThis.UrlUtil = {
 		} else {
 			throw new Error(`Badly formatted subhash ${subHash}`);
 		}
-	},
+	}
 
 	/**
 	 * @param key The subhash key.
@@ -3604,30 +3727,31 @@ globalThis.UrlUtil = {
 	 * @param [opts.isEncodeValues] If the values should be URL encoded.
 	 * @returns {string}
 	 */
-	packSubHash (key, values, opts) {
+	static packSubHash (key, values, opts) {
 		opts = opts || {};
 		if (opts.isEncodeBoth || opts.isEncodeKey) key = key.toUrlified();
 		if (opts.isEncodeBoth || opts.isEncodeValues) values = values.map(it => it.toUrlified());
 		return `${key}${HASH_SUB_KV_SEP}${values.join(HASH_SUB_LIST_SEP)}`;
-	},
+	}
 
-	categoryToPage (category) { return UrlUtil.CAT_TO_PAGE[category]; },
-	categoryToHoverPage (category) { return UrlUtil.CAT_TO_HOVER_PAGE[category] || UrlUtil.categoryToPage(category); },
+	static categoryToPage (category) { return UrlUtil.CAT_TO_PAGE[category]; }
 
-	pageToDisplayPage (page) { return UrlUtil.PG_TO_NAME[page] || (page || "").replace(/\.html$/, ""); },
+	static categoryToHoverPage (category) { return UrlUtil.CAT_TO_HOVER_PAGE[category] || UrlUtil.categoryToPage(category); }
 
-	getFilename (url) {
+	static pageToDisplayPage (page) { return UrlUtil.PG_TO_NAME[page] || (page || "").replace(/\.html$/, ""); }
+
+	static getFilename (url) {
 		const out = url.slice(url.lastIndexOf("/") + 1);
 		try {
 			return decodeURIComponent(out);
 		} catch (e) {
 			return out;
 		}
-	},
+	}
 
-	isFullUrl (url) { return url && /^.*?:\/\//.test(url); },
+	static isFullUrl (url) { return url && /^.*?:\/\//.test(url); }
 
-	mini: {
+	static mini = {
 		compress (primitive) {
 			const type = typeof primitive;
 			if (primitive === undefined) return "u";
@@ -3651,9 +3775,9 @@ globalThis.UrlUtil = {
 				default: throw new Error(`Unhandled type "${type}"`);
 			}
 		},
-	},
+	};
 
-	class: {
+	static class = {
 		getIndexedClassEntries (cls) {
 			const out = [];
 
@@ -3730,26 +3854,26 @@ globalThis.UrlUtil = {
 
 			return out;
 		},
-	},
+	};
 
-	getStateKeySubclass (sc) {
+	static getStateKeySubclass (sc) {
 		return UrlUtil.encodeArrayForHash(["sub", sc.shortName || sc.name, sc.source]);
-	},
+	}
 
-	unpackStateKeySubclass (str) {
+	static unpackStateKeySubclass (str) {
 		const [, shortName, source] = UrlUtil.decodeHash(str);
 		return {
 			shortName,
 			source,
 		};
-	},
+	}
 
 	/**
 	 * @param opts Options object.
 	 * @param [opts.subclass] Subclass (or object of the form `{shortName: "str", source: "str"}`)
 	 * @param [opts.feature] Object of the form `{ixLevel: 0, ixFeature: 0}`
 	 */
-	getClassesPageStatePart (opts) {
+	static getClassesPageStatePart (opts) {
 		if (!opts.subclass && !opts.feature) return "";
 
 		if (!opts.feature) return UrlUtil.packSubHash("state", [UrlUtil._getClassesPageStatePart_subclass(opts.subclass)]);
@@ -3762,12 +3886,13 @@ globalThis.UrlUtil = {
 				UrlUtil._getClassesPageStatePart_feature(opts.feature),
 			],
 		);
-	},
+	}
 
-	_getClassesPageStatePart_subclass (sc) { return `${UrlUtil.getStateKeySubclass(sc)}=${UrlUtil.mini.compress(true)}`; },
-	_getClassesPageStatePart_feature (feature) { return `feature=${UrlUtil.mini.compress(`${feature.ixLevel}-${feature.ixFeature}`)}`; },
+	static _getClassesPageStatePart_subclass (sc) { return `${UrlUtil.getStateKeySubclass(sc)}=${UrlUtil.mini.compress(true)}`; }
 
-	unpackClassesPageStatePart (href) {
+	static _getClassesPageStatePart_feature (feature) { return `feature=${UrlUtil.mini.compress(`${feature.ixLevel}-${feature.ixFeature}`)}`; }
+
+	static unpackClassesPageStatePart (href) {
 		const [, ...subs] = Hist.util.getHashParts(href);
 		const unpackeds = subs.map(sub => UrlUtil.unpackSubHash(sub));
 		const unpackedState = unpackeds.find(it => it.state)?.state;
@@ -3784,63 +3909,9 @@ globalThis.UrlUtil = {
 			});
 
 		return out;
-	},
+	}
 };
 
-UrlUtil.PG_BESTIARY = "bestiary.html";
-UrlUtil.PG_SPELLS = "spells.html";
-UrlUtil.PG_BACKGROUNDS = "backgrounds.html";
-UrlUtil.PG_ITEMS = "items.html";
-UrlUtil.PG_CLASSES = "classes.html";
-UrlUtil.PG_CONDITIONS_DISEASES = "conditionsdiseases.html";
-UrlUtil.PG_FEATS = "feats.html";
-UrlUtil.PG_OPT_FEATURES = "optionalfeatures.html";
-UrlUtil.PG_PSIONICS = "psionics.html";
-UrlUtil.PG_RACES = "races.html";
-UrlUtil.PG_REWARDS = "rewards.html";
-UrlUtil.PG_VARIANTRULES = "variantrules.html";
-UrlUtil.PG_ADVENTURE = "adventure.html";
-UrlUtil.PG_ADVENTURES = "adventures.html";
-UrlUtil.PG_BOOK = "book.html";
-UrlUtil.PG_BOOKS = "books.html";
-UrlUtil.PG_DEITIES = "deities.html";
-UrlUtil.PG_CULTS_BOONS = "cultsboons.html";
-UrlUtil.PG_OBJECTS = "objects.html";
-UrlUtil.PG_TRAPS_HAZARDS = "trapshazards.html";
-UrlUtil.PG_QUICKREF = "quickreference.html";
-UrlUtil.PG_MANAGE_BREW = "managebrew.html";
-UrlUtil.PG_MANAGE_PRERELEASE = "manageprerelease.html";
-UrlUtil.PG_MAKE_BREW = "makebrew.html";
-UrlUtil.PG_DEMO_RENDER = "renderdemo.html";
-UrlUtil.PG_TABLES = "tables.html";
-UrlUtil.PG_VEHICLES = "vehicles.html";
-UrlUtil.PG_CHARACTERS = "characters.html";
-UrlUtil.PG_ACTIONS = "actions.html";
-UrlUtil.PG_LANGUAGES = "languages.html";
-UrlUtil.PG_STATGEN = "statgen.html";
-UrlUtil.PG_LIFEGEN = "lifegen.html";
-UrlUtil.PG_NAMES = "names.html";
-UrlUtil.PG_DM_SCREEN = "dmscreen.html";
-UrlUtil.PG_CR_CALCULATOR = "crcalculator.html";
-UrlUtil.PG_ENCOUNTERGEN = "encountergen.html";
-UrlUtil.PG_LOOTGEN = "lootgen.html";
-UrlUtil.PG_TEXT_CONVERTER = "converter.html";
-UrlUtil.PG_CHANGELOG = "changelog.html";
-UrlUtil.PG_CHAR_CREATION_OPTIONS = "charcreationoptions.html";
-UrlUtil.PG_RECIPES = "recipes.html";
-UrlUtil.PG_CLASS_SUBCLASS_FEATURES = "classfeatures.html";
-UrlUtil.PG_CREATURE_FEATURES = "creaturefeatures.html";
-UrlUtil.PG_VEHICLE_FEATURES = "vehiclefeatures.html";
-UrlUtil.PG_OBJECT_FEATURES = "objectfeatures.html";
-UrlUtil.PG_TRAP_FEATURES = "trapfeatures.html";
-UrlUtil.PG_MAPS = "maps.html";
-UrlUtil.PG_SEARCH = "search.html";
-UrlUtil.PG_DECKS = "decks.html";
-UrlUtil.PG_BASTIONS = "bastions.html";
-
-UrlUtil.URL_TO_HASH_GENERIC = (it) => UrlUtil.encodeArrayForHash(it.name, it.source);
-
-UrlUtil.URL_TO_HASH_BUILDER = {};
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BESTIARY] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_SPELLS] = UrlUtil.URL_TO_HASH_GENERIC;
 UrlUtil.URL_TO_HASH_BUILDER[UrlUtil.PG_BACKGROUNDS] = UrlUtil.URL_TO_HASH_GENERIC;
@@ -3960,7 +4031,6 @@ Object.keys(UrlUtil.URL_TO_HASH_BUILDER)
 	});
 // endregion
 
-UrlUtil.PG_TO_NAME = {};
 UrlUtil.PG_TO_NAME[UrlUtil.PG_BESTIARY] = "Bestiary";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_SPELLS] = "Spells";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_BACKGROUNDS] = "Backgrounds";
@@ -3979,7 +4049,7 @@ UrlUtil.PG_TO_NAME[UrlUtil.PG_DEITIES] = "Deities";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_CULTS_BOONS] = "Cults & Supernatural Boons";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_OBJECTS] = "Objects";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_TRAPS_HAZARDS] = "Traps & Hazards";
-UrlUtil.PG_TO_NAME[UrlUtil.PG_QUICKREF] = "Quick Reference (2014)";
+UrlUtil.PG_TO_NAME[UrlUtil.PG_QUICKREF] = "Quick Reference (5e/2014)";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_MANAGE_BREW] = "Homebrew Manager";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_MANAGE_PRERELEASE] = "Prerelease Content Manager";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_MAKE_BREW] = "Homebrew Builder";
@@ -4008,7 +4078,6 @@ UrlUtil.PG_TO_NAME[UrlUtil.PG_MAPS] = "Maps";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_DECKS] = "Decks";
 UrlUtil.PG_TO_NAME[UrlUtil.PG_BASTIONS] = "Bastions";
 
-UrlUtil.CAT_TO_PAGE = {};
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_CREATURE] = UrlUtil.PG_BESTIARY;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_SPELL] = UrlUtil.PG_SPELLS;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_BACKGROUND] = UrlUtil.PG_BACKGROUNDS;
@@ -4045,8 +4114,9 @@ UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_VEHICLE] = UrlUtil.PG_VEHICLES;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_PACT_BOON] = UrlUtil.PG_OPT_FEATURES;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_ELEMENTAL_DISCIPLINE] = UrlUtil.PG_OPT_FEATURES;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_ARTIFICER_INFUSION] = UrlUtil.PG_OPT_FEATURES;
-UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_SHIP_UPGRADE] = UrlUtil.PG_VEHICLES;
-UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_INFERNAL_WAR_MACHINE_UPGRADE] = UrlUtil.PG_VEHICLES;
+UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_VEHICLE_UPGRADE_SHIP] = UrlUtil.PG_VEHICLES;
+UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_VEHICLE_UPGRADE_INFERNAL_WAR_MACHINE] = UrlUtil.PG_VEHICLES;
+UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_VEHICLE_UPGRADE_OTHER] = UrlUtil.PG_VEHICLES;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_ONOMANCY_RESONANT] = UrlUtil.PG_OPT_FEATURES;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_RUNE_KNIGHT_RUNE] = UrlUtil.PG_OPT_FEATURES;
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_ALCHEMICAL_FORMULA] = UrlUtil.PG_OPT_FEATURES;
@@ -4067,7 +4137,6 @@ UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_SENSES] = "sense";
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_LEGENDARY_GROUP] = "legendaryGroup";
 UrlUtil.CAT_TO_PAGE[Parser.CAT_ID_ITEM_MASTERY] = "itemMastery";
 
-UrlUtil.CAT_TO_HOVER_PAGE = {};
 UrlUtil.CAT_TO_HOVER_PAGE[Parser.CAT_ID_CLASS_FEATURE] = "classfeature";
 UrlUtil.CAT_TO_HOVER_PAGE[Parser.CAT_ID_SUBCLASS_FEATURE] = "subclassfeature";
 UrlUtil.CAT_TO_HOVER_PAGE[Parser.CAT_ID_CARD] = "card";
@@ -4114,7 +4183,6 @@ UrlUtil.FAUX_PAGES = {
 	[UrlUtil.PG_TRAP_FEATURES]: true,
 };
 
-UrlUtil.PAGE_TO_PROPS = {};
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_SPELLS] = ["spell"];
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_ITEMS] = ["item", "itemGroup", "itemType", "itemEntry", "itemProperty", "itemTypeAdditionalEntries", "itemMastery", "baseitem", "magicvariant"];
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_RACES] = ["race", "subrace"];
@@ -4132,7 +4200,6 @@ UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_REWARDS] = ["reward"];
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_TRAPS_HAZARDS] = ["trap", "hazard"];
 UrlUtil.PAGE_TO_PROPS[UrlUtil.PG_VARIANTRULES] = ["variantrule"];
 
-UrlUtil.PROP_TO_PAGE = {};
 UrlUtil.PROP_TO_PAGE["spell"] = UrlUtil.PG_SPELLS;
 UrlUtil.PROP_TO_PAGE["item"] = UrlUtil.PG_ITEMS;
 UrlUtil.PROP_TO_PAGE["baseitem"] = UrlUtil.PG_ITEMS;
@@ -4174,6 +4241,25 @@ globalThis.SortUtil = class {
 		return SortUtil._ascSort(a, b);
 	}
 
+	static _COLLATOR_NORMALIZED = new Intl.Collator(
+		undefined,
+		{
+			sensitivity: "base",
+			usage: "sort",
+		},
+	);
+
+	static ascSortLowerNormalized (a, b) {
+		if (typeof FilterItem !== "undefined") {
+			if (a instanceof FilterItem) a = a.item;
+			if (b instanceof FilterItem) b = b.item;
+		}
+
+		if (a == null || b == null) return SortUtil._ascSort(a, b);
+
+		return SortUtil._COLLATOR_NORMALIZED.compare(`${a}`, `${b}`);
+	}
+
 	static ascSortLowerProp (prop, a, b) { return SortUtil.ascSortLower(a[prop], b[prop]); }
 
 	// warning: slow
@@ -4203,6 +4289,10 @@ globalThis.SortUtil = class {
 	}
 
 	static _ascSort (a, b) {
+		if (a == null && b == null) return 0;
+		if (a == null) return -1;
+		if (b == null) return 1;
+
 		if (b === a) return 0;
 		return b < a ? 1 : -1;
 	}
@@ -4299,17 +4389,13 @@ globalThis.SortUtil = class {
 	static ascSortSize (a, b) { return Parser.SIZE_ABVS.indexOf(a) - Parser.SIZE_ABVS.indexOf(b); }
 
 	static initBtnSortHandlers (wrpBtnsSort, list) {
-		if (wrpBtnsSort instanceof $) { // TODO(jquery) migrate
-			wrpBtnsSort = wrpBtnsSort[0];
-		}
-
 		let dispCaretInitial = null;
 
 		const dispCarets = [...wrpBtnsSort.querySelectorAll(`[data-sort]`)]
 			.map(btnSort => {
 				const dispCaret = e_({
 					tag: "span",
-					clazz: "lst__caret",
+					clazz: "ve-lst__caret",
 				})
 					.appendTo(btnSort);
 
@@ -4342,13 +4428,13 @@ globalThis.SortUtil = class {
 			direction,
 		},
 	) {
-		dispCarets.forEach($it => $it.removeClass("lst__caret--active"));
-		dispCaret.addClass("lst__caret--active").toggleClass("lst__caret--reverse", direction === "asc");
+		dispCarets.forEach(it => it.removeClass("ve-lst__caret--active"));
+		dispCaret.addClass("ve-lst__caret--active").toggleClass("ve-lst__caret--reverse", direction === "asc");
 	}
 
 	/** Add more list sort on-clicks to existing sort buttons. */
-	static initBtnSortHandlersAdditional ($wrpBtnsSort, list) {
-		[...$wrpBtnsSort[0].querySelectorAll(".sort")]
+	static initBtnSortHandlersAdditional (wrpBtnsSort, list) {
+		[...wrpBtnsSort.querySelectorAll(".sort")]
 			.map(btnSort => {
 				const btnSortField = btnSort.dataset.sort;
 
@@ -5215,6 +5301,7 @@ globalThis.DataUtil = class {
 		static _MERGE_REQUIRES_PRESERVE_BASE = {
 			page: true,
 			otherSources: true,
+			referenceSources: true,
 			srd: true,
 			srd52: true,
 			basicRules: true,
@@ -5300,11 +5387,14 @@ globalThis.DataUtil = class {
 			}
 
 			if (DataUtil.dbg.isTrackCopied) entParent.dbg_isCopied = true;
+
 			// Handle recursive copy
 			if (entParent._copy) await DataUtil.generic._pMergeCopy(impl, page, entryList, entParent, options);
+			if (!entry._copy) return; // Another merge may have completed for this entry, if multiple entries use it as a parent
 
 			// Preload templates, if required
 			const templates = await this._pMergeCopy_pGetTemplates(entry);
+			if (!entry._copy) return; // Another merge may have completed for this entry, if multiple entries use it as a parent
 
 			return DataUtil.generic.copyApplier.getCopy(impl, MiscUtil.copyFast(entParent), entry, templates, options);
 		}
@@ -6301,7 +6391,7 @@ globalThis.DataUtil = class {
 			delete cpyParentEntity.hasFluff;
 			delete cpyParentEntity.hasFluffImages;
 
-			["additionalSources", "otherSources"]
+			["additionalSources", "otherSources", "referenceSources"]
 				.forEach(prop => {
 					if (cpyParentEntity[prop]?.length) cpyParentEntity[prop] = cpyParentEntity[prop].filter(srcMeta => srcMeta.source !== version.source);
 					if (!cpyParentEntity[prop]?.length) delete cpyParentEntity[prop];
@@ -7621,29 +7711,64 @@ globalThis.DataUtil = class {
 };
 
 // ROLLING =============================================================================================================
-globalThis.RollerUtil = {
-	isCrypto () {
-		return typeof window !== "undefined" && typeof window.crypto !== "undefined";
-	},
+globalThis.RollerUtil = class {
+	static _DICE_REGEX_STR = /((?:\s*?(?<opLeading>[-+×x*÷/])\s*?)?((?<diceCount>[1-9]\d*)?d(?<diceFace>[1-9]\d*)(?<bonus>(\s*?[-+×x*÷/]\s*?(\d,\d|\d)+(\.\d+)?(?!d))*)))+?/.source;
+	static DICE_REGEX = new RegExp(this._DICE_REGEX_STR, "g");
+	static DICE_REGEX_FULLMATCH = new RegExp(`^\\s*${this._DICE_REGEX_STR}\\s*$`);
+	static REGEX_DAMAGE_DICE = /(?<average>\d+)(?<prefix> \((?:{@dice |{@damage ))(?<diceExp>[-+0-9d ]*)(?<suffix>}\)(?:\s*\+\s*the spell's level)?(?: magic(?:al)?)? [a-z]+( \([-a-zA-Z0-9 ]+\))?( or [a-z]+( \([-a-zA-Z0-9 ]+\))?)? damage)/gi;
+	static REGEX_DAMAGE_FLAT = /(?<prefix>Hit(?: or Miss)?: |Miss: |{@hom}|{@h}|{@m})(?<flatVal>[0-9]+)(?<suffix> [a-z]+( \([-a-zA-Z0-9 ]+\))?( or [a-z]+( \([-a-zA-Z0-9 ]+\))?)? damage)/gi;
+	static _REGEX_ROLLABLE_COL_LABEL = /^(.*?\d)(\s*[-+/*^×÷]\s*)([a-zA-Z0-9 ]+)$/;
+	static _REGEX_ROLLABLE_COL_TRAILING_VARIABLE = /^(.*?\d)(\s*[-+/*^×÷]\s*)(#\$.*?\$#)$/;
+	static ROLL_COL_NONE = 0;
+	static ROLL_COL_STANDARD = 1;
+	static ROLL_COL_VARIABLE = 2;
 
-	randomise (max, min = 1) {
+	static isCrypto () {
+		return typeof window !== "undefined" && typeof window.crypto !== "undefined";
+	}
+
+	static #_DBG_MODE = null;
+	static #_DBG_REPEAT_STORE = null;
+	static #_DBG_REPEAT = null;
+
+	static dbg_setMode (mode) {
+		this.#_DBG_MODE = mode;
+		switch (mode) {
+			case "none": this.#_DBG_REPEAT_STORE = null; this.#_DBG_REPEAT = null; break;
+			case "capture": this.#_DBG_REPEAT_STORE = null; this.#_DBG_REPEAT = null; break;
+			case "replay": this.#_DBG_REPEAT = [...this.#_DBG_REPEAT_STORE]; break;
+			default: throw new Error(`Unhandled mode "${mode}"!`);
+		}
+	}
+
+	static randomise (max, min = 1) {
+		if (this.#_DBG_MODE === "replay") {
+			if (!this.#_DBG_REPEAT?.length) throw new Error(`Exhausted replay!`);
+			return this.#_DBG_REPEAT.shift();
+		}
+
+		const out = this._randomise({min, max});
+		if (this.#_DBG_MODE === "capture") {
+			(this.#_DBG_REPEAT_STORE ||= []).push(out);
+		}
+		return out;
+	}
+
+	static _randomise ({min, max}) {
 		if (min > max) return 0;
 		if (max === min) return max;
 		if (RollerUtil.isCrypto()) {
-			return RollerUtil._randomise(min, max + 1);
+			return RollerUtil._getRandomCryptoRoll(min, max + 1);
 		} else {
 			return RollerUtil.roll(max) + min;
 		}
-	},
+	}
 
-	rollOnArray (array) {
+	static rollOnArray (array) {
 		return array[RollerUtil.randomise(array.length) - 1];
-	},
+	}
 
-	/**
-	 * Cryptographically secure RNG
-	 */
-	_randomise: (min, max) => {
+	static _getRandomCryptoRoll = (min, max) => {
 		if (isNaN(min) || isNaN(max)) throw new Error(`Invalid min/max!`);
 
 		const range = max - min;
@@ -7665,7 +7790,7 @@ globalThis.RollerUtil = {
 				return min + randomInteger;
 			}
 		}
-	},
+	};
 
 	/**
 	 * Result in range: 0 to (max-1); inclusive
@@ -7674,11 +7799,11 @@ globalThis.RollerUtil = {
 	 * @param fn function to call to generate random numbers
 	 * @returns {number} rolled
 	 */
-	roll (max, fn = Math.random) {
+	static roll (max, fn = Math.random) {
 		return Math.floor(fn() * max);
-	},
+	}
 
-	getColRollType (colLabel) {
+	static getColRollType (colLabel) {
 		if (typeof colLabel !== "string") return false;
 
 		colLabel = colLabel.trim();
@@ -7708,9 +7833,9 @@ globalThis.RollerUtil = {
 		) return RollerUtil.ROLL_COL_VARIABLE;
 
 		return RollerUtil.ROLL_COL_NONE;
-	},
+	}
 
-	getFullRollCol (lbl) {
+	static getFullRollCol (lbl) {
 		if (typeof lbl !== "string") return lbl;
 
 		if (lbl.includes("@dice")) return lbl;
@@ -7722,19 +7847,8 @@ globalThis.RollerUtil = {
 		if (!m) return lbl;
 
 		return `{@dice ${m[1]}${m[2]}#$prompt_number:title=Enter a ${m[3].trim()}$#|${lbl}}`;
-	},
-
-	_DICE_REGEX_STR: /((?:\s*?(?<opLeading>[-+×x*÷/])\s*?)?((?<diceCount>[1-9]\d*)?d(?<diceFace>[1-9]\d*)(?<bonus>(\s*?[-+×x*÷/]\s*?(\d,\d|\d)+(\.\d+)?(?!d))*)))+?/.source,
+	}
 };
-RollerUtil.DICE_REGEX = new RegExp(RollerUtil._DICE_REGEX_STR, "g");
-RollerUtil.DICE_REGEX_FULLMATCH = new RegExp(`^\\s*${RollerUtil._DICE_REGEX_STR}\\s*$`);
-RollerUtil.REGEX_DAMAGE_DICE = /(?<average>\d+)(?<prefix> \((?:{@dice |{@damage ))(?<diceExp>[-+0-9d ]*)(?<suffix>}\)(?:\s*\+\s*the spell's level)?(?: magic(?:al)?)? [a-z]+( \([-a-zA-Z0-9 ]+\))?( or [a-z]+( \([-a-zA-Z0-9 ]+\))?)? damage)/gi;
-RollerUtil.REGEX_DAMAGE_FLAT = /(?<prefix>Hit(?: or Miss)?: |Miss: |{@hom}|{@h}|{@m})(?<flatVal>[0-9]+)(?<suffix> [a-z]+( \([-a-zA-Z0-9 ]+\))?( or [a-z]+( \([-a-zA-Z0-9 ]+\))?)? damage)/gi;
-RollerUtil._REGEX_ROLLABLE_COL_LABEL = /^(.*?\d)(\s*[-+/*^×÷]\s*)([a-zA-Z0-9 ]+)$/;
-RollerUtil._REGEX_ROLLABLE_COL_TRAILING_VARIABLE = /^(.*?\d)(\s*[-+/*^×÷]\s*)(#\$.*?\$#)$/;
-RollerUtil.ROLL_COL_NONE = 0;
-RollerUtil.ROLL_COL_STANDARD = 1;
-RollerUtil.ROLL_COL_VARIABLE = 2;
 
 // STORAGE =============================================================================================================
 // Dependency: localforage
@@ -7968,10 +8082,12 @@ function StorageUtilBacked () {
 globalThis.StorageUtil = new StorageUtilBacked();
 
 // TODO transition cookie-like storage items over to this
-globalThis.SessionStorageUtil = {
-	_fakeStorage: {},
-	__storage: null,
-	getStorage: () => {
+globalThis.SessionStorageUtil = class {
+	static _fakeStorage = {};
+
+	static __storage = null;
+
+	static getStorage = () => {
 		try {
 			return window.sessionStorage;
 		} catch (e) {
@@ -7992,44 +8108,44 @@ globalThis.SessionStorageUtil = {
 				};
 			}
 		}
-	},
+	};
 
-	isFake () {
+	static isFake () {
 		return SessionStorageUtil.getStorage().isSyncFake;
-	},
+	}
 
-	setForPage: (key, value) => {
+	static setForPage = (key, value) => {
 		SessionStorageUtil.set(`${key}_${UrlUtil.getCurrentPage()}`, value);
-	},
+	};
 
-	set (key, value) {
+	static set (key, value) {
 		SessionStorageUtil.getStorage().setItem(key, JSON.stringify(value));
-	},
+	}
 
-	getForPage: (key) => {
+	static getForPage = (key) => {
 		return SessionStorageUtil.get(`${key}_${UrlUtil.getCurrentPage()}`);
-	},
+	};
 
-	get (key) {
+	static get (key) {
 		const rawOut = SessionStorageUtil.getStorage().getItem(key);
 		if (rawOut && rawOut !== "undefined" && rawOut !== "null") return JSON.parse(rawOut);
 		return null;
-	},
+	}
 
-	removeForPage: (key) => {
+	static removeForPage = (key) => {
 		SessionStorageUtil.remove(`${key}_${UrlUtil.getCurrentPage()}`);
-	},
+	};
 
-	remove (key) {
+	static remove (key) {
 		SessionStorageUtil.getStorage().removeItem(key);
-	},
+	}
 };
 
 // ID GENERATION =======================================================================================================
-globalThis.CryptUtil = {
+globalThis.CryptUtil = class {
 	// region md5 internals
 	// stolen from http://www.myersdaily.org/joseph/javascript/md5.js
-	_md5cycle: (x, k) => {
+	static _md5cycle = (x, k) => {
 		let a = x[0];
 		let b = x[1];
 		let c = x[2];
@@ -8107,30 +8223,30 @@ globalThis.CryptUtil = {
 		x[1] = CryptUtil._add32(b, x[1]);
 		x[2] = CryptUtil._add32(c, x[2]);
 		x[3] = CryptUtil._add32(d, x[3]);
-	},
+	};
 
-	_cmn: (q, a, b, x, s, t) => {
+	static _cmn = (q, a, b, x, s, t) => {
 		a = CryptUtil._add32(CryptUtil._add32(a, q), CryptUtil._add32(x, t));
 		return CryptUtil._add32((a << s) | (a >>> (32 - s)), b);
-	},
+	};
 
-	_ff: (a, b, c, d, x, s, t) => {
+	static _ff = (a, b, c, d, x, s, t) => {
 		return CryptUtil._cmn((b & c) | ((~b) & d), a, b, x, s, t);
-	},
+	};
 
-	_gg: (a, b, c, d, x, s, t) => {
+	static _gg = (a, b, c, d, x, s, t) => {
 		return CryptUtil._cmn((b & d) | (c & (~d)), a, b, x, s, t);
-	},
+	};
 
-	_hh: (a, b, c, d, x, s, t) => {
+	static _hh = (a, b, c, d, x, s, t) => {
 		return CryptUtil._cmn(b ^ c ^ d, a, b, x, s, t);
-	},
+	};
 
-	_ii: (a, b, c, d, x, s, t) => {
+	static _ii = (a, b, c, d, x, s, t) => {
 		return CryptUtil._cmn(c ^ (b | (~d)), a, b, x, s, t);
-	},
+	};
 
-	_md51: (s) => {
+	static _md51 = (s) => {
 		let n = s.length;
 		let state = [1732584193, -271733879, -1732584194, 271733878];
 		let i;
@@ -8148,52 +8264,52 @@ globalThis.CryptUtil = {
 		tail[14] = n * 8;
 		CryptUtil._md5cycle(state, tail);
 		return state;
-	},
+	};
 
-	_md5blk: (s) => {
+	static _md5blk = (s) => {
 		let md5blks = [];
 		for (let i = 0; i < 64; i += 4) {
 			md5blks[i >> 2] = s.charCodeAt(i) + (s.charCodeAt(i + 1) << 8) + (s.charCodeAt(i + 2) << 16) + (s.charCodeAt(i + 3) << 24);
 		}
 		return md5blks;
-	},
+	};
 
-	_hex_chr: "0123456789abcdef".split(""),
+	static _hex_chr = "0123456789abcdef".split("");
 
-	_rhex: (n) => {
+	static _rhex = (n) => {
 		let s = "";
 		for (let j = 0; j < 4; j++) {
 			s += CryptUtil._hex_chr[(n >> (j * 8 + 4)) & 0x0F] + CryptUtil._hex_chr[(n >> (j * 8)) & 0x0F];
 		}
 		return s;
-	},
+	};
 
-	_add32: (a, b) => {
+	static _add32 = (a, b) => {
 		return (a + b) & 0xFFFFFFFF;
-	},
+	};
 	// endregion
 
-	hex: (x) => {
+	static hex = (x) => {
 		for (let i = 0; i < x.length; i++) {
 			x[i] = CryptUtil._rhex(x[i]);
 		}
 		return x.join("");
-	},
+	};
 
-	hex2Dec (hex) {
+	static hex2Dec (hex) {
 		return parseInt(`0x${hex}`);
-	},
+	}
 
-	md5: (s) => {
+	static md5 = (s) => {
 		return CryptUtil.hex(CryptUtil._md51(s));
-	},
+	};
 
 	/**
 	 * Based on Java's implementation.
 	 * @param obj An object to hash.
 	 * @return {*} An integer hashcode for the object.
 	 */
-	hashCode (obj) {
+	static hashCode (obj) {
 		if (typeof obj === "string") {
 			if (!obj) return 0;
 			let h = 0;
@@ -8201,9 +8317,9 @@ globalThis.CryptUtil = {
 			return h;
 		} else if (typeof obj === "number") return obj;
 		else throw new Error(`No hashCode implementation for ${obj}`);
-	},
+	}
 
-	uid () { // https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+	static uid () { // https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
 		if (RollerUtil.isCrypto()) {
 			return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
 		} else {
@@ -8217,12 +8333,12 @@ globalThis.CryptUtil = {
 				return (c === "x" ? r : (r & 0x3 | 0x8)).toString(16);
 			});
 		}
-	},
+	}
 };
 
 // COLLECTIONS =========================================================================================================
-globalThis.CollectionUtil = {
-	ObjectSet: class ObjectSet {
+globalThis.CollectionUtil = class {
+	static ObjectSet = class ObjectSet {
 		constructor () {
 			this.map = new Map();
 			this[Symbol.iterator] = this.values;
@@ -8236,15 +8352,15 @@ globalThis.CollectionUtil = {
 		values () {
 			return this.map.values();
 		}
-	},
+	};
 
-	setEq (a, b) {
+	static setEq (a, b) {
 		if (a.size !== b.size) return false;
 		for (const it of a) if (!b.has(it)) return false;
 		return true;
-	},
+	}
 
-	objectDiff (obj1, obj2) {
+	static objectDiff (obj1, obj2) {
 		const out = {};
 
 		[...new Set([...Object.keys(obj1), ...Object.keys(obj2)])]
@@ -8254,9 +8370,9 @@ globalThis.CollectionUtil = {
 			});
 
 		return out;
-	},
+	}
 
-	_objectDiff_recurse (a, b) {
+	static _objectDiff_recurse (a, b) {
 		if (CollectionUtil.deepEquals(a, b)) return undefined;
 
 		if (a && b && typeof a === "object" && typeof b === "object") {
@@ -8264,9 +8380,9 @@ globalThis.CollectionUtil = {
 		}
 
 		return b;
-	},
+	}
 
-	objectIntersect (obj1, obj2) {
+	static objectIntersect (obj1, obj2) {
 		const out = {};
 
 		[...new Set([...Object.keys(obj1), ...Object.keys(obj2)])]
@@ -8276,9 +8392,9 @@ globalThis.CollectionUtil = {
 			});
 
 		return out;
-	},
+	}
 
-	_objectIntersect_recurse (a, b) {
+	static _objectIntersect_recurse (a, b) {
 		if (CollectionUtil.deepEquals(a, b)) return a;
 
 		if (a && b && typeof a === "object" && typeof b === "object") {
@@ -8286,9 +8402,9 @@ globalThis.CollectionUtil = {
 		}
 
 		return undefined;
-	},
+	}
 
-	deepEquals (a, b) {
+	static deepEquals (a, b) {
 		if (Object.is(a, b)) return true;
 		if (a && b && typeof a === "object" && typeof b === "object") {
 			if (CollectionUtil._eq_isPlainObject(a) && CollectionUtil._eq_isPlainObject(b)) return CollectionUtil._eq_areObjectsEqual(a, b);
@@ -8301,10 +8417,11 @@ globalThis.CollectionUtil = {
 			return CollectionUtil._eq_areObjectsEqual(a, b);
 		}
 		return false;
-	},
+	}
 
-	_eq_isPlainObject: (value) => value.constructor === Object || value.constructor == null,
-	_eq_areObjectsEqual (a, b) {
+	static _eq_isPlainObject = (value) => value.constructor === Object || value.constructor == null;
+
+	static _eq_areObjectsEqual (a, b) {
 		const keysA = Object.keys(a);
 		const {length} = keysA;
 		if (Object.keys(b).length !== length) return false;
@@ -8313,16 +8430,16 @@ globalThis.CollectionUtil = {
 			if (!CollectionUtil.deepEquals(a[keysA[i]], b[keysA[i]])) return false;
 		}
 		return true;
-	},
-	_eq_areArraysEqual (a, b) {
+	}
+
+	static _eq_areArraysEqual (a, b) {
 		const {length} = a;
 		if (b.length !== length) return false;
 		for (let i = 0; i < length; i++) if (!CollectionUtil.deepEquals(a[i], b[i])) return false;
 		return true;
-	},
+	}
 
-	// region Find first <X>
-	dfs (obj, opts) {
+	static dfs (obj, opts) {
 		const {prop = null, fnMatch = null} = opts;
 		if (!prop && !fnMatch) throw new Error(`One of "prop" or "fnMatch" must be specified!`);
 
@@ -8343,9 +8460,9 @@ globalThis.CollectionUtil = {
 				if (n) return n;
 			}
 		}
-	},
+	}
 
-	bfs (obj, opts) {
+	static bfs (obj, opts) {
 		const {prop = null, fnMatch = null} = opts;
 		if (!prop && !fnMatch) throw new Error(`One of "prop" or "fnMatch" must be specified!`);
 
@@ -8371,8 +8488,7 @@ globalThis.CollectionUtil = {
 
 			return CollectionUtil.bfs(Object.values(obj));
 		}
-	},
-	// endregion
+	}
 };
 
 class _TrieNode {
@@ -8773,18 +8889,18 @@ class BookModeViewBase {
 	}
 
 	_getBtnWindowClose () {
-		return ee`<button class="ve-btn ve-btn-xs ve-btn-danger br-0 bt-0 btl-0 btr-0 bbr-0 bbl-0 h-20p" title="Close"><span class="glyphicon glyphicon-remove"></span></button>`
+		return ee`<button class="ve-btn ve-btn-xs ve-btn-danger ve-br-0 ve-bt-0 ve-btl-0 ve-btr-0 ve-bbr-0 ve-bbl-0 ve-h-20p" title="Close"><span class="glyphicon glyphicon-remove"></span></button>`
 			.onn("click", () => this.setStateClosed());
 	}
 
 	/* -------------------------------------------- */
 
 	async _pGetWrpControls ({wrpContent}) {
-		const wrp = ee`<div class="w-100 ve-flex-col no-shrink no-print"></div>`;
+		const wrp = ee`<div class="ve-w-100 ve-flex-col ve-no-shrink no-print"></div>`;
 
 		if (!this._hasPrintColumns) return {wrp};
 
-		["px-2", "mt-2", "bb-1p", "pb-1"].forEach(clz => wrp.addClass(clz));
+		["ve-px-2", "ve-mt-2", "ve-bb-1p", "ve-pb-1"].forEach(clz => wrp.addClass(clz));
 
 		const onChangeColumnCount = (cols) => {
 			wrpContent.toggleClass(`bkmv__wrp--columns-1`, cols === 1);
@@ -8801,7 +8917,7 @@ class BookModeViewBase {
 			StorageUtil.syncSetForPage(BookModeViewBase._BOOK_VIEW_COLUMNS_K, val);
 		};
 
-		const selColumns = ee`<select class="form-control input-sm">
+		const selColumns = ee`<select class="ve-form-control ve-input-sm">
 			<option value="0">Two (book style)</option>
 			<option value="1">One</option>
 		</select>`
@@ -8809,8 +8925,8 @@ class BookModeViewBase {
 		selColumns.val(`${lastColumns ?? 0}`);
 		onChangeSelColumns();
 
-		const wrpPrint = ee`<div class="w-100 ve-flex">
-			<div class="ve-flex-vh-center"><div class="mr-2 no-wrap help-subtle" title="Applied when printing the page.">Print columns:</div>${selColumns}</div>
+		const wrpPrint = ee`<div class="ve-w-100 ve-flex">
+			<div class="ve-flex-vh-center"><div class="ve-mr-2 ve-no-wrap ve-help-subtle" title="Applied when printing the page.">Print columns:</div>${selColumns}</div>
 		</div>`.appendTo(wrp);
 
 		return {wrp, wrpPrint};
@@ -8859,7 +8975,7 @@ class BookModeViewBase {
 		if (this._wrpBook) this._wrpBook.remove();
 
 		this._wrpBook = ee`<div class="bkmv print__h-initial ve-flex-col print__ve-block">
-			<div class="bkmv__spacer-name no-print split-v-center no-shrink no-print">${this._getWindowHeaderLhs()}${this._getBtnWindowClose()}</div>
+			<div class="bkmv__spacer-name no-print ve-split-v-center ve-no-shrink no-print">${this._getWindowHeaderLhs()}${this._getBtnWindowClose()}</div>
 			${(await this._pGetWrpControls({wrpContent})).wrp}
 			${wrpContentOuter}
 		</div>`
@@ -8867,9 +8983,9 @@ class BookModeViewBase {
 	}
 
 	async _pGetContentElementMetas () {
-		const wrpContent = ee`<div class="bkmv__scroller smooth-scroll ve-overflow-y-auto print__overflow-visible ${this._isColumns ? "bkmv__wrp" : "ve-flex-col"} w-100 min-h-0"></div>`;
+		const wrpContent = ee`<div class="bkmv__scroller ve-smooth-scroll ve-overflow-y-auto print__overflow-visible ${this._isColumns ? "bkmv__wrp" : "ve-flex-col"} ve-w-100 ve-min-h-0"></div>`;
 
-		const wrpContentOuter = ee`<div class="h-100 print__h-initial w-100 min-h-0 ve-flex-col print__ve-block">${wrpContent}</div>`;
+		const wrpContentOuter = ee`<div class="ve-h-100 print__h-initial ve-w-100 ve-min-h-0 ve-flex-col print__ve-block">${wrpContent}</div>`;
 
 		const out = {
 			wrpContentOuter,
@@ -9126,11 +9242,11 @@ globalThis.ExtensionUtil = class {
 	}
 
 	static _getElementData ({ele}) {
-		const $parent = $(ele).closest(`[data-page]`);
-		const page = $parent.attr("data-page");
-		const source = $parent.attr("data-source");
-		const hash = $parent.attr("data-hash");
-		const rawExtensionData = $parent.attr("data-extension");
+		const eleParent = e_({ele}).closeste(`[data-page]`);
+		const page = eleParent.attr("data-page");
+		const source = eleParent.attr("data-source");
+		const hash = eleParent.attr("data-hash");
+		const rawExtensionData = eleParent.attr("data-extension");
 		const extensionData = rawExtensionData ? JSON.parse(rawExtensionData) : null;
 
 		return {page, source, hash, extensionData};
@@ -9226,21 +9342,32 @@ globalThis.VeLock = function ({name = null, isDbg = false} = {}) {
 ExcludeUtil._lock = new VeLock({name: "blocklist"});
 
 // DATETIME ============================================================================================================
-globalThis.DatetimeUtil = {
-	getDateStr ({date, isShort = false, isPad = false} = {}) {
+globalThis.DatetimeUtil = class {
+	static _MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+	static getDateStr ({date, isShort = false, isPad = false} = {}) {
 		const month = DatetimeUtil._MONTHS[date.getMonth()];
 		return `${isShort ? month.substring(0, 3) : month} ${isPad && date.getDate() < 10 ? "\u00A0" : ""}${Parser.getOrdinalForm(date.getDate())}, ${date.getFullYear()}`;
-	},
+	}
 
-	getDatetimeStr ({date, isPlainText = false} = {}) {
+	/* -------------------------------------------- */
+
+	static _getPad2 (num) { return `${num}`.padStart(2, "0"); }
+
+	static getDatetimeStr ({date, isPlainText = false} = {}) {
 		date = date ?? new Date();
 		const monthName = DatetimeUtil._MONTHS[date.getMonth()];
 		return `${date.getDate()} ${!isPlainText ? `<span title="${monthName}">` : ""}${monthName.substring(0, 3)}.${!isPlainText ? `</span>` : ""} ${date.getFullYear()}, ${DatetimeUtil._getPad2(date.getHours())}:${DatetimeUtil._getPad2(date.getMinutes())}:${DatetimeUtil._getPad2(date.getSeconds())}`;
-	},
+	}
 
-	_getPad2 (num) { return `${num}`.padStart(2, "0"); },
+	/* -------------------------------------------- */
 
-	getIntervalStr (millis) {
+	static _SECS_PER_YEAR = 31536000;
+	static _SECS_PER_DAY = 86400;
+	static _SECS_PER_HOUR = 3600;
+	static _SECS_PER_MINUTE = 60;
+
+	static getIntervalStr (millis) {
 		if (millis < 0 || isNaN(millis)) return "(Unknown interval)";
 
 		const s = number => (number !== 1) ? "s" : "";
@@ -9277,13 +9404,8 @@ globalThis.DatetimeUtil = {
 		else if (!stack.length) stack.push("less than a second"); // avoid adding this if there's already info
 
 		return stack.join(", ");
-	},
+	}
 };
-DatetimeUtil._MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-DatetimeUtil._SECS_PER_YEAR = 31536000;
-DatetimeUtil._SECS_PER_DAY = 86400;
-DatetimeUtil._SECS_PER_HOUR = 3600;
-DatetimeUtil._SECS_PER_MINUTE = 60;
 
 globalThis.EditorUtil = class {
 	static getTheme () {
@@ -9384,14 +9506,14 @@ if (!globalThis.IS_VTT && typeof window !== "undefined") {
 				"div-gpt-ad-5etools36834", // mobile middle
 			].forEach(id => {
 				const iv = setInterval(() => {
-					const $wrp = $(`#${id}`);
-					if (!$wrp.length) return;
-					if (!$wrp.children().length) return;
-					if ($wrp.children()[0].tagName === "SCRIPT") return;
-					const $tgt = $wrp.closest(".cancer__anchor").find(".cancer__disp-cancer");
-					if ($tgt.length) {
+					const wrp = es(`#${id}`);
+					if (!wrp) return;
+					if (!wrp.childrene().length) return;
+					if (wrp.childrene()[0].tagName === "SCRIPT") return;
+					const tgt = wrp.closeste(".cancer__anchor")?.find(".cancer__disp-cancer");
+					if (tgt) {
 						anyFound = true;
-						$tgt.css({display: "flex"}).text("Advertisements");
+						tgt.css({display: "flex"}).text("Advertisements");
 						clearInterval(iv);
 					}
 				}, 250);
@@ -9404,25 +9526,25 @@ if (!globalThis.IS_VTT && typeof window !== "undefined") {
 				if (isPadded) return;
 				isPadded = true;
 				// Pad the bottom of the page so the adhesive unit doesn't overlap the content
-				$(`.view-col-group--cancer`).append(`<div class="w-100 no-shrink" style="height: 110px;"></div>`);
+				em(`.view-col-group--cancer`).forEach(ele => ele.appends(`<div class="ve-w-100 ve-no-shrink" style="height: 110px;"></div>`));
 			}, 300);
 			ivsCancer.push(ivPad);
 		});
 
 		// Hack to lock the ad space at a fixed size--prevents the screen from shifting around once loaded
 		setTimeout(() => {
-			const $wrp = $(`.cancer__wrp-leaderboard-inner`);
-			if (anyFound) $wrp.css({height: 90});
+			const wrps = em(`.cancer__wrp-leaderboard-inner`);
+			if (anyFound) wrps.forEach(ele => ele.css({height: 90}));
 			ivsCancer.forEach(iv => clearInterval(iv));
 		}, 6500);
 	} else {
-		if (!isDbgCancer) window.addEventListener("load", () => $(`.cancer__anchor`).remove());
+		if (!isDbgCancer) window.addEventListener("load", () => em(`.cancer__anchor`).forEach(ele => ele.remove()));
 	}
 
 	if (isDbgCancer) {
 		window.addEventListener("load", () => {
-			$(`.cancer__sidebar-inner--top`).append(`<div style="width: 300px; height: 600px; background: #f0f;"></div>`);
-			$(`.cancer__sidebar-inner--bottom`).append(`<div style="width: 300px; height: 600px; background: #f0f;"></div>`);
+			em(`.cancer__sidebar-inner--top`).forEach(ele => ele.appends(`<div style="width: 300px; height: 600px; background: #f0f;"></div>`));
+			em(`.cancer__sidebar-inner--bottom`).forEach(ele => ele.appends(`<div style="width: 300px; height: 600px; background: #f0f;"></div>`));
 		});
 	}
 	// endregion

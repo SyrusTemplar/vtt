@@ -21,7 +21,7 @@ class _RenderableCollectionStatsCols extends RenderableCollectionGenericRows {
 	}
 
 	_populateRow ({comp, wrpRow, entity}) {
-		wrpRow.addClass("py-1p");
+		wrpRow.addClass("ve-py-1p");
 
 		const meta = InitiativeTrackerStatColumnFactory.fromPopulateWith({populateWith: comp._state.populateWith});
 
@@ -29,23 +29,23 @@ class _RenderableCollectionStatsCols extends RenderableCollectionGenericRows {
 
 		const cbIsEditable = ComponentUiUtil.getCbBool(comp, "isEditable");
 
-		const btnVisible = InitiativeTrackerUi.getBtnPlayerVisible(
-			comp._state.isPlayerVisible,
-			() => comp._state.isPlayerVisible = btnVisible.hasClass("ve-btn-primary--half")
+		const btnVisible = InitiativeTrackerUi.getBtnPlayerVisible({
+			isVisible: comp._state.isPlayerVisible,
+			fnOnClick: () => comp._state.isPlayerVisible = btnVisible.hasClass("ve-btn-primary--half")
 				? IS_PLAYER_VISIBLE_PLAYER_UNITS_ONLY
 				: btnVisible.hasClass("ve-btn-primary")
 					? IS_PLAYER_VISIBLE_ALL
 					: IS_PLAYER_VISIBLE_NONE,
-			true,
-		);
+			isTriState: true,
+		});
 
 		const btnDelete = this._utils.getBtnDelete({entity});
 
 		const padDrag = this._utils.getPadDrag({wrpRow: wrpRow[0]});
 
 		ee(wrpRow)`
-			<div class="ve-col-5 pr-1">${meta.constructor.NAME}</div>
-			<div class="ve-col-3 pr-1">${iptAbv}</div>
+			<div class="ve-col-5 ve-pr-1">${meta.constructor.NAME}</div>
+			<div class="ve-col-3 ve-pr-1">${iptAbv}</div>
 			<div class="ve-col-1-5 ve-text-center">${cbIsEditable}</div>
 			<div class="ve-col-1-5 ve-text-center">${btnVisible}</div>
 
@@ -114,7 +114,7 @@ export class InitiativeTrackerSettings extends BaseComponent {
 	/* -------------------------------------------- */
 
 	pGetShowModalResults () {
-		const {eleModalInner, $modalFooter, pGetResolved, doClose} = UiUtil.getShowModal({
+		const {eleModalInner, eleModalFooter, pGetResolved, doClose} = UiUtil.getShowModal({
 			title: "Settings",
 			isUncappedHeight: true,
 			hasFooter: true,
@@ -129,7 +129,7 @@ export class InitiativeTrackerSettings extends BaseComponent {
 		UiUtil.addModalSep(eleModalInner);
 		this._pGetShowModalResults_renderSection_additionalCols({eleModalInner});
 
-		this._pGetShowModalResults_renderFooter({$modalFooter, doClose});
+		this._pGetShowModalResults_renderFooter({eleModalFooter, doClose});
 
 		return pGetResolved();
 	}
@@ -182,23 +182,23 @@ export class InitiativeTrackerSettings extends BaseComponent {
 				}),
 		);
 
-		const $btnAddRow = $(`<button class="ve-btn ve-btn-default ve-btn-xs bb-0 bbr-0 bbl-0" title="Add"><span class="glyphicon glyphicon-plus"></span></button>`)
-			.click(evt => ContextUtil.pOpenMenu(evt, menuAddStatsCol));
+		const btnAddRow = ee`<button class="ve-btn ve-btn-default ve-btn-xs ve-bb-0 ve-bbr-0 ve-bbl-0" title="Add"><span class="glyphicon glyphicon-plus"></span></button>`
+			.onn("click", evt => ContextUtil.pOpenMenu(evt, menuAddStatsCol));
 
-		const $wrpTblStatsHead = $$`<div class="ve-flex-vh-center w-100 mb-2 bb-1p-trans">
+		const wrpTblStatsHead = ee`<div class="ve-flex-vh-center ve-w-100 ve-mb-2 ve-bb-1p-trans">
 			<div class="ve-col-5">Contains</div>
 			<div class="ve-col-3">Abbreviation</div>
-			<div class="ve-col-1-5 ve-text-center help" title="Only affects creatures. Players are always editable.">Editable</div>
+			<div class="ve-col-1-5 ve-text-center ve-help" title="Only affects creatures. Players are always editable.">Editable</div>
 			<div class="ve-col-1-5">&nbsp;</div>
-			<div class="ve-col-1 ve-flex-v-center ve-flex-h-right">${$btnAddRow}</div>
+			<div class="ve-col-1 ve-flex-v-center ve-flex-h-right">${btnAddRow}</div>
 		</div>`
 			.appendTo(eleModalInner);
 
-		this._addHookBase("isStatsAddColumns", () => $wrpTblStatsHead.toggleVe(this._state.isStatsAddColumns))();
+		this._addHookBase("isStatsAddColumns", () => wrpTblStatsHead.toggleVe(this._state.isStatsAddColumns))();
 	}
 
 	_pGetShowModalResults_renderSection_additionalCols_body ({eleModalInner}) {
-		const wrpRows = ee`<div class="pr-1 h-120p ve-flex-col ve-overflow-y-auto relative"></div>`.appendTo(eleModalInner);
+		const wrpRows = ee`<div class="ve-pr-1 ve-h-120p ve-flex-col ve-overflow-y-auto ve-relative"></div>`.appendTo(eleModalInner);
 		this._addHookBase("isStatsAddColumns", () => wrpRows.toggleVe(this._state.isStatsAddColumns))();
 
 		const renderableCollectionStatsCols = new _RenderableCollectionStatsCols(
@@ -215,12 +215,12 @@ export class InitiativeTrackerSettings extends BaseComponent {
 
 	/* -------------------------------------------- */
 
-	_pGetShowModalResults_renderFooter ({$modalFooter, doClose}) {
-		const $btnSave = $(`<button class="ve-btn ve-btn-primary ve-btn-sm w-100">Save</button>`)
-			.click(() => doClose(true));
+	_pGetShowModalResults_renderFooter ({eleModalFooter, doClose}) {
+		const btnSave = ee`<button class="ve-btn ve-btn-primary ve-btn-sm ve-w-100">Save</button>`
+			.onn("click", () => doClose(true));
 
-		$$($modalFooter)`<div class="w-100 py-3 no-shrink">
-			${$btnSave}
+		ee(eleModalFooter)`<div class="ve-w-100 ve-py-3 ve-no-shrink">
+			${btnSave}
 		</div>`;
 	}
 }

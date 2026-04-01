@@ -149,6 +149,7 @@ export class BrewDocContentMigrator {
 					"_preserve": {
 						"page": true,
 						"otherSources": true,
+						"referenceSources": true,
 						"srd": true,
 						"basicRules": true,
 						"reprintedAs": true,

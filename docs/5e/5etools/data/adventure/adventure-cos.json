@@ -2623,7 +2623,7 @@
 												"The sound of snapping twigs draws your attention to several dark shapes in the fog. They carry torches and pitchforks."
 											]
 										},
-										"If the characters are moving quietly and not carrying light sources, they can try to hide from these Barovians, who carry pitchforks (+2 to hit) instead of clubs, dealing 3 ({@dice 1d6}) piercing damage on a hit.",
+										"If the characters are moving quietly and not carrying light sources, they can try to hide from these Barovians, who carry pitchforks ({@hit 2} to hit) instead of clubs, dealing 3 ({@dice 1d6}) piercing damage on a hit.",
 										"{@creature Barovian Commoner|CoS|Barovian commoners} rarely leave their settlements. This group might be a family looking for a safer place to live, or an angry mob searching for the characters or heading toward Castle Ravenloft to confront Strahd."
 									]
 								},
@@ -2642,7 +2642,7 @@
 											]
 										},
 										"If more than one scout is present, the others are spread out over a 100-foot-square area.",
-										"These {@creature Scout||scouts} are Barovian hunters or trappers searching for a missing villager or townsperson. Once they realize the characters aren't out to kill them, they lower their weapons and request help in finding their missing person. If the characters decline, the scouts point them in the direction of the nearest settlement and depart without so much as a farewell. They wield light crossbows (+4 to hit, range 80/320 ft.) instead of longbows, dealing 6 ({@dice 1d8 + 2}) piercing damage on a hit.",
+										"These {@creature Scout||scouts} are Barovian hunters or trappers searching for a missing villager or townsperson. Once they realize the characters aren't out to kill them, they lower their weapons and request help in finding their missing person. If the characters decline, the scouts point them in the direction of the nearest settlement and depart without so much as a farewell. They wield light crossbows ({@hit 4} to hit, range 80/320 ft.) instead of longbows, dealing 6 ({@dice 1d8 + 2}) piercing damage on a hit.",
 										{
 											"type": "inset",
 											"name": "Strahd's Spies",
@@ -29963,7 +29963,7 @@
 											]
 										},
 										"Victor found a spellbook in his father's library and is using it to teach himself the art of spellcasting. Only recently has he been able to decipher some of its high-level spells. He's a weird, awkward, and off-putting fellow who is dangerous only if threatened.",
-										"For practice and for fun, Victor dug up some old cat bones behind the Wachter estate (see {@area area N4|39a|x}) and animated them, creating six cat skeletons (use the {@creature cat} stat block, but give them {@sense darkvision} out to a range of 60 feet and immunity to poison damage, {@condition exhaustion}, and the {@condition poisoned} condition). The skeletons attack only when Victor commands them to.",
+										"For practice and for fun, Victor dug up some old cat bones behind the Wachter estate (see {@area area N4|39a|x}) and animated them, creating six {@creature cat skeleton|CoS|cat skeletons} (use the {@creature cat} stat block, but give them {@sense darkvision} out to a range of 60 feet and immunity to poison damage, {@condition exhaustion}, and the {@condition poisoned} condition). The skeletons attack only when Victor commands them to.",
 										"The \"children\" standing in the corner are painted wooden dolls dressed in clothing that Victor wore as a child. He pretends they are his disobedient pupils.",
 										"The sheets of parchment are covered with elaborate diagrams of teleportation circles. Victor drew them in an effort to learn the {@spell teleportation circle} spell, which he's still trying to master (see \"Teleportation Circle\" below).",
 										"The trunk contains several bolts of silk cloth, needles and thread, and a half-finished wizard's robe. Victor started to make the robe for himself but found the work tedious and stopped.",
@@ -35932,7 +35932,7 @@
 											"page": 142,
 											"id": "4b0",
 											"entries": [
-												"{@atk rw} +2 to hit, range 150/600 ft., one target. Hit: 4 ({@dice 1d8}) force damage."
+												"{@atk rw} {@hit 2} to hit, range 150/600 ft., one target. Hit: 4 ({@dice 1d8}) force damage."
 											]
 										}
 									]
@@ -50954,49 +50954,49 @@
 									"page": 239,
 									"id": "7c3",
 									"entries": [
-										"Whenever Strahd appears in a location other than his tomb or the place indicated by the card reading, roll a {@dice d20} and consult the Strahd's Minions table to determine what creatures he brings with him, if any."
-									]
-								},
-								{
-									"type": "table",
-									"caption": "Strahd's Minions",
-									"colLabels": [
-										"d20",
-										"Creatures"
-									],
-									"colStyles": [
-										"col-2 text-center",
-										"col-10"
-									],
-									"rows": [
-										[
-											"1\u20133",
-											"{@dice 1d4 + 2} {@creature Dire Wolf||dire wolves}"
-										],
-										[
-											"4\u20136",
-											"{@dice 1d6 + 3} {@creature Ghoul||ghouls}"
-										],
-										[
-											"7\u20139",
-											"{@dice 1d4 + 2} {@creature Strahd Zombie|CoS|Strahd zombies} (in this {@area appendix|7c7|x})"
-										],
-										[
-											"10\u201312",
-											"{@dice 2d4} {@creature Swarm of Bats||swarms of bats}"
-										],
-										[
-											"13\u201315",
-											"{@dice 1d4 + 1} {@creature Vampire Spawn||vampire spawns}"
-										],
-										[
-											"16\u201318",
-											"{@dice 3d6} {@creature Wolf||wolves}"
-										],
-										[
-											"19\u201320",
-											"None"
-										]
+										"Whenever Strahd appears in a location other than his tomb or the place indicated by the card reading, roll a {@dice d20} and consult the Strahd's Minions table to determine what creatures he brings with him, if any.",
+										{
+											"type": "table",
+											"caption": "Strahd's Minions",
+											"colLabels": [
+												"d20",
+												"Creatures"
+											],
+											"colStyles": [
+												"col-2 text-center",
+												"col-10"
+											],
+											"rows": [
+												[
+													"1\u20133",
+													"{@dice 1d4 + 2} {@creature Dire Wolf||dire wolves}"
+												],
+												[
+													"4\u20136",
+													"{@dice 1d6 + 3} {@creature Ghoul||ghouls}"
+												],
+												[
+													"7\u20139",
+													"{@dice 1d4 + 2} {@creature Strahd Zombie|CoS|Strahd zombies} (in this {@area appendix|7c7|x})"
+												],
+												[
+													"10\u201312",
+													"{@dice 2d4} {@creature Swarm of Bats||swarms of bats}"
+												],
+												[
+													"13\u201315",
+													"{@dice 1d4 + 1} {@creature Vampire Spawn||vampire spawns}"
+												],
+												[
+													"16\u201318",
+													"{@dice 3d6} {@creature Wolf||wolves}"
+												],
+												[
+													"19\u201320",
+													"None"
+												]
+											]
+										}
 									]
 								},
 								"If the characters are in a residence, Strahd's creatures break through doors and windows to reach them, or crawl up through the earth, or swoop down the chimney. The vampire spawn (all that's left of a party of adventurers that Strahd defeated long ago) can't enter the characters' location unless invited.",
@@ -51130,7 +51130,7 @@
 														"His Armor Class is 17 (half plate).",
 														"He has 192 hit points.",
 														"He speaks Common and Draconic.",
-														"Vladimir wields a {@item +2 Greatsword||greatsword, +2} with a hilt sculpted to resemble silver dragon wings and a pommel shaped like a silver dragon's head clutching a black opal between its teeth. As an action, he can make two attacks with the sword (+9 to hit). It deals 20 ({@dice 4d6 + 6}) slashing damage on a hit. Against Strahd, Vladimir deals an extra 14 ({@dice 4d6}) slashing damage with the weapon.",
+														"Vladimir wields a {@item +2 Greatsword||greatsword, +2} with a hilt sculpted to resemble silver dragon wings and a pommel shaped like a silver dragon's head clutching a black opal between its teeth. As an action, he can make two attacks with the sword ({@hit 9} to hit). It deals 20 ({@dice 4d6 + 6}) slashing damage on a hit. Against Strahd, Vladimir deals an extra 14 ({@dice 4d6}) slashing damage with the weapon.",
 														"Vladimir has a challenge rating of 7 (2,900 XP)."
 													]
 												},

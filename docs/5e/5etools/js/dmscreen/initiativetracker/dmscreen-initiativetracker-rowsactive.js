@@ -110,12 +110,12 @@ class _RenderableCollectionRowDataActive extends RenderableCollectionRowDataBase
 				});
 			});
 
-		ee`<div class="dm-init__wrp-creature split">
+		ee`<div class="dm-init__wrp-creature ve-split">
 			<span class="dm-init__wrp-creature-link">
 				${lnk}
 				${dispOrdinal}
 			</span>
-			<div class="ve-flex-v-center ve-btn-group mr-3p">
+			<div class="ve-flex-v-center ve-btn-group ve-mr-3p">
 				${btnRename}
 				${btnDuplicate}
 			</div>
@@ -164,9 +164,9 @@ class _RenderableCollectionRowDataActive extends RenderableCollectionRowDataBase
 				];
 			});
 
-		const wrpConds = ee`<div class="init__wrp_conds h-100"></div>`;
+		const wrpConds = ee`<div class="init__wrp_conds ve-h-100"></div>`;
 
-		ee`<div class="split">
+		ee`<div class="ve-split">
 			${wrpConds}
 			${btnAddCond}
 		</div>`
@@ -189,7 +189,7 @@ class _RenderableCollectionRowDataActive extends RenderableCollectionRowDataBase
 			{
 				isAllowNull: true,
 				fallbackOnNaN: null,
-				html: `<input class="form-control input-sm score dm-init-lockable dm-init__row-input ve-text-center dm-init__ipt--rhs">`,
+				html: `<input class="ve-form-control ve-input-sm score dm-init-lockable dm-init__row-input ve-text-center dm-init__ipt--rhs">`,
 			},
 		)
 			.onn("click", () => iptInitiative.selecte())
@@ -199,16 +199,17 @@ class _RenderableCollectionRowDataActive extends RenderableCollectionRowDataBase
 	/* ----- */
 
 	_pPopulateRow_btns ({comp, entity, wrpRhs}) {
-		const btnVisible = InitiativeTrackerUi.getBtnPlayerVisible(
-			comp._state.isPlayerVisible,
-			() => comp._state.isPlayerVisible = btnVisible.hasClass("ve-btn-primary")
+		const btnVisible = InitiativeTrackerUi.getBtnPlayerVisible({
+			isVisible: comp._state.isPlayerVisible,
+			fnOnClick: () => comp._state.isPlayerVisible = btnVisible.hasClass("ve-btn-primary")
 				? IS_PLAYER_VISIBLE_ALL
 				: IS_PLAYER_VISIBLE_NONE,
-			false,
-		)
+			additionalClasses: [
+				"dm-init__row-btn",
+				"dm-init__btn_eye",
+			],
+		})
 			.tooltip("Shown in player view")
-			.addClass("dm-init__row-btn")
-			.addClass("dm-init__btn_eye")
 			.appendTo(wrpRhs);
 
 		ee`<button class="ve-btn ve-btn-danger ve-btn-xs dm-init__row-btn dm-init-lockable" title="Delete (SHIFT to Also Delete Similar)" tabindex="-1"><span class="glyphicon glyphicon-trash"></span></button>`
@@ -363,7 +364,9 @@ class _RenderableCollectionRowDataActive extends RenderableCollectionRowDataBase
 	}
 
 	async pDoShiftActiveRow ({direction}) {
-		const {isRoundStart, rows} = this._pDoShiftActiveRow_doInitialShift({direction});
+		const initialShiftInfo = this._pDoShiftActiveRow_doInitialShift({direction});
+		if (!initialShiftInfo) return;
+		const {isRoundStart, rows} = initialShiftInfo;
 
 		if (direction !== InitiativeTrackerConst.DIR_FORWARDS || !isRoundStart || !this._comp._state.isRerollInitiativeEachRound) return this._comp._state[this._prop] = rows;
 
@@ -412,8 +415,8 @@ export class InitiativeTrackerRowDataViewActive extends InitiativeTrackerRowData
 	_TextHeaderLhs = "Creature/Status";
 	_ClsRenderableCollectionRowData = _RenderableCollectionRowDataActive;
 
-	_render_$getWrpHeaderRhs ({rdState}) {
-		return $$`<div class="dm-init__row-rhs">
+	_render_getWrpHeaderRhs ({rdState}) {
+		return ee`<div class="dm-init__row-rhs">
 			<div class="dm-init__header dm-init__header--input dm-init__header--input-wide" title="Hit Points">HP</div>
 			<div class="dm-init__header dm-init__header--input" title="Initiative Score">#</div>
 			<div class="dm-init__spc-header-buttons"></div>
@@ -462,9 +465,9 @@ export class InitiativeTrackerRowDataViewActive extends InitiativeTrackerRowData
 				if (!renderedsActive.length) return;
 
 				// First scroll the last active row into view to scroll down as far as necessary...
-				renderedsActive.last()?.$wrpRow?.[0]?.scrollIntoView({block: "nearest", inline: "nearest"});
+				renderedsActive.last()?.wrpRow?.scrollIntoView({block: "nearest", inline: "nearest"});
 				// ...then scroll the first active row into view, as this is the one we prioritize
-				renderedsActive[0]?.$wrpRow?.[0]?.scrollIntoView({block: "nearest", inline: "nearest"});
+				renderedsActive[0]?.wrpRow?.scrollIntoView({block: "nearest", inline: "nearest"});
 				// endregion
 			} finally {
 				this._compRowsLock.unlock();

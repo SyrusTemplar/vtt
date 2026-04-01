@@ -1673,7 +1673,7 @@
 							{
 								"type": "quote",
 								"entries": [
-									"Fish will not live where the water is too clear."
+									"Tether even a roasted chicken."
 								],
 								"by": "Yamamoto Tsunetomo",
 								"from": "Hagakure Kikigaki"
@@ -1719,7 +1719,8 @@
 												"bludgeoning"
 											]
 										}
-									]
+									],
+									"includeBase": false
 								}
 							}
 						]
@@ -6543,7 +6544,7 @@
 							},
 							{
 								"type": "itemUses",
-								"value": "0 - @scaling",
+								"value": "0 - (@scaling)",
 								"scaling": {
 									"mode": "amount"
 								},
@@ -11369,19 +11370,31 @@
 			"level": 3,
 			"activities": [
 				{
-					"type": "damage",
-					"damage": {
-						"parts": [
+					"type": "heal",
+					"activation": {
+						"type": "bonus"
+					},
+					"consumption": {
+						"targets": [
 							{
-								"custom": {
-									"enabled": true,
-									"formula": "@classes.artificer.levels"
-								},
-								"types": [
-									"temphp"
-								]
+								"type": "itemUses",
+								"value": "1"
 							}
 						]
+					},
+					"target": {
+						"affects": {
+							"type": "self"
+						}
+					},
+					"healing": {
+						"types": [
+							"temphp"
+						],
+						"custom": {
+							"enabled": true,
+							"formula": "@classes.artificer.levels"
+						}
 					}
 				}
 			],

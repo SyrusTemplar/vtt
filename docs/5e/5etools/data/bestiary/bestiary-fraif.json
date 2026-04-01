@@ -3522,10 +3522,8 @@
 			"name": "Phaerimm Agent",
 			"source": "FRAiF",
 			"page": 269,
-			"otherSources": [
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"NF"
 			],
 			"size": [
 				"L"
@@ -3710,10 +3708,8 @@
 			"name": "Phaerimm Hatchling",
 			"source": "FRAiF",
 			"page": 268,
-			"otherSources": [
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"NF"
 			],
 			"size": [
 				"S"

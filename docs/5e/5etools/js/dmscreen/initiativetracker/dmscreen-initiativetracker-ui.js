@@ -1,9 +1,9 @@
 export class InitiativeTrackerUi {
-	static getBtnPlayerVisible (isVisible, fnOnClick, isTriState, ...additionalClasses) {
+	static getBtnPlayerVisible ({isVisible, fnOnClick, isTriState = false, additionalClasses}) {
 		let isVisNum = Number(isVisible || false);
 
 		const getTitle = () => isVisNum === 0 ? `Hidden in player view` : isVisNum === 1 ? `Shown in player view` : `Shown in player view on player characters, hidden in player view on monsters`;
-		const getClasses = () => `${isVisNum === 0 ? `ve-btn-default` : isVisNum === 1 ? `ve-btn-primary` : `ve-btn-primary ve-btn-primary--half`} ve-btn ve-btn-xs ${additionalClasses.join(" ")}`;
+		const getClasses = () => `${isVisNum === 0 ? `ve-btn-default` : isVisNum === 1 ? `ve-btn-primary` : `ve-btn-primary ve-btn-primary--half`} ve-btn ve-btn-xs ${(additionalClasses || []).join(" ")}`;
 		const getIconClasses = () => isVisNum === 0 ? `glyphicon glyphicon-eye-close` : `glyphicon glyphicon-eye-open`;
 
 		const dispIcon = ee`<span class="glyphicon ${getIconClasses()}"></span>`;

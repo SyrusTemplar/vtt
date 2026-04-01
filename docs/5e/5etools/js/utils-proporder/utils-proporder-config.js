@@ -64,13 +64,34 @@ const getFoundryGeneric = ({propsMatchAdditional = [], isFeature = false} = {}) 
 };
 
 const PROPORDER_META = [
-	"sources",
+	new ArrayKey("sources", {
+		fnGetOrder: () => [
+			"json",
+			"abbreviation",
+			"full",
+
+			"url",
+			"version",
+			"dateReleased",
+
+			new ArrayKey("authors", {fnSort: SortUtil.ascSortLower}),
+			new ArrayKey("convertedBy", {fnSort: SortUtil.ascSortLower}),
+
+			"partnered",
+
+			"color",
+			"colorNight",
+
+			"targetSchema",
+		],
+	}),
 
 	"dependencies",
 	"includes",
 	"internalCopies",
 
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 
 	"spellSchools",
 	"spellDistanceUnits",
@@ -90,6 +111,8 @@ const PROPORDER_META = [
 	"_dateLastModifiedHash",
 ];
 const PROPORDER_TEST = [
+	"references",
+
 	"additionalImageSources",
 ];
 const PROPORDER_FOUNDRY_GENERIC = getFoundryGeneric();
@@ -113,6 +136,7 @@ const PROPORDER_MONSTER = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"isReprinted",
 	"reprintedAs",
 
@@ -263,7 +287,7 @@ const PROPORDER_MONSTER = [
 			"_implementations",
 			...PROPORDER_MONSTER,
 		],
-		fnSort: getFnRootPropListSort("monster"),
+		fnSort: getFnRootPropListSort("monster", {isRequired: true}),
 	}),
 ];
 const PROPORDER_MONSTER__COPY_MOD = [
@@ -398,6 +422,7 @@ const PROPORDER_SPELL = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	ObjectKey.getCopyKey({fnGetModOrder: () => PROPORDER_SPELL__COPY_MOD}),
@@ -453,8 +478,8 @@ const PROPORDER_SPELL = [
 
 	...PROPS_FOUNDRY_DATA_INLINE,
 
-	new ObjectKey("roll20Spell", {
-		order: PROPORDER_ROLL20_SPELL,
+	new ArrayKey("roll20Spell", {
+		fnGetOrder: () => PROPORDER_ROLL20_SPELL,
 	}),
 ];
 const PROPORDER_SPELL__COPY_MOD = [
@@ -485,6 +510,7 @@ const PROPORDER_ACTION = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"fromVariant",
@@ -566,6 +592,7 @@ const PROPORDER_BACKGROUND = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"edition",
@@ -648,6 +675,7 @@ const PROPORDER_CLASS = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"isReprinted",
 	"reprintedAs",
 
@@ -749,6 +777,7 @@ const PROPORDER_SUBCLASS = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"isReprinted",
 	"reprintedAs",
 
@@ -852,6 +881,7 @@ const PROPORDER_CLASS_FEATURE = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 
 	"className",
 	"classSource",
@@ -900,6 +930,7 @@ const PROPORDER_SUBCLASS_FEATURE = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 
 	"className",
 	"classSource",
@@ -1031,6 +1062,7 @@ const PROPORDER_LANGUAGE = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"type",
@@ -1084,6 +1116,7 @@ const PROPORDER_CONDITION = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"color",
@@ -1108,6 +1141,7 @@ const PROPORDER_DISEASE = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"type",
@@ -1134,6 +1168,7 @@ const PROPORDER_STATUS = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"color",
@@ -1157,6 +1192,7 @@ const PROPORDER_CULT = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"type",
@@ -1179,6 +1215,7 @@ const PROPORDER_BOON = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"type",
@@ -1205,6 +1242,7 @@ const PROPORDER_DEITY = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 
 	new ObjectKey("_copy", {
 		order: [
@@ -1262,6 +1300,7 @@ const PROPORDER_FEAT = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	ObjectKey.getCopyKey({fnGetModOrder: () => PROPORDER_FEAT__COPY_MOD}),
@@ -1319,7 +1358,7 @@ const PROPORDER_FEAT = [
 			"_implementations",
 			...PROPORDER_FEAT,
 		],
-		fnSort: getFnRootPropListSort("feat"),
+		fnSort: getFnRootPropListSort("feat", {isRequired: true}),
 	}),
 ];
 const PROPORDER_FEAT__COPY_MOD = [
@@ -1338,6 +1377,7 @@ const PROPORDER_VEHICLE = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"vehicleType",
@@ -1415,6 +1455,7 @@ const PROPORDER_VEHICLE_UPGRADE = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 
 	"upgradeType",
 
@@ -1448,6 +1489,7 @@ const PROPORDER_ITEM = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	ObjectKey.getCopyKey({fnGetModOrder: () => PROPORDER_ITEM__COPY_MOD}),
@@ -1653,6 +1695,7 @@ const PROPORDER_MAGICVARIANT = [
 	"alias",
 	"group",
 	"source",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 
 	ObjectKey.getCopyKey({fnGetModOrder: () => PROPORDER_MAGICVARIANT__COPY_MOD}),
 
@@ -1793,6 +1836,7 @@ const PROPORDER_OBJECT = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"size",
@@ -1848,6 +1892,7 @@ const PROPORDER_OPTIONALFEATURE = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	ObjectKey.getCopyKey({fnGetModOrder: () => PROPORDER_OPTIONALFEATURE__COPY_MOD}),
@@ -1922,6 +1967,7 @@ const PROPORDER_REWARD = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"type",
@@ -1951,6 +1997,7 @@ const PROPORDER_VARIANTRULE = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"ruleType",
@@ -1968,6 +2015,7 @@ const PROPORDER_RACE_SUBRACE = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"edition",
@@ -2047,7 +2095,7 @@ const PROPORDER_RACE_SUBRACE = [
 			"_implementations",
 			...PROPORDER_RACE,
 		],
-		fnSort: getFnRootPropListSort("subrace"),
+		fnSort: getFnRootPropListSort("subrace", {isRequired: true}),
 	}),
 ];
 const PROPORDER_RACE = [
@@ -2092,6 +2140,7 @@ const PROPORDER_TABLE = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 
 	"type",
 
@@ -2129,6 +2178,7 @@ const PROPORDER_TRAP = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"trapHazType",
@@ -2170,6 +2220,7 @@ const PROPORDER_HAZARD = [
 	"basicRules2024",
 	"additionalSources",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"trapHazType",
@@ -2191,6 +2242,7 @@ const PROPORDER_RECIPE = [
 	"page",
 
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 
 	"type",
 	"dishTypes",
@@ -2223,6 +2275,7 @@ const PROPORDER_CHAROPTION = [
 	"page",
 
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 
 	"prerequisite",
 
@@ -2246,6 +2299,7 @@ const PROPORDER_SKILL = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"ability",
@@ -2263,6 +2317,7 @@ const PROPORDER_SENSE = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"entries",
@@ -2278,6 +2333,7 @@ const PROPORDER_DECK = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 
 	ObjectKey.getCopyKey({fnGetModOrder: () => PROPORDER_DECK__COPY_MOD}),
 
@@ -2306,6 +2362,7 @@ const PROPORDER_CARD = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 
 	"suit",
 	"value",
@@ -2376,6 +2433,7 @@ const PROPORDER_FACILITY = [
 	"basicRules",
 	"basicRules2024",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"facilityType",
@@ -2408,6 +2466,7 @@ const PROPORDER_ENCOUNTER_SHAPE = [
 	"source",
 	"page",
 	"otherSources",
+	new ArrayKey("referenceSources", {fnSort: SortUtil.ascSortLower}),
 	"reprintedAs",
 
 	"shapeTemplate",
@@ -2482,6 +2541,7 @@ export const PROPORDER_PROP_TO_LIST = {
 	"item": PROPORDER_ITEM,
 	"foundryItem": PROPORDER_FOUNDRY_GENERIC,
 	"baseitem": PROPORDER_ITEM,
+	"foundryBaseitem": PROPORDER_FOUNDRY_GENERIC,
 	"magicvariant": PROPORDER_MAGICVARIANT,
 	"foundryMagicvariant": PROPORDER_FOUNDRY_GENERIC,
 	"itemGroup": PROPORDER_ITEM,
@@ -2585,6 +2645,7 @@ export const PROPORDER_ROOT = [
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "itemGroup"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "magicvariant"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "itemFluff"),
+	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "foundryBaseitem"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "foundryItem"),
 	ArrayKey.getRootKey(PROPORDER_PROP_TO_LIST, "foundryMagicvariant"),
 

@@ -1946,16 +1946,10 @@
 			"name": "Giant Skeleton",
 			"source": "TftYP",
 			"page": 236,
-			"otherSources": [
-				{
-					"source": "DC"
-				},
-				{
-					"source": "SDW"
-				},
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"DC",
+				"IMR",
+				"SDW"
 			],
 			"size": [
 				"H"
@@ -2263,16 +2257,10 @@
 			"name": "Greater Zombie",
 			"source": "TftYP",
 			"page": 237,
-			"otherSources": [
-				{
-					"source": "DC"
-				},
-				{
-					"source": "SDW"
-				},
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"DC",
+				"IMR",
+				"SDW"
 			],
 			"size": [
 				"M"
@@ -2667,10 +2655,8 @@
 			"name": "Huge Giant Crab",
 			"source": "TftYP",
 			"page": 103,
-			"otherSources": [
-				{
-					"source": "SLW"
-				}
+			"referenceSources": [
+				"SLW"
 			],
 			"size": [
 				"H"
@@ -3482,10 +3468,8 @@
 			"name": "Lacedon",
 			"source": "TftYP",
 			"page": 147,
-			"otherSources": [
-				{
-					"source": "EGW"
-				}
+			"referenceSources": [
+				"EGW"
 			],
 			"_copy": {
 				"name": "Ghoul",
@@ -3520,8 +3504,38 @@
 						"replace": "the evoker",
 						"with": "Lahnis",
 						"flags": "i"
+					},
+					"trait": {
+						"mode": "appendArr",
+						"items": {
+							"name": "Special Equipment",
+							"entries": [
+								"Lahnis wears a {@item ring of protection}."
+							]
+						}
 					}
 				}
+			},
+			"ac": [
+				{
+					"ac": 13,
+					"from": [
+						"{@item ring of protection}"
+					]
+				},
+				{
+					"ac": 16,
+					"condition": "with {@spell mage armor}",
+					"braces": true
+				}
+			],
+			"save": {
+				"str": "+0",
+				"dex": "+3",
+				"con": "+2",
+				"int": "+8",
+				"wis": "+6",
+				"cha": "+1"
 			},
 			"hasToken": true,
 			"hasFluffImages": true
@@ -4944,10 +4958,8 @@
 			"name": "Scrag",
 			"source": "TftYP",
 			"page": 147,
-			"otherSources": [
-				{
-					"source": "RoT"
-				}
+			"referenceSources": [
+				"RoT"
 			],
 			"_copy": {
 				"name": "Troll",
@@ -4965,12 +4977,13 @@
 			"page": 242,
 			"otherSources": [
 				{
-					"source": "LR"
-				},
-				{
 					"source": "GoS",
 					"page": 252
 				}
+			],
+			"referenceSources": [
+				"GoS",
+				"LR"
 			],
 			"size": [
 				"L"
@@ -5391,10 +5404,8 @@
 			"isNamedCreature": true,
 			"source": "TftYP",
 			"page": 243,
-			"otherSources": [
-				{
-					"source": "MOT"
-				}
+			"referenceSources": [
+				"MOT"
 			],
 			"size": [
 				"M"
@@ -5601,7 +5612,7 @@
 					"name": "Spellcasting",
 					"type": "spellcasting",
 					"headerEntries": [
-						"Snarla is a 6th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 14}, +6 to hit with spell attacks). She has the following wizard spells prepared:"
+						"Snarla is a 6th-level spellcaster. Her spellcasting ability is Intelligence (spell save {@dc 14}, {@hit 6} to hit with spell attacks). She has the following wizard spells prepared:"
 					],
 					"spells": {
 						"0": {

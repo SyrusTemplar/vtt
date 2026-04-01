@@ -255,6 +255,7 @@
 			"name": "Animated Object",
 			"source": "XPHB",
 			"page": 240,
+			"srd52": true,
 			"summonedBySpell": "Animate Objects|XPHB",
 			"summonedBySpellLevel": 5,
 			"size": [
@@ -1071,6 +1072,7 @@
 			"name": "Draconic Spirit",
 			"source": "XPHB",
 			"page": 325,
+			"srd52": true,
 			"summonedBySpell": "Summon Dragon|XPHB",
 			"summonedBySpellLevel": 5,
 			"size": [
@@ -1163,7 +1165,68 @@
 				"dexterity"
 			],
 			"hasToken": true,
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"_versions": [
+				{
+					"_abstract": {
+						"name": "Draconic Spirit ({{resist}})",
+						"source": "XPHB",
+						"_mod": {
+							"trait": [
+								{
+									"mode": "replaceArr",
+									"replace": "Shared Resistances",
+									"items": {
+										"name": "Shared Resistances",
+										"entries": [
+											"You have Resistance to {{resist}} damage until the spell ends."
+										]
+									}
+								}
+							],
+							"action": [
+								{
+									"mode": "replaceArr",
+									"replace": "Breath Weapon",
+									"items": {
+										"name": "Breath Weapon",
+										"entries": [
+											"{@actSave dex} DC equals your spell save DC, each creature in a 30-foot Cone. {@actSaveFail} {@damage 2d6} {{resist}} damage. {@actSaveSuccess} Half damage."
+										]
+									}
+								}
+							]
+						}
+					},
+					"_implementations": [
+						{
+							"_variables": {
+								"resist": "Acid"
+							}
+						},
+						{
+							"_variables": {
+								"resist": "Cold"
+							}
+						},
+						{
+							"_variables": {
+								"resist": "Fire"
+							}
+						},
+						{
+							"_variables": {
+								"resist": "Lightning"
+							}
+						},
+						{
+							"_variables": {
+								"resist": "Poison"
+							}
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "Elemental Spirit",
@@ -2032,6 +2095,7 @@
 			"name": "Otherworldly Steed",
 			"source": "XPHB",
 			"page": 273,
+			"srd52": true,
 			"summonedBySpell": "Find Steed|XPHB",
 			"summonedBySpellLevel": 2,
 			"size": [

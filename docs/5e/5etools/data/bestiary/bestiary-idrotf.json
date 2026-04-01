@@ -941,7 +941,8 @@
 				}
 			],
 			"traitTags": [
-				"Charge"
+				"Charge",
+				"Sure-Footed"
 			],
 			"actionTags": [
 				"Multiattack"
@@ -1553,6 +1554,9 @@
 			"name": "Chwinga",
 			"source": "IDRotF",
 			"page": 282,
+			"referenceSources": [
+				"CM"
+			],
 			"_copy": {
 				"name": "Chwinga",
 				"source": "ToA"
@@ -5300,7 +5304,8 @@
 				}
 			],
 			"traitTags": [
-				"Charge"
+				"Charge",
+				"Sure-Footed"
 			],
 			"damageTags": [
 				"B"

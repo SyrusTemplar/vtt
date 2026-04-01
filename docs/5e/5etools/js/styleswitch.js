@@ -10,7 +10,7 @@ export class StyleSwitcher {
 	];
 
 	static _STYLE_THEME_AUTOMATIC = "auto";
-	static _STYLE_THEME_DAY = "day";
+	static STYLE_THEME_DAY = "day";
 	static _STYLE_THEME_NIGHT = "night";
 	static _STYLE_THEME_NIGHT_ALT = "nightAlt";
 	static _STYLE_THEME_NIGHT_CLEAN = "nightClean";
@@ -32,7 +32,7 @@ export class StyleSwitcher {
 
 	static _STYLE_THEME_TO_DISPLAY_NAME = {
 		[this._STYLE_THEME_AUTOMATIC]: "Browser Default",
-		[this._STYLE_THEME_DAY]: "Day Mode",
+		[this.STYLE_THEME_DAY]: "Day Mode",
 		[this._STYLE_THEME_NIGHT]: "Night Mode",
 		[this._STYLE_THEME_NIGHT_ALT]: "Night Mode (Classic)",
 		[this._STYLE_THEME_NIGHT_CLEAN]: "Night Mode (Clean)",
@@ -62,7 +62,7 @@ export class StyleSwitcher {
 	static getSelStyle () {
 		const selStyle = e_({
 			tag: "select",
-			clazz: "form-control input-xs",
+			clazz: "ve-form-control ve-input-xs",
 			children: Object.entries(this._STYLE_THEME_TO_DISPLAY_NAME)
 				.map(([id, name]) => ee`<option value="${id}">${name}</option>`),
 			change: () => {
@@ -79,7 +79,7 @@ export class StyleSwitcher {
 	static getSelRollboxPosition () {
 		const selStyle = e_({
 			tag: "select",
-			clazz: "form-control input-xs",
+			clazz: "ve-form-control ve-input-xs",
 			children: Object.entries(this._STYLE_ROLLBOX_TO_DISPLAY_NAME)
 				.map(([id, name]) => ee`<option value="${id}">${name}</option>`),
 			change: () => {
@@ -120,13 +120,18 @@ export class StyleSwitcher {
 	}
 
 	getSummary () {
-		return {isNight: this._getResolvedStyleTheme() !== StyleSwitcher._STYLE_THEME_DAY};
+		return {isNight: this._getResolvedStyleTheme() !== StyleSwitcher.STYLE_THEME_DAY};
 	}
 
 	_fnsOnChangeTheme = [];
 	addFnOnChangeTheme (fn) { this._fnsOnChangeTheme.push(fn); }
 
 	// region Night Mode
+	setTemporaryTheme (style) {
+		if (style) this._setActiveStyleThemeClasses(style);
+		else this._setActiveStyleThemeClasses(this._styleTheme);
+	}
+
 	_getResolvedStyleTheme () {
 		if (this._styleTheme === StyleSwitcher._STYLE_THEME_AUTOMATIC) return this.constructor._getDefaultStyleTheme();
 		return this._styleTheme;
@@ -134,18 +139,26 @@ export class StyleSwitcher {
 
 	static _getDefaultStyleTheme () {
 		if (window.matchMedia("(prefers-color-scheme: dark)").matches) return StyleSwitcher._STYLE_THEME_NIGHT;
-		return StyleSwitcher._STYLE_THEME_DAY;
+		return StyleSwitcher.STYLE_THEME_DAY;
 	}
 
 	_setActiveStyleTheme (style) {
 		this._styleTheme = style;
 		const styleResolved = this._getResolvedStyleTheme();
 
+		this._setActiveStyleThemeClasses(styleResolved);
+
+		StyleSwitcher.storage.setItem(StyleSwitcher._STORAGE_KEY_THEME, this._styleTheme);
+
+		this._fnsOnChangeTheme.forEach(fn => fn());
+	}
+
+	_setActiveStyleThemeClasses (styleResolved) {
 		this.constructor._CLASSES_THEME
 			.forEach(clazzName => document.documentElement.classList.remove(clazzName));
 
 		switch (styleResolved) {
-			case StyleSwitcher._STYLE_THEME_DAY: {
+			case StyleSwitcher.STYLE_THEME_DAY: {
 				break;
 			}
 			case StyleSwitcher._STYLE_THEME_NIGHT: {
@@ -164,15 +177,11 @@ export class StyleSwitcher {
 				break;
 			}
 		}
-
-		StyleSwitcher.storage.setItem(StyleSwitcher._STORAGE_KEY_THEME, this._styleTheme);
-
-		this._fnsOnChangeTheme.forEach(fn => fn());
 	}
 
 	getClassNamesStyleTheme () {
 		switch (this._getResolvedStyleTheme()) {
-			case StyleSwitcher._STYLE_THEME_DAY: return "";
+			case StyleSwitcher.STYLE_THEME_DAY: return "";
 			case StyleSwitcher._STYLE_THEME_NIGHT: return [StyleSwitcher._CLASS_THEME_NIGHT, StyleSwitcher._CLASS_THEME_NIGHT_STANDARD].join(" ");
 			case StyleSwitcher._STYLE_THEME_NIGHT_ALT: return [StyleSwitcher._CLASS_THEME_NIGHT, StyleSwitcher._CLASS_THEME_NIGHT_ALT].join(" ");
 			case StyleSwitcher._STYLE_THEME_NIGHT_CLEAN: return [StyleSwitcher._CLASS_THEME_NIGHT, StyleSwitcher._CLASS_THEME_NIGHT_CLEAN].join(" ");

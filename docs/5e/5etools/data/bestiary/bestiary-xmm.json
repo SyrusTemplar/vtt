@@ -4,10 +4,8 @@
 			"name": "Aarakocra Aeromancer",
 			"source": "XMM",
 			"page": 10,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -222,13 +220,9 @@
 			"name": "Aberrant Cultist",
 			"source": "XMM",
 			"page": 86,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -694,13 +688,9 @@
 			"page": 39,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -909,10 +899,8 @@
 			"page": 49,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"H"
@@ -1538,13 +1526,9 @@
 			"page": 79,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -1752,10 +1736,8 @@
 			"page": 145,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -1976,10 +1958,8 @@
 			"page": 153,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -2190,10 +2170,8 @@
 			"page": 255,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -2606,13 +2584,9 @@
 			"page": 329,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -2805,19 +2779,11 @@
 			"page": 13,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				},
-				{
-					"source": "FFotR"
-				}
+			"referenceSources": [
+				"EFA",
+				"FFotR",
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -2948,10 +2914,8 @@
 			"page": 348,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -3030,10 +2994,8 @@
 			"page": 40,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "LFL"
-				}
+			"referenceSources": [
+				"LFL"
 			],
 			"size": [
 				"G"
@@ -3243,13 +3205,9 @@
 			"page": 50,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"G"
@@ -3879,10 +3837,8 @@
 			"page": 80,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"G"
@@ -4091,13 +4047,9 @@
 			"page": 146,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "LFL"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"LFL"
 			],
 			"size": [
 				"G"
@@ -4530,10 +4482,8 @@
 			"page": 256,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "LFL"
-				}
+			"referenceSources": [
+				"LFL"
 			],
 			"size": [
 				"G"
@@ -5139,10 +5089,8 @@
 			"name": "Animal Lord",
 			"source": "XMM",
 			"page": 15,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				}
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -5509,16 +5457,10 @@
 			"page": 16,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF",
+				"LFL"
 			],
 			"size": [
 				"M"
@@ -5605,13 +5547,9 @@
 			"name": "Animated Broom",
 			"source": "XMM",
 			"page": 16,
-			"otherSources": [
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"LFL"
 			],
 			"size": [
 				"S"
@@ -5703,13 +5641,9 @@
 			"page": 17,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"HotB"
 			],
 			"size": [
 				"S"
@@ -5793,16 +5727,10 @@
 			"page": 17,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -5879,10 +5807,8 @@
 			"page": 18,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -6611,10 +6537,8 @@
 			"page": 349,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -6697,16 +6621,10 @@
 			"page": 199,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"S",
@@ -6910,19 +6828,11 @@
 			"name": "Archpriest",
 			"source": "XMM",
 			"page": 248,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"S",
@@ -7088,22 +6998,12 @@
 			"page": 22,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "ABH"
-				},
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"ABH",
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"LFL"
 			],
 			"size": [
 				"S",
@@ -7232,10 +7132,8 @@
 			"page": 23,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				}
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"S"
@@ -7306,13 +7204,9 @@
 			"page": 23,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"H"
@@ -7385,10 +7279,8 @@
 			"page": 24,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				}
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -7446,10 +7338,8 @@
 			"name": "Azer Pyromancer",
 			"source": "XMM",
 			"page": 25,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -7605,10 +7495,8 @@
 			"page": 25,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -8020,25 +7908,13 @@
 			"page": 27,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "BQGT"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "ABH"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"ABH",
+				"BQGT",
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"HotB"
 			],
 			"size": [
 				"S",
@@ -8123,19 +7999,11 @@
 			"page": 27,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "ABH"
-				},
-				{
-					"source": "EFA"
-				},
-				{
-					"source": "FFotR"
-				}
+			"referenceSources": [
+				"ABH",
+				"EFA",
+				"FFotR",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -8245,10 +8113,8 @@
 			"name": "Bandit Crime Lord",
 			"source": "XMM",
 			"page": 28,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -8368,13 +8234,9 @@
 			"name": "Bandit Deceiver",
 			"source": "XMM",
 			"page": 28,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -8516,10 +8378,8 @@
 			"name": "Banshee",
 			"source": "XMM",
 			"page": 29,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -8679,10 +8539,8 @@
 			"page": 30,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -8837,10 +8695,8 @@
 			],
 			"source": "XMM",
 			"page": 31,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -9013,13 +8869,9 @@
 			"page": 32,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"NF"
 			],
 			"size": [
 				"M"
@@ -9179,10 +9031,8 @@
 			"page": 33,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -9314,13 +9164,9 @@
 			"page": 34,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -9449,13 +9295,9 @@
 			],
 			"source": "XMM",
 			"page": 36,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -9705,10 +9547,8 @@
 			],
 			"source": "XMM",
 			"page": 347,
-			"otherSources": [
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"NF"
 			],
 			"size": [
 				"L"
@@ -9872,22 +9712,12 @@
 			"page": 37,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"FRHoF",
+				"ScoEE"
 			],
 			"size": [
 				"S",
@@ -9967,10 +9797,8 @@
 			"name": "Berserker Commander",
 			"source": "XMM",
 			"page": 37,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -10305,16 +10133,10 @@
 			"page": 42,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"L"
@@ -10428,16 +10250,10 @@
 			"page": 46,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "UtHftLH"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF",
+				"UtHftLH"
 			],
 			"size": [
 				"M"
@@ -10527,13 +10343,9 @@
 			],
 			"source": "XMM",
 			"page": 47,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"G"
@@ -10902,13 +10714,9 @@
 			"name": "Blue Slaad",
 			"source": "XMM",
 			"page": 285,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -11761,10 +11569,10 @@
 				{
 					"source": "XPHB",
 					"page": 347
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -11856,10 +11664,8 @@
 			"page": 62,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -12000,19 +11806,11 @@
 			"page": 62,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "UtHftLH"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"HotB",
+				"UtHftLH"
 			],
 			"size": [
 				"M"
@@ -12125,13 +11923,9 @@
 			"page": 63,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -12231,10 +12025,8 @@
 			"name": "Bulette Pup",
 			"source": "XMM",
 			"page": 63,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -12309,10 +12101,8 @@
 			"source": "XMM",
 			"page": 64,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "UtHftLH"
-				}
+			"referenceSources": [
+				"UtHftLH"
 			],
 			"size": [
 				"M"
@@ -12460,13 +12250,9 @@
 			"source": "XMM",
 			"page": 64,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "UtHftLH"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"UtHftLH"
 			],
 			"size": [
 				"M"
@@ -12561,10 +12347,8 @@
 			"name": "Cambion",
 			"source": "XMM",
 			"page": 65,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -12721,13 +12505,11 @@
 				{
 					"source": "XPHB",
 					"page": 347
-				},
-				{
-					"source": "HBTD"
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF",
+				"HBTD"
 			],
 			"size": [
 				"L"
@@ -12793,13 +12575,9 @@
 			"source": "XMM",
 			"page": 66,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"HotB"
 			],
 			"size": [
 				"L"
@@ -12906,10 +12684,10 @@
 				{
 					"source": "XPHB",
 					"page": 347
-				},
-				{
-					"source": "FRHoF"
 				}
+			],
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"T"
@@ -12993,10 +12771,8 @@
 			"page": 67,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				}
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -13106,13 +12882,9 @@
 			"name": "Centaur Warden",
 			"source": "XMM",
 			"page": 67,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -13247,13 +13019,9 @@
 			"page": 68,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -13406,10 +13174,8 @@
 			],
 			"source": "XMM",
 			"page": 69,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -13553,13 +13319,9 @@
 			"page": 70,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -13677,10 +13439,8 @@
 			"page": 71,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -13951,13 +13711,9 @@
 			"page": 73,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -14107,10 +13863,8 @@
 			"page": 74,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -14264,10 +14018,8 @@
 			"page": 75,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"S"
@@ -14625,25 +14377,13 @@
 			"page": 77,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "ABH"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "LFL"
-				}
+			"referenceSources": [
+				"ABH",
+				"DrDe",
+				"FRAiF",
+				"HotB",
+				"LFL",
+				"NF"
 			],
 			"size": [
 				"S",
@@ -14727,13 +14467,11 @@
 				{
 					"source": "XPHB",
 					"page": 348
-				},
-				{
-					"source": "HBTD"
-				},
-				{
-					"source": "DrDe"
 				}
+			],
+			"referenceSources": [
+				"DrDe",
+				"HBTD"
 			],
 			"size": [
 				"L"
@@ -14821,10 +14559,8 @@
 			"page": 78,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				}
+			"referenceSources": [
+				"HotB"
 			],
 			"size": [
 				"M"
@@ -14942,13 +14678,9 @@
 			"page": 82,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -15204,10 +14936,8 @@
 			"name": "Crawling Claw",
 			"source": "XMM",
 			"page": 83,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"T"
@@ -15377,19 +15107,11 @@
 			"page": 84,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF",
+				"HotB",
+				"ScoEE"
 			],
 			"size": [
 				"S",
@@ -15471,19 +15193,11 @@
 			"page": 85,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF",
+				"ScoEE"
 			],
 			"size": [
 				"S",
@@ -15612,10 +15326,8 @@
 			"name": "Cultist Hierophant",
 			"source": "XMM",
 			"page": 85,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -15749,10 +15461,8 @@
 			"name": "Cyclops Oracle",
 			"source": "XMM",
 			"page": 88,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -15885,13 +15595,9 @@
 			"name": "Cyclops Sentry",
 			"source": "XMM",
 			"page": 88,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -15990,13 +15696,9 @@
 			],
 			"source": "XMM",
 			"page": 89,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -16178,13 +15880,9 @@
 			"page": 90,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"S"
@@ -16264,13 +15962,9 @@
 			"name": "Death Cultist",
 			"source": "XMM",
 			"page": 86,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -16402,10 +16096,8 @@
 			"page": 91,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -16496,16 +16188,10 @@
 			"name": "Death Knight",
 			"source": "XMM",
 			"page": 92,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"S",
@@ -16714,10 +16400,8 @@
 			"name": "Death Knight Aspirant",
 			"source": "XMM",
 			"page": 93,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -17055,13 +16739,9 @@
 			],
 			"source": "XMM",
 			"page": 95,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -17323,10 +17003,8 @@
 			"page": 352,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				}
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -17401,10 +17079,8 @@
 			"name": "Demilich",
 			"source": "XMM",
 			"page": 96,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"T"
@@ -17583,10 +17259,8 @@
 			"page": 97,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				}
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -17762,10 +17436,10 @@
 				{
 					"source": "XPHB",
 					"page": 348
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -17846,10 +17520,8 @@
 			"name": "Dire Worg",
 			"source": "XMM",
 			"page": 335,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -17972,13 +17644,9 @@
 			"name": "Displacer Beast",
 			"source": "XMM",
 			"page": 98,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -18090,13 +17758,9 @@
 			"page": 99,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -18282,19 +17946,11 @@
 			"page": 100,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HBTD"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF",
+				"HBTD"
 			],
 			"size": [
 				"M"
@@ -18425,10 +18081,8 @@
 			"name": "Dracolich",
 			"source": "XMM",
 			"page": 102,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H",
@@ -18711,10 +18365,8 @@
 			"page": 103,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"G"
@@ -18945,13 +18597,9 @@
 			"page": 105,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -19109,16 +18757,10 @@
 			"page": 106,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -19258,16 +18900,10 @@
 			"page": 107,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -19422,10 +19058,8 @@
 			"page": 206,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S"
@@ -19633,13 +19267,9 @@
 			"page": 108,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -19768,10 +19398,8 @@
 			"page": 109,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -20172,10 +19800,8 @@
 			"name": "Elemental Cultist",
 			"source": "XMM",
 			"page": 87,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -20302,10 +19928,10 @@
 				{
 					"source": "XPHB",
 					"page": 349
-				},
-				{
-					"source": "HBTD"
 				}
+			],
+			"referenceSources": [
+				"HBTD"
 			],
 			"size": [
 				"H"
@@ -20391,10 +20017,10 @@
 				{
 					"source": "XPHB",
 					"page": 349
-				},
-				{
-					"source": "FRHoF"
 				}
+			],
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -20467,10 +20093,8 @@
 			],
 			"source": "XMM",
 			"page": 113,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -20674,10 +20298,8 @@
 			],
 			"source": "XMM",
 			"page": 112,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -20835,13 +20457,9 @@
 			"page": 114,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -20999,10 +20617,8 @@
 			"page": 115,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -21132,13 +20748,9 @@
 			"page": 116,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"L"
@@ -21247,10 +20859,8 @@
 			"name": "Faerie Dragon Adult",
 			"source": "XMM",
 			"page": 117,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"T"
@@ -21401,10 +21011,8 @@
 			"name": "Faerie Dragon Youth",
 			"source": "XMM",
 			"page": 117,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"T"
@@ -21545,10 +21153,8 @@
 			"name": "Fiend Cultist",
 			"source": "XMM",
 			"page": 87,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -21695,16 +21301,10 @@
 			"page": 118,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"ScoEE"
 			],
 			"size": [
 				"L"
@@ -21835,10 +21435,8 @@
 			"page": 119,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -21939,16 +21537,10 @@
 			"name": "Flameskull",
 			"source": "XMM",
 			"page": 120,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"T"
@@ -22110,13 +21702,9 @@
 			"name": "Flaming Skeleton",
 			"source": "XMM",
 			"page": 283,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -22237,10 +21825,8 @@
 			"page": 121,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -22373,10 +21959,8 @@
 			"name": "Flumph",
 			"source": "XMM",
 			"page": 122,
-			"otherSources": [
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"NF"
 			],
 			"size": [
 				"S"
@@ -22501,13 +22085,9 @@
 			"page": 353,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"T"
@@ -22585,10 +22165,8 @@
 			"name": "Fomorian",
 			"source": "XMM",
 			"page": 123,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -22781,13 +22359,9 @@
 			"page": 124,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -22896,13 +22470,9 @@
 			"name": "Galeb Duhr",
 			"source": "XMM",
 			"page": 127,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -23002,13 +22572,9 @@
 			"page": 128,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -23117,10 +22683,8 @@
 			"name": "Gas Spore Fungus",
 			"source": "XMM",
 			"page": 125,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -23214,13 +22778,9 @@
 			"page": 129,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"HotB"
 			],
 			"size": [
 				"L"
@@ -23326,13 +22886,9 @@
 			"page": 130,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -23443,13 +22999,9 @@
 			"name": "Ghast Gravecaller",
 			"source": "XMM",
 			"page": 130,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -23587,19 +23139,11 @@
 			"page": 131,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF",
+				"NF"
 			],
 			"size": [
 				"M"
@@ -23776,13 +23320,9 @@
 			"page": 132,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -23983,13 +23523,9 @@
 			"name": "Giant Axe Beak",
 			"source": "XMM",
 			"page": 24,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"NF"
 			],
 			"size": [
 				"H"
@@ -24211,13 +23747,9 @@
 			"page": 355,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -24291,16 +23823,10 @@
 			"page": 355,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "BQGT"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				}
+			"referenceSources": [
+				"BQGT",
+				"DrDe",
+				"HotB"
 			],
 			"size": [
 				"S"
@@ -24465,13 +23991,11 @@
 				{
 					"source": "XPHB",
 					"page": 350
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
 				}
+			],
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -24554,10 +24078,8 @@
 			"page": 356,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"H"
@@ -24741,10 +24263,8 @@
 			"page": 356,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				}
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"H"
@@ -24842,10 +24362,8 @@
 			"page": 357,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				}
+			"referenceSources": [
+				"HotB"
 			],
 			"size": [
 				"S"
@@ -24926,10 +24444,8 @@
 			"page": 357,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -25035,10 +24551,10 @@
 				{
 					"source": "XPHB",
 					"page": 350
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -25114,10 +24630,8 @@
 			"page": 357,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -25370,10 +24884,8 @@
 			"page": 358,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -25497,13 +25009,9 @@
 			"page": 358,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"S"
@@ -25588,13 +25096,9 @@
 			"page": 359,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "NF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"NF"
 			],
 			"size": [
 				"L"
@@ -25756,13 +25260,9 @@
 			"page": 359,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"H"
@@ -25857,16 +25357,12 @@
 				{
 					"source": "XPHB",
 					"page": 351
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF",
+				"HotB"
 			],
 			"size": [
 				"L"
@@ -26074,10 +25570,8 @@
 			"page": 360,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -26176,10 +25670,8 @@
 			"page": 361,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"M"
@@ -26490,10 +25982,8 @@
 			"page": 362,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -26580,10 +26070,8 @@
 			"page": 133,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -26861,13 +26349,9 @@
 			"name": "Githyanki Knight",
 			"source": "XMM",
 			"page": 135,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -27771,13 +27255,9 @@
 			"page": 139,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -28013,10 +27493,8 @@
 			"name": "Gnoll Fang of Yeenoghu",
 			"source": "XMM",
 			"page": 141,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -28131,10 +27609,8 @@
 			"name": "Gnoll Pack Lord",
 			"source": "XMM",
 			"page": 140,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -28249,13 +27725,9 @@
 			"page": 140,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"HotB"
 			],
 			"size": [
 				"M"
@@ -28348,10 +27820,10 @@
 				{
 					"source": "XPHB",
 					"page": 351
-				},
-				{
-					"source": "DrDe"
 				}
+			],
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"M"
@@ -28429,13 +27901,9 @@
 			"page": 143,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"HotB"
 			],
 			"size": [
 				"S"
@@ -28567,10 +28035,8 @@
 			],
 			"source": "XMM",
 			"page": 143,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S"
@@ -28818,19 +28284,11 @@
 			"page": 142,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "BQGT"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"BQGT",
+				"DrDe",
+				"FRAiF",
+				"HotB"
 			],
 			"size": [
 				"S"
@@ -28943,10 +28401,8 @@
 			"page": 144,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"M"
@@ -29083,10 +28539,8 @@
 			"page": 148,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA"
 			],
 			"size": [
 				"L"
@@ -29190,10 +28644,8 @@
 			],
 			"source": "XMM",
 			"page": 150,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -29471,13 +28923,9 @@
 			"page": 151,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"ScoEE"
 			],
 			"size": [
 				"M"
@@ -29576,10 +29024,8 @@
 			"name": "Gray Slaad",
 			"source": "XMM",
 			"page": 286,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -29751,10 +29197,8 @@
 			"page": 152,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"M"
@@ -29886,13 +29330,9 @@
 			"page": 156,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -30057,10 +29497,8 @@
 			"name": "Green Slaad",
 			"source": "XMM",
 			"page": 286,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -30223,10 +29661,8 @@
 			"name": "Grell",
 			"source": "XMM",
 			"page": 157,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -30348,10 +29784,8 @@
 			"page": 158,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -30441,13 +29875,9 @@
 			"name": "Grick Ancient",
 			"source": "XMM",
 			"page": 158,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -30544,13 +29974,9 @@
 			"page": 159,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "NF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"NF"
 			],
 			"size": [
 				"L"
@@ -30634,10 +30060,8 @@
 			"page": 160,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -30709,25 +30133,13 @@
 			"page": 162,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"FRHoF",
+				"HotB",
+				"NF"
 			],
 			"size": [
 				"S",
@@ -30807,22 +30219,12 @@
 			"page": 162,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "FFotR"
-				}
+			"referenceSources": [
+				"FFotR",
+				"FRAiF",
+				"HotB",
+				"LFL",
+				"NF"
 			],
 			"size": [
 				"S",
@@ -30922,10 +30324,8 @@
 			"page": 161,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -31093,10 +30493,8 @@
 			"name": "Gulthias Blight",
 			"source": "XMM",
 			"page": 45,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"G"
@@ -31219,10 +30617,8 @@
 			"page": 163,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -31348,13 +30744,9 @@
 			"page": 164,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -31437,10 +30829,8 @@
 			"name": "Haunting Revenant",
 			"source": "XMM",
 			"page": 260,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"G"
@@ -31579,10 +30969,10 @@
 				{
 					"source": "XPHB",
 					"page": 352
-				},
-				{
-					"source": "FRHoF"
 				}
+			],
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"T"
@@ -31650,13 +31040,9 @@
 			"page": 165,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -31765,25 +31151,13 @@
 			"name": "Helmed Horror",
 			"source": "XMM",
 			"page": 166,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "ABH"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "EFA"
-				},
-				{
-					"source": "FFotR"
-				}
+			"referenceSources": [
+				"ABH",
+				"EFA",
+				"FFotR",
+				"FRAiF",
+				"FRHoF",
+				"NF"
 			],
 			"size": [
 				"M"
@@ -31918,10 +31292,8 @@
 			"page": 167,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -32067,13 +31439,9 @@
 			"page": 168,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -32335,13 +31703,9 @@
 			"page": 171,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -32466,10 +31830,8 @@
 			],
 			"source": "XMM",
 			"page": 171,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -32614,13 +31976,9 @@
 			"page": 170,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"HotB"
 			],
 			"size": [
 				"M"
@@ -32830,13 +32188,9 @@
 			"name": "Hook Horror",
 			"source": "XMM",
 			"page": 173,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"L"
@@ -32928,10 +32282,8 @@
 			"page": 174,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				}
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -33074,10 +32426,8 @@
 			"page": 363,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -33156,13 +32506,9 @@
 			"page": 175,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -33361,10 +32707,8 @@
 			"page": 176,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -33533,16 +32877,10 @@
 			"page": 206,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"S"
@@ -33684,13 +33022,11 @@
 				{
 					"source": "XPHB",
 					"page": 352
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"T"
@@ -33826,16 +33162,10 @@
 			"page": 178,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF",
+				"ScoEE"
 			],
 			"size": [
 				"M"
@@ -33994,10 +33324,8 @@
 			"name": "Intellect Devourer",
 			"source": "XMM",
 			"page": 179,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"T"
@@ -34115,16 +33443,10 @@
 			"page": 180,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "LFL"
-				}
+			"referenceSources": [
+				"DrDe",
+				"LFL",
+				"NF"
 			],
 			"size": [
 				"L"
@@ -34264,10 +33586,8 @@
 			"page": 181,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -34478,10 +33798,8 @@
 			"name": "Jackalwere",
 			"source": "XMM",
 			"page": 182,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S"
@@ -34743,13 +34061,9 @@
 			"name": "Kenku",
 			"source": "XMM",
 			"page": 183,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "ABH"
-				}
+			"referenceSources": [
+				"ABH",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -34870,10 +34184,8 @@
 			"page": 364,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -34953,25 +34265,13 @@
 			"page": 184,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "HBTD"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF",
+				"HBTD",
+				"HotB",
+				"ScoEE"
 			],
 			"size": [
 				"S",
@@ -35082,13 +34382,9 @@
 			"page": 185,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"HotB"
 			],
 			"size": [
 				"S"
@@ -35197,16 +34493,10 @@
 			"page": 187,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"G"
@@ -35405,13 +34695,9 @@
 			"name": "Kuo-toa",
 			"source": "XMM",
 			"page": 189,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -35537,10 +34823,8 @@
 			"name": "Kuo-toa Archpriest",
 			"source": "XMM",
 			"page": 191,
-			"otherSources": [
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA"
 			],
 			"size": [
 				"M"
@@ -35705,13 +34989,9 @@
 			"name": "Kuo-toa Monitor",
 			"source": "XMM",
 			"page": 190,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -35821,10 +35101,8 @@
 			"name": "Kuo-toa Whip",
 			"source": "XMM",
 			"page": 190,
-			"otherSources": [
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA"
 			],
 			"size": [
 				"M"
@@ -35956,10 +35234,8 @@
 			"name": "Lacedon Ghoul",
 			"source": "XMM",
 			"page": 132,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -36073,10 +35349,8 @@
 			"page": 192,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -36384,16 +35658,10 @@
 			"page": 196,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"M"
@@ -36659,13 +35927,11 @@
 				{
 					"source": "XPHB",
 					"page": 352
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -36857,10 +36123,8 @@
 			"name": "Lizardfolk Geomancer",
 			"source": "XMM",
 			"page": 197,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -36986,10 +36250,8 @@
 			"name": "Lizardfolk Sovereign",
 			"source": "XMM",
 			"page": 197,
-			"otherSources": [
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"NF"
 			],
 			"size": [
 				"M"
@@ -37103,28 +36365,14 @@
 			"page": 199,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "UtHftLH"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"FRHoF",
+				"LFL",
+				"NF",
+				"UtHftLH"
 			],
 			"size": [
 				"S",
@@ -37296,19 +36544,11 @@
 			"name": "Mage Apprentice",
 			"source": "XMM",
 			"page": 198,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "ABH"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"ABH",
+				"EFA",
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"S",
@@ -37632,16 +36872,10 @@
 			"page": 365,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"H"
@@ -37821,10 +37055,8 @@
 			],
 			"source": "XMM",
 			"page": 201,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -37942,13 +37174,9 @@
 			"page": 202,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -38045,13 +37273,9 @@
 			],
 			"source": "XMM",
 			"page": 203,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -38424,16 +37648,12 @@
 				{
 					"source": "XPHB",
 					"page": 353
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -38505,10 +37725,8 @@
 			"page": 205,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -38633,10 +37851,8 @@
 			"page": 209,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -38717,13 +37933,9 @@
 			"name": "Merfolk Wavebender",
 			"source": "XMM",
 			"page": 209,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -38868,13 +38080,9 @@
 			"page": 210,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "LFL"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"LFL"
 			],
 			"size": [
 				"L"
@@ -38991,13 +38199,9 @@
 			],
 			"source": "XMM",
 			"page": 211,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -39176,16 +38380,10 @@
 			"page": 212,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"HotB"
 			],
 			"size": [
 				"M"
@@ -39290,13 +38488,9 @@
 			"name": "Mind Flayer",
 			"source": "XMM",
 			"page": 214,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -39655,10 +38849,8 @@
 			"page": 215,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				}
+			"referenceSources": [
+				"HotB"
 			],
 			"size": [
 				"L"
@@ -39835,13 +39027,9 @@
 			"name": "Modron Duodrone",
 			"source": "XMM",
 			"page": 217,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -40112,10 +39300,8 @@
 			"name": "Modron Quadrone",
 			"source": "XMM",
 			"page": 218,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"M"
@@ -40211,10 +39397,8 @@
 			"name": "Modron Tridrone",
 			"source": "XMM",
 			"page": 217,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"M"
@@ -40302,10 +39486,8 @@
 			"name": "Mud Mephit",
 			"source": "XMM",
 			"page": 207,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"S"
@@ -40420,10 +39602,10 @@
 				{
 					"source": "XPHB",
 					"page": 353
-				},
-				{
-					"source": "HBTD"
 				}
+			],
+			"referenceSources": [
+				"HBTD"
 			],
 			"size": [
 				"M"
@@ -40497,13 +39679,9 @@
 			"page": 219,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -40621,10 +39799,8 @@
 			"page": 221,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"S",
@@ -40872,13 +40048,9 @@
 			"name": "Myconid Adult",
 			"source": "XMM",
 			"page": 223,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -40983,10 +40155,8 @@
 			"name": "Myconid Sovereign",
 			"source": "XMM",
 			"page": 223,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -41100,10 +40270,8 @@
 			"name": "Myconid Spore Servant",
 			"source": "XMM",
 			"page": 223,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -41182,13 +40350,9 @@
 			"name": "Myconid Sprout",
 			"source": "XMM",
 			"page": 222,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"S"
@@ -41436,10 +40600,8 @@
 			"name": "Needle Blight",
 			"source": "XMM",
 			"page": 43,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -41522,10 +40684,8 @@
 			"page": 225,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -41731,13 +40891,9 @@
 			"page": 226,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -41840,25 +40996,13 @@
 			"page": 227,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"HotB",
+				"LFL",
+				"NF"
 			],
 			"size": [
 				"S",
@@ -41946,19 +41090,11 @@
 			"name": "Noble Prodigy",
 			"source": "XMM",
 			"page": 227,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"S",
@@ -42102,13 +41238,9 @@
 			"source": "XMM",
 			"page": 228,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"HotB"
 			],
 			"size": [
 				"M"
@@ -42217,10 +41349,8 @@
 			],
 			"source": "XMM",
 			"page": 229,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -42569,22 +41699,12 @@
 			"page": 231,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"HotB",
+				"ScoEE"
 			],
 			"size": [
 				"L"
@@ -42684,16 +41804,10 @@
 			"page": 346,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HBTD"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				}
+			"referenceSources": [
+				"DrDe",
+				"HBTD",
+				"HotB"
 			],
 			"size": [
 				"L"
@@ -42787,13 +41901,9 @@
 			"name": "Ogrillon Ogre",
 			"source": "XMM",
 			"page": 231,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -42889,13 +41999,9 @@
 			"page": 232,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -43076,13 +42182,9 @@
 			"page": 233,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"L"
@@ -43196,10 +42298,10 @@
 				{
 					"source": "XPHB",
 					"page": 354
-				},
-				{
-					"source": "FRHoF"
 				}
+			],
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"T"
@@ -43282,19 +42384,11 @@
 			"page": 234,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF",
+				"HotB"
 			],
 			"size": [
 				"L"
@@ -43375,10 +42469,10 @@
 				{
 					"source": "XPHB",
 					"page": 354
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -43457,13 +42551,9 @@
 			"page": 235,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"L"
@@ -43547,13 +42637,9 @@
 			"name": "Performer",
 			"source": "XMM",
 			"page": 236,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -43772,19 +42858,11 @@
 			"name": "Performer Maestro",
 			"source": "XMM",
 			"page": 237,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"LFL"
 			],
 			"size": [
 				"S",
@@ -43919,16 +42997,10 @@
 			"name": "Peryton",
 			"source": "XMM",
 			"page": 238,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -44033,13 +43105,9 @@
 			"page": 239,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -44160,13 +43228,9 @@
 			"name": "Piercer",
 			"source": "XMM",
 			"page": 240,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -44333,22 +43397,12 @@
 			"page": 241,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "ABH"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"ABH",
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"ScoEE"
 			],
 			"size": [
 				"S",
@@ -44592,19 +43646,11 @@
 			"page": 242,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"ScoEE"
 			],
 			"size": [
 				"S",
@@ -44927,13 +43973,9 @@
 			"name": "Pixie",
 			"source": "XMM",
 			"page": 244,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "LFL"
-				}
+			"referenceSources": [
+				"FRHoF",
+				"LFL"
 			],
 			"size": [
 				"T"
@@ -45051,10 +44093,8 @@
 			"name": "Pixie Wonderbringer",
 			"source": "XMM",
 			"page": 244,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"T"
@@ -45208,10 +44248,8 @@
 			"page": 245,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				}
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -45414,10 +44452,8 @@
 			"page": 366,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -45498,13 +44534,9 @@
 			"page": 367,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -45583,10 +44615,8 @@
 			"name": "Poltergeist",
 			"source": "XMM",
 			"page": 246,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -45798,22 +44828,12 @@
 			"page": 248,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"FRHoF",
+				"LFL"
 			],
 			"size": [
 				"S",
@@ -45966,13 +44986,9 @@
 			"page": 247,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -46098,10 +45114,8 @@
 			"name": "Primeval Owlbear",
 			"source": "XMM",
 			"page": 234,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -46520,10 +45534,8 @@
 			"page": 250,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"G"
@@ -46889,13 +45901,11 @@
 				{
 					"source": "XPHB",
 					"page": 355
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"T"
@@ -47038,10 +46048,8 @@
 			"name": "Questing Knight",
 			"source": "XMM",
 			"page": 184,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -47183,10 +46191,8 @@
 			"page": 253,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ABH"
-				}
+			"referenceSources": [
+				"ABH"
 			],
 			"size": [
 				"M"
@@ -47358,10 +46364,10 @@
 				{
 					"source": "XPHB",
 					"page": 355
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"T"
@@ -47445,10 +46451,10 @@
 				{
 					"source": "XPHB",
 					"page": 355
-				},
-				{
-					"source": "DrDe"
 				}
+			],
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"T"
@@ -47527,10 +46533,8 @@
 			"page": 254,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				}
+			"referenceSources": [
+				"HotB"
 			],
 			"size": [
 				"M"
@@ -47647,10 +46651,8 @@
 			"name": "Red Slaad",
 			"source": "XMM",
 			"page": 285,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -47772,10 +46774,10 @@
 				{
 					"source": "XPHB",
 					"page": 356
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -47861,10 +46863,8 @@
 			"page": 258,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -47968,10 +46968,8 @@
 			"name": "Revenant",
 			"source": "XMM",
 			"page": 259,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -48115,13 +47113,9 @@
 			"source": "XMM",
 			"page": 368,
 			"srd52": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA"
 			],
 			"size": [
 				"L"
@@ -48186,10 +47180,10 @@
 				{
 					"source": "XPHB",
 					"page": 356
-				},
-				{
-					"source": "FRHoF"
 				}
+			],
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -48248,13 +47242,9 @@
 			"page": 261,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA"
 			],
 			"size": [
 				"G"
@@ -48359,13 +47349,9 @@
 			"page": 262,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -48480,10 +47466,8 @@
 			"page": 263,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -48587,10 +47571,8 @@
 			"page": 369,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"NF"
 			],
 			"size": [
 				"L"
@@ -48687,10 +47669,8 @@
 			"name": "Sahuagin Baron",
 			"source": "XMM",
 			"page": 265,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -48828,13 +47808,9 @@
 			"name": "Sahuagin Priest",
 			"source": "XMM",
 			"page": 265,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -48991,13 +47967,9 @@
 			"page": 264,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -49113,10 +48085,8 @@
 			"page": 267,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -49316,10 +48286,8 @@
 			"name": "Salamander Inferno Master",
 			"source": "XMM",
 			"page": 267,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -49453,13 +48421,9 @@
 			"page": 268,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -49556,10 +48520,8 @@
 			"name": "Satyr Revelmaster",
 			"source": "XMM",
 			"page": 268,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -49693,13 +48655,9 @@
 			"name": "Scarecrow",
 			"source": "XMM",
 			"page": 269,
-			"otherSources": [
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"LFL"
 			],
 			"size": [
 				"M"
@@ -49872,19 +48830,11 @@
 			"page": 270,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HBTD"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF",
+				"HBTD"
 			],
 			"size": [
 				"S",
@@ -49981,16 +48931,10 @@
 			"name": "Scout Captain",
 			"source": "XMM",
 			"page": 270,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF",
+				"LFL"
 			],
 			"size": [
 				"S",
@@ -50108,10 +49052,8 @@
 			"page": 271,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -50332,16 +49274,10 @@
 			"page": 272,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HBTD"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF",
+				"HBTD"
 			],
 			"size": [
 				"M"
@@ -50462,13 +49398,9 @@
 			],
 			"source": "XMM",
 			"page": 273,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -50614,10 +49546,8 @@
 			"name": "Shadow Dragon",
 			"source": "XMM",
 			"page": 275,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -50788,13 +49718,9 @@
 			"page": 276,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -50908,19 +49834,11 @@
 			"page": 277,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -51110,10 +50028,8 @@
 			"page": 278,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"M"
@@ -51245,22 +50161,14 @@
 				{
 					"source": "XPHB",
 					"page": 356
-				},
-				{
-					"source": "HBTD"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
 				}
+			],
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"HBTD",
+				"HotB"
 			],
 			"size": [
 				"M"
@@ -51456,13 +50364,9 @@
 			"name": "Smoke Mephit",
 			"source": "XMM",
 			"page": 208,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"S"
@@ -51796,10 +50700,8 @@
 			],
 			"source": "XMM",
 			"page": 289,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"M"
@@ -51962,16 +50864,10 @@
 			"page": 290,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HBTD"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"HBTD"
 			],
 			"size": [
 				"M"
@@ -52095,16 +50991,10 @@
 			"page": 293,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -52289,13 +51179,9 @@
 			"name": "Sphinx of Secrets",
 			"source": "XMM",
 			"page": 292,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -52673,10 +51559,10 @@
 				{
 					"source": "XPHB",
 					"page": 357
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"T"
@@ -52784,10 +51670,10 @@
 				{
 					"source": "XPHB",
 					"page": 357
-				},
-				{
-					"source": "FRHoF"
 				}
+			],
+			"referenceSources": [
+				"FRHoF"
 			],
 			"size": [
 				"T"
@@ -53002,10 +51888,8 @@
 			"page": 297,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"L"
@@ -53165,19 +52049,13 @@
 				{
 					"source": "XPHB",
 					"page": 358
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "UtHftLH"
 				}
+			],
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF",
+				"LFL",
+				"UtHftLH"
 			],
 			"size": [
 				"T"
@@ -53297,22 +52175,12 @@
 			"page": 295,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF",
+				"FRHoF",
+				"LFL",
+				"NF"
 			],
 			"size": [
 				"S",
@@ -53415,16 +52283,10 @@
 			"name": "Spy Master",
 			"source": "XMM",
 			"page": 295,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "LFL"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF",
+				"LFL"
 			],
 			"size": [
 				"S",
@@ -53553,10 +52415,8 @@
 			"page": 208,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				}
+			"referenceSources": [
+				"HotB"
 			],
 			"size": [
 				"S"
@@ -53672,13 +52532,9 @@
 			"page": 299,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"HotB"
 			],
 			"size": [
 				"T"
@@ -53752,10 +52608,8 @@
 			"page": 300,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -53875,16 +52729,10 @@
 			"page": 301,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF",
+				"ScoEE"
 			],
 			"size": [
 				"L"
@@ -54031,10 +52879,8 @@
 			"page": 302,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -54203,16 +53049,10 @@
 			"page": 303,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF",
+				"ScoEE"
 			],
 			"size": [
 				"M"
@@ -54347,10 +53187,8 @@
 			"page": 370,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HBTD"
-				}
+			"referenceSources": [
+				"HBTD"
 			],
 			"size": [
 				"L"
@@ -54444,16 +53282,10 @@
 			"page": 83,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HBTD"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"HBTD"
 			],
 			"size": [
 				"M"
@@ -54559,10 +53391,8 @@
 			],
 			"source": "XMM",
 			"page": 104,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -54687,13 +53517,9 @@
 			"page": 370,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -54804,10 +53630,8 @@
 			"name": "Swarm of Larvae",
 			"source": "XMM",
 			"page": 193,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -54902,10 +53726,8 @@
 			],
 			"source": "XMM",
 			"page": 194,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -55120,10 +53942,8 @@
 			"page": 370,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -55217,10 +54037,8 @@
 			"page": 371,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -55320,10 +54138,8 @@
 			"name": "Swarm of Stirges",
 			"source": "XMM",
 			"page": 299,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -55421,10 +54237,8 @@
 			"page": 371,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -55711,10 +54525,8 @@
 			"name": "Thri-kreen Marauder",
 			"source": "XMM",
 			"page": 306,
-			"otherSources": [
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA"
 			],
 			"size": [
 				"M"
@@ -56031,19 +54843,11 @@
 			"page": 307,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "ABH"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"ABH",
+				"DrDe",
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -56133,25 +54937,13 @@
 			"page": 307,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "ScoEE"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "ABH"
-				},
-				{
-					"source": "NF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"ABH",
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"NF",
+				"ScoEE"
 			],
 			"size": [
 				"S",
@@ -56256,19 +55048,11 @@
 			"page": 308,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "LFL"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF",
+				"LFL"
 			],
 			"size": [
 				"H"
@@ -56381,10 +55165,8 @@
 			"name": "Tree Blight",
 			"source": "XMM",
 			"page": 44,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -56565,10 +55347,8 @@
 			"name": "Troglodyte",
 			"source": "XMM",
 			"page": 309,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -56669,16 +55449,10 @@
 			"page": 310,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"L"
@@ -56871,16 +55645,10 @@
 			"name": "Twig Blight",
 			"source": "XMM",
 			"page": 43,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"S"
@@ -56975,10 +55743,8 @@
 			"page": 372,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"H"
@@ -57281,10 +56047,8 @@
 			"name": "Umber Hulk",
 			"source": "XMM",
 			"page": 312,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -57414,13 +56178,9 @@
 			"page": 313,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -57615,13 +56375,9 @@
 			"page": 317,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -57882,10 +56638,8 @@
 			"page": 314,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA"
 			],
 			"size": [
 				"S",
@@ -58020,13 +56774,9 @@
 			"name": "Vampire Nightbringer",
 			"source": "XMM",
 			"page": 316,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "ABH"
-				}
+			"referenceSources": [
+				"ABH",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -58160,13 +56910,9 @@
 			"page": 315,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "ABH"
-				}
+			"referenceSources": [
+				"ABH",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -58600,10 +57346,10 @@
 				{
 					"source": "XPHB",
 					"page": 358
-				},
-				{
-					"source": "DrDe"
 				}
+			],
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"T"
@@ -58668,13 +57414,9 @@
 			"name": "Vine Blight",
 			"source": "XMM",
 			"page": 44,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -58783,10 +57525,8 @@
 			"page": 126,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -58864,13 +57604,9 @@
 			"name": "Violet Fungus Necrohulk",
 			"source": "XMM",
 			"page": 126,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -58984,10 +57720,8 @@
 			"page": 319,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -59131,13 +57865,9 @@
 			"page": 372,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -59217,13 +57947,11 @@
 				{
 					"source": "XPHB",
 					"page": 359
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "UtHftLH"
 				}
+			],
+			"referenceSources": [
+				"FRAiF",
+				"UtHftLH"
 			],
 			"size": [
 				"L"
@@ -59362,13 +58090,9 @@
 			"name": "Warrior Commander",
 			"source": "XMM",
 			"page": 321,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -59507,13 +58231,9 @@
 			"page": 320,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"S",
@@ -59595,16 +58315,10 @@
 			"page": 320,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "FFotR"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FFotR",
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -59709,16 +58423,10 @@
 			"page": 322,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"L"
@@ -59845,10 +58553,8 @@
 			"name": "Water Weird",
 			"source": "XMM",
 			"page": 323,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -59964,10 +58670,10 @@
 				{
 					"source": "XPHB",
 					"page": 359
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"T"
@@ -60043,13 +58749,9 @@
 			"page": 324,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"S",
@@ -60196,10 +58898,8 @@
 			"page": 325,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -60338,10 +59038,8 @@
 			"page": 325,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -60470,10 +59168,8 @@
 			"page": 326,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -60615,10 +59311,8 @@
 			"page": 327,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"S",
@@ -60893,10 +59587,8 @@
 			"page": 332,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -61035,13 +59727,9 @@
 			"page": 333,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"T"
@@ -61184,10 +59872,8 @@
 			"name": "Winged Kobold",
 			"source": "XMM",
 			"page": 185,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"S"
@@ -61296,16 +59982,10 @@
 			"page": 334,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"NF"
 			],
 			"size": [
 				"L"
@@ -61410,13 +60090,11 @@
 				{
 					"source": "XPHB",
 					"page": 359
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
 				}
+			],
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -61500,13 +60178,9 @@
 			"page": 335,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "UtHftLH"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"UtHftLH"
 			],
 			"size": [
 				"L"
@@ -61585,19 +60259,11 @@
 			"page": 336,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "HBTD"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF",
+				"FRHoF",
+				"HBTD"
 			],
 			"size": [
 				"S",
@@ -61725,16 +60391,10 @@
 			"page": 337,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -61950,16 +60610,10 @@
 			"name": "Yeti",
 			"source": "XMM",
 			"page": 339,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF",
+				"NF"
 			],
 			"size": [
 				"L"
@@ -62080,13 +60734,9 @@
 			],
 			"source": "XMM",
 			"page": 341,
-			"otherSources": [
-				{
-					"source": "FRHoF"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF",
+				"FRHoF"
 			],
 			"size": [
 				"M"
@@ -62295,10 +60945,8 @@
 			"page": 38,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -62433,13 +61081,9 @@
 			"page": 48,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "FFotR"
-				}
+			"referenceSources": [
+				"FFotR",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -62564,10 +61208,8 @@
 			"page": 54,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"L"
@@ -62703,10 +61345,8 @@
 			"page": 58,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"L"
@@ -62852,10 +61492,8 @@
 			"page": 78,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -63130,10 +61768,8 @@
 			"page": 152,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -63272,13 +61908,9 @@
 			"page": 254,
 			"srd52": true,
 			"basicRules2024": true,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -63398,13 +62030,9 @@
 			"name": "Young Remorhaz",
 			"source": "XMM",
 			"page": 258,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "NF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"NF"
 			],
 			"size": [
 				"L"
@@ -63746,10 +62374,8 @@
 			"name": "Yuan-ti Abomination",
 			"source": "XMM",
 			"page": 345,
-			"otherSources": [
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"FRAiF"
 			],
 			"size": [
 				"L"
@@ -64066,13 +62692,9 @@
 			"name": "Yuan-ti Malison (Type 1)",
 			"source": "XMM",
 			"page": 343,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "FRAiF"
-				}
+			"referenceSources": [
+				"DrDe",
+				"FRAiF"
 			],
 			"size": [
 				"M"
@@ -64376,10 +62998,8 @@
 			"name": "Yuan-ti Malison (Type 3)",
 			"source": "XMM",
 			"page": 344,
-			"otherSources": [
-				{
-					"source": "DrDe"
-				}
+			"referenceSources": [
+				"DrDe"
 			],
 			"size": [
 				"M"
@@ -64545,22 +63165,14 @@
 				{
 					"source": "XPHB",
 					"page": 359
-				},
-				{
-					"source": "HBTD"
-				},
-				{
-					"source": "DrDe"
-				},
-				{
-					"source": "HotB"
-				},
-				{
-					"source": "FRAiF"
-				},
-				{
-					"source": "EFA"
 				}
+			],
+			"referenceSources": [
+				"DrDe",
+				"EFA",
+				"FRAiF",
+				"HBTD",
+				"HotB"
 			],
 			"size": [
 				"M"

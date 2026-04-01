@@ -822,9 +822,10 @@ RendererMarkdown.utils = class {
 		const baseText = Renderer.utils.isDisplayPage(it.page) ? `**Source:** *${Parser.sourceJsonToAbv(it.source)}${sourceSub}*, page ${it.page}` : "";
 		const addSourceText = this._getPageText_getAltSourceText(it, "additionalSources", "Additional information from");
 		const otherSourceText = this._getPageText_getAltSourceText(it, "otherSources", "Also found in");
+		const referenceSourceText = this._getPageText_getAltSourceText(it, "referenceSources", "Referenced in");
 		const externalSourceText = this._getPageText_getAltSourceText(it, "externalSources", "External sources:");
 
-		return `${[baseText, addSourceText, otherSourceText, externalSourceText].filter(it => it).join(". ")}${baseText && (addSourceText || otherSourceText || externalSourceText) ? "." : ""}`;
+		return `${[baseText, addSourceText, otherSourceText, referenceSourceText, externalSourceText].filter(it => it).join(". ")}${baseText && (addSourceText || otherSourceText || referenceSourceText || externalSourceText) ? "." : ""}`;
 	}
 
 	static _getPageText_getAltSourceText (it, prop, introText) {
@@ -2277,9 +2278,9 @@ class MarkdownConverter {
 
 		// Scrub HTML
 		try {
-			const $jq = $(`<div>${mdStr}</div>`);
-			$jq.find("*").remove();
-			mdStr = $jq.text();
+			const ele = ee`<div>${mdStr}</div>`;
+			ele.findAll("*").forEach(ele => ele.remove());
+			mdStr = ele.txt();
 		} catch (e) {
 			setTimeout(() => { throw e; });
 		}

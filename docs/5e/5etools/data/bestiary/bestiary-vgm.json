@@ -198,10 +198,8 @@
 			"name": "Alhoon",
 			"source": "VGM",
 			"page": 172,
-			"otherSources": [
-				{
-					"source": "TLK"
-				}
+			"referenceSources": [
+				"TLK"
 			],
 			"reprintedAs": [
 				"Alhoon|MPMM"
@@ -465,10 +463,8 @@
 			"name": "Annis Hag",
 			"source": "VGM",
 			"page": 159,
-			"otherSources": [
-				{
-					"source": "MOT"
-				}
+			"referenceSources": [
+				"MOT"
 			],
 			"reprintedAs": [
 				"Annis Hag|MPMM"
@@ -1144,28 +1140,13 @@
 			"name": "Apprentice Wizard",
 			"source": "VGM",
 			"page": 209,
-			"otherSources": [
-				{
-					"source": "WDH"
-				},
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SLW"
-				},
-				{
-					"source": "ERLW"
-				},
-				{
-					"source": "TLK"
-				},
-				{
-					"source": "AZfyT"
-				}
+			"referenceSources": [
+				"AZfyT",
+				"DIP",
+				"ERLW",
+				"SLW",
+				"TLK",
+				"WDH"
 			],
 			"reprintedAs": [
 				"Apprentice Wizard|MPMM"
@@ -1282,16 +1263,10 @@
 			"name": "Archdruid",
 			"source": "VGM",
 			"page": 210,
-			"otherSources": [
-				{
-					"source": "WDMM"
-				},
-				{
-					"source": "GoS"
-				},
-				{
-					"source": "MOT"
-				}
+			"referenceSources": [
+				"GoS",
+				"MOT",
+				"WDMM"
 			],
 			"reprintedAs": [
 				"Archdruid|MPMM"
@@ -1503,16 +1478,10 @@
 			"name": "Archer",
 			"source": "VGM",
 			"page": 210,
-			"otherSources": [
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SLW"
-				},
-				{
-					"source": "MOT"
-				}
+			"referenceSources": [
+				"DIP",
+				"MOT",
+				"SLW"
 			],
 			"reprintedAs": [
 				"Archer|MPMM"
@@ -1996,16 +1965,10 @@
 			"name": "Bard",
 			"source": "VGM",
 			"page": 211,
-			"otherSources": [
-				{
-					"source": "WDH"
-				},
-				{
-					"source": "GoS"
-				},
-				{
-					"source": "SDW"
-				}
+			"referenceSources": [
+				"GoS",
+				"SDW",
+				"WDH"
 			],
 			"reprintedAs": [
 				"Bard|MPMM"
@@ -2166,10 +2129,8 @@
 			"name": "Barghest",
 			"source": "VGM",
 			"page": 123,
-			"otherSources": [
-				{
-					"source": "TftYP"
-				}
+			"referenceSources": [
+				"TftYP"
 			],
 			"reprintedAs": [
 				"Barghest|MPMM"
@@ -3160,19 +3121,11 @@
 			"name": "Blackguard",
 			"source": "VGM",
 			"page": 211,
-			"otherSources": [
-				{
-					"source": "DC"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SDW"
-				},
-				{
-					"source": "MOT"
-				}
+			"referenceSources": [
+				"DC",
+				"DIP",
+				"MOT",
+				"SDW"
 			],
 			"reprintedAs": [
 				"Blackguard|MPMM"
@@ -3446,13 +3399,9 @@
 			"name": "Bodak",
 			"source": "VGM",
 			"page": 127,
-			"otherSources": [
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "GoS"
-				}
+			"referenceSources": [
+				"GoS",
+				"ToA"
 			],
 			"reprintedAs": [
 				"Bodak|MPMM"
@@ -3599,13 +3548,9 @@
 			"name": "Boggle",
 			"source": "VGM",
 			"page": 128,
-			"otherSources": [
-				{
-					"source": "IMR"
-				},
-				{
-					"source": "WBtW"
-				}
+			"referenceSources": [
+				"IMR",
+				"WBtW"
 			],
 			"reprintedAs": [
 				"Boggle|MPMM"
@@ -3936,10 +3881,8 @@
 			],
 			"source": "VGM",
 			"page": 139,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Brontosaurus|MPMM"
@@ -4020,10 +3963,8 @@
 			"name": "Catoblepas",
 			"source": "VGM",
 			"page": 129,
-			"otherSources": [
-				{
-					"source": "MOT"
-				}
+			"referenceSources": [
+				"MOT"
 			],
 			"reprintedAs": [
 				"Catoblepas|MPMM"
@@ -4242,19 +4183,11 @@
 			"name": "Champion",
 			"source": "VGM",
 			"page": 212,
-			"otherSources": [
-				{
-					"source": "WDMM"
-				},
-				{
-					"source": "TftYP"
-				},
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "GoS"
-				}
+			"referenceSources": [
+				"GoS",
+				"TftYP",
+				"ToA",
+				"WDMM"
 			],
 			"reprintedAs": [
 				"Champion|MPMM"
@@ -4893,10 +4826,8 @@
 			"name": "Conjurer",
 			"source": "VGM",
 			"page": 212,
-			"otherSources": [
-				{
-					"source": "TftYP"
-				}
+			"referenceSources": [
+				"TftYP"
 			],
 			"reprintedAs": [
 				"Conjurer Wizard|MPMM"
@@ -5067,10 +4998,8 @@
 			"name": "Cow",
 			"source": "VGM",
 			"page": 207,
-			"otherSources": [
-				{
-					"source": "DIP"
-				}
+			"referenceSources": [
+				"DIP"
 			],
 			"size": [
 				"L"
@@ -5226,10 +5155,8 @@
 			"name": "Darkling",
 			"source": "VGM",
 			"page": 134,
-			"otherSources": [
-				{
-					"source": "WBtW"
-				}
+			"referenceSources": [
+				"WBtW"
 			],
 			"reprintedAs": [
 				"Darkling|MPMM"
@@ -5349,10 +5276,8 @@
 			"name": "Darkling Elder",
 			"source": "VGM",
 			"page": 134,
-			"otherSources": [
-				{
-					"source": "WBtW"
-				}
+			"referenceSources": [
+				"WBtW"
 			],
 			"reprintedAs": [
 				"Darkling Elder|MPMM"
@@ -5700,10 +5625,8 @@
 			"name": "Deep Scion",
 			"source": "VGM",
 			"page": 135,
-			"otherSources": [
-				{
-					"source": "GoS"
-				}
+			"referenceSources": [
+				"GoS"
 			],
 			"reprintedAs": [
 				"Deep Scion|MPMM"
@@ -5857,17 +5780,10 @@
 			],
 			"source": "VGM",
 			"page": 139,
-			"otherSources": [
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "PSX",
-					"page": 30
-				},
-				{
-					"source": "XMtS"
-				}
+			"referenceSources": [
+				"PSX",
+				"ToA",
+				"XMtS"
 			],
 			"reprintedAs": [
 				"Deinonychus|MPMM"
@@ -6085,13 +6001,9 @@
 			],
 			"source": "VGM",
 			"page": 139,
-			"otherSources": [
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "TTP"
-				}
+			"referenceSources": [
+				"ToA",
+				"TTP"
 			],
 			"reprintedAs": [
 				"Dimetrodon|MPMM"
@@ -6347,13 +6259,9 @@
 			"name": "Dolphin",
 			"source": "VGM",
 			"page": 208,
-			"otherSources": [
-				{
-					"source": "GoS"
-				},
-				{
-					"source": "TTP"
-				}
+			"referenceSources": [
+				"GoS",
+				"TTP"
 			],
 			"reprintedAs": [
 				"Dolphin|MPMM"
@@ -6815,10 +6723,8 @@
 			"name": "Enchanter",
 			"source": "VGM",
 			"page": 213,
-			"otherSources": [
-				{
-					"source": "TftYP"
-				}
+			"referenceSources": [
+				"TftYP"
 			],
 			"reprintedAs": [
 				"Enchanter Wizard|MPMM"
@@ -6987,22 +6893,12 @@
 			"name": "Evoker",
 			"source": "VGM",
 			"page": 214,
-			"otherSources": [
-				{
-					"source": "TftYP"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SLW"
-				},
-				{
-					"source": "ERLW"
-				},
-				{
-					"source": "LLK"
-				}
+			"referenceSources": [
+				"DIP",
+				"ERLW",
+				"LLK",
+				"SLW",
+				"TftYP"
 			],
 			"reprintedAs": [
 				"Evoker Wizard|MPMM"
@@ -7305,10 +7201,8 @@
 			"name": "Firenewt Warlock of Imix",
 			"source": "VGM",
 			"page": 143,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Firenewt Warlock of Imix|MPMM"
@@ -7470,10 +7364,8 @@
 			"name": "Firenewt Warrior",
 			"source": "VGM",
 			"page": 142,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Firenewt Warrior|MPMM"
@@ -7592,19 +7484,11 @@
 			"name": "Flail Snail",
 			"source": "VGM",
 			"page": 144,
-			"otherSources": [
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SLW"
-				},
-				{
-					"source": "TTP"
-				}
+			"referenceSources": [
+				"DIP",
+				"SLW",
+				"ToA",
+				"TTP"
 			],
 			"reprintedAs": [
 				"Flail Snail|MPMM"
@@ -7894,13 +7778,9 @@
 			"name": "Froghemoth",
 			"source": "VGM",
 			"page": 145,
-			"otherSources": [
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "LLK"
-				}
+			"referenceSources": [
+				"LLK",
+				"ToA"
 			],
 			"reprintedAs": [
 				"Froghemoth|MPMM"
@@ -8351,10 +8231,8 @@
 			],
 			"source": "VGM",
 			"page": 126,
-			"otherSources": [
-				{
-					"source": "WDH"
-				}
+			"referenceSources": [
+				"WDH"
 			],
 			"reprintedAs": [
 				"Gazer|MPMM"
@@ -8518,10 +8396,8 @@
 			"name": "Giant Strider",
 			"source": "VGM",
 			"page": 143,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Giant Strider|MPMM"
@@ -8613,13 +8489,9 @@
 			"name": "Girallon",
 			"source": "VGM",
 			"page": 152,
-			"otherSources": [
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR",
+				"ToA"
 			],
 			"reprintedAs": [
 				"Girallon|MPMM"
@@ -9207,10 +9079,8 @@
 			"name": "Grung",
 			"source": "VGM",
 			"page": 156,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Grung|MPMM"
@@ -9490,10 +9360,8 @@
 			"name": "Grung Elite Warrior",
 			"source": "VGM",
 			"page": 157,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Grung Elite Warrior|MPMM"
@@ -9789,10 +9657,8 @@
 			"name": "Grung Wildling",
 			"source": "VGM",
 			"page": 157,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Grung Wildling|MPMM"
@@ -10126,14 +9992,9 @@
 			],
 			"source": "VGM",
 			"page": 140,
-			"otherSources": [
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "PSX",
-					"page": 29
-				}
+			"referenceSources": [
+				"PSX",
+				"ToA"
 			],
 			"reprintedAs": [
 				"Hadrosaurus|MPMM"
@@ -10872,10 +10733,8 @@
 			"name": "Illusionist",
 			"source": "VGM",
 			"page": 214,
-			"otherSources": [
-				{
-					"source": "TftYP"
-				}
+			"referenceSources": [
+				"TftYP"
 			],
 			"reprintedAs": [
 				"Illusionist Wizard|MPMM"
@@ -11325,13 +11184,9 @@
 			"name": "Kobold Dragonshield",
 			"source": "VGM",
 			"page": 165,
-			"otherSources": [
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SLW"
-				}
+			"referenceSources": [
+				"DIP",
+				"SLW"
 			],
 			"reprintedAs": [
 				"Kobold Dragonshield|MPMM"
@@ -11467,13 +11322,9 @@
 			"name": "Kobold Inventor",
 			"source": "VGM",
 			"page": 166,
-			"otherSources": [
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "LLK"
-				}
+			"referenceSources": [
+				"LLK",
+				"ToA"
 			],
 			"reprintedAs": [
 				"Kobold Inventor|MPMM"
@@ -11650,10 +11501,8 @@
 			"name": "Kobold Scale Sorcerer",
 			"source": "VGM",
 			"page": 167,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Kobold Scale Sorcerer|MPMM"
@@ -11829,10 +11678,8 @@
 			"name": "Korred",
 			"source": "VGM",
 			"page": 168,
-			"otherSources": [
-				{
-					"source": "WBtW"
-				}
+			"referenceSources": [
+				"WBtW"
 			],
 			"reprintedAs": [
 				"Korred|MPMM"
@@ -12020,19 +11867,11 @@
 			"name": "Kraken Priest",
 			"source": "VGM",
 			"page": 215,
-			"otherSources": [
-				{
-					"source": "GoS"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SLW"
-				},
-				{
-					"source": "LR"
-				}
+			"referenceSources": [
+				"DIP",
+				"GoS",
+				"LR",
+				"SLW"
 			],
 			"reprintedAs": [
 				"Kraken Priest|MPMM"
@@ -12183,13 +12022,9 @@
 			"name": "Leucrotta",
 			"source": "VGM",
 			"page": 169,
-			"otherSources": [
-				{
-					"source": "TftYP"
-				},
-				{
-					"source": "MOT"
-				}
+			"referenceSources": [
+				"MOT",
+				"TftYP"
 			],
 			"reprintedAs": [
 				"Leucrotta|MPMM"
@@ -12320,19 +12155,10 @@
 			"name": "Martial Arts Adept",
 			"source": "VGM",
 			"page": 216,
-			"otherSources": [
-				{
-					"source": "WDH"
-				},
-				{
-					"source": "TftYP"
-				},
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "LLK"
-				}
+			"referenceSources": [
+				"LLK",
+				"TftYP",
+				"WDH"
 			],
 			"reprintedAs": [
 				"Martial Arts Adept|MPMM"
@@ -12463,24 +12289,17 @@
 			"page": 216,
 			"otherSources": [
 				{
-					"source": "DIP"
-				},
-				{
-					"source": "SLW"
-				},
-				{
-					"source": "SDW"
-				},
-				{
 					"source": "IMR",
-					"page": 216
-				},
-				{
-					"source": "MOT"
-				},
-				{
-					"source": "TLK"
+					"page": 54
 				}
+			],
+			"referenceSources": [
+				"DIP",
+				"IMR",
+				"MOT",
+				"SDW",
+				"SLW",
+				"TLK"
 			],
 			"reprintedAs": [
 				"Master Thief|MPMM"
@@ -12621,10 +12440,8 @@
 			"name": "Maw Demon",
 			"source": "VGM",
 			"page": 137,
-			"otherSources": [
-				{
-					"source": "GoS"
-				}
+			"referenceSources": [
+				"GoS"
 			],
 			"reprintedAs": [
 				"Maw Demon|MPMM"
@@ -12731,10 +12548,8 @@
 			"name": "Meenlock",
 			"source": "VGM",
 			"page": 170,
-			"otherSources": [
-				{
-					"source": "CM"
-				}
+			"referenceSources": [
+				"CM"
 			],
 			"reprintedAs": [
 				"Meenlock|MPMM"
@@ -13590,16 +13405,10 @@
 			"name": "Necromancer",
 			"source": "VGM",
 			"page": 217,
-			"otherSources": [
-				{
-					"source": "TftYP"
-				},
-				{
-					"source": "DC"
-				},
-				{
-					"source": "DIP"
-				}
+			"referenceSources": [
+				"DC",
+				"DIP",
+				"TftYP"
 			],
 			"reprintedAs": [
 				"Necromancer Wizard|MPMM"
@@ -14194,10 +14003,8 @@
 			"name": "Neothelid",
 			"source": "VGM",
 			"page": 181,
-			"otherSources": [
-				{
-					"source": "WDMM"
-				}
+			"referenceSources": [
+				"WDMM"
 			],
 			"reprintedAs": [
 				"Neothelid|MPMM"
@@ -15208,10 +15015,8 @@
 			"name": "Ox",
 			"source": "VGM",
 			"page": 208,
-			"otherSources": [
-				{
-					"source": "PotA"
-				}
+			"referenceSources": [
+				"PotA"
 			],
 			"reprintedAs": [
 				"Ox|MPMM"
@@ -15290,13 +15095,9 @@
 			],
 			"source": "VGM",
 			"page": 140,
-			"otherSources": [
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "XMtS"
-				}
+			"referenceSources": [
+				"ToA",
+				"XMtS"
 			],
 			"reprintedAs": [
 				"Quetzalcoatlus|MPMM"
@@ -15383,13 +15184,9 @@
 			"name": "Quickling",
 			"source": "VGM",
 			"page": 187,
-			"otherSources": [
-				{
-					"source": "WBtW"
-				},
-				{
-					"source": "LLK"
-				}
+			"referenceSources": [
+				"LLK",
+				"WBtW"
 			],
 			"reprintedAs": [
 				"Quickling|MPMM"
@@ -15598,19 +15395,10 @@
 			"name": "Redcap",
 			"source": "VGM",
 			"page": 188,
-			"otherSources": [
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "BGDIA"
-				},
-				{
-					"source": "IMR"
-				},
-				{
-					"source": "WBtW"
-				}
+			"referenceSources": [
+				"BGDIA",
+				"IMR",
+				"WBtW"
 			],
 			"reprintedAs": [
 				"Redcap|MPMM"
@@ -16276,16 +16064,9 @@
 			"name": "Slithering Tracker",
 			"source": "VGM",
 			"page": 191,
-			"otherSources": [
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "IMR"
-				},
-				{
-					"source": "MOT"
-				}
+			"referenceSources": [
+				"IMR",
+				"MOT"
 			],
 			"reprintedAs": [
 				"Slithering Tracker|MPMM"
@@ -16576,10 +16357,8 @@
 			],
 			"source": "VGM",
 			"page": 140,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Stegosaurus|MPMM"
@@ -16874,10 +16653,8 @@
 			"name": "Storm Giant Quintessent",
 			"source": "VGM",
 			"page": 151,
-			"otherSources": [
-				{
-					"source": "GoS"
-				}
+			"referenceSources": [
+				"GoS"
 			],
 			"reprintedAs": [
 				"Storm Giant Quintessent|MPMM"
@@ -17194,10 +16971,8 @@
 			"name": "Swarm of Rot Grubs",
 			"source": "VGM",
 			"page": 208,
-			"otherSources": [
-				{
-					"source": "GoS"
-				}
+			"referenceSources": [
+				"GoS"
 			],
 			"reprintedAs": [
 				"Swarm of Rot Grubs|MPMM"
@@ -17289,22 +17064,11 @@
 			"name": "Swashbuckler",
 			"source": "VGM",
 			"page": 217,
-			"otherSources": [
-				{
-					"source": "WDH"
-				},
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SLW"
-				},
-				{
-					"source": "SDW"
-				}
+			"referenceSources": [
+				"DIP",
+				"SDW",
+				"SLW",
+				"WDH"
 			],
 			"reprintedAs": [
 				"Swashbuckler|MPMM"
@@ -17567,10 +17331,8 @@
 			"name": "Thorny",
 			"source": "VGM",
 			"page": 197,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Thorny Vegepygmy|MPMM"
@@ -17790,10 +17552,8 @@
 			"name": "Transmuter",
 			"source": "VGM",
 			"page": 218,
-			"otherSources": [
-				{
-					"source": "TftYP"
-				}
+			"referenceSources": [
+				"TftYP"
 			],
 			"reprintedAs": [
 				"Transmuter Wizard|MPMM"
@@ -17970,10 +17730,8 @@
 			"name": "Trapper",
 			"source": "VGM",
 			"page": 194,
-			"otherSources": [
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR"
 			],
 			"reprintedAs": [
 				"Trapper|MPMM"
@@ -18073,10 +17831,8 @@
 			"name": "Ulitharid",
 			"source": "VGM",
 			"page": 175,
-			"otherSources": [
-				{
-					"source": "WDMM"
-				}
+			"referenceSources": [
+				"WDMM"
 			],
 			"reprintedAs": [
 				"Ulitharid|MPMM"
@@ -18374,10 +18130,8 @@
 			"name": "Vegepygmy",
 			"source": "VGM",
 			"page": 196,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Vegepygmy|MPMM"
@@ -18492,10 +18246,8 @@
 			"name": "Vegepygmy Chief",
 			"source": "VGM",
 			"page": 197,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Vegepygmy Chief|MPMM"
@@ -18637,17 +18389,10 @@
 			],
 			"source": "VGM",
 			"page": 140,
-			"otherSources": [
-				{
-					"source": "ToA"
-				},
-				{
-					"source": "PSX",
-					"page": 30
-				},
-				{
-					"source": "XMtS"
-				}
+			"referenceSources": [
+				"PSX",
+				"ToA",
+				"XMtS"
 			],
 			"reprintedAs": [
 				"Velociraptor|MPMM"
@@ -18741,19 +18486,11 @@
 			"name": "War Priest",
 			"source": "VGM",
 			"page": 218,
-			"otherSources": [
-				{
-					"source": "DC"
-				},
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SDW"
-				},
-				{
-					"source": "MOT"
-				}
+			"referenceSources": [
+				"DC",
+				"DIP",
+				"MOT",
+				"SDW"
 			],
 			"reprintedAs": [
 				"War Priest|MPMM"
@@ -19121,10 +18858,8 @@
 			"name": "Warlock of the Fiend",
 			"source": "VGM",
 			"page": 219,
-			"otherSources": [
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR"
 			],
 			"reprintedAs": [
 				"Warlock of the Fiend|MPMM"
@@ -19325,10 +19060,8 @@
 			"name": "Warlock of the Great Old One",
 			"source": "VGM",
 			"page": 220,
-			"otherSources": [
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR"
 			],
 			"reprintedAs": [
 				"Warlock of the Great Old One|MPMM"
@@ -19525,10 +19258,8 @@
 			"name": "Warlord",
 			"source": "VGM",
 			"page": 220,
-			"otherSources": [
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR"
 			],
 			"reprintedAs": [
 				"Warlord|MPMM"
@@ -19776,13 +19507,9 @@
 			"name": "Wood Woad",
 			"source": "VGM",
 			"page": 198,
-			"otherSources": [
-				{
-					"source": "DIP"
-				},
-				{
-					"source": "SDW"
-				}
+			"referenceSources": [
+				"DIP",
+				"SDW"
 			],
 			"reprintedAs": [
 				"Wood Woad|MPMM"
@@ -20710,10 +20437,8 @@
 			"name": "Yuan-ti Broodguard",
 			"source": "VGM",
 			"page": 203,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Yuan-ti Broodguard|MPMM"
@@ -20872,11 +20597,6 @@
 			"name": "Yuan-ti Malison (Type 4)",
 			"source": "VGM",
 			"page": 96,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
-			],
 			"size": [
 				"M"
 			],
@@ -21061,11 +20781,6 @@
 			"name": "Yuan-ti Malison (Type 5)",
 			"source": "VGM",
 			"page": 96,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
-			],
 			"size": [
 				"M"
 			],
@@ -21491,10 +21206,8 @@
 			"name": "Yuan-ti Nightmare Speaker",
 			"source": "VGM",
 			"page": 205,
-			"otherSources": [
-				{
-					"source": "ToA"
-				}
+			"referenceSources": [
+				"ToA"
 			],
 			"reprintedAs": [
 				"Yuan-ti Nightmare Speaker|MPMM"

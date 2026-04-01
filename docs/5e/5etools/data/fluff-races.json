@@ -3126,6 +3126,18 @@
 						"In Shadowmoor, some flamekin who have stifled their heated emotions are known as Cinders because their magical flames have dampened. Though they still have fiery abilities, these Cinders are visually distinct from other flamekin. While some eventually regain their blazing flames, others turn into {@race rimekin|LFL}, explained later in this chapter."
 					]
 				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/LFL/Flamekin.webp"
+					},
+					"credit": "Joshua Raphael",
+					"width": 1918,
+					"height": 1269
+				}
 			]
 		},
 		{
@@ -4168,6 +4180,21 @@
 					"credit": "Hinchel Or",
 					"width": 1700,
 					"height": 1111
+				}
+			]
+		},
+		{
+			"name": "Grung",
+			"source": "OGA",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "races/OGA/Grung.webp"
+					},
+					"width": 941,
+					"height": 975
 				}
 			]
 		},

@@ -187,7 +187,7 @@ export class BrewUtil2Base {
 			? this._storage.pRemove(this._STORAGE_KEY_CUSTOM_URL)
 			: this._storage.pSet(this._STORAGE_KEY_CUSTOM_URL, val));
 
-		location.reload();
+		if (typeof location !== "undefined") location.reload();
 	}
 
 	/* -------------------------------------------- */
@@ -512,16 +512,16 @@ export class BrewUtil2Base {
 
 	/* -------------------------------------------- */
 
-	async _pGetBrewDependencies ({brewDocs, brewsRaw = null, brewsRawLocal = null, isIgnoreNetworkErrors = false, lockToken}) {
+	async _pGetBrewDependencies ({brewDocs, brewsRaw = null, brewsRawLocal = null, isIgnoreNetworkErrors = false, isLoadReferences = false, lockToken}) {
 		try {
 			lockToken = await this._LOCK.pLock({token: lockToken});
-			return (await this._pGetBrewDependencies_({brewDocs, brewsRaw, brewsRawLocal, isIgnoreNetworkErrors, lockToken}));
+			return (await this._pGetBrewDependencies_({brewDocs, brewsRaw, brewsRawLocal, isIgnoreNetworkErrors, isLoadReferences, lockToken}));
 		} finally {
 			this._LOCK.unlock();
 		}
 	}
 
-	async _pGetBrewDependencies_ ({brewDocs, brewsRaw = null, brewsRawLocal = null, isIgnoreNetworkErrors = false, lockToken}) {
+	async _pGetBrewDependencies_ ({brewDocs, brewsRaw = null, brewsRawLocal = null, isIgnoreNetworkErrors = false, isLoadReferences = false, lockToken}) {
 		const urlRoot = await this.pGetCustomUrl();
 		const brewIndex = await this._pGetBrewDependencies_getBrewIndex({urlRoot, isIgnoreNetworkErrors});
 
@@ -540,7 +540,7 @@ export class BrewUtil2Base {
 
 		brewDocs
 			.forEach(brewDoc => {
-				const {available, unavailable} = this._getBrewDependencySources({brewDoc, brewIndex});
+				const {available, unavailable} = this._getBrewDependencySources({brewDoc, brewIndex, isLoadReferences});
 				available.forEach(src => this._pGetBrewDependencies_mutAddToLoad({loadedSources, toLoadSources, src}));
 				unavailable.forEach(src => unavailableSources.add(src));
 			});
@@ -555,7 +555,7 @@ export class BrewUtil2Base {
 			brewDocsDependencies.push(brewDocDep);
 			this._pGetBrewDependencies_mutAddLoaded({loadedSources, brewDoc: brewDocDep});
 
-			const {available, unavailable} = this._getBrewDependencySources({brewDoc: brewDocDep, brewIndex});
+			const {available, unavailable} = this._getBrewDependencySources({brewDoc: brewDocDep, brewIndex, isLoadReferences});
 			available.forEach(src => this._pGetBrewDependencies_mutAddToLoad({loadedSources, toLoadSources, src}));
 			unavailable.forEach(src => unavailableSources.add(src));
 		}
@@ -699,9 +699,8 @@ export class BrewUtil2Base {
 	/* -------------------------------------------- */
 
 	_PROPS_DEPS = ["dependencies", "includes"];
-	_PROPS_DEPS_DEEP = ["otherSources"];
 
-	_getBrewDependencySources ({brewDoc, brewIndex}) {
+	_getBrewDependencySources ({brewDoc, brewIndex, isLoadReferences = false}) {
 		const sources = new Set();
 
 		this._PROPS_DEPS.forEach(prop => {
@@ -712,14 +711,10 @@ export class BrewUtil2Base {
 				.forEach(src => sources.add(src));
 		});
 
-		this._PROPS_DEPS_DEEP.forEach(prop => {
-			const obj = brewDoc.body._meta?.[prop];
-			if (!obj || !Object.keys(obj).length) return;
-			return Object.values(obj)
-				.map(objSub => Object.keys(objSub))
-				.flat()
-				.forEach(src => sources.add(src));
-		});
+		if (isLoadReferences) {
+			brewDoc.body._test?.references
+				?.forEach(src => sources.add(src));
+		}
 
 		const [available, unavailable] = [...sources]
 			.segregate(src => brewIndex[src]);
@@ -727,11 +722,11 @@ export class BrewUtil2Base {
 		return {available, unavailable};
 	}
 
-	async pAddBrewFromUrl (url, {isLazy} = {}) {
+	async pAddBrewFromUrl (url, {isLazy, isLoadReferences = false} = {}) {
 		let brewDocs = []; let unavailableSources = [];
 
 		try {
-			({brewDocs, unavailableSources} = await this._pAddBrewFromUrl({url, isLazy}));
+			({brewDocs, unavailableSources} = await this._pAddBrewFromUrl({url, isLazy, isLoadReferences}));
 		} catch (e) {
 			JqueryUtil.doToast({type: "danger", content: `Failed to load ${this.DISPLAY_NAME} from URL "${url}"! ${VeCt.STR_SEE_CONSOLE}`});
 			setTimeout(() => { throw e; });
@@ -747,7 +742,7 @@ export class BrewUtil2Base {
 		return this._getBrewDoc({json, url, filename: UrlUtil.getFilename(url)});
 	}
 
-	async _pAddBrewFromUrl ({url, lockToken, isLazy}) {
+	async _pAddBrewFromUrl ({url, lockToken, isLazy, isLoadReferences}) {
 		const brewDoc = await this._pGetBrewDocFromUrl({url});
 
 		if (isLazy) {
@@ -766,7 +761,7 @@ export class BrewUtil2Base {
 			lockToken = await this._LOCK.pLock({token: lockToken});
 			const brews = MiscUtil.copyFast(await this._pGetBrewRaw({lockToken}));
 
-			const {brewDocsDependencies, unavailableSources: unavailableSources_} = await this._pGetBrewDependencies({brewDocs, brewsRaw: brews, lockToken});
+			const {brewDocsDependencies, unavailableSources: unavailableSources_} = await this._pGetBrewDependencies({brewDocs, brewsRaw: brews, isLoadReferences, lockToken});
 			brewDocs.push(...brewDocsDependencies);
 			unavailableSources.push(...unavailableSources_);
 
@@ -852,7 +847,7 @@ export class BrewUtil2Base {
 		return {brewDocs, unavailableSources};
 	}
 
-	async pPullAllBrews ({brews} = {}) {
+	async pPullAllBrews ({brews = null} = {}) {
 		try {
 			const lockToken = await this._LOCK.pLock();
 			return (await this._pPullAllBrews_({lockToken, brews}));
@@ -861,24 +856,33 @@ export class BrewUtil2Base {
 		}
 	}
 
-	async _pPullAllBrews_ ({lockToken, brews}) {
+	async _pPullAllBrews_ ({lockToken, brews = null}) {
 		const brewDocsUpdated = [];
 
-		brews = brews || MiscUtil.copyFast(await this._pGetBrewRaw({lockToken}));
-		const brewsNxt = await brews.pMap(async brew => {
-			if (!this.isPullable(brew)) return brew;
+		const brewsCur = MiscUtil.copyFast(await this._pGetBrewRaw({lockToken}));
+		const allowlistDocIdLocals = new Set(
+			brews
+				? brews.map(brew => brew.head.docIdLocal)
+				: brewsCur.map(brew => brew.head.docIdLocal),
+		);
 
-			const json = await DataUtil.loadRawJSON(brew.head.url, {isBustCache: true});
+		const brewsNxt = await brewsCur
+			.pMap(async brew => {
+				if (!allowlistDocIdLocals.has(brew.head.docIdLocal)) return brew;
 
-			const localLastModified = brew.body._meta?.dateLastModified ?? 0;
-			const sourceLastModified = json._meta?.dateLastModified ?? 0;
+				if (!this.isPullable(brew)) return brew;
 
-			if (sourceLastModified <= localLastModified) return brew;
+				const json = await DataUtil.loadRawJSON(brew.head.url, {isBustCache: true});
 
-			const brewDoc = BrewDoc.fromObject(brew).mutUpdate({json});
-			brewDocsUpdated.push(brewDoc);
-			return brewDoc.toObject();
-		});
+				const localLastModified = brew.body._meta?.dateLastModified ?? 0;
+				const sourceLastModified = json._meta?.dateLastModified ?? 0;
+
+				if (sourceLastModified <= localLastModified) return brew;
+
+				const brewDoc = BrewDoc.fromObject(brew).mutUpdate({json});
+				brewDocsUpdated.push(brewDoc);
+				return brewDoc.toObject();
+			});
 
 		if (!brewDocsUpdated.length) return brewDocsUpdated;
 
@@ -924,13 +928,13 @@ export class BrewUtil2Base {
 
 	async pAddBrewFromLoaderTag (ele) {
 		ele = e_(ele);
-		if (!ele.hasClass("rd__wrp-loadbrew--ready")) return; // an existing click is being handled
+		if (!ele.hasClass("ve-rd__wrp-loadbrew--ready")) return; // an existing click is being handled
 		let jsonPath = ele.dataset.rdLoaderPath;
 		const name = ele.dataset.rdLoaderName;
 		const cached = ele.html();
 		const cachedTitle = ele.tooltip();
 		ele.tooltip("");
-		ele.removeClass("rd__wrp-loadbrew--ready").html(`${name.qq()}<span class="glyphicon glyphicon-refresh rd__loadbrew-icon rd__loadbrew-icon--active"></span>`);
+		ele.removeClass("ve-rd__wrp-loadbrew--ready").html(`${name.qq()}<span class="glyphicon glyphicon-refresh ve-rd__loadbrew-icon ve-rd__loadbrew-icon--active"></span>`);
 
 		jsonPath = jsonPath.unescapeQuotes();
 		if (!UrlUtil.isFullUrl(jsonPath)) {
@@ -939,8 +943,8 @@ export class BrewUtil2Base {
 		}
 
 		await this.pAddBrewFromUrl(jsonPath);
-		ele.html(`${name.qq()}<span class="glyphicon glyphicon-saved rd__loadbrew-icon"></span>`);
-		setTimeout(() => ele.html(cached).addClass("rd__wrp-loadbrew--ready").tooltip(cachedTitle), 500);
+		ele.html(`${name.qq()}<span class="glyphicon glyphicon-saved ve-rd__loadbrew-icon"></span>`);
+		setTimeout(() => ele.html(cached).addClass("ve-rd__wrp-loadbrew--ready").tooltip(cachedTitle), 500);
 	}
 
 	_isMatchingCombinedIndexInfo (info) {
@@ -1328,7 +1332,7 @@ export class BrewUtil2Base {
 	/**
 	 * Get data in a format similar to the main search index
 	 */
-	async pGetSearchIndex ({id = 0, isDecompress = true, isIncludeExtendedSourceInfo = false} = {}) {
+	async pGetSearchIndex ({id = 0, isDecompress = true, isIncludeExtendedSourceInfo = false, isSkipNonPartnered = false} = {}) {
 		const indexer = new Omnidexer(id);
 
 		const brew = await this.pGetBrewProcessed();
@@ -1337,15 +1341,19 @@ export class BrewUtil2Base {
 		await [...Omnidexer.TO_INDEX__FROM_INDEX_JSON, ...Omnidexer.TO_INDEX]
 			.pSerialAwaitMap(async arbiter => {
 				if (arbiter.isSkipBrew) return;
-				if (!brew[arbiter.brewProp || arbiter.listProp]?.length) return;
+
+				if (
+					!Object.keys(brew).some(prop => arbiter.hasBrewProp(prop))
+					&& !brew[arbiter.listProp]?.length
+				) return;
 
 				if (arbiter.pFnPreProcBrew) {
 					const toProc = await arbiter.pFnPreProcBrew.bind(arbiter)(brew);
-					await indexer.pAddToIndex(arbiter, toProc, {isIncludeExtendedSourceInfo});
+					await indexer.pAddToIndex(arbiter, toProc, {isIncludeExtendedSourceInfo, isSkipNonPartnered});
 					return;
 				}
 
-				await indexer.pAddToIndex(arbiter, brew, {isIncludeExtendedSourceInfo});
+				await indexer.pAddToIndex(arbiter, brew, {isIncludeExtendedSourceInfo, isSkipNonPartnered});
 			});
 
 		const index = indexer.getIndex();

@@ -15,13 +15,13 @@ export class DmScreenPanelAppBase {
 	 */
 	getState () { throw new Error("Unimplemented!"); }
 
-	$getPanelElement () {
-		return this._$getPanelElement(this._board, this._savedState);
+	getPanelElement () {
+		return this._getPanelElement(this._board, this._savedState);
 	}
 
 	/**
 	 * @abstract
-	 * @return {jQuery}
+	 * @return {HTMLElementExtended}
 	 */
-	_$getPanelElement (board, state) { throw new Error("Unimplemented!"); }
+	_getPanelElement (board, state) { throw new Error("Unimplemented!"); }
 }

@@ -833,7 +833,7 @@
 											"page": 15,
 											"entries": [
 												"A hot air balloon is lit by a magic furnace channeling elemental power. A galleon suspended below the balloon features a helm that controls the ship. The vessel can fly virtually anywhere, ignoring {@quickref difficult terrain||3}, but it is at risk from storms and strong winds. If the balloon takes significant damage, the ship could be forced to descend\u2014or might even crash.",
-												"({@book Appendix C|AI|12} features vehicle statistics for a typical battle balloon. For characters who choose this highly coveted feature for their headquarters, the DM can impose limitations on the ship's attacks and make changes to its statistics.)"
+												"({@book Appendix C|AI|6} features vehicle statistics for a typical battle balloon. For characters who choose this highly coveted feature for their headquarters, the DM can impose limitations on the ship's attacks and make changes to its statistics.)"
 											],
 											"id": "02c"
 										},
@@ -890,7 +890,7 @@
 											"name": "Giant Fist",
 											"page": 16,
 											"entries": [
-												"{@i Melee Weapon Attack}: +8 to hit, reach 15 ft., one object or creature. {@i Hit}: 16 ({@dice 3d10}) bludgeoning damage."
+												"{@i Melee Weapon Attack}: {@hit 8} to hit, reach 15 ft., one object or creature. {@i Hit}: 16 ({@dice 3d10}) bludgeoning damage."
 											],
 											"id": "032"
 										},
@@ -7016,7 +7016,7 @@
 										"She is lawful good.",
 										"She has Strength 14.",
 										"She wears breastplate (AC 14).",
-										"She has the following attack: {@b Maul}. {@i Melee Weapon Attack}: +4 to hit, reach 5 ft., one target. {@i Hit}: 9 ({@dice 2d6 + 2}) bludgeoning damage.",
+										"She has the following attack: {@b Maul}. {@i Melee Weapon Attack}: {@hit 4} to hit, reach 5 ft., one target. {@i Hit}: 9 ({@dice 2d6 + 2}) bludgeoning damage.",
 										"She has these racial traits: Prophetess has advantage on saving throws against being {@condition charmed}, and magic can't put her to sleep. She has {@sense darkvision} out to a range of 60 feet. She speaks Common and Elvish."
 									]
 								}

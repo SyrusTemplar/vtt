@@ -924,6 +924,38 @@
 			"hasFluff": true
 		},
 		{
+			"name": "Cat Skeleton",
+			"source": "CoS",
+			"page": 109,
+			"_copy": {
+				"name": "Cat",
+				"source": "MM",
+				"_templates": [
+					{
+						"name": "Skeleton",
+						"source": "DMG"
+					}
+				],
+				"_mod": {
+					"_": [
+						{
+							"mode": "setProp",
+							"prop": "vulnerable",
+							"value": null
+						},
+						{
+							"mode": "setProp",
+							"prop": "languages",
+							"value": null
+						}
+					]
+				}
+			},
+			"tokenCredit": "BoneTea",
+			"tokenCustom": true,
+			"hasToken": true
+		},
+		{
 			"name": "Clovin Belview",
 			"isNpc": true,
 			"isNamedCreature": true,
@@ -1812,7 +1844,7 @@
 							{
 								"name": "Fey Ancestry",
 								"entries": [
-									"Kasimir has advantage on saving throws against being {@condition charmed}, and magic can't put the him to sleep."
+									"Kasimir has advantage on saving throws against being {@condition charmed}, and magic can't put him to sleep."
 								]
 							},
 							{
@@ -2071,7 +2103,8 @@
 				"dexterity",
 				"wisdom"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Lady Lydia Petrovna",
@@ -2115,7 +2148,8 @@
 				"C",
 				"E"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Ludmilla Vilisevic",
@@ -4541,10 +4575,8 @@
 			"name": "Tree Blight",
 			"source": "CoS",
 			"page": 230,
-			"otherSources": [
-				{
-					"source": "WBtW"
-				}
+			"referenceSources": [
+				"WBtW"
 			],
 			"reprintedAs": [
 				"Tree Blight|XMM"

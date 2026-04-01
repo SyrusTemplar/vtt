@@ -662,19 +662,11 @@
 			"isNamedCreature": true,
 			"source": "SKT",
 			"page": 96,
-			"otherSources": [
-				{
-					"source": "DC"
-				},
-				{
-					"source": "SLW"
-				},
-				{
-					"source": "SDW"
-				},
-				{
-					"source": "OoW"
-				}
+			"referenceSources": [
+				"DC",
+				"OoW",
+				"SDW",
+				"SLW"
 			],
 			"_copy": {
 				"name": "Ancient Green Dragon",
@@ -1030,10 +1022,8 @@
 			"name": "Crag Cat",
 			"source": "SKT",
 			"page": 240,
-			"otherSources": [
-				{
-					"source": "IDRotF"
-				}
+			"referenceSources": [
+				"IDRotF"
 			],
 			"size": [
 				"L"
@@ -5539,6 +5529,15 @@
 			"name": "Sheep",
 			"source": "SKT",
 			"page": 142,
+			"otherSources": [
+				{
+					"source": "IDRotF",
+					"page": 76
+				}
+			],
+			"referenceSources": [
+				"IDRotF"
+			],
 			"_copy": {
 				"name": "Goat",
 				"source": "MM",
@@ -6617,10 +6616,8 @@
 			"name": "Tressym",
 			"source": "SKT",
 			"page": 242,
-			"otherSources": [
-				{
-					"source": "IMR"
-				}
+			"referenceSources": [
+				"IMR"
 			],
 			"size": [
 				"T"

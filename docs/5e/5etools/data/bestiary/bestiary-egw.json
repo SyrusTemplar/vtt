@@ -531,10 +531,8 @@
 			"name": "Animated Tree",
 			"source": "EGW",
 			"page": 130,
-			"otherSources": [
-				{
-					"source": "MOT"
-				}
+			"referenceSources": [
+				"MOT"
 			],
 			"_copy": {
 				"name": "Treant",
@@ -892,6 +890,9 @@
 					"source": "CRCotN",
 					"page": 295
 				}
+			],
+			"referenceSources": [
+				"CRCotN"
 			],
 			"size": [
 				"L"
@@ -1945,6 +1946,9 @@
 					"page": 291
 				}
 			],
+			"referenceSources": [
+				"CRCotN"
+			],
 			"size": [
 				"L"
 			],
@@ -2186,6 +2190,9 @@
 					"source": "CRCotN",
 					"page": 292
 				}
+			],
+			"referenceSources": [
+				"CRCotN"
 			],
 			"size": [
 				"G"
@@ -2765,6 +2772,9 @@
 					"source": "CRCotN",
 					"page": 295
 				}
+			],
+			"referenceSources": [
+				"CRCotN"
 			],
 			"size": [
 				"L"

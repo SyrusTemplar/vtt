@@ -244,10 +244,8 @@
 			"name": "Bone Knight",
 			"source": "ERLW",
 			"page": 316,
-			"otherSources": [
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA"
 			],
 			"size": [
 				"M"
@@ -2248,10 +2246,8 @@
 			"name": "Karrnathi Undead Soldier",
 			"source": "ERLW",
 			"page": 295,
-			"otherSources": [
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA"
 			],
 			"size": [
 				"M"
@@ -2382,10 +2378,8 @@
 			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 296,
-			"otherSources": [
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA"
 			],
 			"size": [
 				"M"
@@ -3504,10 +3498,8 @@
 			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 303,
-			"otherSources": [
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA"
 			],
 			"size": [
 				"H"
@@ -3839,10 +3831,8 @@
 			"isNamedCreature": true,
 			"source": "ERLW",
 			"page": 304,
-			"otherSources": [
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA"
 			],
 			"size": [
 				"L"
@@ -4086,10 +4076,8 @@
 			"name": "Tarkanan Assassin",
 			"source": "ERLW",
 			"page": 320,
-			"otherSources": [
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA"
 			],
 			"size": [
 				"M"
@@ -5548,10 +5536,8 @@
 			"name": "Warforged Titan",
 			"source": "ERLW",
 			"page": 315,
-			"otherSources": [
-				{
-					"source": "EFA"
-				}
+			"referenceSources": [
+				"EFA"
 			],
 			"size": [
 				"H"

@@ -9,7 +9,7 @@
 		text-decoration-color: $rgb !important;
 	}
 
-	.source {
+	.ve-source {
 		$rgb-source-category-site: #e50711;
 		$rgb-source-category-extras: #9d4c4f;
 		$rgb-source-category-prerelease: vars.$rgb-subclass-ua;
@@ -566,56 +566,56 @@
 		// endregion
 	}
 
-	.sp__ {
-		&school- {
-			&A {
+	.ve-sp__ {
+		&school-- {
+			&a {
 				color: #00b921;
 			}
 
-			&V {
+			&v {
 				color: #bb0100;
 			}
 
-			&E {
+			&e {
 				color: #b30083;
 			}
 
-			&I {
+			&i {
 				color: #006dbd;
 			}
 
-			&D {
+			&d {
 				color: #00adb3;
 			}
 
-			&N {
+			&n {
 				color: #6c00cc;
 			}
 
-			&T {
+			&t {
 				color: #ccbe00;
 			}
 
-			&C {
+			&c {
 				color: #bd0044;
 			}
 		}
 	}
 
-	.psi__ {
-		&type- {
-			&D {
+	.ve-psi__ {
+		&type-- {
+			&d {
 				// (Unused)
 			}
 
-			&T {
+			&t {
 				// (Unused)
 			}
 		}
 	}
 
 	// (Unused)
-	.itm__ {
+	.ve-itm__ {
 		&rarity-alt- {
 			&common {
 				color: color.adjust(vars.$rgb-font, $lightness: 15%);
@@ -644,7 +644,7 @@
 		}
 	}
 
-	.itm__ {
+	.ve-itm__ {
 		&rarity- {
 			&common {
 				color: color.adjust(vars.$rgb-font, $lightness: 15%);

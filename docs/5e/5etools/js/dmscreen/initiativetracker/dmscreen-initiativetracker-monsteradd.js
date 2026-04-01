@@ -41,7 +41,7 @@ class _InitiativeTrackerMonsterAddCustomizer extends BaseComponent {
 	async pGetShowModalResults () {
 		const rdState = new this.constructor._RenderState();
 
-		const {$modalInner, $modalFooter, doClose, pGetResolved} = UiUtil.getShowModal({
+		const {eleModalInner, eleModalFooter, doClose, pGetResolved} = UiUtil.getShowModal({
 			title: `Customize Creature \u2014 ${this._mon.name}`,
 			isHeaderBorder: true,
 			hasFooter: true,
@@ -49,26 +49,26 @@ class _InitiativeTrackerMonsterAddCustomizer extends BaseComponent {
 		});
 		rdState.cbDoClose = doClose;
 
-		const $iptCustomName = ComponentUiUtil.$getIptStr(this, "customName");
+		const iptCustomName = ComponentUiUtil.getIptStr(this, "customName");
 
-		$$($modalInner)`
-			<div class="ve-flex-col py-2 w-100 h-100 ve-overflow-y-auto">
-				<label class="split-v-center mb-2">
-					<span class="w-200p ve-text-right no-shrink mr-2 bold">Custom Name:</span>
-					${$iptCustomName}
+		ee(eleModalInner)`
+			<div class="ve-flex-col ve-py-2 ve-w-100 ve-h-100 ve-overflow-y-auto">
+				<label class="ve-split-v-center ve-mb-2">
+					<span class="ve-w-200p ve-text-right ve-no-shrink ve-mr-2 ve-bold">Custom Name:</span>
+					${iptCustomName}
 				</label>
-				${this._render_$getRowScaler()}
+				${this._render_getEleRowScaler()}
 			</div>
 		`;
 
-		$$($modalFooter)`
-			${this._render_$getFooter({rdState})}
+		ee(eleModalFooter)`
+			${this._render_getEleFooter({rdState})}
 		`;
 
 		return pGetResolved();
 	}
 
-	_render_$getRowScaler () {
+	_render_getEleRowScaler () {
 		const isShowCrScaler = Parser.crToNumber(this._mon.cr) !== VeCt.CR_UNKNOWN;
 		const isShowSpellLevelScaler = !isShowCrScaler && this._mon.summonedBySpellLevel != null;
 		const isShowClassLevelScaler = !isShowSpellLevelScaler && (this._mon.summonedByClass != null || this._mon.summonedScaleByPlayerLevel);
@@ -77,15 +77,15 @@ class _InitiativeTrackerMonsterAddCustomizer extends BaseComponent {
 
 		if (isShowSpellLevelScaler) {
 			const sel = Renderer.monster.getSelSummonSpellLevel(this._mon)
-				.on("change", async () => {
+				.onn("change", async () => {
 					const val = Number(sel.val());
 					this._state.scaledSummonSpellLevel = !~val ? null : val;
 					if (this._state.scaledSummonSpellLevel == null) return delete this._state.displayName;
 					this._state.displayName = (await ScaleSpellSummonedCreature.scale(this._mon, this._state.scaledSummonSpellLevel))._displayName;
 				});
 
-			return $$`<label class="split-v-center mb-2">
-				<span class="w-200p ve-text-right no-shrink mr-2 bold">Spell Level:</span>
+			return ee`<label class="ve-split-v-center ve-mb-2">
+				<span class="ve-w-200p ve-text-right ve-no-shrink ve-mr-2 ve-bold">Spell Level:</span>
 				${sel}
 			</label>`;
 		}
@@ -99,8 +99,8 @@ class _InitiativeTrackerMonsterAddCustomizer extends BaseComponent {
 					this._state.displayName = (await ScaleClassSummonedCreature.scale(this._mon, this._state.scaledSummonClassLevel))._displayName;
 				});
 
-			return $$`<label class="split-v-center mb-2">
-				<span class="w-200p ve-text-right no-shrink mr-2 bold">${this._mon.summonedByClass != null ? "Class Level" : "Level"}:</span>
+			return ee`<label class="ve-split-v-center ve-mb-2">
+				<span class="ve-w-200p ve-text-right ve-no-shrink ve-mr-2 ve-bold">${this._mon.summonedByClass != null ? "Class Level" : "Level"}:</span>
 				${sel}
 			</label>`;
 		}
@@ -108,7 +108,7 @@ class _InitiativeTrackerMonsterAddCustomizer extends BaseComponent {
 		const dispScaledCr = ee`<span class="ve-inline-block"></span>`;
 		this._addHookBase("scaledCr", () => dispScaledCr.txt(this._state.scaledCr ? Parser.numberToCr(this._state.scaledCr) : `${(this._mon.cr.cr || this._mon.cr)} (default)`))();
 
-		const btnScaleCr = ee`<button class="ve-btn ve-btn-default ve-btn-xs mr-2"><span class="glyphicon glyphicon-signal"></span></button>`
+		const btnScaleCr = ee`<button class="ve-btn ve-btn-default ve-btn-xs ve-mr-2"><span class="glyphicon glyphicon-signal"></span></button>`
 			.onn("click", async () => {
 				const crBase = this._mon.cr.cr || this._mon.cr;
 
@@ -124,26 +124,26 @@ class _InitiativeTrackerMonsterAddCustomizer extends BaseComponent {
 				this._state.displayName = (await ScaleCreature.scale(this._mon, this._state.scaledCr))._displayName;
 			});
 
-		return $$`<label class="split-v-center mb-2">
-			<span class="w-200p ve-text-right no-shrink mr-2 bold">CR:</span>
-			<span class="ve-flex-v-center mr-auto">
+		return ee`<label class="ve-split-v-center ve-mb-2">
+			<span class="ve-w-200p ve-text-right ve-no-shrink ve-mr-2 ve-bold">CR:</span>
+			<span class="ve-flex-v-center ve-mr-auto">
 				${btnScaleCr}
 				${dispScaledCr}
 			</span>
 		</label>`;
 	}
 
-	_render_$getFooter ({rdState}) {
-		const $btnSave = $(`<button class="ve-btn ve-btn-primary ve-btn-sm w-100">Save</button>`)
-			.click(() => {
+	_render_getEleFooter ({rdState}) {
+		const btnSave = ee`<button class="ve-btn ve-btn-primary ve-btn-sm ve-w-100">Save</button>`
+			.onn("click", () => {
 				rdState.cbDoClose(
 					true,
 					MiscUtil.copyFast(this.__state),
 				);
 			});
 
-		return $$`<div class="w-100 py-3 no-shrink">
-			${$btnSave}
+		return ee`<div class="ve-w-100 ve-py-3 ve-no-shrink">
+			${btnSave}
 		</div>`;
 	}
 
@@ -190,36 +190,36 @@ export class InitiativeTrackerMonsterAdd extends BaseComponent {
 
 	/* -------------------------------------------- */
 
-	_$getCbCntToAdd ({cnt}) {
-		const $cb = $(`<input type="radio" class="ui-search__ipt-search-sub-ipt">`);
-		$cb.on("change", () => {
+	_getCbCntToAdd ({cnt}) {
+		const cb = ee`<input type="radio" class="ve-ui-search__ipt-search-sub-ipt">`;
+		cb.onn("change", () => {
 			this._state.cntToAdd = cnt;
 		});
-		this._addHookBase("cntToAdd", () => $cb.prop("checked", this._state.cntToAdd === cnt))();
-		return $cb;
+		this._addHookBase("cntToAdd", () => cb.prop("checked", this._state.cntToAdd === cnt))();
+		return cb;
 	}
 
-	_$getIptCntToAddCustom () {
-		const $iptCntToAddCustom = ComponentUiUtil.$getIptInt(
+	_getIptCntToAddCustom () {
+		const iptCntToAddCustom = ComponentUiUtil.getIptInt(
 			this,
 			"cntToAddCustom",
 			1,
 			{
-				html: `<input type="number" class="form-control ui-search__ipt-search-sub-ipt-custom">`,
+				html: `<input type="number" class="ve-form-control ve-ui-search__ipt-search-sub-ipt-custom">`,
 				min: 1,
 			},
 		);
 
 		this._addHookBase("cntToAdd", () => {
 			if (this._state.cntToAdd !== -1) return;
-			$iptCntToAddCustom.select();
+			iptCntToAddCustom.selecte();
 		})();
 
-		$iptCntToAddCustom.click(() => {
+		iptCntToAddCustom.onn("click", () => {
 			this._state.cntToAdd = -1;
 		});
 
-		return $iptCntToAddCustom;
+		return iptCntToAddCustom;
 	}
 
 	/**
@@ -236,25 +236,25 @@ export class InitiativeTrackerMonsterAdd extends BaseComponent {
 		const {eleModalInner, doClose, pGetResolved} = UiUtil.getShowModal();
 		rdState.cbDoClose = doClose;
 
-		const iptSearch = ee`<input class="ui-search__ipt-search search form-control" autocomplete="off" placeholder="Search...">`;
+		const iptSearch = ee`<input class="ve-ui-search__ipt-search search ve-form-control" autocomplete="off" placeholder="Search...">`;
 
-		$$`<div class="split no-shrink">
+		ee`<div class="ve-split ve-no-shrink">
 			${iptSearch}
 
-			<div class="ui-search__ipt-search-sub-wrp ve-flex-v-center pr-0">
-				<div class="mr-1">Add</div>
-				<label class="ui-search__ipt-search-sub-lbl">${this._$getCbCntToAdd({cnt: 1})} 1</label>
-				<label class="ui-search__ipt-search-sub-lbl">${this._$getCbCntToAdd({cnt: 2})} 2</label>
-				<label class="ui-search__ipt-search-sub-lbl">${this._$getCbCntToAdd({cnt: 3})} 3</label>
-				<label class="ui-search__ipt-search-sub-lbl">${this._$getCbCntToAdd({cnt: 5})} 5</label>
-				<label class="ui-search__ipt-search-sub-lbl">${this._$getCbCntToAdd({cnt: 8})} 8</label>
-				<label class="ui-search__ipt-search-sub-lbl">${this._$getCbCntToAdd({cnt: -1})} ${this._$getIptCntToAddCustom()}</label>
+			<div class="ve-ui-search__ipt-search-sub-wrp ve-flex-v-center ve-pr-0">
+				<div class="ve-mr-1">Add</div>
+				<label class="ve-ui-search__ipt-search-sub-lbl">${this._getCbCntToAdd({cnt: 1})} 1</label>
+				<label class="ve-ui-search__ipt-search-sub-lbl">${this._getCbCntToAdd({cnt: 2})} 2</label>
+				<label class="ve-ui-search__ipt-search-sub-lbl">${this._getCbCntToAdd({cnt: 3})} 3</label>
+				<label class="ve-ui-search__ipt-search-sub-lbl">${this._getCbCntToAdd({cnt: 5})} 5</label>
+				<label class="ve-ui-search__ipt-search-sub-lbl">${this._getCbCntToAdd({cnt: 8})} 8</label>
+				<label class="ve-ui-search__ipt-search-sub-lbl">${this._getCbCntToAdd({cnt: -1})} ${this._getIptCntToAddCustom()}</label>
 			</div>
 
-			<label class="ui-search__ipt-search-sub-wrp ve-flex-vh-center">${ComponentUiUtil.$getCbBool(this, "isRollHp").addClass("mr-1")} <span>Roll HP</span></label>
+			<label class="ve-ui-search__ipt-search-sub-wrp ve-flex-vh-center">${ComponentUiUtil.getCbBool(this, "isRollHp").addClass("ve-mr-1")} <span>Roll HP</span></label>
 		</div>`.appendTo(eleModalInner);
 
-		const wrpResults = ee`<div class="ui-search__wrp-results"></div>`.appendTo(eleModalInner);
+		const wrpResults = ee`<div class="ve-ui-search__wrp-results"></div>`.appendTo(eleModalInner);
 
 		const showMsgIpt = () => {
 			flags.isWait = true;
@@ -283,6 +283,9 @@ export class InitiativeTrackerMonsterAdd extends BaseComponent {
 					bool: "AND",
 					expand: true,
 				}),
+				{
+					searchTerm,
+				},
 			);
 			const resultCount = results.length ? results.length : index.documentStore.length;
 			const toProcess = results.length ? results : Object.values(index.documentStore.docs).slice(0, 75).map(it => ({doc: it}));
@@ -306,7 +309,7 @@ export class InitiativeTrackerMonsterAdd extends BaseComponent {
 
 				if (resultCount > this.constructor._RESULTS_MAX_DISPLAY) {
 					const diff = resultCount - this.constructor._RESULTS_MAX_DISPLAY;
-					wrpResults.appends(`<div class="ui-search__row ui-search__row--readonly">...${diff} more result${diff === 1 ? " was" : "s were"} hidden. Refine your search!</div>`);
+					wrpResults.appends(`<div class="ve-ui-search__row ve-ui-search__row--readonly">...${diff} more result${diff === 1 ? " was" : "s were"} hidden. Refine your search!</div>`);
 				}
 			} else {
 				if (!searchTerm.trim()) showMsgIpt();
@@ -347,10 +350,10 @@ export class InitiativeTrackerMonsterAdd extends BaseComponent {
 			});
 
 		return ee`
-			<div class="ui-search__row ve-flex-v-center" tabindex="0">
+			<div class="ve-ui-search__row ve-flex-v-center" tabindex="0">
 				<span>${res.doc.n}</span>
 				<div class="ve-flex-vh-center">
-					<span class="mr-2">${res.doc.s ? `<i title="${Parser.sourceJsonToFull(res.doc.s)}">${Parser.sourceJsonToAbv(res.doc.s)}${res.doc.p ? ` p${res.doc.p}` : ""}</i>` : ""}</span>
+					<span class="ve-mr-2">${res.doc.s ? `<i title="${Parser.sourceJsonToFull(res.doc.s)}">${Parser.sourceJsonToAbv(res.doc.s)}${res.doc.p ? ` p${res.doc.p}` : ""}</i>` : ""}</span>
 					${btnCustomize}
 				</div>
 			</div>

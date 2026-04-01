@@ -1,7 +1,11 @@
-v2.24.1
+v2.25.4
 
-- Adjusted how some creature types (notable sub-species) are handled during statblock rendering vs. filtering, to allow for more book-accurate statblock views without sacrificing filter capabilities
-- Fixed crash when attempting to "Show Source Data" in hover window
-- Fixed DM Screen Initiative Tracker crash when attempting to add conditions and/or add custom conditions
-- Fixed crash when attempting to manage Filter Snapshots
+- Added "Sure-Footed" Traits filter to Bestiary page
+- Fixed Feats page pinned list "Category" sorting
+- Fixed Spells page school styling
+- Fixed list page "Table View" CSV removing paragraph line breaks
+- (Brew) Added "Gear" tab to Creature Homebrew Builder, with support for `"gear"` and `"attachedItems"`
+- (Brew) Reworked Creature Homebrew Builder "Add Predefined Action" items to add 5e/5.5e-style text depending on the rules version of the item, and made sources visible
+- (Brew) Improved test-homebrew-tags runner handling of cross-file class/subclass feature references
+- (Brew) Fixed test-homebrew-tags runner handling of prerelease content
 - (Fixed typos/added tags)
