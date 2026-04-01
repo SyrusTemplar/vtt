@@ -1,0 +1,1 @@
+devd\devd-0.9-%PROCESSOR_ARCHITECTURE:~-2% -ol .
