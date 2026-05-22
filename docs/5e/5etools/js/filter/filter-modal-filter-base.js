@@ -13,6 +13,7 @@ export class ModalFilterBase {
 	 * @param opts.modalTitle
 	 * @param opts.fnSort
 	 * @param opts.pageFilter
+	 * @param opts.previewButtonHandler
 	 * @param [opts.namespace]
 	 * @param [opts.allData]
 	 * @param [opts.sortByInitial]
@@ -25,6 +26,7 @@ export class ModalFilterBase {
 		this._sortByInitial = opts.sortByInitial;
 		this._sortDirInitial = opts.sortDirInitial;
 		this._pageFilter = opts.pageFilter;
+		this._previewButtonHandler = opts.previewButtonHandler;
 		this._namespace = opts.namespace;
 		this._allData = opts.allData || null;
 		this._isRadio = !!opts.isRadio;
@@ -40,7 +42,7 @@ export class ModalFilterBase {
 	_getWrpList () { return ee`<div class="list ve-ui-list__wrp ve-overflow-x-hidden ve-overflow-y-auto ve-h-100 ve-min-h-0"></div>`; }
 
 	_getColumnHeaderPreviewAll (opts) {
-		return ee`<button class="ve-btn ve-btn-default ve-btn-xs ${opts.isBuildUi ? "ve-col-1" : "ve-col-0-5"}">${ListUiUtil.HTML_GLYPHICON_EXPAND}</button>`;
+		return ee`<button class="ve-btn ve-btn-default ve-btn-xs ${opts.isBuildUi ? "ve-col-1" : "ve-col-0-5"}">${ListUiPreviewButtonHandlerBase.HTML_GLYPHICON_EXPAND}</button>`;
 	}
 
 	/**
@@ -70,11 +72,11 @@ export class ModalFilterBase {
 			${dispNumVisible}
 		</div>`;
 
-		const wrpFormTop = ee`<div class="ve-flex input-group ve-btn-group ve-w-100 ve-lst__form-top">${wrpIptSearch}${btnReset}</div>`;
+		const wrpFormTop = ee`<div class="ve-flex ve-input-group ve-btn-group ve-w-100 ve-lst__form-top">${wrpIptSearch}${btnReset}</div>`;
 
 		const wrpFormBottom = opts.wrpMiniPills || ee`<div class="ve-w-100"></div>`;
 
-		const wrpFormHeaders = ee`<div class="input-group input-group--bottom ve-flex ve-no-shrink"></div>`;
+		const wrpFormHeaders = ee`<div class="ve-input-group ve-input-group--bottom ve-flex ve-no-shrink"></div>`;
 		const cbSelAll = opts.isBuildUi || this._isRadio ? null : ee`<input type="checkbox">`;
 		const btnSendAllToRight = opts.isBuildUi ? ee`<button class="ve-btn ve-btn-xxs ve-btn-default ve-col-1" title="Add All"><span class="glyphicon glyphicon-arrow-right"></span></button>` : null;
 
@@ -104,7 +106,7 @@ export class ModalFilterBase {
 		const listSelectClickHandler = new ListSelectClickHandler({list: this._list});
 
 		if (!opts.isBuildUi && !this._isRadio) listSelectClickHandler.bindSelectAllCheckbox(cbSelAll);
-		ListUiUtil.bindPreviewAllButton(btnTogglePreviewAll, this._list);
+		this._previewButtonHandler.bindPreviewAllButton({btnAll: btnTogglePreviewAll, list: this._list});
 		SortUtil.initBtnSortHandlers(wrpFormHeaders, this._list);
 		this._list.on("updated", () => dispNumVisible.html(`${this._list.visibleItems.length}/${this._list.items.length}`));
 

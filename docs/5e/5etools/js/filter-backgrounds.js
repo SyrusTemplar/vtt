@@ -1,15 +1,6 @@
 "use strict";
 
 class PageFilterBackgrounds extends PageFilterBase {
-	// TODO(Future) expand/move to `Renderer.generic`
-	static _getToolDisplayText (tool) {
-		if (tool === "anyTool") return "Any Tool";
-		if (tool === "anyArtisansTool") return "Any Artisan's Tool";
-		if (tool === "anyMusicalInstrument") return "Any Musical Instrument";
-		if (tool === "anyGamingSet") return "Any Gaming Set";
-		return tool.toTitleCase();
-	}
-
 	static _TRAIT_DISPLAY_VALUES = {
 		"Armor Proficiency": "Armor Training",
 	};
@@ -18,18 +9,12 @@ class PageFilterBackgrounds extends PageFilterBase {
 		super();
 
 		this._asiFilter = new AbilityScoreFilter({header: "Ability Scores"});
-		this._skillFilter = new Filter({
-			header: "Skill Proficiencies",
-			displayFn: it => {
-				const [name, sourceJson] = it.split("|");
-				return `${name.toTitleCase()}${sourceJson ? ` (${Parser.sourceJsonToAbv(sourceJson)})` : ""}`;
-			},
-		});
+		this._skillFilter = FilterCommon.getSkillProficienciesFilter();
 		this._prereqFilter = new Filter({
 			header: "Prerequisite",
 			items: [...FilterCommon.PREREQ_FILTER_ITEMS],
 		});
-		this._toolFilter = new Filter({header: "Tool Proficiencies", displayFn: PageFilterBackgrounds._getToolDisplayText.bind(PageFilterBackgrounds)});
+		this._toolFilter = FilterCommon.getToolProficienciesFilter();
 		this._languageFilter = FilterCommon.getLanguageProficienciesFilter();
 		this._otherBenefitsFilter = new Filter({
 			header: "Other Benefits",
@@ -160,6 +145,7 @@ class ModalFilterBackgrounds extends ModalFilterBase {
 			...opts,
 			modalTitle: `Background${opts.isRadio ? "" : "s"}`,
 			pageFilter: new PageFilterBackgrounds(),
+			previewButtonHandler: new ListUiPreviewButtonHandlerStatsFluff({page: UrlUtil.PG_BACKGROUNDS}),
 		});
 	}
 
@@ -221,7 +207,7 @@ class ModalFilterBackgrounds extends ModalFilterBase {
 			},
 		);
 
-		ListUiUtil.bindPreviewButton(UrlUtil.PG_BACKGROUNDS, this._allData, listItem, btnShowHidePreview);
+		this._previewButtonHandler.bindPreviewButton({entity: bg, listItem, btnShowHidePreview});
 
 		return listItem;
 	}

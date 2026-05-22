@@ -35,7 +35,7 @@ export class BuilderUi {
 		const eleType = options.eleType || "div";
 
 		const rowInner = ee`<div class="${options.isRow ? "ve-flex" : "ve-flex-col"} ve-w-100"></div>`;
-		const row = ee`<div class="ve-mb-2 mkbru__row stripe-even"><${eleType} class="mkbru__wrp-row ve-flex-v-center"><span class="ve-mr-2 mkbru__row-name ${options.isMarked ? `mkbru__row-name--marked` : ""} ${options.title ? "help" : ""}" ${options.title ? `title="${options.title.qq()}"` : ""}>${name}</span>${options.isMarked ? `<div class="mkbru__row-mark ve-mr-2"></div>` : ""}${rowInner}</${eleType}></div>`;
+		const row = ee`<div class="ve-mb-2 mkbru__row stripe-even--faint"><${eleType} class="mkbru__wrp-row ve-flex-v-center"><span class="ve-mr-2 mkbru__row-name ${options.isMarked ? `mkbru__row-name--marked` : ""} ${options.title ? "help" : ""}" ${options.title ? `title="${options.title.qq()}"` : ""}>${name}</span>${options.isMarked ? `<div class="mkbru__row-mark ve-mr-2"></div>` : ""}${rowInner}</${eleType}></div>`;
 		return [row, rowInner];
 	}
 
@@ -44,7 +44,7 @@ export class BuilderUi {
 
 		const eleType = options.eleType || "div";
 
-		return ee`<div class="ve-mb-2 mkbru__row stripe-even"><${eleType} class="mkbru__wrp-row ve-flex-v-center">
+		return ee`<div class="ve-mb-2 mkbru__row stripe-even--faint"><${eleType} class="mkbru__wrp-row ve-flex-v-center">
 		<span class="ve-mr-2 mkbru__row-name ${options.title ? "help" : ""}" ${options.title ? `title="${options.title.qq()}"` : ""}>${name}</span>
 		${ipt}
 		<${eleType}/></div>`;
@@ -395,11 +395,5 @@ export class BuilderUi {
 			<div class="ve-ui-drag__patch-col"><div>&#8729</div><div>&#8729</div><div>&#8729</div></div>
 		</div>`
 			.onn("mousedown", () => doDragRender());
-	}
-}
-
-export class PageUiUtil {
-	static getSideMenuDivider (heavy) {
-		return ee`<hr class="ve-w-100 ve-hr-2 sidemenu__row__divider ${heavy ? "sidemenu__row__divider--heavy" : ""}">`;
 	}
 }

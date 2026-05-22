@@ -4,20 +4,263 @@ import {AttachedItemTag, CreatureSavingThrowTagger, DamageTypeTag, DragonAgeTag,
 import {DiceConvert, TagCondition} from "../converter/converterutils-tags.js";
 import {RenderBestiary} from "../render-bestiary.js";
 
+/**
+ * @abstract
+ */
+class _CreatureBuilder_SpellMetaInputRendererBase {
+	constructor ({meta, data, doUpdateState}) {
+		this._meta = meta;
+		this._data = data;
+		this._doUpdateState = doUpdateState;
+	}
+
+	render () {
+		const out = {};
+		this._render({out});
+		if (!out.ele) throw new Error(`Expected property "ele" in output!`);
+		if (!out.getKeyPath) throw new Error(`Expected property "getKeyPath" in output!`);
+		return out;
+	}
+
+	/**
+	 * @abstract
+	 * @return void
+	 */
+	_render ({out}) {
+		throw new Error(`Unimplemented!`);
+	}
+}
+
+class _CreatureBuilder_SpellMetaInputRendererBasic extends _CreatureBuilder_SpellMetaInputRendererBase {
+	_render ({out}) {
+		out.ele = ee`<i>${this._meta.rowLabel}</i>`;
+		out.getKeyPath = () => [this._meta.type];
+	}
+}
+
+class _CreatureBuilder_SpellMetaInputRendererFrequency extends _CreatureBuilder_SpellMetaInputRendererBase {
+	_render ({out}) {
+		const iptFreq = ee`<input class="ve-form-control form-control--minimal ve-input-xs mkbru_mon__spell-header-ipt" min="1" max="9">`
+			.onn("change", () => this._doUpdateState());
+		if (this._data) iptFreq.val(this._meta.count || 1);
+		else iptFreq.val(1);
+
+		const cbEach = ee`<input class="mkbru__ipt-cb mkbru__ipt-cb--small-offset" type="checkbox">`
+			.prop("checked", !!(this._data && this._meta.each))
+			.onn("change", () => this._doUpdateState());
+
+		out.ele = ee`<div class="ve-flex mkbru_mon__spell-header-wrp ve-mr-4">
+		${iptFreq}
+		${this._getPtChargesItem({out})}
+		<span class="ve-mr-2 ve-italic">${this._meta.rowFreqUnit}</span>
+		<label class="ve-flex-v-baseline ve-muted small ve-ml-auto"><span class="ve-mr-1">(Each? </span>${cbEach}<span>)</span></label>
+		</div>`;
+
+		out.getKeyPath = () => [this._meta.type, `${UiUtil.strToInt(iptFreq.val(), 1, {fallbackOnNaN: 1, min: 1, max: 9})}${cbEach.prop("checked") ? "e" : ""}`];
+	}
+
+	_getPtChargesItem ({out}) {
+		if (this._meta.type !== "charges") return null;
+
+		const iptChargesItem = ee`<input class="ve-form-control form-control--minimal ve-input-xs ve-ml-2 ve-mr-2 ve-max-w-100p" placeholder="Item UID">`
+			.val(this._data ? this._meta.chargesItem : "")
+			.onn("change", () => {
+				this._doUpdateState();
+			});
+
+		out.getAdditionalData = () => {
+			const v = iptChargesItem.val().trim();
+			return [
+				{
+					keyPath: ["chargesItem"],
+					value: v || null,
+				},
+			];
+		};
+
+		return ee`<div>${iptChargesItem}</div>`;
+	}
+}
+
+class _CreatureBuilder_SpellMetaInputRendererRecharge extends _CreatureBuilder_SpellMetaInputRendererBase {
+	_render ({out}) {
+		const iptRecharge = ee`<input class="ve-form-control form-control--minimal ve-input-xs ve-w-24p ve-text-center" min="1" max="6">`
+			.onn("change", () => this._doUpdateState());
+		if (this._data) iptRecharge.val(this._meta.minRoll || 1);
+		else iptRecharge.val(1);
+
+		out.ele = ee`<div class="ve-flex mkbru_mon__spell-header-wrp ve-mr-4">
+		<span class="ve-mr-2 ve-italic">d6 Recharge:</span>
+		${iptRecharge}
+		<span class="ve-mr-2 ve-italic">+</span>
+		</div>`;
+
+		out.getKeyPath = () => [this._meta.type, `${UiUtil.strToInt(iptRecharge.val(), 1, {fallbackOnNaN: 1, min: 1, max: 6})}`];
+	}
+}
+
+class _CreatureBuilder_SpellMetaInputRendererCantrip extends _CreatureBuilder_SpellMetaInputRendererBase {
+	_render ({out}) {
+		out.ele = ee`<i>Cantrips</i>`;
+		out.getKeyPath = () => ["spells", "0", "spells"];
+	}
+}
+
+class _CreatureBuilder_SpellMetaInputRendererLevel extends _CreatureBuilder_SpellMetaInputRendererBase {
+	_render ({out}) {
+		const iptSlots = ee`<input class="ve-form-control form-control--minimal ve-input-xs mkbru_mon__spell-header-ipt ve-mr-2">`
+			.val(this._meta.slots || 0)
+			.onn("change", () => this._doUpdateState());
+
+		const cbWarlock = ee`<input type="checkbox" class="mkbru__ipt-cb">`
+			.prop("checked", !!this._meta.lower)
+			.onn("change", () => this._doUpdateState());
+
+		out.ele = ee`<div class="ve-flex mkbru_mon__spell-header-wrp ve-mr-4">
+		<div class="ve-italic">${Parser.spLevelToFull(this._meta.level)}-level Spells</div>
+		<div class="ve-flex-v-center ve-muted small ve-ml-auto"><span>(</span>${iptSlots}<span class="ve-mr-2">Slots</span></div>
+		<div class="mkbru_mon__spell-header-divider ve-mr-2"></div>
+		<label class="ve-flex-v-center ve-muted small"><span class="ve-mr-1">Warlock?</span>${cbWarlock}<span>)</span></label>
+		</div>`;
+		out.getKeyPath = () => ["spells", `${this._meta.level}`, "spells"];
+		out.getAdditionalData = () => {
+			return [
+				{
+					keyPath: ["spells", `${this._meta.level}`, "slots"],
+					value: UiUtil.strToInt(iptSlots.val()),
+				},
+				{
+					keyPath: ["spells", `${this._meta.level}`, "lower"],
+					value: cbWarlock.prop("checked") ? 1 : null,
+				},
+			];
+		};
+		out.filterIgnoreLevel = () => cbWarlock.prop("checked");
+	}
+}
+
+const _CREATURE_BUILDER_SPELL_META_INPUT_RENDERER_CLAZZES = {
+	"basic": _CreatureBuilder_SpellMetaInputRendererBasic,
+	"frequency": _CreatureBuilder_SpellMetaInputRendererFrequency,
+	"recharge": _CreatureBuilder_SpellMetaInputRendererRecharge,
+	"cantrip": _CreatureBuilder_SpellMetaInputRendererCantrip,
+	"level": _CreatureBuilder_SpellMetaInputRendererLevel,
+};
+
+const _SPELLCASTING_META_SPELLS__CANTRIPS = {
+	display: "Cantrips",
+	type: "spells",
+	mode: "cantrip",
+};
+
+const _SPELLCASTING_META_SPELLS__SPELLS = {
+	display: "\uD835\uDC65th level spells",
+	type: "spells",
+	mode: "level",
+};
+const _SPELLCASTING_META_SPELLS = {
+	display: "Cantrips and \uD835\uDC65th level spells",
+	type: "spells",
+	mode: "level",
+};
+const _SPELLCASTING_META_CONSTANT = {
+	display: "Constant effects",
+	type: "constant",
+	mode: "basic",
+	rowLabel: "Constant Effects",
+};
+const _SPELLCASTING_META_WILL = {
+	display: "At will spells",
+	type: "will",
+	mode: "basic",
+	rowLabel: "At Will",
+};
+const _SPELLCASTING_META_RITUAL = {
+	display: "Ritual Spells",
+	type: "ritual",
+	mode: "basic",
+	rowLabel: "Rituals",
+};
+const _SPELLCASTING_META_DAILY = {
+	display: "\uD835\uDC65/day (/each) spells",
+	type: "daily",
+	mode: "frequency",
+	rowFreqUnit: "/Day",
+};
+const _SPELLCASTING_META_REST = {
+	display: "\uD835\uDC65/rest (/each) spells",
+	type: "rest",
+	mode: "frequency",
+	rowFreqUnit: "/Rest",
+};
+const _SPELLCASTING_META_RESTLONG = {
+	display: "\uD835\uDC65/long rest (/each) spells",
+	type: "restLong",
+	mode: "frequency",
+	rowFreqUnit: "/Long Rest",
+};
+const _SPELLCASTING_META_WEEKLY = {
+	display: "\uD835\uDC65/week (/each) spells",
+	type: "weekly",
+	mode: "frequency",
+	rowFreqUnit: "/Week",
+};
+const _SPELLCASTING_META_MONTHLY = {
+	display: "\uD835\uDC65/month (/each) spells",
+	type: "monthly",
+	mode: "frequency",
+	rowFreqUnit: "/Month",
+};
+const _SPELLCASTING_META_YEARLY = {
+	display: "\uD835\uDC65/year (/each) spells",
+	type: "yearly",
+	mode: "frequency",
+	rowFreqUnit: "/Year",
+};
+const _SPELLCASTING_META_CHARGES = {
+	display: "\uD835\uDC65/charges (/each) spells",
+	type: "charges",
+	mode: "frequency",
+	rowFreqUnit: " Charge(s)",
+};
+const _SPELLCASTING_META_RECHARGE = {
+	display: "d6 recharge spells",
+	type: "recharge",
+	mode: "recharge",
+};
+const _SPELLCASTING_META_LEGENDARY = {
+	display: "\uD835\uDC65/legendary action(s) (/each) spells",
+	type: "legendary",
+	mode: "frequency",
+	rowFreqUnit: "/Legendary Action(s)",
+};
+
+const _SPELLCASTING_META_LOOKUP = Object.fromEntries(
+	[
+		_SPELLCASTING_META_SPELLS,
+		_SPELLCASTING_META_CONSTANT,
+		_SPELLCASTING_META_WILL,
+		_SPELLCASTING_META_RITUAL,
+		_SPELLCASTING_META_DAILY,
+		_SPELLCASTING_META_REST,
+		_SPELLCASTING_META_RESTLONG,
+		_SPELLCASTING_META_WEEKLY,
+		_SPELLCASTING_META_MONTHLY,
+		_SPELLCASTING_META_YEARLY,
+		_SPELLCASTING_META_CHARGES,
+		_SPELLCASTING_META_RECHARGE,
+		_SPELLCASTING_META_LEGENDARY,
+	]
+		.map(meta => [meta.type, meta]),
+);
+
 // TODO(Future) {@tags} added to state in post-processing steps are not visible in their input boxes without refresh. See the spell builder for how this should be implemented.
 //  - Same applies for UiUtil.strToInt'd inputs
 export class CreatureBuilder extends BuilderBase {
 	constructor () {
 		super({
-			titleSidebarLoadExisting: "Copy Existing Creature",
-			titleSidebarDownloadJson: "Download Creatures as JSON",
-			metaSidebarDownloadMarkdown: {
-				title: "Download Creatures as Markdown",
-				pFnGetText: (mons) => {
-					return RendererMarkdown.monster.pGetMarkdownDoc(mons);
-				},
-			},
 			prop: "monster",
+			pFnGetFluff: Renderer.monster.pGetFluff.bind(Renderer.monster),
 		});
 
 		this._bestiaryFluffIndex = null;
@@ -40,15 +283,11 @@ export class CreatureBuilder extends BuilderBase {
 		this._generateAttackCache = null;
 	}
 
-	static _getAsMarkdown (mon) {
-		return RendererMarkdown.get().render({entries: [{type: "statblockInline", dataType: "monster", data: mon}]});
-	}
-
-	async pHandleSidebarLoadExistingClick () {
+	async pHandleClickLoadExisting () {
 		const result = await SearchWidget.pGetUserCreatureSearch();
 		if (result) {
 			const creature = MiscUtil.copy(await DataLoader.pCacheAndGet(result.page, result.source, result.hash));
-			return this.pHandleSidebarLoadExistingData(creature);
+			return this.pHandleLoadExistingData(creature);
 		}
 	}
 
@@ -58,7 +297,7 @@ export class CreatureBuilder extends BuilderBase {
 	 * @param [opts.isForce]
 	 * @param [opts.meta]
 	 */
-	async pHandleSidebarLoadExistingData (creature, opts) {
+	async pHandleLoadExistingData (creature, opts) {
 		opts = opts || [];
 
 		const cleanOrigin = window.location.origin.replace(/\/+$/, "");
@@ -77,6 +316,7 @@ export class CreatureBuilder extends BuilderBase {
 			if (fluff) creature.fluff = MiscUtil.copy(fluff);
 		}
 
+		creature.name = `${creature.name} (Copy)`;
 		creature.source = this._ui.source;
 
 		if (creature.soundClip && creature.soundClip.type === "internal") {
@@ -101,7 +341,7 @@ export class CreatureBuilder extends BuilderBase {
 		// Semi-gracefully handle e.g. ERLW's Steel Defender
 		if (creature.passive != null && typeof creature.passive === "string") delete creature.passive;
 
-		const meta = {...(opts.meta || {}), ...this._getInitialMetaState({nameOriginal: creature.name})};
+		const meta = {...(opts.meta || {}), ...this._getInitialMetaState({nameOriginal: creature.name, isModified: true})};
 
 		if (ScaleCreature.isCrInScaleRange(creature) && !opts.isForce) {
 			const crDefault = creature.cr.cr || creature.cr;
@@ -259,7 +499,7 @@ export class CreatureBuilder extends BuilderBase {
 							`{@atkr ${ptAtk}} {@hit <$to_hit__${abil}$>}, ${ptRange}, one target. {@h}<$damage_avg__(size_mult*${dmgAvg})+${abil}$> ({@damage <$size_mult__${mDice.groups.count}$>d${mDice.groups.face}<$damage_mod__${abil}$>}) ${Parser.dmgTypeToFull(item.dmgType).toTitleCase()} damage.`,
 						],
 						entriesFinesse: isFinesse ? [
-							`{@atkr ${ptAtk}} {@hit <$to_hit__dex>}, ${ptRange}, one target. {@h}<$damage_avg__(size_mult*${dmgAvg})+dex$> ({@damage <$size_mult__${mDice.groups.count}$>d${mDice.groups.face}<$damage_mod__${abil}$>}) ${Parser.dmgTypeToFull(item.dmgType).toTitleCase()} damage.`,
+							`{@atkr ${ptAtk}} {@hit <$to_hit__dex$>}, ${ptRange}, one target. {@h}<$damage_avg__(size_mult*${dmgAvg})+dex$> ({@damage <$size_mult__${mDice.groups.count}$>d${mDice.groups.face}<$damage_mod__${abil}$>}) ${Parser.dmgTypeToFull(item.dmgType).toTitleCase()} damage.`,
 						] : null,
 					};
 				})
@@ -407,8 +647,8 @@ export class CreatureBuilder extends BuilderBase {
 
 	_renderInputImpl () {
 		this._validateMeta();
-		this.doCreateProxies();
-		this.renderInputControls();
+		this._doCreateProxies();
+		this._doBindHeaderElements();
 		this._renderInputMain();
 	}
 
@@ -449,7 +689,6 @@ export class CreatureBuilder extends BuilderBase {
 			MiscTag.tryRun(this._state);
 			TagImmResVulnConditional.tryRun(this._state);
 			DragonAgeTag.tryRun(this._state);
-			AttachedItemTag.tryRun(this._state, {styleHint: this._meta.styleHint, isAddOnly: true});
 
 			this.renderOutput();
 			this.doUiSave();
@@ -461,15 +700,16 @@ export class CreatureBuilder extends BuilderBase {
 		// initialise tabs
 		this._resetTabs({tabGroup: "input"});
 
+		const tabOptsShared = {hasBorder: true, hasBackground: true};
 		const tabs = this._renderTabs(
 			[
-				new TabUiUtil.TabMeta({name: "Info", hasBorder: true}),
-				new TabUiUtil.TabMeta({name: "Species", hasBorder: true}),
-				new TabUiUtil.TabMeta({name: "Core", hasBorder: true}),
-				new TabUiUtil.TabMeta({name: "Defenses", hasBorder: true}),
-				new TabUiUtil.TabMeta({name: "Abilities", hasBorder: true}),
-				new TabUiUtil.TabMeta({name: "Gear", hasBorder: true}),
-				new TabUiUtil.TabMeta({name: "Flavor/Misc", hasBorder: true}),
+				new TabUiUtil.TabMeta({...tabOptsShared, name: "Info"}),
+				new TabUiUtil.TabMeta({...tabOptsShared, name: "Species"}),
+				new TabUiUtil.TabMeta({...tabOptsShared, name: "Core"}),
+				new TabUiUtil.TabMeta({...tabOptsShared, name: "Defenses"}),
+				new TabUiUtil.TabMeta({...tabOptsShared, name: "Abilities"}),
+				new TabUiUtil.TabMeta({...tabOptsShared, name: "Gear"}),
+				new TabUiUtil.TabMeta({...tabOptsShared, name: "Flavor/Misc"}),
 			],
 			{
 				tabGroup: "input",
@@ -481,7 +721,7 @@ export class CreatureBuilder extends BuilderBase {
 		tabs.forEach(it => it.wrpTab.appendTo(wrp));
 
 		// INFO
-		BuilderUi.getStateIptString("Name", cb, this._state, {nullable: false, callback: () => this.pRenderSideMenu()}, "name").appendTo(infoTab.wrpTab);
+		BuilderUi.getStateIptString("Name", cb, this._state, {nullable: false}, "name").appendTo(infoTab.wrpTab);
 		this.__getShortNameInput(cb).appendTo(infoTab.wrpTab);
 		this._selSource = this.getSourceInput(cb).appendTo(infoTab.wrpTab);
 		BuilderUi.getStateIptString("Page", cb, this._state, {}, "page").appendTo(infoTab.wrpTab);
@@ -568,7 +808,9 @@ export class CreatureBuilder extends BuilderBase {
 
 		// GEAR
 		this.__getGearInput(cb).appendTo(tabGear.wrpTab);
-		this.__getAttachedItemInput(cb).appendTo(tabGear.wrpTab);
+		const {row: rowAttachedItemInput, doRefresh: doRefreshAttachedItems} = this.__getAttachedItemInput(cb);
+		rowAttachedItemInput.appendTo(tabGear.wrpTab);
+		this.__getAttachedItemInputGenerated(cb, [doRefreshAttachedItems]).appendTo(tabGear.wrpTab);
 
 		// FLAVOR/MISC
 		this.__getTokenInput(cb).appendTo(miscTab.wrpTab);
@@ -2376,71 +2618,26 @@ export class CreatureBuilder extends BuilderBase {
 			.toggleClass("ve-active", !!(trait && trait.footerEntries));
 
 		const _CONTEXT_ENTRIES = [
-			{
-				display: "Cantrips",
-				type: "spells",
-				mode: "cantrip",
-			},
-			{
-				display: "\uD835\uDC65th level spells",
-				type: "spells",
-				mode: "level",
-			},
+			_SPELLCASTING_META_SPELLS__CANTRIPS,
+			_SPELLCASTING_META_SPELLS__SPELLS,
 			null,
-			{
-				display: "Constant effects",
-				type: "constant",
-				mode: "basic",
-			},
-			{
-				display: "At will spells",
-				type: "will",
-				mode: "basic",
-			},
-			{
-				display: "\uD835\uDC65/day (/each) spells",
-				type: "daily",
-				mode: "frequency",
-			},
+			_SPELLCASTING_META_CONSTANT,
+			_SPELLCASTING_META_WILL,
+			_SPELLCASTING_META_RITUAL,
+			_SPELLCASTING_META_DAILY,
 			null,
-			{
-				display: "\uD835\uDC65/rest (/each) spells",
-				type: "rest",
-				mode: "frequency",
-			},
-			{
-				display: "\uD835\uDC65/long rest (/each) spells",
-				type: "restLong",
-				mode: "frequency",
-			},
-			{
-				display: "\uD835\uDC65/week (/each) spells",
-				type: "weekly",
-				mode: "frequency",
-			},
-			{
-				display: "\uD835\uDC65/month (/each) spells",
-				type: "monthly",
-				mode: "frequency",
-			},
-			{
-				display: "\uD835\uDC65/year (/each) spells",
-				type: "yearly",
-				mode: "frequency",
-			},
+			_SPELLCASTING_META_REST,
+			_SPELLCASTING_META_RESTLONG,
+			_SPELLCASTING_META_WEEKLY,
+			_SPELLCASTING_META_MONTHLY,
+			_SPELLCASTING_META_YEARLY,
 			null,
-			{
-				display: "\uD835\uDC65/legendary action(s) (/each) spells",
-				type: "legendary",
-				mode: "frequency",
-			},
+			_SPELLCASTING_META_CHARGES,
+			null,
+			_SPELLCASTING_META_RECHARGE,
+			null,
+			_SPELLCASTING_META_LEGENDARY,
 		];
-		const _SPELL_PROP_LOOKUP = Object.fromEntries(
-			_CONTEXT_ENTRIES
-				.filter(Boolean)
-				.map(({type, display}) => [type, display]),
-		);
-		_SPELL_PROP_LOOKUP["spells"] = "Cantrips and \uD835\uDC65th level spells";
 
 		const menu = ContextUtil.getMenu(_CONTEXT_ENTRIES.map(contextMeta => {
 			if (contextMeta == null) return;
@@ -2500,9 +2697,9 @@ export class CreatureBuilder extends BuilderBase {
 					this,
 					"hidden",
 					{
-						values: Object.keys(_SPELL_PROP_LOOKUP),
-						fnGetElePill: v => _SPELL_PROP_LOOKUP[v],
-						fnGetTextContextAction: v => _SPELL_PROP_LOOKUP[v],
+						values: Object.keys(_SPELLCASTING_META_LOOKUP),
+						fnGetElePill: v => _SPELLCASTING_META_LOOKUP[v].display,
+						fnGetTextContextAction: v => _SPELLCASTING_META_LOOKUP[v].display,
 					},
 				);
 			}
@@ -2554,23 +2751,29 @@ export class CreatureBuilder extends BuilderBase {
 		</div>`;
 
 		if (trait) {
-			const handleFrequency = prop => Object.entries(trait[prop])
-				.forEach(([k, v]) => doAddSpellRow({mode: "frequency", type: prop, each: k.endsWith("e"), count: Number(k[0])}, v));
+			const handleFrequency = (prop, additionalData) => Object.entries(trait[prop])
+				.forEach(([k, v]) => doAddSpellRow({...MiscUtil.copy(_SPELLCASTING_META_LOOKUP[prop]), ...additionalData, each: k.endsWith("e"), count: Number(k[0])}, v));
 
-			if (trait.constant) doAddSpellRow({mode: "basic", type: "constant"}, trait.constant);
-			if (trait.will) doAddSpellRow({mode: "basic", type: "will"}, trait.will);
+			const handleRecharge = prop => Object.entries(trait[prop])
+				.forEach(([k, v]) => doAddSpellRow({...MiscUtil.copy(_SPELLCASTING_META_LOOKUP[prop]), minRoll: Number(k[0])}, v));
+
+			if (trait.constant) doAddSpellRow(MiscUtil.copyFast(_SPELLCASTING_META_CONSTANT), trait.constant);
+			if (trait.will) doAddSpellRow(MiscUtil.copyFast(_SPELLCASTING_META_WILL), trait.will);
+			if (trait.ritual) doAddSpellRow(MiscUtil.copyFast(_SPELLCASTING_META_RITUAL), trait.ritual);
 			if (trait.daily) handleFrequency("daily");
 			if (trait.rest) handleFrequency("rest");
 			if (trait.restLong) handleFrequency("restLong");
 			if (trait.weekly) handleFrequency("weekly");
 			if (trait.monthly) handleFrequency("monthly");
 			if (trait.yearly) handleFrequency("yearly");
+			if (trait.charges) handleFrequency("charges", {chargesItem: trait.chargesItem});
 			if (trait.legendary) handleFrequency("legendary");
+			if (trait.recharge) handleRecharge("recharge");
 			if (trait.spells) {
 				Object.entries(trait.spells).forEach(([k, v]) => {
 					const level = Number(k);
-					if (k === "0") doAddSpellRow({mode: "cantrip", type: level}, v.spells);
-					else doAddSpellRow({mode: "level", type: level, lower: v.lower, slots: v.slots, level}, v.spells);
+					if (k === "0") doAddSpellRow({...MiscUtil.copyFast(_SPELLCASTING_META_SPELLS__CANTRIPS), type: level}, v.spells);
+					else doAddSpellRow({...MiscUtil.copyFast(_SPELLCASTING_META_SPELLS__SPELLS), type: level, lower: v.lower, slots: v.slots, level}, v.spells);
 				});
 			}
 		}
@@ -2640,89 +2843,7 @@ export class CreatureBuilder extends BuilderBase {
 				});
 		};
 
-		const metaPart = (() => {
-			const out = {};
-
-			switch (meta.mode) {
-				case "basic": {
-					out.ele = ee`<i>${meta.type === "constant" ? "Constant Effects" : "At Will"}</i>`;
-					out.getKeyPath = () => [meta.type];
-					break;
-				}
-
-				case "frequency": {
-					const iptFreq = ee`<input class="ve-form-control form-control--minimal ve-input-xs mkbru_mon__spell-header-ipt" min="1" max="9">`
-						.onn("change", () => doUpdateState());
-					if (data) iptFreq.val(meta.count || 1);
-					else iptFreq.val(1);
-
-					const cbEach = ee`<input class="mkbru__ipt-cb mkbru__ipt-cb--small-offset" type="checkbox">`
-						.prop("checked", !!(data && meta.each))
-						.onn("change", () => doUpdateState());
-
-					const name = (() => {
-						switch (meta.type) {
-							case "daily": return "/Day";
-							case "rest": return "/Rest";
-							case "restLong": return "/Long Rest";
-							case "weekly": return "/Week";
-							case "monthly": return "/Month";
-							case "yearly": return "/Year";
-							case "legendary": return "/Legendary Action(s)";
-						}
-					})();
-
-					out.ele = ee`<div class="ve-flex mkbru_mon__spell-header-wrp ve-mr-4">
-					${iptFreq}
-					<span class="ve-mr-2 ve-italic">${name}</span>
-					<label class="ve-flex-v-baseline ve-muted small ve-ml-auto"><span class="ve-mr-1">(Each? </span>${cbEach}<span>)</span></label>
-					</div>`;
-
-					out.getKeyPath = () => [meta.type, `${UiUtil.strToInt(iptFreq.val(), 1, {fallbackOnNaN: 1, min: 1, max: 9})}${cbEach.prop("checked") ? "e" : ""}`];
-
-					break;
-				}
-
-				case "cantrip": {
-					out.ele = ee`<i>Cantrips</i>`;
-					out.getKeyPath = () => ["spells", "0", "spells"];
-					break;
-				}
-
-				case "level": {
-					const iptSlots = ee`<input class="ve-form-control form-control--minimal ve-input-xs mkbru_mon__spell-header-ipt ve-mr-2">`
-						.val(meta.slots || 0)
-						.onn("change", () => doUpdateState());
-
-					const cbWarlock = ee`<input type="checkbox" class="mkbru__ipt-cb">`
-						.prop("checked", !!meta.lower)
-						.onn("change", () => doUpdateState());
-
-					out.ele = ee`<div class="ve-flex mkbru_mon__spell-header-wrp ve-mr-4">
-					<div class="ve-italic">${Parser.spLevelToFull(meta.level)}-level Spells</div>
-					<div class="ve-flex-v-center ve-muted small ve-ml-auto"><span>(</span>${iptSlots}<span class="ve-mr-2">Slots</span></div>
-					<div class="mkbru_mon__spell-header-divider ve-mr-2"></div>
-					<label class="ve-flex-v-center ve-muted small"><span class="ve-mr-1">Warlock?</span>${cbWarlock}<span>)</span></label>
-					</div>`;
-					out.getKeyPath = () => ["spells", `${meta.level}`, "spells"];
-					out.getAdditionalData = () => {
-						return [
-							{
-								keyPath: ["spells", `${meta.level}`, "slots"],
-								value: UiUtil.strToInt(iptSlots.val()),
-							},
-							{
-								keyPath: ["spells", `${meta.level}`, "lower"],
-								value: cbWarlock.prop("checked") ? 1 : null,
-							},
-						];
-					};
-					out.filterIgnoreLevel = () => cbWarlock.prop("checked");
-				}
-			}
-
-			return out;
-		})();
+		const metaPart = new _CREATURE_BUILDER_SPELL_META_INPUT_RENDERER_CLAZZES[meta.mode]({meta, data, doUpdateState}).render();
 
 		const ele = ee`<div class="ve-flex-col">
 		<div class="ve-split ve-flex-v-center ve-mb-2">
@@ -3442,15 +3563,40 @@ export class CreatureBuilder extends BuilderBase {
 
 		const wrpRows = ee`<div></div>`.appendTo(rowInner);
 
-		this._state.attachedItems?.forEach(gear => CreatureBuilder.__getAttachedItemInput__getAttachedItemRow(doUpdateState, rowMetas, gear).wrp.appendTo(wrpRows));
+		const doRefresh = () => {
+			wrpRows.empty();
+			rowMetas.splice(0, rowMetas.length);
+			this._state.attachedItems?.forEach(gear => CreatureBuilder.__getAttachedItemInput__getAttachedItemRow(doUpdateState, rowMetas, gear).wrp.appendTo(wrpRows));
+		};
+		doRefresh();
 
-		const wrpBtnAdd = ee`<div></div>`.appendTo(rowInner);
-		ee`<button class="ve-btn ve-btn-xs ve-btn-default">Add Attached Item</button>`
-			.appendTo(wrpBtnAdd)
+		const btnAdd = ee`<button class="ve-btn ve-btn-xs ve-btn-default ve-mr-2">Add Attached Item</button>`
 			.onn("click", () => {
 				CreatureBuilder.__getAttachedItemInput__getAttachedItemRow(doUpdateState, rowMetas).wrp.appendTo(wrpRows);
 				doUpdateState();
 			});
+
+		ee`<div>${btnAdd}</div>`.appendTo(rowInner);
+
+		return {
+			row,
+			doRefresh,
+		};
+	}
+
+	__getAttachedItemInputGenerated (cb, fnsDoRefresh) {
+		const [row, rowInner] = BuilderUi.getLabelledRowTuple("Generated", {isMarked: true});
+
+		const btnAdd = ee`<button class="ve-btn ve-btn-xs ve-btn-default" title="Generate additional attached items based on the creatures's current actions">Generate Additional Attached Items</button>`
+			.onn("click", async () => {
+				AttachedItemTag.tryRun(this._state, {styleHint: this._meta.styleHint, isAddOnly: true});
+				cb();
+				fnsDoRefresh.forEach(fn => fn());
+			});
+
+		ee`<div class="ve-flex-v-center">
+			${btnAdd}
+		</div>`.appendTo(rowInner);
 
 		return row;
 	}

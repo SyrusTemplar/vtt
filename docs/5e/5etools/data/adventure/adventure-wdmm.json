@@ -2709,7 +2709,7 @@
 									"id": "055",
 									"entries": [
 										"This area contains a cobweb-draped wooden coffin resting on a 2-foot-high block of gray stone. The coffin is intact and has an obvious 1-inch-diameter hole bored into its foot panel. The coffin's lid is unlocked.",
-										"A thin layer of grave dirt inside the coffin has been flattened down, suggesting that a creature once slept here. A vial of holy water rests atop the dirt. The coffin is otherwise empty."
+										"A thin layer of grave dirt inside the coffin has been flattened down, suggesting that a creature once slept here. A {@item Holy Water (Flask)|PHB|vial of holy water} rests atop the dirt. The coffin is otherwise empty."
 									]
 								}
 							]
@@ -15573,7 +15573,7 @@
 													"type": "list",
 													"items": [
 														"3,500 gp, 6,000 sp, and 15,000 cp in loose coinage",
-														"A 500 gp black pearl with a minor magical property (it glows faintly when undead are within 120 feet of it)",
+														"A 500 gp {@item Pearl of Undead Detection|WDMM|black pearl} with a minor magical property (it glows faintly when undead are within 120 feet of it)",
 														"A {@item potion of gaseous form}",
 														"A {@item spell scroll} of {@spell heroes' feast}"
 													]
@@ -29838,7 +29838,7 @@
 											"id": "575",
 											"entries": [
 												"Casting {@spell detect magic} reveals an aura of abjuration magic around the chest, which is actually a {@item chest of preserving|WDMM}. This common wondrous item has the following magical property: food and other perishable items do not age or decay while inside it. The chest is 2½ feet long, 1½ feet wide, and 1 foot tall with a half-barrel lid. It weighs 25 pounds. {@creature Muiral|WDMM} carries the key that unlocks this chest. The lock can be picked with thieves' tools and a successful {@dc 15} Dexterity check. Smashing the lock or any other part of the chest renders it nonmagical.",
-												"The chest has compartments that contain five flasks of alchemist's fire, plus the following material components (for the indicated spells): a vial of blood, a strip of flesh, and a pinch of bone dust ({@spell animate dead}); a clay pot of grave dirt, a clay pot of brackish water, and three 150 gp black onyx gemstones ({@spell create undead}); a sliver of wychwood ({@spell dancing lights}); a pouch of lime, a flask of water, and a pouch of earth ({@spell flesh to stone}); a patch of wolf fur and a glass rod ({@spell lightning bolt}); a caterpillar cocoon ({@spell polymorph}); pouches of talc and powdered silver ({@i see {@spell invisibility}}); a vial of bitumen and a live spider ({@spell spider climb}); and a pouch of gemstone powder ({@i wall of force})."
+												"The chest has compartments that contain five {@item Alchemist's Fire (flask)|PHB|flasks of alchemist's fire}, plus the following material components (for the indicated spells): a vial of blood, a strip of flesh, and a pinch of bone dust ({@spell animate dead}); a clay pot of grave dirt, a clay pot of brackish water, and three 150 gp black onyx gemstones ({@spell create undead}); a sliver of wychwood ({@spell dancing lights}); a pouch of lime, a flask of water, and a pouch of earth ({@spell flesh to stone}); a patch of wolf fur and a glass rod ({@spell lightning bolt}); a caterpillar cocoon ({@spell polymorph}); pouches of talc and powdered silver ({@i see {@spell invisibility}}); a vial of bitumen and a live spider ({@spell spider climb}); and a pouch of gemstone powder ({@i wall of force})."
 											]
 										}
 									]
@@ -40215,7 +40215,7 @@
 									"type": "inset",
 									"id": "75c",
 									"entries": [
-										"{@b Carrion Ogre}. Lying on the floor in the middle of the room, held down with chains, is a creature that has the body of an ogre and the head of a carrion crawler.",
+										"{@creature Carrion Ogre|WDMM}. Lying on the floor in the middle of the room, held down with chains, is a creature that has the body of an ogre and the head of a carrion crawler.",
 										"{@b Body Parts}. The ogre's severed head and the carrion crawler's decapitated body lie discarded in the northern corner of the room, where they have begun to putrefy and emit a dreadful stench.",
 										"{@b Key Ring}. Hanging from a stone peg on the northwest wall is an iron ring with three keys."
 									]

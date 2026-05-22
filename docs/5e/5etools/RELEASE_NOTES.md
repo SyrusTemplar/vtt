@@ -1,11 +1,24 @@
-v2.25.4
+v2.28.0, "Increasing Screen Time" Edition
 
-- Added "Sure-Footed" Traits filter to Bestiary page
-- Fixed Feats page pinned list "Category" sorting
-- Fixed Spells page school styling
-- Fixed list page "Table View" CSV removing paragraph line breaks
-- (Brew) Added "Gear" tab to Creature Homebrew Builder, with support for `"gear"` and `"attachedItems"`
-- (Brew) Reworked Creature Homebrew Builder "Add Predefined Action" items to add 5e/5.5e-style text depending on the rules version of the item, and made sources visible
-- (Brew) Improved test-homebrew-tags runner handling of cross-file class/subclass feature references
-- (Brew) Fixed test-homebrew-tags runner handling of prerelease content
+- Reworked DM Screen sidebar
+  - Added "Save Slot" system, allowing easy switching between multiple screen states
+  - Moved settings into own modal
+  - Split panel history into own pop-out drawer
+  - _[Note that this marks the final excision of the old 5etools sidebar from all pages. So long, old ~~enemy~~ friend]_
+- Added "Type" column and filter to Home Crafts page
+- Added type display to Home Crafts page
+- Fixed hover windows failing to open in Dynamic Map Viewer when in a browser popout window
+- Fixed search interface (e.g. when searching for spells in the Creature Homebrew Builder) crash on missing source abbreviation
+- Added workaround for Firefox scrolling behaviour to Adventure/Book pages
+- (Brew) Completed rework of Homebrew Builder page UI
+  - Moved "Save" and "New" functions into top control bar, and reworked layout
+  - Moved "Editing ..." display into top control bar
+  - Tweaked "Saved"/"Save" display to better represent save state
+  - Reworked "Edit Existing" UI to have search, mass-delete, mass-download, and duplication
+- (Brew) Tweaked Homebrew Builder UI to improve input visibility/separation
+- (Brew) Added rudimentary inline preview to Get Homebrew list
+- (Brew) Fixed rare test-homebrew-tags crash when loading and dereferencing class/subclass features
+- (Brew) Fixed crash when failing to load the partnered homebrew content index due to being offline
+- (Brew) Fixed silent failure to display an entity in a list page when providing an invalid/non-numerical value to a range filter for that entity
+- (Updated Font Awesome version, subtly changing various iconography)
 - (Fixed typos/added tags)

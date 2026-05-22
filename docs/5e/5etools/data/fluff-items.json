@@ -3806,7 +3806,9 @@
 						"type": "internal",
 						"path": "items/DMG/Figurine of Wondrous Power.webp"
 					},
-					"credit": "Conceptopolis"
+					"credit": "Conceptopolis",
+					"width": 1700,
+					"height": 904
 				}
 			]
 		},
@@ -3820,7 +3822,9 @@
 						"type": "internal",
 						"path": "items/XDMG/Figurine of Wondrous Power.webp"
 					},
-					"credit": "Conceptopolis"
+					"credit": "Conceptopolis",
+					"width": 1700,
+					"height": 904
 				}
 			]
 		},
@@ -12409,6 +12413,21 @@
 					},
 					"width": 205,
 					"height": 850
+				}
+			]
+		},
+		{
+			"name": "Tloques' Berserker Battleaxe",
+			"source": "TftYP",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "items/TftYP/Tloques' Berserker Battleaxe.webp"
+					},
+					"width": 897,
+					"height": 1000
 				}
 			]
 		},

@@ -89,12 +89,12 @@ class BestiarySublistManager extends SublistManager {
 			new SublistCellTemplate({
 				name: "CR",
 				css: "ve-col-1-2 ve-px-1 ve-text-center",
-				colStyle: "ve-text-center",
+				colStyle: "text-center",
 			}),
 			new SublistCellTemplate({
 				name: "Number",
 				css: "ve-col-2 ve-pl-1 ve-pr-0 ve-text-center",
-				colStyle: "ve-text-center",
+				colStyle: "text-center",
 			}),
 		];
 	}
@@ -245,7 +245,11 @@ class BestiaryPageBookView extends ListPageBookView {
 		// TODO refactor this and spell markdown section
 		const pGetAsMarkdown = async () => {
 			const toRender = this._bookViewToShow.length ? this._bookViewToShow.map(({entity}) => entity) : [this._fnGetEntLastLoaded()];
-			return RendererMarkdown.monster.pGetMarkdownDoc(toRender);
+			return RendererMarkdown.exporting.pGetMarkdownDoc({
+				ents: toRender,
+				prop: "monster",
+				pFnGetFluff: Renderer.monster.pGetFluff.bind(Renderer.monster),
+			});
 		};
 
 		const btnDownloadMarkdown = ee`<button class="ve-btn ve-btn-default ve-btn-sm">Download as Markdown</button>`

@@ -864,6 +864,53 @@ ${prefix}|${Parser.ABIL_ABVS.map(ab => ent[ab] == null ? `\u2014|` : `${ent[ab]}
 	}
 };
 
+RendererMarkdown.exporting = class {
+	static async pGetMarkdownDoc ({ents, prop, pFnGetFluff = null}) {
+		const asEntries = (await Promise.all(ents
+			.map(async (ent, i) => {
+				const monEntry = ({type: "statblockInline", dataType: prop, data: ent});
+
+				const fluff = pFnGetFluff ? await pFnGetFluff(ent) : null;
+
+				const fluffEntries = (fluff || {}).entries || [];
+
+				RendererMarkdown.get().setFirstSection(true);
+				const fluffText = fluffEntries.map(ent => RendererMarkdown.get().render(ent)).join("\n\n");
+
+				const out = [monEntry];
+
+				const isAddPageBreaks = VetoolsConfig.get("markdown", "isAddPageBreaks");
+				if (fluffText) {
+					// Insert a page break before every fluff section
+					if (isAddPageBreaks) out.push("", "\\pagebreak", "");
+
+					out.push(`## ${ent.name}`);
+
+					// Split into runs of <X characters, and join these with page breaks
+					let stack = [];
+					let charLimit = RendererMarkdown.CHARS_PER_PAGE;
+					fluffText.split("\n").forEach(l => {
+						if ((charLimit -= l.length) < 0) {
+							out.push(stack.join("\n"));
+							if (isAddPageBreaks) out.push("", "\\pagebreak", "");
+							stack = [];
+							charLimit = RendererMarkdown.CHARS_PER_PAGE - l.length;
+						}
+						stack.push(l);
+					});
+					if (stack.length) out.push(stack.join("\n"));
+				}
+
+				// Insert a page break after every creature statblock or fluff section
+				if (i !== ents.length - 1 && isAddPageBreaks) out.push("", "\\pagebreak", "");
+				return out;
+			})))
+			.flat();
+
+		return RendererMarkdown.get().render({entries: asEntries});
+	}
+};
+
 /** @abstract */
 class _RenderCompactMarkdownBestiaryImplBase {
 	_style;
@@ -1372,53 +1419,6 @@ RendererMarkdown.monster = class {
 		meta.depth = cacheDepth;
 		return out;
 	}
-
-	// region Exporting
-	static async pGetMarkdownDoc (monsters) {
-		const asEntries = (await Promise.all(monsters
-			.map(async (mon, i) => {
-				const monEntry = ({type: "statblockInline", dataType: "monster", data: mon});
-
-				const fluff = await Renderer.monster.pGetFluff(mon);
-
-				const fluffEntries = (fluff || {}).entries || [];
-
-				RendererMarkdown.get().setFirstSection(true);
-				const fluffText = fluffEntries.map(ent => RendererMarkdown.get().render(ent)).join("\n\n");
-
-				const out = [monEntry];
-
-				const isAddPageBreaks = VetoolsConfig.get("markdown", "isAddPageBreaks");
-				if (fluffText) {
-					// Insert a page break before every fluff section
-					if (isAddPageBreaks) out.push("", "\\pagebreak", "");
-
-					out.push(`## ${mon.name}`);
-
-					// Split into runs of <X characters, and join these with page breaks
-					let stack = [];
-					let charLimit = RendererMarkdown.CHARS_PER_PAGE;
-					fluffText.split("\n").forEach(l => {
-						if ((charLimit -= l.length) < 0) {
-							out.push(stack.join("\n"));
-							if (isAddPageBreaks) out.push("", "\\pagebreak", "");
-							stack = [];
-							charLimit = RendererMarkdown.CHARS_PER_PAGE - l.length;
-						}
-						stack.push(l);
-					});
-					if (stack.length) out.push(stack.join("\n"));
-				}
-
-				// Insert a page break after every creature statblock or fluff section
-				if (i !== monsters.length - 1 && isAddPageBreaks) out.push("", "\\pagebreak", "");
-				return out;
-			})))
-			.flat();
-
-		return RendererMarkdown.get().render({entries: asEntries});
-	}
-	// endregion
 };
 
 RendererMarkdown.spell = class {
@@ -2185,6 +2185,84 @@ RendererMarkdown.recipe = class {
 			.filter(Boolean)
 			.join("\n\n");
 		return RendererMarkdown.utils.getNormalizedNewlines(out);
+	}
+};
+
+RendererMarkdown.crochetPattern = class {
+	static getCompactRenderedString (ent, opts = {}) {
+		const {entrySkillLevel, entryDesignedBy, entriesMeasurements, entriesHooks} = Renderer.crochetPattern.getCrochetPatternRenderableEntriesMeta(ent);
+
+		const ptHead = RendererMarkdown.utils.withMetaDepth(0, opts, () => {
+			const entries = [
+				`{@i Skill Level: ${entrySkillLevel}.${entryDesignedBy ? ` Designed by ${entryDesignedBy}.` : ""}}`,
+
+				entriesMeasurements?.length ? `#### Finished Measurements` : "",
+				...(entriesMeasurements || []),
+
+				ent.yarn?.length ? `#### Yarn` : "",
+				...(ent.yarn || []),
+
+				entriesHooks?.length ? `#### Hooks` : "",
+				...(entriesHooks || []),
+
+				ent.notions?.length ? `#### Notions` : "",
+				...(ent.notions || []),
+
+				ent.gauge?.length ? `#### Gauge` : "",
+				...(ent.gauge || []),
+
+				ent.stitches?.length ? `#### Special Stitches` : "",
+				...(ent.stitches || []),
+
+				ent.abbreviations?.length ? `#### Special Abbreviations` : "",
+				...(ent.abbreviations || []),
+
+				ent.notes?.length ? `#### Notes` : "",
+				...(ent.notes || []),
+
+				ent.finishing?.length ? `#### Finishing` : "",
+				...(ent.finishing || []),
+			]
+				.filter(Boolean);
+
+			const entFull = {
+				...ent,
+				entries,
+			};
+
+			return RendererMarkdown.generic.getCompactRenderedString(entFull, opts);
+		});
+
+		const ptInstructions = RendererMarkdown.utils.withMetaDepth(0, opts, () => {
+			return RendererMarkdown.generic.getRenderedSubEntry({entries: ent.instructions}, opts);
+		});
+
+		const out = [
+			ptHead,
+			ptInstructions,
+		]
+			.filter(Boolean)
+			.join("\n\n");
+
+		return RendererMarkdown.utils.getNormalizedNewlines(out);
+	}
+};
+
+RendererMarkdown.homecraft = class {
+	static getCompactRenderedString (ent) {
+		switch (ent.__prop) {
+			case "crochetPattern": return RendererMarkdown.crochetPattern.getCompactRenderedString(ent);
+			default: throw new Error(`Unhandled prop "${ent.__prop}"`);
+		}
+	}
+
+	/* -------------------------------------------- */
+
+	static pGetFluff (ent) {
+		switch (ent.__prop) {
+			case "crochetPattern": return RendererMarkdown.crochetPattern.pGetFluff(ent);
+			default: throw new Error(`Unhandled prop "${ent.__prop}"`);
+		}
 	}
 };
 

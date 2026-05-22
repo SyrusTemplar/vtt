@@ -3162,6 +3162,7 @@
 	{
 		"ver": "2.25.0",
 		"date": "2026-03-01",
+		"title": "Spring Cleaning",
 		"txt": "- Completed removal of jQuery from the site\n- Fixed DM Screen closing existing tab when adding \"Special\" panel app as new tab\n- Fixed DM Screen Coin Converter crash when attempting to use custom settings\n- Fixed DM Screen Imgur Upload crash\n- Fixed Loot Generator double-generating magic items in some cases, and failing to show a usable reroll button in some cases\n- Fixed list page crash when loading saved sublist\n- Fixed specific variants inheriting the source references of their generic variant\n- (Brew) Added _[or really, finalized]_ homebrew support to `node test/test-tags.js`. This is best accessed via the new wrapper script, `node test/test-homebrew-tags.js`, which provides a site-test-like report of tag/data issues for homebrew files/directories (via `--file <file...>` and `--dir <dir...>`), with optional filtering to files associated with a given homebrew converter (via `--converted-by <name>`).\n- (Brew) Fixed Omnisearch indexing of vehicle upgrades\n- (Fixed typos/added tags)"
 	},
 	{
@@ -3183,5 +3184,28 @@
 		"ver": "2.25.4",
 		"date": "2026-03-25",
 		"txt": "- Added \"Sure-Footed\" Traits filter to Bestiary page\n- Fixed Feats page pinned list \"Category\" sorting\n- Fixed Spells page school styling\n- Fixed list page \"Table View\" CSV removing paragraph line breaks\n- (Brew) Added \"Gear\" tab to Creature Homebrew Builder, with support for `\"gear\"` and `\"attachedItems\"`\n- (Brew) Reworked Creature Homebrew Builder \"Add Predefined Action\" items to add 5e/5.5e-style text depending on the rules version of the item, and made sources visible\n- (Brew) Improved test-homebrew-tags runner handling of cross-file class/subclass feature references\n- (Brew) Fixed test-homebrew-tags runner handling of prerelease content\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.26.0",
+		"date": "2026-04-02",
+		"title": "Half-Baked",
+		"txt": "- Added search sensitivity to \"All\"/\"Clear\"/\"None\" buttons in Filter window; only filter items matching the current search will be modified (SHIFT-click to use the old behaviour).\n- Added \"Ethereal Sight\" Traits filter to Bestiary page\n- (Brew) Overhauled Text Converter page UI, notably removing the sidebar\n- (Brew) Overhauled Homebrew Builder page UI, notably removing the sidebar _[though this one needs more time in the oven; more changes to come]_\n- (Brew) Revised Creature Homebrew Builder `\"attachedItem\"` auto-generation to only run on button-press\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.26.1",
+		"date": "2026-04-05",
+		"txt": "- (Brew) Added standard text tagging to Generic Text Converter\n- (Brew) Fixed display of source'd language/tool proficiencies in Backgrounds page filters\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.27.0",
+		"date": "2026-04-15",
+		"title": "Shoutout Me Nan",
+		"txt": "- Added \"Crochet: A Book of Many Patterns\" (big thanks @ Lyra for the data entry; schema)\n  - Added Home Crafts page <https://5e.tools/homecrafts.html>, with homebrew support\n- Added \"Show Notification on Update\" option to Preferences\n- Added Tomb of Annihilation poster maps\n- Added preview support to Species page\n- Fixed DM Screen Time Tracker failing to display \"Roll Weather\" button\n- Fixed page header appearing on mobile\n- (Brew) Expanded Creature Homebrew Builder spellcasting type support to better match available schema\n- (Brew) Added `_copy` support for additional entity types (`boon`, `cult`, `encounterShape`, `itemMastery`, `psionic`, `sense`, `skill`, `vehicleUpgrade`)\n- (Brew) Canonized `_meta.includes._meta.<source>` behaviour as `_meta.includes.*.<source>`\n- (Brew) Improved Species page handling of homebrew species sizes\n- (Brew) Fixed Omnisearch index failing to fully populate in the presence of loaded homebrew, in some cases\n- (Brew) Fixed Creature Homebrew Builder failing to resolve dexterity modifiers for '24 finesse weapons when using \"Add Predefined Action\"\n- (Fixed typos/added tags)"
+	},
+	{
+		"ver": "2.28.0",
+		"date": "2026-04-26",
+		"title": "Increasing Screen Time",
+		"txt": "- Reworked DM Screen sidebar\n  - Added \"Save Slot\" system, allowing easy switching between multiple screen states\n  - Moved settings into own modal\n  - Split panel history into own pop-out drawer\n  - _[Note that this marks the final excision of the old 5etools sidebar from all pages. So long, old ~~enemy~~ friend]_\n- Added \"Type\" column and filter to Home Crafts page\n- Added type display to Home Crafts page\n- Fixed hover windows failing to open in Dynamic Map Viewer when in a browser popout window\n- Fixed search interface (e.g. when searching for spells in the Creature Homebrew Builder) crash on missing source abbreviation\n- Added workaround for Firefox scrolling behaviour to Adventure/Book pages\n- (Brew) Completed rework of Homebrew Builder page UI\n  - Moved \"Save\" and \"New\" functions into top control bar, and reworked layout\n  - Moved \"Editing ...\" display into top control bar\n  - Tweaked \"Saved\"/\"Save\" display to better represent save state\n  - Reworked \"Edit Existing\" UI to have search, mass-delete, mass-download, and duplication\n- (Brew) Tweaked Homebrew Builder UI to improve input visibility/separation\n- (Brew) Added rudimentary inline preview to Get Homebrew list\n- (Brew) Fixed rare test-homebrew-tags crash when loading and dereferencing class/subclass features\n- (Brew) Fixed crash when failing to load the partnered homebrew content index due to being offline\n- (Brew) Fixed silent failure to display an entity in a list page when providing an invalid/non-numerical value to a range filter for that entity\n- (Updated Font Awesome version, subtly changing various iconography)\n- (Fixed typos/added tags)"
 	}
 ]

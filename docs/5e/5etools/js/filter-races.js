@@ -23,15 +23,16 @@ class PageFilterRaces extends PageFilterBase {
 		a = a.item;
 		b = b.item;
 
-		return SortUtil.ascSort(toNum(a), toNum(b));
+		return SortUtil.ascSort(Parser.SIZE_ABVS.indexOf(a), Parser.SIZE_ABVS.indexOf(b));
+	}
 
-		function toNum (size) {
-			switch (size) {
-				case "M": return 0;
-				case "S": return -1;
-				case "V": return 1;
-			}
-		}
+	static getSizeDisplayInfo (size) {
+		size ||= [Parser.SZ_VARIES];
+
+		return {
+			sizeText: size.map(sz => Parser.sizeAbvToFull(sz)).joinConjunct(", ", " or "),
+			sizeShortText: size.map(sz => Parser.sizeAbvToShort(sz)).join("/"),
+		};
 	}
 	// endregion
 
@@ -252,6 +253,7 @@ class ModalFilterRaces extends ModalFilterBase {
 			...opts,
 			modalTitle: `Species`,
 			pageFilter: new PageFilterRaces(),
+			previewButtonHandler: new ListUiPreviewButtonHandlerStatsFluff({page: UrlUtil.PG_RACES}),
 		});
 	}
 
@@ -317,7 +319,7 @@ class ModalFilterRaces extends ModalFilterBase {
 			},
 		);
 
-		ListUiUtil.bindPreviewButton(UrlUtil.PG_RACES, this._allData, listItem, btnShowHidePreview);
+		this._previewButtonHandler.bindPreviewButton({entity: race, listItem, btnShowHidePreview});
 
 		return listItem;
 	}

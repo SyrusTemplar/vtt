@@ -102,10 +102,11 @@ export class TagTestUrlLookup {
 			"citation",
 		]) {
 			[
-				...(await DataLoader.pCacheAndGetAllBrew(prop)),
-				...(await DataLoader.pCacheAndGetAllPrerelease(prop)),
 				...(await DataLoader.pCacheAndGetAllSite(prop)),
+				...(await DataLoader.pCacheAndGetAllPrerelease(prop)),
+				...(await DataLoader.pCacheAndGetAllBrew(prop)),
 			]
+				.reverse()
 				.forEach(ent => this._addEntityItem(ent, prop));
 		}
 
@@ -117,10 +118,11 @@ export class TagTestUrlLookup {
 			"feat",
 		]) {
 			[
-				...(await DataLoader.pCacheAndGetAllBrew(prop)),
-				...(await DataLoader.pCacheAndGetAllPrerelease(prop)),
 				...(await DataLoader.pCacheAndGetAllSite(prop)),
+				...(await DataLoader.pCacheAndGetAllPrerelease(prop)),
+				...(await DataLoader.pCacheAndGetAllBrew(prop)),
 			]
+				.reverse()
 				.filter(ent => ent._versionBase_isVersion)
 				.forEach(ent => this._addEntityItem(ent, prop));
 		}
@@ -131,12 +133,14 @@ export class TagTestUrlLookup {
 		for (const prop of [
 			"monsterFluff",
 			"raceFluff",
+			"crochetPatternFluff",
 		]) {
 			[
-				...(await DataLoader.pCacheAndGetAllBrew(prop)),
-				...(await DataLoader.pCacheAndGetAllPrerelease(prop)),
 				...(await DataLoader.pCacheAndGetAllSite(prop)),
+				...(await DataLoader.pCacheAndGetAllPrerelease(prop)),
+				...(await DataLoader.pCacheAndGetAllBrew(prop)),
 			]
+				.reverse()
 				.forEach(ent => this._addEntityItem(ent, prop));
 		}
 	}
@@ -145,10 +149,11 @@ export class TagTestUrlLookup {
 		const tmpClassIxFeatures = {};
 
 		[
-			...(await DataLoader.pCacheAndGetAllBrew("class")),
-			...(await DataLoader.pCacheAndGetAllPrerelease("class")),
 			...(await DataLoader.pCacheAndGetAllSite("class")),
+			...(await DataLoader.pCacheAndGetAllPrerelease("class")),
+			...(await DataLoader.pCacheAndGetAllBrew("class")),
 		]
+			.reverse()
 			.forEach(cls => {
 				cls.name = cls.name.toLowerCase();
 				cls.source = (cls.source || Parser.SRC_PHB).toLowerCase();
@@ -166,10 +171,11 @@ export class TagTestUrlLookup {
 			});
 
 		[
-			...(await DataLoader.pCacheAndGetAllBrew("subclass")),
-			...(await DataLoader.pCacheAndGetAllPrerelease("subclass")),
 			...(await DataLoader.pCacheAndGetAllSite("subclass")),
+			...(await DataLoader.pCacheAndGetAllPrerelease("subclass")),
+			...(await DataLoader.pCacheAndGetAllBrew("subclass")),
 		]
+			.reverse()
 			.forEach(sc => {
 				sc.shortName = (sc.shortName || sc.name).toLowerCase();
 				sc.source = (sc.source || sc.classSource).toLowerCase();
@@ -214,7 +220,7 @@ export class TagTestUrlLookup {
 	/* -------------------------------------------- */
 
 	getEncodedProxy (uid, tag, prop = null) {
-		prop ||= tag;
+		prop ||= Parser.getTagProps(tag)[0];
 		const unpacked = DataUtil.proxy.unpackUid(prop, uid, tag);
 		const hashBuilder = UrlUtil.URL_TO_HASH_BUILDER[prop];
 		if (!hashBuilder) throw new Error(`No hash builder found for prop "${prop}"!`);

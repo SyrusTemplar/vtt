@@ -50035,7 +50035,7 @@
 							"page": 205,
 							"id": "60e",
 							"entries": [
-								"A yahcha (pronounced YAH-chah) is a harmless, meaty beetle about the size of a human hand, which feeds on worms and maggots. It moves slowly (walking speed 10 feet) and is easy to catch. A creature with {@disease blue mist fever|ToA} that eats a raw or cooked yahcha can immediately make a saving throw with advantage against that disease (see {@i \"Diseases,\"})."
+								"A yahcha (pronounced YAH-chah) is a harmless, meaty beetle about the size of a human hand, which feeds on worms and maggots. It moves slowly (walking speed 10 feet) and is easy to catch. A creature with {@disease blue mist fever|ToA} that eats a raw or cooked yahcha can immediately make a saving throw with advantage against that disease (see {@adventure \"Diseases,\"|ToA|2|Diseases} page 40)."
 							]
 						},
 						{
@@ -50790,6 +50790,39 @@
 				}
 			],
 			"id": "554"
+		},
+		{
+			"type": "section",
+			"name": "Poster Map",
+			"entries": [
+				{
+					"type": "gallery",
+					"images": [
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "adventure/ToA/120-pm01.webp"
+							},
+							"title": "Poster Map, Side 1 (DM Version)",
+							"imageType": "map",
+							"width": 6563,
+							"height": 8925
+						},
+						{
+							"type": "image",
+							"href": {
+								"type": "internal",
+								"path": "adventure/ToA/120-pm02.webp"
+							},
+							"title": "Poster Map, Side 2 (Player Version)",
+							"imageType": "mapPlayer",
+							"width": 6563,
+							"height": 8925
+						}
+					]
+				}
+			]
 		}
 	]
 }

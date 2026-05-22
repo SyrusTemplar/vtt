@@ -21,7 +21,7 @@ class _UtilListPage {
 					title: entity.name,
 					isPermanent: true,
 					pageUrl: `${page}#${hash}`,
-					isBookContent: page === UrlUtil.PG_RECIPES,
+					isBookContent: Renderer.hover.isBookContentStyledPage(page),
 					sourceData: entity,
 				},
 			);
@@ -137,7 +137,7 @@ class SublistManager {
 		this._wrpContainer = null;
 		this._wrpSummaryControls = null;
 
-		this._pSaveSublistDebounced = MiscUtil.debounce(this._pSaveSublist.bind(this), 50);
+		this._pSaveSublistDebounced = MiscUtil.debounce(this._pSaveSublist.bind(this), VeCt.DUR_DEBOUNCE_SAVE);
 
 		this._hkOnListUpdated = null;
 	}
@@ -2352,7 +2352,7 @@ class ListPage {
 			{
 				title: `Image Export - ${ent.name}`,
 				isPermanent: true,
-				isBookContent: page === UrlUtil.PG_RECIPES,
+				isBookContent: Renderer.hover.isBookContentStyledPage(page),
 				isResizeOnlyWidth: true,
 				isHideBottomBorder: true,
 				width,
