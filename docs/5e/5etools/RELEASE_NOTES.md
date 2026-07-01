@@ -1,24 +1,8 @@
-v2.28.0, "Increasing Screen Time" Edition
+v2.31.0, "Further Horrors" Edition
 
-- Reworked DM Screen sidebar
-  - Added "Save Slot" system, allowing easy switching between multiple screen states
-  - Moved settings into own modal
-  - Split panel history into own pop-out drawer
-  - _[Note that this marks the final excision of the old 5etools sidebar from all pages. So long, old ~~enemy~~ friend]_
-- Added "Type" column and filter to Home Crafts page
-- Added type display to Home Crafts page
-- Fixed hover windows failing to open in Dynamic Map Viewer when in a browser popout window
-- Fixed search interface (e.g. when searching for spells in the Creature Homebrew Builder) crash on missing source abbreviation
-- Added workaround for Firefox scrolling behaviour to Adventure/Book pages
-- (Brew) Completed rework of Homebrew Builder page UI
-  - Moved "Save" and "New" functions into top control bar, and reworked layout
-  - Moved "Editing ..." display into top control bar
-  - Tweaked "Saved"/"Save" display to better represent save state
-  - Reworked "Edit Existing" UI to have search, mass-delete, mass-download, and duplication
-- (Brew) Tweaked Homebrew Builder UI to improve input visibility/separation
-- (Brew) Added rudimentary inline preview to Get Homebrew list
-- (Brew) Fixed rare test-homebrew-tags crash when loading and dereferencing class/subclass features
-- (Brew) Fixed crash when failing to load the partnered homebrew content index due to being offline
-- (Brew) Fixed silent failure to display an entity in a list page when providing an invalid/non-numerical value to a range filter for that entity
-- (Updated Font Awesome version, subtly changing various iconography)
+AKA "A Future Filled With Horrors" Edition
+- Added _Ravenloft: The Horrors Within_ Tarokka Deck to Decks page
+- Added _Ravenloft: The Horrors Within_ tokens to the Bestiary
+- Revised '24 PHB Bestiary tokens, and added tokens for summon variants (thanks @ anon)
+- (Brew) Fixed homebrew spell class sources failing to load when hovered on non-Spells pages 
 - (Fixed typos/added tags)

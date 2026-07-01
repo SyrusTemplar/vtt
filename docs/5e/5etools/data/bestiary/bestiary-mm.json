@@ -461,6 +461,7 @@
 				"CoS",
 				"CRCotN",
 				"DSotDQ",
+				"EFR",
 				"EGW",
 				"ERLW",
 				"GoS",
@@ -479,6 +480,7 @@
 				"TftYP-TFoF",
 				"TftYP-TSC",
 				"ToA",
+				"ToR",
 				"WDH"
 			],
 			"reprintedAs": [
@@ -603,7 +605,6 @@
 				"CoA",
 				"DSotDQ",
 				"GoS",
-				"HotDQ",
 				"KftGV",
 				"PotA",
 				"QftIS",
@@ -2953,8 +2954,8 @@
 				"LRDT",
 				"MOT",
 				"OotA",
-				"RoT",
 				"TftYP",
+				"TftYP-AtG",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -3861,6 +3862,7 @@
 				"SLW",
 				"TCE",
 				"TftYP",
+				"TftYP-WPM",
 				"ToA",
 				"VEoR",
 				"WBtW",
@@ -7396,6 +7398,7 @@
 				"CM",
 				"CoS",
 				"EGW",
+				"FS",
 				"GoS",
 				"IDRotF",
 				"KftGV",
@@ -7409,6 +7412,7 @@
 				"SKT",
 				"TCE",
 				"TftYP",
+				"TftYP-TFoF",
 				"ToA",
 				"VEoR",
 				"WBtW",
@@ -7708,6 +7712,7 @@
 				"CM",
 				"GoS",
 				"TftYP",
+				"TftYP-AtG",
 				"ToA",
 				"WDH"
 			],
@@ -8377,7 +8382,6 @@
 				"CRCotN",
 				"EGW",
 				"GoS",
-				"HotDQ",
 				"IDRotF",
 				"IMR",
 				"JttRC",
@@ -8391,6 +8395,7 @@
 				"SKT",
 				"TCE",
 				"TftYP",
+				"TftYP-AtG",
 				"ToA",
 				"ToFW",
 				"VEoR",
@@ -8919,6 +8924,7 @@
 				"CoS",
 				"KftGV",
 				"TftYP",
+				"TftYP-THSoT",
 				"ToA",
 				"TTP",
 				"WBtW"
@@ -9283,8 +9289,10 @@
 				"DC",
 				"DIP",
 				"DSotDQ",
+				"EFR",
 				"EGW",
 				"ERLW",
+				"FS",
 				"GoS",
 				"HotDQ",
 				"IDRotF",
@@ -9303,6 +9311,7 @@
 				"SLW",
 				"TLK",
 				"ToA",
+				"ToR",
 				"WDH",
 				"WDMM"
 			],
@@ -9442,6 +9451,7 @@
 				"TLK",
 				"ToA",
 				"ToFW",
+				"ToR",
 				"WDH",
 				"WDMM"
 			],
@@ -10174,7 +10184,7 @@
 				{
 					"name": "Petrifying Gaze",
 					"entries": [
-						"If a creature starts its turn within 30 feet of the basilisk and the two of them can see each other, the basilisk can force the creature to make a {@dc 12} Constitution saving throw if the basilisk isn't {@condition incapacitated}. On a failed save, the creature magically begins to turn to stone and is {@condition restrained}. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is {@condition petrified} until freed by the  {@spell greater restoration} spell or other magic.",
+						"If a creature starts its turn within 30 feet of the basilisk and the two of them can see each other, the basilisk can force the creature to make a {@dc 12} Constitution saving throw if the basilisk isn't {@condition incapacitated}. On a failed save, the creature magically begins to turn to stone and is {@condition restrained}. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is {@condition petrified} until freed by the {@spell greater restoration} spell or other magic.",
 						"A creature that isn't {@status surprised} can avert its eyes to avoid the saving throw at the start of its turn. If it does so, it can't see the basilisk until the start of its next turn, when it can avert its eyes again. If it looks at the basilisk in the meantime, it must immediately make the save.",
 						"If the basilisk sees its reflection within 30 feet of it in bright light, it mistakes itself for a rival and targets itself with its gaze."
 					]
@@ -10506,6 +10516,7 @@
 				"PaBTSO",
 				"QftIS",
 				"TftYP",
+				"TftYP-DiT",
 				"ToFW",
 				"VEoR",
 				"WDMM"
@@ -10785,7 +10796,7 @@
 								{
 									"type": "itemSub",
 									"name": "8. Petrification Ray",
-									"entry": "The targeted creature must make a {@dc 16} Dexterity saving throw. On a failed save, the creature begins to turn to stone and is {@condition restrained}. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is {@condition petrified} until freed by the  {@spell greater restoration} spell or other magic."
+									"entry": "The targeted creature must make a {@dc 16} Dexterity saving throw. On a failed save, the creature begins to turn to stone and is {@condition restrained}. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is {@condition petrified} until freed by the {@spell greater restoration} spell or other magic."
 								},
 								{
 									"type": "itemSub",
@@ -11344,6 +11355,7 @@
 			"srd": true,
 			"referenceSources": [
 				"TftYP",
+				"TftYP-DiT",
 				"VEoR"
 			],
 			"reprintedAs": [
@@ -11557,6 +11569,9 @@
 				"SCC-HfMT",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-WPM",
 				"ToFW",
 				"WDH",
 				"WDMM"
@@ -13276,6 +13291,7 @@
 				"RtG",
 				"SKT",
 				"TftYP",
+				"TftYP-TFoF",
 				"WBtW",
 				"WDMM"
 			],
@@ -13376,6 +13392,7 @@
 			"basicRules": true,
 			"referenceSources": [
 				"CRCotN",
+				"EFR",
 				"EGW",
 				"ERLW",
 				"GoS",
@@ -13392,6 +13409,9 @@
 				"SKT",
 				"TCE",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-TSC",
+				"TftYP-WPM",
 				"WBtW",
 				"WDH",
 				"WDMM"
@@ -13518,7 +13538,8 @@
 			"referenceSources": [
 				"CRCotN",
 				"NRH-AT",
-				"TftYP"
+				"TftYP",
+				"TftYP-AtG"
 			],
 			"size": [
 				"M"
@@ -13765,6 +13786,7 @@
 				"HotDQ",
 				"OoW",
 				"SCC-ARiR",
+				"US",
 				"WBtW",
 				"WDMM"
 			],
@@ -14279,6 +14301,7 @@
 				"OoW",
 				"QftIS",
 				"TftYP",
+				"TftYP-AtG",
 				"ToA",
 				"TTP",
 				"WDH",
@@ -14493,6 +14516,7 @@
 			"referenceSources": [
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -14603,6 +14627,7 @@
 				"QftIS",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
 				"WBtW"
 			],
 			"reprintedAs": [
@@ -14980,7 +15005,7 @@
 				{
 					"name": "Proboscis",
 					"entries": [
-						"{@atk mw} {@hit 5} to hit, reach 5 ft., one creature. {@h}16 ({@damage 4d6 + 2}) piercing damage plus 24 ({@damage 7d6}) necrotic damage, and the target's hit point maximum is reduced by an amount equal to the necrotic damage taken. If this effect reduces a creature's hit point maximum to 0, the creature dies. This reduction to a creature's hit point maximum lasts until the creature finishes a long rest or until it is affected by a spell like  {@spell greater restoration}."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one creature. {@h}16 ({@damage 4d6 + 2}) piercing damage plus 24 ({@damage 7d6}) necrotic damage, and the target's hit point maximum is reduced by an amount equal to the necrotic damage taken. If this effect reduces a creature's hit point maximum to 0, the creature dies. This reduction to a creature's hit point maximum lasts until the creature finishes a long rest or until it is affected by a spell like {@spell greater restoration}."
 					]
 				}
 			],
@@ -15049,6 +15074,7 @@
 				"SDW",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -15323,6 +15349,7 @@
 				"RoT",
 				"SCC-ARiR",
 				"TftYP",
+				"TftYP-DiT",
 				"ToA",
 				"WDMM"
 			],
@@ -15429,7 +15456,7 @@
 				{
 					"name": "Slam",
 					"entries": [
-						"{@atk mw} {@hit 8} to hit, reach 5 ft., one target. {@h}16 ({@damage 2d10 + 5}) bludgeoning damage. If the target is a creature, it must succeed on a {@dc 15} Constitution saving throw or have its hit point maximum reduced by an amount equal to the damage taken. The target dies if this attack reduces its hit point maximum to 0. The reduction lasts until removed by the  {@spell greater restoration} spell or other magic."
+						"{@atk mw} {@hit 8} to hit, reach 5 ft., one target. {@h}16 ({@damage 2d10 + 5}) bludgeoning damage. If the target is a creature, it must succeed on a {@dc 15} Constitution saving throw or have its hit point maximum reduced by an amount equal to the damage taken. The target dies if this attack reduces its hit point maximum to 0. The reduction lasts until removed by the {@spell greater restoration} spell or other magic."
 					]
 				},
 				{
@@ -15646,6 +15673,7 @@
 				"SatO",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -15853,6 +15881,7 @@
 				"OoW",
 				"SCC-CK",
 				"TftYP",
+				"TftYP-DiT",
 				"WBtW"
 			],
 			"reprintedAs": [
@@ -15937,10 +15966,13 @@
 				"CoS",
 				"CRCotN",
 				"DC",
+				"DD",
 				"DIP",
 				"DSotDQ",
+				"EFR",
 				"EGW",
 				"ERLW",
+				"FS",
 				"GoS",
 				"GotSF",
 				"HFStCM",
@@ -15967,8 +15999,14 @@
 				"SLW",
 				"TCE",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-TSC",
 				"ToA",
 				"ToFW",
+				"ToR",
 				"VEoR",
 				"WBtW",
 				"WDH",
@@ -16062,6 +16100,7 @@
 			"basicRules": true,
 			"referenceSources": [
 				"TftYP",
+				"TftYP-THSoT",
 				"ToA",
 				"WDMM"
 			],
@@ -16360,6 +16399,7 @@
 				"PSX",
 				"SKT",
 				"TftYP",
+				"TftYP-THSoT",
 				"ToA",
 				"VEoR",
 				"WDMM"
@@ -16760,6 +16800,7 @@
 				"SCC-TMM",
 				"SLW",
 				"ToA",
+				"US",
 				"WBtW"
 			],
 			"reprintedAs": [
@@ -16853,8 +16894,8 @@
 				"DC",
 				"DIP",
 				"EGW",
+				"FS",
 				"GoS",
-				"HotDQ",
 				"IDRotF",
 				"IMR",
 				"JttRC",
@@ -16872,6 +16913,7 @@
 				"SLW",
 				"TCE",
 				"TftYP",
+				"TftYP-THSoT",
 				"ToA",
 				"ToFW",
 				"VEoR",
@@ -17052,8 +17094,10 @@
 				"CM",
 				"CoS",
 				"DC",
+				"DD",
 				"DIP",
 				"EGW",
+				"FS",
 				"GoS",
 				"HftT",
 				"HotDQ",
@@ -17073,6 +17117,7 @@
 				"RoT",
 				"SKT",
 				"SLW",
+				"US",
 				"VEoR",
 				"VNotEE",
 				"WDH",
@@ -18376,7 +18421,7 @@
 								{
 									"type": "itemSub",
 									"name": "8. Petrification Ray",
-									"entry": "The targeted creature must make a {@dc 17} Dexterity saving throw. On a failed save, the creature begins to turn to stone and is {@condition restrained}. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is {@condition petrified} until freed by the  {@spell greater restoration} spell or other magic."
+									"entry": "The targeted creature must make a {@dc 17} Dexterity saving throw. On a failed save, the creature begins to turn to stone and is {@condition restrained}. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is {@condition petrified} until freed by the {@spell greater restoration} spell or other magic."
 								},
 								{
 									"type": "itemSub",
@@ -18695,6 +18740,8 @@
 				"IDRotF",
 				"JttRC",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-ToH",
 				"ToFW",
 				"WDMM"
 			],
@@ -18835,7 +18882,7 @@
 				{
 					"name": "Energy Drain (Costs 2 Actions)",
 					"entries": [
-						"Each creature with in 30 feet of the demilich must make a {@dc 15} Constitution saving throw. On a failed save, the creature's hit point maximum is magically reduced by 10 ({@dice 3d6}). If a creature's hit point maximum is reduced to 0 by this effect, the creature dies. A creature's hit point maximum can be restored with the  {@spell greater restoration} spell or similar magic."
+						"Each creature with in 30 feet of the demilich must make a {@dc 15} Constitution saving throw. On a failed save, the creature's hit point maximum is magically reduced by 10 ({@dice 3d6}). If a creature's hit point maximum is reduced to 0 by this effect, the creature dies. A creature's hit point maximum can be restored with the {@spell greater restoration} spell or similar magic."
 					]
 				},
 				{
@@ -19139,6 +19186,8 @@
 				"QftIS",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-TFoF",
 				"ToFW"
 			],
 			"reprintedAs": [
@@ -19240,6 +19289,7 @@
 				"QftIS",
 				"SatO",
 				"TftYP",
+				"TftYP-DiT",
 				"WBtW",
 				"WDH",
 				"WDMM"
@@ -19620,6 +19670,7 @@
 				"SatO",
 				"SKT",
 				"TftYP",
+				"TftYP-THSoT",
 				"ToA",
 				"ToFW",
 				"WDH",
@@ -20354,11 +20405,14 @@
 				"CM",
 				"CRCotN",
 				"DC",
+				"DD",
 				"DIP",
 				"EGW",
 				"OotA",
 				"PaBTSO",
 				"TftYP",
+				"TftYP-AtG",
+				"US",
 				"WDH",
 				"WDMM"
 			],
@@ -20576,6 +20630,7 @@
 				"SKT",
 				"SLW",
 				"TftYP",
+				"TftYP-AtG",
 				"WDH",
 				"WDMM"
 			],
@@ -20821,6 +20876,7 @@
 				"PotA",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
 				"ToA",
 				"VEoR",
 				"WBtW",
@@ -21045,6 +21101,7 @@
 				"GoS",
 				"OotA",
 				"TftYP",
+				"TftYP-AtG",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -21324,6 +21381,7 @@
 				"CoA",
 				"CoS",
 				"CRCotN",
+				"DD",
 				"DIP",
 				"EGW",
 				"GoS",
@@ -21343,6 +21401,7 @@
 				"TftYP-DiT",
 				"TftYP-TSC",
 				"ToA",
+				"ToR",
 				"VEoR",
 				"WBtW",
 				"WDH"
@@ -21672,6 +21731,7 @@
 			"referenceSources": [
 				"BGDIA",
 				"CoA",
+				"DD",
 				"EGW",
 				"IDRotF",
 				"KftGV",
@@ -21681,6 +21741,7 @@
 				"QftIS",
 				"RtG",
 				"TftYP",
+				"TftYP-TFoF",
 				"WDH",
 				"WDMM"
 			],
@@ -22363,6 +22424,9 @@
 				"SatO",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-ToH",
+				"TftYP-WPM",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -22779,6 +22843,7 @@
 				"QftIS",
 				"SatO",
 				"TftYP",
+				"TftYP-AtG",
 				"ToFW",
 				"WDMM"
 			],
@@ -23390,6 +23455,7 @@
 				"SCC-HfMT",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
 				"ToFW",
 				"VEoR",
 				"WDMM"
@@ -24339,6 +24405,7 @@
 			"referenceSources": [
 				"BMT",
 				"EGW",
+				"FS",
 				"WBtW",
 				"WDH",
 				"WDMM"
@@ -24686,6 +24753,7 @@
 				"SKT",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
 				"ToA",
 				"WBtW",
 				"WDMM"
@@ -24834,6 +24902,7 @@
 				"SatO",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -24983,6 +25052,7 @@
 				"PotA",
 				"SCC-CK",
 				"TftYP",
+				"TftYP-TSC",
 				"ToA"
 			],
 			"reprintedAs": [
@@ -25322,6 +25392,7 @@
 				"CoS",
 				"DIP",
 				"EGW",
+				"FS",
 				"GoS",
 				"IDRotF",
 				"MOT",
@@ -25329,6 +25400,8 @@
 				"RtG",
 				"SDW",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-WPM",
 				"ToA",
 				"ToFW",
 				"WDH",
@@ -25704,6 +25777,7 @@
 				"CM",
 				"CoS",
 				"EGW",
+				"FS",
 				"GoS",
 				"IDRotF",
 				"KftGV",
@@ -25713,6 +25787,7 @@
 				"SKT",
 				"TCE",
 				"TftYP",
+				"TftYP-ToH",
 				"ToA",
 				"VEoR",
 				"WDH",
@@ -26043,10 +26118,10 @@
 				"CoA",
 				"EGW",
 				"IDRotF",
-				"RoT",
 				"SatO",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
 				"ToA"
 			],
 			"reprintedAs": [
@@ -26338,6 +26413,8 @@
 				"SCC-HfMT",
 				"SKT",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-WPM",
 				"ToA",
 				"WDH",
 				"WDMM"
@@ -26469,6 +26546,7 @@
 				"OotA",
 				"QftIS",
 				"TftYP",
+				"TftYP-THSoT",
 				"WDH",
 				"WDMM"
 			],
@@ -26589,6 +26667,7 @@
 				"OotA",
 				"QftIS",
 				"TftYP",
+				"TftYP-DiT",
 				"WBtW",
 				"WDMM"
 			],
@@ -26866,6 +26945,10 @@
 				"SLW",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-ToH",
+				"TftYP-TSC",
 				"ToFW",
 				"TTP",
 				"VEoR",
@@ -26973,7 +27056,7 @@
 				{
 					"name": "Horrifying Visage",
 					"entries": [
-						"Each non-undead creature within 60 feet of the ghost that can see it must succeed on a {@dc 13} Wisdom saving throw or be {@condition frightened} for 1 minute. If the save fails by 5 or more, the target also ages {@dice 1d4 × 10} years. A {@condition frightened} target can repeat the saving throw at the end of each of its turns, ending the {@condition frightened} condition on itself on a success. If a target's saving throw is successful or the effect ends for it, the target is immune to this ghost's Horrifying Visage for the next 24 hours. The aging effect can be reversed with a  {@spell greater restoration} spell, but only within 24 hours of it occurring."
+						"Each non-undead creature within 60 feet of the ghost that can see it must succeed on a {@dc 13} Wisdom saving throw or be {@condition frightened} for 1 minute. If the save fails by 5 or more, the target also ages {@dice 1d4 × 10} years. A {@condition frightened} target can repeat the saving throw at the end of each of its turns, ending the {@condition frightened} condition on itself on a success. If a target's saving throw is successful or the effect ends for it, the target is immune to this ghost's Horrifying Visage for the next 24 hours. The aging effect can be reversed with a {@spell greater restoration} spell, but only within 24 hours of it occurring."
 					]
 				},
 				{
@@ -27056,6 +27139,8 @@
 				"SLW",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-WPM",
 				"ToA",
 				"VEoR",
 				"WBtW",
@@ -27541,6 +27626,7 @@
 				"QftIS",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
 				"WDMM",
 				"XMtS"
 			],
@@ -27632,6 +27718,7 @@
 				"SLW",
 				"TftYP-THSoT",
 				"ToA",
+				"US",
 				"WBtW"
 			],
 			"reprintedAs": [
@@ -27722,11 +27809,15 @@
 				"CM",
 				"DIP",
 				"EGW",
+				"FS",
 				"GoS",
 				"MOT",
 				"PotA",
 				"SKT",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-WPM",
+				"ToR",
 				"TTP",
 				"VEoR",
 				"WDMM",
@@ -28155,6 +28246,8 @@
 				"PSX",
 				"QftIS",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-THSoT",
 				"WDH",
 				"WDMM"
 			],
@@ -28244,6 +28337,7 @@
 			"referenceSources": [
 				"DitLCoT",
 				"EGW",
+				"FS",
 				"GoS",
 				"HftT",
 				"HotDQ",
@@ -28251,6 +28345,8 @@
 				"QftIS",
 				"SCC-CK",
 				"TftYP",
+				"TftYP-THSoT",
+				"TftYP-TSC",
 				"ToA",
 				"WBtW",
 				"WDMM"
@@ -28456,7 +28552,8 @@
 			"referenceSources": [
 				"BGDIA",
 				"GoS",
-				"TftYP"
+				"TftYP",
+				"TftYP-THSoT"
 			],
 			"reprintedAs": [
 				"Giant Hyena|XMM"
@@ -28542,6 +28639,8 @@
 				"PSA",
 				"QftIS",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-TFoF",
 				"ToA",
 				"TTP",
 				"VEoR",
@@ -28679,6 +28778,7 @@
 				"CRCotN",
 				"DSotDQ",
 				"EGW",
+				"FS",
 				"GoS",
 				"MOT",
 				"OotA",
@@ -28754,7 +28854,7 @@
 				{
 					"name": "Ink Cloud (Recharges after a Short or Long Rest)",
 					"entries": [
-						"A 20-foot-radius cloud of ink extends all around the octopus if it is underwater. The area is heavily obscured for 1 minute, although a significant current can disperse the ink. After releasing the ink, the octopus can use the {@action Dash} action as a bonus action."
+						"A 20-foot-radius cloud of ink extends all around the octopus if it is underwater. The area is {@quickref Vision and Light||2||heavily obscured} for 1 minute, although a significant current can disperse the ink. After releasing the ink, the octopus can use the {@action Dash} action as a bonus action."
 					]
 				}
 			],
@@ -29011,6 +29111,7 @@
 				"SCC-CK",
 				"SKT",
 				"TftYP",
+				"TftYP-TSC",
 				"WBtW",
 				"WDMM"
 			],
@@ -29145,6 +29246,7 @@
 				"SCC-CK",
 				"SCC-HfMT",
 				"TftYP",
+				"TftYP-WPM",
 				"ToA"
 			],
 			"reprintedAs": [
@@ -29460,7 +29562,10 @@
 				"SKT",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-THSoT",
 				"ToA",
+				"US",
 				"VEoR",
 				"WDH",
 				"WDMM"
@@ -29588,10 +29693,12 @@
 			"basicRules": true,
 			"referenceSources": [
 				"EGW",
+				"FS",
 				"GoS",
 				"KftGV",
 				"QftIS",
 				"TCE",
+				"US",
 				"WBtW",
 				"WDMM"
 			],
@@ -29891,7 +29998,8 @@
 			"referenceSources": [
 				"GoS",
 				"QftIS",
-				"TftYP"
+				"TftYP",
+				"TftYP-AtG"
 			],
 			"reprintedAs": [
 				"Giant Weasel|XMM"
@@ -29981,6 +30089,7 @@
 				"PSX",
 				"TCE",
 				"TftYP",
+				"TftYP-THSoT",
 				"ToA",
 				"WBtW"
 			],
@@ -30106,6 +30215,8 @@
 				"QftIS",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-THSoT",
 				"WDH",
 				"WDMM"
 			],
@@ -30737,6 +30848,8 @@
 				"GoS",
 				"SatO",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-ToH",
 				"VEoR",
 				"WDMM"
 			],
@@ -31087,6 +31200,7 @@
 			"referenceSources": [
 				"BGDIA",
 				"BMT",
+				"EFR",
 				"EGW",
 				"ERLW",
 				"GoS",
@@ -31096,6 +31210,8 @@
 				"PotA",
 				"SatO",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-DiT",
 				"ToFW"
 			],
 			"reprintedAs": [
@@ -31585,6 +31701,7 @@
 				"BMT",
 				"CRCotN",
 				"DSotDQ",
+				"EFR",
 				"EGW",
 				"ERLW",
 				"GoS",
@@ -31601,7 +31718,9 @@
 				"SKT",
 				"TCE",
 				"TftYP",
+				"TftYP-TSC",
 				"ToA",
+				"US",
 				"WBtW",
 				"WDH",
 				"WDMM"
@@ -32107,6 +32226,8 @@
 				"RoT",
 				"SCC-ARiR",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-DiT",
 				"WBtW",
 				"WDMM"
 			],
@@ -32176,7 +32297,7 @@
 				{
 					"name": "Petrifying Breath {@recharge 5}",
 					"entries": [
-						"The gorgon exhales petrifying gas in a 30-foot cone. Each creature in that area must succeed on a {@dc 13} Constitution saving throw. On a failed save, a target begins to turn to stone and is {@condition restrained}. The {@condition restrained} target must repeat the saving throw at the end of its next turn. On a success, the effect ends on the target. On a failure, the target is {@condition petrified} until freed by the  {@spell greater restoration} spell or other magic."
+						"The gorgon exhales petrifying gas in a 30-foot cone. Each creature in that area must succeed on a {@dc 13} Constitution saving throw. On a failed save, a target begins to turn to stone and is {@condition restrained}. The {@condition restrained} target must repeat the saving throw at the end of its next turn. On a success, the effect ends on the target. On a failure, the target is {@condition petrified} until freed by the {@spell greater restoration} spell or other magic."
 					]
 				}
 			],
@@ -32404,6 +32525,10 @@
 				"PaBTSO",
 				"SCC-CK",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-WPM",
 				"VNotEE",
 				"WDH",
 				"WDMM"
@@ -33522,6 +33647,7 @@
 				"QftIS",
 				"RtG",
 				"TftYP",
+				"TftYP-DiT",
 				"VEoR",
 				"WDH",
 				"WDMM"
@@ -33652,6 +33778,8 @@
 				"PotA",
 				"QftIS",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-TFoF",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -34134,8 +34262,10 @@
 				"CoS",
 				"CRCotN",
 				"DC",
+				"DD",
 				"DIP",
 				"DSotDQ",
+				"EFR",
 				"EGW",
 				"ERLW",
 				"GoS",
@@ -34157,6 +34287,7 @@
 				"TftYP-TSC",
 				"ToA",
 				"ToFW",
+				"US",
 				"WDH",
 				"XMtS"
 			],
@@ -34459,7 +34590,8 @@
 				"LLK",
 				"MOT",
 				"QftIS",
-				"TftYP"
+				"TftYP",
+				"TftYP-WPM"
 			],
 			"reprintedAs": [
 				"Sphinx of Lore|XMM"
@@ -34685,6 +34817,7 @@
 			"referenceSources": [
 				"BGDIA",
 				"DSotDQ",
+				"EFR",
 				"ERLW",
 				"IDRotF",
 				"PotA",
@@ -34793,7 +34926,6 @@
 			"srd": true,
 			"referenceSources": [
 				"GoS",
-				"HotDQ",
 				"IMR",
 				"RoT",
 				"SLW"
@@ -34934,13 +35066,15 @@
 				"CoA",
 				"DIP",
 				"DoSI",
+				"EFR",
 				"EGW",
 				"ERLW",
 				"GoS",
 				"IDRotF",
 				"MOT",
 				"PotA",
-				"SKT"
+				"SKT",
+				"US"
 			],
 			"reprintedAs": [
 				"Harpy|XMM"
@@ -35146,6 +35280,7 @@
 				"SKT",
 				"SLW",
 				"TftYP",
+				"TftYP-AtG",
 				"WDH",
 				"WDMM"
 			],
@@ -35278,6 +35413,8 @@
 				"SCC-TMM",
 				"SKT",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-THSoT",
 				"VEoR",
 				"WDH",
 				"WDMM"
@@ -35426,6 +35563,8 @@
 				"PotA",
 				"QftIS",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-ToH",
 				"VEoR",
 				"WBtW",
 				"WDMM"
@@ -35599,7 +35738,8 @@
 				"RoT",
 				"SatO",
 				"SKT",
-				"TftYP"
+				"TftYP",
+				"TftYP-AtG"
 			],
 			"reprintedAs": [
 				"Hill Giant|XMM"
@@ -35723,6 +35863,7 @@
 			"srd": true,
 			"basicRules": true,
 			"referenceSources": [
+				"DD",
 				"EGW",
 				"ERLW",
 				"OoW",
@@ -35837,6 +35978,8 @@
 				"RMBRE",
 				"SKT",
 				"TftYP",
+				"TftYP-TSC",
+				"US",
 				"WBtW",
 				"WDMM"
 			],
@@ -36354,6 +36497,7 @@
 				"PotA",
 				"QftIS",
 				"TftYP",
+				"TftYP-DiT",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -36647,7 +36791,9 @@
 				"SatO",
 				"SKT",
 				"TftYP",
+				"TftYP-DiT",
 				"ToA",
+				"ToR",
 				"XMtS"
 			],
 			"reprintedAs": [
@@ -36754,6 +36900,7 @@
 				"SCC-ARiR",
 				"SLW",
 				"TftYP",
+				"TftYP-AtG",
 				"ToA",
 				"WDMM"
 			],
@@ -37166,11 +37313,13 @@
 			"referenceSources": [
 				"CM",
 				"EGW",
+				"FS",
 				"IDRotF",
 				"KftGV",
 				"PotA",
 				"SKT",
-				"TftYP"
+				"TftYP",
+				"TftYP-TSC"
 			],
 			"reprintedAs": [
 				"Ice Mephit|XMM"
@@ -37827,6 +37976,7 @@
 				"SKT",
 				"SLW",
 				"TftYP",
+				"TftYP-WPM",
 				"ToA",
 				"VEoR",
 				"WBtW",
@@ -38363,6 +38513,7 @@
 			"referenceSources": [
 				"BGDIA",
 				"CM",
+				"EFR",
 				"ERLW",
 				"JttRC",
 				"LLK",
@@ -38608,6 +38759,9 @@
 				"SatO",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-WPM",
 				"ToA",
 				"ToFW",
 				"WBtW",
@@ -38741,7 +38895,9 @@
 			"referenceSources": [
 				"BGDIA",
 				"CoA",
+				"DD",
 				"DoSI",
+				"EFR",
 				"EGW",
 				"ERLW",
 				"GoS",
@@ -38751,6 +38907,8 @@
 				"RoT",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-TSC",
 				"TLK",
 				"ToA",
 				"WDH",
@@ -39027,7 +39185,7 @@
 				{
 					"name": "Ink Cloud (Costs 3 Actions)",
 					"entries": [
-						"While underwater, the kraken expels an ink cloud in a 60-foot radius. The cloud spreads around corners, and that area is heavily obscured to creatures other than the kraken. Each creature other than the kraken that ends its turn there must succeed on a {@dc 23} Constitution saving throw, taking 16 ({@damage 3d10}) poison damage on a failed save, or half as much damage on a successful one. A strong current disperses the cloud, which otherwise disappears at the end of the kraken's next turn."
+						"While underwater, the kraken expels an ink cloud in a 60-foot radius. The cloud spreads around corners, and that area is {@quickref Vision and Light||2||heavily obscured} to creatures other than the kraken. Each creature other than the kraken that ends its turn there must succeed on a {@dc 23} Constitution saving throw, taking 16 ({@damage 3d10}) poison damage on a failed save, or half as much damage on a successful one. A strong current disperses the cloud, which otherwise disappears at the end of the kraken's next turn."
 					]
 				}
 			],
@@ -39108,6 +39266,7 @@
 				"RtG",
 				"SatO",
 				"TftYP",
+				"TftYP-DiT",
 				"WDH",
 				"WDMM"
 			],
@@ -40365,6 +40524,7 @@
 			"referenceSources": [
 				"KftGV",
 				"TftYP",
+				"TftYP-AtG",
 				"ToA"
 			],
 			"reprintedAs": [
@@ -40844,6 +41004,7 @@
 				"TCE",
 				"ToA",
 				"ToFW",
+				"US",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -40978,7 +41139,8 @@
 				"IMR",
 				"PotA",
 				"SCC-TMM",
-				"ToA"
+				"ToA",
+				"US"
 			],
 			"reprintedAs": [
 				"Lizardfolk Geomancer|XMM"
@@ -41168,6 +41330,7 @@
 				"DSotDQ",
 				"EGW",
 				"ERLW",
+				"FS",
 				"GoS",
 				"HotDQ",
 				"IDRotF",
@@ -41191,6 +41354,7 @@
 				"TCE",
 				"ToA",
 				"ToFW",
+				"ToR",
 				"VEoR",
 				"WBtW",
 				"WDH",
@@ -41767,6 +41931,7 @@
 				"OotA",
 				"PSI",
 				"TftYP",
+				"TftYP-DiT",
 				"WBtW"
 			],
 			"reprintedAs": [
@@ -41875,6 +42040,8 @@
 				"SKT",
 				"SLW",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-WPM",
 				"WDH",
 				"WDMM"
 			],
@@ -42474,7 +42641,9 @@
 				"QftIS",
 				"SKT",
 				"TftYP",
+				"TftYP-THSoT",
 				"ToFW",
+				"US",
 				"WDH"
 			],
 			"reprintedAs": [
@@ -42622,7 +42791,7 @@
 				{
 					"name": "Petrifying Gaze",
 					"entries": [
-						"When a creature that can see the medusa's eyes starts its turn within 30 feet of the medusa, the medusa can force it to make a {@dc 14} Constitution saving throw if the medusa isn't {@condition incapacitated} and can see the creature. If the saving throw fails by 5 or more, the creature is instantly {@condition petrified}. Otherwise, a creature that fails the save begins to turn to stone and is {@condition restrained}. The {@condition restrained} creature must repeat the saving throw at the end of its next turn, becoming {@condition petrified} on a failure or ending the effect on a success. The petrification lasts until the creature is freed by the  {@spell greater restoration} spell or other magic.",
+						"When a creature that can see the medusa's eyes starts its turn within 30 feet of the medusa, the medusa can force it to make a {@dc 14} Constitution saving throw if the medusa isn't {@condition incapacitated} and can see the creature. If the saving throw fails by 5 or more, the creature is instantly {@condition petrified}. Otherwise, a creature that fails the save begins to turn to stone and is {@condition restrained}. The {@condition restrained} creature must repeat the saving throw at the end of its next turn, becoming {@condition petrified} on a failure or ending the effect on a success. The petrification lasts until the creature is freed by the {@spell greater restoration} spell or other magic.",
 						"Unless {@status surprised}, a creature can avert its eyes to avoid the saving throw at the start of its turn. If the creature does so, it can't see the medusa until the start of its next turn, when it can avert its eyes again. If the creature looks at the medusa in the meantime, it must immediately make the save.",
 						"If the medusa sees itself reflected on a polished surface within 30 feet of it and in an area of bright light, the medusa is, due to its curse, affected by its own gaze."
 					]
@@ -42812,6 +42981,7 @@
 				"RoT",
 				"SKT",
 				"TftYP",
+				"TftYP-DiT",
 				"WBtW",
 				"WDH"
 			],
@@ -43309,6 +43479,9 @@
 				"SjA",
 				"TCE",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-ToH",
+				"TftYP-TSC",
 				"ToFW",
 				"WDH",
 				"WDMM"
@@ -45209,6 +45382,7 @@
 				"OotA",
 				"QftIS",
 				"TftYP",
+				"TftYP-ToH",
 				"ToA",
 				"VEoR",
 				"WDMM"
@@ -45603,8 +45777,20 @@
 					"name": "Night Hag Items",
 					"entries": [
 						"A night hag carries two very rare magic items that she must craft for herself. If either object is lost, the night hag will go to great lengths to retrieve it, as creating a new tool takes time and effort.",
-						"Heartstone: This lustrous black gem allows a night hag to become ethereal while it is in her possession. The touch of a heartstone also cures any disease. Crafting a heartstone takes 30 days.",
-						"Soul Bag: When an evil humanoid dies as a result of a night hag's Nightmare Haunting, the hag catches the soul in this black sack made of stitched flesh. A soul bag can hold only one evil soul at a time, and only the night hag who crafted the bag can catch a soul with it. Crafting a soul bag takes 7 days and a humanoid sacrifice (whose flesh is used to make the bag)."
+						{
+							"type": "entries",
+							"name": "Heartstone",
+							"entries": [
+								"This lustrous black gem allows a night hag to become ethereal while it is in her possession. The touch of a {@item heartstone|MM} also cures any disease. Crafting a heartstone takes 30 days."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Soul Bag",
+							"entries": [
+								"When an evil humanoid dies as a result of a night hag's Nightmare Haunting, the hag catches the soul in this black sack made of stitched flesh. A {@item soul bag|MM} can hold only one evil soul at a time, and only the night hag who crafted the bag can catch a soul with it. Crafting a soul bag takes 7 days and a humanoid sacrifice (whose flesh is used to make the bag)."
+							]
+						}
 					]
 				}
 			],
@@ -45630,7 +45816,7 @@
 				{
 					"name": "Nightmare Haunting (1/Day)",
 					"entries": [
-						"While on the Ethereal Plane, the hag magically touches a sleeping humanoid on the Material Plane. A {@spell protection from evil and good} spell cast on the target prevents this contact, as does a magic circle. As long as the contact persists, the target has dreadful visions. If these visions last for at least 1 hour, the target gains no benefit from its rest, and its hit point maximum is reduced by 5 ({@dice 1d10}). If this effect reduces the target's hit point maximum to 0, the target dies, and if the target was evil, its soul is trapped in the hag's soul bag. The reduction to the target's hit point maximum lasts until removed by the  {@spell greater restoration} spell or similar magic."
+						"While on the Ethereal Plane, the hag magically touches a sleeping humanoid on the Material Plane. A {@spell protection from evil and good} spell cast on the target prevents this contact, as does a magic circle. As long as the contact persists, the target has dreadful visions. If these visions last for at least 1 hour, the target gains no benefit from its rest, and its hit point maximum is reduced by 5 ({@dice 1d10}). If this effect reduces the target's hit point maximum to 0, the target dies, and if the target was evil, its soul is trapped in the hag's soul bag. The reduction to the target's hit point maximum lasts until removed by the {@spell greater restoration} spell or similar magic."
 					]
 				}
 			],
@@ -45954,6 +46140,7 @@
 				"DC",
 				"DIP",
 				"DSotDQ",
+				"EFR",
 				"EGW",
 				"ERLW",
 				"GoS",
@@ -45973,6 +46160,9 @@
 				"SatO",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-TFoF",
+				"TftYP-TSC",
 				"ToA",
 				"ToFW",
 				"VEoR",
@@ -46444,6 +46634,8 @@
 				"SCC-CK",
 				"SCC-HfMT",
 				"TftYP",
+				"TftYP-THSoT",
+				"TftYP-ToH",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -46628,7 +46820,7 @@
 				{
 					"name": "Ink Cloud (Recharges after a Short or Long Rest)",
 					"entries": [
-						"A 5-foot-radius cloud of ink extends all around the octopus if it is underwater. The area is heavily obscured for 1 minute, although a significant current can disperse the ink. After releasing the ink, the octopus can use the {@action Dash} action as a bonus action."
+						"A 5-foot-radius cloud of ink extends all around the octopus if it is underwater. The area is {@quickref Vision and Light||2||heavily obscured} for 1 minute, although a significant current can disperse the ink. After releasing the ink, the octopus can use the {@action Dash} action as a bonus action."
 					]
 				}
 			],
@@ -46694,6 +46886,10 @@
 				"SKT",
 				"SLW",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-TFoF",
+				"TftYP-WPM",
+				"US",
 				"WDH",
 				"WDMM"
 			],
@@ -46807,6 +47003,7 @@
 				"RtG",
 				"SDW",
 				"TftYP",
+				"TftYP-DiT",
 				"ToA",
 				"VEoR",
 				"WDMM"
@@ -46917,6 +47114,9 @@
 				"SKT",
 				"TCE",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-THSoT",
+				"TftYP-WPM",
 				"ToFW",
 				"WBtW",
 				"WDMM"
@@ -47106,7 +47306,11 @@
 				"RMBRE",
 				"SKT",
 				"TftYP",
-				"ToA"
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"ToA",
+				"US"
 			],
 			"reprintedAs": [
 				"Tough|XMM"
@@ -47236,7 +47440,8 @@
 				"OotA",
 				"PotA",
 				"SKT",
-				"TftYP"
+				"TftYP",
+				"TftYP-TFoF"
 			],
 			"reprintedAs": [
 				"Cultist Fanatic|XMM"
@@ -47553,6 +47758,8 @@
 				"PotA",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-TFoF",
 				"WDH",
 				"WDMM"
 			],
@@ -47695,6 +47902,7 @@
 				"SCC-HfMT",
 				"SKT",
 				"TftYP",
+				"TftYP-DiT",
 				"ToA",
 				"ToFW",
 				"WDMM"
@@ -47937,6 +48145,7 @@
 				"SDW",
 				"SKT",
 				"TftYP",
+				"TftYP-DiT",
 				"WBtW",
 				"WDH",
 				"WDMM"
@@ -48049,6 +48258,7 @@
 			"basicRules": true,
 			"referenceSources": [
 				"TftYP",
+				"TftYP-THSoT",
 				"ToA",
 				"WDH"
 			],
@@ -48394,6 +48604,7 @@
 				"PotA",
 				"SCC-ARiR",
 				"TftYP",
+				"TftYP-DiT",
 				"WBtW"
 			],
 			"reprintedAs": [
@@ -48650,6 +48861,7 @@
 				"PotA",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
 				"ToFW",
 				"WDMM"
 			],
@@ -49407,6 +49619,8 @@
 				"OoW",
 				"QftIS",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-ToH",
 				"ToA",
 				"TTP"
 			],
@@ -49835,8 +50049,12 @@
 				"SLW",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-TSC",
 				"ToA",
 				"ToFW",
+				"US",
 				"VEoR",
 				"WDH",
 				"WDMM",
@@ -50872,6 +51090,8 @@
 				"PSI",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-TSC",
 				"VEoR",
 				"WBtW",
 				"WDMM"
@@ -50944,7 +51164,7 @@
 				{
 					"name": "Shapechanger",
 					"entries": [
-						"The quasit can use its action to polymorph into a beast form that resembles a bat (speed 10 feet fly 40 ft.), a centipede (40 ft., climb 40 ft.), or a toad (40 ft., swim 40 ft.), or back into its true form. Its statistics are the same in each form, except for the speed changes noted. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+						"The quasit can use its action to polymorph into a beast form that resembles a bat (speed 10 ft. fly 40 ft.), a centipede (40 ft., climb 40 ft.), or a toad (40 ft., swim 40 ft.), or back into its true form. Its statistics are the same in each form, except for the speed changes noted. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
 					]
 				},
 				{
@@ -51134,6 +51354,7 @@
 				"GoS",
 				"TCE",
 				"TftYP",
+				"TftYP-AtG",
 				"VEoR",
 				"WDH",
 				"WDMM"
@@ -51306,6 +51527,7 @@
 				"QftIS",
 				"SKT",
 				"TftYP",
+				"TftYP-TFoF",
 				"ToA",
 				"TTP",
 				"WDH",
@@ -51827,11 +52049,13 @@
 			"basicRules": true,
 			"referenceSources": [
 				"CRCotN",
+				"DD",
 				"EGW",
 				"GoS",
 				"JttRC",
 				"RtG",
 				"ToA",
+				"ToR",
 				"TTP"
 			],
 			"reprintedAs": [
@@ -51934,6 +52158,7 @@
 				"PaBTSO",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -52511,6 +52736,9 @@
 				"QftIS",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
 				"ToFW",
 				"WDMM"
 			],
@@ -52648,6 +52876,7 @@
 				"CoS",
 				"DIP",
 				"EGW",
+				"FS",
 				"GoS",
 				"HotDQ",
 				"KftGV",
@@ -52983,7 +53212,9 @@
 				"GoS",
 				"SatO",
 				"SDW",
-				"TftYP"
+				"TftYP",
+				"TftYP-DiT",
+				"ToR"
 			],
 			"reprintedAs": [
 				"Sahuagin Warrior|XMM"
@@ -53123,6 +53354,7 @@
 				"JttRC",
 				"SatO",
 				"TftYP",
+				"TftYP-DiT",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -53268,7 +53500,8 @@
 				"BGDIA",
 				"GoS",
 				"SDW",
-				"TftYP"
+				"TftYP",
+				"TftYP-DiT"
 			],
 			"reprintedAs": [
 				"Sahuagin Priest|XMM"
@@ -53455,6 +53688,7 @@
 				"PotA",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
 				"ToA"
 			],
 			"reprintedAs": [
@@ -53991,6 +54225,7 @@
 				"DIP",
 				"DSotDQ",
 				"EGW",
+				"FS",
 				"GoS",
 				"HotDQ",
 				"IDRotF",
@@ -54007,7 +54242,10 @@
 				"SKT",
 				"SLW",
 				"TftYP",
+				"TftYP-THSoT",
+				"TftYP-TSC",
 				"ToA",
+				"ToR",
 				"VNotEE",
 				"WBtW",
 				"WDMM",
@@ -54146,6 +54384,7 @@
 				"SatO",
 				"SLW",
 				"TftYP",
+				"TftYP-DiT",
 				"ToA",
 				"TTP",
 				"WDMM"
@@ -54499,6 +54738,9 @@
 				"SjA",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-TSC",
+				"TftYP-WPM",
 				"TTP",
 				"VEoR",
 				"VNotEE",
@@ -54809,6 +55051,7 @@
 				"QftIS",
 				"SCC-TMM",
 				"TftYP",
+				"TftYP-DiT",
 				"ToA",
 				"VEoR",
 				"WBtW",
@@ -55416,6 +55659,9 @@
 				"SKT",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-TSC",
 				"ToA",
 				"ToFW",
 				"VEoR",
@@ -55701,7 +55947,7 @@
 				{
 					"name": "Death Burst",
 					"entries": [
-						"When the mephit dies, it leaves behind a cloud of smoke that fills a 5-foot-radius sphere centered on its space. The sphere is heavily obscured. Wind disperses the cloud, which otherwise lasts for 1 minute."
+						"When the mephit dies, it leaves behind a cloud of smoke that fills a 5-foot-radius sphere centered on its space. The sphere is {@quickref Vision and Light||2||heavily obscured}. Wind disperses the cloud, which otherwise lasts for 1 minute."
 					]
 				}
 			],
@@ -56221,6 +56467,7 @@
 				"SLW",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
 				"ToA",
 				"ToFW",
 				"VEoR",
@@ -56633,6 +56880,7 @@
 				"OotA",
 				"PaBTSO",
 				"TftYP",
+				"TftYP-DiT",
 				"VEoR",
 				"WDMM"
 			],
@@ -56815,6 +57063,7 @@
 				"BGDIA",
 				"BMT",
 				"CM",
+				"EFR",
 				"ERLW",
 				"GoS",
 				"IMR",
@@ -56951,6 +57200,7 @@
 				"CoS",
 				"CRCotN",
 				"DIP",
+				"EFR",
 				"EGW",
 				"ERLW",
 				"GoS",
@@ -57098,6 +57348,7 @@
 				"SCC-CK",
 				"SKT",
 				"TftYP",
+				"TftYP-TSC",
 				"ToA",
 				"ToFW"
 			],
@@ -57259,8 +57510,10 @@
 				"RMBRE",
 				"SCC-CK",
 				"TftYP",
+				"TftYP-TFoF",
 				"ToA",
 				"TTP",
+				"US",
 				"WDH",
 				"WDMM"
 			],
@@ -57350,6 +57603,8 @@
 				"QftIS",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-DiT",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -57686,7 +57941,8 @@
 				"MOT",
 				"SatO",
 				"SKT",
-				"TftYP"
+				"TftYP",
+				"TftYP-AtG"
 			],
 			"reprintedAs": [
 				"Storm Giant|XMM"
@@ -57888,13 +58144,14 @@
 				"CRCotN",
 				"EGW",
 				"ERLW",
-				"HotDQ",
 				"OotA",
 				"RoT",
 				"SatO",
 				"SKT",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-TFoF",
 				"ToA"
 			],
 			"reprintedAs": [
@@ -58059,12 +58316,14 @@
 				"CoS",
 				"DitLCoT",
 				"EGW",
+				"FS",
 				"HotDQ",
 				"LLK",
 				"OotA",
 				"PotA",
 				"QftIS",
 				"TftYP",
+				"TftYP-THSoT",
 				"ToA",
 				"WBtW",
 				"WDH",
@@ -58388,7 +58647,6 @@
 				"BGDIA",
 				"EGW",
 				"GoS",
-				"HotDQ",
 				"IMR",
 				"LoX",
 				"NRH-AWoL",
@@ -58398,6 +58656,7 @@
 				"PSX",
 				"SKT",
 				"ToA",
+				"US",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -58506,6 +58765,7 @@
 				"CoS",
 				"DIP",
 				"EGW",
+				"FS",
 				"JttRC",
 				"MOT",
 				"OoW",
@@ -58514,7 +58774,10 @@
 				"SCC-CK",
 				"SDW",
 				"TftYP",
+				"TftYP-THSoT",
+				"TftYP-ToH",
 				"ToA",
+				"US",
 				"VEoR"
 			],
 			"reprintedAs": [
@@ -58745,6 +59008,8 @@
 				"HotDQ",
 				"TCE",
 				"TftYP",
+				"TftYP-THSoT",
+				"TftYP-TSC",
 				"WDH",
 				"WDMM"
 			],
@@ -58858,7 +59123,8 @@
 				"OoW",
 				"RoT",
 				"SDW",
-				"TCE"
+				"TCE",
+				"US"
 			],
 			"reprintedAs": [
 				"Swarm of Ravens|XMM"
@@ -59652,6 +59918,7 @@
 				"CRCotN",
 				"DIP",
 				"EGW",
+				"FS",
 				"GoS",
 				"IDRotF",
 				"JttRC",
@@ -59667,6 +59934,7 @@
 				"TCE",
 				"ToA",
 				"ToFW",
+				"ToR",
 				"WDH",
 				"WDMM"
 			],
@@ -59792,6 +60060,7 @@
 				"MOT",
 				"OoW",
 				"TftYP",
+				"TftYP-AtG",
 				"ToA",
 				"WDH"
 			],
@@ -60051,7 +60320,9 @@
 				"RoT",
 				"SKT",
 				"TftYP",
+				"TftYP-THSoT",
 				"ToA",
+				"ToR",
 				"TTP"
 			],
 			"reprintedAs": [
@@ -60399,6 +60670,10 @@
 				"QftIS",
 				"SatO",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-ToH",
 				"WDH",
 				"WDMM"
 			],
@@ -60559,6 +60834,10 @@
 				"SKT",
 				"SLW",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-ToH",
+				"TftYP-TSC",
 				"ToA",
 				"WDH",
 				"WDMM"
@@ -60844,6 +61123,7 @@
 				"PSI",
 				"RMBRE",
 				"TftYP",
+				"TftYP-TSC",
 				"WBtW"
 			],
 			"reprintedAs": [
@@ -61645,6 +61925,9 @@
 				"SKT",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-THSoT",
+				"TftYP-WPM",
 				"ToFW",
 				"VEoR",
 				"WDMM"
@@ -61897,10 +62180,11 @@
 				"OoW",
 				"PotA",
 				"QftIS",
-				"RoT",
 				"SLW",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-THSoT",
 				"VEoR",
 				"WDMM"
 			],
@@ -62643,10 +62927,13 @@
 				"CoS",
 				"CRCotN",
 				"DC",
+				"DD",
 				"DIP",
 				"DSotDQ",
+				"EFR",
 				"EGW",
 				"ERLW",
+				"FS",
 				"GoS",
 				"HotDQ",
 				"IDRotF",
@@ -62666,8 +62953,14 @@
 				"SKT",
 				"SLW",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-TFoF",
+				"TftYP-TSC",
+				"TftYP-WPM",
 				"ToA",
 				"ToFW",
+				"ToR",
+				"US",
 				"VEoR",
 				"WDH",
 				"WDMM"
@@ -62792,7 +63085,8 @@
 				"DIP",
 				"EGW",
 				"GoS",
-				"PSI"
+				"PSI",
+				"US"
 			],
 			"reprintedAs": [
 				"Vine Blight|XMM"
@@ -63021,6 +63315,8 @@
 				"SCC-ARiR",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-ToH",
 				"VEoR",
 				"WDMM",
 				"XMtS"
@@ -63290,7 +63586,6 @@
 				"CRCotN",
 				"DSotDQ",
 				"EGW",
-				"HotDQ",
 				"PotA",
 				"RoT",
 				"SKT",
@@ -63776,6 +64071,7 @@
 				"SCC-HfMT",
 				"SLW",
 				"TftYP",
+				"TftYP-THSoT",
 				"ToA",
 				"VEoR",
 				"VNotEE",
@@ -63978,6 +64274,7 @@
 			"srd": true,
 			"referenceSources": [
 				"EGW",
+				"FS",
 				"GoS",
 				"KftGV"
 			],
@@ -64070,7 +64367,7 @@
 				{
 					"name": "Bite (Bear or Hybrid Form Only)",
 					"entries": [
-						"{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}15 ({@damage 2d10 + 4}) piercing damage. If the target is a humanoid, it must succeed on a {@dc 14} Constitution saving throw or be cursed with werebear lycanthropy."
+						"{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}15 ({@damage 2d10 + 4}) piercing damage. If the target is a humanoid, it must succeed on a {@dc 14} Constitution saving throw or be cursed with werebear {@variantrule Player Characters as Lycanthropes|MM|lycanthropy}."
 					]
 				},
 				{
@@ -64255,7 +64552,7 @@
 				{
 					"name": "Tusks (Boar or Hybrid Form Only)",
 					"entries": [
-						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}10 ({@damage 2d6 + 3}) slashing damage. If the target is a humanoid, it must succeed on a {@dc 12} Constitution saving throw or be cursed with wereboar lycanthropy."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}10 ({@damage 2d6 + 3}) slashing damage. If the target is a humanoid, it must succeed on a {@dc 12} Constitution saving throw or be cursed with wereboar {@variantrule Player Characters as Lycanthropes|MM|lycanthropy}."
 					]
 				}
 			],
@@ -64332,6 +64629,7 @@
 				"QftIS",
 				"SatO",
 				"TftYP",
+				"TftYP-AtG",
 				"WDH",
 				"WDMM"
 			],
@@ -64415,7 +64713,7 @@
 				{
 					"name": "Bite (Rat or Hybrid Form Only)",
 					"entries": [
-						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage. If the target is a humanoid, it must succeed on a {@dc 11} Constitution saving throw or be cursed with wererat lycanthropy."
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage. If the target is a humanoid, it must succeed on a {@dc 11} Constitution saving throw or be cursed with wererat {@variantrule Player Characters as Lycanthropes|MM|lycanthropy}."
 					]
 				},
 				{
@@ -64587,7 +64885,7 @@
 				{
 					"name": "Bite (Tiger or Hybrid Form Only)",
 					"entries": [
-						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}8 ({@damage 1d10 + 3}) piercing damage. If the target is a humanoid, it must succeed on a {@dc 13} Constitution saving throw or be cursed with weretiger lycanthropy."
+						"{@atk mw} {@hit 5} to hit, reach 5 ft., one target. {@h}8 ({@damage 1d10 + 3}) piercing damage. If the target is a humanoid, it must succeed on a {@dc 13} Constitution saving throw or be cursed with weretiger {@variantrule Player Characters as Lycanthropes|MM|lycanthropy}."
 					]
 				},
 				{
@@ -64783,7 +65081,7 @@
 				{
 					"name": "Bite (Wolf or Hybrid Form Only)",
 					"entries": [
-						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d8 + 2}) piercing damage. If the target is a humanoid, it must succeed on a {@dc 12} Constitution saving throw or be cursed with werewolf lycanthropy."
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}6 ({@damage 1d8 + 2}) piercing damage. If the target is a humanoid, it must succeed on a {@dc 12} Constitution saving throw or be cursed with werewolf {@variantrule Player Characters as Lycanthropes|MM|lycanthropy}."
 					]
 				},
 				{
@@ -65061,6 +65359,7 @@
 				"DIP",
 				"DSotDQ",
 				"EGW",
+				"FS",
 				"GoS",
 				"HotDQ",
 				"IDRotF",
@@ -65075,6 +65374,12 @@
 				"SDW",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-WPM",
 				"ToA",
 				"TTP",
 				"VEoR",
@@ -65248,6 +65553,8 @@
 				"QftIS",
 				"SatO",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-THSoT",
 				"ToA",
 				"VEoR",
 				"WBtW",
@@ -65532,6 +65839,7 @@
 				"KftGV",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
 				"ToA"
 			],
 			"reprintedAs": [
@@ -65664,7 +65972,9 @@
 				"CM",
 				"CoA",
 				"CoS",
+				"DD",
 				"EGW",
+				"FS",
 				"GoS",
 				"HftT",
 				"HotDQ",
@@ -65775,6 +66085,7 @@
 			"referenceSources": [
 				"BMT",
 				"CM",
+				"EFR",
 				"ERLW",
 				"IDRotF",
 				"PotA",
@@ -65910,6 +66221,7 @@
 				"SLW",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
 				"ToA",
 				"VEoR",
 				"WDMM"
@@ -66314,6 +66626,8 @@
 				"LoX",
 				"SKT",
 				"TftYP",
+				"TftYP-AtG",
+				"TftYP-DiT",
 				"ToFW"
 			],
 			"reprintedAs": [
@@ -66680,8 +66994,8 @@
 				"BGDIA",
 				"GoS",
 				"LK",
-				"RoT",
-				"TftYP"
+				"TftYP",
+				"TftYP-TFoF"
 			],
 			"reprintedAs": [
 				"Young Black Dragon|XMM"
@@ -68115,7 +68429,6 @@
 				"OoW",
 				"PaBTSO",
 				"RMBRE",
-				"RoT",
 				"SKT",
 				"WDMM"
 			],
@@ -69147,8 +69460,8 @@
 				"DIP",
 				"IDRotF",
 				"LK",
-				"RoT",
 				"TftYP",
+				"TftYP-AtG",
 				"ToFW"
 			],
 			"reprintedAs": [
@@ -69767,7 +70080,6 @@
 			"page": 309,
 			"referenceSources": [
 				"HotDQ",
-				"RoT",
 				"SKT",
 				"ToA"
 			],
@@ -69946,7 +70258,6 @@
 			"referenceSources": [
 				"CM",
 				"HotDQ",
-				"RoT",
 				"SKT",
 				"TftYP-DiT",
 				"ToA"
@@ -70337,6 +70648,7 @@
 				"DSotDQ",
 				"EGW",
 				"ERLW",
+				"FS",
 				"GoS",
 				"HftT",
 				"JttRC",
@@ -70350,13 +70662,14 @@
 				"PSI",
 				"QftIS",
 				"RMBRE",
-				"RoT",
 				"RtG",
 				"SatO",
 				"SDW",
 				"SLW",
 				"TCE",
 				"TftYP",
+				"TftYP-DiT",
+				"TftYP-THSoT",
 				"ToA",
 				"ToFW",
 				"VEoR",

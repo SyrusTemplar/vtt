@@ -11,6 +11,9 @@
 			"name": "Bodytaker Plant",
 			"source": "VRGR",
 			"page": 226,
+			"reprintedAs": [
+				"Bodytaker Plant|RHW"
+			],
 			"size": [
 				"H"
 			],
@@ -135,6 +138,12 @@
 			"name": "Boneless",
 			"source": "VRGR",
 			"page": 228,
+			"referenceSources": [
+				"HoL"
+			],
+			"reprintedAs": [
+				"Boneless|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -242,7 +251,7 @@
 		{
 			"name": "Brain in a Jar",
 			"source": "VRGR",
-			"page": 278,
+			"page": 229,
 			"otherSources": [
 				{
 					"source": "IDRotF",
@@ -251,6 +260,9 @@
 			],
 			"referenceSources": [
 				"IDRotF"
+			],
+			"reprintedAs": [
+				"Brain in a Jar|RHW"
 			],
 			"size": [
 				"S"
@@ -364,7 +376,7 @@
 				{
 					"name": "Mind Blast {@recharge 5}",
 					"entries": [
-						"The brain magically emits psychic energy in a 60-foot cone. Each creature in that area must succeed on a {@dc 14} Intelligence saving throw or take 17 ({@damage 3d8 + 4}) psychic damage and be {@condition stunned} for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+						"The brain magically emits psychic energy in a 60-foot cone. Each creature in that area must succeed on a {@dc 14} Intelligence saving throw or take 17 ({@damage 3d8 + 4}) psychic damage and be {@condition stunned} for 1 minute. A {@condition stunned} creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
 					]
 				}
 			],
@@ -417,6 +429,9 @@
 			"name": "Carrion Stalker",
 			"source": "VRGR",
 			"page": 230,
+			"reprintedAs": [
+				"Carrion Stalker|RHW"
+			],
 			"size": [
 				"T"
 			],
@@ -506,6 +521,12 @@
 			"name": "Carrionette",
 			"source": "VRGR",
 			"page": 231,
+			"referenceSources": [
+				"HoL"
+			],
+			"reprintedAs": [
+				"Carrionette|RHW"
+			],
 			"size": [
 				"S"
 			],
@@ -599,6 +620,12 @@
 			"name": "Death's Head",
 			"source": "VRGR",
 			"page": 232,
+			"referenceSources": [
+				"HoL"
+			],
+			"reprintedAs": [
+				"Death's Head|RHW"
+			],
 			"size": [
 				"T"
 			],
@@ -694,6 +721,9 @@
 			"name": "Dullahan",
 			"source": "VRGR",
 			"page": 233,
+			"reprintedAs": [
+				"Dullahan|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -986,6 +1016,9 @@
 			"name": "Gallows Speaker",
 			"source": "VRGR",
 			"page": 234,
+			"reprintedAs": [
+				"Gallows Speaker|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -1110,6 +1143,9 @@
 			"name": "Greater Star Spawn Emissary",
 			"source": "VRGR",
 			"page": 245,
+			"reprintedAs": [
+				"Greater Star Spawn Emissary|RHW"
+			],
 			"size": [
 				"H"
 			],
@@ -1265,6 +1301,12 @@
 			"name": "Gremishka",
 			"source": "VRGR",
 			"page": 235,
+			"referenceSources": [
+				"HoL"
+			],
+			"reprintedAs": [
+				"Gremishka|RHW"
+			],
 			"size": [
 				"T"
 			],
@@ -1356,6 +1398,9 @@
 			"name": "Inquisitor of the Mind Fire",
 			"source": "VRGR",
 			"page": 248,
+			"reprintedAs": [
+				"Inquisitor of the Mind Fire|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -1502,6 +1547,9 @@
 			"name": "Inquisitor of the Sword",
 			"source": "VRGR",
 			"page": 249,
+			"reprintedAs": [
+				"Inquisitor of the Sword|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -1646,6 +1694,9 @@
 			"page": 249,
 			"referenceSources": [
 				"VEoR"
+			],
+			"reprintedAs": [
+				"Inquisitor of the Tome|RHW"
 			],
 			"size": [
 				"M"
@@ -1982,6 +2033,9 @@
 			"name": "Jiangshi",
 			"source": "VRGR",
 			"page": 236,
+			"reprintedAs": [
+				"Jiangshi|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -2102,6 +2156,9 @@
 			"name": "Lesser Star Spawn Emissary",
 			"source": "VRGR",
 			"page": 245,
+			"reprintedAs": [
+				"Lesser Star Spawn Emissary|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -2268,6 +2325,9 @@
 			],
 			"source": "VRGR",
 			"page": 237,
+			"reprintedAs": [
+				"Loup Garou|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -2352,7 +2412,7 @@
 				{
 					"name": "Bite (Dire Wolf or Hybrid Form Only)",
 					"entries": [
-						"{@atk mw} {@hit 9} to hit, reach 5 ft., one target. {@h}13 ({@damage 2d8 + 4}) piercing damage plus 14 ({@damage 4d6}) necrotic damage. If the target is a Humanoid, it must succeed on a {@dc 17} Constitution saving throw or be cursed with loup garou lycanthropy."
+						"{@atk mw} {@hit 9} to hit, reach 5 ft., one target. {@h}13 ({@damage 2d8 + 4}) piercing damage plus 14 ({@damage 4d6}) necrotic damage. If the target is a Humanoid, it must succeed on a {@dc 17} Constitution saving throw or be cursed with loup garou {@variantrule Player Characters as Lycanthropes|MM|lycanthropy}."
 					]
 				},
 				{
@@ -2441,6 +2501,9 @@
 			"page": 238,
 			"referenceSources": [
 				"AATM"
+			],
+			"reprintedAs": [
+				"Necrichor|RHW"
 			],
 			"size": [
 				"M"
@@ -2586,6 +2649,9 @@
 			"name": "Nosferatu",
 			"source": "VRGR",
 			"page": 239,
+			"reprintedAs": [
+				"Vampire Nosferatu|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -2706,7 +2772,6 @@
 			"damageTags": [
 				"N",
 				"P",
-				"R",
 				"S"
 			],
 			"miscTags": [
@@ -2725,6 +2790,9 @@
 			"name": "Podling",
 			"source": "VRGR",
 			"page": 227,
+			"reprintedAs": [
+				"Bodytaker Podling|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -2805,7 +2873,11 @@
 			"source": "VRGR",
 			"page": 241,
 			"referenceSources": [
+				"HoL",
 				"VEoR"
+			],
+			"reprintedAs": [
+				"Priest of Osybus|RHW"
 			],
 			"size": [
 				"M"
@@ -3135,6 +3207,9 @@
 			"name": "Relentless Juggernaut",
 			"source": "VRGR",
 			"page": 243,
+			"reprintedAs": [
+				"Relentless Juggernaut|RHW"
+			],
 			"size": [
 				"L"
 			],
@@ -3294,6 +3369,9 @@
 			"name": "Relentless Slasher",
 			"source": "VRGR",
 			"page": 242,
+			"reprintedAs": [
+				"Relentless Slasher|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -3413,6 +3491,9 @@
 			"name": "Strigoi",
 			"source": "VRGR",
 			"page": 246,
+			"reprintedAs": [
+				"Strigoi|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -3523,6 +3604,9 @@
 			"name": "Swarm of Gremishkas",
 			"source": "VRGR",
 			"page": 235,
+			"reprintedAs": [
+				"Swarm of Gremishkas|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -3625,6 +3709,9 @@
 			"name": "Swarm of Maggots",
 			"source": "VRGR",
 			"page": 247,
+			"referenceSources": [
+				"HoL"
+			],
 			"size": [
 				"M"
 			],
@@ -3837,6 +3924,9 @@
 			"name": "Swarm of Zombie Limbs",
 			"source": "VRGR",
 			"page": 254,
+			"reprintedAs": [
+				"Swarm of Zombie Limbs|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -4000,6 +4090,9 @@
 			"name": "Unspeakable Horror",
 			"source": "VRGR",
 			"page": 250,
+			"reprintedAs": [
+				"Unspeakable Horror|RHW"
+			],
 			"size": [
 				"H"
 			],
@@ -4308,6 +4401,9 @@
 			"name": "Vampiric Mind Flayer",
 			"source": "VRGR",
 			"page": 252,
+			"reprintedAs": [
+				"Vampire Mind Flayer|RHW"
+			],
 			"size": [
 				"M"
 			],
@@ -4468,7 +4564,11 @@
 			],
 			"referenceSources": [
 				"CM",
-				"CoS"
+				"CoS",
+				"HoL"
+			],
+			"reprintedAs": [
+				"Wereraven|RHW"
 			],
 			"size": [
 				"M"
@@ -4538,7 +4638,7 @@
 				{
 					"name": "Beak (Raven or Hybrid Form Only)",
 					"entries": [
-						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}1 piercing damage in raven form, or 4 ({@damage 1d4 + 2}) piercing damage in hybrid form. If the target is humanoid, it must succeed on a {@dc 10} Constitution saving throw or be cursed with wereraven lycanthropy."
+						"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}1 piercing damage in raven form, or 4 ({@damage 1d4 + 2}) piercing damage in hybrid form. If the target is humanoid, it must succeed on a {@dc 10} Constitution saving throw or be cursed with wereraven {@variantrule Player Characters as Lycanthropes|MM|lycanthropy}."
 					]
 				},
 				{
@@ -4591,6 +4691,9 @@
 			"name": "Zombie Clot",
 			"source": "VRGR",
 			"page": 255,
+			"reprintedAs": [
+				"Zombie Clot|RHW"
+			],
 			"size": [
 				"H"
 			],
@@ -4717,6 +4820,12 @@
 			"name": "Zombie Plague Spreader",
 			"source": "VRGR",
 			"page": 255,
+			"referenceSources": [
+				"HoL"
+			],
+			"reprintedAs": [
+				"Zombie Plague Spreader|RHW"
+			],
 			"size": [
 				"M"
 			],

@@ -19,7 +19,8 @@
 							],
 							"by": "Chris Perkins, May 2017"
 						}
-					]
+					],
+					"id": "558"
 				},
 				{
 					"type": "section",
@@ -282,7 +283,8 @@
 								]
 							]
 						}
-					]
+					],
+					"id": "559"
 				},
 				{
 					"type": "section",
@@ -291,7 +293,8 @@
 						"Something evil is trapping the souls of the dead and draining life from all who have been raised from death by magic. This worldwide \"death curse\" not only prevents the raising of the dead but also causes creatures that were previously raised from the dead to wither and die. The source of this death curse lies in a trap-riddled tomb hidden beneath a lost city in the depths of a vast jungle.",
 						"{@i Tomb of Annihilation} is a Dungeons & Dragons adventure that takes place on the peninsula of Chult in the Forgotten Realms. Chult is a tropical wilderness composed mostly of jungles, plateaus, impassable mountains, and belching volcanoes. You can substitute a different jungle setting, changing location names as needed. Alternative D&D settings include the Amedio Jungle of Oerth, the Savage Coast of Mystara, the jungles of Xen'drik on Eberron, or a comparable setting on your home campaign world.",
 						"This adventure is designed to begin with a party of four to six 1st-level characters, who should advance to 11th level or higher by the adventure's conclusion."
-					]
+					],
+					"id": "55a"
 				},
 				{
 					"type": "section",
@@ -19674,7 +19677,7 @@
 											"page": 74,
 											"id": "162",
 											"entries": [
-												"In the back half of the cave are the bodies of two partially eaten explorers. A discarded backpack near them contains 6 gp in a pouch, a silvered dagger, and a {@item potion of greater healing}."
+												"In the back half of the cave are the bodies of two partially eaten explorers. A discarded backpack near them contains 6 gp in a pouch, a {@item silvered dagger|PHB}, and a {@item potion of greater healing}."
 											]
 										}
 									]
@@ -50807,7 +50810,17 @@
 							"title": "Poster Map, Side 1 (DM Version)",
 							"imageType": "map",
 							"width": 6563,
-							"height": 8925
+							"height": 8925,
+							"id": "55c",
+							"grid": {
+								"type": "hexColsOdd",
+								"size": 289,
+								"offsetX": 34,
+								"offsetY": 61,
+								"scale": 3,
+								"distance": 10,
+								"units": "miles"
+							}
 						},
 						{
 							"type": "image",
@@ -50818,11 +50831,25 @@
 							"title": "Poster Map, Side 2 (Player Version)",
 							"imageType": "mapPlayer",
 							"width": 6563,
-							"height": 8925
+							"height": 8925,
+							"mapParent": {
+								"id": "55c",
+								"autoScale": true
+							},
+							"grid": {
+								"type": "hexColsOdd",
+								"size": 289,
+								"offsetX": 34,
+								"offsetY": 61,
+								"scale": 3,
+								"distance": 10,
+								"units": "miles"
+							}
 						}
 					]
 				}
-			]
+			],
+			"id": "55b"
 		}
 	]
 }

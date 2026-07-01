@@ -162,6 +162,9 @@
 						"with": "Diderius",
 						"flags": "i"
 					}
+				},
+				"_preserve": {
+					"legendaryGroup": true
 				}
 			},
 			"int": 18,
@@ -238,9 +241,6 @@
 					"source": "ToD",
 					"page": 182
 				}
-			],
-			"referenceSources": [
-				"HotDQ"
 			],
 			"size": [
 				"M"
@@ -381,9 +381,6 @@
 					"source": "ToD",
 					"page": 183
 				}
-			],
-			"referenceSources": [
-				"HotDQ"
 			],
 			"size": [
 				"M"
@@ -773,9 +770,6 @@
 					"page": 185
 				}
 			],
-			"referenceSources": [
-				"HotDQ"
-			],
 			"size": [
 				"M"
 			],
@@ -924,7 +918,8 @@
 				"N",
 				"E"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Maccath the Crimson",
@@ -969,7 +964,8 @@
 			"spellcastingTags": [
 				"CW"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		},
 		{
 			"name": "Marfulb",
@@ -1027,9 +1023,6 @@
 					"source": "ToD",
 					"page": 186
 				}
-			],
-			"referenceSources": [
-				"HotDQ"
 			],
 			"size": [
 				"M"
@@ -1176,9 +1169,6 @@
 					"source": "ToD",
 					"page": 187
 				}
-			],
-			"referenceSources": [
-				"HotDQ"
 			],
 			"size": [
 				"M"
@@ -1364,9 +1354,6 @@
 					"page": 189
 				}
 			],
-			"referenceSources": [
-				"HotDQ"
-			],
 			"size": [
 				"M"
 			],
@@ -1546,6 +1533,7 @@
 				"strength"
 			],
 			"hasToken": true,
+			"hasFluff": true,
 			"hasFluffImages": true
 		},
 		{
@@ -1623,8 +1611,7 @@
 				}
 			],
 			"referenceSources": [
-				"BGDIA",
-				"HotDQ"
+				"BGDIA"
 			],
 			"size": [
 				"G"
@@ -1925,7 +1912,8 @@
 				"DR",
 				"I"
 			],
-			"hasToken": true
+			"hasToken": true,
+			"hasFluffImages": true
 		}
 	]
 }

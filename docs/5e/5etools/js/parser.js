@@ -2307,6 +2307,7 @@ Parser.prereqPatronToShort = function (patron) {
 
 Parser.FEAT_CATEGORY_TO_FULL = {
 	"D": "Dragonmark",
+	"DG": "Dark Gift",
 	"G": "General",
 	"O": "Origin",
 	"FS": "Fighting Style",
@@ -3315,6 +3316,8 @@ Parser.SRC_NF = "NF";
 Parser.SRC_LFL = "LFL";
 Parser.SRC_EFA = "EFA";
 Parser.SRC_FFotR = "FFotR";
+Parser.SRC_RHW = "RHW";
+
 Parser.SRC_TD = "TD";
 Parser.SRC_SCREEN = "Screen";
 Parser.SRC_SCREEN_WILDERNESS_KIT = "ScreenWildernessKit";
@@ -3352,6 +3355,7 @@ Parser.SRC_ScoEE = "ScoEE";
 Parser.SRC_HBTD = "HBTD";
 Parser.SRC_BQGT = "BQGT";
 Parser.SRC_CaBoMP = "CaBoMP";
+Parser.SRC_BQDD = "BQDD";
 
 Parser.SRC_PS_PREFIX = "PS";
 
@@ -3517,6 +3521,7 @@ Parser.SOURCE_JSON_TO_FULL[Parser.SRC_NF] = "Netheril's Fall";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_LFL] = "Lorwyn: First Light";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_EFA] = "Eberron: Forge of the Artificer";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_FFotR] = "Fated Flight of the Recluse";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_RHW] = "Ravenloft: The Horrors Within";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_TD] = "Tarot Deck";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN] = "Dungeon Master's Screen";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN_WILDERNESS_KIT] = "Dungeon Master's Screen: Wilderness Kit";
@@ -3568,6 +3573,7 @@ Parser.SOURCE_JSON_TO_FULL[Parser.SRC_MCV4EC] = `${Parser.MCVX_PREFIX}4: Eldrain
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_MisMV1] = `${Parser.MisMVX_PREFIX}1`;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_AATM] = `${Parser.AA_PREFIX}The Mortuary`;
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_CaBoMP] = "Crochet: A Book of Many Patterns";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_BQDD] = "Borderlands Quest: Dagger Danger!";
 
 Parser.SOURCE_JSON_TO_ABV = {};
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_PHB] = "PHB'14";
@@ -3697,6 +3703,7 @@ Parser.SOURCE_JSON_TO_ABV[Parser.SRC_NF] = "NF";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_LFL] = "LFL";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_EFA] = "EFA";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_FFotR] = "FFotR";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_RHW] = "RHW";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_TD] = "TD";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN] = "Scr'14";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN_WILDERNESS_KIT] = "ScrWild";
@@ -3748,6 +3755,7 @@ Parser.SOURCE_JSON_TO_ABV[Parser.SRC_MCV4EC] = "MCV4EC";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_MisMV1] = "MisMV1";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_AATM] = "AATM";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_CaBoMP] = "CaBoMP";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_BQDD] = "BQDD";
 
 Parser.SOURCE_JSON_TO_DATE = {};
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_PHB] = "2014-08-19";
@@ -3876,6 +3884,7 @@ Parser.SOURCE_JSON_TO_DATE[Parser.SRC_NF] = "2025-11-11";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_LFL] = "2025-11-18";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_EFA] = "2025-12-09";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_FFotR] = "2025-12-09";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_RHW] = "2026-06-16";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_TD] = "2022-05-24";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN] = "2015-01-20";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN_WILDERNESS_KIT] = "2020-11-17";
@@ -3927,6 +3936,7 @@ Parser.SOURCE_JSON_TO_DATE[Parser.SRC_MCV4EC] = "2023-09-21";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_MisMV1] = "2023-05-03";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_AATM] = "2023-10-17";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_CaBoMP] = "2026-03-31";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_BQDD] = "2026-05-28";
 
 // region Source categories
 Parser.SOURCES_ADVENTURES = new Set([
@@ -4273,6 +4283,7 @@ Parser.SOURCES_AVAILABLE_DOCS_BOOK = {};
 	Parser.SRC_LFL,
 	Parser.SRC_EFA,
 	Parser.SRC_CaBoMP,
+	Parser.SRC_RHW,
 ].forEach(src => {
 	Parser.SOURCES_AVAILABLE_DOCS_BOOK[src] = src;
 	Parser.SOURCES_AVAILABLE_DOCS_BOOK[src.toLowerCase()] = src;
@@ -4386,6 +4397,7 @@ Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE = {};
 	Parser.SRC_HotB,
 	Parser.SRC_WttHC,
 	Parser.SRC_FFotR,
+	Parser.SRC_BQDD,
 ].forEach(src => {
 	Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE[src] = src;
 	Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE[src.toLowerCase()] = src;
@@ -4450,6 +4462,10 @@ Parser.PROP_TO_DISPLAY_NAME = {
 	"mythic": "Mythic Action",
 	"lairActions": "Lair Action",
 	"regionalEffects": "Regional Effect",
+
+	// '24-specific
+	"race": "Species",
+	"subrace": "Subspecies",
 };
 Parser.getPropDisplayName = function (prop, {suffix = ""} = {}) {
 	if (Parser.PROP_TO_DISPLAY_NAME[prop]) return `${Parser.PROP_TO_DISPLAY_NAME[prop]}${suffix}`;

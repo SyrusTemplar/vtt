@@ -18,7 +18,9 @@ export class TierHtmlProviderBase {
 	getTierHtml ({partyMeta, tier}) {
 		const title = this.getTierTitle({tier});
 		const ptTierName = this.getTierName({tier}) || "?";
-		const ptTierBudget = partyMeta?.getTierDisplayBudget(tier) || "?";
+		const ptTierBudget = partyMeta.cntPlayers
+			? (partyMeta?.getTierDisplayBudget(tier) || "?")
+			: "?";
 
 		return `<span class="ve-help-subtle" ${title ? `title="${title}"` : ""}>${ptTierName}:</span> ${ptTierBudget} ${this._getBudgetUnit()}`;
 	}
@@ -112,11 +114,22 @@ export class EncounterBuilderRulesBase extends BaseComponent {
 
 	_budgetMode;
 
-	constructor ({comp, cache, encounterShapesLookup}) {
+	constructor (
+		{
+			comp,
+			cache,
+			encounterShapesLookup,
+			rendererWrapped,
+		},
+	) {
+		if (!rendererWrapped) throw new Error(`Missing required "rendererWrapped" option!`);
+
 		super();
+
 		this._comp = comp;
 		this._cache = cache;
 		this._encounterShapesLookup = encounterShapesLookup;
+		this._rendererWrapped = rendererWrapped;
 	}
 
 	/* -------------------------------------------- */
@@ -282,7 +295,7 @@ export class EncounterBuilderRulesBase extends BaseComponent {
 			this,
 			"tierRandom",
 			{
-				html: `<select class="ve-form-control ve-br-0"></select>`,
+				html: `<select class="ve-form-control ve-h-34p ve-br-0"></select>`,
 				values: tiers,
 				fnDisplay: val => val.toTitleCase(),
 			},
@@ -292,7 +305,7 @@ export class EncounterBuilderRulesBase extends BaseComponent {
 			this,
 			"shapeHashRandom",
 			{
-				html: `<select class="ve-form-control ve-br-0 ve-w-100"></select>`,
+				html: `<select class="ve-form-control ve-h-34p ve-br-0 ve-w-100"></select>`,
 				values: this._encounterShapesLookup.getHashList(),
 				fnDisplay: val => this._encounterShapesLookup.getEncounterShape(val).name,
 			},
@@ -330,14 +343,6 @@ export class EncounterBuilderRulesBase extends BaseComponent {
 			await this._pDoAdjustEncounter({tier: this._state.tierAdjust});
 		};
 
-		const getLi = (tier) => {
-			return ee`<li title="${getButtonTitle(tier)}"><a href="#">${getButtonText(tier)}</a></li>`
-				.onn("click", async (evt) => {
-					evt.preventDefault();
-					await pSetTier({tier});
-				});
-		};
-
 		const btn = ee`<button class="ve-btn ve-btn-primary ecgen__btn-adjust"></button>`
 			.onn("click", async evt => {
 				evt.preventDefault();
@@ -350,28 +355,42 @@ export class EncounterBuilderRulesBase extends BaseComponent {
 				.tooltip(getButtonTitle(this._state.tierAdjust));
 		})();
 
-		const wrpMenu = ee`<ul class="ve-dropdown-menu ve-block">${tiers.map(tier => getLi(tier))}</ul>`
-			.hideVe();
+		const menu = ContextUtil.getMenu(
+			tiers
+				.map(tier => new ContextUtil.Action(
+					getButtonText(tier),
+					async () => pSetTier({tier}),
+					{
+						title: getButtonTitle(tier),
+					},
+				)),
+		);
 
-		const dispCaret = e_({outer: `<span class="caret"></span>`});
-		document.body.addEventListener("click", evt => {
-			if (btnMenu.contains(evt.target)) return;
-			wrpMenu.hideVe();
-			dispCaret.removeClass("caret--up");
-		});
+		const dispCaret = ee`<span class="ve-caret"></span>`;
+		menu.on("open", () => dispCaret.addClass("ve-caret--up"));
+		menu.on("close", () => dispCaret.removeClass("ve-caret--up"));
+
 		const btnMenu = ee`<button class="ve-btn ve-btn-primary ve-w-24p ve-px-0">${dispCaret}</button>`
-			.onn("click", () => {
-				wrpMenu.toggleVe(!dispCaret.hasClass("caret--up"));
-				dispCaret.toggleClass("caret--up");
+			.onn("click", evt => {
+				if (menu.isOpen()) {
+					evt.preventDefault();
+					evt.stopPropagation();
+					return menu.close();
+				}
+
+				const bcr = btnMenu.getBoundingClientRect();
+				return ContextUtil.pOpenMenu(evt, menu, {
+					xPos: (window.innerWidth - bcr.right) + window.scrollX,
+					isFromRight: true,
+					yPos: bcr.bottom + window.scrollY + 1,
+				});
 			});
 
 		return ee`<div class="ve-flex-v-center ve-relative ve-no-shrink">
-			<div class="ve-btn-group">
+			<div class="ve-btn-group ve-flex-v-center">
 				${btn}
 				${btnMenu}
 			</div>
-
-			${wrpMenu}
 		</div>`;
 	}
 
@@ -412,7 +431,7 @@ export class EncounterBuilderRulesBase extends BaseComponent {
 	static _TITLE_XP_TO_NEXT_LEVEL = "The total XP required to allow each member of the party to level up to their next level.";
 
 	_getRenderedExpToLevel ({partyMeta}) {
-		return `<span class="ve-help-subtle" title="${this.constructor._TITLE_XP_TO_NEXT_LEVEL}">XP to Next Level:</span> ${partyMeta?.xpToNextLevel.toLocaleStringVe() || "?"} XP`;
+		return `<span class="ve-help-subtle" title="${this.constructor._TITLE_XP_TO_NEXT_LEVEL}">XP to Next Level:</span> ${partyMeta?.xpToNextLevel ? partyMeta?.xpToNextLevel.toLocaleStringVe() : "?"} XP`;
 	}
 
 	/* -------------------------------------------- */
@@ -428,7 +447,7 @@ export class EncounterBuilderRulesBase extends BaseComponent {
 
 	/* -------------------------------------------- */
 
-	static _TITLE_TTK = "Time to Kill: The estimated number of turns the party will require to defeat the encounter. This assumes single-target damage only.";
+	static _TITLE_TTK = "Time to Kill: The estimated number of rounds the party will require to defeat the encounter. This assumes single-target damage only.";
 
 	_getTtkProvider ({partyMeta, styleHint}) {
 		const sharedOpts = {partyMeta, creatureMetas: this._comp.creatureMetas};
@@ -443,8 +462,16 @@ export class EncounterBuilderRulesBase extends BaseComponent {
 	_getTtkHtml ({partyMeta, styleHint = null}) {
 		styleHint ||= VetoolsConfig.get("styleSwitcher", "style");
 
-		return `<span class="ve-help" title="${this.constructor._TITLE_TTK}">TTK:</span> ${this._getTtkProvider({partyMeta, styleHint}).getApproxTurnsToKill().toFixed(2)}`;
+		const ptTtk = partyMeta.cntPlayers
+			? `${this._getTtkProvider({partyMeta, styleHint}).getApproxTurnsToKill().toFixed(2)} <span title="Rounds" class="ve-small-caps">rnd.</span>`
+			: `<span class="ve-muted">?</span>`;
+
+		return `<span class="ve-help" title="${this.constructor._TITLE_TTK}">TTK:</span> ${ptTtk}`;
 	}
+
+	/* -------------------------------------------- */
+
+	doCleanup () { /* Implement as required */ }
 
 	/* -------------------------------------------- */
 

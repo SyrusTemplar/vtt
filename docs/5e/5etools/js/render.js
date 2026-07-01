@@ -1018,7 +1018,7 @@ globalThis.Renderer = function () {
 
 		const nextDepth = incDepth ? meta.depth + 1 : meta.depth;
 
-		const styleString = this._renderEntriesSubtypes_getStyleString({entry, meta});
+		const styleString = this._renderEntriesSubtypes_getStyleString({entry, meta, isNamed: !!displayName});
 
 		const dataString = this._renderEntriesSubtypes_getDataString(entry);
 		if (entry.name != null && Renderer.ENTRIES_WITH_ENUMERATED_TITLES_LOOKUP[entry.type]) this._handleTrackTitles(entry.name);
@@ -1056,7 +1056,7 @@ globalThis.Renderer = function () {
 	};
 
 	this._renderEntriesSubtypes_inline = function ({entry, textStack, meta, options, displayName}) {
-		const styleString = this._renderEntriesSubtypes_getStyleString({entry, meta, isInlineTitle: true});
+		const styleString = this._renderEntriesSubtypes_getStyleString({entry, meta, isInlineTitle: true, isNamed: !!displayName});
 
 		const dataString = this._renderEntriesSubtypes_getDataString(entry);
 		if (entry.name != null && Renderer.ENTRIES_WITH_ENUMERATED_TITLES_LOOKUP[entry.type]) this._handleTrackTitles(entry.name);
@@ -1089,10 +1089,11 @@ globalThis.Renderer = function () {
 		textStack[0] += `</${this.wrapperTag}>`;
 	};
 
-	this._renderEntriesSubtypes_getDataString = function (entry) {
+	this._renderEntriesSubtypes_getDataString = function (entry, {isCollapsibleChild = false} = {}) {
 		const displayName = entry._displayName || entry.name;
 		let dataString = "";
 		if (displayName) dataString += ` data-roll-name-ancestor="${Renderer.stripTags(displayName).qq()}"`;
+		if (isCollapsibleChild) dataString += `data-rd-is-collapsible-child="true"`;
 		if (entry.source) dataString += ` data-source="${entry.source.qq()}"`;
 		if (entry.data) {
 			for (const k in entry.data) {
@@ -1141,9 +1142,10 @@ globalThis.Renderer = function () {
 		textStack[0] += `<p><i>${Renderer.utils.prerequisite.getHtml(entry.prerequisite, {styleHint: meta.styleHint})}</i></p>`;
 	};
 
-	this._renderEntriesSubtypes_getStyleString = function ({entry, meta, isInlineTitle = false}) {
+	this._renderEntriesSubtypes_getStyleString = function ({entry, meta, isNamed = false, isInlineTitle = false}) {
 		const styleClasses = ["ve-rd__b"];
 		styleClasses.push(this._getStyleClass(entry.type || "entries", entry));
+		if (isNamed) styleClasses.push("ve-rd__b--named");
 		if (isInlineTitle) {
 			if (this._subVariant) styleClasses.push(Renderer.HEAD_2_SUB_VARIANT);
 			else styleClasses.push(Renderer.HEAD_2);
@@ -1230,7 +1232,9 @@ globalThis.Renderer = function () {
 	};
 
 	this._renderInset = function (entry, textStack, meta, options) {
-		const dataString = this._renderEntriesSubtypes_getDataString(entry);
+		const displayName = entry.name?.trim();
+
+		const dataString = this._renderEntriesSubtypes_getDataString(entry, {isCollapsibleChild: !displayName});
 		textStack[0] += `<${this.wrapperTag} class="${this._renderInset_getCssClasses(entry, textStack, meta, options)}" ${dataString}>`;
 
 		const cachedLastDepthTrackerProps = MiscUtil.copyFast(this._lastDepthTrackerInheritedProps);
@@ -1240,7 +1244,7 @@ globalThis.Renderer = function () {
 		const partExpandCollapse = !this._isPartPageExpandCollapseDisabled ? this._getPtExpandCollapseSpecial() : "";
 		const partPageExpandCollapse = `<span class="ve-flex-vh-center">${[pagePart, partExpandCollapse].filter(Boolean).join("")}</span>`;
 
-		if (entry.name != null) {
+		if (displayName != null) {
 			if (Renderer.ENTRIES_WITH_ENUMERATED_TITLES_LOOKUP[entry.type]) this._handleTrackTitles(entry.name);
 
 			const cacheDepth = meta.depth;
@@ -1250,7 +1254,7 @@ globalThis.Renderer = function () {
 				textStack,
 				meta,
 				options,
-				displayName: entry.name,
+				displayName,
 				headerTag: `h4`,
 				pagePart,
 				partPageExpandCollapse,
@@ -1278,7 +1282,9 @@ globalThis.Renderer = function () {
 	};
 
 	this._renderInsetReadaloud = function (entry, textStack, meta, options) {
-		const dataString = this._renderEntriesSubtypes_getDataString(entry);
+		const displayName = entry.name?.trim();
+
+		const dataString = this._renderEntriesSubtypes_getDataString(entry, {isCollapsibleChild: !displayName});
 		textStack[0] += `<${this.wrapperTag} class="${this._renderInset_getCssClasses(entry, textStack, meta, options)}" ${dataString}>`;
 
 		const cachedLastDepthTrackerProps = MiscUtil.copyFast(this._lastDepthTrackerInheritedProps);
@@ -1288,7 +1294,7 @@ globalThis.Renderer = function () {
 		const partExpandCollapse = !this._isPartPageExpandCollapseDisabled ? this._getPtExpandCollapseSpecial() : "";
 		const partPageExpandCollapse = `<span class="ve-flex-vh-center">${[pagePart, partExpandCollapse].filter(Boolean).join("")}</span>`;
 
-		if (entry.name != null) {
+		if (displayName != null) {
 			if (Renderer.ENTRIES_WITH_ENUMERATED_TITLES_LOOKUP[entry.type]) this._handleTrackTitles(entry.name);
 
 			const cacheDepth = meta.depth;
@@ -1298,7 +1304,7 @@ globalThis.Renderer = function () {
 				textStack,
 				meta,
 				options,
-				displayName: entry.name,
+				displayName,
 				headerTag: `h4`,
 				pagePart,
 				partPageExpandCollapse,
@@ -4278,6 +4284,12 @@ Renderer.utils = class {
 						case "weaponGroup": {
 							return isListMode ? `Prof ${Parser.weaponFullToAbv(prof)} weapons` : `${prof.toTitleCase()} Weapon Proficiency`;
 						}
+						case "skill": {
+							if (prof === true) return isListMode ? `Skill Proficiency` : `Proficiency in a skill`;
+							return isListMode
+								? prof.map(skill => skill.toTitleCase()).join("+")
+								: `Proficiency in the ${prof.map(skill => Renderer.get().render(`{@skill ${skill.toTitleCase()}}`)).joinConjunct(", ", " and ")} skill${prof.length === 1 ? "" : "s"}`;
+						}
 						default: throw new Error(`Unhandled proficiency type: "${profType}"`);
 					}
 				});
@@ -6265,7 +6277,7 @@ Renderer.events = class {
 		ele.find(".ve-rd__data-embed-name").toggleVe(!isHidden);
 		ele.find(".ve-rd__data-embed-name-expanded").toggleVe(isHidden);
 		eleToggle.txt(isHidden ? "[\u2013]" : "[+]");
-		ele.closeste("table").find("tbody").toggleVe();
+		ele.closeste("table").find(":scope > tbody").toggleVe();
 	}
 
 	static _HEADER_TOGGLE_CLICK_SELECTORS = [
@@ -6301,6 +6313,13 @@ Renderer.events = class {
 			// For special sections, always collapse the whole thing.
 			if (selector !== `[data-rd-h-special-toggle-button]`) {
 				const eleToCheck = Renderer.events._handleClick_headerToggleButton_getEleToCheck(eleNxt);
+
+				if (eleToCheck.getAttribute("data-rd-is-collapsible-child") === "true") {
+					eleNxt.classList.toggle("ve-rd__ele-toggled-hidden", !isShow);
+					eleNxt = eleNxt.nextElementSibling;
+					continue;
+				}
+
 				if (
 					eleToCheck.classList.contains("ve-rd__b-special")
 					|| (eleToCheck.classList.contains("ve-rd__h") && !eleToCheck.classList.contains("ve-rd__h--3"))
@@ -6308,6 +6327,7 @@ Renderer.events = class {
 
 				if (
 					!eleToCheck.classList.contains("ve-rd__b")
+					|| !eleToCheck.classList.contains("ve-rd__b--named")
 					|| eleToCheck.classList.contains("ve-rd__b--3")
 				) {
 					eleNxt.classList.toggle("ve-rd__ele-toggled-hidden", !isShow);
@@ -7602,9 +7622,11 @@ Renderer.spell = class {
 		_cache = null;
 
 		populate ({brew, isForce = false}) {
-			if (this._cache && !isForce) return;
+			if (this._cache?._isAnyPopulated && !isForce) return;
 
 			this._cache = {
+				_isAnyPopulated: false,
+
 				classes: {},
 
 				groups: {},
@@ -7713,6 +7735,7 @@ Renderer.spell = class {
 
 			// region Duplicate the spell list of another class/subclass/sub-subclass
 			if (itm.className) {
+				this._cache._isAnyPopulated = true;
 				return this._populate_fromClass_doAdd({
 					tgt: MiscUtil.getOrSet(
 						this._cache.classes,
@@ -7735,6 +7758,7 @@ Renderer.spell = class {
 			let [name, source] = `${itm}`.toLowerCase().split("|");
 			source = source || Parser.SRC_PHB.toLowerCase();
 
+			this._cache._isAnyPopulated = true;
 			this._populate_fromClass_doAdd({
 				tgt: MiscUtil.getOrSet(
 					this._cache.classes,
@@ -7798,6 +7822,7 @@ Renderer.spell = class {
 		) {
 			if (!itm.groupName) return;
 
+			this._cache._isAnyPopulated = true;
 			return this._populate_fromClass_doAdd({
 				tgt: MiscUtil.getOrSet(
 					this._cache.classes,
@@ -7828,6 +7853,7 @@ Renderer.spell = class {
 				.forEach(spell => {
 					if (typeof spell === "string") {
 						const {name, source} = DataUtil.proxy.unpackUid("spell", spell, "spell", {isLower: true});
+						this._cache._isAnyPopulated = true;
 						return MiscUtil.set(this._cache.groups, "spell", source, name, spellListSourceLower, spellListNameLower, {name: spellList.name, source: spellList.source});
 					}
 
@@ -7980,6 +8006,8 @@ Renderer.spell = class {
 			// TODO(Future) implement "copy existing list"
 		}
 	};
+
+	/* -------------------------------------------- */
 
 	static populatePrereleaseLookup (brew, {isForce = false} = {}) {
 		if (!brew) return;
@@ -9547,7 +9575,7 @@ class _RenderCompactBestiaryImplBase {
 		return {
 			htmlPtIsExcluded: this._getCommonHtmlParts_isExcluded({mon, opts}),
 			htmlPtName: this._getCommonHtmlParts_name({mon, opts, isInlinedToken}),
-			htmlPtSizeTypeAlignment: this._getCommonHtmlParts_sizeTypeAlignment({mon}),
+			htmlPtSizeTypeAlignment: this._getCommonHtmlParts_sizeTypeAlignment({mon, renderer}),
 
 			htmlPtAttributeHeaders: this._getCommonHtmlParts_attributeHeaders({mon, isInlinedToken, isShowSpellLevelScaler, isShowClassLevelScaler, classLevelScalerClass}),
 			htmlPtAttributeValues: this._getCommonHtmlParts_attributeValues({mon, opts, isInlinedToken, isShowCrScaler, isShowSpellLevelScaler, isShowClassLevelScaler}),
@@ -9597,8 +9625,8 @@ class _RenderCompactBestiaryImplBase {
 		);
 	}
 
-	_getCommonHtmlParts_sizeTypeAlignment ({mon}) {
-		return `<tr><td colspan="6"><i>${Renderer.monster.getTypeAlignmentPart(mon)}</i></td></tr>`;
+	_getCommonHtmlParts_sizeTypeAlignment ({mon, renderer}) {
+		return `<tr><td colspan="6"><i>${Renderer.monster.getTypeAlignmentPart(mon, {renderer})}</i></td></tr>`;
 	}
 
 	/* ----- */
@@ -9661,7 +9689,7 @@ class _RenderCompactBestiaryImplBase {
 		const ptCrSpellLevel = this._getCommonHtmlParts_crSpellLevel({mon, opts, isShowCrScaler, isShowSpellLevelScaler, isShowClassLevelScaler});
 
 		return `<tr>
-			<td colspan="${this._style === "classic" ? "2" : "1"}">${mon.ac == null ? "\u2014" : Parser.acToFull(mon.ac, {isHideFrom: this._style !== "classic"})}</td>
+			<td colspan="${this._style === "classic" ? "2" : "1"}">${mon.ac == null ? "\u2014" : Parser.acToFull(mon.ac)}</td>
 			${ptInitiative ? `<td colspan="1">${ptInitiative}</td>` : ""}
 			<td colspan="2">${mon.hp == null ? "\u2014" : Renderer.monster.getRenderedHp(mon.hp)}</td>
 			<td colspan="2">${Parser.getSpeedString(mon)}</td>
@@ -10639,10 +10667,25 @@ Renderer.monster = class {
 
 	/* -------------------------------------------- */
 
-	static getTypeAlignmentPart (mon) {
+	static getTypeAlignmentPart (mon, {renderer = null} = {}) {
+		renderer ||= Renderer.get();
+
 		const typeObj = Parser.monTypeToFullObj(mon.type);
 
-		return `${mon.level != null ? `${Parser.getOrdinalForm(mon.level)}-level ` : ""}${typeObj.asTextSidekick ? `${typeObj.asTextSidekick}; ` : ""}${Renderer.utils.getRenderedSize(mon.size)}${mon.sizeNote ? ` ${mon.sizeNote}` : ""} ${typeObj.asText}${mon.alignment ? `, ${mon.alignmentPrefix ? Renderer.get().render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment).toTitleCase()}` : ""}`;
+		return [
+			mon.level != null ? `${Parser.getOrdinalForm(mon.level)}-level` : "",
+			typeObj.asTextSidekick ? `${typeObj.asTextSidekick};` : "",
+			Renderer.utils.getRenderedSize(mon.size),
+			mon.sizeNote ? renderer.render(mon.sizeNote) : "",
+			[
+				typeObj.asText,
+				mon.alignment ? `${mon.alignmentPrefix ? renderer.render(mon.alignmentPrefix) : ""}${Parser.alignmentListToFull(mon.alignment).toTitleCase()}` : "",
+			]
+				.filter(Boolean)
+				.join(", "),
+		]
+			.filter(Boolean)
+			.join(" ");
 	}
 
 	static _getInitiativePart_passive ({mon, initPassive}) {
@@ -11249,7 +11292,12 @@ Renderer.monster = class {
 		const handleGroupProp = (tgt, prop, name) => {
 			if (!thisGroup[prop]) return;
 
-			if (isAddName) {
+			if (
+				isAddName
+				// Fallback for fluff which has no header'd entry block; this usually
+				//   means we want to add one
+				|| !Renderer.findEntry(tgt)
+			) {
 				return tgt.push({
 					type: "entries",
 					entries: [
@@ -11360,8 +11408,12 @@ Renderer.monster = class {
 	/* -------------------------------------------- */
 
 	// region Custom hash ID packing/unpacking
+	static isScaled (mon) {
+		return !!mon._isScaledCr || !!mon._isScaledSpellSummon || !!mon._scaledClassSummonLevel;
+	}
+
 	static getCustomHashId (mon) {
-		if (!mon._isScaledCr && !mon._isScaledSpellSummon && !mon._scaledClassSummonLevel) return null;
+		if (!Renderer.monster.isScaled(mon)) return null;
 
 		const {
 			name,
@@ -14702,30 +14754,30 @@ Renderer.crochetPattern = class {
 
 		return `${Renderer.utils.getExcludedTr({entity: ent, dataProp: "crochetPattern", page: UrlUtil.PG_HOMECRAFTS})}
 		${Renderer.utils.getNameTr(ent, {page: UrlUtil.PG_HOMECRAFTS})}
-		
+
 		<tr><td colspan="6">
 			<i>Skill Level: ${renderer.render(entrySkillLevel)}.${entryDesignedBy ? ` Designed by ${renderer.render(entryDesignedBy)}.` : ""}</i></td>
 		</td></tr>
-		
+
 		<tr><td colspan="6">
 		<div class="ve-flex ve-w-100 ve-rd-plaintext__wrp-root">
 			<div class="ve-flex-1 ve-flex-col ve-br-1p ve-pr-2">
 				${entriesMeasurements?.length ? `<div class="ve-rd-plaintext__wrp-sidebar ve-mt-4"><div class="ve-bold ve-mb-1 ve-small-caps">Finished Measurements</div><div>${entriesMeasurements.map(ent => `<div class="ve-mt-1">${renderer.render(ent)}</div>`).join("")}</div></div>` : ""}
-				
+
 				${ent.yarn?.length ? `<div class="ve-rd-plaintext__wrp-sidebar ve-mt-4"><div class="ve-bold ve-mb-1 ve-small-caps">Yarn</div><div>${renderer.render({entries: ent.yarn})}</div></div>` : ""}
-				
+
 				${entriesHooks?.length ? `<div class="ve-rd-plaintext__wrp-sidebar ve-mt-4"><div class="ve-bold ve-mb-1 ve-small-caps">Hooks</div><div>${renderer.render({entries: entriesHooks})}</div></div>` : ""}
-				
+
 				${ent.notions?.length ? `<div class="ve-rd-plaintext__wrp-sidebar ve-mt-4"><div class="ve-bold ve-mb-1 ve-small-caps">Notions</div><div>${renderer.render({entries: ent.notions})}</div></div>` : ""}
-				
+
 				${ent.gauge?.length ? `<div class="ve-rd-plaintext__wrp-sidebar ve-mt-4"><div class="ve-bold ve-mb-1 ve-small-caps">Gauge</div><div>${renderer.render({entries: ent.gauge})}</div></div>` : ""}
-				
+
 				${ent.stitches?.length ? `<div class="ve-rd-plaintext__wrp-sidebar ve-mt-4"><div class="ve-bold ve-mb-1 ve-small-caps">Special Stitches</div><div>${renderer.render({entries: ent.stitches})}</div></div>` : ""}
-				
+
 				${ent.abbreviations?.length ? `<div class="ve-rd-plaintext__wrp-sidebar ve-mt-4"><div class="ve-bold ve-mb-1 ve-small-caps">Special Abbreviations</div><div>${renderer.render({entries: ent.abbreviations})}</div></div>` : ""}
-				
+
 				${ent.notes?.length ? `<div class="ve-rd-plaintext__wrp-sidebar ve-mt-4"><div class="ve-bold ve-mb-1 ve-small-caps">Notes</div><div>${renderer.render({entries: ent.notes})}</div></div>` : ""}
-				
+
 				${ent.finishing?.length ? `<div class="ve-rd-plaintext__wrp-sidebar ve-mt-4"><div class="ve-bold ve-mb-1 ve-small-caps">Finishing</div><div>${renderer.render({entries: ent.finishing})}</div></div>` : ""}
 			</div>
 
@@ -16857,7 +16909,7 @@ Renderer.hover = class {
 	// endregion
 
 	static getGenericCompactRenderedString (entry, {depth = null} = {}) {
-		if (entry.header != null) depth = Math.max(0, entry.header - 1);
+		if (entry.header != null) depth = Math.max(0, entry.header);
 		if (depth == null) depth = 0;
 
 		return `

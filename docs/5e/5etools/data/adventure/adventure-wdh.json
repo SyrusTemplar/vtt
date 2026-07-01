@@ -1826,7 +1826,7 @@
 		},
 		{
 			"type": "section",
-			"name": "A Friend in Need",
+			"name": "Chapter 1: A Friend in Need",
 			"page": 21,
 			"id": "049",
 			"entries": [
@@ -3256,7 +3256,7 @@
 		},
 		{
 			"type": "section",
-			"name": "Trollskull Alley",
+			"name": "Chapter 2: Trollskull Alley",
 			"page": 31,
 			"id": "094",
 			"entries": [
@@ -3665,7 +3665,7 @@
 									"type": "list",
 									"items": [
 										"{@creature Embric|WDH} is neutral good.",
-										"He has these racial traits: He can cast {@spell produce flame} at will. (Constitution is his spellcasting ability, and he has a +4 bonus to hit with spell attacks.) He has darkvision out to a range of 60 feet and resistance to fire damage. He speaks Common and Primordial."
+										"He has these racial traits: He can cast {@spell produce flame} at will. (Constitution is his spellcasting ability, and he has a {@hit 4} bonus to hit with spell attacks.) He has darkvision out to a range of 60 feet and resistance to fire damage. He speaks Common and Primordial."
 									]
 								},
 								"{@creature Avi|WDH} worships Eldath, god of peace, and uses his magic to quench hot steel. He is an expert armorsmith. {@creature Avi|WDH} is laid back and speaks plainly. He has the statistics of a {@creature priest}, with these changes:",
@@ -4074,7 +4074,7 @@
 												[
 													"5th",
 													"\"{@creature Xanathar|WDH} is using intellect devourers to take control of Waterdavians in key positions throughout the city. We must deal with this problem at once. Infiltrate {@creature Xanathar|WDH}'s lair and destroy whatever is responsible for creating these creatures.\"",
-													"The characters must slay {@b Nihiloor} the {@creature mind flayer} (see {@adventure appendix B|WDH|12}). They can stake out a Xanathar Guild hideout (see chapter 1) and wait for {@creature Nihiloor|WDH} to show up there, or confront the mind flayer in {@creature Xanathar|WDH}'s lair (see chapter 5). {@i Reward}: Each Gray Hand character gains 2 renown. Every character who participated in the raid receives a {@item potion of resistance}. In addition, Vajra covers the cost of any {@spell raise dead} spells needed to bring back dead characters."
+													"The characters must slay {@creature Nihiloor|WDH} the {@creature mind flayer} (see {@adventure appendix B|WDH|12}). They can stake out a Xanathar Guild hideout (see chapter 1) and wait for {@creature Nihiloor|WDH} to show up there, or confront the mind flayer in {@creature Xanathar|WDH}'s lair (see chapter 5). {@i Reward}: Each Gray Hand character gains 2 renown. Every character who participated in the raid receives a {@item potion of resistance}. In addition, Vajra covers the cost of any {@spell raise dead} spells needed to bring back dead characters."
 												]
 											]
 										}
@@ -4234,7 +4234,7 @@
 												[
 													"3rd",
 													"\"A notorious thief called the {@creature Black Viper|WDH}, long thought dead, has apparently returned to Waterdeep. She has already robbed at least a dozen noble estates. No one knows her identity because she wears a mask, but it was reported in The Waterdeep Wazoo that she's a noble. Find out what else the broadsheet's publisher knows about her and report back to me.\"",
-													"The characters can meet with Gaxly Rudderbust (N male Illuskan human {@creature commoner}), the publisher of The Waterdeep Wazoo, and either succeed on a {@dc 12} Charisma (Intimidation or Persuasion) check or bribe him with at least 50 gp. If they do so, Gaxly shares his suspicions that the {@creature Black Viper|WDH} is the secret, evil twin sister of {@creature Ammalia Cassalanter|WDH} (see {@adventure appendix B|WDH|12}), and that she wears a mask to hide a disfigurement. Interviewing the Cassalanters at their villa (see chapter 6) or conducting a day-long investigation and succeeding on a {@dc 15} Intelligence (Investigation) check reveals that no such person exists.  {@i Reward}: Each Order of the Gauntlet character gains 1 renown for reporting what Gaxly said."
+													"The characters can meet with Gaxly Rudderbust (N male Illuskan human {@creature commoner}), the publisher of The Waterdeep Wazoo, and either succeed on a {@dc 12} Charisma (Intimidation or Persuasion) check or bribe him with at least 50 gp. If they do so, Gaxly shares his suspicions that the {@creature Black Viper|WDH} is the secret, evil twin sister of {@creature Ammalia Cassalanter|WDH} (see {@adventure appendix B|WDH|12}), and that she wears a mask to hide a disfigurement. Interviewing the Cassalanters at their villa (see chapter 6) or conducting a day-long investigation and succeeding on a {@dc 15} Intelligence (Investigation) check reveals that no such person exists. {@i Reward}: Each Order of the Gauntlet character gains 1 renown for reporting what Gaxly said."
 												],
 												[
 													"4th",
@@ -4593,7 +4593,7 @@
 		},
 		{
 			"type": "section",
-			"name": "Fireball",
+			"name": "Chapter 3: Fireball",
 			"page": 43,
 			"id": "0ca",
 			"entries": [
@@ -4703,8 +4703,8 @@
 										"path": "adventure/WDH/Watch.webp"
 									},
 									"title": "Saeth and Barnibus",
-									"width": 592,
-									"height": 800
+									"width": 749,
+									"height": 1000
 								},
 								"Twenty minutes after the explosion, a City Watch {@creature sergeant|WDH} named {@creature Saeth Cromley|wdh} (see {@adventure appendix B|WDH|12}) escorts a member of the Watchful Order of Magists and Protectors named {@creature Barnibus Blastwind|WDH} (see {@adventure appendix B|WDH|12}) to the crime scene. Barnibus quietly takes charge of the investigation at that point, while {@creature Sergeant|WDH} Cromley directs a force of twenty constables ({@creature veteran||veterans}) to knock on doors and question locals.",
 								"Before allowing the corpses to be removed and taken to local temples, Barnibus inspects the scene closely and reaches the following conclusions, which he prefers to keep to himself but might share with other members of the Watchful Order:",
@@ -6424,7 +6424,7 @@
 		},
 		{
 			"type": "section",
-			"name": "Dragon Season",
+			"name": "Chapter 4: Dragon Season",
 			"page": 57,
 			"id": "123",
 			"entries": [
@@ -7856,7 +7856,7 @@
 									"id": "168",
 									"entries": [
 										"Playing on the ice underneath the docks are three street urchins wearing frayed cloaks and gloves. They dart in and out of view, hurling snowballs at each other and laughing as the blizzard batters the structures above them (see \"{@area The Three Urchins|14e|x}\").",
-										"When the children see the characters for the first time, their interest is piqued. The children fancy themselves adventurers of sorts, and they are quick to idolize and emulate real-life ones. {@creature Squiddly|WDH} even has the audacity to hurl a snowball at one of them (+0 bonus to hit). The children know who Agorn Fuoco is because he used to live and play music in Mistshore. They offer to lead characters to his mother's residence."
+										"When the children see the characters for the first time, their interest is piqued. The children fancy themselves adventurers of sorts, and they are quick to idolize and emulate real-life ones. {@creature Squiddly|WDH} even has the audacity to hurl a snowball at one of them ({@hit 0} bonus to hit). The children know who Agorn Fuoco is because he used to live and play music in Mistshore. They offer to lead characters to his mother's residence."
 									]
 								},
 								{
@@ -11919,7 +11919,7 @@
 									"page": 85,
 									"id": "1f7",
 									"entries": [
-										"The dense fog from outside settles in the sewers, and areas B2, B3, and B4 are lightly obscured."
+										"The dense fog from outside settles in the sewers, and areas B2, B3, and B4 are {@quickref Vision and Light||2||lightly obscured}."
 									]
 								},
 								{
@@ -15035,7 +15035,7 @@
 		},
 		{
 			"type": "section",
-			"name": "Spring Madness",
+			"name": "Chapter 5: Spring Madness",
 			"page": 99,
 			"id": "25c",
 			"entries": [
@@ -15183,7 +15183,7 @@
 													"items": [
 														"{@creature Ahmaergo|WDH}, dwarf majordomo",
 														"{@creature Nar'l Xibrindas|wdh}, drow advisor",
-														"{@b Nihiloor}, {@creature mind flayer}",
+														"{@creature Nihiloor|WDH}, {@creature mind flayer}",
 														"{@creature Noska Ur'gray|wdh}, dwarf enforcer",
 														"{@creature Ott Steeltoes|wdh}, dwarf fishkeeper",
 														"{@creature Thorvin Twinbeard|wdh}, dwarf engineer"
@@ -18406,7 +18406,7 @@
 		},
 		{
 			"type": "section",
-			"name": "Hell of a Summer",
+			"name": "Chapter 6: Hell of a Summer",
 			"page": 115,
 			"id": "2d5",
 			"entries": [
@@ -23163,7 +23163,7 @@
 		},
 		{
 			"type": "section",
-			"name": "Maestro's Fall",
+			"name": "Chapter 7: Maestro's Fall",
 			"page": 131,
 			"id": "350",
 			"entries": [
@@ -27088,7 +27088,7 @@
 		},
 		{
 			"type": "section",
-			"name": "Winter Wizardry",
+			"name": "Chapter 8: Winter Wizardry",
 			"page": 147,
 			"id": "3cc",
 			"entries": [
@@ -30882,7 +30882,7 @@
 		},
 		{
 			"type": "section",
-			"name": "Volo's Waterdeep Enchiridion",
+			"name": "Chapter 9: Volo's Waterdeep Enchiridion",
 			"page": 163,
 			"id": "43b",
 			"entries": [
@@ -32080,7 +32080,7 @@
 		},
 		{
 			"type": "section",
-			"name": "Magic Items",
+			"name": "Appendix A: Magic Items",
 			"page": 189,
 			"id": "493",
 			"entries": [
@@ -32158,7 +32158,7 @@
 		},
 		{
 			"type": "section",
-			"name": "Monsters and NPCs",
+			"name": "Appendix B: Monsters and NPCs",
 			"page": 193,
 			"id": "494",
 			"entries": [
@@ -32553,7 +32553,7 @@
 					"page": 202,
 					"id": "4b2",
 					"entries": [
-						"Floon, a native Waterdavian in his early thirties, is a handsome fellow but not very bright. He used to work as an escort in festhalls but is currently unemployed. Several months ago, he came upon a married noble engaging in some indiscreet behavior, and now lives off the generous bribe he is being paid to keep silent.",
+						"{@creature Floon Blagmaar|WDH|Floon}, a native Waterdavian in his early thirties, is a handsome fellow but not very bright. He used to work as an escort in festhalls but is currently unemployed. Several months ago, he came upon a married noble engaging in some indiscreet behavior, and now lives off the generous bribe he is being paid to keep silent.",
 						"With friends all over the city, Floon spends most of his time drinking and carousing. He gets by on his looks and doesn't know what to do with his life, and has shown little interest in working for a living.",
 						{
 							"type": "entries",
@@ -33279,7 +33279,7 @@
 		},
 		{
 			"type": "section",
-			"name": "Handouts",
+			"name": "Appendix C: Handouts",
 			"page": 221,
 			"id": "4e6",
 			"entries": [

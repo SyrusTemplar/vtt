@@ -1536,7 +1536,8 @@
 				"SLW",
 				"TftYP-TFoF",
 				"TftYP-TSC",
-				"TTP"
+				"TTP",
+				"WDMM"
 			],
 			"reprintedAs": [
 				"Alchemist's Fire|XPHB"
@@ -2261,6 +2262,15 @@
 			"name": "Amulet of Protection from Turning",
 			"source": "TftYP",
 			"page": 228,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"rarity": "rare",
 			"reqAttune": true,
 			"wondrous": true,
@@ -4860,6 +4870,15 @@
 			"name": "Balance of Harmony",
 			"source": "TftYP",
 			"page": 228,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"rarity": "uncommon",
 			"wondrous": true,
 			"weight": 1,
@@ -7269,6 +7288,9 @@
 			"name": "Blasting Powder",
 			"source": "EGW",
 			"page": 225,
+			"referenceSources": [
+				"DD"
+			],
 			"type": "G",
 			"rarity": "none",
 			"entries": [
@@ -7377,7 +7399,7 @@
 			"rarity": "none",
 			"poison": true,
 			"entries": [
-				"This poison is created from blood harvested from a dead or {@condition incapacitated} lycanthrope in its animal or hybrid form. A creature subjected to this poison must succeed on a {@dc 12} Constitution saving throw or be cursed with lycanthropy (see the Monster Manual). The curse lasts until removed by the {@spell remove curse} spell or similar magic.",
+				"This poison is created from blood harvested from a dead or {@condition incapacitated} lycanthrope in its animal or hybrid form. A creature subjected to this poison must succeed on a {@dc 12} Constitution saving throw or be cursed with {@variantrule Player Characters as Lycanthropes|MM|lycanthropy} (see the Monster Manual). The curse lasts until removed by the {@spell remove curse} spell or similar magic.",
 				"The type of lycanthropy depends on the lycanthrope used to create the poison. To determine the type of lycanthropy randomly, roll a {@dice d6}:",
 				{
 					"type": "table",
@@ -7542,6 +7564,12 @@
 			"name": "Blue Dragon Mask",
 			"source": "RoTOS",
 			"page": 4,
+			"otherSources": [
+				{
+					"source": "ToD",
+					"page": 179
+				}
+			],
 			"referenceSources": [
 				"HotDQ",
 				"RoT"
@@ -8896,6 +8924,15 @@
 			"name": "Bracelet of Rock Magic",
 			"source": "TftYP",
 			"page": 228,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"rarity": "very rare",
 			"reqAttune": true,
 			"wondrous": true,
@@ -9270,7 +9307,8 @@
 				}
 			],
 			"referenceSources": [
-				"CRCotN"
+				"CRCotN",
+				"ToR"
 			],
 			"rarity": "common",
 			"wondrous": true,
@@ -9938,7 +9976,8 @@
 			"referenceSources": [
 				"BGDIA",
 				"CM",
-				"TftYP-TSC"
+				"TftYP-TSC",
+				"WDMM"
 			],
 			"reprintedAs": [
 				"Caltrops|XPHB"
@@ -11504,6 +11543,9 @@
 			"name": "Chronolometer",
 			"source": "AI",
 			"page": 220,
+			"referenceSources": [
+				"OoW"
+			],
 			"rarity": "very rare",
 			"reqAttune": true,
 			"wondrous": true,
@@ -11781,6 +11823,9 @@
 			"name": "Cleansing Stone",
 			"source": "ERLW",
 			"page": 276,
+			"referenceSources": [
+				"EFR"
+			],
 			"rarity": "common",
 			"wondrous": true,
 			"entries": [
@@ -14232,6 +14277,9 @@
 			"name": "Cuddly Strixhaven Mascot",
 			"source": "SCC",
 			"page": 38,
+			"referenceSources": [
+				"SCC-CK"
+			],
 			"rarity": "common",
 			"wondrous": true,
 			"entries": [
@@ -18950,6 +18998,9 @@
 			"name": "Dimensional Loop",
 			"source": "AI",
 			"page": 220,
+			"referenceSources": [
+				"OoW"
+			],
 			"rarity": "very rare",
 			"reqAttune": true,
 			"wondrous": true,
@@ -19389,6 +19440,9 @@
 			"name": "Documancy Satchel",
 			"source": "AI",
 			"page": 24,
+			"referenceSources": [
+				"OoW"
+			],
 			"rarity": "varies",
 			"wondrous": true,
 			"entries": [
@@ -20648,6 +20702,15 @@
 			"name": "Eagle Whistle",
 			"source": "TftYP",
 			"page": 228,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"rarity": "rare",
 			"wondrous": true,
 			"weight": 1,
@@ -20751,6 +20814,74 @@
 					]
 				}
 			}
+		},
+		{
+			"name": "Ebonbane",
+			"source": "RHW",
+			"baseItem": "longsword|xphb",
+			"type": "M|XPHB",
+			"rarity": "artifact",
+			"reqAttune": true,
+			"sentient": true,
+			"weight": 3,
+			"weaponCategory": "martial",
+			"property": [
+				"V|XPHB"
+			],
+			"mastery": [
+				"Sap|XPHB"
+			],
+			"dmg1": "1d8",
+			"dmgType": "S",
+			"dmg2": "1d10",
+			"bonusWeapon": "+3",
+			"entries": [
+				"The Darklord of the Domain of Dread known as the Shadowlands is Ebonbane, a sapient sword. {@creature Ebonbane|RHW} uses its monster stat block while in Shadowborn Manor.",
+				{
+					"type": "entries",
+					"name": "Bound to the Shadowlands",
+					"entries": [
+						"When you enter a space outside of the Shadowlands, your {@variantrule Attunement|XPHB} immediately ends and Ebonbane teleports to somewhere in Shadowborn Manor."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Insatiable Rage",
+					"entries": [
+						"The sword demands destruction. If the sword hasn't slain a Celestial or a Humanoid for 3 days, you make a DC 17 Charisma saving throw at the next dawn. On a successful save, you take {@damage 8d8} Force damage. On a failed save, you are dominated by the sword, as if by the {@spell Dominate Monster|XPHB} spell, and the sword demands the blood of a Celestial or a Humanoid. The spell effect ends when the sword's demand is met."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Magic Weapon",
+					"entries": [
+						"You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. When you hit a Celestial or a Humanoid with it, that attack also deals {@damage 3d6} Necrotic damage.",
+						"While you hold this weapon, you have {@variantrule Advantage|XPHB} on saving throws against spells and other magical effects."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Sentience",
+					"entries": [
+						"Ebonbane is a sentient Chaotic Evil weapon with an Intelligence of 17, a Wisdom of 14, and a Charisma of 19. It has hearing and {@sense Truesight|XPHB} out to 120 feet. The weapon speaks Common and can communicate with its wielder telepathically. While you are attuned to it, Ebonbane also understands every language you know."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Personality",
+					"entries": [
+						"Ebonbane was created to kill the paladin Kateri Shadowborn, and it still possesses a burning hatred for goodly knights. Ebonbane revels in seeing good defeated and hope vanquished. The sword bonds with any wielder that assists in its goals but always views it wielder as a lackey."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Destroying Ebonbane",
+					"entries": [
+						"The only way to destroy Ebonbane is to forge a weapon from the Four Keys and reduce Ebonbane to 0 {@variantrule Hit Points|XPHB} with it (see the Ebonbane stat block)."
+					]
+				}
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Efreeti Bottle",
@@ -22403,6 +22534,9 @@
 			"name": "Everbright Lantern",
 			"source": "ERLW",
 			"page": 277,
+			"referenceSources": [
+				"EFR"
+			],
 			"rarity": "common",
 			"wondrous": true,
 			"entries": [
@@ -22590,6 +22724,9 @@
 			"name": "Explosive Seed",
 			"source": "EGW",
 			"page": 225,
+			"referenceSources": [
+				"DD"
+			],
 			"type": "G",
 			"rarity": "none",
 			"entries": [
@@ -23132,6 +23269,9 @@
 			"name": "Failed Experiment Wand",
 			"source": "AI",
 			"page": 162,
+			"referenceSources": [
+				"OoW"
+			],
 			"type": "WD|DMG",
 			"rarity": "rare",
 			"reqAttune": "by a spellcaster",
@@ -23209,6 +23349,9 @@
 			"name": "Far Gear",
 			"source": "AI",
 			"page": 221,
+			"referenceSources": [
+				"OoW"
+			],
 			"rarity": "very rare",
 			"reqAttune": true,
 			"wondrous": true,
@@ -23352,6 +23495,9 @@
 			"name": "Feather Token",
 			"source": "ERLW",
 			"page": 277,
+			"referenceSources": [
+				"EFR"
+			],
 			"rarity": "common",
 			"wondrous": true,
 			"entries": [
@@ -26969,6 +27115,12 @@
 			"name": "Green Dragon Mask",
 			"source": "RoTOS",
 			"page": 4,
+			"otherSources": [
+				{
+					"source": "ToD",
+					"page": 179
+				}
+			],
 			"referenceSources": [
 				"HotDQ",
 				"RoT"
@@ -28014,8 +28166,35 @@
 		},
 		{
 			"name": "Harkon's Bite",
+			"source": "RHW",
+			"rarity": "uncommon",
+			"reqAttune": "by a Humanoid",
+			"reqAttuneTags": [
+				{
+					"creatureType": "humanoid"
+				}
+			],
+			"wondrous": true,
+			"curse": true,
+			"bonusSavingThrow": "+1",
+			"entries": [
+				"A dire wolf's tooth dangles from this simple cord necklace. You gain a +1 bonus to ability checks and saving throws while you wear this necklace.",
+				{
+					"type": "entries",
+					"name": "Curse",
+					"entries": [
+						"This necklace is cursed. Attuning to the necklace curses you; this curse can't be removed until {@creature Harkon Lukas|RHW} dies. As long as you remain cursed, you become a {@creature Werewolf|XMM} serving Harkon Lukas under the DM's control during the night of a full moon."
+					]
+				}
+			]
+		},
+		{
+			"name": "Harkon's Bite",
 			"source": "VRGR",
 			"page": 137,
+			"reprintedAs": [
+				"Harkon's Bite|RHW"
+			],
 			"rarity": "uncommon",
 			"reqAttune": true,
 			"wondrous": true,
@@ -28698,6 +28877,9 @@
 			"name": "Heartstone",
 			"source": "MM",
 			"page": 179,
+			"referenceSources": [
+				"WDMM"
+			],
 			"type": "OTH",
 			"rarity": "very rare",
 			"entries": [
@@ -28708,6 +28890,15 @@
 			"name": "Hell Hound Cloak",
 			"source": "TftYP",
 			"page": 228,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"rarity": "rare",
 			"reqAttune": true,
 			"wondrous": true,
@@ -30026,6 +30217,7 @@
 			"srd52": true,
 			"basicRules2024": true,
 			"referenceSources": [
+				"FRAiF",
 				"HotB"
 			],
 			"type": "G|XPHB",
@@ -30046,14 +30238,17 @@
 			"srd": true,
 			"basicRules": true,
 			"referenceSources": [
+				"BGDIA",
 				"CoS",
 				"DSotDQ",
 				"IDRotF",
 				"OoW",
 				"QftIS",
+				"RoT",
 				"SCC-CK",
 				"TftYP-TFoF",
-				"ToFW"
+				"ToFW",
+				"WDMM"
 			],
 			"reprintedAs": [
 				"Holy Water|XPHB"
@@ -31067,6 +31262,9 @@
 			"name": "Hunter's Coat",
 			"source": "EGW",
 			"page": 267,
+			"referenceSources": [
+				"US"
+			],
 			"baseItem": "leather armor|PHB",
 			"type": "LA",
 			"rarity": "very rare",
@@ -35377,68 +35575,167 @@
 			"hasFluffImages": true
 		},
 		{
-			"name": "Lantern of Tracking",
+			"name": "Lantern of Tracking (Aberrations)",
 			"source": "IDRotF",
 			"page": 314,
 			"rarity": "common",
 			"wondrous": true,
 			"entries": [
 				"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
-				"Each lantern of tracking is designed to track down a certain type of creature, which is determined by rolling on the Lantern of Tracking table. Once determined, this creature type can't be changed. While the lantern is within 300 feet of any creature of that type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however.",
+				"While the lantern is within 300 feet of the Aberrations type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however."
+			],
+			"light": [
 				{
-					"type": "table",
-					"caption": "Lantern of Tracking",
-					"colLabels": [
-						"1d10",
-						"Creature Type"
-					],
-					"colStyles": [
-						"col-2 text-center",
-						"col-10"
-					],
-					"rows": [
-						[
-							"1",
-							"Aberrations"
-						],
-						[
-							"2",
-							"Celestials"
-						],
-						[
-							"3",
-							"Constructs"
-						],
-						[
-							"4",
-							"Dragons"
-						],
-						[
-							"5",
-							"Elementals"
-						],
-						[
-							"6",
-							"Fey"
-						],
-						[
-							"7",
-							"Fiends"
-						],
-						[
-							"8",
-							"Giants"
-						],
-						[
-							"9",
-							"Monstrosities"
-						],
-						[
-							"10",
-							"Undead"
-						]
-					]
+					"bright": 30,
+					"dim": 60
 				}
+			]
+		},
+		{
+			"name": "Lantern of Tracking (Celestials)",
+			"source": "IDRotF",
+			"page": 314,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+				"While the lantern is within 300 feet of the Celestials type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however."
+			],
+			"light": [
+				{
+					"bright": 30,
+					"dim": 60
+				}
+			]
+		},
+		{
+			"name": "Lantern of Tracking (Constructs)",
+			"source": "IDRotF",
+			"page": 314,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+				"While the lantern is within 300 feet of the Constructs type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however."
+			],
+			"light": [
+				{
+					"bright": 30,
+					"dim": 60
+				}
+			]
+		},
+		{
+			"name": "Lantern of Tracking (Dragons)",
+			"source": "IDRotF",
+			"page": 314,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+				"While the lantern is within 300 feet of the Dragons type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however."
+			],
+			"light": [
+				{
+					"bright": 30,
+					"dim": 60
+				}
+			]
+		},
+		{
+			"name": "Lantern of Tracking (Elementals)",
+			"source": "IDRotF",
+			"page": 314,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+				"While the lantern is within 300 feet of the Elementals type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however."
+			],
+			"light": [
+				{
+					"bright": 30,
+					"dim": 60
+				}
+			]
+		},
+		{
+			"name": "Lantern of Tracking (Fey)",
+			"source": "IDRotF",
+			"page": 314,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+				"While the lantern is within 300 feet of the Fey type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however."
+			],
+			"light": [
+				{
+					"bright": 30,
+					"dim": 60
+				}
+			]
+		},
+		{
+			"name": "Lantern of Tracking (Fiends)",
+			"source": "IDRotF",
+			"page": 314,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+				"While the lantern is within 300 feet of the Fiends type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however."
+			],
+			"light": [
+				{
+					"bright": 30,
+					"dim": 60
+				}
+			]
+		},
+		{
+			"name": "Lantern of Tracking (Giants)",
+			"source": "IDRotF",
+			"page": 314,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+				"While the lantern is within 300 feet of the Giants type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however."
+			],
+			"light": [
+				{
+					"bright": 30,
+					"dim": 60
+				}
+			]
+		},
+		{
+			"name": "Lantern of Tracking (Monstrosities)",
+			"source": "IDRotF",
+			"page": 314,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+				"While the lantern is within 300 feet of the Monstrosities type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however."
+			],
+			"light": [
+				{
+					"bright": 30,
+					"dim": 60
+				}
+			]
+		},
+		{
+			"name": "Lantern of Tracking (Undead)",
+			"source": "IDRotF",
+			"page": 314,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+				"While the lantern is within 300 feet of the Undead type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however."
 			],
 			"light": [
 				{
@@ -35960,6 +36257,9 @@
 			"name": "Living Loot Satchel",
 			"source": "AI",
 			"page": 25,
+			"referenceSources": [
+				"OoW"
+			],
 			"rarity": "varies",
 			"wondrous": true,
 			"entries": [
@@ -36084,6 +36384,15 @@
 			"name": "Loadstone",
 			"source": "TftYP",
 			"page": 228,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"rarity": "rare",
 			"wondrous": true,
 			"curse": true,
@@ -36405,6 +36714,9 @@
 			"name": "Lorehold Primer",
 			"source": "SCC",
 			"page": 39,
+			"referenceSources": [
+				"SCC-TMM"
+			],
 			"rarity": "uncommon",
 			"reqAttune": "by a spellcaster",
 			"reqAttuneTags": [
@@ -37895,6 +38207,9 @@
 			"name": "Masque Charm",
 			"source": "SCC",
 			"page": 127,
+			"referenceSources": [
+				"SCC-TMM"
+			],
 			"rarity": "common",
 			"wondrous": true,
 			"entries": [
@@ -38870,6 +39185,15 @@
 			"name": "Mirror of the Past",
 			"source": "TftYP",
 			"page": 228,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"rarity": "rare",
 			"wondrous": true,
 			"weight": 1,
@@ -39573,6 +39897,10 @@
 			"name": "Murgaxor's Orb",
 			"source": "SCC",
 			"page": 126,
+			"referenceSources": [
+				"SCC-ARiR",
+				"SCC-TMM"
+			],
 			"rarity": "legendary",
 			"reqAttune": true,
 			"wondrous": true,
@@ -40004,7 +40332,8 @@
 				"ToA",
 				"ToFW",
 				"VEoR",
-				"WDH"
+				"WDH",
+				"WDMM"
 			],
 			"reprintedAs": [
 				"Necklace of Fireballs|XDMG"
@@ -40438,6 +40767,15 @@
 			"name": "Night Caller",
 			"source": "TftYP",
 			"page": 228,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"rarity": "uncommon",
 			"wondrous": true,
 			"weight": 1,
@@ -42028,6 +42366,9 @@
 			"name": "Orrery of the Wanderer",
 			"source": "AI",
 			"page": 220,
+			"referenceSources": [
+				"OoW"
+			],
 			"type": "OTH",
 			"rarity": "artifact",
 			"reqAttune": true,
@@ -43184,6 +43525,9 @@
 			"name": "Piercer",
 			"source": "AI",
 			"page": 121,
+			"referenceSources": [
+				"OoW"
+			],
 			"baseItem": "shortsword|phb",
 			"type": "M",
 			"rarity": "rare",
@@ -48653,6 +48997,12 @@
 			"name": "Red Dragon Mask",
 			"source": "RoTOS",
 			"page": 4,
+			"otherSources": [
+				{
+					"source": "ToD",
+					"page": 179
+				}
+			],
 			"referenceSources": [
 				"HotDQ",
 				"RoT"
@@ -50323,6 +50673,9 @@
 			"name": "Ring of Obscuring",
 			"source": "EGW",
 			"page": 269,
+			"referenceSources": [
+				"DD"
+			],
 			"type": "RG|DMG",
 			"rarity": "uncommon",
 			"reqAttune": true,
@@ -51772,6 +52125,15 @@
 			"name": "Robe of Summer",
 			"source": "TftYP",
 			"page": 229,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"resist": [
 				"cold"
 			],
@@ -52248,7 +52610,14 @@
 					"type": "entries",
 					"name": "Alertness",
 					"entries": [
-						"While holding the rod, you have {@variantrule Advantage|XPHB} on Wisdom ({@skill Perception|XPHB}) checks and on {@variantrule Initiative|XPHB} rolls. Spells. While holding the rod, you can cast the following spells from it:",
+						"While holding the rod, you have {@variantrule Advantage|XPHB} on Wisdom ({@skill Perception|XPHB}) checks and on {@variantrule Initiative|XPHB} rolls."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Spells",
+					"entries": [
+						"While holding the rod, you can cast the following spells from it:",
 						{
 							"type": "list",
 							"items": [
@@ -52600,6 +52969,9 @@
 			"name": "Rod of Retribution",
 			"source": "EGW",
 			"page": 269,
+			"referenceSources": [
+				"ToR"
+			],
 			"type": "RD|DMG",
 			"rarity": "uncommon",
 			"reqAttune": true,
@@ -53052,6 +53424,9 @@
 			"name": "Rotor of Return",
 			"source": "AI",
 			"page": 221,
+			"referenceSources": [
+				"OoW"
+			],
 			"rarity": "very rare",
 			"reqAttune": true,
 			"wondrous": true,
@@ -56007,6 +56382,15 @@
 			"name": "Shatterspike",
 			"source": "TftYP",
 			"page": 229,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"baseItem": "longsword|phb",
 			"type": "M",
 			"rarity": "uncommon",
@@ -57055,6 +57439,9 @@
 			"name": "Silverquill Primer",
 			"source": "SCC",
 			"page": 39,
+			"referenceSources": [
+				"SCC-CK"
+			],
 			"rarity": "uncommon",
 			"reqAttune": "by a spellcaster",
 			"reqAttuneTags": [
@@ -57714,7 +58101,8 @@
 			"srd": true,
 			"basicRules": true,
 			"referenceSources": [
-				"WDH"
+				"WDH",
+				"WDMM"
 			],
 			"type": "G",
 			"rarity": "none",
@@ -57769,6 +58157,7 @@
 				}
 			],
 			"referenceSources": [
+				"CoA",
 				"VEoR"
 			],
 			"rarity": "uncommon",
@@ -58160,6 +58549,15 @@
 			"name": "Spear of Backbiting",
 			"source": "TftYP",
 			"page": 229,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"baseItem": "spear|phb",
 			"type": "M",
 			"rarity": "very rare",
@@ -59173,6 +59571,9 @@
 			"name": "Spellshard",
 			"source": "ERLW",
 			"page": 279,
+			"referenceSources": [
+				"EFR"
+			],
 			"rarity": "common",
 			"wondrous": true,
 			"entries": [
@@ -61031,7 +61432,8 @@
 			},
 			"lootTables": [
 				"Arcana - Very Rare|XDMG"
-			]
+			],
+			"hasFluffImages": true
 		},
 		{
 			"name": "Staff of Ruling",
@@ -62934,6 +63336,15 @@
 			"name": "Stone of Ill Luck",
 			"source": "TftYP",
 			"page": 229,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"rarity": "uncommon",
 			"reqAttune": true,
 			"wondrous": true,
@@ -63224,6 +63635,9 @@
 			"name": "Strixhaven Pennant",
 			"source": "SCC",
 			"page": 39,
+			"referenceSources": [
+				"SCC-CK"
+			],
 			"rarity": "common",
 			"wondrous": true,
 			"entries": [
@@ -64728,10 +65142,11 @@
 			"referenceSources": [
 				"RoT"
 			],
-			"type": "OTH",
-			"rarity": "unknown (magic)",
+			"rarity": "common",
+			"wondrous": true,
 			"entries": [
-				"This golden stein is decorated with dancing dwarves and grain patterns. Speaking the command word (\"Illefarn\") while grasping the handle fills the tankard with three pints of rich dwarven ale. This power can be used up to three times per day."
+				"This golden stein is decorated with dancing dwarves and grain patterns.",
+				"Speaking the command word (\"Illefarn\") while grasping the handle fills the tankard with three pints of rich dwarven ale. This power can be used up to three times per day."
 			]
 		},
 		{
@@ -66469,6 +66884,9 @@
 			"name": "Timepiece of Travel",
 			"source": "AI",
 			"page": 221,
+			"referenceSources": [
+				"OoW"
+			],
 			"rarity": "very rare",
 			"reqAttune": true,
 			"wondrous": true,
@@ -69576,6 +69994,7 @@
 			"page": 209,
 			"srd": true,
 			"referenceSources": [
+				"ToA",
 				"WDMM"
 			],
 			"reprintedAs": [
@@ -69966,6 +70385,9 @@
 			"name": "Vox Seeker",
 			"source": "EGW",
 			"page": 270,
+			"referenceSources": [
+				"DD"
+			],
 			"rarity": "common",
 			"wondrous": true,
 			"entries": [
@@ -70403,6 +70825,15 @@
 			"name": "Wand of Entangle",
 			"source": "TftYP",
 			"page": 229,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"type": "WD|DMG",
 			"rarity": "uncommon",
 			"reqAttune": "by a spellcaster",
@@ -70880,7 +71311,6 @@
 			"source": "DMG",
 			"page": 227,
 			"referenceSources": [
-				"IDRotF",
 				"OotA"
 			],
 			"reprintedAs": [
@@ -72104,7 +72534,8 @@
 			"referenceSources": [
 				"DIP",
 				"TftYP-TSC",
-				"WDH"
+				"WDH",
+				"WDMM"
 			],
 			"reprintedAs": [
 				"Waterskin|XPHB"
@@ -72322,6 +72753,15 @@
 			"name": "Waythe",
 			"source": "TftYP",
 			"page": 229,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"baseItem": "greatsword|phb",
 			"type": "M",
 			"rarity": "legendary",
@@ -72462,6 +72902,9 @@
 			"name": "Wheel of Stars",
 			"source": "AI",
 			"page": 222,
+			"referenceSources": [
+				"OoW"
+			],
 			"rarity": "very rare",
 			"reqAttune": true,
 			"wondrous": true,
@@ -72825,6 +73268,12 @@
 			"name": "White Dragon Mask",
 			"source": "RoTOS",
 			"page": 4,
+			"otherSources": [
+				{
+					"source": "ToD",
+					"page": 179
+				}
+			],
 			"referenceSources": [
 				"HotDQ",
 				"RoT"
@@ -76535,6 +76984,90 @@
 			"hasFluffImages": true
 		},
 		{
+			"name": "Lantern of Tracking",
+			"source": "IDRotF",
+			"page": 314,
+			"rarity": "common",
+			"wondrous": true,
+			"entries": [
+				"This hooded lantern burns for 6 hours on 1 pint of oil, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.",
+				"Each lantern of tracking is designed to track down a certain type of creature, which is determined by rolling on the Lantern of Tracking table. Once determined, this creature type can't be changed. While the lantern is within 300 feet of any creature of that type, its flame turns bright green. The lantern doesn't pinpoint the creature's exact location, however.",
+				{
+					"type": "table",
+					"caption": "Lantern of Tracking",
+					"colLabels": [
+						"1d10",
+						"Creature Type"
+					],
+					"colStyles": [
+						"col-2 text-center",
+						"col-10"
+					],
+					"rows": [
+						[
+							"1",
+							"{@item Lantern of Tracking (Aberrations)|IDRotF}"
+						],
+						[
+							"2",
+							"{@item Lantern of Tracking (Celestials)|IDRotF}"
+						],
+						[
+							"3",
+							"{@item Lantern of Tracking (Constructs)|IDRotF}"
+						],
+						[
+							"4",
+							"{@item Lantern of Tracking (Dragons)|IDRotF}"
+						],
+						[
+							"5",
+							"{@item Lantern of Tracking (Elementals)|IDRotF}"
+						],
+						[
+							"6",
+							"{@item Lantern of Tracking (Fey)|IDRotF}"
+						],
+						[
+							"7",
+							"{@item Lantern of Tracking (Fiends)|IDRotF}"
+						],
+						[
+							"8",
+							"{@item Lantern of Tracking (Giants)|IDRotF}"
+						],
+						[
+							"9",
+							"{@item Lantern of Tracking (Monstrosities)|IDRotF}"
+						],
+						[
+							"10",
+							"{@item Lantern of Tracking (Undead)|IDRotF}"
+						]
+					]
+				}
+			],
+			"items": [
+				"Lantern of Tracking (Aberrations)|IDRotF",
+				"Lantern of Tracking (Celestials)|IDRotF",
+				"Lantern of Tracking (Constructs)|IDRotF",
+				"Lantern of Tracking (Dragons)|IDRotF",
+				"Lantern of Tracking (Elementals)|IDRotF",
+				"Lantern of Tracking (Fey)|IDRotF",
+				"Lantern of Tracking (Fiends)|IDRotF",
+				"Lantern of Tracking (Giants)|IDRotF",
+				"Lantern of Tracking (Monstrosities)|IDRotF",
+				"Lantern of Tracking (Undead)|IDRotF"
+			],
+			"itemsHidden": true,
+			"light": [
+				{
+					"bright": 30,
+					"dim": 60
+				}
+			]
+		},
+		{
 			"name": "Lash of Shadows",
 			"source": "EGW",
 			"page": 276,
@@ -76952,6 +77485,15 @@
 			"name": "Potion of Mind Control",
 			"source": "TftYP",
 			"page": 229,
+			"referenceSources": [
+				"TftYP-AtG",
+				"TftYP-DiT",
+				"TftYP-TFoF",
+				"TftYP-THSoT",
+				"TftYP-ToH",
+				"TftYP-TSC",
+				"TftYP-WPM"
+			],
 			"type": "P",
 			"rarity": "varies",
 			"items": [

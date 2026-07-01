@@ -47,7 +47,7 @@ export class EncounterBuilderRulesMcdmFleeMortals extends EncounterBuilderRulesB
 
 	_render_settingsRules ({stgSettingsRules}) {
 		const wrpSettingsRules = ee`<div class="ve-flex-col">
-			<div class="ve-flex ve-mb-2">${Renderer.get().render(`{@note Based on the encounter building rules on page 16 of {@link MCDM|https://www.mcdmproductions.com}'s {@book Flee, Mortals!|FleeMortals|0|Encounter Building}}`)}</div>
+			<div class="ve-flex ve-mb-2">${this._rendererWrapped.er(`{@note Based on the encounter building rules on page 16 of {@link MCDM|https://www.mcdmproductions.com}'s {@book Flee, Mortals!|FleeMortals|0|Encounter Building}}`)}</div>
 		</div>`
 			.appendTo(stgSettingsRules);
 
@@ -115,6 +115,7 @@ export class EncounterBuilderRulesMcdmFleeMortals extends EncounterBuilderRulesB
 						.map(tier => [tier, partyMeta.getBudget(tier)]),
 				),
 				tier: tier,
+				cntPlayers: partyMeta.cntPlayers,
 			});
 
 			dispTtk
@@ -122,7 +123,7 @@ export class EncounterBuilderRulesMcdmFleeMortals extends EncounterBuilderRulesB
 
 			dispPointsEncounter.html(`Encounter Points: ${TIER_TO_ENCOUNTER_POINTS[tier] || "?"}`);
 
-			dispExpEncounter.html(`Encounter XP: ${this._getEncounterXp().toLocaleStringVe()} XP`);
+			dispExpEncounter.html(`Encounter XP: ${this._getEncounterXp() ? this._getEncounterXp().toLocaleStringVe() : "?"} XP`);
 			dispExpToLevel.html(this._getRenderedExpToLevel({partyMeta}));
 		})();
 

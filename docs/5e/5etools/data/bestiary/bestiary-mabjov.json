@@ -745,6 +745,7 @@
 		{
 			"name": "Bhaal, Ravager",
 			"shortName": "ravager",
+			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 95,
 			"size": [
@@ -958,6 +959,7 @@
 		{
 			"name": "Bhaal, Slayer",
 			"shortName": "slayer",
+			"isNamedCreature": true,
 			"source": "MaBJoV",
 			"page": 93,
 			"size": [
@@ -1346,8 +1348,7 @@
 			"damageTags": [
 				"B",
 				"N",
-				"P",
-				"R"
+				"P"
 			],
 			"miscTags": [
 				"HPR",
@@ -2580,7 +2581,7 @@
 				13,
 				{
 					"ac": 18,
-					"condition": "with {@item staff of power} and  {@spell mage armor}",
+					"condition": "with {@item staff of power} and {@spell mage armor}",
 					"braces": true
 				}
 			],
@@ -4897,7 +4898,7 @@
 				{
 					"name": "Beak (Raven or Hybrid Form Only)",
 					"entries": [
-						"{@atk mw} {@hit 8} to hit, reach 5 ft., one target. {@h}1 piercing damage in raven form, or 6 ({@damage 1d4 + 4}) piercing damage in hybrid form. If the target is Humanoid, it must succeed on a {@dc 15} Constitution saving throw or be cursed with wereraven lycanthropy."
+						"{@atk mw} {@hit 8} to hit, reach 5 ft., one target. {@h}1 piercing damage in raven form, or 6 ({@damage 1d4 + 4}) piercing damage in hybrid form. If the target is Humanoid, it must succeed on a {@dc 15} Constitution saving throw or be cursed with wereraven {@variantrule Player Characters as Lycanthropes|MM|lycanthropy}."
 					]
 				},
 				{
