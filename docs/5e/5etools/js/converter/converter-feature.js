@@ -152,7 +152,7 @@ export class ConverterFeatureBase extends ConverterBase {
 
 			if (/^spellcasting$/i.test(pt)) return pre.spellcasting2020 = true;
 			if (/^pact magic feature$/i.test(pt)) return pre.spellcasting2020 = true;
-			if (/^Spellcasting or Pact Magic Feature$/i.test(pt)) return pre.spellcasting2020 = true;
+			if (/^Spellcasting (?:Feature )?or Pact Magic Feature$/i.test(pt)) return pre.spellcasting2020 = true;
 
 			if (/^spellcasting feature$/i.test(pt)) return pre.spellcastingFeature = true;
 			if (/^spellcasting feature from a class that prepares spells$/i.test(pt)) return pre.spellcastingPrepared = true;
@@ -290,10 +290,15 @@ export class ConverterFeatureBase extends ConverterBase {
 	static _PREREQUISITE_TRIE = null;
 
 	static _getPrerequisiteTokens (entPrereqString) {
+		// Pre-clean "Level" formatting
+		entPrereqString = entPrereqString
+			.replace(/(?<=\bLevel \d+\+?)( and )/g, "; ");
+
 		if (this._PREREQUISITE_TRIE == null) {
 			this._PREREQUISITE_TRIE = new Trie();
 			[
 				"Spellcasting or Pact Magic Feature",
+				"Spellcasting Feature or Pact Magic Feature",
 			]
 				.forEach(str => this._PREREQUISITE_TRIE.add(str));
 		}

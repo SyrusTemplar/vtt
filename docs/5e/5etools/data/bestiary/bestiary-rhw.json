@@ -290,6 +290,9 @@
 				"MA",
 				"RA"
 			],
+			"conditionInflictLegendary": [
+				"charmed"
+			],
 			"conditionInflictSpell": [
 				"blinded",
 				"stunned"
@@ -847,8 +850,10 @@
 				"MA"
 			],
 			"conditionInflict": [
+				"blinded",
 				"frightened",
-				"grappled"
+				"grappled",
+				"restrained"
 			],
 			"savingThrowForced": [
 				"wisdom"
@@ -2046,7 +2051,7 @@
 				{
 					"name": "Worthy Wielder",
 					"entries": [
-						"{@actSave cha} {@dc 17}, one willing Humanoid within 5 feet. {@actSaveFail} 36 ({@damage 8d8}) Force damage. If this damage reduces the target to 0 {@variantrule Hit Points|XPHB}, Ebonbane devourers its soul. A creature whose soul has been devoured by Ebonbane can be restored to life only by a {@spell Wish|XPHB} spell. {@actSaveSuccess} The target attunes to Ebonbane and can wield the sword."
+						"{@actSave cha} {@dc 17}, one willing Humanoid within 5 feet. {@actSaveFail} 36 ({@damage 8d8}) Force damage. If this damage reduces the target to 0 {@variantrule Hit Points|XPHB}, Ebonbane devours its soul. A creature whose soul has been devoured by Ebonbane can be restored to life only by a {@spell Wish|XPHB} spell. {@actSaveSuccess} The target attunes to Ebonbane and can wield the sword."
 					]
 				}
 			],
@@ -2257,6 +2262,7 @@
 			],
 			"conditionInflict": [
 				"charmed",
+				"exhaustion",
 				"stunned"
 			],
 			"conditionInflictSpell": [
@@ -2744,6 +2750,9 @@
 		},
 		{
 			"name": "Greater Star Spawn Emissary",
+			"group": [
+				"Star Spawn Emissary"
+			],
 			"source": "RHW",
 			"page": 268,
 			"size": [
@@ -3101,6 +3110,7 @@
 			],
 			"conditionInflict": [
 				"grappled",
+				"prone",
 				"restrained"
 			],
 			"savingThrowForced": [
@@ -3211,7 +3221,7 @@
 				{
 					"name": "Regeneration",
 					"entries": [
-						"Harkon gains 10 {@variantrule Hit Points|XPHB} at the start of each of its turns if he has at least 1 {@variantrule Hit Points|XPHB|Hit Point}. If Harkon takes Radiant damage, this trait doesn't function at the start of its next turn."
+						"Harkon gains 10 {@variantrule Hit Points|XPHB} at the start of each of his turns if he has at least 1 {@variantrule Hit Points|XPHB|Hit Point}. If Harkon takes Radiant damage, this trait doesn't function at the start of his next turn."
 					]
 				}
 			],
@@ -3300,6 +3310,10 @@
 			"conditionInflict": [
 				"charmed",
 				"prone"
+			],
+			"conditionInflictLegendary": [
+				"charmed",
+				"unconscious"
 			],
 			"savingThrowForced": [
 				"constitution",
@@ -3558,6 +3572,9 @@
 			"conditionInflict": [
 				"blinded"
 			],
+			"conditionInflictLegendary": [
+				"restrained"
+			],
 			"conditionInflictSpell": [
 				"invisible"
 			],
@@ -3577,6 +3594,9 @@
 		},
 		{
 			"name": "Inquisitor of the Mind Fire",
+			"group": [
+				"Ulmist Inquisitor"
+			],
 			"source": "RHW",
 			"page": 272,
 			"size": [
@@ -3729,6 +3749,9 @@
 		},
 		{
 			"name": "Inquisitor of the Sword",
+			"group": [
+				"Ulmist Inquisitor"
+			],
 			"source": "RHW",
 			"page": 273,
 			"size": [
@@ -3871,6 +3894,9 @@
 		},
 		{
 			"name": "Inquisitor of the Tome",
+			"group": [
+				"Ulmist Inquisitor"
+			],
 			"source": "RHW",
 			"page": 273,
 			"size": [
@@ -4575,6 +4601,9 @@
 		},
 		{
 			"name": "Lesser Star Spawn Emissary",
+			"group": [
+				"Star Spawn Emissary"
+			],
 			"source": "RHW",
 			"page": 267,
 			"size": [
@@ -5743,6 +5772,10 @@
 				"MA",
 				"RA"
 			],
+			"conditionInflict": [
+				"blinded",
+				"deafened"
+			],
 			"conditionInflictSpell": [
 				"paralyzed"
 			],
@@ -6888,6 +6921,7 @@
 		{
 			"name": "Reanimated Companion",
 			"source": "RHW",
+			"page": 15,
 			"summonedByClass": "Artificer|EFA",
 			"size": [
 				"M"
@@ -6975,6 +7009,9 @@
 		},
 		{
 			"name": "Relentless Juggernaut",
+			"group": [
+				"Relentless Killer"
+			],
 			"source": "RHW",
 			"page": 263,
 			"size": [
@@ -7117,6 +7154,9 @@
 		},
 		{
 			"name": "Relentless Nightmare",
+			"group": [
+				"Relentless Killer"
+			],
 			"source": "RHW",
 			"page": 263,
 			"size": [
@@ -7244,6 +7284,7 @@
 				"THW"
 			],
 			"conditionInflict": [
+				"exhaustion",
 				"unconscious"
 			],
 			"savingThrowForced": [
@@ -7255,6 +7296,9 @@
 		},
 		{
 			"name": "Relentless Slasher",
+			"group": [
+				"Relentless Killer"
+			],
 			"source": "RHW",
 			"page": 262,
 			"size": [
@@ -7721,6 +7765,9 @@
 				"HPR",
 				"MA"
 			],
+			"conditionInflict": [
+				"invisible"
+			],
 			"savingThrowForced": [
 				"constitution"
 			],
@@ -7866,7 +7913,9 @@
 				"RCH"
 			],
 			"conditionInflict": [
-				"grappled"
+				"deafened",
+				"grappled",
+				"stunned"
 			],
 			"savingThrowForced": [
 				"strength"
@@ -7953,7 +8002,7 @@
 				{
 					"name": "Shield Bash",
 					"entries": [
-						"{@actSave str} {@dc 13}, one creature within 5 feet that the skeleton can see. {@actSaveFail} 10 ({@damage 2d6 + 3}) Bludgeoning damage. If the target is a Medium or smaller creature, it has the {@condition Prone|XPHB} condition"
+						"{@actSave str} {@dc 13}, one creature within 5 feet that the skeleton can see. {@actSaveFail} 10 ({@damage 2d6 + 3}) Bludgeoning damage. If the target is a Medium or smaller creature, it has the {@condition Prone|XPHB} condition."
 					]
 				}
 			],
@@ -8605,6 +8654,7 @@
 			],
 			"conditionInflict": [
 				"blinded",
+				"exhaustion",
 				"poisoned"
 			],
 			"savingThrowForced": [
@@ -8713,6 +8763,9 @@
 		},
 		{
 			"name": "Swarm of Zombie Limbs",
+			"group": [
+				"Zombie"
+			],
 			"source": "RHW",
 			"page": 282,
 			"size": [
@@ -9063,6 +9116,7 @@
 				"MA"
 			],
 			"conditionInflict": [
+				"exhaustion",
 				"grappled",
 				"incapacitated"
 			],
@@ -10053,6 +10107,9 @@
 			"conditionInflict": [
 				"charmed"
 			],
+			"conditionInflictLegendary": [
+				"deafened"
+			],
 			"savingThrowForced": [
 				"charisma",
 				"dexterity"
@@ -10232,6 +10289,9 @@
 		},
 		{
 			"name": "Zombie Clot",
+			"group": [
+				"Zombie"
+			],
 			"source": "RHW",
 			"page": 283,
 			"size": [
@@ -10358,6 +10418,9 @@
 		},
 		{
 			"name": "Zombie Plague Spreader",
+			"group": [
+				"Zombie"
+			],
 			"source": "RHW",
 			"page": 283,
 			"size": [

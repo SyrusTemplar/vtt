@@ -105,7 +105,8 @@
 										"{@b Easy ({@dc 10})}. An easy task requires a minimal level of competence or a modicum of luck to accomplish.",
 										"{@b Moderate ({@dc 15})}. A moderate task requires a slightly higher level of competence to accomplish. A character with a combination of natural aptitude and specialized training can accomplish a moderate task more often than not.",
 										"{@b Hard ({@dc 20})}. Hard tasks include any effort that is beyond the capabilities of most people without aid or exceptional ability."
-									]
+									],
+									"columns": 3
 								},
 								"Even with aptitude and training, a character needs some amount of luck\u2014or a lot of specialized training\u2014to pull off a hard task.",
 								"The outcome of a successful check is usually easy to determine: the character succeeds at whatever he or she set out to accomplish, within reason. It's usually equally easy to figure out what happens when a character fails a check: the character simply doesn't succeed."
@@ -251,6 +252,7 @@
 										"path": "adventure/LMoP/The Sword Coast.webp"
 									},
 									"title": "The Sword Coast",
+									"credit": "Mike Schley",
 									"width": 4950,
 									"height": 6750,
 									"imageType": "map",
@@ -269,6 +271,7 @@
 										"path": "adventure/LMoP/The Sword Coast (Player).webp"
 									},
 									"title": "Player Version",
+									"credit": "Mike Schley",
 									"width": 2648,
 									"height": 3625,
 									"imageType": "mapPlayer",
@@ -395,6 +398,7 @@
 										"path": "adventure/LMoP/Cragmaw Hideout.webp"
 									},
 									"title": "Cragmaw Hideout",
+									"credit": "Mike Schley",
 									"width": 4937,
 									"height": 3439,
 									"imageType": "map",
@@ -863,6 +867,7 @@
 										"path": "adventure/LMoP/Cragmaw Hideout (Player).webp"
 									},
 									"title": "Player Version",
+									"credit": "Mike Schley",
 									"width": 4500,
 									"height": 3136,
 									"imageType": "mapPlayer",
@@ -1408,7 +1413,8 @@
 						"{@b Barthen's Provisions.} If the characters have the wagonload of supplies from the \"Meet Me in Phandalin\" adventure hook, they are meant to deliver it to this shop.",
 						"{@b Lionshield Coster.} If the characters retrieved the stolen goods from the Cragmaw hideout, they might want to return them to the rightful owner.",
 						"{@b Stonehill Inn.} If the characters have {@creature Sildar Hallwinter|LMoP} with them, the knight suggests heading for this inn to find lodgings. If the characters are otherwise looking for a place to eat and sleep, they discover that the Stonehill appears to be the best available option."
-					]
+					],
+					"columns": 3
 				},
 				{
 					"type": "entries",
@@ -1512,10 +1518,11 @@
 									"items": [
 										"{@b Relax.} Don't worry about impressing your players with your thespian skills (or lack thereof).",
 										"{@b Get inside the NPCs' minds.} Imagine how they might react to the characters, and strive to be realistic.",
-										"{@b Mug it up.} Scowl, smile, snarl, flutter your eyelashes, pout, cross your eyes, rub your hands together-what-ever it takes to make your NPCs come to life.",
+										"{@b Mug it up.} Scowl, smile, snarl, flutter your eyelashes, pout, cross your eyes, rub your hands together\u2014whatever it takes to make your NPCs come to life.",
 										"{@b Try different voices.} Borrow distinctive speech patterns from real life, movies, and television. Adjust the volume as appropriate. An NPC can be loud, soft-spoken, or something in between.",
 										"{@b Keep the game moving.} Let the players steer the interactions with the NPCs."
-									]
+									],
+									"columns": 3
 								},
 								"The characters have no reason to fight ordinary townsfolk. Hence, no game statistics are provided for them. If statistics become necessary, use the commoner stat block to represent an adult NPC of any race."
 							]
@@ -1539,6 +1546,7 @@
 										"path": "adventure/LMoP/Phandalin.webp"
 									},
 									"title": "Phandalin",
+									"credit": "Mike Schley",
 									"width": 4950,
 									"height": 3450,
 									"mapRegions": [
@@ -1856,6 +1864,7 @@
 										"path": "adventure/LMoP/Phandalin (Player).webp"
 									},
 									"title": "Player Version",
+									"credit": "Mike Schley",
 									"width": 4000,
 									"height": 2788,
 									"imageType": "mapPlayer",
@@ -2005,7 +2014,7 @@
 							"page": 16,
 							"id": "057",
 							"entries": [
-								"Daran has heard stories from prospectors in the hills northeast of Phandalin that someone is digging around in the ruins known as Old Owl Well. More disturbingly, several prospectors have reported being chased from the area by undead. He asks the characters to visit the ruins, a couple days march northeast of Phandalin, and find out who's there and what they're up to. Daran knows that the ruins are an old watchtower of an ancient magical empire known as Netheril, and he worries that dangerous magic might be dormant there. If the party pursues this quest, see \"Old Owl Well\" (page 29)."
+								"Daran has heard stories from prospectors in the hills northeast of Phandalin that someone is digging around in the ruins known as Old Owl Well. More disturbingly, several prospectors have reported being chased from the area by undead. He asks the characters to visit the ruins, a couple days' march northeast of Phandalin, and find out who's there and what they're up to. Daran knows that the ruins are an old watchtower of an ancient magical empire known as Netheril, and he worries that dangerous magic might be dormant there. If the party pursues this quest, see \"Old Owl Well\" (page 29)."
 							]
 						},
 						{
@@ -2239,7 +2248,7 @@
 									"page": 19,
 									"id": "070",
 									"entries": [
-										"One of the thugs spits on the ground. Well, well,\" he snarls. \"Here's a whole pack of little puppies. What do you want, puppies? Come here to bark at us?\""
+										"One of the thugs spits on the ground. \"Well, well,\" he snarls. \"Here's a whole pack of little puppies. What do you want, puppies? Come here to bark at us?\""
 									]
 								},
 								"If the Redbrands confront the characters in the street, read:",
@@ -2304,6 +2313,7 @@
 										"path": "adventure/LMoP/Redbrand Hideout.webp"
 									},
 									"title": "Redbrand Hideout",
+									"credit": "Mike Schley",
 									"width": 4950,
 									"height": 3450,
 									"imageType": "map",
@@ -2680,6 +2690,7 @@
 										"path": "adventure/LMoP/Redbrand Hideout (Player).webp"
 									},
 									"title": "Player Version",
+									"credit": "Mike Schley",
 									"width": 4500,
 									"height": 3136,
 									"imageType": "mapPlayer",
@@ -2746,7 +2757,7 @@
 								{
 									"type": "list",
 									"items": [
-										"The leader of the Redbrands is a human wizard known as Glasstaff, so named because his magic staff is made of glass.(Only Iarno Albrek and the Black Spider know Glasstaff's real name.) Glasstaff's chambers are in the western end of the stronghold (see areas 11 and 12).",
+										"The leader of the Redbrands is a human wizard known as Glasstaff, so named because his magic staff is made of glass. (Only Iarno Albrek and the Black Spider know Glasstaff's real name.) Glasstaff's chambers are in the western end of the stronghold (see areas 11 and 12).",
 										"A mysterious figure called the Black Spider has hired the Redbrands to frighten off adventurers and intimidate the locals, for reasons unknown. The Black Spider has sent bugbears to reinforce the Redbrands and provide extra muscle (see {@area 9|09e}).",
 										"The lower part of the complex is guarded by a hideous \"eye monster\" (see {@area 8|098}).",
 										"The Redbrands have a handful of captives in a holding area \"near the old crypts,\" which are guarded by skeletons (see areas 4 and 5)."
@@ -3117,7 +3128,7 @@
 							"id": "0a1",
 							"entries": [
 								"The bugbears are the only ones in the Redbrand hideout who know the location of Wave Echo Cave. They won't willingly divulge this information, since they fear the Black Spider more than they fear the characters.",
-								"The bugbears also know the location of Cragmaw Castle. but again, they don't share this information readily. A character who interrogates a captured bugbear can pry the information loose with a successful {@dc 15} Charisma ({@skill Intimidation}) check."
+								"The bugbears also know the location of Cragmaw Castle. But again, they don't share this information readily. A character who interrogates a captured bugbear can pry the information loose with a successful {@dc 15} Charisma ({@skill Intimidation}) check."
 							]
 						},
 						{
@@ -3299,7 +3310,7 @@
 							"page": 26,
 							"id": "0b3",
 							"entries": [
-								"At the foot of Iarno's bed is a sturdy, unlocked wooden chest holding the best pickings of the Redbrands' loot over the last two months. It contains 180 sp, 130 gp, and a silk pouch containing five carnelians (10 gp each), two peridots (15 gp each), and one pearl (100 gp). It also contains two magic items that Iarno brought with him from Neverwinter: a scroll of charm person and a scroll of fireball.",
+								"At the foot of Iarno's bed is a sturdy, unlocked wooden chest holding the best pickings of the Redbrands' loot over the last two months. It contains 180 sp, 130 gp, and a silk pouch containing five carnelians (10 gp each), two peridots (15 gp each), and one {@item pearl} (100 gp). It also contains two magic items that Iarno brought with him from Neverwinter: a scroll of charm person and a scroll of fireball.",
 								"Iarno also wields a {@item staff of defense|LMoP}."
 							]
 						},
@@ -3364,7 +3375,7 @@
 									"page": 27,
 									"id": "0b9",
 									"entries": [
-										"Assume that the party travels twenty-four miles per day over a period of ten hours. The characters must rest for eight hours per day, with the remaining six hours consisting of making and breaking camp, preparing meals, and a little bit, of foraging or hunting as the opportunity permits."
+										"Assume that the party travels twenty-four miles per day over a period of ten hours. The characters must rest for eight hours per day, with the remaining six hours consisting of making and breaking camp, preparing meals, and a little bit of foraging or hunting as the opportunity permits."
 									]
 								},
 								{
@@ -3377,6 +3388,7 @@
 												"path": "adventure/LMoP/The Sword Coast.webp"
 											},
 											"title": "The Sword Coast",
+											"credit": "Mike Schley",
 											"width": 4950,
 											"height": 6750,
 											"imageType": "map",
@@ -3395,6 +3407,7 @@
 												"path": "adventure/LMoP/The Sword Coast (Player).webp"
 											},
 											"title": "Player Version",
+											"credit": "Mike Schley",
 											"width": 2648,
 											"height": 3625,
 											"imageType": "mapPlayer",
@@ -3420,7 +3433,7 @@
 							"page": 27,
 							"id": "0ba",
 							"entries": [
-								"Ask the players to tell you the party's marching order, so that, you know which characters are in the lead and who's bringing up the rear. When the party camps, ask which characters are on watch. This information is important if the party encounters something dangerous.",
+								"Ask the players to tell you the party's marching order, so that you know which characters are in the lead and who's bringing up the rear. When the party camps, ask which characters are on watch. This information is important if the party encounters something dangerous.",
 								"The Triboar Trail is not safe. As the adventurers travel throughout this area, they might stumble across hungry beasts, greedy bandits, or vicious monsters. Check for encounters once during the day and once at night by rolling a {@dice d20}. On a roll of 17-20, an encounter takes place. Roll a {@dice d12} and consult the Wilderness Encounters table to determine what the party meets.",
 								"{@b Wilderness Encounters}",
 								{
@@ -3521,7 +3534,7 @@
 									"name": "Ghouls",
 									"page": 27,
 									"entries": [
-										"These undead humans hunger for living flesh,"
+										"These undead humans hunger for living flesh."
 									],
 									"id": "1aa"
 								},
@@ -3686,7 +3699,7 @@
 							"page": 29,
 							"id": "0cc",
 							"entries": [
-								"Hamun Kost's tent contains a comfortable traveling suite, including a cot, a chair, a writing desk, supplies, and a chest of clothes. In the chest is a leather bag containing 35 sp, 20 ep, 20 gp, 5 pp, one pearl (100 gp), a {@item potion of healing}, a {@item Spell Scroll (2nd level)||scroll of} {@spell darkness} in a bone tube, and a tiny jeweled box (25 gp) containing a {@item ring of protection} from ancient Netheril, the Red Wizard's most interesting discovery so far."
+								"Hamun Kost's tent contains a comfortable traveling suite, including a cot, a chair, a writing desk, supplies, and a chest of clothes. In the chest is a leather bag containing 35 sp, 20 ep, 20 gp, 5 pp, one {@item pearl} (100 gp), a {@item potion of healing}, a {@item Spell Scroll (2nd level)||scroll of} {@spell darkness} in a bone tube, and a tiny jeweled box (25 gp) containing a {@item ring of protection} from ancient Netheril, the Red Wizard's most interesting discovery so far."
 							]
 						},
 						{
@@ -3729,6 +3742,7 @@
 										"path": "adventure/LMoP/Ruins of Thundertree.webp"
 									},
 									"title": "Ruins of Thundertree",
+									"credit": "Mike Schley",
 									"width": 4950,
 									"height": 3450,
 									"imageType": "map",
@@ -4123,6 +4137,7 @@
 										"path": "adventure/LMoP/Ruins of Thundertree (Player).webp"
 									},
 									"title": "Player Version",
+									"credit": "Mike Schley",
 									"width": 4500,
 									"height": 3136,
 									"imageType": "mapPlayer",
@@ -4698,6 +4713,7 @@
 										"path": "adventure/LMoP/Cragmaw Castle.webp"
 									},
 									"title": "Cragmaw Castle",
+									"credit": "Mike Schley",
 									"width": 4950,
 									"height": 3450,
 									"imageType": "map",
@@ -5289,6 +5305,7 @@
 										"path": "adventure/LMoP/Cragmaw Castle (Player).webp"
 									},
 									"title": "Player Version",
+									"credit": "Mike Schley",
 									"width": 4500,
 									"height": 3136,
 									"imageType": "mapPlayer",
@@ -5591,7 +5608,7 @@
 								"This high, narrow hall looks as if it might have been part of a chapel or shrine at one time. Angelic figures are sculpted along the room's upper reaches, looking down on the floor below. To the north, heavy curtains block a matching pair of archways. Between the archways is a cracked but ornately carved stone brazier."
 							]
 						},
-						"This chamber contains a {@creature grick}, the special pet of the goblin Lhupo ({@area 9|12f}). The grick like to climb up to a ledge hidden in the shadows of the statuary in the higher reaches of the room. It quietly observes intruders that enter the area before dropping down to strike. Compare the grick's Dexterity ({@skill Stealth}) check to the characters' Wisdom ({@skill Perception}) checks (or their passive scores) to determine who among them is {@status surprised}. The grick knows that goblins are not to be eaten unless Lhupo says so. The rest of the Cragmaws are terrified of Lhupo's pet and hurry through this room, preferably in twos or threes.",
+						"This chamber contains a {@creature grick}, the special pet of the goblin Lhupo ({@area 9|12f}). The grick likes to climb up to a ledge hidden in the shadows of the statuary in the higher reaches of the room. It quietly observes intruders that enter the area before dropping down to strike. Compare the grick's Dexterity ({@skill Stealth}) check to the characters' Wisdom ({@skill Perception}) checks (or their passive scores) to determine who among them is {@status surprised}. The grick knows that goblins are not to be eaten unless Lhupo says so. The rest of the Cragmaws are terrified of Lhupo's pet and hurry through this room, preferably in twos or threes.",
 						"Any cleric who examines the chapel's decor can attempt a {@dc 10} Intelligence ({@skill Religion}) check to identify the deities that were once revered here: Oghma (god of knowledge), Mystra (goddess of magic), Lathander (god of dawn), and Tymora (goddess of luck). This is an obvious sign that the builders of the castle were human.",
 						{
 							"type": "entries",
@@ -5906,7 +5923,7 @@
 					"page": 42,
 					"id": "14d",
 					"entries": [
-						"In this part of the adventure, XP is awarded for overcoming monsters, as in parts 2 and 3. However, XP awards for monsters is not given in the encounter description. Instead, the amount of XP that a monster is worth is noted in us stat block. You calculate the award by totaling the value for each monster the characters overcome. Additional XP awards, and the reasons for them, are described in the text, under the \"Awarding Experience Points\" heading."
+						"In this part of the adventure, XP is awarded for overcoming monsters, as in parts 2 and 3. However, XP awards for monsters are not given in the encounter description. Instead, the amount of XP that a monster is worth is noted in its stat block. You calculate the award by totaling the value for each monster the characters overcome. Additional XP awards, and the reasons for them, are described in the text, under the \"Awarding Experience Points\" heading."
 					]
 				},
 				{
@@ -5969,6 +5986,7 @@
 										"path": "adventure/LMoP/Wave Echo Cave.webp"
 									},
 									"title": "Wave Echo Cave",
+									"credit": "Mike Schley",
 									"width": 4950,
 									"height": 6750,
 									"imageType": "map",
@@ -7014,6 +7032,7 @@
 										"path": "adventure/LMoP/Wave Echo Cave (Player).webp"
 									},
 									"title": "Player Version",
+									"credit": "Mike Schley",
 									"width": 4500,
 									"height": 6136,
 									"imageType": "mapPlayer",
@@ -7183,7 +7202,7 @@
 								"Many tunnels intersect at this natural, thirty-foot-high cavern. The walls are carved with simple reliefs showing dwarf and gnome miners hard at work. Below them, nearly two dozen skeletons in rusted scraps of armor are scattered across the cavern floor. Some are dwarf skeletons, while others are orc remains. Half a dozen large brass lanterns stand in niches or on ledges around the cavern, but none are lit."
 							]
 						},
-						"Clinging to the ceiling like bats are ten {@creature stirge||stirges}. The monsters find scant living prey in the mines, and they are ravenous. If the characters are looking down at the skeletons on the floor, the stirges are likely get the drop on them. Any character who isn't watching the ceiling is {@status surprised} unless his or her passive Wisdom ({@skill Perception}) score is higher than the stirges' Dexterity ({@skill Stealth}) check total (roll once for all of them). Characters who aren't {@status surprised} hear a flapping noise as the stirges descend to attack.",
+						"Clinging to the ceiling like bats are ten {@creature stirge||stirges}. The monsters find scant living prey in the mines, and they are ravenous. If the characters are looking down at the skeletons on the floor, the stirges are likely to get the drop on them. Any character who isn't watching the ceiling is {@status surprised} unless his or her passive Wisdom ({@skill Perception}) score is higher than the stirges' Dexterity ({@skill Stealth}) check total (roll once for all of them). Characters who aren't {@status surprised} hear a flapping noise as the stirges descend to attack.",
 						"The lanterns and the carvings of miners at work were meant as a welcome to newcomers."
 					]
 				},
@@ -7210,7 +7229,7 @@
 					"page": 44,
 					"id": "162",
 					"entries": [
-						"The mine's assayers worked here, weighing and assessing ore samples and paying the minors for their labor.",
+						"The mine's assayers worked here, weighing and assessing ore samples and paying the miners for their labor.",
 						{
 							"type": "insetReadaloud",
 							"id": "163",
@@ -7368,7 +7387,7 @@
 							"page": 46,
 							"id": "174",
 							"entries": [
-								"The largest bugbear carries a pouch containing 15 cp. 13ep, and a {@item potion of vitality}."
+								"The largest bugbear carries a pouch containing 15 cp, 13 ep, and a {@item potion of vitality}."
 							]
 						}
 					]
@@ -7399,7 +7418,7 @@
 					"page": 47,
 					"id": "177",
 					"entries": [
-						"The structural damage and the skeletal remains in this area are evidence of the destructive spell battle fought here centuries ago when the arcs and their mercenary wizards stormed the mines.",
+						"The structural damage and the skeletal remains in this area are evidence of the destructive spell battle fought here centuries ago when the orcs and their mercenary wizards stormed the mines.",
 						{
 							"type": "insetReadaloud",
 							"id": "178",
@@ -7757,6 +7776,73 @@
 								"{@item Staff of Defense|LMoP}",
 								"{@item Wand of Magic Missiles}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "+1 Armor",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "+1 Weapon",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Boots of Striding and Springing",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Gauntlets of Ogre Power",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Potion of Flying",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Potion of Healing",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Potion of Invisibility",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Potion of Vitality",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Ring of Protection",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Spell Scroll",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Spider Staff",
+							"tag": "item",
+							"source": "LMoP"
+						},
+						{
+							"type": "statblock",
+							"name": "Staff of Defense",
+							"tag": "item",
+							"source": "LMoP"
+						},
+						{
+							"type": "statblock",
+							"name": "Wand of Magic Missiles",
+							"tag": "item"
 						}
 					]
 				}
@@ -7804,6 +7890,736 @@
 						"{@creature Young Green Dragon} ({@creature Venomfang|LMoP})",
 						"{@creature Zombie}"
 					]
+				},
+				{
+					"type": "section",
+					"name": "Ash Zombie",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Ash Zombie",
+							"prop": "monsterFluff",
+							"source": "LMoP",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ash Zombie",
+							"tag": "creature",
+							"source": "LMoP",
+							"style": "narrow"
+						}
+					],
+					"id": "1a5"
+				},
+				{
+					"type": "section",
+					"name": "Bugbear",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Bugbear",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bugbear",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1a6"
+				},
+				{
+					"type": "section",
+					"name": "Commoner",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Commoner",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Commoner",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1a7"
+				},
+				{
+					"type": "section",
+					"name": "Cultist",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Cultist",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cultist",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1a8"
+				},
+				{
+					"type": "section",
+					"name": "Doppelganger",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Doppelganger",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Doppelganger",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1b3"
+				},
+				{
+					"type": "section",
+					"name": "Evil Mage",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Evil Mage",
+							"prop": "monsterFluff",
+							"source": "LMoP",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Evil Mage",
+							"tag": "creature",
+							"source": "LMoP",
+							"style": "narrow"
+						}
+					],
+					"id": "1b4"
+				},
+				{
+					"type": "section",
+					"name": "Flameskull",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Flameskull",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flameskull",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1b5"
+				},
+				{
+					"type": "section",
+					"name": "Ghoul",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Ghoul",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ghoul",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1b6"
+				},
+				{
+					"type": "section",
+					"name": "Giant Spider",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Giant Spider",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Giant Spider",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1b7"
+				},
+				{
+					"type": "section",
+					"name": "Goblin",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Goblin",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Goblin",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1b8"
+				},
+				{
+					"type": "section",
+					"name": "Grick",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Grick",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Grick",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1b9"
+				},
+				{
+					"type": "section",
+					"name": "Gundren Rockseeker",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Gundren Rockseeker",
+							"tag": "creature",
+							"source": "LMoP",
+							"style": "narrow"
+						}
+					],
+					"id": "1ba"
+				},
+				{
+					"type": "section",
+					"name": "Hobgoblin",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Hobgoblin",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Hobgoblin",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1bb"
+				},
+				{
+					"type": "section",
+					"name": "Mormesk the Wraith",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Mormesk the Wraith",
+							"prop": "monsterFluff",
+							"source": "LMoP",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mormesk the Wraith",
+							"tag": "creature",
+							"source": "LMoP",
+							"style": "narrow"
+						}
+					],
+					"id": "1bc"
+				},
+				{
+					"type": "section",
+					"name": "Nezznar the Black Spider",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Nezznar the Black Spider",
+							"prop": "monsterFluff",
+							"source": "LMoP",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Nezznar the Black Spider",
+							"tag": "creature",
+							"source": "LMoP",
+							"style": "narrow"
+						}
+					],
+					"id": "1bd"
+				},
+				{
+					"type": "section",
+					"name": "Nothic",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Nothic",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Nothic",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1be"
+				},
+				{
+					"type": "section",
+					"name": "Nundro Rockseeker",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Nundro Rockseeker",
+							"tag": "creature",
+							"source": "LMoP",
+							"style": "narrow"
+						}
+					],
+					"id": "1bf"
+				},
+				{
+					"type": "section",
+					"name": "Ochre Jelly",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Ochre Jelly",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ochre Jelly",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1c0"
+				},
+				{
+					"type": "section",
+					"name": "Ogre",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Ogre",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ogre",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1c1"
+				},
+				{
+					"type": "section",
+					"name": "Orc",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Orc",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Orc",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1c2"
+				},
+				{
+					"type": "section",
+					"name": "Owlbear",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Owlbear",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Owlbear",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1c3"
+				},
+				{
+					"type": "section",
+					"name": "Redbrand Ruffian",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Redbrand Ruffian",
+							"prop": "monsterFluff",
+							"source": "LMoP",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Redbrand Ruffian",
+							"tag": "creature",
+							"source": "LMoP",
+							"style": "narrow"
+						}
+					],
+					"id": "1c4"
+				},
+				{
+					"type": "section",
+					"name": "Sildar Hallwinter",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Sildar Hallwinter",
+							"prop": "monsterFluff",
+							"source": "LMoP",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Sildar Hallwinter",
+							"tag": "creature",
+							"source": "LMoP",
+							"style": "narrow"
+						}
+					],
+					"id": "1c5"
+				},
+				{
+					"type": "section",
+					"name": "Skeleton",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Skeleton",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Skeleton",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1c6"
+				},
+				{
+					"type": "section",
+					"name": "Spectator",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Spectator",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Spectator",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1c7"
+				},
+				{
+					"type": "section",
+					"name": "Stirge",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Stirge",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Stirge",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1c8"
+				},
+				{
+					"type": "section",
+					"name": "Twig Blight",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Twig Blight",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Twig Blight",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1c9"
+				},
+				{
+					"type": "section",
+					"name": "Wolf",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Wolf",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1ca"
+				},
+				{
+					"type": "section",
+					"name": "Young Green Dragon",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Young Green Dragon",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Young Green Dragon",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1cb"
+				},
+				{
+					"type": "section",
+					"name": "Venomfang",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Venomfang",
+							"tag": "creature",
+							"source": "LMoP",
+							"style": "narrow"
+						}
+					],
+					"id": "1cc"
+				},
+				{
+					"type": "section",
+					"name": "Zombie",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Zombie",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Zombie",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "1cd"
 				}
 			]
 		},

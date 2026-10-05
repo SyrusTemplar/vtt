@@ -528,7 +528,7 @@
 					"name": "Spellcasting",
 					"type": "spellcasting",
 					"headerEntries": [
-						"The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 12}, {@hit 4} to hit with spell attacks). The acolyte has following cleric spells prepared:"
+						"The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save {@dc 12}, {@hit 4} to hit with spell attacks). The acolyte has the following cleric spells prepared:"
 					],
 					"spells": {
 						"0": {
@@ -14985,7 +14985,7 @@
 				{
 					"name": "Drone",
 					"entries": [
-						"The chasme produces a horrid droning sound to which demons are immune. Any other creature that starts its turn with in 30 feet of the chasme must succeed on a {@dc 12} Constitution saving throw or fall {@condition unconscious} for 10 minutes. A creature that can't hear the drone automatically succeeds on the save. The effect on the creature ends if it takes damage or if another creature takes an action to splash it with {@item Holy Water (Flask)|PHB|holy water}. If a creature's saving throw is successful or the effect ends for it, it is immune to the drone for the next 24 hours."
+						"The chasme produces a horrid droning sound to which demons are immune. Any other creature that starts its turn within 30 feet of the chasme must succeed on a {@dc 12} Constitution saving throw or fall {@condition unconscious} for 10 minutes. A creature that can't hear the drone automatically succeeds on the save. The effect on the creature ends if it takes damage or if another creature takes an action to splash it with {@item Holy Water (Flask)|PHB|holy water}. If a creature's saving throw is successful or the effect ends for it, it is immune to the drone for the next 24 hours."
 					]
 				},
 				{
@@ -15569,7 +15569,7 @@
 				{
 					"name": "Damage Transfer",
 					"entries": [
-						"While attached to a creature, the cloaker takes only half the damage dealt to it (rounded down). and that creature takes the other half."
+						"While attached to a creature, the cloaker takes only half the damage dealt to it (rounded down), and that creature takes the other half."
 					]
 				},
 				{
@@ -18882,7 +18882,7 @@
 				{
 					"name": "Energy Drain (Costs 2 Actions)",
 					"entries": [
-						"Each creature with in 30 feet of the demilich must make a {@dc 15} Constitution saving throw. On a failed save, the creature's hit point maximum is magically reduced by 10 ({@dice 3d6}). If a creature's hit point maximum is reduced to 0 by this effect, the creature dies. A creature's hit point maximum can be restored with the {@spell greater restoration} spell or similar magic."
+						"Each creature within 30 feet of the demilich must make a {@dc 15} Constitution saving throw. On a failed save, the creature's hit point maximum is magically reduced by 10 ({@dice 3d6}). If a creature's hit point maximum is reduced to 0 by this effect, the creature dies. A creature's hit point maximum can be restored with the {@spell greater restoration} spell or similar magic."
 					]
 				},
 				{
@@ -20417,7 +20417,8 @@
 				"WDMM"
 			],
 			"reprintedAs": [
-				"Priest Acolyte|XMM"
+				"Priest Acolyte|XMM",
+				"Drow of Lolth|FRAiF"
 			],
 			"size": [
 				"M"
@@ -20635,7 +20636,8 @@
 				"WDMM"
 			],
 			"reprintedAs": [
-				"Gladiator|XMM"
+				"Gladiator|XMM",
+				"Drow Elite Warrior of Lolth|FRAiF"
 			],
 			"size": [
 				"M"
@@ -20884,7 +20886,8 @@
 				"WDMM"
 			],
 			"reprintedAs": [
-				"Bandit Deceiver|XMM"
+				"Bandit Deceiver|XMM",
+				"Drow Mage of Lolth|FRAiF"
 			],
 			"size": [
 				"M"
@@ -21105,7 +21108,8 @@
 				"WDMM"
 			],
 			"reprintedAs": [
-				"Fiend Cultist|XMM"
+				"Fiend Cultist|XMM",
+				"Drow Priestess of Lolth|FRAiF"
 			],
 			"size": [
 				"M"
@@ -35427,7 +35431,7 @@
 			],
 			"type": "construct",
 			"alignment": [
-				"U"
+				"N"
 			],
 			"ac": [
 				{
@@ -45048,7 +45052,7 @@
 							"type": "entries",
 							"name": "Infestation Spores (1/Day)",
 							"entries": [
-								"The myconid releases spores that burst out in a cloud that fills a 10-foot-radius sphere centered on it, and the cloud lingers for 1 minute. Any flesh-and-blood creature in the cloud when it appears, or that enters it later, must make a {@dc 11} Constitution saving throw. The save DC is 8 + the myconid's Constitution modifier + the myconid's proficiency bonus. On a successful save, the creature can't be infected by these spores for 24 hours. On a failed save, the creature is infected with a disease called the spores of Zuggtmoy) and also gains a random form of indefinite madness (determined by rolling on the Madness of {@creature Zuggtmoy|MTF} table) that lasts until the creature is cured of the disease or dies. While infected in this way, the creature can't be reinfected, and it must repeat the saving throw at the end of every 24 hours, ending the infection on a success. On a failure, the infected creature's body is slowly taken over by fungal growth, and after three such failed saves, the creature dies and is reanimated as a spore servant if it's a humanoid or a Large or smaller beast."
+								"The myconid releases spores that burst out in a cloud that fills a 10-foot-radius sphere centered on it, and the cloud lingers for 1 minute. Any flesh-and-blood creature in the cloud when it appears, or that enters it later, must make a {@dc 11} Constitution saving throw. The save DC is 8 + the myconid's Constitution modifier + the myconid's proficiency bonus. On a successful save, the creature can't be infected by these spores for 24 hours. On a failed save, the creature is infected with a disease called the spores of Zuggtmoy and also gains a random form of indefinite madness (determined by rolling on the Madness of {@creature Zuggtmoy|MTF} table) that lasts until the creature is cured of the disease or dies. While infected in this way, the creature can't be reinfected, and it must repeat the saving throw at the end of every 24 hours, ending the infection on a success. On a failure, the infected creature's body is slowly taken over by fungal growth, and after three such failed saves, the creature dies and is reanimated as a spore servant if it's a humanoid or a Large or smaller beast."
 							]
 						},
 						{
@@ -45219,7 +45223,7 @@
 							"type": "entries",
 							"name": "Infestation Spores (1/Day)",
 							"entries": [
-								"The myconid releases spores that burst out in a cloud that fills a 10-foot-radius sphere centered on it, and the cloud lingers for 1 minute. Any flesh-and-blood creature in the cloud when it appears, or that enters it later, must make a {@dc 12} Constitution saving throw. The save DC is 8 + the myconid's Constitution modifier + the myconid's proficiency bonus. On a successful save, the creature can't be infected by these spores for 24 hours. On a failed save, the creature is infected with a disease called the spores of Zuggtmoy) and also gains a random form of indefinite madness (determined by rolling on the Madness of {@creature Zuggtmoy|MTF} table) that lasts until the creature is cured of the disease or dies. While infected in this way, the creature can't be reinfected, and it must repeat the saving throw at the end of every 24 hours, ending the infection on a success. On a failure, the infected creature's body is slowly taken over by fungal growth, and after three such failed saves, the creature dies and is reanimated as a spore servant if it's a humanoid or a Large or smaller beast."
+								"The myconid releases spores that burst out in a cloud that fills a 10-foot-radius sphere centered on it, and the cloud lingers for 1 minute. Any flesh-and-blood creature in the cloud when it appears, or that enters it later, must make a {@dc 12} Constitution saving throw. The save DC is 8 + the myconid's Constitution modifier + the myconid's proficiency bonus. On a successful save, the creature can't be infected by these spores for 24 hours. On a failed save, the creature is infected with a disease called the spores of Zuggtmoy and also gains a random form of indefinite madness (determined by rolling on the Madness of {@creature Zuggtmoy|MTF} table) that lasts until the creature is cured of the disease or dies. While infected in this way, the creature can't be reinfected, and it must repeat the saving throw at the end of every 24 hours, ending the infection on a success. On a failure, the infected creature's body is slowly taken over by fungal growth, and after three such failed saves, the creature dies and is reanimated as a spore servant if it's a humanoid or a Large or smaller beast."
 							]
 						},
 						{
@@ -47700,7 +47704,7 @@
 				{
 					"name": "Battle Cry (1/Day)",
 					"entries": [
-						"Each creature of the war chief's choice that is within 30 feet of it, can hear it, and not already affected by Battle Cry gain advantage on attack rolls until the start of the war chief's next turn. The war chief can then make one attack as a bonus action."
+						"Each creature of the war chief's choice that is within 30 feet of it, can hear it, and not already affected by Battle Cry gains advantage on attack rolls until the start of the war chief's next turn. The war chief can then make one attack as a bonus action."
 					]
 				}
 			],
@@ -53921,7 +53925,7 @@
 							"type": "entries",
 							"name": "Panpipes",
 							"entries": [
-								"The satyr plays its pipes and chooses one of the following magical effects: a charming melody, a frightening strain, or a gentle lullaby. Any creature within 60 feet of the satyr that can hear the pipes must succeed on a {@dc 13} Wisdom saving throw or be affected as described below. Other satyrs and creature that can't be {@condition charmed} are unaffected",
+								"The satyr plays its pipes and chooses one of the following magical effects: a charming melody, a frightening strain, or a gentle lullaby. Any creature within 60 feet of the satyr that can hear the pipes must succeed on a {@dc 13} Wisdom saving throw or be affected as described below. Other satyrs and creatures that can't be {@condition charmed} are unaffected.",
 								"An affected creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to these panpipes for the next 24 hours.",
 								{
 									"type": "variantSub",

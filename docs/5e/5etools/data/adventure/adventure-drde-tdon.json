@@ -210,13 +210,13 @@
 					"entries": [
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@adventure Death at Sunset (Level 1)|DrDe-DaS|1}",
 								"{@adventure Baker's Doesn't (Level 3)|DrDe-BD|1}",
 								"{@adventure The Will of Orcus (Level 4)|DrDe-TWoO|1}",
 								"{@adventure For Whom the Void Calls (Level 5)|DrDe-FWtVC|1}",
-								"{@adventure The Dragon of Najkir (Level 7)|DrDe-TDoN|1}",
+								"{@area The Dragon of Najkir (Level 7)|182|x}",
 								"{@adventure The Forbidden Vale (Level 9)|DrDe-TFV|1}",
 								"{@adventure Before the Storm (Level 10)|DrDe-BtS|1}",
 								"{@adventure Shivering Death (Level 11)|DrDe-SD|1}",
@@ -319,7 +319,7 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Assassin|XMM}",
 								"{@creature Young Bronze Dragon|XMM|Bronze Dragon, Young}",
@@ -331,6 +331,168 @@
 								"{@creature Priest|XMM}",
 								"{@creature Scout|XMM}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Assassin",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Assassin",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Young Bronze Dragon",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Young Bronze Dragon",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Commoner",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Commoner",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Doppelganger",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Doppelganger",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Goat",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Goat",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Noble",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Noble",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Oni",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Oni",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Priest",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Priest",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Scout",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Scout",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
 						},
 						{
 							"type": "table",
@@ -422,7 +584,7 @@
 						"You can run this adventure for a single character of level 7. Ideally, that character should have proficiency in at least two of the following skills:",
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@skill Acrobatics|XPHB}",
 								"{@skill Athletics|XPHB}",
@@ -2302,7 +2464,7 @@
 							"page": 87,
 							"id": "1a4",
 							"entries": [
-								"The following locations are keyed to {@adventure Map: Monastery Upper Level|DrDe-TDoN|1|Map: Monastery Upper Level}.",
+								"The following locations are keyed to {@area Map: Monastery Upper Level|411|x}.",
 								{
 									"type": "entries",
 									"name": "M1: Cliffside Walkway",
@@ -2821,7 +2983,7 @@
 											"page": 93,
 											"id": "1da",
 											"entries": [
-												"Any character who looks for secret doors and takes a {@action Search|XPHB} action can make a {@dc 15} Wisdom ({@skill Perception|XPHB}) check. On a success, the character finds a secret door in the north wall, which is locked. If the characters place three lit torches in the statues' sconces, the secret door unlocks. The door silently locks again if one or more of the torches go out or are removed from their sconces. A {@spell Knock|XPHB} spell also unlocks the secret door. It otherwise can't be opened.",
+												"Any character who looks for secret doors and takes a {@action Search|XPHB} action can make a {@dc 15} Wisdom ({@skill Perception|XPHB}) check. On a success, the character finds a secret door in the north wall, which is locked. If the characters place three lit {@item Torch|XPHB|torches} in the statues' sconces, the secret door unlocks. The door silently locks again if one or more of the {@item Torch|XPHB|torches} go out or are removed from their sconces. A {@spell Knock|XPHB} spell also unlocks the secret door. It otherwise can't be opened.",
 												"Pushing on the door when it's unlocked causes it to swing open into the maze vault (area {@area M22|1db|x})."
 											]
 										}
@@ -2871,7 +3033,7 @@
 											"page": 93,
 											"id": "1df",
 											"entries": [
-												"The maze contains five identical, magical traps, each marked with a T on {@adventure Map: Monastery Upper Level|DrDe-TDoN|1|Map: Monastery Upper Level}. A character who carries Hierarch Anish's {@item Staff of the Python|XDMG} or who has touched an urn in the crypt (see area {@area M18|1d0|x}) can pass through these areas safely. Otherwise, whenever a creature enters one of these 5-foot-square areas, the creature makes a {@dc 15} Constitution saving throw, taking 10 ({@dice 3d6}) Lightning damage on a failed save or half as much damage on a successful one."
+												"The maze contains five identical, magical traps, each marked with a T on {@area Map: Monastery Upper Level|411|x}. A character who carries Hierarch Anish's {@item Staff of the Python|XDMG} or who has touched an urn in the crypt (see area {@area M18|1d0|x}) can pass through these areas safely. Otherwise, whenever a creature enters one of these 5-foot-square areas, the creature makes a {@dc 15} Constitution saving throw, taking 10 ({@dice 3d6}) Lightning damage on a failed save or half as much damage on a successful one."
 											]
 										}
 									]
@@ -2884,7 +3046,7 @@
 							"page": 93,
 							"id": "1e0",
 							"entries": [
-								"The following locations are keyed to {@adventure Map: Monastery Lower Level|DrDe-TDoN|1|Map 5.2.monastery: lower level DM}.",
+								"The following locations are keyed to {@area Map: Monastery Lower Level|412|x}.",
 								{
 									"type": "gallery",
 									"images": [
@@ -4196,7 +4358,7 @@
 											"page": 94,
 											"id": "1ea",
 											"entries": [
-												"The first satchel in the chest of drawers contains 60 PP. The second satchel contains four pearls worth 100 GP each. The third satchel is empty but used to contain a bejeweled necklace that Ronnom gave to Skalanthas as a gift (see area {@area M38|1ff|x})."
+												"The first satchel in the chest of drawers contains 60 PP. The second satchel contains four {@item Pearl|XDMG|pearls} worth 100 GP each. The third satchel is empty but used to contain a bejeweled necklace that Ronnom gave to Skalanthas as a gift (see area {@area M38|1ff|x})."
 											]
 										}
 									]

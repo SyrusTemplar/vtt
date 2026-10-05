@@ -15,7 +15,7 @@
 					"height": 1057,
 					"credit": "Andrey Kuzinskiy"
 				},
-				"Decades ago, a powerful wizard from a distant plane of existence came to the Sword Coast as an explorer. Here she adventured as an explorer, toiled in study, and eventually departed with her young son, back to their home plane of Ravnica. She was called Sylvene, and she left behind memories of beloved allies she met and befriended in the lands of the Sword Coast. Many of those memories were celebrated and commemorated with the construction of a grand crypt in a verdant land\u2014where she hid valuable treasures. Now, those treasures attract not only adventures but the attention of her grandson, Tyreus, whose greed for power knows no bounds.",
+				"Decades ago, a powerful wizard from a distant plane of existence came to the Sword Coast as an explorer. Here she adventured as an explorer, toiled in study, and eventually departed with her young son, back to their home plane of Ravnica. She was called Sylvene, and she left behind memories of beloved allies she met and befriended in the lands of the Sword Coast. Many of those memories were celebrated and commemorated with the construction of a grand crypt in a verdant land\u2014where she hid valuable treasures. Now, those treasures attract not only adventurers but the attention of her grandson, Tyreus, whose greed for power knows no bounds.",
 				"This short Dungeons & Dragons® adventure is written to suit four to six characters of 9th level. With this text and the core D&D manuals, you have everything you need to play.",
 				{
 					"type": "section",
@@ -74,7 +74,7 @@
 					"page": 3,
 					"entries": [
 						"The adventure is set in motion when the adventurers learn where they can find the tomb of Sylvene and Waltarn and why it is important to get inside. The adventure truly begins when they arrive at the tomb's riverside sepulcher. Getting inside and exploring the site makes up the heart of the scenario, during which the adventurers face several monsters and traps. Their venture likely culminates in a meeting with Tyreus himself\u2014or what seems to be him. Tyreus has prepared much of the crypt as a trap to thin the ranks of adventurers who might oppose him, lording over the tomb through an illusory manifestation. In the end, the adventurers likely learn what Tyreus has stolen from the tomb\u2014powerful fragments of an artifact called the Stone of Creation\u2014and get a sense of his heartless plans for the future.",
-						"How the scenario ends is up the adventurers, but they may well escape with their own piece of the Stone, called a chip of creation."
+						"How the scenario ends is up to the adventurers, but they may well escape with their own piece of the Stone, called a chip of creation."
 					],
 					"id": "006"
 				},
@@ -505,7 +505,7 @@
 						{
 							"type": "insetReadaloud",
 							"entries": [
-								"A stone arch leans in the tall grass here where the slab it on which it once stood has been overwhelmed. The arch frames a small altar and shelf built into a waist-high alcove in the front of the sepulcher. The top of the altar is a stone bowl for offerings, flanked by two stone settings meant to hold candles or oil for burning."
+								"A stone arch leans in the tall grass here where the slab on which it once stood has been overwhelmed. The arch frames a small altar and shelf built into a waist-high alcove in the front of the sepulcher. The top of the altar is a stone bowl for offerings, flanked by two stone settings meant to hold candles or oil for burning."
 							],
 							"id": "011"
 						},
@@ -910,11 +910,23 @@
 				"Tyreus uses the {@spell linked glyphs|AitFR-AVT} spell to trap Sylvene's tomb against interlopers like the adventurers. If this spell becomes known to others, it can appear on the bard, cleric, wizard, and artificer spell lists. The spell mighty fortress first appeared in Xanathar's Guide to Everything, and is included here for reference.",
 				{
 					"type": "list",
-					"columns": 2,
+					"columns": 3,
 					"items": [
 						"{@spell Linked Glyphs|AitFR-AVT}",
 						"{@spell Mighty Fortress|xge}"
 					]
+				},
+				{
+					"type": "statblock",
+					"name": "Linked Glyphs",
+					"tag": "spell",
+					"source": "AitFR-AVT"
+				},
+				{
+					"type": "statblock",
+					"name": "Mighty Fortress",
+					"tag": "spell",
+					"source": "xge"
 				}
 			],
 			"id": "03b"
@@ -933,6 +945,24 @@
 						"{@item Chip of Creation|AitFR-AVT}",
 						"{@item Keystone of Creation|AitFR-AVT}"
 					]
+				},
+				{
+					"type": "statblock",
+					"name": "Stone of Creation",
+					"tag": "item",
+					"source": "AitFR-AVT"
+				},
+				{
+					"type": "statblock",
+					"name": "Chip of Creation",
+					"tag": "item",
+					"source": "AitFR-AVT"
+				},
+				{
+					"type": "statblock",
+					"name": "Keystone of Creation",
+					"tag": "item",
+					"source": "AitFR-AVT"
 				}
 			],
 			"id": "03c"

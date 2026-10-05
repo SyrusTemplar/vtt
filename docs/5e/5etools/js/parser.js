@@ -242,6 +242,11 @@ Parser._greatestCommonDivisor = function (a, b) {
 	return Parser._greatestCommonDivisor(b, Math.floor(a % b));
 };
 Parser.numberToFractional = function (number) {
+	const isMinus = number < 0;
+	number = Math.abs(Number(number.toFixed(6)));
+
+	if (!number) return `${number}`;
+
 	const len = number.toString().length - 2;
 	let denominator = 10 ** len;
 	let numerator = number * denominator;
@@ -249,7 +254,7 @@ Parser.numberToFractional = function (number) {
 	numerator = Math.floor(numerator / divisor);
 	denominator = Math.floor(denominator / divisor);
 
-	return denominator === 1 ? String(numerator) : `${Math.floor(numerator)}/${Math.floor(denominator)}`;
+	return `${isMinus ? "-" : ""}${denominator === 1 ? String(numerator) : `${Math.floor(numerator)}/${Math.floor(denominator)}`}`;
 };
 
 Parser.isNumberNearEqual = function (a, b) {
@@ -1792,6 +1797,7 @@ Parser.SP_MISC_TAG_TO_FULL = {
 	"RO": "Rollable Effects",
 	"LGTS": "Creates Sunlight",
 	"LGT": "Creates Light",
+	"UA": "Uses Action",
 	"UBA": "Uses Bonus Action",
 	"PS": "Plane Shifting",
 	"OBS": "Obscures Vision",
@@ -1800,6 +1806,7 @@ Parser.SP_MISC_TAG_TO_FULL = {
 	"OBJ": "Affects Objects",
 	"ADV": "Grants Advantage",
 	"PIR": "Permanent If Repeated",
+	"BO": "Burns Objects",
 };
 Parser.spMiscTagToFull = function (type) {
 	return Parser._parse_aToB(Parser.SP_MISC_TAG_TO_FULL, type);
@@ -1928,28 +1935,33 @@ Parser._getFullImmRes_isSimpleTerm = val => {
 	return prop == null;
 };
 
-Parser._getFullImmRes_getNextProp = obj => obj.immune ? "immune" : obj.resist ? "resist" : obj.vulnerable ? "vulnerable" : null;
+Parser._getFullImmRes_getNextProp = obj => ["immune", "resist", "vulnerable", "conditionImmune"].find(prop => prop in obj) || null;
 
-Parser._getFullImmRes_getRenderedString = (str, {isPlainText = false, isTitleCase = false} = {}) => {
+Parser._getFullImmRes_getRenderedString = (str, {isPlainText = false, isEntry = false, isTitleCase = false, fnGetModString} = {}) => {
 	if (isTitleCase) str = str.toTitleCase();
-	return isPlainText ? Renderer.stripTags(`${str}`) : Renderer.get().render(`${str}`);
+	if (isPlainText) return Renderer.stripTags(`${str}`);
+	if (fnGetModString) str = fnGetModString(str);
+	if (isEntry) return str;
+	return Renderer.get().render(`${str}`);
 };
 
-Parser._getFullImmRes_getRenderedObject = (obj, {isPlainText = false, isTitleCase = false} = {}) => {
+Parser._getFullImmRes_getRenderedObject = (obj, {isPlainText = false, isEntry = false, isTitleCase = false, mode} = {}) => {
 	const stack = [];
 
 	if (obj.preNote) stack.push(Parser._getFullImmRes_getRenderedString(obj.preNote, {isPlainText}));
 
 	const prop = Parser._getFullImmRes_getNextProp(obj);
-	if (prop) stack.push(Parser._getFullImmRes_getRenderedArray(obj[prop], {isPlainText, isTitleCase, isGroup: true}));
+	if (prop) stack.push(Parser._getFullImmRes_getRenderedArray(obj[prop], {isPlainText, isEntry, isTitleCase, isGroup: true, mode}));
 
 	if (obj.note) stack.push(Parser._getFullImmRes_getRenderedString(obj.note, {isPlainText}));
 
 	return stack.join(" ");
 };
 
-Parser._getFullImmRes_getRenderedArray = (values, {isPlainText = false, isTitleCase = false, isGroup = false} = {}) => {
-	if (values.length === Parser.DMG_TYPES.length && CollectionUtil.deepEquals(Parser.DMG_TYPES, values)) {
+Parser._getFullImmRes_getRenderedArray = (values, {isPlainText = false, isEntry = false, isTitleCase = false, isGroup = false, mode} = {}) => {
+	if (isPlainText && isEntry) throw new Error(`Options "isPlainText" and "isEntry" are mutually exclusive!`);
+
+	if (mode === "damageType" && values.length === Parser.DMG_TYPES.length && CollectionUtil.deepEquals(Parser.DMG_TYPES, values)) {
 		return "all damage"[isTitleCase ? "toTitleCase" : "toString"]();
 	}
 
@@ -1960,8 +1972,8 @@ Parser._getFullImmRes_getRenderedArray = (values, {isPlainText = false, isTitleC
 			const rendCur = isSimpleCur
 				? val.special
 					? Parser._getFullImmRes_getRenderedString(val.special, {isPlainText, isTitleCase: false})
-					: Parser._getFullImmRes_getRenderedString(val, {isPlainText, isTitleCase})
-				: Parser._getFullImmRes_getRenderedObject(val, {isPlainText, isTitleCase});
+					: Parser._getFullImmRes_getRenderedString(val, {isPlainText, isEntry, isTitleCase, fnGetModString: mode === "condition" ? str => `{@condition ${str}}` : null})
+				: Parser._getFullImmRes_getRenderedObject(val, {isPlainText, isEntry, isTitleCase, mode});
 
 			if (i === arr.length - 1) return rendCur;
 
@@ -1977,32 +1989,17 @@ Parser._getFullImmRes_getRenderedArray = (values, {isPlainText = false, isTitleC
 
 Parser.getFullImmRes = function (values, {isPlainText = false, isTitleCase = false} = {}) {
 	if (!values?.length) return "";
-	return Parser._getFullImmRes_getRenderedArray(values, {isPlainText, isTitleCase});
+	return Parser._getFullImmRes_getRenderedArray(values, {isPlainText, isTitleCase, mode: "damageType"});
+};
+
+Parser.getFullCondImm = function (values, {isPlainText = false, isEntry = false, isTitleCase = false} = {}) {
+	if (isPlainText && isEntry) throw new Error(`Options "isPlainText" and "isEntry" are mutually exclusive!`);
+
+	if (!values?.length) return "";
+	return Parser._getFullImmRes_getRenderedArray(values, {isPlainText, isTitleCase, isEntry, mode: "condition"});
 };
 
 /* -------------------------------------------- */
-
-Parser.getFullCondImm = function (condImm, {isPlainText = false, isEntry = false, isTitleCase = false} = {}) {
-	if (isPlainText && isEntry) throw new Error(`Options "isPlainText" and "isEntry" are mutually exclusive!`);
-
-	if (!condImm?.length) return "";
-
-	const render = condition => {
-		if (isTitleCase) condition = condition.toTitleCase();
-		if (isPlainText) return condition;
-		const ent = `{@condition ${condition}}`;
-		if (isEntry) return ent;
-		return Renderer.get().render(ent);
-	};
-
-	return condImm
-		.map(it => {
-			if (it.special) return Renderer.get().render(it.special);
-			if (it.conditionImmune) return `${it.preNote ? `${it.preNote} ` : ""}${it.conditionImmune.map(render).join(", ")}${it.note ? ` ${it.note}` : ""}`;
-			return render(it);
-		})
-		.sort(SortUtil.ascSortLower).join(", ");
-};
 
 Parser.MON_SENSE_TAG_TO_FULL = {
 	"B": "blindsight",
@@ -2279,15 +2276,6 @@ Parser.psiTypeAbvToStylePart = function (type) { // For prerelease/homebrew
 
 Parser.psiOrderToFull = (order) => {
 	return order === undefined ? Parser.PSI_ORDER_NONE : order;
-};
-
-Parser.prereqSpellToFull = function (spell, {isTextOnly = false} = {}) {
-	if (spell) {
-		const [text, suffix] = spell.split("#");
-		if (!suffix) return isTextOnly ? spell : Renderer.get().render(`{@spell ${spell}}`);
-		else if (suffix === "c") return (isTextOnly ? Renderer.stripTags : Renderer.get().render.bind(Renderer.get()))(`{@spell ${text}} cantrip`);
-		else if (suffix === "x") return (isTextOnly ? Renderer.stripTags : Renderer.get().render.bind(Renderer.get()))("{@spell hex} spell or a warlock feature that curses");
-	} else return VeCt.STR_NONE;
 };
 
 Parser.prereqPactToFull = function (pact) {
@@ -3134,6 +3122,13 @@ Parser.VEHICLE_TYPE_TO_FULL = {
 	"INFWAR": "Infernal War Machine",
 	"CREATURE": "Creature",
 	"OBJECT": "Object",
+};
+
+Parser.vehicleTypeToFull = function (vehicleType) {
+	return Parser._parse_aToB(Parser.VEHICLE_TYPE_TO_FULL, vehicleType);
+};
+
+Parser.VEHICLE_UPGRADE_TYPE_TO_FULL = {
 	"SHP:H": "Ship Upgrade, Hull",
 	"SHP:M": "Ship Upgrade, Movement",
 	"SHP:W": "Ship Upgrade, Weapon",
@@ -3144,8 +3139,11 @@ Parser.VEHICLE_TYPE_TO_FULL = {
 	"IWM:G": "Infernal War Machine Upgrade, Gadget",
 };
 
-Parser.vehicleTypeToFull = function (vehicleType) {
-	return Parser._parse_aToB(Parser.VEHICLE_TYPE_TO_FULL, vehicleType);
+Parser.vehicleUpgradeTypeToFull = function (type) {
+	if (Parser.VEHICLE_UPGRADE_TYPE_TO_FULL[type]) return Parser.VEHICLE_UPGRADE_TYPE_TO_FULL[type];
+	if (PrereleaseUtil.getMetaLookup("vehicleUpgradeTypes")?.[type]) return PrereleaseUtil.getMetaLookup("vehicleUpgradeTypes")[type];
+	if (BrewUtil2.getMetaLookup("vehicleUpgradeTypes")?.[type]) return BrewUtil2.getMetaLookup("vehicleUpgradeTypes")[type];
+	return type;
 };
 
 Parser.CROCHET_PATTERN_SKILL_LEVEL_TO_FULL = {
@@ -3317,6 +3315,8 @@ Parser.SRC_LFL = "LFL";
 Parser.SRC_EFA = "EFA";
 Parser.SRC_FFotR = "FFotR";
 Parser.SRC_RHW = "RHW";
+Parser.SRC_AU = "AU";
+Parser.SRC_AUD = "AUD";
 
 Parser.SRC_TD = "TD";
 Parser.SRC_SCREEN = "Screen";
@@ -3324,6 +3324,7 @@ Parser.SRC_SCREEN_WILDERNESS_KIT = "ScreenWildernessKit";
 Parser.SRC_SCREEN_DUNGEON_KIT = "ScreenDungeonKit";
 Parser.SRC_SCREEN_SPELLJAMMER = "ScreenSpelljammer";
 Parser.SRC_XSCREEN = "XScreen";
+Parser.SRC_XSCREEN_RHW = "XScreenRHW";
 Parser.SRC_HF = "HF";
 Parser.SRC_HFFotM = "HFFotM";
 Parser.SRC_HFStCM = "HFStCM";
@@ -3522,12 +3523,15 @@ Parser.SOURCE_JSON_TO_FULL[Parser.SRC_LFL] = "Lorwyn: First Light";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_EFA] = "Eberron: Forge of the Artificer";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_FFotR] = "Fated Flight of the Recluse";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_RHW] = "Ravenloft: The Horrors Within";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_AU] = "Arcana Unleashed";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_AUD] = "Arcana Unleashed: Deadfall";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_TD] = "Tarot Deck";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN] = "Dungeon Master's Screen";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN_WILDERNESS_KIT] = "Dungeon Master's Screen: Wilderness Kit";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN_DUNGEON_KIT] = "Dungeon Master's Screen: Dungeon Kit";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_SCREEN_SPELLJAMMER] = "Dungeon Master's Screen: Spelljammer";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_XSCREEN] = "Dungeon Master's Screen (2024)";
+Parser.SOURCE_JSON_TO_FULL[Parser.SRC_XSCREEN_RHW] = "Dungeon Master's Screen; Ravenloft: The Horrors Within";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_HF] = "Heroes' Feast";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_HFFotM] = "Heroes' Feast: Flavors of the Multiverse";
 Parser.SOURCE_JSON_TO_FULL[Parser.SRC_HFStCM] = "Heroes' Feast: Saving the Children's Menu";
@@ -3704,12 +3708,15 @@ Parser.SOURCE_JSON_TO_ABV[Parser.SRC_LFL] = "LFL";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_EFA] = "EFA";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_FFotR] = "FFotR";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_RHW] = "RHW";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_AU] = "AU";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_AUD] = "AUD";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_TD] = "TD";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN] = "Scr'14";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN_WILDERNESS_KIT] = "ScrWild";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN_DUNGEON_KIT] = "ScrDun";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_SCREEN_SPELLJAMMER] = "ScrSJ";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_XSCREEN] = "Scr'24";
+Parser.SOURCE_JSON_TO_ABV[Parser.SRC_XSCREEN_RHW] = "ScrRHW";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_HF] = "HF";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_HFFotM] = "HFFotM";
 Parser.SOURCE_JSON_TO_ABV[Parser.SRC_HFStCM] = "HFStCM";
@@ -3885,12 +3892,15 @@ Parser.SOURCE_JSON_TO_DATE[Parser.SRC_LFL] = "2025-11-18";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_EFA] = "2025-12-09";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_FFotR] = "2025-12-09";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_RHW] = "2026-06-16";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_AU] = "2026-09-15";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_AUD] = "2026-09-15";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_TD] = "2022-05-24";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN] = "2015-01-20";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN_WILDERNESS_KIT] = "2020-11-17";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN_DUNGEON_KIT] = "2020-09-21";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_SCREEN_SPELLJAMMER] = "2022-08-16";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_XSCREEN] = "2024-11-12";
+Parser.SOURCE_JSON_TO_DATE[Parser.SRC_XSCREEN_RHW] = "2026-06-16";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_HF] = "2020-10-27";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_HFFotM] = "2023-11-07";
 Parser.SOURCE_JSON_TO_DATE[Parser.SRC_HFStCM] = "2023-11-21";
@@ -4039,6 +4049,7 @@ Parser.SOURCES_ADVENTURES = new Set([
 	Parser.SRC_HotB,
 	Parser.SRC_WttHC,
 	Parser.SRC_FFotR,
+	Parser.SRC_AUD,
 	Parser.SRC_AWM,
 ]);
 Parser.SOURCES_CORE_SUPPLEMENTS = new Set(Object.keys(Parser.SOURCE_JSON_TO_FULL).filter(it => !Parser.SOURCES_ADVENTURES.has(it)));
@@ -4149,6 +4160,7 @@ Parser.SOURCES_VANILLA = new Set([
 	Parser.SRC_MPMM,
 	// Parser.SRC_SCREEN, // "Legacy" source, removed in favor of XSCREEN
 	Parser.SRC_XSCREEN,
+	Parser.SRC_XSCREEN_RHW,
 	Parser.SRC_SCREEN_WILDERNESS_KIT,
 	Parser.SRC_SCREEN_DUNGEON_KIT,
 	Parser.SRC_VD,
@@ -4284,6 +4296,8 @@ Parser.SOURCES_AVAILABLE_DOCS_BOOK = {};
 	Parser.SRC_EFA,
 	Parser.SRC_CaBoMP,
 	Parser.SRC_RHW,
+	Parser.SRC_XSCREEN_RHW,
+	Parser.SRC_AU,
 ].forEach(src => {
 	Parser.SOURCES_AVAILABLE_DOCS_BOOK[src] = src;
 	Parser.SOURCES_AVAILABLE_DOCS_BOOK[src.toLowerCase()] = src;
@@ -4398,6 +4412,7 @@ Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE = {};
 	Parser.SRC_WttHC,
 	Parser.SRC_FFotR,
 	Parser.SRC_BQDD,
+	Parser.SRC_AUD,
 ].forEach(src => {
 	Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE[src] = src;
 	Parser.SOURCES_AVAILABLE_DOCS_ADVENTURE[src.toLowerCase()] = src;
@@ -4423,6 +4438,7 @@ Parser.PROP_TO_TAG = {
 };
 Parser._RE_PROP_RAW_PREFIX = /^raw_/;
 Parser.getPropTag = function (prop) {
+	if (!prop) return prop;
 	prop = prop.replace(Parser._RE_PROP_RAW_PREFIX, "");
 	if (Parser.PROP_TO_TAG[prop]) return Parser.PROP_TO_TAG[prop];
 	if (prop?.endsWith("Fluff")) return null;

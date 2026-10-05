@@ -210,7 +210,7 @@
 					"entries": [
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@adventure Death at Sunset (Level 1)|DrDe-DaS|1}",
 								"{@adventure Baker's Doesn't (Level 3)|DrDe-BD|1}",
@@ -219,7 +219,7 @@
 								"{@adventure The Dragon of Najkir (Level 7)|DrDe-TDoN|1}",
 								"{@adventure The Forbidden Vale (Level 9)|DrDe-TFV|1}",
 								"{@adventure Before the Storm (Level 10)|DrDe-BtS|1}",
-								"{@adventure Shivering Death (Level 11)|DrDe-SD|1}",
+								"{@area Shivering Death (Level 11)|2f1|x}",
 								"{@adventure A Copper for a Song (Level 12)|DrDe-ACfaS|1}",
 								"{@adventure Dragons of the Sandstone City (Level 12)|DrDe-DotSC|1}"
 							]
@@ -342,9 +342,46 @@
 									"items": [
 										"{@creature Mammoth|XMM}",
 										"{@creature Rhinoceros|XMM}"
-									]
+									],
+									"columns": 3
 								}
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Mammoth",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mammoth",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Rhinoceros",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Rhinoceros",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
 						},
 						{
 							"type": "table",
@@ -367,43 +404,43 @@
 									"Aerstigga",
 									"Giant seeking to ally with Challidax",
 									"{@creature Frost Giant|XMM}",
-									"{@adventure D16|DrDe-SD|1|D16: Trophy Cave}"
+									"{@area D16|33e|x}"
 								],
 								[
 									"Ardrandal and Forstrorri",
 									"Giants loyal to Ralvald",
 									"{@creature Frost Giant|XMM} (Neutral)",
-									"{@adventure D4|DrDe-SD|1|D4: Giant Camp}"
+									"{@area D4|30d|x}"
 								],
 								[
 									"Challidax (a.k.a. Shivering Death)",
 									"Primary antagonist",
 									"{@creature Adult White Dragon|XMM}",
-									"{@adventure D16|DrDe-SD|1|D16: Trophy Cave}"
+									"{@area D16|33e|x}"
 								],
 								[
 									"Elakdras",
 									"Dead frost giant druid",
 									"\u2014",
-									"{@adventure D16|DrDe-SD|1|D16: Trophy Cave}"
+									"{@area D16|33e|x}"
 								],
 								[
 									"Enstavva",
 									"{@condition Petrified|XPHB} frost giant",
 									"{@creature Frost Giant|XMM} (Neutral)",
-									"{@adventure D8|DrDe-SD|1|D8: Icicle Cave}"
+									"{@area D8|31d|x}"
 								],
 								[
 									"Finkleton",
 									"Dead halfling adventurer",
 									"\u2014",
-									"{@adventure D16|DrDe-SD|1|D16: Trophy Cave}"
+									"{@area D16|33e|x}"
 								],
 								[
 									"Gelida",
 									"Trapped lair denizen",
 									"{@creature Ice Mephit|XMM}",
-									"{@adventure D9|DrDe-SD|1|D9: Concealed Cleft}"
+									"{@area D9|321|x}"
 								],
 								[
 									"Grahlista",
@@ -415,31 +452,31 @@
 									"Grimvel and Luskegga",
 									"Giants loyal to Aerstigga",
 									"{@creature Frost Giant|XMM}",
-									"{@adventure D10|DrDe-SD|1|D10: Frozen River}"
+									"{@area D10|326|x}"
 								],
 								[
 									"Heldalf",
 									"Mammoth keeper loyal to Ralvald",
 									"{@creature Frost Giant|XMM} (Neutral)",
-									"{@adventure D3|DrDe-SD|1|D3: Animal Pen}"
+									"{@area D3|30a|x}"
 								],
 								[
 									"Luskar",
 									"Giant loyal to Aerstigga",
 									"{@creature Frost Giant|XMM} (Neutral)",
-									"{@adventure D14|DrDe-SD|1|D14: Giant Quarters}"
+									"{@area D14|337|x}"
 								],
 								[
 									"Ralvald",
 									"Giant seeking inter Elakdras's remains",
 									"{@creature Frost Giant|XMM} (Lawful Neutral)",
-									"{@adventure D5|DrDe-SD|1|D5: Ralvald's Retreat}"
+									"{@area D5|310|x}"
 								],
 								[
 									"Shabblejaw",
 									"Aerstigga's wolf handler",
 									"{@creature Troll|XMM}",
-									"{@adventure D11|DrDe-SD|1|D11: Wolf Ledge}"
+									"{@area D11|32b|x}"
 								]
 							]
 						}
@@ -3576,7 +3613,7 @@
 									"id": "2fa",
 									"entries": [
 										"Ralvald was the giants' leader but was recently betrayed by his sister, Aerstigga, who seeks to ally with the dragon to elevate her power. Aerstigga ambushed Ralvald shortly after the group reached the lair, gravely wounding her brother, then moved deeper into the lair with her followers. Three giants remained with Ralvald, stanching his wounds and saving his life.",
-										"Ralvald and his loyal giants occupy the southeastern caverns of the lair (areas {@adventure D3|DrDe-SD|1|D3: Animal Pen}\u2013{@adventure D5|DrDe-SD|1|D5: Ralvald's Retreat}). As the despondent Ralvald nurses his wounds, he considers how to deal with his sister's treachery. Ralvald is willing to talk to the characters and might cooperate with them to defeat the dragon and recover his ancestor's corpse."
+										"Ralvald and his loyal giants occupy the southeastern caverns of the lair (areas {@area D3|30a|x}\u2013{@area D5|310|x}). As the despondent Ralvald nurses his wounds, he considers how to deal with his sister's treachery. Ralvald is willing to talk to the characters and might cooperate with them to defeat the dragon and recover his ancestor's corpse."
 									]
 								},
 								{
@@ -3585,8 +3622,8 @@
 									"page": 148,
 									"id": "2fb",
 									"entries": [
-										"Aerstigga has been negotiating with Challidax in the dragon's trophy cave (area {@adventure D16|DrDe-SD|1|D16: Trophy Cave}). Aerstigga has offered wealth in addition to her loyalty. She has a {@item Wand of Wonder|XDMG} that occasionally produces gems and has given the dragon the treasure she had already accumulated. Challidax's greed exceeds Aerstigga's gem supply, however. Aerstigga hides the {@item Wand of Wonder|XDMG}'s existence from the dragon, and she experiments with the erratic wand away from Challidax's notice to try to make even more gems. The characters might encounter the strange results in several areas.",
-										"Aerstigga won't parley with the characters, as she wants to show strength in front of Challidax. Aerstigga's followers occupy the west-central portions of the lair (areas {@adventure D10|DrDe-SD|1|D10: Frozen River}, {@adventure D11|DrDe-SD|1|D11: Wolf Ledge}, and {@adventure D14|DrDe-SD|1|D14: Giant Quarters})."
+										"Aerstigga has been negotiating with Challidax in the dragon's trophy cave (area {@area D16|33e|x}). Aerstigga has offered wealth in addition to her loyalty. She has a {@item Wand of Wonder|XDMG} that occasionally produces gems and has given the dragon the treasure she had already accumulated. Challidax's greed exceeds Aerstigga's gem supply, however. Aerstigga hides the {@item Wand of Wonder|XDMG}'s existence from the dragon, and she experiments with the erratic wand away from Challidax's notice to try to make even more gems. The characters might encounter the strange results in several areas.",
+										"Aerstigga won't parley with the characters, as she wants to show strength in front of Challidax. Aerstigga's followers occupy the west-central portions of the lair (areas {@area D10|326|x}, {@area D11|32b|x}, and {@area D14|337|x})."
 									]
 								}
 							]
@@ -3622,14 +3659,14 @@
 									"page": 148,
 									"id": "2ff",
 									"entries": [
-										"A subterranean river flows through several areas in Challidax's lair ({@adventure D16|DrDe-SD|1|D16: Trophy Cave}, {@adventure D11|DrDe-SD|1|D11: Wolf Ledge}, {@adventure D10|DrDe-SD|1|D10: Frozen River}, and {@adventure D5|DrDe-SD|1|D5: Ralvald's Retreat}) before cascading over two cliffs and pooling in area {@dice D6}. The river's origin and outflow are underground. The river is 15 feet deep and filled with fat, white fish that many inhabitants of the lair eat.",
+										"A subterranean river flows through several areas in Challidax's lair ({@area D16|33e|x}, {@area D11|32b|x}, {@area D10|326|x}, and {@area D5|310|x}) before cascading over two cliffs and pooling in area {@dice D6}. The river's origin and outflow are underground. The river is 15 feet deep and filled with fat, white fish that many inhabitants of the lair eat.",
 										{
 											"type": "entries",
 											"name": "Breathing",
 											"page": 148,
 											"id": "300",
 											"entries": [
-												"The river passes underground between areas. A creature that can't breathe water has to hold its breath while passing between areas via the river. The water is iced over in area {@adventure D10|DrDe-SD|1|D10: Frozen River}; see that area for details."
+												"The river passes underground between areas. A creature that can't breathe water has to hold its breath while passing between areas via the river. The water is iced over in area {@area D10|326|x}; see that area for details."
 											]
 										},
 										{
@@ -3669,7 +3706,7 @@
 							"page": 148,
 							"id": "304",
 							"entries": [
-								"The following locations are keyed to {@adventure Map: Shivering Deaths Lair|DrDe-SD|1|Map: Shivering Deaths Lair}.",
+								"The following locations are keyed to {@area Map: Shivering Deaths Lair|41a|x}.",
 								{
 									"type": "entries",
 									"name": "D1: Lair Entrance",
@@ -3711,7 +3748,7 @@
 												"The cave splits into two passages on either side of a huge centipede-like monster frozen in a block of ice. Although the beast is positioned within the icy block as though rearing up to strike, severe wounds indicate that it died before being frozen."
 											]
 										},
-										"This dead remorhaz is one of Challidax's trophies. It crept into the lair via the underground river, but the dragon caught and vanquished it in the foggy cave (area {@adventure D6|DrDe-SD|1|D6: Foggy Cave}). Challidax relished posing the corpse in the lair entry to scare intruders. If thawed, the dead creature is harmless."
+										"This dead remorhaz is one of Challidax's trophies. It crept into the lair via the underground river, but the dragon caught and vanquished it in the foggy cave (area {@area D6|314|x}). Challidax relished posing the corpse in the lair entry to scare intruders. If thawed, the dead creature is harmless."
 									]
 								},
 								{
@@ -3820,7 +3857,7 @@
 											"page": 150,
 											"id": "312",
 											"entries": [
-												"Ralvald treats the characters with respect, assuming only brave adventurers would venture into a dragon's lair. Ralvald provides the same information as Heldalf (area {@adventure D3|DrDe-SD|1|D3: Animal Pen}), plus the following points:",
+												"Ralvald treats the characters with respect, assuming only brave adventurers would venture into a dragon's lair. Ralvald provides the same information as Heldalf (area {@area D3|30a|x}), plus the following points:",
 												{
 													"type": "list",
 													"style": "list-hang-notitle",
@@ -3833,7 +3870,7 @@
 														{
 															"type": "item",
 															"name": "Potential Ally",
-															"entry": "Ralvald noticed a giant named Enstavva hiding in the icicle-filled cave to the north. Ralvald has always been impressed with Enstavva's wisdom, so he assumes Enstavva has decided to remain neutral in the current conflict. Ralvald doesn't want to pressure her, so he hasn't yet confronted her. (Ralvald doesn't realize Enstavva has been turned to stone, as described in area {@adventure D8|DrDe-SD|1|D8: Icicle Cave}.)"
+															"entry": "Ralvald noticed a giant named Enstavva hiding in the icicle-filled cave to the north. Ralvald has always been impressed with Enstavva's wisdom, so he assumes Enstavva has decided to remain neutral in the current conflict. Ralvald doesn't want to pressure her, so he hasn't yet confronted her. (Ralvald doesn't realize Enstavva has been turned to stone, as described in area {@area D8|31d|x}.)"
 														},
 														{
 															"type": "item",
@@ -3858,12 +3895,12 @@
 														{
 															"type": "item",
 															"name": "Depart the Lair",
-															"entry": "If the characters tell Ralvald he should simply leave with his loyal giants, he sighs and agrees. Within 10 minutes, Ralvald departs with the giants in the animal pen and campsite (areas {@adventure D3|DrDe-SD|1|D3: Animal Pen} and {@adventure D4|DrDe-SD|1|D4: Giant Camp})."
+															"entry": "If the characters tell Ralvald he should simply leave with his loyal giants, he sighs and agrees. Within 10 minutes, Ralvald departs with the giants in the animal pen and campsite (areas {@area D3|30a|x} and {@area D4|30d|x})."
 														},
 														{
 															"type": "item",
 															"name": "Fight the Dragon",
-															"entry": "As an {@action Influence|XPHB} action, a character can ask Ralvald to help the characters fight Challidax. The character makes a {@dc 16} Charisma ({@skill Persuasion|XPHB}) check. On a success, Ralvald agrees to join the characters in battle against Challidax. On a failure, Ralvald wishes the characters luck but remains in dejected contemplation here. Even if Ralvald agrees to ally with the characters, his frost giant allies in areas {@adventure D3|DrDe-SD|1|D3: Animal Pen} and {@adventure D4|DrDe-SD|1|D4: Giant Camp} refuse to confront the dragon."
+															"entry": "As an {@action Influence|XPHB} action, a character can ask Ralvald to help the characters fight Challidax. The character makes a {@dc 16} Charisma ({@skill Persuasion|XPHB}) check. On a success, Ralvald agrees to join the characters in battle against Challidax. On a failure, Ralvald wishes the characters luck but remains in dejected contemplation here. Even if Ralvald agrees to ally with the characters, his frost giant allies in areas {@area D3|30a|x} and {@area D4|30d|x} refuse to confront the dragon."
 														},
 														{
 															"type": "item",
@@ -3901,14 +3938,14 @@
 												"Eerie light suffuses the frigid fog with an orange glow. The sound of clicking and scraping, as of scales on stone, echoes through the fog over the noise of falling water."
 											]
 										},
-										"Three {@b Young Remorhazes} lurk here\u2014offspring of the adult remorhaz that Challidax killed and put on display near the lair's entry (area {@adventure D2|DrDe-SD|1|D2: Remorhaz Trophy}). The dragon didn't notice the remorhaz eggs, which have now hatched. The remorhazes are Hostile and hungry.",
+										"Three {@b Young Remorhazes} lurk here\u2014offspring of the adult remorhaz that Challidax killed and put on display near the lair's entry (area {@area D2|308|x}). The dragon didn't notice the remorhaz eggs, which have now hatched. The remorhazes are Hostile and hungry.",
 										{
 											"type": "entries",
 											"name": "Illusory Wall",
 											"page": 151,
 											"id": "317",
 											"entries": [
-												"A passage on the western wall, 10 feet above the floor, is hidden behind an illusion of an icy wall. A character who takes a {@action Search|XPHB} action and makes a {@dc 16} Wisdom ({@skill Perception|XPHB}) check notices the concealed passage on a success. This check is made with Disadvantage while fog is present in this room. Gelida (area {@adventure D9|DrDe-SD|1|D9: Concealed Cleft}) can tell the characters exactly where to find the illusion; those who have discussed the hidden passage with her automatically find it."
+												"A passage on the western wall, 10 feet above the floor, is hidden behind an illusion of an icy wall. A character who takes a {@action Search|XPHB} action and makes a {@dc 16} Wisdom ({@skill Perception|XPHB}) check notices the concealed passage on a success. This check is made with Disadvantage while fog is present in this room. Gelida (area {@area D9|321|x}) can tell the characters exactly where to find the illusion; those who have discussed the hidden passage with her automatically find it."
 											]
 										},
 										{
@@ -3936,7 +3973,7 @@
 												"Ice encrusts this cavern and has crept over what remains of a long-abandoned campsite. A bedroll, a backpack, and cooking implements\u2014all sized for a user around four feet tall\u2014lie encased in ice."
 											]
 										},
-										"Years ago, a halfling spellcaster named Deena Finkleton attempted to plunder Challidax's hoard, but she was caught and became one of the dragon's frozen trophies (see area {@adventure D16|DrDe-SD|1|D16: Trophy Cave}).",
+										"Years ago, a halfling spellcaster named Deena Finkleton attempted to plunder Challidax's hoard, but she was caught and became one of the dragon's frozen trophies (see area {@area D16|33e|x}).",
 										{
 											"type": "entries",
 											"name": "Frozen Gear",
@@ -3954,7 +3991,7 @@
 											"entries": [
 												"If they free the Backpack from the ice, the characters can open it, revealing a frozen bottle of Ink, a Pouch containing 62 GP, a Waterskin full of frozen water, a winter coat, and three {@item Potion of Healing|XDMG|Potions of Healing}.",
 												"The cooking implements\u2014an Iron Pot, a ladle, and a small knife\u2014are well made but unremarkable.",
-												"Should the characters free the Bedroll from the ice and search it, within they find a control amulet for a {@creature Shield Guardian|XMM}. The guardian it controls is in the south alcove of the trophy cave (area {@adventure D16|DrDe-SD|1|D16: Trophy Cave}). A character who takes a Study action and makes a successful {@dc 16} Intelligence ({@skill Arcana|XPHB}) check knows basic information about this guardian:",
+												"Should the characters free the Bedroll from the ice and search it, within they find a control amulet for a {@creature Shield Guardian|XMM}. The guardian it controls is in the south alcove of the trophy cave (area {@area D16|33e|x}). A character who takes a Study action and makes a successful {@dc 16} Intelligence ({@skill Arcana|XPHB}) check knows basic information about this guardian:",
 												{
 													"type": "list",
 													"items": [
@@ -3988,7 +4025,7 @@
 											"id": "31f",
 											"entries": [
 												"If the characters end Enstavva's {@condition Petrified|XPHB} condition, she is pensive and Friendly toward anyone who frees her. Enstavva knows Common, Dwarvish, and Giant. She is curious about what brings the characters to the lair and prefers to talk rather than fight.",
-												"Enstavva shares the same information as Heldalf in the animal pen (area {@adventure D3|DrDe-SD|1|D3: Animal Pen}), as well as the following details:",
+												"Enstavva shares the same information as Heldalf in the animal pen (area {@area D3|30a|x}), as well as the following details:",
 												{
 													"type": "list",
 													"style": "list-hang-notitle",
@@ -4010,7 +4047,7 @@
 														}
 													]
 												},
-												"Given the opportunity, Enstavva rejoins Ralvald, either in his retreat (area {@adventure D5|DrDe-SD|1|D5: Ralvald's Retreat}) or by leaving the lair if the giant leader has already departed."
+												"Given the opportunity, Enstavva rejoins Ralvald, either in his retreat (area {@area D5|310|x}) or by leaving the lair if the giant leader has already departed."
 											]
 										},
 										{
@@ -4019,7 +4056,7 @@
 											"page": 152,
 											"id": "320",
 											"entries": [
-												"A low, narrow crack to the northeast leads to a cleft (area {@adventure D9|DrDe-SD|1|D9: Concealed Cleft}) partially hidden by the ice. Any character who has a Passive {@skill Perception|XPHB} of 16+ notices the cleft once the character gets within 5 feet of it."
+												"A low, narrow crack to the northeast leads to a cleft (area {@area D9|321|x}) partially hidden by the ice. Any character who has a Passive {@skill Perception|XPHB} of 16+ notices the cleft once the character gets within 5 feet of it."
 											]
 										}
 									]
@@ -4058,7 +4095,7 @@
 												{
 													"type": "item",
 													"name": "Lair Layout",
-													"entry": "Gelida knows the lair's overall layout except for the crystal room (area {@adventure D12|DrDe-SD|1|D12: Crystal Room}), which she doesn't know exists."
+													"entry": "Gelida knows the lair's overall layout except for the crystal room (area {@area D12|331|x}), which she doesn't know exists."
 												},
 												{
 													"type": "item",
@@ -4074,8 +4111,8 @@
 											"id": "323",
 											"entries": [
 												"Gelida wants to leave the lair before Challidax finds and destroys her. Moreover, the mephit is done serving other creatures. She wants freedom from the magic that binds her to the box, or barring that, she wants the autonomy to go where she pleases.",
-												"Gelida hopes to convince the characters to give her control of the {@creature Shield Guardian|XMM} in the trophy cave (area {@adventure D16|DrDe-SD|1|D16: Trophy Cave}). Once Gelida has a good rapport with the characters, she reveals that her conjurer controlled the guardian with a magic amulet. The guardian and Finkleton are now frozen trophies in area {@dice D16}, but Gelida knows Finkleton didn't have the guardian's magic amulet when he was frozen.",
-												"Gelida tells the characters the amulet's location (area {@adventure D7|DrDe-SD|1|D7: Hidden Camp}) and even lets them use the Construct to fight Challidax. But before they leave the lair, Gelida wants the amulet so she can use the guardian to carry her box out of the caves and wherever else the mephit pleases. If the characters agree to her terms, she tells them about the illusory wall in the foggy cave (area {@adventure D6|DrDe-SD|1|D6: Foggy Cave}). Gelida knows the guardian's amulet lies hidden in the bedroll in area {@dice D7} but can't retrieve it herself due to her binding (see \"The Box\").",
+												"Gelida hopes to convince the characters to give her control of the {@creature Shield Guardian|XMM} in the trophy cave (area {@area D16|33e|x}). Once Gelida has a good rapport with the characters, she reveals that her conjurer controlled the guardian with a magic amulet. The guardian and Finkleton are now frozen trophies in area {@dice D16}, but Gelida knows Finkleton didn't have the guardian's magic amulet when he was frozen.",
+												"Gelida tells the characters the amulet's location (area {@area D7|319|x}) and even lets them use the Construct to fight Challidax. But before they leave the lair, Gelida wants the amulet so she can use the guardian to carry her box out of the caves and wherever else the mephit pleases. If the characters agree to her terms, she tells them about the illusory wall in the foggy cave (area {@area D6|314|x}). Gelida knows the guardian's amulet lies hidden in the bedroll in area {@dice D7} but can't retrieve it herself due to her binding (see \"The Box\").",
 												"In the event the characters already have the guardian's amulet, Gelida simply slumps angrily in her box, muttering about disrespectful thieves."
 											]
 										},
@@ -4139,7 +4176,7 @@
 											"page": 153,
 											"id": "32a",
 											"entries": [
-												"Grimvel and Luskegga are unlikely to talk to the characters without first being overcome in a fight. If someone who knows Giant captures or interrogates them, they share the same information as Heldalf (see area {@adventure D3|DrDe-SD|1|D3: Animal Pen}), as well as the following points:",
+												"Grimvel and Luskegga are unlikely to talk to the characters without first being overcome in a fight. If someone who knows Giant captures or interrogates them, they share the same information as Heldalf (see area {@area D3|30a|x}), as well as the following points:",
 												{
 													"type": "list",
 													"style": "list-hang-notitle",
@@ -4179,8 +4216,8 @@
 												"Chunks of ice bob down the river that crosses this cavern. To the river's north rises a wide stone ledge where massive, white-furred wolves prowl. With each breath, the unnaturally large canines exhale clouds of frost into the frigid air."
 											]
 										},
-										"Four {@creature Winter Wolf|XMM|Winter Wolves} skulk here along with their handler, a {@creature Troll|XMM} named Shabblejaw wearing heavy furs. The wolves keep watch from the ledge, but Shabblejaw remains out of sight near an open secret door leading to the crystal room (area {@adventure D12|DrDe-SD|1|D12: Crystal Room}).",
-										"These creatures are loyal to Aerstigga, who commanded them to stay here until she needs them. They are Hostile toward intruders. If the party defeats all the wolves, Shabblejaw retreats to area {@adventure D12|DrDe-SD|1|D12: Crystal Room} and closes the secret door behind him.",
+										"Four {@creature Winter Wolf|XMM|Winter Wolves} skulk here along with their handler, a {@creature Troll|XMM} named Shabblejaw wearing heavy furs. The wolves keep watch from the ledge, but Shabblejaw remains out of sight near an open secret door leading to the crystal room (area {@area D12|331|x}).",
+										"These creatures are loyal to Aerstigga, who commanded them to stay here until she needs them. They are Hostile toward intruders. If the party defeats all the wolves, Shabblejaw retreats to area {@area D12|331|x} and closes the secret door behind him.",
 										{
 											"type": "entries",
 											"name": "Ledge",
@@ -4196,7 +4233,7 @@
 											"page": 154,
 											"id": "32e",
 											"entries": [
-												"The river flows toward area {@adventure D10|DrDe-SD|1|D10: Frozen River} to the east (see \"{@area Lair Features|2fc|x}\")."
+												"The river flows toward area {@area D10|326|x} to the east (see \"{@area Lair Features|2fc|x}\")."
 											]
 										},
 										{
@@ -4214,7 +4251,7 @@
 											"page": 154,
 											"id": "330",
 											"entries": [
-												"Shabblejaw has a small satchel holding six crystals, each the size of a human thumbnail. These are pieces of the healing crystal in area {@adventure D12|DrDe-SD|1|D12: Crystal Room} that the troll kept for himself. Each bears healing magic, acting as a berry created by the {@spell Goodberry|XPHB} spell. The crystals lose their magic in 12 hours.",
+												"Shabblejaw has a small satchel holding six crystals, each the size of a human thumbnail. These are pieces of the healing crystal in area {@area D12|331|x} that the troll kept for himself. Each bears healing magic, acting as a berry created by the {@spell Goodberry|XPHB} spell. The crystals lose their magic in 12 hours.",
 												{
 													"type": "image",
 													"href": {
@@ -4243,7 +4280,7 @@
 												"A crystal the size of a barrel hangs from the ceiling in this room, emitting a calm, blue glow. This room is as cold as the rest of the lair, but the chill air here feels clean and comforting rather than numbing. A precarious tripod of scrap wood reaches twenty feet high, still fifteen feet below the crystal."
 											]
 										},
-										"Challidax discovered the magical healing crystal here many years ago and hid it behind a secret door. Shabblejaw (area {@adventure D11|DrDe-SD|1|D11: Wolf Ledge}) found it accidentally and seeks a way to cut the crystal down to earn Aerstigga's favor. He's been using scraps of wood to create a makeshift ladder to reach the crystal. The troll has managed to break off a few tiny pieces that he keeps in the satchel he carries with him.",
+										"Challidax discovered the magical healing crystal here many years ago and hid it behind a secret door. Shabblejaw (area {@area D11|32b|x}) found it accidentally and seeks a way to cut the crystal down to earn Aerstigga's favor. He's been using scraps of wood to create a makeshift ladder to reach the crystal. The troll has managed to break off a few tiny pieces that he keeps in the satchel he carries with him.",
 										{
 											"type": "entries",
 											"name": "Healing Crystal",
@@ -4279,7 +4316,7 @@
 											]
 										},
 										"This chamber is currently empty, but it contains several after effects of Aerstigga's reckless use of her {@item Wand of Wonder|XDMG}, such as the out-of-place grass and the charring from past {@spell Lightning Bolt|XPHB} spells.",
-										"If the characters are particularly noisy here, Luskar the {@creature Frost Giant|XMM} and his pet {@creature Rhinoceros|XMM} come to investigate from their quarters (area {@adventure D14|DrDe-SD|1|D14: Giant Quarters}), ready for a fight."
+										"If the characters are particularly noisy here, Luskar the {@creature Frost Giant|XMM} and his pet {@creature Rhinoceros|XMM} come to investigate from their quarters (area {@area D14|337|x}), ready for a fight."
 									]
 								},
 								{
@@ -4288,7 +4325,7 @@
 									"page": 154,
 									"id": "337",
 									"entries": [
-										"If Luskar and his rhinoceros are encountered in area {@adventure D13|DrDe-SD|1|D13: Experimentation Room} instead of here, omit them from the following boxed text when describing this area:",
+										"If Luskar and his rhinoceros are encountered in area {@area D13|335|x} instead of here, omit them from the following boxed text when describing this area:",
 										{
 											"type": "insetReadaloud",
 											"page": 154,
@@ -4305,7 +4342,7 @@
 											"page": 154,
 											"id": "339",
 											"entries": [
-												"If defeated or otherwise coerced into talking, Luskar shares the same information as Grimvel and Luskegga (see area {@adventure D10|DrDe-SD|1|D10: Frozen River}). Luskar then wants to leave the lair, preferably with his pet."
+												"If defeated or otherwise coerced into talking, Luskar shares the same information as Grimvel and Luskegga (see area {@area D10|326|x}). Luskar then wants to leave the lair, preferably with his pet."
 											]
 										}
 									]
@@ -4325,9 +4362,9 @@
 											]
 										},
 										"Challidax ambushed five would-be dragon slayers here, freezing them to death before they could do more than raise their weapons. Their restless spirits linger here as five {@creature Ghost|XMM|Ghosts}. The spirits are Chaotic Neutral. They emerge from their frozen corpses if the pillars entombing them are touched or damaged.",
-										"The spirits are Hostile toward other creatures and can't rest until Challidax is slain. If a ghost possesses a creature, that creature heads directly to the trophy cave (area {@adventure D16|DrDe-SD|1|D16: Trophy Cave}) and tries to slay the dragon.",
+										"The spirits are Hostile toward other creatures and can't rest until Challidax is slain. If a ghost possesses a creature, that creature heads directly to the trophy cave (area {@area D16|33e|x}) and tries to slay the dragon.",
 										"As an {@action Influence|XPHB} action, a character can try to calm the spirits and make a {@dc 16} Charisma ({@skill Persuasion|XPHB}) check. On a success, the ghosts stand down and explain their hatred for Challidax.",
-										"The ghosts can leave this chamber only while possessing another creature. If the possession ends, the ghost reappears in area {@adventure D15|DrDe-SD|1|D15: Frozen Corpses}.",
+										"The ghosts can leave this chamber only while possessing another creature. If the possession ends, the ghost reappears in area {@area D15|33a|x}.",
 										{
 											"type": "entries",
 											"name": "Flame",
@@ -4389,7 +4426,7 @@
 											"id": "341",
 											"entries": [
 												"Challidax hangs back to evaluate both Aerstigga and the invaders. The dragon doesn't join the fray until she herself takes damage or Aerstigga is defeated, though it's possible for the characters to turn Challidax against her giant ally (see \"Challidax's Rage\" below). Once engaged in combat, Challidax is ruthless; she doesn't care if she harms Aerstigga in her attempts to defeat the characters.",
-												"If Challidax is reduced to fewer than 100 Hit Points, she dives into the frozen river. She makes her way to the healing crystal in the crystal room (area {@adventure D12|DrDe-SD|1|D12: Crystal Room}), then tries to ambush the characters elsewhere in her lair."
+												"If Challidax is reduced to fewer than 100 Hit Points, she dives into the frozen river. She makes her way to the healing crystal in the crystal room (area {@area D12|331|x}), then tries to ambush the characters elsewhere in her lair."
 											]
 										},
 										{
@@ -4402,9 +4439,9 @@
 												{
 													"type": "list",
 													"items": [
-														"Part of the frozen owlbear the giants broke in area {@adventure D10|DrDe-SD|1|D10: Frozen River}",
-														"Pieces of the broken healing crystal from area {@adventure D11|DrDe-SD|1|D11: Wolf Ledge}",
-														"The {@item Wand of Wonder|XDMG} Aerstigga has been hiding or evidence of its use, such as grass pulled from area {@adventure D13|DrDe-SD|1|D13: Experimentation Room} or the {@creature Rhinoceros|XMM} from area {@adventure D14|DrDe-SD|1|D14: Giant Quarters}"
+														"Part of the frozen owlbear the giants broke in area {@area D10|326|x}",
+														"Pieces of the broken healing crystal from area {@area D11|32b|x}",
+														"The {@item Wand of Wonder|XDMG} Aerstigga has been hiding or evidence of its use, such as grass pulled from area {@area D13|335|x} or the {@creature Rhinoceros|XMM} from area {@area D14|337|x}"
 													]
 												},
 												"If the characters present at least two pieces of evidence to Challidax, she turns on Aerstigga. Once Aerstigga is defeated, the dragon allows the characters to depart her lair as thanks before leaving to hunt the other giants and their allies in her lair.",
@@ -4417,7 +4454,7 @@
 											"page": 155,
 											"id": "343",
 											"entries": [
-												"The river running through this room flows south to the chamber with the ledge (area {@adventure D11|DrDe-SD|1|D11: Wolf Ledge}; see \"{@area Lair Features|2fc|x}\")."
+												"The river running through this room flows south to the chamber with the ledge (area {@area D11|32b|x}; see \"{@area Lair Features|2fc|x}\")."
 											]
 										},
 										{
@@ -4444,7 +4481,7 @@
 														{
 															"type": "item",
 															"name": "South Alcove",
-															"entry": "This alcove contains the corpse of a halfling frozen to a Large, knight-like statue. If freed, the statue animates, revealing itself to be a {@creature Shield Guardian|XMM} with a {@spell Fireball|XPHB} spell (level 4 version) stored. Unless it receives other commands from someone bearing the magic amulet it's bonded to (see area {@adventure D7|DrDe-SD|1|D7: Hidden Camp}), the guardian fights the closest creature as it continues trying to protect its former controller, the halfling Deena Finkleton."
+															"entry": "This alcove contains the corpse of a halfling frozen to a Large, knight-like statue. If freed, the statue animates, revealing itself to be a {@creature Shield Guardian|XMM} with a {@spell Fireball|XPHB} spell (level 4 version) stored. Unless it receives other commands from someone bearing the magic amulet it's bonded to (see area {@area D7|319|x}), the guardian fights the closest creature as it continues trying to protect its former controller, the halfling Deena Finkleton."
 														},
 														{
 															"type": "item",
@@ -4502,7 +4539,7 @@
 									"page": 157,
 									"id": "348",
 									"entries": [
-										"The origins of the heat wave in this adventure remain purposely vague. The scorching weather could be a natural occurrence, but more sinister forces could play a part. If you want to link the heat wave to other threats, add evidence to the trophy cave (area {@adventure D16|DrDe-SD|1|D16: Trophy Cave})."
+										"The origins of the heat wave in this adventure remain purposely vague. The scorching weather could be a natural occurrence, but more sinister forces could play a part. If you want to link the heat wave to other threats, add evidence to the trophy cave (area {@area D16|33e|x})."
 									]
 								},
 								{

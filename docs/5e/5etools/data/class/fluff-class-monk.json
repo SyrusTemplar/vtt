@@ -339,6 +339,7 @@
 			"images": [
 				{
 					"type": "image",
+					"title": "A Martial Artist of Supernatural Focus",
 					"href": {
 						"type": "internal",
 						"path": "classes/XPHB/Monk.webp"
@@ -492,6 +493,7 @@
 			"images": [
 				{
 					"type": "image",
+					"title": "Warrior of Mercy Subclass",
 					"href": {
 						"type": "internal",
 						"path": "classes/XPHB/Mercy Monk.webp"
@@ -511,6 +513,7 @@
 			"images": [
 				{
 					"type": "image",
+					"title": "Warrior of Shadow Subclass",
 					"href": {
 						"type": "internal",
 						"path": "classes/XPHB/Shadow Monk.webp"
@@ -530,6 +533,7 @@
 			"images": [
 				{
 					"type": "image",
+					"title": "Warrior of the Elements Subclass",
 					"href": {
 						"type": "internal",
 						"path": "classes/XPHB/Elements Monk.webp"
@@ -549,6 +553,7 @@
 			"images": [
 				{
 					"type": "image",
+					"title": "Warrior of the Open Hand Subclass",
 					"href": {
 						"type": "internal",
 						"path": "classes/XPHB/Open Hand Monk.webp"
@@ -556,6 +561,35 @@
 					"credit": "Katerina Ladon",
 					"width": 850,
 					"height": 2005
+				}
+			]
+		},
+		{
+			"name": "Warrior of the Mystic Arts",
+			"shortName": "Mystic Arts",
+			"source": "AU",
+			"className": "Monk",
+			"classSource": "XPHB",
+			"entries": [
+				{
+					"type": "quote",
+					"entries": [
+						"Fists can be powerful. Magic makes them more so."
+					],
+					"by": "Alustriel"
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "classes/AU/Warrior of the Mystic Arts Monk.webp"
+					},
+					"title": "Warrior of the Mystic Arts Monk",
+					"credit": "Swatches Studio",
+					"width": 850,
+					"height": 1793
 				}
 			]
 		}

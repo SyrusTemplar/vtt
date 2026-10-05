@@ -335,6 +335,7 @@
 			"images": [
 				{
 					"type": "image",
+					"title": "A Master of All Arms and Armor",
 					"href": {
 						"type": "internal",
 						"path": "classes/XPHB/Fighter.webp"
@@ -358,6 +359,24 @@
 		}
 	],
 	"subclassFluff": [
+		{
+			"name": "Battle Master",
+			"shortName": "Battle Master",
+			"source": "PHB",
+			"className": "Fighter",
+			"classSource": "PHB",
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "classes/PHB/Battle Master Fighter.webp"
+					},
+					"width": 450,
+					"height": 1000
+				}
+			]
+		},
 		{
 			"name": "Purple Dragon Knight (Banneret)",
 			"shortName": "Purple Dragon Knight (Banneret)",
@@ -520,6 +539,7 @@
 			"images": [
 				{
 					"type": "image",
+					"title": "Battle Master Subclass",
 					"href": {
 						"type": "internal",
 						"path": "classes/XPHB/Battle Master Fighter.webp"
@@ -539,6 +559,7 @@
 			"images": [
 				{
 					"type": "image",
+					"title": "Champion Subclass",
 					"href": {
 						"type": "internal",
 						"path": "classes/XPHB/Champion Fighter.webp"
@@ -558,6 +579,7 @@
 			"images": [
 				{
 					"type": "image",
+					"title": "Eldritch Knight Subclass",
 					"href": {
 						"type": "internal",
 						"path": "classes/XPHB/Eldritch Knight Fighter.webp"
@@ -577,6 +599,7 @@
 			"images": [
 				{
 					"type": "image",
+					"title": "Psi Warrior Subclass",
 					"href": {
 						"type": "internal",
 						"path": "classes/XPHB/Psi Warrior Fighter.webp"
@@ -603,6 +626,35 @@
 					"credit": "Leroy Steinmann",
 					"width": 850,
 					"height": 2622
+				}
+			]
+		},
+		{
+			"name": "Arcane Archer",
+			"shortName": "Arcane Archer",
+			"source": "AU",
+			"className": "Fighter",
+			"classSource": "XPHB",
+			"entries": [
+				{
+					"type": "quote",
+					"entries": [
+						"When Mystra guides your arrows, they seldom miss."
+					],
+					"by": "Alustriel"
+				}
+			],
+			"images": [
+				{
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "classes/AU/Arcane Archer Fighter.webp"
+					},
+					"title": "Arcane Archer Fighter",
+					"credit": "Swatches Studio",
+					"width": 850,
+					"height": 1880
 				}
 			]
 		}

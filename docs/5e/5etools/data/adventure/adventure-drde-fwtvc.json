@@ -210,12 +210,12 @@
 					"entries": [
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@adventure Death at Sunset (Level 1)|DrDe-DaS|1}",
 								"{@adventure Baker's Doesn't (Level 3)|DrDe-BD|1}",
 								"{@adventure The Will of Orcus (Level 4)|DrDe-TWoO|1}",
-								"{@adventure For Whom the Void Calls (Level 5)|DrDe-FWtVC|1}",
+								"{@area For Whom the Void Calls (Level 5)|12b|x}",
 								"{@adventure The Dragon of Najkir (Level 7)|DrDe-TDoN|1}",
 								"{@adventure The Forbidden Vale (Level 9)|DrDe-TFV|1}",
 								"{@adventure Before the Storm (Level 10)|DrDe-BtS|1}",
@@ -324,7 +324,7 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Young Brass Dragon|XMM|Brass Dragon, Young}",
 								"{@creature Earth Elemental|XMM}",
@@ -340,6 +340,240 @@
 								"{@creature Spectator|XMM}",
 								"{@creature Water Elemental|XMM}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Young Brass Dragon",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Young Brass Dragon",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Earth Elemental",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Earth Elemental",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Githyanki Knight",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Githyanki Knight",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Invisible Stalker",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Invisible Stalker",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Winged Kobold",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Winged Kobold",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Mimic",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mimic",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Modron Duodrone",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Modron Duodrone",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Modron Quadrone",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Modron Quadrone",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Modron Tridrone",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Modron Tridrone",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Shambling Mound",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Shambling Mound",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Blue Slaad",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Blue Slaad",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Spectator",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Spectator",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Water Elemental",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Water Elemental",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
 						},
 						{
 							"type": "table",
@@ -513,7 +747,7 @@
 									"id": "138",
 									"entries": [
 										"All doors in the complex are made of a magical substance called glassteel, which has the texture and transparency of glass and tremendous resilience. The doors have Immunity to all damage.",
-										"Certain doors are sealed by magic (as indicated on {@adventure Map: Starglass Waypoint Lower Level|DrDe-FWtVC|1|Map: Starglass Waypoint Lower Level} and {@area Map: Starglass Waypoint Upper Level|162|x}). Each of these is engraved with an asterisk-shaped glyph that feels warm to the touch. Unlocking a sealed door requires either a Glyph Card or a {@spell Knock|XPHB} spell.",
+										"Certain doors are sealed by magic (as indicated on {@area Map: Starglass Waypoint Lower Level|40f|x} and {@area Map: Starglass Waypoint Upper Level|162|x}). Each of these is engraved with an asterisk-shaped glyph that feels warm to the touch. Unlocking a sealed door requires either a Glyph Card or a {@spell Knock|XPHB} spell.",
 										{
 											"type": "entries",
 											"name": "Glyph Cards",
@@ -957,7 +1191,7 @@
 										}
 									]
 								},
-								"The following locations are keyed to {@adventure map 4.1|DrDe-FWtVC|1|Map: Starglass Waypoint Lower Level}.",
+								"The following locations are keyed to {@area map 4.1|40f|x}.",
 								{
 									"type": "entries",
 									"name": "S1: Doors of Glass and Brass",
@@ -1148,7 +1382,7 @@
 														"Gold ring set with bloodstones (worth 250 GP)",
 														"Tapestry depicting a red dragon (worth 750 GP)",
 														"{@item Potion of Healing|XDMG} (greater)",
-														"Fire opal (worth 1,000 GP)",
+														"{@item Fire Opal|XDMG} (worth 1,000 GP)",
 														"{@item Mithral Armor|XDMG} (Breastplate)"
 													]
 												}
@@ -2032,7 +2266,7 @@
 										}
 									]
 								},
-								"The following locations are keyed to {@adventure Map: Starglass Waypoint Upper Level|DrDe-FWtVC|1|Map: Starglass Waypoint Upper Level}.",
+								"The following locations are keyed to {@area Map: Starglass Waypoint Upper Level|410|x}.",
 								{
 									"type": "entries",
 									"name": "S13: Balcony",

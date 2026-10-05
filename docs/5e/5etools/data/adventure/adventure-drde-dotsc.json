@@ -89,7 +89,7 @@
 							"page": 5,
 							"id": "007",
 							"entries": [
-								"Begin the campaign with the introductory encounter of chapter 10, \"{@adventure Dragons of the Sandstone City|DrDe-DotSC|1},\" ending with Eldemere entrusting the Brazen Egg to the characters. Eldemere's instructions are different, though: she explains that the egg must be \"steeped\" in the hoards of ten dragons, one of each chromatic and metallic kind, to activate its power. She also suggests that the egg will lead the characters toward suitable hoards. In fact, any character who sleeps within 15 feet of the egg has vivid dreams leading them toward the start of the next adventure.",
+								"Begin the campaign with the introductory encounter of chapter 10, \"{@area Dragons of the Sandstone City|3ab|x},\" ending with Eldemere entrusting the Brazen Egg to the characters. Eldemere's instructions are different, though: she explains that the egg must be \"steeped\" in the hoards of ten dragons, one of each chromatic and metallic kind, to activate its power. She also suggests that the egg will lead the characters toward suitable hoards. In fact, any character who sleeps within 15 feet of the egg has vivid dreams leading them toward the start of the next adventure.",
 								"To draw power from a dragon's hoard, the egg must spend 8 hours in the midst of the treasure, covered with coins and surrounded by other items. However, as soon as the empowered egg is brought within Anthradusk's hoard chamber ({@area area H16|3fe|x} in chapter 10), it reaches its full potential and begins to crack open, as described in that adventure."
 							]
 						},
@@ -210,7 +210,7 @@
 					"entries": [
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@adventure Death at Sunset (Level 1)|DrDe-DaS|1}",
 								"{@adventure Baker's Doesn't (Level 3)|DrDe-BD|1}",
@@ -221,7 +221,7 @@
 								"{@adventure Before the Storm (Level 10)|DrDe-BtS|1}",
 								"{@adventure Shivering Death (Level 11)|DrDe-SD|1}",
 								"{@adventure A Copper for a Song (Level 12)|DrDe-ACfaS|1}",
-								"{@adventure Dragons of the Sandstone City (Level 12)|DrDe-DotSC|1}"
+								"{@area Dragons of the Sandstone City (Level 12)|3ab|x}"
 							]
 						}
 					],
@@ -314,7 +314,7 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Adult Blue Dragon|XMM|Blue Dragon, Adult}",
 								"{@creature Ancient Blue Dragon|XMM|Blue Dragon, Ancient}",
@@ -328,6 +328,204 @@
 								"{@creature Mummy Lord|XMM}",
 								"{@creature Sphinx of Lore|XMM}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Adult Blue Dragon",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Adult Blue Dragon",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Ancient Blue Dragon",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ancient Blue Dragon",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Bandit",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bandit",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Basilisk",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Basilisk",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Dao",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Dao",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Flameskull",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flameskull",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Gargoyle",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Gargoyle",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Mage",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mage",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Mummy",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mummy",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Mummy Lord",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mummy Lord",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Sphinx of Lore",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Sphinx of Lore",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
 						},
 						{
 							"type": "table",
@@ -4756,7 +4954,7 @@
 													"type": "list",
 													"items": [
 														"49,000 GP",
-														"Eight gems\u2014two aquamarines, four black pearls, and two topazes (worth 500 GP each)",
+														"Eight gems\u2014two aquamarines, four black pearls, and two {@item Topaz|XDMG|topazes} (worth 500 GP each)",
 														"Three flawless vases (worth 750 GP each)",
 														"{@item Animated Shield|XDMG}",
 														"{@item Potion of Invisibility|XDMG}",

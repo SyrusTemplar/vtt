@@ -99,7 +99,7 @@
 							"page": 5,
 							"id": "008",
 							"entries": [
-								"If you have {@book Fizban's Treasury of Dragons|FTD|4}, the hoard of magic items described in that book can provide an incentive for characters to seek out dragons of increasing power and different kinds. Add the following items to the rewards acquired in the first three adventures: a {@item Scaled Ornament|FTD} in \"{@adventure Death at Sunset|DrDe-DaS|1},\" a {@item Dragon Vessel|FTD} in \"{@adventure Baker's Doesn't|DrDe-BD|1},\" and a {@item Dragon's Wrath Weapon|FTD} and a {@item Dragon-Touched Focus|FTD} in \"{@adventure The Will of Orcus|DrDe-TWoO|1}.\" All four items are Slumbering when the characters first acquire them, but in later adventures, the items can be awakened by steeping them in dragons' hoards."
+								"If you have {@book Fizban's Treasury of Dragons|FTD|4}, the hoard of magic items described in that book can provide an incentive for characters to seek out dragons of increasing power and different kinds. Add the following items to the rewards acquired in the first three adventures: a {@item Scaled Ornament|FTD} in \"{@area Death at Sunset|00f|x},\" a {@item Dragon Vessel|FTD} in \"{@adventure Baker's Doesn't|DrDe-BD|1},\" and a {@item Dragon's Wrath Weapon|FTD} and a {@item Dragon-Touched Focus|FTD} in \"{@adventure The Will of Orcus|DrDe-TWoO|1}.\" All four items are Slumbering when the characters first acquire them, but in later adventures, the items can be awakened by steeping them in dragons' hoards."
 							]
 						}
 					]
@@ -210,9 +210,9 @@
 					"entries": [
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
-								"{@adventure Death at Sunset (Level 1)|DrDe-DaS|1}",
+								"{@area Death at Sunset (Level 1)|00f|x}",
 								"{@adventure Baker's Doesn't (Level 3)|DrDe-BD|1}",
 								"{@adventure The Will of Orcus (Level 4)|DrDe-TWoO|1}",
 								"{@adventure For Whom the Void Calls (Level 5)|DrDe-FWtVC|1}",
@@ -348,6 +348,114 @@
 									"style": "list-no-bullets"
 								}
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Constrictor Snake",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Constrictor Snake",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Giant Centipede",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Giant Centipede",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Giant Venomous Snake",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Giant Venomous Snake",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Mastiff",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mastiff",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Swarm of Insects",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Swarm of Insects",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Venomous Snake",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Venomous Snake",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
 						},
 						{
 							"type": "table",
@@ -1639,7 +1747,7 @@
 					"id": "023",
 					"entries": [
 						"Redwood Grove is three miles east of {@area Redwood Watch|013|x}. The characters can reach the grove in about an hour.",
-						"As shown on {@adventure Map: Redwood Grove|DrDe-DaS|1|Map: Redwood Grove}, Redwood Grove includes six redwoods. Each tree is around 300 feet tall.",
+						"As shown on {@area Map: Redwood Grove|00d|x}, Redwood Grove includes six redwoods. Each tree is around 300 feet tall.",
 						{
 							"type": "entries",
 							"name": "Redwood Grove Features",
@@ -1691,7 +1799,7 @@
 							"page": 16,
 							"id": "029",
 							"entries": [
-								"The following locations are keyed to {@adventure Map: Redwood Grove|DrDe-DaS|1|Map: Redwood Grove}.",
+								"The following locations are keyed to {@area Map: Redwood Grove|00d|x}.",
 								{
 									"type": "entries",
 									"name": "R1: Looming Redwood",
@@ -3059,7 +3167,7 @@
 							"page": 20,
 							"id": "046",
 							"entries": [
-								"The following locations are keyed to {@adventure Map: Death at Sunset's Lair|DrDe-DaS|1|Map: Death at Sunset's Lair}.",
+								"The following locations are keyed to {@area Map: Death at Sunset's Lair|07d|x}.",
 								{
 									"type": "entries",
 									"name": "L1: Guarded Tunnel",
@@ -3293,7 +3401,7 @@
 													"type": "list",
 													"items": [
 														"210 GP, 3,150 SP, 6,300 CP",
-														"Twelve moonstones (worth 50 GP each)",
+														"Twelve {@item Moonstone|XDMG|moonstones} (worth 50 GP each)",
 														"Jade orb (worth 100 GP) engraved in Infernal with the name of Stygia",
 														"Golden cup (worth 50 GP)",
 														"Hand mirror in a silver frame (worth 40 GP)",

@@ -99,7 +99,7 @@
 							"page": 5,
 							"id": "008",
 							"entries": [
-								"If you have {@book Fizban's Treasury of Dragons|FTD|4}, the hoard of magic items described in that book can provide an incentive for characters to seek out dragons of increasing power and different kinds. Add the following items to the rewards acquired in the first three adventures: a {@item Scaled Ornament|FTD} in \"{@adventure Death at Sunset|DrDe-DaS|1},\" a {@item Dragon Vessel|FTD} in \"{@adventure Baker's Doesn't|DrDe-BD|1},\" and a {@item Dragon's Wrath Weapon|FTD} and a {@item Dragon-Touched Focus|FTD} in \"{@adventure The Will of Orcus|DrDe-TWoO|1}.\" All four items are Slumbering when the characters first acquire them, but in later adventures, the items can be awakened by steeping them in dragons' hoards."
+								"If you have {@book Fizban's Treasury of Dragons|FTD|4}, the hoard of magic items described in that book can provide an incentive for characters to seek out dragons of increasing power and different kinds. Add the following items to the rewards acquired in the first three adventures: a {@item Scaled Ornament|FTD} in \"{@adventure Death at Sunset|DrDe-DaS|1},\" a {@item Dragon Vessel|FTD} in \"{@area Baker's Doesn't|063|x},\" and a {@item Dragon's Wrath Weapon|FTD} and a {@item Dragon-Touched Focus|FTD} in \"{@adventure The Will of Orcus|DrDe-TWoO|1}.\" All four items are Slumbering when the characters first acquire them, but in later adventures, the items can be awakened by steeping them in dragons' hoards."
 							]
 						}
 					]
@@ -210,10 +210,10 @@
 					"entries": [
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@adventure Death at Sunset (Level 1)|DrDe-DaS|1}",
-								"{@adventure Baker's Doesn't (Level 3)|DrDe-BD|1}",
+								"{@area Baker's Doesn't (Level 3)|063|x}",
 								"{@adventure The Will of Orcus (Level 4)|DrDe-TWoO|1}",
 								"{@adventure For Whom the Void Calls (Level 5)|DrDe-FWtVC|1}",
 								"{@adventure The Dragon of Najkir (Level 7)|DrDe-TDoN|1}",
@@ -319,7 +319,7 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Animated Rug of Smothering|XMM}",
 								"{@creature Bandit|XMM}",
@@ -335,6 +335,240 @@
 								"{@creature Ogre|XMM}",
 								"{@creature Tough|XMM}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Animated Rug of Smothering",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Animated Rug of Smothering",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Bandit",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bandit",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Bugbear Warrior",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bugbear Warrior",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Cockatrice",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cockatrice",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Commoner",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Commoner",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Dryad",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Dryad",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Goblin Warrior",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Goblin Warrior",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Gold Dragon Wyrmling",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Gold Dragon Wyrmling",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Green Hag",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Green Hag",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Ice Mephit",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ice Mephit",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Mummy",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mummy",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Ogre",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ogre",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Tough",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Tough",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
 						}
 					]
 				},
@@ -347,7 +581,7 @@
 						"You can run this adventure for a single character of level 3. Ideally, that character should have proficiency in at least two of the following skills:",
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@skill Athletics|XPHB}",
 								"{@skill Deception|XPHB}",
@@ -679,7 +913,7 @@
 							"page": 32,
 							"id": "079",
 							"entries": [
-								"From the outside, the bakery (shown on {@adventure Map: Fill's Bakery|DrDe-BD|1|Map: Fills Bakery}) resembles a giant loaf of bread. The ground floor contains the kitchen, pantry, and storefront. The upper floor has living quarters for Fill and his secret dragon sous-chef, Briochebane."
+								"From the outside, the bakery (shown on {@area Map: Fill's Bakery|40c|x}) resembles a giant loaf of bread. The ground floor contains the kitchen, pantry, and storefront. The upper floor has living quarters for Fill and his secret dragon sous-chef, Briochebane."
 							]
 						},
 						{
@@ -1441,7 +1675,7 @@
 							"page": 35,
 							"id": "08b",
 							"entries": [
-								"The following locations are keyed to {@adventure Map: Candy Cottage|DrDe-BD|1|Map: Candy Cottage}.",
+								"The following locations are keyed to {@area Map: Candy Cottage|40d|x}.",
 								{
 									"type": "entries",
 									"name": "C1: Porch",
@@ -1699,7 +1933,7 @@
 											]
 										},
 										"The doll, Bubba Wugga, is positioned in front of the double door and refuses to let visitors enter the kitchen (area {@area C10|0a7|x}), per {@area Uncle Nibblecheek|06a|x}'s instructions. Bubba Wugga is a Construct that knows Common and Elvish; it otherwise uses the {@creature Ogre|XMM} stat block. It wields a lollipop-shaped {@item Greatclub|XPHB} and succeeds automatically on saving throws against spells that compel it to disobey Uncle Nibblecheek's orders.",
-										"If Bubba Wugga defeats the characters in combat, they awaken as prisoners in the dungeon (area {@area C15|0be|x}) with 1 Hit Points;Hit Point each.",
+										"If Bubba Wugga defeats the characters in combat, they awaken as prisoners in the dungeon (area {@area C15|0be|x}) with 1 {@variantrule Hit Points|XPHB|Hit Point} each.",
 										"Only candy can make Bubba Wugga ignore the hag's instructions. To convince the doll to stand aside, the characters must bring it three different candies from elsewhere in the cottage. Bubba Wugga gladly tells the characters its favorite candies and where to find them, as outlined in the Bubba Wugga's Favorite Candies table. The doll doesn't accept any substitutions. Upon receiving the candies, Bubba Wugga gathers its spoils, squeezes its way past the characters, and retires to its playroom (area {@area C3|090|x}), carefully stepping over the pressure plate in the hall (area {@area C6|09b|x}).",
 										{
 											"type": "table",
@@ -1992,7 +2226,7 @@
 											]
 										},
 										"A candy ladder in the southeast corner of the room leads to a visible trapdoor in the 10-foot-high ceiling. The trapdoor pushes open easily, revealing the sitting room (area {@area C4|094|x}) above.",
-										"The four gingerbread people Chaotic Evil {@creature Tough|XMM|Toughs} armed with rolling pins that function as Maces) attack intruders on sight. The gingerbread people know Common and Elvish.",
+										"The four gingerbread people (Chaotic Evil {@creature Tough|XMM|Toughs}) armed with rolling pins that function as Maces attack intruders on sight. The gingerbread people know Common and Elvish.",
 										{
 											"type": "entries",
 											"name": "Gingerbread",

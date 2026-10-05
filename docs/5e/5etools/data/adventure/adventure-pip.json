@@ -65,7 +65,7 @@
 								"This packet includes four character sheets and a handy guide that explains some of the rules and character options in more detail. Give each player one character sheet. If you have more than four players, they can change the names and descriptions on a duplicate character sheet so that they'll have unique characters with similar abilities and equipment.",
 								{
 									"type": "list",
-									"columns": 2,
+									"columns": 3,
 									"items": [
 										"{@5etoolsImg Evandon Haart|pdf/PiP/Evandon_Haart.pdf}",
 										"{@5etoolsImg Gallantine Birchenbough|pdf/PiP/Gallantine_Birchenbough.pdf}",
@@ -234,7 +234,7 @@
 								"{@i \"What do you do?\"}",
 								"At this point, players should explain what they want their characters to do. (If what they want to do is impossible, the DM says so and asks the player to choose a different action. For example, a character can't walk through a wall unless they have some special ability or magic that allows them to do so.)",
 								"If the action is possible and very easy to do, the character automatically succeeds. Opening an unlocked door or lifting a light object doesn't require heroic effort, so no {@dice d20} roll is necessary.",
-								"When the action is somewhere between easy and impossible, trying to do it could lead to success or failure. That's when the DM calls for a {@dice d20} roll. See the \"{@dice d20} Rolls\" section earlier in this document.",
+								"When the action is somewhere between easy and impossible, trying to do it could lead to success or failure. That's when the DM calls for a {@dice d20} roll. See the \"{@area d20 Rolls|009|x}\" section earlier in this document.",
 								"The {@dice d20} roll, plus its modifiers, determines whether the action succeeds or fails. What does success or failure mean for an adventure? This is where you and the players get to tell a story together!"
 							],
 							"id": "014"
@@ -721,7 +721,7 @@
 									"page": 8,
 									"entries": [
 										"Some monsters carry treasure, so it's often a good idea for characters to search the monsters as well as the area around them. Unless treasure is hidden, the characters can easily find it without having to make a check.",
-										"Just inside the cave entrance, the characters find a worn leather backpack. Inside the backpack are the following items: a package of dried meat, five torches, flint and steel for starting fires, and a pouch containing 12 gold pieces."
+										"Just inside the cave entrance, the characters find a worn leather backpack. Inside the backpack are the following items: a package of dried meat, five {@item Torch|PHB|torches}, flint and steel for starting fires, and a pouch containing 12 gold pieces."
 									],
 									"id": "033"
 								},
@@ -801,7 +801,7 @@
 							],
 							"id": "03a"
 						},
-						"Because the cave is dark and spooky beyond the entrance, the characters need to use the torches found in the worn leather backpack to light their way as they explore. The flint and steel in the backpack can be used to light the torches.",
+						"Because the cave is dark and spooky beyond the entrance, the characters need to use the {@item Torch|PHB|torches} found in the worn leather backpack to light their way as they explore. The flint and steel in the backpack can be used to light the {@item Torch|PHB|torches}.",
 						{
 							"type": "entries",
 							"name": "Reaching the Lair",

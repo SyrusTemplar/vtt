@@ -16,7 +16,8 @@
 								"{@book Player's Handbook|XPHB}",
 								"{@book Monster Manual|XMM}",
 								"{@book Dungeon Master's Guide|XDMG}"
-							]
+							],
+							"columns": 3
 						},
 						{
 							"type": "entries",
@@ -295,7 +296,7 @@
 											"type": "entries",
 											"name": "If you have a feature like Cunning Action or Step of the Wind, can you take the Dash action more than once on your turn?",
 											"entries": [
-												"If you can take the {@action Dash|XPHB} action as a Bonus Actions, nothing in the rules prevents you from taking the {@action Dash|XPHB} action with your regular action too. The same principle holds when you use a feature like {@classFeature Action Surge|Fighter|XPHB|2|XPHB}; you could use both of your actions to take the {@action Dash|XPHB} action."
+												"If you can take the {@action Dash|XPHB} action as a Bonus Action, nothing in the rules prevents you from taking the {@action Dash|XPHB} action with your regular action too. The same principle holds when you use a feature like {@classFeature Action Surge|Fighter|XPHB|2|XPHB}; you could use both of your actions to take the {@action Dash|XPHB} action."
 											],
 											"id": "026"
 										},
@@ -1563,7 +1564,7 @@
 											"type": "entries",
 											"name": "How does Barkskin work with Shields, cover, and other modifiers to AC?",
 											"entries": [
-												"The target of {@spell Barkskin|XPHB} has an {@variantrule Armor Class|XPHB} of 17 if its AC is lower than that. This means the target effectively ignore any modifiers to its AC\u2014including any armor, a {@item Shield|XPHB}, or cover\u2014unless its AC is higher than 17. For example, if you're the target of a {@spell Barkskin|XPHB} spell and your AC is normally 14, your AC is 17 while under the effects of the spell; however, if your AC is normally 16 and you have {@variantrule Cover|XPHB|Half Cover}, your AC is 18, and {@spell Barkskin|XPHB|Barkskin's} effect isn't relevant."
+												"The target of {@spell Barkskin|XPHB} has an {@variantrule Armor Class|XPHB} of 17 if its AC is lower than that. This means the target effectively ignores any modifiers to its AC\u2014including any armor, a {@item Shield|XPHB}, or cover\u2014unless its AC is higher than 17. For example, if you're the target of a {@spell Barkskin|XPHB} spell and your AC is normally 14, your AC is 17 while under the effects of the spell; however, if your AC is normally 16 and you have {@variantrule Cover|XPHB|Half Cover}, your AC is 18, and {@spell Barkskin|XPHB|Barkskin's} effect isn't relevant."
 											],
 											"id": "0c9"
 										},
@@ -1756,7 +1757,7 @@
 										},
 										{
 											"type": "entries",
-											"name": "Can a creature under the effects of Polymorph have other spell effects on them, or are those game statistics also replaced by the those of the beast form?",
+											"name": "Can a creature under the effects of Polymorph have other spell effects on them, or are those game statistics also replaced by those of the beast form?",
 											"entries": [
 												"{@spell Polymorph|XPHB} replaces only the target's character sheet or stat block with the stat block of the chosen form. Other effects, such as other spells, still exist."
 											],
@@ -1889,7 +1890,7 @@
 										},
 										{
 											"type": "entries",
-											"name": "If a Shadow rolls a Critical Hit, does it reduce the target's Strength by 2d4, as well dealing the extra Necrotic damage?",
+											"name": "If a Shadow rolls a Critical Hit, does it reduce the target's Strength by 2d4, as well as dealing the extra Necrotic damage?",
 											"entries": [
 												"No. A {@variantrule Critical Hit|XPHB} lets you roll damage dice twice. An effect that deals damage is one that reduces the target's {@variantrule Hit Points|XPHB}. The {@creature Shadow|XMM|Shadow's} Strength reduction isn't damage because it has no effect on the target's {@variantrule Hit Points|XPHB}."
 											],
@@ -1913,7 +1914,7 @@
 										},
 										{
 											"type": "entries",
-											"name": "Can a Hydra use Reactive Heads to make multiple Opportunity Attack against one creature at the same time when it provokes?",
+											"name": "Can a Hydra use Reactive Heads to make multiple Opportunity Attacks against one creature at the same time when it provokes?",
 											"entries": [
 												"Yes. For that reason, we recommend taking the {@action Disengage|XPHB} action when you're going to move away from a {@creature Hydra|XMM}."
 											],

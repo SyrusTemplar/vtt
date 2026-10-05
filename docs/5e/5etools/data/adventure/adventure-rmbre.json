@@ -36,7 +36,7 @@
 							"credit": "Troy Little"
 						},
 						"{@i The Lost Dungeon of Rickedness: Big Rick Energy} is an adventure for four to five characters of 1st level. During the course of the adventure, the characters will advance to 3rd level. See \"{@area Leveling Up|013|x}\" for details on when it's best for the characters to advance.",
-						"While the rulebook provides you with everything you need to create your own characters, this adventure assumes players are using the {@i Rick and Morty} {@adventure pregenerated characters|RMBRE|0|Pregenerated Characters} provided in this boxed set. If they're not, that's fine, but players might want to consider why their characters find themselves on an adventure in the unpredictable world of {@i Rick and Morty}\u2014or not, and just be prepared for whatever weirdness comes their way!",
+						"While the rulebook provides you with everything you need to create your own characters, this adventure assumes players are using the {@i Rick and Morty} {@area pregenerated characters|010|x} provided in this boxed set. If they're not, that's fine, but players might want to consider why their characters find themselves on an adventure in the unpredictable world of {@i Rick and Morty}\u2014or not, and just be prepared for whatever weirdness comes their way!",
 						"If this is your first time running a D&D adventure, read the \"Role of the Dungeon Master\" section; it will help you better understand your role and responsibilities.",
 						{
 							"type": "entries",
@@ -1458,7 +1458,7 @@
 											"page": 5,
 											"id": "00d",
 											"entries": [
-												"Any monster or NPC that is likely to be involved in combat requires game statistics so the DM can run it effectively. These statistics are presented in a format called a {@i statistics block}, or {@i stat block}. You'll find the stat blocks needed for this adventure in {@adventure appendix D|RMBRE|3}."
+												"Any monster or NPC that is likely to be involved in combat requires game statistics so the DM can run it effectively. These statistics are presented in a format called a {@i statistics block}, or {@i stat block}. You'll find the stat blocks needed for this adventure in {@area appendix D|110|x}."
 											]
 										}
 									]
@@ -1471,8 +1471,8 @@
 							"page": 5,
 							"id": "00e",
 							"entries": [
-								"Whenever the text refers to a magic item, its name is presented in {@i italic} type. For a description of the item and its magical properties, see {@adventure appendix C|RMBRE|2}.",
-								"Similarly, whenever the adventure text presents a creature's name in {@b bold} type, that's a visual cue directing you to the creature's stat block in {@adventure appendix D|RMBRE|3}."
+								"Whenever the text refers to a magic item, its name is presented in {@i italic} type. For a description of the item and its magical properties, see {@area appendix C|108|x}.",
+								"Similarly, whenever the adventure text presents a creature's name in {@b bold} type, that's a visual cue directing you to the creature's stat block in {@area appendix D|110|x}."
 							]
 						},
 						{
@@ -1609,7 +1609,7 @@
 					"page": 6,
 					"id": "015",
 					"entries": [
-						"All the locations talked about in the adventure are from {@adventure map 1.1|RMBRE|0|Map 1.1: The Lost Dungeon of Rickedness}. Obviously.",
+						"All the locations talked about in the adventure are from {@area map 1.1|10b|x}. Obviously.",
 						{
 							"type": "entries",
 							"name": "Let's Get Going Already",
@@ -4598,7 +4598,7 @@
 					"entries": [
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@item Potion of Flying}",
 								"{@item Potion of Healing}",
@@ -4606,6 +4606,31 @@
 								"{@item Wand of Magic Missiles}",
 								"{@item Winged Boots}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Potion of Flying",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Potion of Healing",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Ring of Protection",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Wand of Magic Missiles",
+							"tag": "item"
+						},
+						{
+							"type": "statblock",
+							"name": "Winged Boots",
+							"tag": "item"
 						}
 					]
 				}
@@ -5039,6 +5064,709 @@
 								"{@creature Piggy Wiggle Butt|RMBRE}",
 								"{@creature Thomas T. Toad|RMBRE}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Bugbear",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Bugbear",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Bugbear",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "10e"
+						},
+						{
+							"type": "section",
+							"name": "Commoner",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Commoner",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Commoner",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "10f"
+						},
+						{
+							"type": "section",
+							"name": "Cultist",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Cultist",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Cultist",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "138"
+						},
+						{
+							"type": "section",
+							"name": "Evil Mage",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Evil Mage",
+									"prop": "monsterFluff",
+									"source": "LMoP",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Evil Mage",
+									"tag": "creature",
+									"source": "LMoP",
+									"style": "narrow"
+								}
+							],
+							"id": "139"
+						},
+						{
+							"type": "section",
+							"name": "Flameskull",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Flameskull",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Flameskull",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "13a"
+						},
+						{
+							"type": "section",
+							"name": "Ghoul",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Ghoul",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Ghoul",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "13b"
+						},
+						{
+							"type": "section",
+							"name": "Giant Spider",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Giant Spider",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Giant Spider",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "13c"
+						},
+						{
+							"type": "section",
+							"name": "Goblin",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Goblin",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Goblin",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "13d"
+						},
+						{
+							"type": "section",
+							"name": "Hobgoblin",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Hobgoblin",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Hobgoblin",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "13e"
+						},
+						{
+							"type": "section",
+							"name": "Mimic",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Mimic",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Mimic",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "13f"
+						},
+						{
+							"type": "section",
+							"name": "Nothic",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Nothic",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Nothic",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "140"
+						},
+						{
+							"type": "section",
+							"name": "Ochre Jelly",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Ochre Jelly",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Ochre Jelly",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "141"
+						},
+						{
+							"type": "section",
+							"name": "Ogre",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Ogre",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Ogre",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "142"
+						},
+						{
+							"type": "section",
+							"name": "Orc",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Orc",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Orc",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "143"
+						},
+						{
+							"type": "section",
+							"name": "Owlbear",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Owlbear",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Owlbear",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "144"
+						},
+						{
+							"type": "section",
+							"name": "Skeleton",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Skeleton",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Skeleton",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "145"
+						},
+						{
+							"type": "section",
+							"name": "Spectator",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Spectator",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Spectator",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "146"
+						},
+						{
+							"type": "section",
+							"name": "Stirge",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Stirge",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Stirge",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "147"
+						},
+						{
+							"type": "section",
+							"name": "Twig Blight",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Twig Blight",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Twig Blight",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "148"
+						},
+						{
+							"type": "section",
+							"name": "Young Green Dragon",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Young Green Dragon",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Young Green Dragon",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "149"
+						},
+						{
+							"type": "section",
+							"name": "Zombie",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Zombie",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Zombie",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "14a"
+						},
+						{
+							"type": "section",
+							"name": "Billy Beaver",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Billy Beaver",
+									"prop": "monsterFluff",
+									"source": "RMBRE",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Billy Beaver",
+									"tag": "creature",
+									"source": "RMBRE",
+									"style": "narrow"
+								}
+							],
+							"id": "14b"
+						},
+						{
+							"type": "section",
+							"name": "Buster the Bear",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Buster the Bear",
+									"prop": "monsterFluff",
+									"source": "RMBRE",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Buster the Bear",
+									"tag": "creature",
+									"source": "RMBRE",
+									"style": "narrow"
+								}
+							],
+							"id": "14c"
+						},
+						{
+							"type": "section",
+							"name": "Large Mimic",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Large Mimic",
+									"tag": "creature",
+									"source": "RMBRE",
+									"style": "narrow"
+								}
+							],
+							"id": "14d"
+						},
+						{
+							"type": "section",
+							"name": "Layla the Lizard",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Layla the Lizard",
+									"prop": "monsterFluff",
+									"source": "RMBRE",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Layla the Lizard",
+									"tag": "creature",
+									"source": "RMBRE",
+									"style": "narrow"
+								}
+							],
+							"id": "14e"
+						},
+						{
+							"type": "section",
+							"name": "Lycanthropickle",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Lycanthropickle",
+									"prop": "monsterFluff",
+									"source": "RMBRE",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Lycanthropickle",
+									"tag": "creature",
+									"source": "RMBRE",
+									"style": "narrow"
+								}
+							],
+							"id": "14f"
+						},
+						{
+							"type": "section",
+							"name": "Meeseeks",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Meeseeks",
+									"tag": "creature",
+									"source": "RMBRE",
+									"style": "narrow"
+								}
+							],
+							"id": "150"
+						},
+						{
+							"type": "section",
+							"name": "Piggy Wiggle Butt",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Piggy Wiggle Butt",
+									"prop": "monsterFluff",
+									"source": "RMBRE",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Piggy Wiggle Butt",
+									"tag": "creature",
+									"source": "RMBRE",
+									"style": "narrow"
+								}
+							],
+							"id": "151"
+						},
+						{
+							"type": "section",
+							"name": "Thomas T. Toad",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Thomas T. Toad",
+									"prop": "monsterFluff",
+									"source": "RMBRE",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Thomas T. Toad",
+									"tag": "creature",
+									"source": "RMBRE",
+									"style": "narrow"
+								}
+							],
+							"id": "152"
 						}
 					]
 				}

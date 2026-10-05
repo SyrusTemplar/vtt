@@ -83,13 +83,6 @@
 				}
 			],
 			"startingProficiencies": {
-				"weapons": [
-					"{@item dagger|phb|daggers}",
-					"{@item dart|phb|darts}",
-					"{@item sling|phb|slings}",
-					"{@item quarterstaff|phb|quarterstaffs}",
-					"{@item light crossbow|phb|light crossbows}"
-				],
 				"skills": [
 					{
 						"choose": {
@@ -104,6 +97,13 @@
 							"count": 2
 						}
 					}
+				],
+				"weapons": [
+					"{@item dagger|phb|daggers}",
+					"{@item dart|phb|darts}",
+					"{@item sling|phb|slings}",
+					"{@item quarterstaff|phb|quarterstaffs}",
+					"{@item light crossbow|phb|light crossbows}"
 				]
 			},
 			"startingEquipment": {
@@ -681,9 +681,6 @@
 				}
 			],
 			"startingProficiencies": {
-				"weapons": [
-					"simple"
-				],
 				"skills": [
 					{
 						"choose": {
@@ -698,6 +695,9 @@
 							"count": 2
 						}
 					}
+				],
+				"weapons": [
+					"simple"
 				]
 			},
 			"startingEquipment": {
@@ -2205,6 +2205,7 @@
 			"source": "RHW",
 			"className": "Sorcerer",
 			"classSource": "XPHB",
+			"page": 23,
 			"edition": "one",
 			"additionalSpells": [
 				{
@@ -5005,6 +5006,7 @@
 		{
 			"name": "Power of Shadow",
 			"source": "RHW",
+			"page": 24,
 			"className": "Sorcerer",
 			"classSource": "XPHB",
 			"subclassShortName": "Shadow",
@@ -5031,6 +5033,7 @@
 		{
 			"name": "Shadow Sorcery",
 			"source": "RHW",
+			"page": 23,
 			"className": "Sorcerer",
 			"classSource": "XPHB",
 			"subclassShortName": "Shadow",
@@ -5052,6 +5055,7 @@
 		{
 			"name": "Shadow Spells",
 			"source": "RHW",
+			"page": 23,
 			"className": "Sorcerer",
 			"classSource": "XPHB",
 			"subclassShortName": "Shadow",
@@ -5094,6 +5098,7 @@
 		{
 			"name": "Beasts of Ill Omen",
 			"source": "RHW",
+			"page": 24,
 			"className": "Sorcerer",
 			"classSource": "XPHB",
 			"subclassShortName": "Shadow",
@@ -5108,6 +5113,7 @@
 		{
 			"name": "Shadow Walk",
 			"source": "RHW",
+			"page": 24,
 			"className": "Sorcerer",
 			"classSource": "XPHB",
 			"subclassShortName": "Shadow",
@@ -5121,6 +5127,7 @@
 		{
 			"name": "Umbral Form",
 			"source": "RHW",
+			"page": 24,
 			"className": "Sorcerer",
 			"classSource": "XPHB",
 			"subclassShortName": "Shadow",
@@ -5855,7 +5862,7 @@
 						],
 						[
 							"17\u201320",
-							"You are subjected to an effect that lasts for 1 minute unless its description says otherwise. Roll {@dice 1d8} to determine the effect: on a 1, you're surrounded by faint, ethereal music only you and creatures within 5 feet of you can hear; on a 2, your size increases by one size category; on a 3, you grow a long beard made of feathers that remains until you sneeze, at which point the feathers explode from your face and vanish; on a 4, you must shout when you speak; on a 5, illusory butterflies flutter in the air within 10 feet of you; on a 6, an eye appears on your forehead, granting you {@variantrule Advantage|XPHB} on Wisdom ({@skill Perception|XPHB}) checks; on an 7, pink bubbles float out of your mouth whenever you speak; on an 8, your skin turns a vibrant shade of blue for 24 hours or until the effect is ended by a {@spell Remove Curse|XPHB} spell."
+							"You are subjected to an effect that lasts for 1 minute unless its description says otherwise. Roll {@dice 1d8} to determine the effect: on a 1, you're surrounded by faint, ethereal music only you and creatures within 5 feet of you can hear; on a 2, your size increases by one size category; on a 3, you grow a long beard made of feathers that remains until you sneeze, at which point the feathers explode from your face and vanish; on a 4, you must shout when you speak; on a 5, illusory butterflies flutter in the air within 10 feet of you; on a 6, an eye appears on your forehead, granting you {@variantrule Advantage|XPHB} on Wisdom ({@skill Perception|XPHB}) checks; on a 7, pink bubbles float out of your mouth whenever you speak; on an 8, your skin turns a vibrant shade of blue for 24 hours or until the effect is ended by a {@spell Remove Curse|XPHB} spell."
 						],
 						[
 							"21\u201324",
@@ -5935,7 +5942,7 @@
 						],
 						[
 							"97\u201300",
-							"Roll {@dice 1d6} On a 1, you regain {@dice 2d10} {@variantrule Hit Points|XPHB}; on a 2, one ally of your choice within 300 feet of you regains {@dice 2d10} {@variantrule Hit Points|XPHB}; on a 3, you regain your lowest-level expended spell slot; on a 4, one ally of your choice within 300 feet of you regains their lowest-level expended spell slot; on a 5, you regain all your expended Sorcery Points; on a 6, all the effects of row 17\u201320 affect you simultaneously."
+							"Roll {@dice 1d6}. On a 1, you regain {@dice 2d10} {@variantrule Hit Points|XPHB}; on a 2, one ally of your choice within 300 feet of you regains {@dice 2d10} {@variantrule Hit Points|XPHB}; on a 3, you regain your lowest-level expended spell slot; on a 4, one ally of your choice within 300 feet of you regains their lowest-level expended spell slot; on a 5, you regain all your expended Sorcery Points; on a 6, all the effects of row 17\u201320 affect you simultaneously."
 						]
 					],
 					"data": {

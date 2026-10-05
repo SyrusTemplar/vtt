@@ -301,7 +301,7 @@
 								},
 								{
 									"type": "statblock",
-									"prop": "subclass",
+									"tag": "subclass",
 									"source": "PSK",
 									"name": "Pyromancer (PSK)",
 									"shortName": "Pyromancer (PSK)",
@@ -328,7 +328,7 @@
 									"page": 10,
 									"entries": [
 										"The citizens of the Consulate enjoy what is perhaps the most exciting and inspiring period in Kaladesh's history. In the sixty years since Avaati Vya discovered the process of aether refinement, aether has transformed virtually all day-to-day activities and reshaped the way people think about their lives. Over the course of the last half century, hundreds of thousands of new devices, machines, vehicles, constructs, and even weapons have sprung from the minds of talented inventors\u2014all powered by the wonders of aether.",
-										"The tremendous variety of aether-powered devices on Kaladesh can be represented by many of the magic items in the {@book Dungeon Master's Guide|DMG}. These items are far more common on Kaladesh than they are in most D&D worlds, and are readily available for purchase (see \"{@book Buying and Selling Devices|PS-K|1|Buying and Selling Devices}\"). A DM should feel free to be generous in allowing characters access to magic items, in the spirit of Kaladesh.",
+										"The tremendous variety of aether-powered devices on Kaladesh can be represented by many of the magic items in the {@book Dungeon Master's Guide|DMG}. These items are far more common on Kaladesh than they are in most D&D worlds, and are readily available for purchase (see \"{@area Buying and Selling Devices|020|x}\"). A DM should feel free to be generous in allowing characters access to magic items, in the spirit of Kaladesh.",
 										"The following guidelines\u2014plus a healthy dash of inventor's ingenuity\u2014can be used to adapt D&D magic items to the world of Kaladesh. Additionally, the captions that appear beside some of the art in this document offer examples of how you might translate Kaladesh's aether-powered wonders into the magic items of D&D.",
 										{
 											"type": "entries",
@@ -508,11 +508,23 @@
 						"In campaigns that make use of feats, player characters can gain additional abilities related to aether and invention.",
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@feat Quicksmithing|PSK}",
 								"{@feat Servo Crafting|PSK}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Quicksmithing",
+							"tag": "feat",
+							"source": "PSK"
+						},
+						{
+							"type": "statblock",
+							"name": "Servo Crafting",
+							"tag": "feat",
+							"source": "PSK"
 						},
 						{
 							"type": "image",
@@ -611,6 +623,48 @@
 						"{@race Human (Kaladesh)|PSK}",
 						"{@race Vedalken|PSK}"
 					]
+				},
+				{
+					"type": "statblock",
+					"name": "Aetherborn",
+					"tag": "race",
+					"source": "PSK"
+				},
+				{
+					"type": "statblock",
+					"name": "Dwarf (Kaladesh)",
+					"tag": "race",
+					"source": "PSK"
+				},
+				{
+					"type": "statblock",
+					"name": "Elf (Kaladesh)",
+					"tag": "race",
+					"source": "PSK"
+				},
+				{
+					"type": "statblock",
+					"name": "Elf (Kaladesh; Bishatar and Tirahar)",
+					"tag": "race",
+					"source": "PSK"
+				},
+				{
+					"type": "statblock",
+					"name": "Elf (Kaladesh; Vahadar)",
+					"tag": "race",
+					"source": "PSK"
+				},
+				{
+					"type": "statblock",
+					"name": "Human (Kaladesh)",
+					"tag": "race",
+					"source": "PSK"
+				},
+				{
+					"type": "statblock",
+					"name": "Vedalken",
+					"tag": "race",
+					"source": "PSK"
 				}
 			],
 			"id": "028"
@@ -662,6 +716,681 @@
 						"{@creature Thopter (Vulture)|PSK}",
 						"{@creature Wurm|PSK}"
 					]
+				},
+				{
+					"type": "section",
+					"name": "Angel",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Angel",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Angel",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "02b"
+				},
+				{
+					"type": "section",
+					"name": "Construct (Animated Armor)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Construct (Animated Armor)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Construct (Animated Armor)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "02c"
+				},
+				{
+					"type": "section",
+					"name": "Construct (Helmed Horror)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Construct (Helmed Horror)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Construct (Helmed Horror)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "02d"
+				},
+				{
+					"type": "section",
+					"name": "Construct (Modron)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Construct (Modron)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Construct (Modron)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "02e"
+				},
+				{
+					"type": "section",
+					"name": "Construct (Shield Guardian)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Construct (Shield Guardian)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Construct (Shield Guardian)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "02f"
+				},
+				{
+					"type": "section",
+					"name": "Demon",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Demon",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Demon",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "030"
+				},
+				{
+					"type": "section",
+					"name": "Dragon",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Dragon",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Dragon",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "031"
+				},
+				{
+					"type": "section",
+					"name": "Drake (Large)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Drake (Large)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Drake (Large)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "032"
+				},
+				{
+					"type": "section",
+					"name": "Drake (Small)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Drake (Small)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Drake (Small)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "033"
+				},
+				{
+					"type": "section",
+					"name": "Giant",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Giant",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Giant",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "034"
+				},
+				{
+					"type": "section",
+					"name": "Gremlin",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Gremlin",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Gremlin",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "035"
+				},
+				{
+					"type": "section",
+					"name": "Hellion (Huge)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Hellion (Huge)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Hellion (Huge)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "036"
+				},
+				{
+					"type": "section",
+					"name": "Hellion (Large)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Hellion (Large)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Hellion (Large)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "037"
+				},
+				{
+					"type": "section",
+					"name": "Hydra",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Hydra",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Hydra",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "038"
+				},
+				{
+					"type": "section",
+					"name": "Lifecraft Elephant",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Lifecraft Elephant",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Lifecraft Elephant",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "039"
+				},
+				{
+					"type": "section",
+					"name": "Servo",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Servo",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Servo",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "03a"
+				},
+				{
+					"type": "section",
+					"name": "Sky Leviathan",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Sky Leviathan",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Sky Leviathan",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "03b"
+				},
+				{
+					"type": "section",
+					"name": "Sky Whale",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Sky Whale",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Sky Whale",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "03c"
+				},
+				{
+					"type": "section",
+					"name": "Thopter (Bat)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Thopter (Bat)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Thopter (Bat)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "03d"
+				},
+				{
+					"type": "section",
+					"name": "Thopter (Blood Hawk)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Thopter (Blood Hawk)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Thopter (Blood Hawk)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "03e"
+				},
+				{
+					"type": "section",
+					"name": "Thopter (Eagle)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Thopter (Eagle)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Thopter (Eagle)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "03f"
+				},
+				{
+					"type": "section",
+					"name": "Thopter (Hawk)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Thopter (Hawk)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Thopter (Hawk)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "040"
+				},
+				{
+					"type": "section",
+					"name": "Thopter (Owl)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Thopter (Owl)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Thopter (Owl)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "041"
+				},
+				{
+					"type": "section",
+					"name": "Thopter (Pseudodragon)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Thopter (Pseudodragon)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Thopter (Pseudodragon)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "042"
+				},
+				{
+					"type": "section",
+					"name": "Thopter (Raven)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Thopter (Raven)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Thopter (Raven)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "043"
+				},
+				{
+					"type": "section",
+					"name": "Thopter (Vulture)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Thopter (Vulture)",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Thopter (Vulture)",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "044"
+				},
+				{
+					"type": "section",
+					"name": "Wurm",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Wurm",
+							"prop": "monsterFluff",
+							"source": "PSK",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Wurm",
+							"tag": "creature",
+							"source": "PSK",
+							"style": "narrow"
+						}
+					],
+					"id": "045"
 				}
 			],
 			"id": "029"

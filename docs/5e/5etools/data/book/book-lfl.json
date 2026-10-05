@@ -29,10 +29,10 @@
 						"This product includes the tools you need to play {@i Dungeons & Dragons} adventures set in the realm of Lorwyn-Shadowmoor.",
 						"This introduction gives an overview of Lorwyn-Shadowmoor, details key features, and provides guidance on adventuring here. Although this introduction and chapter 1 are suitable for all players' eyes, the remainder of this supplement is intended for Dungeon Masters only.",
 						"The following is included:",
-						"{@book Chapter 1|LFL|1} provides tools for creating a character who originates from Lorwyn or Shadowmoor.",
-						"{@book Chapter 2|LFL|2} presents a gazetteer of locations in Lorwyn and Shadowmoor, along with adventure seeds tied to these places.",
-						"{@book Chapter 3|LFL|3} presents stat blocks for several creatures found in the realm of Lorwyn-Shadowmoor.",
-						"{@book Chapter 4|LFL|4} includes a map and adventures set in Lorwyn's Burrenton, a village established by the halfling-like kithkin.",
+						"{@area Chapter 1|017|x} provides tools for creating a character who originates from Lorwyn or Shadowmoor.",
+						"{@area Chapter 2|042|x} presents a gazetteer of locations in Lorwyn and Shadowmoor, along with adventure seeds tied to these places.",
+						"{@area Chapter 3|08e|x} presents stat blocks for several creatures found in the realm of Lorwyn-Shadowmoor.",
+						"{@area Chapter 4|0a5|x} includes a map and adventures set in Lorwyn's Burrenton, a village established by the halfling-like kithkin.",
 						{
 							"type": "inset",
 							"name": "Inspiration and Origins",
@@ -65,8 +65,8 @@
 							"name": "Lives of Whimsy and Wandering",
 							"id": "004",
 							"entries": [
-								"Lorwyn is home to elves, goblin-like boggarts, merfolk-like merrow, halfling-like kithkin, and genasi-like flamekin and rimekin. These peoples live peacefully in communities spread across the countryside, though old grudges and conflicts occasionally come to a head. (For more about the peoples of Lorwyn, see {@book chapter 1|LFL|1}.)",
-								"Some denizens of Lorwyn prefer a nomadic life. Minute faeries flit from village to village causing mischief, while ancient treefolk travel to share their wisdom. Enormous giants seek new frontiers to explore, and friendly changelings, who can take on any guise, are considered harbingers of good luck. Meanwhile, unfathomable beings called incarnations of nature combine the forms of many creatures to embody abstract concepts. (See {@book chapter 3|LFL|3} for more about the creatures that inhabit Lorwyn.)",
+								"Lorwyn is home to elves, goblin-like boggarts, merfolk-like merrow, halfling-like kithkin, and genasi-like flamekin and rimekin. These peoples live peacefully in communities spread across the countryside, though old grudges and conflicts occasionally come to a head. (For more about the peoples of Lorwyn, see {@area chapter 1|017|x}.)",
+								"Some denizens of Lorwyn prefer a nomadic life. Minute faeries flit from village to village causing mischief, while ancient treefolk travel to share their wisdom. Enormous giants seek new frontiers to explore, and friendly changelings, who can take on any guise, are considered harbingers of good luck. Meanwhile, unfathomable beings called incarnations of nature combine the forms of many creatures to embody abstract concepts. (See {@area chapter 3|08e|x} for more about the creatures that inhabit Lorwyn.)",
 								{
 									"type": "entries",
 									"name": "Lorwyn Denizen Characteristics",
@@ -120,8 +120,8 @@
 							"name": "Insular and Suspicious Outlooks",
 							"id": "009",
 							"entries": [
-								"Like in Lorwyn, Shadowmoor residents include elves, boggarts, merrow, kithkin, flamekin, and rimekin. However, these individuals tend to be more suspicious and insular than their Lorwyn counterparts. (For more about the peoples of Shadowmoor, see {@book chapter 1|LFL|1}.)",
-								"Shadowmoor inhabitants are also more xenophobic than those of Lorwyn, and violent conflicts are more common. Chaotic, donkey-headed noggles steal from anyone they meet. Faeries, treefolk, and giants roam the land, but are generally crueler than their Lorwyn kin. Shadowmoor's wilderness is stalked by frightful creatures, including scarecrows, mimics, and horrifying incarnations of abstract ideas come to life. (For more about the monsters found in Shadowmoor, see {@book chapter 3|LFL|3}.)",
+								"Like in Lorwyn, Shadowmoor residents include elves, boggarts, merrow, kithkin, flamekin, and rimekin. However, these individuals tend to be more suspicious and insular than their Lorwyn counterparts. (For more about the peoples of Shadowmoor, see {@area chapter 1|017|x}.)",
+								"Shadowmoor inhabitants are also more xenophobic than those of Lorwyn, and violent conflicts are more common. Chaotic, donkey-headed noggles steal from anyone they meet. Faeries, treefolk, and giants roam the land, but are generally crueler than their Lorwyn kin. Shadowmoor's wilderness is stalked by frightful creatures, including scarecrows, mimics, and horrifying incarnations of abstract ideas come to life. (For more about the monsters found in Shadowmoor, see {@area chapter 3|08e|x}.)",
 								{
 									"type": "entries",
 									"name": "Shadowmoor Denizen Characteristics",
@@ -208,6 +208,18 @@
 										"{@item Reliquary of Dawn|LFL}",
 										"{@item Reliquary of Twilight|LFL}"
 									]
+								},
+								{
+									"type": "statblock",
+									"name": "Reliquary of Dawn",
+									"tag": "item",
+									"source": "LFL"
+								},
+								{
+									"type": "statblock",
+									"name": "Reliquary of Twilight",
+									"tag": "item",
+									"source": "LFL"
 								}
 							]
 						}
@@ -251,7 +263,7 @@
 					"height": 1267
 				},
 				"This chapter provides rules for backgrounds and species of player characters from the realm of Lorwyn-Shadowmoor. These elements suggest the characters' early experiences and family origins before taking up an adventuring life and learning the capabilities of a class described in the {@book Player's Handbook|XPHB|3}.",
-				"Heroes from the realm of Lorwyn-Shadowmoor might embark on the adventures described in {@book chapter 4|LFL|4}, or they might find their way to another setting, at the DM's discretion.",
+				"Heroes from the realm of Lorwyn-Shadowmoor might embark on the adventures described in {@area chapter 4|0a5|x}, or they might find their way to another setting, at the DM's discretion.",
 				{
 					"type": "section",
 					"name": "Backgrounds",
@@ -265,6 +277,18 @@
 								"{@background Lorwyn Expert|LFL}",
 								"{@background Shadowmoor Expert|LFL}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Lorwyn Expert",
+							"tag": "background",
+							"source": "LFL"
+						},
+						{
+							"type": "statblock",
+							"name": "Shadowmoor Expert",
+							"tag": "background",
+							"source": "LFL"
 						}
 					]
 				},
@@ -281,6 +305,18 @@
 								"{@feat Child of the Sun|LFL}",
 								"{@feat Shadowmoor Hexer|LFL}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Child of the Sun",
+							"tag": "feat",
+							"source": "LFL"
+						},
+						{
+							"type": "statblock",
+							"name": "Shadowmoor Hexer",
+							"tag": "feat",
+							"source": "LFL"
 						}
 					]
 				},
@@ -303,7 +339,14 @@
 											"type": "list",
 											"items": [
 												"{@race Boggart|LFL}"
-											]
+											],
+											"columns": 3
+										},
+										{
+											"type": "statblock",
+											"name": "Boggart",
+											"tag": "race",
+											"source": "LFL"
 										}
 									]
 								},
@@ -318,6 +361,12 @@
 											"items": [
 												"{@race Elf|LFL}"
 											]
+										},
+										{
+											"type": "statblock",
+											"name": "Elf",
+											"tag": "race",
+											"source": "LFL"
 										}
 									]
 								},
@@ -326,13 +375,19 @@
 									"name": "Playing a Faerie",
 									"entries": [
 										"Use the Fairy species (see {@race Fairy|MPMM|Mordenkainen Presents: Monsters of the Multiverse}) when creating a faerie player character. Shadowmoor faeries have {@sense Darkvision|XPHB} with a range of 120 feet.",
-										"For suggestions on how to run a faerie nonplayer character, see {@book chapter 3|LFL|3}.",
+										"For suggestions on how to run a faerie nonplayer character, see {@area chapter 3|08e|x}.",
 										{
 											"type": "list",
 											"columns": 3,
 											"items": [
 												"{@race Faerie|LFL}"
 											]
+										},
+										{
+											"type": "statblock",
+											"name": "Faerie",
+											"tag": "race",
+											"source": "LFL"
 										}
 									]
 								},
@@ -347,6 +402,12 @@
 											"items": [
 												"{@race Flamekin|LFL}"
 											]
+										},
+										{
+											"type": "statblock",
+											"name": "Flamekin",
+											"tag": "race",
+											"source": "LFL"
 										}
 									]
 								},
@@ -361,6 +422,12 @@
 											"items": [
 												"{@race Kithkin|LFL}"
 											]
+										},
+										{
+											"type": "statblock",
+											"name": "Kithkin",
+											"tag": "race",
+											"source": "LFL"
 										}
 									]
 								}
@@ -381,6 +448,18 @@
 								"{@race Lorwyn Changeling|LFL}",
 								"{@race Rimekin|LFL}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Lorwyn Changeling",
+							"tag": "race",
+							"source": "LFL"
+						},
+						{
+							"type": "statblock",
+							"name": "Rimekin",
+							"tag": "race",
+							"source": "LFL"
 						}
 					]
 				}
@@ -546,7 +625,7 @@
 											"name": "Elemental Study",
 											"id": "053",
 											"entries": [
-												"Sages in Dundoolin are working on the Eightyfold Trail, a manuscript describing incarnations of nature. They hire the adventurers to investigate recent changes in the behavior of nearby incarnations. The sages believe that something, or someone, is deliberately disrupting these creatures. (For more about incarnations of nature, see {@book chapter 3|LFL|3}.)"
+												"Sages in Dundoolin are working on the Eightyfold Trail, a manuscript describing incarnations of nature. They hire the adventurers to investigate recent changes in the behavior of nearby incarnations. The sages believe that something, or someone, is deliberately disrupting these creatures. (For more about incarnations of nature, see {@area chapter 3|08e|x}.)"
 											]
 										},
 										{
@@ -583,7 +662,7 @@
 								},
 								"The largest clachan in Lorwyn, Kinsbaile is home to about six hundred residents. The majority are kithkin, though as a prominent trading hub, Kinsbaile also hosts boggarts, merrow, faeries, and flamekin. Trading traffic buzzes around the docks of Lake Laightle, which fuels the town's economy.",
 								"Merchants hold the most political power in Kinsbaile. The no-nonsense kithkin Guildmaster Claide Fiobhan (Small {@creature Noble|XMM}) is head of the Curiosities Traders' Guild, Kinsbaile's largest trade group, and he directs most of the town's commercial affairs. He's also the proprietor of a magic item shop called Sundry Curiosities.",
-								"A trading operation called Maghen's Marketplace flourishes beneath Lake Laightle's waves. The underwater bazaar is a hub for merchants to sell supplies to visiting merrow. Representing the interest of Maghen's Marketplace among Kinsbaile's guilds is Isla Wandergill ({@creature Merrow Haranguer|LFL}; see {@book chapter 3|LFL|3}), a stalwart merrow who, despite her aversion to land, occasionally attends meetings in the town proper.",
+								"A trading operation called Maghen's Marketplace flourishes beneath Lake Laightle's waves. The underwater bazaar is a hub for merchants to sell supplies to visiting merrow. Representing the interest of Maghen's Marketplace among Kinsbaile's guilds is Isla Wandergill ({@creature Merrow Haranguer|LFL}; see {@area chapter 3|08e|x}), a stalwart merrow who, despite her aversion to land, occasionally attends meetings in the town proper.",
 								"Kinsbaile's leaders value community and traditions, and Kinsbaile hosts several celebratory festivals throughout the year. The largest is the Festival of Tales, a days-long event in which participants publicly recount their favorite experiences from the past year. Accounts are always embellished and highly entertaining, though they must be based in truth.",
 								"When it's in Shadowmoor, Kinsbaile is called Kinscaer.",
 								{
@@ -801,7 +880,7 @@
 											"name": "Hunting",
 											"id": "072",
 											"entries": [
-												"Hunting and trapping parties regularly operate outside Ballynock and are always looking for skilled hands and strong arms. A party captain offers the adventurers a well-paying job to hunt a dangerous creature (perhaps one of the incarnations of nature described in {@book chapter 3|LFL|3})."
+												"Hunting and trapping parties regularly operate outside Ballynock and are always looking for skilled hands and strong arms. A party captain offers the adventurers a well-paying job to hunt a dangerous creature (perhaps one of the incarnations of nature described in {@area chapter 3|08e|x})."
 											]
 										},
 										{
@@ -940,7 +1019,7 @@
 									]
 								},
 								"Druim Calad is home to three hundred residents, mostly merrow, though members of every other species from Shadowmoor can be found above the water in the settlement. Built from the remains of another city that collapsed into a sinkhole long ago, the settlement is as dangerous to navigate as it is to trade in. A maze of homes and businesses that belong to kithkin, flamekin, and rimekin hangs precariously above the brackish waters, sometimes bending and swaying with the movements of currents. Underwater, the merrow make their home. Valuables change hands all over the city, but blood from failed deals often stains planks.",
-								"While many would claim to control Druim Calad, none command respect like the unassuming tavern keeper Myyn, a {@creature Merrow Haranguer|LFL} (see {@book chapter 3|LFL|3}). Outwardly warm but inwardly calculating, Myyn keeps tabs on everything that happens in his city. Myyn takes decisive action against threats through the Finblades, a network of cutthroats who answer only to him.",
+								"While many would claim to control Druim Calad, none command respect like the unassuming tavern keeper Myyn, a {@creature Merrow Haranguer|LFL} (see {@area chapter 3|08e|x}). Outwardly warm but inwardly calculating, Myyn keeps tabs on everything that happens in his city. Myyn takes decisive action against threats through the Finblades, a network of cutthroats who answer only to him.",
 								"Myyn lounges in the Red Shallows, a tavern just above the water. Amid the normal tables and chairs of a tavern, holes cut in the floor allow merrow to swim up to lounge and do business with other patrons. Information from all over Shadowmoor is available in the Red Shallows for a price, though rumors suggest the name comes from the blood that spills into the water from deals gone wrong.",
 								"When it's in Lorwyn, Druim Calad is called Crannog Ansicr.",
 								{
@@ -1062,7 +1141,7 @@
 							"name": "Faeries",
 							"id": "090",
 							"entries": [
-								"Faeries are fickle pranksters in Lorwyn and Shadowmoor. They live for petty intrigues and use illusion magic to conduct their capers. Faeries have an insectile appearance, though in Lorwyn they are more elf-like. To use a Lorwyn faerie in your game as a nonplayer character, use the {@creature Pixie|XMM} or {@creature Sprite|XMM} stat block. See {@book chapter 1|LFL|1} for information about creating a faerie player character."
+								"Faeries are fickle pranksters in Lorwyn and Shadowmoor. They live for petty intrigues and use illusion magic to conduct their capers. Faeries have an insectile appearance, though in Lorwyn they are more elf-like. To use a Lorwyn faerie in your game as a nonplayer character, use the {@creature Pixie|XMM} or {@creature Sprite|XMM} stat block. See {@area chapter 1|017|x} for information about creating a faerie player character."
 							]
 						},
 						{
@@ -1908,7 +1987,7 @@
 					"name": "Sample Adventures",
 					"id": "0bc",
 					"entries": [
-						"Each of these adventure outlines provides enough information for you to run a one-session adventure, with the help of the map and location details that appear in this chapter. Monster stat blocks referenced in these adventures appear in {@book chapter 3|LFL|3} or the {@book Monster Manual|XMM}.",
+						"Each of these adventure outlines provides enough information for you to run a one-session adventure, with the help of the map and location details that appear in this chapter. Monster stat blocks referenced in these adventures appear in {@area chapter 3|08e|x} or the {@book Monster Manual|XMM}.",
 						"When play takes place in locations with NPCs described in the {@area \"Facility Staff\"|0a8|x} section, those NPCs take cover or run if combat breaks out.",
 						{
 							"type": "entries",
@@ -1954,7 +2033,7 @@
 											"name": "Scarecrows Unleashed",
 											"id": "0c0",
 											"entries": [
-												"After the characters subdue the helpers or 10 minutes after the helpers' rampage begins, Lile frees two {@creature Scarecrow|XMM|Scarecrows} from crates he brought to {@area area A3|0b2|x}. If the characters don't follow Lile into area A3, the scarecrows enter the community hall ({@area area A6|0b8|x}) and begin destroying the nearest inventions. The scarecrows are from Shadowmoor (see {@area chapter 3|091|x}) and wear {@item Reliquary of Twilight|LFL|Reliquaries of Twilight} (see the {@book introduction|LFL|0|Preventing Transformation}).",
+												"After the characters subdue the helpers or 10 minutes after the helpers' rampage begins, Lile frees two {@creature Scarecrow|XMM|Scarecrows} from crates he brought to {@area area A3|0b2|x}. If the characters don't follow Lile into area A3, the scarecrows enter the community hall ({@area area A6|0b8|x}) and begin destroying the nearest inventions. The scarecrows are from Shadowmoor (see {@area chapter 3|091|x}) and wear {@item Reliquary of Twilight|LFL|Reliquaries of Twilight} (see the {@area introduction|012|x}).",
 												"If the characters follow Lile, the characters arrive in area A3 in time to see him pry the lid off the crate from which the scarecrows emerge and attack. Lile scuttles behind a group of crates and takes the {@action Hide|XPHB} action during the combat."
 											]
 										},
@@ -2006,7 +2085,7 @@
 									"name": "Encounters",
 									"id": "0c4",
 									"entries": [
-										"Welda (Small {@creature Noble|XMM}) has run afoul of the Trustworthy Fellows, a gang that hides illegal behavior behind legitimate shipping practices. The Fellows paid Welda to refurbish the gang's riverboats, but Welda refused to honor the deal once she discovered the group's criminality. The criminals' leader, a Neutral Evil {@creature Noggle Ransacker|LFL} (see {@book chapter 3|LFL|3}) from Shadowmoor named Derkin Hiffnockle, has threatened that Welda will pay in blood if she doesn't honor the deal.",
+										"Welda (Small {@creature Noble|XMM}) has run afoul of the Trustworthy Fellows, a gang that hides illegal behavior behind legitimate shipping practices. The Fellows paid Welda to refurbish the gang's riverboats, but Welda refused to honor the deal once she discovered the group's criminality. The criminals' leader, a Neutral Evil {@creature Noggle Ransacker|LFL} (see {@area chapter 3|08e|x}) from Shadowmoor named Derkin Hiffnockle, has threatened that Welda will pay in blood if she doesn't honor the deal.",
 										"During the banquet, the Aeghith's community hall ({@area area A6|0b8|x}) is set up with dining tables. The adventure consists of these encounters.",
 										{
 											"type": "entries",
@@ -2029,7 +2108,7 @@
 											"name": "The Last Straw",
 											"id": "0c7",
 											"entries": [
-												"During dinner, two impostors throw off their disguises as invitees and accost Welda, frustrated that Welda is unharmed. They are the kithkin Chloris (Small, Neutral Evil {@creature Mage|XMM}) and Derkin, the gang's {@creature Noggle Ransacker|LFL} leader (see {@book chapter 3|LFL|3}). The criminals are from Shadowmoor, and each wears a {@item Reliquary of Twilight|LFL} (see the {@book introduction|LFL|0|Preventing Transformation}). During the fight, a character can make a {@dc 16} Charisma ({@skill Persuasion|XPHB}) check to convince Derkin to stop threatening Welda in exchange for Welda returning the fee the gang paid her. Welda is amenable to this arrangement, since she wants to end her association with the gang."
+												"During dinner, two impostors throw off their disguises as invitees and accost Welda, frustrated that Welda is unharmed. They are the kithkin Chloris (Small, Neutral Evil {@creature Mage|XMM}) and Derkin, the gang's {@creature Noggle Ransacker|LFL} leader (see {@area chapter 3|08e|x}). The criminals are from Shadowmoor, and each wears a {@item Reliquary of Twilight|LFL} (see the {@area introduction|012|x}). During the fight, a character can make a {@dc 16} Charisma ({@skill Persuasion|XPHB}) check to convince Derkin to stop threatening Welda in exchange for Welda returning the fee the gang paid her. Welda is amenable to this arrangement, since she wants to end her association with the gang."
 											]
 										},
 										{

@@ -210,7 +210,7 @@
 					"entries": [
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@adventure Death at Sunset (Level 1)|DrDe-DaS|1}",
 								"{@adventure Baker's Doesn't (Level 3)|DrDe-BD|1}",
@@ -218,7 +218,7 @@
 								"{@adventure For Whom the Void Calls (Level 5)|DrDe-FWtVC|1}",
 								"{@adventure The Dragon of Najkir (Level 7)|DrDe-TDoN|1}",
 								"{@adventure The Forbidden Vale (Level 9)|DrDe-TFV|1}",
-								"{@adventure Before the Storm (Level 10)|DrDe-BtS|1}",
+								"{@area Before the Storm (Level 10)|29d|x}",
 								"{@adventure Shivering Death (Level 11)|DrDe-SD|1}",
 								"{@adventure A Copper for a Song (Level 12)|DrDe-ACfaS|1}",
 								"{@adventure Dragons of the Sandstone City (Level 12)|DrDe-DotSC|1}"
@@ -332,9 +332,46 @@
 									"items": [
 										"{@creature Giant Crocodile|XMM}",
 										"{@creature Raven|XMM}"
-									]
+									],
+									"columns": 3
 								}
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Giant Crocodile",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Giant Crocodile",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Raven",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Raven",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
 						},
 						{
 							"type": "table",
@@ -2979,7 +3016,7 @@
 									"page": 134,
 									"id": "2b9",
 									"entries": [
-										"Since Sablewing made the cove his lair, it has filled with pools of bubbling acid. These pools are shown on {@adventure Map: Cobblehook Cove|DrDe-BtS|1|Map: Cobblehook Cove}. A creature who enters the acid for the first time on a turn or starts its turn there takes 11 ({@dice 2d10}) Acid damage. Nonmagical objects that aren't being worn or carried also take this damage."
+										"Since Sablewing made the cove his lair, it has filled with pools of bubbling acid. These pools are shown on {@area Map: Cobblehook Cove|419|x}. A creature who enters the acid for the first time on a turn or starts its turn there takes 11 ({@dice 2d10}) Acid damage. Nonmagical objects that aren't being worn or carried also take this damage."
 									]
 								},
 								{
@@ -3015,7 +3052,7 @@
 									"page": 134,
 									"id": "2bd",
 									"entries": [
-										"Ambient light or torches in sconces shed {@variantrule Bright Light|XPHB} in areas {@area B1|2bf|x}\u2013{@area B6|2d3|x}. Areas {@area B7|2d7|x}\u2013{@area B12|2e4|x} are shrouded in Darkness, and descriptions assume the characters have a way of seeing in the dark. Flickering torches in sconces shed {@variantrule Dim Light|XPHB} in area {@area B13|2e6|x}."
+										"Ambient light or {@item Torch|XPHB|torches} in sconces shed {@variantrule Bright Light|XPHB} in areas {@area B1|2bf|x}\u2013{@area B6|2d3|x}. Areas {@area B7|2d7|x}\u2013{@area B12|2e4|x} are shrouded in Darkness, and descriptions assume the characters have a way of seeing in the dark. Flickering {@item Torch|XPHB|torches} in sconces shed {@variantrule Dim Light|XPHB} in area {@area B13|2e6|x}."
 									]
 								}
 							]
@@ -3026,7 +3063,7 @@
 							"page": 134,
 							"id": "2be",
 							"entries": [
-								"The following locations are keyed to {@adventure Map: Cobblehook Cove|DrDe-BtS|1|Map: Cobblehook Cove}.",
+								"The following locations are keyed to {@area Map: Cobblehook Cove|419|x}.",
 								{
 									"type": "entries",
 									"name": "B1: Cave Entrance",
@@ -3128,7 +3165,7 @@
 											"page": 135,
 											"id": "2ca",
 											"entries": [
-												"A human skull is mounted on the far wall; each of its two eye sockets is set with a gemstone\u2014a jet worth 100 GP that can be easily pried from the skull."
+												"A human skull is mounted on the far wall; each of its two eye sockets is set with a gemstone\u2014a {@item jet|XDMG} worth 100 GP that can be easily pried from the skull."
 											]
 										}
 									]
@@ -3250,9 +3287,9 @@
 												{
 													"type": "list",
 													"items": [
-														"Three amethyst gems (worth 100 GP each)",
-														"Six orange carnelian gems (worth 50 GP each)",
-														"Three obsidian gems (worth 10 GP each)",
+														"Three {@item Amethyst|XDMG|amethyst gems} (worth 100 GP each)",
+														"Six orange {@item Carnelian|XDMG|carnelian gems} (worth 50 GP each)",
+														"Three {@item Obsidian|XDMG|obsidian gems} (worth 10 GP each)",
 														"Large crate with valuables stolen from Respite this morning (worth 1,800 GP)",
 														"Bronze crown (worth 250 GP)",
 														"Silver chalice (worth 120 GP)",

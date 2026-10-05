@@ -175,7 +175,7 @@
 							"page": 229,
 							"id": "483",
 							"entries": [
-								"Powell and her followers placed lit torches in wall sconces throughout the library. Unless otherwise described, the library is in {@variantrule Bright Light|XPHB}."
+								"Powell and her followers placed lit {@item Torch|XPHB|torches} in wall sconces throughout the library. Unless otherwise described, the library is in {@variantrule Bright Light|XPHB}."
 							]
 						},
 						{
@@ -1249,7 +1249,7 @@
 											"page": 232,
 											"id": "49e",
 											"entries": [
-												"The glass sphere is an enchanted prison for Regret\u2014a Celestial, Neutral Good {@b Empyrean Iota} embodying a faded memory of Mystra, a deity of magic. Lethchauntos imprisoned the iota in the sphere long ago and accidentally abandoned it when he left. The sphere has 1 Hit Point and breaks if dropped or thrown at the ground. If the sphere breaks, Regret is freed.",
+												"The glass sphere is an enchanted prison for Regret\u2014a Celestial, Neutral Good {@creature Empyrean Iota|XMM} embodying a faded memory of Mystra, a deity of magic. Lethchauntos imprisoned the iota in the sphere long ago and accidentally abandoned it when he left. The sphere has 1 Hit Point and breaks if dropped or thrown at the ground. If the sphere breaks, Regret is freed.",
 												"If a character approaches the sphere, it pulses faintly with silver light. A character touching the sphere makes contact with Regret's mind and hears the words, \"Set me free, I beg you!\" in their mind.",
 												"Regret can communicate mentally with anyone touching the sphere. It pleads with the characters to break the sphere and free it, promising to use its powers on their behalf, but it refuses to carry out evil actions. If Regret is freed, it makes good on its promise, assisting the characters with any encounters on this level of the library, including area 8. Regret won't go further into the library, and after assisting the characters for up to 1 day, it flees the library."
 											]
@@ -2270,7 +2270,7 @@
 											"page": 234,
 											"id": "4b8",
 											"entries": [
-												"Powell has put some of her belongings in the chest. Most of these items are of no value, but a leather scroll case contains a {@item Spell Scroll|XDMG} of {@spell Identify|XPHB}, a {@item Spell Scroll|XDMG} of {@spell Locate Object|XPHB}, and a pearl worth 100 GP.",
+												"Powell has put some of her belongings in the chest. Most of these items are of no value, but a leather scroll case contains a {@item Spell Scroll|XDMG} of {@spell Identify|XPHB}, a {@item Spell Scroll|XDMG} of {@spell Locate Object|XPHB}, and a {@item pearl|XDMG} worth 100 GP.",
 												{
 													"type": "image",
 													"href": {
@@ -2409,7 +2409,7 @@
 											"page": 236,
 											"id": "4c6",
 											"entries": [
-												"The axe has a long, straight haft with a metal grip and a leather loop at the end. The double-bladed axe head is symmetrical and angular, each blade resembling a giant arrowhead. The axe is Lethchauntos's Legacy , a sentient {@item +1 Greataxe|XDMG}. Lethchauntos's Legacy has Intelligence 10, Wisdom 16, and Charisma 13, and it is Neutral Good. It communicates by transmitting emotion to the creature carrying it, and it has hearing and {@sense Darkvision|XPHB} out to 120 feet. The axe has a special purpose: to protect the family of its bearer. The axe considers especially close friends to be \"found family\" under its protection. The axe hasn't been touched since Lethchauntos placed it here centuries ago, and it doesn't know where its creator is now."
+												"The axe has a long, straight haft with a metal grip and a leather loop at the end. The double-bladed axe head is symmetrical and angular, each blade resembling a giant arrowhead. The axe is Lethchauntos's Legacy, a sentient {@item +1 Greataxe|XDMG}. Lethchauntos's Legacy has Intelligence 10, Wisdom 16, and Charisma 13, and it is Neutral Good. It communicates by transmitting emotion to the creature carrying it, and it has hearing and {@sense Darkvision|XPHB} out to 120 feet. The axe has a special purpose: to protect the family of its bearer. The axe considers especially close friends to be \"found family\" under its protection. The axe hasn't been touched since Lethchauntos placed it here centuries ago, and it doesn't know where its creator is now."
 											]
 										}
 									]
@@ -2524,13 +2524,37 @@
 						"The {@i Nathlum} also contains the recipes for every poison in the {@book Dungeon Master's Guide|XDMG}, plus four additional poisons described below. A character with the {@i Nathlum} can use a Poisoner's Kit to craft any poison described in the book, using the rules for crafting equipment in the {@book Player's Handbook|XPHB}. The {@i Nathlum} also contains instructions for crafting {@item Elixir of Health|XDMG|Elixirs of Health} (see rules for crafting magic items in the {@book Dungeon Master's Guide|XDMG}).",
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@item Deathdance|FRAiF}",
 								"{@item Prespra|FRAiF}",
 								"{@item Ulcrun|FRAiF}",
 								"{@item Yellow Death|FRAiF}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Deathdance",
+							"tag": "item",
+							"source": "FRAiF"
+						},
+						{
+							"type": "statblock",
+							"name": "Prespra",
+							"tag": "item",
+							"source": "FRAiF"
+						},
+						{
+							"type": "statblock",
+							"name": "Ulcrun",
+							"tag": "item",
+							"source": "FRAiF"
+						},
+						{
+							"type": "statblock",
+							"name": "Yellow Death",
+							"tag": "item",
+							"source": "FRAiF"
 						}
 					]
 				},

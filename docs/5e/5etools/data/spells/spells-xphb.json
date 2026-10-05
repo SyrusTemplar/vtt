@@ -251,6 +251,9 @@
 				"bludgeoning",
 				"piercing",
 				"slashing"
+			],
+			"miscTags": [
+				"UA"
 			]
 		},
 		{
@@ -289,7 +292,7 @@
 				}
 			],
 			"entries": [
-				"Target a Beast that you can see within range. The target must succeed on a Wisdom saving throw or have the {@condition Charmed|XPHB} condition for the duration. If you or one of your allies deals damage to the target, the spells ends."
+				"Target a Beast that you can see within range. The target must succeed on a Wisdom saving throw or have the {@condition Charmed|XPHB} condition for the duration. If you or one of your allies deals damage to the target, the spell ends."
 			],
 			"entriesHigherLevel": [
 				{
@@ -421,7 +424,8 @@
 				"The target gains a number of {@variantrule Temporary Hit Points|XPHB} equal to the {@variantrule Hit Points|XPHB} of the first form into which it shape-shifts. These {@variantrule Temporary Hit Points|XPHB} vanish if any remain when the spell ends. The transformation lasts for the duration or until the target ends it as a {@variantrule Bonus Action|XPHB}."
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UA"
 			],
 			"areaTags": [
 				"MT"
@@ -481,6 +485,7 @@
 			"miscTags": [
 				"PRM",
 				"SMN",
+				"UA",
 				"UBA"
 			]
 		},
@@ -541,6 +546,7 @@
 			"miscTags": [
 				"OBJ",
 				"SMN",
+				"UA",
 				"UBA"
 			],
 			"areaTags": [
@@ -774,6 +780,7 @@
 				"As a {@variantrule Bonus Action|XPHB}, you can move the eye up to 30 feet in any direction. A solid barrier blocks the eye's movement, but the eye can pass through an opening as small as 1 inch in diameter."
 			],
 			"miscTags": [
+				"UA",
 				"UBA"
 			]
 		},
@@ -819,6 +826,7 @@
 				"OBJ",
 				"SGT",
 				"TP",
+				"UA",
 				"UBA"
 			]
 		},
@@ -1065,7 +1073,8 @@
 			],
 			"miscTags": [
 				"PRM",
-				"PS"
+				"PS",
+				"UA"
 			],
 			"areaTags": [
 				"MT"
@@ -1816,7 +1825,7 @@
 							"type": "item",
 							"name": "Interposing Hand",
 							"entries": [
-								"The hand grants you Half {@variantrule Cover|XPHB} against attacks and other effects that originate from its space or that pass through it. In addition, its space counts as {@variantrule Difficult Terrain|XPHB} for your enemies."
+								"The hand grants you {@variantrule Cover|XPHB|Half Cover} against attacks and other effects that originate from its space or that pass through it. In addition, its space counts as {@variantrule Difficult Terrain|XPHB} for your enemies."
 							]
 						}
 					]
@@ -1850,6 +1859,7 @@
 				"FMV",
 				"OBJ",
 				"SGT",
+				"UA",
 				"UBA"
 			],
 			"hasFluffImages": true
@@ -1891,7 +1901,7 @@
 			],
 			"entries": [
 				"You create a wall of whirling blades made of magical energy. The wall appears within range and lasts for the duration. You make a straight wall up to 100 feet long, 20 feet high, and 5 feet thick, or a ringed wall up to 60 feet in diameter, 20 feet high, and 5 feet thick. The wall provides Three-Quarters {@variantrule Cover|XPHB}, and its space is {@variantrule Difficult Terrain|XPHB}.",
-				"Any creature in the wall's space makes a Dexterity saving throw, taking {@damage 6d10} Force damage on a failed save or half as much damage on a successful one. A creature also makes that save if it enters the wall's space or ends it turn there. A creature makes that save only once per turn."
+				"Any creature in the wall's space makes a Dexterity saving throw, taking {@damage 6d10} Force damage on a failed save or half as much damage on a successful one. A creature also makes that save if it enters the wall's space or ends its turn there. A creature makes that save only once per turn."
 			],
 			"damageInflict": [
 				"force"
@@ -2310,6 +2320,7 @@
 				"dexterity"
 			],
 			"miscTags": [
+				"BO",
 				"OBJ"
 			],
 			"areaTags": [
@@ -2373,7 +2384,8 @@
 				"dexterity"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UA"
 			],
 			"areaTags": [
 				"S",
@@ -2893,6 +2905,7 @@
 				"A creature that sees the sensor (such as a creature benefiting from {@spell See Invisibility|XPHB} or {@sense Truesight|XPHB}) sees a luminous orb about the size of your fist."
 			],
 			"miscTags": [
+				"UA",
 				"UBA"
 			]
 		},
@@ -2987,6 +3000,9 @@
 			],
 			"damageInflict": [
 				"slashing"
+			],
+			"miscTags": [
+				"UA"
 			],
 			"areaTags": [
 				"C"
@@ -3429,6 +3445,7 @@
 			],
 			"miscTags": [
 				"SGT",
+				"UA",
 				"UBA"
 			],
 			"areaTags": [
@@ -3820,7 +3837,7 @@
 			],
 			"entries": [
 				"You conjure a Large, intangible spirit from the Elemental Planes that appears in an unoccupied space within range. Choose the spirit's element, which determines its damage type: air (Lightning), earth (Thunder), fire (Fire), or water (Cold). The spirit lasts for the duration.",
-				"Whenever a creature you can see enters the spirit's space or starts its turn within 5 feet of the spirit, you can force that creature to make a Dexterity saving throw if the spirit has no creature {@condition Restrained|XPHB}. On failed save, the target takes {@damage 8d8} damage of the spirit's type, and the target has the {@condition Restrained|XPHB} condition until the spell ends. At the start of each of its turns, the {@condition Restrained|XPHB} target repeats the save. On a failed save, the target takes {@damage 4d8} damage of the spirit's type. On a successful save, the target isn't {@condition Restrained|XPHB} by the spirit."
+				"Whenever a creature you can see enters the spirit's space or starts its turn within 5 feet of the spirit, you can force that creature to make a Dexterity saving throw if the spirit has no creature {@condition Restrained|XPHB}. On a failed save, the target takes {@damage 8d8} damage of the spirit's type, and the target has the {@condition Restrained|XPHB} condition until the spell ends. At the start of each of its turns, the {@condition Restrained|XPHB} target repeats the save. On a failed save, the target takes {@damage 4d8} damage of the spirit's type. On a successful save, the target isn't {@condition Restrained|XPHB} by the spirit."
 			],
 			"entriesHigherLevel": [
 				{
@@ -5035,6 +5052,7 @@
 			],
 			"miscTags": [
 				"LGT",
+				"UA",
 				"UBA"
 			]
 		},
@@ -5278,6 +5296,7 @@
 				"dexterity"
 			],
 			"miscTags": [
+				"BO",
 				"OBJ"
 			],
 			"areaTags": [
@@ -5789,7 +5808,8 @@
 				"undead"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UA"
 			],
 			"areaTags": [
 				"ST"
@@ -6410,7 +6430,8 @@
 				"If another creature is holding or carrying the object, crushing the sapphire doesn't transport it, but instead you learn who that creature is and where that creature is currently located."
 			],
 			"miscTags": [
-				"OBJ"
+				"OBJ",
+				"UA"
 			]
 		},
 		{
@@ -6523,6 +6544,10 @@
 						"You light or snuff out a candle, a torch, or a campfire."
 					]
 				}
+			],
+			"miscTags": [
+				"BO",
+				"OBJ"
 			],
 			"hasFluffImages": true
 		},
@@ -6783,6 +6808,7 @@
 				}
 			],
 			"miscTags": [
+				"BO",
 				"OBJ"
 			],
 			"areaTags": [
@@ -7064,7 +7090,8 @@
 					"duration": {
 						"type": "minute",
 						"amount": 1
-					}
+					},
+					"concentration": true
 				}
 			],
 			"entries": [
@@ -7174,7 +7201,7 @@
 			],
 			"entries": [
 				"Squirming, ebony tentacles fill a 20-foot square on ground that you can see within range. For the duration, these tentacles turn the ground in that area into {@variantrule Difficult Terrain|XPHB}.",
-				"Each creature in that area makes a Strength saving throw. On a failed save, it takes {@damage 3d6} Bludgeoning damage, and it has the {@condition Restrained|XPHB} condition until the spell ends. A creature also makes that save if it enters the area or ends it turn there. A creature makes that save only once per turn.",
+				"Each creature in that area makes a Strength saving throw. On a failed save, it takes {@damage 3d6} Bludgeoning damage, and it has the {@condition Restrained|XPHB} condition until the spell ends. A creature also makes that save if it enters the area or ends its turn there. A creature makes that save only once per turn.",
 				"A {@condition Restrained|XPHB} creature can take an action to make a Strength ({@skill Athletics|XPHB}) check against your spell save DC, ending the condition on itself on a success."
 			],
 			"damageInflict": [
@@ -7306,7 +7333,8 @@
 				"wisdom"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UA"
 			],
 			"areaTags": [
 				"ST"
@@ -7687,7 +7715,8 @@
 			],
 			"miscTags": [
 				"PRM",
-				"SMN"
+				"SMN",
+				"UA"
 			],
 			"hasFluffImages": true
 		},
@@ -7947,6 +7976,7 @@
 				"R"
 			],
 			"miscTags": [
+				"BO",
 				"OBJ",
 				"SCL"
 			],
@@ -8046,6 +8076,7 @@
 				"dexterity"
 			],
 			"miscTags": [
+				"BO",
 				"OBJ"
 			],
 			"areaTags": [
@@ -8109,6 +8140,7 @@
 				"dexterity"
 			],
 			"miscTags": [
+				"BO",
 				"OBJ"
 			],
 			"areaTags": [
@@ -8173,6 +8205,7 @@
 			],
 			"miscTags": [
 				"LGT",
+				"UA",
 				"UBA"
 			],
 			"areaTags": [
@@ -8290,8 +8323,10 @@
 				"dexterity"
 			],
 			"miscTags": [
+				"BO",
 				"LGT",
 				"OBJ",
+				"UA",
 				"UBA"
 			],
 			"areaTags": [
@@ -9777,9 +9812,10 @@
 				}
 			],
 			"range": {
-				"type": "point",
+				"type": "line",
 				"distance": {
-					"type": "self"
+					"type": "feet",
+					"amount": 60
 				}
 			},
 			"components": {
@@ -10334,6 +10370,7 @@
 			"miscTags": [
 				"OBJ",
 				"SGT",
+				"UA",
 				"UBA"
 			],
 			"areaTags": [
@@ -10563,6 +10600,7 @@
 			"miscTags": [
 				"AAD",
 				"SGT",
+				"UA",
 				"UBA"
 			],
 			"areaTags": [
@@ -10877,6 +10915,7 @@
 				"AAD",
 				"ADV",
 				"SGT",
+				"UA",
 				"UBA"
 			],
 			"areaTags": [
@@ -11732,7 +11771,8 @@
 			],
 			"miscTags": [
 				"OBJ",
-				"PRM"
+				"PRM",
+				"UA"
 			]
 		},
 		{
@@ -11872,7 +11912,8 @@
 			],
 			"miscTags": [
 				"OBJ",
-				"SGT"
+				"SGT",
+				"UA"
 			],
 			"areaTags": [
 				"ST"
@@ -12446,7 +12487,8 @@
 				"humanoid"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UA"
 			]
 		},
 		{
@@ -12662,7 +12704,8 @@
 			],
 			"miscTags": [
 				"PRM",
-				"SGT"
+				"SGT",
+				"UA"
 			]
 		},
 		{
@@ -13149,6 +13192,7 @@
 				"dexterity"
 			],
 			"miscTags": [
+				"BO",
 				"OBJ",
 				"SGT"
 			],
@@ -13503,7 +13547,8 @@
 				"invisible"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UA"
 			]
 		},
 		{
@@ -13667,7 +13712,8 @@
 				"constitution"
 			],
 			"miscTags": [
-				"LGT"
+				"LGT",
+				"UA"
 			],
 			"areaTags": [
 				"Y"
@@ -13721,7 +13767,8 @@
 				"dexterity"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UA"
 			]
 		},
 		{
@@ -13894,6 +13941,7 @@
 			],
 			"miscTags": [
 				"SGT",
+				"UA",
 				"UBA"
 			],
 			"areaTags": [
@@ -14089,7 +14137,7 @@
 				}
 			],
 			"entries": [
-				"A frigid globe streaks from you to a point of your choice within range, where it explodes in a 60-foot-radius {@variantrule Sphere [Area of Effect]|XPHB|Sphere}. Each creature in that area makes a Constitution saving throw, taking {@damage 10d6} Cold damage on failed save or half as much damage on a successful one.",
+				"A frigid globe streaks from you to a point of your choice within range, where it explodes in a 60-foot-radius {@variantrule Sphere [Area of Effect]|XPHB|Sphere}. Each creature in that area makes a Constitution saving throw, taking {@damage 10d6} Cold damage on a failed save or half as much damage on a successful one.",
 				"If the globe strikes a body of water, it freezes the water to a depth of 6 inches over an area 30 feet square. This ice lasts for 1 minute. Creatures that were swimming on the surface of frozen water are trapped in the ice and have the {@condition Restrained|XPHB} condition. A trapped creature can take an action to make a Strength ({@skill Athletics|XPHB}) check against your spell save DC to break free.",
 				"You can refrain from firing the globe after completing the spell's casting. If you do so, a globe about the size of a sling bullet, cool to the touch, appears in your hand. At any time, you or a creature you give the globe to can throw the globe (to a range of 40 feet) or hurl it with a sling (to the sling's normal range). It shatters on impact, with the same effect as a normal casting of the spell. You can also set the globe down without shattering it. After 1 minute, if the globe hasn't already shattered, it explodes."
 			],
@@ -15113,6 +15161,7 @@
 				}
 			],
 			"miscTags": [
+				"BO",
 				"OBJ"
 			]
 		},
@@ -15391,7 +15440,8 @@
 			"miscTags": [
 				"LGT",
 				"OBJ",
-				"SCL"
+				"SCL",
+				"UA"
 			],
 			"areaTags": [
 				"ST"
@@ -15493,7 +15543,8 @@
 				"intelligence"
 			],
 			"miscTags": [
-				"SGT"
+				"SGT",
+				"UA"
 			]
 		},
 		{
@@ -16419,7 +16470,7 @@
 				}
 			],
 			"entries": [
-				"Flame-like radiance descends on a creature that you can see within range. The target must succeed on a Dexterity saving throw or take {@damage 1d8} Radiant damage. The target gains no benefit from Half {@variantrule Cover|XPHB} or Three-Quarters {@variantrule Cover|XPHB} for this save."
+				"Flame-like radiance descends on a creature that you can see within range. The target must succeed on a Dexterity saving throw or take {@damage 1d8} Radiant damage. The target gains no benefit from {@variantrule Cover|XPHB|Half Cover} or Three-Quarters {@variantrule Cover|XPHB} for this save."
 			],
 			"entriesHigherLevel": [
 				{
@@ -16941,7 +16992,8 @@
 				"Upon shape-shifting, you determine whether your equipment drops to the ground or changes in size and shape to fit the new form while you're in it."
 			],
 			"miscTags": [
-				"THP"
+				"THP",
+				"UA"
 			],
 			"hasFluffImages": true
 		},
@@ -17381,6 +17433,9 @@
 			"abilityCheck": [
 				"intelligence"
 			],
+			"miscTags": [
+				"UA"
+			],
 			"hasFluffImages": true
 		},
 		{
@@ -17625,7 +17680,7 @@
 				}
 			],
 			"entries": [
-				"You cast sorcerous energy at one creature or object within range. Make a ranged attack roll against the target. On a hit, the target takes {@damage 1d8} damage of a type you choose: Acid, Cold, Fire, Lightning, Poison, Psychic, or Thunder.",
+				"You cast sorcerous energy at one creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes {@damage 1d8} damage of a type you choose: Acid, Cold, Fire, Lightning, Poison, Psychic, or Thunder.",
 				"If you roll an 8 on a {@dice d8} for this spell, you can roll another {@dice d8}, and add it to the damage. When you cast this spell, the maximum number of these d8s you can add to the spell's damage equals your spellcasting ability modifier."
 			],
 			"entriesHigherLevel": [
@@ -19126,7 +19181,8 @@
 				"constitution"
 			],
 			"miscTags": [
-				"LGTS"
+				"LGTS",
+				"UA"
 			],
 			"areaTags": [
 				"L"
@@ -19430,6 +19486,7 @@
 			],
 			"miscTags": [
 				"HL",
+				"UA",
 				"UBA"
 			],
 			"hasFluffImages": true
@@ -20365,7 +20422,7 @@
 					"type": "timed",
 					"duration": {
 						"type": "minute",
-						"amount": 10
+						"amount": 1
 					}
 				}
 			],
@@ -20754,6 +20811,7 @@
 			],
 			"miscTags": [
 				"SMN",
+				"UA",
 				"UBA"
 			]
 		},
@@ -21752,6 +21810,7 @@
 				"R"
 			],
 			"miscTags": [
+				"UA",
 				"UBA"
 			],
 			"areaTags": [

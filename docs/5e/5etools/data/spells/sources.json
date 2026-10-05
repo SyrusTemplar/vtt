@@ -157,6 +157,10 @@
 					"source": "PHB"
 				},
 				{
+					"name": "Sorcerer",
+					"source": "PHB"
+				},
+				{
 					"name": "Wizard",
 					"source": "PHB"
 				},
@@ -166,6 +170,10 @@
 				},
 				{
 					"name": "Cleric",
+					"source": "XPHB"
+				},
+				{
+					"name": "Sorcerer",
 					"source": "XPHB"
 				},
 				{
@@ -16140,6 +16148,650 @@
 				{
 					"name": "Artificer",
 					"source": "EFA"
+				}
+			]
+		}
+	},
+	"AU": {
+		"Aura of Evasion": {
+			"class": [
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Battle Familiar": {
+			"class": [
+				{
+					"name": "Druid",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Catnap": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Artificer",
+					"source": "EFA",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Detonate": {
+			"class": [
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Disruptive Tune": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Distorted Distance": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Artificer",
+					"source": "EFA",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Dueling Ground": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Cleric",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Druid",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Paladin",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Ranger",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Artificer",
+					"source": "EFA",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Enervation": {
+			"class": [
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Entrancing Mirrors": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Festering Blast": {
+			"class": [
+				{
+					"name": "Druid",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Fractured Awareness": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Grave Ground": {
+			"class": [
+				{
+					"name": "Cleric",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Hindsight": {
+			"class": [
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Illusory Dragon": {
+			"class": [
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Inflict Doubt": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Invulnerability": {
+			"class": [
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Iron Body": {
+			"class": [
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Lightning Ring": {
+			"class": [
+				{
+					"name": "Druid",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Moment of Prescience": {
+			"class": [
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Mordenkainen's Lucubration": {
+			"class": [
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Negative Energy Flood": {
+			"class": [
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Power Word Pain": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Reweave Fate": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Cleric",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Spirit Lantern": {
+			"class": [
+				{
+					"name": "Cleric",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Artificer",
+					"source": "EFA",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Summon Dinosaur": {
+			"class": [
+				{
+					"name": "Druid",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Summon Plant": {
+			"class": [
+				{
+					"name": "Druid",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Ranger",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Transfix": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Uncertain Footing": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Artificer",
+					"source": "EFA",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Vision of Elapsing Eons": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Wail of the Banshee": {
+			"class": [
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Waves of Exhaustion": {
+			"class": [
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Wither and Bloom": {
+			"class": [
+				{
+					"name": "Druid",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Sorcerer",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Wizard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				}
+			]
+		},
+		"Zone of Amicability": {
+			"class": [
+				{
+					"name": "Bard",
+					"source": "XPHB",
+					"definedInSource": "AU"
+				},
+				{
+					"name": "Warlock",
+					"source": "XPHB",
+					"definedInSource": "AU"
 				}
 			]
 		}

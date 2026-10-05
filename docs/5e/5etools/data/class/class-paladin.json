@@ -38,16 +38,6 @@
 				}
 			],
 			"startingProficiencies": {
-				"armor": [
-					"light",
-					"medium",
-					"heavy",
-					"shield"
-				],
-				"weapons": [
-					"simple",
-					"martial"
-				],
 				"skills": [
 					{
 						"choose": {
@@ -61,6 +51,24 @@
 							],
 							"count": 2
 						}
+					}
+				],
+				"weapons": [
+					"simple",
+					"martial"
+				],
+				"armor": [
+					"light",
+					"medium",
+					"heavy",
+					"shield"
+				],
+				"armorProficiencies": [
+					{
+						"light": true,
+						"medium": true,
+						"heavy": true,
+						"shield": true
 					}
 				]
 			},
@@ -125,14 +133,21 @@
 					"cha": 13
 				},
 				"proficienciesGained": {
+					"weapons": [
+						"simple",
+						"martial"
+					],
 					"armor": [
 						"light",
 						"medium",
 						"shield"
 					],
-					"weapons": [
-						"simple",
-						"martial"
+					"armorProficiencies": [
+						{
+							"light": true,
+							"medium": true,
+							"shield": true
+						}
 					]
 				}
 			},
@@ -411,16 +426,6 @@
 				}
 			],
 			"startingProficiencies": {
-				"armor": [
-					"light",
-					"medium",
-					"heavy",
-					"shield"
-				],
-				"weapons": [
-					"simple",
-					"martial"
-				],
 				"skills": [
 					{
 						"choose": {
@@ -434,6 +439,24 @@
 							],
 							"count": 2
 						}
+					}
+				],
+				"weapons": [
+					"simple",
+					"martial"
+				],
+				"armor": [
+					"light",
+					"medium",
+					"heavy",
+					"shield"
+				],
+				"armorProficiencies": [
+					{
+						"light": true,
+						"medium": true,
+						"heavy": true,
+						"shield": true
 					}
 				]
 			},
@@ -478,13 +501,20 @@
 			},
 			"multiclassing": {
 				"proficienciesGained": {
+					"weapons": [
+						"martial"
+					],
 					"armor": [
 						"light",
 						"medium",
 						"shield"
 					],
-					"weapons": [
-						"martial"
+					"armorProficiencies": [
+						{
+							"light": true,
+							"medium": true,
+							"shield": true
+						}
 					]
 				}
 			},
@@ -1196,7 +1226,7 @@
 							"hypnotic pattern"
 						],
 						"13": [
-							"Otiluke's resilient sphere",
+							"Otiluke's Resilient Sphere",
 							"stoneskin"
 						],
 						"17": [
@@ -4407,7 +4437,7 @@
 						],
 						[
 							"13th",
-							"{@spell Otiluke's resilient sphere}, {@spell stoneskin}"
+							"{@spell Otiluke's Resilient Sphere}, {@spell stoneskin}"
 						],
 						[
 							"17th",
@@ -5019,7 +5049,7 @@
 					"rows": [
 						[
 							"3rd",
-							"{@spell Protection from Evil And Good|XPHB}, {@spell Shield of Faith|XPHB}"
+							"{@spell Protection from Evil and Good|XPHB}, {@spell Shield of Faith|XPHB}"
 						],
 						[
 							"5th",

@@ -113,7 +113,7 @@
 						"The elders are worried, as the source of this strangeness remains unknown. The Turmish and Thayans are too busy with their conflicts to notice, and so it is up to you brave heroes to travel into the darkening and discover what evil has come to reside so near your shoals."
 					]
 				},
-				"Whether you're playing with the pregenerated characters or your players have created locathah heroes of their own (see \"{@adventure Appendix B: Locathah Characters|LR|3}\"), this is a great time for the players to introduce their characters and describe them to the group. Once they have completed their introductions, read or paraphrase the following boxed text:",
+				"Whether you're playing with the pregenerated characters or your players have created locathah heroes of their own (see \"{@area Appendix B: Locathah Characters|076|x}\"), this is a great time for the players to introduce their characters and describe them to the group. Once they have completed their introductions, read or paraphrase the following boxed text:",
 				{
 					"type": "insetReadaloud",
 					"id": "009",
@@ -4355,6 +4355,315 @@
 						"{@creature Young Kraken|LR}"
 					],
 					"columns": 4
+				},
+				{
+					"type": "section",
+					"name": "Amble",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Amble",
+							"tag": "creature",
+							"source": "LR",
+							"style": "narrow"
+						}
+					],
+					"id": "060"
+				},
+				{
+					"type": "section",
+					"name": "Drowned Ascetic",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Drowned Ascetic",
+							"prop": "monsterFluff",
+							"source": "GoS",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Drowned Ascetic",
+							"tag": "creature",
+							"source": "GoS",
+							"style": "narrow"
+						}
+					],
+					"id": "061"
+				},
+				{
+					"type": "section",
+					"name": "Drowned Assassin",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Drowned Assassin",
+							"prop": "monsterFluff",
+							"source": "GoS",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Drowned Assassin",
+							"tag": "creature",
+							"source": "GoS",
+							"style": "narrow"
+						}
+					],
+					"id": "062"
+				},
+				{
+					"type": "section",
+					"name": "Drowned Blade",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Drowned Blade",
+							"prop": "monsterFluff",
+							"source": "GoS",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Drowned Blade",
+							"tag": "creature",
+							"source": "GoS",
+							"style": "narrow"
+						}
+					],
+					"id": "063"
+				},
+				{
+					"type": "section",
+					"name": "Drowned Master",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Drowned Master",
+							"prop": "monsterFluff",
+							"source": "GoS",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Drowned Master",
+							"tag": "creature",
+							"source": "GoS",
+							"style": "narrow"
+						}
+					],
+					"id": "064"
+				},
+				{
+					"type": "section",
+					"name": "Gar Shatterkeel",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Gar Shatterkeel",
+							"tag": "creature",
+							"source": "LR",
+							"style": "narrow"
+						}
+					],
+					"id": "065"
+				},
+				{
+					"type": "section",
+					"name": "Giant Shark",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Giant Shark",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Giant Shark",
+							"tag": "creature",
+							"source": "MM",
+							"style": "narrow"
+						}
+					],
+					"id": "066"
+				},
+				{
+					"type": "section",
+					"name": "Fhenimore",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Fhenimore",
+							"tag": "creature",
+							"source": "LR",
+							"style": "narrow"
+						}
+					],
+					"id": "067"
+				},
+				{
+					"type": "section",
+					"name": "Whymsee",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Whymsee",
+							"tag": "creature",
+							"source": "LR",
+							"style": "narrow"
+						}
+					],
+					"id": "068"
+				},
+				{
+					"type": "section",
+					"name": "Sahuagin Blademaster",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Sahuagin Blademaster",
+							"prop": "monsterFluff",
+							"source": "GoS",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Sahuagin Blademaster",
+							"tag": "creature",
+							"source": "GoS",
+							"style": "narrow"
+						}
+					],
+					"id": "069"
+				},
+				{
+					"type": "section",
+					"name": "Sahuagin Deep Diver",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Sahuagin Deep Diver",
+							"prop": "monsterFluff",
+							"source": "GoS",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Sahuagin Deep Diver",
+							"tag": "creature",
+							"source": "GoS",
+							"style": "narrow"
+						}
+					],
+					"id": "06a"
+				},
+				{
+					"type": "section",
+					"name": "Sea Lion",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Sea Lion",
+							"prop": "monsterFluff",
+							"source": "TftYP",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Sea Lion",
+							"tag": "creature",
+							"source": "TftYP",
+							"style": "narrow"
+						}
+					],
+					"id": "06b"
+				},
+				{
+					"type": "section",
+					"name": "Shoalar Quanderil",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Shoalar Quanderil",
+							"tag": "creature",
+							"source": "LR",
+							"style": "narrow"
+						}
+					],
+					"id": "06c"
+				},
+				{
+					"type": "section",
+					"name": "Water Elemental Myrmidon",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Water Elemental Myrmidon",
+							"prop": "monsterFluff",
+							"source": "mtf",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Water Elemental Myrmidon",
+							"tag": "creature",
+							"source": "mtf",
+							"style": "narrow"
+						}
+					],
+					"id": "06d"
+				},
+				{
+					"type": "section",
+					"name": "Young Kraken",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Young Kraken",
+							"tag": "creature",
+							"source": "LR",
+							"style": "narrow"
+						}
+					],
+					"id": "06e"
 				}
 			]
 		},

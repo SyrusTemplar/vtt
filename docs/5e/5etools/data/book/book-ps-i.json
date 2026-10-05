@@ -173,6 +173,36 @@
 					]
 				},
 				{
+					"type": "statblock",
+					"name": "Human (Innistrad)",
+					"tag": "race",
+					"source": "PSI"
+				},
+				{
+					"type": "statblock",
+					"name": "Human (Innistrad; Gavony)",
+					"tag": "race",
+					"source": "PSI"
+				},
+				{
+					"type": "statblock",
+					"name": "Human (Innistrad; Kessig)",
+					"tag": "race",
+					"source": "PSI"
+				},
+				{
+					"type": "statblock",
+					"name": "Human (Innistrad; Nephalia)",
+					"tag": "race",
+					"source": "PSI"
+				},
+				{
+					"type": "statblock",
+					"name": "Human (Innistrad; Stensia)",
+					"tag": "race",
+					"source": "PSI"
+				},
+				{
 					"type": "image",
 					"href": {
 						"type": "internal",
@@ -353,7 +383,13 @@
 					]
 				},
 				{
-					"type": "hr"
+					"type": "image",
+					"href": {
+						"type": "internal",
+						"path": "book/PSI/017.webp"
+					},
+					"width": 1227,
+					"height": 821
 				},
 				{
 					"type": "entries",
@@ -369,6 +405,359 @@
 						}
 					],
 					"id": "03a"
+				},
+				{
+					"type": "section",
+					"name": "Creepy Doll",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Creepy Doll",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Creepy Doll",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "044"
+				},
+				{
+					"type": "section",
+					"name": "Demonlord of Ashmouth",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Demonlord of Ashmouth",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "045"
+				},
+				{
+					"type": "section",
+					"name": "Flight Alabaster Angel",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Flight Alabaster Angel",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flight Alabaster Angel",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "046"
+				},
+				{
+					"type": "section",
+					"name": "Flight Goldnight Angel",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Flight Goldnight Angel",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flight Goldnight Angel",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "047"
+				},
+				{
+					"type": "section",
+					"name": "Flight of Moonsilver Angel",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Flight of Moonsilver Angel",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flight of Moonsilver Angel",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "048"
+				},
+				{
+					"type": "section",
+					"name": "Geist",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Geist",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Geist",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "049"
+				},
+				{
+					"type": "section",
+					"name": "Host of Herons Angel",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Host of Herons Angel",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Host of Herons Angel",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "04a"
+				},
+				{
+					"type": "section",
+					"name": "Keeper of the Feather",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Keeper of the Feather",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "04b"
+				},
+				{
+					"type": "section",
+					"name": "Necro-Alchemist",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Necro-Alchemist",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Necro-Alchemist",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "04c"
+				},
+				{
+					"type": "section",
+					"name": "Skaab",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Skaab",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Skaab",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "04d"
+				},
+				{
+					"type": "section",
+					"name": "Vampire Neonate",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Vampire Neonate",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Vampire Neonate",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "04e"
+				},
+				{
+					"type": "section",
+					"name": "Werewolf (Krallenhorde)",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Werewolf (Krallenhorde)",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Werewolf (Krallenhorde)",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "04f"
+				},
+				{
+					"type": "section",
+					"name": "Zombie Cat",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Zombie Cat",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Zombie Cat",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "050"
+				},
+				{
+					"type": "section",
+					"name": "Zombie Rat",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Zombie Rat",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Zombie Rat",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "051"
+				},
+				{
+					"type": "section",
+					"name": "Zombie Snake",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Zombie Snake",
+							"prop": "monsterFluff",
+							"source": "PSI",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Zombie Snake",
+							"tag": "creature",
+							"source": "PSI",
+							"style": "narrow"
+						}
+					],
+					"id": "052"
 				},
 				{
 					"type": "entries",

@@ -1414,7 +1414,7 @@
 				"type": "image",
 				"href": {
 					"type": "internal",
-					"path": "decks/BMT/Deck of Many Things/00-back.webp"
+					"path": "decks/DMTCRG/Deck of Many More Things/00-back.webp"
 				},
 				"credit": "Hinchel Or",
 				"width": 656,
@@ -1434,6 +1434,101 @@
 					]
 				},
 				"When using the cards for divinatory readings, you can use cards' overall meaning or draw on any signifiers that make sense for your game. The adventure spreads typically draw on all five kinds of signifiers to build the skeleton of an adventure."
+			],
+			"spreads": [
+				{
+					"name": "One-Card Spread",
+					"source": "DMTCRG",
+					"page": 6,
+					"entries": [
+						"For the simplest reading, draw a single card from the deck. The card presents a message about the day to come, or provides quick guidance concerning an immediate problem."
+					],
+					"seeAlsoBookHeader": [
+						"one-card spread|dmtcrg|1|one-card spread"
+					],
+					"positions": [
+						{
+							"entries": [
+								"A message about the day to come, or guidance on an immediate problem."
+							]
+						}
+					]
+				},
+				{
+					"name": "Three-Card Spread",
+					"source": "DMTCRG",
+					"page": 7,
+					"entries": [
+						"A three-card spread allows the cards to tell a story, as the cards interact with each other and their meanings resonate and connect.",
+						"The most common form interprets the cards as past, present, and future. Alternatively they might represent a problem, an obstacle, and the solution; or the questioner, another individual, and the relationship between the two."
+					],
+					"seeAlsoBookHeader": [
+						"three-card spread|dmtcrg|1|three-card spread"
+					],
+					"positions": [
+						{
+							"name": "Past",
+							"entries": [
+								"Forces in the past that are relevant to the question; alternatively the problem, or the questioner."
+							]
+						},
+						{
+							"name": "Present",
+							"entries": [
+								"The present situation; alternatively the obstacle, or another individual."
+							]
+						},
+						{
+							"name": "Future",
+							"entries": [
+								"A hint at the future; alternatively the solution, or the relationship between the two."
+							]
+						}
+					]
+				},
+				{
+					"name": "Five-Card Spread",
+					"source": "DMTCRG",
+					"page": 7,
+					"entries": [
+						"A five-card spread allows a question to be answered with great complexity and nuance, as the cards show multiple perspectives and weave an interconnected story."
+					],
+					"seeAlsoBookHeader": [
+						"five-card spread|dmtcrg|1|five-card spread"
+					],
+					"positions": [
+						{
+							"name": "The Quest",
+							"entries": [
+								"This represents the adventure itself or the current situation."
+							]
+						},
+						{
+							"name": "That Which Is Hidden",
+							"entries": [
+								"Things in the questioner's past, elements of the subconscious, hidden enemies, or things forgotten or neglected. These forces weigh down the questioner and impede completion of the quest."
+							]
+						},
+						{
+							"name": "That Which Is Needed",
+							"entries": [
+								"The tools necessary for success on the quest\u2014the help of an ally, a useful item, or knowledge the questioner must acquire."
+							]
+						},
+						{
+							"name": "The Challenge",
+							"entries": [
+								"The chief obstacle to success: the thing most likely to prevent the questioner from achieving the quest."
+							]
+						},
+						{
+							"name": "The Outcome",
+							"entries": [
+								"The culmination of the adventure, or the ramifications and consequences that follow the quest's success or failure."
+							]
+						}
+					]
+				}
 			],
 			"hasCardArt": true
 		},
@@ -1980,6 +2075,14 @@
 				},
 				{
 					"uid": "Talons|Deck of Many Things|XDMG",
+					"replacement": true
+				},
+				{
+					"uid": "Throne|Deck of Many Things|XDMG",
+					"replacement": true
+				},
+				{
+					"uid": "Void|Deck of Many Things|XDMG",
 					"replacement": true
 				}
 			],
@@ -3812,11 +3915,167 @@
 					]
 				}
 			],
+			"spreads": [
+				{
+					"name": "Fortunes of Ravenloft",
+					"source": "CoS",
+					"page": 11,
+					"entries": [
+						"{@note Madam Eva's reading determines the location of three treasures, the identity of an ally, and the location of Strahd himself.}"
+					],
+					"seeAlsoAdventureHeader": [
+						"fortunes of ravenloft|cos|2|fortunes of ravenloft"
+					],
+					"positions": [
+						{
+							"name": "The Tome of Strahd",
+							"suits": [
+								"Stars",
+								"Glyphs",
+								"Swords",
+								"Coins"
+							],
+							"entries": [
+								"This card tells of history. Knowledge of the ancient will help you better understand your enemy."
+							]
+						},
+						{
+							"name": "The Holy Symbol of Ravenkind",
+							"suits": [
+								"Stars",
+								"Glyphs",
+								"Swords",
+								"Coins"
+							],
+							"entries": [
+								"This card tells of a powerful force for good and protection, a holy symbol of great hope."
+							]
+						},
+						{
+							"name": "The Sunsword",
+							"suits": [
+								"Stars",
+								"Glyphs",
+								"Swords",
+								"Coins"
+							],
+							"entries": [
+								"This is a card of power and strength. It tells of a weapon of vengeance: a sword of sunlight."
+							]
+						},
+						{
+							"name": "Strahd's Enemy",
+							"suits": [
+								"None"
+							],
+							"entries": [
+								"This card sheds light on one who will help you greatly in the battle against darkness."
+							],
+							"outcomes": {
+								"adventure": {
+									"CoS": {
+										"artifact|tarokka deck|cos": "7fe",
+										"beast|tarokka deck|cos": "7ff",
+										"broken one|tarokka deck|cos": "800",
+										"darklord|tarokka deck|cos": "801",
+										"donjon|tarokka deck|cos": "802",
+										"seer|tarokka deck|cos": "803",
+										"ghost|tarokka deck|cos": "804",
+										"executioner|tarokka deck|cos": "805",
+										"horseman|tarokka deck|cos": "806",
+										"innocent|tarokka deck|cos": "807",
+										"marionette|tarokka deck|cos": "808",
+										"mists|tarokka deck|cos": "809",
+										"raven|tarokka deck|cos": "80a",
+										"tempter|tarokka deck|cos": "80b"
+									}
+								}
+							}
+						},
+						{
+							"name": "Strahd",
+							"suits": [
+								"None"
+							],
+							"entries": [
+								"Your enemy is a creature of darkness, whose powers are beyond mortality. This card will lead you to him!"
+							],
+							"outcomes": {
+								"adventure": {
+									"CoS": {
+										"artifact|tarokka deck|cos": "80c",
+										"beast|tarokka deck|cos": "80d",
+										"broken one|tarokka deck|cos": "80e",
+										"darklord|tarokka deck|cos": "80f",
+										"donjon|tarokka deck|cos": "810",
+										"seer|tarokka deck|cos": "811",
+										"ghost|tarokka deck|cos": "812",
+										"executioner|tarokka deck|cos": "813",
+										"horseman|tarokka deck|cos": "814",
+										"innocent|tarokka deck|cos": "815",
+										"marionette|tarokka deck|cos": "816",
+										"mists|tarokka deck|cos": "817",
+										"raven|tarokka deck|cos": "818",
+										"tempter|tarokka deck|cos": "819"
+									}
+								}
+							}
+						}
+					],
+					"outcomes": {
+						"adventure": {
+							"CoS": {
+								"avenger|tarokka deck|cos": "6c8",
+								"paladin|tarokka deck|cos": "6c9",
+								"soldier|tarokka deck|cos": "6ca",
+								"mercenary|tarokka deck|cos": "6cb",
+								"myrmidon|tarokka deck|cos": "6cc",
+								"berserker|tarokka deck|cos": "6cd",
+								"hooded one|tarokka deck|cos": "6e8",
+								"dictator|tarokka deck|cos": "6fc",
+								"torturer|tarokka deck|cos": "715",
+								"warrior|tarokka deck|cos": "72e",
+								"transmuter|tarokka deck|cos": "72f",
+								"diviner|tarokka deck|cos": "730",
+								"enchanter|tarokka deck|cos": "731",
+								"abjurer|tarokka deck|cos": "732",
+								"elementalist|tarokka deck|cos": "733",
+								"evoker|tarokka deck|cos": "734",
+								"illusionist|tarokka deck|cos": "735",
+								"necromancer|tarokka deck|cos": "736",
+								"conjurer|tarokka deck|cos": "737",
+								"wizard|tarokka deck|cos": "738",
+								"swashbuckler|tarokka deck|cos": "739",
+								"philanthropist|tarokka deck|cos": "73a",
+								"trader|tarokka deck|cos": "73b",
+								"merchant|tarokka deck|cos": "73c",
+								"guild member|tarokka deck|cos": "73d",
+								"beggar|tarokka deck|cos": "73e",
+								"thief|tarokka deck|cos": "73f",
+								"tax collector|tarokka deck|cos": "740",
+								"miser|tarokka deck|cos": "741",
+								"rogue|tarokka deck|cos": "743",
+								"monk|tarokka deck|cos": "7c4",
+								"missionary|tarokka deck|cos": "7dd",
+								"healer|tarokka deck|cos": "7de",
+								"shepherd|tarokka deck|cos": "7e1",
+								"druid|tarokka deck|cos": "7e3",
+								"anarchist|tarokka deck|cos": "7e5",
+								"charlatan|tarokka deck|cos": "7e7",
+								"bishop|tarokka deck|cos": "7fb",
+								"traitor|tarokka deck|cos": "7fc",
+								"priest|tarokka deck|cos": "7fd"
+							}
+						}
+					}
+				}
+			],
 			"hasCardArt": true
 		},
 		{
 			"name": "Tarokka Deck",
 			"source": "RHW",
+			"page": 284,
 			"cards": [
 				"Artifact|Tarokka Deck|RHW",
 				"Beast|Tarokka Deck|RHW",
@@ -4517,6 +4776,51 @@
 					]
 				}
 			],
+			"spreads": [
+				{
+					"name": "Tarokka Reading",
+					"source": "RHW",
+					"page": 263,
+					"entries": [
+						"A fortune teller reveals the significance of each card's position and what the card represents, interpreting the cards through the lens of the focus."
+					],
+					"seeAlsoBookHeader": [
+						"tarokka reading|rhw|6|tarokka readings"
+					],
+					"positions": [
+						{
+							"name": "Position 1",
+							"entries": [
+								"The focus of the reading and the lens through which the other cards are interpreted"
+							]
+						},
+						{
+							"name": "Position 2",
+							"entries": [
+								"The past, something that might or might not be apparent to those other than the focus"
+							]
+						},
+						{
+							"name": "Position 3",
+							"entries": [
+								"What opposes the focus, whether literal opponents or obstructing fortunes"
+							]
+						},
+						{
+							"name": "Position 4",
+							"entries": [
+								"The future, an omen of what's to come and a fate that might still be changed"
+							]
+						},
+						{
+							"name": "Position 5",
+							"entries": [
+								"What aids the focus, whether literal allies or advantageous events"
+							]
+						}
+					]
+				}
+			],
 			"hasCardArt": true
 		},
 		{
@@ -4678,6 +4982,100 @@
 					"page": 3,
 					"entries": [
 						"Many tarot readers give upside-down (reversed) cards an opposite meaning of the upright version. In this booklet, there is no reversed meaning, but as the reader of tarot, feel free to follow your intuition. If you feel that the seeker needs a bit of a wake-up call, then a reversed interpretation can often do the trick."
+					]
+				}
+			],
+			"spreads": [
+				{
+					"name": "One-Card Spread",
+					"source": "TD",
+					"page": 3,
+					"entries": [
+						"A one-card reading is good for a quick check-in. It can be used to obtain clarity on a choice that you need to make or to keep a message in the forefront of your mind for the day."
+					],
+					"seeAlsoBookHeader": [
+						"one-card spread|td|0|one-card spread"
+					],
+					"positions": [
+						{
+							"entries": [
+								"Clarity on a choice to be made, or a message to keep in the forefront of your mind."
+							]
+						}
+					]
+				},
+				{
+					"name": "Three-Card Spread",
+					"source": "TD",
+					"page": 3,
+					"entries": [
+						"Three-card readings are most usually used to explain the past, present, and future, but they can also mean \"Problem, Obstacle, Solution\" or \"Thoughts, Feelings, Action.\""
+					],
+					"seeAlsoBookHeader": [
+						"three-card spread|td|0|three-card spread"
+					],
+					"positions": [
+						{
+							"name": "Past",
+							"entries": [
+								"The past; alternatively the problem, or thoughts."
+							]
+						},
+						{
+							"name": "Present",
+							"entries": [
+								"The present; alternatively the obstacle, or feelings."
+							]
+						},
+						{
+							"name": "Future",
+							"entries": [
+								"The future; alternatively the solution, or action."
+							]
+						}
+					]
+				},
+				{
+					"name": "Five-Card Spread",
+					"source": "TD",
+					"page": 4,
+					"entries": [
+						"A five-card spread allows the reading to unfold fully and gives a deeper message with more complexity and nuance."
+					],
+					"seeAlsoBookHeader": [
+						"five-card spread|td|0|five-card spread"
+					],
+					"positions": [
+						{
+							"name": "Situation",
+							"entries": [
+								"This card represents the current situation, problem, and/or objective."
+							]
+						},
+						{
+							"name": "Behind the Scenes",
+							"entries": [
+								"This card shows what is working behind the scenes in the psyche. Rooted in the past, this influence must be brought to light to be utilized or released."
+							]
+						},
+						{
+							"name": "Focus",
+							"entries": [
+								"This card represents things that you need to focus on as you resolve your quest."
+							]
+						},
+						{
+							"name": "Develop or Release",
+							"entries": [
+								"This card denotes something to develop or let go of so you can advance your quest."
+							]
+						},
+						{
+							"name": "Resolution",
+							"entries": [
+								"This card is the resolution of the answer or shows what is needed to resolve the problem fully."
+							]
+						}
 					]
 				}
 			],
@@ -6215,6 +6613,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6233,6 +6632,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6251,6 +6651,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6269,6 +6670,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6305,6 +6707,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6323,6 +6726,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6341,6 +6745,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6359,6 +6764,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6377,6 +6783,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6395,6 +6802,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6413,6 +6821,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6431,6 +6840,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6449,6 +6859,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6467,6 +6878,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6485,6 +6897,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6503,6 +6916,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6521,6 +6935,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6539,6 +6954,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6557,6 +6973,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6575,6 +6992,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6593,6 +7011,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6611,6 +7030,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6629,6 +7049,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6647,6 +7068,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6665,6 +7087,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6683,6 +7106,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6701,6 +7125,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6719,6 +7144,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6737,6 +7163,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6747,7 +7174,7 @@
 				"height": 561
 			},
 			"entries": [
-				"This card creates an illusion of a the card drawer."
+				"This card creates an illusion of the card drawer."
 			]
 		},
 		{
@@ -6755,6 +7182,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6773,6 +7201,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -6791,6 +7220,7 @@
 			"source": "XDMG",
 			"set": "Deck of Illusions",
 			"page": 249,
+			"srd52": true,
 			"face": {
 				"type": "image",
 				"href": {
@@ -8518,7 +8948,7 @@
 								{
 									"type": "item",
 									"name": "Treasure",
-									"entry": "An art object depicting walls, barriers. or a labyrinth; alternatively, a magic item that creates magical walls (such as a {@item Cube of Force})."
+									"entry": "An art object depicting walls, barriers, or a labyrinth; alternatively, a magic item that creates magical walls (such as a {@item Cube of Force})."
 								},
 								{
 									"type": "item",
@@ -8880,7 +9310,7 @@
 								{
 									"type": "item",
 									"name": "Creature or Trap",
-									"entry": "The destruction left in the wake ofa rampaging creature, or smaller creatures fleeing from a larger one."
+									"entry": "The destruction left in the wake of a rampaging creature, or smaller creatures fleeing from a larger one."
 								},
 								{
 									"type": "item",
@@ -9105,7 +9535,7 @@
 				"height": 1229
 			},
 			"entries": [
-				"{@i A signpost points in many directions at a crossroads. The Crossroads cards warns of a difficult but necessary decision.}",
+				"{@i A signpost points in many directions at a crossroads. The Crossroads card warns of a difficult but necessary decision.}",
 				{
 					"type": "entries",
 					"name": "Upright Meaning",
@@ -9169,7 +9599,7 @@
 								{
 									"type": "item",
 									"name": "Treasure",
-									"entry": "An art object featuring overlapping circular patterns, or a magic item that does only does one thing a limited number of times (such as a wand)."
+									"entry": "An art object featuring overlapping circular patterns, or a magic item that does only one thing a limited number of times (such as a wand)."
 								},
 								{
 									"type": "item",
@@ -9384,7 +9814,7 @@
 				"height": 1228
 			},
 			"entries": [
-				"{@i A menacing red dragon perches atop its treasure hoard inside a cave. This card can point to things connected to Dragons, but it also suggests hoarding, reed, and places rich in magical energy.}",
+				"{@i A menacing red dragon perches atop its treasure hoard inside a cave. This card can point to things connected to Dragons, but it also suggests hoarding, greed, and places rich in magical energy.}",
 				{
 					"type": "entries",
 					"name": "Upright Meaning",
@@ -9619,7 +10049,7 @@
 								{
 									"type": "item",
 									"name": "Person",
-									"entry": "A nosy person vho inserts themself into situations where they don't belong."
+									"entry": "A nosy person who inserts themselves into situations where they don't belong."
 								},
 								{
 									"type": "item",
@@ -10150,7 +10580,7 @@
 								{
 									"type": "item",
 									"name": "Place",
-									"entry": "A place connected with children, such as a nursery, an orphanage, or a school.s"
+									"entry": "A place connected with children, such as a nursery, an orphanage, or a school."
 								},
 								{
 									"type": "item",
@@ -10625,7 +11055,7 @@
 								{
 									"type": "item",
 									"name": "Situation",
-									"entry": "A situation that be resolved successfully only by taking a specific action."
+									"entry": "A situation that can be resolved successfully only by taking a specific action."
 								}
 							]
 						}
@@ -12398,7 +12828,7 @@
 								{
 									"type": "item",
 									"name": "Situation",
-									"entry": "An opportunity to provide valuable ad- vice on a familiar subject."
+									"entry": "An opportunity to provide valuable advice on a familiar subject."
 								}
 							]
 						}
@@ -12420,7 +12850,7 @@
 								{
 									"type": "item",
 									"name": "Creature or Trap",
-									"entry": "sA creature that tries to lead the way into danger or a trap."
+									"entry": "A creature that tries to lead the way into danger or a trap."
 								},
 								{
 									"type": "item",
@@ -12518,7 +12948,7 @@
 								{
 									"type": "item",
 									"name": "Place",
-									"entry": "sA hermitage or retreat meant to isolate one person from others."
+									"entry": "A hermitage or retreat meant to isolate one person from others."
 								},
 								{
 									"type": "item",
@@ -12645,7 +13075,7 @@
 				"height": 1229
 			},
 			"entries": [
-				"{@i A skeletal figure is shrouded in a swirling robe, though its skull is clearly visible. The Skull card is a reminder of the universality of death\u2014and the fact that everyone must confront death alone.s}",
+				"{@i A skeletal figure is shrouded in a swirling robe, though its skull is clearly visible. The Skull card is a reminder of the universality of death\u2014and the fact that everyone must confront death alone.}",
 				{
 					"type": "entries",
 					"name": "Upright Meaning",
@@ -13541,7 +13971,7 @@
 								{
 									"type": "item",
 									"name": "Place",
-									"entry": "A place at the edge of a ruler's authority or son the border between rival nations."
+									"entry": "A place at the edge of a ruler's authority or on the border between rival nations."
 								},
 								{
 									"type": "item",
@@ -13979,7 +14409,7 @@
 								{
 									"type": "item",
 									"name": "Situation",
-									"entry": "A situation that seems to have no good or even survivable\u2014outcome."
+									"entry": "A situation that seems to have no good or even survivable outcome."
 								}
 							]
 						}
@@ -14040,7 +14470,7 @@
 				"height": 1230
 			},
 			"entries": [
-				"{@i A barbarian holds a greataxe, The Warrior card embodies physical strength and fighting acumen.}",
+				"{@i A barbarian holds a greataxe. The Warrior card embodies physical strength and fighting acumen.}",
 				{
 					"type": "entries",
 					"name": "Upright Meaning",
@@ -16378,7 +16808,7 @@
 				"credit": "Alex Dos Diaz"
 			},
 			"entries": [
-				"As an action, you can brandish this card and use it to cast {@spell Spirit of Death|BMT} (see {@book chapter 7|BMT|6|Spirit of Death}) as a 6th-level spell (spell attack bonus +9, save {@dc 17}). Once this property is used, it can't be used again until the next dawn."
+				"As an action, you can brandish this card and use it to cast {@spell Spirit of Death|BMT} as a 6th-level spell (spell attack bonus +9, save {@dc 17}). Once this property is used, it can't be used again until the next dawn."
 			]
 		},
 		{
@@ -18175,7 +18605,7 @@
 					"type": "entries",
 					"name": "Boon Effect:",
 					"entries": [
-						"The target is immune to the {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition paralyzed}, {@condition petrified}, {@condition poisoned}, and {@condition stunned} conditions. In addition, the tar get stabilizes immediately when it drops to 0 hit points. This boon effect lasts for 24 hours."
+						"The target is immune to the {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition paralyzed}, {@condition petrified}, {@condition poisoned}, and {@condition stunned} conditions. In addition, the target stabilizes immediately when it drops to 0 hit points. This boon effect lasts for 24 hours."
 					]
 				}
 			]
@@ -24521,7 +24951,9 @@
 			"name": "Abjurer",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Stars",
+			"value": 4,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24539,7 +24971,9 @@
 			"name": "Anarchist",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Glyphs",
+			"value": 6,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24557,6 +24991,7 @@
 			"name": "Artifact",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -24575,7 +25010,9 @@
 			"name": "Avenger",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Swords",
+			"value": 1,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24593,6 +25030,7 @@
 			"name": "Beast",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -24611,7 +25049,9 @@
 			"name": "Beggar",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Coins",
+			"value": 6,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24629,7 +25069,9 @@
 			"name": "Berserker",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Swords",
+			"value": 6,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24647,7 +25089,9 @@
 			"name": "Bishop",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Glyphs",
+			"value": 8,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24665,6 +25109,7 @@
 			"name": "Broken One",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -24683,7 +25128,9 @@
 			"name": "Charlatan",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Glyphs",
+			"value": 7,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24701,7 +25148,9 @@
 			"name": "Conjurer",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Stars",
+			"value": 9,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24719,6 +25168,7 @@
 			"name": "Darklord",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -24737,7 +25187,9 @@
 			"name": "Dictator",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Swords",
+			"value": 8,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24755,7 +25207,9 @@
 			"name": "Diviner",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Stars",
+			"value": 2,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24773,6 +25227,7 @@
 			"name": "Donjon",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -24791,7 +25246,9 @@
 			"name": "Druid",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Glyphs",
+			"value": 5,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24809,7 +25266,9 @@
 			"name": "Elementalist",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Stars",
+			"value": 5,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24827,7 +25286,9 @@
 			"name": "Enchanter",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Stars",
+			"value": 3,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24845,7 +25306,9 @@
 			"name": "Evoker",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Stars",
+			"value": 6,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24863,6 +25326,7 @@
 			"name": "Executioner",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -24881,6 +25345,7 @@
 			"name": "Ghost",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -24899,7 +25364,9 @@
 			"name": "Guild Member",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Coins",
+			"value": 5,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24917,7 +25384,9 @@
 			"name": "Healer",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Glyphs",
+			"value": 3,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24935,7 +25404,9 @@
 			"name": "Hooded One",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Swords",
+			"value": 7,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24953,6 +25424,7 @@
 			"name": "Horseman",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -24971,7 +25443,9 @@
 			"name": "Illusionist",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Stars",
+			"value": 7,
 			"face": {
 				"type": "image",
 				"href": {
@@ -24989,6 +25463,7 @@
 			"name": "Innocent",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -25007,6 +25482,7 @@
 			"name": "Marionette",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -25025,7 +25501,9 @@
 			"name": "Mercenary",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Swords",
+			"value": 4,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25043,7 +25521,9 @@
 			"name": "Merchant",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Coins",
+			"value": 4,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25061,7 +25541,9 @@
 			"name": "Miser",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Coins",
+			"value": 9,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25079,7 +25561,9 @@
 			"name": "Missionary",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Glyphs",
+			"value": 2,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25097,6 +25581,7 @@
 			"name": "Mists",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -25115,7 +25600,9 @@
 			"name": "Monk",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Glyphs",
+			"value": 1,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25133,7 +25620,9 @@
 			"name": "Myrmidon",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Swords",
+			"value": 5,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25151,7 +25640,9 @@
 			"name": "Necromancer",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Stars",
+			"value": 8,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25169,7 +25660,9 @@
 			"name": "Paladin",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Swords",
+			"value": 2,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25187,7 +25680,9 @@
 			"name": "Philanthropist",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Coins",
+			"value": 2,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25205,7 +25700,10 @@
 			"name": "Priest",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Glyphs",
+			"value": 10,
+			"valueName": "master",
 			"face": {
 				"type": "image",
 				"href": {
@@ -25223,6 +25721,7 @@
 			"name": "Raven",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -25241,7 +25740,10 @@
 			"name": "Rogue",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Coins",
+			"value": 10,
+			"valueName": "master",
 			"face": {
 				"type": "image",
 				"href": {
@@ -25259,6 +25761,7 @@
 			"name": "Seer",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -25277,7 +25780,9 @@
 			"name": "Shepherd",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Glyphs",
+			"value": 4,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25295,7 +25800,9 @@
 			"name": "Soldier",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Swords",
+			"value": 3,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25313,7 +25820,9 @@
 			"name": "Swashbuckler",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Coins",
+			"value": 1,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25331,7 +25840,9 @@
 			"name": "Tax Collector",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Coins",
+			"value": 8,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25349,6 +25860,7 @@
 			"name": "Tempter",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 286,
 			"suit": "High Deck",
 			"face": {
 				"type": "image",
@@ -25367,7 +25879,9 @@
 			"name": "Thief",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Coins",
+			"value": 7,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25385,7 +25899,9 @@
 			"name": "Torturer",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Swords",
+			"value": 9,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25403,7 +25919,9 @@
 			"name": "Trader",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Coins",
+			"value": 3,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25421,7 +25939,9 @@
 			"name": "Traitor",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Glyphs",
+			"value": 9,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25439,7 +25959,9 @@
 			"name": "Transmuter",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Stars",
+			"value": 1,
 			"face": {
 				"type": "image",
 				"href": {
@@ -25457,7 +25979,10 @@
 			"name": "Warrior",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Swords",
+			"value": 10,
+			"valueName": "master",
 			"face": {
 				"type": "image",
 				"href": {
@@ -25475,7 +26000,10 @@
 			"name": "Wizard",
 			"source": "RHW",
 			"set": "Tarokka Deck",
+			"page": 287,
 			"suit": "Stars",
+			"value": 10,
+			"valueName": "master",
 			"face": {
 				"type": "image",
 				"href": {

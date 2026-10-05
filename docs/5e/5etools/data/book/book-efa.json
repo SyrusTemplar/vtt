@@ -34,8 +34,8 @@
 							"page": 4,
 							"id": "003",
 							"entries": [
-								"The Artificer class has been revised in line with the class revisions in the 2024 version of the fifth edition {@book Player's Handbook|XPHB}. The class includes a new spell. Additional content that appeared as class feature options in previous versions of the class now appear as magic items in {@book an appendix|EFA|8} at the end of the book.",
-								"This version of the {@book Artificer|EFA|1} includes a new subclass, the Cartographer."
+								"The Artificer class has been revised in line with the class revisions in the 2024 version of the fifth edition {@book Player's Handbook|XPHB}. The class includes a new spell. Additional content that appeared as class feature options in previous versions of the class now appear as magic items in {@area an appendix|2ac|x} at the end of the book.",
+								"This version of the {@area Artificer|00b|x} includes a new subclass, the Cartographer."
 							]
 						},
 						{
@@ -62,7 +62,7 @@
 							"page": 4,
 							"id": "006",
 							"entries": [
-								"{@book Chapter 3|EFA|3} offers new special facilities for characters to improve their Bastions, as well as ways to build a mobile Bastion."
+								"{@area Chapter 3|141|x} offers new special facilities for characters to improve their Bastions, as well as ways to build a mobile Bastion."
 							]
 						},
 						{
@@ -71,7 +71,7 @@
 							"page": 4,
 							"id": "007",
 							"entries": [
-								"Chapters {@book 4|EFA|4}, {@book 5|EFA|5}, and {@book 6|EFA|6} provide tools to help DMs start an Eberron campaign quickly and easily. Each chapter describes one flavor of campaign you might run in Eberron\u2014the gritty life of an inquisitive on the mean streets of Sharn, high-stakes intrigue among the dragonmarked houses, and the rollicking adventures of scholarly explorers from Morgrave University. Building on the tools provided in the 2024 {@book Dungeon Master's Guide|XDMG}, these chapters outline key conflicts, suggest campaign arcs, provide setting information, and give you stat blocks for NPC figures that characters might encounter in the campaign."
+								"Chapters {@area 4|167|x}, {@area 5|1b1|x}, and {@area 6|21f|x} provide tools to help DMs start an Eberron campaign quickly and easily. Each chapter describes one flavor of campaign you might run in Eberron\u2014the gritty life of an inquisitive on the mean streets of Sharn, high-stakes intrigue among the dragonmarked houses, and the rollicking adventures of scholarly explorers from Morgrave University. Building on the tools provided in the 2024 {@book Dungeon Master's Guide|XDMG}, these chapters outline key conflicts, suggest campaign arcs, provide setting information, and give you stat blocks for NPC figures that characters might encounter in the campaign."
 							]
 						},
 						{
@@ -80,7 +80,7 @@
 							"page": 4,
 							"id": "008",
 							"entries": [
-								"The {@book last chapter|EFA|7} presents rules and resources for elemental airships: operating them, using them in combat, and undertaking journeys by air."
+								"The {@area last chapter|270|x} presents rules and resources for elemental airships: operating them, using them in combat, and undertaking journeys by air."
 							]
 						}
 					]
@@ -108,9 +108,9 @@
 							"entries": [
 								"Using this fragment of the Prophecy as an example, how might you as the Dungeon Master incorporate it into an Eberron campaign?",
 								"Start at the end. Assume the last line refers to the characters in your campaign bringing about the fall of one of your campaign's major antagonists. If you're using one of the campaign models in this book, the dragon's fall might refer to one of these antagonists:",
-								"Sharn Inquisitives (See {@book Chapter 4|EFA|4}). Daask, whose trade in the dangerous drug called dragon's blood is harming Sharn's population, or a powerful villain whose use of dragon's blood has brought about a draconic transformation.",
-								"Dragonmarked Intrigue (See {@book Chapter 5|EFA|5}). A dragon connected with the Chamber, or the leader of a dragonmarked house.",
-								"Morgrave Expeditions (See {@book Chapter 6|EFA|6}). Lady Illmarrow, leader of the Order of the Emerald Claw (detailed in {@book Eberron: Rising from the Last War|ERLW}), who has draconic blood, or a fiendish overlord with a draconic form (perhaps Rak Tulkhesh, also detailed in {@i Eberron: Rising from the Last War}).",
+								"Sharn Inquisitives (See {@area Chapter 4|167|x}). Daask, whose trade in the dangerous drug called dragon's blood is harming Sharn's population, or a powerful villain whose use of dragon's blood has brought about a draconic transformation.",
+								"Dragonmarked Intrigue (See {@area Chapter 5|1b1|x}). A dragon connected with the Chamber, or the leader of a dragonmarked house.",
+								"Morgrave Expeditions (See {@area Chapter 6|21f|x}). Lady Illmarrow, leader of the Order of the Emerald Claw (detailed in {@book Eberron: Rising from the Last War|ERLW}), who has draconic blood, or a fiendish overlord with a draconic form (perhaps Rak Tulkhesh, also detailed in {@i Eberron: Rising from the Last War}).",
 								"With that climactic campaign end in mind, plot out a simple campaign arc\u2014a series of four apparently unconnected events, each one reflecting a line of the Prophecy fragment. At each step of the way, the characters might encounter others trying to steer the fulfillment of the Prophecy in various directions. Some of these figures might want the characters to topple the dragon who is the antagonist of the campaign; others might want the characters to bring about a different dragon's fall. Still others might hope for the five-headed dragon god Tiamat to rise and cause the fall of all the dragonmarked houses in fulfillment of the fragment's last line.",
 								{
 									"type": "image",
@@ -159,10 +159,10 @@
 					"page": 12,
 					"id": "035",
 					"entries": [
-						"An Artificer subclass is a specialization that grants you features at certain Artificer levels, as specified in the subclass. This section presents the {@subclass Alchemist|Artificer|EFA|EFA}, {@subclass Armorer|Artificer|EFA|EFA}, {@subclass Artillerist|Artificer|EFA|EFA}, and {@subclass Battle Smith|Artificer|EFA|EFA}, and {@subclass Cartographer|Artificer|EFA|EFA}.",
+						"An Artificer subclass is a specialization that grants you features at certain Artificer levels, as specified in the subclass. This section presents the {@subclass Alchemist|Artificer|EFA|EFA}, {@subclass Armorer|Artificer|EFA|EFA}, {@subclass Artillerist|Artificer|EFA|EFA}, {@subclass Battle Smith|Artificer|EFA|EFA}, and {@subclass Cartographer|Artificer|EFA|EFA}.",
 						{
 							"type": "statblock",
-							"prop": "subclass",
+							"tag": "subclass",
 							"source": "EFA",
 							"name": "Alchemist",
 							"shortName": "Alchemist",
@@ -173,7 +173,7 @@
 						},
 						{
 							"type": "statblock",
-							"prop": "subclass",
+							"tag": "subclass",
 							"source": "EFA",
 							"name": "Armorer",
 							"shortName": "Armorer",
@@ -184,7 +184,7 @@
 						},
 						{
 							"type": "statblock",
-							"prop": "subclass",
+							"tag": "subclass",
 							"source": "EFA",
 							"name": "Artillerist",
 							"shortName": "Artillerist",
@@ -195,7 +195,7 @@
 						},
 						{
 							"type": "statblock",
-							"prop": "subclass",
+							"tag": "subclass",
 							"source": "EFA",
 							"name": "Battle Smith",
 							"shortName": "Battle Smith",
@@ -206,7 +206,7 @@
 						},
 						{
 							"type": "statblock",
-							"prop": "subclass",
+							"tag": "subclass",
 							"source": "EFA",
 							"name": "Cartographer",
 							"shortName": "Cartographer",
@@ -398,7 +398,7 @@
 					"id": "099",
 					"entries": [
 						"This section presents seventeen backgrounds using the same format as those in the {@book Player's Handbook|XPHB}. The fourteen that represent dragonmarked heirs offer Dragonmark feats rather than Origin feats; the Dragonmark feats appear at the end of the chapter. Choosing one of these backgrounds is the only way to acquire a Dragonmark feat at level 1; characters who select a different background can choose Dragonmark feats anytime they have an unrestricted feat choice. The {@background House Agent|EFA} background grants house affiliation without a dragonmark.",
-						"In addition to the backgrounds connected to dragonmarks and their houses, the {@background Archaeologist|EFA} and {@background Inquisitive|EFA} backgrounds support the campaigns presented in this book (see chapters {@book 4|EFA|4} and {@book 6|EFA|6}).",
+						"In addition to the backgrounds connected to dragonmarks and their houses, the {@background Archaeologist|EFA} and {@background Inquisitive|EFA} backgrounds support the campaigns presented in this book (see chapters {@area 4|167|x} and {@area 6|21f|x}).",
 						{
 							"type": "list",
 							"columns": 3,
@@ -421,6 +421,108 @@
 								"{@background House Vadalis Heir|EFA}",
 								"{@background Inquisitive|EFA}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Aberrant Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "Archaeologist",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Agent",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Cannith Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Deneith Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Ghallanda Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Jorasco Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Kundarak Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Lyrandar Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Medani Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Orien Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Phiarlan Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Sivis Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Tharashk Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Thuranni Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "House Vadalis Heir",
+							"tag": "background",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "Inquisitive",
+							"tag": "background",
+							"source": "EFA"
 						}
 					]
 				},
@@ -441,6 +543,36 @@
 								"{@race Shifter|EFA}",
 								"{@race Warforged|EFA}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Changeling",
+							"tag": "race",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "Kalashtar",
+							"tag": "race",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "Khoravar",
+							"tag": "race",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "Shifter",
+							"tag": "race",
+							"source": "EFA"
+						},
+						{
+							"type": "statblock",
+							"name": "Warforged",
+							"tag": "race",
+							"source": "EFA"
 						}
 					]
 				},
@@ -476,6 +608,84 @@
 										"{@feat Mark of Storm|EFA}",
 										"{@feat Mark of Warding|EFA}"
 									]
+								},
+								{
+									"type": "statblock",
+									"name": "Aberrant Dragonmark",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Mark of Detection",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Mark of Finding",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Mark of Handling",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Mark of Healing",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Mark of Hospitality",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Mark of Making",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Mark of Passage",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Mark of Scribing",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Mark of Sentinel",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Mark of Shadow",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Mark of Storm",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Mark of Warding",
+									"tag": "feat",
+									"source": "EFA"
 								}
 							]
 						},
@@ -505,6 +715,90 @@
 										"{@feat Greater Mark of Warding|EFA}",
 										"{@feat Potent Dragonmark|EFA}"
 									]
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Aberrant Mark",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Mark of Detection",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Mark of Finding",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Mark of Handling",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Mark of Healing",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Mark of Hospitality",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Mark of Making",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Mark of Passage",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Mark of Scribing",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Mark of Sentinel",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Mark of Shadow",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Mark of Storm",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Greater Mark of Warding",
+									"tag": "feat",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Potent Dragonmark",
+									"tag": "feat",
+									"source": "EFA"
 								}
 							]
 						},
@@ -521,6 +815,12 @@
 									"items": [
 										"{@feat Boon of Siberys|EFA}"
 									]
+								},
+								{
+									"type": "statblock",
+									"name": "Boon of Siberys",
+									"tag": "feat",
+									"source": "EFA"
 								}
 							]
 						}
@@ -692,7 +992,7 @@
 					"id": "168",
 					"entries": [
 						"A Sharn inquisitives campaign revolves around the idea of the characters as investigators who might work for an inquisitive agency at the start of the campaign but might run their own in time. In any case, the inquisitive agency functions as a patron to the adventuring party, becoming a source of both missions and rewards. You can use the group patron rules in {@book Eberron: Rising from the Last War|ERLW} or {@book Tasha's Cauldron of Everything|TCE} to give characters the benefits of this patronage.",
-						"The Inquisitive background in {@book chapter 2|EFA|2} is a good option for characters in this campaign, along with backgrounds from the {@book Player's Handbook|XPHB} such as Charlatan, Criminal, Guard, and Wayfarer.",
+						"The Inquisitive background in {@area chapter 2|08f|x} is a good option for characters in this campaign, along with backgrounds from the {@book Player's Handbook|XPHB} such as Charlatan, Criminal, Guard, and Wayfarer.",
 						{
 							"type": "entries",
 							"name": "Inquisitive Agencies of Sharn",
@@ -764,7 +1064,7 @@
 					"entries": [
 						"You can select the conflicts in a Sharn inquisitives campaign from the abundant criminal enterprises that dominate the seamy underworld of the City of Towers. While inquisitives deal with countless petty thugs and lone criminals, sooner or later their investigations will lead them to cross paths with the masterminds of crime in Sharn.",
 						"As described in {@book Eberron: Rising from the Last War|ERLW}, four criminal gangs are responsible for much of the illegal and shady activity in the City of Towers. This section focuses on two of them: {@area The Boromar Clan|16f|x} and {@area Daask|179|x}. In addition, the sinister forces of {@area the Dream Dark|183|x} have infiltrated many places of power within the city.",
-						"You can replace one or more of these threats with other groups from {@book Eberron: Rising from the Last War|ERLW}\u2014such as the Tyrants, House Tarkanan, the Aurum, or the Sharn Watch\u2014or ones of your own devising. If the characters' inquisitive agency aligns with a dragonmarked house whose operations include inquisitive work (House Tharashk's Finders Guild or House Medani's Warning Guild), you also can incorporate conflicts with rival houses, as described in {@book chapter 5|EFA|5}.",
+						"You can replace one or more of these threats with other groups from {@book Eberron: Rising from the Last War|ERLW}\u2014such as the Tyrants, House Tarkanan, the Aurum, or the Sharn Watch\u2014or ones of your own devising. If the characters' inquisitive agency aligns with a dragonmarked house whose operations include inquisitive work (House Tharashk's Finders Guild or House Medani's Warning Guild), you also can incorporate conflicts with rival houses, as described in {@area chapter 5|1b1|x}.",
 						"This section outlines the three conflicts suggested above, the goals of the villainous groups involved, and possible plot arcs tied to them.",
 						{
 							"type": "entries",
@@ -1038,7 +1338,7 @@
 											"page": 59,
 											"id": "187",
 											"entries": [
-												"Investigating a series of grisly crimes, the characters are aided by a {@creature Sentinel Marshal|EFA} of House Deneith (see stat block in {@book chapter 5|EFA|5}). When captured, the criminal insists that recurring dreams led to the crimes. The Sentinel Marshal dismisses this claim. If the inquisitives investigate further, they find themselves drawn into a nightmare scenario involving a quori. In the course of that adventure, they glean clues that the Sentinel Marshal played a more sinister part in events than previously suspected."
+												"Investigating a series of grisly crimes, the characters are aided by a {@creature Sentinel Marshal|EFA} of House Deneith (see stat block in {@area chapter 5|1b1|x}). When captured, the criminal insists that recurring dreams led to the crimes. The Sentinel Marshal dismisses this claim. If the inquisitives investigate further, they find themselves drawn into a nightmare scenario involving a quori. In the course of that adventure, they glean clues that the Sentinel Marshal played a more sinister part in events than previously suspected."
 											]
 										},
 										{
@@ -1237,7 +1537,7 @@
 							"page": 62,
 							"id": "199",
 							"entries": [
-								"Upper Menthis is strongly flavored by the presence of Morgrave University (see {@book chapter 6|EFA|6}). Academics, sages, scribes, and students come to the school from across Khorvaire and settle in the ward's residential districts, Ivy Towers or (if they made their fortune in Xen'drik) Platinate. Given the nature of Morgrave University, when precious artifacts go missing from the college's museums or storage, it's hard to say whether to blame art thieves or unscrupulous faculty members. Six rival antiquities dealers operate in a single tower in the Seventh Tower district, and at least one of them is suspected of hiring burglars to steal goods from rivals."
+								"Upper Menthis is strongly flavored by the presence of Morgrave University (see {@area chapter 6|21f|x}). Academics, sages, scribes, and students come to the school from across Khorvaire and settle in the ward's residential districts, Ivy Towers or (if they made their fortune in Xen'drik) Platinate. Given the nature of Morgrave University, when precious artifacts go missing from the college's museums or storage, it's hard to say whether to blame art thieves or unscrupulous faculty members. Six rival antiquities dealers operate in a single tower in the Seventh Tower district, and at least one of them is suspected of hiring burglars to steal goods from rivals."
 							]
 						},
 						{
@@ -1585,6 +1885,30 @@
 										"{@optfeature Celebrated in House|EFA}",
 										"{@optfeature Preeminent in House|EFA}"
 									]
+								},
+								{
+									"type": "statblock",
+									"name": "Favored in House",
+									"tag": "optfeature",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Recognized in House",
+									"tag": "optfeature",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Celebrated in House",
+									"tag": "optfeature",
+									"source": "EFA"
+								},
+								{
+									"type": "statblock",
+									"name": "Preeminent in House",
+									"tag": "optfeature",
+									"source": "EFA"
 								}
 							]
 						},
@@ -3017,7 +3341,7 @@
 									"page": 87,
 									"id": "225",
 									"entries": [
-										"The university has abundant resources to facilitate any research your mission requires. Whenever your group takes a {@book Bastion turn|XDMG|7|Bastion Turns}, you can (as a group) issue the Research order to the university as if it were a {@book Library|XDMG|7|Library} special facility in your Bastion. Once your group reaches level 13, you instead can issue the Research order to the university as if it were an {@book Archive|XDMG|7|Archive}."
+										"The university has abundant resources to facilitate any research your mission requires. Whenever your group takes a {@book Bastion turn|XDMG|7|Bastion Turns}, you can (as a group) issue the Research order to the university as if it were a {@facility Library|XDMG} special facility in your Bastion. Once your group reaches level 13, you instead can issue the Research order to the university as if it were an {@facility Archive|XDMG}."
 									]
 								},
 								{
@@ -3566,7 +3890,7 @@
 										],
 										[
 											"12",
-											"A medallion or sculpture depicting a {@book Fiend|XMM|3|Fiend} locked in battle with a {@book Celestial|XMM|3|Celestial} or {@book Dragon|XMM|3|Dragon}"
+											"A medallion or sculpture depicting a {@filter Fiend|bestiary|type=fiend} locked in battle with a {@filter Celestial|bestiary|type=celestial} or {@filter Dragon|bestiary|type=dragon}"
 										]
 									]
 								}
@@ -3621,7 +3945,7 @@
 									"page": 96,
 									"id": "255",
 									"entries": [
-										"A voyage from {@book Sharn|ERLW|8} to {@book Stormreach|ERLW|6|Notable Locations|3}\u2014the most accessible settlement in Xen'drik, used as a launch point for most expeditions into the interior\u2014involves traveling about fifteen hundred miles by sea through the perilous Straits of Shargon. The university typically hires a {@book Sailing Ship|XPHB|6|Large Vehicles} (or occasionally a {@book Lyrandar galleon|ERLW|10|Lyrandar Galleons}) to carry passengers and supplies to Stormreach, then back again. The expedition members are responsible for refreshing their supplies in Stormreach and journeying to their destination on foot.",
+										"A voyage from {@book Sharn|ERLW|8} to {@book Stormreach|ERLW|6|Notable Locations|2}\u2014the most accessible settlement in Xen'drik, used as a launch point for most expeditions into the interior\u2014involves traveling about fifteen hundred miles by sea through the perilous Straits of Shargon. The university typically hires a {@book Sailing Ship|XPHB|6|Large Vehicles} (or occasionally a {@book Lyrandar galleon|ERLW|10|Lyrandar Galleons}) to carry passengers and supplies to Stormreach, then back again. The expedition members are responsible for refreshing their supplies in Stormreach and journeying to their destination on foot.",
 										"A {@book Lyrandar airship|ERLW|10|Lyrandar Airship} can bypass the dangers of the sea voyage and cover the distance faster, but the Straits of Shargon are known for brutal storms. An expedition can save considerable time by using a House Orien {@spell Teleportation Circle|XPHB} to get to Stormreach, at the cost of having to purchase supplies and perhaps other transportation options in Xen'drik, where prices are often inflated. The Xen'drik Journeys table summarizes these options.",
 										{
 											"type": "table",
@@ -4281,6 +4605,27 @@
 								"{@vehicle Lyrandar Skyskiff|EFA}",
 								"{@vehicle Strider Airship|EFA}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Lyrandar Air Cruiser",
+							"tag": "vehicle",
+							"source": "EFA",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Lyrandar Skyskiff",
+							"tag": "vehicle",
+							"source": "EFA",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Strider Airship",
+							"tag": "vehicle",
+							"source": "EFA",
+							"style": "narrow"
 						}
 					],
 					"id": "00c"
@@ -4657,6 +5002,60 @@
 						"{@item Returning Weapon|EFA}",
 						"{@item Spell-Refueling Ring|EFA}"
 					]
+				},
+				{
+					"type": "statblock",
+					"name": "Boots of the Winding Path",
+					"tag": "item",
+					"source": "EFA"
+				},
+				{
+					"type": "statblock",
+					"name": "Dazzling Weapon",
+					"tag": "item",
+					"source": "EFA"
+				},
+				{
+					"type": "statblock",
+					"name": "Helm of Awareness",
+					"tag": "item",
+					"source": "EFA"
+				},
+				{
+					"type": "statblock",
+					"name": "Manifold Tool",
+					"tag": "item",
+					"source": "EFA"
+				},
+				{
+					"type": "statblock",
+					"name": "Mind Sharpener",
+					"tag": "item",
+					"source": "EFA"
+				},
+				{
+					"type": "statblock",
+					"name": "Repeating Shot",
+					"tag": "item",
+					"source": "EFA"
+				},
+				{
+					"type": "statblock",
+					"name": "Repulsion Shield",
+					"tag": "item",
+					"source": "EFA"
+				},
+				{
+					"type": "statblock",
+					"name": "Returning Weapon",
+					"tag": "item",
+					"source": "EFA"
+				},
+				{
+					"type": "statblock",
+					"name": "Spell-Refueling Ring",
+					"tag": "item",
+					"source": "EFA"
 				}
 			]
 		},

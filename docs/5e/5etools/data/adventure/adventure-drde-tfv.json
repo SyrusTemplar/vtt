@@ -210,14 +210,14 @@
 					"entries": [
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@adventure Death at Sunset (Level 1)|DrDe-DaS|1}",
 								"{@adventure Baker's Doesn't (Level 3)|DrDe-BD|1}",
 								"{@adventure The Will of Orcus (Level 4)|DrDe-TWoO|1}",
 								"{@adventure For Whom the Void Calls (Level 5)|DrDe-FWtVC|1}",
 								"{@adventure The Dragon of Najkir (Level 7)|DrDe-TDoN|1}",
-								"{@adventure The Forbidden Vale (Level 9)|DrDe-TFV|1}",
+								"{@area The Forbidden Vale (Level 9)|20c|x}",
 								"{@adventure Before the Storm (Level 10)|DrDe-BtS|1}",
 								"{@adventure Shivering Death (Level 11)|DrDe-SD|1}",
 								"{@adventure A Copper for a Song (Level 12)|DrDe-ACfaS|1}",
@@ -309,7 +309,7 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Archpriest|XMM}",
 								"{@creature Behir|XMM}",
@@ -342,6 +342,546 @@
 								"{@creature Troll|XMM}",
 								"{@creature Yuan-ti Malison (Type 3)|XMM}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Archpriest",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Archpriest",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Behir",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Behir",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Berserker",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Berserker",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Bulette",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bulette",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Chimera",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Chimera",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Cyclops Sentry",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cyclops Sentry",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Druid",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Druid",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Fire Elemental",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Fire Elemental",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Flameskull",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flameskull",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Githyanki Knight",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Githyanki Knight",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Green Hag",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Green Hag",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Grick Ancient",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Grick Ancient",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Guard",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Guard",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Hill Giant",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Hill Giant",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Hydra",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Hydra",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Manticore",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Manticore",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Marid",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Marid",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Smoke Mephit",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Smoke Mephit",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Mind Flayer",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mind Flayer",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Noble",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Noble",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Noble Prodigy",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Noble Prodigy",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Owlbear",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Owlbear",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Young Red Dragon",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Young Red Dragon",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Roc",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Roc",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Flaming Skeleton",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flaming Skeleton",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Spirit Naga",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Spirit Naga",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Tough Boss",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Tough Boss",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Treant",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Treant",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Troll",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Troll",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Yuan-ti Malison (Type 3)",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Yuan-ti Malison (Type 3)",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
 						},
 						{
 							"type": "table",
@@ -643,7 +1183,7 @@
 					"page": 108,
 					"id": "220",
 					"entries": [
-						"{@adventure Map: Overland Map|DrDe-TFV|1|Map: Overland Map} shows the locations of Arborean Springs, the wildfires (shown in orange), the Forbidden Vale (area {@area V8|235|x}), and other key sites in the region. Each area is described further below.",
+						"{@area Map: Overland Map|413|x} shows the locations of Arborean Springs, the wildfires (shown in orange), the Forbidden Vale (area {@area V8|235|x}), and other key sites in the region. Each area is described further below.",
 						"Arborean Springs lies about 19 miles from the Forbidden Vale as the dragon flies. However, the easiest routes from the town to the vale bring the characters up one of two parallel river valleys that feed into the Celestial River. The western Bytopian River valley is a steeper climb, while the eastern Ysgardian River valley is a longer route. Characters can choose their own route, but the most likely course looks like this:",
 						{
 							"type": "list",
@@ -1107,7 +1647,7 @@
 					"page": 112,
 					"id": "23a",
 					"entries": [
-						"External stairs provide access to all three garden tiers as shown on {@adventure Map: Garden of Sacred Repose|DrDe-TFV|1|Map: Garden of Sacred Repose}, {@adventure Map: Garden of Unearthly Delights|DrDe-TFV|1|Map: Garden of Unearthly Delights}, and {@adventure Map: The Garden of Everflowing Springs|DrDe-TFV|1|Map: The Garden of Everflowing Springs}. The front entrance leads to area {@area G1|244|x} on {@adventure Map: Garden of Sacred Repose|DrDe-TFV|1|Map: Garden of Sacred Repose}. A hidden entrance in the lake leads to Xabazhut's lair, shown on {@adventure Map: Garden of the Dragon|DrDe-TFV|1|Map: Garden of the Dragon}. The roof of the top tier is a vibrant garden with no walkways or inhabitants.",
+						"External stairs provide access to all three garden tiers as shown on {@area Map: Garden of Sacred Repose|414|x}, {@area Map: Garden of Unearthly Delights|416|x}, and {@area Map: The Garden of Everflowing Springs|417|x}. The front entrance leads to area {@area G1|244|x} on {@area Map: Garden of Sacred Repose|414|x}. A hidden entrance in the lake leads to Xabazhut's lair, shown on {@area Map: Garden of the Dragon|415|x}. The roof of the top tier is a vibrant garden with no walkways or inhabitants.",
 						{
 							"type": "entries",
 							"name": "Garden Features",
@@ -1196,7 +1736,7 @@
 							"page": 113,
 							"id": "243",
 							"entries": [
-								"The first tier, the ground floor of the gardens, appears on {@adventure Map: Garden of Sacred Repose|DrDe-TFV|1|Map: Garden of Sacred Repose}. This tier is called the Garden of Sacred Repose.",
+								"The first tier, the ground floor of the gardens, appears on {@area Map: Garden of Sacred Repose|414|x}. This tier is called the Garden of Sacred Repose.",
 								{
 									"type": "gallery",
 									"images": [
@@ -2395,7 +2935,7 @@
 							"page": 118,
 							"id": "26d",
 							"entries": [
-								"The dragon's lair is accessible through the Astral lift in area {@area G9|25a|x} and the pit in area {@area G12|264|x}. A hidden tunnel in the Lake of Bones (see area {@area V8|235|x}) leads to the hot spring in the lair. The lair is shown on {@adventure Map: Garden of the Dragon|DrDe-TFV|1|Map: Garden of the Dragon}.",
+								"The dragon's lair is accessible through the Astral lift in area {@area G9|25a|x} and the pit in area {@area G12|264|x}. A hidden tunnel in the Lake of Bones (see area {@area V8|235|x}) leads to the hot spring in the lair. The lair is shown on {@area Map: Garden of the Dragon|415|x}.",
 								{
 									"type": "entries",
 									"name": "G14: Garden of the Dragon",
@@ -3107,12 +3647,12 @@
 													"type": "list",
 													"items": [
 														"300 PP, 4,500 GP, 15,000 SP, and 4,500 CP",
-														"Three coral stones (worth 100 GP each)",
-														"Two jet stones (worth 100 GP each)",
-														"Two carnelians (worth 50 GP each)",
-														"Three onyx stones (worth 50 GP each)",
-														"Seven hematite stones (worth 10 GP each)",
-														"Three obsidian stones (worth 10 GP each)",
+														"Three {@item Coral|XDMG|coral stones} (worth 100 GP each)",
+														"Two {@item Jet|XDMG|jet stones} (worth 100 GP each)",
+														"Two {@item Carnelian|XDMG|carnelians} (worth 50 GP each)",
+														"Three {@item Onyx|XDMG|onyx stones} (worth 50 GP each)",
+														"Seven {@item Hematite|XDMG|hematite stones} (worth 10 GP each)",
+														"Three {@item Obsidian|XDMG|obsidian stones} (worth 10 GP each)",
 														"Ancient lyre whose arms are capped with dragon heads made of gold (worth 250 GP)",
 														"Jade orb (worth 100 GP) engraved in Infernal with the name of Nessus",
 														"{@item Cube of Summoning|XDMG}",
@@ -3644,7 +4184,7 @@
 											"page": 120,
 											"id": "27b",
 											"entries": [
-												"Concealed under lily pads in the western end of the pool lies the chimera's meager treasure: 42 GP, 30 SP, a red garnet worth 100 GP, and a simple gold bracelet worth 25 GP. The chimera stole the garnet from the manticores in area {@area G18|27e|x}."
+												"Concealed under lily pads in the western end of the pool lies the chimera's meager treasure: 42 GP, 30 SP, a red {@item garnet|XDMG} worth 100 GP, and a simple gold bracelet worth 25 GP. The chimera stole the garnet from the manticores in area {@area G18|27e|x}."
 											]
 										}
 									]
@@ -3942,7 +4482,7 @@
 							"page": 122,
 							"id": "290",
 							"entries": [
-								"The top tier of the gardens, which is shown on {@adventure Map: The Garden of Everflowing Springs|DrDe-TFV|1|Map 6.5: The Garden of Everflowing Springs}, is called the Garden of Everflowing Springs. It holds the unending sources of the water that flows through the ziggurat, and it imprisons the genie responsible for keeping the water flowing.",
+								"The top tier of the gardens, which is shown on {@area Map: The Garden of Everflowing Springs|417|x}, is called the Garden of Everflowing Springs. It holds the unending sources of the water that flows through the ziggurat, and it imprisons the genie responsible for keeping the water flowing.",
 								{
 									"type": "gallery",
 									"images": [

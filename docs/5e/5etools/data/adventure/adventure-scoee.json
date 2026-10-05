@@ -22,7 +22,7 @@
 							]
 						},
 						"The following appendixes are included:",
-						"{@adventure Appendix A|SCoEE|1} presents three magic items from the 2024 {@i Dungeon Master's Guide} that appear in this adventure. Characters can acquire these items during play. At your discretion, the characters might earn one or more of these treasures as a reward for completing this adventure."
+						"{@area Appendix A|059|x} presents three magic items from the 2024 {@i Dungeon Master's Guide} that appear in this adventure. Characters can acquire these items during play. At your discretion, the characters might earn one or more of these treasures as a reward for completing this adventure."
 					]
 				},
 				{
@@ -294,7 +294,7 @@
 									"id": "014",
 									"entries": [
 										"This violent pirate crew trolled the cold waters of Lake Quag before they fell into the worship of Elemental Evil. The crew's leader, Captain Kara Blayne, leads her pirates in the worship of Cryonax, an enormous yeti with tentacles for arms known as the Prince of Ice.",
-										"The bodies of the Children of Splintered Ice are blue with cold. Strange and fanatical, they stand motionless like statues until Blayne rouses them to action. Blayne can be found in {@area area T10|044|x} (see {@adventure map 1.1|ScoEE|0|Map 1.1: Temple of Elemental Evil})."
+										"The bodies of the Children of Splintered Ice are blue with cold. Strange and fanatical, they stand motionless like statues until Blayne rouses them to action. Blayne can be found in {@area area T10|044|x} (see {@area map 1.1|057|x})."
 									]
 								},
 								{
@@ -303,7 +303,7 @@
 									"id": "015",
 									"entries": [
 										"Members of a street gang from the Free City of Greyhawk form this cult. Their bodies glisten with oozy pustules, a gift from their evil god Bwimb II.",
-										"Known as the Princess of Ooze, Bwimb II saved the gang members' lives in exchange for their perpetual servitude. The Children of Suffocating Ooze are led by Captain Garthezz Drule, who can be found in {@area area T6|02f|x} (see {@adventure map 1.1|ScoEE|0|Map 1.1: Temple of Elemental Evil})."
+										"Known as the Princess of Ooze, Bwimb II saved the gang members' lives in exchange for their perpetual servitude. The Children of Suffocating Ooze are led by Captain Garthezz Drule, who can be found in {@area area T6|02f|x} (see {@area map 1.1|057|x})."
 									]
 								},
 								{
@@ -312,7 +312,7 @@
 									"id": "016",
 									"entries": [
 										"This cult hopes to assassinate Queen Yolande of Celene and wrest control of the nation. In addition to the members based in the temple, cult operatives pose as Queen Yolande's loyal servants.",
-										"The Order of Falling Ash is led by the {@creature Succubus|XMM} Cinderhide, who serves Gazra, a pit fiend known as the Prince of Ash. Cinderhide can be found in {@area area T8|039|x} (see {@adventure map 1.1|ScoEE|0|Map 1.1: Temple of Elemental Evil})."
+										"The Order of Falling Ash is led by the {@creature Succubus|XMM} Cinderhide, who serves Gazra, a pit fiend known as the Prince of Ash. Cinderhide can be found in {@area area T8|039|x} (see {@area map 1.1|057|x})."
 									]
 								}
 							]
@@ -341,7 +341,7 @@
 										"The temple is a ruin of gaping holes in the roof and collapsed buttresses. Three darkened archways open into the building's interior at its southern end."
 									]
 								},
-								"{@adventure Map 1.1|ScoEE|0|Map 1.1: Temple of Elemental Evil} depicts the temple's layout. The characters enter from the trail on the southern side of the map."
+								"{@area Map 1.1|057|x} depicts the temple's layout. The characters enter from the trail on the southern side of the map."
 							]
 						},
 						{
@@ -357,8 +357,8 @@
 									"items": [
 										"The Primordial Alliance is a union of elemental cults, as described in the \"{@area Primordial Alliance|013|x}\" section. The alliance is led by a woman named Ulsedra Vox, a human devotee of Chlimbia, Prince of Magma. Vox recently developed terrifying elemental abilities, but the cultists know no further details.",
 										"The cultists helped excavate a chamber called the Primordial Nexus. Vox is working in the nexus to call forth an army of elemental minions (see \"{@area Para-elemental Queen|049|x}\").",
-										"To enter the nexus, a creature must place an elemental key in the keyhole on the southern end of the high altar ({@area area T9|040|x} on {@adventure map 1.1|ScoEE|0|Map 1.1: Temple of Elemental Evil}). Only the cult leaders carry these keys.",
-										"Vox is a ruthless leader. Last week she executed a cultist named Werth for daring to suggest Vox's plan might not work. (This is the body found in {@area area T1|01d|x} of {@adventure map 1.1|ScoEE|0|Map 1.1: Temple of Elemental Evil}.)",
+										"To enter the nexus, a creature must place an elemental key in the keyhole on the southern end of the high altar ({@area area T9|040|x} on {@area map 1.1|057|x}). Only the cult leaders carry these keys.",
+										"Vox is a ruthless leader. Last week she executed a cultist named Werth for daring to suggest Vox's plan might not work. (This is the body found in {@area area T1|01d|x} of {@area map 1.1|057|x}.)",
 										"When Vox's work is done, the cultists will lead the elemental army on a rampage throughout Flanaess."
 									]
 								}
@@ -392,7 +392,7 @@
 										{
 											"type": "item",
 											"name": "Light",
-											"entry": "During the day, the interior spaces are illuminated with {@variantrule Bright Light|XPHB} spilling in from outside. At night, torches along the interior walls cast {@variantrule Dim Light|XPHB}."
+											"entry": "During the day, the interior spaces are illuminated with {@variantrule Bright Light|XPHB} spilling in from outside. At night, {@item Torch|XPHB|torches} along the interior walls cast {@variantrule Dim Light|XPHB}."
 										},
 										{
 											"type": "item",
@@ -1176,7 +1176,7 @@
 											"name": "Portal",
 											"id": "043",
 											"entries": [
-												"When a cult leader's key (see {@area areas T6|02f|x}, T8, and T10) is turned in this lock, the altar's flames roar to the ceiling and form a burning archway that acts as a portal. Creatures who climb into the bowl and walk through the flames are teleported to the {@area Primordial Nexus|04b|x} (see {@adventure map 1.2|ScoEE|0|Map 1.2: Primordial Nexus}). The portal remains as long as the key is in place and for 1 minute after the key is removed."
+												"When a cult leader's key (see {@area areas T6|02f|x}, T8, and T10) is turned in this lock, the altar's flames roar to the ceiling and form a burning archway that acts as a portal. Creatures who climb into the bowl and walk through the flames are teleported to the {@area Primordial Nexus|04b|x} (see {@area map 1.2|058|x}). The portal remains as long as the key is in place and for 1 minute after the key is removed."
 											]
 										}
 									]
@@ -1373,7 +1373,7 @@
 											"name": "Treasure",
 											"id": "051",
 											"entries": [
-												"Vox carries a key that can be used to access the portal in the brazier at the northern end of the map and in the high altar in {@area area T9|040|x} of {@adventure map 1.1|ScoEE|0|Map 1.1: Temple of Elemental Evil}."
+												"Vox carries a key that can be used to access the portal in the brazier at the northern end of the map and in the high altar in {@area area T9|040|x} of {@area map 1.1|057|x}."
 											]
 										}
 									]
@@ -1395,7 +1395,7 @@
 							"id": "053",
 							"entries": [
 								"When the characters return to Queen Yolande's palace, word quickly spreads of their success. The queen's attendants prepare a lavish banquet in the characters' honor. Courtiers and palace residents extol the characters' heroism and thank them for their service.",
-								"At the banquet, Queen Yolande presents each character with a blue sapphire worth 1,000 GP as promised. If the characters warn the queen about the upcoming attempt on her life, Queen Yolande is deeply grateful and gives each of them an additional gem worth 500 GP.",
+								"At the banquet, Queen Yolande presents each character with a {@item blue sapphire|XDMG} worth 1,000 GP as promised. If the characters warn the queen about the upcoming attempt on her life, Queen Yolande is deeply grateful and gives each of them an additional gem worth 500 GP.",
 								"Although the forces of Elemental Evil are thwarted, the threat to Queen Yolande and Celene is far from over. At the banquet, the queen offers the characters employment as royal bodyguards dedicated to stamping out cult threats. If the characters accept, more adventures lie ahead!"
 							]
 						}
@@ -1416,6 +1416,24 @@
 						"{@item Boots of Elvenkind|XDMG}",
 						"{@item Sending Stones|XDMG}"
 					]
+				},
+				{
+					"type": "statblock",
+					"name": "Bead of Force",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Boots of Elvenkind",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Sending Stones",
+					"tag": "item",
+					"source": "XDMG"
 				}
 			],
 			"id": "059"
@@ -1444,6 +1462,331 @@
 						"{@creature Succubus|XMM}",
 						"{@creature Tough Boss|XMM}"
 					]
+				},
+				{
+					"type": "section",
+					"name": "Berserker",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Berserker",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Berserker",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "054"
+				},
+				{
+					"type": "section",
+					"name": "Cultist",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Cultist",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cultist",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "05b"
+				},
+				{
+					"type": "section",
+					"name": "Cultist Fanatic",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Cultist Fanatic",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cultist Fanatic",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "05c"
+				},
+				{
+					"type": "section",
+					"name": "Fire Elemental",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Fire Elemental",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Fire Elemental",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "05d"
+				},
+				{
+					"type": "section",
+					"name": "Gray Ooze",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Gray Ooze",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Gray Ooze",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "05e"
+				},
+				{
+					"type": "section",
+					"name": "Incubus",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Incubus",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Incubus",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "05f"
+				},
+				{
+					"type": "section",
+					"name": "Knight",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Knight",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Knight",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "060"
+				},
+				{
+					"type": "section",
+					"name": "Ogre",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Ogre",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ogre",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "061"
+				},
+				{
+					"type": "section",
+					"name": "Pirate",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Pirate",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Pirate",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "062"
+				},
+				{
+					"type": "section",
+					"name": "Pirate Captain",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Pirate Captain",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Pirate Captain",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "063"
+				},
+				{
+					"type": "section",
+					"name": "Stone Golem",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Stone Golem",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Stone Golem",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "064"
+				},
+				{
+					"type": "section",
+					"name": "Succubus",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Succubus",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Succubus",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "065"
+				},
+				{
+					"type": "section",
+					"name": "Tough Boss",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Tough Boss",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Tough Boss",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "066"
 				}
 			]
 		},

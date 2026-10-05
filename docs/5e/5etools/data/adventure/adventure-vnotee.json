@@ -154,7 +154,7 @@
 										{
 											"type": "item",
 											"name": "Light",
-											"entry": "Rusted wall sconces hold lit torches. The area is dimly lit."
+											"entry": "Rusted wall sconces hold lit {@item Torch|XPHB|torches}. The area is dimly lit."
 										},
 										{
 											"type": "item",
@@ -2595,7 +2595,20 @@
 									"items": [
 										"{@reward Charm of the Creeping Hand|VNotEE}",
 										"{@reward Charm of the Eldritch Eye|VNotEE}"
-									]
+									],
+									"columns": 3
+								},
+								{
+									"type": "statblock",
+									"name": "Charm of the Creeping Hand",
+									"tag": "reward",
+									"source": "VNotEE"
+								},
+								{
+									"type": "statblock",
+									"name": "Charm of the Eldritch Eye",
+									"tag": "reward",
+									"source": "VNotEE"
 								}
 							]
 						}

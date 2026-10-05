@@ -15,7 +15,7 @@ class VariantClassFilter extends Filter {
 	set parent (multiFilterClasses) { this._parent = multiFilterClasses; }
 
 	handleVariantSplit (isVariantSplit) {
-		this.__wrpFilter.toggleVe(isVariantSplit);
+		this.__wrpFilter.vee.toggle(isVariantSplit);
 	}
 }
 
@@ -48,7 +48,7 @@ class MultiFilterClasses extends MultiFilter {
 			this,
 			"isVariantSplit",
 			{
-				ele: e_({tag: "button", clazz: "ve-btn ve-btn-default ve-btn-xs", text: "Include Variants"}),
+				ele: veE({tag: "button", clazz: "ve-btn ve-btn-default ve-btn-xs", txt: "Include Variants"}),
 				isInverted: true,
 				stateName: "meta",
 				stateProp: "_meta",
@@ -56,13 +56,13 @@ class MultiFilterClasses extends MultiFilter {
 			},
 		);
 
-		e_({
+		veE({
 			tag: "div",
 			clazz: `ve-btn-group ve-w-100 ve-flex-v-center ve-mobile-sm__m-1 ve-mobile-sm__mb-2`,
 			children: [
 				btnToggleVariantSplit,
 			],
-		}).prependTo(wrpStateBtnsOuter);
+		}).vee.prependTo(wrpStateBtnsOuter);
 	}
 
 	getDefaultMeta () {
@@ -317,7 +317,7 @@ class PageFilterSpells extends PageFilterBase {
 		};
 		if (r.baseName) opts.nest = r.baseName;
 		else opts.nest = "(No Subspecies)";
-		return new FilterItem(opts);
+		return new FilterItem(opts).getSerialized();
 	}
 	// endregion
 
@@ -487,7 +487,7 @@ class PageFilterSpells extends PageFilterBase {
 		s._fClassesAndVariantClasses = [
 			...s._fClasses,
 			...s._fVariantClasses
-				.map(it => (it.definedInSource && !SourceUtil.isNonstandardSource(it.definedInSource)) ? new FilterItem({item: it.equivalentClassName}) : null)
+				.map(it => (it.definedInSource && !SourceUtil.isNonstandardSource(it.definedInSource)) ? new FilterItem({item: it.equivalentClassName}).getSerialized() : null)
 				.filter(Boolean)
 				.filter(it => !s._fClasses.some(itCls => itCls.item === it.item)),
 		];
@@ -684,12 +684,11 @@ class ModalFilterSpells extends ModalFilterBase {
 
 		const btnShowHidePreview = eleRow.firstElementChild.children[1].firstElementChild;
 
-		const listItem = new ListItem(
-			spI,
-			eleRow,
-			spell.name,
-			{
-				hash,
+		const listItem = new ListItem({
+			id: spI,
+			ele: eleRow,
+			name: spell.name,
+			values: {
 				source,
 				sourceJson: spell.source,
 				...ListItem.getCommonValues(spell),
@@ -701,11 +700,13 @@ class ModalFilterSpells extends ModalFilterBase {
 				normalisedTime: spell._normalisedTime,
 				normalisedRange: spell._normalisedRange,
 			},
-			{
+			data: {
+				hash,
+				page: spell.page,
 				cbSel: eleRow.firstElementChild.firstElementChild.firstElementChild,
 				btnShowHidePreview,
 			},
-		);
+		});
 
 		this._previewButtonHandler.bindPreviewButton({entity: spell, listItem, btnShowHidePreview});
 

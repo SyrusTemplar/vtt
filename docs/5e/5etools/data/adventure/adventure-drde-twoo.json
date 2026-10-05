@@ -79,7 +79,7 @@
 							"id": "006",
 							"entries": [
 								"Have a friendly patron whose true identity is somewhat mysterious befriend the adventurers early in their careers and send them on each adventure in sequence. The patron might be a charismatic young monk, a kindly teacher, a diminutive scamp, or a scatter-brained elder, and might or might not be accompanied by seven golden canaries or dazzling yellow butterflies, which are actually ancient gold dragons in disguise\u2014the companions of the dragon god Bahamut, which is the patron's true identity.",
-								"Perhaps foreseeing that they are destined to become mighty heroes, Bahamut takes the adventurers under his metaphorical wing and sends them on adventures to deal with draconic concerns, great and small, across the world. The patron might feign surprise when an adventure that doesn't at first seem to involve a dragon (such as \"{@adventure The Will of Orcus|DrDe-TWoO|1},\" chapter 3) turns out to revolve around one, but of course that's exactly the reason Bahamut sent the characters to investigate.",
+								"Perhaps foreseeing that they are destined to become mighty heroes, Bahamut takes the adventurers under his metaphorical wing and sends them on adventures to deal with draconic concerns, great and small, across the world. The patron might feign surprise when an adventure that doesn't at first seem to involve a dragon (such as \"{@area The Will of Orcus|0ca|x},\" chapter 3) turns out to revolve around one, but of course that's exactly the reason Bahamut sent the characters to investigate.",
 								"You can use each adventure as written, with the characters' patron steering them in the general direction of the adventure hook without spoiling any surprises in the adventure ahead. Alternatively, the patron could let the characters in on the secret early on, telling them that dragons will be a particular focus of their adventures and altering some of the adventure hooks along the way."
 							]
 						},
@@ -99,7 +99,7 @@
 							"page": 5,
 							"id": "008",
 							"entries": [
-								"If you have {@book Fizban's Treasury of Dragons|FTD|4}, the hoard of magic items described in that book can provide an incentive for characters to seek out dragons of increasing power and different kinds. Add the following items to the rewards acquired in the first three adventures: a {@item Scaled Ornament|FTD} in \"{@adventure Death at Sunset|DrDe-DaS|1},\" a {@item Dragon Vessel|FTD} in \"{@adventure Baker's Doesn't|DrDe-BD|1},\" and a {@item Dragon's Wrath Weapon|FTD} and a {@item Dragon-Touched Focus|FTD} in \"{@adventure The Will of Orcus|DrDe-TWoO|1}.\" All four items are Slumbering when the characters first acquire them, but in later adventures, the items can be awakened by steeping them in dragons' hoards."
+								"If you have {@book Fizban's Treasury of Dragons|FTD|4}, the hoard of magic items described in that book can provide an incentive for characters to seek out dragons of increasing power and different kinds. Add the following items to the rewards acquired in the first three adventures: a {@item Scaled Ornament|FTD} in \"{@adventure Death at Sunset|DrDe-DaS|1},\" a {@item Dragon Vessel|FTD} in \"{@adventure Baker's Doesn't|DrDe-BD|1},\" and a {@item Dragon's Wrath Weapon|FTD} and a {@item Dragon-Touched Focus|FTD} in \"{@area The Will of Orcus|0ca|x}.\" All four items are Slumbering when the characters first acquire them, but in later adventures, the items can be awakened by steeping them in dragons' hoards."
 							]
 						}
 					]
@@ -210,11 +210,11 @@
 					"entries": [
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@adventure Death at Sunset (Level 1)|DrDe-DaS|1}",
 								"{@adventure Baker's Doesn't (Level 3)|DrDe-BD|1}",
-								"{@adventure The Will of Orcus (Level 4)|DrDe-TWoO|1}",
+								"{@area The Will of Orcus (Level 4)|0ca|x}",
 								"{@adventure For Whom the Void Calls (Level 5)|DrDe-FWtVC|1}",
 								"{@adventure The Dragon of Najkir (Level 7)|DrDe-TDoN|1}",
 								"{@adventure The Forbidden Vale (Level 9)|DrDe-TFV|1}",
@@ -319,7 +319,7 @@
 						},
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@creature Black Pudding|XMM}",
 								"{@creature Commoner|XMM}",
@@ -338,6 +338,294 @@
 								"{@creature Zombie|XMM}",
 								"{@creature Ogre Zombie|XMM|Zombie, Ogre}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Black Pudding",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Black Pudding",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Commoner",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Commoner",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Swarm of Crawling Claws",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Swarm of Crawling Claws",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Cultist Fanatic",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cultist Fanatic",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Flameskull",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flameskull",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Ghast Gravecaller",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ghast Gravecaller",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Ghost",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ghost",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Ghoul",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ghoul",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Mummy",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mummy",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Silver Dragon Wyrmling",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Silver Dragon Wyrmling",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Skeleton",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Skeleton",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Flaming Skeleton",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Flaming Skeleton",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Specter",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Specter",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Wraith",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Wraith",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Zombie",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Zombie",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						},
+						{
+							"type": "statblock",
+							"name": "Ogre Zombie",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ogre Zombie",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
 						},
 						{
 							"type": "table",
@@ -589,7 +877,7 @@
 									"page": 51,
 									"id": "0df",
 									"entries": [
-										"Rubble marked on {@adventure Map: Temple of Orcus|DrDe-TWoO|1|Map: Temple of Orcus} is {@variantrule Difficult Terrain|XPHB}."
+										"Rubble marked on {@area Map: Temple of Orcus|40e|x} is {@variantrule Difficult Terrain|XPHB}."
 									]
 								},
 								{
@@ -1654,7 +1942,7 @@
 											"page": 54,
 											"id": "0f8",
 											"entries": [
-												"A character who takes the {@action Search|XPHB} action to examine the southwest pillar automatically finds a loose panel, behind which is an iron lever (marked with an L on {@adventure Map: Temple of Orcus|DrDe-TWoO|1|Map: Temple of Orcus}). As a {@action Utilize|XPHB} action, a creature can pull this lever to reset the trap described below."
+												"A character who takes the {@action Search|XPHB} action to examine the southwest pillar automatically finds a loose panel, behind which is an iron lever (marked with an L on {@area Map: Temple of Orcus|40e|x}). As a {@action Utilize|XPHB} action, a creature can pull this lever to reset the trap described below."
 											]
 										},
 										{

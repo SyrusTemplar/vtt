@@ -1993,6 +1993,7 @@
 			"name": "Firearm Bullet",
 			"source": "XPHB",
 			"page": 222,
+			"srd52": true,
 			"edition": "one",
 			"type": "A|XPHB",
 			"rarity": "none",
@@ -2010,6 +2011,7 @@
 			"name": "Firearm Bullets (10)",
 			"source": "XPHB",
 			"page": 222,
+			"srd52": true,
 			"edition": "one",
 			"type": "A|XPHB",
 			"rarity": "none",
@@ -7034,6 +7036,21 @@
 					"name": "Burst Fire",
 					"entries": [
 						"As an action, you can expend 10 pieces of a Burst Fire weapon's ammunition to spray shots in a 10-foot {@variantrule Cube [Area of Effect]|XPHB|Cube} within the weapon's normal range. Each creature in that area must succeed on a {@dc 15} Dexterity saving throw or take damage. Roll the weapon's damage once, and apply it to each creature that failed the save."
+					]
+				}
+			]
+		},
+		{
+			"abbreviation": "Evo",
+			"source": "AU",
+			"page": 0,
+			"template": "Evolving Item",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Evolving Item",
+					"entries": [
+						"{@note This item is an Evolving Item, see {@book Evolving Magic Items|AU|5|Evolving Magic Items} for more information.}"
 					]
 				}
 			]

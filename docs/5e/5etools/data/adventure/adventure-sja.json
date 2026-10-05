@@ -1013,6 +1013,81 @@
 								"{@creature Neogi Hatchling|MPMM}",
 								"{@creature Veteran}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Bandit",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Bandit",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Bandit",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "116"
+						},
+						{
+							"type": "section",
+							"name": "Neogi Hatchling",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Neogi Hatchling",
+									"prop": "monsterFluff",
+									"source": "MPMM",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Neogi Hatchling",
+									"tag": "creature",
+									"source": "MPMM",
+									"style": "narrow"
+								}
+							],
+							"id": "117"
+						},
+						{
+							"type": "section",
+							"name": "Veteran",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Veteran",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Veteran",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "119"
 						}
 					]
 				},
@@ -1116,7 +1191,7 @@
 							"name": "Adventure Hooks",
 							"id": "04d",
 							"entries": [
-								"{@i Trial by Fire} follows the events of {@adventure Orientation|SjA|0}, the first adventure in the series. Characters who did not participate in the first adventure are assumed to have completed their orientation and are assigned to join the other characters' training team.",
+								"{@i Trial by Fire} follows the events of {@area Orientation|000|x}, the first adventure in the series. Characters who did not participate in the first adventure are assumed to have completed their orientation and are assigned to join the other characters' training team.",
 								{
 									"type": "inset",
 									"id": "04e",
@@ -1835,6 +1910,106 @@
 								"{@creature Bandit}",
 								"{@creature Shadow}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Acolyte",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Acolyte",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Acolyte",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "11a"
+						},
+						{
+							"type": "section",
+							"name": "Apprentice Wizard",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Apprentice Wizard",
+									"prop": "monsterFluff",
+									"source": "MPMM",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Apprentice Wizard",
+									"tag": "creature",
+									"source": "MPMM",
+									"style": "narrow"
+								}
+							],
+							"id": "11b"
+						},
+						{
+							"type": "section",
+							"name": "Bandit",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Bandit",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Bandit",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "11c"
+						},
+						{
+							"type": "section",
+							"name": "Shadow",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Shadow",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Shadow",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "11d"
 						}
 					]
 				},
@@ -2036,7 +2211,7 @@
 							"name": "Adventure Hooks",
 							"id": "095",
 							"entries": [
-								"{@i Spelljammer Academy: Realmspace Sortie}! follows directly after the events of {@adventure Spelljammer Academy: Trial by Fire|SjA|1}. In this adventure, the characters are given their first assignment: retrieving a meteorite of precious adamantine from H'Catha, a distant, disc-shaped world. The characters, having undergone training exercises, have been charged with commandeering a vacant tyrant ship for their first real mission. Others are either fresh recruits or freelancers hired by the faculty.",
+								"{@i Spelljammer Academy: Realmspace Sortie}! follows directly after the events of {@area Spelljammer Academy: Trial by Fire|049|x}. In this adventure, the characters are given their first assignment: retrieving a meteorite of precious adamantine from H'Catha, a distant, disc-shaped world. The characters, having undergone training exercises, have been charged with commandeering a vacant tyrant ship for their first real mission. Others are either fresh recruits or freelancers hired by the faculty.",
 								{
 									"type": "image",
 									"href": {
@@ -2409,7 +2584,7 @@
 									"name": "Treasure",
 									"id": "0af",
 									"entries": [
-										"Lying next to Wizpop is a small iron coffer, latched but not locked, that contains five pearls (100 gp each) and a case that contains a {@item spell scroll} of {@spell rope trick}."
+										"Lying next to Wizpop is a small iron coffer, latched but not locked, that contains five {@item Pearl||pearls} (100 gp each) and a case that contains a {@item spell scroll} of {@spell rope trick}."
 									]
 								}
 							]
@@ -2601,6 +2776,106 @@
 								"{@creature Giff|MPMM}",
 								"{@creature Magma Mephit}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Apprentice Wizard",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Apprentice Wizard",
+									"prop": "monsterFluff",
+									"source": "MPMM",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Apprentice Wizard",
+									"tag": "creature",
+									"source": "MPMM",
+									"style": "narrow"
+								}
+							],
+							"id": "11e"
+						},
+						{
+							"type": "section",
+							"name": "Clockwork Horror",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Clockwork Horror",
+									"prop": "monsterFluff",
+									"source": "MCV1SC",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Clockwork Horror",
+									"tag": "creature",
+									"source": "MCV1SC",
+									"style": "narrow"
+								}
+							],
+							"id": "11f"
+						},
+						{
+							"type": "section",
+							"name": "Giff",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Giff",
+									"prop": "monsterFluff",
+									"source": "MPMM",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Giff",
+									"tag": "creature",
+									"source": "MPMM",
+									"style": "narrow"
+								}
+							],
+							"id": "120"
+						},
+						{
+							"type": "section",
+							"name": "Magma Mephit",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Magma Mephit",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Magma Mephit",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "121"
 						}
 					]
 				},
@@ -2819,7 +3094,7 @@
 					"name": "Introduction",
 					"id": "0ce",
 					"entries": [
-						"This adventure, designed for {@b three to seven 4th-level characters}, is the last in a series of four adventures. The adventure takes place in Realmspace, a Wildspace system described in the series' third installment, {@adventure Spelljammer Academy: Realmspace Sortie!|SjA|2}",
+						"This adventure, designed for {@b three to seven 4th-level characters}, is the last in a series of four adventures. The adventure takes place in Realmspace, a Wildspace system described in the series' third installment, {@area Spelljammer Academy: Realmspace Sortie!|090|x}",
 						{
 							"type": "inset",
 							"id": "0cf",
@@ -2855,7 +3130,7 @@
 							"name": "Adventure Hooks",
 							"id": "0d2",
 							"entries": [
-								"This adventure picks up where {@adventure Spelljammer Academy: Realmspace Sortie!|SjA|2} leaves off. If one or more characters died in that adventure, assume their replacements are fresh cadets from the hammerhead ship {@i Flighty Foundling}. The characters have a rendezvous with the {@i Flighty Foundling} before resuming their voyage to H'Catha, as described in part 1."
+								"This adventure picks up where {@area Spelljammer Academy: Realmspace Sortie!|090|x} leaves off. If one or more characters died in that adventure, assume their replacements are fresh cadets from the hammerhead ship {@i Flighty Foundling}. The characters have a rendezvous with the {@i Flighty Foundling} before resuming their voyage to H'Catha, as described in part 1."
 							]
 						}
 					]
@@ -2881,7 +3156,7 @@
 									"height": 998
 								},
 								"After securing the tyrant ship and capturing the cadet saboteur Miken, the characters wait for the hammerhead ship {@i Flighty Foundling} to double back and take Miken into custody.",
-								"Two Spelljammer Academy faculty members are aboard the {@i Flighty Foundling}: {@adventure Boatswain Tarto|SjA|3|Boatswain Tarto (Spelljammer Corps Training Officer)} and {@adventure Saerthe Abizin|SjA|3|Saerthe Abizjn (Spelljammer Training Officer)} (see the accompanying sidebars). They have decided to accompany the characters to H'Catha to ensure no further mishaps occur aboard the tyrant ship. Saerthe assumes the role of captain and spelljammer, while Tarto takes the characters under her wing and oversees the mission.",
+								"Two Spelljammer Academy faculty members are aboard the {@i Flighty Foundling}: {@area Boatswain Tarto|0d8|x} and {@area Saerthe Abizin|0d9|x} (see the accompanying sidebars). They have decided to accompany the characters to H'Catha to ensure no further mishaps occur aboard the tyrant ship. Saerthe assumes the role of captain and spelljammer, while Tarto takes the characters under her wing and oversees the mission.",
 								"Wizpop, the autognome stowaway whom the characters encountered in the previous adventure, boards the {@i Flighty Foundling} and returns to Spelljammer Academy with Krik'Lit, Pffred, and the other cadets.",
 								{
 									"type": "insetReadaloud",
@@ -3529,7 +3804,33 @@
 												"{@item +1 weapon}",
 												"{@item Bag of holding}",
 												"{@item Goggles of night}"
-											]
+											],
+											"columns": 3
+										},
+										{
+											"type": "statblock",
+											"name": "+1 rod of the pact keeper",
+											"tag": "item"
+										},
+										{
+											"type": "statblock",
+											"name": "+1 shield",
+											"tag": "item"
+										},
+										{
+											"type": "statblock",
+											"name": "+1 weapon",
+											"tag": "item"
+										},
+										{
+											"type": "statblock",
+											"name": "Bag of holding",
+											"tag": "item"
+										},
+										{
+											"type": "statblock",
+											"name": "Goggles of night",
+											"tag": "item"
 										}
 									]
 								}
@@ -3587,6 +3888,206 @@
 								"{@creature Star Lancer|MCV1SC}",
 								"{@creature Veteran}"
 							]
+						},
+						{
+							"type": "section",
+							"name": "Apprentice Wizard",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Apprentice Wizard",
+									"prop": "monsterFluff",
+									"source": "MPMM",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Apprentice Wizard",
+									"tag": "creature",
+									"source": "MPMM",
+									"style": "narrow"
+								}
+							],
+							"id": "122"
+						},
+						{
+							"type": "section",
+							"name": "Gazer",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Gazer",
+									"prop": "monsterFluff",
+									"source": "MPMM",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Gazer",
+									"tag": "creature",
+									"source": "MPMM",
+									"style": "narrow"
+								}
+							],
+							"id": "123"
+						},
+						{
+							"type": "section",
+							"name": "Giff Shipmate",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Giff Shipmate",
+									"prop": "monsterFluff",
+									"source": "BAM",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Giff Shipmate",
+									"tag": "creature",
+									"source": "BAM",
+									"style": "narrow"
+								}
+							],
+							"id": "124"
+						},
+						{
+							"type": "section",
+							"name": "Githyanki Warrior",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Githyanki Warrior",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Githyanki Warrior",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "125"
+						},
+						{
+							"type": "section",
+							"name": "Ogre",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Ogre",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Ogre",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "126"
+						},
+						{
+							"type": "section",
+							"name": "Spectator",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Spectator",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Spectator",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "127"
+						},
+						{
+							"type": "section",
+							"name": "Star Lancer",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Star Lancer",
+									"prop": "monsterFluff",
+									"source": "MCV1SC",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Star Lancer",
+									"tag": "creature",
+									"source": "MCV1SC",
+									"style": "narrow"
+								}
+							],
+							"id": "128"
+						},
+						{
+							"type": "section",
+							"name": "Veteran",
+							"entries": [
+								{
+									"type": "statblock",
+									"name": "Veteran",
+									"prop": "monsterFluff",
+									"source": "MM",
+									"tag": "creature",
+									"data": {
+										"renderCompact": {
+											"isSkipRootName": true
+										}
+									}
+								},
+								{
+									"type": "statblock",
+									"name": "Veteran",
+									"tag": "creature",
+									"style": "narrow"
+								}
+							],
+							"id": "129"
 						}
 					]
 				},

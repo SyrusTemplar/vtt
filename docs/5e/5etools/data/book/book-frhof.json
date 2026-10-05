@@ -37,7 +37,7 @@
 					"page": 6,
 					"id": "002",
 					"entries": [
-						"{@book Chapter 1|FRHoF|1} helps you create the next hero of the Forgotten Realms. In addition to new character options\u2014subclasses, backgrounds, and feats\u2014this chapter provides an overview of the species of Faerûn and each one's place in the world.",
+						"{@area Chapter 1|00f|x} helps you create the next hero of the Forgotten Realms. In addition to new character options\u2014subclasses, backgrounds, and feats\u2014this chapter provides an overview of the species of Faerûn and each one's place in the world.",
 						"Adventuring is a well-known occupation in Faerûn, and there's no shortage of common sellswords or petty mages rummaging around in old ruins hoping to find hidden treasure or a long-lost spellbook. And yet, in the Forgotten Realms, characters stand out among these adventurers as epic figures, even beginning at level 1.",
 						"Throughout the history of the Forgotten Realms, epic heroes are distinguished from everyday adventurers by their extraordinary natures. Alias, hero of {@i Curse of the Azure Bonds}, is an artificial person created by an alliance of evil spellcasters that included a lich and cultists of Moander, god of corruption and rot. Karlach, one of the heroes of {@i Baldur's Gate 3}, has a magical {@i Infernal Engine} for a heart, which grants her incredible power but brings unusual, life-threatening complications. Several heroes of the Forgotten Realms, such as Tristan Kendrick and Randall Morn, have been heirs to a throne. You can use the nature of these heroes, and others who've adventured across Faerûn, as inspiration for your own character's epic nature.",
 						"Beyond their nature, an epic character is distinguished by their destiny. Perhaps your character is fated to wield a powerful Artifact or become the ruler of a realm. When creating a character for a Forgotten Realms campaign, work with your DM to develop an epic destiny for your character. {@book Forgotten Realms: Adventures in Faerûn|FRAiF|1|Epic Destinies} has additional guidance on crafting epic characters and how their stories might play out in a campaign."
@@ -49,7 +49,7 @@
 					"page": 6,
 					"id": "003",
 					"entries": [
-						"Every corner of Faerûn has a distinct flavor born out of local stories, traditions, notable personalities, and memorable locales. {@book Chapter 2|FRHoF|2} describes many locations across Faerûn that might have played a crucial role in your character's origins\u2014perhaps where your character grew up or where they learned their adventuring skills. The backgrounds in {@area chapter 1|088|x} can connect your character to those locations.",
+						"Every corner of Faerûn has a distinct flavor born out of local stories, traditions, notable personalities, and memorable locales. {@area Chapter 2|141|x} describes many locations across Faerûn that might have played a crucial role in your character's origins\u2014perhaps where your character grew up or where they learned their adventuring skills. The backgrounds in {@area chapter 1|088|x} can connect your character to those locations.",
 						"For example, a Sorcerer might have mastered wild magic while studying under the Simbarchs of Aglarond, a land that's been ruled by sorcerers for generations. A Fighter might have gained bitter battlefield experience serving Sembia in border disputes with the Dalelands or Cormyr.",
 						{
 							"type": "entries",
@@ -85,7 +85,7 @@
 							"width": 1700,
 							"height": 1106
 						},
-						"Faerûn is a land of many gods, and {@book chapter 3|FRHoF|3} describes many of these gods. Most folk offer prayer or other forms of worship to several gods, though they might feel closest to a particular deity that is a patron of their occupation or to which they have some other special connection. For example, a merchant who gives daily obeisance to Waukeen, the god of trade, might offer up a propitiatory prayer to Umberlee, god of the sea, when faced with a long and difficult voyage.",
+						"Faerûn is a land of many gods, and {@area chapter 3|283|x} describes many of these gods. Most folk offer prayer or other forms of worship to several gods, though they might feel closest to a particular deity that is a patron of their occupation or to which they have some other special connection. For example, a merchant who gives daily obeisance to Waukeen, the god of trade, might offer up a propitiatory prayer to Umberlee, god of the sea, when faced with a long and difficult voyage.",
 						"Every city boasts multiple temples to various gods, and shrines can be found in the smallest village, along roads, or even deep in the wilderness.",
 						"Temples and shrines are staffed and maintained by priests, most of whom have minor spellcasting abilities, but Clerics, who channel their magic directly from the Outer Planes, are rare.",
 						"Think about your character's relationship with the gods. Which gods does your character consider especially important or relevant? For example, a character who is a Ranger or has the Farmer, Guide, or Hermit background might feel a personal connection to Chauntea, a god of agriculture, or Mielikki, a god of the forest. Are you\u2014or do you aspire to become\u2014one of your god's Chosen?",
@@ -99,7 +99,7 @@
 					"page": 7,
 					"id": "007",
 					"entries": [
-						"No adventurer is complete without a wide array of adventuring gear. {@book Chapter 4|FRHoF|4} provides an excerpt from the famed {@i Aurora's Whole Realms Catalog} to help equip your characters with new gear. Aurora was a former adventurer who outfitted heroes across Faerûn, and the business she founded is now led by her descendant."
+						"No adventurer is complete without a wide array of adventuring gear. {@area Chapter 4|2c9|x} provides an excerpt from the famed {@i Aurora's Whole Realms Catalog} to help equip your characters with new gear. Aurora was a former adventurer who outfitted heroes across Faerûn, and the business she founded is now led by her descendant."
 					]
 				},
 				{
@@ -131,7 +131,7 @@
 					"page": 8,
 					"id": "009",
 					"entries": [
-						"Faerûn is home to powerful, realm-spanning organizations that can be powerful allies or fearsome foes. Faerûn's factions are described briefly below and detailed further in {@book chapter 6|FRHoF|6}:",
+						"Faerûn is home to powerful, realm-spanning organizations that can be powerful allies or fearsome foes. Faerûn's factions are described briefly below and detailed further in {@area chapter 6|335|x}:",
 						{
 							"type": "list",
 							"items": [
@@ -671,9 +671,9 @@
 					"id": "088",
 					"entries": [
 						"This section presents eighteen new backgrounds for characters from Faerûn. These backgrounds are presented in alphabetical order.",
-						"Ten of these new backgrounds correspond to regions of the Forgotten Realms described in {@book chapter 2|FRHoF|2}; these backgrounds are listed in the {@book Regional Backgrounds|FRHoF|1|Regional Backgrounds} table. Not every character from a given region needs to take a given background. For example, not all residents of {@area Mulhorand|20b|x} are tomb raiders. Conversely, you might find a given background a good fit for your character even if the character isn't from the designated region. For example, the {@background Chondathan Freebooter|FRHoF} background is a good fit for many pirate characters from any region.",
-						"Seven of these backgrounds are related to factions described in {@book chapter 6|FRHoF|6}; these backgrounds are listed in the {@book Faction Backgrounds|FRHoF|1|Faction Backgrounds} table. These backgrounds describe the training associated with a faction but aren't required for affiliation or membership with that faction.",
-						"Finally, the {@background Spellfire Initiate|FRHoF} background represents characters born with the ability to manipulate spellfire, which is described in {@book chapter 5|FRHoF|5}. This background, along with the related feats later in this chapter, can represent a character of any class with a talent for spellfire. Sorcerer characters with this background might also choose the {@class Sorcerer|XPHB|Spellfire Sorcery|Spellfire|FRHoF} subclass presented earlier in this chapter.",
+						"Ten of these new backgrounds correspond to regions of the Forgotten Realms described in {@area chapter 2|141|x}; these backgrounds are listed in the {@book Regional Backgrounds|FRHoF|1|Regional Backgrounds} table. Not every character from a given region needs to take a given background. For example, not all residents of {@area Mulhorand|20b|x} are tomb raiders. Conversely, you might find a given background a good fit for your character even if the character isn't from the designated region. For example, the {@background Chondathan Freebooter|FRHoF} background is a good fit for many pirate characters from any region.",
+						"Seven of these backgrounds are related to factions described in {@area chapter 6|335|x}; these backgrounds are listed in the {@book Faction Backgrounds|FRHoF|1|Faction Backgrounds} table. These backgrounds describe the training associated with a faction but aren't required for affiliation or membership with that faction.",
+						"Finally, the {@background Spellfire Initiate|FRHoF} background represents characters born with the ability to manipulate spellfire, which is described in {@area chapter 5|2e7|x}. This background, along with the related feats later in this chapter, can represent a character of any class with a talent for spellfire. Sorcerer characters with this background might also choose the {@class Sorcerer|XPHB|Spellfire Sorcery|Spellfire|FRHoF} subclass presented earlier in this chapter.",
 						{
 							"type": "table",
 							"caption": "Regional Backgrounds",
@@ -975,6 +975,54 @@
 							"credit": "Ioannis Fiore",
 							"width": 1700,
 							"height": 985
+						},
+						{
+							"type": "statblock",
+							"name": "Cult of the Dragon Initiate",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Emerald Enclave Fledgling",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Harper Agent",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Lords' Alliance Agent",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Purple Dragon Rook",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Spellfire Spark",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Tyro of the Gauntlet",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Zhentarim Ruffian",
+							"tag": "feat",
+							"source": "FRHoF"
 						}
 					]
 				},
@@ -1014,6 +1062,84 @@
 							"credit": "Polar Engine",
 							"width": 850,
 							"height": 2297
+						},
+						{
+							"type": "statblock",
+							"name": "Cold Caster",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Dragonscarred",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Enclave Magic",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Fairy Trickster",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Genie Magic",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Harper Teamwork",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Lordly Resolve",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Mythal Touched",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Order's Resilience",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Purple Dragon Commandant",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Spellfire Adept",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Street Justice",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Zhentarim Tactics",
+							"tag": "feat",
+							"source": "FRHoF"
 						}
 					]
 				},
@@ -1042,6 +1168,84 @@
 								"{@feat Boon of the Furious Storm|FRHoF}",
 								"{@feat Boon of the Soul Drinker|FRHoF}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of Bloodshed",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of Bountiful Health",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of Communication",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of Desperate Resilience",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of Exquisite Radiance",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of Fluid Forms",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of Fortune's Favor",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of Poison Mastery",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of Revelry",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of Terror",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of the Bright Sun",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of the Furious Storm",
+							"tag": "feat",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Boon of the Soul Drinker",
+							"tag": "feat",
+							"source": "FRHoF"
 						}
 					]
 				}
@@ -3096,7 +3300,7 @@
 											"page": 67,
 											"id": "1c3",
 											"entries": [
-												"Pools of radiance are open wounds in the Weave\u2014powerful, naturally occurring fonts of raw magic. The water of these pools shimmers and shines with an unearthly glow. Nearly all of Faerûn's pools of radiance are in the {@area Heartlands|1a4|x} region. Several evil entities throughout Faerûn's history have found ways to channel the immense power of the pools\u2014especially the pool of radiance beneath the {@area Moonsea|1b5|x} town of Phlan\u2014to enact devastating rituals. A pool of radiance can be destroyed only with an artifact called the Gauntlets of Moander , but its whereabouts are unknown."
+												"Pools of radiance are open wounds in the Weave\u2014powerful, naturally occurring fonts of raw magic. The water of these pools shimmers and shines with an unearthly glow. Nearly all of Faerûn's pools of radiance are in the {@area Heartlands|1a4|x} region. Several evil entities throughout Faerûn's history have found ways to channel the immense power of the pools\u2014especially the pool of radiance beneath the {@area Moonsea|1b5|x} town of Phlan\u2014to enact devastating rituals. A pool of radiance can be destroyed only with an artifact called the Gauntlets of Moander, but its whereabouts are unknown."
 											]
 										}
 									]
@@ -3273,7 +3477,7 @@
 											"page": 69,
 											"id": "1ce",
 											"entries": [
-												"Trolls aren't the only dangers in the Troll Mountains. Balagos \"the Flying Flame,\" an ancient red dragon feared throughout the {@area Lands of Intrigue|1c4|x}, lairs in the extinct Smokespire volcano. The Gulf of Storms, a lightning-wracked canyon and pilgrimage site for worshipers of Talos, lies nearby. Wind whistles through the hollow eyes, ears, and mouth of the Wailing Dwarf, a mile-high mountainside carved to depict an enormous dwarf. An abandoned, ooze-infested dwarven city lies beneath this monument and is the setting for Lancameth's Last Expedition , a famous ballad detailing the death of Bryam Lancameth and his four companions, armed with potent magic items that have never been recovered."
+												"Trolls aren't the only dangers in the Troll Mountains. Balagos \"the Flying Flame,\" an ancient red dragon feared throughout the {@area Lands of Intrigue|1c4|x}, lairs in the extinct Smokespire volcano. The Gulf of Storms, a lightning-wracked canyon and pilgrimage site for worshipers of Talos, lies nearby. Wind whistles through the hollow eyes, ears, and mouth of the Wailing Dwarf, a mile-high mountainside carved to depict an enormous dwarf. An abandoned, ooze-infested dwarven city lies beneath this monument and is the setting for Lancameth's Last Expedition, a famous ballad detailing the death of Bryam Lancameth and his four companions, armed with potent magic items that have never been recovered."
 											]
 										}
 									]
@@ -3948,8 +4152,7 @@
 										}
 									]
 								},
-								"The realms of the Old Empires are the most ancient extant civilizations in Faerûn. For over three thousand years the people of {@area Mulhorand|20b|x}, {@area Chessenta|206|x}, and {@area Unther|20f|x} have alternately flourished and floundered, rising to unparalleled heights and surviving unprecedented disasters. The result is three realms that share wide swaths of history and aspects of culture peculiar to outsiders: strict theocratic governments,",
-								"enormous military-bureaucracy complexes, and unique advances in art, science, and magic.",
+								"The realms of the Old Empires are the most ancient extant civilizations in Faerûn. For over three thousand years the people of {@area Mulhorand|20b|x}, {@area Chessenta|206|x}, and {@area Unther|20f|x} have alternately flourished and floundered, rising to unparalleled heights and surviving unprecedented disasters. The result is three realms that share wide swaths of history and aspects of culture peculiar to outsiders: strict theocratic governments, enormous military-bureaucracy complexes, and unique advances in art, science, and magic.",
 								"Those who make the perilous voyage across the Sea of Fallen Stars and into Old Empires ports find desert coasts dusted with glittering purple sand; beachside bazaars overflowing with turquoise, lapis lazuli, and bronze metalcraft; and terraced temple gardens bursting with grapes, dates, and figs. Further inland, limestone monoliths loom over oceans of ripe grain next to unspeakably impoverished slum-cities; flooded riverside ruins and parched savanna fortresses teem with desert monsters; and battlegrounds lay haunted by restless dead\u2014including previous incarnations of the gods themselves.",
 								"With their alien deities, inscrutable technology, and ancient grudges, the Old Empires are unlike any other region of the Forgotten Realms. To explorers and mercenaries from foreign soil, Mulhorand, Unther, and Chessenta are realms teeming with mysteries. For locals of these lands, opportunities abound to become heroes either by confronting the desert's dangers or shedding light on corrupt powers. No matter who answers the call, the Old Empires promise priceless rewards for the brave, beneficial secrets for the cunning, and exciting adventures for all.",
 								"The story of the Old Empires begins with an empire called Imaskar, whose high artificers and overlords facilitated their kingdom's ascension by subjugating tens of thousands of people from a distant world. The abused subjects beseeched their patron deities for freedom, and their prayers were answered. The Imaskar underclass liberated itself, and in place of overthrown Imaskar the people founded two new empires: Mulhorand and Unther.",
@@ -4824,7 +5027,7 @@
 											"page": 86,
 											"id": "248",
 											"entries": [
-												"Gundarlun, west of Neverwinter, experiences wintry weather most of the year, and its Northlander population is regularly terrorized by Arveiaturace, a white dragon from the North. Off the island's southwest coast lies the wreck of the Golden Crown , a Calishite merchant vessel that was carrying a vast cargo of gold, silver, electrum, and gemstones when it sank in a storm. A wizard named Hoch Miraz also went down with the ship. Its treasure has never been recovered."
+												"Gundarlun, west of Neverwinter, experiences wintry weather most of the year, and its Northlander population is regularly terrorized by Arveiaturace, a white dragon from the North. Off the island's southwest coast lies the wreck of the Golden Crown, a Calishite merchant vessel that was carrying a vast cargo of gold, silver, electrum, and gemstones when it sank in a storm. A wizard named Hoch Miraz also went down with the ship. Its treasure has never been recovered."
 											]
 										},
 										{
@@ -5185,7 +5388,7 @@
 											"page": 90,
 											"id": "266",
 											"entries": [
-												"A semi-active volcano, Mount Andrus famously destroyed the home of the Candlekairn orc clan a thousand years ago. The volcano is sacred to Talos, whose worshipers maintain a temple and shrines in the mountain's heart, where they ally with evil elementals and other monsters capable of surviving the blistering heat. But Mount Andrus also hides a Time Gate , a portal that sends all who use it backward in time. The gate is protected by Mystra, who forbids anyone except her handpicked champions from using it."
+												"A semi-active volcano, Mount Andrus famously destroyed the home of the Candlekairn orc clan a thousand years ago. The volcano is sacred to Talos, whose worshipers maintain a temple and shrines in the mountain's heart, where they ally with evil elementals and other monsters capable of surviving the blistering heat. But Mount Andrus also hides a Time Gate, a portal that sends all who use it backward in time. The gate is protected by Mystra, who forbids anyone except her handpicked champions from using it."
 											]
 										},
 										{
@@ -6300,7 +6503,7 @@
 							"id": "2ea",
 							"entries": [
 								"Spellfire is the raw energy of the Weave. The ability to refine and control it is a gift bestowed on a handful of people every generation. Spellfire can manifest as a font of silver light or healing energy, it can absorb magic, or it can be a searing blue-white jet of all-consuming radiance.",
-								"The most powerful and direct form of spellfire is spellfire sorcery. But characters of any class can display a connection to spellfire by taking the {@feat Spellfire Spark|FRHoF} and {@feat Spellfire Adept|FRHoF} feats. See {@book chapter 1|FRHoF|1} for more on these feats and the {@class Sorcerer|XPHB|Spellfire Sorcery|Spellfire|FRHoF} subclass.",
+								"The most powerful and direct form of spellfire is spellfire sorcery. But characters of any class can display a connection to spellfire by taking the {@feat Spellfire Spark|FRHoF} and {@feat Spellfire Adept|FRHoF} feats. See {@area chapter 1|00f|x} for more on these feats and the {@class Sorcerer|XPHB|Spellfire Sorcery|Spellfire|FRHoF} subclass.",
 								{
 									"type": "inset",
 									"name": "Weave-Affecting Magic",
@@ -6643,7 +6846,12 @@
 								}
 							]
 						}
-					]
+					],
+					"data": {
+						"variantRuleInclude": {
+							"ruleType": "O"
+						}
+					}
 				},
 				{
 					"type": "section",
@@ -6676,6 +6884,120 @@
 								"{@spell Syluné's Viper|FRHoF}",
 								"{@spell Wardaway|FRHoF}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Alustriel's Mooncloak",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Backlash",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Blade of Disaster",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Cacophonic Shield",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Conjure Constructs",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Death Armor",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Deryan's Helpful Homunculi",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Dirge",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Doomtide",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Elminster's Effulgent Spheres",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Elminster's Elusion",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Holy Star of Mystra",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Laeral's Silver Lance",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Simbul's Synostodweomer",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Songal's Elemental Suffusion",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Spellfire Flare",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Spellfire Storm",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Syluné's Viper",
+							"tag": "spell",
+							"source": "FRHoF"
+						},
+						{
+							"type": "statblock",
+							"name": "Wardaway",
+							"tag": "spell",
+							"source": "FRHoF"
 						}
 					]
 				}
@@ -7752,7 +8074,7 @@
 									"page": 162,
 									"id": "374",
 									"entries": [
-										"Following are descriptions of some of the members of the {@book Lords' Alliance|FRHoF|2|Lords' Alliance} and their representatives on the Council of Lords. New members join occasionally, and members sometimes leave the alliance or are expelled.",
+										"Following are descriptions of some of the members of the {@area Lords' Alliance|1eb|x} and their representatives on the Council of Lords. New members join occasionally, and members sometimes leave the alliance or are expelled.",
 										{
 											"type": "entries",
 											"name": "Amphail",
@@ -8048,8 +8370,7 @@
 							"id": "38f",
 							"entries": [
 								"The Order of the Gauntlet is armed and vigilant against evil. Its knights use every resource available, including armed reconnaissance, magical scrying, and divine consultation with higher powers. To ensure they can act swiftly against the forces of evil, knights maintain fortified strongholds along border lands, keep well-stocked armories, and practice daily to remain in peak fighting condition.",
-								"The Order of the Gauntlet strives not only to expand the boundaries of just society but to maintain justice in lands where it has already taken root. Knights of the order strengthen their presence by",
-								"establishing chapters\u2014fortresses and strongholds from which knights venture on missions.",
+								"The Order of the Gauntlet strives not only to expand the boundaries of just society but to maintain justice in lands where it has already taken root. Knights of the order strengthen their presence by establishing chapters\u2014fortresses and strongholds from which knights venture on missions.",
 								"In keeping with their mandate for swift, tough action, knights of the order are neither subtle nor discreet. In fact, many knights view any amount of deceit or trickery as cowardice unbefitting a member of the Order of the Gauntlet. \"There is no shame in doing what is right\" is a popular axiom used to encourage knights to serve the order openly.",
 								"The order emphasizes retribution rather than proactive measures. Its knights don't try to predict evil or preempt it, believing the practice of trying to preempt villainy, even if well meaning, is the first step on the road toward tyranny. As one line in the Code of Scales and Weights puts it, knights of the order should strive to \"punish evil actions, but not evil thoughts.\" The order insists on personal freedom, believing that every individual, regardless of their past or associates, can act morally and honorably if given the choice.",
 								{
@@ -8765,8 +9086,7 @@
 									"page": 178,
 									"id": "3c2",
 									"entries": [
-										"The Zhentarim has a long history of involvement with two deities: Bane and Cyric. Presently the organization has no official affiliation with any god, but these deities still find many devotees among",
-										"the Zhentarim. Bane's ethos of domination over the weak is a natural complement to the ambitions of power-hungry Zhents, whereas Cyric's cunning and ruthlessness are admirable traits in Zhentarim circles.",
+										"The Zhentarim has a long history of involvement with two deities: Bane and Cyric. Presently the organization has no official affiliation with any god, but these deities still find many devotees among the Zhentarim. Bane's ethos of domination over the weak is a natural complement to the ambitions of power-hungry Zhents, whereas Cyric's cunning and ruthlessness are admirable traits in Zhentarim circles.",
 										"Nowadays, religious Zhents are more likely to consort with diabolic divinities than world-famous gods. The Lords of the Nine boast countless patrons who can advance a mortal's social standing or wealth, and many Zhents beseech such powers. Some of the Zhentarim's most popular infernal sponsors include Mammon (the Nine Hells' principal miser), Fierna (coruler of Phlegethos with her father, Belial), and Glasya (Asmodeus's daughter).",
 										{
 											"type": "image",

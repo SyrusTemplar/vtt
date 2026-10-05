@@ -266,7 +266,7 @@
 												{
 													"type": "item",
 													"name": "Magic Portal",
-													"entry": "Any creature that moves through the portal in the northeast corner of the map is transported into a demiplane (see the \"{@adventure Inside the Crystal Ball|UtHftLH|0|Inside the Crystal Ball}\" section below)."
+													"entry": "Any creature that moves through the portal in the northeast corner of the map is transported into a demiplane (see the \"{@area Inside the Crystal Ball|015|x}\" section below)."
 												},
 												{
 													"type": "item",
@@ -320,7 +320,7 @@
 											"name": "Sprites",
 											"id": "00f",
 											"entries": [
-												"Willowbrush and Knock perch on high branches to keep out of melee. The {@creature Sprite|XMM|Sprites} target the puffball mushrooms with their arrows, hoping the exploding fungi will poison nearby bullywugs (see the \"{@adventure Woodland Pool Features|UtHftLH|0|Woodland Pool Features}\" section above). Willowbrush and Knock apologize to any characters affected by an exploding puffball."
+												"Willowbrush and Knock perch on high branches to keep out of melee. The {@creature Sprite|XMM|Sprites} target the puffball mushrooms with their arrows, hoping the exploding fungi will poison nearby bullywugs (see the \"{@area Woodland Pool Features|00b|x}\" section above). Willowbrush and Knock apologize to any characters affected by an exploding puffball."
 											]
 										},
 										{
@@ -395,7 +395,7 @@
 							"id": "014",
 							"entries": [
 								"Uni promises the characters her eternal gratitude plus a future favor if they retrieve her horn. Since the unicorn is currently without her magical abilities, Willowbrush and Knock insist on remaining at Uni's side to protect her.",
-								"When the characters step through the portal shown on the map, they arrive at {@adventure area C1|UtHftLH|0|area C1} inside Venger's {@i Crystal Ball}."
+								"When the characters step through the portal shown on the map, they arrive at {@area area C1|01e|x} inside Venger's {@i Crystal Ball}."
 							]
 						}
 					]
@@ -1706,7 +1706,7 @@
 													]
 												},
 												"Moments before the bullywugs arrive, Nosey sneezes repeatedly, teleporting to the middle of area C3 and leaving the characters to face the bullywugs by themselves.",
-												"If the characters don't leave this area immediately, the bullywugs see them. One runs to alert King Gurgle in {@adventure area C4|UtHftLH|0|area C4}, while the other two attack. Otherwise, the bullywugs continue searching for Nosey."
+												"If the characters don't leave this area immediately, the bullywugs see them. One runs to alert King Gurgle in {@area area C4|02a|x}, while the other two attack. Otherwise, the bullywugs continue searching for Nosey."
 											]
 										},
 										{
@@ -1839,7 +1839,7 @@
 											"name": "Vanishing Demiplane",
 											"id": "035",
 											"entries": [
-												"It takes 1 minute for Venger's demiplane to vanish, and creatures still inside the demiplane can use the portal in {@adventure area C1|UtHftLH|0|area C1} to escape. Any creature that doesn't escape in time takes 10 ({@dice 3d6}) Force damage as it is teleported to the clearing with the woodland pool (see \"{@variantrule Teleportation|XPHB}\"). Kelek's treasure (see \"Treasure\" below) also appears next to the pool, but there's no sign of Kelek or his beasts. The portal disappears along with the demiplane.",
+												"It takes 1 minute for Venger's demiplane to vanish, and creatures still inside the demiplane can use the portal in {@area area C1|01e|x} to escape. Any creature that doesn't escape in time takes 10 ({@dice 3d6}) Force damage as it is teleported to the clearing with the woodland pool (see \"{@variantrule Teleportation|XPHB}\"). Kelek's treasure (see \"Treasure\" below) also appears next to the pool, but there's no sign of Kelek or his beasts. The portal disappears along with the demiplane.",
 												"Any allies the characters have made in the demiplane are also ejected from the portal."
 											]
 										},
@@ -1892,6 +1892,84 @@
 						"{@variantrule Unarmed Strike|XPHB}",
 						"{@action Utilize|XPHB}"
 					]
+				},
+				{
+					"type": "statblock",
+					"name": "Bloodied",
+					"tag": "status",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Emanation [Area of Effect]",
+					"tag": "variantrule",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Friendly [Attitude]",
+					"tag": "variantrule",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Hostile [Attitude]",
+					"tag": "variantrule",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Indifferent [Attitude]",
+					"tag": "variantrule",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Influence",
+					"tag": "action",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Invisible",
+					"tag": "condition",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Magic",
+					"tag": "action",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Potion of Healing",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Study",
+					"tag": "action",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Teleportation",
+					"tag": "variantrule",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Unarmed Strike",
+					"tag": "variantrule",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Utilize",
+					"tag": "action",
+					"source": "XPHB"
 				}
 			],
 			"id": "03e"
@@ -1915,6 +1993,194 @@
 						"{@creature Warhorse}",
 						"{@creature Bullywug Bog Sage|XMM}*"
 					]
+				},
+				{
+					"type": "section",
+					"name": "Blink Dog",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Blink Dog",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Blink Dog",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "041"
+				},
+				{
+					"type": "section",
+					"name": "Bugbear Warrior",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Bugbear Warrior",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bugbear Warrior",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "042"
+				},
+				{
+					"type": "section",
+					"name": "Bullywug Warrior",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Bullywug Warrior",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bullywug Warrior",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "043"
+				},
+				{
+					"type": "section",
+					"name": "Mage",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Mage",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mage",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "044"
+				},
+				{
+					"type": "section",
+					"name": "Sprite",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Sprite",
+							"prop": "monsterFluff",
+							"source": "MM",
+							"tag": "creature",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Sprite",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "045"
+				},
+				{
+					"type": "section",
+					"name": "Worg",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Worg",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Worg",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "046"
+				},
+				{
+					"type": "section",
+					"name": "Warhorse",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Warhorse",
+							"tag": "creature",
+							"style": "narrow"
+						}
+					],
+					"id": "047"
+				},
+				{
+					"type": "section",
+					"name": "Bullywug Bog Sage",
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Bullywug Bog Sage",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bullywug Bog Sage",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "048"
 				}
 			],
 			"id": "03f"
@@ -2117,6 +2383,342 @@
 						"{@spell Toll the Dead|XPHB}",
 						"{@spell Vitriolic Sphere|XPHB}"
 					]
+				},
+				{
+					"type": "statblock",
+					"name": "Aid",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Bless",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Blindness/Deafness",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Burning Hands",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Comprehend Languages",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Cone of Cold",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Counterspell",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Cure Wounds",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Dancing Lights",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Detect Magic",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Enlarge/Reduce",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Ensnaring Strike",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Faerie Fire",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Feather Fall",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Fireball",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Fire Bolt",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Fly",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Fog Cloud",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Grease",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Guidance",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Guiding Bolt",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Gust of Wind",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Healing Word",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Hold Person",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Hunter's Mark",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Invisibility",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Jump",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Lesser Restoration",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Light",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Lightning Bolt",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Longstrider",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Mage Armor",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Mage Hand",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Magic Missile",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Misty Step",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Phantasmal Force",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Polymorph",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Prayer of Healing",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Prestidigitation",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Protection from Poison",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Ray of Frost",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Ray of Sickness",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Sacred Flame",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Scorching Ray",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Shield",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Shield of Faith",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Sleep",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Speak with Animals",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Spiritual Weapon",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Stinking Cloud",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Suggestion",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Summon Celestial",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Thaumaturgy",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Thunderwave",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Toll the Dead",
+					"tag": "spell",
+					"source": "XPHB"
+				},
+				{
+					"type": "statblock",
+					"name": "Vitriolic Sphere",
+					"tag": "spell",
+					"source": "XPHB"
 				}
 			],
 			"id": "040"

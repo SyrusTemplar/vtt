@@ -34,6 +34,8 @@ export const PROPORDER_FOUNDRY_ACTIVITIES = new ArrayKey("activities", {
 		"advice",
 		"description",
 		"descriptionEntries",
+		"descriptionChat",
+		"descriptionEntriesChat",
 
 		"activation",
 		"duration",
@@ -46,7 +48,9 @@ export const PROPORDER_FOUNDRY_ACTIVITIES = new ArrayKey("activities", {
 		"save",
 		"healing",
 		"roll",
+		"level",
 		"visibility",
+		"behaviors",
 
 		// "check"-type
 		"check",
@@ -69,7 +73,17 @@ export const PROPORDER_FOUNDRY_ACTIVITIES = new ArrayKey("activities", {
 		"transform",
 		"settings",
 
+		// "teleport"-type
+		"teleport",
+
+		// "forward"-type
+		"activity",
+
 		"effects",
+
+		// Other modules
+		"midiProperties",
+		"overTimeProperties",
 	],
 });
 
@@ -96,6 +110,7 @@ export const PROPORDER_FOUNDRY_EFFECTS = new ArrayKey("effects", {
 		"description",
 		"descriptionEntries",
 		"img",
+		"showIcon",
 		"advice",
 	],
 });

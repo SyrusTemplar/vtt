@@ -25,15 +25,15 @@
 					"name": "Using This Supplement",
 					"id": "001",
 					"entries": [
-						"This supplement includes the tools you need to play Dungeons & Dragons adventures set in ancient Netheril, a long-fallen empire in the Forgotten Realms. Monster stat blocks referenced appear in the {@book Monster Manual|XMM} or {@book appendix B|NF|6}.",
+						"This supplement includes the tools you need to play Dungeons & Dragons adventures set in ancient Netheril, a long-fallen empire in the Forgotten Realms. Monster stat blocks referenced appear in the {@book Monster Manual|XMM} or {@area appendix B|0ae|x}.",
 						"This introduction gives an overview of ancient Netheril and its history. Although this introduction is suitable for all players' eyes, the remainder of this supplement is intended for Dungeon Masters only.",
 						"The following is included:",
-						"{@book Chapter 1|NF|1} provides information about adventuring in ancient Netheril, including details about the flying city of Eileanar and the port city of Conch. Maps and tools for adventures set in these cities are also included.",
-						"{@book Chapter 2|NF|2} explains environmental effects and hazards common in ancient Netheril due to magic's overuse and exploitation.",
-						"{@book Chapter 3|NF|3} details present-day time gates where characters can time travel to ancient Netheril, along with maps and adventures set near these gates.",
-						"{@book Chapter 4|NF|4} provides maps and adventures set in ancient Netheril.",
-						"{@book Appendix A|NF|5} includes Netherese magic items characters might acquire during their adventures.",
-						"{@book Appendix B|NF|6} provides a bestiary of creatures found in ancient Netheril.",
+						"{@area Chapter 1|013|x} provides information about adventuring in ancient Netheril, including details about the flying city of Eileanar and the port city of Conch. Maps and tools for adventures set in these cities are also included.",
+						"{@area Chapter 2|05d|x} explains environmental effects and hazards common in ancient Netheril due to magic's overuse and exploitation.",
+						"{@area Chapter 3|06d|x} details present-day time gates where characters can time travel to ancient Netheril, along with maps and adventures set near these gates.",
+						"{@area Chapter 4|08a|x} provides maps and adventures set in ancient Netheril.",
+						"{@area Appendix A|09f|x} includes Netherese magic items characters might acquire during their adventures.",
+						"{@area Appendix B|0ae|x} provides a bestiary of creatures found in ancient Netheril.",
 						{
 							"type": "entries",
 							"name": "Ensuring Fun for All",
@@ -306,8 +306,8 @@
 										{
 											"type": "list",
 											"items": [
-												"Via a time gate, as described in {@book chapter 3|NF|3}.",
-												"Via a magical mishap that pulls them from the present into the past, as described in {@book chapter 4|NF|4}."
+												"Via a time gate, as described in {@area chapter 3|06d|x}.",
+												"Via a magical mishap that pulls them from the present into the past, as described in {@area chapter 4|08a|x}."
 											]
 										}
 									]
@@ -1090,7 +1090,7 @@
 							"id": "029",
 							"entries": [
 								"The locations detailed here are among some of Eileanar's most famous landmarks. Use these locations when setting adventures in the city.",
-								"Eileanar is shown on {@book Map: Eileanar|NF|1|Map: Eileanar}.",
+								"Eileanar is shown on {@area Map: Eileanar|0a1|x}.",
 								{
 									"type": "entries",
 									"name": "Arcane Acropolis",
@@ -1104,7 +1104,7 @@
 											]
 										},
 										"The Arcane Acropolis is Karsus's home, sanctum, and ruling palace. It is designed to awe and intimidate, to showcase his mastery of magic and serve his every whim as he develops ever more powerful spells.",
-										"At any given time, several human {@creature Mage|XMM|Mages}, {@creature Mage Apprentice|XMM|Mage Apprentices}, and even {@creature Archmage|XMM|Archmages} (second in power to Karsus, of course) of all alignments can be found within the Acropolis's white marble walls. Inhabitants also include various magen ({@book see appendix B|NF|6}) and summoned monsters, including Elementals and Celestials.",
+										"At any given time, several human {@creature Mage|XMM|Mages}, {@creature Mage Apprentice|XMM|Mage Apprentices}, and even {@creature Archmage|XMM|Archmages} (second in power to Karsus, of course) of all alignments can be found within the Acropolis's white marble walls. Inhabitants also include various magen ({@area see appendix B|0ae|x}) and summoned monsters, including Elementals and Celestials.",
 										"In the acropolis, gravity and time are shaped at Karsus's pleasure. Various areas have altered gravity or no gravity, as well as places where time is slowed or sped up. A gallery of levitating statues portrays the empire's greatest minds, with the floating image of Karsus largest and foremost of all. In the center of the acropolis stands Karsus's Sanctum, a pillared pavilion that looks out over the city.",
 										{
 											"type": "entries",
@@ -1388,7 +1388,7 @@
 												"Magical shops line both sides of this grand avenue, each storefront a glimmering treasure box of sensory delight."
 											]
 										},
-										"Curving along the Outer Platform, the Way of Astonishments is closed to traffic, allowing patrons to freely wander and peruse the staggering array of magical shops and businesses here competing for attention and coin. High Netherese often bring their {@creature Caldron Magen|NF} ({@book see appendix B|NF|6}) bodyguards to this busy area, since pickpocketing is rife.",
+										"Curving along the Outer Platform, the Way of Astonishments is closed to traffic, allowing patrons to freely wander and peruse the staggering array of magical shops and businesses here competing for attention and coin. High Netherese often bring their {@creature Caldron Magen|NF} ({@area see appendix B|0ae|x}) bodyguards to this busy area, since pickpocketing is rife.",
 										"Businesses include the following:",
 										"{@b Dundaden's Arcane Smithy}, for armor made more of magic than metal",
 										"{@b The Forge of Fargate}, for magical transportation that leads anywhere one wishes",
@@ -1817,7 +1817,7 @@
 							"id": "047",
 							"entries": [
 								"The locations detailed here are vital to everyday life in Conch. Use these locations when setting adventures in the city.",
-								"Conch is shown on {@book Map: Conch|NF|1|Map: Conch}",
+								"Conch is shown on {@area Map: Conch|0a2|x}",
 								{
 									"type": "entries",
 									"name": "Dockmarket",
@@ -2039,7 +2039,7 @@
 														{
 															"type": "item",
 															"name": "Rumors of Monsters",
-															"entry": "The farthest tunnels contain horrors for which the miners have no name. Adventurers might be drawn to tales of phaerimm ({@book see appendix B|NF|6}), beholders, mind flayers, and other terrors of deep shadow in hopes of banishing such evils."
+															"entry": "The farthest tunnels contain horrors for which the miners have no name. Adventurers might be drawn to tales of phaerimm ({@area see appendix B|0ae|x}), beholders, mind flayers, and other terrors of deep shadow in hopes of banishing such evils."
 														}
 													]
 												}
@@ -2204,7 +2204,7 @@
 							"name": "Empowered Force Zone",
 							"id": "062",
 							"entries": [
-								"Netherese mages often work magical energy into physical shapes such as unique jewelry, ostentatious decor, or even into creatures such as magen ({@book see appendix B|NF|6}). Areas where magic has been frequently refined, known as empowered force zones, amplify raw magical energy and are typically no more than 300 feet in diameter.",
+								"Netherese mages often work magical energy into physical shapes such as unique jewelry, ostentatious decor, or even into creatures such as magen ({@area see appendix B|0ae|x}). Areas where magic has been frequently refined, known as empowered force zones, amplify raw magical energy and are typically no more than 300 feet in diameter.",
 								"When a creature in an empowered force zone rolls damage for a spell or attack that deals Force damage, it treats any 1 or 2 on a damage die as a 3."
 							]
 						},
@@ -2251,6 +2251,36 @@
 										"{@hazard Wildstorm|NF}",
 										"{@hazard Witchbriars|NF}"
 									]
+								},
+								{
+									"type": "statblock",
+									"name": "Arcane Effluence",
+									"tag": "hazard",
+									"source": "NF"
+								},
+								{
+									"type": "statblock",
+									"name": "Glittermoss",
+									"tag": "hazard",
+									"source": "NF"
+								},
+								{
+									"type": "statblock",
+									"name": "Shadowbark",
+									"tag": "hazard",
+									"source": "NF"
+								},
+								{
+									"type": "statblock",
+									"name": "Wildstorm",
+									"tag": "hazard",
+									"source": "NF"
+								},
+								{
+									"type": "statblock",
+									"name": "Witchbriars",
+									"tag": "hazard",
+									"source": "NF"
 								}
 							]
 						}
@@ -2275,7 +2305,7 @@
 					"height": 2292
 				},
 				"Scattered throughout Faerûn are places of temporal magic so powerful they allow travel through space and time. This chapter details two such time gates leading to cities in ancient Netheril.",
-				"You might want your characters to travel to these time gates and into their linked Netherese cities as part of specific adventures. In this case, examples of such adventures are detailed below. If you wish to skip the time gates and start a game in ancient Netheril, {@book chapter 4|NF|4} provides adventures that take place in {@area Eileanar|01e|x} and {@area Conch|040|x}.",
+				"You might want your characters to travel to these time gates and into their linked Netherese cities as part of specific adventures. In this case, examples of such adventures are detailed below. If you wish to skip the time gates and start a game in ancient Netheril, {@area chapter 4|08a|x} provides adventures that take place in {@area Eileanar|01e|x} and {@area Conch|040|x}.",
 				"Time gates are powerful game mechanisms, and you should allow them in your game only to facilitate the stories you want to tell. Feel free to change any details about the time gates in this chapter as you see fit.",
 				{
 					"type": "section",
@@ -2453,9 +2483,9 @@
 								}
 							]
 						},
-						"In the wilds of Anauroch, nestled among the Plain of Standing Stones, a time gate at a place called Fool's Needle leads to the flying Netherese city of Eileanar, 1,839 years in the past. Also known as Karsus's Enclave, Eileanar is detailed in {@book chapter 1|NF|1}.",
+						"In the wilds of Anauroch, nestled among the Plain of Standing Stones, a time gate at a place called Fool's Needle leads to the flying Netherese city of Eileanar, 1,839 years in the past. Also known as Karsus's Enclave, Eileanar is detailed in {@area chapter 1|013|x}.",
 						"Fool's Needle is a towering structure made of quartz and granite. It stabs from the sky into the desert floor, narrowing as it descends. The desert's inhabitants, who named it, say it is a cursed place to be feared and shunned. Their tradition tells that only death awaits those who attempt to scale it.",
-						"Fool's Needle is shown on {@book Map: Fool's Needle|NF|3|Map: Fool's Needle}. The sections below provide general information appropriate for creating adventures of any level here; simply fill in your encounters with appropriate creatures from the {@book Monster Manual|XMM}. An example adventure follows later in this chapter.",
+						"Fool's Needle is shown on {@area Map: Fool's Needle|0a3|x}. The sections below provide general information appropriate for creating adventures of any level here; simply fill in your encounters with appropriate creatures from the {@book Monster Manual|XMM}. An example adventure follows later in this chapter.",
 						{
 							"type": "entries",
 							"name": "The Needle's Ascent",
@@ -2478,7 +2508,7 @@
 							"name": "Into Eileanar",
 							"id": "076",
 							"entries": [
-								"Those who pass through the portal step onto a marble walkway surrounded by electric-green shrubbery, colorful flowers, and floating marble statues of imposing mages. This is the Court of Fountains in Eileanar, described in {@book chapter 1|NF|1}."
+								"Those who pass through the portal step onto a marble walkway surrounded by electric-green shrubbery, colorful flowers, and floating marble statues of imposing mages. This is the Court of Fountains in Eileanar, described in {@area chapter 1|013|x}."
 							]
 						}
 					]
@@ -2516,7 +2546,7 @@
 									"name": "Encounters",
 									"id": "079",
 									"entries": [
-										"If needed, Krazbrax arranges for the characters' transportation to the base of Fool's Needle. The trip is uneventful. The adventure then consists of the following encounters, which take place on {@book Map: Fool's Needle|NF|3|Map: Fool's Needle}. Throughout this adventure, the characters are subject to the desert's extreme heat (see {@book chapter 3|XDMG|2} of the {@book Dungeon Master's Guide|XDMG}).",
+										"If needed, Krazbrax arranges for the characters' transportation to the base of Fool's Needle. The trip is uneventful. The adventure then consists of the following encounters, which take place on {@area Map: Fool's Needle|0a3|x}. Throughout this adventure, the characters are subject to the desert's extreme heat (see {@book chapter 3|XDMG|2} of the {@book Dungeon Master's Guide|XDMG}).",
 										{
 											"type": "entries",
 											"name": "Desert Floor",
@@ -2582,7 +2612,7 @@
 														],
 														[
 															"5",
-															"{@creature Eldritch Eddy|NF} ({@book see appendix B|NF|6})",
+															"{@creature Eldritch Eddy|NF} ({@area see appendix B|0ae|x})",
 															"This dangerous magical storm originated in Eileanar and now rampages on Fool's Needle.",
 															"High"
 														],
@@ -2602,7 +2632,7 @@
 											"id": "07d",
 											"entries": [
 												"Once the way to the gate is clear, the characters can travel through time into Eileanar. When they do, each character earns 400 XP.",
-												"The flying city is the site of the characters' next adventures, as you see fit. Providing Krazbrax with proof the characters visited Eileanar might be as simple as describing the wonders the characters saw at the Court of Fountains. Or perhaps Aurivyl, the elf in charge of the court (see {@book chapter 1|NF|1}), offers the characters a Common or Uncommon magic item from appendix A in exchange for the characters' retrieval of an important tome or spellcasting components found elsewhere in the city.",
+												"The flying city is the site of the characters' next adventures, as you see fit. Providing Krazbrax with proof the characters visited Eileanar might be as simple as describing the wonders the characters saw at the Court of Fountains. Or perhaps Aurivyl, the elf in charge of the court (see {@area chapter 1|013|x}), offers the characters a Common or Uncommon magic item from appendix A in exchange for the characters' retrieval of an important tome or spellcasting components found elsewhere in the city.",
 												"Once the characters return through the portal to the present, they can easily make their way back to Dagger Falls, where Krazbrax gives the characters their reward."
 											]
 										}
@@ -2691,15 +2721,15 @@
 								}
 							]
 						},
-						"In the western High Ice north of the Oume Rift lies a time gate nestled in what sages call the Forgotten Chamber. The time gate leads 1,839 years in the past to the ancient Netherese city of Conch, which was once a central river-port city that thrummed with commerce. In Netheril's waning days, civil unrest against the ruling mages, as well as attacks from phaerimm, made Conch a volatile place. For more about {@area Conch|040|x}, see {@book chapter 1|NF|1}.",
-						"The Forgotten Chamber lies inside a dormant volcano's caldera along a path called the Road of Gems, which winds through the High Ice. The Forgotten Chamber is shown on {@book Map: The Forgotten Chamber|NF|3|Map: The Forgotten Chamber}. The sections below provide general information appropriate for creating adventures of any level here; simply fill in your encounters with appropriate creatures from the {@book Monster Manual|XMM}. An example adventure follows later in this chapter.",
+						"In the western High Ice north of the Oume Rift lies a time gate nestled in what sages call the Forgotten Chamber. The time gate leads 1,839 years in the past to the ancient Netherese city of Conch, which was once a central river-port city that thrummed with commerce. In Netheril's waning days, civil unrest against the ruling mages, as well as attacks from phaerimm, made Conch a volatile place. For more about {@area Conch|040|x}, see {@area chapter 1|013|x}.",
+						"The Forgotten Chamber lies inside a dormant volcano's caldera along a path called the Road of Gems, which winds through the High Ice. The Forgotten Chamber is shown on {@area Map: The Forgotten Chamber|0a4|x}. The sections below provide general information appropriate for creating adventures of any level here; simply fill in your encounters with appropriate creatures from the {@book Monster Manual|XMM}. An example adventure follows later in this chapter.",
 						{
 							"type": "entries",
 							"name": "The Road of Gems",
 							"id": "07f",
 							"entries": [
 								"A natural glacial rift, the Road of Gems spiderwebs through the region, cutting through solid ice that often rises over 30 feet on both sides. Over the centuries, miners have discovered many caves full of precious stones and minerals near the Road of Gems.",
-								"The Road of Gems section of {@book Map: The Forgotten Chamber|NF|3|Map: The Forgotten Chamber} shows the road's layout in the area surrounding the Forgotten Chamber. Where the road dead-ends, the path dips underground into mines or caverns. Exploring these is outside the scope of seeking the time gate in the Forgotten Chamber. If you'd like to include these areas in your game, consider using the Mine and Underdark Warren maps in {@book appendix B|XDMG|9} of the {@book Dungeon Master's Guide|XDMG} and populate them with creatures from the {@table Monsters by Habitat; Underdark Monsters|XMM|Underdark Monsters} list in {@book appendix B|XMM|3} of the {@i Monster Manual}."
+								"The Road of Gems section of {@area Map: The Forgotten Chamber|0a4|x} shows the road's layout in the area surrounding the Forgotten Chamber. Where the road dead-ends, the path dips underground into mines or caverns. Exploring these is outside the scope of seeking the time gate in the Forgotten Chamber. If you'd like to include these areas in your game, consider using the Mine and Underdark Warren maps in {@book appendix B|XDMG|9} of the {@book Dungeon Master's Guide|XDMG} and populate them with creatures from the {@table Monsters by Habitat; Underdark Monsters|XMM|Underdark Monsters} list in {@book appendix B|XMM|3} of the {@i Monster Manual}."
 							]
 						},
 						{
@@ -2765,7 +2795,7 @@
 									"id": "084",
 									"entries": [
 										"Graevelwood lies in the eastern reaches of Arn Forest. The journey from the forest, across a narrow strip of cold desert, and into the High Ice is uneventful. Vigglestern has several days' head start on the characters, though remains of recent campfires suggest the characters are close on the gnome's trail.",
-										"Allow the characters to approach the Forgotten Chamber from whichever direction they wish. The characters run into trouble once they reach the section of the road shown on the bottom of {@book Map: The Forgotten Chamber|NF|3|Map: The Forgotten Chamber}.",
+										"Allow the characters to approach the Forgotten Chamber from whichever direction they wish. The characters run into trouble once they reach the section of the road shown on the bottom of {@area Map: The Forgotten Chamber|0a4|x}.",
 										{
 											"type": "entries",
 											"name": "Unwitting Prey",
@@ -2787,7 +2817,7 @@
 											"name": "A Bloody Scene",
 											"id": "087",
 											"entries": [
-												"This encounter takes place in the central portion of {@book Map: The Forgotten Chamber|NF|3|Map: The Forgotten Chamber}. Once the characters reach the bottom of the caldera, they find a few drops of blood leading into the portal. The blood belongs to Vigglestern. Before the characters can climb into the chasm, a strange creature confronts them; Vigglestern tripped and injured himself while running away from this creature before the gnome jumped through the portal.",
+												"This encounter takes place in the central portion of {@area Map: The Forgotten Chamber|0a4|x}. Once the characters reach the bottom of the caldera, they find a few drops of blood leading into the portal. The blood belongs to Vigglestern. Before the characters can climb into the chasm, a strange creature confronts them; Vigglestern tripped and injured himself while running away from this creature before the gnome jumped through the portal.",
 												"Roll or choose an option on the Forgotten Chamber Gate Creatures table below. All creatures are {@variantrule Hostile [Attitude]|XPHB|Hostile} toward the characters and fight until destroyed.",
 												{
 													"type": "table",
@@ -2865,7 +2895,7 @@
 												"When the characters step through the portal and emerge in Conch, they can easily follow the trail of Vigglestern's blood into a nearby alcove inside the mining shaft. When the characters find the gnome, each character earns 400 XP.",
 												"The injured Vigglestern has 5 Hit Points remaining. Although the shouting from the mines' overseers terrify him, the gnome refuses to accompany the characters back to Graevelwood without some proof of his journey to Conch.",
 												"Any character can argue that describing Conch's mines is proof enough for Graevelwood's villagers to believe Vigglestern, who should stay hidden due to the place's dangers. The gnome readily agrees and asks the characters to explore the area, take note of details, and return to him when they're ready to go home.",
-												"At your discretion, the characters might also confront Jharsinius, the overseer of this section of the mine (see \"{@area Into Conch|081|x}\"). Jharsinius is outside the mineshaft shouting at four human Low Netherese {@creature Commoner|XMM|Commoners}, whose productivity the mage finds lacking. Jharsinius carries a {@item Magen Handbell|NF} ({@book see appendix A|NF|5})."
+												"At your discretion, the characters might also confront Jharsinius, the overseer of this section of the mine (see \"{@area Into Conch|081|x}\"). Jharsinius is outside the mineshaft shouting at four human Low Netherese {@creature Commoner|XMM|Commoners}, whose productivity the mage finds lacking. Jharsinius carries a {@item Magen Handbell|NF} ({@area see appendix A|09f|x})."
 											]
 										},
 										{
@@ -3054,7 +3084,7 @@
 											"name": "Conclusion",
 											"id": "091",
 											"entries": [
-												"Once the workshop has been cleared of phaerimm, if Tyvern is with the characters, he awards them 150 GP each and the {@item Brooch of the Elements|NF} ({@book see appendix a|NF|5}) he's wearing. If the characters are time travelers, he suggests that he might be able to return them to their time by reversing his experiment's steps. He asks for a few days to experiment, and encourages the characters to explore the city. Tyvern readily provides the details about {@area Conch|040|x} found in {@book chapter 1|NF|1}.",
+												"Once the workshop has been cleared of phaerimm, if Tyvern is with the characters, he awards them 150 GP each and the {@item Brooch of the Elements|NF} ({@area see appendix a|09f|x}) he's wearing. If the characters are time travelers, he suggests that he might be able to return them to their time by reversing his experiment's steps. He asks for a few days to experiment, and encourages the characters to explore the city. Tyvern readily provides the details about {@area Conch|040|x} found in {@area chapter 1|013|x}.",
 												"If Tyvern isn't present, a character proficient in {@skill Arcana|XPHB} can reactivate the time-travel experiment by spending 1 hour studying Tyvern's notes, taking a {@action Magic|XPHB} action, and succeeding on a {@dc 12} Intelligence (Arcana) check. The characters can reactivate the experiment whenever they wish, leaving them free to explore the city."
 											]
 										}
@@ -3199,7 +3229,7 @@
 											"id": "097",
 											"entries": [
 												"If the characters save the gnomes, the siblings reveal themselves to be Low Netherese textile merchants named Bernadoo and Hipplepoff Tindertoe. They ran when Yorg grabbed their brother, Thomp. If the characters saved the gnome siblings, each character earns an additional 1,100 XP.",
-												"The siblings are distraught at their brother's death but thank the characters profusely. Though they have little to pay as a reward, the gnomes offer to take the characters to their stall in the Dockmarket ({@book see chapter 1|NF|1}). There, the gnomes happily trade their textiles to purchase any magic item of Rare or lower rarity from appendix A that the characters want. Returning to their own time might be the characters' next adventure, as you see fit."
+												"The siblings are distraught at their brother's death but thank the characters profusely. Though they have little to pay as a reward, the gnomes offer to take the characters to their stall in the Dockmarket ({@area see chapter 1|013|x}). There, the gnomes happily trade their textiles to purchase any magic item of Rare or lower rarity from appendix A that the characters want. Returning to their own time might be the characters' next adventure, as you see fit."
 											]
 										}
 									]
@@ -3287,7 +3317,7 @@
 											"id": "09a",
 											"entries": [
 												"An explosion of white energy transports the characters to the sanctum, just north of the stairway. Another blue barrier of impenetrable magic surrounds the sanctum like a dome, and the characters are trapped.",
-												"A frantic human named Youmi (Medium, Chaotic Good {@creature Mage Apprentice|XMM}) shouts for help from near the southeastern balcony. She gestures wildly for the characters to help her stop one {@creature Terran Magen|NF} and two {@creature Caldron Magen|NF} ({@book see appendix b|NF|6} for both) from destroying four terrified {@creature Flumph|XMM|Flumphs}, which are backed into the balcony's corner. The magen are driven berserk by Karsus's fluctuating magic and have just started combat with the flumphs. If the characters fight them, the magen turn their attention to the characters and fight to the death. Otherwise, the magen kill the flumphs before fighting the characters.",
+												"A frantic human named Youmi (Medium, Chaotic Good {@creature Mage Apprentice|XMM}) shouts for help from near the southeastern balcony. She gestures wildly for the characters to help her stop one {@creature Terran Magen|NF} and two {@creature Caldron Magen|NF} ({@area see appendix b|0ae|x} for both) from destroying four terrified {@creature Flumph|XMM|Flumphs}, which are backed into the balcony's corner. The magen are driven berserk by Karsus's fluctuating magic and have just started combat with the flumphs. If the characters fight them, the magen turn their attention to the characters and fight to the death. Otherwise, the magen kill the flumphs before fighting the characters.",
 												"If the flumphs survive, Youmi becomes {@variantrule Friendly [Attitude]|XPHB|Friendly}. She explains that Karsus is attempting to cast a spell to replace the god of magic and admits she's sickened by the archmage's hubris and recklessness. As an {@action Influence|XPHB} action, a character can try to convince Youmi to join their group to help them navigate the city, doing so with a successful {@dc 16} Charisma ({@skill Persuasion|XPHB}) check."
 											]
 										},
@@ -3297,7 +3327,7 @@
 											"id": "09b",
 											"entries": [
 												"Each of the pedestals shown on the map holds a magical item. Karsus was trying to stabilize his magical experimentations using these items, but it backfired. If she's alive, Youmi suggests the characters remove the magic items from the pedestals to dampen Karsus's fluctuating magic.",
-												"Clockwise from the westernmost pedestal, the pedestals hold {@item Boots of Speed|XDMG}, a {@item Ring of Regeneration|XDMG}, a {@item Fork of Eddy Summoning|NF} ({@book see appendix a|NF|5}), and a {@item Mythallar Cloak|NF} ({@book see appendix a|NF|5}). If the characters want to keep the items, Youmi doesn't stop them."
+												"Clockwise from the westernmost pedestal, the pedestals hold {@item Boots of Speed|XDMG}, a {@item Ring of Regeneration|XDMG}, a {@item Fork of Eddy Summoning|NF} ({@area see appendix a|09f|x}), and a {@item Mythallar Cloak|NF} ({@area see appendix a|09f|x}). If the characters want to keep the items, Youmi doesn't stop them."
 											]
 										},
 										{
@@ -3313,7 +3343,7 @@
 											"name": "Karsus's Magic Rising",
 											"id": "09d",
 											"entries": [
-												"After the eddies are destroyed, the dome surrounding the area explodes in a flash of bright blue light. The characters are no longer trapped in the area. Four {@creature Mage|XMM|Mages}, all humans, rush up the stairs and toward Karsus, screaming that there's no time to talk and casting {@spell Dispel Magic|XPHB} and other mitigating spells on the energy surrounding their master. After 5 minutes, the magic thrumming through the area stabilizes, although the globe surrounding Karsus is now much larger. Calmed for now, the mages offer to escort the characters to the public portion of Karsus's {@area Arcane Acropolis|02a|x}, described in {@book chapter 1|NF|1|Adventuring in Netheril}. Each character earns 2,100 XP."
+												"After the eddies are destroyed, the dome surrounding the area explodes in a flash of bright blue light. The characters are no longer trapped in the area. Four {@creature Mage|XMM|Mages}, all humans, rush up the stairs and toward Karsus, screaming that there's no time to talk and casting {@spell Dispel Magic|XPHB} and other mitigating spells on the energy surrounding their master. After 5 minutes, the magic thrumming through the area stabilizes, although the globe surrounding Karsus is now much larger. Calmed for now, the mages offer to escort the characters to the public portion of Karsus's {@area Arcane Acropolis|02a|x}, described in {@area chapter 1|013|x}. Each character earns 2,100 XP."
 											]
 										},
 										{
@@ -3351,6 +3381,54 @@
 						"{@item Mythallar Bracelet|NF}",
 						"{@item Mythallar Cloak|NF}"
 					]
+				},
+				{
+					"type": "statblock",
+					"name": "Arcane Battery",
+					"tag": "item",
+					"source": "NF"
+				},
+				{
+					"type": "statblock",
+					"name": "Brooch of the Elements",
+					"tag": "item",
+					"source": "NF"
+				},
+				{
+					"type": "statblock",
+					"name": "Fork of Eddy Summoning",
+					"tag": "item",
+					"source": "NF"
+				},
+				{
+					"type": "statblock",
+					"name": "Hat of Vortexes",
+					"tag": "item",
+					"source": "NF"
+				},
+				{
+					"type": "statblock",
+					"name": "Magen Handbell",
+					"tag": "item",
+					"source": "NF"
+				},
+				{
+					"type": "statblock",
+					"name": "Mask of Changed Appearance",
+					"tag": "item",
+					"source": "NF"
+				},
+				{
+					"type": "statblock",
+					"name": "Mythallar Bracelet",
+					"tag": "item",
+					"source": "NF"
+				},
+				{
+					"type": "statblock",
+					"name": "Mythallar Cloak",
+					"tag": "item",
+					"source": "NF"
 				}
 			]
 		},
@@ -3377,9 +3455,31 @@
 				{
 					"type": "statblock",
 					"name": "Eldritch Eddy",
+					"prop": "monsterFluff",
+					"source": "NF",
+					"data": {
+						"renderCompact": {
+							"isSkipRootName": true
+						}
+					}
+				},
+				{
+					"type": "statblock",
+					"name": "Eldritch Eddy",
 					"tag": "creature",
 					"source": "NF",
 					"style": "narrow"
+				},
+				{
+					"type": "statblock",
+					"name": "Caldron Magen",
+					"prop": "monsterFluff",
+					"source": "NF",
+					"data": {
+						"renderCompact": {
+							"isSkipRootName": true
+						}
+					}
 				},
 				{
 					"type": "statblock",
@@ -3391,9 +3491,31 @@
 				{
 					"type": "statblock",
 					"name": "Terran Magen",
+					"prop": "monsterFluff",
+					"source": "NF",
+					"data": {
+						"renderCompact": {
+							"isSkipRootName": true
+						}
+					}
+				},
+				{
+					"type": "statblock",
+					"name": "Terran Magen",
 					"tag": "creature",
 					"source": "NF",
 					"style": "narrow"
+				},
+				{
+					"type": "statblock",
+					"name": "Virvos Magen",
+					"prop": "monsterFluff",
+					"source": "NF",
+					"data": {
+						"renderCompact": {
+							"isSkipRootName": true
+						}
+					}
 				},
 				{
 					"type": "statblock",
@@ -3405,9 +3527,31 @@
 				{
 					"type": "statblock",
 					"name": "Phaerimm Hatchling",
+					"prop": "monsterFluff",
+					"source": "FRAiF",
+					"data": {
+						"renderCompact": {
+							"isSkipRootName": true
+						}
+					}
+				},
+				{
+					"type": "statblock",
+					"name": "Phaerimm Hatchling",
 					"tag": "creature",
 					"source": "FRAiF",
 					"style": "narrow"
+				},
+				{
+					"type": "statblock",
+					"name": "Phaerimm Scout",
+					"prop": "monsterFluff",
+					"source": "NF",
+					"data": {
+						"renderCompact": {
+							"isSkipRootName": true
+						}
+					}
 				},
 				{
 					"type": "statblock",
@@ -3419,9 +3563,31 @@
 				{
 					"type": "statblock",
 					"name": "Phaerimm Agent",
+					"prop": "monsterFluff",
+					"source": "FRAiF",
+					"data": {
+						"renderCompact": {
+							"isSkipRootName": true
+						}
+					}
+				},
+				{
+					"type": "statblock",
+					"name": "Phaerimm Agent",
 					"tag": "creature",
 					"source": "FRAiF",
 					"style": "narrow"
+				},
+				{
+					"type": "statblock",
+					"name": "Phaerimm Elder",
+					"prop": "monsterFluff",
+					"source": "NF",
+					"data": {
+						"renderCompact": {
+							"isSkipRootName": true
+						}
+					}
 				},
 				{
 					"type": "statblock",

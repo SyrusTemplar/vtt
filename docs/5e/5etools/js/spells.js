@@ -59,21 +59,20 @@ class SpellsSublistManager extends SublistManager {
 			range,
 		];
 
-		const ele = ee`<div class="ve-lst__row ve-lst__row--sublist ve-flex-col">
+		const ele = veT`<div class="ve-lst__row ve-lst__row--sublist ve-flex-col">
 			<a href="#${UrlUtil.autoEncodeHash(spell)}" title="${spell.name}" class="ve-lst__row-border ve-lst__row-inner">
 				${this.constructor._getRowCellsHtml({values: cellsText})}
 			</a>
 		</div>`
-			.onn("contextmenu", evt => this._handleSublistItemContextMenu(evt, listItem))
-			.onn("click", evt => this._listSub.doSelect(listItem, evt));
+			.vee.onn("contextmenu", evt => this._handleSublistItemContextMenu(evt, listItem))
+			.vee.onn("click", evt => this._listSub.doSelect(listItem, evt));
 
-		const listItem = new ListItem(
-			hash,
+		const listItem = new ListItem({
+			id: hash,
 			ele,
-			spell.name,
-			{
-				hash,
-				page: spell.page,
+			name: spell.name,
+			values: {
+				...ListItem.getCommonValues(spell),
 				school,
 				level: spell.level,
 				time,
@@ -82,11 +81,13 @@ class SpellsSublistManager extends SublistManager {
 				normalisedTime: spell._normalisedTime,
 				normalisedRange: spell._normalisedRange,
 			},
-			{
+			data: {
+				hash,
+				page: spell.page,
 				entity: spell,
 				mdRow: [...cellsText],
 			},
-		);
+		});
 		return listItem;
 	}
 }
@@ -116,8 +117,6 @@ class SpellPageBookView extends ListPageBookView {
 	}
 
 	_getSorted (a, b) {
-		a = a.entity;
-		b = b.entity;
 		return this._bookViewLastOrder === "0" ? SortUtil.ascSort(a.level, b.level) : SortUtil.ascSortLower(a.name, b.name);
 	}
 
@@ -132,21 +131,21 @@ class SpellPageBookView extends ListPageBookView {
 		const onChangeSortMode = () => {
 			if (!this._bookViewToShow.length && Hist.lastLoadedId != null) return;
 
-			const val = selSortMode.val();
+			const val = selSortMode.vee.val();
 			if (val === "0") this._renderByLevel();
 			else this._renderByAlpha();
 
 			StorageUtil.syncSetForPage(SpellPageBookView._BOOK_VIEW_MODE_K, val);
 		};
 
-		const selSortMode = ee`<select class="ve-form-control ve-input-sm">
+		const selSortMode = veT`<select class="ve-form-control ve-input-sm">
 			<option value="0">Spell Level</option>
 			<option value="1">Alphabetical</option>
 		</select>`
-			.onn("change", () => onChangeSortMode());
+			.vee.onn("change", () => onChangeSortMode());
 
-		selSortMode.val(`${this._bookViewLastOrder ?? 0}`);
-		ee`<div class="ve-flex-vh-center ve-ml-3"><div class="ve-mr-2 ve-no-wrap">Sort order:</div>${selSortMode}</div>`.appendTo(wrpPrint);
+		selSortMode.vee.val(`${this._bookViewLastOrder ?? 0}`);
+		veT`<div class="ve-flex-vh-center ve-ml-3"><div class="ve-mr-2 ve-no-wrap">Sort order:</div>${selSortMode}</div>`.vee.appendTo(wrpPrint);
 
 		return out;
 	}
@@ -170,7 +169,7 @@ class SpellPageBookView extends ListPageBookView {
 				stack.push(`</div>`);
 			}
 		}
-		this._wrpContent.empty().appends(stack.join(""));
+		this._wrpContent.vee.empty().vee.appends(stack.join(""));
 		this._bookViewLastOrder = "0";
 		return {isAnyEntityRendered};
 	}
@@ -178,7 +177,7 @@ class SpellPageBookView extends ListPageBookView {
 	_renderByAlpha () {
 		const stack = [];
 		this._bookViewToShow.forEach(({entity}) => this._renderSpell({stack, sp: entity}));
-		this._wrpContent.empty().appends(stack.join(""));
+		this._wrpContent.vee.empty().vee.appends(stack.join(""));
 		this._bookViewLastOrder = "1";
 		return {isAnyEntityRendered: !!this._bookViewToShow.length};
 	}
@@ -188,7 +187,7 @@ class SpellPageBookView extends ListPageBookView {
 		stack.push(`<div class="ve-w-100 ve-h-100 ve-no-breaks">`);
 		this._renderSpell({stack, sp: this._fnGetEntLastLoaded()});
 		stack.push(`</div>`);
-		this._wrpContent.empty().appends(stack.join(""));
+		this._wrpContent.vee.empty().vee.appends(stack.join(""));
 		return {isAnyEntityRendered: false};
 	}
 
@@ -200,7 +199,7 @@ class SpellPageBookView extends ListPageBookView {
 
 	async _pGetRenderContentMeta ({wrpContent, wrpControls}) {
 		this._wrpContent = wrpContent;
-		wrpContent.addClass("ve-p-2");
+		wrpContent.vee.addClass("ve-p-2");
 
 		this._bookViewToShow = this._sublistManager.getSublistedEntityMetas()
 			.sort(this._getSorted.bind(this));
@@ -336,48 +335,29 @@ class SpellsPage extends ListPageMultiSource {
 		const concentration = spell._isConc ? "×" : "";
 		const range = Parser.spRangeToFull(spell.range, {isDisplaySelfArea: true});
 
-		const eleLi = e_({
+		const eleLi = veE({
 			tag: "div",
 			clazz: `ve-lst__row ve-flex-col ${isExcluded ? "ve-lst__row--blocklisted" : ""}`,
 			click: (evt) => this._list.doSelect(listItem, evt),
 			contextmenu: (evt) => this._openContextMenu(evt, this._list, listItem),
-			children: [
-				e_({
-					tag: "a",
-					href: `#${hash}`,
-					clazz: "ve-lst__row-border ve-lst__row-inner",
-					children: [
-						e_({tag: "span", clazz: `ve-bold ve-col-2-9 ve-pl-0 ve-pr-1`, text: spell.name}),
-						e_({tag: "span", clazz: `ve-col-1-5 ve-px-1 ve-text-center`, text: PageFilterSpells.getTblLevelStr(spell)}),
-						e_({tag: "span", clazz: `ve-col-1-7 ve-px-1 ve-text-center`, text: time}),
-						e_({
-							tag: "span",
-							clazz: `ve-col-1-2 ve-px-1 ${schoolClassName} ve-text-center`,
-							title: Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools),
-							style: Parser.spSchoolAbvToStylePart(spell.school),
-							text: school,
-						}),
-						e_({tag: "span", clazz: `ve-col-0-6 ve-px-1 ve-text-center`, title: "Concentration", text: concentration}),
-						e_({tag: "span", clazz: `ve-col-2-4 ve-px-1 ve-text-right`, text: range}),
-						e_({
-							tag: "span",
-							clazz: `ve-col-1-7 ve-text-center ${Parser.sourceJsonToSourceClassname(spell.source)} ve-pl-1 ve-pr-0`,
-							title: `${Parser.sourceJsonToFull(spell.source)}${Renderer.utils.getSourceSubText(spell)}`,
-							text: source,
-						}),
-					],
-				}),
-			],
+			html: `<a href="#${hash.qq()}" class="ve-lst__row-border ve-lst__row-inner">
+				<span class="ve-bold ve-col-2-9 ve-pl-0 ve-pr-1">${spell.name.qq()}</span>
+				<span class="ve-col-1-5 ve-px-1 ve-text-center">${PageFilterSpells.getTblLevelStr(spell).qq()}</span>
+				<span class="ve-col-1-7 ve-px-1 ve-text-center">${time.qq()}</span>
+				<span class="ve-col-1-2 ve-px-1 ${schoolClassName.qq()} ve-text-center" title="${Parser.spSchoolAndSubschoolsAbvsToFull(spell.school, spell.subschools).qq()}" ${Parser.spSchoolAbvToStyle(spell.school) || ""}>${school.qq()}</span>
+				<span class="ve-col-0-6 ve-px-1 ve-text-center" title="Concentration">${concentration}</span>
+				<span class="ve-col-2-4 ve-px-1 ve-text-right">${range.qq()}</span>
+				<span class="ve-col-1-7 ve-text-center ${Parser.sourceJsonToSourceClassname(spell.source).qq()} ve-pl-1 ve-pr-0" title="${`${Parser.sourceJsonToFull(spell.source)}${Renderer.utils.getSourceSubText(spell)}`.qq()}">${source.qq()}</span>
+			</a>`,
 		});
 
-		const listItem = new ListItem(
-			spI,
-			eleLi,
-			spell.name,
-			{
-				hash,
+		const listItem = new ListItem({
+			id: spI,
+			ele: eleLi,
+			name: spell.name,
+			values: {
 				source,
-				page: spell.page,
+				...ListItem.getCommonValues(spell),
 				level: spell.level,
 				time,
 				school: Parser.spSchoolAbvToFull(spell.school),
@@ -385,10 +365,12 @@ class SpellsPage extends ListPageMultiSource {
 				normalisedTime: spell._normalisedTime,
 				normalisedRange: spell._normalisedRange,
 			},
-			{
+			data: {
+				hash,
+				page: spell.page,
 				isExcluded,
 			},
-		);
+		});
 
 		return listItem;
 	}
@@ -396,7 +378,7 @@ class SpellsPage extends ListPageMultiSource {
 	_tabTitleStats = "Spell";
 
 	_renderStats_doBuildStatsTab ({ent}) {
-		this._pgContent.empty().appends(RenderSpells.getRenderedSpell(ent, {subclassLookup: this._subclassLookup, settings: this._compSettings.getValues()}));
+		this._pgContent.vee.empty().vee.appends(RenderSpells.getRenderedSpell(ent, {subclassLookup: this._subclassLookup, settings: this._compSettings.getValues()}));
 	}
 
 	async _pOnLoad_pPreDataLoad () {

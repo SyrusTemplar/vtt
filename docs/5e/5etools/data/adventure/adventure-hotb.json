@@ -143,7 +143,7 @@
 									"style": "list-decimal",
 									"items": [
 										"{@b Review the {@i D&D Beyond Basic Rules}.} Familiarize yourself with the {@link D&D Beyond Basic Rules|https://www.dndbeyond.com/sources/dnd/br-2024} and its organization. You don't need to memorize every rule before you play, but you should understand the rhythm of play and where to find relevant information when needed.",
-										"{@b Choose an Adventure Setting}. Pick one of the three adventure locations and read its introduction. If this is your first time playing D&D, the {@adventure Wilderness|HotB|3} section is a good place to start, followed by the {@adventure Keep on the Borderlands|HotB|2}. Each section contains a tutorial location with sidebars that help you run the adventure."
+										"{@b Choose an Adventure Setting}. Pick one of the three adventure locations and read its introduction. If this is your first time playing D&D, the {@area Wilderness|1b4|x} section is a good place to start, followed by the {@area Keep on the Borderlands|10a|x}. Each section contains a tutorial location with sidebars that help you run the adventure."
 									]
 								},
 								"Now you're ready to play D&D!",
@@ -166,9 +166,9 @@
 					"entries": [
 						"{@i Heroes of the Borderlands} is for two to four characters of levels 1\u20133. The adventure has no overarching plot. While there are conflicts and secrets to uncover, the story that emerges is the one your group experiences.",
 						"The adventure is divided into three self-contained sections, each of which features a different area. You don't need to read one section to understand the others, and you can play and revisit them in any order. The adventure areas are as follows:",
-						"{@adventure The Caves of Chaos|HotB|1} tempt adventurers with riches and glory, obtainable by any who dare brave these monster-filled caverns.",
-						"{@adventure The Keep on the Borderlands|HotB|2} is a fortified settlement where the party can rest, purchase goods and services, and interact with locals.",
-						"{@adventure The Wilderness|HotB|3} lies beyond the ken of law. Friends, foes, and surprises await explorers who traverse these untamed wilds.",
+						"{@area The Caves of Chaos|00f|x} tempt adventurers with riches and glory, obtainable by any who dare brave these monster-filled caverns.",
+						"{@area The Keep on the Borderlands|10a|x} is a fortified settlement where the party can rest, purchase goods and services, and interact with locals.",
+						"{@area The Wilderness|1b4|x} lies beyond the ken of law. Friends, foes, and surprises await explorers who traverse these untamed wilds.",
 						"Over the course of the adventure, the characters might visit these areas more than once. They don't have to complete all the encounters in one section before exploring a different corner of the Borderlands.",
 						{
 							"type": "insetReadaloud",
@@ -188,7 +188,7 @@
 			"page": 2,
 			"id": "00f",
 			"entries": [
-				"Beyond the Keep on the Borderlands hide the Caves of Chaos, a network of monster-infested caves where by a wicked cult lurks. Danger awaits foolhardy adventurers who enter the caves\u2014but so do treasure and glory.",
+				"Beyond the Keep on the Borderlands hide the Caves of Chaos, a network of monster-infested caves where a wicked cult lurks. Danger awaits foolhardy adventurers who enter the caves\u2014but so do treasure and glory.",
 				{
 					"type": "entries",
 					"id": "010",
@@ -226,7 +226,7 @@
 					"page": 2,
 					"id": "013",
 					"entries": [
-						"The {@adventure Caves of Chaos Map|HotB|1|Map: Caves of Chaos (DM Version)} displays all the locations characters can visit in the Caves of Chaos. The player version of this map doesn't reveal the caves' contents or names, only the cave mouths and their respective elements. Share that map with your players.",
+						"The {@area Caves of Chaos Map|28b|x} displays all the locations characters can visit in the Caves of Chaos. The player version of this map doesn't reveal the caves' contents or names, only the cave mouths and their respective elements. Share that map with your players.",
 						"To begin, read the following boxed text aloud:",
 						{
 							"type": "insetReadaloud",
@@ -287,7 +287,7 @@
 									"2+"
 								],
 								[
-									"{@adventure G: Shunned Caves|HotB|1|0ab}",
+									"{@area G: Shunned Caves|0ab|x}",
 									"A fearsome owlbear lurks in its den.",
 									"3"
 								],
@@ -1325,7 +1325,7 @@
 											"page": 7,
 											"id": "03b",
 											"entries": [
-												"Stashed in the junk pile are 25 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item.",
+												"Stashed in the junk pile are 25 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item.",
 												{
 													"type": "inset",
 													"page": 7,
@@ -1338,7 +1338,7 @@
 															"id": "03d",
 															"entries": [
 																"Treasure entries like this describe loot in an area. Usually, treasure consists of Gold Pieces (GP), magic items, or both.",
-																"Whenever a player character finds gold, give that player Gold Pieces equal to the listed value, which is tracked on their character sheet. For magic items, roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item.",
+																"Whenever a player character finds gold, give that player Gold Pieces equal to the listed value, which is tracked on their character sheet. For magic items, roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item.",
 																{
 																	"type": "list",
 																	"style": "list-hang-notitle",
@@ -1351,7 +1351,7 @@
 																		{
 																			"type": "item",
 																			"name": "Spending Gold Pieces",
-																			"entry": "Opportunities to spend gold in the Caves of Chaos are rare, but the {@adventure Keep on the Borderlands|HotB|2} contains plenty of goods and services available for purchase."
+																			"entry": "Opportunities to spend gold in the Caves of Chaos are rare, but the {@area Keep on the Borderlands|10a|x} contains plenty of goods and services available for purchase."
 																		}
 																	]
 																}
@@ -1460,7 +1460,7 @@
 											"page": 7,
 											"id": "045",
 											"entries": [
-												"The wyrmling's hoard consists of 25 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item."
+												"The wyrmling's hoard consists of 25 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item."
 											]
 										}
 									]
@@ -2047,7 +2047,7 @@
 											"page": 9,
 											"id": "059",
 											"entries": [
-												"The real treasure chest contains 150 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item."
+												"The real treasure chest contains 150 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item."
 											]
 										}
 									]
@@ -2650,7 +2650,7 @@
 											"page": 11,
 											"id": "070",
 											"entries": [
-												"The dead explorer's belongings include 60 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item."
+												"The dead explorer's belongings include 60 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item."
 											]
 										}
 									]
@@ -2668,7 +2668,7 @@
 											"page": 11,
 											"id": "072",
 											"entries": [
-												"An unlocked chest against the east wall contains 100 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item."
+												"An unlocked chest against the east wall contains 100 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item."
 											]
 										}
 									]
@@ -2691,7 +2691,7 @@
 							"page": 12,
 							"id": "074",
 							"entries": [
-								"This cave is connected to {@area cave E|087|x} via the secret door in {@adventure area D5|HotB|1|D5: Webbed Cavern} (see {@adventure map D|HotB|1|Map D: Goblin Lair (DM's Version) View Without Tokens}); characters can also enter from {@area cave F|097|x} through the hallway west of {@adventure area D4|HotB|1|D4: Boss's Room}. If the characters approach from outside the cave, read the following boxed text aloud to begin:",
+								"This cave is connected to {@area cave E|087|x} via the secret door in {@area area D5|084|x} (see {@area map D|292|x}); characters can also enter from {@area cave F|097|x} through the hallway west of {@area area D4|080|x}. If the characters approach from outside the cave, read the following boxed text aloud to begin:",
 								{
 									"type": "insetReadaloud",
 									"page": 12,
@@ -2727,12 +2727,12 @@
 										{
 											"type": "item",
 											"name": "Doors and Secret Door",
-											"entry": "Doors in the cave are made of rough wood. The secret door in {@adventure area D5|HotB|1|D5: Webbed Cavern} blends in with the surrounding wall. As a {@action Search|XPHB} action, a character can make a {@dc 15} Wisdom ({@skill Perception|XPHB}) check to scan that area for a secret door, noticing it on a successful check."
+											"entry": "Doors in the cave are made of rough wood. The secret door in {@area area D5|084|x} blends in with the surrounding wall. As a {@action Search|XPHB} action, a character can make a {@dc 15} Wisdom ({@skill Perception|XPHB}) check to scan that area for a secret door, noticing it on a successful check."
 										},
 										{
 											"type": "item",
 											"name": "Lighting",
-											"entry": "Torches in wall sconces throughout the cave fill it with {@variantrule Bright Light|XPHB}."
+											"entry": "{@item Torch|XPHB|Torches} in wall sconces throughout the cave fill it with {@variantrule Bright Light|XPHB}."
 										}
 									]
 								}
@@ -3097,7 +3097,7 @@
 											"page": 12,
 											"id": "07d",
 											"entries": [
-												"Vinx stashed a magic item at the bottom of one of the barrels before she was captured; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item. If freed, Vinx discreetly fishes the item out of the barrel and keeps it on her person until the characters find her family's tapestry (see {@adventure area D4|HotB|1|D4: Boss's Room})."
+												"Vinx stashed a magic item at the bottom of one of the barrels before she was captured; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item. If freed, Vinx discreetly fishes the item out of the barrel and keeps it on her person until the characters find her family's tapestry (see {@area area D4|080|x})."
 											]
 										}
 									]
@@ -3172,8 +3172,8 @@
 											"page": 13,
 											"id": "083",
 											"entries": [
-												"Stashed under the throne's ragged cushion are a fine tapestry sewn with silver and gold threads and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item. The tapestry belongs to Vinx and is worth 90 GP.",
-												"If the characters give the tapestry to Vinx, she rewards them with the magic item from {@adventure area D2|HotB|1|D2: Dead-End Tunnel}. However, if she learns the characters intend to keep the tapestry, she hotly demands they return the family heirloom and fights them if they refuse."
+												"Stashed under the throne's ragged cushion are a fine tapestry sewn with silver and gold threads and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item. The tapestry belongs to Vinx and is worth 90 GP.",
+												"If the characters give the tapestry to Vinx, she rewards them with the magic item from {@area area D2|07a|x}. However, if she learns the characters intend to keep the tapestry, she hotly demands they return the family heirloom and fights them if they refuse."
 											]
 										}
 									]
@@ -3748,7 +3748,7 @@
 											"id": "096",
 											"entries": [
 												"The provisions and supplies in this room were taken from travelers and adventurers who crossed paths with Cindertooth. All the equipment here was ruined beyond repair in battle.",
-												"Amid the dragon's spoils are 50 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item. The dragon fights any creature that steals from its hoard.",
+												"Amid the dragon's spoils are 50 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item. The dragon fights any creature that steals from its hoard.",
 												{
 													"type": "image",
 													"href": {
@@ -3781,7 +3781,7 @@
 							"page": 16,
 							"id": "098",
 							"entries": [
-								"This cave is connected to {@area cave D|073|x} via the hall east of {@area area F2|0a3|x} (see {@adventure map F|HotB|1|Map F: Hobgoblin Lair (DM's Version) View Without Tokens}). If the characters approach from outside the cave, read the following boxed text aloud to begin:",
+								"This cave is connected to {@area cave D|073|x} via the hall east of {@area area F2|0a3|x} (see {@area map F|296|x}). If the characters approach from outside the cave, read the following boxed text aloud to begin:",
 								{
 									"type": "insetReadaloud",
 									"page": 16,
@@ -4223,7 +4223,7 @@
 											"page": 17,
 											"id": "0a8",
 											"entries": [
-												"The chest includes stolen goods: fine furs worth 75 GP, a pouch containing 20 GP, and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item."
+												"The chest includes stolen goods: fine furs worth 75 GP, a pouch containing 20 GP, and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item."
 											]
 										}
 									]
@@ -4265,7 +4265,7 @@
 							"page": 18,
 							"id": "0ac",
 							"entries": [
-								"This cave is connected to {@area cave K|0f6|x} via the stairs south of {@area area G6|0b9|x} (see {@adventure map G|HotB|1|Map G: Shunned Caves (DM's Version) View Without Tokens}). If the characters approach from outside the cave, read the following boxed text aloud to begin:",
+								"This cave is connected to {@area cave K|0f6|x} via the stairs south of {@area area G6|0b9|x} (see {@area map G|298|x}). If the characters approach from outside the cave, read the following boxed text aloud to begin:",
 								{
 									"type": "insetReadaloud",
 									"page": 18,
@@ -4890,7 +4890,7 @@
 											"page": 18,
 											"id": "0b3",
 											"entries": [
-												"The pool contains a jewel-encrusted goblet (worth 100 GP) and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item."
+												"The pool contains a jewel-encrusted goblet (worth 100 GP) and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item."
 											]
 										}
 									]
@@ -4964,7 +4964,7 @@
 												"These cult quarters contain beds, a table, and several chairs. Tapestries on the walls depict evil creatures and obscene rituals. Four humans in hooded red robes recline on the beds."
 											]
 										},
-										"Torches in wall sconces fill this room with {@variantrule Bright Light|XPHB}. Four {@creature Cultist|XMM|Cultists} relax in these quarters for the Cult of Chaos. They are nonchalantly discussing the finer points of mayhem, torture, and other cruelties.",
+										"{@item Torch|XPHB|Torches} in wall sconces fill this room with {@variantrule Bright Light|XPHB}. Four {@creature Cultist|XMM|Cultists} relax in these quarters for the Cult of Chaos. They are nonchalantly discussing the finer points of mayhem, torture, and other cruelties.",
 										"The cultists are {@variantrule Hostile [Attitude]|XPHB|Hostile} toward intruders not garbed in their cult's attire and eagerly inflict violence on nonbelievers. As an {@action Influence|XPHB} action, a character can try to de-escalate the situation and make one of the following ability checks (with {@variantrule Advantage|XPHB} if the character is dressed like a member of the Cult of Chaos). Consider these examples:",
 										"{@b {@dc 13} Charisma ({@skill Deception|XPHB}).} The character deceives the cultists with a lie, such as pretending to be a fellow cultist or an aspiring member.",
 										"{@b {@dc 13} Charisma ({@skill Persuasion|XPHB}).} The character convinces the cultists that it is in both parties' interests not to fight.",
@@ -5011,7 +5011,7 @@
 											"page": 19,
 											"id": "0be",
 											"entries": [
-												"The sarcophagus holds one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item."
+												"The sarcophagus holds one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item."
 											]
 										}
 									]
@@ -5034,7 +5034,7 @@
 							"page": 20,
 							"id": "0c0",
 							"entries": [
-								"This cave is connected to {@area cave I|0d3|x} via the the secret door in {@area area H5|0cd|x} (see {@adventure map H|HotB|1|Map H: Bugbear Lair (DM's Version) View Without Tokens}). If the characters approach from outside the cave, read the following boxed text aloud to begin:",
+								"This cave is connected to {@area cave I|0d3|x} via the the secret door in {@area area H5|0cd|x} (see {@area map H|29a|x}). If the characters approach from outside the cave, read the following boxed text aloud to begin:",
 								{
 									"type": "insetReadaloud",
 									"page": 20,
@@ -5432,7 +5432,7 @@
 											"page": 21,
 											"id": "0d0",
 											"entries": [
-												"Scattered among the furs on the floor are 25 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item."
+												"Scattered among the furs on the floor are 25 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item."
 											]
 										}
 									]
@@ -5450,7 +5450,7 @@
 											"page": 21,
 											"id": "0d2",
 											"entries": [
-												"Stashed in the furs are 25 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item."
+												"Stashed in the furs are 25 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item."
 											]
 										}
 									]
@@ -5474,7 +5474,7 @@
 							"page": 22,
 							"id": "0d4",
 							"entries": [
-								"This cave is connected to {@area cave H|0bf|x} via the secret door in {@area area I3|0dd|x} (see {@adventure map I|HotB|1|Map I: Minotaur Lair (DM's Version) View Without Tokens}). If the characters approach from outside the cave, read the following boxed text aloud to begin:",
+								"This cave is connected to {@area cave H|0bf|x} via the secret door in {@area area I3|0dd|x} (see {@area map I|29c|x}). If the characters approach from outside the cave, read the following boxed text aloud to begin:",
 								{
 									"type": "insetReadaloud",
 									"page": 22,
@@ -6293,7 +6293,7 @@
 											"page": 23,
 											"id": "0e1",
 											"entries": [
-												"Thick columns hewn from brick and dirt form tunnels in this labyrinthine cave. A jumble of overlapping hoofprints cover the blood-speckled dirt floor, and scratches mar the walls."
+												"Thick columns hewn from brick and dirt form tunnels in this labyrinthine cave. A jumble of overlapping hoofprints covers the blood-speckled dirt floor, and scratches mar the walls."
 											]
 										},
 										"A {@variantrule Hostile [Attitude]|XPHB|Hostile} {@creature Minotaur of Baphomet|XMM} prowls amid the columns, stamping its hooves in the dirt and sharpening its horns on the walls. The minotaur charges the characters on sight and fights to the death. No amount of pleading, persuasion, or deceit can slake its bloodlust."
@@ -6320,7 +6320,7 @@
 											"page": 23,
 											"id": "0e4",
 											"entries": [
-												"The chest contains 120 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item.",
+												"The chest contains 120 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item.",
 												{
 													"type": "image",
 													"href": {
@@ -6851,7 +6851,7 @@
 											"id": "0f5",
 											"entries": [
 												"Among the debris is the skeleton of a human thief. The thief's purse contains 15 GP and a large gemstone (worth 100 GP).",
-												"The chest is unlocked. It contains one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item."
+												"The chest is unlocked. It contains one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item."
 											]
 										}
 									]
@@ -6884,7 +6884,7 @@
 							"page": 26,
 							"id": "0f7",
 							"entries": [
-								"This cave is connected to {@area cave G|0ab|x} via the stairs east of {@area area K5|100|x} (see {@adventure map K|HotB|1|Map K: Shrine Of Evil Chaos (DM's Version) View Without Tokens}). If the characters approach from outside the cave, read the following boxed text aloud to begin:",
+								"This cave is connected to {@area cave G|0ab|x} via the stairs east of {@area area K5|100|x} (see {@area map K|2a0|x}). If the characters approach from outside the cave, read the following boxed text aloud to begin:",
 								{
 									"type": "insetReadaloud",
 									"page": 26,
@@ -7361,7 +7361,7 @@
 													"width": 1700,
 													"height": 1060
 												},
-												"The Chaos Bell is all but indestructible. To destroy the bell and end its magic, the characters must submerge it in the {@area sacred spring|1fb|x} (see the \"{@adventure Wilderness|HotB|3}\" section). If a character removes the bell from its stand, give that player the Chaos Bell."
+												"The Chaos Bell is all but indestructible. To destroy the bell and end its magic, the characters must submerge it in the {@area sacred spring|1fb|x} (see the \"{@area Wilderness|1b4|x}\" section). If a character removes the bell from its stand, give that player the Chaos Bell."
 											]
 										}
 									]
@@ -7416,7 +7416,7 @@
 											"page": 27,
 											"id": "107",
 											"entries": [
-												"The demon head pivots to reveal a nook with 100 GP, a large red garnet (worth 100 GP), and two magic items; roll twice on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the items."
+												"The demon head pivots to reveal a nook with 100 GP, a large red {@item garnet|XDMG} (worth 100 GP), and two magic items; roll twice on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the items."
 											]
 										}
 									]
@@ -7427,7 +7427,7 @@
 									"page": 27,
 									"id": "108",
 									"entries": [
-										"This hidden room contains only a black iron chest. When a creature moves within 5 feet of the chest, it springs opens and spills 300 GP across the floor.",
+										"This hidden room contains only a black iron chest. When a creature moves within 5 feet of the chest, it springs open and spills 300 GP across the floor.",
 										{
 											"type": "entries",
 											"name": "Treasure",
@@ -7592,7 +7592,7 @@
 					"page": 2,
 					"id": "110",
 					"entries": [
-						"The player characters can visit any location in the keep, meeting and interacting with the citizens who reside there. Each keep location employs one or more NPCs, typically representing the most important person at a location, such as an establishment's owner or highest ranking representative.",
+						"The player characters can visit any location in the keep, meeting and interacting with the citizens who reside there. Each keep location employs one or more NPCs, typically representing the most important person at a location, such as an establishment's owner or highest-ranking representative.",
 						"The map of the keep isn't to scale, but you can use it to track the characters' current whereabouts. If this is your first time as Dungeon Master, ask your players to keep the party together; it's easier if the player characters visit each location as a group.",
 						{
 							"type": "gallery",
@@ -9235,7 +9235,7 @@
 									"page": 6,
 									"id": "137",
 									"entries": [
-										"The goats are scattered throughout the keep. Roll {@dice 1d12} for each missing goat, rerolling duplicates. Keep these results secret. Each result corresponds to a numbered location on the {@adventure Keep on the Borderlands Map|HotB|2|Map: Keep on the Borderlands View Unlabeled Version} where a goat can be found. For example, on a 6, a goat is outside the trader's shop ({@area area 6|155|x}). To find the goat, the characters must go to that location, though they don't have to venture inside.",
+										"The goats are scattered throughout the keep. Roll {@dice 1d12} for each missing goat, rerolling duplicates. Keep these results secret. Each result corresponds to a numbered location on the {@area Keep on the Borderlands Map|2a2|x} where a goat can be found. For example, on a 6, a goat is outside the trader's shop ({@area area 6|155|x}). To find the goat, the characters must go to that location, though they don't have to venture inside.",
 										"A character can narrow their search by making one of the following ability checks. Consider these examples:",
 										"{@b {@dc 10} Wisdom ({@skill Survival|XPHB}).} The character follows hoofprints in the dirt.",
 										"{@b {@dc 10} Charisma ({@skill Persuasion|XPHB}).} The character asks passersby if they've seen a loose goat.",
@@ -11202,7 +11202,7 @@
 											"page": 15,
 											"id": "189",
 											"entries": [
-												"{@creature Ivlis|HotB} secretly leads the Cult of Chaos, an evil cult that feeds on destruction and disarray. Her supposed religious journey is a cover for her occult activities, which are detailed in the \"{@adventure Caves of Chaos|HotB|1}\"."
+												"{@creature Ivlis|HotB} secretly leads the Cult of Chaos, an evil cult that feeds on destruction and disarray. Her supposed religious journey is a cover for her occult activities, which are detailed in the \"{@area Caves of Chaos|00f|x}\"."
 											]
 										}
 									]
@@ -11819,7 +11819,7 @@
 												"\"If you help me finish my map by exploring the surrounding lands, I'll compensate you fairly.\""
 											]
 										},
-										"If the characters explore three or more wilderness regions (see the \"{@adventure Wilderness|HotB|3}\" section) and report their findings to Dwern, the scribe pays them a handsome reward: a large, glittering gemstone (worth 100 GP), which they can sell to the jeweler for gold (see {@area area 3|13d|x}).",
+										"If the characters explore three or more wilderness regions (see the \"{@area Wilderness|1b4|x}\" section) and report their findings to Dwern, the scribe pays them a handsome reward: a large, glittering gemstone (worth 100 GP), which they can sell to the jeweler for gold (see {@area area 3|13d|x}).",
 										{
 											"type": "inset",
 											"name": "Dwern",
@@ -11897,7 +11897,7 @@
 												"\"I'd like you to visit a few businesses within the keep and help their owners with any odd jobs they might have. I recently acquired an item of arcane significance. Assist me in this effort, and the item is yours.\""
 											]
 										},
-										"If the characters complete three quests within the keep and report back to Elandra, she rewards them with one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item.",
+										"If the characters complete three quests within the keep and report back to Elandra, she rewards them with one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item.",
 										{
 											"type": "inset",
 											"name": "Elandra",
@@ -12022,7 +12022,7 @@
 									"page": 18,
 									"id": "1af",
 									"entries": [
-										"The keep's noble castellan, an human man named Winvarle, holds court daily in the great hall. A keen strategist, Winvarle casts his vigilant gaze toward the Caves of Chaos, where rumors of a sinister cult have surfaced (see the \"{@adventure Caves of Chaos|HotB|1}\").",
+										"The keep's noble castellan, a human man named Winvarle, holds court daily in the great hall. A keen strategist, Winvarle casts his vigilant gaze toward the Caves of Chaos, where rumors of a sinister cult have surfaced (see the \"{@area Caves of Chaos|00f|x}\").",
 										"When the characters visit Winvarle, he issues the following quest:",
 										{
 											"type": "insetReadaloud",
@@ -12090,7 +12090,7 @@
 							"page": 19,
 							"id": "1b3",
 							"entries": [
-								"Castellan Winvarle's celebration marks the end of this adventure, but there's still plenty to explore after that. The characters can continue to adventure in the Keep on the Borderlands, the {@adventure Caves of Chaos|HotB|1}, and the {@adventure Wilderness|HotB|3} (detailed in each respective section) until they've experienced all the Borderlands has to offer. You can also use them to tell stories of your own.",
+								"Castellan Winvarle's celebration marks the end of this adventure, but there's still plenty to explore after that. The characters can continue to adventure in the Keep on the Borderlands, the {@area Caves of Chaos|00f|x}, and the {@area Wilderness|1b4|x} (detailed in each respective section) until they've experienced all the Borderlands has to offer. You can also use them to tell stories of your own.",
 								"If you wish to advance these characters beyond level 3 and create new adventures for them, you need the core rules: the {@book Player's Handbook|XPHB}, the {@book Dungeon Master's Guide|XDMG}, and the {@book Monster Manual|XMM}.",
 								{
 									"type": "image",
@@ -12152,7 +12152,7 @@
 					"page": 2,
 					"id": "1b8",
 					"entries": [
-						"The {@adventure Wilderness Map|HotB|3|Map: Wilderness (DM Version) View Unlabeled Version} displays all the regions characters can visit in this section of the adventure. The player version of this map doesn't reveal the contents of each wilderness region, only the general geographic features. Share that map with your players. The Caves of Chaos and the Keep on the Borderlands aren't labeled on this version of the map so the players don't confuse them with wilderness regions.",
+						"The {@area Wilderness Map|2a3|x} displays all the regions characters can visit in this section of the adventure. The player version of this map doesn't reveal the contents of each wilderness region, only the general geographic features. Share that map with your players. The Caves of Chaos and the Keep on the Borderlands aren't labeled on this version of the map so the players don't confuse them with wilderness regions.",
 						"To begin, read the following boxed text aloud:",
 						{
 							"type": "insetReadaloud",
@@ -12480,7 +12480,7 @@
 							"page": 2,
 							"id": "1bd",
 							"entries": [
-								"The dangers of the wilds keep travelers on their toes. The characters can take only {@variantrule Short Rest|XPHB|Short Rests} while exploring a wilderness region. To take a {@variantrule Long Rest|XPHB}, characters must visit the keep (see \"{@adventure Keep on the Borderlands|HotB|2}\"). For more on {@book resting|XPHB|1|Resting}, see the {@link D&D Beyond Basic Rules|https://www.dndbeyond.com/sources/dnd/br-2024}."
+								"The dangers of the wilds keep travelers on their toes. The characters can take only {@variantrule Short Rest|XPHB|Short Rests} while exploring a wilderness region. To take a {@variantrule Long Rest|XPHB}, characters must visit the keep (see \"{@area Keep on the Borderlands|10a|x}\"). For more on {@book resting|XPHB|1|Resting}, see the {@link D&D Beyond Basic Rules|https://www.dndbeyond.com/sources/dnd/br-2024}."
 							]
 						},
 						{
@@ -13142,7 +13142,7 @@
 											"page": 7,
 											"id": "1ea",
 											"entries": [
-												"Stashed in the bushes are the recent ill-gotten gains stolen by Pral's band. If the characters defeat Pral and his band, they find a sack that contains 20 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item.",
+												"Stashed in the bushes are the recent ill-gotten gains stolen by Pral's band. If the characters defeat Pral and his band, they find a sack that contains 20 GP and one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item.",
 												{
 													"type": "inset",
 													"page": 7,
@@ -13154,7 +13154,7 @@
 															"page": 7,
 															"id": "1ec",
 															"entries": [
-																"Some treasure entries contain magic items, objects imbued with arcane might. Whenever a player character finds a magic item, roll on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item."
+																"Some treasure entries contain magic items, objects imbued with arcane might. Whenever a player character finds a magic item, roll on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item."
 															]
 														}
 													]
@@ -13287,7 +13287,7 @@
 											"page": 8,
 											"id": "1f3",
 											"entries": [
-												"After a couple hours of hiking, you happen on a humble hut made from sheets of sturdy bark and blankets of moss. Sweet-smelling smoke wafts from its chimney. The hut's wooden door is shut."
+												"After a couple of hours of hiking, you happen on a humble hut made from sheets of sturdy bark and blankets of moss. Sweet-smelling smoke wafts from its chimney. The hut's wooden door is shut."
 											]
 										},
 										"A hermit named Xanthe lives here. Banished months ago from the keep, Xanthe is initially {@variantrule Hostile [Attitude]|XPHB|Hostile} toward the characters, who she believes have come to harass her.",
@@ -13383,7 +13383,7 @@
 											"page": 9,
 											"id": "1f8",
 											"entries": [
-												"The cultists are {@variantrule Indifferent [Attitude]|XPHB|Indifferent} toward any character wearing a Cultist's Robe, which they might have obtained in the Caves of Chaos (see \"{@adventure Caves of Chaos|HotB|1}\"). If a character approaches in this disguise, the cultists solemnly motion for the character to join the ritual, but they begin combat if the character refuses."
+												"The cultists are {@variantrule Indifferent [Attitude]|XPHB|Indifferent} toward any character wearing a Cultist's Robe, which they might have obtained in the Caves of Chaos (see \"{@area Caves of Chaos|00f|x}\"). If a character approaches in this disguise, the cultists solemnly motion for the character to join the ritual, but they begin combat if the character refuses."
 											]
 										},
 										{
@@ -13454,7 +13454,7 @@
 											"page": 9,
 											"id": "1fe",
 											"entries": [
-												"If the party has the Chaos Bell from the {@area Shrine of Evil Chaos|0f6|x} (see \"{@adventure Caves of Chaos|HotB|1}\"), a character can submerge the evil artifact in this sacred spring. If this is done at night while the spring is bathed in moonlight, the bell turns to glittering ash."
+												"If the party has the Chaos Bell from the {@area Shrine of Evil Chaos|0f6|x} (see \"{@area Caves of Chaos|00f|x}\"), a character can submerge the evil artifact in this sacred spring. If this is done at night while the spring is bathed in moonlight, the bell turns to glittering ash."
 											]
 										}
 									]
@@ -13502,7 +13502,7 @@
 											"page": 9,
 											"id": "202",
 											"entries": [
-												"In exchange for the characters' spirited participation, the sprites reward the party with one magic item; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item.",
+												"In exchange for the characters' spirited participation, the sprites reward the party with one magic item; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item.",
 												{
 													"type": "image",
 													"href": {
@@ -14011,7 +14011,7 @@
 											"page": 13,
 											"id": "220",
 											"entries": [
-												"After the fight, the characters find one magic item suspended in the webs; roll once on the {@area Magic Items|22e|x} table in {@adventure appendix A|HotB|4} (rerolling duplicates) to determine the item.",
+												"After the fight, the characters find one magic item suspended in the webs; roll once on the {@area Magic Items|22e|x} table in {@area appendix A|22a|x} (rerolling duplicates) to determine the item.",
 												{
 													"type": "image",
 													"href": {
@@ -14065,7 +14065,7 @@
 											"page": 13,
 											"id": "224",
 											"entries": [
-												"To listen in on the hobgoblins' argument, a character must come within 30 feet of the patrol and make a {@dc 15} Dexterity ({@skill Stealth|XPHB}) check. On a successful check, the character hears the hobgoblins debating whether they should {@area ally with the bugbears|0bf|x} in the Caves of Chaos or hire the {@area ogre mercenary|08f|x} that dwells there (both are detailed in \"{@adventure Caves of Chaos|HotB|1}\"). On a failed check, the hobgoblins spot the eavesdropping character and start combat."
+												"To listen in on the hobgoblins' argument, a character must come within 30 feet of the patrol and make a {@dc 15} Dexterity ({@skill Stealth|XPHB}) check. On a successful check, the character hears the hobgoblins debating whether they should {@area ally with the bugbears|0bf|x} in the Caves of Chaos or hire the {@area ogre mercenary|08f|x} that dwells there (both are detailed in \"{@area Caves of Chaos|00f|x}\"). On a failed check, the hobgoblins spot the eavesdropping character and start combat."
 											]
 										},
 										{
@@ -14213,7 +14213,7 @@
 							"rows": [
 								[
 									"1",
-									"The characters meet Mallyn (see {@adventure appendix B|HotB|5|Mallyn}) on a daytime hike. She tells them that the pine seeds found throughout this region are delicious (see the \"{@area Pine Seeds|226|x}\" encounter)."
+									"The characters meet Mallyn (see {@area appendix B|24f|x}) on a daytime hike. She tells them that the pine seeds found throughout this region are delicious (see the \"{@area Pine Seeds|226|x}\" encounter)."
 								],
 								[
 									"2",
@@ -14241,7 +14241,7 @@
 								],
 								[
 									"8",
-									"A {@creature Red Dragon Wyrmling|XMM} soars overhead in the direction of the {@adventure Caves of Chaos|HotB|1}. It ignores the characters and is too far away for any interaction."
+									"A {@creature Red Dragon Wyrmling|XMM} soars overhead in the direction of the {@area Caves of Chaos|00f|x}. It ignores the characters and is too far away for any interaction."
 								]
 							]
 						},
@@ -14264,7 +14264,7 @@
 								],
 								[
 									"2",
-									"Cornflower (see {@adventure appendix B|HotB|5|Cornflower}), the keep's {@variantrule Friendly [Attitude]|XPHB|Friendly} barn hand, invites the characters to a trailside picnic."
+									"Cornflower (see {@area appendix B|247|x}), the keep's {@variantrule Friendly [Attitude]|XPHB|Friendly} barn hand, invites the characters to a trailside picnic."
 								],
 								[
 									"3",
@@ -14284,7 +14284,7 @@
 								],
 								[
 									"7",
-									"Shannik (see {@adventure appendix B|HotB|5|Shannik}) leads a cavalry charge from the keep as part of a training exercise, and the characters are caught in its path. Each character must succeed on a {@dc 15} Dexterity saving throw or take {@damage 2d8} Bludgeoning damage from the charge."
+									"Shannik (see {@area appendix B|253|x}) leads a cavalry charge from the keep as part of a training exercise, and the characters are caught in its path. Each character must succeed on a {@dc 15} Dexterity saving throw or take {@damage 2d8} Bludgeoning damage from the charge."
 								],
 								[
 									"8",
@@ -14327,7 +14327,7 @@
 								],
 								[
 									"6",
-									"Oleira (see {@adventure appendix B|HotB|5|Oleira}) the trader is picking mushrooms. She can point the characters to Xanthe's hut (see the \"{@area Hermit's Hut|1f2|x}\" encounter)."
+									"Oleira (see {@area appendix B|250|x}) the trader is picking mushrooms. She can point the characters to Xanthe's hut (see the \"{@area Hermit's Hut|1f2|x}\" encounter)."
 								],
 								[
 									"7",
@@ -14367,11 +14367,23 @@
 						"The following items are presented in alphabetical order.",
 						{
 							"type": "list",
-							"columns": 2,
+							"columns": 3,
 							"items": [
 								"{@item Borderlands Tabard|HotB}",
 								"{@item Cultist's Robe|HotB}"
 							]
+						},
+						{
+							"type": "statblock",
+							"name": "Borderlands Tabard",
+							"tag": "item",
+							"source": "HotB"
+						},
+						{
+							"type": "statblock",
+							"name": "Cultist's Robe",
+							"tag": "item",
+							"source": "HotB"
 						}
 					]
 				},
@@ -14494,6 +14506,120 @@
 							]
 						}
 					]
+				},
+				{
+					"type": "statblock",
+					"name": "Boots of Elvenkind",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Cloak of Billowing",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Cloak of Elvenkind",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Clockwork Amulet",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Clothes of Mending",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Dread Helm",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Eyes of the Eagle",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "+1 Mace",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "+1 Plate Armor",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Pole of Collapsing",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Potion of Fire Breath",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Potion of Healing",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Potion of Greater Healing",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Potion of Invisibility",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Potion of Necrotic Resistance",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "+1 Shortbow",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "+1 Shortsword",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Slippers of Spider Climbing",
+					"tag": "item",
+					"source": "XDMG"
+				},
+				{
+					"type": "statblock",
+					"name": "Spell Scroll (Level 3)",
+					"tag": "item",
+					"source": "XDMG"
 				}
 			]
 		},
@@ -15700,298 +15826,1054 @@
 					]
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Animated Flying Sword",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Animated Flying Sword",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Animated Flying Sword",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "22d"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Bandit",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Bandit",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bandit",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "22f"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Bugbear Warrior",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Bugbear Warrior",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Bugbear Warrior",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "230"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Carrion Crawler",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Carrion Crawler",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Carrion Crawler",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "231"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Commoner",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Commoner",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Commoner",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "232"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Copper Dragon Wyrmling",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Copper Dragon Wyrmling",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Copper Dragon Wyrmling",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "233"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Cultist",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Cultist",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Cultist",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "234"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Curate",
-					"tag": "creature",
-					"source": "HotB",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Curate",
+							"prop": "monsterFluff",
+							"source": "HotB",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Curate",
+							"tag": "creature",
+							"source": "HotB",
+							"style": "narrow"
+						}
+					],
+					"id": "235"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Gelatinous Cube",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Gelatinous Cube",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Gelatinous Cube",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "236"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Giant Centipede",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Giant Centipede",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Giant Centipede",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "237"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Giant Fire Beetle",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Giant Fire Beetle",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Giant Fire Beetle",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "238"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Giant Spider",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Giant Spider",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Giant Spider",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "239"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Gnoll Warrior",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Gnoll Warrior",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Gnoll Warrior",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "23a"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Goblin Warrior",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Goblin Warrior",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Goblin Warrior",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "23b"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Goblin Boss",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Goblin Boss",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Goblin Boss",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "23c"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Gray Ooze Glob",
-					"tag": "creature",
-					"source": "HotB",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Gray Ooze Glob",
+							"prop": "monsterFluff",
+							"source": "HotB",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Gray Ooze Glob",
+							"tag": "creature",
+							"source": "HotB",
+							"style": "narrow"
+						}
+					],
+					"id": "23d"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Guard",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Guard",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Guard",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "23e"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Guard Captain",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Guard Captain",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Guard Captain",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "23f"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Hobgoblin Warrior",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Hobgoblin Warrior",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Hobgoblin Warrior",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "240"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Ivlis",
-					"tag": "creature",
-					"source": "HotB",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Ivlis",
+							"prop": "monsterFluff",
+							"source": "HotB",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ivlis",
+							"tag": "creature",
+							"source": "HotB",
+							"style": "narrow"
+						}
+					],
+					"id": "241"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Jacko",
-					"tag": "creature",
-					"source": "HotB",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Jacko",
+							"prop": "monsterFluff",
+							"source": "HotB",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Jacko",
+							"tag": "creature",
+							"source": "HotB",
+							"style": "narrow"
+						}
+					],
+					"id": "242"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Knight",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Knight",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Knight",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "243"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Kobold Warrior",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Kobold Warrior",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Kobold Warrior",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "25a"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Kuo-Toa Marauder",
-					"tag": "creature",
-					"source": "HotB",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Kuo-Toa Marauder",
+							"prop": "monsterFluff",
+							"source": "HotB",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Kuo-Toa Marauder",
+							"tag": "creature",
+							"source": "HotB",
+							"style": "narrow"
+						}
+					],
+					"id": "25b"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Lizardfolk Warden",
-					"tag": "creature",
-					"source": "HotB",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Lizardfolk Warden",
+							"prop": "monsterFluff",
+							"source": "HotB",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Lizardfolk Warden",
+							"tag": "creature",
+							"source": "HotB",
+							"style": "narrow"
+						}
+					],
+					"id": "25c"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Mimic",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Mimic",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Mimic",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "25d"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Minotaur of Baphomet",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Minotaur of Baphomet",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Minotaur of Baphomet",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "25e"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Narthus",
-					"tag": "creature",
-					"source": "HotB",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Narthus",
+							"prop": "monsterFluff",
+							"source": "HotB",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Narthus",
+							"tag": "creature",
+							"source": "HotB",
+							"style": "narrow"
+						}
+					],
+					"id": "25f"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Noble",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Noble",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Noble",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "260"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Nothic",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Nothic",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Nothic",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "261"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Ogre",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Ogre",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ogre",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "262"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Ogre Zombie",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Ogre Zombie",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Ogre Zombie",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "263"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Owlbear",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Owlbear",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Owlbear",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "264"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Pral",
-					"tag": "creature",
-					"source": "HotB",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Pral",
+							"prop": "monsterFluff",
+							"source": "HotB",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Pral",
+							"tag": "creature",
+							"source": "HotB",
+							"style": "narrow"
+						}
+					],
+					"id": "265"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Red Dragon Wyrmling",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Red Dragon Wyrmling",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Red Dragon Wyrmling",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "266"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Skeleton",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Skeleton",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Skeleton",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "267"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Sprite Skirmisher",
-					"tag": "creature",
-					"source": "HotB",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Sprite Skirmisher",
+							"prop": "monsterFluff",
+							"source": "HotB",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Sprite Skirmisher",
+							"tag": "creature",
+							"source": "HotB",
+							"style": "narrow"
+						}
+					],
+					"id": "268"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Steam Mephit",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Steam Mephit",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Steam Mephit",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "269"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Stirge",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Stirge",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Stirge",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "26a"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Vinx",
-					"tag": "creature",
-					"source": "HotB",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Vinx",
+							"prop": "monsterFluff",
+							"source": "HotB",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Vinx",
+							"tag": "creature",
+							"source": "HotB",
+							"style": "narrow"
+						}
+					],
+					"id": "26b"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Wight Lifedrinker",
-					"tag": "creature",
-					"source": "HotB",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Wight Lifedrinker",
+							"prop": "monsterFluff",
+							"source": "HotB",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Wight Lifedrinker",
+							"tag": "creature",
+							"source": "HotB",
+							"style": "narrow"
+						}
+					],
+					"id": "26c"
 				},
 				{
-					"type": "statblock",
+					"type": "section",
 					"name": "Zombie",
-					"tag": "creature",
-					"source": "XMM",
-					"style": "narrow"
+					"entries": [
+						{
+							"type": "statblock",
+							"name": "Zombie",
+							"prop": "monsterFluff",
+							"source": "XMM",
+							"data": {
+								"renderCompact": {
+									"isSkipRootName": true
+								}
+							}
+						},
+						{
+							"type": "statblock",
+							"name": "Zombie",
+							"tag": "creature",
+							"source": "XMM",
+							"style": "narrow"
+						}
+					],
+					"id": "26d"
 				}
 			]
 		},

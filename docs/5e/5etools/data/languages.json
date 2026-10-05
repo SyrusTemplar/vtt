@@ -114,8 +114,19 @@
 			"name": "Blink Dog",
 			"source": "MM",
 			"page": 318,
+			"reprintedAs": [
+				"Blink Dog|XMM"
+			],
 			"typicalSpeakers": [
 				"{@creature Blink Dog||blink dogs}"
+			]
+		},
+		{
+			"name": "Blink Dog",
+			"source": "XMM",
+			"page": 46,
+			"typicalSpeakers": [
+				"{@creature Blink Dog|XMM|blink dogs}"
 			]
 		},
 		{
@@ -1156,7 +1167,8 @@
 			"page": 90,
 			"otherSources": [
 				{
-					"source": "ToD"
+					"source": "ToD",
+					"page": 185
 				}
 			],
 			"typicalSpeakers": [
@@ -1545,7 +1557,8 @@
 			"page": 93,
 			"otherSources": [
 				{
-					"source": "ToD"
+					"source": "ToD",
+					"page": 188
 				}
 			],
 			"reprintedAs": [
